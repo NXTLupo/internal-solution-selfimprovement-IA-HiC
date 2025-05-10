@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Logs and generated content
+logs/
+*.log
+logs/full_prompt_*.txt
+logs/processed_csv_data.json
+journey_maps/*
+!journey_maps/.gitkeep
+
+# Uploaded files
+uploads/*
+!uploads/.gitkeep
+uploads/*/processed_data.json
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.pdf
+*.bin
+*.vec
+*.weights
+*.h5
+*.onnx
+*.pt
+*.pth
+*.tflite
+*.pb
+
+# OS files
+.DS_Store
+Thumbs.db
+._*
+.AppleDouble
+.LSOverride
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Application specific
+*.db
+*.sqlite3
+
+# Node.js
+node_modules/
+package-lock.json

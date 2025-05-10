@@ -1,0 +1,86 @@
+version: '2.4'
+
+services:
+  docs:
+    image: squidfunk/mkdocs-material
+    ports:
+      - 8123:8000
+    volumes:
+      - ./docs:/docs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sr-docs.rule=host(`docs.sr.docker.localhost`)"
+      - "traefik.http.routers.sr-docs.entrypoints=web"
+
+  backend:
+    build:
+      context: backend
+    ports:
+      - "8081:8081"
+    env_file: ./backend/.env
+    command: "python -m run"
+    volumes:
+      - ./backend:/app
+      - ${AZURE_AUTH_LOCATION:-~/.azure}:/root/.azure
+    depends_on:
+      db:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sr-backend.rule=host(`api.sr.docker.localhost`)"
+      - "traefik.http.routers.sr-backend.entrypoints=web"
+    mem_limit: 12G
+    deploy:
+      resources:
+        limits:
+          memory: 12G
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "3000:5173"
+    volumes:
+      - ./frontend:/app:delegated
+      - /app/node_modules # prevent node_modules from local folder to override the one in the image
+    env_file: ./.env
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sr-frontend.rule=host(`frontend.sr.docker.localhost`)"
+      - "traefik.http.routers.sr-frontend.entrypoints=web"
+
+  db:
+    image: pgvector/pgvector:pg15
+    volumes:
+      - app-db-data:/var/lib/postgresql/data
+    env_file: ./.env
+    ports:
+      - "5432:5432"
+    command: -c shared_preload_libraries=vector -c shared_buffers=1GB -c maintenance_work_mem=1GB
+    shm_size: 1gb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    env_file: ./.env
+    depends_on:
+      - db
+
+volumes:
+  app-db-data:
+
+networks:
+  default:
+      name: nxt-humans
+      external: true

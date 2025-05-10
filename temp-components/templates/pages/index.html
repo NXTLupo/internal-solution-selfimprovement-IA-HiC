@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Journey Map Generator</title>
+  <style>
+    :root {
+      --primary-color: #4264D0;
+      --secondary-color: #2ecc71;
+      --accent-color: #e74c3c;
+      --neutral-color: #f39c12;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --dark-bg: #343a40;
+      --border-color: #dee2e6;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      padding: 0;
+    }
+    
+    .header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      font-size: 2.5rem;
+      margin-right: 1rem;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    
+    .indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .connected {
+      background-color: var(--secondary-color);
+    }
+    
+    .warning {
+      background-color: var(--neutral-color);
+    }
+    
+    .error {
+      background-color: var(--accent-color);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    
+    .content-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+    
+    .section-description {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(66, 100, 208, 0.1);
+    }
+    
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .model-selection {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .refresh-button {
+      margin-left: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background-color: #f0f0f0;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .refresh-button:hover {
+      background-color: #e0e0e0;
+    }
+    
+    #model-status {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+    
+    .file-upload-area {
+      border: 2px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 2rem;
+    }
+    
+    .file-upload-area:hover {
+      border-color: var(--primary-color);
+    }
+    
+    .file-upload-icon {
+      font-size: 3rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+    
+    .file-upload-text {
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .file-upload-subtext {
+      font-size: 0.85rem;
+      color: #999;
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #eee;
+    }
+    
+    .divider::before {
+      margin-right: 1rem;
+    }
+    
+    .divider::after {
+      margin-left: 1rem;
+    }
+    
+    .submit-button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .submit-button:hover {
+      background-color: #3450A0;
+    }
+    
+    .file-list {
+      margin-top: 1rem;
+    }
+    
+    .file-list-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .file-list-item:last-child {
+      border-bottom: none;
+    }
+    
+    .file-icon {
+      margin-right: 0.75rem;
+      color: #666;
+    }
+    
+    .file-name {
+      flex: 1;
+    }
+    
+    .file-remove {
+      background: none;
+      border: none;
+      color: var(--accent-color);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-top-color: var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 0.5rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .features-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+    }
+    
+    .feature-description {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .features-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .file-upload-area {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">📊</div>
+        <div class="logo-text">
+          <h1>AI Journey Map Generator</h1>
+          <p>Powered by Ollama AI</p>
+        </div>
+      </div>
+      <div class="status-indicator">
+        <div id="status-dot" class="indicator-dot"></div>
+        <span id="status-text">Checking Ollama connection...</span>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="content-card">
+      <h2 class="section-title">Upload Your Data</h2>
+      <p class="section-description">Upload files containing journey-related data. The AI will analyze your data to extract journey phases, touchpoints, emotions, pain points, and opportunities.</p>
+      
+      <form id="journey-form" action="/api/analyze" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="form-label" for="title">Journey Title (Optional)</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="E.g., Customer Journey Map, Educational Experience">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="description">Journey Description (Optional)</label>
+          <textarea class="form-control" id="description" name="description" placeholder="Brief description of this journey..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="llm_model">AI Model</label>
+          <div class="model-selection">
+            <select class="form-control" id="llm_model" name="llm_model">
+              <option value="loading">Loading available models...</option>
+            </select>
+            <button type="button" class="refresh-button" id="refresh-models">Refresh</button>
+          </div>
+          <div id="model-status">Checking available models...</div>
+        </div>
+        
+        <div class="file-upload-area" id="drop-area">
+          <input type="file" id="files" name="files" multiple style="display: none;">
+          <div class="file-upload-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <p class="file-upload-text">Drag & drop files here or click to browse</p>
+          <p class="file-upload-subtext">Supported formats: CSV, TXT, PDF, JSON</p>
+        </div>
+        
+        <div id="file-list" class="file-list"></div>
+        
+        <button type="submit" class="submit-button" id="submit-button" disabled>Generate Journey Map</button>
+      </form>
+    </div>
+    
+    <div class="features-section">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3 class="feature-title">AI-Powered Analysis</h3>
+        <p class="feature-description">Leverages advanced AI to analyze your data and extract meaningful insights about customer journeys.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Interactive Visualization</h3>
+        <p class="feature-description">Creates visually appealing, interactive journey maps with expandable sections and dynamic elements.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📁</div>
+        <h3 class="feature-title">Multiple File Formats</h3>
+        <p class="feature-description">Upload various file types including CSV, TXT, PDF, and JSON to create comprehensive journey maps.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">😊</div>
+        <h3 class="feature-title">Emotional Analysis</h3>
+        <p class="feature-description">Visualize emotional highs and lows throughout the journey with color-coded indicators.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3 class="feature-title">Model Flexibility</h3>
+        <p class="feature-description">Choose from multiple AI models to generate your journey maps with optimal results.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3 class="feature-title">Insights & Opportunities</h3>
+        <p class="feature-description">Highlight pain points and opportunities for improvement across the journey.</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>&copy; 2025 AI Journey Mapper. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // DOM elements
+    const statusDot = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+    const modelSelect = document.getElementById('llm_model');
+    const modelStatus = document.getElementById('model-status');
+    const refreshButton = document.getElementById('refresh-models');
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('files');
+    const fileList = document.getElementById('file-list');
+    const submitButton = document.getElementById('submit-button');
+    const journeyForm = document.getElementById('journey-form');
+    
+    // Check Ollama connection and load models
+    async function checkOllamaStatus() {
+      try {
+        const response = await fetch('/api/health');
+        const data = await response.json();
+        
+        if (data.status === 'healthy' && data.ollama.status === 'available') {
+          if (data.ollama.models && data.ollama.models.length > 0) {
+            statusDot.className = 'indicator-dot connected';
+            statusText.textContent = 'Ollama connected';
+            loadModels(data.ollama.models, data.ollama.default_model);
+          } else {
+            statusDot.className = 'indicator-dot warning';
+            statusText.textContent = 'Ollama connected, but no models found';
+          }
+        } else {
+          statusDot.className = 'indicator-dot error';
+          statusText.textContent = 'Ollama not connected';
+          modelStatus.textContent = 'Ollama service not available. Please ensure Ollama is running.';
+        }
+      } catch (error) {
+        statusDot.className = 'indicator-dot error';
+        statusText.textContent = 'Connection error';
+        modelStatus.textContent = 'Failed to connect to server. Please check your connection.';
+      }
+    }
+    
+    // Load models into select dropdown
+    function loadModels(models, defaultModel) {
+      modelSelect.innerHTML = '';
+      
+      if (models.length === 0) {
+        const option = document.createElement('option');
+        option.value = defaultModel;
+        option.textContent = defaultModel + ' (default)';
+        modelSelect.appendChild(option);
+        modelStatus.textContent = 'No models found. Using default model.';
+        return;
+      }
+      
+      models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model;
+        option.textContent = model;
+        if (model === defaultModel) {
+          option.textContent += ' (default)';
+          option.selected = true;
+        }
+        modelSelect.appendChild(option);
+      });
+      
+      modelStatus.textContent = `${models.length} models available`;
+    }
+    
+    // Refresh models
+    async function refreshModels() {
+      refreshButton.disabled = true;
+      modelStatus.innerHTML = 'Loading models... <div class="loading"></div>';
+      
+      try {
+        const response = await fetch('/api/models');
+        const data = await response.json();
+        
+        if (data.models && data.models.length > 0) {
+          loadModels(data.models, data.default);
+          modelStatus.textContent = `Found ${data.models.length} available models`;
+        } else {
+          modelSelect.innerHTML = '';
+          const option = document.createElement('option');
+          option.value = data.default;
+          option.textContent = data.default + ' (default)';
+          modelSelect.appendChild(option);
+          modelStatus.textContent = 'No models found. Using default model.';
+        }
+      } catch (error) {
+        modelStatus.textContent = 'Failed to refresh models. Please try again.';
+      } finally {
+        refreshButton.disabled = false;
+      }
+    }
+    
+    // Handle file selection
+    function handleFiles(files) {
+      fileList.innerHTML = '';
+      
+      if (files.length === 0) {
+        submitButton.disabled = true;
+        return;
+      }
+      
+      Array.from(files).forEach(file => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-list-item';
+        
+        const fileIcon = document.createElement('div');
+        fileIcon.className = 'file-icon';
+        fileIcon.innerHTML = '📄';
+        
+        const fileName = document.createElement('div');
+        fileName.className = 'file-name';
+        fileName.textContent = file.name;
+        
+        fileItem.appendChild(fileIcon);
+        fileItem.appendChild(fileName);
+        fileList.appendChild(fileItem);
+      });
+      
+      submitButton.disabled = false;
+    }
+    
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', checkOllamaStatus);
+    refreshButton.addEventListener('click', refreshModels);
+    
+    fileInput.addEventListener('change', function() {
+      handleFiles(this.files);
+    });
+    
+    dropArea.addEventListener('click', function() {
+      fileInput.click();
+    });
+    
+    dropArea.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      dropArea.style.borderColor = '#4264D0';
+    });
+    
+    dropArea.addEventListener('dragleave', function() {
+      dropArea.style.borderColor = '#dee2e6';
+    });
+    
+    dropArea.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropArea.style.borderColor = '#dee2e6';
+      fileInput.files = e.dataTransfer.files;
+      handleFiles(e.dataTransfer.files);
+    });
+    
+    journeyForm.addEventListener('submit', function(e) {
+      if (fileInput.files.length === 0) {
+        e.preventDefault();
+        alert('Please select at least one file');
+      } else {
+        submitButton.disabled = true;
+        submitButton.innerHTML = 'Generating... <div class="loading"></div>';
+      }
+    });
+  </script>
+</body>
+</html>

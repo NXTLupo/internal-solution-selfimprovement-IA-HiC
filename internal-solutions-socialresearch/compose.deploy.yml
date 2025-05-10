@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: backend
+    image: ${REGISTRY}/social-research-backend:${COMMIT_SHA}
+    volumes:
+      - ./backend:/app
+      - ${AZURE_AUTH_LOCATION:-~/.azure}:/root/.azure
+    command: "python -m run"
+
+  frontend:
+    build:
+      context: frontend
+    image: ${REGISTRY}/social-research-frontend:${COMMIT_SHA}
+    ports:
+      - "80:5173"
+    environment:
+      - NODE_ENV=production

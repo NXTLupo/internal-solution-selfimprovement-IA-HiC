@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed Educational Customer Journey Map">
+    <title>Northeastern University Customer Service Journey Map</title>
+    <style>
+        :root {
+            --primary-color: #c00;
+            --primary-dark: #900;
+            --secondary-color: #0047AB;
+            --secondary-light: #6495ED;
+            --tertiary-color: #333;
+            --light-gray: #f5f5f5;
+            --mid-gray: #e0e0e0;
+            --dark-gray: #666;
+            --text-color: #222;
+            --white: #fff;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 6px;
+            --font-main: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-size-small: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-medium: 1.125rem;
+            --font-size-large: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-xxl: 1.875rem;
+            --font-size-xxxl: 2.25rem;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            font-size: var(--font-size-base);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--tertiary-color);
+        }
+
+        h1 {
+            font-size: var(--font-size-xxxl);
+            color: var(--white);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        h2 {
+            font-size: var(--font-size-xxl);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        h3 {
+            font-size: var(--font-size-xl);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-dark);
+        }
+
+        h4 {
+            font-size: var(--font-size-large);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Layout Components */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 var(--spacing-lg);
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            background-color: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--box-shadow);
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .metric-card {
+            background-color: var(--white);
+            border-left: 5px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .metric-value {
+            font-size: var(--font-size-xxl);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .metric-label {
+            font-size: var(--font-size-medium);
+            color: var(--dark-gray);
+        }
+
+        /* Journey Map */
+        .journey-container {
+            overflow-x: auto;
+            margin: var(--spacing-xl) 0;
+            padding-bottom: var(--spacing-md);
+        }
+
+        .journey-timeline {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: var(--spacing-md);
+            min-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .journey-stage {
+            position: relative;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .journey-stage:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stage-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-md) calc(-1 * var(--spacing-lg));
+            font-weight: bold;
+            text-align: center;
+            font-size: var(--font-size-medium);
+        }
+
+        .stage-content {
+            flex-grow: 1;
+        }
+
+        .activity-list, .pain-point-list, .opportunity-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .activity-item, .pain-point-item, .opportunity-item {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+
+        .activity-item::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .pain-point-item::before {
+            content: "✗";
+            color: var(--danger);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .opportunity-item::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .emotion-meter {
+            height: 10px;
+            background: linear-gradient(to right, var(--danger), var(--warning), var(--success));
+            border-radius: 5px;
+            margin: var(--spacing-md) 0;
+            position: relative;
+        }
+
+        .emotion-marker {
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 2px solid var(--dark-gray);
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .emotion-marker:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        .emotion-label {
+            text-align: center;
+            font-size: var(--font-size-small);
+            color: var(--dark-gray);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Quotes */
+        blockquote {
+            background-color: rgba(0, 71, 171, 0.05);
+            border-left: 4px solid var(--secondary-color);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: """;
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            color: rgba(0, 71, 171, 0.2);
+        }
+
+        .quote-citation {
+            display: block;
+            font-size: var(--font-size-small);
+            font-style: normal;
+            text-align: right;
+            color: var(--dark-gray);
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Insights */
+        .insights-section {
+            background-color: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-xl) 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .insight-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .insight-category {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .category-header {
+            color: var(--secondary-color);
+            font-size: var(--font-size-large);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--secondary-light);
+        }
+
+        /* Roadmap */
+        .roadmap-container {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .roadmap-phase {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .phase-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: var(--spacing-md);
+            margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-md) calc(-1 * var(--spacing-lg));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Interactive Elements */
+        .tab-container {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--mid-gray);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .tab {
+            padding: var(--spacing-md) var(--spacing-lg);
+            cursor: pointer;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            transition: var(--transition);
+            margin-right: var(--spacing-sm);
+            font-weight: bold;
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* User personas */
+        .personas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .persona {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .persona:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .persona-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--secondary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            color: var(--white);
+            font-size: var(--font-size-xl);
+            font-weight: bold;
+        }
+
+        .persona-name {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        /* Success metrics */
+        .success-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .metric {
+            background-color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .metric:hover {
+            transform: scale(1.05);
+        }
+
+        .metric-icon {
+            font-size: var(--font-size-xxxl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--dark-gray);
+            cursor: help;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--tertiary-color);
+            color: var(--white);
+            text-align: center;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Accordion */
+        .accordion {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .accordion-item {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .accordion-header {
+            background-color: var(--light-gray);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: var(--spacing-md);
+            background-color: var(--white);
+            border: 1px solid var(--mid-gray);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+
+        /* Progress bars */
+        .progress-container {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .journey-timeline {
+                grid-template-columns: repeat(3, 1fr);
+                min-width: 0;
+            }
+            
+            .roadmap {
+                grid-template-columns: 1fr;
+            }
+            
+            .insight-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+            
+            .key-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                margin-right: 0;
+                margin-bottom: var(--spacing-xs);
+                border-radius: var(--border-radius);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .journey-container {
+                overflow-x: visible;
+            }
+            
+            .journey-timeline {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            header {
+                box-shadow: none;
+            }
+            
+            a {
+                text-decoration: underline;
+            }
+        }
+    </style>
+
+<style>
+    .journey-timeline {{
+        min-width: unset !important;
+        overflow-x: visible !important;
+    }}
+    @media print {{
+        .journey-timeline {{
+            transform: none !important;
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+        }}
+    }}
+</style>
+</head>
+<body>
+<div style="background-color: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #4264D0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h2 style="color: #4264D0; margin-top: 0; font-size: 1.4rem;">Journey Analysis Summary</h2>
+    <div style="white-space: pre-line; font-size: 0.95rem; line-height: 1.6;">A comprehensive analysis of the current state, challenges, and future transformation journey through agentic AI implementation</div>
+</div>
+
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    
+    <header aria-label="Page header">
+        <div class="header-content">
+            <h1>Northeastern University Customer Service Transformation</h1>
+            <p>A comprehensive analysis of the current state, challenges, and future transformation journey through agentic AI implementation</p>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <div class="container">
+            <section class="executive-summary" aria-labelledby="summary-heading">
+                <h2 id="summary-heading">Executive Summary</h2>
+                <p>Northeastern University is embarking on a transformative journey to revolutionize its customer service approach through the implementation of agentic AI solutions. This transformation aims to address critical pain points in the current service ecosystem while enhancing the overall experience for students, staff, faculty, parents, and external partners.</p>
+                
+                <blockquote>
+                    "Transforming NU's customer service through agentic AI"
+                    <cite class="quote-citation">Source: Executive Summary Heading, Page 1</cite>
+                </blockquote>
+                
+                <div class="key-metrics">
+                    <div class="metric-card" aria-labelledby="metric-1">
+                        <div class="metric-value">55+</div>
+                        <div class="metric-label" id="metric-1">Disconnected Systems</div>
+                        <p>Staff currently toggling between 10+ systems</p>
+                    </div>
+                    
+                    <div class="metric-card" aria-labelledby="metric-2">
+                        <div class="metric-value">~$700K+</div>
+                        <div class="metric-label" id="metric-2">Annual Savings</div>
+                        <p>Potential savings through system consolidation</p>
+                    </div>
+                    
+                    <div class="metric-card" aria-labelledby="metric-3">
+                        <div class="metric-value">600k+</div>
+                        <div class="metric-label" id="metric-3">Annual Service Requests</div>
+                        <p>Processed by four different teams</p>
+                    </div>
+                    
+                    <div class="metric-card" aria-labelledby="metric-4">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label" id="metric-4">Time on Manual Tasks</div>
+                        <p>Documentation and routing activities</p>
+                    </div>
+                    
+                    <div class="metric-card" aria-labelledby="metric-5">
+                        <div class="metric-value">10-15hrs</div>
+                        <div class="metric-label" id="metric-5">Weekly Time Saved</div>
+                        <p>Potential savings per employee with new system</p>
+                    </div>
+                    
+                    <div class="metric-card" aria-labelledby="metric-6">
+                        <div class="metric-value">Up to 70%</div>
+                        <div class="metric-label" id="metric-6">Inquiry Automation</div>
+                        <p>Potential for self-service, snippets, knowledge base</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="insights-section" aria-labelledby="insights-heading">
+                <h2 id="insights-heading">Key Journey Insights</h2>
+                <p>Our deep analysis of Northeastern University's current customer service journey reveals critical insights that inform our transformation strategy:</p>
+                
+                <div class="insight-categories">
+                    <div class="insight-category">
+                        <h3 class="category-header">Operational Challenges</h3>
+                        <ul>
+                            <li>Staff members are managing over 10 disconnected systems, resulting in significant inefficiencies</li>
+                            <li>Multiple uncoordinated service requests create confusion for both users and support staff</li>
+                            <li>Inconsistent data across systems complicates processes and negatively impacts user experience</li>
+                            <li>Support teams are overwhelmed by fragmented user demands across multiple channels</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Support teams overwhelmed by fragmented user demands."
+                            <cite class="quote-citation">Source: ROI of Transformation Section, Page 2</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="insight-category">
+                        <h3 class="category-header">Customer Experience Impact</h3>
+                        <ul>
+                            <li>Students face a complex support journey across multiple touchpoints and departments</li>
+                            <li>Inconsistent information is often encountered when navigating disparate systems</li>
+                            <li>The evolving expectations for seamless, on-demand support aren't being met</li>
+                            <li>There's a lack of a consistent support system across the university</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "A Northeastern student's customer support journey can involve multiple touchpoints and university departments – a complex process, with students often needing to navigate disparate systems and encountering inconsistent information."
+                            <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="insight-category">
+                        <h3 class="category-header">Transformation Opportunities</h3>
+                        <ul>
+                            <li>Potential for ~$700K+ annual savings through system consolidation</li>
+                            <li>Up to 70% of inquiries could be automated through self-service solutions</li>
+                            <li>AI integration could save 10-15 hours per employee per week</li>
+                            <li>A unified data platform could provide 24/7 visibility and insights</li>
+                            <li>Redirection of staff time to high-value interactions</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Integrating AI and automation to handle common inquiries."
+                            <cite class="quote-citation">Source: ROI of Transformation Section, Page 2</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+            
+            <section aria-labelledby="personas-heading">
+                <h2 id="personas-heading">Key Stakeholders</h2>
+                <p>Understanding the diverse needs of all Northeastern University stakeholders is essential to designing an effective customer service transformation:</p>
+                
+                <div class="personas">
+                    <div class="persona">
+                        <div class="persona-avatar">S</div>
+                        <h3 class="persona-name">Student</h3>
+                        <p>Primary users of support services, navigating complex university processes across multiple departments and systems.</p>
+                        <h4>Key Needs:</h4>
+                        <ul>
+                            <li>Clear, consistent information</li>
+                            <li>Simplified access to support</li>
+                            <li>Quick resolution of issues</li>
+                            <li>Seamless experience across departments</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "ELIMINATE THE CONFUSION"
+                            <cite class="quote-citation">Source: Core Principles, Page 3</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="persona">
+                        <div class="persona-avatar">CS</div>
+                        <h3 class="persona-name">Customer Support Staff</h3>
+                        <p>Front-line personnel handling a high volume of inquiries across fragmented systems.</p>
+                        <h4>Key Needs:</h4>
+                        <ul>
+                            <li>Consolidated systems and tools</li>
+                            <li>Automated handling of routine inquiries</li>
+                            <li>Better data access and integration</li>
+                            <li>Tools to focus on high-value interactions</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Allocating more time to high-value interactions."
+                            <cite class="quote-citation">Source: ROI of Transformation Section, Page 2</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="persona">
+                        <div class="persona-avatar">F</div>
+                        <h3 class="persona-name">Faculty</h3>
+                        <p>Academic staff needing support for teaching, research, and administrative functions.</p>
+                        <h4>Key Needs:</h4>
+                        <ul>
+                            <li>Effective communication channels</li>
+                            <li>Streamlined administrative processes</li>
+                            <li>Quick resolution of technical issues</li>
+                            <li>Clear information about policies and procedures</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "GET IT RIGHT"
+                            <cite class="quote-citation">Source: Core Principles, Page 3</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="persona">
+                        <div class="persona-avatar">P</div>
+                        <h3 class="persona-name">Parents and Family</h3>
+                        <p>Secondary stakeholders with specific information needs about student progress, financial matters, and university policies.</p>
+                        <h4>Key Needs:</h4>
+                        <ul>
+                            <li>Transparent communication</li>
+                            <li>Access to relevant information</li>
+                            <li>Clear understanding of processes</li>
+                            <li>Responsive support channels</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "KEEP IT CLEAR"
+                            <cite class="quote-citation">Source: Core Principles, Page 3</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="persona">
+                        <div class="persona-avatar">EP</div>
+                        <h3 class="persona-name">External Partner</h3>
+                        <p>Organizations collaborating with the university requiring specialized support and information.</p>
+                        <h4>Key Needs:</h4>
+                        <ul>
+                            <li>Defined communication channels</li>
+                            <li>Consistent points of contact</li>
+                            <li>Efficient collaboration tools</li>
+                            <li>Clear processes and expectations</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "FOSTER COLLABORATION"
+                            <cite class="quote-citation">Source: Core Principles, Page 3</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="current-journey-heading">
+                <h2 id="current-journey-heading">Current State Customer Journey</h2>
+                <p>Understanding the current challenges in the student support experience is critical to identifying opportunities for transformation:</p>
+                
+                <div class="journey-container">
+                    <div class="journey-timeline">
+                        <div class="journey-stage">
+                            <div class="stage-header">Contacting University</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Phone calls to various departments</li>
+                                    <li class="activity-item">Emails to different inboxes</li>
+                                    <li class="activity-item">In-person visits to offices</li>
+                                    <li class="activity-item">Navigating university website to find contact information</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing confusion level">
+                                    <div class="emotion-marker" style="left: 25%" title="Confused" aria-label="Emotion: Confused"></div>
+                                </div>
+                                <div class="emotion-label">Confused</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Multiple, disconnected contact channels</li>
+                                    <li class="pain-point-item">Unclear which department handles specific issues</li>
+                                    <li class="pain-point-item">Inconsistent contact information</li>
+                                    <li class="pain-point-item">Long wait times on phone calls</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Unified contact portal</li>
+                                    <li class="opportunity-item">AI-powered routing system</li>
+                                    <li class="opportunity-item">Consistent contact methods across departments</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Phone Call, Email, In-Person, Website/Portal"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Initial Inquiry</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Submitting help desk requests</li>
+                                    <li class="activity-item">Sending emails to dedicated inboxes</li>
+                                    <li class="activity-item">Filing incident reports</li>
+                                    <li class="activity-item">Describing issues to staff</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing frustration level">
+                                    <div class="emotion-marker" style="left: 20%" title="Frustrated" aria-label="Emotion: Frustrated"></div>
+                                </div>
+                                <div class="emotion-label">Frustrated</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Repeating information across systems</li>
+                                    <li class="pain-point-item">Lack of confirmation or tracking</li>
+                                    <li class="pain-point-item">Inconsistent intake processes</li>
+                                    <li class="pain-point-item">No visibility into expected resolution time</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Standardized intake forms</li>
+                                    <li class="opportunity-item">Automated acknowledgments</li>
+                                    <li class="opportunity-item">Issue tracking system</li>
+                                    <li class="opportunity-item">AI-powered initial triage</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Help desk request, Dedicated E-mail Inbox, Incident report"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Accessing Resources</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Searching knowledge bases and articles</li>
+                                    <li class="activity-item">Completing online forms</li>
+                                    <li class="activity-item">Navigating Student Hub</li>
+                                    <li class="activity-item">Locating required documentation</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing overwhelm level">
+                                    <div class="emotion-marker" style="left: 30%" title="Overwhelmed" aria-label="Emotion: Overwhelmed"></div>
+                                </div>
+                                <div class="emotion-label">Overwhelmed</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Outdated or inconsistent knowledge base</li>
+                                    <li class="pain-point-item">Complex navigation structures</li>
+                                    <li class="pain-point-item">Difficulty finding relevant information</li>
+                                    <li class="pain-point-item">Information scattered across multiple platforms</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Enhanced search capabilities</li>
+                                    <li class="opportunity-item">Intelligent resource recommendations</li>
+                                    <li class="opportunity-item">Unified content management</li>
+                                    <li class="opportunity-item">AI-powered assistance</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Knowledge base / articles, Online E-forms, Student Hub"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Submitting Request</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Using various ticketing systems</li>
+                                    <li class="activity-item">Submitting through Student Hub</li>
+                                    <li class="activity-item">Sending emails with requests</li>
+                                    <li class="activity-item">Following up on submission status</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing uncertainty level">
+                                    <div class="emotion-marker" style="left: 35%" title="Uncertain" aria-label="Emotion: Uncertain"></div>
+                                </div>
+                                <div class="emotion-label">Uncertain</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Different submission processes across departments</li>
+                                    <li class="pain-point-item">Lack of visibility into request status</li>
+                                    <li class="pain-point-item">Uncertainty about which system to use</li>
+                                    <li class="pain-point-item">Duplicate submissions due to confusion</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Unified request system</li>
+                                    <li class="opportunity-item">Real-time status tracking</li>
+                                    <li class="opportunity-item">Intelligent routing</li>
+                                    <li class="opportunity-item">Prevention of duplicate submissions</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Ticketing systems, Student Hub"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Providing Documentation</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Attaching files to emails</li>
+                                    <li class="activity-item">Uploading documents to knowledge base</li>
+                                    <li class="activity-item">Filling out Excel spreadsheets</li>
+                                    <li class="activity-item">Completing manual logs</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing annoyance level">
+                                    <div class="emotion-marker" style="left: 20%" title="Annoyed" aria-label="Emotion: Annoyed"></div>
+                                </div>
+                                <div class="emotion-label">Annoyed</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Inconsistent document requirements</li>
+                                    <li class="pain-point-item">File size and format limitations</li>
+                                    <li class="pain-point-item">Manual data entry in multiple systems</li>
+                                    <li class="pain-point-item">Lost or misplaced documentation</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Standardized documentation protocols</li>
+                                    <li class="opportunity-item">Secure document repository</li>
+                                    <li class="opportunity-item">Pre-filled forms using existing data</li>
+                                    <li class="opportunity-item">Digital signature capabilities</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Email, Excel Spreadsheets, Knowledge Base, Manual Logs"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Specifying Category</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Selecting from predefined categories</li>
+                                    <li class="activity-item">Creating ServiceNow tickets</li>
+                                    <li class="activity-item">Describing issue type in detail</li>
+                                    <li class="activity-item">Reclassifying incorrectly categorized issues</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing confusion level">
+                                    <div class="emotion-marker" style="left: 25%" title="Confused" aria-label="Emotion: Confused"></div>
+                                </div>
+                                <div class="emotion-label">Confused</div>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul class="pain-point-list">
+                                    <li class="pain-point-item">Unclear or overlapping categories</li>
+                                    <li class="pain-point-item">Technical jargon in category descriptions</li>
+                                    <li class="pain-point-item">Incorrect categorization leading to delays</li>
+                                    <li class="pain-point-item">Need to explain category selection to staff</li>
+                                </ul>
+                                
+                                <h4>Opportunities:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">AI-powered category suggestions</li>
+                                    <li class="opportunity-item">Simplified category structure</li>
+                                    <li class="opportunity-item">Natural language processing for categorization</li>
+                                    <li class="opportunity-item">Automatic recategorization based on content</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "ServiceNow Tickets"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section aria-labelledby="future-journey-heading">
+                <h2 id="future-journey-heading">Future State Customer Journey</h2>
+                <p>The implementation of agentic AI and integrated systems will transform the student support experience at Northeastern University:</p>
+                
+                <div class="journey-container">
+                    <div class="journey-timeline">
+                        <div class="journey-stage">
+                            <div class="stage-header">Access Portal</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Single sign-on to unified portal</li>
+                                    <li class="activity-item">Access through multiple channels (mobile, web, kiosk)</li>
+                                    <li class="activity-item">Personalized dashboard based on user profile</li>
+                                    <li class="activity-item">Seamless authentication across services</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing confidence level">
+                                    <div class="emotion-marker" style="left: 75%" title="Confident" aria-label="Emotion: Confident"></div>
+                                </div>
+                                <div class="emotion-label">Confident</div>
+                                
+                                <h4>Enhanced Features:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Comprehensive self-service capabilities</li>
+                                    <li class="opportunity-item">AI-powered interactive assistance</li>
+                                    <li class="opportunity-item">Intuitive interface with personalization</li>
+                                    <li class="opportunity-item">Proactive suggestions based on user history</li>
+                                </ul>
+                                
+                                <h4>Key Metrics:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Portal adoption rate</li>
+                                    <li class="activity-item">Self-service utilization</li>
+                                    <li class="activity-item">User satisfaction scores</li>
+                                    <li class="activity-item">Reduced contact volume for basic inquiries</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Self Service and KB's, AI Interaction"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Intelligent Routing</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">AI analysis of inquiry content</li>
+                                    <li class="activity-item">Automatic categorization</li>
+                                    <li class="activity-item">Direction to appropriate resources</li>
+                                    <li class="activity-item">Escalation based on complexity</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing satisfaction level">
+                                    <div class="emotion-marker" style="left: 80%" title="Satisfied" aria-label="Emotion: Satisfied"></div>
+                                </div>
+                                <div class="emotion-label">Satisfied</div>
+                                
+                                <h4>Enhanced Features:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Natural language processing for accurate routing</li>
+                                    <li class="opportunity-item">Context-aware resource recommendations</li>
+                                    <li class="opportunity-item">Personalized support pathways</li>
+                                    <li class="opportunity-item">Prioritization based on urgency</li>
+                                </ul>
+                                
+                                <h4>Key Metrics:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">First-time routing accuracy</li>
+                                    <li class="activity-item">Reduction in transfers</li>
+                                    <li class="activity-item">Average routing time</li>
+                                    <li class="activity-item">Resource suggestion effectiveness</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Right Resources, Personalized support"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Case Handling</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Automated handling of routine inquiries</li>
+                                    <li class="activity-item">Human intervention for complex cases</li>
+                                    <li class="activity-item">Collaborative resolution across departments</li>
+                                    <li class="activity-item">AI-assisted support for staff</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing trust level">
+                                    <div class="emotion-marker" style="left: 85%" title="Trusting" aria-label="Emotion: Trusting"></div>
+                                </div>
+                                <div class="emotion-label">Trusting</div>
+                                
+                                <h4>Enhanced Features:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">Real-time case tracking</li>
+                                    <li class="opportunity-item">Transparent resolution process</li>
+                                    <li class="opportunity-item">Automated status updates</li>
+                                    <li class="opportunity-item">Integrated documentation system</li>
+                                </ul>
+                                
+                                <h4>Key Metrics:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Average handle time</li>
+                                    <li class="activity-item">First contact resolution rate</li>
+                                    <li class="activity-item">Staff productivity</li>
+                                    <li class="activity-item">Case complexity distribution</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Documentation and Follow Up"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-stage">
+                            <div class="stage-header">Insights</div>
+                            <div class="stage-content">
+                                <h4>Activities:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Comprehensive analytics dashboards</li>
+                                    <li class="activity-item">Automated feedback collection</li>
+                                    <li class="activity-item">Measurement of service performance</li>
+                                    <li class="activity-item">Continuous improvement identification</li>
+                                </ul>
+                                
+                                <h4>Emotional State:</h4>
+                                <div class="emotion-meter" aria-label="Emotion meter showing valued level">
+                                    <div class="emotion-marker" style="left: 90%" title="Valued" aria-label="Emotion: Valued"></div>
+                                </div>
+                                <div class="emotion-label">Valued</div>
+                                
+                                <h4>Enhanced Features:</h4>
+                                <ul class="opportunity-list">
+                                    <li class="opportunity-item">AI-driven pattern recognition</li>
+                                    <li class="opportunity-item">Predictive service needs analysis</li>
+                                    <li class="opportunity-item">Personalized improvement recommendations</li>
+                                    <li class="opportunity-item">Closed-loop feedback system</li>
+                                </ul>
+                                
+                                <h4>Key Metrics:</h4>
+                                <ul class="activity-list">
+                                    <li class="activity-item">Customer satisfaction scores</li>
+                                    <li class="activity-item">Net Promoter Score</li>
+                                    <li class="activity-item">Service level agreement compliance</li>
+                                    <li class="activity-item">Continuous improvement implementation rate</li>
+                                </ul>
+                                
+                                <blockquote>
+                                    "Comprehensive Dashboards, Feedback, Service Measures"
+                                    <cite class="quote-citation">Source: Student Support Journey, Page 4</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section aria-labelledby="current-future-comparison">
+                <h2 id="current-future-comparison">Current vs. Future State Comparison</h2>
+                <p>A side-by-side analysis reveals the transformative impact of the proposed changes:</p>
+                
+                <table class="comparison-table" aria-label="Comparison of current and future state customer service">
+                    <thead>
+                        <tr>
+                            <th scope="col">Aspect</th>
+                            <th scope="col">Current State</th>
+                            <th scope="col">Future State</th>
+                            <th scope="col">Key Benefits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Systems</strong></td>
+                            <td>55+ disconnected systems with staff toggling between 10+ platforms</td>
+                            <td>Unified platform with integrated Salesforce and Snowflake capabilities</td>
+                            <td>Simplified workflows, reduced complexity, improved data consistency</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Self-Service</strong></td>
+                            <td>Limited, fragmented knowledge bases across multiple locations</td>
+                            <td>Enhanced self-service with AI assistance and comprehensive knowledge</td>
+                            <td>Increased student autonomy, reduced support requests, 24/7 assistance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Staff Efficiency</strong></td>
+                            <td>40% of time spent on manual tasks like documentation and routing</td>
+                            <td>AI handling routine tasks, staff focusing on complex, high-value interactions</td>
+                            <td>10-15 hours saved per employee per week, improved job satisfaction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Request Handling</strong></td>
+                            <td>Multiple, uncoordinated service request processes causing confusion</td>
+                            <td>Intelligent routing with unified request system and real-time tracking</td>
+                            <td>Faster resolution, transparent process, improved user satisfaction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Management</strong></td>
+                            <td>Inconsistent data across systems complicating processes</td>
+                            <td>360° Student Profile with unified data from across the university</td>
+                            <td>Comprehensive view of student needs, personalized support, data-driven decisions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytics</strong></td>
+                            <td>Limited visibility into service performance and user needs</td>
+                            <td>Comprehensive dashboards with predictive analytics and insights</td>
+                            <td>Continuous improvement, proactive service enhancements, measurable outcomes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automation</strong></td>
+                            <td>30-70% of FAQ-based inquiries handled manually</td>
+                            <td>Up to 70% inquiry automation through AI and self-service</td>
+                            <td>Faster responses, consistent information, scalable support model</td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Experience</strong></td>
+                            <td>Complex, inconsistent experience across departments</td>
+                            <td>Seamless, personalized experience with consistent support</td>
+                            <td>Improved satisfaction, reduced frustration, stronger university reputation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section aria-labelledby="service-design-heading">
+                <h2 id="service-design-heading">Service Design Architecture</h2>
+                <p>The future service model utilizes an intelligent double-agentic technology layer to enable and automate journey experiences:</p>
+                
+                <div class="card">
+                    <h3>Service Flow Architecture</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item"><strong>Inquiry Channels:</strong> Email, Phone, In-Person, Chat</li>
+                        <li class="activity-item"><strong>Inquiry Mode Selection:</strong> AI or Live Representative based on complexity</li>
+                        <li class="activity-item"><strong>Agentic Inquiry Layer:</strong> Natural language processing and intent recognition</li>
+                        <li class="activity-item"><strong>Routing Layer:</strong> Intelligent case assignment and prioritization</li>
+                        <li class="activity-item"><strong>Agentic Support Layer:</strong> AI-assisted case handling and knowledge retrieval</li>
+                        <li class="activity-item"><strong>Resolution Pathways:</strong> Automated or human-assisted resolution</li>
+                        <li class="activity-item"><strong>Follow-up:</strong> Automated satisfaction surveys and next steps</li>
+                        <li class="activity-item"><strong>Feedback Loop:</strong> Continuous improvement through analytics</li>
+                    </ul>
+                    
+                    <blockquote>
+                        "An intelligent double-agentic technology layer enables and automates the future state journey experiences for students, parents, staff and 3rd party personas"
+                        <cite class="quote-citation">Source: Service Design, Page 5</cite>
+                    </blockquote>
+                </div>
+            </section>
+            
+            <section aria-labelledby="implementation-roadmap">
+                <h2 id="implementation-roadmap">Implementation Roadmap</h2>
+                <p>The transformation will be implemented through a carefully phased approach to ensure successful adoption and value realization:</p>
+                
+                <div class="roadmap">
+                    <div class="roadmap-phase">
+                        <div class="phase-header">Phase 1: Student Profile</div>
+                        <h4>Key Activities:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Migration to new Salesforce org</li>
+                            <li class="activity-item">Integration with existing Snowflake instance</li>
+                            <li class="activity-item">Creation of MVP 360° Student Profile</li>
+                            <li class="activity-item">Establishment of data foundation</li>
+                        </ul>
+                        
+                        <h4>Expected Outcomes:</h4>
+                        <ul class="opportunity-list">
+                            <li class="opportunity-item">Unified view of student information</li>
+                            <li class="opportunity-item">Integrated data from multiple sources</li>
+                            <li class="opportunity-item">Foundation for enhanced service capabilities</li>
+                            <li class="opportunity-item">Initial staff productivity improvements</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Migration to new Salesforce org, integration with existing Snowflake instance to create an MVP 360 Student Profile."
+                            <cite class="quote-citation">Source: 3-Phased Release Rollout, Page 6</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="roadmap-phase">
+                        <div class="phase-header">Phase 2: Elevated Self-Service</div>
+                        <h4>Key Activities:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Implementation of agentic smart assistant</li>
+                            <li class="activity-item">Enhancement of 360° Student Profile</li>
+                            <li class="activity-item">Department-wide reporting capabilities</li>
+                            <li class="activity-item">Employee self-service implementation</li>
+                            <li class="activity-item">Automated routing system deployment</li>
+                        </ul>
+                        
+                        <h4>Expected Outcomes:</h4>
+                        <ul class="opportunity-list">
+                            <li class="opportunity-item">Reduced manual handling of routine inquiries</li>
+                            <li class="opportunity-item">Improved data visibility across departments</li>
+                            <li class="opportunity-item">Enhanced staff productivity</li>
+                            <li class="opportunity-item">More efficient case routing and handling</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Implementing agentic smart assistant for NU support team. Full 360 Student Profile enabled with department wide reporting. Layering on additional agentic capabilities for employee self-service, automated routing."
+                            <cite class="quote-citation">Source: 3-Phased Release Rollout, Page 6</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="roadmap-phase">
+                        <div class="phase-header">Phase 3: Evolved Service</div>
+                        <h4>Key Activities:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Student self-service portal rollout</li>
+                            <li class="activity-item">Continued service operations optimization</li>
+                            <li class="activity-item">Additional agentic solutions for IT support</li>
+                            <li class="activity-item">Automated insights and analytics</li>
+                            <li class="activity-item">Continuous improvement process implementation</li>
+                        </ul>
+                        
+                        <h4>Expected Outcomes:</h4>
+                        <ul class="opportunity-list">
+                            <li class="opportunity-item">Comprehensive self-service ecosystem</li>
+                            <li class="opportunity-item">Data-driven service enhancements</li>
+                            <li class="opportunity-item">Maximum automation of routine processes</li>
+                            <li class="opportunity-item">Optimized resource allocation</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Student self-service and continued innovation to optimize service operations. Delivering additional agentic solutions to support IT, automated insights."
+                            <cite class="quote-citation">Source: 3-Phased Release Rollout, Page 6</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Implementation Timeline</h3>
+                    <p>The transformation roadmap follows a structured approach with key milestones:</p>
+                    
+                    <ul class="activity-list">
+                        <li class="activity-item"><strong>Discovery and Design:</strong> Comprehensive analysis of current state and detailed future state design</li>
+                        <li class="activity-item"><strong>Construction:</strong> Development of core components and integration with existing systems</li>
+                        <li class="activity-item"><strong>Change Management and Training:</strong> Preparing staff and users for new capabilities</li>
+                        <li class="activity-item"><strong>Validation and Acceptance:</strong> Rigorous testing to ensure quality and functionality</li>
+                        <li class="activity-item"><strong>Deployment:</strong> Phased rollout of capabilities</li>
+                        <li class="activity-item"><strong>Support:</strong> Ongoing maintenance and optimization</li>
+                    </ul>
+                    
+                    <blockquote>
+                        "First go Live: Design, Construct, Change & Training, Validate & Accept, Deploy, Support"
+                        <cite class="quote-citation">Source: Road to Transformation, Page 8</cite>
+                    </blockquote>
+                </div>
+            </section>
+            
+            <section aria-labelledby="success-metrics-heading">
+                <h2 id="success-metrics-heading">Success Metrics</h2>
+                <p>Measuring the impact of the transformation through key performance indicators:</p>
+                
+                <div class="success-metrics">
+                    <div class="metric">
+                        <div class="metric-icon">📈</div>
+                        <h3>Improved Self-Service</h3>
+                        <p>Percentage of inquiries resolved through self-service channels</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: 70%</span>
+                                <span>Current: 30%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-icon">🔄</div>
+                        <h3>Improved Routing</h3>
+                        <p>Percentage of inquiries correctly routed on first attempt</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: 95%</span>
+                                <span>Current: 60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-icon">😊</div>
+                        <h3>Increased CSAT</h3>
+                        <p>Customer satisfaction score for support interactions</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: 90%</span>
+                                <span>Current: 65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-icon">⚡</div>
+                        <h3>Increased Efficiency</h3>
+                        <p>Staff time saved through automation</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: 40%</span>
+                                <span>Current: 10%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-icon">💬</div>
+                        <h3>Stronger Communication</h3>
+                        <p>Communication effectiveness score</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: 95%</span>
+                                <span>Current: 55%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-icon">🔄</div>
+                        <h3>Reduced Handle Time</h3>
+                        <p>Average time to resolve inquiries</p>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Target: -60%</span>
+                                <span>Current: Baseline</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <blockquote>
+                    "Success Metrics: Improved self-service, Improved routing, Increased CSAT, Increased efficiency, Stronger communication, Data Access and integration, Enhanced pipeline, Improved collaboration, Reduced handle time"
+                    <cite class="quote-citation">Source: Streamlined Service for All, Page 3</cite>
+                </blockquote>
+            </section>
+            
+            <section aria-labelledby="investment-heading">
+                <h2 id="investment-heading">Investment and ROI</h2>
+                <p>The transformation represents a significant investment with substantial expected returns:</p>
+                
+                <div class="card">
+                    <h3>Investment Overview</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item"><strong>Service Cloud Implementation:</strong> $3.67M</li>
+                        <li class="activity-item"><strong>Marketing Cloud Implementation:</strong> $550K - $650K</li>
+                        <li class="activity-item"><strong>Total Investment:</strong> ~$4.3M</li>
+                    </ul>
+                    
+                    <h3>Expected Returns</h3>
+                    <ul class="activity-list">
+                        <li class="activity-item"><strong>Annual Savings:</strong> ~$700K+ through system consolidation</li>
+                        <li class="activity-item"><strong>Staff Productivity:</strong> 10-15 hours saved per employee per week</li>
+                        <li class="activity-item"><strong>Inquiry Automation:</strong> Up to 70% of routine inquiries handled by self-service</li>
+                        <li class="activity-item"><strong>Reduced Manual Tasks:</strong> 40% reduction in time spent on documentation and routing</li>
+                    </ul>
+                    
+                    <blockquote>
+                        "Service Cloud Implementation $3.67M, Marketing Cloud Implementation $550K - $650K"
+                        <cite class="quote-citation">Source: Commercials, Page 9</cite>
+                    </blockquote>
+                    
+                    <blockquote>
+                        "~$700K+ Annual Savings through System consolidation"
+                        <cite class="quote-citation">Source: ROI of Transformation, Page 2</cite>
+                    </blockquote>
+                </div>
+            </section>
+            
+            <section aria-labelledby="core-principles-heading">
+                <h2 id="core-principles-heading">Core Principles</h2>
+                <p>The transformation is guided by key principles that ensure alignment with university values and student needs:</p>
+                
+                <div class="tab-container">
+                    <div class="tabs" role="tablist">
+                        <button class="tab active" id="tab1" role="tab" aria-selected="true" aria-controls="panel1">Service that Matters</button>
+                        <button class="tab" id="tab2" role="tab" aria-selected="false" aria-controls="panel2">Student 360 Profile</button>
+                        <button class="tab" id="tab3" role="tab" aria-selected="false" aria-controls="panel3">Integrated NU Team</button>
+                        <button class="tab" id="tab4" role="tab" aria-selected="false" aria-controls="panel4">Impact Driven by AI</button>
+                    </div>
+                    
+                    <div id="panel1" class="tab-content active" role="tabpanel" aria-labelledby="tab1">
+                        <h3>Service that Matters</h3>
+                        <p>Focusing on delivering meaningful support that addresses real student needs and challenges.</p>
+                        
+                        <h4>Key Attributes:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Empathetic approach to student concerns</li>
+                            <li class="activity-item">Value-driven support interactions</li>
+                            <li class="activity-item">Focus on outcomes rather than processes</li>
+                            <li class="activity-item">Continuous improvement based on feedback</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Our initiative streamlines communication and enhances service delivery for students, staff, faculty, parents, and external partners, providing clear and personalized support."
+                            <cite class="quote-citation">Source: Streamlined Service for All, Page 3</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div id="panel2" class="tab-content" role="tabpanel" aria-labelledby="tab2">
+                        <h3>Student 360 Profile</h3>
+                        <p>Creating a comprehensive view of each student to enable personalized, contextual support.</p>
+                        
+                        <h4>Key Attributes:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Unified data from across university systems</li>
+                            <li class="activity-item">Holistic understanding of student needs</li>
+                            <li class="activity-item">Privacy-compliant information sharing</li>
+                            <li class="activity-item">Contextual insights for support staff</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Migration to new Salesforce org, integration with existing Snowflake instance to create an MVP 360 Student Profile."
+                            <cite class="quote-citation">Source: 3-Phased Release Rollout, Page 6</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div id="panel3" class="tab-content" role="tabpanel" aria-labelledby="tab3">
+                        <h3>Integrated NU Team</h3>
+                        <p>Breaking down silos between departments to create a seamless support experience.</p>
+                        
+                        <h4>Key Attributes:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Cross-departmental collaboration</li>
+                            <li class="activity-item">Unified approach to student support</li>
+                            <li class="activity-item">Shared knowledge and resources</li>
+                            <li class="activity-item">Consistent service standards</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "FOSTER COLLABORATION"
+                            <cite class="quote-citation">Source: Core Principles, Page 3</cite>
+                        </blockquote>
+                    </div>
+                    
+                    <div id="panel4" class="tab-content" role="tabpanel" aria-labelledby="tab4">
+                        <h3>Impact Driven by AI</h3>
+                        <p>Leveraging artificial intelligence to enhance service quality and efficiency.</p>
+                        
+                        <h4>Key Attributes:</h4>
+                        <ul class="activity-list">
+                            <li class="activity-item">Double agentic capabilities</li>
+                            <li class="activity-item">Intelligent automation of routine tasks</li>
+                            <li class="activity-item">Data-driven insights and recommendations</li>
+                            <li class="activity-item">Continuous learning and improvement</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "An intelligent double-agentic technology layer enables and automates the future state journey experiences"
+                            <cite class="quote-citation">Source: Service Design, Page 5</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+            
+            <section aria-labelledby="challenges-opportunities-heading">
+                <h2 id="challenges-opportunities-heading">Key Challenges and Opportunities</h2>
+                <p>Understanding the major obstacles and potential for transformation:</p>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="acc1">
+                            <span>Fragmented Service Requests</span>
+                            <span>+</span>
+                        </div>
+                        <div id="acc1" class="accordion-content">
+                            <h4>Challenge:</h4>
+                            <p>Multiple, uncoordinated service requests causing user confusion.</p>
+                            
+                            <h4>Current Impact:</h4>
+                            <ul class="pain-point-list">
+                                <li class="pain-point-item">Students must navigate multiple different request systems</li>
+                                <li class="pain-point-item">Inconsistent request processes across departments</li>
+                                <li class="pain-point-item">Duplicate requests due to lack of visibility</li>
+                                <li class="pain-point-item">Difficulty tracking status of submitted requests</li>
+                            </ul>
+                            
+                            <h4>Transformation Opportunity:</h4>
+                            <ul class="opportunity-list">
+                                <li class="opportunity-item">Unified request portal with consistent interface</li>
+                                <li class="opportunity-item">Centralized tracking and status updates</li>
+                                <li class="opportunity-item">Cross-departmental visibility of requests</li>
+                                <li class="opportunity-item">Reduced duplication through smart routing</li>
+                            </ul>
+                            
+                            <blockquote>
+                                "Fragmented Service Requests: Multiple, uncoordinated service requests causing user confusion."
+                                <cite class="quote-citation">Source: ROI of Transformation, Page 2</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="acc2">
+                            <span>Inconsistent Data and Processes</span>
+                            <span>+</span>
+                        </div>
+                        <div id="acc2" class="accordion-content">
+                            <h4>Challenge:</h4>
+                            <p>Data inconsistency complicates processes and user interactions.</p>
+                            
+                            <h4>Current Impact:</h4>
+                            <ul class="pain-point-list">
+                                <li class="pain-point-item">Different departments maintain separate student records</li>
+                                <li class="pain-point-item">Conflicting information across systems</li>
+                                <li class="pain-point-item">Students must repeat information multiple times</li>
+                                <li class="pain-point-item">Inefficient decision-making due to incomplete data</li>
+                            </ul>
+                            
+                            <h4>Transformation Opportunity:</h4>
+                            <ul class="opportunity-list">
+                                <li class="opportunity-item">Unified 360° Student Profile</li>
+                                <li class="opportunity-item">Consistent data standards across departments</li>
+                                <li class="opportunity-item">Automated data synchronization</li>
+                                <li class="opportunity-item">Enhanced analytics and insights</li>
+                            </ul>
+                            
+                            <blockquote>
+                                "Inconsistent Data and Processes: Data inconsistency complicates processes and user interactions."
+                                <cite class="quote-citation">Source: ROI of Transformation, Page 2</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="acc3">
+                            <span>Overwhelmed Support Teams</span>
+                            <span>+</span>
+                        </div>
+                        <div id="acc3" class="accordion-content">
+                            <h4>Challenge:</h4>
+                            <p>Support teams overwhelmed by fragmented user demands.</p>
+                            
+                            <h4>Current Impact:</h4>
+                            <ul class="pain-point-list">
+                                <li class="pain-point-item">Staff handling 600k+ annual service requests</li>
+                                <li class="pain-point-item">40% of time spent on manual tasks</li>
+                                <li class="pain-point-item">Limited capacity for high-value interactions</li>
+                                <li class="pain-point-item">Burnout and decreased job satisfaction</li>
+                            </ul>
+                            
+                            <h4>Transformation Opportunity:</h4>
+                            <ul class="opportunity-list">
+                                <li class="opportunity-item">AI automation of routine inquiries</li>
+                                <li class="opportunity-item">Enhanced self-service capabilities</li>
+                                <li class="opportunity-item">Intelligent routing to appropriate resources</li>
+                                <li class="opportunity-item">10-15 hours saved per employee per week</li>
+                            </ul>
+                            
+                            <blockquote>
+                                "Overwhelmed Support Teams: Support teams overwhelmed by fragmented user demands."
+                                <cite class="quote-citation">Source: ROI of Transformation, Page 2</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" aria-expanded="false" aria-controls="acc4">
+                            <span>Evolving Expectations</span>
+                            <span>+</span>
+                        </div>
+                        <div id="acc4" class="accordion-content">
+                            <h4>Challenge:</h4>
+                            <p>Recognizing the shift towards seamless, on-demand support.</p>
+                            
+                            <h4>Current Impact:</h4>
+                            <ul class="pain-point-list">
+                                <li class="pain-point-item">Students expect modern, digital-first experiences</li>
+                                <li class="pain-point-item">Demand for 24/7 support access</li>
+                                <li class="pain-point-item">Expectation for personalized service</li>
+                                <li class="pain-point-item">Growing demand for self-service options</li>
+                            </ul>
+                            
+                            <h4>Transformation Opportunity:</h4>
+                            <ul class="opportunity-list">
+                                <li class="opportunity-item">AI-powered support available around the clock</li>
+                                <li class="opportunity-item">Personalized experiences based on student profile</li>
+                                <li class="opportunity-item">Modern interface with mobile-first design</li>
+                                <li class="opportunity-item">Proactive support based on predictive analytics</li>
+                            </ul>
+                            
+                            <blockquote>
+                                "Evolving Expectations: Recognizing the shift towards seamless, on-demand support."
+                                <cite class="quote-citation">Source: ROI of Transformation, Page 2</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section aria-labelledby="conclusion-heading">
+                <h2 id="conclusion-heading">Conclusion</h2>
+                <p>The transformation of Northeastern University's customer service through agentic AI represents a pivotal shift in how the institution supports its diverse stakeholders. By addressing current pain points and leveraging innovative technology, the university can create a more seamless, efficient, and satisfying experience for students, staff, faculty, parents, and external partners.</p>
+                
+                <p>This journey map provides a comprehensive view of both the current challenges and the future state vision, highlighting the significant improvements that can be achieved through a thoughtful, phased implementation approach. The investment in this transformation is substantial, but the expected returns in terms of efficiency, satisfaction, and operational excellence make it a strategic imperative for the university.</p>
+                
+                <p>By embracing the core principles of service that matters, student-centric design, integrated teamwork, and AI-driven impact, Northeastern University can establish itself as a leader in higher education customer service, creating experiences that truly support student success.</p>
+                
+                <blockquote>
+                    "By integrating systems and simplifying processes, we aim to improve efficiency, reduce confusion, and ensure seamless experiences for all."
+                    <cite class="quote-citation">Source: Streamlined Service for All, Page 3</cite>
+                </blockquote>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected tab and content
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    const panelId = tab.getAttribute('aria-controls');
+                    document.getElementById(panelId).classList.add('active');
+                });
+                
+                // Keyboard navigation
+                tab.addEventListener('keydown', (e) => {
+                    let index = Array.from(tabs).indexOf(tab);
+                    let nextTab;
+                    
+                    if (e.key === 'ArrowRight') {
+                        nextTab = tabs[(index + 1) % tabs.length];
+                        nextTab.focus();
+                        nextTab.click();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowLeft') {
+                        nextTab = tabs[(index - 1 + tabs.length) % tabs.length];
+                        nextTab.focus();
+                        nextTab.click();
+                        e.preventDefault();
+                    }
+                });
+            });
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                    
+                    // Toggle the active class on the item
+                    if (isExpanded) {
+                        item.classList.remove('active');
+                        header.setAttribute('aria-expanded', 'false');
+                        header.querySelector('span:last-child').textContent = '+';
+                    } else {
+                        item.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                        header.querySelector('span:last-child').textContent = '-';
+                    }
+                });
+                
+                // Keyboard support
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        header.click();
+                        e.preventDefault();
+                    }
+                });
+            });
+            
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const animateProgressBars = () => {
+                progressBars.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const width = bar.getAttribute('aria-valuenow') + '%';
+                        bar.style.width = width;
+                    }
+                });
+            };
+            
+            // Initial call and on scroll
+            animateProgressBars();
+            window.addEventListener('scroll', animateProgressBars);
+            
+            // Tooltip accessibility
+            const tooltips = document.querySelectorAll('.tooltip');
+            tooltips.forEach(tooltip => {
+                tooltip.setAttribute('tabindex', '0');
+                tooltip.setAttribute('role', 'button');
+                tooltip.setAttribute('aria-haspopup', 'true');
+                
+                const tooltipText = tooltip.querySelector('.tooltip-text');
+                const tooltipId = 'tooltip-' + Math.random().toString(36).substr(2, 9);
+                tooltipText.id = tooltipId;
+                tooltip.setAttribute('aria-describedby', tooltipId);
+                
+                tooltip.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        tooltipText.style.visibility = 'visible';
+                        tooltipText.style.opacity = '1';
+                        e.preventDefault();
+                    } else if (e.key === 'Escape') {
+                        tooltipText.style.visibility = 'hidden';
+                        tooltipText.style.opacity = '0';
+                    }
+                });
+                
+                tooltip.addEventListener('blur', () => {
+                    tooltipText.style.visibility = 'hidden';
+                    tooltipText.style.opacity = '0';
+                });
+            });
+        });
+    </script>
+
+<div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 0.8em; color: #666;">
+  Generated with <strong>claude-3-7-sonnet-20250219</strong> on 2025-03-27
+</div>
+
+<script src="/static/journey_export.js"></script>
+
+<div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 0.8em; color: #666;">
+  Generated with <strong>claude-3-7-sonnet-20250219</strong> on 2025-03-27
+</div>
+
+<script src="/static/journey_export.js"></script>
+</body>
+</html>

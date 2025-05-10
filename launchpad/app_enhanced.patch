@@ -1,0 +1,16 @@
+# This is a patch file for app.py to add the enhanced UI route
+# Apply by copying this code to app.py after line 168 before the 'if __name__' block
+
+@app.route('/enhanced')
+def enhanced():
+    """Enhanced UI version of the launchpad page"""
+    # Ensure status is updated before rendering
+    update_all_services()
+    
+    # Get dynamic URLs for client
+    urls = get_dynamic_urls()
+    
+    return render_template('enhanced-index.html', 
+                          journey_mapper_url=urls['journey_mapper']['client_url'],
+                          reddit_ripper_url=urls['reddit_ripper']['client_url'], 
+                          social_research_url=urls['social_research']['client_url'])

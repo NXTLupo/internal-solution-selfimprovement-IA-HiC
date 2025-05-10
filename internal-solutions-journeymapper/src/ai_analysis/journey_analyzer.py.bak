@@ -1,0 +1,2592 @@
+import requests
+import json
+import logging
+import os
+import re
+import time
+from typing import Dict, Any, List, Optional, Union
+
+class JourneyAnalyzer:
+    """
+    Analyze processed data to extract journey insights using an LLM.
+    """
+    
+    def __init__(self, model: str = "gemma:latest", api_url: str = "http://localhost:11434/api/generate"):
+        self.logger = logging.getLogger(__name__)
+        self.model = model
+        self.api_url = api_url
+        self.logger.info(f"Initialized JourneyAnalyzer with model: {model}")
+        
+    def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Analyze processed data to extract journey insights.
+        
+        Args:
+            data: Dictionary containing structured and unstructured data
+            
+        Returns:
+            Dictionary containing journey map insights
+        """
+        self.logger.info("Starting journey analysis")
+        
+        # Save input data for debugging
+        self._save_debug_file("input_data.json", data)
+        
+        # Prepare data summaries
+        unstructured_summary = self._summarize_unstructured_data(data.get("unstructured", []))
+        structured_summary = self._summarize_structured_data(data.get("structured", []))
+        
+        # Save summaries for debugging
+        self._save_debug_file("unstructured_summary.txt", unstructured_summary)
+        self._save_debug_file("structured_summary.txt", structured_summary)
+        
+        # Detect journey type
+        journey_type = self._detect_journey_type(structured_summary, unstructured_summary)
+        self.logger.info(f"Detected journey type: {journey_type}")
+        
+        # Create prompt for LLM
+        prompt = self._create_journey_prompt(journey_type, structured_summary, unstructured_summary)
+        
+        # Get insights from LLM
+        raw_insights = self._get_llm_insights(prompt)
+        
+        # Save raw insights for debugging
+        self._save_debug_file("raw_insights.txt", raw_insights)
+        
+        # Parse and structure the insights
+        structured_insights = self._structure_insights(raw_insights, journey_type)
+        
+        # Save structured insights for debugging
+        self._save_debug_file("structured_insights.json", structured_insights)
+        
+        return structured_insights
+        
+    def _summarize_unstructured_data(self, unstructured_data: List[Dict[str, Any]]) -> str:
+        """
+        Summarize unstructured data for analysis.
+        
+        Args:
+            unstructured_data: List of unstructured data objects
+            
+        Returns:
+            String summary of unstructured data
+        """
+        if not unstructured_data:
+            return "No unstructured data provided."
+            
+        summaries = []
+        
+        for item in unstructured_data:
+            source = item.get("source", "Unknown")
+            data_type = item.get("type", "Unknown")
+            data = item.get("data", "")
+            structured_elements = item.get("structured_elements", {})
+            
+            summary = f"Source: {source} (Type: {data_type})\n\n"
+            
+            # Add structured elements if available
+            if structured_elements:
+                summary += "Structured Elements:\n"
+                
+                if structured_elements.get("personas"):
+                    summary += "- Personas: " + ", ".join(structured_elements.get("personas", []))[:300] + "\n"
+                    
+                if structured_elements.get("journey_phases"):
+                    summary += "- Journey Phases: " + ", ".join(structured_elements.get("journey_phases", []))[:300] + "\n"
+                    
+                if structured_elements.get("journey_touchpoints"):
+                    summary += "- Touchpoints: " + ", ".join(structured_elements.get("journey_touchpoints", []))[:300] + "\n"
+                    
+                if structured_elements.get("pain_points"):
+                    summary += "- Pain Points: " + ", ".join(structured_elements.get("pain_points", []))[:300] + "\n"
+                    
+                if structured_elements.get("opportunities"):
+                    summary += "- Opportunities: " + ", ".join(structured_elements.get("opportunities", []))[:300] + "\n"
+                    
+                if structured_elements.get("emotions"):
+                    emotions = [f"{e.get('type', 'Unknown')}: {e.get('description', '')}"
+                                for e in structured_elements.get("emotions", [])]
+                    summary += "- Emotions: " + ", ".join(emotions)[:300] + "\n"
+                    
+                summary += "\n"
+            
+            # For text data, include excerpts
+            if isinstance(data, str) and data:
+                # Get word count
+                word_count = len(data.split())
+                
+                if word_count > 1000:
+                    # For long text, extract key sections
+                    key_sections = self._extract_key_sections(data)
+                    if key_sections:
+                        summary += "Key excerpts from content:\n\n"
+                        for section_title, section_content in key_sections.items():
+                            section_excerpt = section_content[:800] + "..." if len(section_content) > 800 else section_content
+                            summary += f"--- {section_title} ---\n{section_excerpt}\n\n"
+                    else:
+                        # No clear sections, add short excerpt
+                        summary += f"Content (excerpt of {word_count} words):\n\n"
+                        summary += data[:1000] + "...\n\n"
+                else:
+                    # For shorter texts, include all content
+                    summary += f"Content ({word_count} words):\n\n"
+                    summary += data + "\n\n"
+            
+            summaries.append(summary)
+        
+        return "\n" + "-" * 80 + "\n".join(summaries)
+        
+    def _extract_key_sections(self, text: str) -> Dict[str, str]:
+        """Extract key sections from text"""
+        sections = {}
+        
+        # Look for question-answer patterns (common in interviews)
+        qa_pattern = r'(?:Moderator|Interviewer|Q):\s+([^\n]+)\n+(?:[A-Z][0-9]P[0-9]|G[0-9]P[0-9]|Participant|Interviewee|A):\s+([^\n]+(?:\n(?![A-Z][0-9]P[0-9]|G[0-9]P[0-9]|Participant|Interviewee|Moderator|Interviewer|Q|A):)[^\n]+)*)'
+        
+        qa_matches = re.findall(qa_pattern, text, re.MULTILINE)
+        
+        if qa_matches:
+            for i, (question, answer) in enumerate(qa_matches[:10]):  # Limit to 10 Q&A pairs
+                sections[f"Q&A {i+1}: {question[:50]}..."] = answer.strip()
+            return sections
+            
+        # If no Q&A patterns, look for headers or sections
+        section_patterns = [
+            r'^([A-Z][A-Z\s]+)\s*\n+(.+?)(?=\n+[A-Z][A-Z\s]+\s*\n+|\Z)',  # ALL CAPS headers
+            r'^(#+\s+.+?)\s*\n+(.+?)(?=\n+#+\s+.+?\s*\n+|\Z)',  # Markdown headers
+            r'^([^\n]+)\n[-=]+\s*\n+(.+?)(?=\n+[^\n]+\n[-=]+\s*\n+|\Z)'  # Underlined headers
+        ]
+        
+        for pattern in section_patterns:
+            matches = re.findall(pattern, text, re.MULTILINE | re.DOTALL)
+            if matches:
+                for i, (header, content) in enumerate(matches[:10]):  # Limit to 10 sections
+                    sections[header.strip()] = content.strip()
+                return sections
+                
+        # If no clear sections, break by paragraphs
+        if not sections:
+            paragraphs = re.split(r'\n\s*\n', text)
+            if len(paragraphs) > 1:
+                for i, paragraph in enumerate(paragraphs[:10]):  # Limit to 10 paragraphs
+                    sections[f"Paragraph {i+1}"] = paragraph.strip()
+                    
+        return sections
+        
+    def _summarize_structured_data(self, structured_data: List[Dict[str, Any]]) -> str:
+        """
+        Summarize structured data for analysis.
+        
+        Args:
+            structured_data: List of structured data objects
+            
+        Returns:
+            String summary of structured data
+        """
+        if not structured_data:
+            return "No structured data provided."
+            
+        summaries = []
+        
+        for item in structured_data:
+            source = item.get("source", "Unknown")
+            data_type = item.get("type", "Unknown")
+            data = item.get("data", {})
+            
+            summary = f"Source: {source} (Type: {data_type})\n\n"
+            
+            # Process data based on type
+            if data_type == "csv":
+                if isinstance(data, list) and data:
+                    # Get column names
+                    if isinstance(data[0], dict):
+                        columns = list(data[0].keys())
+                        summary += f"Columns: {', '.join(columns)}\n\n"
+                        
+                    # Add sample records
+                    summary += f"Total records: {len(data)}\n"
+                    sample_size = min(3, len(data))
+                    summary += f"Sample records:\n"
+                    
+                    for i in range(sample_size):
+                        if i < len(data):
+                            summary += json.dumps(data[i], indent=2) + "\n"
+                    
+            elif data_type == "json":
+                # Add JSON structure
+                if isinstance(data, dict):
+                    summary += f"JSON structure:\n{json.dumps(data, indent=2)[:1000]}\n"
+                    if len(json.dumps(data, indent=2)) > 1000:
+                        summary += "...\n"
+                elif isinstance(data, list) and data:
+                    summary += f"JSON array with {len(data)} items, first item:\n"
+                    summary += json.dumps(data[0], indent=2) + "\n"
+            else:
+                # Generic data handling
+                summary += f"Data preview:\n{str(data)[:1000]}\n"
+                if len(str(data)) > 1000:
+                    summary += "...\n"
+                
+            summaries.append(summary)
+            
+        return "\n" + "-" * 80 + "\n".join(summaries)
+        
+    def _detect_journey_type(self, structured_summary: str, unstructured_summary: str) -> str:
+        """
+        Detect the type of journey from the data.
+        
+        Args:
+            structured_summary: Summary of structured data
+            unstructured_summary: Summary of unstructured data
+            
+        Returns:
+            String representing the detected journey type
+        """
+        combined_text = (structured_summary + " " + unstructured_summary).lower()
+        
+        # Define keywords for different journey types
+        journey_types = {
+            "co-op_search": ["co-op", "internship", "interview", "resume", "cover letter", "position",
+                           "application", "advisor", "linkedin", "nu works", "any works", "jobs"],
+            "educational": ["class", "course", "professor", "study", "major", "university", "college",
+                           "degree", "academic", "school", "student"],
+            "customer_purchase": ["purchase", "buy", "product", "customer", "shopping", "retail",
+                                 "e-commerce", "price", "checkout", "shipping"],
+            "user_software": ["software", "app", "website", "user", "platform", "interface",
+                             "feature", "login", "dashboard", "click"]
+        }
+        
+        # Count occurrences of keywords
+        counts = {journey_type: 0 for journey_type in journey_types}
+        for journey_type, keywords in journey_types.items():
+            for keyword in keywords:
+                counts[journey_type] += combined_text.count(keyword)
+                
+        # Determine the most likely journey type
+        most_likely_type = max(counts.items(), key=lambda x: x[1])[0]
+        
+        # If co-op search or educational have high scores, it's most likely a northeastern co-op journey
+        if counts["co-op_search"] > 20 or (counts["co-op_search"] > 10 and counts["educational"] > 10):
+            return "northeastern_co-op"
+            
+        return most_likely_type
+        
+    def _create_journey_prompt(self, journey_type: str, structured_summary: str, unstructured_summary: str) -> str:
+        """
+        Create a prompt for the LLM to generate journey insights.
+        
+        Args:
+            journey_type: The type of journey to analyze
+            structured_summary: Summary of structured data
+            unstructured_summary: Summary of unstructured data
+            
+        Returns:
+            String prompt for the LLM
+        """
+        # Common system instructions
+        system_instructions = """You are an expert service designer specializing in creating comprehensive user journey maps from any type of data. Your task is to analyze the provided dataset and generate a detailed journey map following these guidelines:
+
+# ANALYSIS APPROACH
+1. First, thoroughly examine all provided data sources, both structured and unstructured
+2. Identify key actors, touchpoints, and journey stages 
+3. Extract emotions, pain points, and opportunities throughout the journey
+4. Structure findings into a coherent, chronological journey map
+
+# JOURNEY MAP DIMENSIONS
+For each stage of the journey, identify and document:
+
+## CORE ELEMENTS
+- Actors: Who is involved in this journey? (primary users and secondary stakeholders)
+- Goals: What are actors trying to accomplish at each stage?
+- Tasks: What specific activities are performed to achieve these goals?
+- Behaviors: How do actors actually engage with systems/services/products?
+
+## CONTEXTUAL FACTORS
+- Context: What environments, situations, or circumstances frame each interaction?
+- Modalities: What interaction modes are being used? (mobile, desktop, in-person, etc.)
+- Engagement channels: What platforms, tools, or touchpoints are involved?
+
+## EXPERIENTIAL DIMENSIONS
+- Emotions: What feelings are expressed or implied during each stage?
+- Pain points: What specific frustrations, barriers or difficulties are encountered?
+- Opportunities: What potential areas for improvement or innovation exist?
+
+You MUST provide your response as a valid JSON object that follows this schema:
+{
+  "journey_name": "Clear descriptive name of the journey",
+  "summary": "Brief but comprehensive summary of the journey",
+  "personas": ["Primary Persona 1", "Primary Persona 2"],
+  "phases": [
+    {
+      "name": "Phase 1 Name",
+      "description": "Clear description of this phase",
+      "sequence": 1,
+      "touchpoints": [
+        {
+          "type": "Touchpoint name",
+          "description": "Detailed description of interaction",
+          "channel": "How users interact (digital, in-person, etc.)",
+          "importance": 8
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Primary emotion",
+          "description": "Reason for this emotion",
+          "value": 75
+        }
+      ],
+      "goals": ["Goal 1", "Goal 2"],
+      "tasks": ["Task 1", "Task 2"],
+      "behaviors": ["Key behavior 1", "Key behavior 2"],
+      "pain_points": ["Specific challenge in this phase"],
+      "opportunities": ["Potential improvement in this phase"]
+    }
+  ],
+  "overall_pain_points": [
+    "Major pain point across journey 1",
+    "Major pain point across journey 2"
+  ],
+  "overall_opportunities": [
+    "Strategic opportunity 1",
+    "Strategic opportunity 2"
+  ]
+}
+
+CRITICAL REQUIREMENTS:
+1. Every value must be specific and detailed, never generic
+2. You MUST output valid JSON. No commentary before or after the JSON. Start immediately with { and end with }.
+3. Ensure all arrays and objects have proper closing brackets and commas
+4. Always make sure each touchpoint has a type, description, channel, and importance value (1-10)
+5. Always make sure each emotion has a type, description, and value (0-100)
+"""
+
+        # Create journey-specific instructions
+        if journey_type == "northeastern_co-op":
+            journey_instructions = """You are analyzing data about the Northeastern University Co-op program experience.
+
+Focus on creating a journey map that shows the complete co-op experience from:
+1. Co-op class/preparation 
+2. Initial job search
+3. Application process
+4. Interviews
+5. Decision/placement
+6. On-the-job experience
+7. Post co-op
+
+For each phase, identify:
+- Key touchpoints (NU Works, LinkedIn, career events, advisors, etc.)
+- Emotions students feel (stress, excitement, frustration, etc.)
+- Pain points specific to each phase
+- Opportunities to improve the experience
+
+Base your analysis on actual student experiences in the data, not general assumptions.
+Focus on being accurate and specific based on what students actually reported.
+"""
+        elif journey_type == "customer_purchase":
+            journey_instructions = """You are analyzing data about a customer purchase journey.
+
+Focus on creating a journey map that shows the complete purchase experience from:
+1. Awareness/Discovery
+2. Research/Consideration
+3. Selection/Decision
+4. Purchase
+5. Delivery/Setup
+6. Post-purchase support
+7. Loyalty/Advocacy
+
+For each phase, identify:
+- Key touchpoints (websites, stores, ads, customer service, etc.)
+- Emotions customers feel
+- Pain points specific to each phase
+- Opportunities to improve the experience
+"""
+        elif journey_type == "user_software":
+            journey_instructions = """You are analyzing data about a user's experience with software or digital platforms.
+
+Focus on creating a journey map that shows the complete user experience from:
+1. Discovery/Awareness
+2. Research/Consideration
+3. Signup/Installation
+4. First use/Onboarding
+5. Regular usage
+6. Support/Troubleshooting
+7. Renewal/Upgrade
+
+For each phase, identify:
+- Key touchpoints (website, app, email, help center, etc.)
+- Emotions users feel
+- Pain points specific to each phase
+- Opportunities to improve the experience
+"""
+        else:  # educational or fallback
+            journey_instructions = """You are analyzing data about an educational or learning journey.
+
+Focus on creating a journey map that shows the complete educational experience from:
+1. Awareness/Discovery
+2. Decision/Enrollment
+3. Orientation/Onboarding
+4. Core learning period
+5. Assessment/Feedback
+6. Completion/Graduation
+7. Alumni/Ongoing engagement
+
+For each phase, identify:
+- Key touchpoints (classes, resources, professors, advisors, etc.)
+- Emotions students feel
+- Pain points specific to each phase
+- Opportunities to improve the experience
+"""
+
+        # Data section
+        data_section = f"""## STRUCTURED DATA:
+{structured_summary}
+
+## UNSTRUCTURED DATA:
+{unstructured_summary}"""
+
+        # Final prompt construction
+        prompt = f"""<start_of_turn>user
+{system_instructions}
+
+{journey_instructions}
+
+{data_section}
+
+Remember to make your output ONLY valid JSON, with no text before or after. Analyze all the data and create a comprehensive journey map.
+<end_of_turn>
+
+<start_of_turn>model"""
+
+        # Save prompt for debugging
+        self._save_debug_file("llm_prompt.txt", prompt)
+        
+        return prompt
+        
+    def _get_llm_insights(self, prompt: str) -> str:
+        """
+        Get journey insights from the LLM.
+        
+        Args:
+            prompt: The prompt to send to the LLM
+            
+        Returns:
+            String response from the LLM
+        """
+        self.logger.info(f"Sending request to LLM at {self.api_url} using model {self.model}")
+        
+        try:
+            # Check if Ollama is running
+            try:
+                health_check = requests.get("http://localhost:11434/api/tags", timeout=5)
+                if health_check.status_code != 200:
+                    self.logger.error(f"Ollama health check failed with status {health_check.status_code}")
+                    return self._generate_fallback_response()
+                    
+                # Check if model is available
+                models = health_check.json().get("models", [])
+                model_names = [model.get("name") for model in models]
+                
+                if not any(name.startswith(self.model.split(':')[0]) for name in model_names):
+                    self.logger.warning(f"Model {self.model} not found in available models: {model_names}")
+                
+            except requests.exceptions.RequestException as e:
+                self.logger.error(f"Ollama health check failed: {str(e)}")
+                return self._generate_fallback_response()
+                
+            # Send the request to Ollama
+            payload = {
+                "model": self.model,
+                "prompt": prompt,
+                "stream": False,
+                "temperature": 0.1,  # Low temperature for more focused responses
+                "top_p": 0.9,
+                "max_tokens": 4000
+            }
+            
+            # Send request with timeout
+            response = requests.post(self.api_url, json=payload, timeout=300)  # 5 minute timeout
+            response.raise_for_status()
+            
+            result = response.json()
+            response_text = result.get("response", "")
+            
+            # Log response info
+            self.logger.info(f"Received response of length: {len(response_text)} chars")
+            
+            if len(response_text) < 100:
+                self.logger.warning(f"Suspiciously short response: {response_text}")
+                # Try with simplified prompt
+                return self._retry_with_simplified_prompt(prompt)
+                
+            return response_text
+            
+        except requests.exceptions.Timeout:
+            self.logger.error("Request to Ollama API timed out after 300 seconds")
+            return self._retry_with_simplified_prompt(prompt)
+            
+        except requests.exceptions.RequestException as e:
+            self.logger.error(f"Error calling Ollama API: {str(e)}")
+            return self._generate_fallback_response()
+            
+    def _retry_with_simplified_prompt(self, original_prompt: str) -> str:
+        """
+        Retry the request with a simplified prompt
+        
+        Args:
+            original_prompt: The original prompt that failed
+            
+        Returns:
+            String response from the LLM
+        """
+        self.logger.info("Retrying with simplified prompt")
+        
+        # Create a simpler prompt
+        simplified_prompt = """<start_of_turn>user
+Create a journey map for the Northeastern University Co-op Experience based on your understanding.
+
+Return ONLY a JSON object with this exact structure:
+{
+  "journey_name": "Name of journey",
+  "summary": "Brief summary",
+  "personas": ["Persona 1", "Persona 2"],
+  "phases": [
+    {
+      "name": "Phase 1",
+      "description": "Description",
+      "sequence": 1,
+      "touchpoints": [
+        {
+          "type": "Touchpoint",
+          "description": "Description",
+          "channel": "Channel",
+          "importance": 8
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Emotion",
+          "description": "Reason",
+          "value": 70
+        }
+      ],
+      "behaviors": ["Behavior 1"],
+      "pain_points": ["Pain point 1"],
+      "opportunities": ["Opportunity 1"]
+    }
+  ],
+  "overall_pain_points": ["Pain point 1"],
+  "overall_opportunities": ["Opportunity 1"]
+}
+
+The journey should include phases like:
+1. Co-op Class/Preparation
+2. Job Search
+3. Application Process
+4. Interviews
+5. On-the-job Experience
+
+Remember to make your output ONLY valid JSON, with no text before or after.
+<end_of_turn>
+
+<start_of_turn>model"""
+        
+        try:
+            # Send the retry request
+            payload = {
+                "model": self.model,
+                "prompt": simplified_prompt,
+                "stream": False,
+                "temperature": 0.1,
+                "top_p": 0.9,
+                "max_tokens": 2000
+            }
+            
+            # Send request with timeout
+            response = requests.post(self.api_url, json=payload, timeout=180)  # 3 minute timeout
+            response.raise_for_status()
+            
+            result = response.json()
+            response_text = result.get("response", "")
+            
+            if not response_text or len(response_text) < 100:
+                return self._generate_fallback_response()
+                
+            return response_text
+            
+        except Exception as e:
+            self.logger.error(f"Error in retry request: {str(e)}")
+            return self._generate_fallback_response()
+            
+    def _generate_fallback_response(self) -> str:
+        """Generate a fallback response when the LLM fails"""
+        self.logger.info("Generating fallback journey map response")
+        
+        fallback_response = """{
+  "journey_name": "Northeastern University Co-op Experience",
+  "summary": "The Northeastern co-op journey takes students from preparation through job search, interviews, on-the-job experience, and post-co-op reflection, providing valuable professional experience but with significant challenges throughout the search process.",
+  "personas": ["Undergraduate Student", "International Student"],
+  "phases": [
+    {
+      "name": "Co-op Class Preparation",
+      "description": "Students take a required co-op class to learn job search skills and get access to NU Works",
+      "sequence": 1,
+      "touchpoints": [
+        {
+          "type": "Co-op Class",
+          "description": "Weekly class sessions covering resume building, interview skills, and job search strategies",
+          "channel": "In-person/Virtual",
+          "importance": 8
+        },
+        {
+          "type": "Resume Review",
+          "description": "Getting resume approved by co-op advisor to access job listings",
+          "channel": "Online/In-person",
+          "importance": 9
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Anticipation",
+          "description": "Excitement about finding a co-op position but uncertainty about the process",
+          "value": 70
+        }
+      ],
+      "behaviors": ["Building resume", "Setting up LinkedIn profile", "Preparing for interviews"],
+      "pain_points": ["Standardized resume format limits uniqueness", "Class can feel like busy work"],
+      "opportunities": ["More personalized resume guidance", "More industry-specific preparation"]
+    },
+    {
+      "name": "Job Search",
+      "description": "Students search for and apply to co-op positions through NU Works and other platforms",
+      "sequence": 2,
+      "touchpoints": [
+        {
+          "type": "NU Works",
+          "description": "Primary platform for finding and applying to co-op positions",
+          "channel": "Digital",
+          "importance": 10
+        },
+        {
+          "type": "LinkedIn/External Sites",
+          "description": "Additional job search platforms for finding opportunities",
+          "channel": "Digital",
+          "importance": 7
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Frustration",
+          "description": "Submitting many applications with limited responses",
+          "value": 30
+        }
+      ],
+      "behaviors": ["Applying to multiple positions", "Filtering by location and role"],
+      "pain_points": ["High volume of applications required", "Getting ghosted by employers"],
+      "opportunities": ["Better application tracking", "More transparency in process"]
+    },
+    {
+      "name": "Interview Process",
+      "description": "Students interview with potential employers",
+      "sequence": 3,
+      "touchpoints": [
+        {
+          "type": "Interview Preparation",
+          "description": "Preparing for behavioral and technical interviews",
+          "channel": "Various",
+          "importance": 8
+        },
+        {
+          "type": "Job Interviews",
+          "description": "Formal interviews with potential employers",
+          "channel": "Virtual/In-person",
+          "importance": 10
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Anxiety",
+          "description": "Nervousness about performance in interviews",
+          "value": 25
+        }
+      ],
+      "behaviors": ["Researching companies", "Practicing interview questions"],
+      "pain_points": ["Technical interviews can be challenging", "Limited feedback from rejections"],
+      "opportunities": ["More interview preparation resources", "Mock interview sessions"]
+    },
+    {
+      "name": "On-the-Job Experience",
+      "description": "Students work at their co-op positions",
+      "sequence": 4,
+      "touchpoints": [
+        {
+          "type": "Onboarding",
+          "description": "First days/weeks at the co-op position",
+          "channel": "In-person/Virtual",
+          "importance": 7
+        },
+        {
+          "type": "Daily Work",
+          "description": "Regular job responsibilities and projects",
+          "channel": "In-person/Virtual",
+          "importance": 9
+        }
+      ],
+      "emotions": [
+        {
+          "type": "Satisfaction",
+          "description": "Gaining real-world experience and skills",
+          "value": 80
+        }
+      ],
+      "behaviors": ["Learning new skills", "Building professional network"],
+      "pain_points": ["Some positions may have limited meaningful work"],
+      "opportunities": ["Better matching of skills to positions", "More structured mentorship"]
+    }
+  ],
+  "overall_pain_points": [
+    "High competition for positions with many applications required",
+    "Getting ghosted by employers with no response",
+    "Standardized resume formats make standing out difficult",
+    "Balancing co-op search with academic responsibilities"
+  ],
+  "overall_opportunities": [
+    "Better tracking system for applications",
+    "More employer connections specifically for first-time co-ops",
+    "Additional prep for technical interviews",
+    "Improved feedback mechanism from employers"
+  ]
+}"""
+        
+        return fallback_response
+        
+    def _structure_insights(self, raw_insights: str, journey_type: str) -> Dict[str, Any]:
+        """
+        Extract and structure journey insights from the LLM response with a more flexible approach.
+        Captures all dimensions: actors, goals, tasks, behaviors, context, modalities, 
+        engagement channels, emotions, pain points, frustrations, opportunities, and insights.
+        
+        Args:
+            raw_insights: Raw response from the LLM
+            journey_type: Type of journey being analyzed
+            
+        Returns:
+            Structured journey insights as a dictionary
+        """
+        self.logger.info("Structuring insights from LLM response")
+        
+        # Save raw insights for debugging
+        self._save_debug_file("raw_insights.txt", raw_insights)
+        
+        # Try to extract JSON from the response
+        try:
+            # First attempt: Look for JSON code blocks
+            json_pattern = r"```(?:json)?\s*([\s\S]*?)\s*```"
+            json_matches = re.findall(json_pattern, raw_insights)
+            
+            if json_matches:
+                for json_str in json_matches:
+                    try:
+                        insights = json.loads(json_str)
+                        insights["raw_insights"] = raw_insights
+                        return self._transform_journey_data(insights)
+                    except json.JSONDecodeError:
+                        continue
+                
+            # Second attempt: Look for JSON object directly
+            json_start = raw_insights.find("{")
+            json_end = raw_insights.rfind("}")
+            
+            if json_start >= 0 and json_end > json_start:
+                json_str = raw_insights[json_start:json_end+1]
+                try:
+                    insights = json.loads(json_str)
+                    insights["raw_insights"] = raw_insights
+                    return self._transform_journey_data(insights)
+                except json.JSONDecodeError:
+                    # Try to fix common JSON issues
+                    fixed_json = self._fix_json_errors(json_str)
+                    try:
+                        insights = json.loads(fixed_json)
+                        insights["raw_insights"] = raw_insights
+                        return self._transform_journey_data(insights)
+                    except json.JSONDecodeError:
+                        pass
+                
+            # If all extraction attempts fail, try a more flexible approach
+            self.logger.warning("Failed to extract valid JSON from LLM response, trying flexible extraction")
+            
+            # Try to extract journey data directly from raw text
+            try:
+                insights = self._extract_flexible_journey(raw_insights)
+                if insights:
+                    insights["raw_insights"] = raw_insights
+                    return self._transform_journey_data(insights)
+            except Exception as e:
+                self.logger.warning(f"Flexible extraction failed: {str(e)}")
+            
+            # If flexible extraction fails, use fallback
+            fallback_insights = json.loads(self._generate_fallback_response())
+            fallback_insights["raw_insights"] = raw_insights
+            return self._transform_journey_data(fallback_insights)
+            
+        except Exception as e:
+            self.logger.error(f"Error structuring insights: {str(e)}")
+            fallback_insights = json.loads(self._generate_fallback_response())
+            fallback_insights["raw_insights"] = raw_insights
+            return self._transform_journey_data(fallback_insights)
+            
+    def _extract_flexible_journey(self, raw_text: str) -> Dict[str, Any]:
+        """
+        Extract journey insights with a flexible approach that preserves all dimensions:
+        actors, goals, tasks, behaviors, context, modalities, engagement channels, 
+        emotions, pain points, opportunities, and insights.
+        
+        Args:
+            raw_text: Raw text from LLM response
+            
+        Returns:
+            Dictionary with structured journey insights
+        """
+        self.logger.info("Attempting flexible journey extraction from raw text")
+        
+        insights = {
+            "journey_name": "Journey Map",
+            "summary": "",
+            "personas": [],
+            "phases": [],
+            "overall_pain_points": [],
+            "overall_opportunities": []
+        }
+        
+        # Check for the journeys format that appears in raw_insights.txt
+        journeys_match = re.search(r'[\s\S]*?(\{[\s\S]*?"journeys"[\s\S]*?\})[\s\S]*', raw_text)
+        if journeys_match:
+            try:
+                journeys_json = journeys_match.group(1)
+                journeys_data = json.loads(journeys_json)
+                
+                if "journeys" in journeys_data and isinstance(journeys_data["journeys"], list):
+                    # Use first journey name as overall journey name
+                    if journeys_data["journeys"] and "name" in journeys_data["journeys"][0]:
+                        insights["journey_name"] = journeys_data["journeys"][0]["name"]
+                    
+                    # Convert each journey and its stages to our phase format
+                    for journey in journeys_data["journeys"]:
+                        if "stages" in journey and isinstance(journey["stages"], list):
+                            for i, stage in enumerate(journey["stages"]):
+                                phase = {
+                                    "name": stage.get("event", f"Phase {i+1}"),
+                                    "description": stage.get("challenge", ""),
+                                    "sequence": i + 1,
+                                    "touchpoints": [],
+                                    "emotions": [],
+                                    "behaviors": [],
+                                    "pain_points": [],
+                                    "opportunities": []
+                                }
+                                
+                                # Add the challenge as a pain point if available
+                                if "challenge" in stage and stage["challenge"]:
+                                    phase["pain_points"].append(stage["challenge"])
+                                
+                                # Add quotes if available
+                                if "quotes" in stage and stage["quotes"] and len(stage["quotes"]) > 0:
+                                    # Create touchpoint from quotes
+                                    for q in stage["quotes"]:
+                                        if q.strip():
+                                            phase["touchpoints"].append({
+                                                "type": "Quote",
+                                                "description": q,
+                                                "channel": "Interview",
+                                                "importance": 8
+                                            })
+                                
+                                insights["phases"].append(phase)
+                            
+                    # If we extracted phases successfully, return the insights
+                    if insights["phases"]:
+                        return insights
+            except Exception as e:
+                self.logger.warning(f"Failed to parse journeys data: {str(e)}")
+        
+        # Try other formats if journeys format fails
+        try:
+            # Look for any JSON object in the text (more lenient)
+            json_start = raw_text.find("{")
+            json_end = raw_text.rfind("}")
+            
+            if json_start >= 0 and json_end > json_start:
+                possible_json = raw_text[json_start:json_end+1]
+                try:
+                    # Use literal_eval as a more lenient alternative to json.loads
+                    import ast
+                    data = ast.literal_eval(possible_json)
+                    if isinstance(data, dict):
+                        # Extract any useful fields
+                        for key in ["journey_name", "summary", "personas", "phases", 
+                                   "overall_pain_points", "overall_opportunities"]:
+                            if key in data:
+                                insights[key] = data[key]
+                except Exception:
+                    pass
+        except Exception:
+            pass
+            
+        # Use regex to extract information if still no success
+        if not insights["phases"]:
+            # Extract basic journey information
+            title_match = re.search(r'"journey_name"\s*:\s*"([^"]+)"', raw_text)
+            if title_match:
+                insights["journey_name"] = title_match.group(1)
+                
+            # Extract phases (using flexible pattern matching)
+            phases_pattern = r'"name"\s*:\s*"([^"]+)"[^}]*?"description"\s*:\s*"([^"]*)"'
+            phases = re.findall(phases_pattern, raw_text)
+            
+            for i, (name, desc) in enumerate(phases):
+                phase = {
+                    "name": name,
+                    "description": desc,
+                    "sequence": i + 1,
+                    "touchpoints": [],
+                    "emotions": [],
+                    "behaviors": [],
+                    "pain_points": [],
+                    "opportunities": []
+                }
+                insights["phases"].append(phase)
+                
+            # If no phases found, create a default phase structure
+            if not insights["phases"]:
+                insights["phases"] = [{
+                    "name": "Journey Phase",
+                    "description": "Journey information extracted from unstructured data",
+                    "sequence": 1,
+                    "touchpoints": [],
+                    "emotions": [],
+                    "behaviors": [],
+                    "pain_points": [],
+                    "opportunities": []
+                }]
+        
+        return insights
+            
+    def _fix_json_errors(self, json_str: str) -> str:
+        """
+        Fix common JSON formatting errors.
+        
+        Args:
+            json_str: JSON string with potential errors
+            
+        Returns:
+            Fixed JSON string
+        """
+        # Replace single quotes with double quotes
+        fixed_json = json_str.replace("'", '"')
+        
+        # Fix missing quotes around property names
+        fixed_json = re.sub(r'([{,])\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*:', r'\1"\2":', fixed_json)
+        
+        # Fix trailing commas in arrays and objects
+        fixed_json = re.sub(r',\s*([\]}])', r'\1', fixed_json)
+        
+        # Fix missing commas between array items
+        fixed_json = re.sub(r'(["0-9])\s*\n\s*"', r'\1,\n"', fixed_json)
+        
+        # Fix missing quotes around string values
+        fixed_json = re.sub(r':\s*([a-zA-Z][a-zA-Z0-9_\s]+)([,}\]])', r':"\1"\2', fixed_json)
+        
+        return fixed_json
+        
+    def _transform_journey_data(self, journey_map: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Transform the journey data, particularly handling data stored in raw_insights.
+        
+        Args:
+            journey_map: The journey map data to transform
+            
+        Returns:
+            Transformed journey map ready for visualization
+        """
+        self.logger.info("Transforming journey data into visualization format")
+        
+        # If already in the expected format with proper fields, just validate
+        if all(key in journey_map for key in ["journey_name", "summary", "personas", "phases"]):
+            return self._validate_journey_map(journey_map)
+            
+        # Check if we need to extract from raw_insights
+        if "raw_insights" in journey_map and journey_map["raw_insights"]:
+            raw_insights = journey_map["raw_insights"]
+            
+            # If raw_insights is a JSON string, try to parse it
+            if isinstance(raw_insights, str) and raw_insights.strip().startswith("{"):
+                try:
+                    # First check if it's already parsed JSON
+                    raw_data = {}
+                    try:
+                        # Try to extract JSON from code blocks
+                        json_pattern = r"```(?:json)?\s*([\s\S]*?)\s*```"
+                        json_matches = re.findall(json_pattern, raw_insights)
+                        
+                        if json_matches:
+                            for json_str in json_matches:
+                                try:
+                                    raw_data = json.loads(json_str)
+                                    break
+                                except json.JSONDecodeError:
+                                    continue
+                        
+                        # If no match in code blocks, try the entire string
+                        if not raw_data:
+                            raw_data = json.loads(raw_insights)
+                            
+                    except json.JSONDecodeError:
+                        # Not valid JSON, leave as is
+                        pass
+                    
+                    # If we have journeys data, transform it to the expected format
+                    if raw_data and "journeys" in raw_data and isinstance(raw_data["journeys"], list):
+                        return self._transform_journeys_format(raw_data, journey_map)
+                except Exception as e:
+                    self.logger.warning(f"Failed to parse raw_insights as JSON: {str(e)}")
+        
+        # If we reach here, validate the journey map as is
+        return self._validate_journey_map(journey_map)
+    
+    def _transform_journeys_format(self, raw_data: Dict[str, Any], original_journey_map: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Transform the journeys format from raw_insights into the expected journey map format.
+        
+        Args:
+            raw_data: The parsed JSON from raw_insights
+            original_journey_map: The original journey map data
+            
+        Returns:
+            Transformed journey map in the expected format
+        """
+        self.logger.info("Transforming journeys format to expected journey map structure")
+        
+        transformed = {
+            "journey_name": "Journey Map",
+            "summary": "",
+            "personas": [],
+            "phases": [],
+            "overall_pain_points": [],
+            "overall_opportunities": [],
+            "raw_insights": original_journey_map.get("raw_insights", "")
+        }
+        
+        # Extract journeys
+        journeys = raw_data.get("journeys", [])
+        if not journeys:
+            return self._validate_journey_map(original_journey_map)
+        
+        # Use the first journey name as the overall journey name
+        if journeys[0].get("name"):
+            transformed["journey_name"] = journeys[0].get("name")
+        
+        # Combine journey information for summary
+        journey_names = [j.get("name", "Unnamed Journey") for j in journeys if j.get("name")]
+        if journey_names:
+            transformed["summary"] = f"This journey map includes: {', '.join(journey_names)}"
+            
+        # Extract personas (if we can identify them)
+        persona_candidates = []
+        for journey in journeys:
+            # Look for actors or roles in journey data
+            for field in ["actors", "roles", "participants", "users", "personas"]:
+                if field in journey and isinstance(journey[field], list):
+                    persona_candidates.extend(journey[field])
+        
+        # If no explicit personas, try to infer from journey names
+        if not persona_candidates:
+            for journey in journeys:
+                name = journey.get("name", "").lower()
+                if "student" in name or "education" in name or "co-op" in name:
+                    persona_candidates.append("Student")
+                if "customer" in name or "shopper" in name or "buyer" in name:
+                    persona_candidates.append("Customer")
+                if "patient" in name or "healthcare" in name:
+                    persona_candidates.append("Patient")
+                if "employee" in name or "worker" in name or "staff" in name:
+                    persona_candidates.append("Employee")
+        
+        # Deduplicate personas
+        transformed["personas"] = list(set(persona_candidates)) or ["User"]
+        
+        # Create phases from all journey stages
+        phase_sequence = 1
+        for journey in journeys:
+            stages = journey.get("stages", [])
+            
+            if not stages:
+                continue
+                
+            for stage in stages:
+                phase = {
+                    "name": stage.get("title", "Unnamed Stage"),
+                    "description": stage.get("description", ""),
+                    "sequence": phase_sequence,
+                    "touchpoints": [],
+                    "emotions": [],
+                    "behaviors": [],
+                    "pain_points": [],
+                    "opportunities": []
+                }
+                
+                # Create a default touchpoint based on the stage
+                phase["touchpoints"].append({
+                    "type": stage.get("title", "Stage Interaction"),
+                    "description": stage.get("description", ""),
+                    "channel": "Various",
+                    "importance": 8
+                })
+                
+                # Add quotes as touchpoints if available
+                if "quotes" in stage and isinstance(stage["quotes"], list):
+                    for quote in stage["quotes"]:
+                        phase["touchpoints"].append({
+                            "type": "User Quote",
+                            "description": quote,
+                            "channel": "Interview",
+                            "importance": 7
+                        })
+                
+                # Try to extract emotions from stage descriptions
+                emotion_value = 50  # Default neutral
+                emotion_text = stage.get("description", "").lower()
+                
+                # Simple sentiment analysis
+                positive_words = ["happy", "excited", "pleased", "satisfied", "enjoy", "positive", "great", "good"]
+                negative_words = ["frustrated", "confused", "difficult", "challenging", "bad", "negative", "hard", "stress", "anxiety", "fear"]
+                
+                # Count positive and negative words
+                positive_count = sum(1 for word in positive_words if word in emotion_text)
+                negative_count = sum(1 for word in negative_words if word in emotion_text)
+                
+                # Determine emotion type and value
+                if positive_count > negative_count:
+                    emotion_type = "Positive"
+                    emotion_value = 70 + (positive_count * 5)  # Scale up for multiple positive words
+                elif negative_count > positive_count:
+                    emotion_type = "Negative"
+                    emotion_value = 30 - (negative_count * 5)  # Scale down for multiple negative words
+                else:
+                    emotion_type = "Neutral"
+                
+                # Limit to range
+                emotion_value = max(10, min(90, emotion_value))
+                
+                # Add emotion
+                phase["emotions"].append({
+                    "type": emotion_type,
+                    "description": "Based on stage description",
+                    "value": emotion_value
+                })
+                
+                # Add default behaviors based on stage
+                phase["behaviors"].append(f"Engaging with {stage.get('title', 'this stage')}")
+                
+                # Add pain points for the stage
+                if "pain_points" in journey and isinstance(journey["pain_points"], list):
+                    for pain_point in journey["pain_points"]:
+                        if isinstance(pain_point, dict):
+                            pain_title = pain_point.get("title", "")
+                            pain_desc = pain_point.get("description", "")
+                            
+                            # Full pain point text
+                            pain_text = f"{pain_title}{': ' if pain_title and pain_desc else ''}{pain_desc}"
+                            phase["pain_points"].append(pain_text)
+                
+                # Increment phase sequence
+                phase_sequence += 1
+                transformed["phases"].append(phase)
+        
+        # Extract overall pain points from all journeys
+        for journey in journeys:
+            if "pain_points" in journey and isinstance(journey["pain_points"], list):
+                for pain_point in journey["pain_points"]:
+                    if isinstance(pain_point, dict):
+                        pain_title = pain_point.get("title", "")
+                        pain_desc = pain_point.get("description", "")
+                        
+                        # Full pain point text
+                        pain_text = f"{pain_title}{': ' if pain_title and pain_desc else ''}{pain_desc}"
+                        if pain_text and pain_text not in transformed["overall_pain_points"]:
+                            transformed["overall_pain_points"].append(pain_text)
+        
+        # Generate opportunities based on pain points
+        if transformed["overall_pain_points"]:
+            for pain_point in transformed["overall_pain_points"]:
+                # Create an opportunity that addresses the pain point
+                opportunity = f"Address {pain_point.lower()}"
+                transformed["overall_opportunities"].append(opportunity)
+                
+        # Add default opportunities if none generated
+        if not transformed["overall_opportunities"]:
+            transformed["overall_opportunities"] = [
+                "Improve user experience across all stages",
+                "Provide better communication during transitions between stages",
+                "Reduce friction points in the journey"
+            ]
+        
+        return self._validate_journey_map(transformed)
+        
+    def _validate_journey_map(self, journey_map: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Validate and clean up the journey map to ensure it has required fields.
+        
+        Args:
+            journey_map: The journey map to validate
+            
+        Returns:
+            Validated journey map
+        """
+        # Ensure required fields are present
+        if "journey_name" not in journey_map:
+            journey_map["journey_name"] = "Journey Map"
+            
+        if "summary" not in journey_map:
+            journey_map["summary"] = "A journey map showing the user experience."
+            
+        if "personas" not in journey_map or not journey_map["personas"]:
+            journey_map["personas"] = ["User"]
+            
+        if "phases" not in journey_map or not journey_map["phases"]:
+            # Create default phases if none provided
+            journey_map["phases"] = [
+                {
+                    "name": "Initial Phase",
+                    "description": "The beginning of the journey.",
+                    "sequence": 1,
+                    "touchpoints": [
+                        {
+                            "type": "First Interaction",
+                            "description": "The first interaction in the journey",
+                            "channel": "Various",
+                            "importance": 8
+                        }
+                    ],
+                    "emotions": [
+                        {
+                            "type": "Neutral",
+                            "description": "Initial expectations",
+                            "value": 50
+                        }
+                    ],
+                    "behaviors": ["Initial behavior"],
+                    "pain_points": ["Potential challenge"],
+                    "opportunities": ["Potential improvement"]
+                }
+            ]
+            
+        if "overall_pain_points" not in journey_map or not journey_map["overall_pain_points"]:
+            journey_map["overall_pain_points"] = ["No major pain points identified"]
+            
+        if "overall_opportunities" not in journey_map or not journey_map["overall_opportunities"]:
+            journey_map["overall_opportunities"] = ["No major opportunities identified"]
+            
+        # Validate and fix each phase
+        for i, phase in enumerate(journey_map["phases"]):
+            # Ensure sequence is set
+            if "sequence" not in phase:
+                phase["sequence"] = i + 1
+                
+            # Ensure touchpoints exist and have required fields
+            if "touchpoints" not in phase or not phase["touchpoints"]:
+                phase["touchpoints"] = [
+                    {
+                        "type": "Default Touchpoint",
+                        "description": "Interaction during this phase",
+                        "channel": "Various",
+                        "importance": 5
+                    }
+                ]
+            else:
+                for touchpoint in phase["touchpoints"]:
+                    if "type" not in touchpoint:
+                        touchpoint["type"] = "Interaction"
+                    if "description" not in touchpoint:
+                        touchpoint["description"] = "User interaction"
+                    if "channel" not in touchpoint:
+                        touchpoint["channel"] = "Various"
+                    if "importance" not in touchpoint:
+                        touchpoint["importance"] = 5
+                
+            # Ensure emotions exist and have required fields
+            if "emotions" not in phase or not phase["emotions"]:
+                phase["emotions"] = [
+                    {
+                        "type": "Neutral",
+                        "description": "Standard experience",
+                        "value": 50
+                    }
+                ]
+            else:
+                for emotion in phase["emotions"]:
+                    if "type" not in emotion:
+                        emotion["type"] = "Mixed"
+                    if "description" not in emotion:
+                        emotion["description"] = "Various feelings"
+                    if "value" not in emotion:
+                        emotion["value"] = 50
+                
+            # Ensure behaviors, pain_points, and opportunities exist
+            if "behaviors" not in phase or not phase["behaviors"]:
+                phase["behaviors"] = ["Standard interaction"]
+            if "pain_points" not in phase or not phase["pain_points"]:
+                phase["pain_points"] = ["No specific pain points identified"]
+            if "opportunities" not in phase or not phase["opportunities"]:
+                phase["opportunities"] = ["Potential for improvement"]
+        
+        return journey_map
+        
+    def _save_debug_file(self, filename: str, content: Union[str, Dict, List]) -> None:
+        """
+        Save content to a debug file.
+        
+        Args:
+            filename: Name of the debug file
+            content: Content to save
+        """
+        try:
+            debug_path = os.path.join("logs", filename)
+            
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(debug_path), exist_ok=True)
+            
+            # Write content
+            if isinstance(content, (dict, list)):
+                with open(debug_path, "w") as f:
+                    json.dump(content, f, indent=2, default=str)
+            else:
+                with open(debug_path, "w") as f:
+                    f.write(str(content))
+                    
+            self.logger.debug(f"Saved debug file: {debug_path}")
+            
+        except Exception as e:
+            self.logger.warning(f"Failed to save debug file {filename}: {str(e)}")
+    
+    def _detect_journey_type(self, structured_data: str, unstructured_data: str) -> str:
+        """Detect the domain/type of journey from the data"""
+        combined_data = structured_data + " " + unstructured_data
+        combined_data = combined_data.lower()
+        
+        # Check for sample data indicators (online shopping experience)
+        if "online shopping experience" in combined_data or "browsing experience" in combined_data:
+            self.logger.info(f"Detected customer_purchase journey type from specific phrases")
+            return "customer_purchase"
+        
+        # Look for specific journey stage indicators from our sample data
+        shop_journey_stages = ["initial research", "browsing experience", "product page", 
+                               "shopping cart", "checkout", "delivery", "after-sales"]
+        
+        shop_stage_count = sum(1 for stage in shop_journey_stages if stage in combined_data)
+        if shop_stage_count >= 2:
+            self.logger.info(f"Detected customer_purchase journey type from {shop_stage_count} shopping journey stages")
+            return "customer_purchase"
+            
+        # Look for touchpoints from our sample customer survey data
+        shop_touchpoints = ["google_search", "product_filter", "product_search", 
+                           "shopping_cart", "add_to_cart", "payment_process"]
+        
+        shop_touchpoint_count = sum(1 for touchpoint in shop_touchpoints if touchpoint in combined_data)
+        if shop_touchpoint_count >= 2:
+            self.logger.info(f"Detected customer_purchase journey type from {shop_touchpoint_count} shopping touchpoints")
+            return "customer_purchase"
+        
+        # Define keywords for different journey types
+        journey_types = {
+            "customer_purchase": ["purchase", "buy", "checkout", "cart", "product", "shop", "retail", 
+                                 "ecommerce", "online shopping", "website", "browsing", "delivery",
+                                 "customer", "order", "shipping", "payment", "shopping"],
+            "educational": ["student", "course", "class", "education", "college", "university", 
+                           "school", "co-op", "coop", "northeastern", "intern", "learning"],
+            "healthcare": ["patient", "doctor", "hospital", "clinic", "treatment", "health", 
+                          "medical", "care", "diagnosis", "symptoms", "therapy", "provider"],
+            "employee": ["employee", "onboarding", "hr", "hiring", "workplace", "work", 
+                        "job", "career", "recruitment", "training", "office", "staff"],
+            "user_software": ["app", "software", "platform", "website", "user", "interface", 
+                             "feature", "function", "login", "account", "download", "update"]
+        }
+        
+        # Count occurrences of keywords for each journey type
+        counts = {journey_type: 0 for journey_type in journey_types}
+        for journey_type, keywords in journey_types.items():
+            for keyword in keywords:
+                counts[journey_type] += combined_data.count(keyword)
+        
+        # Determine the most likely journey type
+        most_likely_type = max(counts.items(), key=lambda x: x[1])[0]
+        self.logger.info(f"Detected journey type: {most_likely_type} (counts: {counts})")
+        
+        return most_likely_type
+    
+    def _create_prompt_for_journey_type(self, journey_type: str, structured_data: str, unstructured_data: str) -> str:
+        """Create a prompt tailored to the detected journey type"""
+        prompts = {
+            "customer_purchase": CUSTOMER_PURCHASE_PROMPT,
+            "educational": EDUCATIONAL_PROMPT,
+            "healthcare": HEALTHCARE_PROMPT,
+            "employee": EMPLOYEE_PROMPT,
+            "user_software": USER_SOFTWARE_PROMPT
+        }
+        
+        # Get the appropriate prompt template
+        prompt_template = prompts.get(journey_type, DEFAULT_PROMPT)
+        
+        # Fill in the template with the data
+        prompt = prompt_template.replace("{structured_data}", structured_data)
+        prompt = prompt.replace("{unstructured_data}", unstructured_data)
+        
+        return prompt
+    
+    def _summarize_structured_data(self, structured_data: List) -> str:
+        """Summarize structured data for LLM prompt"""
+        if not structured_data:
+            return "No structured data provided."
+        
+        summary = ""
+        for item in structured_data:
+            try:
+                if not isinstance(item, dict):
+                    continue  # Skip non-dictionary items
+                
+                source = item.get("source", "Unknown")
+                data_type = item.get("type", "Unknown")
+                data = item.get("data", {})
+                
+                summary += f"Source: {source} (Type: {data_type})\n"
+                
+                # Provide context hints based on source content
+                if isinstance(source, str):
+                    source_lower = source.lower()
+                    if "survey" in source_lower or "feedback" in source_lower:
+                        summary += "Note: This contains user feedback that may reveal satisfaction levels, pain points, and behaviors.\n"
+                    elif "transcript" in source_lower or "interview" in source_lower:
+                        summary += "Note: This contains conversational data that may reveal persona traits, behaviors, experiences, and emotional states.\n"
+                    elif "analytics" in source_lower or "metrics" in source_lower:
+                        summary += "Note: This contains quantitative data that may reveal patterns of behavior and potential friction points.\n"
+                
+                # Check if it's journey-specific data with metadata
+                if isinstance(data, dict) and "metadata" in data and "records" in data:
+                    metadata = data.get("metadata", {})
+                    records = data.get("records", [])
+                    
+                    # Include metadata info
+                    summary += "Journey-specific data detected:\n"
+                    if "journey_type" in metadata:
+                        summary += f"- Journey Type: {metadata['journey_type']}\n"
+                    if "journey_columns" in metadata:
+                        summary += f"- Journey Columns: {', '.join(metadata['journey_columns'])}\n"
+                    if "row_count" in metadata:
+                        summary += f"- Record Count: {metadata['row_count']}\n"
+                    
+                    # Include sample records
+                    if records and isinstance(records, list):
+                        sample_size = min(3, len(records))
+                        summary += f"Contains {len(records)} records. Sample records:\n"
+                        for i in range(sample_size):
+                            if i < len(records):
+                                try:
+                                    summary += json.dumps(records[i], indent=2) + "\n"
+                                except (TypeError, ValueError):
+                                    summary += f"Record {i+1}: [Complex data structure]\n"
+                    
+                # Standard list data        
+                elif isinstance(data, list) and len(data) > 0:
+                    # For list data, include count and first few items
+                    summary += f"Contains {len(data)} records.\n"
+                    sample_size = min(3, len(data))
+                    summary += "Sample records:\n"
+                    for i in range(sample_size):
+                        if i < len(data):
+                            try:
+                                record_str = json.dumps(data[i], indent=2)
+                                # Truncate if too long
+                                if len(record_str) > 500:
+                                    record_str = record_str[:497] + "..."
+                                summary += record_str + "\n"
+                            except (TypeError, ValueError):
+                                summary += f"Record {i+1}: [Complex data structure]\n"
+                # Dictionary data
+                elif isinstance(data, dict):
+                    # For dictionary data, format it properly
+                    try:
+                        data_str = json.dumps(data, indent=2)
+                        # Truncate if too long
+                        if len(data_str) > 1000:
+                            data_str = data_str[:997] + "..."
+                        summary += f"Data: {data_str}\n"
+                    except (TypeError, ValueError):
+                        summary += "Data: [Complex data structure]\n"
+                # String or other data
+                else:
+                    # For string data or unknown types, include a representation
+                    try:
+                        if isinstance(data, str):
+                            if len(data) > 1000:
+                                summary += f"Data (text): {data[:997]}...\n"
+                            else:
+                                summary += f"Data (text): {data}\n"
+                        else:
+                            summary += f"Data (type: {type(data).__name__}): {str(data)[:100]}\n"
+                    except Exception:
+                        summary += "Data: [Unrepresentable data]\n"
+            
+            except Exception as e:
+                summary += f"Error processing structured data item: {str(e)}\n"
+            
+            summary += "\n"
+            
+        return summary
+    
+    def _summarize_unstructured_data(self, unstructured_data: List) -> str:
+        """Summarize unstructured data for LLM prompt"""
+        if not unstructured_data:
+            return "No unstructured data provided."
+        
+        summary = ""
+        for item in unstructured_data:
+            try:
+                if not isinstance(item, dict):
+                    continue  # Skip non-dictionary items
+                
+                source = item.get("source", "Unknown")
+                data_type = item.get("type", "Unknown")
+                data = item.get("data", "")
+                structured_elements = item.get("structured_elements", {})
+                
+                summary += f"Source: {source} (Type: {data_type})\n"
+                
+                # Provide context hints based on source content 
+                if isinstance(source, str):
+                    source_lower = source.lower()
+                    if "transcript" in source_lower or "conversation" in source_lower or "interview" in source_lower:
+                        summary += "Note: This transcript/interview may contain detailed insights about experiences, behaviors, emotions, and pain points.\n"
+                    elif "observation" in source_lower or "notes" in source_lower:
+                        summary += "Note: These observation notes may reveal behaviors and interactions in real contexts.\n"
+                    elif "feedback" in source_lower or "survey" in source_lower or "review" in source_lower:
+                        summary += "Note: This customer feedback may contain sentiment, pain points, and suggestions for improvement.\n"
+                
+                # If structured_elements is available (for transcript data), use it
+                if structured_elements and isinstance(structured_elements, dict):
+                    summary += "Structured elements detected:\n"
+                    
+                    # Include speakers/personas
+                    if "speakers" in structured_elements and structured_elements["speakers"]:
+                        summary += "Participants/Speakers:\n"
+                        for speaker in structured_elements["speakers"][:5]:
+                            summary += f"- {speaker}\n"
+                    
+                    # Include topics
+                    if "topics" in structured_elements and structured_elements["topics"]:
+                        summary += "Topics discussed:\n"
+                        for topic in structured_elements["topics"][:5]:
+                            summary += f"- {topic}\n"
+                    
+                    # Include questions
+                    if "questions" in structured_elements and structured_elements["questions"]:
+                        summary += "Key questions:\n"
+                        for question in structured_elements["questions"][:5]:
+                            summary += f"- {question}\n"
+                    
+                    # Include sentiment if available
+                    if "sentiments" in structured_elements and structured_elements["sentiments"]:
+                        sentiments = structured_elements["sentiments"]
+                        if sentiments:
+                            summary += "Detected sentiments:\n"
+                            sentiment_counts = {"positive": 0, "negative": 0, "neutral": 0}
+                            for sentiment in sentiments[:10]:
+                                if isinstance(sentiment, dict) and "type" in sentiment:
+                                    sentiment_type = sentiment.get("type", "unknown")
+                                    if sentiment_type in sentiment_counts:
+                                        sentiment_counts[sentiment_type] += 1
+                            
+                            for sentiment_type, count in sentiment_counts.items():
+                                if count > 0:
+                                    summary += f"- {sentiment_type.title()}: {count} instances\n"
+                
+                # When we have STRUCTURED_CUSTOMER_FEEDBACK format in data
+                elif isinstance(data, str) and data.startswith("STRUCTURED CUSTOMER FEEDBACK"):
+                    # Extract structured parts from the feedback
+                    sections = {}
+                    current_section = None
+                    section_content = []
+                    
+                    for line in data.split('\n'):
+                        if line.startswith('##'):
+                            # Section header
+                            section_name = line.strip('# ')
+                            sections[section_name] = ""
+                            current_section = section_name
+                        elif line.upper().endswith(':') and line.isupper() and len(line) < 40:
+                            # Main section like "PAIN POINTS:"
+                            section_name = line.strip(':')
+                            sections[section_name] = ""
+                            current_section = section_name
+                        elif current_section and line.strip():
+                            # Content line
+                            if sections[current_section]:
+                                sections[current_section] += "\n" + line
+                            else:
+                                sections[current_section] = line
+                    
+                    # Include structured sections in the summary
+                    for section_name, content in sections.items():
+                        if section_name in ["PAIN POINTS", "HIGHLIGHTS", "SENTIMENT ANALYSIS", "OVERALL RATING"]:
+                            summary += f"{section_name}:\n{content}\n\n"
+                    
+                    # Shorter content inclusion since we have the structured parts
+                    content_excerpt = data.split("FULL CONTENT:")[1].strip() if "FULL CONTENT:" in data else data
+                    if len(content_excerpt) > 2000:
+                        content_excerpt = content_excerpt[:1997] + "..."
+                    summary += f"Content excerpt:\n{content_excerpt}\n"
+                
+                # When we have STRUCTURED JOURNEY CONTENT format in data
+                elif isinstance(data, str) and data.startswith("STRUCTURED JOURNEY CONTENT"):
+                    # Just include it directly as it's already well-structured
+                    summary += data
+                
+                # For regular string data, analyze content to identify key elements
+                elif isinstance(data, str) and len(data) > 0:
+                    # Extract potential journey phases or key moments
+                    potential_stages = self._extract_potential_journey_stages(data)
+                    if potential_stages:
+                        summary += "Potential journey stages identified:\n"
+                        for stage in potential_stages:
+                            summary += f"- {stage}\n"
+                    
+                    # Extract potential actors/personas
+                    potential_actors = self._extract_potential_actors(data)
+                    if potential_actors:
+                        summary += "Potential actors/personas identified:\n"
+                        for actor in potential_actors:
+                            summary += f"- {actor}\n"
+                    
+                    # Extract potential pain points or challenges
+                    potential_pain_points = self._extract_potential_pain_points(data)
+                    if potential_pain_points:
+                        summary += "Potential pain points/challenges identified:\n"
+                        for point in potential_pain_points:
+                            summary += f"- {point}\n"
+                
+                    # Limit the amount of text for large documents but ensure key sections are included
+                    if len(data) > 5000:
+                        # Extract key sections
+                        key_sections = self._extract_key_sections(data)
+                        if key_sections:
+                            summary += "Key sections extracted from content:\n"
+                            for section_title, section_content in key_sections.items():
+                                summary += f"\n--- {section_title} ---\n"
+                                # Limit each section content to a reasonable size
+                                if len(section_content) > 1000:
+                                    summary += section_content[:997] + "...\n"
+                                else:
+                                    summary += section_content + "\n"
+                        else:
+                            # Fall back to excerpt if no sections found
+                            summary += f"Contains {len(data)} characters. Excerpt:\n"
+                            summary += data[:2997] + "...\n"
+                    else:
+                        # Include full content for shorter texts
+                        summary += f"Content:\n{data}\n"
+                
+                # Handle non-string data
+                elif not isinstance(data, str) and data:
+                    try:
+                        # If it's a dictionary or other complex structure
+                        if isinstance(data, dict):
+                            # Structured transcript data often has full_text and transcript_elements
+                            if "full_text" in data and isinstance(data["full_text"], str):
+                                full_text = data["full_text"]
+                                if "transcript_elements" in data and isinstance(data["transcript_elements"], dict):
+                                    # Include transcript elements
+                                    elements = data["transcript_elements"]
+                                    
+                                    if "speakers" in elements and elements["speakers"]:
+                                        summary += "Speakers/Participants:\n"
+                                        for speaker in elements["speakers"][:5]:
+                                            summary += f"- {speaker}\n"
+                                    
+                                    if "topics" in elements and elements["topics"]:
+                                        summary += "Discussed Topics:\n"
+                                        for topic in elements["topics"][:5]:
+                                            summary += f"- {topic}\n"
+                                    
+                                    # Include text excerpt
+                                    if len(full_text) > 3000:
+                                        summary += f"\nContent excerpt:\n{full_text[:2997]}...\n"
+                                    else:
+                                        summary += f"\nContent:\n{full_text}\n"
+                                else:
+                                    # Just include the full text with limits
+                                    if len(full_text) > 3000:
+                                        summary += f"Content excerpt:\n{full_text[:2997]}...\n"
+                                    else:
+                                        summary += f"Content:\n{full_text}\n"
+                            else:
+                                # Try to convert to JSON representation
+                                data_str = json.dumps(data, ensure_ascii=False, indent=2, default=str)
+                                if len(data_str) > 1000:
+                                    summary += f"Data (truncated):\n{data_str[:997]}...\n"
+                                else:
+                                    summary += f"Data:\n{data_str}\n"
+                        else:
+                            # For other data types, just include a string representation
+                            data_str = str(data)
+                            if len(data_str) > 1000:
+                                summary += f"Data (truncated):\n{data_str[:997]}...\n"
+                            else:
+                                summary += f"Data:\n{data_str}\n"
+                    except Exception as e:
+                        summary += f"Unable to process data: {str(e)}\n"
+            
+            except Exception as e:
+                self.logger.warning(f"Error processing unstructured data item: {str(e)}")
+                summary += f"Error processing data item: {str(e)}\n"
+            
+            summary += "\n"
+            
+        return summary
+    
+    def _extract_potential_journey_stages(self, text: str) -> List[str]:
+        """Extract potential journey stages from text"""
+        # Look for phrases that might indicate journey stages
+        stage_patterns = [
+            r"(?:stage|phase|step|process)[\s:]+([^\n.,;]+)",
+            r"(?:first|second|third|fourth|fifth|next)[\s,]+(?:step|stage|phase)[\s:]+([^\n.,;]+)",
+            r"(?:begin|start|initial)(?:ning)?[\s:]+([^\n.,;]+)",
+            r"(?:during|while|when)[\s:]+([^\n.,;]+)",
+            r"(?:after|following|completion)[\s:]+([^\n.,;]+)",
+            r"(?:end|final|last)[\s:]+([^\n.,;]+)"
+        ]
+        
+        stages = []
+        for pattern in stage_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            stages.extend([match.strip() for match in matches if len(match.strip()) > 3])
+        
+        # Remove duplicates and keep order
+        unique_stages = []
+        for stage in stages:
+            if stage.lower() not in [s.lower() for s in unique_stages]:
+                unique_stages.append(stage)
+        
+        return unique_stages[:10]  # Limit to 10 stages
+    
+    def _extract_potential_actors(self, text: str) -> List[str]:
+        """Extract potential actors or personas from text"""
+        # Look for roles, personas, or actors
+        actor_patterns = [
+            r"(?:customer|user|client|visitor|buyer|student|patient|employee|manager|staff|faculty|administrator|advisor)s?(?:\s+who|\s+that)?(?:\s+[^\n.,;]+)?",
+            r"(?:people|individuals)(?:\s+who|\s+that)?\s+([^\n.,;]+)",
+            r"(?:professor|instructor|teacher|doctor|nurse|counselor|advisor)s?(?:\s+who|\s+that)?(?:\s+[^\n.,;]+)?"
+        ]
+        
+        actors = []
+        for pattern in actor_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            if isinstance(matches, list):
+                actors.extend([match.strip() for match in matches if isinstance(match, str) and len(match.strip()) > 3])
+        
+        # Also look for names followed by roles
+        name_role_pattern = r"([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)(?:\s+is|\s+as|\s+,|\s+the)?\s+(?:a|an|the)?\s+((?:customer|user|student|professor|manager|advisor|coordinator)[^\n.,;]*)"
+        name_role_matches = re.findall(name_role_pattern, text)
+        for name, role in name_role_matches:
+            actors.append(f"{name} ({role.strip()})")
+        
+        # Remove duplicates and keep order
+        unique_actors = []
+        for actor in actors:
+            if actor.lower() not in [a.lower() for a in unique_actors]:
+                unique_actors.append(actor)
+        
+        return unique_actors[:10]  # Limit to 10 actors
+    
+    def _extract_potential_pain_points(self, text: str) -> List[str]:
+        """Extract potential pain points or challenges from text"""
+        # Look for phrases that might indicate pain points
+        pain_point_patterns = [
+            r"(?:problem|issue|challenge|difficulty|frustration|pain point|hurdle|obstacle)s?[\s:]+([^\n.]+)",
+            r"(?:struggle|struggled|struggling)(?:d|s)?(?:\s+with)?[\s:]+([^\n.]+)",
+            r"(?:hard|difficult|challenging|frustrating)(?:\s+to)?[\s:]+([^\n.]+)",
+            r"(?:dissatisf|disappoint|unhapp|upset)(?:ied|ied|y|ting)(?:\s+with)?[\s:]+([^\n.]+)",
+            r"(?:wish|wanted|need|lacking|missing)(?:ed|s)?(?:\s+that|for|to)?[\s:]+([^\n.]+)"
+        ]
+        
+        pain_points = []
+        for pattern in pain_point_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            pain_points.extend([match.strip() for match in matches if len(match.strip()) > 5])
+        
+        # Remove duplicates and keep order
+        unique_pain_points = []
+        for point in pain_points:
+            if not any(point.lower() in p.lower() for p in unique_pain_points):
+                unique_pain_points.append(point)
+        
+        return unique_pain_points[:10]  # Limit to 10 pain points
+    
+    def _extract_key_sections(self, text: str) -> Dict[str, str]:
+        """Extract key sections from text based on headers or semantic breaks"""
+        sections = {}
+        
+        # Look for headers (any line followed by underlines, or lines with #, or numbered sections)
+        header_patterns = [
+            r"^([^\n]+)\n[=\-~]{3,}\n",  # Headers with === or --- underlines
+            r"^#+\s+([^\n]+)\n",         # Markdown headers with #
+            r"^\d+\.\s+([^\n]+)\n",      # Numbered sections
+            r"^[A-Z][A-Z\s]+[A-Z]$\n"    # ALL CAPS headers
+        ]
+        
+        for pattern in header_patterns:
+            matches = re.finditer(pattern, text, re.MULTILINE)
+            for match in matches:
+                header = match.group(1).strip()
+                start_pos = match.end()
+                
+                # Find the end of this section (start of next section or end of text)
+                next_match = re.search(pattern, text[start_pos:], re.MULTILINE)
+                if next_match:
+                    end_pos = start_pos + next_match.start()
+                    section_content = text[start_pos:end_pos].strip()
+                else:
+                    section_content = text[start_pos:].strip()
+                
+                sections[header] = section_content
+        
+        # If no sections found using headers, try to break by semantic paragraphs
+        if not sections:
+            paragraphs = re.split(r'\n\s*\n', text)
+            if len(paragraphs) > 1:
+                for i, paragraph in enumerate(paragraphs[:5]):  # Take first 5 paragraphs
+                    sections[f"Paragraph {i+1}"] = paragraph.strip()
+        
+        return sections
+    
+    def _get_llm_analysis(self, prompt: str) -> str:
+        """Send prompt to Ollama API and get response"""
+        payload = {
+            "model": self.model,
+            "prompt": prompt,
+            "stream": False,
+            "temperature": 0.1,  # Lower temperature for more focused responses
+            "top_p": 0.9,
+            "max_tokens": 4000
+        }
+        
+        self.logger.info(f"Sending request to Ollama API at {self.api_url}")
+        try:
+            # First check if Ollama is running
+            try:
+                health_check = requests.get("http://localhost:11434/api/tags")
+                if health_check.status_code != 200:
+                    self.logger.error(f"Ollama health check failed with status {health_check.status_code}")
+                    return f"Error: Ollama server is not responding properly. Status: {health_check.status_code}"
+                
+                # Log available models
+                models = health_check.json().get("models", [])
+                model_names = [model.get("name") for model in models]
+                self.logger.info(f"Available Ollama models: {', '.join(model_names) if model_names else 'None'}")
+                
+                # Check if our model is available
+                if not model_names:
+                    self.logger.error("No models found in Ollama. Please pull the required model.")
+                    return "Error: No models found in Ollama. Please run 'ollama pull gemma:latest' to download the required model."
+                
+                if self.model not in model_names and not any(model.startswith(self.model.split(':')[0]) for model in model_names):
+                    self.logger.warning(f"Model {self.model} not found in available models. Will attempt to use it anyway.")
+                
+            except requests.exceptions.RequestException as he:
+                self.logger.error(f"Ollama health check failed: {str(he)}")
+                return "Error: Ollama server is not running or not accessible. Please ensure Ollama is running with 'ollama serve'."
+            
+            # Send the actual request
+            self.logger.info(f"Sending prompt to model {self.model} (length: {len(prompt)} chars)")
+            
+            # Save prompt for debugging
+            try:
+                with open("logs/debug_prompt.txt", "w") as f:
+                    f.write(prompt)
+                self.logger.info("Saved prompt to logs/debug_prompt.txt for debugging")
+            except Exception as write_err:
+                self.logger.warning(f"Could not save debug prompt: {str(write_err)}")
+            
+            # Make request with extended timeout for complex prompts
+            response = requests.post(self.api_url, json=payload, timeout=300)  # 5 minute timeout
+            response.raise_for_status()
+            
+            result = response.json()
+            response_text = result.get("response", "")
+            
+            # Log response info
+            self.logger.info(f"Received response (length: {len(response_text)} chars)")
+            
+            # Save response for debugging
+            try:
+                with open("logs/debug_response.txt", "w") as f:
+                    f.write(response_text)
+                self.logger.info("Saved response to logs/debug_response.txt for debugging")
+            except Exception as write_err:
+                self.logger.warning(f"Could not save debug response: {str(write_err)}")
+            
+            if len(response_text) < 100:
+                self.logger.warning(f"Suspiciously short response: {response_text}")
+                # Try a simplified prompt approach
+                simplified_prompt = self._create_simplified_prompt(prompt)
+                return self._fallback_analysis(simplified_prompt)
+                
+            return response_text
+            
+        except requests.exceptions.Timeout:
+            error_msg = f"Request to Ollama API timed out after 300 seconds. The model may be too slow or the prompt too complex."
+            self.logger.error(error_msg)
+            
+            # Try fallback analysis with simpler prompt
+            self.logger.info("Timeout occurred, attempting retry with simplified prompt")
+            simplified_prompt = self._create_simplified_prompt(prompt)
+            return self._fallback_analysis(simplified_prompt)
+            
+        except requests.exceptions.RequestException as e:
+            self.logger.error(f"Error calling Ollama API: {str(e)}")
+            error_msg = f"Failed to get analysis from Ollama: {str(e)}"
+            
+            # Add more context if it's a connection error
+            if isinstance(e, requests.exceptions.ConnectionError):
+                error_msg = "Unable to connect to Ollama API. Please ensure the Ollama server is running at http://localhost:11434."
+            
+            # Add more context if it's a 404 error
+            elif hasattr(e, 'response') and e.response is not None and e.response.status_code == 404:
+                error_msg = "The Ollama API endpoint was not found. Please ensure Ollama is running and the API URL is correct."
+                
+            # Add more context if it's a model-not-found error
+            elif "model not found" in str(e).lower():
+                try:
+                    # Try to get available models using the API again
+                    models_response = requests.get("http://localhost:11434/api/tags")
+                    if models_response.status_code == 200:
+                        models = models_response.json().get("models", [])
+                        model_names = [model.get("name") for model in models]
+                        model_list = ", ".join(model_names) if model_names else "No models found"
+                        error_msg = f"The model '{self.model}' was not found. Available models are: {model_list}."
+                        error_msg += "\nUse 'ollama pull gemma:latest' to download this model."
+                    else:
+                        error_msg = f"The model '{self.model}' was not found. Could not list available models."
+                except Exception as list_error:
+                    self.logger.error(f"Error listing models: {str(list_error)}")
+                    error_msg = f"The model '{self.model}' was not found. Try running 'ollama pull {self.model}'."
+            
+            self.logger.error(error_msg)
+            return f"Error: {error_msg}"
+    
+    def _create_simplified_prompt(self, original_prompt: str) -> str:
+        """Create a simplified prompt for fallback analysis"""
+        # Extract the data sections from the original prompt
+        structured_data_section = ""
+        unstructured_data_section = ""
+        
+        # Extract structured data
+        if "STRUCTURED DATA:" in original_prompt:
+            structured_start = original_prompt.find("STRUCTURED DATA:")
+            structured_end = original_prompt.find("UNSTRUCTURED DATA:")
+            if structured_start > 0 and structured_end > structured_start:
+                structured_data_section = original_prompt[structured_start:structured_end].strip()
+        
+        # Extract unstructured data
+        if "UNSTRUCTURED DATA:" in original_prompt:
+            unstructured_start = original_prompt.find("UNSTRUCTURED DATA:")
+            instructions_start = original_prompt.find("## Instructions:")
+            if unstructured_start > 0 and instructions_start > unstructured_start:
+                unstructured_data_section = original_prompt[unstructured_start:instructions_start].strip()
+        
+        # Create simplified prompt for Gemma format
+        simplified_prompt = """<start_of_turn>user
+You are a JOURNEY MAPPING EXPERT. Analyze this data and create a journey map with phases, touchpoints, emotions, pain points, and opportunities.
+
+Please return your response in the following JSON format:
+{
+  "journey_name": "Name of journey",
+  "summary": "Brief summary",
+  "personas": ["Persona 1", "Persona 2"],
+  "phases": [
+    {
+      "name": "Phase 1 Name",
+      "description": "Description",
+      "sequence": 1,
+      "touchpoints": [
+        {"type": "Touchpoint type", "description": "Description", "channel": "Channel", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Emotion type", "description": "Reason", "value": 75}
+      ],
+      "behaviors": ["Behavior 1", "Behavior 2"],
+      "pain_points": ["Pain point 1"],
+      "opportunities": ["Opportunity 1"]
+    }
+  ],
+  "overall_pain_points": ["Major pain point 1"],
+  "overall_opportunities": ["Strategic opportunity 1"]
+}
+
+DATA TO ANALYZE:
+"""
+        # Add the extracted data sections
+        if structured_data_section:
+            simplified_prompt += "\n" + structured_data_section + "\n"
+        if unstructured_data_section:
+            simplified_prompt += "\n" + unstructured_data_section + "\n"
+        
+        simplified_prompt += "<end_of_turn>\n\n<start_of_turn>model"
+        
+        return simplified_prompt
+    
+    def _fallback_analysis(self, simplified_prompt: str) -> str:
+        """Attempt fallback analysis with a simplified prompt"""
+        payload = {
+            "model": self.model,
+            "prompt": simplified_prompt,
+            "stream": False,
+            "temperature": 0.2,  # Lower temperature for more deterministic output
+            "top_p": 0.9,
+            "max_tokens": 4000
+        }
+        
+        self.logger.info("Attempting fallback analysis with simplified prompt")
+        
+        try:
+            response = requests.post(self.api_url, json=payload, timeout=300)
+            response.raise_for_status()
+            
+            result = response.json()
+            response_text = result.get("response", "")
+            
+            self.logger.info(f"Received fallback response (length: {len(response_text)} chars)")
+            
+            # Save fallback response for debugging
+            try:
+                with open("logs/debug_fallback_response.txt", "w") as f:
+                    f.write(response_text)
+            except Exception:
+                pass
+                
+            return response_text
+            
+        except Exception as e:
+            self.logger.error(f"Fallback analysis failed: {str(e)}")
+            # If even this fails, generate a minimal valid response
+            journey_type = "educational" if "co-op" in simplified_prompt.lower() else "general"
+            return self._generate_minimal_valid_response(journey_type)
+    
+    def _generate_minimal_valid_response(self, journey_type: str) -> str:
+        """Generate a minimal valid response based on detected journey type"""
+        if journey_type == "educational":
+            return """
+{
+  "journey_name": "Educational Co-op Experience",
+  "summary": "This journey captures the student experience of applying for, participating in, and reflecting on co-op programs at Northeastern University.",
+  "personas": ["Undergraduate Student", "Co-op Advisor", "Employer"],
+  "phases": [
+    {
+      "name": "Co-op Preparation",
+      "description": "Students prepare for co-op through classes, resume building, and interview preparation",
+      "sequence": 1,
+      "touchpoints": [
+        {"type": "Co-op Class", "description": "Students take a class to prepare for co-op", "channel": "In-person/Online", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Anticipation", "description": "Looking forward to real-world experience", "value": 70}
+      ],
+      "behaviors": ["Resume building", "LinkedIn profile creation"],
+      "pain_points": ["Uncertainty about expectations", "Concern about competition"],
+      "opportunities": ["More personalized guidance", "Better job search tools"]
+    },
+    {
+      "name": "Application Process",
+      "description": "Students search for and apply to co-op positions",
+      "sequence": 2,
+      "touchpoints": [
+        {"type": "NUworks", "description": "Platform for searching co-op positions", "channel": "Digital", "importance": 9}
+      ],
+      "emotions": [
+        {"type": "Stress", "description": "Applying to multiple positions with limited responses", "value": 30}
+      ],
+      "behaviors": ["Mass applying to positions", "Networking with past co-op students"],
+      "pain_points": ["High competition", "Limited feedback from employers"],
+      "opportunities": ["Better filtering tools", "Application tracking system"]
+    }
+  ],
+  "overall_pain_points": ["Stress of balancing applications with coursework", "Limited personalized guidance", "High number of rejections"],
+  "overall_opportunities": ["Enhance NUworks with modern search and tracking", "More structured networking with past co-op students", "Improved preparation for interviews"]
+}"""
+        elif journey_type == "customer_purchase":
+            return """
+{
+  "journey_name": "Online Shopping Experience",
+  "summary": "This journey follows customers from their initial product research through website browsing, product evaluation, checkout, delivery, and post-purchase support.",
+  "personas": ["Online Shopper", "Customer Support Agent"],
+  "phases": [
+    {
+      "name": "Initial Research",
+      "description": "Customers begin by searching for products online using search engines or social media",
+      "sequence": 1,
+      "touchpoints": [
+        {"type": "Google Search", "description": "Finding the website through search results", "channel": "Digital", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Interest", "description": "Exploring available options", "value": 75}
+      ],
+      "behaviors": ["Searching online", "Reading reviews"],
+      "pain_points": ["Difficulty finding the right website"],
+      "opportunities": ["Improved SEO", "Better search visibility"]
+    },
+    {
+      "name": "Browsing Experience",
+      "description": "Customers navigate the website looking for products that meet their requirements",
+      "sequence": 2, 
+      "touchpoints": [
+        {"type": "Product Filtering", "description": "Using filters to narrow down product selection", "channel": "Website", "importance": 7}
+      ],
+      "emotions": [
+        {"type": "Frustration", "description": "Struggling with filtering system", "value": 45}
+      ],
+      "behaviors": ["Using category navigation", "Applying filters"],
+      "pain_points": ["Filtering system not working correctly", "Takes too long to find products"],
+      "opportunities": ["Improve filter functionality", "Enhance category organization"]
+    },
+    {
+      "name": "Product Evaluation",
+      "description": "Customers examine product details and reviews to make purchase decisions",
+      "sequence": 3,
+      "touchpoints": [
+        {"type": "Product Page", "description": "Viewing detailed product information and specifications", "channel": "Website", "importance": 9},
+        {"type": "Customer Reviews", "description": "Reading feedback from other buyers", "channel": "Website", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Satisfaction", "description": "Appreciating detailed product information", "value": 75}
+      ],
+      "behaviors": ["Reading specifications", "Checking reviews", "Comparing options"],
+      "pain_points": ["Some technical terms not explained", "No product comparison feature"],
+      "opportunities": ["Add glossary for technical terms", "Implement comparison tool"]
+    },
+    {
+      "name": "Checkout Process",
+      "description": "Customers add products to cart and complete the purchase transaction",
+      "sequence": 4,
+      "touchpoints": [
+        {"type": "Shopping Cart", "description": "Adding items to cart", "channel": "Website", "importance": 9},
+        {"type": "Account Creation", "description": "Creating an account for checkout", "channel": "Website", "importance": 7},
+        {"type": "Payment Page", "description": "Entering payment information", "channel": "Website", "importance": 10}
+      ],
+      "emotions": [
+        {"type": "Frustration", "description": "Dealing with complicated checkout process", "value": 30}
+      ],
+      "behaviors": ["Adding to cart", "Creating account", "Entering payment details"],
+      "pain_points": ["Account creation required", "Payment page timeout", "Complex checkout process"],
+      "opportunities": ["Guest checkout option", "Streamlined payment process", "Save checkout progress"]
+    },
+    {
+      "name": "Delivery",
+      "description": "Products are shipped and delivered to the customer",
+      "sequence": 5,
+      "touchpoints": [
+        {"type": "Package Delivery", "description": "Receiving the ordered product", "channel": "Physical", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Delight", "description": "Pleased with fast delivery and packaging", "value": 85}
+      ],
+      "behaviors": ["Tracking shipment", "Receiving package"],
+      "pain_points": [],
+      "opportunities": ["Maintain current delivery standards", "Consider eco-friendly packaging"]
+    },
+    {
+      "name": "After-Sales Support",
+      "description": "Customers seek assistance with product setup or issues",
+      "sequence": 6,
+      "touchpoints": [
+        {"type": "Live Chat", "description": "Getting help from customer support", "channel": "Website", "importance": 7}
+      ],
+      "emotions": [
+        {"type": "Relief", "description": "Getting quick and helpful support", "value": 80}
+      ],
+      "behaviors": ["Using live chat", "Asking questions about product setup"],
+      "pain_points": [],
+      "opportunities": ["Expand support channels", "Create setup guides"]
+    }
+  ],
+  "overall_pain_points": [
+    "Website filtering system doesn't work properly", 
+    "Checkout process is too complicated and requires account creation",
+    "Payment page times out occasionally",
+    "No product comparison feature",
+    "Technical terms not explained adequately"
+  ],
+  "overall_opportunities": [
+    "Improve filtering and search functionality", 
+    "Streamline checkout process with guest option",
+    "Fix payment system stability issues",
+    "Add product comparison feature",
+    "Create glossary for technical terms",
+    "Maintain excellent delivery and support standards"
+  ]
+}"""
+        else:
+            return """
+{
+  "journey_name": "General User Journey",
+  "summary": "This journey map represents the general flow of interactions based on the provided data.",
+  "personas": ["Primary User", "Support Person"],
+  "phases": [
+    {
+      "name": "Initial Engagement",
+      "description": "The beginning of the user journey where first interactions occur",
+      "sequence": 1,
+      "touchpoints": [
+        {"type": "First Contact", "description": "Initial interaction with the system/service", "channel": "Various", "importance": 8}
+      ],
+      "emotions": [
+        {"type": "Neutral", "description": "Initial expectations being formed", "value": 50}
+      ],
+      "behaviors": ["Information seeking", "Evaluation"],
+      "pain_points": ["Lack of clear information", "Confusion about next steps"],
+      "opportunities": ["Clearer onboarding", "Better guidance"]
+    },
+    {
+      "name": "Core Usage",
+      "description": "The main interaction period where primary value is delivered",
+      "sequence": 2,
+      "touchpoints": [
+        {"type": "Key Interaction", "description": "Primary value delivery", "channel": "Main platform", "importance": 9}
+      ],
+      "emotions": [
+        {"type": "Mixed", "description": "Varies based on task success", "value": 60}
+      ],
+      "behaviors": ["Task completion", "Feature exploration"],
+      "pain_points": ["Feature discoverability issues", "Learning curve"],
+      "opportunities": ["Improve user interface", "Add helpful tutorials"]
+    }
+  ],
+  "overall_pain_points": ["Navigation is not intuitive", "Limited guidance for new users"],
+  "overall_opportunities": ["Streamline the experience", "Provide better onboarding"]
+}"""
+    
+    def _structure_insights(self, raw_insights: str, journey_type: str) -> Dict[str, Any]:
+        """
+        Parse and structure the raw insights from the LLM
+        
+        The LLM is prompted to return a JSON structure, but it may not always
+        comply perfectly. This function attempts to extract and parse the JSON,
+        or create a structured representation if JSON parsing fails.
+        """
+        # Try to extract JSON from the response
+        try:
+            # Look for JSON block in the response using code blocks first
+            json_block_pattern = r"```json\s*([\s\S]*?)\s*```"
+            json_blocks = re.findall(json_block_pattern, raw_insights)
+            
+            if json_blocks:
+                # Use the first JSON block found
+                json_str = json_blocks[0]
+                parsed_data = json.loads(json_str)
+                # Add raw insights for debugging
+                parsed_data["raw_insights"] = raw_insights
+                return self._process_journey_format(parsed_data)
+            
+            # If no code blocks, look for JSON object directly
+            json_start = raw_insights.find("{")
+            json_end = raw_insights.rfind("}")
+            
+            if json_start >= 0 and json_end > json_start:
+                json_str = raw_insights[json_start:json_end+1]
+                parsed_data = json.loads(json_str)
+                # Add raw insights for debugging
+                parsed_data["raw_insights"] = raw_insights
+                return self._process_journey_format(parsed_data)
+            
+        except json.JSONDecodeError as e:
+            self.logger.warning(f"Failed to parse JSON from LLM response: {str(e)}")
+        
+        # If JSON parsing fails, create a structured format from markdown/text
+        try:
+            # Extract journey phases
+            phases = []
+            lines = raw_insights.split("\n")
+            current_phase = None
+            journey_name = "Journey Map"
+            summary = ""
+            personas = []
+            pain_points = []
+            opportunities = []
+            
+            # Extract journey name if present
+            for i, line in enumerate(lines):
+                if "journey" in line.lower() and ":" in line:
+                    parts = line.split(":", 1)
+                    if len(parts) == 2:
+                        journey_name = parts[1].strip()
+                        break
+            
+            # Process line by line
+            for i, line in enumerate(lines):
+                line = line.strip()
+                
+                # Look for personas/segments
+                if any(persona_term in line.lower() for persona_term in ["persona", "actor", "stakeholder", "user type", "segment", "audience"]) and ":" in line:
+                    persona_text = line.split(":", 1)[1].strip()
+                    persona_items = [p.strip() for p in re.split(r'[,;]', persona_text) if p.strip()]
+                    personas.extend(persona_items)
+                
+                # Look for summary
+                if line.lower().startswith("summary") and ":" in line:
+                    summary = line.split(":", 1)[1].strip()
+                    
+                    # Try to capture multi-line summaries
+                    j = i + 1
+                    while j < len(lines) and not lines[j].strip().startswith('#') and not lines[j].strip().endswith(':'):
+                        if lines[j].strip():  # Only add non-empty lines
+                            summary += " " + lines[j].strip()
+                        j += 1
+                
+                # Look for phase headers
+                if (line.startswith("# ") or line.startswith("## ")) and \
+                   any(phase_term in line.lower() for phase_term in ["phase", "stage", "step", "moment", "touchpoint"]):
+                    if current_phase is not None:
+                        phases.append(current_phase)
+                    
+                    phase_name = line.lstrip("#").strip()
+                    # Extract sequence number if present
+                    sequence = 0
+                    sequence_match = re.search(r'(\d+)', phase_name)
+                    if sequence_match:
+                        try:
+                            sequence = int(sequence_match.group(1))
+                        except ValueError:
+                            pass
+                    
+                    current_phase = {
+                        "name": phase_name,
+                        "description": "",
+                        "sequence": sequence or len(phases) + 1,
+                        "touchpoints": [],
+                        "emotions": [],
+                        "behaviors": [],
+                        "pain_points": [],
+                        "opportunities": []
+                    }
+                
+                # Look for touchpoints, emotions, etc. (often in lists)
+                elif line.startswith(("- ", "* ", "• ")) and ":" in line and current_phase is not None:
+                    parts = line.lstrip("- *•").split(":", 1)
+                    if len(parts) == 2:
+                        item_type, description = parts
+                        item_type = item_type.lower().strip()
+                        description = description.strip()
+                        
+                        # Determine if this is a touchpoint, emotion, pain point, etc.
+                        if any(emotion_term in item_type for emotion_term in ["emotion", "feel", "satisfaction", "sentiment"]):
+                            # Try to extract emotion value
+                            value = 50  # Default neutral
+                            value_match = re.search(r'(\d+)[/\\]100', description)
+                            if value_match:
+                                try:
+                                    value = int(value_match.group(1))
+                                except ValueError:
+                                    pass
+                            
+                            current_phase["emotions"].append({
+                                "type": item_type,
+                                "description": description,
+                                "value": value
+                            })
+                        elif any(pain_term in item_type for pain_term in ["pain", "issue", "problem", "frustration", "challenge"]):
+                            current_phase["pain_points"].append(description)
+                        elif any(opp_term in item_type for opp_term in ["opportunit", "improvement", "solution", "recommendation"]):
+                            current_phase["opportunities"].append(description)
+                        elif any(behavior_term in item_type for behavior_term in ["behavior", "action", "activit"]):
+                            current_phase["behaviors"].append(description)
+                        else:
+                            # Default to touchpoint
+                            importance = 5  # Default medium importance
+                            channel = "Unknown"
+                            
+                            # Try to extract channel
+                            channel_match = re.search(r'channel:?\s*([^,;]+)', description, re.IGNORECASE)
+                            if channel_match:
+                                channel = channel_match.group(1).strip()
+                            
+                            # Try to extract importance
+                            importance_match = re.search(r'importance:?\s*(\d+)', description, re.IGNORECASE)
+                            if importance_match:
+                                try:
+                                    importance = int(importance_match.group(1))
+                                except ValueError:
+                                    pass
+                                
+                            current_phase["touchpoints"].append({
+                                "type": item_type,
+                                "description": description,
+                                "channel": channel,
+                                "importance": importance
+                            })
+                
+                # Add other lines to phase description
+                elif current_phase is not None and line and not line.startswith(("#", "-", "*", "•")):
+                    current_phase["description"] += line + " "
+            
+            # Add the last phase
+            if current_phase is not None:
+                phases.append(current_phase)
+            
+            # Extract overall insights and summary
+            in_pain_points = False
+            in_opportunities = False
+            
+            for i, line in enumerate(lines):
+                line = line.strip().lower()
+                
+                # Detect sections for overall insights
+                if any(pain_term in line for pain_term in ["pain point", "issues", "frustration", "challenges", "problems"]) and \
+                   not any(phase_term in line for phase_term in ["phase", "stage", "step"]):
+                    in_pain_points = True
+                    in_opportunities = False
+                    continue
+                    
+                if any(opp_term in line for opp_term in ["opportunit", "improvement", "solution", "recommendation"]) and \
+                   not any(phase_term in line for phase_term in ["phase", "stage", "step"]):
+                    in_pain_points = False
+                    in_opportunities = True
+                    continue
+                
+                # Process content based on current section
+                if in_pain_points and lines[i].strip().startswith(("-", "•", "*")) and lines[i].strip():
+                    pain_points.append(lines[i].strip().lstrip("-•* "))
+                    
+                if in_opportunities and lines[i].strip().startswith(("-", "•", "*")) and lines[i].strip():
+                    opportunities.append(lines[i].strip().lstrip("-•* "))
+            
+            # Create the structured format
+            structured_insights = {
+                "journey_name": journey_name,
+                "summary": summary.strip(),
+                "personas": personas,
+                "phases": phases,
+                "overall_pain_points": pain_points,
+                "overall_opportunities": opportunities,
+                "raw_insights": raw_insights  # Include the original insights
+            }
+            
+            return self._process_journey_format(structured_insights)
+            
+        except Exception as e:
+            self.logger.error(f"Error structuring insights: {str(e)}")
+            
+            # Return a journey-type specific fallback
+            return json.loads(self._generate_minimal_valid_response(journey_type))
+    
+    def _process_journey_format(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Process the journey format to ensure compatibility with visualization
+        and fill in any missing fields with sensible defaults.
+        """
+        processed = {
+            "journey_name": data.get("journey_name", "Journey Map"),
+            "summary": data.get("summary", ""),
+            "personas": data.get("personas", data.get("customer_segments", [])),
+            "phases": [],
+            "overall_pain_points": data.get("overall_pain_points", data.get("pain_points", [])),
+            "overall_opportunities": data.get("overall_opportunities", data.get("opportunities", [])),
+            "raw_insights": data.get("raw_insights", "")
+        }
+        
+        # Process phases
+        phases = data.get("phases", [])
+        for i, phase in enumerate(phases):
+            processed_phase = {
+                "name": phase.get("name", f"Phase {i+1}"),
+                "description": phase.get("description", ""),
+                "sequence": phase.get("sequence", i+1),
+                "touchpoints": [],
+                "emotions": [],
+                "behaviors": phase.get("behaviors", []),
+                "pain_points": phase.get("pain_points", []),
+                "opportunities": phase.get("opportunities", [])
+            }
+            
+            # Process touchpoints
+            for tp in phase.get("touchpoints", []):
+                processed_touchpoint = {
+                    "type": tp.get("type", "Interaction"),
+                    "description": tp.get("description", ""),
+                    "channel": tp.get("channel", "Various"),
+                    "importance": tp.get("importance", 5)  # Default medium importance
+                }
+                processed_phase["touchpoints"].append(processed_touchpoint)
+            
+            # Process emotions
+            for emotion in phase.get("emotions", []):
+                processed_emotion = {
+                    "type": emotion.get("type", "Neutral"),
+                    "description": emotion.get("description", ""),
+                    "value": emotion.get("value", 50)  # Default neutral emotion
+                }
+                processed_phase["emotions"].append(processed_emotion)
+                
+            # If no emotions provided, add a default one based on touchpoint satisfaction or pain points
+            if not processed_phase["emotions"]:
+                # Look for satisfaction scores in touchpoints
+                satisfaction_scores = []
+                for tp in processed_phase["touchpoints"]:
+                    score_match = re.search(r'satisfaction:?\s*(\d+)', tp.get("description", ""), re.IGNORECASE)
+                    if score_match:
+                        try:
+                            satisfaction_scores.append(int(score_match.group(1)))
+                        except ValueError:
+                            pass
+                
+                # Calculate average satisfaction if scores found
+                if satisfaction_scores:
+                    avg_satisfaction = sum(satisfaction_scores) / len(satisfaction_scores)
+                    emotion_type = "Positive" if avg_satisfaction >= 70 else ("Neutral" if avg_satisfaction >= 40 else "Negative")
+                    processed_phase["emotions"].append({
+                        "type": emotion_type,
+                        "description": f"Derived from touchpoint satisfaction scores",
+                        "value": avg_satisfaction
+                    })
+                # If no satisfaction scores, infer from pain points and opportunities
+                elif processed_phase["pain_points"] and not processed_phase["opportunities"]:
+                    # Many pain points, no opportunities = negative
+                    processed_phase["emotions"].append({
+                        "type": "Frustrated",
+                        "description": "Inferred from multiple pain points in this phase",
+                        "value": 30
+                    })
+                elif not processed_phase["pain_points"] and processed_phase["opportunities"]:
+                    # No pain points, some opportunities = positive
+                    processed_phase["emotions"].append({
+                        "type": "Positive",
+                        "description": "Inferred from opportunities and lack of pain points",
+                        "value": 70
+                    })
+                elif processed_phase["pain_points"] and processed_phase["opportunities"]:
+                    # Both pain points and opportunities = mixed
+                    processed_phase["emotions"].append({
+                        "type": "Mixed",
+                        "description": "Inferred from combination of pain points and opportunities",
+                        "value": 50
+                    })
+                else:
+                    # Nothing to infer from = neutral
+                    processed_phase["emotions"].append({
+                        "type": "Neutral",
+                        "description": "No explicit emotion data available",
+                        "value": 50
+                    })
+            
+            processed["phases"].append(processed_phase)
+            
+        # Sort phases by sequence if available
+        processed["phases"].sort(key=lambda x: x.get("sequence", 999))
+        
+        return processed

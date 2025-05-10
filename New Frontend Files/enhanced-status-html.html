@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans | Service Status</title>
+  <link rel="stylesheet" href="/static/nxt-humans-enhanced.css">
+  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header class="nxt-header">
+    <div class="container">
+      <div class="nxt-header-content">
+        <div class="nxt-logo">
+          <img src="/static/nxt-humans-logo.png" alt="NXT Humans Logo">
+          <div class="nxt-logo-text">
+            <h1>AI CX Workbench</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container mt-4">
+    <a href="/" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Launchpad
+    </a>
+    
+    <div class="status-section">
+      <h2 class="status-header">Service Status</h2>
+      
+      <div class="service-grid">
+        <div class="service-card scale-in animate-delay-1">
+          <div class="service-header">
+            <h3 class="service-name">Journey Mapper</h3>
+            <span class="status-badge status-{{ 'running' if services_status.journey_mapper.status == 'running' else 'offline' if services_status.journey_mapper.status == 'offline' else 'unknown' }}">
+              {{ services_status.journey_mapper.status|capitalize }}
+            </span>
+          </div>
+          <div class="service-info">
+            <p><strong>Internal URL:</strong> {{ service_urls.journey_mapper.internal_url }}</p>
+            <p><strong>Client URL:</strong> {{ service_urls.journey_mapper.client_url }}</p>
+            <p><strong>Last Checked:</strong> {{ services_status.journey_mapper.last_checked }}</p>
+          </div>
+          <div class="service-actions">
+            <a href="{{ service_urls.journey_mapper.client_url }}" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+              <i class="fa-solid fa-external-link-alt mr-2"></i> Open Journey Mapper
+            </a>
+          </div>
+        </div>
+        
+        <div class="service-card scale-in animate-delay-2">
+          <div class="service-header">
+            <h3 class="service-name">Reddit Ripper</h3>
+            <span class="status-badge status-{{ 'running' if services_status.reddit_ripper.status == 'running' else 'offline' if services_status.reddit_ripper.status == 'offline' else 'unknown' }}">
+              {{ services_status.reddit_ripper.status|capitalize }}
+            </span>
+          </div>
+          <div class="service-info">
+            <p><strong>Internal URL:</strong> {{ service_urls.reddit_ripper.internal_url }}</p>
+            <p><strong>Client URL:</strong> {{ service_urls.reddit_ripper.client_url }}</p>
+            <p><strong>Last Checked:</strong> {{ services_status.reddit_ripper.last_checked }}</p>
+          </div>
+          <div class="service-actions">
+            <a href="{{ service_urls.reddit_ripper.client_url }}" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+              <i class="fa-solid fa-external-link-alt mr-2"></i> Open Reddit Ripper
+            </a>
+          </div>
+        </div>
+        
+        <div class="service-card scale-in animate-delay-3">
+          <div class="service-header">
+            <h3 class="service-name">Social Research</h3>
+            <span class="status-badge status-{{ 'running' if services_status.social_research.status == 'running' else 'offline' if services_status.social_research.status == 'offline' else 'unknown' }}">
+              {{ services_status.social_research.status|capitalize }}
+            </span>
+          </div>
+          <div class="service-info">
+            <p><strong>Internal URL:</strong> {{ service_urls.social_research.internal_url }}</p>
+            <p><strong>Client URL:</strong> {{ service_urls.social_research.client_url }}</p>
+            <p><strong>Last Checked:</strong> {{ services_status.social_research.last_checked }}</p>
+          </div>
+          <div class="service-actions">
+            <a href="{{ service_urls.social_research.client_url }}" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+              <i class="fa-solid fa-external-link-alt mr-2"></i> Open Social Research
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <button id="refresh-status" class="nxt-btn nxt-btn-secondary refresh-btn">
+        <i class="fa-solid fa-sync-alt mr-2"></i> Refresh Status
+      </button>
+    </div>
+  </div>
+  
+  <footer class="nxt-footer">
+    <div class="container">
+      <div class="nxt-footer-content">
+        <div class="nxt-footer-text">
+          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.getElementById('refresh-status').addEventListener('click', () => {
+      // Add spinning animation to refresh icon
+      const refreshIcon = document.querySelector('#refresh-status i');
+      refreshIcon.classList.add('fa-spin');
+      
+      // Set a timeout to simulate loading
+      setTimeout(() => {
+        window.location.reload();
+      }, 800);
+    });
+    
+    // Add animation to status badges
+    document.addEventListener('DOMContentLoaded', () => {
+      const statusBadges = document.querySelectorAll('.status-badge');
+      
+      statusBadges.forEach(badge => {
+        // Add pulsing effect to running badges
+        if (badge.classList.contains('status-running')) {
+          setInterval(() => {
+            badge.classList.add('pulse');
+            
+            // Remove class after animation completes
+            setTimeout(() => {
+              badge.classList.remove('pulse');
+            }, 1000);
+          }, 5000);
+        }
+      });
+      
+      // Add interaction to service cards
+      const serviceCards = document.querySelectorAll('.service-card');
+      
+      serviceCards.forEach(card => {
+        // Add hover animation
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          const statusBadge = card.querySelector('.status-badge');
+          if (statusBadge) {
+            statusBadge.style.transform = 'scale(1.05)';
+          }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          const statusBadge = card.querySelector('.status-badge');
+          if (statusBadge) {
+            statusBadge.style.transform = '';
+          }
+        });
+      });
+    });
+  </script>
+  
+  <!-- Enhanced animations script -->
+  <script src="/static/enhanced-animations.js"></script>
+</body>
+</html>

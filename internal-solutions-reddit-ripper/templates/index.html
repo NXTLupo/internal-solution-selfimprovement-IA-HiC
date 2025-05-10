@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans | Reddit Data Collector</title>
+  <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="stylesheet" href="/static/enhanced-header.css">
+  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    .progress-container {
+      width: 100%;
+      background-color: #f1f1f1;
+      border-radius: var(--border-radius-sm);
+      margin: var(--spacing-md) 0;
+    }
+    
+    .progress-bar {
+      height: 24px;
+      background-color: var(--cyan-primary);
+      border-radius: var(--border-radius-sm);
+      width: 0%;
+      transition: width 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    
+    .download-list {
+      margin-top: var(--spacing-lg);
+    }
+    
+    .download-item {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-sm) var(--spacing-md);
+      background-color: white;
+      border-radius: var(--border-radius-sm);
+      margin-bottom: var(--spacing-xs);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .download-icon {
+      color: var(--cyan-primary);
+      margin-right: var(--spacing-md);
+      font-size: 1.25rem;
+    }
+    
+    .download-name {
+      flex: 1;
+    }
+    
+    .time-filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .time-filter-option {
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-sm);
+      padding: var(--spacing-sm);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .time-filter-option:hover {
+      border-color: var(--cyan-primary);
+    }
+    
+    .time-filter-option.active {
+      background-color: var(--cyan-primary);
+      color: white;
+      border-color: var(--cyan-primary);
+    }
+    
+    #results-panel {
+      display: none;
+    }
+    
+    #error-message {
+      color: #e74c3c;
+      font-weight: 600;
+      padding: var(--spacing-md);
+      background-color: rgba(231, 76, 60, 0.1);
+      border-radius: var(--border-radius-sm);
+      margin-bottom: var(--spacing-md);
+      display: none;
+    }
+    
+    .instructions-card {
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .instructions-card ol {
+      padding-left: var(--spacing-xl);
+    }
+    
+    .instructions-card li {
+      margin-bottom: var(--spacing-sm);
+    }
+  </style>
+</head>
+<body>
+  <header class="nxt-header">
+    <div class="container">
+      <div class="nxt-header-content">
+        <div class="nxt-logo-text">
+          <h1><span class="text-gradient">NXT HUMANS</span> Reddit Data Collector</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container mt-5">
+    <div class="nxt-card instructions-card">
+      <h2 class="nxt-card-title">How It Works</h2>
+      <p>This tool collects Reddit posts and comments from specified subreddits and saves them as PDF files for further analysis:</p>
+      <ol>
+        <li>Enter a subreddit name (without the "r/" prefix)</li>
+        <li>Specify how many posts to collect (maximum recommended: 1000)</li>
+        <li>Select the time filter (past day, week, month, year, or all time)</li>
+        <li>Choose how many comments to include for each post</li>
+        <li>Click "Start Collection" and wait for the process to complete</li>
+        <li>Download the generated PDF files</li>
+      </ol>
+    </div>
+    
+    <div class="nxt-card" id="form-panel">
+      <h2 class="nxt-card-title">Reddit Data Collection</h2>
+      <p class="nxt-card-body">Enter a subreddit name and collection parameters to begin harvesting posts and comments for analysis.</p>
+      
+      <form id="scrape-form">
+        <div class="nxt-form-group">
+          <label class="nxt-form-label" for="subreddit">Subreddit Name</label>
+          <input type="text" class="nxt-form-control" id="subreddit" placeholder="Enter subreddit name (without r/)" required>
+        </div>
+        
+        <div class="nxt-form-group">
+          <label class="nxt-form-label" for="post-count">Number of Posts</label>
+          <input type="number" class="nxt-form-control" id="post-count" value="100" min="10" max="1000">
+          <small class="text-grey">Recommended maximum: 1000 posts</small>
+        </div>
+        
+        <div class="nxt-form-group">
+          <label class="nxt-form-label">Time Filter</label>
+          <div class="time-filter-grid">
+            <div class="time-filter-option" data-value="day">Past Day</div>
+            <div class="time-filter-option" data-value="week">Past Week</div>
+            <div class="time-filter-option" data-value="month">Past Month</div>
+            <div class="time-filter-option active" data-value="year">Past Year</div>
+            <div class="time-filter-option" data-value="all">All Time</div>
+          </div>
+          <input type="hidden" id="time-filter" value="year">
+        </div>
+        
+        <div class="nxt-form-group">
+          <label class="nxt-form-label" for="comments-per-post">Comments Per Post</label>
+          <input type="number" class="nxt-form-control" id="comments-per-post" value="5" min="0" max="50">
+        </div>
+        
+        <div id="error-message"></div>
+        
+        <button type="submit" class="nxt-btn nxt-btn-primary nxt-btn-block">Start Collection</button>
+      </form>
+    </div>
+    
+    <div class="nxt-card" id="results-panel">
+      <h2 class="nxt-card-title">Collection Progress</h2>
+      <p id="status-message">Collecting data from r/<span id="subreddit-name"></span>...</p>
+      
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0%</div>
+      </div>
+      
+      <p class="text-grey" id="progress-details">Processed 0 of 0 posts</p>
+      
+      <div class="download-list" id="download-list">
+        <!-- Downloads will appear here -->
+      </div>
+    </div>
+  </div>
+  
+  <footer class="nxt-footer">
+    <div class="container">
+      <div class="nxt-footer-content">
+        <div class="nxt-footer-text">
+          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Enhanced animations and interactions script -->
+  <script src="/static/enhanced-animations.js"></script>
+  
+  <script>
+    // DOM elements
+    const scrapeForm = document.getElementById('scrape-form');
+    const formPanel = document.getElementById('form-panel');
+    const resultsPanel = document.getElementById('results-panel');
+    const subredditInput = document.getElementById('subreddit');
+    const postCountInput = document.getElementById('post-count');
+    const commentsPerPostInput = document.getElementById('comments-per-post');
+    const timeFilterInput = document.getElementById('time-filter');
+    const timeFilterOptions = document.querySelectorAll('.time-filter-option');
+    const errorMessage = document.getElementById('error-message');
+    const progressBar = document.getElementById('progress-bar');
+    const progressDetails = document.getElementById('progress-details');
+    const subredditName = document.getElementById('subreddit-name');
+    const statusMessage = document.getElementById('status-message');
+    const downloadList = document.getElementById('download-list');
+    
+    // Current job details
+    let currentJobId = null;
+    let statusCheckInterval = null;
+    
+    // Event listeners
+    timeFilterOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove active class from all options
+        timeFilterOptions.forEach(opt => opt.classList.remove('active'));
+        
+        // Add active class to clicked option
+        this.classList.add('active');
+        
+        // Update hidden input value
+        timeFilterInput.value = this.dataset.value;
+      });
+    });
+    
+    scrapeForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Validate inputs
+      const subreddit = subredditInput.value.trim();
+      const postCount = parseInt(postCountInput.value);
+      const commentsPerPost = parseInt(commentsPerPostInput.value);
+      const timeFilter = timeFilterInput.value;
+      
+      if (!subreddit) {
+        showError('Please enter a subreddit name');
+        return;
+      }
+      
+      if (isNaN(postCount) || postCount < 10 || postCount > 1000) {
+        showError('Post count must be between 10 and 1000');
+        return;
+      }
+      
+      if (isNaN(commentsPerPost) || commentsPerPost < 0 || commentsPerPost > 50) {
+        showError('Comments per post must be between 0 and 50');
+        return;
+      }
+      
+      // Hide error message
+      errorMessage.style.display = 'none';
+      
+      try {
+        // Make API request to start scraping
+        const response = await fetch('/api/scrape', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            subreddit,
+            post_count: postCount,
+            time_filter: timeFilter,
+            comments_per_post: commentsPerPost
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          // Show results panel
+          formPanel.style.display = 'none';
+          resultsPanel.style.display = 'block';
+          
+          // Update UI
+          subredditName.textContent = subreddit;
+          progressBar.style.width = '0%';
+          progressBar.textContent = '0%';
+          progressDetails.textContent = `Processed 0 of ${postCount} posts`;
+          downloadList.innerHTML = '';
+          
+          // Start checking status
+          currentJobId = data.job_id;
+          statusCheckInterval = setInterval(checkStatus, 2000);
+        } else {
+          showError(data.error || 'An error occurred');
+        }
+      } catch (error) {
+        showError('Network error. Please try again.');
+        console.error(error);
+      }
+    });
+    
+    async function checkStatus() {
+      if (!currentJobId) return;
+      
+      try {
+        const response = await fetch(`/api/status/${currentJobId}`);
+        const data = await response.json();
+        
+        if (!response.ok) {
+          clearInterval(statusCheckInterval);
+          showError('Error checking status: ' + (data.error || 'Unknown error'));
+          return;
+        }
+        
+        // Update progress
+        const progress = data.progress;
+        const total = data.total;
+        const percentage = Math.round((progress / total) * 100);
+        
+        progressBar.style.width = `${percentage}%`;
+        progressBar.textContent = `${percentage}%`;
+        progressDetails.textContent = `Processed ${progress} of ${total} posts`;
+        
+        // Update status message
+        if (data.status === 'completed') {
+          statusMessage.textContent = `Collection complete! ${data.files.length} files generated.`;
+          clearInterval(statusCheckInterval);
+        } else if (data.status === 'error') {
+          statusMessage.textContent = `Error: ${data.error || 'Unknown error'}`;
+          clearInterval(statusCheckInterval);
+        }
+        
+        // Update download list
+        updateDownloadList(data.files);
+        
+      } catch (error) {
+        console.error('Error checking status:', error);
+      }
+    }
+    
+    function updateDownloadList(files) {
+      if (!files || files.length === 0) return;
+      
+      downloadList.innerHTML = '';
+      
+      files.forEach(file => {
+        const downloadItem = document.createElement('div');
+        downloadItem.className = 'download-item';
+        
+        const downloadIcon = document.createElement('div');
+        downloadIcon.className = 'download-icon';
+        downloadIcon.innerHTML = '📄';
+        
+        const downloadName = document.createElement('div');
+        downloadName.className = 'download-name';
+        downloadName.textContent = file;
+        
+        const downloadButton = document.createElement('a');
+        downloadButton.className = 'nxt-btn nxt-btn-primary nxt-btn-sm';
+        downloadButton.textContent = 'Download';
+        downloadButton.href = `/api/download/${currentJobId}/${file}`;
+        downloadButton.setAttribute('download', true);
+        
+        downloadItem.appendChild(downloadIcon);
+        downloadItem.appendChild(downloadName);
+        downloadItem.appendChild(downloadButton);
+        
+        downloadList.appendChild(downloadItem);
+      });
+    }
+    
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

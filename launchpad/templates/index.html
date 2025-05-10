@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans        |      AI CX Workbench</title>
+  <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="stylesheet" href="/static/enhanced-header.css">
+  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="description" content="NXT Humans AI CX Workbench - Comprehensive customer experience research platform">
+  <meta name="theme-color" content="#01C4C8">
+</head>
+<body>
+  <header class="nxt-header">
+    <div class="container">
+      <div class="nxt-header-content">
+          <div class="nxt-logo-text">
+            <h1><span class="text-gradient">NXT HUMANS</span> AI CX Workbench</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="hero-container">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <div class="hero-badge">
+          <span>AI Powered</span>
+        </div>
+        <p class="hero-subtitle">A comprehensive platform for collecting, analyzing, and visualizing customer experience data using advanced AI techniques.</p>
+        <div class="hero-cta">
+          <button id="explore-btn" class="nxt-btn nxt-btn-primary nxt-btn-lg">
+            <i class="fa-solid fa-rocket mr-2"></i> Explore Applications
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="app-grid">
+      <div class="app-card scale-in animate-delay-1">
+        <div class="status-indicator status-unknown" id="reddit-ripper-status"></div>
+        <div class="app-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <h3 class="app-title">Reddit Data Collector</h3>
+        <p class="app-description">Collect posts and comments from Reddit subreddits and export them to structured PDF format for analysis.</p>
+        <div class="app-cta">
+          <a href="{{ reddit_ripper_url }}" id="reddit-ripper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+            <i class="fa-solid fa-play mr-2"></i> Launch
+          </a>
+        </div>
+      </div>
+      
+      <div class="app-card scale-in animate-delay-2">
+        <div class="status-indicator status-unknown" id="social-research-status"></div>
+        <div class="app-icon">
+          <i class="fa-solid fa-chart-column"></i>
+        </div>
+        <h3 class="app-title">Social Research Tool</h3>
+        <p class="app-description">Advanced analytics to extract insights from social media data through topic modeling and sentiment analysis.</p>
+        <div class="app-cta">
+          <a href="{{ social_research_url }}" id="social-research-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+            <i class="fa-solid fa-play mr-2"></i> Launch
+          </a>
+        </div>
+      </div>
+      
+      <div class="app-card scale-in animate-delay-3">
+        <div class="status-indicator status-unknown" id="journey-mapper-status"></div>
+        <div class="app-icon">
+          <i class="fa-solid fa-map"></i>
+        </div>
+        <h3 class="app-title">Journey Mapper</h3>
+        <p class="app-description">Generate interactive customer journey maps from various data sources using Claude 3.7 Sonnet LLM.</p>
+        <div class="app-cta">
+          <a href="{{ journey_mapper_url }}" id="journey-mapper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+            <i class="fa-solid fa-play mr-2"></i> Launch
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="launch-all-container fade-in">
+      <button id="launch-all-btn" class="nxt-btn nxt-btn-primary launch-all-btn">
+        <i class="fa-solid fa-rocket mr-2"></i> Launch All Applications
+      </button>
+      <a href="/status" class="status-link">
+        <i class="fa-solid fa-circle-info mr-1"></i> View Detailed Service Status
+      </a>
+    </div>
+    
+    <div class="service-urls fade-in">
+      <h3><i class="fa-solid fa-link mr-2"></i> Service URLs</h3>
+      <div class="url-item">
+        <div class="url-label"><i class="fa-solid fa-home mr-2"></i> Launchpad:</div>
+        <div class="url-value" id="launchpad-url-display"></div>
+        <div class="port-badge" id="launchpad-port-badge">Port: <span id="launchpad-port-display">8000</span></div>
+      </div>
+      <div class="url-item">
+        <div class="url-label"><i class="fa-solid fa-map mr-2"></i> Journey Mapper:</div>
+        <div class="url-value" id="journey-mapper-url-display"></div>
+        <div class="port-badge" id="journey-mapper-port-badge">Port: <span id="journey-mapper-port-display">8080</span></div>
+      </div>
+      <div class="url-item">
+        <div class="url-label"><i class="fa-solid fa-magnifying-glass mr-2"></i> Reddit Ripper:</div>
+        <div class="url-value" id="reddit-ripper-url-display"></div>
+        <div class="port-badge" id="reddit-ripper-port-badge">Port: <span id="reddit-ripper-port-display">5001</span></div>
+      </div>
+      <div class="url-item">
+        <div class="url-label"><i class="fa-solid fa-chart-column mr-2"></i> Social Research:</div>
+        <div class="url-value" id="social-research-url-display"></div>
+        <div class="port-badge" id="social-research-port-badge">Port: <span id="social-research-port-display">3000</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="workflow-container">
+    <div class="container">
+      <h2 class="workflow-title">Integrated Workflow</h2>
+      <div class="workflow-steps">
+        <div class="workflow-step fade-in animate-delay-1">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Data Collection</h3>
+          <p class="step-description">Gather raw data from Reddit using the Reddit Data Collector</p>
+        </div>
+        
+        <div class="workflow-step fade-in animate-delay-2">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Analysis</h3>
+          <p class="step-description">Process and analyze the data with the Social Research Tool</p>
+        </div>
+        
+        <div class="workflow-step fade-in animate-delay-3">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Visualization</h3>
+          <p class="step-description">Create interactive journey maps with the Journey Mapper</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="nxt-footer">
+    <div class="container">
+      <div class="nxt-footer-content">
+        <div class="nxt-footer-text">
+          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // DOM elements
+    const redditRipperStatus = document.getElementById('reddit-ripper-status');
+    const socialResearchStatus = document.getElementById('social-research-status');
+    const journeyMapperStatus = document.getElementById('journey-mapper-status');
+    const launchAllBtn = document.getElementById('launch-all-btn');
+    const exploreBtn = document.getElementById('explore-btn');
+    
+    // URL elements
+    const redditRipperUrlLink = document.getElementById('reddit-ripper-url');
+    const socialResearchUrlLink = document.getElementById('social-research-url');
+    const journeyMapperUrlLink = document.getElementById('journey-mapper-url');
+    
+    // URL display elements
+    const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
+    const journeyMapperUrlDisplay = document.getElementById('journey-mapper-url-display');
+    const redditRipperUrlDisplay = document.getElementById('reddit-ripper-url-display');
+    const socialResearchUrlDisplay = document.getElementById('social-research-url-display');
+    
+    // Port display elements
+    const launchpadPortDisplay = document.getElementById('launchpad-port-display');
+    const journeyMapperPortDisplay = document.getElementById('journey-mapper-port-display');
+    const redditRipperPortDisplay = document.getElementById('reddit-ripper-port-display');
+    const socialResearchPortDisplay = document.getElementById('social-research-port-display');
+    
+    // Port badge elements
+    const launchpadPortBadge = document.getElementById('launchpad-port-badge');
+    const journeyMapperPortBadge = document.getElementById('journey-mapper-port-badge');
+    const redditRipperPortBadge = document.getElementById('reddit-ripper-port-badge');
+    const socialResearchPortBadge = document.getElementById('social-research-port-badge');
+    
+    // Set initial URLs and display values
+    let journeyMapperUrl = "{{ journey_mapper_url }}";
+    let redditRipperUrl = "{{ reddit_ripper_url }}";
+    let socialResearchUrl = "{{ social_research_url }}";
+    let launchpadUrl = window.location.origin;
+    
+    // Initial port values (will be updated)
+    let journeyMapperPort = "8080";
+    let redditRipperPort = "5001";
+    let socialResearchPort = "3000";
+    let launchpadPort = "8000";
+    
+    // Check if a port is different from default
+    function isCustomPort(port, defaultPort) {
+      return port !== defaultPort;
+    }
+    
+    // Update port badge visuals based on whether it's dynamic
+    function updatePortBadge(element, port, defaultPort) {
+      if (isCustomPort(port, defaultPort)) {
+        element.classList.add('port-dynamic');
+        element.title = 'This service is using a dynamically assigned port';
+      } else {
+        element.classList.remove('port-dynamic');
+        element.title = 'This service is using the default port';
+      }
+    }
+    
+    // Update URLs in the DOM
+    function updateUrls() {
+      // Update href attributes for links
+      redditRipperUrlLink.href = redditRipperUrl;
+      socialResearchUrlLink.href = socialResearchUrl;
+      journeyMapperUrlLink.href = journeyMapperUrl;
+      
+      // Update URL displays
+      launchpadUrlDisplay.textContent = launchpadUrl;
+      journeyMapperUrlDisplay.textContent = journeyMapperUrl;
+      redditRipperUrlDisplay.textContent = redditRipperUrl;
+      socialResearchUrlDisplay.textContent = socialResearchUrl;
+      
+      // Update port displays
+      launchpadPortDisplay.textContent = launchpadPort;
+      journeyMapperPortDisplay.textContent = journeyMapperPort;
+      redditRipperPortDisplay.textContent = redditRipperPort;
+      socialResearchPortDisplay.textContent = socialResearchPort;
+      
+      // Update port badge styling
+      updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
+      updatePortBadge(journeyMapperPortBadge, journeyMapperPort, "8080");
+      updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
+      updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
+    }
+    
+    // Get updated URLs from the server
+    async function fetchUpdatedUrls() {
+      try {
+        const response = await fetch('/api/urls');
+        const data = await response.json();
+        
+        // Update URLs with the latest values
+        if (data.journey_mapper) {
+          journeyMapperUrl = data.journey_mapper.url;
+          journeyMapperPort = data.journey_mapper.port;
+        }
+        
+        if (data.reddit_ripper) {
+          redditRipperUrl = data.reddit_ripper.url;
+          redditRipperPort = data.reddit_ripper.port;
+        }
+        
+        if (data.social_research) {
+          socialResearchUrl = data.social_research.url;
+          socialResearchPort = data.social_research.port;
+        }
+        
+        if (data.launchpad) {
+          launchpadUrl = data.launchpad.url;
+          launchpadPort = data.launchpad.port;
+        }
+        
+        // Update the DOM
+        updateUrls();
+      } catch (error) {
+        console.error('Error fetching updated URLs:', error);
+      }
+    }
+    
+    // Update service status
+    async function updateServiceStatus() {
+      try {
+        const response = await fetch('/api/status');
+        const data = await response.json();
+        
+        // Update status indicators
+        if (data.services && data.services.reddit_ripper) {
+          updateStatusIndicator(redditRipperStatus, data.services.reddit_ripper.status);
+        }
+        
+        if (data.services && data.services.social_research) {
+          updateStatusIndicator(socialResearchStatus, data.services.social_research.status);
+        }
+        
+        if (data.services && data.services.journey_mapper) {
+          updateStatusIndicator(journeyMapperStatus, data.services.journey_mapper.status);
+        }
+      } catch (error) {
+        console.error('Error fetching service status:', error);
+      }
+    }
+    
+    function updateStatusIndicator(element, status) {
+      // Remove all status classes
+      element.classList.remove('status-running', 'status-offline', 'status-unknown');
+      
+      // Add appropriate class based on status
+      if (status === 'running') {
+        element.classList.add('status-running');
+        element.title = 'Service is running';
+      } else if (status === 'offline') {
+        element.classList.add('status-offline');
+        element.title = 'Service is offline';
+      } else {
+        element.classList.add('status-unknown');
+        element.title = `Status: ${status}`;
+      }
+    }
+    
+    // Launch all applications
+    launchAllBtn.addEventListener('click', () => {
+      // Add click animation
+      launchAllBtn.classList.add('scale-in');
+      setTimeout(() => {
+        launchAllBtn.classList.remove('scale-in');
+      }, 500);
+      
+      // Launch apps with slight delay between each
+      setTimeout(() => window.open(redditRipperUrl, '_blank'), 0);
+      setTimeout(() => window.open(socialResearchUrl, '_blank'), 300);
+      setTimeout(() => window.open(journeyMapperUrl, '_blank'), 600);
+    });
+    
+    // Add animation to status indicator updates
+    const originalUpdateStatusIndicator = updateStatusIndicator;
+    updateStatusIndicator = function(element, status) {
+      // First remove any existing animation classes
+      element.classList.remove('scale-in');
+      
+      // Force a reflow to restart animation
+      void element.offsetWidth;
+      
+      // Add animation class
+      element.classList.add('scale-in');
+      
+      // Call the original function
+      originalUpdateStatusIndicator(element, status);
+    };
+    
+    // Add scroll to applications section when clicking explore button
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', () => {
+        const appGrid = document.querySelector('.app-grid');
+        if (appGrid) {
+          appGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Add a pulse effect to app cards
+        setTimeout(() => {
+          const appCards = document.querySelectorAll('.app-card');
+          appCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('pulse');
+              setTimeout(() => card.classList.remove('pulse'), 1000);
+            }, index * 200);
+          });
+        }, 500);
+      });
+    };
+    
+    // Update URLs and status on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateUrls();
+      fetchUpdatedUrls();
+      updateServiceStatus();
+      
+      // Add hover effects to URL items
+      const urlItems = document.querySelectorAll('.url-item');
+      urlItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          item.querySelector('.url-value').classList.add('text-gradient');
+        });
+        item.addEventListener('mouseleave', () => {
+          item.querySelector('.url-value').classList.remove('text-gradient');
+        });
+      });
+    });
+    
+    // Update status every 10 seconds
+    setInterval(updateServiceStatus, 10000);
+    
+    // Update URLs every 30 seconds in case ports change
+    setInterval(fetchUpdatedUrls, 30000);
+  </script>
+  
+  <!-- Enhanced animations and interactions script -->
+  <script src="/static/enhanced-animations.js"></script>
+  
+  <!-- Preload key resources -->
+  <link rel="preload" href="/static/nxt-humans-logo.png" as="image">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+</body>
+</html>
