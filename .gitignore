@@ -121,3 +121,5 @@ temp/
 *.pickle
 *.npy
 EOL < /dev/null
+# Archive folder
+archive/
