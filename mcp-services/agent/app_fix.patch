@@ -1,0 +1,52 @@
+--- app.py    2023-05-11 00:00:00.000000000 +0000
++++ app.py    2023-05-11 00:00:00.000000000 +0000
+@@ -180,20 +180,24 @@
+     
+     return system_prompt
+
++# Global system message for use in API calls
++system_message = create_system_message()
++
+ # Initialize a conversation
+ async def initialize_conversation(conversation_id: str):
+     """Initialize a new conversation"""
+     # Fetch tools if not already cached
+     if not tool_definitions:
+         await fetch_and_cache_tools()
+-    
+-    # Create system message
+-    system_message = create_system_message()
+-    
++
+     conversations[conversation_id] = Conversation(
+         id=conversation_id,
+-        messages=[
+-            Message(role="system", content=system_message)
+-        ],
++        # Initialize with empty messages - system message will be passed as parameter
++        messages=[],
+         active_tools=list(tool_definitions.values()),
+         file_mappings={}
+     )
+@@ -355,8 +359,9 @@
+     # Get response from Claude
+     response = await anthropic_client.messages.create(
+         model=ANTHROPIC_MODEL,
++        system=system_message,  # Add system parameter
+         messages=claude_messages,
+-        max_tokens=1024
++        max_tokens=1024,
+     )
+     
+     assistant_response = response.content[0].text
+@@ -409,8 +414,9 @@
+         # Get final response from Claude
+         final_response = await anthropic_client.messages.create(
+             model=ANTHROPIC_MODEL,
++            system=system_message,  # Add system parameter
+             messages=claude_messages,
+-            max_tokens=1024
++            max_tokens=1024,
+         )
+         
+         final_assistant_response = final_response.content[0].text

@@ -4,11 +4,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is an integrated platform with three main applications:
+The NXT Humans AI CX Workbench is an integrated platform with four main applications:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics for social media data (internal-solutions-socialresearch)
-3. **AI Journey Mapper**: Customer journey mapping using Claude 3.7 Sonnet (internal-solutions-journey-mapper)
+3. **AI Journey Mapper**: Customer journey mapping using Claude 3.7 Sonnet (internal-solutions-journeymapper)
+4. **AI Agent Assistant**: Multimodal chatbot agent to control all tools (mcp-services)
+
+## Quick Start Commands
+
+```bash
+# Start the entire workbench with all services (without AI agent)
+./check-and-run.sh
+
+# Start the workbench with AI agent enabled
+./launch-with-agent.sh your_api_key_here
+
+# Stop all services
+./stop-workbench.sh
+
+# View status of running containers
+docker compose -f dynamic-compose.yml ps
+
+# View logs for a specific service (e.g., journey-mapper)
+docker compose -f dynamic-compose.yml logs journey-mapper
+
+# View logs continuously
+docker compose -f dynamic-compose.yml logs -f journey-mapper
+
+# Restart a specific service
+docker compose -f dynamic-compose.yml restart [service-name]
+
+# Update Anthropic API key
+./update_anthropic_key.sh
+```
 
 ## Starting the Workbench
 
@@ -47,7 +76,7 @@ cd launchpad
 python app.py
 
 # Start Journey Mapper
-cd internal-solutions-journey-mapper
+cd internal-solutions-journeymapper
 python run.py
 
 # Start Reddit Ripper
@@ -85,7 +114,7 @@ python -m run
    CREATE USER social_research_user WITH PASSWORD 'your_secure_password';
    GRANT ALL PRIVILEGES ON DATABASE social_research_db TO social_research_user;
    \q
-   
+
    # Enable pgvector extension
    psql social_research_db
    CREATE EXTENSION IF NOT EXISTS vector;
@@ -137,11 +166,15 @@ SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 - **Access URL**: http://localhost:3000 (frontend), http://localhost:8081 (backend API)
 - **Node.js Version**: Requires Node.js 20+
 - **Database**: PostgreSQL with pgvector extension for vector embeddings
+- **Architecture**:
+  - **Frontend**: React with TypeScript, Redux Toolkit for state management, Tailwind CSS
+  - **Backend**: Flask API server, SQLAlchemy ORM, pgvector for vector embeddings
+  - **Data Processing Pipeline**: Text processing, sentiment scoring, chunking, LLM analysis
 
 ### 3. AI Journey Mapper (internal-solutions-journeymapper)
 
 - **Technology**: Python with FastAPI, Anthropic Claude 3.7 Sonnet
-- **Main Components**: 
+- **Main Components**:
   - `src/app.py`: FastAPI application with main routes
   - `src/ai_analysis/dynamic_journey_mapper.py`: Core journey mapping logic
   - `src/data_ingestion/data_processor.py`: Data preprocessing
@@ -164,7 +197,7 @@ SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 ### Journey Mapper Development
 
 ```bash
-cd internal-solutions-journey-mapper
+cd internal-solutions-journeymapper
 
 # Install dependencies
 sudo apt-get update  # For Ubuntu/Debian
@@ -193,6 +226,15 @@ cd internal-solutions-socialresearch/frontend
 npm install
 npm run dev
 
+# Build for production
+npm run build
+
+# Lint code
+npm run lint
+
+# Type checking (implicit in build)
+tsc -b
+
 # Backend development
 cd internal-solutions-socialresearch/backend
 python -m venv venv
@@ -206,9 +248,6 @@ cd backend
 ./init_alembic.sh  # First time only
 alembic revision --autogenerate -m "Description of changes"
 alembic upgrade head
-
-# Required Postgres setup for local development (with pgvector extension)
-# Install PostgreSQL 15+ and pgvector extension
 ```
 
 ### Reddit Ripper Development
@@ -216,6 +255,13 @@ alembic upgrade head
 ```bash
 cd internal-solutions-reddit-ripper
 pip install flask praw fpdf
+python app.py
+
+# Clean generated PDFs and status files
+rm -rf downloads/*
+
+# Run with debug logging
+export FLASK_DEBUG=1
 python app.py
 ```
 
@@ -235,12 +281,29 @@ python app.py
 4. Second-pass analysis refines the journey map
 5. Interactive HTML journey map is generated and saved
 
+### Social Research Tool Processing
+
+1. **Topic Modeling Pipeline**:
+   - Text preprocessing and cleaning
+   - Document embedding generation
+   - Clustering and dimension reduction
+   - Topic identification and labeling
+   - Topic engagement metrics calculation
+
+2. **Sentiment Analysis Pipeline**:
+   - RoBERTa sentiment scoring and filtering
+   - Sentence-BERT clustering or ABSA analysis
+   - Data chunking for LLM processing
+   - Multi-stage LLM analysis for sentiment extraction
+   - Category merging and final results generation
+
 ## UI and Brand Guidelines
 
 The NXT Humans workbench follows specific brand guidelines:
 
-- **Primary Color**: Cyan #01C4C8
+- **Primary Color**: Cyan #01C4C8 (rgba(1,196,200,1))
 - **Dark Background**: #121B26
+- **Secondary Colors**: Light Grey #5A6275, Medium Grey #4A5165
 - **Typography**: Segoe UI / system fonts
 - **UI Components**: Card-based design with standardized elements
 
@@ -253,7 +316,7 @@ While the codebase doesn't include formal testing frameworks, you can validate a
 1. **Manual Testing**: Run each application independently to verify basic functionality
 2. **E2E Testing**: Test the full workflow from data collection to journey mapping
 3. **Server Logs**: Check application logs for errors:
-   - Journey Mapper: `/internal-solutions-journey-mapper/logs/`
+   - Journey Mapper: `/internal-solutions-journeymapper/logs/`
    - Social Research: Backend console output
    - Reddit Ripper: Flask console output
 
@@ -289,6 +352,8 @@ While the codebase doesn't include formal testing frameworks, you can validate a
    - npm warnings about engine compatibility: Update Node.js version
    - crypto getRandomValues errors: Update to newer Node.js version
    - Database connection issues: Ensure pgvector extension is installed in PostgreSQL
+   - Memory errors in Docker: Adjust memory limits in docker-compose.yml
+   - Python version compatibility: Use Python 3.11 (3.12 not supported)
 
 6. **Application Not Loading**
    - Check Docker logs: `docker compose logs [service-name]`
@@ -323,88 +388,12 @@ docker network inspect nxthumans_ai_cx_workbench_nxt-humans-network
 # Check and kill processes on a specific port
 lsof -ti:PORT_NUMBER | xargs kill -9
 
-# Update Docker Compose files
-# Change container URLs from localhost:PORT to container_name:PORT in environment variables
-# Update Node.js version for social-research service to node:20-slim
-# Add build-essential installation for journey-mapper
-```
+# Force restart all services
+./restart-all-services.sh
 
-## Development Commands
-
-### Social Research Tool Frontend
-
-```bash
-# Install dependencies 
-cd internal-solutions-socialresearch/frontend
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Lint code
-npm run lint
-
-# Type checking
-npm run typecheck
-
-# Format code with Prettier
-npm run format
-```
-
-### Social Research Tool Backend
-
-```bash
-# Start backend server
-cd internal-solutions-socialresearch/backend
-python -m run
-
-# Initialize database
-python init_db.py
-
-# Database migrations
-./init_alembic.sh  # First time only
-alembic revision --autogenerate -m "Description of changes"
-alembic upgrade head
-
-# Run specific API endpoints for testing
-python -m routes.api_llm_analyzer  # Test LLM analyzer
-python -m routes.api_topic_model   # Test topic modeling
-```
-
-### Reddit Ripper
-
-```bash
-# Start development server
-cd internal-solutions-reddit-ripper
-python app.py
-
-# Clean generated PDFs and status files
-rm -rf downloads/*
-
-# Run with debug logging
-export FLASK_DEBUG=1
-python app.py
-```
-
-### Journey Mapper
-
-```bash
-# Start development server
-cd internal-solutions-journey-mapper
-python run.py
-
-# Run with debug logging
-export LOG_LEVEL=DEBUG
-python run.py
-
-# Clean generated journey maps
-rm -rf journey_maps/*
-
-# Direct API server start
-uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
+# Docker network management
+docker network create nxt-humans  # Create network (if needed)
+docker network ls  # List networks
 ```
 
 ## Repository Structure
@@ -415,7 +404,7 @@ uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
 ├── docker-compose.yml     # Docker configuration
 ├── dynamic-compose.yml    # Dynamic port Docker configuration
 ├── launchpad/             # Central navigation dashboard
-├── internal-solutions-journey-mapper/   # Journey mapping app
+├── internal-solutions-journeymapper/   # Journey mapping app
 │   ├── src/               # Source code
 │   │   ├── app.py         # FastAPI main app
 │   │   ├── ai_analysis/   # Claude integration
@@ -425,7 +414,17 @@ uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
 ├── internal-solutions-reddit-ripper/    # Reddit data collector
 └── internal-solutions-socialresearch/   # Social data analytics
     ├── backend/           # Flask API server
+    │   ├── app/           # Main application code
+    │   ├── routes/        # API endpoints
+    │   ├── util/          # Utility functions and LLM integrations
+    │   └── db/            # Database models and services
     └── frontend/          # React application
+        ├── src/           # Frontend source code
+        ├── components/    # React components
+        ├── hooks/         # Custom React hooks
+        ├── pages/         # Page components
+        ├── services/      # API service functions
+        └── store/         # Redux store and slices
 ```
 
 ## Key API Endpoints
@@ -448,9 +447,55 @@ uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
 - `/api/generate-journey` - Generate journey map (POST)
 - `/api/journey-maps` - List all journey maps (GET)
 
+## AI Models and Integration
+
+The workbench uses several AI models, with Claude 3.7 Sonnet being the primary model:
+
+1. **Claude 3.7 Sonnet**
+   - Used for journey mapping and sentiment analysis
+   - Environment variable: `ANTHROPIC_MODEL=claude-3-7-sonnet-20250219`
+   - Integration through the Anthropic API
+
+2. **Topic Modeling**
+   - Uses BERTopic in the Social Research Tool
+   - Also leverages various transformer models for embeddings
+
+3. **Vector Embeddings**
+   - Uses pgvector extension for PostgreSQL
+   - Enables similarity search for document retrieval
+
+4. **Additional LLM Integrations**
+   - OpenAI models
+   - Mistral models
+   - Google/Gemini models
+   - Configuration through environment variables in `.env` file
+
+## Quick Fixes for Common Issues
+
+1. **Replace placeholder API key**
+   ```bash
+   # Update the API key in the .env file
+   sed -i '' 's/your_api_key_here/YOUR_ACTUAL_KEY/g' .env
+   ```
+
+2. **Fix port conflicts**
+   ```bash
+   # Find and kill processes using a specific port
+   lsof -ti:8000 | xargs kill -9  # For Launchpad
+   lsof -ti:8080 | xargs kill -9  # For Journey Mapper
+   lsof -ti:5001 | xargs kill -9  # For Reddit Ripper
+   lsof -ti:3000 | xargs kill -9  # For Social Research frontend
+   ```
+
+3. **Force restart all services**
+   ```bash
+   ./restart-all-services.sh
+   ```
+
 ## Known Issues
 
 1. The Journey Mapper service requires the build-essential package and other dependencies to successfully build C extensions. This has been addressed in the enhanced Docker configuration.
 2. The Social Research Tool requires Node.js 20 or later for compatibility with React Router and other dependencies.
 3. Container networking should use container names instead of localhost URLs for inter-service communication.
 4. Default API key in the repository should be replaced with a valid key before using the workbench.
+5. Social Research Tool works best with Python 3.11; Python 3.12 is not fully supported due to library compatibility issues.

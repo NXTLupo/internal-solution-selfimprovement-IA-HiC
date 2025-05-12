@@ -2,11 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reddit Analysis</title>
+    <title>NXT Humans | Social Research Tool</title>
+    <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+    <link rel="stylesheet" href="/static/nxt-header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      /* Fix for input text color */
+      [style*="background-color: rgba(34,38,43,255)"] input,
+      [style*="background-color: rgba(34,38,43,255)"] select {
+        color: white !important;
+      }
+    </style>
   </head>
   <body>
+    <header class="nxt-header">
+      <div class="container">
+        <div class="nxt-header-content">
+          <div class="nxt-logo-text">
+            <h1><span class="text-gradient">NXT HUMANS</span> Social Research Tool</h1>
+          </div>
+        </div>
+      </div>
+    </header>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>

@@ -20,135 +20,104 @@ var/
 .installed.cfg
 *.egg
 venv/
-.env
-ENV/
-.pytest_cache/
-.coverage
-htmlcov/
-pytest-report.xml
 
 # Node.js
 node_modules/
 npm-debug.log
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-.npm
-.eslintcache
-.node_repl_history
+yarn-debug.log
+yarn-error.log
+.npm/
+.yarn/
+.pnp/
+.pnp.js
 .cache/
-.rollup.cache/
-.parcel-cache/
+.next/
+.nuxt/
+dist/
+coverage/
 
-# Docker
-.docker/
-docker-data/
-
-# Database
-*.sqlite
-*.sqlite3
-*.db
-*.sql
-pgdata/
-
-# Generated files
-journey_maps/
-logs/
-uploads/
-downloads/
-data/processed/
-data/raw/
-data/tmp/
-.history/
-
-# Vector store files - include the base index but exclude user data
-data/vector_store/*
-!data/vector_store/journey_index.json
-
-# Jupyter Notebooks
-.ipynb_checkpoints
-
-# IDEs and editors
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-.project
-.classpath
-.settings/
-*.sublime-workspace
-*.sublime-project
-
-# macOS specific
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-Icon
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Local configuration
-local_settings.py
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Temporary files
-*.log
-*.pot
-*.pyc
-tmp/
-temp/
-.temp-*
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
 
-# Secrets (don't commit any API keys)
-*.pem
-*.key
-*.crt
-*.cert
-**/.claude/settings.local.json
-.anthropic_api_key
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Large model files and data that should be downloaded on demand
-*.bin
-*.vec
-*.weights
-*.h5
-*.onnx
-*.pt
-*.pth
-*.tflite
-*.pb
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Application specific
+logs/
+journey_maps/
+uploads/
+downloads/
+data/vector_store/
+*.pdf
+*.csv
 *.zip
 *.tar.gz
-*.rar
-*.7z
-internal-solutions-socialresearch/backend/app/data/kaggle/*.csv
-internal-solutions-socialresearch/backend/util/llm_models/pgvector/temp/*.json
+*.pkl
+*.h5
+*.model
+*.bin
 
-# Large data files in logs and uploads
-internal-solutions-journeymapper/logs/full_prompt_*.txt
-internal-solutions-journeymapper/logs/processed_csv_data.json
-internal-solutions-journeymapper/uploads/*/processed_data.json
-internal-solutions-journeymapper/uploads/*/*.pdf
-temp-components/logs/full_prompt_*.txt
-temp-components/logs/processed_csv_data.json
-temp-components/uploads/*/processed_data.json
-temp-components/uploads/*/*.pdf
+# Backup files
+backup-files-*/
+backup-scripts-*/
+backups/
+*.bak
+*.bak.*
+*.backup
+*.orig
 
-# Any large file over 10MB
-# If you accidentally commit any large file, use:
-# git filter-branch --index-filter "git rm --cached --ignore-unmatch PATH_TO_LARGE_FILE" HEAD
+# Database
+*.db
+*.sqlite3
+*.sqlite
+social-research-db-data/
 
-# Dependency caches
-__pypackages__/
-.ruff_cache/
-internal-solutions-journeymapper.zip
-frontend_files.zip
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Large files (>5MB)
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.psd
+*.ai
+*.eps
+*.model
+*.pt
+*.onnx
+*.tfmodel
+*.joblib
+*.pickle
+*.npy
+EOL < /dev/null

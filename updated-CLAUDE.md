@@ -4,11 +4,49 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is an integrated platform with three main applications:
+The NXT Humans AI CX Workbench is an integrated platform with four main applications:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics for social media data (internal-solutions-socialresearch)
 3. **AI Journey Mapper**: Customer journey mapping using Claude 3.7 Sonnet (internal-solutions-journeymapper)
+4. **AI Agent Assistant**: Multimodal chatbot agent to control all tools (mcp-services)
+
+## Quick Start Commands
+
+```bash
+# Start the entire workbench with all services (without AI agent)
+./check-and-run.sh
+
+# Start the workbench with AI agent enabled
+./launch-with-agent.sh your_api_key_here
+
+# Stop all services
+./stop-workbench.sh
+
+# View status of running containers
+docker compose -f dynamic-compose.yml ps
+
+# View logs for a specific service (e.g., journey-mapper)
+docker compose -f dynamic-compose.yml logs journey-mapper
+
+# View logs continuously
+docker compose -f dynamic-compose.yml logs -f journey-mapper
+
+# Restart a specific service
+docker compose -f dynamic-compose.yml restart [service-name]
+
+# Update Anthropic API key
+./update_anthropic_key.sh
+
+# Fix chatbot connection issues
+./fix-chatbot.sh
+
+# Fix websocket path issues
+./fix-websocket-path.sh
+
+# Fix agent connections
+./fix-agent-connections.sh
+```
 
 ## Starting the Workbench
 
@@ -47,7 +85,7 @@ cd launchpad
 python app.py
 
 # Start Journey Mapper
-cd internal-solutions-journey-mapper
+cd internal-solutions-journeymapper
 python run.py
 
 # Start Reddit Ripper
@@ -85,7 +123,7 @@ python -m run
    CREATE USER social_research_user WITH PASSWORD 'your_secure_password';
    GRANT ALL PRIVILEGES ON DATABASE social_research_db TO social_research_user;
    \q
-   
+
    # Enable pgvector extension
    psql social_research_db
    CREATE EXTENSION IF NOT EXISTS vector;
@@ -113,6 +151,7 @@ JOURNEY_MAPPER_PORT=8080             # Optional, default: 8080
 REDDIT_RIPPER_PORT=5001              # Optional, default: 5001
 SOCIAL_RESEARCH_PORT=3000            # Optional, default: 3000
 SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
+ENABLE_CX_AGENT=true                 # Set to true to enable the AI agent
 ```
 
 ## Application Architecture
@@ -137,11 +176,15 @@ SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 - **Access URL**: http://localhost:3000 (frontend), http://localhost:8081 (backend API)
 - **Node.js Version**: Requires Node.js 20+
 - **Database**: PostgreSQL with pgvector extension for vector embeddings
+- **Architecture**:
+  - **Frontend**: React with TypeScript, Redux Toolkit for state management, Tailwind CSS
+  - **Backend**: Flask API server, SQLAlchemy ORM, pgvector for vector embeddings
+  - **Data Processing Pipeline**: Text processing, sentiment scoring, chunking, LLM analysis
 
 ### 3. AI Journey Mapper (internal-solutions-journeymapper)
 
 - **Technology**: Python with FastAPI, Anthropic Claude 3.7 Sonnet
-- **Main Components**: 
+- **Main Components**:
   - `src/app.py`: FastAPI application with main routes
   - `src/ai_analysis/dynamic_journey_mapper.py`: Core journey mapping logic
   - `src/data_ingestion/data_processor.py`: Data preprocessing
@@ -151,50 +194,59 @@ SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 - **Dependencies**: Requires build-essential, python3-dev, wkhtmltopdf, and xvfb for compiling C extensions and PDF generation
 - **Generated Output**: HTML journey maps are stored in the `journey_maps` directory
 
-### 4. Launcher (launchpad)
+### 4. AI Agent Assistant (mcp-services)
+
+- **Technology**: Python with FastAPI, WebSockets, Anthropic Claude 3.7 Sonnet
+- **Main Components**:
+  - `mcp-services/agent/app.py`: Main agent orchestration service
+  - `mcp-services/reddit-mcp/app.py`: MCP wrapper for Reddit Ripper
+  - `mcp-services/social-mcp/app.py`: MCP wrapper for Social Research Tool
+  - `mcp-services/journey-mcp/app.py`: MCP wrapper for Journey Mapper
+- **Features**: Natural language control of all tools, file upload handling, WebSocket communication
+- **Access**: Embedded in the launchpad interface
+- **Architecture**: Model Context Protocol (MCP) integration with tool-specific wrappers
+
+### 5. Launcher (launchpad)
 
 - **Technology**: Python with Flask
 - **Main Entry Point**: app.py
 - **Purpose**: Central dashboard to access all three applications
 - **Access URL**: http://localhost:8000
 - **Features**: Health monitoring of all services, unified navigation
+- **WebSocket Proxy**: Handles communication between frontend and AI agent services
 
-## Common Development Commands
+## Development Guidelines
 
-### Build, Run and Test Commands
+### Journey Mapper Development
 
-#### Docker Management
 ```bash
-# Start all services with Docker
-./check-and-run.sh
+cd internal-solutions-journeymapper
 
-# Check container status
-docker compose ps
+# Install dependencies
+sudo apt-get update  # For Ubuntu/Debian
+sudo apt-get install -y build-essential  # Required for compiling C extensions
+pip install -r requirements.txt
 
-# View logs
-docker compose logs [service-name]
-docker compose logs -f [service-name]  # Follow logs in real-time
+# Start the application
+python run.py
 
-# Restart a specific service
-docker compose restart [service-name]
+# Set log level for debugging
+export LOG_LEVEL=DEBUG  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
-# Enter container shell
-docker compose exec [service-name] bash
+# Direct API start (development mode)
+uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
 
-# Stop all services
-./stop-workbench.sh
+# Update API key
+# Edit the .env file in the root directory or set environment variable:
+export ANTHROPIC_API_KEY=your_api_key_here
 ```
 
-#### Social Research Tool
+### Social Research Tool Development
 
 ```bash
-# Frontend Development
+# Frontend development
 cd internal-solutions-socialresearch/frontend
-
-# Install dependencies 
 npm install
-
-# Start development server (TypeScript)
 npm run dev
 
 # Build for production
@@ -203,33 +255,29 @@ npm run build
 # Lint code
 npm run lint
 
-# Type checking
-npm run typecheck
+# Type checking (implicit in build)
+tsc -b
 
-# Backend Development
+# Backend development
 cd internal-solutions-socialresearch/backend
-
-# Start backend server
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python init_db.py   # Initialize the database
 python -m run
 
-# Initialize database
-python init_db.py
-
 # Database migrations
+cd backend
 ./init_alembic.sh  # First time only
 alembic revision --autogenerate -m "Description of changes"
 alembic upgrade head
-
-# Run specific API endpoints for testing
-python -m routes.api_llm_analyzer  # Test LLM analyzer
-python -m routes.api_topic_model   # Test topic modeling
 ```
 
-#### Reddit Ripper
+### Reddit Ripper Development
 
 ```bash
-# Start development server
 cd internal-solutions-reddit-ripper
+pip install flask praw fpdf
 python app.py
 
 # Clean generated PDFs and status files
@@ -240,25 +288,64 @@ export FLASK_DEBUG=1
 python app.py
 ```
 
-#### Journey Mapper
+### AI Agent Development
 
 ```bash
-# Start development server
-cd internal-solutions-journey-mapper
-python run.py
+cd mcp-services/agent
 
-# Run with debug logging
-export LOG_LEVEL=DEBUG
-python run.py
+# Install dependencies
+pip install -r requirements.txt
 
-# Clean generated journey maps
-rm -rf journey_maps/*
+# Test the API key
+python test_key.py
 
-# Direct API server start (development mode with auto-reload)
-uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload
+# Test WebSocket connection
+python test_ws.py
 
-# Update API key
-export ANTHROPIC_API_KEY=your_api_key_here
+# Run the agent service
+python app.py
+
+# Debug WebSocket issues
+python ws_debug.py
+
+# Check and fix Claude format issues
+python fix_claude_format.py
+```
+
+## MCP Agent Architecture
+
+The AI Agent uses the Model Context Protocol (MCP) to integrate with all tools:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        Launchpad Frontend                        │
+│                                                                 │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌────────┐  │
+│  │ Reddit Data │  │   Social    │  │  Journey    │  │  Chat  │  │
+│  │  Collector  │  │  Research   │  │   Mapper    │  │ Agent  │  │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+              │             │              │             │
+              │             │              │             │
+              ▼             ▼              ▼             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                         WebSocket Proxy                          │
+└──────────────────────────────────────────────────────────────────┘
+              │             │              │             │
+              │             │              │             │
+              ▼             ▼              ▼             ▼
+┌──────────────┐   ┌────────────────┐   ┌────────────┐   ┌────────┐
+│ Reddit MCP   │   │ Social MCP     │   │ Journey MCP│   │Agent   │
+│ Service      │   │ Service        │   │ Service    │   │Service │
+└──────────────┘   └────────────────┘   └────────────┘   └────────┘
+       │                  │                   │               │
+       │                  │                   │               │
+       │                  │                   │               │
+       ▼                  ▼                   ▼               ▼
+┌──────────────┐   ┌────────────────┐   ┌────────────┐    ┌─────────┐
+│ Reddit       │   │ Social Research│   │ Journey    │    │Anthropic│
+│ Ripper       │   │ Tool           │   │ Mapper     │    │Claude API│
+└──────────────┘   └────────────────┘   └────────────┘    └─────────┘
 ```
 
 ## Data Workflows
@@ -277,12 +364,29 @@ export ANTHROPIC_API_KEY=your_api_key_here
 4. Second-pass analysis refines the journey map
 5. Interactive HTML journey map is generated and saved
 
+### Social Research Tool Processing
+
+1. **Topic Modeling Pipeline**:
+   - Text preprocessing and cleaning
+   - Document embedding generation
+   - Clustering and dimension reduction
+   - Topic identification and labeling
+   - Topic engagement metrics calculation
+
+2. **Sentiment Analysis Pipeline**:
+   - RoBERTa sentiment scoring and filtering
+   - Sentence-BERT clustering or ABSA analysis
+   - Data chunking for LLM processing
+   - Multi-stage LLM analysis for sentiment extraction
+   - Category merging and final results generation
+
 ## UI and Brand Guidelines
 
 The NXT Humans workbench follows specific brand guidelines:
 
-- **Primary Color**: Cyan #01C4C8
+- **Primary Color**: Cyan #01C4C8 (rgba(1,196,200,1))
 - **Dark Background**: #121B26
+- **Secondary Colors**: Light Grey #5A6275, Medium Grey #4A5165
 - **Typography**: Segoe UI / system fonts
 - **UI Components**: Card-based design with standardized elements
 
@@ -295,9 +399,10 @@ While the codebase doesn't include formal testing frameworks, you can validate a
 1. **Manual Testing**: Run each application independently to verify basic functionality
 2. **E2E Testing**: Test the full workflow from data collection to journey mapping
 3. **Server Logs**: Check application logs for errors:
-   - Journey Mapper: `/internal-solutions-journey-mapper/logs/`
+   - Journey Mapper: `/internal-solutions-journeymapper/logs/`
    - Social Research: Backend console output
    - Reddit Ripper: Flask console output
+   - AI Agent: `/mcp-services/agent/logs/`
 
 ## Troubleshooting
 
@@ -310,7 +415,7 @@ While the codebase doesn't include formal testing frameworks, you can validate a
    - Ensure your Anthropic API key is correctly set in `.env` file
    - Check application logs for API key errors
    - Default Anthropic model is Claude 3.7 Sonnet (claude-3-7-sonnet-20250219)
-   - Update API key: `./update_anthropic_key.sh`
+   - Test API key: `python mcp-services/agent/test_key.py`
 
 3. **Docker Issues**
    - Ensure Docker is installed and running
@@ -319,7 +424,6 @@ While the codebase doesn't include formal testing frameworks, you can validate a
    - Container networking: Update container URLs from 'localhost' to container names
    - Journey Mapper build issues: Update Dockerfile to include `build-essential` package
    - Social Research Node.js version: Use Node.js 20 or later (update image to `node:20-slim`)
-   - Check container networking: `docker network inspect nxthumans_ai_cx_workbench_nxt-humans-network`
 
 4. **Journey Mapper Issues**
    - Compilation failures: Install build-essential package
@@ -333,15 +437,106 @@ While the codebase doesn't include formal testing frameworks, you can validate a
    - npm warnings about engine compatibility: Update Node.js version
    - crypto getRandomValues errors: Update to newer Node.js version
    - Database connection issues: Ensure pgvector extension is installed in PostgreSQL
-   - Required package versions:
-     - Frontend: React 19+, TypeScript 5.7+
-     - Backend: Flask 2.3+, SQLAlchemy <2.0.0, Python 3.11 (doesn't support 3.12)
+   - Memory errors in Docker: Adjust memory limits in docker-compose.yml
+   - Python version compatibility: Use Python 3.11 (3.12 not supported)
 
-6. **Application Not Loading**
+6. **AI Agent Issues**
+   - WebSocket connection errors: Check logs in `mcp-services/agent/logs/`
+   - Format errors: Run `python mcp-services/agent/fix_claude_format.py`
+   - Check direct API access with `python mcp-services/agent/test_fixed_ws.py`
+   - For agent connection issues: `./fix-agent-connections.sh`
+   - WebSocket path issues: `./fix-websocket-path.sh`
+
+7. **Application Not Loading**
    - Check Docker logs: `docker compose logs [service-name]`
    - Verify port availability: `lsof -i :PORT_NUMBER`
    - Check browser network console for errors
    - Check container network communication: Use container names instead of localhost
+
+## Useful Commands
+
+```bash
+# Check status of running containers
+docker compose ps
+
+# View logs for a specific service
+docker compose logs [service-name]
+
+# View logs continuously
+docker compose logs -f [service-name]
+
+# Restart a specific service
+docker compose restart [service-name]
+
+# Enter a container's shell
+docker compose exec [service-name] bash
+
+# Check container networking
+docker network inspect nxthumans_ai_cx_workbench_nxt-humans-network
+
+# Update API key
+./update_anthropic_key.sh
+
+# Check and kill processes on a specific port
+lsof -ti:PORT_NUMBER | xargs kill -9
+
+# Force restart all services
+./restart-all-services.sh
+
+# Docker network management
+docker network create nxt-humans  # Create network (if needed)
+docker network ls  # List networks
+
+# Debug the chatbot
+./debug-launchpad.sh
+
+# Fix chatbot display issues
+./fix-chatbot-display.sh
+
+# Force enable debug panel
+./force-debug-panel.sh
+```
+
+## Repository Structure
+
+```
+/
+├── check-and-run.sh       # Main startup script
+├── docker-compose.yml     # Docker configuration
+├── dynamic-compose.yml    # Dynamic port Docker configuration
+├── launchpad/             # Central navigation dashboard
+│   ├── app.py             # Main Flask app with WebSocket proxy
+│   ├── static/            # Frontend assets
+│   └── templates/         # HTML templates
+├── internal-solutions-journeymapper/   # Journey mapping app
+│   ├── src/               # Source code
+│   │   ├── app.py         # FastAPI main app
+│   │   ├── ai_analysis/   # Claude integration
+│   │   └── data_ingestion/ # Data processing
+│   ├── journey_maps/      # Generated journey maps
+│   └── uploads/           # User uploaded files
+├── internal-solutions-reddit-ripper/    # Reddit data collector
+│   ├── app.py             # Main Flask app
+│   └── downloads/         # Generated PDF files
+├── internal-solutions-socialresearch/   # Social data analytics
+│   ├── backend/           # Flask API server
+│   │   ├── app/           # Main application code
+│   │   ├── routes/        # API endpoints
+│   │   ├── util/          # Utility functions and LLM integrations
+│   │   └── db/            # Database models and services
+│   └── frontend/          # React application
+│       ├── src/           # Frontend source code
+│       ├── components/    # React components
+│       ├── hooks/         # Custom React hooks
+│       ├── pages/         # Page components
+│       ├── services/      # API service functions
+│       └── store/         # Redux store and slices
+└── mcp-services/          # AI Agent MCP integration
+    ├── agent/             # Main agent orchestration service
+    ├── reddit-mcp/        # MCP wrapper for Reddit Ripper
+    ├── social-mcp/        # MCP wrapper for Social Research Tool
+    └── journey-mcp/       # MCP wrapper for Journey Mapper
+```
 
 ## Key API Endpoints
 
@@ -363,9 +558,72 @@ While the codebase doesn't include formal testing frameworks, you can validate a
 - `/api/generate-journey` - Generate journey map (POST)
 - `/api/journey-maps` - List all journey maps (GET)
 
+### AI Agent (mcp-services)
+
+- `/ws/<conversation_id>` - WebSocket endpoint for agent communication
+- `/api/chat/conversation` - Create a new conversation (POST)
+- `/api/chat/ws/<conversation_id>` - Get WebSocket URL for a conversation (GET)
+
+## AI Models and Integration
+
+The workbench uses several AI models, with Claude 3.7 Sonnet being the primary model:
+
+1. **Claude 3.7 Sonnet**
+   - Used for journey mapping and sentiment analysis
+   - Environment variable: `ANTHROPIC_MODEL=claude-3-7-sonnet-20250219`
+   - Integration through the Anthropic API
+
+2. **Topic Modeling**
+   - Uses BERTopic in the Social Research Tool
+   - Also leverages various transformer models for embeddings
+
+3. **Vector Embeddings**
+   - Uses pgvector extension for PostgreSQL
+   - Enables similarity search for document retrieval
+
+4. **Additional LLM Integrations**
+   - OpenAI models
+   - Mistral models
+   - Google/Gemini models
+   - Configuration through environment variables in `.env` file
+
+## Quick Fixes for Common Issues
+
+1. **Replace placeholder API key**
+   ```bash
+   # Update the API key in the .env file
+   sed -i '' 's/your_api_key_here/YOUR_ACTUAL_KEY/g' .env
+   ```
+
+2. **Fix port conflicts**
+   ```bash
+   # Find and kill processes using a specific port
+   lsof -ti:8000 | xargs kill -9  # For Launchpad
+   lsof -ti:8080 | xargs kill -9  # For Journey Mapper
+   lsof -ti:5001 | xargs kill -9  # For Reddit Ripper
+   lsof -ti:3000 | xargs kill -9  # For Social Research frontend
+   ```
+
+3. **Force restart all services**
+   ```bash
+   ./restart-all-services.sh
+   ```
+
+4. **Fix chatbot issues**
+   ```bash
+   # Various scripts for fixing common issues
+   ./fix-chatbot.sh  # General fixes
+   ./fix-claude-format.sh  # Fix Claude format issues
+   ./fix-websocket-path.sh  # Fix WebSocket path issues
+   ./fix-agent-connections.sh  # Fix agent connection issues
+   ```
+
 ## Known Issues
 
 1. The Journey Mapper service requires the build-essential package and other dependencies to successfully build C extensions. This has been addressed in the enhanced Docker configuration.
 2. The Social Research Tool requires Node.js 20 or later for compatibility with React Router and other dependencies.
 3. Container networking should use container names instead of localhost URLs for inter-service communication.
 4. Default API key in the repository should be replaced with a valid key before using the workbench.
+5. Social Research Tool works best with Python 3.11; Python 3.12 is not fully supported due to library compatibility issues.
+6. WebSocket connection issues with the AI agent may require using specialized fix scripts.
+7. Multiple debug scripts are available to troubleshoot various issues with the chatbot and WebSocket connections.
