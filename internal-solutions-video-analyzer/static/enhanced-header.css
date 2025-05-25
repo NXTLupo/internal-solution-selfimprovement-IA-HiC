@@ -1,0 +1,89 @@
+/* Enhanced header styles for NXT Humans Video Analyzer */
+
+.nxt-header {
+  background: linear-gradient(90deg, #01C4C8, #1DB954);
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nxt-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nxt-logo-text h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.nxt-logo-text p {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.nxt-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nxt-nav-item {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nxt-nav-item:hover {
+  opacity: 0.8;
+}
+
+.nxt-nav-item i {
+  margin-right: 5px;
+}
+
+.nxt-footer {
+  background-color: #282c34;
+  color: #f8f8f2;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.nxt-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nxt-footer-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nxt-header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nxt-logo-text h1 {
+    font-size: 2rem;
+  }
+  
+  .nxt-nav {
+    margin-top: 15px;
+  }
+  
+  .nxt-footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

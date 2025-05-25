@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXT Humans | Video Transcriptor</title>
+    <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+    <link rel="stylesheet" href="/static/enhanced-styles.css">
+    <link rel="stylesheet" href="/static/enhanced-components.css">
+    <link rel="stylesheet" href="/static/nxt-header.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #01C4C8, #1DB954);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background-color: rgba(34, 38, 43, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(70, 70, 70, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(70, 70, 70, 0.5);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .upload-form {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(34, 38, 43, 1);
+            border: 1px solid rgba(70, 70, 70, 0.5);
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #FFFFFF;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #01C4C8;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(1, 196, 200, 0.2);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            outline: none;
+            border: none;
+            color: white;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(1, 196, 200, 0.3);
+        }
+        
+        .btn:hover {
+            box-shadow: 0 6px 20px rgba(1, 196, 200, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: rgba(70, 70, 70, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(90, 90, 90, 0.9);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-container {
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: rgba(34, 38, 43, 1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            border: 1px solid rgba(70, 70, 70, 0.3);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 2px 8px rgba(1, 196, 200, 0.3);
+        }
+        
+        .progress-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .job-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .job-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(70, 70, 70, 0.3);
+            background-color: rgba(34, 38, 43, 0.6);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .job-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: rgba(34, 38, 43, 0.8);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .job-status {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-processing {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+            border: 1px solid rgba(255, 193, 7, 0.4);
+        }
+        
+        .status-completed {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.4);
+        }
+        
+        .status-failed {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.4);
+        }
+        
+        .job-details {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+        
+        .job-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        
+        .job-actions .btn {
+            flex: 1;
+            min-width: 140px;
+            font-size: 0.9rem;
+            padding: 8px 10px;
+        }
+        
+        .transcript-container {
+            background-color: rgba(26, 26, 26, 0.7);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            display: none;
+            border: 1px solid rgba(70, 70, 70, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .back-to-launchpad {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-to-launchpad:hover {
+            color: #01C4C8;
+            background-color: rgba(1, 196, 200, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .back-to-launchpad i {
+            margin-right: 5px;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Tab styles */
+        .tab-navigation {
+            display: flex;
+            border-bottom: 1px solid rgba(70, 70, 70, 0.5);
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn:hover {
+            color: #01C4C8;
+            background-color: rgba(1, 196, 200, 0.05);
+        }
+        
+        .tab-btn.active {
+            color: #01C4C8;
+            background-color: rgba(1, 196, 200, 0.1);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+        }
+        
+        .tab-content {
+            display: none;
+            padding-top: 10px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Download button styles */
+        #transcriptActions {
+            margin-bottom: 15px;
+        }
+        
+        #downloadJsonBtn {
+            background: linear-gradient(90deg, #01C4C8 0%, #00a5a8 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(1, 196, 200, 0.3);
+        }
+        
+        #downloadJsonBtn:hover {
+            background: linear-gradient(90deg, #00b5b9 0%, #00969a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(1, 196, 200, 0.4);
+        }
+        
+        #downloadJsonBtn i {
+            font-size: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="nxt-header">
+        <div class="container">
+            <div class="nxt-header-content">
+                <div class="nxt-logo-container">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="nxt-logo-image">
+                    <div class="nxt-logo-text">
+                        <h1><span class="text-gradient">NXT HUMANS</span> Video Transcriptor</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="http://localhost:8000" class="back-to-launchpad">
+            <i class="fas fa-arrow-left"></i> Back to Launchpad
+        </a>
+        
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="card">
+                    <h2>Transcribe Video</h2>
+                    
+                    <!-- Tab navigation -->
+                    <div class="tab-navigation">
+                        <button class="tab-btn active" data-tab="upload">Upload Video</button>
+                        <button class="tab-btn" data-tab="youtube">YouTube URL</button>
+                    </div>
+                    
+                    <!-- Upload video tab -->
+                    <div id="upload-tab" class="tab-content active">
+                        <form id="uploadForm" class="upload-form">
+                            <div class="form-group">
+                                <label for="videoFile">Select Video File</label>
+                                <input type="file" id="videoFile" class="form-control" accept="video/*" required>
+                            </div>
+                            <button type="submit" class="btn">
+                                <i class="fas fa-upload"></i> Upload & Analyze
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- YouTube URL tab -->
+                    <div id="youtube-tab" class="tab-content">
+                        <form id="youtubeForm" class="upload-form">
+                            <div class="form-group">
+                                <label for="youtubeUrl">Enter YouTube URL</label>
+                                <input type="url" id="youtubeUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=..." required>
+                            </div>
+                            <button type="submit" class="btn">
+                                <i class="fab fa-youtube"></i> Analyze YouTube Video
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div id="progressContainer" class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progressBar" class="progress"></div>
+                        </div>
+                        <div id="progressText" class="progress-text">Processing: 0%</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Transcript Viewer</h2>
+                    <div id="transcriptActions" style="display: none; margin-bottom: 10px;">
+                        <button id="downloadJsonBtn" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Download as JSON
+                        </button>
+                    </div>
+                    <div id="transcriptContainer" class="transcript-container">
+                        Select a completed job to view its transcript.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="jobs-section">
+                <div class="card">
+                    <h2>Processing Jobs</h2>
+                    <div id="jobList" class="job-list">
+                        <div class="job-item">
+                            <div class="job-header">
+                                <span class="job-title">Loading jobs...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get elements
+            const uploadForm = document.getElementById('uploadForm');
+            const youtubeForm = document.getElementById('youtubeForm');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const jobList = document.getElementById('jobList');
+            const transcriptContainer = document.getElementById('transcriptContainer');
+            const transcriptActions = document.getElementById('transcriptActions');
+            const downloadJsonBtn = document.getElementById('downloadJsonBtn');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Setup tab switching
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current button and content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Load jobs on page load
+            fetchJobs();
+            
+            // Set up interval to refresh jobs
+            setInterval(fetchJobs, 5000);
+            
+            // Handle file upload form submission
+            uploadForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const videoFile = document.getElementById('videoFile').files[0];
+                if (!videoFile) {
+                    alert('Please select a video file');
+                    return;
+                }
+                
+                // Show progress
+                progressContainer.style.display = 'block';
+                progressBar.style.width = '0%';
+                progressText.textContent = 'Uploading...';
+                
+                // Create form data
+                const formData = new FormData();
+                formData.append('file', videoFile);
+                
+                try {
+                    // Upload the file
+                    const response = await fetch('/upload-video', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Start polling for progress updates
+                        const jobId = data.job_id;
+                        pollJobProgress(jobId);
+                        
+                        // Refresh job list
+                        fetchJobs();
+                    } else {
+                        alert('Error uploading video: ' + data.message);
+                        progressContainer.style.display = 'none';
+                    }
+                } catch (error) {
+                    alert('Error uploading video: ' + error.message);
+                    progressContainer.style.display = 'none';
+                }
+            });
+            
+            // Handle YouTube URL form submission
+            youtubeForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const youtubeUrl = document.getElementById('youtubeUrl').value;
+                if (!youtubeUrl) {
+                    alert('Please enter a YouTube URL');
+                    return;
+                }
+                
+                // Show progress
+                progressContainer.style.display = 'block';
+                progressBar.style.width = '0%';
+                progressText.textContent = 'Analyzing YouTube video...';
+                
+                try {
+                    // Send the YouTube URL for analysis
+                    const response = await fetch('/analyze-youtube', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ url: youtubeUrl })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Start polling for progress updates
+                        const jobId = data.job_id;
+                        pollJobProgress(jobId);
+                        
+                        // Refresh job list
+                        fetchJobs();
+                    } else {
+                        alert('Error analyzing YouTube video: ' + data.message);
+                        progressContainer.style.display = 'none';
+                    }
+                } catch (error) {
+                    alert('Error analyzing YouTube video: ' + error.message);
+                    progressContainer.style.display = 'none';
+                }
+            });
+            
+            // Poll job progress
+            function pollJobProgress(jobId) {
+                const interval = setInterval(async () => {
+                    try {
+                        const response = await fetch(`/jobs/${jobId}`);
+                        const job = await response.json();
+                        
+                        // Update progress bar
+                        progressBar.style.width = `${job.progress}%`;
+                        progressText.textContent = `Processing: ${job.progress}%`;
+                        
+                        // If job is completed or failed, stop polling
+                        if (job.status === 'completed' || job.status === 'failed') {
+                            clearInterval(interval);
+                            
+                            if (job.status === 'completed') {
+                                progressText.textContent = 'Processing completed!';
+                            } else {
+                                progressText.textContent = 'Processing failed: ' + (job.error || 'Unknown error');
+                            }
+                            
+                            // Refresh job list
+                            fetchJobs();
+                        }
+                    } catch (error) {
+                        console.error('Error polling job progress:', error);
+                    }
+                }, 1000);
+            }
+            
+            // Fetch all jobs
+            async function fetchJobs() {
+                try {
+                    const response = await fetch('/jobs');
+                    const data = await response.json();
+                    
+                    // Sort jobs by start time (newest first)
+                    const jobs = data.jobs.sort((a, b) => {
+                        return new Date(b.start_time) - new Date(a.start_time);
+                    });
+                    
+                    // Render jobs
+                    renderJobs(jobs);
+                } catch (error) {
+                    console.error('Error fetching jobs:', error);
+                    jobList.innerHTML = `<div class="job-item">
+                        <div class="job-header">
+                            <span class="job-title">Error loading jobs</span>
+                        </div>
+                        <div class="job-details">
+                            ${error.message}
+                        </div>
+                    </div>`;
+                }
+            }
+            
+            // Render jobs
+            function renderJobs(jobs) {
+                if (jobs.length === 0) {
+                    jobList.innerHTML = `<div class="job-item">
+                        <div class="job-header">
+                            <span class="job-title">No jobs found</span>
+                        </div>
+                        <div class="job-details">
+                            Upload a video to get started.
+                        </div>
+                    </div>`;
+                    return;
+                }
+                
+                jobList.innerHTML = '';
+                
+                jobs.forEach(job => {
+                    // Determine status class
+                    let statusClass = '';
+                    switch (job.status) {
+                        case 'processing':
+                            statusClass = 'status-processing';
+                            break;
+                        case 'completed':
+                            statusClass = 'status-completed';
+                            break;
+                        case 'failed':
+                            statusClass = 'status-failed';
+                            break;
+                        default:
+                            statusClass = 'status-unknown';
+                    }
+                    
+                    // Format dates
+                    const startDate = new Date(job.start_time).toLocaleString();
+                    const endDate = job.end_time ? new Date(job.end_time).toLocaleString() : '';
+                    
+                    // Create job item
+                    const jobItem = document.createElement('div');
+                    jobItem.className = 'job-item';
+                    jobItem.innerHTML = `
+                        <div class="job-header">
+                            <span class="job-title">${job.filename}</span>
+                            <span class="job-status ${statusClass}">${job.status}</span>
+                        </div>
+                        <div class="job-details">
+                            <div>Started: ${startDate}</div>
+                            ${endDate ? `<div>Completed: ${endDate}</div>` : ''}
+                            ${job.status === 'processing' ? `<div>Progress: ${job.progress}%</div>` : ''}
+                        </div>
+                        <div class="job-actions">
+                            ${job.status === 'completed' ? `
+                                <button class="btn btn-secondary view-transcript" data-job-id="${job.id}">
+                                    <i class="fas fa-file-alt"></i> View Transcript
+                                </button>
+                                <button class="btn btn-secondary download-json" data-job-id="${job.id}">
+                                    <i class="fas fa-download"></i> Download JSON
+                                </button>
+                            ` : ''}
+                        </div>
+                    `;
+                    
+                    jobList.appendChild(jobItem);
+                    
+                    // Add event listeners to job action buttons
+                    if (job.status === 'completed') {
+                        // View transcript button
+                        const viewTranscriptBtn = jobItem.querySelector('.view-transcript');
+                        viewTranscriptBtn.addEventListener('click', () => {
+                            viewTranscript(job.id);
+                        });
+                        
+                        // Download JSON button
+                        const downloadJsonBtn = jobItem.querySelector('.download-json');
+                        downloadJsonBtn.addEventListener('click', () => {
+                            downloadTranscriptJson(job.id);
+                        });
+                    }
+                });
+            }
+            
+            // View transcript
+            let currentTranscriptData = null;
+            let currentJobId = null;
+            
+            async function viewTranscript(jobId) {
+                try {
+                    currentJobId = jobId;
+                    transcriptContainer.style.display = 'block';
+                    transcriptContainer.textContent = 'Loading transcript...';
+                    transcriptActions.style.display = 'none';
+                    
+                    const response = await fetch(`/transcript/${jobId}`);
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Store the transcript data for download
+                        currentTranscriptData = data;
+                        
+                        // Display the transcript
+                        transcriptContainer.textContent = data.transcript;
+                        
+                        // Show download actions
+                        transcriptActions.style.display = 'block';
+                    } else {
+                        transcriptContainer.textContent = 'Error loading transcript: ' + data.message;
+                        currentTranscriptData = null;
+                    }
+                } catch (error) {
+                    transcriptContainer.textContent = 'Error loading transcript: ' + error.message;
+                    currentTranscriptData = null;
+                }
+            }
+            
+            // Download transcript as JSON
+            downloadJsonBtn.addEventListener('click', () => {
+                if (!currentTranscriptData) return;
+                
+                // Create a JSON object with transcript data
+                const jsonData = {
+                    transcript: currentTranscriptData.transcript,
+                    job_id: currentJobId,
+                    timestamp: new Date().toISOString(),
+                    format: 'json'
+                };
+                
+                // Convert to JSON string
+                const jsonString = JSON.stringify(jsonData, null, 2);
+                
+                // Create blob and download link
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                // Create temporary link and trigger download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `transcript_${currentJobId}.json`;
+                document.body.appendChild(a);
+                a.click();
+                
+                // Clean up
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+            
+            // Function to download transcript JSON directly from job list
+            async function downloadTranscriptJson(jobId) {
+                try {
+                    // Show loading indicator
+                    const downloadBtn = document.querySelector(`.download-json[data-job-id="${jobId}"]`);
+                    const originalText = downloadBtn.innerHTML;
+                    downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                    
+                    // Fetch transcript data
+                    const response = await fetch(`/transcript/${jobId}`);
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Create a JSON object with transcript data
+                        const jsonData = {
+                            transcript: data.transcript,
+                            job_id: jobId,
+                            timestamp: new Date().toISOString(),
+                            format: 'json'
+                        };
+                        
+                        // Convert to JSON string
+                        const jsonString = JSON.stringify(jsonData, null, 2);
+                        
+                        // Create blob and download link
+                        const blob = new Blob([jsonString], { type: 'application/json' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        // Create temporary link and trigger download
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `transcript_${jobId}.json`;
+                        document.body.appendChild(a);
+                        a.click();
+                        
+                        // Clean up
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        
+                        // Reset button text
+                        downloadBtn.innerHTML = originalText;
+                    } else {
+                        alert('Error loading transcript: ' + data.message);
+                        downloadBtn.innerHTML = originalText;
+                    }
+                } catch (error) {
+                    alert('Error downloading transcript: ' + error.message);
+                    const downloadBtn = document.querySelector(`.download-json[data-job-id="${jobId}"]`);
+                    if (downloadBtn) {
+                        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download JSON';
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <footer class="nxt-footer">
+        <div class="container">
+            <div class="nxt-footer-content">
+                <div class="nxt-footer-text">
+                    <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
