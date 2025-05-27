@@ -11,6 +11,9 @@ import websockets
 import asyncio
 from functools import wraps
 import importlib.util
+import subprocess
+import re
+import psutil
 
 # Check if flask_sock is available, and import it if so
 if importlib.util.find_spec("flask_sock"):
@@ -32,13 +35,17 @@ logger = logging.getLogger(__name__)
 def get_dynamic_urls():
     # Internal URLs for service checks (container to container)
     journey_mapper_url = os.environ.get('JOURNEY_MAPPER_URL', 'http://journey-mapper:8000')
+    openai_journey_mapper_url = os.environ.get('OPENAI_JOURNEY_MAPPER_URL', 'http://openai-journey-mapper:8000')
     reddit_ripper_url = os.environ.get('REDDIT_RIPPER_URL', 'http://reddit-ripper:5000')
     social_research_url = os.environ.get('SOCIAL_RESEARCH_URL', 'http://social-research-frontend:3000')
+    video_analyzer_url = os.environ.get('VIDEO_ANALYZER_URL', 'http://video-analyzer:5000')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
     social_mcp_url = os.environ.get('SOCIAL_MCP_URL', 'http://social-mcp:8502')
     journey_mcp_url = os.environ.get('JOURNEY_MCP_URL', 'http://journey-mcp:8503')
+    openai_journey_mcp_url = os.environ.get('OPENAI_JOURNEY_MCP_URL', 'http://openai-journey-mcp:8505')
+    video_mcp_url = os.environ.get('VIDEO_MCP_URL', 'http://video-mcp:8504')
     # Using 'agent' hostname as configured in docker-compose-agent.yml
     agent_url = os.environ.get('AGENT_URL', 'http://agent:8500')
     agent_ws_url = os.environ.get('AGENT_WS_URL', 'ws://agent:8500')
@@ -46,13 +53,19 @@ def get_dynamic_urls():
 
     # External URLs for client browsers
     journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
+    openai_journey_mapper_client_url = os.environ.get('OPENAI_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8090')
     reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
     social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
+    video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
 
     urls = {
         'journey_mapper': {
             'client_url': journey_mapper_client_url,
             'internal_url': journey_mapper_url
+        },
+        'openai_journey_mapper': {
+            'client_url': openai_journey_mapper_client_url,
+            'internal_url': openai_journey_mapper_url
         },
         'reddit_ripper': {
             'client_url': reddit_ripper_client_url,
@@ -61,6 +74,10 @@ def get_dynamic_urls():
         'social_research': {
             'client_url': social_research_client_url,
             'internal_url': social_research_url
+        },
+        'video_analyzer': {
+            'client_url': video_analyzer_client_url,
+            'internal_url': video_analyzer_url
         }
     }
 
@@ -70,7 +87,9 @@ def get_dynamic_urls():
             'mcp': {
                 'reddit': reddit_mcp_url,
                 'social': social_mcp_url,
-                'journey': journey_mcp_url
+                'journey': journey_mcp_url,
+                'openai_journey': openai_journey_mcp_url,
+                'video': video_mcp_url
             },
             'agent': {
                 'internal_url': agent_url,
@@ -84,8 +103,10 @@ def get_dynamic_urls():
 # Service status cache
 services_status = {
     "journey_mapper": {"status": "unknown", "last_checked": None},
+    "openai_journey_mapper": {"status": "unknown", "last_checked": None},
     "reddit_ripper": {"status": "unknown", "last_checked": None},
-    "social_research": {"status": "unknown", "last_checked": None}
+    "social_research": {"status": "unknown", "last_checked": None},
+    "video_analyzer": {"status": "unknown", "last_checked": None}
 }
 
 # Add agent services if enabled
@@ -94,6 +115,8 @@ if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
         "reddit_mcp": {"status": "unknown", "last_checked": None},
         "social_mcp": {"status": "unknown", "last_checked": None},
         "journey_mcp": {"status": "unknown", "last_checked": None},
+        "openai_journey_mcp": {"status": "unknown", "last_checked": None},
+        "video_mcp": {"status": "unknown", "last_checked": None},
         "agent": {"status": "unknown", "last_checked": None}  # Changed from agent_orchestrator to agent
     })
 
@@ -102,14 +125,17 @@ def check_service(service_name):
     urls = get_dynamic_urls()
 
     # Skip checking MCP and agent services if CX agent is disabled
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "agent"] and \
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "openai_journey_mcp", "video_mcp", "agent"] and \
        os.environ.get('ENABLE_CX_AGENT', 'false').lower() != 'true':
         return
 
     # Get base URL for the service
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp"]:
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "openai_journey_mcp", "video_mcp"]:
         # Handle MCP servers
-        mcp_type = service_name.split('_')[0]  # Extract reddit, social, journey
+        if service_name == "openai_journey_mcp":
+            mcp_type = "openai_journey"  # Special case for openai_journey_mcp
+        else:
+            mcp_type = service_name.split('_')[0]  # Extract reddit, social, journey
         if 'mcp' not in urls or mcp_type not in urls['mcp']:
             logger.warning(f"URL for {service_name} not found in configuration")
             services_status[service_name] = {
@@ -193,14 +219,18 @@ def check_service(service_name):
 def update_all_services():
     """Update status of all services"""
     check_service("journey_mapper")
+    check_service("openai_journey_mapper")
     check_service("reddit_ripper")
     check_service("social_research")
+    check_service("video_analyzer")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
         check_service("reddit_mcp")
         check_service("social_mcp")
         check_service("journey_mcp")
+        check_service("openai_journey_mcp")
+        check_service("video_mcp")
         check_service("agent")  # Changed from agent_orchestrator to agent
 
 # Background service checker thread
@@ -242,19 +272,24 @@ def index():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
+        'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
-        'social_research': services_status['social_research']['status']
+        'social_research': services_status['social_research']['status'],
+        'video_analyzer': services_status['video_analyzer']['status']
     }
 
     # Determine if CX agent is enabled
     cx_agent_enabled = os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true'
 
-    # Always use the enhanced template - it provides better visibility of all services
+    # Use enhanced template for better visibility
     return render_template('enhanced-index.html',
                        journey_mapper_url=urls['journey_mapper']['client_url'],
+                       openai_journey_mapper_url=urls['openai_journey_mapper']['client_url'],
                        reddit_ripper_url=urls['reddit_ripper']['client_url'],
                        social_research_url=urls['social_research']['client_url'],
-                       service_statuses=service_statuses)
+                       video_analyzer_url=urls['video_analyzer']['client_url'],
+                       service_statuses=service_statuses,
+                       enable_agent=cx_agent_enabled)
 
 @app.route('/agent')
 def agent_page():
@@ -280,14 +315,21 @@ def status_page():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
+        'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
-        'social_research': services_status['social_research']['status']
+        'social_research': services_status['social_research']['status'],
+        'video_analyzer': services_status['video_analyzer']['status']
     }
 
-    return render_template('status.html',
+    # Determine if CX agent is enabled for template
+    cx_agent_enabled = os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true'
+
+    # Use the enhanced status template with monitoring capabilities
+    return render_template('status-enhanced.html',
                           services_status=services_status,
                           service_urls=urls,
-                          service_statuses=service_statuses)
+                          service_statuses=service_statuses,
+                          enable_agent=cx_agent_enabled)
 
 @app.route('/api/status')
 def status():
@@ -330,6 +372,10 @@ def get_urls():
         'social_research': {
             'url': urls['social_research']['client_url'],
             'port': extract_port(urls['social_research']['client_url'])
+        },
+        'video_analyzer': {
+            'url': urls['video_analyzer']['client_url'],
+            'port': extract_port(urls['video_analyzer']['client_url'])
         },
         'launchpad': {
             'url': os.environ.get('LAUNCHPAD_URL', f"http://localhost:{os.environ.get('PORT', 8000)}"),
@@ -380,7 +426,17 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
         # Get correct agent URL
         urls = get_dynamic_urls()
         agent_ws_url = urls['agent']['ws_url'] if 'agent' in urls else None
-        
+
+        # Check agent service status
+        agent_status = services_status.get('agent', {}).get('status', 'unknown')
+        if agent_status != 'running':
+            logger.error(f"Agent service is not running (status: {agent_status})")
+            ws.send(json.dumps({
+                "type": "error",
+                "content": f"Agent service is not running. Current status: {agent_status}. Please start the agent service."
+            }))
+            return
+
         if not agent_ws_url:
             logger.error(f"Agent WebSocket URL not configured")
             ws.send(json.dumps({
@@ -655,6 +711,221 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
 
         target_url = f"{urls['mcp']['journey']}/{path}"
         return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+        
+    @app.route('/proxy/openai-journey-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+    def proxy_openai_journey_mcp(path):
+        """Proxy requests to the OpenAI Journey MCP server"""
+        urls = get_dynamic_urls()
+        if 'mcp' not in urls or 'openai_journey' not in urls['mcp']:
+            return jsonify({"error": "OpenAI Journey MCP not configured"}), 404
+
+        target_url = f"{urls['mcp']['openai_journey']}/{path}"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+        
+    @app.route('/proxy/video-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+    def proxy_video_mcp(path):
+        """Proxy requests to the Video MCP server"""
+        urls = get_dynamic_urls()
+        if 'mcp' not in urls or 'video' not in urls['mcp']:
+            return jsonify({"error": "Video MCP not configured"}), 404
+
+        target_url = f"{urls['mcp']['video']}/{path}"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+
+# API endpoint for service logs
+@app.route('/api/logs')
+def get_logs():
+    """API endpoint to get service logs"""
+    service = request.args.get('service', 'all')
+    lines = request.args.get('lines', 100, type=int)
+    
+    logs = []
+    
+    try:
+        # Map service name to container name
+        service_to_container = {
+            'journey-mapper': 'journey-mapper',
+            'reddit-ripper': 'reddit-ripper',
+            'social-research': 'social-research-frontend',
+            'video-analyzer': 'video-analyzer',
+            'agent': 'agent',
+            'reddit-mcp': 'reddit-mcp',
+            'social-mcp': 'social-mcp',
+            'journey-mcp': 'journey-mcp',
+            'video-mcp': 'video-mcp'
+        }
+        
+        # If requesting all services, get logs from all containers
+        if service == 'all':
+            for container in service_to_container.values():
+                try:
+                    container_logs = get_docker_logs(container, lines)
+                    logs.extend([f"[{container}] {line}" for line in container_logs])
+                except Exception as e:
+                    logs.append(f"ERROR: Failed to get logs for {container}: {str(e)}")
+        # Otherwise get logs for the specific service
+        elif service in service_to_container:
+            container = service_to_container[service]
+            logs = get_docker_logs(container, lines)
+        else:
+            logs = [f"ERROR: Unknown service '{service}'"] 
+            
+        # Sort logs by timestamp (if possible)
+        # This is a simple approach - actual timestamp parsing would be more complex
+        logs.sort(reverse=True)
+        
+        return jsonify({
+            'service': service,
+            'logs': logs[:lines]  # Limit to requested number of lines
+        })
+    except Exception as e:
+        logger.error(f"Error getting logs: {str(e)}", exc_info=True)
+        return jsonify({
+            'service': service,
+            'error': str(e),
+            'logs': [f"ERROR: Failed to get logs: {str(e)}"]
+        })
+
+# API endpoint for performance metrics
+@app.route('/api/metrics')
+def get_metrics():
+    """API endpoint to get system metrics"""
+    try:
+        # Get system metrics
+        system_metrics = get_system_metrics()
+        
+        # Get container metrics
+        container_metrics = get_container_metrics()
+        
+        # Combine metrics
+        metrics = {
+            **system_metrics,
+            'containers': container_metrics
+        }
+        
+        return jsonify(metrics)
+    except Exception as e:
+        logger.error(f"Error getting metrics: {str(e)}", exc_info=True)
+        return jsonify({
+            'error': str(e),
+            'cpu_usage': None,
+            'memory_usage': None,
+            'disk_usage': None,
+            'containers': []
+        })
+
+# Helper function to get Docker logs
+def get_docker_logs(container_name, lines=100):
+    """Get logs from a Docker container"""
+    try:
+        # Run docker logs command
+        result = subprocess.run(
+            ['docker', 'logs', '--tail', str(lines), container_name],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        
+        # Check if command was successful
+        if result.returncode == 0:
+            # Split logs into lines and filter out empty lines
+            logs = [line for line in result.stdout.split('\n') if line.strip()]
+            return logs
+        else:
+            # Return error message if command failed
+            return [f"ERROR: {result.stderr}"]
+    except subprocess.TimeoutExpired:
+        return ["ERROR: Docker logs command timed out"]
+    except Exception as e:
+        return [f"ERROR: {str(e)}"]
+
+# Helper function to get system metrics
+def get_system_metrics():
+    """Get system metrics like CPU, memory, and disk usage"""
+    try:
+        # Get CPU usage
+        cpu_usage = psutil.cpu_percent(interval=0.5)
+        
+        # Get memory usage
+        memory = psutil.virtual_memory()
+        memory_usage = f"{memory.percent}% ({format_bytes(memory.used)} / {format_bytes(memory.total)})"
+        
+        # Get disk usage
+        disk = psutil.disk_usage('/')
+        disk_usage = disk.percent
+        
+        # Mock API requests metrics (would be replaced with actual tracking)
+        api_requests = 1250  # Example value
+        
+        # Mock changes (would be calculated from historical data)
+        cpu_change = 2.5  # Example: 2.5% increase
+        memory_change = -1.3  # Example: 1.3% decrease
+        disk_change = 0.8  # Example: 0.8% increase
+        api_requests_change = 15.2  # Example: 15.2% increase
+        
+        return {
+            'cpu_usage': cpu_usage,
+            'memory_usage': memory_usage,
+            'disk_usage': disk_usage,
+            'api_requests': api_requests,
+            'cpu_change': cpu_change,
+            'memory_change': memory_change,
+            'disk_change': disk_change,
+            'api_requests_change': api_requests_change
+        }
+    except Exception as e:
+        logger.error(f"Error getting system metrics: {str(e)}", exc_info=True)
+        return {
+            'cpu_usage': None,
+            'memory_usage': None,
+            'disk_usage': None,
+            'api_requests': None
+        }
+
+# Helper function to get container metrics
+def get_container_metrics():
+    """Get metrics for Docker containers"""
+    try:
+        # Run docker stats command to get container metrics
+        result = subprocess.run(
+            ['docker', 'stats', '--no-stream', '--format', '{{.Name}}|{{.CPUPerc}}|{{.MemUsage}}'],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        
+        # Parse container stats
+        containers = []
+        if result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if not line.strip():
+                    continue
+                    
+                parts = line.split('|')
+                if len(parts) >= 3:
+                    name = parts[0]
+                    cpu = parts[1].strip()
+                    memory = parts[2].strip()
+                    
+                    containers.append({
+                        'name': name,
+                        'cpu': cpu,
+                        'memory': memory
+                    })
+        
+        return containers
+    except Exception as e:
+        logger.error(f"Error getting container metrics: {str(e)}", exc_info=True)
+        return []
+
+# Helper function to format bytes
+def format_bytes(bytes):
+    """Format bytes to human-readable format"""
+    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+        if bytes < 1024:
+            return f"{bytes:.2f} {unit}"
+        bytes /= 1024
+    return f"{bytes:.2f} PB"
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000))

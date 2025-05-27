@@ -10,6 +10,7 @@ services:
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
       - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
       - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
       - PORT=8000
       - ENABLE_CX_AGENT=true
     volumes:
@@ -26,7 +27,7 @@ services:
     ports:
       - "${JOURNEY_MAPPER_PORT:-8080}:8000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=8000
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
     volumes:
@@ -61,7 +62,8 @@ services:
     ports:
       - "${SOCIAL_RESEARCH_PORT:-3000}:3000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
       - PORT=3000
       - VITE_API_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
     volumes:
@@ -81,7 +83,11 @@ services:
     ports:
       - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_OPENAI_KEY=${AZURE_OPENAI_KEY}
       - GEMINI_API_KEY=***REDACTED-GOOGLE-KEY***
       - PORT=8081
       - POSTGRES_USER=postgres
@@ -119,6 +125,39 @@ services:
       - social-research-db-data:/var/lib/postgresql/data
     networks:
       - nxt-humans-network
+
+  video-analyzer:
+    image: python:3.11-slim
+    ports:
+      - "${VIDEO_ANALYZER_PORT:-5002}:5000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5000
+    volumes:
+      - ./internal-solutions-video-analyzer:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y ffmpeg &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+  video-mcp:
+    build:
+      context: ./mcp-services/video-mcp
+    ports:
+      - "${VIDEO_MCP_PORT:-8004}:8004"
+    environment:
+      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
+      - PORT=8004
+    volumes:
+      - ./mcp-services/video-mcp:/app
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - video-analyzer
 
 networks:
   nxt-humans-network:

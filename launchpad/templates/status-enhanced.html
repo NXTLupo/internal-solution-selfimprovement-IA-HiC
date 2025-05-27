@@ -443,7 +443,7 @@
           <!-- Video Analyzer -->
           <div class="service-card scale-in animate-delay-4">
             <div class="service-header">
-              <h3 class="service-name">Video Transcriptor</h3>
+              <h3 class="service-name">Video Transcriber</h3>
               <span class="status-badge status-{{ 'running' if services_status.video_analyzer.status == 'running' else 'offline' if services_status.video_analyzer.status == 'offline' else 'unknown' }}">
                 {{ services_status.video_analyzer.status|capitalize }}
               </span>
@@ -455,7 +455,7 @@
             </div>
             <div class="service-actions">
               <a href="{{ service_urls.video_analyzer.client_url }}" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-                <i class="fa-solid fa-external-link-alt mr-2"></i> Open Video Transcriptor
+                <i class="fa-solid fa-external-link-alt mr-2"></i> Open Video Transcriber
               </a>
             </div>
           </div>
@@ -527,7 +527,7 @@
           <!-- Video MCP -->
           <div class="service-card scale-in animate-delay-9">
             <div class="service-header">
-              <h3 class="service-name">Video Transcriptor MCP</h3>
+              <h3 class="service-name">Video Transcriber MCP</h3>
               <span class="status-badge status-{{ 'running' if services_status.video_mcp.status == 'running' else 'offline' if services_status.video_mcp.status == 'offline' else 'unknown' }}">
                 {{ services_status.video_mcp.status|capitalize }}
               </span>
