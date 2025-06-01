@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test File Upload</title>
+</head>
+<body>
+    <h1>Test File Upload Debug</h1>
+    
+    <h2>Test 1: Simple Form Upload</h2>
+    <form action="/api/mcp/message" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="conversation_id" value="test-123">
+        <input type="hidden" name="message" value="test upload">
+        <label for="file1">Choose file:</label>
+        <input type="file" name="file" id="file1" required>
+        <br><br>
+        <button type="submit">Upload with Form</button>
+    </form>
+    
+    <hr>
+    
+    <h2>Test 2: JavaScript FormData Upload</h2>
+    <input type="file" id="file2" required>
+    <br><br>
+    <button onclick="uploadWithJS()">Upload with JavaScript</button>
+    
+    <hr>
+    
+    <h2>Results</h2>
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const fileInput = document.getElementById('file1');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                console.log('Form upload - File details:', {
+                    name: file.name,
+                    type: file.type,
+                    size: file.size
+                });
+                results.innerHTML += `<p><strong>Form Upload:</strong> ${file.name}, ${file.type}, ${file.size} bytes</p>`;
+            }
+        });
+        
+        async function uploadWithJS() {
+            const fileInput = document.getElementById('file2');
+            if (fileInput.files.length === 0) {
+                alert('Please select a file first');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            console.log('JS upload - File details:', {
+                name: file.name,
+                type: file.type,
+                size: file.size
+            });
+            results.innerHTML += `<p><strong>JS Upload (before send):</strong> ${file.name}, ${file.type}, ${file.size} bytes</p>`;
+            
+            const formData = new FormData();
+            formData.append('conversation_id', 'test-js');
+            formData.append('message', 'javascript test upload');
+            formData.append('file', file);
+            
+            // Debug FormData contents
+            console.log('FormData contents:');
+            for (let [key, value] of formData.entries()) {
+                if (key === 'file') {
+                    console.log(`  ${key}:`, {
+                        name: value.name,
+                        type: value.type,
+                        size: value.size
+                    });
+                } else {
+                    console.log(`  ${key}: ${value}`);
+                }
+            }
+            
+            try {
+                const response = await fetch('/api/mcp/message', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                results.innerHTML += `<p><strong>JS Upload Result:</strong> ${JSON.stringify(result)}</p>`;
+                console.log('Upload result:', result);
+            } catch (error) {
+                results.innerHTML += `<p><strong>JS Upload Error:</strong> ${error.message}</p>`;
+                console.error('Upload error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

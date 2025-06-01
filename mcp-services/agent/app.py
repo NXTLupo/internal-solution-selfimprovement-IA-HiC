@@ -40,7 +40,9 @@ ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219"
 REDDIT_MCP_URL = os.environ.get("REDDIT_MCP_URL", "http://reddit-mcp:8501")
 SOCIAL_MCP_URL = os.environ.get("SOCIAL_MCP_URL", "http://social-mcp:8502")
 JOURNEY_MCP_URL = os.environ.get("JOURNEY_MCP_URL", "http://journey-mcp:8503")
-UPLOAD_MCP_URL = os.environ.get("UPLOAD_MCP_URL", "http://upload-mcp:8504")
+VIDEO_MCP_URL = os.environ.get("VIDEO_MCP_URL", "http://video-mcp:8504")
+OPENAI_JOURNEY_MCP_URL = os.environ.get("OPENAI_JOURNEY_MCP_URL", "http://openai-journey-mcp:8505")
+CLAUDE4_JOURNEY_MCP_URL = os.environ.get("CLAUDE4_JOURNEY_MCP_URL", "http://claude4-journey-mcp:8506")
 
 # Initialize Anthropic client
 anthropic_client = AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
@@ -90,7 +92,9 @@ tool_services = {
     "reddit": REDDIT_MCP_URL,
     "social": SOCIAL_MCP_URL, 
     "journey": JOURNEY_MCP_URL,
-    "upload": UPLOAD_MCP_URL
+    "video": VIDEO_MCP_URL,
+    "openai_journey": OPENAI_JOURNEY_MCP_URL,
+    "claude4_journey": CLAUDE4_JOURNEY_MCP_URL
 }
 
 # Cache the available tools from each service
@@ -98,28 +102,83 @@ async def fetch_and_cache_tools():
     """Fetch tool definitions from all services and cache them"""
     global tool_definitions
     
+    # Clear existing tool definitions
+    tool_definitions = {}
+    
+    logger.info("Starting tool discovery from MCP services...")
+    
     for service_name, service_url in tool_services.items():
-        if service_name == "upload":
-            continue  # Skip upload service as it doesn't have tools
-            
         try:
-            response = requests.get(f"{service_url}/mcp/tools")
+            logger.info(f"Fetching tools from {service_name} at {service_url}/mcp/tools")
             
-            if response.status_code == 200:
-                tools = response.json()
-                for tool in tools:
-                    tool_name = tool.get("name")
-                    if tool_name:
-                        tool_definitions[tool_name] = {
-                            "service": service_name,
-                            "url": f"{service_url}/mcp/invoke/{tool_name}",
-                            "spec": tool
-                        }
-                        logger.info(f"Cached tool definition for {tool_name}")
-            else:
-                logger.warning(f"Failed to fetch tools from {service_name}: {response.status_code}")
+            # Add retry mechanism for service connections
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = requests.get(f"{service_url}/mcp/tools", timeout=10)
+                    
+                    if response.status_code == 200:
+                        tools = response.json()
+                        logger.info(f"Successfully fetched {len(tools)} tools from {service_name}")
+                        
+                        for tool in tools:
+                            tool_name = tool.get("name")
+                            if tool_name:
+                                tool_definitions[tool_name] = {
+                                    "service": service_name,
+                                    "url": f"{service_url}/mcp/invoke/{tool_name}",
+                                    "spec": tool
+                                }
+                                logger.info(f"✓ Cached tool: {tool_name}")
+                            else:
+                                logger.warning(f"Tool missing 'name' field: {tool}")
+                        
+                        logger.info(f"✓ Successfully added {len(tools)} tools from {service_name}")
+                        break  # Success, exit retry loop
+                        
+                    elif response.status_code == 404:
+                        logger.warning(f"Service {service_name} doesn't have /mcp/tools endpoint")
+                        break  # Don't retry for 404
+                    else:
+                        logger.warning(f"Failed to fetch tools from {service_name}: HTTP {response.status_code}")
+                        if attempt < max_retries - 1:
+                            logger.info(f"Retrying {service_name} in 2 seconds... (attempt {attempt + 1}/{max_retries})")
+                            await asyncio.sleep(2)
+                        
+                except requests.exceptions.ConnectTimeout:
+                    logger.warning(f"Connection timeout to {service_name} (attempt {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(2)
+                except requests.exceptions.ConnectionError as e:
+                    logger.warning(f"Connection failed to {service_name}: {str(e)} (attempt {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(2)
+                except Exception as e:
+                    logger.error(f"Unexpected error connecting to {service_name}: {str(e)}")
+                    break  # Don't retry for unexpected errors
+                    
         except Exception as e:
             logger.error(f"Error fetching tools from {service_name}: {str(e)}")
+    
+    logger.info(f"🎯 Tool discovery complete! Total tools cached: {len(tool_definitions)}")
+    
+    if tool_definitions:
+        logger.info(f"📋 Available tools: {', '.join(sorted(tool_definitions.keys()))}")
+        
+        # Group tools by service for summary
+        service_summary = {}
+        for tool_name, tool_info in tool_definitions.items():
+            service = tool_info["service"]
+            if service not in service_summary:
+                service_summary[service] = []
+            service_summary[service].append(tool_name)
+        
+        for service, tools in service_summary.items():
+            logger.info(f"  📦 {service}: {', '.join(tools)}")
+    else:
+        logger.error("❌ No tools were successfully cached! Check MCP service availability.")
+    
+    return tool_definitions
 
 # Create system message with tool definitions
 def create_system_message() -> str:
@@ -151,8 +210,11 @@ def create_system_message() -> str:
 Your primary tools are:
 
 1. Reddit Data Collector (reddit.*) - Scrapes and analyzes posts from Reddit
-2. Social Research Tool (social.*) - Performs topic modeling and sentiment analysis on social data
-3. Journey Mapper (journey.*) - Creates customer journey maps from data files
+2. Social Research Tool (social.*) - Performs topic modeling and sentiment analysis on social data  
+3. Journey Mapper (journey.*) - Creates customer journey maps using Claude 3.7 Sonnet
+4. OpenAI Journey Mapper (openai_journey.*) - Advanced journey mapping using OpenAI o3 reasoning models
+5. Claude 4 Journey Mapper (claude4_journey.*) - Most advanced journey mapping using Claude 4
+6. Video Transcriptor (video.*) - Transcribes and analyzes video content from URLs or uploads
 
 Here are all the available tools you can use:
 
@@ -191,6 +253,16 @@ IMPORTANT USAGE GUIDELINES:
    - Use `journey.upload_file` to process uploads
    - Use `journey.generate_map` to create journey maps
    - Provide visualization links from `journey.get_results`
+   - You have THREE journey mappers available:
+     * `journey.*` - Claude 3.7 Sonnet (fast, reliable)
+     * `openai_journey.*` - OpenAI o3 (advanced reasoning)
+     * `claude4_journey.*` - Claude 4 (most advanced)
+
+4. For Video Transcription:
+   - Use `video_transcribe_youtube` with youtube_url parameter for YouTube videos
+   - Use `video_get_job_status` to check transcription progress
+   - Use `video_get_transcript` when transcription is complete
+   - Support both YouTube URLs and direct video file uploads
 
 SPECIFIC EXAMPLES:
 
@@ -228,6 +300,39 @@ For social media analysis:
      ]
    }}
    ```
+
+For video transcription:
+1. When a user asks to "transcribe this YouTube video: https://www.youtube.com/watch?v=abc123", use:
+   ```json
+   {{
+     "tool_calls": [
+       {{
+         "name": "video_transcribe_youtube",
+         "parameters": {{
+           "youtube_url": "https://www.youtube.com/watch?v=abc123"
+         }}
+       }}
+     ]
+   }}
+   ```
+
+For journey mapping (choose the appropriate mapper based on complexity):
+1. For Claude 4 journey mapping from uploaded file:
+   ```json
+   {{
+     "tool_calls": [
+       {{
+         "name": "claude4_journey.upload_file",
+         "parameters": {{
+           "file": "file_id_from_upload"
+         }}
+       }}
+     ]
+   }}
+   ```
+
+IMPORTANT: You DO have video transcription tools available! Never tell users you don't have video tools.
+You have multiple journey mappers - always mention all three options and their strengths.
 
 Remember to explain what you're doing when using tools, and wait for tool results before proceeding.
 Always speak in a professional, helpful tone and focus on addressing the user's specific needs.
@@ -311,7 +416,7 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
     file_data = None
     file_param_name = None
     
-    for param_name, param_value in parameters.items():
+    for param_name, param_value in list(parameters.items()):
         param_info = tool_info.get("spec", {}).get("parameters", {}).get(param_name, {})
         
         # If parameter is a file and the value is a file_id
@@ -324,27 +429,29 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
                 with open(file_path, "rb") as f:
                     file_data = f.read()
                 file_param_name = param_name
+                file_name = os.path.basename(file_path)
                 
                 # Remove from parameters as we'll send it separately
                 parameters.pop(param_name)
+                break
     
     try:
         # Execute tool call
         if file_data and file_param_name:
             # If we have file data, send as multipart/form-data
-            files = {file_param_name: file_data}
+            files = {file_param_name: (file_name, file_data, "application/octet-stream")}
             
             # Convert all parameters to form fields
             form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
                          for k, v in parameters.items()}
             
-            response = requests.post(tool_url, files=files, data=form_data)
+            response = requests.post(tool_url, files=files, data=form_data, timeout=30)
         else:
             # Otherwise, send as form data
             form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
                          for k, v in parameters.items()}
             
-            response = requests.post(tool_url, data=form_data)
+            response = requests.post(tool_url, data=form_data, timeout=30)
         
         if response.status_code == 200:
             return response.json()
@@ -532,6 +639,16 @@ async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
     # Initialize conversation if needed
     if conversation_id not in conversations:
         await initialize_conversation(conversation_id)
+        
+    # Send initial welcome message
+    logger.info(f"Sending welcome message to conversation {conversation_id}")
+    try:
+        await websocket.send_json({
+            "type": "message",
+            "content": "I'm the NXT Humans Customer Experience Workbench Assistant. I can help you analyze customer experiences using our specialized tools. How can I assist you today?"
+        })
+    except Exception as e:
+        logger.error(f"Error sending welcome message: {str(e)}")
     
     try:
         while True:
@@ -624,7 +741,35 @@ async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "service": "agent-orchestrator"}
+    return {
+        "status": "healthy",
+        "service": "agent-orchestrator",
+        "model": ANTHROPIC_MODEL,
+        "tools_cached": len(tool_definitions),
+        "available_tools": list(tool_definitions.keys()),
+        "active_conversations": len(conversations)
+    }
+
+# Refresh tools endpoint
+@app.post("/refresh-tools")
+async def refresh_tools():
+    """Force refresh tool definitions"""
+    global tool_definitions, system_message
+    
+    # Clear existing tool definitions
+    tool_definitions = {}
+    
+    # Fetch and cache tools again
+    await fetch_and_cache_tools()
+    
+    # Update system message with new tool definitions
+    system_message = create_system_message()
+    
+    return {
+        "status": "success",
+        "message": "Tool definitions refreshed",
+        "tools": list(tool_definitions.keys())
+    }
 
 # Root endpoint for service info
 @app.get("/")
@@ -639,7 +784,8 @@ async def root():
             "/api/chat/conversation": "Create a new conversation",
             "/api/chat/message": "Send a message to the agent",
             "/api/chat/ws/{conversation_id}": "Get WebSocket endpoint info",
-            "/ws/{conversation_id}": "WebSocket endpoint for real-time chat"
+            "/ws/{conversation_id}": "WebSocket endpoint for real-time chat",
+            "/refresh-tools": "Force refresh tool definitions"
         }
     }
 

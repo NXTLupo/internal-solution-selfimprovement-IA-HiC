@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  claude4-journey-mcp:
+    build: .
+    container_name: claude4-journey-mcp
+    ports:
+      - "8091:8003"
+    environment:
+      - JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:8090
+      - PORT=8003
+    restart: unless-stopped
+    networks:
+      - workbench-network
+
+networks:
+  workbench-network:
+    external: true

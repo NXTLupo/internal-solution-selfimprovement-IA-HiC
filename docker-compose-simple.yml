@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  launchpad:
+    image: python:3.9-slim
+    ports:
+      - "8000:8000"
+    volumes:
+      - type: bind
+        source: ${PWD}/launchpad
+        target: /app
+    working_dir: /app
+    command: >
+      bash -c "pip install -r requirements.txt &&
+              python app.py"
+    environment:
+      - PORT=8000
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:8080
+      - REDDIT_RIPPER_CLIENT_URL=http://localhost:5001
+      - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:3000
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
+
+networks:
+  default:
+    driver: bridge

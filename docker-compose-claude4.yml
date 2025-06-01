@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  # Claude 4 Journey Mapper - New journey mapping tool optimized for Claude 4
+  claude4-journey-mapper:
+    image: python:3.10-slim
+    ports:
+      - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=8000
+      - ANTHROPIC_MODEL=anthropic.claude-sonnet-4-20250514-v1:0
+    volumes:
+      - ./internal-solutions-claude4-journey-mapper:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p logs uploads journey_maps &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+  # Claude 4 Journey MCP Wrapper
+  claude4-journey-mcp:
+    image: python:3.10-slim
+    ports:
+      - "${CLAUDE4_JOURNEY_MCP_PORT:-8506}:8506"
+    environment:
+      - PORT=8506
+      - JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}
+    volumes:
+      - ./internal-solutions-claude4-journey-mapper/mcp-service:/app
+      - claude4-journey-uploads:/app/uploads
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p uploads &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - claude4-journey-mapper
+
+networks:
+  nxt-humans-network:
+    external: true
+
+volumes:
+  claude4-journey-uploads:
+    driver: local

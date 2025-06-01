@@ -1,0 +1,311 @@
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form
+from fastapi.middleware.cors import CORSMiddleware
+import requests
+import os
+import logging
+import json
+from typing import Dict, Any, Optional, List
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger("video-mcp")
+
+app = FastAPI(title="Video MCP")
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Video analyzer service URL
+VIDEO_ANALYZER_URL = os.environ.get("VIDEO_ANALYZER_URL", "http://video-analyzer:5000")
+
+# Tool definitions for the agent
+TOOL_DEFINITIONS = [
+    {
+        "name": "video.transcribe",
+        "description": "Transcribe a video from a URL or uploaded file",
+        "parameters": {
+            "url": {
+                "type": "string",
+                "description": "URL of the video to transcribe (YouTube or direct video URL)",
+                "required": False
+            }
+        }
+    },
+    {
+        "name": "video.get_status",
+        "description": "Check the status of a transcription job",
+        "parameters": {
+            "job_id": {
+                "type": "string",
+                "description": "ID of the transcription job",
+                "required": True
+            }
+        }
+    },
+    {
+        "name": "video.get_results",
+        "description": "Get the results of a completed transcription job",
+        "parameters": {
+            "job_id": {
+                "type": "string",
+                "description": "ID of the completed transcription job",
+                "required": True
+            }
+        }
+    }
+]
+
+@app.get("/")
+async def read_root():
+    """Root endpoint"""
+    return {"message": "Video MCP Service"}
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "running"}
+
+@app.get("/mcp/tools")
+async def get_tools():
+    """Return list of available tools for the agent"""
+    logger.info("Agent requested tool definitions")
+    return TOOL_DEFINITIONS
+
+@app.post("/mcp/invoke/{tool_name}")
+async def invoke_tool(tool_name: str, url: Optional[str] = Form(None), job_id: Optional[str] = Form(None), file: Optional[UploadFile] = None):
+    """Invoke a tool based on the tool name"""
+    logger.info(f"Agent invoked tool: {tool_name}")
+    
+    if tool_name == "video.transcribe":
+        if url:
+            # Transcribe from URL
+            logger.info(f"Transcribing video from URL: {url}")
+            response = requests.post(
+                f"{VIDEO_ANALYZER_URL}/transcribe-url",
+                json={"url": url}
+            )
+            
+            if response.status_code == 200:
+                return {
+                    "status": "success",
+                    "message": "Video transcription started",
+                    "job_id": response.json().get("job_id"),
+                    "data": response.json()
+                }
+            else:
+                logger.error(f"Error transcribing video: {response.status_code} - {response.text}")
+                return {
+                    "status": "error",
+                    "message": f"Error transcribing video: {response.text}"
+                }
+        elif file:
+            # Transcribe from uploaded file
+            logger.info(f"Transcribing uploaded video: {file.filename}")
+            files = {"file": (file.filename, await file.read(), file.content_type)}
+            
+            response = requests.post(
+                f"{VIDEO_ANALYZER_URL}/upload-video",
+                files=files
+            )
+            
+            if response.status_code == 200:
+                return {
+                    "status": "success",
+                    "message": "Video transcription started",
+                    "job_id": response.json().get("job_id"),
+                    "data": response.json()
+                }
+            else:
+                logger.error(f"Error transcribing video: {response.status_code} - {response.text}")
+                return {
+                    "status": "error",
+                    "message": f"Error transcribing video: {response.text}"
+                }
+        else:
+            return {
+                "status": "error",
+                "message": "Either URL or file must be provided"
+            }
+    
+    elif tool_name == "video.get_status":
+        if not job_id:
+            return {
+                "status": "error",
+                "message": "Job ID is required"
+            }
+        
+        logger.info(f"Checking status of job: {job_id}")
+        response = requests.get(f"{VIDEO_ANALYZER_URL}/jobs/{job_id}")
+        
+        if response.status_code == 200:
+            job_data = response.json()
+            return {
+                "status": "success",
+                "job_status": job_data.get("status", "unknown"),
+                "progress": job_data.get("progress", 0),
+                "data": job_data
+            }
+        else:
+            logger.error(f"Error getting job status: {response.status_code} - {response.text}")
+            return {
+                "status": "error",
+                "message": f"Error getting job status: {response.text}"
+            }
+    
+    elif tool_name == "video.get_results":
+        if not job_id:
+            return {
+                "status": "error",
+                "message": "Job ID is required"
+            }
+        
+        logger.info(f"Getting results for job: {job_id}")
+        response = requests.get(f"{VIDEO_ANALYZER_URL}/transcript/{job_id}")
+        
+        if response.status_code == 200:
+            transcript_data = response.json()
+            
+            # Check if the job is completed
+            job_response = requests.get(f"{VIDEO_ANALYZER_URL}/jobs/{job_id}")
+            if job_response.status_code == 200:
+                job_data = job_response.json()
+                if job_data.get("status") != "completed":
+                    return {
+                        "status": "pending",
+                        "message": f"Job is not completed yet. Current status: {job_data.get('status')}",
+                        "job_status": job_data.get("status"),
+                        "progress": job_data.get("progress", 0)
+                    }
+            
+            return {
+                "status": "success",
+                "transcript": transcript_data.get("text", ""),
+                "segments": transcript_data.get("segments", []),
+                "data": transcript_data
+            }
+        else:
+            logger.error(f"Error getting transcript: {response.status_code} - {response.text}")
+            return {
+                "status": "error",
+                "message": f"Error getting transcript: {response.text}"
+            }
+    
+    else:
+        logger.error(f"Unknown tool: {tool_name}")
+        return {
+            "status": "error",
+            "message": f"Unknown tool: {tool_name}"
+        }
+
+@app.post("/analyze-video")
+async def analyze_video(file: UploadFile = File(...)):
+    """Forward video analysis request to video analyzer service"""
+    try:
+        logger.info(f"Forwarding video analysis request for {file.filename}")
+        
+        # Prepare multipart form data
+        files = {"file": (file.filename, await file.read(), file.content_type)}
+        
+        # Forward request to video analyzer
+        response = requests.post(f"{VIDEO_ANALYZER_URL}/upload-video", files=files)
+        
+        # Check response
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Video analyzer returned error: {response.status_code} - {response.text}")
+            raise HTTPException(
+                status_code=response.status_code,
+                detail=f"Video analyzer error: {response.text}"
+            )
+    
+    except requests.RequestException as e:
+        logger.error(f"Error connecting to video analyzer: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error connecting to video analyzer: {str(e)}"
+        )
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Unexpected error: {str(e)}"
+        )
+
+@app.get("/jobs")
+async def get_jobs():
+    """Get all jobs from video analyzer"""
+    try:
+        response = requests.get(f"{VIDEO_ANALYZER_URL}/jobs")
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Video analyzer returned error: {response.status_code} - {response.text}")
+            raise HTTPException(
+                status_code=response.status_code,
+                detail=f"Video analyzer error: {response.text}"
+            )
+    except Exception as e:
+        logger.error(f"Error getting jobs: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error getting jobs: {str(e)}"
+        )
+
+@app.get("/jobs/{job_id}")
+async def get_job(job_id: str):
+    """Get job by ID from video analyzer"""
+    try:
+        response = requests.get(f"{VIDEO_ANALYZER_URL}/jobs/{job_id}")
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Video analyzer returned error: {response.status_code} - {response.text}")
+            raise HTTPException(
+                status_code=response.status_code,
+                detail=f"Video analyzer error: {response.text}"
+            )
+    except Exception as e:
+        logger.error(f"Error getting job: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error getting job: {str(e)}"
+        )
+
+@app.get("/transcript/{job_id}")
+async def get_transcript(job_id: str):
+    """Get transcript for a job from video analyzer"""
+    try:
+        response = requests.get(f"{VIDEO_ANALYZER_URL}/transcript/{job_id}")
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Video analyzer returned error: {response.status_code} - {response.text}")
+            raise HTTPException(
+                status_code=response.status_code,
+                detail=f"Video analyzer error: {response.text}"
+            )
+    except Exception as e:
+        logger.error(f"Error getting transcript: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error getting transcript: {str(e)}"
+        )
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8504))
+    uvicorn.run(app, host="0.0.0.0", port=port)

@@ -1,0 +1,323 @@
+diff --git a/launchpad/app.py b/launchpad/app.py
+index abcdefg..hijklmn 100644
+--- a/launchpad/app.py
++++ b/launchpad/app.py
+@@ -153,8 +153,8 @@ def check_service(service_name):
+             }
+             return
+         base_url = urls['mcp'].get(mcp_type)
+-    elif service_name == "agent":  # Changed from agent_orchestrator to agent
+-        if 'agent' not in urls:
++    elif service_name == "agent":
++        if 'agent' not in urls or 'ws_url' not in urls.get('agent', {}):
+             logger.warning("Agent URL not found in configuration")
+             services_status[service_name] = {
+                 "status": "unknown",
+@@ -167,7 +167,9 @@ def check_service(service_name):
+         # Use direct IP address for the agent container
+         base_url = "http://172.18.0.17:8500"
+         logger.info(f"Using direct IP URL for agent: {base_url}")
+-    else:
++        # Store the direct IP URL for WebSocket connections
++        os.environ['AGENT_DIRECT_IP'] = "172.18.0.17"
++   else:
+         # Handle main services
+         if service_name not in urls:
+             logger.warning(f"URL for {service_name} not found in configuration")
+@@ -457,6 +459,8 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+     @sock.route('/ws-proxy/<conversation_id>')
+     def ws_proxy(ws, conversation_id):
+         """WebSocket proxy that forwards messages between client and agent"""
++        # Add more detailed logging
++        logger.info(f"New WebSocket proxy connection request for conversation: {conversation_id}")
+         # Store active connections
+         conn_id = str(uuid.uuid4())
+         agent_ws = None
+@@ -464,10 +468,32 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+         
+         # Get correct agent URL - use localhost to connect directly
+         urls = get_dynamic_urls()
+-        # Use direct IP address for WebSocket connection
+-        agent_ws_url = "ws://172.18.0.17:8500"
+-        logger.info(f"Using direct IP WebSocket URL for agent: {agent_ws_url}")
+-
++        
++        # Try multiple connection strategies for robustness
++        # 1. Use environment variable with direct IP if available
++        direct_ip = os.environ.get('AGENT_DIRECT_IP', '')
++        if direct_ip:
++            agent_ws_url = f"ws://{direct_ip}:8500"
++            logger.info(f"Using direct IP WebSocket URL for agent: {agent_ws_url}")
++        # 2. Use the configured agent WebSocket URL from environment variables
++        elif 'agent' in urls and 'ws_url' in urls['agent']:
++            agent_ws_url = urls['agent']['ws_url']
++            logger.info(f"Using configured WebSocket URL for agent: {agent_ws_url}")
++        # 3. Fallback to container name-based URL
++        else:
++            agent_ws_url = "ws://agent:8500"
++            logger.info(f"Using container name WebSocket URL for agent: {agent_ws_url}")
++        
++        # Add metadata to help with debugging
++        connection_metadata = {
++            "connection_id": conn_id,
++            "conversation_id": conversation_id,
++            "timestamp": datetime.now().isoformat(),
++            "client_address": request.remote_addr if hasattr(request, 'remote_addr') else 'unknown',
++            "agent_url": agent_ws_url
++        }
++        logger.info(f"WebSocket connection metadata: {json.dumps(connection_metadata)}")
++        
+         # Skip agent status check and try connecting anyway
+         # Even if the status says offline, we'll try to connect using direct IP
+         logger.info("Skipping agent status check and attempting direct connection")
+@@ -485,6 +511,11 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+         logger.info(f"Connecting to agent at: {agent_ws_url}")
+         
+         # Send initial status to client
++        ws.send(json.dumps({
++            "type": "status",
++            "status": "initializing",
++            "message": "Initializing WebSocket proxy..."
++        }))
+         try:
+             ws.send(json.dumps({
+                 "type": "status",
+@@ -505,7 +536,8 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+             # Connection attempt with retry
+             retry_count = 0
+             max_retries = 3
+-            retry_delay = 1
++            retry_delay = 1.0
++            connection_success = False
+             
+             while retry_count < max_retries and not shutdown_event.is_set():
+                 try:
+@@ -517,8 +549,9 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                         close_timeout=5,   # Wait 5 seconds for close frame
+                         max_size=10485760, # 10MB message size limit
+                         compression=None   # Disable compression for compatibility
+-                    )
+-                    
++                    )                    
++                    connection_success = True
++
+                     logger.info(f"Connected to agent WebSocket: {agent_ws_url}")
+                     
+                     # Send success notification to client
+@@ -530,11 +563,24 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                     except Exception as e:
+                         logger.error(f"Error sending connection status: {e}")
+                     
+-                    # Process messages in both directions
+-                    await asyncio.gather(
+-                        forward_agent_to_client(agent_ws, ws, shutdown_event),
+-                        forward_client_to_agent(ws, agent_ws, shutdown_event)
+-                    )
++                    # Setup tasks for bidirectional message forwarding
++                    try:
++                        # Create tasks
++                        agent_to_client_task = asyncio.create_task(
++                            forward_agent_to_client(agent_ws, ws, shutdown_event)
++                        )
++                        client_to_agent_task = asyncio.create_task(
++                            forward_client_to_agent(ws, agent_ws, shutdown_event)
++                        )
++                        
++                        # Wait for either task to complete (which means a connection was closed)
++                        await asyncio.wait(
++                            [agent_to_client_task, client_to_agent_task],
++                            return_when=asyncio.FIRST_COMPLETED
++                        )
++                    except Exception as e:
++                        logger.error(f"Error in message forwarding tasks: {e}", exc_info=True)
++                        shutdown_event.set()
+                     
+                     break  # Exit retry loop if connection succeeds
+                     
+@@ -544,11 +590,12 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                     logger.error(f"Agent WebSocket handshake failed: {e}")
+                     try:
+                         ws.send(json.dumps({
+-                            "type": "error",
++                            "type": "status",
++                            "status": "error",
+                             "content": f"Agent service endpoint error: {e}"
+                         }))
+                     except:
+-                        pass
++                        logger.error("Failed to send handshake error to client")
+                     break  # Don't retry for these errors
+                     
+                 except (websockets.exceptions.WebSocketException, 
+@@ -575,19 +622,30 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                         # All retries failed
+                         logger.error(f"Failed to connect to agent after {max_retries} attempts")
+                         try:
++                            # Send a detailed error message to help with debugging
++                            error_details = {
++                                "type": "error",
++                                "status": "connection_failed",
++                                "content": "Cannot connect to agent service. Please try again later.",
++                                "details": {
++                                    "attempts": retry_count,
++                                    "agent_url": agent_ws_url,
++                                    "timestamp": datetime.now().isoformat()
++                                }
++                            }
+                             ws.send(json.dumps({
+                                 "type": "error",
+-                                "content": "Cannot connect to agent service. Please try again later."
++                                "content": f"Cannot connect to agent service. Please try again later. (Attempts: {retry_count})"
+                             }))
+                         except:
+-                            pass
++                            logger.error("Failed to send connection failure to client")
+                 
+                 except Exception as e:
+                     # Unexpected errors
+                     logger.error(f"Unexpected error connecting to agent: {e}", exc_info=True)
+                     try:
+                         ws.send(json.dumps({
+-                            "type": "error",
++                            "type": "status",
++                            "status": "error",
+                             "content": f"Unexpected error: {str(e)}"
+                         }))
+                     except:
+@@ -595,13 +653,17 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                     break
+         
+         # Forward messages from agent to client
+-        async def forward_agent_to_client(agent_ws, client_ws, shutdown_event):
++        async def forward_agent_to_client(agent_ws, client_ws, shutdown_event, timeout=0.5):
++            message_count = 0
+             try:
+                 while not shutdown_event.is_set():
+                     try:
+-                        # Use wait_for to prevent blocking indefinitely
+-                        message = await asyncio.wait_for(agent_ws.recv(), timeout=0.5)
+-                        logger.debug(f"Agent → Client: {message[:100]}...")
++                        # Non-blocking receive with timeout
++                        message = await asyncio.wait_for(agent_ws.recv(), timeout=timeout)
++                        message_count += 1
++                        
++                        # Log message details for debugging but truncate long messages
++                        logger.debug(f"Agent → Client [{message_count}]: {message[:100]}...")
+                         client_ws.send(message)
+                     except asyncio.TimeoutError:
+                         # This is expected, just check shutdown_event and continue
+@@ -609,30 +671,43 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                     except websockets.exceptions.ConnectionClosed:
+                         logger.warning("Agent connection closed")
+                         try:
++                            # Send detailed status when connection is lost
+                             client_ws.send(json.dumps({
+                                 "type": "status",
+                                 "status": "disconnected",
+-                                "message": "Agent service disconnected"
++                                "message": "Agent service disconnected. Your connection will be closed.",
++                                "reconnect": True
+                             }))
+                         except:
+-                            pass
++                            logger.error("Failed to send disconnection message to client")
+                         break
+             except Exception as e:
+                 logger.error(f"Error in agent→client forwarding: {e}", exc_info=True)
+             finally:
+-                shutdown_event.set()  # Signal to stop the other forwarding task
++                # Signal to stop the other forwarding task
++                shutdown_event.set()
++                logger.info(f"Agent→client forwarding stopped after {message_count} messages")
+         
+         # Forward messages from client to agent
+-        async def forward_client_to_agent(client_ws, agent_ws, shutdown_event):
++        async def forward_client_to_agent(client_ws, agent_ws, shutdown_event, timeout=0.5):
++            message_count = 0
+             try:
+                 while not shutdown_event.is_set():
+                     try:
+                         # Non-blocking receive with timeout
+-                        message = client_ws.receive(timeout=0.5)
++                        message = client_ws.receive(timeout=timeout)
+                         if message:
+-                            logger.debug(f"Client → Agent: {message[:100]}...")
++                            message_count += 1
++                            
++                            # Log message details for debugging
++                            try:
++                                msg_data = json.loads(message)
++                                msg_type = msg_data.get('type', 'unknown')
++                                logger.debug(f"Client → Agent [{message_count}]: {msg_type}")
++                            except:
++                                logger.debug(f"Client → Agent [{message_count}]: (non-JSON message)")
++                                
+                             await agent_ws.send(message)
+-                    except Exception as e:
++                    except websockets.exceptions.ConnectionClosed as e:
+                         if "WebSocket is already closed" in str(e):
+                             logger.warning("Client WebSocket closed")
+                             break
+@@ -640,10 +715,17 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                             # Ignore timeout errors as they're expected
+                             logger.error(f"Error receiving from client: {e}")
+                             break
++                    except Exception as e:
++                        if "Timed out" not in str(e):
++                            logger.error(f"Unexpected error in client→agent forwarding: {e}", exc_info=True)
++                            break
+             except Exception as e:
+                 logger.error(f"Error in client→agent forwarding: {e}", exc_info=True)
+             finally:
+-                shutdown_event.set()  # Signal to stop the other forwarding task
++                # Signal to stop the other forwarding task
++                shutdown_event.set()
++                logger.info(f"Client→agent forwarding stopped after {message_count} messages")
++                
+         
+         # Run the async function in a thread
+         def run_async_proxy():
+@@ -657,11 +739,20 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+                 loop = asyncio.new_event_loop()
+                 asyncio.set_event_loop(loop)
+                 loop.run_until_complete(agent_ws.close())
++                logger.info(f"Agent WebSocket connection closed for: {conn_id}")
+                 loop.close()
+                 
+                 logger.info(f"WebSocket proxy connection closed: {conn_id}")
++                
++                # Log connection statistics
++                if hasattr(agent_ws, 'messages_received'):
++                    logger.info(f"Connection {conn_id} statistics: " +
++                               f"received {agent_ws.messages_received} messages, " +
++                               f"sent {agent_ws.messages_sent} messages")
++                           
+         
+         # Start the proxy in a separate thread
++        logger.info(f"Starting proxy thread for connection: {conn_id}")
+         proxy_thread = threading.Thread(target=run_async_proxy)
+         proxy_thread.daemon = True
+         proxy_thread.start()
+@@ -669,9 +760,12 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+         # Keep the client WebSocket open
+         try:
+             while ws.connected:
+-                time.sleep(0.1)
++                # Use a shorter sleep interval for more responsive shutdown
++                time.sleep(0.05)
+         except Exception as e:
+-            logger.error(f"Error in client WebSocket: {e}")
++            # Log the specific error type for better diagnostics
++            error_type = type(e).__name__
++            logger.error(f"Error in client WebSocket: {error_type} - {e}")
+         finally:
+             # Clean up resources
+             shutdown_event.set()
+@@ -679,6 +773,8 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
+             
+             # Give the proxy thread a moment to clean up
+             proxy_thread.join(timeout=2.0)
++            if proxy_thread.is_alive():
++                logger.warning(f"Proxy thread for {conn_id} did not terminate within timeout")
+ 
+     # MCP Server Proxy functions

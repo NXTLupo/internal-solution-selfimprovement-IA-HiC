@@ -1,0 +1,691 @@
+/**
+ * Chatbot Widget for NXT Humans AI CX Workbench
+ * Enables conversation with AI assistant using MCP-based tools
+ * DEBUG VERSION with console.log statements
+ */
+
+class ChatbotWidget {
+  constructor() {
+    console.log('ChatbotWidget initializing...');
+    this.conversationId = null;
+    this.socket = null;
+    this.isOpen = false;
+    this.isMinimized = false;
+    this.isTyping = false;
+    this.baseUrl = window.location.origin;
+    this.messageQueue = [];
+    this.fileUpload = null;
+    
+    // Initialization
+    this.init();
+  }
+  
+  /**
+   * Initialize the chatbot widget
+   */
+  init() {
+    console.log('ChatbotWidget.init() called');
+    // Create DOM elements
+    this.createWidgetDom();
+    
+    // Add event listeners
+    this.addEventListeners();
+    
+    // Create a new conversation
+    this.createConversation();
+    
+    // Reconnect mechanism for WebSocket
+    this.setupPingInterval();
+  }
+  
+  /**
+   * Create the DOM elements for the widget
+   */
+  createWidgetDom() {
+    console.log('ChatbotWidget.createWidgetDom() called');
+    // Launch button
+    const launchButton = document.createElement('button');
+    launchButton.className = 'chat-launch-button';
+    launchButton.innerHTML = '<i class="fa-solid fa-message"></i>';
+    launchButton.setAttribute('aria-label', 'Open chat');
+    document.body.appendChild(launchButton);
+    this.launchButton = launchButton;
+    
+    // Main widget container
+    const widget = document.createElement('div');
+    widget.className = 'chatbot-widget hidden';
+    widget.innerHTML = `
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-header-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="chat-header-title">NXT Humans Assistant</div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-header-button minimize-button" aria-label="Minimize chat">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+          <button class="chat-header-button close-button" aria-label="Close chat">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="chat-body"></div>
+      <div class="chat-footer">
+        <div class="chat-actions">
+          <label class="chat-action-button file-upload-label" aria-label="Upload file">
+            <i class="fa-solid fa-paperclip"></i>
+            <input type="file" class="file-input" accept=".pdf,.csv,.txt,.json">
+          </label>
+        </div>
+        <div class="chat-input">
+          <textarea 
+            class="chat-input-textarea" 
+            placeholder="Type a message..." 
+            rows="1"
+            aria-label="Chat message input"
+          ></textarea>
+        </div>
+        <button class="chat-send-button" disabled aria-label="Send message">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    `;
+    document.body.appendChild(widget);
+    this.widget = widget;
+    
+    // Store references to DOM elements
+    this.chatBody = widget.querySelector('.chat-body');
+    this.chatInput = widget.querySelector('.chat-input-textarea');
+    this.sendButton = widget.querySelector('.chat-send-button');
+    this.minimizeButton = widget.querySelector('.minimize-button');
+    this.closeButton = widget.querySelector('.close-button');
+    this.fileInput = widget.querySelector('.file-input');
+    console.log('ChatbotWidget DOM elements created');
+  }
+  
+  /**
+   * Add event listeners to the widget elements
+   */
+  addEventListeners() {
+    console.log('ChatbotWidget.addEventListeners() called');
+    // Launch button
+    this.launchButton.addEventListener('click', () => {
+      console.log('Launch button clicked');
+      this.openChat();
+    });
+    
+    // Header actions
+    this.widget.querySelector('.chat-header').addEventListener('click', (e) => {
+      if (!e.target.closest('.chat-header-actions')) {
+        if (this.isMinimized) {
+          console.log('Chat header clicked while minimized');
+          this.maximizeChat();
+        }
+      }
+    });
+    
+    this.minimizeButton.addEventListener('click', () => {
+      console.log('Minimize button clicked');
+      if (this.isMinimized) {
+        this.maximizeChat();
+      } else {
+        this.minimizeChat();
+      }
+    });
+    
+    this.closeButton.addEventListener('click', () => {
+      console.log('Close button clicked');
+      this.closeChat();
+    });
+    
+    // Send message
+    this.sendButton.addEventListener('click', () => {
+      console.log('Send button clicked');
+      this.sendMessage();
+    });
+    
+    // Enter key to send
+    this.chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        console.log('Enter key pressed in chat input');
+        e.preventDefault();
+        if (this.chatInput.value.trim()) {
+          this.sendMessage();
+        }
+      }
+      
+      // Auto-resize input
+      this.resizeInput();
+    });
+    
+    // Input events
+    this.chatInput.addEventListener('input', () => {
+      this.sendButton.disabled = !this.chatInput.value.trim();
+      this.resizeInput();
+    });
+    
+    // File upload
+    this.fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        console.log('File selected:', e.target.files[0].name);
+        this.handleFileUpload(e.target.files[0]);
+      }
+    });
+    console.log('All event listeners added');
+  }
+  
+  /**
+   * Resize the input textarea based on content
+   */
+  resizeInput() {
+    this.chatInput.style.height = 'auto';
+    this.chatInput.style.height = (this.chatInput.scrollHeight) + 'px';
+  }
+  
+  /**
+   * Create a new conversation
+   */
+  async createConversation() {
+    console.log('ChatbotWidget.createConversation() called');
+    try {
+      const response = await fetch(`${this.baseUrl}/api/chat/conversation`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to create conversation: ${response.status} ${response.statusText}`);
+      }
+      
+      const data = await response.json();
+      this.conversationId = data.conversation_id;
+      console.log(`Conversation created with ID: ${this.conversationId}`);
+      
+      // Add welcome message
+      setTimeout(() => {
+        this.addMessage('assistant', 'Hello! I\'m your CX Workbench Assistant. I can help you with Reddit data collection, social media analysis, and customer journey mapping. How can I assist you today?');
+      }, 500);
+      
+      // Initialize WebSocket
+      this.initWebSocket();
+    } catch (error) {
+      console.error('Error creating conversation:', error);
+      this.addErrorMessage('Failed to start conversation. Please try again later.');
+    }
+  }
+  
+  /**
+   * Initialize WebSocket connection
+   */
+  async initWebSocket() {
+    console.log('ChatbotWidget.initWebSocket() called');
+    try {
+      // Get WebSocket URL
+      console.log(`Fetching WebSocket URL for conversation ${this.conversationId}...`);
+      const response = await fetch(`${this.baseUrl}/api/chat/ws/${this.conversationId}`);
+      const data = await response.json();
+      console.log('WebSocket URL response:', data);
+      
+      const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const wsBaseUrl = window.location.host;
+      console.log(`WebSocket protocol: ${wsProtocol}, base URL: ${wsBaseUrl}`);
+      
+      // Fixed URL construction to prevent duplication
+      const wsUrl = data.ws_url.startsWith("ws") ? data.ws_url : `${wsProtocol}//${wsBaseUrl}${data.ws_url}`;
+      console.log(`Constructed WebSocket URL: ${wsUrl}`);
+      
+      // Create WebSocket
+      console.log('Creating WebSocket...');
+      this.socket = new WebSocket(wsUrl);
+      
+      // WebSocket event handlers
+      this.socket.onopen = () => {
+        console.log('WebSocket connected');
+        
+        // Process any queued messages
+        if (this.messageQueue.length > 0) {
+          console.log(`Processing ${this.messageQueue.length} queued messages`);
+          this.messageQueue.forEach(message => {
+            this.socket.send(JSON.stringify(message));
+          });
+          this.messageQueue = [];
+        }
+      };
+      
+      this.socket.onmessage = (event) => {
+        console.log('WebSocket message received:', event.data);
+        try {
+          const data = JSON.parse(event.data);
+          
+          if (data.type === 'message') {
+            console.log('Received assistant message');
+            // Hide typing indicator and add message
+            this.hideTypingIndicator();
+            this.addMessage('assistant', data.content);
+            this.scrollToBottom();
+          } else if (data.type === 'error') {
+            console.log('Received error message:', data.content);
+            this.hideTypingIndicator();
+            this.addErrorMessage(data.content);
+            this.scrollToBottom();
+          } else if (data.type === 'status') {
+            console.log('Received status update:', data.status);
+          } else if (data.type === 'pong') {
+            console.log('Received pong response');
+            // Pong received (keep-alive)
+          } else {
+            console.log('Received unknown message type:', data.type);
+          }
+        } catch (error) {
+          console.error('Error parsing WebSocket message:', error);
+        }
+      };
+      
+      this.socket.onclose = () => {
+        console.log('WebSocket closed');
+        // Try to reconnect after a delay
+        setTimeout(() => {
+          if (this.isOpen && !this.socket) {
+            console.log('Attempting to reconnect WebSocket...');
+            this.initWebSocket();
+          }
+        }, 3000);
+      };
+      
+      this.socket.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        this.socket = null;
+      };
+    } catch (error) {
+      console.error('Error initializing WebSocket:', error);
+    }
+  }
+  
+  /**
+   * Setup ping interval to keep WebSocket alive
+   */
+  setupPingInterval() {
+    console.log('ChatbotWidget.setupPingInterval() called');
+    setInterval(() => {
+      if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+        console.log('Sending ping to keep WebSocket alive');
+        this.socket.send(JSON.stringify({ type: 'ping' }));
+      }
+    }, 30000); // Send ping every 30 seconds
+  }
+  
+  /**
+   * Send a message to the assistant
+   */
+  sendMessage() {
+    const message = this.chatInput.value.trim();
+    if (!message) return;
+    
+    console.log(`Sending message: "${message}"`);
+    
+    // Add user message to chat
+    this.addMessage('user', message);
+    
+    // Clear input
+    this.chatInput.value = '';
+    this.chatInput.style.height = 'auto';
+    this.sendButton.disabled = true;
+    
+    // Show typing indicator
+    this.showTypingIndicator();
+    
+    // Scroll to bottom
+    this.scrollToBottom();
+    
+    // Prepare message data
+    const messageData = {
+      type: 'message',
+      content: message
+    };
+    
+    // Add file if one is pending
+    if (this.fileUpload) {
+      console.log('Adding file to message:', this.fileUpload.name);
+      messageData.type = 'file';
+      messageData.file = this.fileUpload;
+      this.fileUpload = null; // Clear the pending file
+    }
+    
+    // Send via WebSocket if available, otherwise queue
+    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+      console.log('WebSocket is open, sending message directly');
+      this.socket.send(JSON.stringify(messageData));
+    } else {
+      console.log('WebSocket not available, queueing message');
+      this.messageQueue.push(messageData);
+      // Try to reconnect
+      if (!this.socket) {
+        console.log('No WebSocket, attempting to create new connection');
+        this.initWebSocket();
+      }
+    }
+  }
+  
+  /**
+   * Handle file upload
+   * @param {File} file - The file to upload
+   */
+  handleFileUpload(file) {
+    console.log('ChatbotWidget.handleFileUpload() called with file:', file.name);
+    // Check file size (10MB limit)
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (file.size > maxSize) {
+      console.log('File too large:', file.size);
+      this.addErrorMessage(`File is too large. Maximum size is 10MB.`);
+      return;
+    }
+    
+    // Check file type
+    const acceptedTypes = ['.pdf', '.csv', '.txt', '.json'];
+    const fileExt = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+    if (!acceptedTypes.includes(fileExt)) {
+      console.log('Invalid file type:', fileExt);
+      this.addErrorMessage(`Invalid file type. Please upload PDF, CSV, TXT, or JSON files.`);
+      return;
+    }
+    
+    // Add file message to chat
+    this.addMessage('user', `Uploading file: ${file.name}`, {
+      fileName: file.name,
+      fileType: file.type
+    });
+    
+    // Convert file to base64 for WebSocket transfer
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      // Get base64 data
+      const base64data = e.target.result.split(',')[1];
+      console.log('File converted to base64');
+      
+      // Store the file data for the next message
+      this.fileUpload = {
+        name: file.name,
+        type: file.type,
+        data: base64data
+      };
+      
+      // Prompt user to add a message
+      this.addSystemMessage(`File ready to send. Add a message and press send to process this file.`);
+      this.chatInput.focus();
+    };
+    
+    reader.onerror = () => {
+      console.error('Error reading file');
+      this.addErrorMessage(`Error reading file. Please try again.`);
+    };
+    
+    reader.readAsDataURL(file);
+  }
+  
+  /**
+   * Add a message to the chat
+   * @param {string} role - The message role (user, assistant, system)
+   * @param {string} content - The message content
+   * @param {Object} fileInfo - Optional file information
+   */
+  addMessage(role, content, fileInfo = null) {
+    console.log(`Adding ${role} message: "${content.substring(0, 50)}${content.length > 50 ? '...' : ''}"`);
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${role}`;
+    
+    // Format message content with markdown-like formatting
+    let formattedContent = this.formatMessageContent(content);
+    messageDiv.innerHTML = formattedContent;
+    
+    // Add file attachment if present
+    if (fileInfo) {
+      console.log('Adding file attachment:', fileInfo.fileName);
+      const attachmentDiv = document.createElement('div');
+      attachmentDiv.className = 'message-attachment';
+      
+      // Choose icon based on file type
+      let iconClass = 'fa-file';
+      if (fileInfo.fileType.includes('pdf')) {
+        iconClass = 'fa-file-pdf';
+      } else if (fileInfo.fileType.includes('csv') || fileInfo.fileType.includes('excel')) {
+        iconClass = 'fa-file-csv';
+      } else if (fileInfo.fileType.includes('json')) {
+        iconClass = 'fa-file-code';
+      } else if (fileInfo.fileType.includes('text')) {
+        iconClass = 'fa-file-alt';
+      }
+      
+      attachmentDiv.innerHTML = `
+        <div class="message-attachment-icon">
+          <i class="fa-solid ${iconClass}"></i>
+        </div>
+        <div class="message-attachment-name">${fileInfo.fileName}</div>
+      `;
+      
+      messageDiv.appendChild(attachmentDiv);
+    }
+    
+    this.chatBody.appendChild(messageDiv);
+    this.scrollToBottom();
+  }
+  
+  /**
+   * Add a system message to the chat
+   * @param {string} content - The message content
+   */
+  addSystemMessage(content) {
+    console.log(`Adding system message: "${content}"`);
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message system';
+    messageDiv.textContent = content;
+    this.chatBody.appendChild(messageDiv);
+    this.scrollToBottom();
+  }
+  
+  /**
+   * Add an error message to the chat
+   * @param {string} content - The error message
+   */
+  addErrorMessage(content) {
+    console.log(`Adding error message: "${content}"`);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = content;
+    this.chatBody.appendChild(errorDiv);
+    this.scrollToBottom();
+  }
+  
+  /**
+   * Format message content with basic markdown-like formatting
+   * @param {string} content - The raw message content
+   * @returns {string} - The formatted HTML
+   */
+  formatMessageContent(content) {
+    // Convert code blocks
+    content = content.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      return `<pre>${this.escapeHTML(code.trim())}</pre>`;
+    });
+    
+    // Convert inline code
+    content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
+    
+    // Convert links
+    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    
+    // Convert raw URLs to links
+    content = content.replace(/(https?:\/\/[^\s]+)/g, (match) => {
+      if (match.includes('</a>')) return match; // Skip if already in a link
+      return `<a href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`;
+    });
+    
+    // Convert bold
+    content = content.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert italic
+    content = content.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    
+    // Convert newlines to <br> tags
+    content = content.replace(/\n/g, '<br>');
+    
+    return content;
+  }
+  
+  /**
+   * Escape HTML special characters
+   * @param {string} text - The text to escape
+   * @returns {string} - The escaped text
+   */
+  escapeHTML(text) {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+  
+  /**
+   * Show typing indicator
+   */
+  showTypingIndicator() {
+    console.log('Showing typing indicator');
+    if (this.isTyping) return;
+    
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator';
+    typingDiv.innerHTML = `
+      <span></span>
+      <span></span>
+      <span></span>
+    `;
+    typingDiv.id = 'typing-indicator';
+    this.chatBody.appendChild(typingDiv);
+    this.isTyping = true;
+    this.scrollToBottom();
+  }
+  
+  /**
+   * Hide typing indicator
+   */
+  hideTypingIndicator() {
+    console.log('Hiding typing indicator');
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+      typingIndicator.remove();
+    }
+    this.isTyping = false;
+  }
+  
+  /**
+   * Scroll to the bottom of the chat
+   */
+  scrollToBottom() {
+    this.chatBody.scrollTop = this.chatBody.scrollHeight;
+  }
+  
+  /**
+   * Open the chat widget
+   */
+  openChat() {
+    console.log('Opening chat widget');
+    this.widget.classList.remove('hidden');
+    this.launchButton.style.display = 'none';
+    this.isOpen = true;
+    
+    // Wait for animation to complete then focus input
+    setTimeout(() => {
+      if (!this.isMinimized) {
+        this.chatInput.focus();
+      }
+    }, 300);
+  }
+  
+  /**
+   * Close the chat widget
+   */
+  closeChat() {
+    console.log('Closing chat widget');
+    this.widget.classList.add('hidden');
+    this.launchButton.style.display = 'flex';
+    this.isOpen = false;
+    this.isMinimized = false;
+    this.widget.classList.remove('minimized');
+  }
+  
+  /**
+   * Minimize the chat widget
+   */
+  minimizeChat() {
+    console.log('Minimizing chat widget');
+    this.widget.classList.add('minimized');
+    this.isMinimized = true;
+    this.minimizeButton.querySelector('i').classList.remove('fa-minus');
+    this.minimizeButton.querySelector('i').classList.add('fa-expand');
+  }
+  
+  /**
+   * Maximize the chat widget
+   */
+  maximizeChat() {
+    console.log('Maximizing chat widget');
+    this.widget.classList.remove('minimized');
+    this.isMinimized = false;
+    this.minimizeButton.querySelector('i').classList.remove('fa-expand');
+    this.minimizeButton.querySelector('i').classList.add('fa-minus');
+    this.chatInput.focus();
+  }
+}
+
+/**
+ * Initialize chatbot when DOM is loaded
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, checking if chatbot should be enabled');
+  // Check if ENABLE_CX_AGENT is true
+  const enableAgent = document.body.getAttribute('data-enable-agent');
+  console.log('data-enable-agent attribute:', enableAgent);
+  if (enableAgent === 'true') {
+    console.log('Agent enabled, initializing chatbot');
+    // Add chatbot styles
+    const styleLink = document.createElement('link');
+    styleLink.rel = 'stylesheet';
+    styleLink.href = '/static/chatbot.css';
+    document.head.appendChild(styleLink);
+    
+    // Initialize chatbot
+    window.chatbot = new ChatbotWidget();
+    console.log('Chatbot initialized on window.chatbot');
+  }
+});
+
+// Add global debugging function
+window.debugChatbot = function() {
+  console.log('Chatbot debug info:');
+  if (!window.chatbot) {
+    console.log('Chatbot not initialized');
+    return;
+  }
+  
+  console.log('Chatbot state:', {
+    conversationId: window.chatbot.conversationId,
+    socketState: window.chatbot.socket ? window.chatbot.socket.readyState : 'No socket',
+    isOpen: window.chatbot.isOpen,
+    isMinimized: window.chatbot.isMinimized,
+    isTyping: window.chatbot.isTyping,
+    messageQueueLength: window.chatbot.messageQueue.length
+  });
+  
+  console.log('DOM Elements:');
+  console.log('  chatBody exists:', !!window.chatbot.chatBody);
+  console.log('  chatInput exists:', !!window.chatbot.chatInput);
+  console.log('  sendButton exists:', !!window.chatbot.sendButton);
+  console.log('  widget exists:', !!window.chatbot.widget);
+  
+  return 'Debug info logged to console';
+};
+
+console.log('Debug version of chatbot.js loaded');

@@ -1,0 +1,512 @@
+/* NXT Humans Enhanced Components */
+
+/* Card Component */
+.nxt-enhanced-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(222, 226, 230, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.nxt-enhanced-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.nxt-enhanced-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nxt-enhanced-card:hover::before {
+  opacity: 1;
+}
+
+.nxt-card-header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nxt-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.nxt-card-subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.nxt-card-body {
+  color: #444;
+}
+
+.nxt-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Button Component */
+.nxt-enhanced-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.nxt-enhanced-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nxt-enhanced-btn:hover::after {
+  opacity: 1;
+}
+
+.nxt-enhanced-btn:active {
+  transform: translateY(1px);
+}
+
+.nxt-enhanced-btn-primary {
+  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(1, 196, 200, 0.3);
+}
+
+.nxt-enhanced-btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(1, 196, 200, 0.4);
+}
+
+.nxt-enhanced-btn-secondary {
+  background: white;
+  color: #01C4C8;
+  border: 1px solid rgba(1, 196, 200, 0.5);
+}
+
+.nxt-enhanced-btn-secondary:hover {
+  background: rgba(1, 196, 200, 0.05);
+  border-color: #01C4C8;
+}
+
+.nxt-enhanced-btn-dark {
+  background: #121B26;
+  color: white;
+}
+
+.nxt-enhanced-btn-dark:hover {
+  background: #1A2536;
+}
+
+.nxt-enhanced-btn-icon {
+  margin-right: 0.5rem;
+}
+
+.nxt-enhanced-btn-block {
+  display: block;
+  width: 100%;
+}
+
+.nxt-enhanced-btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+}
+
+.nxt-enhanced-btn-lg {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+/* Badge Component */
+.nxt-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nxt-badge-primary {
+  background-color: rgba(1, 196, 200, 0.1);
+  color: #01C4C8;
+}
+
+.nxt-badge-success {
+  background-color: rgba(12, 206, 107, 0.1);
+  color: #0CCE6B;
+}
+
+.nxt-badge-warning {
+  background-color: rgba(255, 208, 47, 0.1);
+  color: #D9AD0D;
+}
+
+.nxt-badge-error {
+  background-color: rgba(255, 90, 90, 0.1);
+  color: #FF5A5A;
+}
+
+.nxt-badge-info {
+  background-color: rgba(41, 141, 255, 0.1);
+  color: #298DFF;
+}
+
+.nxt-badge-neutral {
+  background-color: rgba(90, 98, 117, 0.1);
+  color: #5A6275;
+}
+
+/* Avatar Component */
+.nxt-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #E9ECEF;
+  color: #5A6275;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.nxt-avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.75rem;
+}
+
+.nxt-avatar-md {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.nxt-avatar-lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1.25rem;
+}
+
+.nxt-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nxt-avatar-primary {
+  background-color: rgba(1, 196, 200, 0.2);
+  color: #01C4C8;
+}
+
+/* Card Grid */
+.nxt-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Alert Component */
+.nxt-alert {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  border-left: 4px solid transparent;
+}
+
+.nxt-alert-icon {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.nxt-alert-content {
+  flex-grow: 1;
+}
+
+.nxt-alert-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.nxt-alert-message {
+  margin: 0;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.nxt-alert-info {
+  background-color: rgba(41, 141, 255, 0.1);
+  color: #298DFF;
+  border-color: #298DFF;
+}
+
+.nxt-alert-success {
+  background-color: rgba(12, 206, 107, 0.1);
+  color: #0CCE6B;
+  border-color: #0CCE6B;
+}
+
+.nxt-alert-warning {
+  background-color: rgba(255, 208, 47, 0.1);
+  color: #D9AD0D;
+  border-color: #FFD02F;
+}
+
+.nxt-alert-error {
+  background-color: rgba(255, 90, 90, 0.1);
+  color: #FF5A5A;
+  border-color: #FF5A5A;
+}
+
+/* Tabs Component */
+.nxt-tabs {
+  margin-bottom: 1.5rem;
+}
+
+.nxt-tabs-header {
+  display: flex;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.nxt-tab {
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nxt-tab:hover {
+  color: #333;
+}
+
+.nxt-tab.active {
+  color: #01C4C8;
+}
+
+.nxt-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #01C4C8;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nxt-tab.active::after {
+  transform: scaleX(1);
+}
+
+.nxt-tab-content {
+  display: none;
+}
+
+.nxt-tab-content.active {
+  display: block;
+}
+
+/* Loader Component */
+.nxt-enhanced-loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(1, 196, 200, 0.2);
+  border-radius: 50%;
+  border-top-color: #01C4C8;
+  animation: nxt-spin 1s ease-in-out infinite;
+}
+
+.nxt-loader-sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.nxt-loader-lg {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.nxt-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Tooltip Component */
+.nxt-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.nxt-tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.nxt-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.nxt-tooltip:hover .nxt-tooltip-content {
+  opacity: 1;
+}
+
+/* Progress Bar */
+.nxt-progress {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.nxt-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.nxt-progress-sm {
+  height: 4px;
+}
+
+.nxt-progress-lg {
+  height: 12px;
+}
+
+.nxt-progress-info .nxt-progress-bar {
+  background: linear-gradient(90deg, #298DFF 0%, #4DA1FF 100%);
+}
+
+.nxt-progress-success .nxt-progress-bar {
+  background: linear-gradient(90deg, #0CCE6B 0%, #20DD7E 100%);
+}
+
+.nxt-progress-warning .nxt-progress-bar {
+  background: linear-gradient(90deg, #FFD02F 0%, #FFDA5C 100%);
+}
+
+.nxt-progress-error .nxt-progress-bar {
+  background: linear-gradient(90deg, #FF5A5A 0%, #FF7F7F 100%);
+}
+
+/* Animations */
+@keyframes nxt-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nxt-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.nxt-pulse {
+  animation: nxt-pulse 1.5s ease infinite;
+}
+
+@keyframes nxt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.nxt-fade-in {
+  animation: nxt-fade-in 0.3s ease forwards;
+}
+
+@keyframes nxt-scale-in {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.nxt-scale-in {
+  animation: nxt-scale-in 0.3s ease forwards;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .nxt-card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nxt-tabs-header {
+    flex-wrap: wrap;
+  }
+  
+  .nxt-tab {
+    padding: 0.5rem 1rem;
+  }
+}

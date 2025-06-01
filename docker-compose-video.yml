@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  video-analyzer:
+    image: python:3.11-slim
+    container_name: video-analyzer
+    ports:
+      - "5002:5000"
+    environment:
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - PORT=5000
+    volumes:
+      - ./internal-solutions-video-analyzer:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y ffmpeg &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python run.py"
+    networks:
+      - video-network
+
+  video-mcp:
+    build:
+      context: ./mcp-services/video-mcp
+    container_name: video-mcp
+    ports:
+      - "8004:8004"
+    environment:
+      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
+      - PORT=8004
+    volumes:
+      - ./mcp-services/video-mcp:/app
+    networks:
+      - video-network
+    depends_on:
+      - video-analyzer
+
+networks:
+  video-network:
+    driver: bridge

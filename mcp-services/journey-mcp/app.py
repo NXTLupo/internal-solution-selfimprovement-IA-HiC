@@ -75,17 +75,21 @@ async def get_tools():
     """Return the list of available tools in MCP format"""
     tools = [
         MCPToolSpec(
-            name="journey.upload_file",
+            name="journey_upload_file",
             description="Upload a file for journey mapping",
             parameters={
-                "file": {
-                    "type": "file",
-                    "description": "File to upload (PDF, CSV, TXT, or JSON)"
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "file",
+                        "description": "File to upload (PDF, CSV, TXT, or JSON)"
+                    },
+                    "file_name": {
+                        "type": "string",
+                        "description": "Name of the file (if not provided in file object)"
+                    }
                 },
-                "file_name": {
-                    "type": "string",
-                    "description": "Name of the file (if not provided in file object)"
-                }
+                "required": ["file"]
             },
             returns={
                 "file_id": {
@@ -103,22 +107,26 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="journey.generate_map",
+            name="journey_generate_map",
             description="Generate a customer journey map from uploaded file",
             parameters={
-                "file_id": {
-                    "type": "string",
-                    "description": "ID of previously uploaded file"
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of previously uploaded file"
+                    },
+                    "journey_name": {
+                        "type": "string",
+                        "description": "Name for the journey map"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the journey context",
+                        "default": ""
+                    }
                 },
-                "journey_name": {
-                    "type": "string",
-                    "description": "Name for the journey map"
-                },
-                "description": {
-                    "type": "string",
-                    "description": "Description of the journey context",
-                    "default": ""
-                }
+                "required": ["file_id", "journey_name"]
             },
             returns={
                 "journey_id": {
@@ -128,13 +136,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="journey.get_status",
+            name="journey_get_status",
             description="Check the status of a journey map generation",
             parameters={
-                "journey_id": {
-                    "type": "string",
-                    "description": "Journey ID from a previous generation request"
-                }
+                "type": "object",
+                "properties": {
+                    "journey_id": {
+                        "type": "string",
+                        "description": "Journey ID from a previous generation request"
+                    }
+                },
+                "required": ["journey_id"]
             },
             returns={
                 "status": {
@@ -152,13 +164,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="journey.get_results",
+            name="journey_get_results",
             description="Get the results of a completed journey mapping",
             parameters={
-                "journey_id": {
-                    "type": "string",
-                    "description": "Journey ID from a previous generation request"
-                }
+                "type": "object",
+                "properties": {
+                    "journey_id": {
+                        "type": "string",
+                        "description": "Journey ID from a previous generation request"
+                    }
+                },
+                "required": ["journey_id"]
             },
             returns={
                 "journey_map": {
@@ -186,9 +202,13 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="journey.list_maps",
+            name="journey_list_maps",
             description="List all available journey maps",
-            parameters={},
+            parameters={
+                "type": "object",
+                "properties": {},
+                "required": []
+            },
             returns={
                 "journey_maps": {
                     "type": "array",
@@ -208,7 +228,7 @@ async def get_tools():
     ]
     return tools
 
-@app.post("/mcp/invoke/journey.upload_file", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/journey_upload_file", response_model=Dict[str, Any])
 async def invoke_upload_file(
     file: UploadFile = File(...),
     file_name: Optional[str] = Form(None)
@@ -265,7 +285,7 @@ async def invoke_upload_file(
             detail=f"Error uploading file: {str(e)}"
         )
 
-@app.post("/mcp/invoke/journey.generate_map", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/journey_generate_map", response_model=Dict[str, Any])
 async def invoke_generate_map(
     background_tasks: BackgroundTasks,
     file_id: str = Form(...),
@@ -286,16 +306,18 @@ async def invoke_generate_map(
         # Create multipart form data for the file upload to Journey Mapper
         with open(file_path, "rb") as f:
             file_name = os.path.basename(file_path).split("_", 1)[1]  # Remove file_id_ prefix
-            files = {"file": (file_name, f, "application/octet-stream")}
+            files = {"files": (file_name, f, "application/octet-stream")}
             
             data = {
-                "journey_name": journey_name,
-                "description": description
+                "title": journey_name,
+                "description": description,
+                "journey_type": "customer_journey",
+                "llm_model": "claude-3-7-sonnet-20250219"
             }
             
             # Send request to Journey Mapper
             response = requests.post(
-                urljoin(JOURNEY_MAPPER_URL, "/api/upload"),
+                urljoin(JOURNEY_MAPPER_URL, "/api/analyze"),
                 files=files,
                 data=data
             )
@@ -370,7 +392,7 @@ async def invoke_generate_map(
             detail=f"Error generating journey map: {str(e)}"
         )
 
-@app.post("/mcp/invoke/journey.get_status", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/journey_get_status", response_model=Dict[str, Any])
 async def invoke_get_status(journey_id: str = Form(...)):
     """MCP endpoint to check journey map generation status"""
     try:
@@ -405,7 +427,7 @@ async def invoke_get_status(journey_id: str = Form(...)):
             detail=f"Error getting journey status: {str(e)}"
         )
 
-@app.post("/mcp/invoke/journey.get_results", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/journey_get_results", response_model=Dict[str, Any])
 async def invoke_get_results(journey_id: str = Form(...)):
     """MCP endpoint to get journey mapping results"""
     try:
@@ -460,7 +482,7 @@ async def invoke_get_results(journey_id: str = Form(...)):
             detail=f"Error getting journey results: {str(e)}"
         )
 
-@app.post("/mcp/invoke/journey.list_maps", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/journey_list_maps", response_model=Dict[str, Any])
 async def invoke_list_maps():
     """MCP endpoint to list all available journey maps"""
     try:
@@ -515,11 +537,11 @@ async def root():
         "status": "running",
         "endpoints": {
             "mcp/tools": "Get available tools",
-            "mcp/invoke/journey.upload_file": "Upload a file",
-            "mcp/invoke/journey.generate_map": "Generate a journey map",
-            "mcp/invoke/journey.get_status": "Check journey generation status",
-            "mcp/invoke/journey.get_results": "Get journey results",
-            "mcp/invoke/journey.list_maps": "List all journey maps"
+            "mcp/invoke/journey_upload_file": "Upload a file",
+            "mcp/invoke/journey_generate_map": "Generate a journey map",
+            "mcp/invoke/journey_get_status": "Check journey generation status",
+            "mcp/invoke/journey_get_results": "Get journey results",
+            "mcp/invoke/journey_list_maps": "List all journey maps"
         }
     }
 

@@ -75,27 +75,31 @@ async def get_tools():
     """Return the list of available tools in MCP format"""
     tools = [
         MCPToolSpec(
-            name="social.topic_model",
+            name="social_topic_model",
             description="Perform topic modeling on social media data",
             parameters={
-                "data_source": {
-                    "type": "string", 
-                    "description": "Source of data (e.g., 'reddit', 'twitter')"
+                "type": "object",
+                "properties": {
+                    "data_source": {
+                        "type": "string", 
+                        "description": "Source of data (e.g., 'reddit', 'twitter')"
+                    },
+                    "search_query": {
+                        "type": "string",
+                        "description": "Query to search for in the dataset"
+                    },
+                    "num_topics": {
+                        "type": "integer",
+                        "description": "Number of topics to identify (default: auto)",
+                        "default": 0
+                    },
+                    "topic_terms": {
+                        "type": "integer",
+                        "description": "Number of terms per topic",
+                        "default": 10
+                    }
                 },
-                "search_query": {
-                    "type": "string",
-                    "description": "Query to search for in the dataset"
-                },
-                "num_topics": {
-                    "type": "integer",
-                    "description": "Number of topics to identify (default: auto)",
-                    "default": 0
-                },
-                "topic_terms": {
-                    "type": "integer",
-                    "description": "Number of terms per topic",
-                    "default": 10
-                }
+                "required": ["data_source", "search_query"]
             },
             returns={
                 "job_id": {
@@ -105,13 +109,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="social.get_topic_status",
+            name="social_get_topic_status",
             description="Check the status of a topic modeling job",
             parameters={
-                "job_id": {
-                    "type": "string",
-                    "description": "Job ID from a previous topic modeling request"
-                }
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "Job ID from a previous topic modeling request"
+                    }
+                },
+                "required": ["job_id"]
             },
             returns={
                 "status": {
@@ -129,13 +137,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="social.get_topic_results",
+            name="social_get_topic_results",
             description="Get the results of a completed topic modeling job",
             parameters={
-                "job_id": {
-                    "type": "string",
-                    "description": "Job ID from a previous topic modeling request"
-                }
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "Job ID from a previous topic modeling request"
+                    }
+                },
+                "required": ["job_id"]
             },
             returns={
                 "topics": {
@@ -158,22 +170,26 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="social.sentiment_analysis",
+            name="social_sentiment_analysis",
             description="Perform sentiment analysis on social media data",
             parameters={
-                "search_query": {
-                    "type": "string",
-                    "description": "Query to analyze sentiment for"
+                "type": "object",
+                "properties": {
+                    "search_query": {
+                        "type": "string",
+                        "description": "Query to analyze sentiment for"
+                    },
+                    "data_source": {
+                        "type": "string",
+                        "description": "Source of data (e.g., 'reddit', 'twitter')"
+                    },
+                    "sentiment_type": {
+                        "type": "string",
+                        "description": "Sentiment analysis algorithm to use",
+                        "default": "roberta"
+                    }
                 },
-                "data_source": {
-                    "type": "string",
-                    "description": "Source of data (e.g., 'reddit', 'twitter')"
-                },
-                "sentiment_type": {
-                    "type": "string",
-                    "description": "Sentiment analysis algorithm to use",
-                    "default": "roberta"
-                }
+                "required": ["search_query", "data_source"]
             },
             returns={
                 "job_id": {
@@ -183,13 +199,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="social.get_sentiment_results",
+            name="social_get_sentiment_results",
             description="Get the results of a completed sentiment analysis job",
             parameters={
-                "job_id": {
-                    "type": "string",
-                    "description": "Job ID from a previous sentiment analysis request"
-                }
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "Job ID from a previous sentiment analysis request"
+                    }
+                },
+                "required": ["job_id"]
             },
             returns={
                 "sentiment": {
@@ -209,22 +229,26 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="social.search",
+            name="social_search",
             description="Search for posts in the social research database",
             parameters={
-                "query": {
-                    "type": "string",
-                    "description": "Search query"
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "data_source": {
+                        "type": "string",
+                        "description": "Source of data (e.g., 'reddit', 'twitter')"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of results",
+                        "default": 20
+                    }
                 },
-                "data_source": {
-                    "type": "string",
-                    "description": "Source of data (e.g., 'reddit', 'twitter')"
-                },
-                "limit": {
-                    "type": "integer",
-                    "description": "Maximum number of results",
-                    "default": 20
-                }
+                "required": ["query", "data_source"]
             },
             returns={
                 "search_id": {
@@ -243,7 +267,7 @@ async def get_tools():
     ]
     return tools
 
-@app.post("/mcp/invoke/social.topic_model", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_topic_model", response_model=Dict[str, Any])
 async def invoke_topic_model(
     data_source: str = Form(...),
     search_query: str = Form(...),
@@ -253,8 +277,10 @@ async def invoke_topic_model(
     """MCP endpoint to perform topic modeling"""
     try:
         # Create request to Social Research backend
+        # Map data_source to subreddit for backend compatibility
+        subreddit = data_source if data_source in ["NBA", "nba"] else data_source
         payload = {
-            "data_source": data_source,
+            "subreddit": subreddit,
             "search_query": search_query,
             "params": {
                 "num_topics": num_topics if num_topics > 0 else None,
@@ -268,7 +294,7 @@ async def invoke_topic_model(
             json=payload
         )
         
-        if response.status_code != 200:
+        if response.status_code not in [200, 202]:
             logger.error(f"Error from Social Research: {response.text}")
             raise HTTPException(
                 status_code=response.status_code,
@@ -304,13 +330,13 @@ async def invoke_topic_model(
             detail=f"Error invoking topic modeling: {str(e)}"
         )
 
-@app.post("/mcp/invoke/social.get_topic_status", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_get_topic_status", response_model=Dict[str, Any])
 async def invoke_get_topic_status(job_id: str = Form(...)):
     """MCP endpoint to check topic modeling job status"""
     try:
         # Send status request to Social Research backend
         response = requests.get(
-            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/jobs/{job_id}")
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/job-status/{job_id}")
         )
         
         if response.status_code != 200:
@@ -339,13 +365,13 @@ async def invoke_get_topic_status(job_id: str = Form(...)):
             detail=f"Error getting topic modeling status: {str(e)}"
         )
 
-@app.post("/mcp/invoke/social.get_topic_results", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_get_topic_results", response_model=Dict[str, Any])
 async def invoke_get_topic_results(job_id: str = Form(...)):
     """MCP endpoint to get topic modeling results"""
     try:
-        # Send results request to Social Research backend
+        # The status endpoint includes results when job is complete
         response = requests.get(
-            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/results/{job_id}")
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/job-status/{job_id}")
         )
         
         if response.status_code != 200:
@@ -358,6 +384,19 @@ async def invoke_get_topic_results(job_id: str = Form(...)):
         # Parse response
         result = response.json()
         
+        # Check if job is completed and has results
+        if result.get("status") != "completed":
+            raise HTTPException(
+                status_code=400,
+                detail=f"Job not completed yet. Current status: {result.get('status')}"
+            )
+            
+        if "result" not in result:
+            raise HTTPException(
+                status_code=404,
+                detail="No results found for completed job"
+            )
+        
         # Prepare the visualization URL (frontend URL to display the results)
         visualization_url = os.environ.get(
             "SOCIAL_RESEARCH_FRONTEND_URL", 
@@ -365,22 +404,48 @@ async def invoke_get_topic_results(job_id: str = Form(...)):
         )
         visualization_url = f"{visualization_url}/topics/{job_id}"
         
-        # Process the topic data
-        topics = result.get("topics", [])
+        # Extract and process the topic data from the analysis result
+        analysis_result = result.get("result", {})
+        
+        # The topics are nested under result.topics - check both all and positive/negative categories
+        topics_container = analysis_result.get("topics", {})
+        topics_data = []
+        
+        # Collect topics from all categories
+        if "all" in topics_container:
+            all_topics = topics_container["all"].get("topics", [])
+            topics_data.extend(all_topics)
+        
+        if "positive" in topics_container:
+            pos_topics = topics_container["positive"].get("topics", [])
+            topics_data.extend(pos_topics)
+            
+        if "negative" in topics_container:
+            neg_topics = topics_container["negative"].get("topics", [])
+            topics_data.extend(neg_topics)
+        
         processed_topics = []
         
-        for topic in topics:
+        for topic in topics_data:
+            # Extract terms/keywords from the topic structure
+            terms = topic.get("terms", [])
+            keywords = [term.get("term", "") for term in terms[:10]]  # Get top 10 terms
+            
             processed_topics.append({
                 "id": topic.get("id"),
-                "name": topic.get("name", f"Topic {topic.get('id')}"),
-                "keywords": topic.get("keywords", []),
+                "name": topic.get("short_summary", f"Topic {topic.get('id')}"),
+                "summary": topic.get("summary", ""),
+                "keywords": keywords,
                 "score": topic.get("score", 0),
-                "document_count": topic.get("document_count", 0)
+                "post_count": topic.get("count", 0),
+                "engagement": topic.get("engagement", {}),
+                "sentiment_evidence": topic.get("sentiment_evidence", {})
             })
             
         return {
             "topics": processed_topics,
-            "visualization_url": visualization_url
+            "visualization_url": visualization_url,
+            "analysis_result": analysis_result  # Include full result for completeness
         }
         
     except Exception as e:
@@ -390,7 +455,7 @@ async def invoke_get_topic_results(job_id: str = Form(...)):
             detail=f"Error getting topic results: {str(e)}"
         )
 
-@app.post("/mcp/invoke/social.sentiment_analysis", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_sentiment_analysis", response_model=Dict[str, Any])
 async def invoke_sentiment_analysis(
     search_query: str = Form(...),
     data_source: str = Form(...),
@@ -399,9 +464,11 @@ async def invoke_sentiment_analysis(
     """MCP endpoint to perform sentiment analysis"""
     try:
         # First, perform a search to get search_id
+        # Map data_source to subreddit for backend compatibility
+        subreddit = data_source if data_source in ["NBA", "nba"] else data_source
         search_payload = {
             "query": search_query,
-            "data_source": data_source,
+            "subreddit": subreddit,
             "limit": 100  # Get a good sample for sentiment analysis
         }
         
@@ -410,7 +477,7 @@ async def invoke_sentiment_analysis(
             json=search_payload
         )
         
-        if search_response.status_code != 200:
+        if search_response.status_code not in [200, 202]:
             logger.error(f"Error performing search: {search_response.text}")
             raise HTTPException(
                 status_code=search_response.status_code,
@@ -436,7 +503,7 @@ async def invoke_sentiment_analysis(
             json=sentiment_payload
         )
         
-        if sentiment_response.status_code != 200:
+        if sentiment_response.status_code not in [200, 202]:
             logger.error(f"Error performing sentiment analysis: {sentiment_response.text}")
             raise HTTPException(
                 status_code=sentiment_response.status_code,
@@ -471,7 +538,7 @@ async def invoke_sentiment_analysis(
             detail=f"Error invoking sentiment analysis: {str(e)}"
         )
 
-@app.post("/mcp/invoke/social.get_sentiment_results", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_get_sentiment_results", response_model=Dict[str, Any])
 async def invoke_get_sentiment_results(job_id: str = Form(...)):
     """MCP endpoint to get sentiment analysis results"""
     try:
@@ -527,7 +594,7 @@ async def invoke_get_sentiment_results(job_id: str = Form(...)):
             detail=f"Error getting sentiment results: {str(e)}"
         )
 
-@app.post("/mcp/invoke/social.search", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/social_search", response_model=Dict[str, Any])
 async def invoke_search(
     query: str = Form(...),
     data_source: str = Form(...),
@@ -536,9 +603,11 @@ async def invoke_search(
     """MCP endpoint to search social data"""
     try:
         # Create search request
+        # Map data_source to subreddit for backend compatibility
+        subreddit = data_source if data_source in ["NBA", "nba"] else data_source
         payload = {
             "query": query,
-            "data_source": data_source,
+            "subreddit": subreddit,
             "limit": limit
         }
         
@@ -548,7 +617,7 @@ async def invoke_search(
             json=payload
         )
         
-        if response.status_code != 200:
+        if response.status_code not in [200, 202]:
             logger.error(f"Error performing search: {response.text}")
             raise HTTPException(
                 status_code=response.status_code,
@@ -607,12 +676,12 @@ async def root():
         "status": "running",
         "endpoints": {
             "mcp/tools": "Get available tools",
-            "mcp/invoke/social.topic_model": "Perform topic modeling",
-            "mcp/invoke/social.get_topic_status": "Check topic modeling status",
-            "mcp/invoke/social.get_topic_results": "Get topic modeling results",
-            "mcp/invoke/social.sentiment_analysis": "Perform sentiment analysis",
-            "mcp/invoke/social.get_sentiment_results": "Get sentiment analysis results",
-            "mcp/invoke/social.search": "Search social data"
+            "mcp/invoke/social_topic_model": "Perform topic modeling",
+            "mcp/invoke/social_get_topic_status": "Check topic modeling status",
+            "mcp/invoke/social_get_topic_results": "Get topic modeling results",
+            "mcp/invoke/social_sentiment_analysis": "Perform sentiment analysis",
+            "mcp/invoke/social_get_sentiment_results": "Get sentiment analysis results",
+            "mcp/invoke/social_search": "Search social data"
         }
     }
 

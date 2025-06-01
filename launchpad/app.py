@@ -14,6 +14,7 @@ import importlib.util
 import subprocess
 import re
 import psutil
+from anthropic import Anthropic
 
 # Check if flask_sock is available, and import it if so
 if importlib.util.find_spec("flask_sock"):
@@ -30,6 +31,21 @@ if has_flask_sock:
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# MCP Configuration
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
+
+# Initialize Anthropic client if API key is available
+anthropic_client = None
+if ANTHROPIC_API_KEY:
+    try:
+        anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
+        logger.info("Anthropic client initialized for MCP chatbot")
+    except Exception as e:
+        logger.error(f"Failed to initialize Anthropic client: {e}")
+
+# MCP requests are now proxied to the agent service
 
 # Parse URLs from environment variables
 def get_dynamic_urls():
@@ -167,8 +183,8 @@ def check_service(service_name):
             return
         base_url = urls[service_name]['internal_url']
 
-    # Use health endpoint for journey mapper
-    if service_name == "journey_mapper":
+    # Use health endpoint for journey mapper and agent
+    if service_name == "journey_mapper" or service_name == "agent":
         url = f"{base_url}/health"
     else:
         url = base_url
@@ -230,6 +246,7 @@ def update_all_services():
         check_service("social_mcp")
         check_service("journey_mcp")
         check_service("openai_journey_mcp")
+        check_service("claude4_journey_mcp")
         check_service("video_mcp")
         check_service("agent")  # Changed from agent_orchestrator to agent
 
@@ -282,6 +299,7 @@ def index():
     cx_agent_enabled = os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true'
 
     # Use enhanced template for better visibility
+    import time
     return render_template('enhanced-index.html',
                        journey_mapper_url=urls['journey_mapper']['client_url'],
                        openai_journey_mapper_url=urls['openai_journey_mapper']['client_url'],
@@ -289,19 +307,18 @@ def index():
                        social_research_url=urls['social_research']['client_url'],
                        video_analyzer_url=urls['video_analyzer']['client_url'],
                        service_statuses=service_statuses,
-                       enable_agent=cx_agent_enabled)
+                       enable_agent=cx_agent_enabled,
+                       timestamp=int(time.time()))
 
 @app.route('/agent')
 def agent_page():
-    """Agent interface page"""
-    if os.environ.get('ENABLE_CX_AGENT', 'false').lower() != 'true':
-        return redirect(url_for('index'))
+    """Agent interface page - redirect to MCP chatbot"""
+    return redirect(url_for('mcp_chat_page'))
 
-    urls = get_dynamic_urls()
-    if 'agent' in urls:
-        return render_template('agent-embed.html', agent_url=urls['agent']['client_url'])
-    else:
-        return redirect(url_for('index'))
+@app.route('/mcp-chat')
+def mcp_chat_page():
+    """MCP-compliant chatbot interface"""
+    return render_template('mcp_chatbot.html')
 
 @app.route('/status')
 def status_page():
@@ -394,25 +411,23 @@ def get_urls():
 
 # Agent API endpoints - only enabled if CX Agent is enabled and flask_sock is available
 if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
-    # API endpoint for creating a chat conversation
+    # API endpoint for creating a chat conversation - DEPRECATED, redirects to MCP
     @app.route('/api/chat/conversation', methods=['POST'])
     def create_conversation():
-        """Create a new agent WebSocket conversation"""
-        # Generate a conversation ID
-        conversation_id = str(uuid.uuid4())
+        """DEPRECATED: Redirect to MCP chatbot"""
+        return jsonify({
+            "error": "Old WebSocket agent is deprecated. Please use the new MCP chatbot.",
+            "redirect": "/mcp-chat"
+        }), 302
 
-        # Return the conversation ID
-        return jsonify({"conversation_id": conversation_id})
-
-    # WebSocket API endpoint for agent messages
+    # WebSocket API endpoint for agent messages - DEPRECATED
     @app.route('/api/chat/ws/<conversation_id>')
     def agent_websocket_url(conversation_id):
-        """WebSocket endpoint for agent communication"""
-        # For browser clients, we need to use the public-facing URL
-        # The browser connects to our WebSocket proxy
-        ws_url = f"/ws-proxy/{conversation_id}" # Simplified URL format
-
-        return jsonify({"ws_url": ws_url})
+        """DEPRECATED: Redirect to MCP chatbot"""
+        return jsonify({
+            "error": "Old WebSocket agent is deprecated. Please use the new MCP chatbot.",
+            "redirect": "/mcp-chat"
+        }), 302
 
     # WebSocket proxy to the agent
     @sock.route('/ws-proxy/<conversation_id>')
@@ -731,6 +746,281 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
 
         target_url = f"{urls['mcp']['video']}/{path}"
         return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+
+# MCP Chatbot Endpoints - Proxy to Agent Service
+@app.route('/api/mcp/conversation', methods=['POST'])
+def create_mcp_conversation():
+    """Create a new MCP conversation via agent service"""
+    urls = get_dynamic_urls()
+    if 'agent' not in urls:
+        return jsonify({"error": "Agent service not configured"}), 500
+    
+    # Check if agent service is running
+    agent_status = services_status.get('agent', {}).get('status', 'unknown')
+    if agent_status != 'running':
+        return jsonify({"error": f"Agent service is not running. Status: {agent_status}"}), 503
+    
+    try:
+        # Proxy the request to the agent service
+        target_url = f"{urls['agent']['internal_url']}/api/chat/conversation"
+        
+        response = requests.post(
+            target_url,
+            headers={'Content-Type': 'application/json'},
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            return jsonify(response.json())
+        else:
+            logger.error(f"Agent service returned error: {response.status_code} - {response.text}")
+            return jsonify({"error": f"Agent service error: {response.text}"}), response.status_code
+            
+    except Exception as e:
+        logger.error(f"Error creating MCP conversation: {str(e)}")
+        return jsonify({"error": f"Failed to connect to agent service: {str(e)}"}), 500
+
+@app.route('/api/mcp/message', methods=['POST'])
+def send_mcp_message():
+    """Send a message to the MCP chatbot via agent service"""
+    urls = get_dynamic_urls()
+    if 'agent' not in urls:
+        return jsonify({"error": "Agent service not configured"}), 500
+    
+    # Check if agent service is running
+    agent_status = services_status.get('agent', {}).get('status', 'unknown')
+    if agent_status != 'running':
+        return jsonify({"error": f"Agent service is not running. Status: {agent_status}"}), 503
+    
+    try:
+        # Debug: Log what we're receiving from the browser
+        logger.info(f"[LAUNCHPAD DEBUG] === FILE UPLOAD DEBUG START ===")
+        logger.info(f"[LAUNCHPAD DEBUG] Received form data: {dict(request.form)}")
+        logger.info(f"[LAUNCHPAD DEBUG] Files in request: {list(request.files.keys())}")
+        
+        if request.files:
+            for key, file in request.files.items():
+                try:
+                    # Read file content to check actual size
+                    file.seek(0)  # Go to beginning
+                    content = file.read()
+                    file.seek(0)  # Reset for forwarding
+                    actual_size = len(content)
+                    logger.info(f"[LAUNCHPAD DEBUG] File '{key}': filename='{file.filename}', content_type='{file.content_type}', reported_size={file.content_length}, actual_size={actual_size}")
+                    
+                    if actual_size == 0:
+                        logger.error(f"[LAUNCHPAD DEBUG] *** ZERO BYTE FILE DETECTED *** File '{file.filename}' has no content!")
+                    else:
+                        logger.info(f"[LAUNCHPAD DEBUG] File '{file.filename}' has {actual_size} bytes of content - GOOD!")
+                        
+                    # Log first few bytes for debugging
+                    if actual_size > 0:
+                        preview = content[:50] if len(content) > 50 else content
+                        logger.info(f"[LAUNCHPAD DEBUG] First 50 bytes: {preview}")
+                        
+                except Exception as e:
+                    logger.error(f"[LAUNCHPAD DEBUG] Error reading file '{key}': {str(e)}")
+        else:
+            logger.info(f"[LAUNCHPAD DEBUG] No files in request")
+            
+        logger.info(f"[LAUNCHPAD DEBUG] === FILE UPLOAD DEBUG END ===")
+        
+        # Proxy the request to the agent service
+        target_url = f"{urls['agent']['internal_url']}/api/chat/message"
+        
+        # Check if this is a video transcription request for longer timeout
+        message_content = request.form.get('message', '').lower()
+        is_video_request = 'youtube.com' in message_content or 'transcribe' in message_content
+        
+        # Use appropriate timeout based on request type
+        timeout = 300 if is_video_request else 60  # 5 minutes for video, 1 minute for others
+        
+        # Properly reconstruct files for forwarding
+        files_to_forward = {}
+        if request.files:
+            for key, file in request.files.items():
+                # Read the file content
+                file.seek(0)
+                file_content = file.read()
+                file.seek(0)  # Reset for any further use
+                
+                # Create a tuple with filename, content, and content_type for requests
+                files_to_forward[key] = (file.filename, file_content, file.content_type)
+                logger.info(f"[LAUNCHPAD DEBUG] Forwarding file: {key} -> filename='{file.filename}', content_type='{file.content_type}', size={len(file_content)}")
+        
+        # Forward the form data to the agent service
+        response = requests.post(
+            target_url,
+            data=request.form,
+            files=files_to_forward,
+            timeout=timeout
+        )
+        
+        if response.status_code == 200:
+            return jsonify(response.json())
+        else:
+            logger.error(f"Agent service returned error: {response.status_code} - {response.text}")
+            return jsonify({"error": f"Agent service error: {response.text}"}), response.status_code
+            
+    except Exception as e:
+        logger.error(f"Error processing MCP message: {str(e)}")
+        return jsonify({"error": f"Failed to connect to agent service: {str(e)}"}), 500
+
+@app.route('/api/mcp/servers')
+def get_mcp_servers():
+    """Get MCP server status"""
+    urls = get_dynamic_urls()
+    server_status = {}
+    
+    # Define MCP servers
+    mcp_servers = {
+        "reddit": {
+            "url": urls.get('mcp', {}).get('reddit', 'http://reddit-mcp:8501'),
+            "description": "Reddit data collection and analysis tools"
+        },
+        "social": {
+            "url": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
+            "description": "Social media research and sentiment analysis tools"
+        },
+        "journey": {
+            "url": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
+            "description": "Customer journey mapping with Claude 3.7 Sonnet"
+        },
+        "video": {
+            "url": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
+            "description": "Video transcription and analysis tools"
+        },
+        "openai_journey": {
+            "url": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
+            "description": "Customer journey mapping with OpenAI o3 reasoning model"
+        },
+        "claude4_journey": {
+            "url": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),
+            "description": "Advanced customer journey mapping with Claude 3.7"
+        }
+    }
+    
+    for server_name, server_config in mcp_servers.items():
+        try:
+            response = requests.get(f"{server_config['url']}/health", timeout=5)
+            if response.status_code == 200:
+                server_status[server_name] = {
+                    "status": "online",
+                    "url": server_config['url'],
+                    "description": server_config['description']
+                }
+            else:
+                server_status[server_name] = {
+                    "status": "error",
+                    "url": server_config['url'],
+                    "description": server_config['description'],
+                    "error": f"HTTP {response.status_code}"
+                }
+        except Exception as e:
+            server_status[server_name] = {
+                "status": "offline",
+                "url": server_config['url'],
+                "description": server_config['description'],
+                "error": str(e)
+            }
+    
+    return jsonify({"servers": server_status})
+
+def get_mcp_tools():
+    """Get available tools from all MCP servers"""
+    urls = get_dynamic_urls()
+    all_tools = []
+    
+    mcp_servers = {
+        "reddit": urls.get('mcp', {}).get('reddit', 'http://reddit-mcp:8501'),
+        "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
+        "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
+        "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
+        "openai_journey": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
+        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
+    }
+    
+    for server_name, server_url in mcp_servers.items():
+        try:
+            response = requests.get(f"{server_url}/mcp/tools", timeout=5)
+            
+            if response.status_code == 200:
+                tools = response.json()
+                
+                # Convert MCP tool specs to Claude tool format
+                for tool in tools:
+                    claude_tool = {
+                        "name": tool.get("name"),
+                        "description": tool.get("description"),
+                        "input_schema": tool.get("parameters", {
+                            "type": "object",
+                            "properties": {},
+                            "required": []
+                        })
+                    }
+                    all_tools.append(claude_tool)
+                    
+                logger.info(f"Loaded {len(tools)} tools from {server_name}")
+            else:
+                logger.warning(f"Failed to load tools from {server_name}: {response.status_code}")
+                
+        except Exception as e:
+            logger.error(f"Error loading tools from {server_name}: {str(e)}")
+    
+    logger.info(f"Total MCP tools available: {len(all_tools)}")
+    return all_tools
+
+def execute_mcp_tool(tool_name, parameters):
+    """Execute a tool call via the appropriate MCP server"""
+    urls = get_dynamic_urls()
+    
+    mcp_servers = {
+        "reddit": urls.get('mcp', {}).get('reddit', 'http://reddit-mcp:8501'),
+        "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
+        "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
+        "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
+        "openai_journey": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
+        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
+    }
+    
+    # Find which server handles this tool
+    server_url = None
+    for server_name, url in mcp_servers.items():
+        try:
+            # Check if this server has the tool
+            response = requests.get(f"{url}/mcp/tools", timeout=5)
+            if response.status_code == 200:
+                tools = response.json()
+                if any(tool.get("name") == tool_name for tool in tools):
+                    server_url = url
+                    break
+        except Exception as e:
+            logger.warning(f"Error checking tools for {server_name}: {str(e)}")
+    
+    if not server_url:
+        return {"error": f"Tool '{tool_name}' not found in any MCP server"}
+    
+    # Execute the tool
+    try:
+        tool_url = f"{server_url}/mcp/invoke/{tool_name}"
+        
+        # Convert parameters to form data for FastAPI compatibility
+        if any(isinstance(v, (dict, list)) for v in parameters.values()):
+            # If there are complex parameters, use JSON
+            response = requests.post(tool_url, json=parameters, timeout=30)
+        else:
+            # Use form data for simple parameters
+            response = requests.post(tool_url, data=parameters, timeout=30)
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            logger.error(f"Tool execution failed: {response.status_code} - {response.text}")
+            return {"error": f"Tool execution failed: {response.text}"}
+            
+    except Exception as e:
+        logger.error(f"Error executing tool {tool_name}: {str(e)}")
+        return {"error": f"Error executing tool: {str(e)}"}
 
 # API endpoint for service logs
 @app.route('/api/logs')

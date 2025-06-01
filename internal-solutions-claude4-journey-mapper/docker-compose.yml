@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  claude4-journey-mapper:
+    build:
+      context: .
+      dockerfile: Dockerfile.enhanced
+    container_name: claude4-journey-mapper
+    ports:
+      - "8090:8000"  # Using a different port to avoid conflict with existing journey mapper
+    volumes:
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+      - ./journey_maps:/app/journey_maps
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_MODEL=claude-sonnet-4-20250514
+      - PORT=8000
+    restart: unless-stopped

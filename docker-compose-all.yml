@@ -29,8 +29,6 @@ services:
               python app.py"
     networks:
       - nxt-humans-network
-    extra_hosts:
-      - "agent:172.18.0.7"  # Will be determined at runtime
 
   # Agent Orchestrator Service
   agent:
@@ -61,12 +59,6 @@ services:
       - social-mcp
       - journey-mcp
       - video-mcp
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8500/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
 
   # Reddit Ripper MCP Wrapper
   reddit-mcp:
@@ -159,6 +151,7 @@ services:
       - "${VIDEO_MCP_PORT:-8504}:8504"
     environment:
       - PORT=8504
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
     volumes:
@@ -303,6 +296,7 @@ services:
       - "${VIDEO_ANALYZER_PORT:-5002}:5000"
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5000
     volumes:
       - ./internal-solutions-video-analyzer:/app

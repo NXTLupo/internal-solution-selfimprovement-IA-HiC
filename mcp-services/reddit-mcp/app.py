@@ -85,32 +85,36 @@ async def get_tools():
     # Define available tools
     tools = [
         MCPToolSpec(
-            name="reddit.search",
+            name="reddit_search",
             description="Search for posts in a subreddit with optional filtering",
             parameters={
-                "subreddit": {
-                    "type": "string",
-                    "description": "Subreddit name to search (without 'r/')"
+                "type": "object",
+                "properties": {
+                    "subreddit": {
+                        "type": "string",
+                        "description": "Subreddit name to search (without 'r/')"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query to filter posts"
+                    },
+                    "time_filter": {
+                        "type": "string",
+                        "description": "Time filter (hour, day, week, month, year, all)",
+                        "default": "week"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of posts",
+                        "default": 25
+                    },
+                    "comments_per_post": {
+                        "type": "integer",
+                        "description": "Maximum comments per post",
+                        "default": 10
+                    }
                 },
-                "query": {
-                    "type": "string",
-                    "description": "Search query to filter posts"
-                },
-                "time_filter": {
-                    "type": "string",
-                    "description": "Time filter (hour, day, week, month, year, all)",
-                    "default": "week"
-                },
-                "limit": {
-                    "type": "integer",
-                    "description": "Maximum number of posts",
-                    "default": 25
-                },
-                "comments_per_post": {
-                    "type": "integer",
-                    "description": "Maximum comments per post",
-                    "default": 10
-                }
+                "required": ["subreddit"]
             },
             returns={
                 "job_id": {
@@ -120,13 +124,17 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="reddit.get_status",
+            name="reddit_get_status",
             description="Check the status of a Reddit data collection job",
             parameters={
-                "job_id": {
-                    "type": "string",
-                    "description": "Job ID from a previous search request"
-                }
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "Job ID from a previous search request"
+                    }
+                },
+                "required": ["job_id"]
             },
             returns={
                 "status": {
@@ -151,18 +159,22 @@ async def get_tools():
             }
         ),
         MCPToolSpec(
-            name="reddit.get_results",
+            name="reddit_get_results",
             description="Get the results of a completed Reddit data collection job",
             parameters={
-                "job_id": {
-                    "type": "string",
-                    "description": "Job ID from a previous search request"
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "Job ID from a previous search request"
+                    },
+                    "include_content": {
+                        "type": "boolean",
+                        "description": "Whether to include full post content",
+                        "default": True
+                    }
                 },
-                "include_content": {
-                    "type": "boolean",
-                    "description": "Whether to include full post content",
-                    "default": True
-                }
+                "required": ["job_id"]
             },
             returns={
                 "posts": {
@@ -184,7 +196,7 @@ async def get_tools():
     ]
     return tools
 
-@app.post("/mcp/invoke/reddit.search", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/reddit_search", response_model=Dict[str, Any])
 async def invoke_search(
     subreddit: str = Form(...),
     query: Optional[str] = Form(None),
@@ -247,7 +259,7 @@ async def invoke_search(
             detail=f"Error invoking Reddit search: {str(e)}"
         )
 
-@app.post("/mcp/invoke/reddit.get_status", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/reddit_get_status", response_model=Dict[str, Any])
 async def invoke_get_status(job_id: str = Form(...)):
     """MCP endpoint to check job status"""
     try:
@@ -283,7 +295,7 @@ async def invoke_get_status(job_id: str = Form(...)):
             detail=f"Error getting job status: {str(e)}"
         )
 
-@app.post("/mcp/invoke/reddit.get_results", response_model=Dict[str, Any])
+@app.post("/mcp/invoke/reddit_get_results", response_model=Dict[str, Any])
 async def invoke_get_results(
     job_id: str = Form(...),
     include_content: bool = Form(True)
@@ -373,9 +385,9 @@ async def root():
         "status": "running",
         "endpoints": {
             "mcp/tools": "Get available tools",
-            "mcp/invoke/reddit.search": "Search Reddit",
-            "mcp/invoke/reddit.get_status": "Check job status",
-            "mcp/invoke/reddit.get_results": "Get job results"
+            "mcp/invoke/reddit_search": "Search Reddit",
+            "mcp/invoke/reddit_get_status": "Check job status",
+            "mcp/invoke/reddit_get_results": "Get job results"
         }
     }
 

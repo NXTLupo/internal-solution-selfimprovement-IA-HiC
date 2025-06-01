@@ -1,0 +1,622 @@
+--- dynamic_journey_mapper.py	2024-05-12 09:00:00.000000000 -0700
++++ dynamic_journey_mapper.py.fixed	2024-05-12 09:00:00.000000000 -0700
+@@ -151,11 +151,19 @@
+                 continue
+                 
+         if not valid_html:
+-            self.logger.error("Generated HTML failed validation after retry")
+-            print("⚠️ Step 6b: HTML validation failed after retry, using fallback template...")
+-            # Use the fallback template if all else fails
+-            valid_html = self._create_fallback_html(title, description, journey_type, journey_insights)
+-            print("   - Created fallback HTML template")
++            self.logger.error("CRITICAL ERROR: Generated HTML failed validation after retry")
++            print("🛑 Step 6b: HTML validation failed after retry, REFUSING to use fallback template")
++            
++            # Instead of fallback, create a proper error message with debugging information
++            error_html = f"""<!DOCTYPE html>
++<html><head><title>Journey Map Generation Error</title></head>
++<body>
++<h1>Journey Map Generation Error</h1>
++<p>Claude failed to generate a valid HTML journey map. This could be due to:</p>
++<ul>
++<li>API connection issues</li>
++<li>Insufficient or poorly formatted input data</li>
++<li>Complex journey that exceeded Claude's capabilities</li>
++</ul>
++<p>Please check the logs for more details or try again with different input data.</p>
++</body></html>"""
++            return error_html, journey_insights
+         
+         return valid_html, journey_insights
+ 
+@@ -778,828 +786,15 @@
+         return html
+     
+     def _create_fallback_html(self, title, description, journey_type, journey_insights):
+-        """Create a fallback HTML template when AI-generated HTML is invalid."""
+-        self.logger.warning("Using fallback HTML template generation")
+-        
+-        # Define default journey stages based on journey type
+-        stages = []
+-        if journey_type.lower() == "customer":
+-            stages = ["Awareness", "Consideration", "Purchase", "Retention", "Advocacy"]
+-        elif journey_type.lower() == "educational":
+-            stages = ["Awareness", "Application", "Enrollment", "Learning", "Graduation", "Alumni"]
+-        elif journey_type.lower() == "healthcare":
+-            stages = ["Symptoms", "Seeking Care", "Diagnosis", "Treatment", "Recovery", "Follow-up"]
+-        elif journey_type.lower() == "employee":
+-            stages = ["Awareness", "Application", "Onboarding", "Development", "Retention", "Separation"]
+-        elif journey_type.lower() == "coop":
+-            stages = ["Research", "Prep", "Application", "Interview", "Onboarding", "Experience", "Completion"]
+-        else:
+-            # Generic default journey stages
+-            stages = ["Discovery", "Initial Engagement", "Deep Engagement", "Commitment", "Ongoing Relationship"]
+-            
+-        # Basic HTML structure
+-        html = f"""
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>{title}</title>
+-    <style>
+-        :root {{
+-            --primary-color: #01C4C8;
+-            --secondary-color: #5A6275;
+-            --dark-bg: #121B26;
+-            --medium-grey: #4A5165;
+-            --light-grey: #F5F5F5;
+-            --highlight: #FFB74D;
+-            --success: #4CAF50;
+-            --warning: #FFC107;
+-            --error: #F44336;
+-        }}
+-        
+-        * {{
+-            box-sizing: border-box;
+-            margin: 0;
+-            padding: 0;
+-        }}
+-        
+-        body {{
+-            font-family: 'Segoe UI', Arial, sans-serif;
+-            background-color: #FFFFFF;
+-            color: var(--dark-bg);
+-            line-height: 1.6;
+-            margin: 0;
+-            padding: 0;
+-        }}
+-        
+-        .journey-container {{
+-            width: 100%;
+-            max-width: 1400px;
+-            margin: 0 auto;
+-            padding: 20px;
+-        }}
+-        
+-        .journey-header {{
+-            text-align: center;
+-            margin-bottom: 30px;
+-            padding: 20px;
+-            background-color: var(--dark-bg);
+-            color: white;
+-            border-radius: 8px;
+-        }}
+-        
+-        .journey-header h1 {{
+-            font-size: 28px;
+-            margin-bottom: 10px;
+-            color: var(--primary-color);
+-        }}
+-        
+-        .journey-header p {{
+-            font-size: 16px;
+-            color: #f0f0f0;
+-        }}
+-        
+-        .journey-map {{
+-            display: flex;
+-            flex-direction: column;
+-            margin-bottom: 40px;
+-        }}
+-        
+-        .journey-stages {{
+-            display: flex;
+-            justify-content: space-between;
+-            margin-bottom: 10px;
+-            position: relative;
+-        }}
+-        
+-        .journey-stages::after {{
+-            content: '';
+-            position: absolute;
+-            top: 50%;
+-            left: 0;
+-            right: 0;
+-            height: 4px;
+-            background: linear-gradient(to right, var(--primary-color), var(--highlight));
+-            z-index: 1;
+-        }}
+-        
+-        .stage {{
+-            background-color: var(--dark-bg);
+-            color: white;
+-            border-radius: 8px;
+-            padding: 10px 15px;
+-            text-align: center;
+-            font-weight: bold;
+-            z-index: 2;
+-            position: relative;
+-            min-width: 120px;
+-            margin: 0 5px;
+-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+-        }}
+-        
+-        .stage h3 {{
+-            font-size: 16px;
+-            margin: 0;
+-            color: var(--primary-color);
+-        }}
+-        
+-        .journey-details {{
+-            display: flex;
+-            justify-content: space-between;
+-            flex-wrap: wrap;
+-        }}
+-        
+-        .stage-detail {{
+-            flex: 1;
+-            min-width: 120px;
+-            margin: 0 5px 20px;
+-            display: flex;
+-            flex-direction: column;
+-        }}
+-        
+-        .detail-card {{
+-            background-color: white;
+-            border-radius: 8px;
+-            padding: 15px;
+-            margin-bottom: 10px;
+-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+-            height: 100%;
+-            border-left: 4px solid var(--primary-color);
+-        }}
+-        
+-        .detail-card h4 {{
+-            font-size: 14px;
+-            margin-bottom: 8px;
+-            color: var(--dark-bg);
+-            display: flex;
+-            align-items: center;
+-        }}
+-        
+-        .detail-card h4 span {{
+-            background-color: var(--primary-color);
+-            color: white;
+-            border-radius: 50%;
+-            width: 20px;
+-            height: 20px;
+-            display: inline-flex;
+-            justify-content: center;
+-            align-items: center;
+-            margin-right: 8px;
+-            font-size: 12px;
+-        }}
+-        
+-        .detail-card ul {{
+-            list-style-type: none;
+-            padding-left: 10px;
+-        }}
+-        
+-        .detail-card li {{
+-            margin-bottom: 8px;
+-            font-size: 14px;
+-            position: relative;
+-            padding-left: 15px;
+-        }}
+-        
+-        .detail-card li::before {{
+-            content: '•';
+-            color: var(--primary-color);
+-            position: absolute;
+-            left: 0;
+-            top: 0;
+-        }}
+-        
+-        .activities {{
+-            border-left-color: var(--primary-color);
+-        }}
+-        
+-        .painpoints {{
+-            border-left-color: var(--error);
+-        }}
+-        
+-        .opportunities {{
+-            border-left-color: var(--success);
+-        }}
+-        
+-        .journey-insights {{
+-            background-color: var(--light-grey);
+-            padding: 20px;
+-            border-radius: 8px;
+-            margin-top: 20px;
+-        }}
+-        
+-        .journey-insights h2 {{
+-            color: var(--dark-bg);
+-            font-size: 22px;
+-            margin-bottom: 15px;
+-            border-bottom: 2px solid var(--primary-color);
+-            padding-bottom: 5px;
+-        }}
+-        
+-        .insights-grid {{
+-            display: grid;
+-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+-            gap: 20px;
+-        }}
+-        
+-        .insight-card {{
+-            background-color: white;
+-            border-radius: 8px;
+-            padding: 15px;
+-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+-            border-top: 4px solid var(--primary-color);
+-        }}
+-        
+-        .insight-card h3 {{
+-            font-size: 18px;
+-            margin-bottom: 10px;
+-            color: var(--dark-bg);
+-        }}
+-        
+-        .insight-card p {{
+-            font-size: 14px;
+-            color: var(--secondary-color);
+-        }}
+-        
+-        .quote {{
+-            font-style: italic;
+-            color: var(--medium-grey);
+-            margin: 10px 0;
+-            padding-left: 10px;
+-            border-left: 3px solid var(--primary-color);
+-        }}
+-        
+-        .footer {{
+-            text-align: center;
+-            margin-top: 40px;
+-            padding: 20px;
+-            color: var(--secondary-color);
+-            font-size: 12px;
+-        }}
+-        
+-        @media (max-width: 768px) {{
+-            .journey-stages {{
+-                flex-direction: column;
+-                align-items: center;
+-            }}
+-            
+-            .journey-stages::after {{
+-                width: 4px;
+-                height: 100%;
+-                top: 0;
+-                left: 50%;
+-                transform: translateX(-50%);
+-            }}
+-            
+-            .stage {{
+-                margin: 10px 0;
+-                width: 80%;
+-            }}
+-            
+-            .journey-details {{
+-                flex-direction: column;
+-            }}
+-            
+-            .stage-detail {{
+-                width: 80%;
+-                margin: 0 auto 20px;
+-            }}
+-        }}
+-    </style>
+-</head>
+-<body>
+-    <div class="journey-container">
+-        <div class="journey-header">
+-            <h1>{title}</h1>
+-            <p>{description}</p>
+-        </div>
+-        
+-        <div class="journey-map">
+-            <div class="journey-stages">
+-"""
+-
+-        # Add stages to HTML
+-        for i, stage in enumerate(stages):
+-            html += f"""
+-                <div class="stage">
+-                    <h3>{stage}</h3>
+-                </div>
+-"""
+-        
+-        html += """
+-            </div>
+-            
+-            <div class="journey-details">
+-"""
+-        
+-        # Add detail cards for each stage
+-        for i, stage in enumerate(stages):
+-            # Generate generic activities, painpoints, and opportunities for each stage
+-            activities = []
+-            painpoints = []
+-            opportunities = []
+-            
+-            if stage.lower() == "awareness":
+-                activities = ["Searching online for solutions", "Reading reviews and testimonials", "Discussing with peers"]
+-                painpoints = ["Lack of clear information", "Difficulty finding trustworthy sources", "Overwhelmed by options"]
+-                opportunities = ["Improve SEO and content marketing", "Showcase customer testimonials", "Create comparison guides"]
+-            elif stage.lower() == "consideration":
+-                activities = ["Comparing different options", "Requesting demos or free trials", "Evaluating features and pricing"]
+-                painpoints = ["Feature comparison is difficult", "Pricing complexity", "Lengthy evaluation process"]
+-                opportunities = ["Simplify pricing structure", "Create feature comparison tools", "Optimize demo process"]
+-            elif stage.lower() == "purchase":
+-                activities = ["Making final decision", "Budget approval process", "Completing purchase"]
+-                painpoints = ["Complex checkout process", "Unclear contract terms", "Payment method limitations"]
+-                opportunities = ["Streamline checkout process", "Provide clear contract summaries", "Expand payment options"]
+-            elif stage.lower() == "retention":
+-                activities = ["Onboarding and initial use", "Seeking customer support", "Evaluating ROI"]
+-                painpoints = ["Difficult learning curve", "Delayed response to support issues", "Unclear value realization"]
+-                opportunities = ["Enhance onboarding experience", "Improve support responsiveness", "Develop ROI tracking tools"]
+-            elif stage.lower() == "advocacy":
+-                activities = ["Sharing experiences", "Participating in community", "Recommending to others"]
+-                painpoints = ["Lack of incentives for referrals", "Limited platforms for sharing", "Disconnect from brand community"]
+-                opportunities = ["Create referral program", "Build community platforms", "Recognize brand advocates"]
+-            elif stage.lower() == "application":
+-                activities = ["Completing application forms", "Gathering required documents", "Submitting applications"]
+-                painpoints = ["Complex application process", "Unclear requirements", "Long waiting periods"]
+-                opportunities = ["Simplify application forms", "Provide clear checklists", "Improve status updates"]
+-            elif stage.lower() == "enrollment" or stage.lower() == "onboarding":
+-                activities = ["Completing registration", "Orientation process", "Setting up accounts and tools"]
+-                painpoints = ["Information overload", "Multiple systems to learn", "Lack of personalization"]
+-                opportunities = ["Staged information delivery", "Unified systems access", "Personalized onboarding paths"]
+-            elif stage.lower() == "learning" or stage.lower() == "development":
+-                activities = ["Attending classes/training", "Completing assignments", "Seeking additional resources"]
+-                painpoints = ["Inconsistent quality", "Balancing commitments", "Limited support options"]
+-                opportunities = ["Quality assurance processes", "Flexible scheduling options", "Expanded support channels"]
+-            elif stage.lower() == "graduation" or stage.lower() == "experience":
+-                activities = ["Final assessments", "Recognition ceremonies", "Transition planning"]
+-                painpoints = ["Unclear next steps", "Limited celebration options", "Transition anxiety"]
+-                opportunities = ["Clear pathways guidance", "Multiple celebration formats", "Transition support programs"]
+-            elif stage.lower() == "alumni" or stage.lower() == "separation":
+-                activities = ["Maintaining connection", "Accessing alumni benefits", "Professional networking"]
+-                painpoints = ["Lost connections", "Underutilized benefits", "Limited engagement opportunities"]
+-                opportunities = ["Regular connection points", "Enhanced benefits communication", "Diverse engagement options"]
+-            elif stage.lower() == "symptoms":
+-                activities = ["Noticing health changes", "Self-diagnosing online", "Deciding to seek care"]
+-                painpoints = ["Anxiety about symptoms", "Misinformation online", "Uncertainty about severity"]
+-                opportunities = ["Reliable symptom checkers", "Educational content", "Clear guidance on when to seek care"]
+-            elif stage.lower() == "seeking care":
+-                activities = ["Researching providers", "Scheduling appointments", "Insurance verification"]
+-                painpoints = ["Long wait times", "Complex insurance processes", "Limited provider information"]
+-                opportunities = ["Streamlined scheduling", "Insurance verification tools", "Enhanced provider profiles"]
+-            elif stage.lower() == "diagnosis":
+-                activities = ["Meeting with providers", "Diagnostic tests", "Understanding condition"]
+-                painpoints = ["Communication gaps", "Waiting for results", "Complex medical information"]
+-                opportunities = ["Communication protocols", "Result notification systems", "Plain language explanations"]
+-            elif stage.lower() == "treatment":
+-                activities = ["Understanding treatment options", "Making treatment decisions", "Following treatment plans"]
+-                painpoints = ["Overwhelming options", "Unclear expectations", "Managing side effects"]
+-                opportunities = ["Decision support tools", "Clear treatment roadmaps", "Proactive side effect management"]
+-            elif stage.lower() == "recovery":
+-                activities = ["Rehabilitation activities", "Medication management", "Lifestyle adjustments"]
+-                painpoints = ["Motivation challenges", "Complicated regimens", "Limited support"]
+-                opportunities = ["Motivation programs", "Medication management tools", "Expanded support networks"]
+-            elif stage.lower() == "follow-up":
+-                activities = ["Attending check-ups", "Ongoing monitoring", "Preventive care"]
+-                painpoints = ["Appointment scheduling difficulties", "Unclear monitoring protocols", "Preventive care gaps"]
+-                opportunities = ["Simplified scheduling", "Personalized monitoring plans", "Preventive care reminders"]
+-            elif stage.lower() == "research" or stage.lower() == "discovery":
+-                activities = ["Identifying opportunities", "Gathering information", "Initial outreach"]
+-                painpoints = ["Information scatter", "Difficulty assessing quality", "Unclear pathways"]
+-                opportunities = ["Centralized information hubs", "Quality verification systems", "Pathway guides"]
+-            elif stage.lower() == "prep" or stage.lower() == "initial engagement":
+-                activities = ["Preparation activities", "Skill development", "Resource gathering"]
+-                painpoints = ["Uncertainty about requirements", "Time constraints", "Resource limitations"]
+-                opportunities = ["Clear requirement guides", "Time management tools", "Resource accessibility"]
+-            elif stage.lower() == "interview" or stage.lower() == "deep engagement":
+-                activities = ["Formal evaluation", "Demonstrating capabilities", "Assessing fit"]
+-                painpoints = ["Performance anxiety", "Limited feedback", "Unclear expectations"]
+-                opportunities = ["Preparation resources", "Structured feedback processes", "Expectation guides"]
+-            elif stage.lower() == "commitment":
+-                activities = ["Formal agreement", "Integration planning", "Initial engagement"]
+-                painpoints = ["Complex agreement terms", "Integration challenges", "Expectation gaps"]
+-                opportunities = ["Simplified agreements", "Integration support", "Expectation alignment"]
+-            elif stage.lower() == "completion" or stage.lower() == "ongoing relationship":
+-                activities = ["Final evaluations", "Transition planning", "Relationship maintenance"]
+-                painpoints = ["Unclear ending processes", "Transition gaps", "Relationship uncertainty"]
+-                opportunities = ["Clear completion frameworks", "Transition support", "Ongoing connection points"]
+-            else:
+-                # Generic defaults
+-                activities = ["Key activity 1", "Key activity 2", "Key activity 3"]
+-                painpoints = ["Main challenge 1", "Main challenge 2", "Main challenge 3"]
+-                opportunities = ["Improvement area 1", "Improvement area 2", "Improvement area 3"]
+-            
+-            html += f"""
+-                <div class="stage-detail">
+-                    <div class="detail-card activities">
+-                        <h4><span>A</span> Activities</h4>
+-                        <ul>
+-"""
+-            
+-            for activity in activities:
+-                html += f"<li>{activity}</li>\n"
+-                
+-            html += """
+-                        </ul>
+-                    </div>
+-                    
+-                    <div class="detail-card painpoints">
+-                        <h4><span>P</span> Pain Points</h4>
+-                        <ul>
+-"""
+-                
+-            for painpoint in painpoints:
+-                html += f"<li>{painpoint}</li>\n"
+-                
+-            html += """
+-                        </ul>
+-                    </div>
+-                    
+-                    <div class="detail-card opportunities">
+-                        <h4><span>O</span> Opportunities</h4>
+-                        <ul>
+-"""
+-                
+-            for opportunity in opportunities:
+-                html += f"<li>{opportunity}</li>\n"
+-                
+-            html += """
+-                        </ul>
+-                    </div>
+-                </div>
+-"""
+-                
+-        html += """
+-            </div>
+-        </div>
+-        
+-        <div class="journey-insights">
+-            <h2>Key Insights</h2>
+-            <div class="insights-grid">
+-"""
+-        
+-        # Add insights from Claude if available, otherwise use generic insights
+-        if journey_insights and len(journey_insights) > 0:
+-            for i, insight in enumerate(journey_insights[:6]):  # Limit to 6 insights for clean display
+-                html += f"""
+-                <div class="insight-card">
+-                    <h3>Insight {i+1}</h3>
+-                    <p>{insight}</p>
+-                    <p class="quote">"This is where a direct quote from the source data would appear."</p>
+-                </div>
+-"""
+-        else:
+-            # Generic insights based on journey type
+-            generic_insights = [
+-                "Users often abandon the journey during the transition between awareness and consideration stages due to information overload.",
+-                "The highest pain points cluster around the initial stages, suggesting a need for improved guidance and support early on.",
+-                "Opportunities for personalization appear throughout the journey but are most impactful during the engagement phases.",
+-                "Communication consistency across touchpoints shows significant correlation with overall satisfaction and completion rates.",
+-                "Digital and in-person experiences show notable differences in engagement patterns and satisfaction metrics.",
+-                "The data suggests that reducing friction at key decision points could significantly improve conversion and retention metrics."
+-            ]
+-            
+-            for i, insight in enumerate(generic_insights):
+-                html += f"""
+-                <div class="insight-card">
+-                    <h3>Insight {i+1}</h3>
+-                    <p>{insight}</p>
+-                    <p class="quote">"This is where a direct quote from the source data would appear."</p>
+-                </div>
+-"""
+-        
+-        html += """
+-            </div>
+-        </div>
+-        
+-        <div class="footer">
+-            <p>Journey map created with NXT Humans AI CX Workbench | © 2025 NXT Humans</p>
+-        </div>
+-    </div>
+-</body>
+-</html>
+-"""
+-        
+-        return html
++        """Create an error message instead of a fallback HTML template."""
++        self.logger.error("CRITICAL ERROR: Fallback template requested but has been disabled")
++        error_html = f"""<!DOCTYPE html>
++<html><head><title>Journey Map Generation Error</title></head>
++<body style="font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.5;">
++<h1 style="color: #F44336;">Journey Map Generation Error</h1>
++<p>No fallback templates are allowed. Journey maps must be generated from real data only.</p>
++<p>Claude failed to generate a valid HTML journey map. This could be due to:</p>
++<ul>
++<li>API connection issues</li>
++<li>Insufficient or poorly formatted input data</li>
++<li>Complex journey that exceeded Claude's capabilities</li>
++</ul>
++<p>Please check the logs for more details or try again with different input data.</p>
++</body></html>"""
++        return error_html
+ 
+     def render_journey_map_html(self, html_content, title, custom_styles=None):
+         """Render the journey map HTML with custom styles if provided."""
+ EOF
+
+# 2. Create patch for vector_store.py to remove fake embedding generation
+cat > "$PATCH_DIR/no_fake_embeddings.patch" << 'EOF'
+--- vector_store.py	2024-05-12 09:00:00.000000000 -0700
++++ vector_store.py.fixed	2024-05-12 09:00:00.000000000 -0700
+@@ -241,39 +241,15 @@
+     
+     def get_embedding(self, text: str) -> List[float]:
+         """Get an embedding for a given text.
+-        Note: since Claude's embedding API is proving challenging, this
+-        implementation uses a simple deterministic hash-based approach
+-        to generate "fake" embeddings that will still work for demonstration.
++        This should use a proper embedding model rather than fake embeddings.
+-        
+-        # 1. Generate a seed from the text
+-        import hashlib
+-        seed = int(hashlib.md5(text.encode()).hexdigest(), 16) % (2**32)
+-        
+-        # 2. Use the seed to create a repeatable random sequence
+-        import numpy as np
+-        rng = np.random.RandomState(seed)
+-        
+-        # 3. Generate a fake embedding vector with the same dimensionality as Claude's embeddings
+-        embedding_dim = 256  # Using 256-dimensional space for mock embeddings
+-        embedding = rng.normal(0, 1, embedding_dim).tolist()
+-        
+-        # 4. Normalize the vector to unit length for more realistic cosine similarity
+-        import math
+-        norm = math.sqrt(sum(e * e for e in embedding))
+-        normalized_embedding = [e / norm for e in embedding]
+-        
+-        return normalized_embedding
++        self.logger.error("CRITICAL ERROR: Using real embedding models is required. Fake embeddings are not allowed.")
++        raise ValueError("Fake embeddings are not allowed. Please implement a real embedding model integration.")
+     
+     def text_to_chunks(self, text: str, chunk_size: int = 300, overlap: int = 50) -> List[str]:
+         """Split a text into overlapping chunks of specified size."""
+@@ -356,22 +332,11 @@
+         self._generate_index_from_documents(chunks)
+         
+     def add_texts_to_vector_store(self, texts: List[str], metadatas: List[Dict] = None) -> bool:
+-        """Add texts to the vector store.
+-        Note: Due to potential issues with the embedding API, use a fallback approach
+-        with random embeddings for proof of concept."""
++        """Add texts to the vector store."""
++        self.logger.error("CRITICAL ERROR: Proper vector embeddings are required. Fallback implementations are not allowed.")
++        raise ValueError("Fallback implementations are forbidden. Use proper vector embeddings.")
+         
+-        import numpy as np
+-        
+-        # Random embeddings will still work for this PoC
+-        # Use a seed to get consistent embeddings for the same texts
+-        rng = np.random.RandomState(42)
+-        for i, text in enumerate(texts):
+-            # Generate a random embedding with appropriate dimensionality
+-            embedding = rng.normal(0, 1, 256).tolist()
+-            
+-            # Add to the vector store with metadata
+-            metadata = metadatas[i] if metadatas else {"index": i}
+-            self.add_to_store(text, embedding, metadata)
+-            
+         return True
+     
+     def store_json(self, index_path: str) -> bool:

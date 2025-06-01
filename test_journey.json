@@ -1,0 +1,37 @@
+{
+  "customer_profile": {
+    "name": "Sarah Johnson",
+    "age": 34,
+    "occupation": "Marketing Manager",
+    "location": "San Francisco, CA"
+  },
+  "journey_stages": [
+    {
+      "stage": "Awareness",
+      "touchpoints": ["Google Search", "Social Media Ad"],
+      "emotions": ["Curious", "Interested"],
+      "actions": ["Researched problem", "Clicked on ad"],
+      "pain_points": ["Too many options", "Confusing terminology"]
+    },
+    {
+      "stage": "Consideration", 
+      "touchpoints": ["Company Website", "Product Demo"],
+      "emotions": ["Hopeful", "Concerned about cost"],
+      "actions": ["Watched demo", "Read reviews"],
+      "pain_points": ["Pricing unclear", "No clear next steps"]
+    },
+    {
+      "stage": "Purchase",
+      "touchpoints": ["Sales Call", "Contract Signing"],
+      "emotions": ["Confident", "Relieved"],
+      "actions": ["Spoke with sales rep", "Signed contract"],
+      "pain_points": ["Long sales process", "Multiple approvals needed"]
+    }
+  ],
+  "key_insights": [
+    "Pricing transparency is crucial",
+    "Clear next steps needed at each stage",
+    "Sales process could be streamlined"
+  ]
+}
+EOF < /dev/null
