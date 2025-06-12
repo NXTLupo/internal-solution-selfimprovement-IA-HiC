@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="persona" content="Sarah, Working Professional">
+    <meta name="scenario" content="Online Banking Account Setup">
+    <meta name="keywords" content="banking, onboarding, digital, pain-points, emotions">
+    <title>Customer Journey Map - Online Banking Onboarding</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .phase { border: 1px solid #ddd; margin: 20px 0; padding: 20px; }
+        .phase h2 { color: #1A73E8; border-bottom: 2px solid #1A73E8; }
+        .touchpoint { background: #E3F2FD; padding: 10px; margin: 5px; border-radius: 5px; }
+        .pain-point { background: #FFEBEE; padding: 10px; margin: 5px; border-radius: 5px; }
+        .emotion.positive { background: #E8F5E8; padding: 10px; margin: 5px; border-radius: 5px; }
+        .emotion.negative { background: #FFF3E0; padding: 10px; margin: 5px; border-radius: 5px; }
+        .quote { background: #F5F5F5; padding: 15px; margin: 10px; border-left: 4px solid #9AA0A6; font-style: italic; }
+        .action { background: #F3E5F5; padding: 8px; margin: 5px; border-radius: 5px; }
+        .channel { background: #E0F2F1; padding: 8px; margin: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Customer Journey Map - Online Banking Account Setup</h1>
+    <p class="scenario">Scenario: Sarah, a working professional, wants to open a new online banking account for better digital services.</p>
+
+    <div class="phase" data-phase="awareness">
+        <h2>Awareness</h2>
+        <p class="description">Customer becomes aware of the need for a new banking solution</p>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Online Search</strong>
+            <p>Searches for "best online banks 2024"</p>
+        </div>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Comparison Websites</strong>
+            <p>Reviews bank comparison sites</p>
+        </div>
+        
+        <div class="pain-point" data-severity="medium" data-category="process">
+            <h4>Information Overload</h4>
+            <p>Too many options and conflicting information from different sources</p>
+        </div>
+        
+        <div class="emotion positive" data-intensity="6">
+            <p>Hopeful about finding a better banking solution</p>
+        </div>
+        
+        <div class="quote" data-sentiment="neutral">
+            <p>"I need to find a bank that actually works with my lifestyle, not against it."</p>
+            <cite>- Sarah, Research Phase</cite>
+        </div>
+        
+        <div class="action" data-type="search">
+            <p>Research online banking options</p>
+        </div>
+        
+        <div class="channel" data-type="website">
+            <p>Google Search</p>
+        </div>
+        
+        <div class="channel" data-type="website">
+            <p>Bank Comparison Sites</p>
+        </div>
+    </div>
+
+    <div class="phase" data-phase="consideration">
+        <h2>Consideration</h2>
+        <p class="description">Customer evaluates different banking options</p>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Bank Websites</strong>
+            <p>Visits multiple bank websites to compare features</p>
+        </div>
+        
+        <div class="touchpoint" data-type="human">
+            <strong>Friend Recommendations</strong>
+            <p>Asks friends about their banking experiences</p>
+        </div>
+        
+        <div class="pain-point" data-severity="high" data-category="interface">
+            <h4>Confusing Fee Structures</h4>
+            <p>Difficulty understanding different fee schedules and hidden costs</p>
+        </div>
+        
+        <div class="pain-point" data-severity="medium" data-category="process">
+            <h4>Limited Chat Support</h4>
+            <p>Customer service chat unavailable during research hours</p>
+        </div>
+        
+        <div class="emotion negative" data-intensity="7">
+            <p>Frustrated with unclear information</p>
+        </div>
+        
+        <div class="emotion positive" data-intensity="5">
+            <p>Cautiously optimistic about one particular bank</p>
+        </div>
+        
+        <div class="quote" data-sentiment="negative">
+            <p>"Why can't banks just be upfront about their fees? I feel like I need a degree in finance to understand this."</p>
+            <cite>- Sarah, Comparison Phase</cite>
+        </div>
+        
+        <div class="action" data-type="browse">
+            <p>Compare features and fees</p>
+        </div>
+        
+        <div class="action" data-type="call">
+            <p>Contact customer service</p>
+        </div>
+        
+        <div class="channel" data-type="website">
+            <p>Bank Official Websites</p>
+        </div>
+        
+        <div class="channel" data-type="phone">
+            <p>Customer Service Hotline</p>
+        </div>
+    </div>
+
+    <div class="phase" data-phase="application">
+        <h2>Application</h2>
+        <p class="description">Customer begins the account opening process</p>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Online Application Form</strong>
+            <p>Fills out the digital account opening form</p>
+        </div>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Document Upload</strong>
+            <p>Uploads required identification documents</p>
+        </div>
+        
+        <div class="pain-point" data-severity="critical" data-category="technical">
+            <h4>Form Timeout Issues</h4>
+            <p>Application form times out, losing all entered information</p>
+        </div>
+        
+        <div class="pain-point" data-severity="high" data-category="process">
+            <h4>Unclear Document Requirements</h4>
+            <p>Confusion about which documents are needed and acceptable formats</p>
+        </div>
+        
+        <div class="emotion negative" data-intensity="9">
+            <p>Extremely frustrated after losing form data</p>
+        </div>
+        
+        <div class="quote" data-sentiment="negative">
+            <p>"I just lost 30 minutes of my life filling out that form. This is exactly why I hate dealing with banks!"</p>
+            <cite>- Sarah, After Form Timeout</cite>
+        </div>
+        
+        <div class="action" data-type="fill">
+            <p>Complete application form</p>
+        </div>
+        
+        <div class="action" data-type="submit">
+            <p>Upload required documents</p>
+        </div>
+        
+        <div class="channel" data-type="website">
+            <p>Bank's Application Portal</p>
+        </div>
+    </div>
+
+    <div class="phase" data-phase="verification">
+        <h2>Verification</h2>
+        <p class="description">Bank processes and verifies the application</p>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Email Notifications</strong>
+            <p>Receives updates about application status via email</p>
+        </div>
+        
+        <div class="touchpoint" data-type="human">
+            <strong>Verification Call</strong>
+            <p>Bank representative calls to verify information</p>
+        </div>
+        
+        <div class="pain-point" data-severity="medium" data-category="communication">
+            <h4>Delayed Status Updates</h4>
+            <p>Long wait times between status updates, creating uncertainty</p>
+        </div>
+        
+        <div class="emotion negative" data-intensity="5">
+            <p>Anxious about application status</p>
+        </div>
+        
+        <div class="emotion positive" data-intensity="4">
+            <p>Relieved when verification call goes smoothly</p>
+        </div>
+        
+        <div class="quote" data-sentiment="neutral">
+            <p>"At least the person who called me was helpful, but I wish I knew what was happening before that."</p>
+            <cite>- Sarah, During Verification</cite>
+        </div>
+        
+        <div class="action" data-type="wait">
+            <p>Wait for application processing</p>
+        </div>
+        
+        <div class="channel" data-type="email">
+            <p>Email Updates</p>
+        </div>
+        
+        <div class="channel" data-type="phone">
+            <p>Verification Call</p>
+        </div>
+    </div>
+
+    <div class="phase" data-phase="onboarding">
+        <h2>Onboarding</h2>
+        <p class="description">Customer receives account access and sets up banking</p>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Welcome Email</strong>
+            <p>Receives account approval and welcome information</p>
+        </div>
+        
+        <div class="touchpoint" data-type="digital">
+            <strong>Mobile App Setup</strong>
+            <p>Downloads and sets up the mobile banking app</p>
+        </div>
+        
+        <div class="touchpoint" data-type="physical">
+            <strong>Debit Card Delivery</strong>
+            <p>Receives physical debit card in mail</p>
+        </div>
+        
+        <div class="pain-point" data-severity="low" data-category="interface">
+            <h4>App Navigation Confusion</h4>
+            <p>Initial difficulty finding key features in the mobile app</p>
+        </div>
+        
+        <div class="emotion positive" data-intensity="8">
+            <p>Excited to finally have the account approved</p>
+        </div>
+        
+        <div class="emotion positive" data-intensity="7">
+            <p>Impressed with the mobile app design</p>
+        </div>
+        
+        <div class="quote" data-sentiment="positive">
+            <p>"Finally! The app actually looks modern and easy to use. Maybe this was worth the hassle."</p>
+            <cite>- Sarah, First App Login</cite>
+        </div>
+        
+        <div class="action" data-type="click">
+            <p>Download mobile app</p>
+        </div>
+        
+        <div class="action" data-type="fill">
+            <p>Set up online banking credentials</p>
+        </div>
+        
+        <div class="channel" data-type="email">
+            <p>Welcome Email</p>
+        </div>
+        
+        <div class="channel" data-type="mobile_app">
+            <p>Banking Mobile App</p>
+        </div>
+        
+        <div class="channel" data-type="mail">
+            <p>Physical Mail</p>
+        </div>
+    </div>
+</body>
+</html>

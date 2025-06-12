@@ -1,0 +1,54 @@
+# Simple Python-only Dockerfile for Flask web interface
+FROM python:3.11-alpine
+
+# Install system dependencies
+RUN apk add --no-cache dumb-init
+
+# Create app user for security
+RUN addgroup -g 1001 -S app && \
+    adduser -S miro-app -u 1001 -G app
+
+# Set working directory
+WORKDIR /app
+
+# Copy and install Python dependencies
+COPY requirements-python.txt ./
+RUN pip install --no-cache-dir -r requirements-python.txt
+
+# Copy application files
+COPY --chown=miro-app:app app.py ./
+COPY --chown=miro-app:app miro_api.py ./
+COPY --chown=miro-app:app config/ ./config/
+COPY --chown=miro-app:app examples/ ./examples/
+COPY --chown=miro-app:app templates/ ./templates/
+COPY --chown=miro-app:app static/ ./static/
+
+# Create necessary directories
+RUN mkdir -p logs output temp uploads && \
+    chown -R miro-app:app /app
+
+# Switch to non-root user
+USER miro-app
+
+# Health check for Flask app
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD python -c "import requests; requests.get('http://localhost:5004/health', timeout=2)" || exit 1
+
+# Set environment variables
+ENV FLASK_ENV=production
+ENV PORT=5004
+
+# Expose port for Flask web interface
+EXPOSE 5004
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Default command - start Flask web interface
+CMD ["python", "app.py"]
+
+# Labels
+LABEL org.opencontainers.image.title="NXT Miro Generator Simple Web Interface"
+LABEL org.opencontainers.image.description="Simple web interface for Miro board generation"
+LABEL org.opencontainers.image.vendor="NXT Humans"
+LABEL org.opencontainers.image.version="1.0.0"

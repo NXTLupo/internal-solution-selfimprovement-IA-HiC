@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Post Generator | NXT Humans AI CX Workbench</title>
+    <link rel="stylesheet" href="/static/css/nxt-header.css">
+    <link rel="stylesheet" href="/static/css/linkedin-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-cyan: #01C4C8;
+            --dark-bg: #121B26;
+            --light-grey: #5A6275;
+            --medium-grey: #4A5165;
+            --white: #FFFFFF;
+            --gradient-bg: linear-gradient(135deg, #121B26 0%, #1E2832 50%, #2A3441 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-bg);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(18, 27, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(1, 196, 200, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-cyan), #00A8B8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .app-title {
+            color: var(--primary-cyan);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Extended Thinking Badge */
+        .thinking-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(1, 196, 200, 0.1);
+            border: 1px solid var(--primary-cyan);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .thinking-icon {
+            width: 16px;
+            height: 16px;
+            background: var(--primary-cyan);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(1, 196, 200, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .upload-section:hover {
+            border-color: var(--primary-cyan);
+            background: rgba(1, 196, 200, 0.05);
+        }
+
+        .upload-section.dragover {
+            border-color: var(--primary-cyan);
+            background: rgba(1, 196, 200, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .upload-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-description {
+            color: var(--light-grey);
+            margin-bottom: 2rem;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-cyan), #00A8B8);
+            color: var(--white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(1, 196, 200, 0.4);
+        }
+
+        /* Extended Thinking Options */
+        .thinking-options {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(1, 196, 200, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .thinking-options h3 {
+            color: var(--primary-cyan);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-label {
+            font-weight: 500;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .option-description {
+            font-size: 0.85rem;
+            color: var(--light-grey);
+            margin-bottom: 8px;
+        }
+
+        .select-input, .checkbox-group {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(1, 196, 200, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .select-input:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 0 2px rgba(1, 196, 200, 0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            accent-color: var(--primary-cyan);
+        }
+
+        /* Processing Section */
+        .processing-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(1, 196, 200, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .processing-section.active {
+            display: block;
+        }
+
+        .thinking-animation {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border: 4px solid rgba(1, 196, 200, 0.2);
+            border-top: 4px solid var(--primary-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .processing-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-cyan);
+        }
+
+        .processing-stage {
+            font-size: 1rem;
+            color: var(--light-grey);
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-cyan), #00A8B8);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .estimated-time {
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(1, 196, 200, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            border-color: var(--primary-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(1, 196, 200, 0.15);
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .content-type {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-cyan);
+        }
+
+        .quality-score {
+            background: rgba(1, 196, 200, 0.2);
+            color: var(--primary-cyan);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .content-preview {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .content-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+
+        .metric-label {
+            color: var(--light-grey);
+        }
+
+        .metric-value {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .content-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-button {
+            flex: 1;
+            background: rgba(1, 196, 200, 0.1);
+            border: 1px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            background: var(--primary-cyan);
+            color: var(--white);
+        }
+
+        .action-button.primary {
+            background: var(--primary-cyan);
+            color: var(--white);
+        }
+
+        .action-button.primary:hover {
+            background: #00A8B8;
+        }
+
+        /* Analytics Section */
+        .analytics-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(1, 196, 200, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .analytics-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .analytics-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .analytics-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .analytics-label {
+            font-size: 0.8rem;
+            color: var(--light-grey);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .upload-section {
+                padding: 2rem 1rem;
+            }
+
+            .thinking-options {
+                padding: 1.5rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">💼</div>
+                    <div>
+                        <div class="logo-text">NXT HUMANS</div>
+                        <div class="app-title">LinkedIn Post Generator</div>
+                    </div>
+                </div>
+                <div class="thinking-badge">
+                    <div class="thinking-icon"></div>
+                    Extended Thinking Mode
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Turn Customer Insights into Authentic LinkedIn Content</h1>
+                <p class="hero-subtitle">Natural, Relatable Professional Content from Real Data</p>
+                <p class="hero-description">
+                    Upload your journey map HTML files and generate genuine LinkedIn content that shares 
+                    real customer insights in a natural, conversational way that resonates with professionals.
+                </p>
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-icon">📁</div>
+                <h2 class="upload-title">Upload Journey Map HTML File</h2>
+                <p class="upload-description">
+                    Drag and drop your journey map HTML file here, or click to browse.
+                    The system will analyze your actual customer data for 60-120 seconds to create authentic, relatable content.
+                </p>
+                <input type="file" id="fileInput" class="file-input" accept=".html,.htm">
+                <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                    <span>📄</span>
+                    Choose HTML File
+                </button>
+                <div id="fileName" class="mt-2" style="color: var(--primary-cyan); font-weight: 500;"></div>
+            </section>
+
+            <!-- Extended Thinking Options -->
+            <section class="thinking-options" id="thinkingOptions" style="display: none;">
+                <h3>
+                    🧠 Extended Thinking Configuration
+                </h3>
+                <div class="options-grid">
+                    <div class="option-group">
+                        <label class="option-label">Analysis Depth</label>
+                        <p class="option-description">How deep should the AI analyze your journey data?</p>
+                        <select id="depthLevel" class="select-input">
+                            <option value="standard">Standard Analysis (30-45 seconds)</option>
+                            <option value="deep">Deep Analysis (60-90 seconds)</option>
+                            <option value="comprehensive" selected>Comprehensive Analysis (90-120 seconds)</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label class="option-label">Content Sophistication</label>
+                        <p class="option-description">Target professional level for generated content</p>
+                        <select id="sophistication" class="select-input">
+                            <option value="professional">Professional Level</option>
+                            <option value="expert" selected>Expert Level</option>
+                            <option value="thought_leader">Thought Leader Level</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label class="option-label">Content Types</label>
+                        <p class="option-description">Select which types of LinkedIn content to generate</p>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="shortForm" value="short_form" checked>
+                                <label for="shortForm">Short-Form Post (900-1200 chars)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="carousel" value="carousel" checked>
+                                <label for="carousel">Carousel Content (5 slides)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="longForm" value="long_form" checked>
+                                <label for="longForm">Long-Form Article (1200-2000 words)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="engagement" value="engagement_tactics" checked>
+                                <label for="engagement">Engagement Tactics</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label class="option-label">Optimization Focus</label>
+                        <p class="option-description">Primary LinkedIn optimization strategy</p>
+                        <select id="optimizationFocus" class="select-input">
+                            <option value="reach_maximization">Reach Maximization</option>
+                            <option value="engagement_focused">Engagement Focused</option>
+                            <option value="thought_leadership" selected>Thought Leadership</option>
+                            <option value="professional_authority">Professional Authority</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <button class="upload-button" id="generateButton">
+                        <span>🚀</span>
+                        Generate LinkedIn Content
+                    </button>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="processing-section" id="processingSection">
+                <div class="thinking-animation"></div>
+                <h2 class="processing-title">Extended Thinking in Progress</h2>
+                <p class="processing-stage" id="processingStage">Initializing analysis...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="estimated-time" id="estimatedTime">Estimated time remaining: Calculating...</p>
+                <div class="mt-2" style="font-size: 0.9rem; color: var(--light-grey);">
+                    The AI is performing deep analysis with up to 64,000 tokens of processing power to generate sophisticated, thought-leadership content.
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection">
+                <div class="analytics-section">
+                    <h3 class="analytics-title">📊 Extended Thinking Analytics</h3>
+                    <div class="analytics-grid" id="analyticsGrid">
+                        <!-- Analytics cards will be populated by JavaScript -->
+                    </div>
+                    <div id="thinkingInsights" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; font-size: 0.9rem; line-height: 1.5;">
+                        <!-- Extended thinking insights will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="content-grid" id="contentGrid">
+                    <!-- Content cards will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/static/js/linkedin-app.js"></script>
+</body>
+</html>

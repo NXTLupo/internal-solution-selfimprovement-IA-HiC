@@ -1,0 +1,83 @@
+# Multi-stage build for optimal image size with Python Flask support
+FROM node:20-alpine AS node-builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install dependencies and build tools
+RUN npm ci && npm cache clean --force
+
+# Copy source code
+COPY src/ ./src/
+
+# Build the TypeScript application
+RUN npm run build
+
+# Production stage with Python support
+FROM python:3.11-alpine AS production
+
+# Install Node.js for CLI functionality
+RUN apk add --no-cache nodejs npm dumb-init
+
+# Create app user for security
+RUN addgroup -g 1001 -S app && \
+    adduser -S miro-app -u 1001 -G app
+
+# Set working directory
+WORKDIR /app
+
+# Copy and install Python dependencies
+COPY requirements-python.txt ./
+RUN pip install --no-cache-dir -r requirements-python.txt
+
+# Copy Node.js package files
+COPY package*.json ./
+
+# Install only production Node.js dependencies
+RUN npm ci --only=production && npm cache clean --force
+
+# Copy built TypeScript application from builder stage
+COPY --from=node-builder /app/dist ./dist
+
+# Copy application files
+COPY --chown=miro-app:app app.py ./
+COPY --chown=miro-app:app config/ ./config/
+COPY --chown=miro-app:app examples/ ./examples/
+COPY --chown=miro-app:app templates/ ./templates/
+COPY --chown=miro-app:app static/ ./static/
+
+# Create necessary directories
+RUN mkdir -p logs output temp uploads && \
+    chown -R miro-app:app /app
+
+# Switch to non-root user
+USER miro-app
+
+# Health check for Flask app
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD python -c "import requests; requests.get('http://localhost:5004/health', timeout=2)" || exit 1
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV LOG_LEVEL=info
+ENV FLASK_ENV=production
+ENV PORT=5004
+
+# Expose port for Flask web interface
+EXPOSE 5004
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Default command - start Flask web interface
+CMD ["python", "app.py"]
+
+# Labels
+LABEL org.opencontainers.image.title="NXT Miro Generator Web Interface"
+LABEL org.opencontainers.image.description="Web interface for generating Miro boards from journey maps"
+LABEL org.opencontainers.image.vendor="NXT Humans"
+LABEL org.opencontainers.image.version="1.0.0"

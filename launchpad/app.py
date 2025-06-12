@@ -55,6 +55,8 @@ def get_dynamic_urls():
     reddit_ripper_url = os.environ.get('REDDIT_RIPPER_URL', 'http://reddit-ripper:5000')
     social_research_url = os.environ.get('SOCIAL_RESEARCH_URL', 'http://social-research-frontend:3000')
     video_analyzer_url = os.environ.get('VIDEO_ANALYZER_URL', 'http://video-analyzer:5000')
+    linkedin_generator_url = os.environ.get('LINKEDIN_GENERATOR_URL', 'http://linkedin-generator:5000')
+    miro_generator_url = os.environ.get('MIRO_GENERATOR_URL', 'http://miro-generator:5000')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
@@ -73,6 +75,8 @@ def get_dynamic_urls():
     reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
     social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
     video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
+    linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_CLIENT_URL', 'http://localhost:5003')
+    miro_generator_client_url = os.environ.get('MIRO_GENERATOR_CLIENT_URL', 'http://localhost:5004')
 
     urls = {
         'journey_mapper': {
@@ -94,6 +98,14 @@ def get_dynamic_urls():
         'video_analyzer': {
             'client_url': video_analyzer_client_url,
             'internal_url': video_analyzer_url
+        },
+        'linkedin_generator': {
+            'client_url': linkedin_generator_client_url,
+            'internal_url': linkedin_generator_url
+        },
+        'miro_generator': {
+            'client_url': miro_generator_client_url,
+            'internal_url': miro_generator_url
         }
     }
 
@@ -122,7 +134,9 @@ services_status = {
     "openai_journey_mapper": {"status": "unknown", "last_checked": None},
     "reddit_ripper": {"status": "unknown", "last_checked": None},
     "social_research": {"status": "unknown", "last_checked": None},
-    "video_analyzer": {"status": "unknown", "last_checked": None}
+    "video_analyzer": {"status": "unknown", "last_checked": None},
+    "linkedin_generator": {"status": "unknown", "last_checked": None},
+    "miro_generator": {"status": "unknown", "last_checked": None}
 }
 
 # Add agent services if enabled
@@ -239,6 +253,8 @@ def update_all_services():
     check_service("reddit_ripper")
     check_service("social_research")
     check_service("video_analyzer")
+    check_service("linkedin_generator")
+    check_service("miro_generator")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
@@ -292,7 +308,9 @@ def index():
         'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
-        'video_analyzer': services_status['video_analyzer']['status']
+        'video_analyzer': services_status['video_analyzer']['status'],
+        'linkedin_generator': services_status['linkedin_generator']['status'],
+        'miro_generator': services_status['miro_generator']['status']
     }
 
     # Determine if CX agent is enabled
@@ -300,12 +318,14 @@ def index():
 
     # Use enhanced template for better visibility
     import time
-    return render_template('enhanced-index.html',
+    return render_template('index.html',
                        journey_mapper_url=urls['journey_mapper']['client_url'],
                        openai_journey_mapper_url=urls['openai_journey_mapper']['client_url'],
                        reddit_ripper_url=urls['reddit_ripper']['client_url'],
                        social_research_url=urls['social_research']['client_url'],
                        video_analyzer_url=urls['video_analyzer']['client_url'],
+                       linkedin_generator_url=urls['linkedin_generator']['client_url'],
+                       miro_generator_url=urls['miro_generator']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))
@@ -335,7 +355,9 @@ def status_page():
         'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
-        'video_analyzer': services_status['video_analyzer']['status']
+        'video_analyzer': services_status['video_analyzer']['status'],
+        'linkedin_generator': services_status['linkedin_generator']['status'],
+        'miro_generator': services_status['miro_generator']['status']
     }
 
     # Determine if CX agent is enabled for template

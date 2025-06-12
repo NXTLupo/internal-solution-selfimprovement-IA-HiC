@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXT Miro Board Generator</title>
+    <link rel="stylesheet" href="/static/nxt-header.css">
+    <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+    <link rel="stylesheet" href="/static/enhanced-components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+    <style>
+        /* Enterprise Variables */
+        :root {
+            /* Enterprise Color Palette */
+            --enterprise-primary: #01C4C8;
+            --enterprise-primary-light: #33D1D4;
+            --enterprise-primary-dark: #00A1A5;
+            --enterprise-secondary: #298DFF;
+            --enterprise-accent: #9C6AFF;
+            
+            /* Enterprise Grays */
+            --enterprise-gray-50: #F8FAFC;
+            --enterprise-gray-100: #F1F5F9;
+            --enterprise-gray-200: #E2E8F0;
+            --enterprise-gray-300: #CBD5E1;
+            --enterprise-gray-400: #94A3B8;
+            --enterprise-gray-500: #64748B;
+            --enterprise-gray-600: #475569;
+            --enterprise-gray-700: #334155;
+            --enterprise-gray-800: #1E293B;
+            --enterprise-gray-900: #0F172A;
+            
+            /* Enterprise Spacing */
+            --enterprise-space-1: 0.25rem;
+            --enterprise-space-2: 0.5rem;
+            --enterprise-space-3: 0.75rem;
+            --enterprise-space-4: 1rem;
+            --enterprise-space-5: 1.25rem;
+            --enterprise-space-6: 1.5rem;
+            --enterprise-space-8: 2rem;
+            --enterprise-space-10: 2.5rem;
+            --enterprise-space-12: 3rem;
+            --enterprise-space-16: 4rem;
+            --enterprise-space-20: 5rem;
+            --enterprise-space-24: 6rem;
+            
+            /* Enterprise Borders */
+            --enterprise-radius: 0.5rem;
+            --enterprise-radius-lg: 0.75rem;
+            --enterprise-radius-xl: 1rem;
+            
+            /* Enterprise Shadows */
+            --enterprise-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --enterprise-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --enterprise-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --enterprise-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --enterprise-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Enterprise Typography */
+            --enterprise-font-size-xs: 0.75rem;
+            --enterprise-font-size-sm: 0.875rem;
+            --enterprise-font-size-base: 1rem;
+            --enterprise-font-size-lg: 1.125rem;
+            --enterprise-font-size-xl: 1.25rem;
+            --enterprise-font-size-2xl: 1.5rem;
+            --enterprise-font-size-3xl: 1.875rem;
+            --enterprise-font-size-4xl: 2.25rem;
+        }
+
+        /* Enterprise Container */
+        .enterprise-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--enterprise-space-6);
+        }
+
+        /* Enterprise Hero Section */
+        .enterprise-hero {
+            background: linear-gradient(135deg, var(--enterprise-gray-900) 0%, var(--enterprise-gray-800) 100%);
+            padding: var(--enterprise-space-16) 0 var(--enterprise-space-20);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enterprise-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(1, 196, 200, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(41, 141, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .enterprise-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .enterprise-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--enterprise-space-2);
+            background: rgba(1, 196, 200, 0.1);
+            border: 1px solid rgba(1, 196, 200, 0.3);
+            padding: var(--enterprise-space-3) var(--enterprise-space-6);
+            border-radius: 2rem;
+            margin-bottom: var(--enterprise-space-6);
+            backdrop-filter: blur(10px);
+        }
+
+        .enterprise-hero .hero-badge i {
+            color: var(--enterprise-primary);
+            font-size: var(--enterprise-font-size-sm);
+        }
+
+        .enterprise-hero .hero-badge span {
+            color: white;
+            font-weight: 600;
+            font-size: var(--enterprise-font-size-sm);
+            letter-spacing: 0.5px;
+        }
+
+        .enterprise-hero .hero-title {
+            font-size: var(--enterprise-font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--enterprise-space-6);
+            color: white;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .enterprise-hero .hero-subtitle {
+            font-size: var(--enterprise-font-size-xl);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: var(--enterprise-space-12);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Enterprise Card */
+        .enterprise-card {
+            background: white;
+            border-radius: var(--enterprise-radius-xl);
+            border: 1px solid var(--enterprise-gray-200);
+            padding: var(--enterprise-space-8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--enterprise-shadow);
+            margin-bottom: var(--enterprise-space-8);
+        }
+
+        .enterprise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--enterprise-primary), var(--enterprise-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .enterprise-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--enterprise-shadow-xl);
+            border-color: var(--enterprise-gray-300);
+        }
+
+        .enterprise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--enterprise-space-6);
+            margin-bottom: var(--enterprise-space-8);
+            padding-bottom: var(--enterprise-space-6);
+            border-bottom: 1px solid var(--enterprise-gray-200);
+        }
+
+        .section-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--enterprise-primary), var(--enterprise-primary-light));
+            border-radius: var(--enterprise-radius-xl);
+            color: white;
+            font-size: var(--enterprise-font-size-xl);
+            flex-shrink: 0;
+            box-shadow: var(--enterprise-shadow-lg);
+        }
+
+        .section-info {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: var(--enterprise-font-size-2xl);
+            font-weight: 700;
+            color: var(--enterprise-gray-900);
+            margin-bottom: var(--enterprise-space-2);
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: var(--enterprise-font-size-lg);
+            color: var(--enterprise-gray-600);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* File Upload Area */
+        .file-upload-area {
+            border: 2px dashed var(--enterprise-primary);
+            border-radius: var(--enterprise-radius);
+            padding: var(--enterprise-space-12);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: var(--enterprise-gray-50);
+        }
+
+        .file-upload-area:hover {
+            background: rgba(1, 196, 200, 0.05);
+            border-color: var(--enterprise-primary-dark);
+        }
+
+        .file-upload-area.dragover {
+            background: rgba(1, 196, 200, 0.1);
+            border-color: var(--enterprise-primary-dark);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--enterprise-primary);
+            margin-bottom: var(--enterprise-space-4);
+        }
+
+        .upload-text {
+            font-size: var(--enterprise-font-size-lg);
+            color: var(--enterprise-gray-700);
+            margin-bottom: var(--enterprise-space-2);
+            font-weight: 500;
+        }
+
+        .upload-hint {
+            font-size: var(--enterprise-font-size-sm);
+            color: var(--enterprise-gray-500);
+            margin-bottom: var(--enterprise-space-6);
+        }
+
+        /* Enterprise Button */
+        .enterprise-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--enterprise-space-3);
+            background: linear-gradient(135deg, var(--enterprise-primary), var(--enterprise-primary-dark));
+            color: white;
+            padding: var(--enterprise-space-4) var(--enterprise-space-6);
+            border-radius: var(--enterprise-radius);
+            font-size: var(--enterprise-font-size-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--enterprise-shadow-sm);
+        }
+
+        .enterprise-btn:hover {
+            background: linear-gradient(135deg, var(--enterprise-primary-dark), var(--enterprise-primary));
+            transform: translateY(-1px);
+            box-shadow: var(--enterprise-shadow-md);
+            color: white;
+            text-decoration: none;
+        }
+
+        .enterprise-btn:disabled {
+            background: var(--enterprise-gray-400);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .enterprise-btn-secondary {
+            background: white;
+            color: var(--enterprise-gray-700);
+            border: 2px solid var(--enterprise-gray-300);
+        }
+
+        .enterprise-btn-secondary:hover {
+            background: var(--enterprise-gray-50);
+            border-color: var(--enterprise-gray-400);
+            color: var(--enterprise-gray-800);
+            text-decoration: none;
+        }
+
+        /* Enterprise Grid */
+        .enterprise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--enterprise-space-8);
+            margin-top: var(--enterprise-space-8);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: var(--enterprise-radius-lg);
+            padding: var(--enterprise-space-6);
+            border: 1px solid var(--enterprise-gray-200);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--enterprise-shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--enterprise-shadow-lg);
+            border-color: var(--enterprise-gray-300);
+        }
+
+        .feature-icon {
+            font-size: var(--enterprise-font-size-3xl);
+            margin-bottom: var(--enterprise-space-4);
+        }
+
+        .feature-title {
+            font-size: var(--enterprise-font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--enterprise-space-2);
+            color: var(--enterprise-gray-900);
+        }
+
+        .feature-description {
+            font-size: var(--enterprise-font-size-sm);
+            color: var(--enterprise-gray-600);
+            line-height: 1.6;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--enterprise-gray-200);
+            border-radius: var(--enterprise-radius);
+            overflow: hidden;
+            margin-bottom: var(--enterprise-space-4);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--enterprise-primary), var(--enterprise-secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .log-output {
+            background: var(--enterprise-gray-900);
+            color: var(--enterprise-gray-50);
+            padding: var(--enterprise-space-4);
+            border-radius: var(--enterprise-radius);
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: var(--enterprise-font-size-sm);
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            display: none;
+            border: 1px solid var(--enterprise-gray-700);
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+        }
+
+        /* File Item */
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--enterprise-space-4) var(--enterprise-space-6);
+            background: var(--enterprise-gray-50);
+            border-radius: var(--enterprise-radius);
+            border: 1px solid var(--enterprise-gray-200);
+            margin-bottom: var(--enterprise-space-3);
+            transition: all 0.2s ease;
+        }
+
+        .file-item:hover {
+            background: var(--enterprise-gray-100);
+            border-color: var(--enterprise-gray-300);
+        }
+
+        .file-info {
+            flex-grow: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: var(--enterprise-gray-900);
+            font-size: var(--enterprise-font-size-base);
+        }
+
+        .file-size {
+            font-size: var(--enterprise-font-size-sm);
+            color: var(--enterprise-gray-500);
+        }
+
+        /* Alert Styles */
+        .alert {
+            padding: var(--enterprise-space-4);
+            border-radius: var(--enterprise-radius);
+            margin-bottom: var(--enterprise-space-4);
+            border: 1px solid;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: #D1FAE5;
+            color: #065F46;
+            border-color: #6EE7B7;
+        }
+
+        .alert-error {
+            background: #FEE2E2;
+            color: #991B1B;
+            border-color: #F87171;
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+            display: inline-block;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            margin-right: var(--enterprise-space-2);
+        }
+
+        .status-ready {
+            background: #10B981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+
+        .status-processing {
+            background: #F59E0B;
+            animation: pulse 2s infinite;
+        }
+
+        .status-error {
+            background: #EF4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .enterprise-container {
+                padding: 0 var(--enterprise-space-4);
+            }
+            
+            .enterprise-hero {
+                padding: var(--enterprise-space-12) 0;
+            }
+            
+            .enterprise-hero .hero-title {
+                font-size: var(--enterprise-font-size-3xl);
+            }
+            
+            .enterprise-hero .hero-subtitle {
+                font-size: var(--enterprise-font-size-lg);
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: var(--enterprise-space-4);
+                text-align: center;
+            }
+            
+            .enterprise-grid {
+                grid-template-columns: 1fr;
+                gap: var(--enterprise-space-6);
+            }
+            
+            .enterprise-card {
+                padding: var(--enterprise-space-6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nxt-header">
+        <div class="container">
+            <div class="nxt-header-content">
+                <div class="nxt-logo-container">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="nxt-logo-image">
+                </div>
+                <div class="nxt-app-title">
+                    <h1>Miro Board Generator</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="enterprise-hero">
+        <div class="enterprise-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Claude AI Powered</span>
+                </div>
+                <h2 class="hero-title">Miro Board Generator</h2>
+                <p class="hero-subtitle">Transform customer journey maps into interactive Miro boards with UX expertise and zero data loss</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="enterprise-container">
+        <!-- Upload Section - Now First -->
+        <div class="enterprise-card">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="section-info">
+                    <h2 class="section-title">Upload Journey Map</h2>
+                    <p class="section-description">Upload your HTML journey map file to start the conversion process</p>
+                </div>
+            </div>
+            
+            <div class="file-upload-area" id="upload-area">
+                <div class="upload-icon"><i class="fas fa-file-upload"></i></div>
+                <div class="upload-text">Drop your journey map HTML file here or click to browse</div>
+                <div class="upload-hint">Supported formats: HTML files up to 16MB</div>
+                <input type="file" id="file-input" accept=".html" style="display: none;">
+                <button class="enterprise-btn" onclick="document.getElementById('file-input').click()">
+                    <i class="fas fa-folder-open"></i>
+                    Choose File
+                </button>
+            </div>
+            
+            <div id="file-info" class="hidden" style="margin-top: var(--enterprise-space-6);">
+                <div class="file-item">
+                    <div class="file-info">
+                        <div class="file-name" id="selected-file-name"></div>
+                        <div class="file-size" id="selected-file-size"></div>
+                    </div>
+                    <div style="display: flex; gap: var(--enterprise-space-3);">
+                        <button class="enterprise-btn enterprise-btn-secondary" onclick="validateFile()" id="validate-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Validate
+                        </button>
+                        <button class="enterprise-btn" onclick="generateBoard()" id="generate-btn" disabled>
+                            <i class="fas fa-magic"></i>
+                            Generate Board
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status Section -->
+        <div class="enterprise-card">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="section-info">
+                    <h2 class="section-title">
+                        <span class="status-indicator status-ready" id="status-indicator"></span>
+                        System Status
+                    </h2>
+                    <p class="section-description">Real-time system health and configuration status</p>
+                </div>
+            </div>
+            
+            <div class="enterprise-grid" id="status-content">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-server"></i></div>
+                    <div class="feature-title">Miro Generator</div>
+                    <div class="feature-description" id="service-status">Ready</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cog"></i></div>
+                    <div class="feature-title">Configuration</div>
+                    <div class="feature-description" id="config-status">Checking...</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="feature-title">Build Status</div>
+                    <div class="feature-description" id="build-status">Checking...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="enterprise-card progress-section" id="progress-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <div class="section-info">
+                    <h2 class="section-title">Processing</h2>
+                    <p class="section-description">Converting your journey map into a professional Miro board</p>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div id="progress-text" style="margin-bottom: var(--enterprise-space-4); font-weight: 500;">Initializing...</div>
+            <div class="log-output" id="log-output"></div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="enterprise-card results-section" id="results-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="section-info">
+                    <h2 class="section-title">Results</h2>
+                    <p class="section-description">Your Miro board has been successfully generated</p>
+                </div>
+            </div>
+            <div id="results-content"></div>
+        </div>
+
+        <!-- Features & Workflow Section -->
+        <div class="enterprise-card">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <div class="section-info">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-description">Intelligent journey map processing with UX expertise</p>
+                </div>
+            </div>
+            
+            <div class="enterprise-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <div class="feature-title">Claude AI Analysis</div>
+                    <div class="feature-description">UX expert analysis with extended thinking and zero data loss</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map"></i></div>
+                    <div class="feature-title">Journey Parsing</div>
+                    <div class="feature-description">Intelligent extraction of touchpoints, emotions, and pain points</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="feature-title">Miro Integration</div>
+                    <div class="feature-description">Professional board creation with swim lanes and visual organization</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                    <div class="feature-title">Smart Layout</div>
+                    <div class="feature-description">Automated positioning with enterprise design patterns</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let uploadedFile = null;
+        let isValidated = false;
+
+        // Check system status on load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSystemStatus();
+        });
+
+        async function checkSystemStatus() {
+            try {
+                // Check service health
+                const healthResponse = await fetch('/health');
+                const healthData = await healthResponse.json();
+                document.getElementById('service-status').textContent = healthData.status === 'healthy' ? 'Ready' : 'Error';
+                
+                // Check configuration
+                const configResponse = await fetch('/api/config');
+                const configData = await configResponse.json();
+                const configStatusEl = document.getElementById('config-status');
+                
+                if (configData.success) {
+                    if (configData.token_configured) {
+                        configStatusEl.textContent = 'Configured ✓';
+                        configStatusEl.style.color = '#10B981';
+                    } else {
+                        configStatusEl.textContent = 'Missing Miro Token';
+                        configStatusEl.style.color = '#F59E0B';
+                    }
+                } else {
+                    configStatusEl.textContent = 'Error checking config';
+                    configStatusEl.style.color = '#EF4444';
+                }
+                
+                document.getElementById('build-status').textContent = 'Ready ✓';
+                document.getElementById('build-status').style.color = '#10B981';
+                
+            } catch (error) {
+                console.error('Status check failed:', error);
+                document.getElementById('service-status').textContent = 'Error';
+                document.getElementById('config-status').textContent = 'Error';
+                document.getElementById('build-status').textContent = 'Error';
+            }
+        }
+
+        // File upload handling
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        async function handleFileSelect(file) {
+            if (!file.name.toLowerCase().endsWith('.html')) {
+                showAlert('Only HTML files are supported', 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                showProgress('Uploading file...', 25);
+                
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    uploadedFile = data.filename;
+                    document.getElementById('selected-file-name').textContent = file.name;
+                    document.getElementById('selected-file-size').textContent = formatFileSize(file.size);
+                    document.getElementById('file-info').classList.remove('hidden');
+                    document.getElementById('validate-btn').disabled = false;
+                    hideProgress();
+                    showAlert('File uploaded successfully!', 'success');
+                } else {
+                    showAlert(data.error || 'Upload failed', 'error');
+                    hideProgress();
+                }
+            } catch (error) {
+                showAlert('Upload failed: ' + error.message, 'error');
+                hideProgress();
+            }
+        }
+
+        async function validateFile() {
+            if (!uploadedFile) return;
+
+            try {
+                showProgress('Validating journey map...', 50);
+                showLog('Starting validation...\n');
+                
+                const response = await fetch('/api/validate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ filename: uploadedFile })
+                });
+                
+                const data = await response.json();
+                
+                appendLog(data.output || '');
+                if (data.errors) {
+                    appendLog('Errors:\n' + data.errors);
+                }
+                
+                if (data.success && data.valid) {
+                    isValidated = true;
+                    document.getElementById('generate-btn').disabled = false;
+                    hideProgress();
+                    showAlert('Journey map validation successful!', 'success');
+                } else {
+                    showAlert('Validation failed. Check the logs for details.', 'error');
+                    hideProgress();
+                }
+            } catch (error) {
+                showAlert('Validation failed: ' + error.message, 'error');
+                hideProgress();
+            }
+        }
+
+        async function generateBoard() {
+            if (!uploadedFile || !isValidated) return;
+
+            try {
+                showProgress('Generating Miro board...', 75);
+                showLog('Starting board generation...\n');
+                
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        filename: uploadedFile,
+                        options: {
+                            verbose: true,
+                            dryRun: false
+                        }
+                    })
+                });
+                
+                const data = await response.json();
+                
+                appendLog(data.output || '');
+                if (data.errors) {
+                    appendLog('Errors:\n' + data.errors);
+                }
+                
+                if (data.success) {
+                    showResults(data);
+                    setProgress(100);
+                    showAlert('Miro board generated successfully!', 'success');
+                } else {
+                    showAlert('Generation failed. Check the logs for details.', 'error');
+                    hideProgress();
+                }
+            } catch (error) {
+                showAlert('Generation failed: ' + error.message, 'error');
+                hideProgress();
+            }
+        }
+
+        function showProgress(text, percent = 0) {
+            document.getElementById('progress-section').style.display = 'block';
+            document.getElementById('progress-text').textContent = text;
+            document.getElementById('progress-fill').style.width = percent + '%';
+        }
+
+        function setProgress(percent) {
+            document.getElementById('progress-fill').style.width = percent + '%';
+        }
+
+        function hideProgress() {
+            document.getElementById('progress-section').style.display = 'none';
+            document.getElementById('log-output').style.display = 'none';
+        }
+
+        function showLog(text) {
+            const logOutput = document.getElementById('log-output');
+            logOutput.style.display = 'block';
+            logOutput.textContent = text;
+        }
+
+        function appendLog(text) {
+            const logOutput = document.getElementById('log-output');
+            logOutput.textContent += text;
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+
+        function showResults(data) {
+            const resultsSection = document.getElementById('results-section');
+            const resultsContent = document.getElementById('results-content');
+            
+            let html = '';
+            
+            // Check if board URL is available and display it prominently
+            if (data.board_url) {
+                html += `
+                    <div style="background: linear-gradient(135deg, var(--enterprise-primary) 0%, var(--enterprise-primary-dark) 100%); color: white; padding: var(--enterprise-space-8); border-radius: var(--enterprise-radius-xl); margin-bottom: var(--enterprise-space-8); text-align: center; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite;"></div>
+                        <div style="position: relative; z-index: 2;">
+                            <h3 style="margin: 0 0 var(--enterprise-space-4) 0; font-size: var(--enterprise-font-size-2xl); font-weight: 700;"><i class="fas fa-check-circle" style="margin-right: var(--enterprise-space-3);"></i>Miro Board Created Successfully!</h3>
+                            <p style="margin: 0 0 var(--enterprise-space-6) 0; font-size: var(--enterprise-font-size-lg); opacity: 0.9;">Your customer journey map has been converted into an interactive Miro board with Claude AI analysis.</p>
+                            <a href="${data.board_url}" target="_blank" style="display: inline-flex; align-items: center; gap: var(--enterprise-space-3); background: rgba(255,255,255,0.2); color: white; padding: var(--enterprise-space-4) var(--enterprise-space-6); border-radius: var(--enterprise-radius); text-decoration: none; font-weight: 600; font-size: var(--enterprise-font-size-lg); border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; backdrop-filter: blur(10px);">
+                                <i class="fas fa-external-link-alt"></i>
+                                Open Miro Board
+                            </a>
+                            ${data.board_id ? `<p style="margin: var(--enterprise-space-4) 0 0 0; font-size: var(--enterprise-font-size-sm); opacity: 0.8;"><i class="fas fa-id-card" style="margin-right: var(--enterprise-space-2);"></i>Board ID: ${data.board_id}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Show generated files section (now secondary)
+            html += '<div style="margin-top: var(--enterprise-space-8);"><h3 style="font-size: var(--enterprise-font-size-xl); color: var(--enterprise-gray-900); margin-bottom: var(--enterprise-space-4);"><i class="fas fa-file-download" style="margin-right: var(--enterprise-space-3);"></i>Generated Files</h3>';
+            
+            if (data.generated_files && data.generated_files.length > 0) {
+                data.generated_files.forEach(file => {
+                    html += `
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-name"><i class="fas fa-file" style="margin-right: var(--enterprise-space-2); color: var(--enterprise-gray-500);"></i>${file.name}</div>
+                                <div class="file-size">${formatFileSize(file.size)}</div>
+                            </div>
+                            <div>
+                                <a href="${file.path}" class="enterprise-btn enterprise-btn-secondary" download>
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            } else {
+                html += '<div class="feature-card" style="text-align: center; padding: var(--enterprise-space-8);"><div class="feature-icon"><i class="fas fa-info-circle" style="color: var(--enterprise-gray-400);"></i></div><div class="feature-title" style="color: var(--enterprise-gray-600);">No Files Generated</div><div class="feature-description">This might be a dry run or an error occurred during processing.</div></div></div>';
+            }
+            
+            resultsContent.innerHTML = html;
+            resultsSection.style.display = 'block';
+        }
+
+        function showAlert(message, type) {
+            // Remove existing alerts
+            const existingAlerts = document.querySelectorAll('.alert');
+            existingAlerts.forEach(alert => alert.remove());
+            
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            
+            // Insert after header
+            const container = document.querySelector('.container');
+            container.insertBefore(alert, container.firstChild);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+</html>

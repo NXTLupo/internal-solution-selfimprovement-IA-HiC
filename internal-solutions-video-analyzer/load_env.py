@@ -24,12 +24,16 @@ def load_env_file():
         logger.warning(f".env file not found at {env_file}")
         return False
 
-# Always load environment variables
-load_env_file()
+# Load environment variables from .env file if no Docker environment variables are set
+if not os.environ.get('OPENAI_API_KEY'):
+    load_env_file()
 
-# Force set API key
-os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
-os.environ['USE_WHISPER_API'] = 'true'
+# Only set fallback API key if neither Docker nor .env file provided one
+if not os.environ.get('OPENAI_API_KEY'):
+    os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
+
+if not os.environ.get('USE_WHISPER_API'):
+    os.environ['USE_WHISPER_API'] = 'true'
 
 # Log environment variables
 logger.info(f"OPENAI_API_KEY: {os.environ.get('OPENAI_API_KEY', '')[:8]}...")

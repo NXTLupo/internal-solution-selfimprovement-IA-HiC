@@ -1,3 +1,6 @@
+# Load environment variables first
+import load_env
+
 from fastapi import FastAPI, File, UploadFile, BackgroundTasks, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse

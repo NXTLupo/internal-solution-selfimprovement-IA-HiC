@@ -6,9 +6,10 @@
   <title>NXT Humans | AI CX Workbench</title>
   <link rel="stylesheet" href="/static/nxt-humans-styles.css">
   <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="stylesheet" href="/static/enterprise-dashboard.css">
   <link rel="stylesheet" href="/static/nxt-header.css">
   <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <meta name="description" content="NXT Humans AI CX Workbench - Comprehensive customer experience research platform">
   <meta name="theme-color" content="#01C4C8">
   <link rel="stylesheet" href="/static/chatbot.css">
@@ -19,177 +20,362 @@
       <div class="nxt-header-content">
         <div class="nxt-logo-container">
           <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="nxt-logo-image">
-          <div class="nxt-logo-text">
-            <h1><span class="text-gradient">NXT HUMANS</span> AI CX Workbench</h1>
-          </div>
+        </div>
+        <div class="nxt-app-title">
+          <h1>AI CX Workbench</h1>
         </div>
       </div>
     </div>
   </header>
   
-  <div class="hero-container">
-    <div class="container">
-      <div class="hero-content fade-in">
+  <div class="enterprise-hero">
+    <div class="enterprise-container">
+      <div class="hero-content">
         <div class="hero-badge">
-          <span>AI Powered</span>
+          <i class="fas fa-robot"></i>
+          <span>AI Powered Platform</span>
         </div>
-        <p class="hero-subtitle">A comprehensive platform for collecting, analyzing, and visualizing customer experience data using advanced AI techniques.</p>
-        <div class="hero-cta">
-          <button id="explore-btn" class="nxt-btn nxt-btn-primary nxt-btn-lg">
-            <i class="fa-solid fa-rocket mr-2"></i> Explore Applications
-          </button>
+        <h2 class="hero-title">Customer Experience Intelligence Suite</h2>
+        <p class="hero-subtitle">Enterprise-grade platform for advanced customer journey analysis, data collection, and AI-driven insights</p>
+        <div class="platform-stats">
+          <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">AI Tools</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">AI Models</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Insights</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="container mt-5">
-    <div class="category-section data-collection-section">
-    <h2 class="section-title"><i class="fa-solid fa-database mr-2"></i>Data Collection Tools</h2>
-    <div class="app-grid">
-      <div class="app-card scale-in animate-delay-1">
-        <div class="status-indicator status-unknown" id="reddit-ripper-status"></div>
-        <div class="app-icon">
-          <i class="fa-solid fa-magnifying-glass"></i>
+  <div class="enterprise-container">
+    <!-- Data Collection Section -->
+    <div class="apps-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-database"></i>
         </div>
-        <h3 class="app-title">Reddit Data Collector</h3>
-        <p class="app-description">Collect posts and comments from Reddit subreddits and export them to structured PDF format for analysis.</p>
-        <div class="app-cta">
-          <a href="{{ reddit_ripper_url }}" id="reddit-ripper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-            <i class="fa-solid fa-play mr-2"></i> Launch
-          </a>
+        <div class="section-info">
+          <h2 class="section-title">Data Collection & Ingestion</h2>
+          <p class="section-description">Gather comprehensive data from multiple sources for analysis</p>
         </div>
       </div>
-      
-      <div class="app-card scale-in animate-delay-2">
-        <div class="status-indicator status-unknown" id="video-analyzer-status"></div>
-        <div class="app-icon">
-          <i class="fa-solid fa-video"></i>
+      <div class="enterprise-grid">
+        <div class="enterprise-card" data-category="collection" data-service="reddit-ripper">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fab fa-reddit-alien"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="reddit-ripper-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Reddit Data Collector</h3>
+            <p class="service-description">Extract and analyze posts, comments, and engagement metrics from Reddit communities for comprehensive social sentiment analysis</p>
+            <div class="service-tags">
+              <span class="tag">Social Media</span>
+              <span class="tag">Data Mining</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ reddit_ripper_url }}" id="reddit-ripper-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
         </div>
-        <h3 class="app-title">Video Transcriber</h3>
-        <p class="app-description">Transcribe video content from YouTube or local uploads using advanced AI models.</p>
-        <div class="app-cta">
-          <a href="{{ video_analyzer_url }}" id="video-analyzer-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-            <i class="fa-solid fa-play mr-2"></i> Launch
-          </a>
+        
+        <div class="enterprise-card" data-category="collection" data-service="video-analyzer">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="video-analyzer-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Video Transcription Service</h3>
+            <p class="service-description">Advanced AI-powered video transcription with OpenAI Whisper integration for accurate speech-to-text conversion and content analysis</p>
+            <div class="service-tags">
+              <span class="tag">AI/ML</span>
+              <span class="tag">Transcription</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ video_analyzer_url }}" id="video-analyzer-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
         </div>
       </div>
-      
-      
     </div>
-</div>
-    
-<div class="category-section data-analysis-section">
-    <h2 class="section-title mt-5"><i class="fa-solid fa-chart-pie mr-2"></i>Data Analysis Tools</h2>
-    <div class="app-grid">
-      <div class="app-card scale-in animate-delay-3">
-        <div class="status-indicator status-unknown" id="social-research-status"></div>
-        <div class="app-icon">
-          <i class="fa-solid fa-chart-column"></i>
-        </div>
-        <h3 class="app-title">Social Research Tool</h3>
-        <p class="app-description">Advanced analytics to extract insights from social media data through topic modeling and sentiment analysis.</p>
-        <div class="app-cta">
-          <a href="{{ social_research_url }}" id="social-research-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-            <i class="fa-solid fa-play mr-2"></i> Launch
-          </a>
-        </div>
-      </div>
-      
-      <div class="app-card scale-in animate-delay-4">
-        <div class="status-indicator status-unknown" id="journey-mapper-status"></div>
-        <div class="app-icon">
-          <i class="fa-solid fa-map"></i>
-        </div>
-        <h3 class="app-title">Journey Mapper (Claude)</h3>
-        <p class="app-description">Generate interactive customer journey maps from various data sources using Claude 3.7 Sonnet LLM.</p>
-        <div class="app-cta">
-          <a href="{{ journey_mapper_url }}" id="journey-mapper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-            <i class="fa-solid fa-play mr-2"></i> Launch
-          </a>
-        </div>
-      </div>
 
-      <div class="app-card scale-in animate-delay-5">
-        <div class="status-indicator status-unknown" id="openai-journey-mapper-status"></div>
-        <div class="app-icon">
-          <i class="fa-solid fa-map-location-dot"></i>
+    <!-- Analysis Section -->
+    <div class="apps-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-chart-line"></i>
         </div>
-        <h3 class="app-title">Journey Mapper (o3)</h3>
-        <p class="app-description">Generate interactive journey maps with OpenAI's specialized o3 reasoning model for complex analysis.</p>
-        <div class="app-cta">
-          <a href="{{ openai_journey_mapper_url }}" id="openai-journey-mapper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
-            <i class="fa-solid fa-play mr-2"></i> Launch
+        <div class="section-info">
+          <h2 class="section-title">Analysis & Journey Mapping</h2>
+          <p class="section-description">Advanced analytics and customer journey visualization powered by enterprise AI</p>
+        </div>
+      </div>
+      <div class="enterprise-grid">
+        <div class="enterprise-card" data-category="analysis" data-service="social-research">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="social-research-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Social Research Analytics</h3>
+            <p class="service-description">Enterprise social analytics platform with advanced topic modeling, sentiment analysis, and vector-based similarity search capabilities</p>
+            <div class="service-tags">
+              <span class="tag">Analytics</span>
+              <span class="tag">ML/AI</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ social_research_url }}" id="social-research-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+        
+        <div class="enterprise-card" data-category="analysis" data-service="journey-mapper">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-route"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="journey-mapper-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Journey Mapper (Claude 3.7)</h3>
+            <p class="service-description">Interactive customer journey mapping powered by Claude 3.7 Sonnet with intelligent content analysis and visual journey creation</p>
+            <div class="service-tags">
+              <span class="tag">Claude AI</span>
+              <span class="tag">Journey Mapping</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ journey_mapper_url }}" id="journey-mapper-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
+        <div class="enterprise-card" data-category="analysis" data-service="openai-journey-mapper">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="openai-journey-mapper-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Journey Mapper (OpenAI o3)</h3>
+            <p class="service-description">Advanced reasoning-powered journey mapping using OpenAI's o3 model with sophisticated cognitive analysis and extended thinking capabilities</p>
+            <div class="service-tags">
+              <span class="tag">OpenAI o3</span>
+              <span class="tag">Advanced Reasoning</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ openai_journey_mapper_url }}" id="openai-journey-mapper-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Generation Section -->
+    <div class="apps-section">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-magic"></i>
+        </div>
+        <div class="section-info">
+          <h2 class="section-title">Content Generation & Visualization</h2>
+          <p class="section-description">AI-powered content creation and interactive visualization tools</p>
+        </div>
+      </div>
+      <div class="enterprise-grid">
+        <div class="enterprise-card" data-category="generation" data-service="linkedin-generator">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="linkedin-generator-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">LinkedIn Content Generator</h3>
+            <p class="service-description">Transform customer journey insights into professional LinkedIn content with AI-powered optimization for engagement and reach</p>
+            <div class="service-tags">
+              <span class="tag">Content Creation</span>
+              <span class="tag">Social Media</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ linkedin_generator_url }}" id="linkedin-generator-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+        
+        <div class="enterprise-card" data-category="generation" data-service="miro-generator">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="miro-generator-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Miro Board Generator</h3>
+            <p class="service-description">Claude-powered conversion of journey maps into professional, interactive Miro boards with UX expertise and zero data loss</p>
+            <div class="service-tags">
+              <span class="tag">Claude AI</span>
+              <span class="tag">Miro Integration</span>
+              <span class="tag">UX Design</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ miro_generator_url }}" id="miro-generator-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Enterprise Actions Section -->
+    <div class="apps-section">
+      <div class="enterprise-actions">
+        <div class="actions-header">
+          <h3 class="actions-title">Platform Management</h3>
+          <p class="actions-description">Monitor and control all platform services</p>
+        </div>
+        <div class="actions-grid">
+          <button id="launch-all-btn" class="enterprise-action-btn primary">
+            <i class="fas fa-rocket"></i>
+            <span>Launch All Services</span>
+          </button>
+          <a href="/status" class="enterprise-action-btn secondary">
+            <i class="fas fa-chart-bar"></i>
+            <span>Service Status</span>
           </a>
         </div>
       </div>
     </div>
-</div>
-    
-    <div class="launch-all-container fade-in">
-      <button id="launch-all-btn" class="nxt-btn nxt-btn-primary launch-all-btn">
-        <i class="fa-solid fa-rocket mr-2"></i> Launch All Applications
-      </button>
-      <a href="/status" class="status-link">
-        <i class="fa-solid fa-circle-info mr-1"></i> View Detailed Service Status
-      </a>
-    </div>
-    
-    <div class="service-urls fade-in">
-      <h3><i class="fa-solid fa-link mr-2"></i> Service URLs</h3>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-home mr-2"></i> Launchpad:</div>
-        <div class="url-value" id="launchpad-url-display"></div>
-        <div class="port-badge" id="launchpad-port-badge">Port: <span id="launchpad-port-display">8000</span></div>
-      </div>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-map mr-2"></i> Journey Mapper (Claude):</div>
-        <div class="url-value" id="journey-mapper-url-display"></div>
-        <div class="port-badge" id="journey-mapper-port-badge">Port: <span id="journey-mapper-port-display">8080</span></div>
-      </div>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-map-location-dot mr-2"></i> Journey Mapper (o3):</div>
-        <div class="url-value" id="openai-journey-mapper-url-display"></div>
-        <div class="port-badge" id="openai-journey-mapper-port-badge">Port: <span id="openai-journey-mapper-port-display">8090</span></div>
-      </div>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-magnifying-glass mr-2"></i> Reddit Ripper:</div>
-        <div class="url-value" id="reddit-ripper-url-display"></div>
-        <div class="port-badge" id="reddit-ripper-port-badge">Port: <span id="reddit-ripper-port-display">5001</span></div>
-      </div>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-chart-column mr-2"></i> Social Research:</div>
-        <div class="url-value" id="social-research-url-display"></div>
-        <div class="port-badge" id="social-research-port-badge">Port: <span id="social-research-port-display">3000</span></div>
-      </div>
-      <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-video mr-2"></i> Video Transcriber:</div>
-        <div class="url-value" id="video-analyzer-url-display"></div>
-        <div class="port-badge" id="video-analyzer-port-badge">Port: <span id="video-analyzer-port-display">5002</span></div>
-      </div>
-    </div>
   </div>
   
-  <div class="workflow-container">
-    <div class="container">
-      <h2 class="workflow-title">Integrated Workflow</h2>
-      <div class="workflow-steps">
-        <div class="workflow-step fade-in animate-delay-1">
-          <div class="step-number">1</div>
-          <h3 class="step-title">Data Collection</h3>
-          <p class="step-description">Gather raw data from Reddit or transcribe videos using the collection tools</p>
+  <div class="enterprise-container">
+    <div class="enterprise-footer-section">
+      <div class="service-endpoints">
+        <div class="endpoints-header">
+          <h3 class="endpoints-title">Service Endpoints</h3>
+          <p class="endpoints-description">Direct access URLs for all platform services</p>
         </div>
-        
-        <div class="workflow-step fade-in animate-delay-2">
-          <div class="step-number">2</div>
-          <h3 class="step-title">Analysis</h3>
-          <p class="step-description">Process and analyze the data with the Social Research Tool</p>
-        </div>
-        
-        <div class="workflow-step fade-in animate-delay-3">
-          <div class="step-number">3</div>
-          <h3 class="step-title">Visualization</h3>
-          <p class="step-description">Create interactive journey maps with the Journey Mapper tools</p>
+        <div class="endpoints-grid">
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-home"></i>
+              Launchpad Dashboard
+            </div>
+            <div class="endpoint-url">
+              <span id="launchpad-url-display"></span><span id="launchpad-port-badge">:<span id="launchpad-port-display">8000</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-route"></i>
+              Journey Mapper (Claude)
+            </div>
+            <div class="endpoint-url">
+              <span id="journey-mapper-url-display"></span><span id="journey-mapper-port-badge">:<span id="journey-mapper-port-display">8080</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-brain"></i>
+              Journey Mapper (o3)
+            </div>
+            <div class="endpoint-url">
+              <span id="openai-journey-mapper-url-display"></span><span id="openai-journey-mapper-port-badge">:<span id="openai-journey-mapper-port-display">8090</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fab fa-reddit-alien"></i>
+              Reddit Data Collector
+            </div>
+            <div class="endpoint-url">
+              <span id="reddit-ripper-url-display"></span><span id="reddit-ripper-port-badge">:<span id="reddit-ripper-port-display">5001</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-chart-pie"></i>
+              Social Research Analytics
+            </div>
+            <div class="endpoint-url">
+              <span id="social-research-url-display"></span><span id="social-research-port-badge">:<span id="social-research-port-display">3000</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-video"></i>
+              Video Transcription
+            </div>
+            <div class="endpoint-url">
+              <span id="video-analyzer-url-display"></span><span id="video-analyzer-port-badge">:<span id="video-analyzer-port-display">5002</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn Generator
+            </div>
+            <div class="endpoint-url">
+              <span id="linkedin-generator-url-display"></span><span id="linkedin-generator-port-badge">:<span id="linkedin-generator-port-display">5003</span></span>
+            </div>
+          </div>
+          <div class="endpoint-item">
+            <div class="endpoint-label">
+              <i class="fas fa-project-diagram"></i>
+              Miro Board Generator
+            </div>
+            <div class="endpoint-url">
+              <span id="miro-generator-url-display"></span><span id="miro-generator-port-badge">:<span id="miro-generator-port-display">5004</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,6 +398,8 @@
     const journeyMapperStatus = document.getElementById('journey-mapper-status');
     const openaiJourneyMapperStatus = document.getElementById('openai-journey-mapper-status');
     const videoAnalyzerStatus = document.getElementById('video-analyzer-status');
+    const linkedinGeneratorStatus = document.getElementById('linkedin-generator-status');
+    const miroGeneratorStatus = document.getElementById('miro-generator-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -221,6 +409,8 @@
     const journeyMapperUrlLink = document.getElementById('journey-mapper-url');
     const openaiJourneyMapperUrlLink = document.getElementById('openai-journey-mapper-url');
     const videoAnalyzerUrlLink = document.getElementById('video-analyzer-url');
+    const linkedinGeneratorUrlLink = document.getElementById('linkedin-generator-url');
+    const miroGeneratorUrlLink = document.getElementById('miro-generator-url');
     
     // URL display elements
     const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
@@ -229,6 +419,8 @@
     const redditRipperUrlDisplay = document.getElementById('reddit-ripper-url-display');
     const socialResearchUrlDisplay = document.getElementById('social-research-url-display');
     const videoAnalyzerUrlDisplay = document.getElementById('video-analyzer-url-display');
+    const linkedinGeneratorUrlDisplay = document.getElementById('linkedin-generator-url-display');
+    const miroGeneratorUrlDisplay = document.getElementById('miro-generator-url-display');
     
     // Port display elements
     const launchpadPortDisplay = document.getElementById('launchpad-port-display');
@@ -237,6 +429,8 @@
     const redditRipperPortDisplay = document.getElementById('reddit-ripper-port-display');
     const socialResearchPortDisplay = document.getElementById('social-research-port-display');
     const videoAnalyzerPortDisplay = document.getElementById('video-analyzer-port-display');
+    const linkedinGeneratorPortDisplay = document.getElementById('linkedin-generator-port-display');
+    const miroGeneratorPortDisplay = document.getElementById('miro-generator-port-display');
     
     // Port badge elements
     const launchpadPortBadge = document.getElementById('launchpad-port-badge');
@@ -245,6 +439,8 @@
     const redditRipperPortBadge = document.getElementById('reddit-ripper-port-badge');
     const socialResearchPortBadge = document.getElementById('social-research-port-badge');
     const videoAnalyzerPortBadge = document.getElementById('video-analyzer-port-badge');
+    const linkedinGeneratorPortBadge = document.getElementById('linkedin-generator-port-badge');
+    const miroGeneratorPortBadge = document.getElementById('miro-generator-port-badge');
     
     // Set initial URLs and display values
     let journeyMapperUrl = "{{ journey_mapper_url }}";
@@ -252,6 +448,8 @@
     let redditRipperUrl = "{{ reddit_ripper_url }}";
     let socialResearchUrl = "{{ social_research_url }}";
     let videoAnalyzerUrl = "{{ video_analyzer_url }}";
+    let linkedinGeneratorUrl = "{{ linkedin_generator_url }}";
+    let miroGeneratorUrl = "{{ miro_generator_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
@@ -260,6 +458,8 @@
     let redditRipperPort = "5001";
     let socialResearchPort = "3000";
     let videoAnalyzerPort = "5002";
+    let linkedinGeneratorPort = "5003";
+    let miroGeneratorPort = "5004";
     let launchpadPort = "8000";
     
     // Check if a port is different from default
@@ -286,6 +486,8 @@
       journeyMapperUrlLink.href = journeyMapperUrl;
       openaiJourneyMapperUrlLink.href = openaiJourneyMapperUrl;
       videoAnalyzerUrlLink.href = videoAnalyzerUrl;
+      linkedinGeneratorUrlLink.href = linkedinGeneratorUrl;
+      miroGeneratorUrlLink.href = miroGeneratorUrl;
       
       // Update URL displays
       launchpadUrlDisplay.textContent = launchpadUrl;
@@ -294,6 +496,8 @@
       redditRipperUrlDisplay.textContent = redditRipperUrl;
       socialResearchUrlDisplay.textContent = socialResearchUrl;
       videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
+      linkedinGeneratorUrlDisplay.textContent = linkedinGeneratorUrl;
+      miroGeneratorUrlDisplay.textContent = miroGeneratorUrl;
       
       // Update port displays
       launchpadPortDisplay.textContent = launchpadPort;
@@ -302,6 +506,8 @@
       redditRipperPortDisplay.textContent = redditRipperPort;
       socialResearchPortDisplay.textContent = socialResearchPort;
       videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
+      linkedinGeneratorPortDisplay.textContent = linkedinGeneratorPort;
+      miroGeneratorPortDisplay.textContent = miroGeneratorPort;
       
       // Update port badge styling
       updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
@@ -310,6 +516,8 @@
       updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
       updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
       updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
+      updatePortBadge(linkedinGeneratorPortBadge, linkedinGeneratorPort, "5003");
+      updatePortBadge(miroGeneratorPortBadge, miroGeneratorPort, "5004");
     }
     
     // Get updated URLs from the server
@@ -382,6 +590,14 @@
         if (data.services && data.services.video_analyzer) {
           updateStatusIndicator(videoAnalyzerStatus, data.services.video_analyzer.status);
         }
+        
+        if (data.services && data.services.linkedin_generator) {
+          updateStatusIndicator(linkedinGeneratorStatus, data.services.linkedin_generator.status);
+        }
+        
+        if (data.services && data.services.miro_generator) {
+          updateStatusIndicator(miroGeneratorStatus, data.services.miro_generator.status);
+        }
       } catch (error) {
         console.error('Error fetching service status:', error);
       }
@@ -418,6 +634,8 @@
       setTimeout(() => window.open(socialResearchUrl, '_blank'), 600);
       setTimeout(() => window.open(journeyMapperUrl, '_blank'), 900);
       setTimeout(() => window.open(openaiJourneyMapperUrl, '_blank'), 1200);
+      setTimeout(() => window.open(linkedinGeneratorUrl, '_blank'), 1500);
+      setTimeout(() => window.open(miroGeneratorUrl, '_blank'), 1800);
     });
     
     // Add animation to status indicator updates
@@ -439,9 +657,9 @@
     // Add scroll to applications section when clicking explore button
     if (exploreBtn) {
       exploreBtn.addEventListener('click', () => {
-        const appGrid = document.querySelector('.app-grid');
-        if (appGrid) {
-          appGrid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const appsSection = document.querySelector('.apps-section');
+        if (appsSection) {
+          appsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         
         // Add a pulse effect to app cards
@@ -457,11 +675,13 @@
       });
     };
     
+
     // Update URLs and status on page load
     document.addEventListener('DOMContentLoaded', () => {
       updateUrls();
       fetchUpdatedUrls();
       updateServiceStatus();
+      
       
       // Add hover effects to URL items
       const urlItems = document.querySelectorAll('.url-item');
@@ -482,43 +702,329 @@
     setInterval(fetchUpdatedUrls, 30000);
   </script>
   
-  <!-- Enhanced animations and interactions script -->
-  <script src="/static/enhanced-animations.js"></script>
   
   <!-- Chatbot script -->
   <script src="/static/chatbot.js?v={{ timestamp }}"></script>
   
-  <!-- Category section styling -->
+  <!-- Compact Modern Design -->
   <style>
-    .category-section {
+    /* Hero Compact */
+    .hero-container {
+      min-height: 180px;
+      padding: 1rem 0;
+      background: linear-gradient(135deg, #121B26 0%, #1E293B 100%) !important;
+    }
+    
+    .hero-container::before,
+    .hero-container::after {
+      display: none !important;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      text-align: center;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    
+    .hero-badge {
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-cta {
+      margin-top: 1rem;
+    }
+    
+    /* Apps Sections */
+    .apps-section {
       padding: 1.5rem 0;
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
     }
     
     .section-title {
-      position: relative;
-      padding-bottom: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    .section-title:after {
-      content: "";
+    .collection-title {
+      color: var(--accent-blue);
+    }
+    
+    .analysis-title {
+      color: var(--cyan-primary);
+    }
+    
+    .generation-title {
+      color: var(--accent-purple);
+    }
+    
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .app-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      position: relative;
+      transition: all 0.3s ease;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .app-card.collection {
+      border-left: 4px solid var(--accent-blue);
+    }
+    
+    .app-card.analysis {
+      border-left: 4px solid var(--cyan-primary);
+    }
+    
+    .app-card.generation {
+      border-left: 4px solid var(--accent-purple);
+    }
+    
+    .app-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    
+    .app-icon i {
+      display: block;
+      line-height: 1;
+    }
+    
+    .app-icon {
+      background: transparent !important;
+      border: none !important;
+      font-size: 2rem !important;
+    }
+    
+    .app-card:hover .app-icon {
+      transform: scale(1.1);
+    }
+    
+    .app-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+    
+    .app-description {
+      font-size: 0.85rem;
+      color: var(--text-grey);
+      flex-grow: 1;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    
+    .app-cta {
+      margin-top: auto;
+    }
+    
+    .nxt-btn-sm {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      width: auto;
+      min-width: 100px;
+      max-width: 120px;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    /* Status Indicators */
+    .status-indicator {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 3px;
-      width: 100px;
-      background: linear-gradient(90deg, var(--accent-blue), var(--cyan-primary));
-      border-radius: 3px;
+      top: 12px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ddd;
     }
     
-    .data-analysis-section .section-title:after {
-      background: linear-gradient(90deg, var(--accent-purple), var(--cyan-primary));
+    .status-running {
+      background: var(--success-green);
+      box-shadow: 0 0 0 3px rgba(12, 206, 107, 0.2);
+    }
+    
+    .status-offline {
+      background: var(--error-red);
+      box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.2);
+    }
+    
+    /* Actions Section */
+    .actions-section {
+      padding: 1.5rem 0;
+    }
+    
+    .actions-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .action-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    
+    .action-btn.primary {
+      background: var(--cyan-primary);
+      color: white;
+    }
+    
+    .action-btn.primary:hover {
+      background: var(--cyan-primary-hover);
+      transform: translateY(-1px);
+    }
+    
+    .action-btn.secondary {
+      background: #f8f9fa;
+      color: var(--text-dark);
+      border: 1px solid #e9ecef;
+    }
+    
+    .action-btn.secondary:hover {
+      background: #e9ecef;
+    }
+    
+    /* Info Section */
+    .info-section {
+      padding: 1.5rem 0 3rem;
+    }
+    
+    .info-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .info-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    
+    .info-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+    
+    
+    /* URLs Compact */
+    .urls-compact {
+      font-size: 0.875rem;
+    }
+    
+    .url-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.375rem 0;
+      border-bottom: 1px solid #f1f3f4;
+    }
+    
+    .url-item:last-child {
+      border-bottom: none;
+    }
+    
+    .url-label {
+      font-weight: 500;
+      color: var(--text-dark);
+      min-width: 120px;
+    }
+    
+    .url-value {
+      flex-grow: 1;
+      text-align: center;
+      color: var(--text-grey);
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    
+    .port-badge {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--cyan-primary);
+      font-weight: 600;
+    }
+    
+    /* Footer Compact */
+    .nxt-footer {
+      background: #f8f9fa;
+      padding: 1rem 0;
+      border-top: 1px solid #e9ecef;
+    }
+    
+    .nxt-footer-content {
+      text-align: center;
+    }
+    
+    .nxt-footer-text p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-grey);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .info-grid {
+        max-width: 100%;
+      }
     }
   </style>
   
   <!-- Preload key resources -->
   <link rel="preload" href="/static/nxt-humans-logo.png" as="image" fetchpriority="high">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </body>
 </html>

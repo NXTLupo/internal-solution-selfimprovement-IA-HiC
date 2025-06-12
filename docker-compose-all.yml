@@ -8,10 +8,14 @@ services:
       - REDDIT_RIPPER_URL=http://reddit-ripper:5000
       - SOCIAL_RESEARCH_URL=http://social-research-frontend:3000
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - LINKEDIN_GENERATOR_URL=http://linkedin-generator:5000
+      - MIRO_GENERATOR_URL=http://miro-generator:5004
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
       - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
       - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
+      - LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:${LINKEDIN_GENERATOR_PORT:-5003}
+      - MIRO_GENERATOR_CLIENT_URL=http://localhost:${MIRO_GENERATOR_PORT:-5004}
       - PORT=8000
       - ENABLE_CX_AGENT=true
       - AGENT_URL=http://agent:8500
@@ -308,6 +312,52 @@ services:
     networks:
       - nxt-humans-network
 
+  linkedin-generator:
+    image: python:3.11-slim
+    ports:
+      - "${LINKEDIN_GENERATOR_PORT:-5003}:5000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5000
+      - CLAUDE_MODEL=claude-3-7-sonnet-20250219
+      - OPENAI_MODEL=gpt-4o
+      - MAX_TOKENS=64000
+      - TEMPERATURE=0.3
+    volumes:
+      - ./internal-solutions-linkedin-generator:/app
+      - linkedin-generator-uploads:/app/uploads
+      - linkedin-generator-generated:/app/generated_content
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python -m spacy download en_core_web_sm &&
+              mkdir -p uploads generated_content static/css static/js &&
+              uvicorn app:app --host 0.0.0.0 --port 5000"
+    networks:
+      - nxt-humans-network
+
+  miro-generator:
+    build:
+      context: ./internal-solutions-miro-generator
+      dockerfile: Dockerfile.simple
+    ports:
+      - "${MIRO_GENERATOR_PORT:-5004}:5004"
+    environment:
+      - MIRO_ACCESS_TOKEN=${MIRO_ACCESS_TOKEN}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - PORT=5004
+      - NODE_ENV=production
+      - FLASK_ENV=production
+    volumes:
+      - ./internal-solutions-miro-generator:/app
+      - miro-generator-uploads:/app/uploads
+      - miro-generator-output:/app/output
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
 networks:
   nxt-humans-network:
     driver: bridge
@@ -318,4 +368,12 @@ volumes:
   journey-uploads:
     driver: local
   openai-journey-uploads:
+    driver: local
+  linkedin-generator-uploads:
+    driver: local
+  linkedin-generator-generated:
+    driver: local
+  miro-generator-uploads:
+    driver: local
+  miro-generator-output:
     driver: local
