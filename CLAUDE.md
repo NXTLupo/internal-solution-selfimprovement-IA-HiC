@@ -4,15 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is an integrated platform with seven main applications:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring eight main applications integrated through a unified AI agent interface:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
-2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis (internal-solutions-socialresearch)
+2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
 3. **AI Journey Mapper (Claude 3.7)**: Customer journey mapping using Claude 3.7 Sonnet (internal-solutions-journeymapper)
 4. **AI Journey Mapper (Claude 4)**: Advanced customer journey mapping using Claude 4 Sonnet (internal-solutions-claude4-journey-mapper)
-5. **AI Journey Mapper (OpenAI o3)**: Customer journey mapping using OpenAI's o3 reasoning model with advanced reasoning capabilities (internal-solutions-openai-journey-mapper)
-6. **AI Agent Assistant**: Multimodal chatbot agent to control all tools (mcp-services)
-7. **Video Transcriptor**: Processes and analyzes video content with transcription (internal-solutions-video-analyzer)
+5. **AI Journey Mapper (OpenAI o3)**: Customer journey mapping using OpenAI's o3 reasoning model (internal-solutions-openai-journey-mapper)
+6. **LinkedIn Post Generator**: Professional content creation using Extended Thinking analysis (internal-solutions-linkedin-generator)
+7. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
+8. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
 
 ## Architecture
 
@@ -52,10 +53,24 @@ For immediate deployment of the entire workbench:
 # One-command startup (recommended for new users)
 ./launch.sh
 
+# Prerequisites check before launch
+python port_scanner.py                  # Check for port conflicts
+docker --version && docker compose version  # Verify Docker setup
+
 # Alternative: Use backup scripts for specific components
 ./backup-scripts/unified-launch.sh      # Unified launcher with all services
 ./backup-scripts/launch-with-all-services.sh  # Legacy all-services launcher
 ```
+
+### Prerequisites
+
+- Docker Desktop with sufficient resources (8GB+ RAM recommended)
+- `.env` file with required API keys:
+  ```
+  ANTHROPIC_API_KEY=your_anthropic_key
+  OPENAI_API_KEY=your_openai_key
+  ```
+- For Social Research Tool local development: PostgreSQL 16+ with pgvector extension
 
 ## Common Commands
 
@@ -254,6 +269,27 @@ python test_openai_key.py
 python test_whisper_api.py
 ```
 
+#### LinkedIn Post Generator Development
+
+```bash
+# Run LinkedIn Generator standalone
+cd internal-solutions-linkedin-generator
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm  # Download spaCy language model
+export ANTHROPIC_API_KEY=your_anthropic_key_here
+export OPENAI_API_KEY=your_openai_key_here
+python -m uvicorn app:app --host 0.0.0.0 --port 5000 --reload  # Starts service on port 5003 (mapped from 5000)
+
+# Test API connectivity
+python -c "import anthropic; print('Anthropic SDK installed')"
+python -c "import openai; print('OpenAI SDK installed')"
+
+# Using Docker
+docker compose -f docker-compose-all.yml up linkedin-generator
+```
+
 #### Journey Mapper Development
 
 ```bash
@@ -347,19 +383,33 @@ python test_env_file.py           # Test environment file loading
 python test_final.py              # Final integration test
 ```
 
-### Code Quality and Linting
+### Testing and Code Quality
 
 ```bash
-# Journey Mapper (Claude 3.7) Code Quality
-cd internal-solutions-journeymapper
-python -m pytest tests/           # Run all tests
-mypy src/                        # Type checking
-flake8 src/                      # Linting
+# TypeScript Testing (Miro Generator - only component with full test suite)
+cd internal-solutions-miro-generator
+npm test                          # Run Jest tests
+npm run test:coverage             # Generate coverage reports
+npm run test:watch                # Watch mode for development
 
-# Social Research Tool Code Quality
+# Python Testing (Ad-hoc test scripts - no framework configured)
+python test_agent_tools_comprehensive.py    # Complete agent functionality
+python test_complete_chatbot_functionality.py   # End-to-end testing
+python test_anthropic_api.py                # Claude API validation
+python test_openai_api.py                   # OpenAI API validation
+python test_websocket_server.py             # WebSocket functionality
+
+# Frontend Code Quality
 cd internal-solutions-socialresearch/frontend
-npm run lint         # ESLint code checking
-npm run build        # TypeScript compilation check
+npm run lint         # ESLint with TypeScript rules (Modern Vite stack)
+npm run build        # TypeScript compilation + Vite build
+
+cd internal-solutions-journeymapper
+npm run build        # Webpack production build (Legacy React 17 stack)
+
+# Python Code Quality (when available)
+mypy src/            # Type checking
+flake8 src/          # Linting
 ```
 
 ### Common Debugging Commands
@@ -446,6 +496,7 @@ REDDIT_RIPPER_PORT=5001              # Optional, default: 5001
 SOCIAL_RESEARCH_PORT=3000            # Optional, default: 3000
 SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 VIDEO_ANALYZER_PORT=5002             # Optional, default: 5002
+LINKEDIN_GENERATOR_PORT=5003         # Optional, default: 5003
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -474,6 +525,7 @@ CLAUDE4_JOURNEY_CLIENT_URL=http://localhost:8095
 OPENAI_JOURNEY_CLIENT_URL=http://localhost:8090
 SOCIAL_RESEARCH_CLIENT_URL=http://localhost:3000
 VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
+LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:5003
 ```
 
 ## Tool Integration
@@ -512,6 +564,8 @@ The AI Agent uses a Model Context Protocol (MCP) architecture to integrate tools
    - `video.transcribe`: Transcribe a video from URL or file
    - `video.get_status`: Check transcription status
    - `video.get_results`: Get transcription results
+
+**Note**: The LinkedIn Post Generator is currently available as a standalone service (port 5003) but lacks MCP integration for AI Agent access. It can generate professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o.
 
 For detailed information about tool integration, refer to `TOOL-INTEGRATION-GUIDE.md`.
 
@@ -559,9 +613,22 @@ The platform includes a sophisticated port conflict resolution system:
 
 Each tool is wrapped with a lightweight MCP (Model Context Protocol) service that:
 - Exposes tool functionality through standardized interfaces
-- Handles parameter conversion between agent and tool APIs
+- Handles parameter conversion between agent and tool APIs  
 - Provides error handling and logging
 - Manages tool-specific authentication and configuration
+
+**MCP Service Port Allocation**:
+```
+Agent Service:           8500 (AI agent orchestrator)
+Reddit MCP:             8501 (Reddit data collector wrapper)
+Social MCP:             8502 (Social research tool wrapper)
+Journey MCP:            8503 (Claude 3.7 journey mapper wrapper)
+Video MCP:              8504 (Video transcriptor wrapper)
+OpenAI Journey MCP:     8505 (OpenAI o3 journey mapper wrapper)
+Claude 4 Journey MCP:   8506 (Claude 4 journey mapper wrapper)
+```
+
+**Communication Flow**: `Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Service`
 
 ## Memories
 
@@ -582,6 +649,22 @@ The Social Research Tool requires PostgreSQL with the pgvector extension for vec
 - pgvector extension for similarity search
 - Alembic for database migrations
 - Connection pooling for performance
+
+**Database Setup Commands**:
+```bash
+# Install PostgreSQL with pgvector (macOS)
+brew install postgresql@16 pgvector
+brew services start postgresql@16
+
+# Create database and user
+psql postgres -c "CREATE DATABASE social_research_db;"
+psql postgres -c "CREATE USER social_research_user WITH PASSWORD 'your_password';"
+psql social_research_db -c "CREATE EXTENSION IF NOT EXISTS vector;"
+
+# Initialize database schema
+cd internal-solutions-socialresearch/backend
+python init_db.py
+```
 
 ### OpenAI Journey Mapper o3 Model Support
 
@@ -716,19 +799,37 @@ When making UI changes, follow these guidelines:
 
 ### Build System Architecture
 
-The platform uses different build systems optimized for each component:
+The platform uses different build systems optimized for each component's specific needs:
 
-1. **Social Research Tool**: Vite + TypeScript + React 19
-   - Development server on port 5173 with hot module replacement
-   - Path aliases configured: `@/*` maps to `./src/*`
-   - TypeScript with strict type checking and project references
-   - Tailwind CSS for responsive design
+1. **Social Research Tool**: Modern Vite + TypeScript + React 19 Stack
+   - **Build Tool**: Vite 6.1+ with lightning-fast HMR and ESM modules
+   - **Frontend**: React 19.0+ with TypeScript 5.7+ strict mode
+   - **Styling**: Tailwind CSS 4.0+ with PostCSS processing
+   - **UI Components**: Material-UI 6.4+ with Emotion 11.14+ styling
+   - **State Management**: Redux Toolkit 2.6+ with modern patterns
+   - **Database**: PostgreSQL 16+ with pgvector extension for vector embeddings
+   - **Development**: Port 5173 with path aliases (`@/*` → `./src/*`)
 
-2. **Journey Mapper**: Webpack + React 17
-   - Development server on port 3000 with hot reload
-   - Webpack dev server proxies `/api` calls to `http://localhost:8000`
-   - Babel transpilation for JSX and modern JavaScript features
-   - Custom Webpack configuration for Mermaid diagram integration
+2. **Journey Mapper**: Legacy Webpack + React 17 Stack  
+   - **Build Tool**: Webpack 5.64+ with custom configuration for Mermaid integration
+   - **Frontend**: React 17.0.2 with Babel 7.16+ transpilation
+   - **Visualization**: Mermaid 10.7+ for customer journey diagrams
+   - **Development**: Port 3000 with API proxy to backend (port 8000)
+   - **Compatibility**: Maintained for stable ecosystem and existing workflows
+
+3. **Miro Generator**: TypeScript CLI Tool
+   - **Build Tool**: TypeScript compiler 5.3+ with ES2022 target
+   - **Testing**: Jest 29.7+ with comprehensive coverage and TypeScript support  
+   - **CLI Framework**: Commander.js 11.1+ for professional CLI interface
+   - **Path Aliases**: Comprehensive system (`@cli`, `@parsers`, `@miro`, etc.)
+   - **Quality**: ESLint 8.54+ with full TypeScript linting
+
+4. **LinkedIn Post Generator**: FastAPI + Extended Thinking Engine
+   - **Backend**: FastAPI with uvicorn ASGI server for async processing
+   - **AI Pipeline**: 4-stage Extended Thinking analysis (64K tokens per stage)
+   - **AI Models**: Claude 3.7 Sonnet (primary) + OpenAI GPT-4o (secondary)
+   - **NLP Processing**: spaCy 3.5+ and NLTK 3.6+ for advanced text analysis
+   - **Frontend**: Custom HTML/CSS/JS with drag-and-drop and progress tracking
 
 ## Key File Locations
 
@@ -737,18 +838,80 @@ When working on specific functionality, these are the critical files to understa
 ### Core Service Files
 - `launchpad/app.py`: Main WebSocket proxy and service coordinator
 - `launchpad/templates/index.html`: Main UI template
-- `mcp-services/agent/app.py`: AI agent service implementation
+- `mcp-services/agent/app.py`: AI agent service implementation (CRITICAL - do not modify core tool execution logic)
 - `launch.sh`: Primary startup script with port conflict detection
 
 ### Configuration Files
 - `docker-compose-all.yml`: Complete service configuration
+- `docker-compose-all.override.yml`: Generated by launch.sh with API keys
 - `dynamic-compose.yml`: Development configuration with dynamic ports
 - `.env`: Environment variables (create from examples in documentation)
 - `port_scanner.py`: Port conflict resolution utility
 
 ### Tool-Specific Entry Points
-- `internal-solutions-journeymapper/run.py`: Journey Mapper standalone entry
-- `internal-solutions-openai-journey-mapper/run.py`: OpenAI o3 Journey Mapper entry
-- `internal-solutions-video-analyzer/run.py`: Video Transcriptor entry
-- `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry
-- `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry
+- `internal-solutions-journeymapper/run.py`: Journey Mapper standalone entry (Claude 3.7)
+- `internal-solutions-claude4-journey-mapper/run.py`: Claude 4 Journey Mapper entry (advanced reasoning)
+- `internal-solutions-openai-journey-mapper/run.py`: OpenAI o3 Journey Mapper entry (reasoning models)
+- `internal-solutions-video-analyzer/run.py`: Video Transcriptor entry (YouTube + file upload)
+- `internal-solutions-linkedin-generator/app.py`: LinkedIn Post Generator entry (FastAPI + Extended Thinking)
+- `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry (React 19 + TypeScript)
+- `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry (Flask + pgvector)
+
+### Frontend Build Configuration Files
+- `internal-solutions-socialresearch/frontend/package.json`: Modern Vite + TypeScript stack
+- `internal-solutions-socialresearch/frontend/vite.config.ts`: Vite configuration with path aliases
+- `internal-solutions-socialresearch/frontend/tsconfig.json`: TypeScript strict configuration
+- `internal-solutions-journeymapper/package.json`: Legacy Webpack + React 17 stack
+- `internal-solutions-journeymapper/webpack.config.js`: Custom Webpack configuration for Mermaid
+
+### Critical Backup Files
+- `mcp-services/agent/app.py.backup.websocket_fix`: Working agent backup (restore if tool execution breaks)
+- `launchpad/static/chatbot.js`: Frontend chat client (source of link corruption issue)
+- `client-fallback.js`: Browser-side WebSocket reconnection fallback
+
+## Testing Infrastructure
+
+### Configured Testing Frameworks
+
+**Jest (TypeScript) - Fully Configured**:
+```bash
+cd internal-solutions-miro-generator
+npm test                    # Run all tests
+npm run test:coverage       # Generate coverage reports  
+npm run test:watch          # Watch mode for development
+```
+
+**Python Testing - Ad-hoc Scripts**:
+The project uses 30+ standalone test scripts without a unified framework:
+```bash
+# API validation
+python test_anthropic_api.py test_openai_api.py test_whisper_api.py
+
+# Agent functionality  
+python test_agent_tools_comprehensive.py test_complete_chatbot_functionality.py
+
+# MCP services
+python test_mcp_tools.py test_mcp_video.py test_journey_mcp_direct.py
+
+# Video processing
+python test_video_complete.py test_video_transcribe.py
+
+# WebSocket and uploads
+python test_websocket_server.py test_file_upload.py
+```
+
+**Frontend Testing - Not Configured**: 
+Neither React application has test frameworks set up despite having modern build systems.
+
+## Code Quality Standards
+
+### Python Code Style
+- **Formatting**: 4-space indentation, 120 character line limit
+- **Type Hints**: Use Python type hints for all function parameters and return values
+- **Error Handling**: Use specific exception types, proper logging with `src.utils.logger`
+- **Imports**: Group imports (stdlib, third-party, local) with spaces between groups
+
+### JavaScript/TypeScript Code Style
+- **TypeScript**: Strict mode enabled, use proper type definitions
+- **React**: Use functional components with hooks, follow modern React patterns
+- **ESLint**: Follow configured ESLint rules for consistency (Social Research and Miro Generator)
