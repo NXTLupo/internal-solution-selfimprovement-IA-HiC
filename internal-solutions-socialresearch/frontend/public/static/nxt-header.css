@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   width: 100%;
   position: relative;
   z-index: 100;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .intelligence-augmentation-header::before {
@@ -100,13 +100,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   display: flex;
   flex-direction: column;
   gap: 0;
+  padding-bottom: 0.2rem;
 }
 
 .ia-intelligence,
 .ia-augmentation {
   font-size: 4rem;
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 1.0;
   letter-spacing: -1.5px;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -114,8 +115,16 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   padding: 0;
 }
 
+.ia-augmentation {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 .ia-intelligence {
-  margin-bottom: -0.3rem;
+  margin-bottom: -0.1rem;
 }
 
 /* React App Root Container Styling */
@@ -199,8 +208,16 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   .ia-intelligence,
   .ia-augmentation {
     font-size: 2.8rem;
-    line-height: 0.8;
+    line-height: 0.9;
     letter-spacing: -1px;
+  }
+
+  .ia-augmentation {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
   
   #root {
@@ -228,7 +245,16 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   .ia-intelligence,
   .ia-augmentation {
     font-size: 2rem;
+    line-height: 0.9;
     letter-spacing: -1px;
+  }
+
+  .ia-augmentation {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
   
   #root {

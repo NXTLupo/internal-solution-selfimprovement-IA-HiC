@@ -118,6 +118,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   margin-bottom: -0.3rem;
 }
 
+.ia-augmentation {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 /* React App Root Container Styling */
 #root {
   background: transparent;
@@ -202,6 +210,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
     line-height: 0.8;
     letter-spacing: -1px;
   }
+
+  .ia-augmentation {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
   
   #root {
     min-height: calc(100vh - 180px);
@@ -229,6 +245,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   .ia-augmentation {
     font-size: 1.8rem;
     letter-spacing: -1px;
+  }
+
+  .ia-augmentation {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
   
   #root {
