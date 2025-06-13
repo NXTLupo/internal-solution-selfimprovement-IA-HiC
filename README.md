@@ -1,12 +1,12 @@
-# NXT HUMANS AI CX WORKBENCH
+# NXT HUMANS INTELLIGENCE AUGMENTATION
 
-A comprehensive microservices platform for customer experience research and analysis, featuring eight integrated AI-powered applications with unified agent orchestration and professional tooling.
+A comprehensive microservices platform for customer experience research and analysis, featuring nine integrated AI-powered applications with unified agent orchestration, professional tooling, and complete HTTPS security infrastructure.
 
 ## Overview
 
-The NXT Humans AI CX Workbench is a complete ecosystem for customer experience analysis, combining data collection, advanced analytics, AI-powered journey mapping, content generation, and professional visualization tools:
+The NXT Humans Intelligence Augmentation platform is a complete ecosystem for customer experience analysis, combining data collection, advanced analytics, AI-powered journey mapping, content generation, and professional visualization tools with enterprise-grade security.
 
-### Core Applications (8 Components)
+### Core Applications (9 Components)
 
 1. **Reddit Data Collector**: Automated Reddit data gathering with flexible filtering and PDF export
 2. **Social Research Analysis Tool**: Advanced analytics with PostgreSQL+pgvector, topic modeling, and sentiment analysis  
@@ -15,20 +15,23 @@ The NXT Humans AI CX Workbench is a complete ecosystem for customer experience a
 5. **AI Journey Mapper (OpenAI o3)**: Reasoning-based journey mapping using OpenAI's o3 model with configurable effort levels
 6. **Video Transcriptor**: Video/audio transcription and analysis via OpenAI Whisper API with YouTube support
 7. **LinkedIn Post Generator**: Professional content creation using Extended Thinking AI pipeline with drag-and-drop interface
-8. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
-
-### Professional Tools
-
-9. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
+8. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
+9. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
 
 ## Key Features
 
-### Platform Capabilities
+### Intelligence Augmentation Capabilities
 - **Unified AI Agent Interface**: Control all tools through conversational AI with MCP protocol integration
 - **Multi-AI Model Support**: Claude 3.7, Claude 4, OpenAI o3 with configurable reasoning effort
 - **Professional Content Generation**: Extended Thinking pipeline for LinkedIn content creation
 - **Advanced Video Processing**: YouTube URL and file upload transcription with chunking for large files
 - **Vector Database Analytics**: PostgreSQL+pgvector for semantic search and similarity analysis
+
+### Enterprise Security & Professional Experience
+- **Complete HTTPS Infrastructure**: SSL certificates with nginx proxy for secure connections
+- **Professional Visual Identity**: Service-specific favicons and consistent branding across all applications
+- **Large File Support**: 500MB upload limits with extended timeouts for AI processing operations
+- **Browser Security Compliance**: Eliminates "Not Secure" warnings with trusted certificate management
 
 ### Technical Excellence  
 - **Microservices Architecture**: Docker containerization with sophisticated port conflict resolution
@@ -38,7 +41,7 @@ The NXT Humans AI CX Workbench is a complete ecosystem for customer experience a
 - **Multi-format Processing**: Support for PDF, CSV, TXT, video, audio, and web content
 
 ### Development & Deployment
-- **One-Command Launch**: Unified launcher with automatic port conflict detection and resolution
+- **One-Command Launch**: Unified launcher with automatic HTTPS setup and port conflict detection
 - **Environment Flexibility**: Dynamic port allocation and API key management
 - **Cross-Platform Support**: Docker Desktop with Apple Silicon optimization
 - **Monitoring & Debugging**: Health checks, logging, and comprehensive troubleshooting tools
@@ -80,16 +83,19 @@ docker compose -f docker-compose-all.yml down
 
 ### Service Access Points
 
-| Application | URL | Purpose |
-|-------------|-----|---------|
-| **Launchpad** (Main Hub) | http://localhost:8000 | Central access point with AI Agent |
-| **Journey Mapper (Claude 3.7)** | http://localhost:8080 | Customer journey visualization |
-| **Journey Mapper (Claude 4)** | http://localhost:8095 | Advanced reasoning journey maps |
-| **Journey Mapper (OpenAI o3)** | http://localhost:8090 | o3 reasoning-based mapping |
-| **Reddit Data Collector** | http://localhost:5001 | Social media data collection |
-| **Social Research Tool** | http://localhost:3000 | Advanced analytics dashboard |
-| **Video Transcriptor** | http://localhost:5002 | Video/audio transcription |
-| **LinkedIn Post Generator** | http://localhost:5003 | Professional content creation |
+| Application | HTTP URL | HTTPS URL (Secure) | Purpose |
+|-------------|----------|-------------------|---------|
+| **Launchpad** (Main Hub) | http://localhost:8000 | https://localhost:8443 | Central access point with AI Agent |
+| **Journey Mapper (Claude 3.7)** | http://localhost:8080 | https://localhost:8444 | Customer journey visualization |
+| **Journey Mapper (Claude 4)** | http://localhost:8095 | *Direct HTTP only* | Advanced reasoning journey maps |
+| **Journey Mapper (OpenAI o3)** | http://localhost:8090 | https://localhost:8445 | o3 reasoning-based mapping |
+| **Reddit Data Collector** | http://localhost:5001 | https://localhost:8446 | Social media data collection |
+| **Social Research Tool** | http://localhost:3000 | https://localhost:8447 | Advanced analytics dashboard |
+| **Video Transcriptor** | http://localhost:5002 | https://localhost:8448 | Video/audio transcription |
+| **LinkedIn Post Generator** | http://localhost:5003 | https://localhost:8449 | Professional content creation |
+| **Miro Generator** | http://localhost:5004 | https://localhost:8450 | Board creation interface |
+
+**🔒 HTTPS Benefits**: Secure connections eliminate browser "Not Secure" warnings and provide professional experience with green lock icons.
 
 ### AI Agent Integration
 
@@ -101,9 +107,9 @@ Access the unified AI agent through the Launchpad interface to:
 
 ## Architecture
 
-### Microservices Platform Overview
+### Intelligence Augmentation Platform Overview
 
-The platform uses a sophisticated microservices architecture with Docker containerization, MCP (Model Context Protocol) integration, and unified AI agent orchestration.
+The Intelligence Augmentation platform uses a sophisticated microservices architecture with Docker containerization, complete HTTPS security infrastructure, MCP (Model Context Protocol) integration, and unified AI agent orchestration.
 
 ### Core Application Components
 
@@ -152,19 +158,17 @@ The platform uses a sophisticated microservices architecture with Docker contain
 - **Port**: 5003
 - **Frontend**: Custom HTML/CSS/JS with drag-and-drop interface
 
-#### 8. AI Agent Assistant
-- **Technology**: Python + WebSockets + Claude API + MCP Protocol
-- **Features**: Unified tool control, multi-model support, conversation context
-- **Port**: 8500
-- **Integration**: Orchestrates all services through MCP wrappers
-
-### Professional Tools
-
-#### 9. Miro Generator (CLI Tool)
+#### 8. Miro Generator (CLI Tool)
 - **Technology**: TypeScript 5.3 + Commander.js + Jest 29.7
 - **Features**: Professional CLI interface, comprehensive test coverage
 - **Testing**: Unit + integration tests with coverage reporting
 - **Build**: ES2022 target with full TypeScript compilation
+
+#### 9. AI Agent Assistant
+- **Technology**: Python + WebSockets + Claude API + MCP Protocol
+- **Features**: Unified tool control, multi-model support, conversation context
+- **Port**: 8500
+- **Integration**: Orchestrates all services through MCP wrappers
 
 ### MCP (Model Context Protocol) Integration
 
@@ -235,7 +239,8 @@ python test_websocket_server.py            # WebSocket functionality
 
 The platform supports multiple deployment scenarios through different Docker Compose configurations:
 
-- **`docker-compose-all.yml`**: Complete stack with all 8 applications + MCP services
+- **`docker-compose-all.yml`**: Complete stack with all 9 applications + MCP services
+- **`docker-compose-https.yml`**: HTTPS proxy service for secure connections
 - **`dynamic-compose.yml`**: Development configuration with environment-based port allocation
 - **`docker-compose-claude4.yml`**: Claude 4 specific services
 - **`nxt-compose.yml`**: Alternative configuration with enhanced networking
@@ -257,6 +262,30 @@ python port_scanner.py              # Identify conflicts
 python port_scanner.py --fix        # Auto-resolve conflicts  
 python port_scanner.py --kill 8080  # Force kill specific port
 ```
+
+### HTTPS Security Infrastructure
+
+The platform includes enterprise-grade security features:
+
+```bash
+# Launch with automatic HTTPS setup
+./launch.sh                          # Starts both HTTP and HTTPS services
+
+# Manual HTTPS configuration
+docker compose -f docker-compose-https.yml up -d    # Start HTTPS proxy
+./setup-https.sh                     # Setup trusted certificates
+
+# Access secure endpoints
+open https://localhost:8443           # Secure launchpad
+open https://localhost:8444           # Secure journey mapper
+```
+
+**Security Features**:
+- **Self-signed SSL certificates** with automatic generation
+- **Nginx HTTPS proxy** with 500MB upload limits
+- **Extended timeouts** for long AI processing operations  
+- **Professional browser experience** eliminating "Not Secure" warnings
+- **Trusted certificate installation** for green lock experience
 
 ## Environment Variables
 
@@ -447,4 +476,4 @@ This project is proprietary software. All rights reserved.
 
 ---
 
-**NXT Humans AI CX Workbench** - A comprehensive platform for customer experience research, analysis, and professional content generation with AI-powered insights and unified agent orchestration.
+**NXT Humans Intelligence Augmentation** - A comprehensive platform for customer experience research, analysis, and professional content generation with AI-powered insights, unified agent orchestration, and enterprise-grade security infrastructure.
