@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring eight main applications integrated through a unified AI agent interface:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring nine main applications integrated through a unified AI agent interface:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
@@ -12,8 +12,9 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 4. **AI Journey Mapper (Claude 4)**: Advanced customer journey mapping using Claude 4 Sonnet (internal-solutions-claude4-journey-mapper)
 5. **AI Journey Mapper (OpenAI o3)**: Customer journey mapping using OpenAI's o3 reasoning model (internal-solutions-openai-journey-mapper)
 6. **LinkedIn Post Generator**: Professional content creation using Extended Thinking analysis (internal-solutions-linkedin-generator)
-7. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
-8. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
+7. **Miro Board Generator**: TypeScript CLI tool for converting journey maps to interactive Miro boards (internal-solutions-miro-generator)
+8. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
+9. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
 
 ## Architecture
 
@@ -290,6 +291,48 @@ python -c "import openai; print('OpenAI SDK installed')"
 docker compose -f docker-compose-all.yml up linkedin-generator
 ```
 
+#### Miro Board Generator Development
+
+```bash
+# Run Miro Generator CLI (TypeScript/Node.js based)
+cd internal-solutions-miro-generator
+npm install
+npm run build
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Miro access token
+
+# Interactive configuration setup
+npx miro-gen config --init
+
+# Validate a journey map HTML file
+npx miro-gen validate -i examples/sample-journey-map.html -v
+
+# Generate Miro board from journey map
+npx miro-gen generate -i examples/sample-journey-map.html -o ./output
+
+# Generate with specific board ID
+npx miro-gen generate -i journey.html -b uXjVMxxxx -v
+
+# Dry run to preview changes
+npx miro-gen generate -i journey.html --dry-run
+
+# Run tests with Jest
+npm test                          # Run all tests
+npm run test:coverage             # Generate coverage reports
+npm run test:watch                # Watch mode for development
+
+# TypeScript development
+npm run dev                       # Development with ts-node
+npm run watch                     # TypeScript compilation in watch mode
+npm run lint                      # ESLint code checking
+
+# Using Docker
+npm run docker:build              # Build Docker image
+docker run --env-file .env nxt-miro-generator --help
+```
+
 #### Journey Mapper Development
 
 ```bash
@@ -381,6 +424,15 @@ python test_agent_ws.py           # Agent WebSocket communication
 # Environment and Configuration Testing
 python test_env_file.py           # Test environment file loading
 python test_final.py              # Final integration test
+
+# Integration Pipeline Testing
+./scripts/test-miro-integration.sh           # Journey Mapper to Miro board integration test
+
+# Service-Specific Testing
+cd internal-solutions-miro-generator
+npm test                          # Jest testing suite with full TypeScript coverage
+npm run test:watch                # Watch mode for development
+npm run test:coverage             # Generate comprehensive coverage reports
 ```
 
 ### Testing and Code Quality
@@ -478,6 +530,31 @@ docker system prune -f
    - For WebSocket issues, use `python test_websocket_server.py`
    - Validate API keys before deployment with key-specific test scripts
 
+7. **Favicon Display Issues**
+   - **Browser showing "i" icon instead of custom favicons**: Clear browser cache with Ctrl+F5 (Windows) or Cmd+Shift+R (Mac)
+   - **Persistent favicon issues**: Run `./debug-favicons.sh` to test favicon accessibility across all services
+   - **Force favicon refresh**: Add timestamp query parameter `?t=$(date +%s)` to favicon URLs
+   - **Browser-specific fixes**:
+     - Chrome: Settings → Privacy → Clear browsing data → Cached images
+     - Firefox: about:preferences#privacy → Clear Data → Cached Web Content  
+     - Safari: Preferences → Privacy → Manage Website Data → Remove All
+   - **Service restart**: `docker compose -f docker-compose-all.yml restart` to ensure favicon changes take effect
+
+8. **Browser "Not Secure" Warnings**
+   - **Enable HTTPS**: Run `docker compose -f docker-compose-https.yml up -d` to start HTTPS proxy
+   - **Access secure URLs**: Use https://localhost:8443-8450 instead of http:// URLs
+   - **Accept self-signed certificates**: Click "Advanced" → "Proceed to localhost" in browsers
+   - **Install certificate for trusted green lock**: Run `./setup-https.sh` for installation instructions
+   - **HTTPS service ports**:
+     - Launchpad: https://localhost:8443
+     - Journey Mapper: https://localhost:8444  
+     - OpenAI Journey: https://localhost:8445
+     - Reddit Collector: https://localhost:8446
+     - Social Research: https://localhost:8447
+     - Video Transcriptor: https://localhost:8448
+     - LinkedIn Generator: https://localhost:8449
+     - Miro Generator: https://localhost:8450
+
 ## Environment Variables
 
 Key environment variables to set in a `.env` file:
@@ -497,6 +574,7 @@ SOCIAL_RESEARCH_PORT=3000            # Optional, default: 3000
 SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 VIDEO_ANALYZER_PORT=5002             # Optional, default: 5002
 LINKEDIN_GENERATOR_PORT=5003         # Optional, default: 5003
+MIRO_GENERATOR_PORT=5004             # Optional, default: 5004
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -526,6 +604,7 @@ OPENAI_JOURNEY_CLIENT_URL=http://localhost:8090
 SOCIAL_RESEARCH_CLIENT_URL=http://localhost:3000
 VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
 LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:5003
+MIRO_GENERATOR_CLIENT_URL=http://localhost:5004
 ```
 
 ## Tool Integration
@@ -565,7 +644,11 @@ The AI Agent uses a Model Context Protocol (MCP) architecture to integrate tools
    - `video.get_status`: Check transcription status
    - `video.get_results`: Get transcription results
 
-**Note**: The LinkedIn Post Generator is currently available as a standalone service (port 5003) but lacks MCP integration for AI Agent access. It can generate professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o.
+**Note**: The LinkedIn Post Generator and Miro Board Generator are currently available as standalone services (ports 5003 and 5004 respectively) but lack MCP integration for AI Agent access. The LinkedIn Generator can create professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o. The Miro Generator provides a comprehensive TypeScript CLI for converting journey maps to interactive Miro boards with advanced layout and styling capabilities.
+
+**Service-Specific Favicons**: Each service now includes branded favicon files for enhanced user experience:
+- `reddit-favicon.svg`, `video-favicon.svg`, `chart-favicon.svg`, `route-favicon.svg`
+- `brain-favicon.svg`, `linkedin-favicon.svg`, `claude4-favicon.svg`
 
 For detailed information about tool integration, refer to `TOOL-INTEGRATION-GUIDE.md`.
 
@@ -794,6 +877,11 @@ When making UI changes, follow these guidelines:
    - **Secondary Colors**: Light Grey #5A6275, Medium Grey #4A5165
    - **Typography**: Segoe UI / system fonts
    - **Logo**: Located at `/internal-solutions-socialresearch/frontend/public/nxt-humans-logo.png`
+   - **Service Favicons**: Each service has branded favicons in their respective `/static/` directories
+     - Reddit Ripper: `reddit-favicon.svg`
+     - Social Research: `chart-favicon.svg`
+     - Video Transcriptor: `video-favicon.svg`
+     - LinkedIn Generator: `linkedin-favicon.svg`
 
 3. For detailed specifications, refer to `brand-style-guide.md`
 
@@ -854,6 +942,8 @@ When working on specific functionality, these are the critical files to understa
 - `internal-solutions-openai-journey-mapper/run.py`: OpenAI o3 Journey Mapper entry (reasoning models)
 - `internal-solutions-video-analyzer/run.py`: Video Transcriptor entry (YouTube + file upload)
 - `internal-solutions-linkedin-generator/app.py`: LinkedIn Post Generator entry (FastAPI + Extended Thinking)
+- `internal-solutions-miro-generator/app.py`: Miro Generator web interface entry (Flask + TypeScript CLI integration)
+- `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI entry (TypeScript + Commander.js)
 - `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry (React 19 + TypeScript)
 - `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry (Flask + pgvector)
 
@@ -863,6 +953,9 @@ When working on specific functionality, these are the critical files to understa
 - `internal-solutions-socialresearch/frontend/tsconfig.json`: TypeScript strict configuration
 - `internal-solutions-journeymapper/package.json`: Legacy Webpack + React 17 stack
 - `internal-solutions-journeymapper/webpack.config.js`: Custom Webpack configuration for Mermaid
+- `internal-solutions-miro-generator/package.json`: TypeScript CLI tool with Jest testing
+- `internal-solutions-miro-generator/tsconfig.json`: TypeScript configuration with ES2022 target and path aliases
+- `internal-solutions-miro-generator/jest.config.js`: Jest configuration for comprehensive testing
 
 ### Critical Backup Files
 - `mcp-services/agent/app.py.backup.websocket_fix`: Working agent backup (restore if tool execution breaks)

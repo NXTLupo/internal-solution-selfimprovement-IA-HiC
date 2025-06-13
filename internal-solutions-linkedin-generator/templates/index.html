@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn Post Generator | NXT Humans AI CX Workbench</title>
+    <!-- Favicon declarations in proper order -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/static/linkedin-favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/linkedin-favicon.svg">
     <link rel="stylesheet" href="/static/css/nxt-header.css">
     <link rel="stylesheet" href="/static/css/linkedin-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +31,23 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--gradient-bg);
-            color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Force ALL text to be white */
+        * {
+            color: #ffffff !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+            color: #ffffff !important;
         }
 
         .container {
@@ -39,51 +56,102 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        .header {
-            background: rgba(18, 27, 38, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(1, 196, 200, 0.2);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-cyan), #00A8B8);
-            border-radius: 8px;
+        /* Intelligence Augmentation Header */
+        .intelligence-augmentation-header {
+            background: #000000;
+            height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
         }
 
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--white);
+        .intelligence-augmentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(139, 69, 19, 0.15) 30%, rgba(255, 20, 147, 0.25) 60%, rgba(255, 0, 128, 0.3) 100%);
+            transform: skewX(-20deg) translateX(20%);
+            z-index: 1;
         }
 
-        .app-title {
-            color: var(--primary-cyan);
-            font-size: 1.1rem;
-            font-weight: 500;
+        .ia-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ia-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ia-logo-image {
+            width: 140px;
+            height: auto;
+            opacity: 1;
+            filter: brightness(1.1);
+            object-fit: contain;
+        }
+
+        .ia-text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ia-introducing {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .ia-main-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ia-intelligence,
+        .ia-augmentation {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ia-intelligence {
+            margin-bottom: -0.3rem;
         }
 
         /* Main Content */
@@ -193,20 +261,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, var(--primary-cyan), #00A8B8);
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
             color: var(--white);
-            padding: 12px 24px;
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
         }
 
         .upload-button:hover {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(1, 196, 200, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
         }
 
         /* Extended Thinking Options */
@@ -509,6 +579,37 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .intelligence-augmentation-header {
+                height: 180px;
+                padding: 1rem 0;
+            }
+            
+            .ia-container {
+                padding: 0 1.5rem;
+            }
+            
+            .ia-content {
+                gap: 2rem;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .ia-logo-image {
+                width: 100px;
+            }
+            
+            .ia-introducing {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2.8rem;
+                line-height: 0.8;
+                letter-spacing: -1px;
+            }
+            
             .container {
                 padding: 0 15px;
             }
@@ -533,6 +634,30 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        @media (max-width: 480px) {
+            .intelligence-augmentation-header {
+                height: 140px;
+            }
+            
+            .ia-content {
+                gap: 1.5rem;
+            }
+            
+            .ia-logo-image {
+                width: 80px;
+            }
+            
+            .ia-introducing {
+                font-size: 1rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+        }
 
         /* Utility Classes */
         .hidden {
@@ -554,19 +679,18 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">💼</div>
-                    <div>
-                        <div class="logo-text">NXT HUMANS</div>
-                        <div class="app-title">LinkedIn Post Generator</div>
-                    </div>
+    <header class="intelligence-augmentation-header">
+        <div class="ia-container">
+            <div class="ia-content">
+                <div class="ia-logo-section">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
                 </div>
-                <div class="thinking-badge">
-                    <div class="thinking-icon"></div>
-                    Extended Thinking Mode
+                <div class="ia-text-section">
+                    <div class="ia-introducing">Intelligence Augmentation</div>
+                    <div class="ia-main-text">
+                        <div class="ia-intelligence">LinkedIn Post</div>
+                        <div class="ia-augmentation">Generator</div>
+                    </div>
                 </div>
             </div>
         </div>

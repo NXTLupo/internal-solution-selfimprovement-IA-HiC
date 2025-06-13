@@ -55,20 +55,7 @@ const App = (props) => {
   };
   
   return (
-    <div className="enterprise-body">
-      {/* Enterprise Hero Section */}
-      <div className="enterprise-hero">
-        <div className="enterprise-container">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <i className="fas fa-brain"></i>
-              <span>Claude 3.7 Sonnet</span>
-            </div>
-            <h2 className="hero-title">AI Journey Mapper</h2>
-            <p className="hero-subtitle">Transform raw data into comprehensive customer journey maps with intelligent analysis and interactive visualization</p>
-          </div>
-        </div>
-      </div>
+    <div className="enterprise-body">{/* Intelligence Augmentation header is rendered in HTML template */}
 
       <div className="enterprise-container">
         {/* Upload Form - Primary Action */}

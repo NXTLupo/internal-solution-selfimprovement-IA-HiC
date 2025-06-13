@@ -1,66 +1,150 @@
-/* NXT HUMANS Standardized Header - v3.0 */
+/* Intelligence Augmentation Header - Social Research Analysis Tool */
 
-.nxt-header {
-  background-color: #1A1A1A;
-  height: 120px;
+/* Global styling for the app */
+body {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Force ALL text to be white */
+* {
+  color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+  color: #ffffff !important;
+}
+
+/* Intelligence Augmentation Header */
+.intelligence-augmentation-header {
+  background: #000000;
+  height: 240px;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  justify-content: center;
   width: 100%;
   position: relative;
   z-index: 100;
-  border-bottom: 2px solid rgba(1, 196, 200, 0.3);
+  overflow: hidden;
 }
 
-.nxt-header .container {
+.intelligence-augmentation-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(139, 69, 19, 0.15) 30%, rgba(255, 20, 147, 0.25) 60%, rgba(255, 0, 128, 0.3) 100%);
+  transform: skewX(-20deg) translateX(20%);
+  z-index: 1;
+}
+
+.ia-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
-.nxt-header-content {
+.ia-content {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  gap: 3rem;
   width: 100%;
-}
-
-.nxt-logo-container {
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.nxt-logo-image {
-  height: 48px;
-  margin-right: 1rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s ease;
+.ia-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.nxt-logo-text {
-  display: inline-block;
-  text-align: left;
+.ia-logo-image {
+  width: 140px;
+  height: auto;
+  opacity: 1;
+  filter: brightness(1.1);
+  object-fit: contain;
 }
 
-.nxt-logo-text h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+.ia-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ia-introducing {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ia-main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ia-intelligence,
+.ia-augmentation {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  color: #FFFFFF;
-  line-height: 1.2;
+}
+
+.ia-intelligence {
+  margin-bottom: -0.3rem;
+}
+
+/* React App Root Container Styling */
+#root {
+  background: transparent;
+  min-height: calc(100vh - 240px);
+  position: relative;
+}
+
+/* Global component styling for React app */
+.nxt-header {
+  background-color: transparent;
+  height: 0;
+  display: none;
+}
+
+/* Legacy header styling (hidden) */
+.nxt-header-content,
+.nxt-logo-container,
+.nxt-app-title {
+  display: none;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+  color: #ffffff !important;
   display: inline-block;
   font-weight: 700;
 }
@@ -88,22 +172,66 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .nxt-header {
-    height: auto;
-    padding: 1.5rem 0;
+  .intelligence-augmentation-header {
+    height: 180px;
+    padding: 1rem 0;
   }
   
-  .nxt-logo-container {
-    flex-direction: column;
+  .ia-container {
+    padding: 0 1.5rem;
   }
   
-  .nxt-logo-image {
-    margin-right: 0;
-    margin-bottom: 1rem;
+  .ia-content {
+    gap: 2rem;
+    flex-direction: row;
+    align-items: center;
   }
   
-  .nxt-logo-text h1 {
-    font-size: 1.8rem;
-    text-align: center;
+  .ia-logo-image {
+    width: 100px;
+  }
+  
+  .ia-introducing {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2.8rem;
+    line-height: 0.8;
+    letter-spacing: -1px;
+  }
+  
+  #root {
+    min-height: calc(100vh - 180px);
+  }
+}
+
+@media (max-width: 480px) {
+  .intelligence-augmentation-header {
+    height: 140px;
+  }
+  
+  .ia-content {
+    gap: 1.5rem;
+  }
+  
+  .ia-logo-image {
+    width: 80px;
+  }
+  
+  .ia-introducing {
+    font-size: 1rem;
+  }
+  
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+  
+  #root {
+    min-height: calc(100vh - 140px);
   }
 }

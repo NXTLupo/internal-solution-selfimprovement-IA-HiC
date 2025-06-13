@@ -8,21 +8,29 @@
   <link rel="stylesheet" href="/static/enhanced-components.css">
   <link rel="stylesheet" href="/static/enterprise-dashboard.css">
   <link rel="stylesheet" href="/static/nxt-header.css">
-  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <!-- Favicon declarations in proper order -->
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/nxt-humans-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/nxt-humans-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <meta name="description" content="NXT Humans AI CX Workbench - Comprehensive customer experience research platform">
   <meta name="theme-color" content="#01C4C8">
   <link rel="stylesheet" href="/static/chatbot.css">
 </head>
 <body data-enable-agent="true">
-  <header class="nxt-header">
-    <div class="container">
-      <div class="nxt-header-content">
-        <div class="nxt-logo-container">
-          <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="nxt-logo-image">
+  <header class="intelligence-augmentation-header">
+    <div class="ia-container">
+      <div class="ia-content">
+        <div class="ia-logo-section">
+          <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
         </div>
-        <div class="nxt-app-title">
-          <h1>AI CX Workbench</h1>
+        <div class="ia-text-section">
+          <div class="ia-introducing">Introducing</div>
+          <div class="ia-main-text">
+            <div class="ia-intelligence">Intelligence</div>
+            <div class="ia-augmentation">Augmentation</div>
+          </div>
         </div>
       </div>
     </div>
@@ -31,26 +39,8 @@
   <div class="enterprise-hero">
     <div class="enterprise-container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <i class="fas fa-robot"></i>
-          <span>AI Powered Platform</span>
-        </div>
         <h2 class="hero-title">Customer Experience Intelligence Suite</h2>
-        <p class="hero-subtitle">Enterprise-grade platform for advanced customer journey analysis, data collection, and AI-driven insights</p>
-        <div class="platform-stats">
-          <div class="stat-item">
-            <div class="stat-number">7</div>
-            <div class="stat-label">AI Tools</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">3</div>
-            <div class="stat-label">AI Models</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Insights</div>
-          </div>
-        </div>
+        <p class="hero-subtitle">Advanced customer journey analysis, data collection, and AI-driven insights</p>
       </div>
     </div>
   </div>
@@ -270,111 +260,6 @@
               <i class="fas fa-external-link-alt"></i>
               Launch Application
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Enterprise Actions Section -->
-    <div class="apps-section">
-      <div class="enterprise-actions">
-        <div class="actions-header">
-          <h3 class="actions-title">Platform Management</h3>
-          <p class="actions-description">Monitor and control all platform services</p>
-        </div>
-        <div class="actions-grid">
-          <button id="launch-all-btn" class="enterprise-action-btn primary">
-            <i class="fas fa-rocket"></i>
-            <span>Launch All Services</span>
-          </button>
-          <a href="/status" class="enterprise-action-btn secondary">
-            <i class="fas fa-chart-bar"></i>
-            <span>Service Status</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="enterprise-container">
-    <div class="enterprise-footer-section">
-      <div class="service-endpoints">
-        <div class="endpoints-header">
-          <h3 class="endpoints-title">Service Endpoints</h3>
-          <p class="endpoints-description">Direct access URLs for all platform services</p>
-        </div>
-        <div class="endpoints-grid">
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-home"></i>
-              Launchpad Dashboard
-            </div>
-            <div class="endpoint-url">
-              <span id="launchpad-url-display"></span><span id="launchpad-port-badge">:<span id="launchpad-port-display">8000</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-route"></i>
-              Journey Mapper (Claude)
-            </div>
-            <div class="endpoint-url">
-              <span id="journey-mapper-url-display"></span><span id="journey-mapper-port-badge">:<span id="journey-mapper-port-display">8080</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-brain"></i>
-              Journey Mapper (o3)
-            </div>
-            <div class="endpoint-url">
-              <span id="openai-journey-mapper-url-display"></span><span id="openai-journey-mapper-port-badge">:<span id="openai-journey-mapper-port-display">8090</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fab fa-reddit-alien"></i>
-              Reddit Data Collector
-            </div>
-            <div class="endpoint-url">
-              <span id="reddit-ripper-url-display"></span><span id="reddit-ripper-port-badge">:<span id="reddit-ripper-port-display">5001</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-chart-pie"></i>
-              Social Research Analytics
-            </div>
-            <div class="endpoint-url">
-              <span id="social-research-url-display"></span><span id="social-research-port-badge">:<span id="social-research-port-display">3000</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-video"></i>
-              Video Transcription
-            </div>
-            <div class="endpoint-url">
-              <span id="video-analyzer-url-display"></span><span id="video-analyzer-port-badge">:<span id="video-analyzer-port-display">5002</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fab fa-linkedin"></i>
-              LinkedIn Generator
-            </div>
-            <div class="endpoint-url">
-              <span id="linkedin-generator-url-display"></span><span id="linkedin-generator-port-badge">:<span id="linkedin-generator-port-display">5003</span></span>
-            </div>
-          </div>
-          <div class="endpoint-item">
-            <div class="endpoint-label">
-              <i class="fas fa-project-diagram"></i>
-              Miro Board Generator
-            </div>
-            <div class="endpoint-url">
-              <span id="miro-generator-url-display"></span><span id="miro-generator-port-badge">:<span id="miro-generator-port-display">5004</span></span>
-            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,117 @@
-/* NXT HUMANS Standardized Header - v3.0 */
+/* Intelligence Augmentation Header - Matching Banner Design */
+
+.intelligence-augmentation-header {
+  background: #000000;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.intelligence-augmentation-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(139, 69, 19, 0.15) 30%, rgba(255, 20, 147, 0.25) 60%, rgba(255, 0, 128, 0.3) 100%);
+  transform: skewX(-20deg) translateX(20%);
+  z-index: 1;
+}
+
+.ia-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ia-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.ia-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ia-logo-image {
+  width: 140px;
+  height: auto;
+  opacity: 1;
+  filter: brightness(1.1);
+  object-fit: contain;
+}
+
+.ia-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ia-introducing {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ia-main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ia-intelligence {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.ia-augmentation {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, rgba(255, 20, 147, 1) 0%, rgba(255, 105, 180, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.ia-intelligence {
+  margin-bottom: -0.3rem;
+}
 
 .nxt-header {
   background-color: #1A1A1A;
@@ -80,11 +193,11 @@
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-clip: unset !important;
+  color: #ffffff !important;
   display: inline-block;
   font-weight: 700;
 }
@@ -110,8 +223,120 @@
   font-size: 0.875rem;
 }
 
+/* Cinematic Page Styling */
+body {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Force ALL text to be white */
+* {
+  color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+  color: #ffffff !important;
+}
+
+.enterprise-hero {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.enterprise-container {
+  background-color: transparent;
+}
+
+.enterprise-card {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.enterprise-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+  transform: translateY(-8px);
+}
+
+.section-title {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 1) 0%, rgba(255, 105, 180, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.section-description {
+  color: #ffffff !important;
+}
+
+.service-title {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.service-description {
+  color: #ffffff !important;
+}
+
+.enterprise-btn {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
+  border: 1px solid rgba(255, 20, 147, 0.3);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+  transition: all 0.2s ease;
+}
+
+.enterprise-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 1) 0%, rgba(196, 1, 128, 1) 100%);
+  border-color: rgba(255, 20, 147, 0.5);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+  transform: translateY(-3px);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .intelligence-augmentation-header {
+    height: 180px;
+    padding: 1rem 0;
+  }
+  
+  .ia-container {
+    padding: 0 1.5rem;
+  }
+  
+  .ia-content {
+    gap: 2rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .ia-logo-image {
+    width: 100px;
+  }
+  
+  .ia-introducing {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2.8rem;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    padding: 1px 0;
+  }
+  
   .nxt-header {
     height: auto;
     padding: 1.5rem 0;
@@ -133,5 +358,31 @@
   
   .nxt-logo-text {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intelligence-augmentation-header {
+    height: 140px;
+  }
+  
+  .ia-content {
+    gap: 1.5rem;
+  }
+  
+  .ia-logo-image {
+    width: 80px;
+  }
+  
+  .ia-introducing {
+    font-size: 1rem;
+  }
+  
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2rem;
+    line-height: 1.0;
+    letter-spacing: -1px;
+    padding: 1px 0;
   }
 }

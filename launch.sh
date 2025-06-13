@@ -141,17 +141,102 @@ kill_running_processes() {
   kill_port 8505  # OpenAI Journey MCP
 }
 
+# Generate SSL certificates for HTTPS
+setup_ssl_certificates() {
+  echo -e "${YELLOW}Setting up SSL certificates for HTTPS...${NC}"
+  
+  if [ ! -d "ssl-certs" ]; then
+    mkdir ssl-certs
+  fi
+  
+  if [ ! -f "ssl-certs/localhost.crt" ] || [ ! -f "ssl-certs/localhost.key" ]; then
+    echo -e "${YELLOW}Generating self-signed SSL certificates...${NC}"
+    
+    # Create OpenSSL configuration
+    cat > ssl-certs/openssl.conf << EOF
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = US
+ST = CA
+L = San Francisco
+O = NXT Humans
+OU = AI CX Workbench
+CN = localhost
+
+[v3_req]
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+DNS.2 = *.localhost
+IP.1 = 127.0.0.1
+IP.2 = ::1
+EOF
+    
+    # Generate certificate and key
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+      -keyout ssl-certs/localhost.key \
+      -out ssl-certs/localhost.crt \
+      -config ssl-certs/openssl.conf \
+      -extensions v3_req >/dev/null 2>&1
+    
+    if [ $? -eq 0 ]; then
+      echo -e "${GREEN}SSL certificates generated successfully!${NC}"
+    else
+      echo -e "${RED}Failed to generate SSL certificates${NC}"
+      exit 1
+    fi
+  else
+    echo -e "${GREEN}SSL certificates already exist.${NC}"
+  fi
+}
+
+# Start HTTPS proxy alongside main services
+start_https_proxy() {
+  echo -e "${YELLOW}Starting HTTPS proxy for secure connections...${NC}"
+  
+  # Wait for main services to be ready
+  sleep 5
+  
+  # Start HTTPS proxy
+  docker compose -f docker-compose-https.yml up -d
+  
+  if [ $? -eq 0 ]; then
+    echo -e "${GREEN}HTTPS proxy started successfully!${NC}"
+  else
+    echo -e "${YELLOW}HTTPS proxy failed to start (this is optional)${NC}"
+  fi
+}
+
 # Start services using Docker
 start_services() {
   echo -e "${YELLOW}Starting all services...${NC}"
   
   # Stop any existing containers
   docker compose -f docker-compose-all.yml down 2>/dev/null || true
+  docker compose -f docker-compose-https.yml down 2>/dev/null || true
   docker compose down 2>/dev/null || true
   
-  # Create or update the docker-compose-all.override.yml file with explicit API keys
+  # Create or update the docker-compose-all.override.yml file with explicit API keys and HTTPS URLs
   cat > docker-compose-all.override.yml << EOF
 services:
+  launchpad:
+    environment:
+      # HTTPS Client URLs for secure navigation
+      - JOURNEY_MAPPER_CLIENT_URL=https://localhost:8444
+      - OPENAI_JOURNEY_MAPPER_CLIENT_URL=https://localhost:8445
+      - REDDIT_RIPPER_CLIENT_URL=https://localhost:8446
+      - SOCIAL_RESEARCH_CLIENT_URL=https://localhost:8447
+      - VIDEO_ANALYZER_CLIENT_URL=https://localhost:8448
+      - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
+      - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
+
   video-analyzer:
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
@@ -191,6 +276,8 @@ EOF
   
   if [ $? -eq 0 ]; then
     echo -e "${GREEN}All services started successfully!${NC}"
+    # Start HTTPS proxy after main services
+    start_https_proxy
   else
     echo -e "${RED}Error starting services. Check Docker logs for details.${NC}"
     exit 1
@@ -201,6 +288,7 @@ EOF
 setup_env_file
 setup_static_files
 setup_video_analyzer
+setup_ssl_certificates
 kill_running_processes
 
 # Check if Docker is running
@@ -213,17 +301,32 @@ fi
 start_services
 
 echo -e "\n${GREEN}${BOLD}ALL SERVICES HAVE BEEN STARTED!${NC}"
-echo -e "${YELLOW}Access the services at:${NC}"
+echo ""
+echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"
 echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   http://localhost:8080"
 echo -e "  ${BLUE}Journey Mapper (o3):${NC}       http://localhost:8090"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"
-echo -e "  ${BLUE}Video Analyzer:${NC}           http://localhost:5002"
+echo -e "  ${BLUE}Video Transcriptor:${NC}       http://localhost:5002"
+echo ""
+echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
+echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
+echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   https://localhost:8444"
+echo -e "  ${BLUE}Journey Mapper (o3):${NC}       https://localhost:8445"
+echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
+echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"
+echo ""
+echo -e "${YELLOW}${BOLD}🛡️  BROWSER SECURITY:${NC}"
+echo -e "• HTTPS URLs eliminate 'Not Secure' warnings"
+echo -e "• Accept security warning on first visit (self-signed cert)"
+echo -e "• Both HTTP and HTTPS work - use HTTPS for secure look"
 echo ""
 echo -e "${YELLOW}To monitor logs:${NC}"
 echo -e "  docker compose -f docker-compose-all.yml logs -f [service-name]"
+echo -e "  docker compose -f docker-compose-https.yml logs -f"
 echo ""
 echo -e "${YELLOW}To stop all services:${NC}"
 echo -e "  docker compose -f docker-compose-all.yml down"
+echo -e "  docker compose -f docker-compose-https.yml down"
 echo ""
-echo -e "${GREEN}${BOLD}Enjoy using the NXT HUMANS AI CX WORKBENCH!${NC}"
+echo -e "${GREEN}${BOLD}🚀 START BROWSING: Visit https://localhost:8443 for secure access!${NC}"

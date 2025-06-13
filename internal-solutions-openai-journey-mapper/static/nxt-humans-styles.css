@@ -214,13 +214,18 @@ small {
 }
 
 .nxt-btn-primary {
-  background-color: var(--cyan-primary);
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
   color: var(--text-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
 }
 
 .nxt-btn-primary:hover {
-  background-color: var(--cyan-primary-80);
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
   color: var(--text-light);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
 }
 
 .nxt-btn-secondary {

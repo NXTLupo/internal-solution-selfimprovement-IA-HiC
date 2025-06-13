@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI Journey Mapper with Claude 4</title>
+  <link rel="icon" href="/static/claude4-favicon.svg?t=1749778984" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/claude4-favicon.svg?t=1749778984">
   <style>
     :root {
       --primary-color: #01C4C8;
@@ -25,38 +27,123 @@
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background-color: var(--off-white);
+      color: #ffffff;
+      background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
       margin: 0;
       padding: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
     
-    .header {
-      background-color: var(--dark-bg);
-      color: var(--white);
-      padding: 1rem 2rem;
-      box-shadow: var(--shadow);
+    /* Force ALL text to be white */
+    * {
+      color: #ffffff !important;
     }
     
-    .header h1 {
-      margin: 0;
-      font-size: 1.8rem;
+    h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+      color: #ffffff !important;
+    }
+    
+    /* Intelligence Augmentation Header */
+    .intelligence-augmentation-header {
+      background: #000000;
+      height: 240px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      z-index: 100;
+      overflow: hidden;
     }
-    
-    .header h1 span {
-      margin-left: 0.5rem;
+
+    .intelligence-augmentation-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 0%, rgba(139, 69, 19, 0.15) 30%, rgba(255, 20, 147, 0.25) 60%, rgba(255, 0, 128, 0.3) 100%);
+      transform: skewX(-20deg) translateX(20%);
+      z-index: 1;
     }
-    
-    .logo {
-      height: 40px;
-      margin-right: 1rem;
+
+    .ia-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ia-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .ia-logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ia-logo-image {
+      width: 140px;
+      height: auto;
+      opacity: 1;
+      filter: brightness(1.1);
+      object-fit: contain;
+    }
+
+    .ia-text-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .ia-introducing {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .ia-main-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .ia-intelligence,
+    .ia-augmentation {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ia-intelligence {
+      margin-bottom: -0.3rem;
     }
     
     .container {
@@ -69,9 +156,11 @@
     }
     
     .card {
-      background-color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       padding: 2rem;
       margin-bottom: 2rem;
     }
@@ -140,21 +229,22 @@
     
     .btn {
       display: inline-block;
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      border-radius: var(--border-radius);
+      border-radius: 0.5rem;
       cursor: pointer;
       transition: var(--transition);
-      font-weight: 600;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
     }
     
     .btn:hover {
-      background-color: var(--primary-dark);
+      background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
     }
     
     .btn:disabled {
@@ -250,6 +340,37 @@
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      .intelligence-augmentation-header {
+        height: 180px;
+        padding: 1rem 0;
+      }
+      
+      .ia-container {
+        padding: 0 1.5rem;
+      }
+      
+      .ia-content {
+        gap: 2rem;
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .ia-logo-image {
+        width: 100px;
+      }
+      
+      .ia-introducing {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .ia-intelligence,
+      .ia-augmentation {
+        font-size: 2.8rem;
+        line-height: 0.8;
+        letter-spacing: -1px;
+      }
+      
       .container {
         padding: 0 1rem;
         margin: 1rem auto;
@@ -264,23 +385,49 @@
         align-items: flex-start;
         gap: 0.5rem;
       }
-      
-      .header h1 {
-        font-size: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      .intelligence-augmentation-header {
+        height: 140px;
       }
       
-      .logo {
-        height: 30px;
+      .ia-content {
+        gap: 1.5rem;
+      }
+      
+      .ia-logo-image {
+        width: 80px;
+      }
+      
+      .ia-introducing {
+        font-size: 1rem;
+      }
+      
+      .ia-intelligence,
+      .ia-augmentation {
+        font-size: 2rem;
+        letter-spacing: -1px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1>
-      <img src="/static/nxt-humans-logo.png" alt="NXT Humans" class="logo" onerror="this.style.display='none'">
-      <span>Claude 4 Journey Mapper</span>
-    </h1>
+  <header class="intelligence-augmentation-header">
+    <div class="ia-container">
+      <div class="ia-content">
+        <div class="ia-logo-section">
+          <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+        </div>
+        <div class="ia-text-section">
+          <div class="ia-introducing">Intelligence Augmentation</div>
+          <div class="ia-main-text">
+            <div class="ia-intelligence">Claude 4</div>
+            <div class="ia-augmentation">Journey Mapper</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   
   <div class="container">
