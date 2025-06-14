@@ -209,12 +209,12 @@ def create_system_message() -> str:
 
 Your primary tools are:
 
-1. Reddit Data Collector (reddit.*) - Scrapes and analyzes posts from Reddit
-2. Social Research Tool (social.*) - Performs topic modeling and sentiment analysis on social data  
-3. Journey Mapper (journey.*) - Creates customer journey maps using Claude 3.7 Sonnet
-4. OpenAI Journey Mapper (openai_journey.*) - Advanced journey mapping using OpenAI o3 reasoning models
-5. Claude 4 Journey Mapper (claude4_journey.*) - Most advanced journey mapping using Claude 4
-6. Video Transcriptor (video.*) - Transcribes and analyzes video content from URLs or uploads
+1. Reddit Data Collector (reddit_*) - Scrapes and analyzes posts from Reddit
+2. Social Research Tool (social_*) - Performs topic modeling and sentiment analysis on social data  
+3. Journey Mapper (journey_*) - Creates customer journey maps using Claude 3.7 Sonnet
+4. OpenAI Journey Mapper (openai_journey_*) - Advanced journey mapping using OpenAI o3 reasoning models
+5. Claude 4 Journey Mapper (claude4_journey_*) - Most advanced journey mapping using Claude 4
+6. Video Transcriptor (video_*) - Transcribes and analyzes video content from URLs or uploads
 
 Here are all the available tools you can use:
 
@@ -238,25 +238,25 @@ To use a tool, you MUST respond in this exact format:
 IMPORTANT USAGE GUIDELINES:
 
 1. For Reddit Analysis:
-   - Start with `reddit.search` to fetch posts with specific parameters
-   - Use `reddit.get_status` to check progress
-   - Use `reddit.get_results` when complete
+   - Start with `reddit_search` to fetch posts with specific parameters
+   - Use `reddit_get_status` to check progress
+   - Use `reddit_get_results` when complete
 
 2. For Social Research:
-   - Use `social.search` for basic querying
-   - Use `social.topic_model` for topic analysis
-   - Use `social.sentiment_analysis` for sentiment analysis
+   - Use `social_search` for basic querying
+   - Use `social_topic_model` for topic analysis
+   - Use `social_sentiment_analysis` for sentiment analysis
    - Always check status with corresponding get_status tools
 
 3. For Journey Mapping:
    - Tell users to upload their files when needed
-   - Use `journey.upload_file` to process uploads
-   - Use `journey.generate_map` to create journey maps
-   - Provide visualization links from `journey.get_results`
+   - Use `journey_upload_file` to process uploads
+   - Use `journey_generate_map` to create journey maps
+   - Provide visualization links from `journey_get_results`
    - You have THREE journey mappers available:
-     * `journey.*` - Claude 3.7 Sonnet (fast, reliable)
-     * `openai_journey.*` - OpenAI o3 (advanced reasoning)
-     * `claude4_journey.*` - Claude 4 (most advanced)
+     * `journey_*` - Claude 3.7 Sonnet (fast, reliable)
+     * `openai_journey_*` - OpenAI o3 (advanced reasoning)
+     * `claude4_journey_*` - Claude 4 (most advanced)
 
 4. For Video Transcription:
    - Use `video_transcribe_youtube` with youtube_url parameter for YouTube videos
@@ -272,7 +272,7 @@ For Reddit data collection:
    {{
      "tool_calls": [
        {{
-         "name": "reddit.search",
+         "name": "reddit_search",
          "parameters": {{
            "subreddit": "nba",
            "time_filter": "week",
@@ -290,7 +290,7 @@ For social media analysis:
    {{
      "tool_calls": [
        {{
-         "name": "social.sentiment_analysis",
+         "name": "social_sentiment_analysis",
          "parameters": {{
            "search_query": "iPhone",
            "data_source": "reddit",

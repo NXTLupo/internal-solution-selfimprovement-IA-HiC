@@ -578,12 +578,17 @@ async def analyze_files(
             body_pos = journey_html.find("<body>") + len("<body>")
             journey_html = journey_html[:body_pos] + summary_html + journey_html[body_pos:]
             
-        # Create export functionality HTML
-        export_script_html = """
+        # Create export and editing functionality HTML
+        export_script_html = f"""
 <script src="/static/journey_export.js"></script>
+<script>
+// Journey Map Editing Functionality
+window.journeyMapId = '{journey_id}';
+</script>
+<script src="/static/journey_editor.js"></script>
 """
         
-        # Insert model_info_html and export functionality before </body>
+        # Insert model_info_html, export and editing functionality before </body>
         if "</body>" in journey_html:
             journey_html = journey_html.replace("</body>", f"{model_info_html}{export_script_html}</body>")
         
@@ -919,6 +924,142 @@ def transform_html_for_pdf(html_content):
     
     return new_html
     
+# Journey Map Editing Endpoints
+class EditRequest(BaseModel):
+    element_id: str
+    new_text: Optional[str] = None
+    new_color: Optional[str] = None
+
+@app.post("/api/edit-journey-map/{journey_id}")
+async def edit_journey_map(journey_id: str, edit_request: EditRequest):
+    """
+    Edit a journey map element (text or color)
+    """
+    try:
+        html_filename = f"journey_map_{journey_id}.html"
+        html_path = os.path.join("journey_maps", html_filename)
+        
+        if not os.path.exists(html_path):
+            return JSONResponse(
+                status_code=404,
+                content={"error": "Journey map not found"}
+            )
+        
+        # Read the current HTML
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        
+        # Apply edits based on request
+        if edit_request.new_text is not None:
+            # Update text content
+            html_content = update_element_text(html_content, edit_request.element_id, edit_request.new_text)
+        
+        if edit_request.new_color is not None:
+            # Update element color
+            html_content = update_element_color(html_content, edit_request.element_id, edit_request.new_color)
+        
+        # Save the updated HTML
+        with open(html_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        return JSONResponse(content={"success": True, "message": "Journey map updated successfully"})
+        
+    except Exception as e:
+        log.error(f"Error editing journey map: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Failed to edit journey map: {str(e)}"}
+        )
+
+@app.delete("/api/remove-element/{journey_id}")
+async def remove_element(journey_id: str, element_id: str = Query(...)):
+    """
+    Remove an element from a journey map
+    """
+    try:
+        html_filename = f"journey_map_{journey_id}.html"
+        html_path = os.path.join("journey_maps", html_filename)
+        
+        if not os.path.exists(html_path):
+            return JSONResponse(
+                status_code=404,
+                content={"error": "Journey map not found"}
+            )
+        
+        # Read the current HTML
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        
+        # Remove the element
+        html_content = remove_element_from_html(html_content, element_id)
+        
+        # Save the updated HTML
+        with open(html_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        return JSONResponse(content={"success": True, "message": "Element removed successfully"})
+        
+    except Exception as e:
+        log.error(f"Error removing element: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Failed to remove element: {str(e)}"}
+        )
+
+def update_element_text(html_content: str, element_id: str, new_text: str) -> str:
+    """Update text content of an element by ID"""
+    import re
+    
+    # Pattern to find element by ID and replace its text content
+    pattern = rf'(<[^>]*id="{re.escape(element_id)}"[^>]*>)(.*?)(<\/[^>]+>)'
+    
+    def replace_text(match):
+        start_tag = match.group(1)
+        end_tag = match.group(3)
+        return f"{start_tag}{new_text}{end_tag}"
+    
+    return re.sub(pattern, replace_text, html_content, flags=re.DOTALL)
+
+def update_element_color(html_content: str, element_id: str, new_color: str) -> str:
+    """Update color style of an element by ID"""
+    import re
+    
+    # Pattern to find element by ID
+    pattern = rf'(<[^>]*id="{re.escape(element_id)}"[^>]*)'
+    
+    def add_or_update_color(match):
+        tag = match.group(1)
+        
+        # Check if style attribute exists
+        if 'style=' in tag:
+            # Update existing style
+            style_pattern = r'style="([^"]*)"'
+            def update_style(style_match):
+                existing_styles = style_match.group(1)
+                # Remove any existing color declarations
+                styles_cleaned = re.sub(r'color:\s*[^;]*;?', '', existing_styles)
+                # Add new color
+                new_styles = f"{styles_cleaned.rstrip(';')}; color: {new_color};"
+                return f'style="{new_styles}"'
+            
+            tag = re.sub(style_pattern, update_style, tag)
+        else:
+            # Add new style attribute
+            tag = tag.rstrip('>') + f' style="color: {new_color};">'
+        
+        return tag
+    
+    return re.sub(pattern, add_or_update_color, html_content)
+
+def remove_element_from_html(html_content: str, element_id: str) -> str:
+    """Remove an element and its content by ID"""
+    import re
+    
+    # Pattern to find and remove element by ID (including all nested content)
+    pattern = rf'<[^>]*id="{re.escape(element_id)}"[^>]*>.*?</[^>]+>'
+    
+    return re.sub(pattern, '', html_content, flags=re.DOTALL)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
