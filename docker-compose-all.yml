@@ -10,12 +10,14 @@ services:
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
       - LINKEDIN_GENERATOR_URL=http://linkedin-generator:5000
       - MIRO_GENERATOR_URL=http://miro-generator:5004
+      - IMAGE_CAPTIONER_URL=http://image-captioner:5005
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
       - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
       - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
       - LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:${LINKEDIN_GENERATOR_PORT:-5003}
       - MIRO_GENERATOR_CLIENT_URL=http://localhost:${MIRO_GENERATOR_PORT:-5004}
+      - IMAGE_CAPTIONER_CLIENT_URL=http://localhost:${IMAGE_CAPTIONER_PORT:-5005}
       - PORT=8000
       - ENABLE_CX_AGENT=true
       - AGENT_URL=http://agent:8500
@@ -358,6 +360,22 @@ services:
     networks:
       - nxt-humans-network
 
+  image-captioner:
+    build:
+      context: ./internal-solutions-image-captioner
+      dockerfile: Dockerfile
+    ports:
+      - "${IMAGE_CAPTIONER_PORT:-5005}:5005"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5005
+    volumes:
+      - ./internal-solutions-image-captioner:/app
+      - image-captioner-uploads:/app/uploads
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
 networks:
   nxt-humans-network:
     driver: bridge
@@ -376,4 +394,8 @@ volumes:
   miro-generator-uploads:
     driver: local
   miro-generator-output:
+    driver: local
+  image-captioner-uploads:
+    driver: local
+  image-captioner-generated:
     driver: local

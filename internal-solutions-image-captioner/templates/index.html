@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A11y Image Caption Generator | NXT Humans Intelligence Augmentation</title>
+    <!-- Favicon declarations in proper order -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/static/a11y-favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/a11y-favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-cyan: #01C4C8;
+            --dark-bg: #121B26;
+            --light-grey: #5A6275;
+            --medium-grey: #4A5165;
+            --white: #FFFFFF;
+            --gradient-bg: linear-gradient(135deg, #121B26 0%, #1E2832 50%, #2A3441 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Force ALL text to be white */
+        * {
+            color: #ffffff !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+            color: #ffffff !important;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Intelligence Augmentation Header */
+        .intelligence-augmentation-header {
+            background: #000000;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .intelligence-augmentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(1, 196, 200, 0.15) 30%, rgba(0, 191, 255, 0.25) 60%, rgba(64, 224, 255, 0.3) 100%);
+            transform: skewX(-20deg) translateX(20%);
+            z-index: 1;
+        }
+
+        .ia-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ia-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ia-logo-image {
+            width: 140px;
+            height: auto;
+            opacity: 1;
+            filter: brightness(1.1);
+            object-fit: contain;
+        }
+
+        .ia-text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ia-introducing {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .ia-main-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ia-intelligence,
+        .ia-augmentation {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ia-augmentation {
+            background: linear-gradient(135deg, rgba(1, 196, 200, 0.9) 0%, rgba(0, 191, 255, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ia-intelligence {
+            margin-bottom: -0.3rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .claude-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(1, 196, 200, 0.2) 0%, rgba(0, 191, 255, 0.3) 100%);
+            border: 1px solid rgba(1, 196, 200, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #01C4C8;
+            margin-bottom: 1rem;
+        }
+        
+        .upload-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fafafa;
+        }
+        
+        .drop-zone {
+            border: 2px dashed #01C4C8;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: rgba(1, 196, 200, 0.05);
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: #00BFFF;
+            background: rgba(1, 196, 200, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .drop-zone svg {
+            margin-bottom: 0.5rem;
+            color: #01C4C8;
+        }
+        
+        .drop-zone h3 {
+            margin: 0.5rem 0;
+            color: #fafafa;
+            font-weight: 500;
+        }
+        
+        .drop-zone p {
+            margin: 0;
+            color: #c9c9c9;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #01C4C8 0%, #00BFFF 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #00BFFF 0%, #01C4C8 100%);
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary:disabled {
+            background: #4a4a4a;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #01C4C8;
+            border: 1px solid #01C4C8;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(1, 196, 200, 0.1);
+        }
+        
+        .selected-files {
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .file-preview {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .file-name {
+            color: #fafafa;
+            font-weight: 500;
+        }
+        
+        .file-size {
+            color: #c9c9c9;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .remove-file {
+            background: #01C4C8;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+        
+        .remove-file:hover {
+            background: #00BFFF;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-left: 3px solid #01C4C8;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #c9c9c9;
+            font-style: italic;
+        }
+        
+        .error {
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid #DC143C;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .error h3 {
+            margin: 0 0 0.5rem 0;
+            color: #DC143C;
+        }
+        
+        .error p {
+            margin: 0;
+            color: #fafafa;
+        }
+        
+        .results {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .caption-editor {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+        
+        .editor-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .editor-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #01C4C8;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .editor-title svg {
+            margin-right: 0.5rem;
+        }
+        
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-field label {
+            color: #fafafa;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-field input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fafafa;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .input-field input:focus {
+            outline: none;
+            border-color: #01C4C8;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .checkbox-item label {
+            color: #c9c9c9;
+            font-size: 0.9rem;
+        }
+        
+        .editor-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-editor {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 500;
+        }
+        
+        .btn-find-replace {
+            background: linear-gradient(135deg, #01C4C8 0%, #00BFFF 100%);
+            color: white;
+        }
+        
+        .btn-find-replace:hover {
+            background: linear-gradient(135deg, #00BFFF 0%, #01C4C8 100%);
+            transform: translateY(-1px);
+        }
+        
+        .btn-export {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-export:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+        
+        .btn-toggle-editor {
+            background: transparent;
+            color: #01C4C8;
+            border: 1px solid #01C4C8;
+        }
+        
+        .btn-toggle-editor:hover {
+            background: rgba(1, 196, 200, 0.1);
+        }
+        
+        .export-options {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .export-format {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fafafa;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .status-message {
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .status-success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .status-info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+            color: #2196F3;
+        }
+        
+        .results-header {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px 8px 0 0;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .results-title {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fafafa;
+        }
+        
+        .summary-stats {
+            background: rgba(1, 196, 200, 0.1);
+            padding: 1rem 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #01C4C8;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #c9c9c9;
+            margin-top: 0.25rem;
+        }
+        
+        .result-grid {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 0 8px 8px;
+            padding: 1.5rem;
+        }
+        
+        .result-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .result-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .result-filename {
+            font-weight: 600;
+            color: #fafafa;
+            font-size: 1.1rem;
+        }
+        
+        .caption-container {
+            background: rgba(1, 196, 200, 0.1);
+            border-left: 4px solid #01C4C8;
+            padding: 1rem 1.5rem;
+            border-radius: 0 6px 6px 0;
+            margin: 1rem 0;
+        }
+        
+        .caption-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #fafafa;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.5;
+        }
+        
+        .caption-meta {
+            font-size: 0.85rem;
+            color: #c9c9c9;
+            margin: 0;
+        }
+        
+        /* Footer */
+        .nxt-footer {
+            background: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .nxt-footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nxt-footer-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem;
+            }
+            
+            .intelligence-augmentation-header {
+                height: 180px;
+            }
+            
+            .ia-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2.5rem;
+            }
+            
+            .ia-introducing {
+                font-size: 1.2rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .result-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .result-image {
+                margin: 0 0 1rem 0;
+            }
+            
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="intelligence-augmentation-header">
+        <div class="ia-container">
+            <div class="ia-content">
+                <div class="ia-logo-section">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                </div>
+                <div class="ia-text-section">
+                    <div class="ia-introducing">Intelligence Augmentation</div>
+                    <div class="ia-main-text">
+                        <div class="ia-intelligence">A11y Image</div>
+                        <div class="ia-augmentation">Caption Generator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="claude-badge">♿ Accessibility Powered by Claude 3.7</div>
+                <h1 class="hero-title">Professional Accessibility Image Captions</h1>
+                <p class="hero-subtitle">Making Digital Content Accessible for Everyone</p>
+                <p class="hero-description">
+                    Generate WCAG-compliant alt text and image descriptions using Claude 3.7 Sonnet's advanced vision AI. 
+                    Perfect for web accessibility, screen readers, and inclusive design workflows with bulk editing and export features.
+                </p>
+            </section>
+        </div>
+        
+        <div class="main-container">
+        
+        <div class="upload-section">
+            <h2 class="section-title">Upload Images for Accessibility Captions</h2>
+            
+            <div class="drop-zone" id="dropZone">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3>Drop your images here or click to browse</h3>
+                <p>Generate WCAG-compliant alt text • Supports: JPG, PNG, GIF, BMP, WebP • Max 10MB each • Up to 10 images</p>
+                <input type="file" id="imageInput" accept="image/*" multiple style="display: none;">
+            </div>
+            
+            <div class="selected-files" id="selectedFiles">
+                <h4>Selected Images:</h4>
+                <div id="fileList"></div>
+            </div>
+            
+            <div>
+                <button class="btn-primary" id="generateBtn" disabled>Generate A11y Captions</button>
+                <button class="btn-secondary" id="clearBtn" style="display: none;">Clear All</button>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="loading-text">Generating accessibility captions...</p>
+        </div>
+        
+        <div class="error" id="error">
+            <h3>Error</h3>
+            <p id="errorMessage"></p>
+        </div>
+        
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2 class="results-title">Accessibility Captions Generated</h2>
+                <button class="btn-editor btn-toggle-editor" id="toggleEditorBtn">
+                    ♿ Edit & Export A11y Captions
+                </button>
+            </div>
+            <div class="summary-stats" id="summaryStats">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalImages">0</div>
+                    <div class="stat-label">Images Processed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalTime">0.0s</div>
+                    <div class="stat-label">Total Processing Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="avgConfidence">0%</div>
+                    <div class="stat-label">Average Confidence</div>
+                </div>
+            </div>
+            
+            <!-- Caption Editor -->
+            <div class="caption-editor" id="captionEditor">
+                <!-- Find & Replace Section -->
+                <div class="editor-section">
+                    <div class="editor-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            <path d="M12 10h-2v1h2v-1zm0-2h-2v1h2V8z"/>
+                        </svg>
+                        Find & Replace Across All A11y Captions
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-field">
+                            <label for="findText">Find Text:</label>
+                            <input type="text" id="findText" placeholder="Enter text to find...">
+                        </div>
+                        <div class="input-field">
+                            <label for="replaceText">Replace With:</label>
+                            <input type="text" id="replaceText" placeholder="Enter replacement text...">
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="caseSensitive">
+                            <label for="caseSensitive">Case sensitive</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="wholeWordsOnly">
+                            <label for="wholeWordsOnly">Whole words only</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-editor btn-find-replace" id="findReplaceBtn">
+                        🔄 Find & Replace
+                    </button>
+                </div>
+                
+                <!-- Export Section -->
+                <div class="editor-section">
+                    <div class="editor-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        Export A11y Captions
+                    </div>
+                    
+                    <div class="export-options">
+                        <label>Format:</label>
+                        <select class="export-format" id="exportFormat">
+                            <option value="json">JSON (structured accessibility data)</option>
+                            <option value="csv">CSV (accessibility spreadsheet)</option>
+                            <option value="txt">TXT (plain alt text)</option>
+                        </select>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="includeMetadata" checked>
+                            <label for="includeMetadata">Include metadata</label>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-buttons">
+                        <button class="btn-editor btn-export" id="exportJsonBtn">
+                            📄 Download A11y JSON
+                        </button>
+                        <button class="btn-editor btn-export" id="exportCsvBtn">
+                            📊 Download A11y CSV
+                        </button>
+                        <button class="btn-editor btn-export" id="exportTxtBtn">
+                            📝 Download Alt Text
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Status Messages -->
+                <div class="status-message status-success" id="successMessage"></div>
+                <div class="status-message status-info" id="infoMessage"></div>
+            </div>
+            
+            <div class="result-grid" id="resultGrid"></div>
+        </div>
+        </div>
+    </main>
+    
+    <footer class="nxt-footer">
+        <div class="container">
+            <div class="nxt-footer-content">
+                <div class="nxt-footer-text">
+                    <p>Powered by Claude 3.7 Sonnet • Accessibility AI • WCAG Compliance • Intelligence Augmentation Suite</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const imageInput = document.getElementById('imageInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+        const errorMessage = document.getElementById('errorMessage');
+        const selectedFiles = document.getElementById('selectedFiles');
+        const fileList = document.getElementById('fileList');
+        const resultGrid = document.getElementById('resultGrid');
+        const totalImages = document.getElementById('totalImages');
+        const totalTime = document.getElementById('totalTime');
+        const avgConfidence = document.getElementById('avgConfidence');
+        const toggleEditorBtn = document.getElementById('toggleEditorBtn');
+        const captionEditor = document.getElementById('captionEditor');
+        const findReplaceBtn = document.getElementById('findReplaceBtn');
+        const exportJsonBtn = document.getElementById('exportJsonBtn');
+        const exportCsvBtn = document.getElementById('exportCsvBtn');
+        const exportTxtBtn = document.getElementById('exportTxtBtn');
+        const successMessage = document.getElementById('successMessage');
+        const infoMessage = document.getElementById('infoMessage');
+        
+        let selectedFilesList = [];
+        let currentCaptions = [];
+        
+        // Drop zone interactions
+        dropZone.addEventListener('click', () => imageInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            handleFileSelect(files);
+        });
+        
+        imageInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFileSelect(files);
+        });
+        
+        function handleFileSelect(files) {
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'];
+            
+            for (const file of files) {
+                // Validate file type
+                if (!allowedTypes.includes(file.type)) {
+                    showError(`Invalid file type: ${file.name}. Please select JPG, PNG, GIF, BMP, or WebP images.`);
+                    continue;
+                }
+                
+                // Validate file size
+                if (file.size > 10 * 1024 * 1024) {
+                    showError(`File too large: ${file.name}. Maximum size is 10MB.`);
+                    continue;
+                }
+                
+                // Check if already selected
+                if (selectedFilesList.find(f => f.name === file.name && f.size === file.size)) {
+                    continue; // Skip duplicates
+                }
+                
+                // Check total limit
+                if (selectedFilesList.length >= 10) {
+                    showError('Maximum 10 images allowed per batch.');
+                    break;
+                }
+                
+                selectedFilesList.push(file);
+            }
+            
+            updateFileList();
+            updateButtons();
+            hideError();
+        }
+        
+        function updateFileList() {
+            if (selectedFilesList.length === 0) {
+                selectedFiles.style.display = 'none';
+                return;
+            }
+            
+            selectedFiles.style.display = 'block';
+            fileList.innerHTML = '';
+            
+            selectedFilesList.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'file-info';
+                
+                // Create image preview
+                const img = document.createElement('img');
+                img.className = 'file-preview';
+                img.src = URL.createObjectURL(file);
+                img.alt = file.name;
+                
+                const fileDetails = document.createElement('div');
+                const fileName = document.createElement('div');
+                fileName.className = 'file-name';
+                fileName.textContent = file.name;
+                
+                const fileSize = document.createElement('span');
+                fileSize.className = 'file-size';
+                fileSize.textContent = `(${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                
+                fileDetails.appendChild(fileName);
+                fileDetails.appendChild(fileSize);
+                
+                fileInfo.appendChild(img);
+                fileInfo.appendChild(fileDetails);
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-file';
+                removeBtn.textContent = 'Remove';
+                removeBtn.onclick = () => removeFile(index);
+                
+                fileItem.appendChild(fileInfo);
+                fileItem.appendChild(removeBtn);
+                fileList.appendChild(fileItem);
+            });
+        }
+        
+        function removeFile(index) {
+            // Revoke object URL to prevent memory leak
+            const img = fileList.children[index].querySelector('.file-preview');
+            if (img && img.src.startsWith('blob:')) {
+                URL.revokeObjectURL(img.src);
+            }
+            
+            selectedFilesList.splice(index, 1);
+            updateFileList();
+            updateButtons();
+        }
+        
+        function updateButtons() {
+            generateBtn.disabled = selectedFilesList.length === 0;
+            clearBtn.style.display = selectedFilesList.length > 0 ? 'inline-block' : 'none';
+        }
+        
+        clearBtn.addEventListener('click', () => {
+            // Revoke all object URLs
+            fileList.querySelectorAll('.file-preview').forEach(img => {
+                if (img.src.startsWith('blob:')) {
+                    URL.revokeObjectURL(img.src);
+                }
+            });
+            
+            selectedFilesList = [];
+            updateFileList();
+            updateButtons();
+            hideError();
+            hideResults();
+        });
+        
+        generateBtn.addEventListener('click', async () => {
+            if (selectedFilesList.length === 0) return;
+            
+            showLoading();
+            hideError();
+            hideResults();
+            
+            const formData = new FormData();
+            selectedFilesList.forEach(file => {
+                formData.append('files', file);
+            });
+            
+            try {
+                const response = await fetch('/caption', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Failed to generate captions');
+                }
+                
+                const result = await response.json();
+                showResults(result);
+                
+            } catch (err) {
+                console.error('Caption generation error:', err);
+                showError(err.message || 'An unexpected error occurred');
+            } finally {
+                hideLoading();
+            }
+        });
+        
+        function showLoading() {
+            loading.style.display = 'block';
+            generateBtn.disabled = true;
+        }
+        
+        function hideLoading() {
+            loading.style.display = 'none';
+            updateButtons();
+        }
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            error.style.display = 'block';
+        }
+        
+        function hideError() {
+            error.style.display = 'none';
+        }
+        
+        function showResults(result) {
+            // Store current captions for editing
+            currentCaptions = result.results.map(item => ({
+                filename: item.filename,
+                caption: item.caption,
+                confidence: item.confidence,
+                processing_time: item.processing_time
+            }));
+            
+            // Update summary stats
+            totalImages.textContent = result.total_images;
+            totalTime.textContent = result.total_processing_time.toFixed(2) + 's';
+            
+            const avgConf = result.results.reduce((sum, r) => sum + r.confidence, 0) / result.results.length;
+            avgConfidence.textContent = (avgConf * 100).toFixed(1) + '%';
+            
+            // Clear previous results
+            resultGrid.innerHTML = '';
+            
+            // Create result items
+            result.results.forEach((item, index) => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                // Find corresponding file for preview
+                const correspondingFile = selectedFilesList.find(f => f.name === item.filename);
+                
+                const resultHeader = document.createElement('div');
+                resultHeader.className = 'result-header';
+                
+                const resultImage = document.createElement('img');
+                resultImage.className = 'result-image';
+                resultImage.src = correspondingFile ? URL.createObjectURL(correspondingFile) : '';
+                resultImage.alt = item.filename;
+                
+                const resultFilename = document.createElement('div');
+                resultFilename.className = 'result-filename';
+                resultFilename.textContent = item.filename;
+                
+                resultHeader.appendChild(resultImage);
+                resultHeader.appendChild(resultFilename);
+                
+                const captionContainer = document.createElement('div');
+                captionContainer.className = 'caption-container';
+                
+                const captionText = document.createElement('p');
+                captionText.className = 'caption-text';
+                captionText.textContent = `"${item.caption}"`;
+                captionText.dataset.index = index;
+                
+                const captionMeta = document.createElement('p');
+                captionMeta.className = 'caption-meta';
+                captionMeta.textContent = `Processing time: ${item.processing_time.toFixed(2)}s • Confidence: ${(item.confidence * 100).toFixed(1)}%`;
+                
+                captionContainer.appendChild(captionText);
+                captionContainer.appendChild(captionMeta);
+                
+                resultItem.appendChild(resultHeader);
+                resultItem.appendChild(captionContainer);
+                resultGrid.appendChild(resultItem);
+            });
+            
+            results.style.display = 'block';
+        }
+        
+        // Caption Editor Functions
+        toggleEditorBtn.addEventListener('click', () => {
+            const isVisible = captionEditor.style.display === 'block';
+            captionEditor.style.display = isVisible ? 'none' : 'block';
+            toggleEditorBtn.textContent = isVisible ? '✏️ Edit & Export Captions' : '❌ Hide Editor';
+        });
+        
+        findReplaceBtn.addEventListener('click', async () => {
+            const findText = document.getElementById('findText').value;
+            const replaceText = document.getElementById('replaceText').value;
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            const wholeWordsOnly = document.getElementById('wholeWordsOnly').checked;
+            
+            if (!findText) {
+                showStatusMessage('Please enter text to find', 'info');
+                return;
+            }
+            
+            if (currentCaptions.length === 0) {
+                showStatusMessage('No captions available to edit', 'info');
+                return;
+            }
+            
+            try {
+                findReplaceBtn.disabled = true;
+                findReplaceBtn.textContent = '🔄 Processing...';
+                
+                const response = await fetch('/find-replace', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        captions: currentCaptions,
+                        find_text: findText,
+                        replace_text: replaceText,
+                        case_sensitive: caseSensitive,
+                        whole_words_only: wholeWordsOnly
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Find/replace failed');
+                }
+                
+                const result = await response.json();
+                
+                // Update current captions
+                currentCaptions = result.updated_captions;
+                
+                // Update displayed captions
+                updateDisplayedCaptions();
+                
+                showStatusMessage(
+                    `✅ Updated ${result.changes_made} out of ${result.total_captions} captions`,
+                    'success'
+                );
+                
+            } catch (error) {
+                console.error('Find/replace error:', error);
+                showStatusMessage(`❌ Error: ${error.message}`, 'info');
+            } finally {
+                findReplaceBtn.disabled = false;
+                findReplaceBtn.textContent = '🔄 Find & Replace';
+            }
+        });
+        
+        function updateDisplayedCaptions() {
+            const captionTexts = resultGrid.querySelectorAll('.caption-text');
+            captionTexts.forEach((element, index) => {
+                if (currentCaptions[index]) {
+                    element.textContent = `"${currentCaptions[index].caption}"`;
+                    // Highlight modified captions
+                    if (currentCaptions[index].modified) {
+                        element.style.background = 'rgba(76, 175, 80, 0.2)';
+                        element.style.border = '1px solid #4CAF50';
+                    }
+                }
+            });
+        }
+        
+        // Export Functions
+        exportJsonBtn.addEventListener('click', () => exportCaptions('json'));
+        exportCsvBtn.addEventListener('click', () => exportCaptions('csv'));
+        exportTxtBtn.addEventListener('click', () => exportCaptions('txt'));
+        
+        async function exportCaptions(format) {
+            if (currentCaptions.length === 0) {
+                showStatusMessage('No captions available to export', 'info');
+                return;
+            }
+            
+            const includeMetadata = document.getElementById('includeMetadata').checked;
+            
+            try {
+                const response = await fetch('/export-captions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        captions: currentCaptions,
+                        export_format: format,
+                        include_metadata: includeMetadata
+                    })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Export failed');
+                }
+                
+                // Download the file
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                
+                // Get filename from response headers
+                const contentDisposition = response.headers.get('Content-Disposition');
+                const filename = contentDisposition ? 
+                    contentDisposition.split('filename=')[1].replace(/"/g, '') :
+                    `image_captions_${new Date().toISOString().slice(0,16).replace(/:/g,'-')}.${format}`;
+                
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+                
+                showStatusMessage(`✅ Downloaded ${filename}`, 'success');
+                
+            } catch (error) {
+                console.error('Export error:', error);
+                showStatusMessage(`❌ Export failed: ${error.message}`, 'info');
+            }
+        }
+        
+        function showStatusMessage(message, type) {
+            hideStatusMessages();
+            
+            const messageElement = type === 'success' ? successMessage : infoMessage;
+            messageElement.textContent = message;
+            messageElement.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+            }, 5000);
+        }
+        
+        function hideStatusMessages() {
+            successMessage.style.display = 'none';
+            infoMessage.style.display = 'none';
+        }
+        
+        function hideResults() {
+            results.style.display = 'none';
+        }
+        
+        // Clean up object URLs when page is unloaded
+        window.addEventListener('beforeunload', () => {
+            fileList.querySelectorAll('.file-preview').forEach(img => {
+                if (img.src.startsWith('blob:')) {
+                    URL.revokeObjectURL(img.src);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring nine main applications integrated through a unified AI agent interface:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring ten main applications integrated through a unified AI agent interface:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
@@ -15,6 +15,7 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 7. **Miro Board Generator**: TypeScript CLI tool for converting journey maps to interactive Miro boards (internal-solutions-miro-generator)
 8. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
 9. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
+10. **Image Caption Generator**: AI-powered image captioning using MobileNetV2 and LSTM models (internal-solutions-image-captioner)
 
 ## Architecture
 
@@ -73,19 +74,24 @@ docker --version && docker compose version  # Verify Docker setup
   ```
 - For Social Research Tool local development: PostgreSQL 16+ with pgvector extension
 
-## Common Commands
+## Build and Development Commands
 
-### Starting the Workbench
-
+### Quick Start
 ```bash
-# Start the entire workbench with all services (using the new unified launcher)
-./launch.sh
+# Primary startup command
+./launch.sh                           # Unified launcher with port conflict detection
+python port_scanner.py --fix          # Auto-resolve port conflicts before startup
+```
 
-# Start with specific services (legacy scripts)
-./backup-scripts/run-local-journey-mapper.sh  # Journey Mapper only
-./backup-scripts/run-local-reddit-ripper.sh   # Reddit Ripper only
-./backup-scripts/run-local-video-analyzer.sh  # Video Transcriptor only
-./backup-scripts/run-local-launchpad.sh       # Launchpad only
+### Service Management
+```bash
+# Start entire workbench
+docker compose -f docker-compose-all.yml up -d
+
+# Start specific service configurations
+docker compose -f docker-compose-video-fixed.yml up -d      # Video Transcriptor
+docker compose -f docker-compose-claude4.yml up -d          # Claude 4 Journey Mapper  
+docker compose -f dynamic-compose.yml up -d                 # Development with dynamic ports
 
 # Stop all services
 docker compose -f docker-compose-all.yml down
@@ -142,70 +148,45 @@ python test_openai_key.py       # Tests OpenAI API including o3 access
 ./backup-scripts/start-with-api-keys.sh     # Startup with API key validation
 ```
 
-### Development Commands
+### Component Development
 
-#### Social Research Tool Development
-
+#### Social Research Tool (React 19 + Vite + TypeScript)
 ```bash
-# Frontend development (React + TypeScript + Vite)
 cd internal-solutions-socialresearch/frontend
 npm install
-npm run dev          # Development server with hot reload
-npm run build        # TypeScript compilation + Vite build
-npm run lint         # ESLint code checking
+npm run dev          # Vite dev server (port 5173) with HMR
+npm run build        # TypeScript + Vite production build
+npm run lint         # ESLint with TypeScript rules
 npm run preview      # Preview production build
 
-# Backend development (Flask + PostgreSQL + pgvector)
-cd internal-solutions-socialresearch/backend
-python -m venv venv
-source venv/bin/activate
+# Backend (Flask + PostgreSQL + pgvector)
+cd ../backend
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-python init_db.py    # Initialize database with pgvector
-python -m run        # Start backend server
+python init_db.py && python -m run
 
-# Database migrations (Alembic)
-./init_alembic.sh    # First time setup
-alembic revision --autogenerate -m "Description"
-alembic upgrade head
-
-# Database setup (PostgreSQL with pgvector extension)
-brew install postgresql@16 pgvector
-brew services start postgresql@16
+# Database setup (PostgreSQL 16+ with pgvector)
+brew install postgresql@16 pgvector && brew services start postgresql@16
 psql postgres -c "CREATE DATABASE social_research_db;"
-psql postgres -c "CREATE USER social_research_user WITH PASSWORD 'your_password';"
 psql social_research_db -c "CREATE EXTENSION IF NOT EXISTS vector;"
 ```
 
-#### Journey Mapper Development
-
+#### Journey Mapper (React 17 + Webpack)
 ```bash
-# Run Journey Mapper standalone
 cd internal-solutions-journeymapper
-python -m venv venv
-source venv/bin/activate
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_api_key_here
-python run.py        # Auto-selects port from 8080, 5000, 3000, 9000
+export ANTHROPIC_API_KEY=your_key && python run.py
 
-# Manual start with specific port
-uvicorn src.app:app --host=0.0.0.0 --port=8080 --reload
-
-# Frontend development (React 17 + Webpack)
+# Frontend development
 npm install
-npm run build        # Production build with Webpack
-npm run dev          # Development build with watch
-npm run dev-server   # Development server with hot reload on port 3000 (proxies API to :8000)
-npm run api          # Start Python backend only
-npm run start        # Build frontend + start backend
+npm run dev-server   # Webpack dev server (port 3000, proxies to :8000)
+npm run build        # Webpack production build
+npm run api          # Python backend only (uvicorn)
+npm run start        # Build + start backend
 
-# Code quality
-python -m pytest tests/           # Run all tests
-mypy src/                        # Type checking
-flake8 src/                      # Linting
-
-# Using enhanced Docker build for Apple Silicon
-docker build -f Dockerfile.enhanced -t journey-mapper .
-docker run -p 8080:8000 -e ANTHROPIC_API_KEY=your_key_here journey-mapper
+# Code quality (when configured)
+mypy src/ && flake8 src/
 ```
 
 #### Claude 4 Journey Mapper Development
@@ -291,63 +272,63 @@ python -c "import openai; print('OpenAI SDK installed')"
 docker compose -f docker-compose-all.yml up linkedin-generator
 ```
 
-#### Miro Board Generator Development
-
+#### Miro Generator (TypeScript CLI)
 ```bash
-# Run Miro Generator CLI (TypeScript/Node.js based)
 cd internal-solutions-miro-generator
-npm install
-npm run build
+npm install && npm run build
 
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your Miro access token
+# CLI Usage
+npx miro-gen config --init                    # Interactive setup
+npx miro-gen validate -i journey.html -v      # Validate journey map
+npx miro-gen generate -i journey.html -o ./output  # Generate Miro board
+npx miro-gen generate -i journey.html --dry-run    # Preview changes
 
-# Interactive configuration setup
-npx miro-gen config --init
+# Development
+npm run dev          # ts-node development
+npm run watch        # TypeScript compilation in watch mode
+npm run lint         # ESLint TypeScript checking
 
-# Validate a journey map HTML file
-npx miro-gen validate -i examples/sample-journey-map.html -v
-
-# Generate Miro board from journey map
-npx miro-gen generate -i examples/sample-journey-map.html -o ./output
-
-# Generate with specific board ID
-npx miro-gen generate -i journey.html -b uXjVMxxxx -v
-
-# Dry run to preview changes
-npx miro-gen generate -i journey.html --dry-run
-
-# Run tests with Jest
-npm test                          # Run all tests
-npm run test:coverage             # Generate coverage reports
-npm run test:watch                # Watch mode for development
-
-# TypeScript development
-npm run dev                       # Development with ts-node
-npm run watch                     # TypeScript compilation in watch mode
-npm run lint                      # ESLint code checking
-
-# Using Docker
-npm run docker:build              # Build Docker image
-docker run --env-file .env nxt-miro-generator --help
+# Testing (Jest with TypeScript)
+npm test             # Run test suite
+npm run test:coverage # Coverage reports
+npm run test:watch   # Watch mode
 ```
 
-#### Journey Mapper Development
-
+#### Image Caption Generator (FastAPI + TensorFlow)
 ```bash
-# Run Journey Mapper standalone
-cd internal-solutions-journeymapper
-python -m venv venv
-source venv/bin/activate
+cd internal-solutions-image-captioner
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_api_key_here
-python run.py
+export PORT=5005 && python app.py
 
-# Using enhanced Docker build for Apple Silicon
-cd internal-solutions-journeymapper
-docker build -f Dockerfile.enhanced -t journey-mapper .
-docker run -p 8080:8000 -e ANTHROPIC_API_KEY=your_key_here journey-mapper
+# Development
+uvicorn app:app --host 0.0.0.0 --port 5005 --reload
+
+# Using Docker
+docker build -t image-captioner .
+docker run -p 5005:5005 image-captioner
+```
+
+### Testing Infrastructure
+
+#### Comprehensive Testing Commands
+```bash
+# API Integration Testing
+python test_anthropic_api.py      # Claude API (3.7 and 4)  
+python test_openai_api.py         # OpenAI API (o3 and others)
+python test_whisper_api.py        # Whisper API for video transcription
+
+# Agent & WebSocket Testing  
+python test_agent_tools_comprehensive.py    # Complete agent functionality
+python test_complete_chatbot_functionality.py  # End-to-end testing
+
+# MCP Service Testing
+python test_mcp_tools.py          # All MCP service tools
+python test_video_complete.py     # Video processing pipeline
+
+# TypeScript Testing (Miro Generator only has full test suite)
+cd internal-solutions-miro-generator
+npm test && npm run test:coverage
 ```
 
 #### Agent Development
@@ -378,113 +359,41 @@ pip install -r requirements.txt
 python app.py                   # Run individual MCP service
 ```
 
-#### Testing and Validation
+### Debugging and Monitoring
 
 ```bash
-# Comprehensive Agent Testing
-python test_agent_tools_comprehensive.py  # Complete agent functionality test
-python test_complete_chatbot_functionality.py  # End-to-end chatbot testing
-python test_mcp_chatbot.py                # MCP integration testing
+# Service Health Checks
+curl http://localhost:8000/health  # Launchpad
+curl http://localhost:8080/health  # Journey Mapper
+docker compose -f docker-compose-all.yml ps  # Container status
 
-# WebSocket Connection Testing
-python test_ws_fixed.py           # Test direct WebSocket connection
-python test_client_ws.py          # Test client WebSocket connection
-python test_websocket_server.py   # Test WebSocket server functionality
-python test_tool_execution.py     # Test agent tool execution
+# Log Monitoring  
+docker compose -f docker-compose-all.yml logs -f [service-name]
+docker logs -f agent              # Agent service logs
+docker logs -f launchpad          # Launchpad logs
 
-# API Integration Testing
-python test_anthropic_api.py      # Test Claude API (3.7 and 4)
-python test_openai_api.py         # Test OpenAI API (including o3)
-python test_whisper_api.py        # Test Whisper API
-python test_anthropic_key.py      # Validate Anthropic API key
-python test_openai_key.py         # Validate OpenAI API key
-python test_whisper_key.py        # Validate Whisper API key
-
-# MCP Service Testing
-python test_mcp_tools.py          # Test all MCP service tools
-python test_mcp_video.py          # Test video MCP service
-python test_journey_mcp_direct.py # Test journey mapper MCP directly
-
-# Video Processing Testing
-python test_video_complete.py     # Complete video processing pipeline
-python test_video_transcribe.py   # Test video transcription
-python test_video_transcriber.py  # Test transcriber service
-python test_video_agent.py        # Test video agent integration
-
-# File Upload and Processing Testing
-python test_file_upload.py        # Test file upload functionality
-python test_upload.py             # Alternative upload testing
-python improved_test_upload.py    # Enhanced upload testing
-
-# Agent Specific Testing
-python test_agent_simple.py       # Simple agent functionality
-python test_agent_json.py         # Agent JSON response handling
-python test_agent_ws.py           # Agent WebSocket communication
-
-# Environment and Configuration Testing
-python test_env_file.py           # Test environment file loading
-python test_final.py              # Final integration test
-
-# Integration Pipeline Testing
-./scripts/test-miro-integration.sh           # Journey Mapper to Miro board integration test
-
-# Service-Specific Testing
-cd internal-solutions-miro-generator
-npm test                          # Jest testing suite with full TypeScript coverage
-npm run test:watch                # Watch mode for development
-npm run test:coverage             # Generate comprehensive coverage reports
-```
-
-### Testing and Code Quality
-
-```bash
-# TypeScript Testing (Miro Generator - only component with full test suite)
-cd internal-solutions-miro-generator
-npm test                          # Run Jest tests
-npm run test:coverage             # Generate coverage reports
-npm run test:watch                # Watch mode for development
-
-# Python Testing (Ad-hoc test scripts - no framework configured)
-python test_agent_tools_comprehensive.py    # Complete agent functionality
-python test_complete_chatbot_functionality.py   # End-to-end testing
-python test_anthropic_api.py                # Claude API validation
-python test_openai_api.py                   # OpenAI API validation
-python test_websocket_server.py             # WebSocket functionality
-
-# Frontend Code Quality
-cd internal-solutions-socialresearch/frontend
-npm run lint         # ESLint with TypeScript rules (Modern Vite stack)
-npm run build        # TypeScript compilation + Vite build
-
-cd internal-solutions-journeymapper
-npm run build        # Webpack production build (Legacy React 17 stack)
-
-# Python Code Quality (when available)
-mypy src/            # Type checking
-flake8 src/          # Linting
-```
-
-### Common Debugging Commands
-
-```bash
-# Check all running services
-docker compose -f docker-compose-all.yml ps
-
-# Monitor logs for all services
-docker compose -f docker-compose-all.yml logs -f
-
-# Check specific service health
-curl http://localhost:8000/health  # Launchpad health check
-curl http://localhost:8080/health  # Journey Mapper health check
-
-# Restart problematic services
-docker compose -f docker-compose-all.yml restart [service-name]
-
-# Full system reset
+# System Reset
 docker compose -f docker-compose-all.yml down
-docker system prune -f
-./launch.sh
+docker system prune -f && ./launch.sh
 ```
+
+### Code Quality Standards
+
+#### Frontend Code Quality
+```bash
+# Modern Vite Stack (Social Research)
+cd internal-solutions-socialresearch/frontend  
+npm run lint && npm run build    # ESLint + TypeScript compilation
+
+# Legacy Webpack Stack (Journey Mapper)  
+cd internal-solutions-journeymapper
+npm run build                    # Webpack production build
+
+# TypeScript CLI (Miro Generator)
+cd internal-solutions-miro-generator
+npm run lint && npm test         # ESLint + Jest testing
+```
+
 
 ## Troubleshooting
 
@@ -575,6 +484,7 @@ SOCIAL_RESEARCH_BACKEND_PORT=8081    # Optional, default: 8081
 VIDEO_ANALYZER_PORT=5002             # Optional, default: 5002
 LINKEDIN_GENERATOR_PORT=5003         # Optional, default: 5003
 MIRO_GENERATOR_PORT=5004             # Optional, default: 5004
+IMAGE_CAPTIONER_PORT=5005            # Optional, default: 5005
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -605,6 +515,7 @@ SOCIAL_RESEARCH_CLIENT_URL=http://localhost:3000
 VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
 LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:5003
 MIRO_GENERATOR_CLIENT_URL=http://localhost:5004
+IMAGE_CAPTIONER_CLIENT_URL=http://localhost:5005
 ```
 
 ## Tool Integration
@@ -644,30 +555,35 @@ The AI Agent uses a Model Context Protocol (MCP) architecture to integrate tools
    - `video.get_status`: Check transcription status
    - `video.get_results`: Get transcription results
 
-**Note**: The LinkedIn Post Generator and Miro Board Generator are currently available as standalone services (ports 5003 and 5004 respectively) but lack MCP integration for AI Agent access. The LinkedIn Generator can create professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o. The Miro Generator provides a comprehensive TypeScript CLI for converting journey maps to interactive Miro boards with advanced layout and styling capabilities.
+**Note**: The LinkedIn Post Generator, Miro Board Generator, and Image Caption Generator are currently available as standalone services (ports 5003, 5004, and 5005 respectively) but lack MCP integration for AI Agent access. The LinkedIn Generator can create professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o. The Miro Generator provides a comprehensive TypeScript CLI for converting journey maps to interactive Miro boards with advanced layout and styling capabilities. The Image Caption Generator provides AI-powered image captioning using MobileNetV2 and LSTM models for automatic image description.
 
 **Service-Specific Favicons**: Each service now includes branded favicon files for enhanced user experience:
 - `reddit-favicon.svg`, `video-favicon.svg`, `chart-favicon.svg`, `route-favicon.svg`
-- `brain-favicon.svg`, `linkedin-favicon.svg`, `claude4-favicon.svg`
+- `brain-favicon.svg`, `linkedin-favicon.svg`, `claude4-favicon.svg`, `caption-favicon.svg`
 
 For detailed information about tool integration, refer to `TOOL-INTEGRATION-GUIDE.md`.
 
 ## Architecture Patterns
 
-### Frontend Build Systems
+### Multi-Technology Frontend Architecture
 
-The platform uses two different frontend build systems:
+The platform employs three distinct build systems optimized for different use cases:
 
-1. **Social Research Tool**: Modern Vite + TypeScript stack
-   - Fast development with hot module replacement
-   - TypeScript compilation with strict type checking
-   - Tailwind CSS for styling
-   - React 19 with latest features
+1. **Social Research Tool**: Modern Vite 6+ + React 19 + TypeScript 5.7+
+   - Lightning-fast HMR and ESM modules  
+   - Strict TypeScript compilation with path aliases (`@/*` → `./src/*`)
+   - Tailwind CSS 4+ with PostCSS, Material-UI 6.4+ components
+   - Redux Toolkit 2.6+ for state management
 
-2. **Journey Mapper**: Webpack-based React build
-   - Compatible with older React ecosystem
-   - Custom Webpack configuration for specific needs
-   - Mermaid integration for diagram rendering
+2. **Journey Mapper**: Legacy Webpack 5+ + React 17 + Babel
+   - Stable ecosystem compatibility with Mermaid 10.7+ integration
+   - Custom Webpack configuration for diagram rendering
+   - Proxy configuration for seamless development (port 3000 → 8000)
+
+3. **Miro Generator**: TypeScript 5.3+ CLI + Jest 29.7+ Testing  
+   - Professional CLI with Commander.js 11.1+ and comprehensive path aliases
+   - Full Jest testing suite with coverage reports and watch mode
+   - ES2022 target with Docker support
 
 ### Docker Configuration Patterns
 
@@ -885,39 +801,21 @@ When making UI changes, follow these guidelines:
 
 3. For detailed specifications, refer to `brand-style-guide.md`
 
-### Build System Architecture
+### AI-Powered Service Architecture
 
-The platform uses different build systems optimized for each component's specific needs:
+The platform includes specialized AI services with distinct architectural patterns:
 
-1. **Social Research Tool**: Modern Vite + TypeScript + React 19 Stack
-   - **Build Tool**: Vite 6.1+ with lightning-fast HMR and ESM modules
-   - **Frontend**: React 19.0+ with TypeScript 5.7+ strict mode
-   - **Styling**: Tailwind CSS 4.0+ with PostCSS processing
-   - **UI Components**: Material-UI 6.4+ with Emotion 11.14+ styling
-   - **State Management**: Redux Toolkit 2.6+ with modern patterns
-   - **Database**: PostgreSQL 16+ with pgvector extension for vector embeddings
-   - **Development**: Port 5173 with path aliases (`@/*` → `./src/*`)
+**LinkedIn Post Generator**: FastAPI + Extended Thinking Engine
+- **Backend**: FastAPI with uvicorn ASGI server for async processing
+- **AI Pipeline**: 4-stage Extended Thinking analysis (64K tokens per stage)  
+- **AI Models**: Claude 3.7 Sonnet (primary) + OpenAI GPT-4o (secondary)
+- **NLP Processing**: spaCy 3.5+ and NLTK 3.6+ for advanced text analysis
+- **Frontend**: Custom HTML/CSS/JS with drag-and-drop and progress tracking
 
-2. **Journey Mapper**: Legacy Webpack + React 17 Stack  
-   - **Build Tool**: Webpack 5.64+ with custom configuration for Mermaid integration
-   - **Frontend**: React 17.0.2 with Babel 7.16+ transpilation
-   - **Visualization**: Mermaid 10.7+ for customer journey diagrams
-   - **Development**: Port 3000 with API proxy to backend (port 8000)
-   - **Compatibility**: Maintained for stable ecosystem and existing workflows
-
-3. **Miro Generator**: TypeScript CLI Tool
-   - **Build Tool**: TypeScript compiler 5.3+ with ES2022 target
-   - **Testing**: Jest 29.7+ with comprehensive coverage and TypeScript support  
-   - **CLI Framework**: Commander.js 11.1+ for professional CLI interface
-   - **Path Aliases**: Comprehensive system (`@cli`, `@parsers`, `@miro`, etc.)
-   - **Quality**: ESLint 8.54+ with full TypeScript linting
-
-4. **LinkedIn Post Generator**: FastAPI + Extended Thinking Engine
-   - **Backend**: FastAPI with uvicorn ASGI server for async processing
-   - **AI Pipeline**: 4-stage Extended Thinking analysis (64K tokens per stage)
-   - **AI Models**: Claude 3.7 Sonnet (primary) + OpenAI GPT-4o (secondary)
-   - **NLP Processing**: spaCy 3.5+ and NLTK 3.6+ for advanced text analysis
-   - **Frontend**: Custom HTML/CSS/JS with drag-and-drop and progress tracking
+**Multi-Model Journey Mapping Architecture**:
+- **Claude 3.7**: Traditional customer journey mapping (`internal-solutions-journeymapper`)
+- **Claude 4**: Advanced reasoning and analysis (`internal-solutions-claude4-journey-mapper`)  
+- **OpenAI o3**: Reasoning-enhanced mapping with configurable effort levels (`internal-solutions-openai-journey-mapper`)
 
 ## Key File Locations
 
@@ -944,6 +842,7 @@ When working on specific functionality, these are the critical files to understa
 - `internal-solutions-linkedin-generator/app.py`: LinkedIn Post Generator entry (FastAPI + Extended Thinking)
 - `internal-solutions-miro-generator/app.py`: Miro Generator web interface entry (Flask + TypeScript CLI integration)
 - `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI entry (TypeScript + Commander.js)
+- `internal-solutions-image-captioner/app.py`: Image Caption Generator entry (FastAPI + TensorFlow)
 - `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry (React 19 + TypeScript)
 - `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry (Flask + pgvector)
 
@@ -962,39 +861,29 @@ When working on specific functionality, these are the critical files to understa
 - `launchpad/static/chatbot.js`: Frontend chat client (source of link corruption issue)
 - `client-fallback.js`: Browser-side WebSocket reconnection fallback
 
-## Testing Infrastructure
+## Testing Infrastructure & Development Patterns
 
-### Configured Testing Frameworks
+### Testing Framework Availability
 
-**Jest (TypeScript) - Fully Configured**:
+**Jest (TypeScript) - Fully Configured**: Only the Miro Generator has a complete testing infrastructure
 ```bash
 cd internal-solutions-miro-generator
-npm test                    # Run all tests
-npm run test:coverage       # Generate coverage reports  
-npm run test:watch          # Watch mode for development
+npm test                    # Jest + TypeScript with 30s timeout
+npm run test:coverage       # Text, LCOV, and HTML reporters
+npm run test:watch          # Watch mode for TDD
 ```
 
-**Python Testing - Ad-hoc Scripts**:
-The project uses 30+ standalone test scripts without a unified framework:
+**Python Testing - Ad-hoc Scripts**: 30+ standalone test scripts without unified framework
 ```bash
-# API validation
+# Core functionality validation
+python test_agent_tools_comprehensive.py test_complete_chatbot_functionality.py
 python test_anthropic_api.py test_openai_api.py test_whisper_api.py
 
-# Agent functionality  
-python test_agent_tools_comprehensive.py test_complete_chatbot_functionality.py
-
-# MCP services
-python test_mcp_tools.py test_mcp_video.py test_journey_mcp_direct.py
-
-# Video processing
-python test_video_complete.py test_video_transcribe.py
-
-# WebSocket and uploads
-python test_websocket_server.py test_file_upload.py
+# Service-specific testing  
+python test_mcp_tools.py test_video_complete.py test_websocket_server.py
 ```
 
-**Frontend Testing - Not Configured**: 
-Neither React application has test frameworks set up despite having modern build systems.
+**Frontend Testing Gap**: Neither React application has configured test frameworks despite modern build systems.
 
 ## Code Quality Standards
 

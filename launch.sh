@@ -131,6 +131,9 @@ kill_running_processes() {
   kill_port 8090  # OpenAI Journey Mapper
   kill_port 5001  # Reddit Ripper
   kill_port 5002  # Video Analyzer
+  kill_port 5003  # LinkedIn Generator
+  kill_port 5004  # Miro Generator
+  kill_port 5005  # Image Captioner
   kill_port 3000  # Social Research Frontend
   kill_port 8081  # Social Research Backend
   kill_port 8500  # Agent
@@ -308,6 +311,9 @@ echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   http://localhost:8080"
 echo -e "  ${BLUE}Journey Mapper (o3):${NC}       http://localhost:8090"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       http://localhost:5002"
+echo -e "  ${BLUE}LinkedIn Generator:${NC}       http://localhost:5003"
+echo -e "  ${BLUE}Miro Generator:${NC}           http://localhost:5004"
+echo -e "  ${BLUE}Image Captioner:${NC}          http://localhost:5005"
 echo ""
 echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
@@ -315,6 +321,9 @@ echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   https://localhost:8444"
 echo -e "  ${BLUE}Journey Mapper (o3):${NC}       https://localhost:8445"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"
+echo -e "  ${BLUE}LinkedIn Generator:${NC}       https://localhost:8449"
+echo -e "  ${BLUE}Miro Generator:${NC}           https://localhost:8450"
+echo -e "  ${BLUE}Image Captioner:${NC}          https://localhost:8451"
 echo ""
 echo -e "${YELLOW}${BOLD}🛡️  BROWSER SECURITY:${NC}"
 echo -e "• HTTPS URLs eliminate 'Not Secure' warnings"
