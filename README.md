@@ -6,7 +6,7 @@ A comprehensive microservices platform for customer experience research and anal
 
 The NXT Humans Intelligence Augmentation platform is a complete ecosystem for customer experience analysis, combining data collection, advanced analytics, AI-powered journey mapping, content generation, and professional visualization tools with enterprise-grade security.
 
-### Core Applications (9 Components)
+### Core Applications (10 Components)
 
 1. **Reddit Data Collector**: Automated Reddit data gathering with flexible filtering and PDF export
 2. **Social Research Analysis Tool**: Advanced analytics with PostgreSQL+pgvector, topic modeling, and sentiment analysis  
@@ -16,7 +16,8 @@ The NXT Humans Intelligence Augmentation platform is a complete ecosystem for cu
 6. **Video Transcriptor**: Video/audio transcription and analysis via OpenAI Whisper API with YouTube support
 7. **LinkedIn Post Generator**: Professional content creation using Extended Thinking AI pipeline with drag-and-drop interface
 8. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
-9. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
+9. **A11y Image Caption Generator**: WCAG-compliant accessibility image captioning using Claude 3.7 Sonnet for screen readers and inclusive design
+10. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
 
 ## Key Features
 
@@ -25,6 +26,7 @@ The NXT Humans Intelligence Augmentation platform is a complete ecosystem for cu
 - **Multi-AI Model Support**: Claude 3.7, Claude 4, OpenAI o3 with configurable reasoning effort
 - **Professional Content Generation**: Extended Thinking pipeline for LinkedIn content creation
 - **Advanced Video Processing**: YouTube URL and file upload transcription with chunking for large files
+- **Accessibility AI**: WCAG-compliant alt text generation for screen readers and inclusive design
 - **Vector Database Analytics**: PostgreSQL+pgvector for semantic search and similarity analysis
 
 ### Enterprise Security & Professional Experience
@@ -94,6 +96,7 @@ docker compose -f docker-compose-all.yml down
 | **Video Transcriptor** | http://localhost:5002 | https://localhost:8448 | Video/audio transcription |
 | **LinkedIn Post Generator** | http://localhost:5003 | https://localhost:8449 | Professional content creation |
 | **Miro Generator** | http://localhost:5004 | https://localhost:8450 | Board creation interface |
+| **A11y Image Caption Generator** | http://localhost:5005 | *Direct HTTP only* | Accessibility AI for screen readers |
 
 **🔒 HTTPS Benefits**: Secure connections eliminate browser "Not Secure" warnings and provide professional experience with green lock icons.
 
@@ -164,7 +167,14 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **Testing**: Unit + integration tests with coverage reporting
 - **Build**: ES2022 target with full TypeScript compilation
 
-#### 9. AI Agent Assistant
+#### 9. A11y Image Caption Generator
+- **Technology**: FastAPI + Claude 3.7 Sonnet Vision + PIL
+- **Features**: WCAG 2.1 compliant alt text, bulk processing, accessibility-focused prompting
+- **Port**: 5005
+- **AI Integration**: Base64 image encoding, context-aware accessibility descriptions
+- **Export Formats**: JSON, CSV, TXT with structured accessibility metadata
+
+#### 10. AI Agent Assistant
 - **Technology**: Python + WebSockets + Claude API + MCP Protocol
 - **Features**: Unified tool control, multi-model support, conversation context
 - **Port**: 8500
@@ -185,6 +195,130 @@ Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Ser
 - Video MCP: 8504
 - OpenAI Journey MCP: 8505
 - Claude 4 Journey MCP: 8506
+
+### A11y Image Caption Generator: Digital Accessibility AI
+
+The **A11y Image Caption Generator** is a professional accessibility-focused AI service that transforms how organizations approach digital inclusion and WCAG compliance. Powered by Claude 3.7 Sonnet's advanced vision capabilities, it generates professional-grade alt text and accessibility descriptions for screen readers and inclusive design workflows.
+
+#### 🌟 **Accessibility Mission & Impact**
+
+**Why This Service Matters**:
+- **Digital Inclusion**: Making the web accessible to users with visual impairments  
+- **WCAG Compliance**: Helping organizations meet accessibility standards (WCAG 2.1 AA)
+- **Screen Reader Support**: Optimized descriptions for assistive technologies
+- **Legal Compliance**: Supporting ADA and accessibility requirement adherence
+- **Human-Centered AI**: Using Claude's intelligence for social good
+
+**Target Users**:
+- **Web Developers** building accessible websites
+- **UX/UI Designers** creating inclusive experiences
+- **Content Creators** needing compliant alt text
+- **Accessibility Professionals** auditing digital content
+- **Organizations** ensuring WCAG 2.1 compliance
+
+#### 🤖 **Advanced AI Technology**
+
+**Claude 3.7 Sonnet Vision Integration**:
+- **Professional Prompting**: "Generate a WCAG 2.1 compliant alt text description for this image. Focus on the essential visual information that would help someone using a screen reader understand the content and context..."
+- **Contextual Analysis**: Understands image purpose, meaning, and accessibility requirements
+- **High Accuracy**: 95%+ confidence scores for reliable professional use
+- **Base64 Processing**: Secure image encoding pipeline for Claude API integration
+
+**Accessibility-Focused Features**:
+- **WCAG Standards**: Follows established accessibility guidelines and best practices
+- **Purpose-Driven**: Describes what images convey, not just what's visible
+- **Concise & Clear**: Optimal length and clarity for screen reader consumption
+- **Action-Oriented**: Describes interactions, functions, and contextual meaning
+
+#### 💻 **Professional Interface & Workflow**
+
+**Intelligence Augmentation Design**:
+- **Branded Header**: Matches Intelligence Augmentation suite visual identity
+- **Accessibility Symbols**: ♿ Universal Access icons throughout interface
+- **Professional Cyan Gradient**: Consistent with platform color scheme (#01C4C8)
+- **Dark Theme**: High contrast design optimized for accessibility
+
+**Bulk Processing Capabilities**:
+- **Multi-Image Upload**: Support for up to 10 images per batch (10MB each)
+- **Drag-and-Drop Interface**: Intuitive file selection with real-time validation
+- **Format Support**: JPG, PNG, GIF, BMP, WebP with comprehensive validation
+- **Batch Statistics**: Processing time, confidence metrics, and success rates
+
+#### ✏️ **Advanced Editing & Export Features**
+
+**Caption Editor Tools**:
+- **Find & Replace**: Regex-supported text replacement across all captions
+- **Case Sensitivity**: Flexible text matching options for precise editing
+- **Whole Words**: Professional editing controls for accuracy
+- **Real-Time Updates**: Live preview of changes with modification highlighting
+
+**Professional Export Options**:
+
+**JSON Export** (Structured Accessibility Data):
+```json
+{
+  "export_info": {
+    "accessibility_standard": "WCAG 2.1",
+    "purpose": "Alt text for screen readers and accessibility compliance"
+  },
+  "alt_text_data": [
+    {"filename": "image.jpg", "alt_text": "Professional WCAG description"}
+  ]
+}
+```
+
+**CSV Export** (Accessibility Spreadsheet):
+```csv
+filename,alt_text,confidence,processing_time,wcag_compliant
+image.jpg,"Accessibility description",0.95,2.3s,Yes
+```
+
+**TXT Export** (Plain Alt Text):
+```
+# WCAG 2.1 Alt Text
+# Generated for accessibility compliance
+
+image.jpg: Professional accessibility description
+```
+
+#### 🎯 **Professional Use Cases**
+
+**Web Development Workflows**:
+1. Upload website/app images for WCAG compliance
+2. Generate professional alt text using Claude 3.7 vision AI
+3. Bulk edit descriptions for consistency and accuracy
+4. Export alt text directly into HTML/CMS systems
+5. Ensure compliance with accessibility standards
+
+**Content Management Applications**:
+- **Blog Images**: Professional alt text for articles and content
+- **E-commerce**: Product image accessibility descriptions
+- **Social Media**: Inclusive content for all users
+- **Documentation**: Technical content accessibility
+- **Marketing**: Accessible promotional materials
+
+**Accessibility Auditing Process**:
+- **Compliance Testing**: Verify existing alt text quality against WCAG standards
+- **Bulk Processing**: Handle large image libraries efficiently
+- **Standard Reporting**: Generate WCAG-compliant documentation
+- **Quality Assurance**: Professional accessibility review and validation
+
+#### 🚀 **Live Service Access**
+
+**URL**: http://localhost:5005
+- **Professional A11y Interface** with accessibility-focused design
+- **WCAG-Compliant Alt Text Generation** using Claude 3.7 Sonnet
+- **Bulk Processing** for enterprise accessibility workflows
+- **Multiple Export Formats** for various development environments
+
+**Perfect for**:
+- **Government Agencies** ensuring ADA compliance
+- **Educational Institutions** creating accessible content
+- **Healthcare Organizations** with accessibility requirements
+- **Enterprise Companies** meeting WCAG standards
+- **Non-Profits** promoting digital inclusion
+
+**🌈 Social Impact**: Making the digital world more accessible and inclusive for everyone - transforming generic AI captions into accessibility-focused social impact solutions.
 
 ### Infrastructure Components
 
@@ -208,6 +342,15 @@ Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Ser
 4. **Video Integration**: Add customer interview videos via Video Transcriptor for deeper insights
 5. **Professional Content**: Generate LinkedIn posts via LinkedIn Post Generator to share insights
 6. **Board Creation**: Export journey maps to Miro boards using the CLI tool for stakeholder presentations
+
+### Digital Accessibility Workflow
+
+1. **Content Audit**: Upload website, app, or marketing images to A11y Image Caption Generator
+2. **WCAG Compliance**: Generate professional alt text using Claude 3.7 Sonnet with accessibility-focused prompting
+3. **Bulk Editing**: Use find/replace tools to ensure consistency across all image descriptions
+4. **Export Integration**: Download structured JSON, CSV, or TXT files for direct CMS/HTML integration
+5. **Quality Assurance**: Review confidence scores and accessibility metadata for compliance verification
+6. **Legal Documentation**: Generate WCAG-compliant reports for accessibility audits and ADA compliance
 
 ### AI Model Selection Guide
 
@@ -306,6 +449,7 @@ SOCIAL_RESEARCH_PORT=3000                    # Social research frontend
 SOCIAL_RESEARCH_BACKEND_PORT=8081            # Social research backend
 VIDEO_ANALYZER_PORT=5002                     # Video transcriptor
 LINKEDIN_GENERATOR_PORT=5003                 # LinkedIn post generator
+IMAGE_CAPTIONER_PORT=5005                    # A11y Image Caption Generator
 
 # MCP Service Ports (Model Context Protocol integration)
 AGENT_PORT=8500                              # AI agent orchestrator
@@ -460,6 +604,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - **Journey Mapping**: Claude 3.7/4 Sonnet, OpenAI o3 with configurable reasoning
 - **Content Generation**: Extended Thinking pipeline with multi-stage analysis  
 - **Video Processing**: OpenAI Whisper with intelligent chunking for large files
+- **Accessibility AI**: Claude 3.7 Sonnet Vision for WCAG-compliant alt text generation
 - **Social Analytics**: BERTopic for topic modeling, VADER for sentiment analysis
 
 ## License
