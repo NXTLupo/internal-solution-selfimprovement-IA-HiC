@@ -2,6 +2,14 @@
 
 An advanced tool for generating interactive customer journey maps from various data sources using Anthropic's Claude 3.7 Sonnet LLM with sophisticated chain-of-thought processing.
 
+## Update! 
+
+### ✨ **New Claude Sonnet 4 Integration**
+- **🆕 Claude 4 Journey Mapper**: Complete new service utilizing Claude Sonnet 4's advanced reasoning capabilities
+- **🔍 Extended Thinking Mode**: 200K token analysis for comprehensive data examination and pattern recognition
+- **📊 Enhanced Journey Analysis**: Multi-stage systematic investigation with evidence-based insights
+- **🎯 Investigative Approach**: Deep data mining and sophisticated insight extraction
+
 ## Features
 
 - **Data Processing**: Upload and analyze multiple data formats (PDF, CSV, TXT, JSON)
