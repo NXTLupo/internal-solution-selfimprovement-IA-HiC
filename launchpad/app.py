@@ -51,6 +51,7 @@ if ANTHROPIC_API_KEY:
 def get_dynamic_urls():
     # Internal URLs for service checks (container to container)
     journey_mapper_url = os.environ.get('JOURNEY_MAPPER_URL', 'http://journey-mapper:8000')
+    claude4_journey_mapper_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_URL', 'http://claude4-journey-mapper:8095')
     openai_journey_mapper_url = os.environ.get('OPENAI_JOURNEY_MAPPER_URL', 'http://openai-journey-mapper:8000')
     reddit_ripper_url = os.environ.get('REDDIT_RIPPER_URL', 'http://reddit-ripper:5000')
     social_research_url = os.environ.get('SOCIAL_RESEARCH_URL', 'http://social-research-frontend:3000')
@@ -63,6 +64,7 @@ def get_dynamic_urls():
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
     social_mcp_url = os.environ.get('SOCIAL_MCP_URL', 'http://social-mcp:8502')
     journey_mcp_url = os.environ.get('JOURNEY_MCP_URL', 'http://journey-mcp:8503')
+    claude4_journey_mcp_url = os.environ.get('CLAUDE4_JOURNEY_MCP_URL', 'http://claude4-journey-mcp:8506')
     openai_journey_mcp_url = os.environ.get('OPENAI_JOURNEY_MCP_URL', 'http://openai-journey-mcp:8505')
     video_mcp_url = os.environ.get('VIDEO_MCP_URL', 'http://video-mcp:8504')
     # Using 'agent' hostname as configured in docker-compose-agent.yml
@@ -72,6 +74,7 @@ def get_dynamic_urls():
 
     # External URLs for client browsers
     journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
+    claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8095')
     openai_journey_mapper_client_url = os.environ.get('OPENAI_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8090')
     reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
     social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
@@ -84,6 +87,10 @@ def get_dynamic_urls():
         'journey_mapper': {
             'client_url': journey_mapper_client_url,
             'internal_url': journey_mapper_url
+        },
+        'claude4_journey_mapper': {
+            'client_url': claude4_journey_mapper_client_url,
+            'internal_url': claude4_journey_mapper_url
         },
         'openai_journey_mapper': {
             'client_url': openai_journey_mapper_client_url,
@@ -122,6 +129,7 @@ def get_dynamic_urls():
                 'reddit': reddit_mcp_url,
                 'social': social_mcp_url,
                 'journey': journey_mcp_url,
+                'claude4_journey': claude4_journey_mcp_url,
                 'openai_journey': openai_journey_mcp_url,
                 'video': video_mcp_url
             },
@@ -137,7 +145,7 @@ def get_dynamic_urls():
 # Service status cache
 services_status = {
     "journey_mapper": {"status": "unknown", "last_checked": None},
-    "openai_journey_mapper": {"status": "unknown", "last_checked": None},
+    "claude4_journey_mapper": {"status": "unknown", "last_checked": None},
     "reddit_ripper": {"status": "unknown", "last_checked": None},
     "social_research": {"status": "unknown", "last_checked": None},
     "video_analyzer": {"status": "unknown", "last_checked": None},
@@ -152,7 +160,7 @@ if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
         "reddit_mcp": {"status": "unknown", "last_checked": None},
         "social_mcp": {"status": "unknown", "last_checked": None},
         "journey_mcp": {"status": "unknown", "last_checked": None},
-        "openai_journey_mcp": {"status": "unknown", "last_checked": None},
+        "claude4_journey_mcp": {"status": "unknown", "last_checked": None},
         "video_mcp": {"status": "unknown", "last_checked": None},
         "agent": {"status": "unknown", "last_checked": None}  # Changed from agent_orchestrator to agent
     })
@@ -162,15 +170,15 @@ def check_service(service_name):
     urls = get_dynamic_urls()
 
     # Skip checking MCP and agent services if CX agent is disabled
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "openai_journey_mcp", "video_mcp", "agent"] and \
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp", "agent"] and \
        os.environ.get('ENABLE_CX_AGENT', 'false').lower() != 'true':
         return
 
     # Get base URL for the service
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "openai_journey_mcp", "video_mcp"]:
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp"]:
         # Handle MCP servers
-        if service_name == "openai_journey_mcp":
-            mcp_type = "openai_journey"  # Special case for openai_journey_mcp
+        if service_name == "claude4_journey_mcp":
+            mcp_type = "claude4_journey"  # Special case for claude4_journey_mcp
         else:
             mcp_type = service_name.split('_')[0]  # Extract reddit, social, journey
         if 'mcp' not in urls or mcp_type not in urls['mcp']:
@@ -204,8 +212,8 @@ def check_service(service_name):
             return
         base_url = urls[service_name]['internal_url']
 
-    # Use health endpoint for journey mapper and agent
-    if service_name == "journey_mapper" or service_name == "agent":
+    # Use health endpoint only for agent (journey mapper uses root endpoint)
+    if service_name == "agent":
         url = f"{base_url}/health"
     else:
         url = base_url
@@ -256,7 +264,7 @@ def check_service(service_name):
 def update_all_services():
     """Update status of all services"""
     check_service("journey_mapper")
-    check_service("openai_journey_mapper")
+    check_service("claude4_journey_mapper")
     check_service("reddit_ripper")
     check_service("social_research")
     check_service("video_analyzer")
@@ -269,7 +277,6 @@ def update_all_services():
         check_service("reddit_mcp")
         check_service("social_mcp")
         check_service("journey_mcp")
-        check_service("openai_journey_mcp")
         check_service("claude4_journey_mcp")
         check_service("video_mcp")
         check_service("agent")  # Changed from agent_orchestrator to agent
@@ -313,7 +320,7 @@ def index():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
-        'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
+        'claude4_journey_mapper': services_status['claude4_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
         'video_analyzer': services_status['video_analyzer']['status'],
@@ -329,7 +336,7 @@ def index():
     import time
     return render_template('index.html',
                        journey_mapper_url=urls['journey_mapper']['client_url'],
-                       openai_journey_mapper_url=urls['openai_journey_mapper']['client_url'],
+                       claude4_journey_mapper_url=urls['claude4_journey_mapper']['client_url'],
                        reddit_ripper_url=urls['reddit_ripper']['client_url'],
                        social_research_url=urls['social_research']['client_url'],
                        video_analyzer_url=urls['video_analyzer']['client_url'],
@@ -362,7 +369,7 @@ def status_page():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
-        'openai_journey_mapper': services_status['openai_journey_mapper']['status'],
+        'claude4_journey_mapper': services_status['claude4_journey_mapper']['status'],
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
         'video_analyzer': services_status['video_analyzer']['status'],
@@ -444,14 +451,49 @@ def get_urls():
 
 # Agent API endpoints - only enabled if CX Agent is enabled and flask_sock is available
 if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
-    # API endpoint for creating a chat conversation - DEPRECATED, redirects to MCP
+    # API endpoint for creating a chat conversation - Proxy to agent
     @app.route('/api/chat/conversation', methods=['POST'])
     def create_conversation():
-        """DEPRECATED: Redirect to MCP chatbot"""
-        return jsonify({
-            "error": "Old WebSocket agent is deprecated. Please use the new MCP chatbot.",
-            "redirect": "/mcp-chat"
-        }), 302
+        """Proxy chat conversation creation to agent service"""
+        urls = get_dynamic_urls()
+        if 'agent' not in urls:
+            return jsonify({"error": "Agent not configured"}), 404
+        
+        target_url = f"{urls['agent']['internal_url']}/api/chat/conversation"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+
+    # API endpoint for sending chat messages - Proxy to agent
+    @app.route('/api/chat/message', methods=['POST'])
+    def send_chat_message():
+        """Proxy chat message to agent service"""
+        urls = get_dynamic_urls()
+        if 'agent' not in urls:
+            return jsonify({"error": "Agent not configured"}), 404
+        
+        target_url = f"{urls['agent']['internal_url']}/api/chat/message"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+
+    # API endpoint for model management - Proxy to agent
+    @app.route('/api/chat/model', methods=['POST'])
+    def set_chat_model():
+        """Proxy model setting to agent service"""
+        urls = get_dynamic_urls()
+        if 'agent' not in urls:
+            return jsonify({"error": "Agent not configured"}), 404
+        
+        target_url = f"{urls['agent']['internal_url']}/api/chat/model"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
+
+    # API endpoint for getting available models - Proxy to agent
+    @app.route('/api/chat/models', methods=['GET'])
+    def get_chat_models():
+        """Proxy models list to agent service"""
+        urls = get_dynamic_urls()
+        if 'agent' not in urls:
+            return jsonify({"error": "Agent not configured"}), 404
+        
+        target_url = f"{urls['agent']['internal_url']}/api/chat/models"
+        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
 
     # WebSocket API endpoint for agent messages - DEPRECATED
     @app.route('/api/chat/ws/<conversation_id>')
@@ -929,7 +971,7 @@ def get_mcp_servers():
         },
         "claude4_journey": {
             "url": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),
-            "description": "Advanced customer journey mapping with Claude 3.7"
+            "description": "Advanced customer journey mapping with Claude Sonnet 4"
         }
     }
     
@@ -969,7 +1011,6 @@ def get_mcp_tools():
         "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
         "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
         "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
-        "openai_journey": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
         "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
     }
     
@@ -1012,7 +1053,6 @@ def execute_mcp_tool(tool_name, parameters):
         "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
         "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
         "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
-        "openai_journey": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
         "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
     }
     

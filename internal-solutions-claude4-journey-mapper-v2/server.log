@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/jonathanlupo/Documents/NXT HUMANS_AI_CX_WORKBENCH/internal-solutions-journeymapper/run.py", line 2, in <module>
+    import uvicorn
+ModuleNotFoundError: No module named 'uvicorn'

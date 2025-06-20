@@ -281,10 +281,18 @@
             box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
         }
 
-        .upload-button:hover {
+        .upload-button:hover:not(:disabled) {
             background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        .upload-button:disabled {
+            background: linear-gradient(135deg, rgba(100, 100, 100, 0.8) 0%, rgba(80, 80, 80, 0.9) 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(100, 100, 100, 0.2);
+            opacity: 0.7;
         }
 
         /* Extended Thinking Options */
@@ -725,122 +733,137 @@
         <div class="container">
             <!-- Hero Section -->
             <section class="hero-section">
-                <h1 class="hero-title">Turn Customer Insights into Authentic LinkedIn Content</h1>
-                <p class="hero-subtitle">Natural, Relatable Professional Content from Real Data</p>
+                <h1 class="hero-title">Transform Any Content into Strategic LinkedIn Marketing</h1>
+                <p class="hero-subtitle">Universal Marketing Intelligence with 5-Stage AI Analysis</p>
                 <p class="hero-description">
-                    Upload your journey map HTML files and generate genuine LinkedIn content that shares 
-                    real customer insights in a natural, conversational way that resonates with professionals.
+                    Upload any HTML content and generate comprehensive marketing materials including executive summaries, 
+                    social media content, professional copy, and campaign assets with advanced AI intelligence.
                 </p>
+                <div class="thinking-badge">
+                    <div class="thinking-icon"></div>
+                    5-Stage AI Marketing Intelligence Pipeline
+                </div>
             </section>
 
             <!-- Upload Section -->
             <section class="upload-section" id="uploadSection">
-                <div class="upload-icon">📁</div>
-                <h2 class="upload-title">Upload Journey Map HTML File</h2>
+                <div class="upload-icon">🚀</div>
+                <h2 class="upload-title">Upload Any HTML Content</h2>
                 <p class="upload-description">
-                    Drag and drop your journey map HTML file here, or click to browse.
-                    The system will analyze your actual customer data for 60-120 seconds to create authentic, relatable content.
+                    Upload any HTML document (articles, reports, case studies, whitepapers, blog posts, product pages) 
+                    and generate a complete marketing content suite with professional formatting and strategic intelligence.
                 </p>
                 <input type="file" id="fileInput" class="file-input" accept=".html,.htm">
-                <button class="upload-button" onclick="document.getElementById('fileInput').click()">
-                    <span>📄</span>
-                    Choose HTML File
+                <button class="upload-button" id="uploadButton" onclick="document.getElementById('fileInput').click()">
+                    <span id="uploadIcon">📄</span>
+                    <span id="uploadText">Choose HTML File</span>
                 </button>
                 <div id="fileName" class="mt-2" style="color: var(--primary-cyan); font-weight: 500;"></div>
-            </section>
+                
+                <!-- Marketing Configuration Options -->
+                <div id="marketingOptions" class="thinking-options" style="display: none; margin-top: 2rem;">
+                    <h3>🎯 Marketing Intelligence Configuration</h3>
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label class="option-label">Marketing Objective</label>
+                            <p class="option-description">Primary marketing goal for content generation</p>
+                            <select id="marketingObjective" class="select-input">
+                                <option value="thought_leadership" selected>Thought Leadership</option>
+                                <option value="brand_awareness">Brand Awareness</option>
+                                <option value="lead_generation">Lead Generation</option>
+                                <option value="engagement">Engagement</option>
+                                <option value="education">Education</option>
+                                <option value="sales_enablement">Sales Enablement</option>
+                            </select>
+                        </div>
 
-            <!-- Extended Thinking Options -->
-            <section class="thinking-options" id="thinkingOptions" style="display: none;">
-                <h3>
-                    🧠 Extended Thinking Configuration
-                </h3>
-                <div class="options-grid">
-                    <div class="option-group">
-                        <label class="option-label">Analysis Depth</label>
-                        <p class="option-description">How deep should the AI analyze your journey data?</p>
-                        <select id="depthLevel" class="select-input">
-                            <option value="standard">Standard Analysis (30-45 seconds)</option>
-                            <option value="deep">Deep Analysis (60-90 seconds)</option>
-                            <option value="comprehensive" selected>Comprehensive Analysis (90-120 seconds)</option>
-                        </select>
+                        <div class="option-group">
+                            <label class="option-label">Target Audience</label>
+                            <p class="option-description">Primary audience for marketing content</p>
+                            <select id="targetAudience" class="select-input">
+                                <option value="executives">Executives</option>
+                                <option value="professionals" selected>Professionals</option>
+                                <option value="technical">Technical</option>
+                                <option value="general_business">General Business</option>
+                                <option value="industry_specific">Industry Specific</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Content Tone</label>
+                            <p class="option-description">Overall tone and style for content</p>
+                            <select id="contentTone" class="select-input">
+                                <option value="professional" selected>Professional</option>
+                                <option value="conversational">Conversational</option>
+                                <option value="authoritative">Authoritative</option>
+                                <option value="inspirational">Inspirational</option>
+                                <option value="educational">Educational</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="option-label">Industry Focus</label>
+                            <p class="option-description">Industry context for content positioning</p>
+                            <select id="industryFocus" class="select-input">
+                                <option value="general" selected>General Business</option>
+                                <option value="technology">Technology</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="retail">Retail</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="consulting">Consulting</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="option-group">
-                        <label class="option-label">Content Sophistication</label>
-                        <p class="option-description">Target professional level for generated content</p>
-                        <select id="sophistication" class="select-input">
-                            <option value="professional">Professional Level</option>
-                            <option value="expert" selected>Expert Level</option>
-                            <option value="thought_leader">Thought Leader Level</option>
-                        </select>
-                    </div>
-
-                    <div class="option-group">
-                        <label class="option-label">Content Types</label>
-                        <p class="option-description">Select which types of LinkedIn content to generate</p>
-                        <div class="checkbox-group">
+                    <div class="options-grid" style="margin-top: 1rem;">
+                        <div class="option-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="shortForm" value="short_form" checked>
-                                <label for="shortForm">Short-Form Post (900-1200 chars)</label>
+                                <input type="checkbox" id="competitiveAngle" checked>
+                                <label for="competitiveAngle">Include Competitive Positioning</label>
                             </div>
+                        </div>
+                        <div class="option-group">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="carousel" value="carousel" checked>
-                                <label for="carousel">Carousel Content (5 slides)</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="longForm" value="long_form" checked>
-                                <label for="longForm">Long-Form Article (1200-2000 words)</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="engagement" value="engagement_tactics" checked>
-                                <label for="engagement">Engagement Tactics</label>
+                                <input type="checkbox" id="includeDataPoints" checked>
+                                <label for="includeDataPoints">Emphasize Data Points & Statistics</label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="option-group">
-                        <label class="option-label">Optimization Focus</label>
-                        <p class="option-description">Primary LinkedIn optimization strategy</p>
-                        <select id="optimizationFocus" class="select-input">
-                            <option value="reach_maximization">Reach Maximization</option>
-                            <option value="engagement_focused">Engagement Focused</option>
-                            <option value="thought_leadership" selected>Thought Leadership</option>
-                            <option value="professional_authority">Professional Authority</option>
-                        </select>
+                    <div class="text-center mt-3">
+                        <button class="upload-button" id="generateMarketingButton">
+                            <span>🚀</span>
+                            Generate Marketing Content Suite
+                        </button>
                     </div>
                 </div>
-
-                <div class="text-center mt-3">
-                    <button class="upload-button" id="generateButton">
-                        <span>🚀</span>
-                        Generate LinkedIn Content
-                    </button>
-                </div>
             </section>
+
 
             <!-- Processing Section -->
             <section class="processing-section" id="processingSection">
                 <div class="thinking-animation"></div>
-                <h2 class="processing-title">Extended Thinking in Progress</h2>
-                <p class="processing-stage" id="processingStage">Initializing analysis...</p>
+                <h2 class="processing-title">5-Stage AI Marketing Intelligence in Progress</h2>
+                <p class="processing-stage" id="processingStage">Initializing universal content analysis...</p>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <p class="estimated-time" id="estimatedTime">Estimated time remaining: Calculating...</p>
                 <div class="mt-2" style="font-size: 0.9rem; color: var(--light-grey);">
-                    The AI is performing deep analysis with up to 64,000 tokens of processing power to generate sophisticated, thought-leadership content.
+                    AI is executing: Content Comprehension → Message Extraction → Audience Analysis → Marketing Angles → Competitive Positioning
                 </div>
             </section>
 
             <!-- Results Section -->
             <section class="results-section" id="resultsSection">
                 <div class="analytics-section">
-                    <h3 class="analytics-title">📊 Extended Thinking Analytics</h3>
+                    <h3 class="analytics-title">📊 Marketing Intelligence Analytics</h3>
                     <div class="analytics-grid" id="analyticsGrid">
                         <!-- Analytics cards will be populated by JavaScript -->
                     </div>
                     <div id="thinkingInsights" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; font-size: 0.9rem; line-height: 1.5;">
-                        <!-- Extended thinking insights will be displayed here -->
+                        <!-- Marketing intelligence insights will be displayed here -->
                     </div>
                 </div>
 

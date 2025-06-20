@@ -5,6 +5,7 @@ services:
       - "${LAUNCHPAD_PORT:-8000}:8000"
     environment:
       - JOURNEY_MAPPER_URL=http://journey-mapper:8000
+      - CLAUDE4_JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
       - REDDIT_RIPPER_URL=http://reddit-ripper:5000
       - SOCIAL_RESEARCH_URL=http://social-research-frontend:3000
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
@@ -48,6 +49,7 @@ services:
       - REDDIT_MCP_URL=http://reddit-mcp:8501
       - SOCIAL_MCP_URL=http://social-mcp:8502
       - JOURNEY_MCP_URL=http://journey-mcp:8503
+      - CLAUDE4_JOURNEY_MCP_URL=http://claude4-journey-mcp:8506
       - VIDEO_MCP_URL=http://video-mcp:8504
     volumes:
       - ./mcp-services/agent:/app
@@ -64,6 +66,7 @@ services:
       - reddit-mcp
       - social-mcp
       - journey-mcp
+      - claude4-journey-mcp
       - video-mcp
 
   # Reddit Ripper MCP Wrapper
@@ -127,18 +130,18 @@ services:
       - nxt-humans-network
     depends_on:
       - journey-mapper
-      
-  # OpenAI Journey Mapper MCP Wrapper
-  openai-journey-mcp:
+
+  # Claude 4 Journey Mapper MCP Wrapper
+  claude4-journey-mcp:
     image: python:3.10-slim
     ports:
-      - "${OPENAI_JOURNEY_MCP_PORT:-8505}:8505"
+      - "${CLAUDE4_JOURNEY_MCP_PORT:-8506}:8506"
     environment:
-      - PORT=8505
-      - OPENAI_JOURNEY_MAPPER_URL=http://openai-journey-mapper:8000
+      - PORT=8506
+      - CLAUDE4_JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
     volumes:
-      - ./mcp-services/openai-journey-mcp:/app
-      - openai-journey-uploads:/app/uploads
+      - ./mcp-services/claude4-journey-mcp:/app
+      - claude4-journey-uploads:/app/uploads
     working_dir: /app
     command: >
       bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
@@ -148,7 +151,7 @@ services:
     networks:
       - nxt-humans-network
     depends_on:
-      - openai-journey-mapper
+      - claude4-journey-mapper
 
   # Video Analyzer MCP Wrapper
   video-mcp:
@@ -192,17 +195,16 @@ services:
     networks:
       - nxt-humans-network
 
-  openai-journey-mapper:
+  claude4-journey-mapper:
     image: python:3.10-slim
     ports:
-      - "${OPENAI_JOURNEY_MAPPER_PORT:-8090}:8000"
+      - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
     environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=8000
-      - OPENAI_MODEL=o3
-      - REASONING_EFFORT=medium
+      - ANTHROPIC_MODEL=claude-sonnet-4-20250514
     volumes:
-      - ./internal-solutions-openai-journey-mapper:/app
+      - ./internal-solutions-claude4-journey-mapper-v2:/app
     working_dir: /app
     command: >
       bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
@@ -302,7 +304,7 @@ services:
       - "${VIDEO_ANALYZER_PORT:-5002}:5000"
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5000
     volumes:
       - ./internal-solutions-video-analyzer:/app
@@ -385,7 +387,7 @@ volumes:
     driver: local
   journey-uploads:
     driver: local
-  openai-journey-uploads:
+  claude4-journey-uploads:
     driver: local
   linkedin-generator-uploads:
     driver: local

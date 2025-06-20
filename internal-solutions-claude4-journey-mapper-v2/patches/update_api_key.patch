@@ -1,0 +1,9 @@
+--- .env	2024-05-12 09:00:00.000000000 -0700
++++ .env.fixed	2024-05-12 09:00:00.000000000 -0700
+@@ -1,5 +1,5 @@
+ # Environment variables for NXT Humans AI CX Workbench
+-ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
++ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+ 
+ # Port configurations - Dynamically allocated
+ LAUNCHPAD_PORT=8000

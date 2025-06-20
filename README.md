@@ -6,26 +6,49 @@ A comprehensive microservices platform for customer experience research and anal
 
 The NXT Humans Intelligence Augmentation platform is a complete ecosystem for customer experience analysis, combining data collection, advanced analytics, AI-powered journey mapping, content generation, and professional visualization tools with enterprise-grade security.
 
+## 🚀 Latest Updates (January 2025)
+
+### ✨ **New Claude Sonnet 4 Integration**
+- **🆕 Claude 4 Journey Mapper**: Complete new service utilizing Claude Sonnet 4's advanced reasoning capabilities
+- **🔍 Extended Thinking Mode**: 200K token analysis for comprehensive data examination and pattern recognition
+- **📊 Enhanced Journey Analysis**: Multi-stage systematic investigation with evidence-based insights
+- **🎯 Investigative Approach**: Deep data mining and sophisticated insight extraction
+
+### 📝 **Enhanced LinkedIn Post Generator**
+- **⚡ Claude 4 Integration**: Upgraded from Claude 3.5 to Claude Sonnet 4 for superior content quality
+- **🔍 Investigative Journalism Style**: Transform generic content into compelling, evidence-based narratives
+- **📚 Proper Source Attribution**: Enhanced research citation and author credit (fixing false first-person attribution)
+- **🚀 Comprehensive Analysis**: Extended thinking mode for thorough examination of uploaded files
+- **💡 Quality Revolution**: Eliminated "cliché and not interesting" content with substantive insights
+
+### 🔧 **Technical Improvements**
+- **🐳 Docker Integration**: Full Claude 4 service containerization with MCP protocol support
+- **🌐 Launchpad Integration**: Seamless replacement of OpenAI Journey Mapper with Claude 4 version
+- **🔗 MCP Service Architecture**: New Claude 4 MCP wrapper for agent integration (port 8506)
+- **⚙️ Configuration Management**: Updated Docker Compose with proper service dependencies
+- **🎨 UI/UX Enhancements**: Updated dashboard with Claude 4 service cards and branding
+
 ### Core Applications (10 Components)
 
 1. **Reddit Data Collector**: Automated Reddit data gathering with flexible filtering and PDF export
 2. **Social Research Analysis Tool**: Advanced analytics with PostgreSQL+pgvector, topic modeling, and sentiment analysis  
 3. **AI Journey Mapper (Claude 3.7)**: Customer journey mapping using Claude 3.7 Sonnet with Mermaid visualization
-4. **AI Journey Mapper (Claude 4)**: Advanced journey mapping with Claude 4 Sonnet for enhanced reasoning
-5. **AI Journey Mapper (OpenAI o3)**: Reasoning-based journey mapping using OpenAI's o3 model with configurable effort levels
-6. **Video Transcriptor**: Video/audio transcription and analysis via OpenAI Whisper API with YouTube support
-7. **LinkedIn Post Generator**: Professional content creation using Extended Thinking AI pipeline with drag-and-drop interface
-8. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
-9. **A11y Image Caption Generator**: WCAG-compliant accessibility image captioning using Claude 3.7 Sonnet for screen readers and inclusive design
-10. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
+4. **🆕 AI Journey Mapper (Claude 4)**: **NEW** Advanced journey mapping with Claude Sonnet 4's enhanced reasoning capabilities, extended thinking mode, and 200K token analysis for comprehensive insights
+5. **LinkedIn Post Generator**: Professional content creation using **Enhanced Extended Thinking AI pipeline** with investigative journalism approach and Claude Sonnet 4 integration
+6. **Video Transcriptor**: Video/audio transcription and analysis via OpenAI Whisper API with YouTube support and enhanced processing pipeline
+7. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
+8. **A11y Image Caption Generator**: WCAG-compliant accessibility image captioning using Claude 3.7 Sonnet for screen readers and inclusive design
+9. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
+10. **🔧 Enhanced Development Tools**: Advanced debugging, testing, and deployment capabilities
 
 ## Key Features
 
 ### Intelligence Augmentation Capabilities
+- **🆕 Enhanced AI Model Suite**: Claude 3.7, **Claude Sonnet 4** (latest), with advanced reasoning and extended thinking capabilities
 - **Unified AI Agent Interface**: Control all tools through conversational AI with MCP protocol integration
-- **Multi-AI Model Support**: Claude 3.7, Claude 4, OpenAI o3 with configurable reasoning effort
-- **Professional Content Generation**: Extended Thinking pipeline for LinkedIn content creation
-- **Advanced Video Processing**: YouTube URL and file upload transcription with chunking for large files
+- **🚀 Advanced Journey Mapping**: Claude 4's 200K token analysis for exhaustive data examination and comprehensive insights
+- **📝 Enhanced Content Generation**: **Investigative journalism-style** LinkedIn content using Claude Sonnet 4 with proper source attribution
+- **Advanced Video Processing**: YouTube URL and file upload transcription with enhanced chunking for large files
 - **Accessibility AI**: WCAG-compliant alt text generation for screen readers and inclusive design
 - **Vector Database Analytics**: PostgreSQL+pgvector for semantic search and similarity analysis
 
@@ -89,7 +112,7 @@ docker compose -f docker-compose-all.yml down
 |-------------|----------|-------------------|---------|
 | **Launchpad** (Main Hub) | http://localhost:8000 | https://localhost:8443 | Central access point with AI Agent |
 | **Journey Mapper (Claude 3.7)** | http://localhost:8080 | https://localhost:8444 | Customer journey visualization |
-| **Journey Mapper (Claude 4)** | http://localhost:8095 | *Direct HTTP only* | Advanced reasoning journey maps |
+| **🆕 Journey Mapper (Claude 4)** | http://localhost:8095 | *Direct HTTP only* | **NEW** Advanced reasoning with 200K token analysis |
 | **Journey Mapper (OpenAI o3)** | http://localhost:8090 | https://localhost:8445 | o3 reasoning-based mapping |
 | **Reddit Data Collector** | http://localhost:5001 | https://localhost:8446 | Social media data collection |
 | **Social Research Tool** | http://localhost:3000 | https://localhost:8447 | Advanced analytics dashboard |
@@ -136,11 +159,17 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **Port**: 8080
 - **Key Files**: `internal-solutions-journeymapper/src/app.py`
 
-#### 4. AI Journey Mapper (Claude 4)
-- **Technology**: FastAPI + Claude 4 Sonnet (advanced reasoning)
-- **Features**: Enhanced journey mapping with latest Claude capabilities
+#### 4. 🆕 AI Journey Mapper (Claude 4) - **NEWLY ENHANCED**
+- **Technology**: FastAPI + Claude Sonnet 4 (`claude-sonnet-4-20250514`) with extended thinking mode
+- **Advanced Features**: 
+  - **200K Token Analysis**: Comprehensive data examination using maximum output capacity
+  - **Extended Thinking Mode**: Multi-stage analysis with systematic data investigation
+  - **Enhanced Reasoning**: Claude 4's advanced reasoning capabilities for complex journey patterns
+  - **Investigative Analysis**: Deep pattern recognition and insight extraction
+  - **Comprehensive Quotes & Citations**: Extensive source attribution and evidence-based insights
 - **Port**: 8095
 - **MCP Integration**: Port 8506
+- **Key Files**: `internal-solutions-claude4-journey-mapper-v2/src/app.py`
 
 #### 5. AI Journey Mapper (OpenAI o3)
 - **Technology**: FastAPI + OpenAI o3 reasoning model
@@ -154,10 +183,15 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **Port**: 5002
 - **Key Features**: Handles files >25MB with intelligent chunking
 
-#### 7. LinkedIn Post Generator
-- **Technology**: FastAPI + Extended Thinking AI Pipeline
-- **AI Models**: Claude 3.7 Sonnet (primary) + OpenAI GPT-4o (secondary)
-- **Features**: 4-stage analysis pipeline (64K tokens per stage), spaCy + NLTK processing
+#### 7. 📝 LinkedIn Post Generator - **ENHANCED WITH CLAUDE 4**
+- **Technology**: FastAPI + **Enhanced Extended Thinking AI Pipeline**
+- **AI Models**: **Claude Sonnet 4** (`claude-sonnet-4-20250514`) for investigative analysis + OpenAI GPT-4o (secondary)
+- **Enhanced Features**: 
+  - **Investigative Journalism Approach**: Transform data into compelling, evidence-based narratives
+  - **Comprehensive Source Attribution**: Proper research citation and author credit
+  - **Extended Thinking Mode**: Deep analysis of uploaded content with exhaustive examination
+  - **Enhanced Content Quality**: Professional, non-cliché content generation with substantive insights
+  - **4-stage analysis pipeline** (64K tokens per stage), spaCy + NLTK processing
 - **Port**: 5003
 - **Frontend**: Custom HTML/CSS/JS with drag-and-drop interface
 
@@ -194,7 +228,7 @@ Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Ser
 - Journey MCP (Claude 3.7): 8503
 - Video MCP: 8504
 - OpenAI Journey MCP: 8505
-- Claude 4 Journey MCP: 8506
+- **🆕 Claude 4 Journey MCP: 8506** (**NEW** - Advanced reasoning wrapper)
 
 ### A11y Image Caption Generator: Digital Accessibility AI
 
@@ -352,11 +386,21 @@ image.jpg: Professional accessibility description
 5. **Quality Assurance**: Review confidence scores and accessibility metadata for compliance verification
 6. **Legal Documentation**: Generate WCAG-compliant reports for accessibility audits and ADA compliance
 
-### AI Model Selection Guide
+### 🤖 AI Model Selection Guide
 
-- **Claude 3.7**: Standard journey mapping, balanced speed and quality
-- **Claude 4**: Complex analysis requiring advanced reasoning capabilities  
-- **OpenAI o3**: Maximum reasoning effort for intricate customer journey scenarios (configurable effort levels)
+#### **Journey Mapping Models**
+- **🚀 Claude Sonnet 4** (`claude-sonnet-4-20250514`): **RECOMMENDED** - Latest model with 200K token analysis, extended thinking mode, and superior reasoning for complex journey scenarios
+- **⚡ Claude 3.7**: Standard journey mapping, proven reliability, balanced speed and quality
+- **🧠 OpenAI o3**: Alternative reasoning approach with configurable effort levels (low/medium/high)
+
+#### **Content Generation Models**  
+- **📝 Claude Sonnet 4**: **PRIMARY** - Investigative journalism-style content with comprehensive source attribution
+- **🔄 OpenAI GPT-4o**: **SECONDARY** - Backup for content generation and analysis
+
+#### **When to Use Each Model**
+- **Use Claude 4** for: Complex customer journeys, detailed analysis requiring maximum insight depth, professional content requiring investigative rigor
+- **Use Claude 3.7** for: Standard journey mapping, proven workflows, faster processing needs
+- **Use OpenAI o3** for: Alternative reasoning approaches, specific o3-optimized workflows
 
 ### Testing and Development
 

@@ -173,25 +173,25 @@
           </div>
         </div>
 
-        <div class="enterprise-card" data-category="analysis" data-service="openai-journey-mapper">
+        <div class="enterprise-card" data-category="analysis" data-service="claude4-journey-mapper">
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-brain"></i>
             </div>
             <div class="service-status">
-              <div class="status-indicator status-unknown" id="openai-journey-mapper-status"></div>
+              <div class="status-indicator status-unknown" id="claude4-journey-mapper-status"></div>
             </div>
           </div>
           <div class="card-content">
-            <h3 class="service-title">Journey Mapper (OpenAI o3)</h3>
-            <p class="service-description">Advanced reasoning-powered journey mapping using OpenAI's o3 model with sophisticated cognitive analysis and extended thinking capabilities</p>
+            <h3 class="service-title">Journey Mapper (Claude 4)</h3>
+            <p class="service-description">Advanced reasoning-powered journey mapping using Claude Sonnet 4 with sophisticated extended thinking capabilities and comprehensive data analysis</p>
             <div class="service-tags">
-              <span class="tag">OpenAI o3</span>
-              <span class="tag">Advanced Reasoning</span>
+              <span class="tag">Claude 4</span>
+              <span class="tag">Extended Thinking</span>
             </div>
           </div>
           <div class="card-footer">
-            <a href="{{ openai_journey_mapper_url }}" id="openai-journey-mapper-url" target="_blank" class="enterprise-btn">
+            <a href="{{ claude4_journey_mapper_url }}" id="claude4-journey-mapper-url" target="_blank" class="enterprise-btn">
               <i class="fas fa-external-link-alt"></i>
               Launch Application
             </a>
@@ -395,44 +395,44 @@
     
     // Update URLs in the DOM
     function updateUrls() {
-      // Update href attributes for links
-      redditRipperUrlLink.href = redditRipperUrl;
-      socialResearchUrlLink.href = socialResearchUrl;
-      journeyMapperUrlLink.href = journeyMapperUrl;
-      openaiJourneyMapperUrlLink.href = openaiJourneyMapperUrl;
-      videoAnalyzerUrlLink.href = videoAnalyzerUrl;
-      linkedinGeneratorUrlLink.href = linkedinGeneratorUrl;
-      miroGeneratorUrlLink.href = miroGeneratorUrl;
+      // Update href attributes for links (only if elements exist)
+      if (redditRipperUrlLink) redditRipperUrlLink.href = redditRipperUrl;
+      if (socialResearchUrlLink) socialResearchUrlLink.href = socialResearchUrl;
+      if (journeyMapperUrlLink) journeyMapperUrlLink.href = journeyMapperUrl;
+      if (openaiJourneyMapperUrlLink) openaiJourneyMapperUrlLink.href = openaiJourneyMapperUrl;
+      if (videoAnalyzerUrlLink) videoAnalyzerUrlLink.href = videoAnalyzerUrl;
+      if (linkedinGeneratorUrlLink) linkedinGeneratorUrlLink.href = linkedinGeneratorUrl;
+      if (miroGeneratorUrlLink) miroGeneratorUrlLink.href = miroGeneratorUrl;
       
-      // Update URL displays
-      launchpadUrlDisplay.textContent = launchpadUrl;
-      journeyMapperUrlDisplay.textContent = journeyMapperUrl;
-      openaiJourneyMapperUrlDisplay.textContent = openaiJourneyMapperUrl;
-      redditRipperUrlDisplay.textContent = redditRipperUrl;
-      socialResearchUrlDisplay.textContent = socialResearchUrl;
-      videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
-      linkedinGeneratorUrlDisplay.textContent = linkedinGeneratorUrl;
-      miroGeneratorUrlDisplay.textContent = miroGeneratorUrl;
+      // Update URL displays (only if elements exist)
+      if (launchpadUrlDisplay) launchpadUrlDisplay.textContent = launchpadUrl;
+      if (journeyMapperUrlDisplay) journeyMapperUrlDisplay.textContent = journeyMapperUrl;
+      if (openaiJourneyMapperUrlDisplay) openaiJourneyMapperUrlDisplay.textContent = openaiJourneyMapperUrl;
+      if (redditRipperUrlDisplay) redditRipperUrlDisplay.textContent = redditRipperUrl;
+      if (socialResearchUrlDisplay) socialResearchUrlDisplay.textContent = socialResearchUrl;
+      if (videoAnalyzerUrlDisplay) videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
+      if (linkedinGeneratorUrlDisplay) linkedinGeneratorUrlDisplay.textContent = linkedinGeneratorUrl;
+      if (miroGeneratorUrlDisplay) miroGeneratorUrlDisplay.textContent = miroGeneratorUrl;
       
-      // Update port displays
-      launchpadPortDisplay.textContent = launchpadPort;
-      journeyMapperPortDisplay.textContent = journeyMapperPort;
-      openaiJourneyMapperPortDisplay.textContent = openaiJourneyMapperPort;
-      redditRipperPortDisplay.textContent = redditRipperPort;
-      socialResearchPortDisplay.textContent = socialResearchPort;
-      videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
-      linkedinGeneratorPortDisplay.textContent = linkedinGeneratorPort;
-      miroGeneratorPortDisplay.textContent = miroGeneratorPort;
+      // Update port displays (only if elements exist)
+      if (launchpadPortDisplay) launchpadPortDisplay.textContent = launchpadPort;
+      if (journeyMapperPortDisplay) journeyMapperPortDisplay.textContent = journeyMapperPort;
+      if (openaiJourneyMapperPortDisplay) openaiJourneyMapperPortDisplay.textContent = openaiJourneyMapperPort;
+      if (redditRipperPortDisplay) redditRipperPortDisplay.textContent = redditRipperPort;
+      if (socialResearchPortDisplay) socialResearchPortDisplay.textContent = socialResearchPort;
+      if (videoAnalyzerPortDisplay) videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
+      if (linkedinGeneratorPortDisplay) linkedinGeneratorPortDisplay.textContent = linkedinGeneratorPort;
+      if (miroGeneratorPortDisplay) miroGeneratorPortDisplay.textContent = miroGeneratorPort;
       
-      // Update port badge styling
-      updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
-      updatePortBadge(journeyMapperPortBadge, journeyMapperPort, "8080");
-      updatePortBadge(openaiJourneyMapperPortBadge, openaiJourneyMapperPort, "8090");
-      updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
-      updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
-      updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
-      updatePortBadge(linkedinGeneratorPortBadge, linkedinGeneratorPort, "5003");
-      updatePortBadge(miroGeneratorPortBadge, miroGeneratorPort, "5004");
+      // Update port badge styling (only if elements exist)
+      if (launchpadPortBadge) updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
+      if (journeyMapperPortBadge) updatePortBadge(journeyMapperPortBadge, journeyMapperPort, "8080");
+      if (openaiJourneyMapperPortBadge) updatePortBadge(openaiJourneyMapperPortBadge, openaiJourneyMapperPort, "8090");
+      if (redditRipperPortBadge) updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
+      if (socialResearchPortBadge) updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
+      if (videoAnalyzerPortBadge) updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
+      if (linkedinGeneratorPortBadge) updatePortBadge(linkedinGeneratorPortBadge, linkedinGeneratorPort, "5003");
+      if (miroGeneratorPortBadge) updatePortBadge(miroGeneratorPortBadge, miroGeneratorPort, "5004");
     }
     
     // Get updated URLs from the server
@@ -540,12 +540,13 @@
     }
     
     // Launch all applications
-    launchAllBtn.addEventListener('click', () => {
-      // Add click animation
-      launchAllBtn.classList.add('scale-in');
-      setTimeout(() => {
-        launchAllBtn.classList.remove('scale-in');
-      }, 500);
+    if (launchAllBtn) {
+      launchAllBtn.addEventListener('click', () => {
+        // Add click animation
+        launchAllBtn.classList.add('scale-in');
+        setTimeout(() => {
+          launchAllBtn.classList.remove('scale-in');
+        }, 500);
       
       // Launch apps with slight delay between each
       setTimeout(() => window.open(redditRipperUrl, '_blank'), 0);
@@ -555,7 +556,8 @@
       setTimeout(() => window.open(openaiJourneyMapperUrl, '_blank'), 1200);
       setTimeout(() => window.open(linkedinGeneratorUrl, '_blank'), 1500);
       setTimeout(() => window.open(miroGeneratorUrl, '_blank'), 1800);
-    });
+      });
+    }
     
     // Add animation to status indicator updates
     const originalUpdateStatusIndicator = updateStatusIndicator;
