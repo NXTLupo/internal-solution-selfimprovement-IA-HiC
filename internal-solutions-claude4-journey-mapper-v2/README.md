@@ -25,7 +25,7 @@ An advanced tool for generating interactive customer journey maps from various d
 
 - **Backend**: Python with FastAPI framework
 - **Frontend**: React/JavaScript for the UI
-- **AI**: Anthropic Claude 3.7 Sonnet API integration
+- **AI**: Anthropic Claude 4 Sonnet API integration
 - **Data Processing**: pandas, pypdf, scikit-learn, spacy
 - **Visualization**: HTML/CSS/JavaScript with responsive design
 
