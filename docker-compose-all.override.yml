@@ -3,12 +3,14 @@ services:
     environment:
       # HTTPS Client URLs for secure navigation
       - JOURNEY_MAPPER_CLIENT_URL=https://localhost:8444
-      - OPENAI_JOURNEY_MAPPER_CLIENT_URL=https://localhost:8445
       - REDDIT_RIPPER_CLIENT_URL=https://localhost:8446
       - SOCIAL_RESEARCH_CLIENT_URL=https://localhost:8447
       - VIDEO_ANALYZER_CLIENT_URL=https://localhost:8448
       - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
       - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
+      - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
+      - PRESENTATION_AI_CLIENT_URL=https://localhost:8451
+      - MULMOCAST_CLIENT_URL=https://localhost:8452
 
   video-analyzer:
     environment:
@@ -28,15 +30,6 @@ services:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
 
-  openai-journey-mapper:
-    environment:
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
-      - OPENAI_MODEL=o3
-      - REASONING_EFFORT=medium
-
-  openai-journey-mcp:
-    environment:
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
 
   agent:
     environment:

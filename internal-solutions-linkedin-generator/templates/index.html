@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-cyan: #01C4C8;
+            --primary-purple: #7C3AED;
             --dark-bg: #121B26;
             --light-grey: #5A6275;
             --medium-grey: #4A5165;
@@ -76,7 +76,7 @@
             right: 0;
             width: 40%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 0%, rgba(139, 69, 19, 0.15) 30%, rgba(255, 20, 147, 0.25) 60%, rgba(255, 0, 128, 0.3) 100%);
+            background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
             transform: skewX(-20deg) translateX(20%);
             z-index: 1;
         }
@@ -151,7 +151,7 @@
         }
 
         .ia-augmentation {
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -176,7 +176,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--white));
+            background: linear-gradient(135deg, var(--primary-purple), var(--white));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -200,8 +200,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(1, 196, 200, 0.1);
-            border: 1px solid var(--primary-cyan);
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--primary-purple);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -212,7 +212,7 @@
         .thinking-icon {
             width: 16px;
             height: 16px;
-            background: var(--primary-cyan);
+            background: var(--primary-purple);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
@@ -225,7 +225,7 @@
         /* Upload Section */
         .upload-section {
             background: rgba(255, 255, 255, 0.05);
-            border: 2px dashed rgba(1, 196, 200, 0.3);
+            border: 2px dashed rgba(124, 58, 237, 0.3);
             border-radius: 12px;
             padding: 3rem;
             text-align: center;
@@ -234,19 +234,19 @@
         }
 
         .upload-section:hover {
-            border-color: var(--primary-cyan);
-            background: rgba(1, 196, 200, 0.05);
+            border-color: var(--primary-purple);
+            background: rgba(124, 58, 237, 0.05);
         }
 
         .upload-section.dragover {
-            border-color: var(--primary-cyan);
-            background: rgba(1, 196, 200, 0.1);
+            border-color: var(--primary-purple);
+            background: rgba(124, 58, 237, 0.1);
             transform: scale(1.02);
         }
 
         .upload-icon {
             font-size: 3rem;
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
             margin-bottom: 1rem;
         }
 
@@ -269,7 +269,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(139, 92, 246, 0.9) 100%);
             color: var(--white);
             padding: 0.75rem 1.5rem;
             border: none;
@@ -278,13 +278,13 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
         .upload-button:hover:not(:disabled) {
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
         }
 
         .upload-button:disabled {
@@ -298,14 +298,14 @@
         /* Extended Thinking Options */
         .thinking-options {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(1, 196, 200, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.2);
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
         .thinking-options h3 {
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
@@ -340,7 +340,7 @@
 
         .select-input, .checkbox-group {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(1, 196, 200, 0.3);
+            border: 1px solid rgba(124, 58, 237, 0.3);
             border-radius: 6px;
             padding: 10px;
             color: var(--white);
@@ -349,8 +349,8 @@
 
         .select-input:focus {
             outline: none;
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 0 2px rgba(1, 196, 200, 0.2);
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
         }
 
         .checkbox-group {
@@ -366,14 +366,14 @@
         }
 
         .checkbox-item input[type="checkbox"] {
-            accent-color: var(--primary-cyan);
+            accent-color: var(--primary-purple);
         }
 
         /* Processing Section */
         .processing-section {
             display: none;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(1, 196, 200, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.2);
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
@@ -388,8 +388,8 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 1rem;
-            border: 4px solid rgba(1, 196, 200, 0.2);
-            border-top: 4px solid var(--primary-cyan);
+            border: 4px solid rgba(124, 58, 237, 0.2);
+            border-top: 4px solid var(--primary-purple);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -403,7 +403,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
         }
 
         .processing-stage {
@@ -423,7 +423,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-cyan), #00A8B8);
+            background: linear-gradient(90deg, var(--primary-purple), #00A8B8);
             border-radius: 4px;
             transition: width 0.5s ease;
             width: 0%;
@@ -452,16 +452,16 @@
 
         .content-card {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(1, 196, 200, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.2);
             border-radius: 12px;
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
 
         .content-card:hover {
-            border-color: var(--primary-cyan);
+            border-color: var(--primary-purple);
             transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(1, 196, 200, 0.15);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.15);
         }
 
         .content-header {
@@ -474,12 +474,12 @@
         .content-type {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
         }
 
         .quality-score {
-            background: rgba(1, 196, 200, 0.2);
-            color: var(--primary-cyan);
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--primary-purple);
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -527,9 +527,9 @@
 
         .action-button {
             flex: 1;
-            background: rgba(1, 196, 200, 0.1);
-            border: 1px solid var(--primary-cyan);
-            color: var(--primary-cyan);
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--primary-purple);
+            color: var(--primary-purple);
             padding: 8px 12px;
             border-radius: 6px;
             font-size: 0.8rem;
@@ -538,12 +538,12 @@
         }
 
         .action-button:hover {
-            background: var(--primary-cyan);
+            background: var(--primary-purple);
             color: var(--white);
         }
 
         .action-button.primary {
-            background: var(--primary-cyan);
+            background: var(--primary-purple);
             color: var(--white);
         }
 
@@ -554,7 +554,7 @@
         /* Analytics Section */
         .analytics-section {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(1, 196, 200, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.2);
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -563,7 +563,7 @@
         .analytics-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
             margin-bottom: 1.5rem;
         }
 
@@ -584,7 +584,7 @@
         .analytics-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-cyan);
+            color: var(--primary-purple);
             margin-bottom: 0.25rem;
         }
 
@@ -627,7 +627,7 @@
             }
 
             .ia-augmentation {
-                background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -683,7 +683,7 @@
             }
 
             .ia-augmentation {
-                background: linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%);
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -758,7 +758,7 @@
                     <span id="uploadIcon">📄</span>
                     <span id="uploadText">Choose HTML File</span>
                 </button>
-                <div id="fileName" class="mt-2" style="color: var(--primary-cyan); font-weight: 500;"></div>
+                <div id="fileName" class="mt-2" style="color: var(--primary-purple); font-weight: 500;"></div>
                 
                 <!-- Marketing Configuration Options -->
                 <div id="marketingOptions" class="thinking-options" style="display: none; margin-top: 2rem;">

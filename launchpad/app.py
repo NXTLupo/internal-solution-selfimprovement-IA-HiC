@@ -59,6 +59,10 @@ def get_dynamic_urls():
     linkedin_generator_url = os.environ.get('LINKEDIN_GENERATOR_URL', 'http://linkedin-generator:5000')
     miro_generator_url = os.environ.get('MIRO_GENERATOR_URL', 'http://miro-generator:5000')
     image_captioner_url = os.environ.get('IMAGE_CAPTIONER_URL', 'http://image-captioner:5005')
+    flux_lora_studio_url = os.environ.get('FLUX_LORA_STUDIO_URL', 'http://flux-lora-studio:5006')
+    presentation_generator_url = os.environ.get('PRESENTATION_GENERATOR_URL', 'http://presentation-generator:5007')
+    presentation_ai_url = os.environ.get('PRESENTATION_AI_URL', 'http://presentation-ai:3000')
+    mulmocast_url = os.environ.get('MULMOCAST_URL', 'http://mulmocast:5008')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
@@ -82,6 +86,10 @@ def get_dynamic_urls():
     linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_CLIENT_URL', 'http://localhost:5003')
     miro_generator_client_url = os.environ.get('MIRO_GENERATOR_CLIENT_URL', 'http://localhost:5004')
     image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_CLIENT_URL', 'http://localhost:5005')
+    flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
+    presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
+    presentation_ai_client_url = os.environ.get('PRESENTATION_AI_CLIENT_URL', 'http://localhost:3002')
+    mulmocast_client_url = os.environ.get('MULMOCAST_CLIENT_URL', 'http://localhost:5008')
 
     urls = {
         'journey_mapper': {
@@ -119,6 +127,22 @@ def get_dynamic_urls():
         'image_captioner': {
             'client_url': image_captioner_client_url,
             'internal_url': image_captioner_url
+        },
+        'flux_lora_studio': {
+            'client_url': flux_lora_studio_client_url,
+            'internal_url': flux_lora_studio_url
+        },
+        'presentation_generator': {
+            'client_url': presentation_generator_client_url,
+            'internal_url': presentation_generator_url
+        },
+        'presentation_ai': {
+            'client_url': presentation_ai_client_url,
+            'internal_url': presentation_ai_url
+        },
+        'mulmocast': {
+            'client_url': mulmocast_client_url,
+            'internal_url': mulmocast_url
         }
     }
 
@@ -151,7 +175,11 @@ services_status = {
     "video_analyzer": {"status": "unknown", "last_checked": None},
     "linkedin_generator": {"status": "unknown", "last_checked": None},
     "miro_generator": {"status": "unknown", "last_checked": None},
-    "image_captioner": {"status": "unknown", "last_checked": None}
+    "image_captioner": {"status": "unknown", "last_checked": None},
+    "flux_lora_studio": {"status": "unknown", "last_checked": None},
+    "presentation_generator": {"status": "unknown", "last_checked": None},
+    "presentation_ai": {"status": "unknown", "last_checked": None},
+    "mulmocast": {"status": "unknown", "last_checked": None}
 }
 
 # Add agent services if enabled
@@ -326,7 +354,11 @@ def index():
         'video_analyzer': services_status['video_analyzer']['status'],
         'linkedin_generator': services_status['linkedin_generator']['status'],
         'miro_generator': services_status['miro_generator']['status'],
-        'image_captioner': services_status['image_captioner']['status']
+        'image_captioner': services_status['image_captioner']['status'],
+        'flux_lora_studio': services_status['flux_lora_studio']['status'],
+        'presentation_generator': services_status['presentation_generator']['status'],
+        'presentation_ai': services_status['presentation_ai']['status'],
+        'mulmocast': services_status['mulmocast']['status']
     }
 
     # Determine if CX agent is enabled
@@ -343,6 +375,10 @@ def index():
                        linkedin_generator_url=urls['linkedin_generator']['client_url'],
                        miro_generator_url=urls['miro_generator']['client_url'],
                        image_captioner_url=urls['image_captioner']['client_url'],
+                       flux_lora_studio_url=urls['flux_lora_studio']['client_url'],
+                       presentation_generator_url=urls['presentation_generator']['client_url'],
+                       presentation_ai_url=urls['presentation_ai']['client_url'],
+                       mulmocast_url=urls['mulmocast']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))
@@ -375,7 +411,11 @@ def status_page():
         'video_analyzer': services_status['video_analyzer']['status'],
         'linkedin_generator': services_status['linkedin_generator']['status'],
         'miro_generator': services_status['miro_generator']['status'],
-        'image_captioner': services_status['image_captioner']['status']
+        'image_captioner': services_status['image_captioner']['status'],
+        'flux_lora_studio': services_status['flux_lora_studio']['status'],
+        'presentation_generator': services_status['presentation_generator']['status'],
+        'presentation_ai': services_status['presentation_ai']['status'],
+        'mulmocast': services_status['mulmocast']['status']
     }
 
     # Determine if CX agent is enabled for template

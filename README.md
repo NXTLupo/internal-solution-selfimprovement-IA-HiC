@@ -1,6 +1,6 @@
 # NXT HUMANS INTELLIGENCE AUGMENTATION
 
-A comprehensive microservices platform for customer experience research and analysis, featuring nine integrated AI-powered applications with unified agent orchestration, professional tooling, and complete HTTPS security infrastructure.
+A comprehensive microservices platform for customer experience research and analysis, featuring twelve integrated AI-powered applications with unified agent orchestration, professional tooling, and complete HTTPS security infrastructure.
 
 ## Overview
 
@@ -28,18 +28,21 @@ The NXT Humans Intelligence Augmentation platform is a complete ecosystem for cu
 - **⚙️ Configuration Management**: Updated Docker Compose with proper service dependencies
 - **🎨 UI/UX Enhancements**: Updated dashboard with Claude 4 service cards and branding
 
-### Core Applications (10 Components)
+### Core Applications (12 Components)
 
-1. **Reddit Data Collector**: Automated Reddit data gathering with flexible filtering and PDF export
-2. **Social Research Analysis Tool**: Advanced analytics with PostgreSQL+pgvector, topic modeling, and sentiment analysis  
-3. **AI Journey Mapper (Claude 3.7)**: Customer journey mapping using Claude 3.7 Sonnet with Mermaid visualization
-4. **🆕 AI Journey Mapper (Claude 4)**: **NEW** Advanced journey mapping with Claude Sonnet 4's enhanced reasoning capabilities, extended thinking mode, and 200K token analysis for comprehensive insights
-5. **LinkedIn Post Generator**: Professional content creation using **Enhanced Extended Thinking AI pipeline** with investigative journalism approach and Claude Sonnet 4 integration
-6. **Video Transcriptor**: Video/audio transcription and analysis via OpenAI Whisper API with YouTube support and enhanced processing pipeline
-7. **Miro Generator**: TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
-8. **A11y Image Caption Generator**: WCAG-compliant accessibility image captioning using Claude 3.7 Sonnet for screen readers and inclusive design
-9. **AI Agent Assistant**: Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
-10. **🔧 Enhanced Development Tools**: Advanced debugging, testing, and deployment capabilities
+1. **Reddit Data Collector** (Port 5001): Automated Reddit data gathering with flexible filtering and PDF export
+2. **Social Research Analysis Tool** (Ports 3000/8081): Advanced analytics with PostgreSQL+pgvector, topic modeling, and sentiment analysis using React 19 + TypeScript 5.7 + Vite 6.1
+3. **AI Journey Mapper (Claude 3.7)** (Port 8080): Customer journey mapping using Claude 3.7 Sonnet with Mermaid visualization
+4. **🆕 AI Journey Mapper (Claude 4)** (Port 8095): **NEW** Advanced journey mapping with Claude Sonnet 4's enhanced reasoning capabilities, extended thinking mode, and 200K token analysis for comprehensive insights
+5. **AI Journey Mapper (OpenAI o3)** (Port 8090): Reasoning-enhanced customer journey mapping using OpenAI's o3 model with configurable effort levels
+6. **Video Transcriptor** (Port 5002): Video/audio transcription and analysis via OpenAI Whisper API with YouTube support and enhanced processing pipeline
+7. **LinkedIn Post Generator** (Port 5003): Professional content creation using **Enhanced Extended Thinking AI pipeline** with investigative journalism approach and Claude Sonnet 4 integration
+8. **Miro Generator** (Port 5004): TypeScript CLI tool for creating Miro boards from journey map data with comprehensive Jest testing
+9. **A11y Image Caption Generator** (Port 5005): WCAG-compliant accessibility image captioning using Claude 3.7 Sonnet for screen readers and inclusive design
+10. **Flux LoRA Studio** (Port 5006): AI image generation and training studio using Flux models with LoRA fine-tuning capabilities
+11. **Presentation Generator** (Port 5007): AI-powered presentation creation with Claude integration for professional slide generation
+12. **Mulmocast Wizard** (Port 5008): Multi-modal content casting and distribution platform with advanced media processing
+13. **AI Agent Assistant** (Port 8500): Multimodal chatbot with MCP (Model Context Protocol) tool integration for unified control
 
 ## Key Features
 
@@ -120,6 +123,9 @@ docker compose -f docker-compose-all.yml down
 | **LinkedIn Post Generator** | http://localhost:5003 | https://localhost:8449 | Professional content creation |
 | **Miro Generator** | http://localhost:5004 | https://localhost:8450 | Board creation interface |
 | **A11y Image Caption Generator** | http://localhost:5005 | *Direct HTTP only* | Accessibility AI for screen readers |
+| **Flux LoRA Studio** | http://localhost:5006 | *Direct HTTP only* | AI image generation and training |
+| **Presentation Generator** | http://localhost:5007 | *Direct HTTP only* | AI-powered presentation creation |
+| **Mulmocast Wizard** | http://localhost:5008 | *Direct HTTP only* | Multi-modal content casting |
 
 **🔒 HTTPS Benefits**: Secure connections eliminate browser "Not Secure" warnings and provide professional experience with green lock icons.
 
@@ -146,11 +152,12 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **Key Files**: `internal-solutions-reddit-ripper/app.py`
 
 #### 2. Social Research Analysis Tool  
-- **Frontend**: React 19 + TypeScript 5.7 + Vite 6.1 + Tailwind CSS 4.0
-- **Backend**: Flask + PostgreSQL 16 + pgvector extension
-- **Features**: Topic modeling (BERTopic), sentiment analysis, vector search
+- **Frontend**: React 19 + TypeScript 5.7 + Vite 6.1 + Tailwind CSS 4.0 + Material-UI 6.4+
+- **Backend**: Flask + PostgreSQL 16 + pgvector extension for vector embeddings
+- **Features**: Topic modeling (BERTopic), sentiment analysis, vector search, Redux Toolkit 2.6+ state management
 - **Ports**: 3000 (frontend), 8081 (backend)
-- **Architecture**: Modern Vite build system with hot module replacement
+- **Architecture**: Modern Vite build system with ESM modules, HMR, and strict TypeScript compilation
+- **Database**: PostgreSQL 16+ with pgvector extension for semantic search and similarity analysis
 
 #### 3. AI Journey Mapper (Claude 3.7)
 - **Technology**: FastAPI + Claude 3.7 Sonnet + Mermaid visualization
@@ -178,22 +185,25 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **MCP Integration**: Port 8505
 
 #### 6. Video Transcriptor
-- **Technology**: FastAPI + OpenAI Whisper API + yt-dlp
-- **Features**: YouTube URL support, file uploads, automatic chunking for large files
+- **Technology**: FastAPI + OpenAI Whisper API + yt-dlp + FFmpeg integration
+- **Features**: YouTube URL support, file uploads (MP4, AVI, MOV, WAV, MP3), automatic chunking for large files (>25MB), real-time processing status
 - **Port**: 5002
-- **Key Features**: Handles files >25MB with intelligent chunking
+- **Key Features**: Handles files up to 500MB with intelligent chunking, parallel processing, JSON export, batch processing queue
+- **Quality**: 99+ language support, 95%+ accuracy for clear audio, error recovery with retry mechanisms
 
 #### 7. 📝 LinkedIn Post Generator - **ENHANCED WITH CLAUDE 4**
-- **Technology**: FastAPI + **Enhanced Extended Thinking AI Pipeline**
+- **Technology**: FastAPI + **Enhanced Extended Thinking AI Pipeline** + uvicorn ASGI server
 - **AI Models**: **Claude Sonnet 4** (`claude-sonnet-4-20250514`) for investigative analysis + OpenAI GPT-4o (secondary)
 - **Enhanced Features**: 
   - **Investigative Journalism Approach**: Transform data into compelling, evidence-based narratives
+  - **4-Stage Extended Thinking Pipeline**: 64K tokens per stage for comprehensive content development
   - **Comprehensive Source Attribution**: Proper research citation and author credit
-  - **Extended Thinking Mode**: Deep analysis of uploaded content with exhaustive examination
-  - **Enhanced Content Quality**: Professional, non-cliché content generation with substantive insights
-  - **4-stage analysis pipeline** (64K tokens per stage), spaCy + NLTK processing
+  - **Advanced NLP Processing**: spaCy 3.5+ and NLTK 3.6+ for sophisticated text analysis
+  - **Professional Content Quality**: Business-appropriate language with LinkedIn optimization
+  - **Multi-format Support**: Journey maps (JSON/HTML), PDFs, text documents
 - **Port**: 5003
-- **Frontend**: Custom HTML/CSS/JS with drag-and-drop interface
+- **Frontend**: Custom HTML/CSS/JS with drag-and-drop interface and real-time progress tracking
+- **Performance**: 45-90 second generation time, up to 50MB file support
 
 #### 8. Miro Generator (CLI Tool)
 - **Technology**: TypeScript 5.3 + Commander.js + Jest 29.7
@@ -208,7 +218,25 @@ The Intelligence Augmentation platform uses a sophisticated microservices archit
 - **AI Integration**: Base64 image encoding, context-aware accessibility descriptions
 - **Export Formats**: JSON, CSV, TXT with structured accessibility metadata
 
-#### 10. AI Agent Assistant
+#### 10. Flux LoRA Studio
+- **Technology**: Python + Flux AI models + LoRA fine-tuning + Gradio interface
+- **Features**: AI image generation, model training, LoRA customization, batch processing
+- **Port**: 5006
+- **Key Features**: Flux model integration, custom LoRA training, image generation pipeline
+
+#### 11. Presentation Generator
+- **Technology**: FastAPI + Claude integration + PowerPoint API + python-pptx
+- **Features**: AI-powered slide generation, template customization, content extraction
+- **Port**: 5007  
+- **Key Features**: Professional presentation creation, Claude content generation, multi-format export
+
+#### 12. Mulmocast Wizard
+- **Technology**: TypeScript + Node.js + Multi-modal processing + WebSockets
+- **Features**: Content casting, media distribution, real-time streaming, format conversion
+- **Port**: 5008
+- **Key Features**: Multi-modal content processing, distribution platform, advanced media handling
+
+#### 13. AI Agent Assistant
 - **Technology**: Python + WebSockets + Claude API + MCP Protocol
 - **Features**: Unified tool control, multi-model support, conversation context
 - **Port**: 8500
@@ -426,7 +454,7 @@ python test_websocket_server.py            # WebSocket functionality
 
 The platform supports multiple deployment scenarios through different Docker Compose configurations:
 
-- **`docker-compose-all.yml`**: Complete stack with all 9 applications + MCP services
+- **`docker-compose-all.yml`**: Complete stack with all 12 applications + MCP services
 - **`docker-compose-https.yml`**: HTTPS proxy service for secure connections
 - **`dynamic-compose.yml`**: Development configuration with environment-based port allocation
 - **`docker-compose-claude4.yml`**: Claude 4 specific services
@@ -493,7 +521,11 @@ SOCIAL_RESEARCH_PORT=3000                    # Social research frontend
 SOCIAL_RESEARCH_BACKEND_PORT=8081            # Social research backend
 VIDEO_ANALYZER_PORT=5002                     # Video transcriptor
 LINKEDIN_GENERATOR_PORT=5003                 # LinkedIn post generator
+MIRO_GENERATOR_PORT=5004                     # Miro board generator
 IMAGE_CAPTIONER_PORT=5005                    # A11y Image Caption Generator
+FLUX_LORA_STUDIO_PORT=5006                   # Flux LoRA Studio
+PRESENTATION_GENERATOR_PORT=5007             # Presentation Generator
+MULMOCAST_WIZARD_PORT=5008                   # Mulmocast Wizard
 
 # MCP Service Ports (Model Context Protocol integration)
 AGENT_PORT=8500                              # AI agent orchestrator

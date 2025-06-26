@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring ten main applications integrated through a unified AI agent interface:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring fourteen main applications integrated through a unified AI agent interface:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
@@ -16,6 +16,10 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 8. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
 9. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
 10. **Image Caption Generator**: AI-powered image captioning using MobileNetV2 and LSTM models (internal-solutions-image-captioner)
+11. **FLUX LoRA Studio**: Real local LoRA training using Kohya_ss backend optimized for Apple Silicon M3 (internal-solutions-flux-lora-studio)
+12. **MulmoCast**: Multi-modal presentation platform for AI-native content creation with MulmoScript format (internal-solutions-mulmocast)
+13. **AI Presentation Generator**: Dual AI analysis pipeline for creating professional PowerPoint presentations (internal-solutions-presentation-generator)
+14. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
 
 ## Architecture
 
@@ -31,6 +35,7 @@ The workbench uses a microservices architecture with Docker for containerization
    - claude4-journey-mcp: Exposes Claude 4 Journey Mapper functionality
    - openai-journey-mcp: Exposes OpenAI o3 Journey Mapper functionality
    - video-mcp: Exposes Video Transcriptor functionality
+   - mulmocast-mcp: Exposes MulmoCast multimedia content generation functionality
 3. **Agent Service**: Manages conversation context and tool invocation using Claude API
 
 ### Key Files and Directories
@@ -309,6 +314,59 @@ docker build -t image-captioner .
 docker run -p 5005:5005 image-captioner
 ```
 
+#### FLUX LoRA Studio (Apple Silicon M3 Optimized)
+```bash
+# Local development (Apple Silicon M3 optimized)
+cd internal-solutions-flux-lora-studio
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export PORT=5006 && python app.py  # Starts on port 5006
+
+# Launch with local Apple Silicon optimization
+./launch-flux-local.sh              # Launches Kohya_ss + web interface
+
+# Using Docker (standard deployment)
+docker compose -f docker-compose-all.yml up flux-lora-studio
+```
+
+#### MulmoCast (Multi-modal Presentation Platform)
+```bash
+# CLI development
+cd internal-solutions-mulmocast
+npm install
+npm run build
+
+# CLI usage
+npx mulmocast create --format video --input journey.json
+npx mulmocast generate --output presentation.mp4
+
+# Development
+npm run dev          # TypeScript compilation in watch mode
+npm run test         # tsx test runner
+npm run lint         # ESLint + Prettier
+```
+
+#### AI Presentation Generator (Dual AI Pipeline)
+```bash
+# Standalone development
+cd internal-solutions-presentation-generator
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=your_key && export OPENAI_API_KEY=your_key
+python app.py        # Starts on port 5007
+
+# Using Docker with HTTPS
+docker compose -f docker-compose-all.yml up presentation-generator
+# Access via https://localhost:8452 (HTTPS proxy)
+
+# Test dual AI pipeline
+curl -X POST http://localhost:5007/generate \
+  -F "file=@journey_map.json" \
+  -F "output_format=pptx"
+```
+
 ### Testing Infrastructure
 
 #### Comprehensive Testing Commands
@@ -485,6 +543,8 @@ VIDEO_ANALYZER_PORT=5002             # Optional, default: 5002
 LINKEDIN_GENERATOR_PORT=5003         # Optional, default: 5003
 MIRO_GENERATOR_PORT=5004             # Optional, default: 5004
 IMAGE_CAPTIONER_PORT=5005            # Optional, default: 5005
+FLUX_LORA_STUDIO_PORT=5006           # Optional, default: 5006
+PRESENTATION_GENERATOR_PORT=5007     # Optional, default: 5007
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -494,6 +554,7 @@ JOURNEY_MCP_PORT=8503                # Journey MCP service
 CLAUDE4_MCP_PORT=8003                # Claude 4 MCP service
 OPENAI_JOURNEY_MCP_PORT=8505         # OpenAI Journey MCP service
 VIDEO_MCP_PORT=8504                  # Video MCP service
+MULMOCAST_MCP_PORT=8507              # MulmoCast MCP service
 
 # Agent configuration
 ENABLE_CX_AGENT=true                 # Enable AI agent integration
@@ -516,6 +577,8 @@ VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
 LINKEDIN_GENERATOR_CLIENT_URL=http://localhost:5003
 MIRO_GENERATOR_CLIENT_URL=http://localhost:5004
 IMAGE_CAPTIONER_CLIENT_URL=http://localhost:5005
+FLUX_LORA_STUDIO_CLIENT_URL=http://localhost:5006
+PRESENTATION_GENERATOR_CLIENT_URL=http://localhost:5007
 ```
 
 ## Tool Integration
@@ -555,7 +618,12 @@ The AI Agent uses a Model Context Protocol (MCP) architecture to integrate tools
    - `video.get_status`: Check transcription status
    - `video.get_results`: Get transcription results
 
-**Note**: The LinkedIn Post Generator, Miro Board Generator, and Image Caption Generator are currently available as standalone services (ports 5003, 5004, and 5005 respectively) but lack MCP integration for AI Agent access. The LinkedIn Generator can create professional LinkedIn content from journey map data using advanced "Extended Thinking" analysis with Claude 3.7 Sonnet and OpenAI GPT-4o. The Miro Generator provides a comprehensive TypeScript CLI for converting journey maps to interactive Miro boards with advanced layout and styling capabilities. The Image Caption Generator provides AI-powered image captioning using MobileNetV2 and LSTM models for automatic image description.
+7. **MulmoCast Tools**
+   - `mulmocast.create`: Create multimedia presentations from data
+   - `mulmocast.generate`: Generate video/audio content
+   - `mulmocast.get_formats`: List available output formats
+
+**Note**: The LinkedIn Post Generator, Miro Board Generator, Image Caption Generator, FLUX LoRA Studio, and AI Presentation Generator are currently available as standalone services (ports 5003-5007) but some lack MCP integration for AI Agent access. The LinkedIn Generator creates professional LinkedIn content using "Extended Thinking" analysis. The Miro Generator provides a TypeScript CLI for interactive Miro boards. The Image Caption Generator uses MobileNetV2 and LSTM models. FLUX LoRA Studio offers real local LoRA training optimized for Apple Silicon M3. The AI Presentation Generator creates professional PowerPoint presentations using dual AI analysis.
 
 **Service-Specific Favicons**: Each service now includes branded favicon files for enhanced user experience:
 - `reddit-favicon.svg`, `video-favicon.svg`, `chart-favicon.svg`, `route-favicon.svg`
@@ -625,6 +693,7 @@ Journey MCP:            8503 (Claude 3.7 journey mapper wrapper)
 Video MCP:              8504 (Video transcriptor wrapper)
 OpenAI Journey MCP:     8505 (OpenAI o3 journey mapper wrapper)
 Claude 4 Journey MCP:   8506 (Claude 4 journey mapper wrapper)
+MulmoCast MCP:          8507 (MulmoCast multimedia wrapper)
 ```
 
 **Communication Flow**: `Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Service`
@@ -817,6 +886,11 @@ The platform includes specialized AI services with distinct architectural patter
 - **Claude 4**: Advanced reasoning and analysis (`internal-solutions-claude4-journey-mapper`)  
 - **OpenAI o3**: Reasoning-enhanced mapping with configurable effort levels (`internal-solutions-openai-journey-mapper`)
 
+**Content Generation & Training Architecture**:
+- **FLUX LoRA Studio**: Real local LoRA training using Kohya_ss backend optimized for Apple Silicon M3
+- **MulmoCast**: Multi-modal presentation platform with MulmoScript JSON format for AI-native content
+- **AI Presentation Generator**: Dual AI analysis pipeline (Claude 3.7 + OpenAI GPT-4o) for PowerPoint generation
+
 ## Key File Locations
 
 When working on specific functionality, these are the critical files to understand:
@@ -843,6 +917,9 @@ When working on specific functionality, these are the critical files to understa
 - `internal-solutions-miro-generator/app.py`: Miro Generator web interface entry (Flask + TypeScript CLI integration)
 - `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI entry (TypeScript + Commander.js)
 - `internal-solutions-image-captioner/app.py`: Image Caption Generator entry (FastAPI + TensorFlow)
+- `internal-solutions-flux-lora-studio/app.py`: FLUX LoRA Studio entry (Apple Silicon M3 optimized)
+- `internal-solutions-mulmocast/src/cli/bin.ts`: MulmoCast CLI entry (TypeScript + GraphAI)
+- `internal-solutions-presentation-generator/app.py`: AI Presentation Generator entry (Dual AI pipeline)
 - `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry (React 19 + TypeScript)
 - `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry (Flask + pgvector)
 
@@ -855,6 +932,8 @@ When working on specific functionality, these are the critical files to understa
 - `internal-solutions-miro-generator/package.json`: TypeScript CLI tool with Jest testing
 - `internal-solutions-miro-generator/tsconfig.json`: TypeScript configuration with ES2022 target and path aliases
 - `internal-solutions-miro-generator/jest.config.js`: Jest configuration for comprehensive testing
+- `internal-solutions-mulmocast/package.json`: Advanced ESM + GraphAI stack with multiple AI integrations
+- `internal-solutions-mulmocast/tsconfig.json`: TypeScript 5.7+ configuration with ESM modules
 
 ### Critical Backup Files
 - `mcp-services/agent/app.py.backup.websocket_fix`: Working agent backup (restore if tool execution breaks)

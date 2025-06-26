@@ -1,0 +1,88 @@
+{
+  "title": "Customer Support Journey Map",
+  "customer_persona": {
+    "name": "Sarah, Frustrated Customer",
+    "demographics": "Age 35, Tech-savvy professional",
+    "needs": "Quick resolution of technical issues"
+  },
+  "journey_stages": [
+    {
+      "stage": "Awareness",
+      "touchpoints": [
+        "Website error message",
+        "Search for help"
+      ],
+      "customer_actions": [
+        "Encounters 404 error",
+        "Searches for support"
+      ],
+      "emotions": [
+        "Confused",
+        "Slightly annoyed"
+      ],
+      "pain_points": [
+        "Unclear error message",
+        "Hard to find support"
+      ],
+      "opportunities": [
+        "Clear error messaging",
+        "Prominent help links"
+      ]
+    },
+    {
+      "stage": "Consideration",
+      "touchpoints": [
+        "Support portal",
+        "Live chat widget"
+      ],
+      "customer_actions": [
+        "Browses FAQ",
+        "Initiates chat"
+      ],
+      "emotions": [
+        "Hopeful",
+        "Impatient"
+      ],
+      "pain_points": [
+        "Long chat queue",
+        "Generic responses"
+      ],
+      "opportunities": [
+        "Predictive FAQ",
+        "Smart routing"
+      ]
+    },
+    {
+      "stage": "Resolution",
+      "touchpoints": [
+        "Support agent",
+        "Follow-up email"
+      ],
+      "customer_actions": [
+        "Explains issue",
+        "Follows instructions"
+      ],
+      "emotions": [
+        "Relief",
+        "Satisfaction"
+      ],
+      "pain_points": [
+        "Multiple explanations needed"
+      ],
+      "opportunities": [
+        "Agent training",
+        "Knowledge base improvement"
+      ]
+    }
+  ],
+  "insights": [
+    "Customers need immediate clarity when encountering errors",
+    "Self-service options reduce support load",
+    "Follow-up communication builds trust"
+  ],
+  "recommendations": [
+    "Implement intelligent error messages with direct help links",
+    "Create interactive troubleshooting guides",
+    "Establish proactive follow-up workflows"
+  ]
+}

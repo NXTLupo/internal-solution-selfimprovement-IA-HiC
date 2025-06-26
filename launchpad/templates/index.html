@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT Humans | AI CX Workbench</title>
-  <link rel="stylesheet" href="/static/nxt-humans-styles.css">
-  <link rel="stylesheet" href="/static/enhanced-components.css">
-  <link rel="stylesheet" href="/static/enterprise-dashboard.css">
-  <link rel="stylesheet" href="/static/nxt-header.css">
+  <link rel="stylesheet" href="/static/nxt-humans-styles.css?v={{ timestamp }}">
+  <link rel="stylesheet" href="/static/enhanced-components.css?v={{ timestamp }}">
+  <link rel="stylesheet" href="/static/enterprise-dashboard.css?v={{ timestamp }}">
+  <link rel="stylesheet" href="/static/nxt-header.css?v={{ timestamp }}">
   <!-- Favicon declarations in proper order -->
   <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -47,7 +47,7 @@
   
   <div class="enterprise-container">
     <!-- Data Collection Section -->
-    <div class="apps-section">
+    <div class="apps-section" data-category="collection">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-database"></i>
@@ -61,7 +61,7 @@
         <div class="enterprise-card" data-category="collection" data-service="reddit-ripper">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fab fa-reddit-alien"></i>
+              <i class="fas fa-comments"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="reddit-ripper-status"></div>
@@ -86,7 +86,7 @@
         <div class="enterprise-card" data-category="collection" data-service="video-analyzer">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fas fa-video"></i>
+              <i class="fas fa-microphone"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="video-analyzer-status"></div>
@@ -111,10 +111,10 @@
     </div>
 
     <!-- Analysis Section -->
-    <div class="apps-section">
+    <div class="apps-section" data-category="analysis">
       <div class="section-header">
         <div class="section-icon">
-          <i class="fas fa-chart-line"></i>
+          <i class="fas fa-route"></i>
         </div>
         <div class="section-info">
           <h2 class="section-title">Analysis & Journey Mapping</h2>
@@ -125,7 +125,7 @@
         <div class="enterprise-card" data-category="analysis" data-service="social-research">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fas fa-chart-pie"></i>
+              <i class="fas fa-chart-bar"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="social-research-status"></div>
@@ -201,7 +201,7 @@
     </div>
 
     <!-- Content Generation Section -->
-    <div class="apps-section">
+    <div class="apps-section" data-category="generation">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-magic"></i>
@@ -215,7 +215,7 @@
         <div class="enterprise-card" data-category="generation" data-service="linkedin-generator">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fab fa-linkedin"></i>
+              <i class="fas fa-pen"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="linkedin-generator-status"></div>
@@ -240,7 +240,7 @@
         <div class="enterprise-card" data-category="generation" data-service="miro-generator">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fas fa-project-diagram"></i>
+              <i class="fas fa-th"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="miro-generator-status"></div>
@@ -266,7 +266,7 @@
         <div class="enterprise-card" data-category="generation" data-service="image-captioner">
           <div class="card-header">
             <div class="service-icon">
-              <i class="fas fa-universal-access" style="color: #01C4C8;"></i>
+              <i class="fas fa-universal-access"></i>
             </div>
             <div class="service-status">
               <div class="status-indicator status-unknown" id="image-captioner-status"></div>
@@ -283,6 +283,110 @@
           </div>
           <div class="card-footer">
             <a href="{{ image_captioner_url }}" id="image-captioner-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
+        <div class="enterprise-card" data-category="generation" data-service="flux-lora-studio">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="flux-lora-studio-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">FLUX LoRA Studio</h3>
+            <p class="service-description">Real LoRA model training with Kohya_ss integration, Apple Silicon M3 optimized with dual launch options (Docker vs native local)</p>
+            <div class="service-tags">
+              <span class="tag">AI Training</span>
+              <span class="tag">Apple Silicon M3</span>
+              <span class="tag">Kohya_ss</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ flux_lora_studio_url }}" id="flux-lora-studio-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
+        <div class="enterprise-card" data-category="generation" data-service="presentation-generator">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-file"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="presentation-generator-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">AI Presentation Generator (FastAPI)</h3>
+            <p class="service-description">Transform journey maps and PDFs into professional presentations using dual AI analysis with Claude 3.7 + OpenAI, optimized for Apple Silicon M3</p>
+            <div class="service-tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Dual AI</span>
+              <span class="tag">PowerPoint</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ presentation_generator_url }}" id="presentation-generator-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
+        <div class="enterprise-card" data-category="generation" data-service="presentation-ai">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="presentation-ai-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">AI Presentation Generator (Next.js)</h3>
+            <p class="service-description">Advanced Next.js-based presentation platform with database integration, complex UI components, and enhanced PowerPoint generation</p>
+            <div class="service-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Database</span>
+              <span class="tag">PowerPoint</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ presentation_ai_url }}" id="presentation-ai-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
+        <div class="enterprise-card" data-category="generation" data-service="mulmocast">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="mulmocast-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">MulmoCast - AI Multimedia Generator</h3>
+            <p class="service-description">Comprehensive AI-powered multimedia presentation generator with TypeScript CLI interface, supporting multi-format output (video, audio, PDF)</p>
+            <div class="service-tags">
+              <span class="tag">Multimedia</span>
+              <span class="tag">AI Video</span>
+              <span class="tag">TypeScript CLI</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ mulmocast_url }}" id="mulmocast-url" target="_blank" class="enterprise-btn">
               <i class="fas fa-external-link-alt"></i>
               Launch Application
             </a>
@@ -312,6 +416,10 @@
     const linkedinGeneratorStatus = document.getElementById('linkedin-generator-status');
     const miroGeneratorStatus = document.getElementById('miro-generator-status');
     const imageCaptionerStatus = document.getElementById('image-captioner-status');
+    const fluxLoraStudioStatus = document.getElementById('flux-lora-studio-status');
+    const presentationGeneratorStatus = document.getElementById('presentation-generator-status');
+    const presentationAiStatus = document.getElementById('presentation-ai-status');
+    const mulmocastStatus = document.getElementById('mulmocast-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -324,6 +432,10 @@
     const linkedinGeneratorUrlLink = document.getElementById('linkedin-generator-url');
     const miroGeneratorUrlLink = document.getElementById('miro-generator-url');
     const imageCaptionerUrlLink = document.getElementById('image-captioner-url');
+    const fluxLoraStudioUrlLink = document.getElementById('flux-lora-studio-url');
+    const presentationGeneratorUrlLink = document.getElementById('presentation-generator-url');
+    const presentationAiUrlLink = document.getElementById('presentation-ai-url');
+    const mulmocastUrlLink = document.getElementById('mulmocast-url');
     
     // URL display elements
     const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
@@ -364,6 +476,10 @@
     let linkedinGeneratorUrl = "{{ linkedin_generator_url }}";
     let miroGeneratorUrl = "{{ miro_generator_url }}";
     let imageCaptionerUrl = "{{ image_captioner_url }}";
+    let fluxLoraStudioUrl = "{{ flux_lora_studio_url }}";
+    let presentationGeneratorUrl = "{{ presentation_generator_url }}";
+    let presentationAiUrl = "{{ presentation_ai_url }}";
+    let mulmocastUrl = "{{ mulmocast_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
@@ -375,6 +491,10 @@
     let linkedinGeneratorPort = "5003";
     let miroGeneratorPort = "5004";
     let imageCaptionerPort = "5005";
+    let fluxLoraStudioPort = "5006";
+    let presentationGeneratorPort = "5007";
+    let presentationAiPort = "3002";
+    let mulmocastPort = "5008";
     let launchpadPort = "8000";
     
     // Check if a port is different from default
@@ -403,6 +523,11 @@
       if (videoAnalyzerUrlLink) videoAnalyzerUrlLink.href = videoAnalyzerUrl;
       if (linkedinGeneratorUrlLink) linkedinGeneratorUrlLink.href = linkedinGeneratorUrl;
       if (miroGeneratorUrlLink) miroGeneratorUrlLink.href = miroGeneratorUrl;
+      if (imageCaptionerUrlLink) imageCaptionerUrlLink.href = imageCaptionerUrl;
+      if (fluxLoraStudioUrlLink) fluxLoraStudioUrlLink.href = fluxLoraStudioUrl;
+      if (presentationGeneratorUrlLink) presentationGeneratorUrlLink.href = presentationGeneratorUrl;
+      if (presentationAiUrlLink) presentationAiUrlLink.href = presentationAiUrl;
+      if (mulmocastUrlLink) mulmocastUrlLink.href = mulmocastUrl;
       
       // Update URL displays (only if elements exist)
       if (launchpadUrlDisplay) launchpadUrlDisplay.textContent = launchpadUrl;
@@ -666,14 +791,50 @@
       margin-bottom: 0.5rem;
     }
     
+    /* Category headers: larger, WHITE text, left-aligned, flat (no shading) */
     .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 2.5rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 1.5rem !important;
+      color: #ffffff !important;
+      text-align: left !important;
+      text-shadow: none !important;
+      background: none !important;
+      background-image: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+    
+    /* Section header alignment */
+    .section-header {
+      text-align: left !important;
+    }
+    
+    .section-info {
+      text-align: left !important;
+    }
+    
+    .section-description {
+      text-align: left !important;
+    }
+    
+    /* Force ALL icons to be white - CATEGORY HEADER ICONS and SERVICE ICONS */
+    .section-icon i,
+    .service-icon i,
+    .section-header .section-icon i,
+    .apps-section .section-icon i,
+    .fa-download,
+    .fa-chart-network,
+    .fa-sparkles, 
+    .fa-file-chart-pie,
+    .fa-clapperboard,
+    .fas.fa-download,
+    .fas.fa-chart-network,
+    .fas.fa-sparkles,
+    .fas.fa-file-chart-pie,
+    .fas.fa-clapperboard {
+      color: #ffffff !important;
     }
     
     .collection-title {
