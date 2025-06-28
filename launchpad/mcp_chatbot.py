@@ -53,11 +53,6 @@ MCP_SERVERS = {
         "url": os.environ.get("VIDEO_MCP_PUBLIC_URL", "http://localhost:8504"),
         "description": "Video transcription and analysis tools"
     },
-    "openai_journey": {
-        "name": "journey-mapper-openai",
-        "url": os.environ.get("OPENAI_JOURNEY_MCP_PUBLIC_URL", "http://localhost:8505"),
-        "description": "Customer journey mapping with OpenAI o3 reasoning model"
-    },
     "claude4_journey": {
         "name": "journey-mapper-claude4",
         "url": os.environ.get("CLAUDE4_JOURNEY_MCP_PUBLIC_URL", "http://localhost:8506"),

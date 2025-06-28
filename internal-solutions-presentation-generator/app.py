@@ -25,23 +25,13 @@ import markdown
 from datetime import datetime
 # Removed FLUX/replicate imports - using Claude 4 only
 import requests
-# Chart generation imports
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from matplotlib.patches import FancyBboxPatch
-from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.animation import FuncAnimation
-import seaborn as sns
-import numpy as np
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+# SVG generation imports - Claude 4 powered
+import base64
 import io
 from typing import Union
-
-# 2025 Performance Optimization - Memory Efficient Rendering
-import matplotlib
-matplotlib.rcParams['path.simplify'] = True
-matplotlib.rcParams['path.simplify_threshold'] = 0.1
-matplotlib.rcParams['agg.path.chunksize'] = 10000
+import xml.etree.ElementTree as ET
+import subprocess
+import tempfile
 
 app = FastAPI(title="AI Presentation Generator", description="FastAPI-based presentation generation service")
 
@@ -257,208 +247,581 @@ def create_accessibility_features(ax, chart_type, data_summary):
     return alt_text
 
 def generate_chart_from_spec(visual_spec: Dict[str, Any], output_path: str) -> bool:
-    """Generate 2025-Modern Charts with Advanced Neon Aesthetics"""
+    """Generate elegant minimalist SVG infographics using Claude 4 with dual-pass chain-of-thought refinement"""
     try:
-        chart_type = visual_spec.get('type', 'bar_chart')
-        title = visual_spec.get('title', 'Chart')
+        # Extract visual parameters with detailed debugging
+        chart_type = visual_spec.get('type', 'conceptual_diagram')
+        title = visual_spec.get('title', 'Visual Element')
         data = visual_spec.get('data', {})
-        style = visual_spec.get('style', 'corporate_blue')
-        layout = visual_spec.get('layout', 'vertical')
+        context = visual_spec.get('context', '')
+        concept = visual_spec.get('concept', 'business strategy')
         
-        # NXT HUMANS BRAND COLOR STRATEGY - Maximum readability with brand identity
-        color_schemes = {
-            'nxt_primary': ['#01C4C8', '#FF6B6B', '#4ECDC4', '#45B7D1'],      # NXT Cyan + complementary
-            'high_contrast': ['#01C4C8', '#FF6B6B', '#4ECDC4', '#FFD93D'],     # High readability with NXT colors
-            'accessible_brand': ['#01C4C8', '#E67E22', '#27AE60', '#8E44AD'], # NXT + professional colors
-            'dark_theme': ['#01C4C8', '#FF6B6B', '#4ECDC4', '#45B7D1'],       # Dark background optimized
-            'business_nxt': ['#01C4C8', '#5A6275', '#4A5165', '#FFD93D']      # NXT brand palette
-        }
+        # Debug output to understand what we're receiving
+        print(f"🔍 DEBUG - Visual Spec Received:")
+        print(f"  Chart Type: {chart_type}")
+        print(f"  Title: {title}")
+        print(f"  Context: {context}")
+        print(f"  Concept: {concept}")
+        print(f"  Data: {data}")
         
-        # NXT HUMANS BRAND COLORS - Optimized for dark backgrounds
-        NXT_COLORS = {
-            'primary': '#01C4C8',       # NXT Cyan - brand primary
-            'secondary': '#FF6B6B',     # Coral red - high contrast accent
-            'accent': '#4ECDC4',        # Light cyan - secondary brand
-            'background': 'transparent', # Transparent for PowerPoint integration
-            'text': '#FFFFFF',          # White text for dark theme readability
-            'grid': '#333333',          # Dark gray grid
-            'highlight': '#FFD93D'      # Yellow highlight for callouts
-        }
+        # Extract specific data elements ONLY from actual user content - NO PLACEHOLDERS
+        elements = data.get('elements', [])  # Empty if no actual elements found
+        metrics = data.get('metrics', [])    # Empty if no actual metrics found  
+        relationships = data.get('relationships', [])  # Empty if no actual relationships found
         
-        # Smart color selection prioritizing NXT brand + readability
-        if style in color_schemes:
-            colors = color_schemes[style]
+        # Extract quote and emphasis from visual spec
+        strategic_quote = visual_spec.get('strategic_quote', '')
+        emphasis_elements = data.get('emphasis', '')
+        human_insights = visual_spec.get('human_insights', {})
+        
+        # Claude 4 prompt as World Class Infographic Designer following Dieter Rams + Apple watchOS guidelines
+        claude_prompt = f"""You are a World Class Infographic Designer following Dieter Rams's "less but better" ethos coupled with Apple's Human Interface Guidelines for watchOS. You will create ultra-minimal, highly legible infographics on pure black backgrounds that exceed accessibility standards.
+
+🎯 WATCHOS DESIGN PRINCIPLES FOR FIRST PASS:
+
+**TYPOGRAPHY FOUNDATION** (Apple Human Interface Guidelines for watchOS):
+- **Minimum Size**: 11px (never smaller) - critical for readability at small scale
+- **Scaling Factor**: 1.2× minimum between sizes (11px → 13px → 16px → 19px → 23px)
+- **Font Family**: Use a neutral geometric sans-serif (e.g., Helvetica Neue, San Francisco) to maximize clarity at small sizes
+- **Line Height**: 1.2× font size for optimal readability on small displays
+- **Letter Spacing**: +0.05em for headlines, +0.1em for all-caps labels to enhance legibility
+
+**GRID & SPACING** (4px Base Grid System):
+- **Base Unit**: 4 px increments (1 pt ≈ 1 px on @2× Retina); aligns all elements to multiples of 4 px
+- **Touch Targets**: Minimum 28px (7 grid units) for any interactive elements
+- **Margins**: 16px (4 grid units) from edges, 12px (3 grid units) between major elements
+- **Vertical Rhythm**: All text baselines align to 4px grid multiples
+
+**COLOR PALETTE** (Pure Black Theme with High Contrast):
+- **Background**: Pure black (#000000) - provides maximum contrast and battery efficiency
+- **Primary Text**: Pure white (#FFFFFF) - ensures 21:1 contrast ratio
+- **Secondary Text**: Light gray (#CCCCCC) - maintains 12.6:1 contrast ratio
+- **Tertiary Text**: Medium gray (#999999) - provides 5.6:1 contrast ratio
+- **Accent Color**: Cyan (#44CDDB) - aligns with NXT Humans branding, 6.1:1 contrast on black
+- **Data Visualization**: Single accent color only - additional colors: warning orange (#FF9500), success green (#34C759), error red (#FF3B30)
+- **Borders/Lines**: Dark gray (#333333) - subtle definition without breaking continuity
+
+**ACCESSIBILITY STANDARDS** (WCAG AAA Compliance):
+- **Contrast Ratio**: Ensure all elements (text/icons/charts) have contrast ≥ 4.5:1 against black background (AAA: ≥ 7:1)
+- **Font Weight**: Use 400 (regular) minimum, 600+ for emphasis - avoid thin weights (100-300) that disappear on small screens
+- **Focus Indicators**: Any interactive elements need 2px visible borders
+- **Text Scaling**: Design must work when text is scaled 200% (iOS accessibility)
+
+**VISUAL HIERARCHY** (Information Architecture):
+- **Primary**: Largest element, highest contrast (white on black), single focal point
+- **Secondary**: 0.85× primary size, secondary contrast (light gray)
+- **Tertiary**: 0.7× primary size, tertiary contrast (medium gray)
+- **Maximum 3 Hierarchy Levels**: Never exceed 3 levels to maintain clarity
+- **Progressive Disclosure**: Most critical information immediately visible
+
+**LAYOUT PRINCIPLES** (Spatial Organization):
+- **Visual Weight**: Use size, color, and spacing to guide attention - not decoration
+- **Breathing Room**: Minimum 60% negative space for cognitive clarity
+- **Alignment**: Strong left/center alignment - avoid justified text
+- **Grouping**: Related elements within 8px proximity, unrelated elements 16px+ apart
+- **Content Priority**: Top-left to bottom-right reading pattern optimization
+
+**COMPONENT DESIGN** (Functional Elements):
+- **Cards**: 1px solid border (#333333), 8px corner radius, 16px internal padding
+- **Charts**: Minimum 2px stroke width, clean geometric shapes only
+- **Icons**: 16px × 16px minimum, 24px preferred for recognition
+- **Buttons**: 32px minimum height, 16px horizontal padding
+- **Lists**: 8px vertical spacing between items, left-aligned text
+
+**MOTION & INTERACTION** (If Applicable):
+- **Animation Duration**: 0.3s standard, 0.15s for micro-interactions
+- **Easing**: system spring animations (iOS native feel)
+- **Feedback**: Immediate visual confirmation for all interactions
+
+NARRATIVE CONCEPT: {concept}
+STRATEGIC CONTEXT: {context}
+EXECUTIVE TITLE: {title}
+VISUAL TYPE: {chart_type}
+
+CONCRETE DATA TO VISUALIZE:
+- ELEMENTS: {elements}
+- METRICS: {metrics}  
+- RELATIONSHIPS: {relationships}
+- STRATEGIC QUOTE: "{strategic_quote}"
+- EMPHASIS FOCUS: {emphasis_elements}
+- HUMAN INSIGHTS: {human_insights}
+
+🚨 **CRITICAL DATA AUTHENTICITY REQUIREMENTS**:
+- **NEVER INVENT DATA**: Only use statistics, numbers, and metrics that actually exist in the source material
+- **NO PLACEHOLDER NUMBERS**: If no specific metrics are provided, do NOT create fake percentages like 25%, 50%, 75%
+- **AUTHENTIC CONTENT ONLY**: Every data point in your infographic must come from the actual user-uploaded content
+- **NO HALLUCINATED STATISTICS**: If the data lists are empty [], create conceptual visuals without fake numbers
+- **VERIFY DATA SOURCE**: Before including ANY statistic, confirm it exists in the original content
+
+CONCEPTUAL ANALYSIS PHASE - THINK LIKE DIETER RAMS:
+Before generating any SVG, you must THINK HARD and analyze:
+
+1. **SLIDE CONTENT ANALYSIS**: What is the core message of this slide? What are the key concepts being communicated?
+
+2. **RAMS CONCEPTUAL APPROACH**: How would Dieter Rams visually represent these concepts? What would he reduce this complex information down to?
+
+3. **VISUAL CONCEPT DESIGN**: What specific abstract or geometric shapes, minimalist charts, graphs, icons, BOLD words, and/or block quotes would effectively and elegantly convey the essence of these concepts?
+
+4. **BRUTALLY MINIMALIST REDUCTION**: Strip away everything non-essential. What is the single most important visual relationship or concept that needs to be shown?
+
+5. **MODERN VISUAL LANGUAGE**: What geometric forms, precise typography, and strategic use of space would create a beautifully simple visualization?
+
+EXAMPLE CONCEPTUAL THINKING:
+- If showing customer journey: Think "timeline with key emotional moments" → horizontal line with precise milestone markers
+- If showing performance data: Think "comparative values" → clean bar comparison or progress indicators  
+- If showing framework: Think "relationship matrix" → geometric grid with clear quadrant labels
+- If showing process: Think "sequential flow" → connected geometric shapes with directional clarity
+
+SPECIFIC VISUAL REQUIREMENTS:
+You MUST create a functional infographic based on your conceptual analysis, NOT just a circle with text. Design what Dieter Rams would create for this specific content.
+
+INCORPORATE TYPOGRAPHY ENHANCEMENTS:
+- Use BOLD text with font-weight="700" for key insights and emphasis elements
+- Include strategic quotes with proper text elements and stroke borders
+- Add minimalist geometric shapes (12px or 16px) for functional purposes
+- Apply clean typographic hierarchy with explicit font sizes
+
+🎨 DIETER RAMS DESIGN ANALYSIS FROM REFERENCE IMAGES:
+
+RAMS CORE PRINCIPLES OBSERVED:
+1. **Functional Clarity**: Every element serves a clear purpose - no decoration for decoration's sake
+2. **Systematic Grid Structure**: Precise mathematical alignment and spacing throughout
+3. **Pure Typography Hierarchy**: Clean sans-serif fonts with deliberate weight variations
+4. **Restrained Color Palette**: Predominantly monochromatic with strategic accent colors
+5. **Breathing Space**: Generous white/negative space that enhances comprehension
+6. **Honest Materials**: Clean geometric forms without artificial embellishment
+
+RAMS COLOR SYSTEM ANALYSIS:
+- **Primary Background**: Pure black (#000000) for maximum contrast
+- **Primary Text**: Clean white (#FFFFFF) for ultimate readability
+- **Accent Colors**: Strategic use of bright yellow (#FFD700), blue (#0080FF), red (#FF0000) 
+- **Secondary Text**: Medium gray (#888888) for hierarchy
+- **Structural Elements**: Light gray lines (#333333) for organization
+
+RAMS TYPOGRAPHY SYSTEM WITH EMPHASIS:
+- **Primary Headlines**: 16-18px, weight 400, generous letter-spacing (0.05em)
+- **Bold Emphasis Text**: 14-16px, weight 700, for key insights and impact statements
+- **Data Values**: 24-32px, weight 300, ultra-clean numerical display  
+- **Quote Text**: 12-14px, weight 400, italic, with clean quotation marks
+- **Labels**: 10-12px, weight 400, all-caps with letter-spacing (0.1em)
+- **Secondary Info**: 9-10px, weight 300, muted gray color
+- **Font Choice**: System sans-serif (Helvetica-inspired) - never decorative
+
+RAMS LAYOUT MATHEMATICS:
+- **Grid System**: 8px base unit with 16px, 24px, 32px multiples
+- **Alignment**: Everything aligns to invisible grid lines - perfect registration
+- **Spacing**: Consistent 16px minimum between unrelated elements
+- **Proportions**: Classic ratios (2:3, 3:5) rather than arbitrary sizing
+- **Safe Margins**: 24px minimum from edges
+
+RAMS GEOMETRIC LANGUAGE:
+- **Perfect Rectangles**: No rounded corners unless functionally necessary
+- **Precise Lines**: 1px or 2px stroke weights only - never decorative thickness
+- **Circle Precision**: Perfect circles for data visualization (progress rings, pie charts)
+- **Right Angles**: 90-degree relationships throughout - no arbitrary angles
+- **Minimal Depth**: Flat design with occasional 1-2px shadow for functional separation
+
+RAMS MINIMALIST ICONOGRAPHY SYSTEM:
+- **Geometric Icons**: Pure geometric forms - circles, squares, triangles, lines
+- **Functional Symbols**: Arrow (→), Plus (+), Minus (−), Check (✓), Cross (×)
+- **Scale Consistency**: All icons 12px, 16px, or 24px - never arbitrary sizes
+- **Stroke Weight**: 1.5px stroke weight for all line-based icons
+- **Visual Hierarchy**: Icons serve function, never decoration
+- **Symbol Examples**:
+  * Growth: Simple upward arrow (↗)
+  * Process: Right arrow (→) 
+  * Success: Clean checkmark (✓)
+  * Attention: Exclamation (!)
+  * Time: Simple clock outline
+  * People: Geometric circle
+  * Data: Simple bar chart outline
+
+RAMS QUOTE TREATMENT SYSTEM:
+- **Quote Marks**: Clean typographic quotes (" ") - 18px, weight 700, accent color
+- **Quote Container**: Minimal left border (3px) in accent color (#FFD700)
+- **Quote Typography**: 12-14px, weight 400, italic, line-height 1.4
+- **Attribution**: 9px, weight 300, all-caps, letter-spacing 0.1em
+- **Quote Positioning**: Left-aligned with 16px padding from border
+- **Background**: Subtle 2% opacity background rectangle (optional)
+
+RAMS INFORMATION HIERARCHY:
+- **Single Focus Point**: One dominant element per composition
+- **Progressive Disclosure**: Information revealed in logical reading order
+- **Functional Grouping**: Related items clustered with consistent spacing
+- **Visual Weight Distribution**: Size and contrast create clear priority
+- **Scannable Structure**: Grid-based organization enables rapid comprehension
+
+CANVAS SPECIFICATIONS:
+- **Unrestricted Dimensions**: Use optimal dimensions for best visual impact
+- **Safe Margins**: 24px top, 20px left/right, 16px bottom
+- **Grid Foundation**: 8px base grid system throughout
+- **CRITICAL: Transparent Background**: NO background elements - SVGs will sit on pure black slides
+- **Black Slide Optimization**: Design for pure black (#000000) slide backgrounds with transparent SVG canvas
+
+🚀 RAMS-INSPIRED VISUAL EXECUTION:
+
+CUSTOMER EXPERIENCE DASHBOARD (RAMS STYLE):
+- Clean rectangular cards with 1px border (#333333)
+- Perfect circular progress indicators (stroke-width: 2px)
+- Systematic grid alignment on 16px intervals
+- Single accent color for priority data (#FFD700)
+
+TRANSFORMATION JOURNEY MAP (RAMS STYLE):
+- Horizontal timeline with precise tick marks
+- Perfect geometric milestones (8px squares or 12px circles)
+- Clean typography hierarchy for stage labels
+- Minimal connecting lines (1px stroke, #888888)
+
+EXECUTIVE INSIGHT FRAMEWORK (RAMS STYLE):
+- Perfect 2x2 grid with mathematical proportions
+- Clean quadrant labels in all-caps (letter-spacing: 0.1em)
+- Single focal point with size hierarchy
+- Functional borders only (1px, #333333)
+
+STATIC SVG FONT REQUIREMENTS:
+- Use explicit font attributes: font-family="system-ui" font-size="16" font-weight="400"
+- Headlines: font-size="16" font-weight="400" fill="#FFFFFF"
+- Bold text: font-size="14" font-weight="700" fill="#FFFFFF"
+- Data values: font-size="28" font-weight="300" fill="#FFFFFF"
+- Quotes: font-size="13" font-weight="400" fill="#FFFFFF"
+- Labels: font-size="11" font-weight="400" fill="#888888"
+- NO CSS classes - only static SVG attributes
+
+RAMS EXECUTION PRINCIPLES:
+- **Single Visual Focus**: One dominant element that drives comprehension
+- **Mathematical Precision**: Everything aligns to 8px grid system
+- **Functional Color**: Accent colors only for data emphasis, never decoration
+- **Perfect Geometry**: Circles are perfect circles, rectangles have clean edges
+- **Typography Discipline**: Maximum 3 font sizes, consistent letter-spacing
+- **Breathing Space**: 60%+ negative space for visual clarity
+
+SPECIFIC VISUAL TYPE INSTRUCTIONS:
+
+IF chart_type contains "dashboard" or "performance":
+- Create multiple data cards with metrics, like the reference images
+- Use rectangular cards with stroke="#333333" stroke-width="1"
+- Show actual numbers from the metrics array with font-weight="700"
+- Add progress bars or indicators for each metric
+- Include relevant geometric shapes (16px): rectangles, circles, triangles
+- Add quote if available using text elements with stroke borders
+
+IF chart_type contains "framework" or "matrix":
+- Create a 2x2 or 2x3 grid layout with explicit coordinates
+- Label each quadrant with elements from the data using font-size="12"
+- Bold key insights using font-weight="700"
+- Add minimal connecting lines if showing relationships
+- Include geometric icons (12px) for each quadrant: circles, squares, triangles
+- Position quote (if available) below grid with stroke border
+
+IF chart_type contains "journey" or "timeline":
+- Create horizontal timeline with precise tick marks
+- Show progression through the elements array
+- Use circles or squares as milestone markers with geometric shapes inside
+- Add connecting lines between stages with directional arrows
+- Bold key milestone names using font-weight="700"
+- Include customer quote with proper text and quotation marks
+
+IF chart_type contains "flow" or "process":
+- Create sequential steps using the elements array
+- Connect with clean arrows using line elements
+- Show progression from left to right
+- Use rectangular containers for each step
+- Bold action words and key insights using font-weight="700"
+- Add geometric shapes: arrows, circles, plus signs (16px size)
+- Include relevant quote positioned strategically within flow
+
+CRITICAL INSTRUCTIONS:
+- DO NOT create just a circle with text or any generic placeholder
+- First complete your conceptual analysis thinking process
+- Then design the specific infographic that Dieter Rams would create for this exact content
+- Use the actual data elements, metrics, quotes, and relationships provided
+- Create geometric shapes, charts, grids, timelines, or flows based on your conceptual analysis
+- Apply brutal minimalism - every element must serve a clear communicative purpose
+
+RAMS WOULD ASK: "What is the essential visual truth I need to communicate here?"
+Then create THAT specific visualization.
+
+CRITICAL SVG REQUIREMENTS:
+- **UNRESTRICTED DIMENSIONS**: Use optimal width and height for best visual impact - NO size restrictions
+- **NATURAL PROPORTIONS**: Design with ideal aspect ratios and spacing for the content type
+- **LAYOUT FREEDOM**: Let content determine the optimal canvas size and arrangement
+- **MANDATORY TRANSPARENT**: NO background rectangles or fills - SVG must be completely transparent
+- **BLACK SLIDE READY**: Design assumes pure black (#000000) slide background - NO SVG background elements
+- Generate PURE SVG code only - NO JavaScript, NO variables, NO external references
+- Use only static text elements with hardcoded font properties (font-family, font-size, font-weight)
+- NO CSS variables, NO JavaScript functions, NO undefined references
+- All text must use explicit font attributes: font-family="system-ui" font-size="16" font-weight="400"
+- Use only static colors like fill="#FFFFFF" or fill="#01C4C8"
+
+DELIVERABLE PROCESS:
+1. Think through your conceptual analysis (don't show this thinking)
+2. Return ONLY complete STATIC SVG code that implements your Rams-inspired concept
+3. The SVG must show the actual data and relationships provided
+4. Use hardcoded font properties - NO CSS classes or variables
+5. Follow the exact Dieter Rams design system with static SVG elements only
+
+DELIVERABLE: Return ONLY complete STATIC SVG code (no JavaScript/variables) that implements your conceptual vision of what Dieter Rams would create for this specific slide content."""
+
+        print(f"🎨 Generating Claude 4 minimalist SVG: {chart_type}")
+        print(f"📊 Concept: {concept}")
+        print(f"🔍 DEBUG: Starting Claude 4 API call...")
+        
+        # Generate SVG with Claude 4
+        try:
+            claude_response = anthropic_client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=4000,
+                temperature=0.3,  # More deterministic SVG generation
+                messages=[{"role": "user", "content": claude_prompt}]
+            )
+            print(f"✅ DEBUG: Claude 4 API call successful")
+        except Exception as e:
+            print(f"❌ DEBUG: Claude 4 API call failed: {e}")
+            raise e
+        
+        svg_content = claude_response.content[0].text
+        print(f"✅ Claude 4 SVG response received: {len(svg_content)} characters")
+        print(f"🔍 RAW RESPONSE PREVIEW: {svg_content[:500]}...")
+        
+        # Save the raw response for debugging
+        debug_path = output_path.replace('.svg', '_debug_response.txt')
+        with open(debug_path, 'w', encoding='utf-8') as f:
+            f.write(svg_content)
+        print(f"🔍 DEBUG: Saved raw Claude response to {debug_path}")
+        
+        # Extract SVG from response (handle code blocks)
+        if '```svg' in svg_content:
+            svg_start = svg_content.find('```svg') + 6
+            svg_end = svg_content.find('```', svg_start)
+            svg_content = svg_content[svg_start:svg_end].strip()
+            print(f"✅ Extracted SVG from code block")
+        elif '<svg' in svg_content:
+            svg_start = svg_content.find('<svg')
+            svg_end = svg_content.rfind('</svg>') + 6
+            svg_content = svg_content[svg_start:svg_end]
+            print(f"✅ Extracted SVG from direct content")
         else:
-            # Default to NXT brand colors with high readability
-            colors = [NXT_COLORS['primary'], NXT_COLORS['secondary'], 
-                     NXT_COLORS['accent'], NXT_COLORS['highlight']]
+            print(f"❌ NO SVG FOUND IN RESPONSE! Creating emergency fallback...")
+            # Create a simple test SVG instead of green circle
+            svg_content = f'''<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+                <rect x="24" y="24" width="552" height="352" fill="none" stroke="#333333" stroke-width="1"/>
+                <text x="300" y="190" text-anchor="middle" fill="#FFFFFF" font-family="system-ui" font-size="16">DEBUG: No SVG Generated</text>
+                <text x="300" y="210" text-anchor="middle" fill="#888888" font-family="system-ui" font-size="12">Chart Type: {chart_type}</text>
+                <text x="300" y="230" text-anchor="middle" fill="#888888" font-family="system-ui" font-size="12">Concept: {concept}</text>
+            </svg>'''
         
-        # TRANSPARENT BACKGROUND + 4"x3.5" OPTIMIZATION
-        plt.style.use('dark_background')  # Dark theme for transparent backgrounds
+        print(f"🔍 FIRST PASS SVG PREVIEW: {svg_content[:300]}...")
         
-        # ELEGANT 4"x3.5" optimized parameters - LARGE CHART ELEMENTS
-        plt.rcParams.update({
-            'axes.facecolor': 'none',           # Transparent axes background
-            'figure.facecolor': 'none',         # Transparent figure background
-            'savefig.facecolor': 'none',        # Transparent save background
-            'savefig.edgecolor': 'none',        # No edge color
-            'axes.edgecolor': '#FFFFFF',        # White borders for dark theme
-            'axes.linewidth': 0,                # Remove borders for clean look
-            'axes.spines.top': False,           # No top spine
-            'axes.spines.right': False,         # No right spine
-            'axes.spines.left': False,          # No left spine
-            'axes.spines.bottom': False,        # No bottom spine
-            'grid.alpha': 0,                    # No grid for clean vector look
-            'font.size': 16,                    # LARGER base font for 4"x3.5"
-            'axes.titlesize': 24,               # LARGE titles for visibility
-            'axes.labelsize': 18,               # LARGE labels for 4" width
-            'xtick.labelsize': 14,              # LARGER tick labels
-            'ytick.labelsize': 14,              # LARGER tick labels
-            'figure.autolayout': False          # Manual layout control
-        })
+        # DUAL-PASS CHAIN-OF-THOUGHT REFINEMENT
+        print(f"🧠 Starting DUAL-PASS chain-of-thought refinement...")
         
-        # MASSIVE figure size for maximum chart elements - FILL EVERYTHING!
-        fig, ax = plt.subplots(figsize=(12, 10.5))  # 3x larger for crisp, HUGE elements
-        fig.patch.set_facecolor('none')     # Transparent figure
-        ax.set_facecolor('none')             # Transparent axes
+        # Create second pass prompt for self-evaluation and improvement
+        refinement_prompt = f"""You are a World Class Infographic Designer reviewing your own work for refinement. 
+
+ORIGINAL SVG CODE:
+{svg_content}
+
+UNRESTRICTED LAYOUT APPROACH: Design with optimal dimensions and layout freedom
+VISUAL TYPE: {chart_type}
+TITLE: {title}
+CONCEPT: {concept}
+
+CHAIN-OF-THOUGHT EVALUATION:
+Please analyze your SVG design with these critical questions:
+
+1. **CRITICAL DATA AUTHENTICITY ISSUES**:
+   - **MANDATORY FIX**: Are there ANY statistics, percentages, or numbers (like 25%, 50%, 75%) that were NOT in the original source material?
+   - **MANDATORY FIX**: Remove ALL invented data points, fake metrics, and placeholder statistics
+   - **MANDATORY FIX**: Verify every data point in the infographic comes from the actual user content
+   - **MANDATORY FIX**: If no real metrics exist, create conceptual visuals without fake numbers
+   - **MANDATORY FIX**: Never show percentages like 25%, 50%, 75% unless they appear in the original content
+
+2. **CRITICAL TRANSPARENCY ISSUES**:
+   - **MANDATORY FIX**: Does the SVG have ANY background rectangles, fills, or background elements?
+   - **MANDATORY FIX**: Remove ALL background rectangles (especially black #000000 or white #FFFFFF backgrounds)
+   - **MANDATORY FIX**: Ensure the SVG has NO <rect> elements that cover the entire canvas
+   - **MANDATORY FIX**: The SVG must be completely transparent - it will sit on a pure black slide
+   - **MANDATORY FIX**: Check for any fill="black", fill="#000000", or similar background elements and REMOVE them
+
+3. **CRITICAL TEXT-SHAPE FITTING ISSUES**:
+   - **MANDATORY FIX**: Is any text or numbers extending outside the borders of shapes they sit inside?
+   - **MANDATORY FIX**: If text doesn't fit inside shapes, either REMOVE the text or ENLARGE the shapes
+   - **MANDATORY FIX**: Are there cut-off words that must be shortened or repositioned?
+   - **MANDATORY FIX**: Is any text overlapping other text that needs cleaner spacing?
+   - Are text elements positioned optimally for the natural flow and hierarchy of the content?
+
+4. **CRITICAL OVERLAPPING OBJECTS ISSUES**:
+   - **MANDATORY FIX**: Are any visual elements (shapes, text, lines, icons) overlapping each other?
+   - **MANDATORY FIX**: Space overlapping objects further apart with minimum 8px gaps
+   - **MANDATORY FIX**: Ensure no visual elements accidentally intersect or cover each other
+   - **MANDATORY FIX**: Check that all elements have clear visual boundaries and breathing room
+   - Could elements be repositioned for better visual hierarchy while maintaining proper spacing?
+
+5. **VISUAL COMPLEXITY**:
+   - Is the infographic overly complex and could be simplified?
+   - Are there redundant visual elements that could be removed?
+   - Does every element serve a clear communicative purpose?
+
+6. **OPTIMAL LAYOUT DESIGN**:
+   - Does the design use its natural optimal dimensions for best visual impact?
+   - Are font sizes and elements sized appropriately for clear readability?
+   - Is the visual hierarchy clear and effective with unrestricted layout freedom?
+   - Does the design take advantage of optimal proportions and spacing?
+
+7. **DIETER RAMS PRINCIPLES**:
+   - Does the design embody "less but better"?
+   - Is the visual communication as clear and direct as possible?
+   - Could the design be more functionally elegant?
+
+REFINEMENT PROCESS:
+Based on your analysis above, create an IMPROVED version of the SVG that addresses any issues identified. **MANDATORY REQUIREMENTS**:
+
+🚨 **CRITICAL FIXES REQUIRED (IN ORDER OF PRIORITY)**:
+1. **DATA AUTHENTICITY MANDATORY**: Remove ALL invented statistics, percentages, and fake data points that don't exist in source material
+2. **NO HALLUCINATED NUMBERS**: Delete any 25%, 50%, 75% or similar placeholder metrics not from original content
+3. **VERIFY ALL DATA**: Ensure every statistic and number comes directly from the user's uploaded content
+4. **TRANSPARENCY MANDATORY**: Remove ALL background rectangles, fills, or background elements - SVG must be completely transparent
+5. **NO BACKGROUND ELEMENTS**: Delete any <rect> elements that cover the entire canvas or create backgrounds
+6. **BLACK SLIDE READY**: Ensure no fill="black", fill="#000000", fill="white", or fill="#FFFFFF" background elements
+7. **Text-Shape Fitting**: Remove any text that extends outside shape boundaries OR enlarge shapes to contain text properly
+8. **Overlapping Objects**: Space all visual elements apart with minimum 8px gaps - NO overlapping allowed
+9. **Clean Boundaries**: Every text element and shape must have clear, non-intersecting boundaries
+10. **Proper Containment**: All text inside shapes (rectangles, circles, cards) must fit completely within those shapes
+
+📐 **DATA AUTHENTICITY & TRANSPARENCY STANDARDS**:
+- **ABSOLUTE PRIORITY**: Verify all data points come from source material - NO invented statistics
+- **DATA VERIFICATION**: Remove any 25%, 50%, 75% or similar placeholder percentages
+- **AUTHENTICITY CHECK**: Ensure no hallucinated metrics or fake numbers appear
+- **TRANSPARENCY CHECK**: Remove all background rectangles and background fills
+- **NO CANVAS BACKGROUNDS**: Ensure SVG has no canvas-covering elements
+- Minimum 8px between any two visual elements
+- Text inside shapes: minimum 4px padding from shape edges
+- Overlapping elements must be repositioned with proper spacing
+- If spacing creates overcrowding, remove less critical elements
+
+🎯 **ADDITIONAL FOCUS AREAS**:
+- **DATA AUTHENTICITY VERIFICATION**: Triple-check that no fake statistics remain
+- **TRANSPARENCY VERIFICATION**: Double-check that no background elements remain
+- Cleaner text placement and sizing that respects shape boundaries
+- Optimal use of space with natural proportions and proper element separation
+- Simplified but more effective visual communication with unrestricted layout freedom
+- Perfect adherence to Dieter Rams minimalist principles
+
+DELIVERABLE: Return ONLY the refined SVG code that implements your improvements."""
+
+        try:
+            print(f"🔍 DEBUG: Starting second pass Claude 4 API call...")
+            refinement_response = anthropic_client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=4000,
+                temperature=0.2,  # Even more deterministic for refinement consistency
+                messages=[{"role": "user", "content": refinement_prompt}]
+            )
+            print(f"✅ DEBUG: Second pass Claude 4 API call successful")
+            
+            refined_svg_content = refinement_response.content[0].text
+            print(f"✅ Claude 4 refinement response received: {len(refined_svg_content)} characters")
+            
+            # Save the refinement response for debugging
+            refinement_debug_path = output_path.replace('.svg', '_refinement_response.txt')
+            with open(refinement_debug_path, 'w', encoding='utf-8') as f:
+                f.write(refined_svg_content)
+            print(f"🔍 DEBUG: Saved refinement response to {refinement_debug_path}")
+            
+            # Extract refined SVG from response
+            if '```svg' in refined_svg_content:
+                svg_start = refined_svg_content.find('```svg') + 6
+                svg_end = refined_svg_content.find('```', svg_start)
+                refined_svg_content = refined_svg_content[svg_start:svg_end].strip()
+                print(f"✅ Extracted refined SVG from code block")
+            elif '<svg' in refined_svg_content:
+                svg_start = refined_svg_content.find('<svg')
+                svg_end = refined_svg_content.rfind('</svg>') + 6
+                refined_svg_content = refined_svg_content[svg_start:svg_end]
+                print(f"✅ Extracted refined SVG from direct content")
+            else:
+                print(f"⚠️ No refined SVG found, using original SVG")
+                refined_svg_content = svg_content
+            
+            # Use refined SVG if it's valid, otherwise fall back to original
+            if '<svg' in refined_svg_content and '</svg>' in refined_svg_content:
+                svg_content = refined_svg_content
+                print(f"🎯 Using REFINED SVG after dual-pass evaluation")
+            else:
+                print(f"⚠️ Refined SVG invalid, using original SVG")
+                
+        except Exception as e:
+            print(f"⚠️ Second pass refinement failed: {e}")
+            print(f"🔄 Continuing with original SVG from first pass")
         
-        # Extract data
-        labels = data.get('labels', ['Category 1', 'Category 2', 'Category 3'])
-        values = data.get('values', [30, 45, 25])
-        format_type = data.get('format', 'number')
+        print(f"🔍 FINAL SVG PREVIEW: {svg_content[:300]}...")
         
-        # Skip complex storytelling elements for maximum readability
-        # Focus on clear, simple chart presentation
+        # Ensure proper SVG structure and dimensions
+        if not svg_content.startswith('<?xml'):
+            svg_content = '<?xml version="1.0" encoding="UTF-8"?>\n' + svg_content
         
-        # Generate chart based on type with 2025 modern vector styling
-        if chart_type == 'bar_chart':
-            generate_modern_bar_chart(ax, labels, values, colors, layout, format_type)
-        elif chart_type == 'line_chart':
-            generate_modern_line_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'pie_chart':
-            generate_modern_pie_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'donut_chart':
-            generate_modern_donut_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'funnel_chart':
-            generate_modern_funnel_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'timeline':
-            generate_modern_timeline_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'kpi_dashboard':
-            generate_modern_kpi_dashboard(ax, labels, values, colors, format_type)
-        elif chart_type == 'comparison_chart':
-            comparison_data = data.get('comparison_data', {})
-            generate_modern_comparison_chart(ax, labels, values, comparison_data, colors, format_type)
-        elif chart_type == 'waterfall_chart':
-            generate_modern_waterfall_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'progress_chart':
-            generate_modern_progress_chart(ax, labels, values, colors, format_type)
-        elif chart_type == 'metric_cards':
-            generate_modern_metric_cards(ax, labels, values, colors, format_type)
-        elif chart_type == 'growth_arrow':
-            generate_modern_growth_arrow(ax, labels, values, colors, format_type)
-        elif chart_type == 'impact_matrix':
-            generate_modern_impact_matrix(ax, labels, values, colors, format_type)
-        elif chart_type == 'journey_flow':
-            generate_modern_journey_flow(ax, labels, values, colors, format_type)
-        elif chart_type == 'competitive_radar':
-            generate_modern_competitive_radar(ax, labels, values, colors, format_type)
-        else:
-            # Default to modern bar chart
-            generate_modern_bar_chart(ax, labels, values, colors, layout, format_type)
+        # Allow natural SVG dimensions - no forced sizing
         
-        # Apply MAXIMUM READABILITY Typography
-        apply_readable_typography(ax, title)
+        # Ensure completely transparent background for black slides
+        if 'style="background:transparent"' not in svg_content:
+            svg_content = svg_content.replace('<svg', '<svg style="background:transparent"', 1)
         
-        # Generate professional chart styling
-        ax.grid(True, alpha=0.3, color='#CCCCCC', linewidth=1, linestyle='-')
-        ax.set_axisbelow(True)  # Grid behind data
+        # Remove any background rectangles that might interfere with transparency
+        import re
+        # Remove black backgrounds
+        svg_content = re.sub(r'<rect[^>]*fill="#000000"[^>]*></rect>', '', svg_content)
+        svg_content = re.sub(r'<rect[^>]*fill="black"[^>]*></rect>', '', svg_content)
+        # Remove white backgrounds  
+        svg_content = re.sub(r'<rect[^>]*fill="#FFFFFF"[^>]*></rect>', '', svg_content)
+        svg_content = re.sub(r'<rect[^>]*fill="white"[^>]*></rect>', '', svg_content)
+        # Remove full canvas backgrounds
+        svg_content = re.sub(r'<rect[^>]*width="100%"[^>]*height="100%"[^>]*></rect>', '', svg_content)
+        svg_content = re.sub(r'<rect[^>]*width="[0-9]+"[^>]*height="[0-9]+"[^>]*x="0"[^>]*y="0"[^>]*></rect>', '', svg_content)
+        # Remove any rect that spans the full canvas dimensions
+        svg_content = re.sub(r'<rect[^>]*x="0"[^>]*y="0"[^>]*width="[0-9]+"[^>]*height="[0-9]+"[^>]*fill[^>]*></rect>', '', svg_content)
         
-        # Professional border styling
-        for spine in ax.spines.values():
-            spine.set_color('#000000')
-            spine.set_linewidth(1.5)
-            spine.set_visible(True)
+        print(f"🔍 TRANSPARENCY CHECK: Removed background elements from SVG")
         
-        # Generate accessibility metadata
-        data_summary = {
-            'description': f"{chart_type} showing clear data comparison",
-            'point_count': len(labels),
-            'value_range': f"{min(values):.1f} to {max(values):.1f}" if values else "No data"
-        }
+        # Save SVG file
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(svg_content)
         
-        # REMOVE ALL BORDERS for clean transparent look
-        ax.spines['top'].set_visible(False)
-        ax.spines['right'].set_visible(False)
-        ax.spines['left'].set_visible(False)
-        ax.spines['bottom'].set_visible(False)
-        ax.grid(False)
-        ax.set_xticks([])
-        ax.set_yticks([])
+        print(f"✅ Generated Claude 4 DUAL-PASS refined SVG: {output_path}")
+        print(f"   🎨 Style: Apple minimalist with chain-of-thought refinement")
+        print(f"   📏 Dimensions: Optimal unrestricted layout")
+        print(f"   💎 Quality: Executive-level conceptual design")
+        print(f"   🧠 Process: Dual-pass chain-of-thought evaluation & improvement")
         
-        # ABSOLUTE MAXIMUM SPACE USAGE - EDGE TO EDGE CHARTS!
-        # Zero margins to use every available pixel
-        plt.subplots_adjust(left=0.02, right=0.98, top=0.98, bottom=0.02)  # ABSOLUTE MAXIMUM!
-        
-        # TRANSPARENT PNG export optimized for PowerPoint
-        metadata = {
-            'Creator': 'NXT Humans AI Presentation Generator - 4"x3.5" Optimized',
-            'Subject': f'Elegant {chart_type} Data Visualization',
-            'Keywords': 'transparent, elegant, 4x3.5, business, NXT',
-            'Description': f'Transparent {chart_type} chart optimized for 4" x 3.5" PowerPoint integration'
-        }
-        
-        plt.savefig(output_path, 
-                   dpi=400,                    # ULTRA high-quality for crisp elements
-                   bbox_inches='tight',        # Optimal cropping - TIGHT TO MAXIMIZE SIZE!
-                   facecolor='none',           # TRANSPARENT background
-                   edgecolor='none',           # Clean edges
-                   transparent=True,           # TRANSPARENT for PowerPoint integration
-                   pad_inches=0,               # ZERO padding - ABSOLUTE MAXIMUM!
-                   metadata=metadata)          # Chart description
-        plt.close()
-        
-        print(f"✅ Generated 2025 Modern {chart_type} chart: {output_path}")
-        print(f"   📊 Accessibility: WCAG 2.1 AA compliant")
-        print(f"   🎨 Aesthetic: 2025 Neon with {glow_intensity if 'glow_intensity' in locals() else 'medium'} glow")
-        print(f"   📏 Dimensions: 4\" x 3.5\" optimized")
         return True
         
     except Exception as e:
-        print(f"❌ Error generating 2025 chart: {e}")
-        return False
+        print(f"❌ ERROR generating Claude 4 SVG: {e}")
+        print(f"❌ EXCEPTION TYPE: {type(e).__name__}")
+        print(f"❌ FULL TRACEBACK:")
+        import traceback
+        traceback.print_exc()
+        print(f"❌ Falling back to simple geometric SVG")
+        
+        # Fallback: Create a simple geometric SVG with optimal dimensions
+        fallback_svg = f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:transparent">
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#01C4C8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  <circle cx="300" cy="200" r="120" fill="url(#gradient1)" opacity="0.7"/>
+  <text x="300" y="210" text-anchor="middle" fill="white" font-family="SF Pro Display, Helvetica, Arial, sans-serif" font-size="24" font-weight="300">{title}</text>
+</svg>'''
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(fallback_svg)
+        
+        return True
 
-def export_multi_format_chart(fig, base_name, output_dir="generated_content"):
-    """2025 Multi-Format Export Strategy for Different Use Cases"""
-    formats = {
-        'web': {'format': 'png', 'dpi': 150, 'bbox_inches': 'tight', 'optimize': True},
-        'print': {'format': 'pdf', 'dpi': 300, 'bbox_inches': 'tight'},
-        'vector': {'format': 'svg', 'bbox_inches': 'tight'},
-        'presentation': {'format': 'png', 'dpi': 200, 'bbox_inches': 'tight'},
-        'social': {'format': 'png', 'dpi': 144, 'bbox_inches': 'tight'}  # Social media optimized
-    }
-    
-    exported_files = []
-    for use_case, params in formats.items():
-        filename = f"{output_dir}/{base_name}_{use_case}.{params['format']}"
-        fig.savefig(filename, **params, 
-                   facecolor='none', edgecolor='none', transparent=True,
-                   metadata={'Creator': 'NXT Humans AI 2025', 'Subject': f'{use_case} optimized'})
-        exported_files.append(filename)
-    
-    return exported_files
-
-def create_2025_custom_gradient(name, colors, n_segments=256):
-    """Create Custom Gradient Color Maps for 2025 Aesthetic"""
-    custom_cmap = LinearSegmentedColormap.from_list(name, colors, N=n_segments)
-    return custom_cmap
-
-# 2025 Predefined Gradient Palettes
-NEON_GRADIENTS = {
-    'cyber_sunset': create_2025_custom_gradient('cyber_sunset', ['#0a0a0a', '#FF10F0', '#00FFFF']),
-    'electric_dawn': create_2025_custom_gradient('electric_dawn', ['#0a0a0a', '#32FF32', '#FFFF00']),
-    'plasma_flow': create_2025_custom_gradient('plasma_flow', ['#0a0a0a', '#8A2BE2', '#FF6600']),
-    'arctic_glow': create_2025_custom_gradient('arctic_glow', ['#0a0a0a', '#00E5FF', '#FFFFFF'])
-}
+# Removed matplotlib-based chart generation functions
+# Now using Claude 4 for SVG generation instead
 
 def apply_readable_typography(ax, title, subtitle=None, caption=None):
     """MASSIVE WHITE HEADERS Typography - HUGE text for 4"x3.5" visibility"""
@@ -1449,65 +1812,98 @@ def get_format_label(format_type):
 async def analyze_content_with_ai(content: str, file_name: str) -> Dict[str, Any]:
     """Analyze content using Claude 4 for intelligent presentation structure"""
     try:
-        # Enhanced Claude 4 prompt with structured visual data specifications
-        claude_prompt = """I am an expert Market Researcher and Executive Storyteller with extensive experience creating high-impact business presentations with professional charts and infographics. Analyze this content from """ + file_name + """ and create a professional presentation:
-        
-        """ + content[:12000] + """
-        
-        Create a business presentation with 6-8 slides. For each slide, provide:
-        - A clear, compelling title
-        - 3-5 bullet points with key insights
-        - STRUCTURED CHART/VISUAL SPECIFICATIONS (not just descriptions!)
+        # Claude 4 Executive Storyteller and CX Analyst prompt for human-centered narrative
+        claude_prompt = """You are an expert Executive Storyteller and Customer Experience Analyst with 20+ years of Fortune 500 experience. Your specialty is transforming business data into compelling human-centered narratives that create emotional connection and drive strategic action.
 
-        IMPORTANT: For visual elements, provide actual data and chart specifications that can be used to generate real charts, not just text descriptions.
+TRANSFORMATION MISSION: Analyze this content from """ + file_name + """ and craft an impactful executive story:
 
-        Return your analysis as valid JSON with this exact structure:
+CONTENT TO ANALYZE:
+""" + content[:15000] + """
 
+EXECUTIVE STORYTELLING APPROACH:
+1. **Human-Centered Perspective**: Find the human stories behind the data - what do customers feel, experience, struggle with?
+2. **Emotional Resonance**: Identify moments of frustration, delight, breakthrough, or transformation in customer journeys
+3. **Strategic Narrative Arc**: Build a compelling story with tension, insight, and resolution that drives business action
+4. **Empathy-Driven Insights**: Understand the "why" behind behaviors, not just the "what" of metrics
+5. **Impact-Focused Messaging**: Frame insights as opportunities for meaningful change and competitive advantage
+
+NARRATIVE DESIGN PRINCIPLES:
+- Lead with human insight, support with strategic data when it strengthens the story
+- Create emotional connection through customer empathy and understanding
+- Use data as proof points for human truths, not as the primary narrative
+- Focus on transformation opportunities and strategic implications
+- Build compelling visual narratives that support the emotional story arc
+- Design visuals that illuminate human insights, not just display data
+
+STORYTELLING FRAMEWORK:
+- Setup: What human challenge or opportunity does this data reveal?
+- Conflict: What friction, pain, or missed opportunity exists for people?
+- Insight: What deeper truth about human behavior emerges?
+- Resolution: How can strategic action create positive human impact?
+- Call to Action: What specific steps will improve human experiences?
+
+Create a comprehensive minimalist executive presentation with 12-15 slides (minimum 10, target 12-15) following enterprise design principles:
+- Maximum 3 key insights per slide (3-second comprehension rule)
+- Compelling human-centered narrative
+- Strategic use of customer quotes as visual focal points
+- Advanced SVG infographics that illuminate human insights through cutting-edge design
+- Premium executive aesthetics with glass morphism, metallic gradients, and sophisticated depth
+- REQUIRED: One enterprise-grade visual element for EVERY slide using advanced SVG capabilities
+
+Return your analysis as valid JSON with this exact structure:
+
+{
+    "title": "Strategic Executive Presentation Title",
+    "executive_summary": "3-sentence summary of key strategic insights",
+    "slides": [
         {
-            "title": "Executive Presentation Title",
-            "slides": [
-                {
-                    "title": "Slide Title",
-                    "content": ["Bullet point 1", "Bullet point 2", "Bullet point 3"],
-                    "visual": {
-                        "type": "bar_chart|line_chart|pie_chart|funnel_chart|timeline|kpi_dashboard|comparison_chart|waterfall_chart",
-                        "title": "Chart Title",
-                        "data": {
-                            "labels": ["Label1", "Label2", "Label3"],
-                            "values": [value1, value2, value3],
-                            "format": "currency|percentage|number|millions",
-                            "comparison_data": {
-                                "before": [old_val1, old_val2],
-                                "after": [new_val1, new_val2]
-                            }
-                        },
-                        "style": "nxt_cyan|neon_blue|neon_purple|neon_green",
-                        "layout": "horizontal|vertical|circular|funnel|timeline"
-                    }
+            "title": "Compelling Slide Title",
+            "content": ["Human insight with emotional impact", "Customer experience finding", "Strategic implication for action"],
+            "strategic_quote": "Empathetic customer-focused statement for visual emphasis",
+            "visual": {
+                "type": "customer_experience_dashboard|transformation_journey_map|executive_insight_framework|emotional_progression_flow|stakeholder_empathy_map|breakthrough_moment_timeline",
+                "title": "Minimalist Visual Title (1-3 words)",
+                "concept": "Human-centered concept that advances the customer story",
+                "context": "How this visual creates emotional connection and illuminates customer insights",
+                "design_approach": "glass_morphism|holographic_gradients|metallic_premium|neon_accents|sophisticated_depth",
+                "advanced_svg_features": {
+                    "visual_effects": "multi_layered_glow|glass_morphism_blur|gradient_mesh_depth",
+                    "color_palette": "gold_metallic|sapphire_premium|platinum_elite|neon_accents", 
+                    "typography": "executive_minimal|high_contrast|strategic_spacing",
+                    "layout_system": "golden_ratio|8px_grid|safe_margins|negative_space_60_percent"
+                },
+                "human_insights": {
+                    "emotional_elements": ["Customer feeling or state", "Journey moment", "Breakthrough experience"],
+                    "narrative_progression": "How this visual advances the human story",
+                    "executive_impact": "Strategic action this insight enables",
+                    "minimalist_focus": "Single most important customer truth to convey"
                 }
-            ]
+            }
         }
+    ]
+}
 
-        CHART TYPE GUIDELINES:
-        - bar_chart: For comparisons, rankings, performance metrics
-        - line_chart: For trends over time, growth patterns
-        - pie_chart: For market share, budget allocation, percentages
-        - donut_chart: For key metrics with center totals
-        - funnel_chart: For customer journeys, conversion processes
-        - timeline: For project timelines, historical events
-        - kpi_dashboard: For key metrics, performance indicators
-        - comparison_chart: For before/after, competitive analysis
-        - waterfall_chart: For financial breakdowns, profit/loss
-        - progress_chart: For completion rates, goal achievement
-        - metric_cards: For dashboard-style key metrics
-        - growth_arrow: For growth trajectories, improvement stories
-        - impact_matrix: For priority/impact analysis
-        - journey_flow: For customer experience flows
-        - competitive_radar: For competitive positioning analysis
+SOPHISTICATED INFORMATION DESIGN GUIDELINES:
+- strategic_framework: Mathematical grid layouts, sophisticated 2x2 matrices, strategic positioning with metallic accent treatments
+- transformation_journey: Timeline-based layouts with systematic spacing, evolution paths using gradient progressions
+- ecosystem_diagram: Network visualizations with card-based containers, stakeholder relationships using strategic color assignments
+- process_flow: Step-by-step flows with accent bars, systematic information hierarchy, professional spacing relationships
+- comparison_matrix: Side-by-side analysis using grid principles, clear visual separation, strategic color coding
+- performance_dashboard: KPI cards with metallic gradients, sophisticated typography scales, systematic visual hierarchy
+- stakeholder_map: Network diagrams with card containers, influence relationships, systematic layout principles
+- vision_metaphor: Conceptual visualizations using sophisticated design language, premium visual effects
+- growth_trajectory: Trend visualizations with mathematical precision, gradient progressions, systematic data representation
+- competitive_landscape: Market positioning using grid layouts, strategic color assignments, sophisticated visual organization
 
-        EXTRACT REAL DATA: If the content contains specific numbers, percentages, or metrics, use those actual values in your chart specifications. If no specific data is provided, create realistic sample data that illustrates the business concepts being discussed.
+DESIGN SYSTEM REQUIREMENTS:
+1. **Systematic Visual Hierarchy**: Apply 8px spacing system and typography scales consistently across all visuals
+2. **Strategic Color Application**: Use Gold for primary emphasis, Sapphire for secondary data, Emerald for growth, Platinum for supporting elements
+3. **Sophisticated Layout**: Grid-based designs with mathematical proportions and professional breathing room
+4. **Executive Polish**: Premium visual effects, metallic gradients, and sophisticated information organization
+5. **Information Architecture**: Clear dominant/subdominant/subordinate element relationships
+6. **Technical Excellence**: Precise SVG execution with high contrast and accessibility considerations
 
-        Focus on creating charts that will actually enhance understanding of the business content."""
+Focus on creating visuals that inspire action and provide clear strategic direction."""
         
         print(f"\n🧠 Using Claude 4 Extended Thinking Analysis...")
         print(f"📝 Prompt length: {len(claude_prompt)} characters")
@@ -1516,6 +1912,7 @@ async def analyze_content_with_ai(content: str, file_name: str) -> Dict[str, Any
         claude_response = anthropic_client.messages.create(
             model="claude-sonnet-4-20250514",
             max_tokens=6000,
+            temperature=0.3,  # More deterministic output for consistent results
             messages=[{"role": "user", "content": claude_prompt}]
         )
         
@@ -2216,22 +2613,37 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                 charts_dir = "generated_content/charts"
                 os.makedirs(charts_dir, exist_ok=True)
                 
-                # Generate unique chart filename
-                chart_filename = f"chart_slide_{slide_count}_{uuid.uuid4().hex[:8]}.png"
+                # Generate unique SVG filename
+                chart_filename = f"infographic_slide_{slide_count}_{uuid.uuid4().hex[:8]}.svg"
                 chart_path = os.path.join(charts_dir, chart_filename)
                 
-                print(f"📊 Generating actual chart from Claude 4 specification:")
+                print(f"🔍 DEBUG: Visual spec found for slide {slide_count}:")
+                print(f"   Visual spec keys: {list(visual_spec.keys())}")
+                print(f"   Visual spec content: {visual_spec}")
+                
+                print(f"📊 Generating Claude 4 SVG infographic:")
                 print(f"   Chart type: {visual_spec.get('type', 'Unknown')}")
                 print(f"   Chart title: {visual_spec.get('title', 'Unknown')}")
-                print(f"   Data points: {len(visual_spec.get('data', {}).get('labels', []))}")
+                print(f"   Concept: {visual_spec.get('concept', 'Unknown')}")
+                print(f"   Context: {visual_spec.get('context', 'Unknown')}")
+                print(f"   Output path: {chart_path}")
                 
-                # Generate the chart
+                # Generate the SVG infographic
                 chart_generated = generate_chart_from_spec(visual_spec, chart_path)
                 
                 if chart_generated:
-                    print(f"✅ Chart generated successfully: {chart_path}")
+                    print(f"✅ SVG infographic generated successfully: {chart_path}")
+                    # Verify file was actually created
+                    if os.path.exists(chart_path):
+                        file_size = os.path.getsize(chart_path)
+                        print(f"   📁 File confirmed: {file_size} bytes")
+                    else:
+                        print(f"❌ ERROR: File was not created despite success return")
+                        chart_generated = False
                 else:
-                    print(f"❌ Chart generation failed, falling back to text description")
+                    print(f"❌ SVG infographic generation failed, falling back to text description")
+            else:
+                print(f"⚠️ DEBUG: No visual spec found for slide {slide_count}")
             
             print(f"🔧 Inserting Claude 4's content:")
             print(f"   Content bullet points: {len(content_points)}")
@@ -2275,98 +2687,90 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                         successful_slides += 1
                         print(f"✅ Inserted Claude 4's enhanced content ({len(final_content)} elements)")
             
-            # Strategy 2: Insert charts into Master layout image placeholder (4" x 3.5")
+            # Strategy 2: Convert SVG to PNG and insert into PowerPoint template image placeholders
             if chart_generated and chart_path and os.path.exists(chart_path):
-                chart_inserted = False
-                
-                # Look for image placeholders (PICTURE type) in the current slide
-                for shape in slide.placeholders:
+                print(f"🎨 Converting Claude 4 SVG to PNG and inserting into PowerPoint template")
+                try:
+                    # Convert SVG to PNG for PowerPoint compatibility
+                    png_path = chart_path.replace('.svg', '.png')
+                    print(f"🔄 High-fidelity SVG to PNG conversion (576×504px @ 144 DPI)...")
+                    print(f"   SVG: {chart_path}")
+                    print(f"   PNG: {png_path}")
+                    
+                    # High-fidelity SVG to PNG conversion using CairoSVG
                     try:
-                        placeholder_type = getattr(shape.placeholder_format, 'type', None)
-                        placeholder_idx = shape.placeholder_format.idx
+                        import cairosvg
                         
-                        print(f"🔍 Checking placeholder {placeholder_idx}, type: {placeholder_type}")
+                        # High-quality conversion with increased DPI for crisp rendering
+                        cairosvg.svg2png(
+                            url=chart_path,
+                            write_to=png_path,
+                            output_width=576,   # 2x resolution for crisp rendering
+                            output_height=504,  # 2x resolution for crisp rendering  
+                            dpi=144             # High DPI for sharp graphics
+                        )
                         
-                        if placeholder_type == 18:  # PICTURE placeholder
-                            # This is the Master layout image placeholder
-                            print(f"📍 Found PICTURE placeholder {placeholder_idx} - Master layout image area")
+                        if os.path.exists(png_path):
+                            png_size = os.path.getsize(png_path)
+                            print(f"✅ SVG converted to PNG: {png_size} bytes")
                             
-                            # Get placeholder position and use exact 4" x 3.5" dimensions
-                            left = shape.left
-                            top = shape.top
-                            chart_width = Inches(4.0)   # Exact Master layout dimension
-                            chart_height = Inches(3.5)  # Exact Master layout dimension
+                            # Insert into PowerPoint template image placeholder
+                            image_inserted = False
                             
-                            # Insert chart with exact dimensions into placeholder position
-                            chart_shape = slide.shapes.add_picture(chart_path, left, top, chart_width, chart_height)
+                            # Look for PICTURE placeholder in the slide
+                            for shape in slide.placeholders:
+                                try:
+                                    placeholder_type = getattr(shape.placeholder_format, 'type', None)
+                                    placeholder_idx = shape.placeholder_format.idx
+                                    
+                                    if placeholder_type == 18:  # PICTURE placeholder
+                                        print(f"📍 Found PICTURE placeholder {placeholder_idx} - inserting PNG")
+                                        
+                                        # Get placeholder position and size
+                                        left = shape.left
+                                        top = shape.top
+                                        width = shape.width
+                                        height = shape.height
+                                        
+                                        # Insert PNG image into placeholder position
+                                        chart_shape = slide.shapes.add_picture(png_path, left, top, width, height)
+                                        
+                                        # Remove the original placeholder
+                                        sp = shape._element
+                                        sp.getparent().remove(sp)
+                                        
+                                        print(f"✅ Claude 4 infographic inserted into PICTURE placeholder {placeholder_idx}")
+                                        print(f"   📍 Position: ({left.inches:.1f}\", {top.inches:.1f}\")")
+                                        print(f"   📐 Size: {width.inches:.1f}\" x {height.inches:.1f}\"")
+                                        image_inserted = True
+                                        break
+                                        
+                                except Exception as e:
+                                    print(f"⚠️ Error with placeholder {placeholder_idx}: {e}")
+                                    continue
                             
-                            # Remove the original placeholder shape
-                            sp = shape._element
-                            sp.getparent().remove(sp)
-                            
-                            print(f"📊 Inserted chart into Master layout placeholder {placeholder_idx}")
-                            print(f"   Position: ({left.inches:.1f}\", {top.inches:.1f}\")")
-                            print(f"   Size: {chart_width.inches}\" x {chart_height.inches}\" (Master layout dimensions)")
-                            chart_inserted = True
-                            break
-                            
-                    except Exception as e:
-                        print(f"⚠️ Error checking placeholder {placeholder_idx}: {e}")
-                        continue
-                
-                # If no PICTURE placeholder found, also check OBJECT placeholders that might accept images
-                if not chart_inserted:
-                    print(f"🔍 No PICTURE placeholder found, checking OBJECT placeholders...")
-                    for shape in slide.placeholders:
-                        try:
-                            placeholder_type = getattr(shape.placeholder_format, 'type', None)
-                            placeholder_idx = shape.placeholder_format.idx
-                            
-                            if placeholder_type == 7:  # OBJECT placeholder (can hold images)
-                                print(f"📍 Found OBJECT placeholder {placeholder_idx} - attempting image insertion")
-                                
-                                # Get placeholder position and use exact 4" x 3.5" dimensions
-                                left = shape.left
-                                top = shape.top
+                            # Fallback to left side positioning if no PICTURE placeholder
+                            if not image_inserted:
+                                print(f"⚠️ No PICTURE placeholder found, adding to left side")
+                                chart_left = Inches(0.5)
+                                chart_top = Inches(1.5)
                                 chart_width = Inches(4.0)
                                 chart_height = Inches(3.5)
                                 
-                                # Insert chart with exact dimensions
-                                chart_shape = slide.shapes.add_picture(chart_path, left, top, chart_width, chart_height)
-                                
-                                # Try to remove the original placeholder shape
-                                try:
-                                    sp = shape._element
-                                    sp.getparent().remove(sp)
-                                except:
-                                    print(f"⚠️ Could not remove OBJECT placeholder {placeholder_idx}")
-                                
-                                print(f"📊 Inserted chart into OBJECT placeholder {placeholder_idx}")
-                                print(f"   Position: ({left.inches:.1f}\", {top.inches:.1f}\")")
-                                print(f"   Size: {chart_width.inches}\" x {chart_height.inches}\" (Master layout dimensions)")
-                                chart_inserted = True
-                                break
-                                
-                        except Exception as e:
-                            print(f"⚠️ Error with OBJECT placeholder {placeholder_idx}: {e}")
-                            continue
-                
-                # Fallback: Add chart at a standard position if no suitable placeholder found
-                if not chart_inserted:
-                    print(f"⚠️ No suitable image placeholder found, adding chart at standard position")
-                    try:
-                        # Use right side positioning with Master layout dimensions
-                        chart_left = Inches(6.0)    # Right side of slide
-                        chart_top = Inches(2.0)     # Below title
-                        chart_width = Inches(4.0)   # Master layout width
-                        chart_height = Inches(3.5)  # Master layout height
+                                chart_shape = slide.shapes.add_picture(png_path, chart_left, chart_top, chart_width, chart_height)
+                                print(f"✅ Added to left side: {chart_left.inches}\" x {chart_top.inches}\"")
                         
-                        chart_shape = slide.shapes.add_picture(chart_path, chart_left, chart_top, chart_width, chart_height)
-                        print(f"📊 Added chart at standard position ({chart_left.inches}, {chart_top.inches})")
-                        print(f"   Size: {chart_width.inches}\" x {chart_height.inches}\" (Master layout dimensions)")
-                        
-                    except Exception as e:
-                        print(f"❌ Failed to add chart at standard position: {e}")
+                        else:
+                            print(f"❌ PNG file not created")
+                            
+                    except ImportError as e:
+                        print(f"❌ Missing dependency for SVG conversion: {e}")
+                        print(f"   CairoSVG is required for SVG to PNG conversion")
+                    
+                except Exception as e:
+                    print(f"❌ Failed to convert and insert SVG: {e}")
+                    print(f"   📂 SVG path: {chart_path}")
+                    print(f"   📁 File exists: {os.path.exists(chart_path)}")
             else:
                 if visual_spec:
                     print(f"📷 Chart was specified but not generated - skipping image insertion")
@@ -2559,8 +2963,8 @@ async def home():
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 margin: 0;
-                padding: 20px;
-                background: linear-gradient(135deg, #121B26 0%, #1a2332 100%);
+                padding: 0;
+                background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
                 color: white;
                 min-height: 100vh;
             }
@@ -2573,16 +2977,127 @@ async def home():
                 text-align: center;
                 margin-bottom: 40px;
             }
+            
+            /* Intelligence Augmentation Header */
+            .intelligence-augmentation-header {
+                background: #000000;
+                height: 240px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                position: relative;
+                z-index: 100;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .intelligence-augmentation-header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
+                transform: skewX(-20deg) translateX(20%);
+                z-index: 1;
+            }
+
+            .ia-container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .ia-content {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .ia-logo-section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .ia-logo-image {
+                width: 140px;
+                height: auto;
+                opacity: 1;
+                filter: brightness(1.1);
+                object-fit: contain;
+            }
+
+            .ia-text-section {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ia-introducing {
+                font-size: 1.6rem;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 0.4rem;
+                letter-spacing: 0.5px;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+
+            .ia-main-text {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 4rem;
+                font-weight: 700;
+                line-height: 0.9;
+                letter-spacing: -1.5px;
+                color: #ffffff;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .ia-augmentation {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .ia-intelligence {
+                margin-bottom: -0.3rem;
+            }
             .title {
                 font-size: 2.5rem;
                 font-weight: bold;
-                color: #7C3AED;
+                background: linear-gradient(135deg, #01C4C8 0%, #00D4AA 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
                 margin-bottom: 10px;
             }
             .subtitle {
                 font-size: 1.2rem;
-                color: #94a3b8;
+                color: #01C4C8;
                 margin-bottom: 20px;
+                font-weight: 600;
             }
             .card {
                 background: rgba(255, 255, 255, 0.1);
@@ -2591,24 +3106,6 @@ async def home():
                 border-radius: 12px;
                 padding: 30px;
                 margin: 20px 0;
-            }
-            .feature-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 20px;
-                margin-top: 30px;
-            }
-            .feature {
-                background: rgba(124, 58, 237, 0.1);
-                border: 1px solid rgba(124, 58, 237, 0.3);
-                border-radius: 8px;
-                padding: 20px;
-                text-align: center;
-            }
-            .feature-icon {
-                font-size: 2rem;
-                color: #7C3AED;
-                margin-bottom: 10px;
             }
             .upload-area {
                 border: 2px dashed #7C3AED;
@@ -2664,11 +3161,21 @@ async def home():
     <body>
         <div class="container">
             <div class="header">
-                <h1 class="title">🎯 AI Executive Presentation Generator</h1>
-                <p class="subtitle">Claude 4 Expert Market Researcher + FLUX Visual Assistant</p>
-                <p style="color: #01C4C8; font-weight: 600;">Transform business data into Fortune 500-level executive presentations with AI-powered strategic analysis</p>
-                <div style="background: rgba(1,196,200,0.1); border: 1px solid #01C4C8; border-radius: 8px; padding: 15px; margin: 20px 0;">
-                    <p style="color: #01C4C8; font-weight: 600; margin: 0;">🆕 NEW: Claude 4 acts as 20+ year Market Research Expert + Executive Storyteller</p>
+                <div class="intelligence-augmentation-header">
+                    <div class="ia-container">
+                        <div class="ia-content">
+                            <div class="ia-logo-section">
+                                <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                            </div>
+                            <div class="ia-text-section">
+                                <div class="ia-introducing">Intelligence Augmentation</div>
+                                <div class="ia-main-text">
+                                    <div class="ia-intelligence">Presentation</div>
+                                    <div class="ia-augmentation">Generator</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -2676,8 +3183,8 @@ async def home():
                 <h2 style="color: #7C3AED; margin-bottom: 20px;">💼 Upload Business Data</h2>
                 <div class="upload-area" onclick="document.getElementById('fileInput').click()">
                     <div style="font-size: 3rem; margin-bottom: 10px;">📁</div>
-                    <p>Upload Business Reports, Financial Data, Market Research</p>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Claude 4 expert will analyze and create executive-level presentations</p>
+                    <p>Upload PDF, JSON, Markdown, or Text files</p>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Supported formats: .pdf, .json, .txt, .md</p>
                 </div>
                 <input type="file" id="fileInput" style="display: none;" accept=".pdf,.json,.txt,.md" onchange="handleFileUpload(event)">
                 
@@ -2689,67 +3196,9 @@ async def home():
                 </div>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">💼</div>
-                    <h3>Expert Market Researcher</h3>
-                    <p>Claude 4 acts as a 20+ year Fortune 500 consultant, providing strategic analysis, competitive positioning, and executive-level insights</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>FLUX Visual Assistant</h3>
-                    <p>FLUX generates specific charts, graphs, and infographics exactly as requested by Claude 4's expert visual strategy</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📈</div>
-                    <h3>Strategic Business Analysis</h3>
-                    <p>Deep market insights, competitive analysis, financial modeling, and strategic recommendations worthy of board presentations</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📢</div>
-                    <h3>Executive Storytelling</h3>
-                    <p>Sophisticated narrative structure, compelling business cases, and persuasive presentations for C-suite audiences</p>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 40px; background: linear-gradient(135deg, rgba(1,196,200,0.1) 0%, rgba(124,58,237,0.1) 100%);">
-                <h2 style="color: #01C4C8; margin-bottom: 20px;">🆕 Executive AI Consultant Features</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
-                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #01C4C8;">
-                        <h4 style="color: #01C4C8; margin-top: 0;">💼 Market Research Expert</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #e2e8f0;">
-                            <li>20+ years Fortune 500 experience</li>
-                            <li>Strategic competitive analysis</li>
-                            <li>Market positioning insights</li>
-                            <li>Executive-level recommendations</li>
-                        </ul>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #7C3AED;">
-                        <h4 style="color: #7C3AED; margin-top: 0;">🎨 FLUX Visual Assistant</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #e2e8f0;">
-                            <li>Generates Claude 4's exact requests</li>
-                            <li>Professional chart specifications</li>
-                            <li>Executive dashboard designs</li>
-                            <li>Board-ready infographics</li>
-                        </ul>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border-left: 4px solid #10B981;">
-                        <h4 style="color: #10B981; margin-top: 0;">📢 Executive Storytelling</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #e2e8f0;">
-                            <li>Compelling narrative structure</li>
-                            <li>C-suite presentation quality</li>
-                            <li>Strategic frameworks & models</li>
-                            <li>Board-ready recommendations</li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(1,196,200,0.1); border-radius: 8px;">
-                    <p style="color: #01C4C8; font-weight: 600; margin: 0;">🚀 Upload business data to experience Fortune 500-level strategic analysis!</p>
-                </div>
-            </div>
 
             <div class="card" style="margin-top: 40px;">
-                <h2 style="color: #01C4C8; margin-bottom: 20px;">🔗 API Endpoints</h2>
+                <h2 style="color: #7C3AED; margin-bottom: 20px;">🔗 API Endpoints</h2>
                 <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 6px; font-family: monospace;">
                     <p><strong>POST /upload</strong> - Upload files for presentation generation</p>
                     <p><strong>POST /generate</strong> - Generate presentation from uploaded content</p>

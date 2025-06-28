@@ -49,6 +49,7 @@ class ContentType(Enum):
     CAROUSEL = "carousel"
     LONG_FORM = "long_form"
     ENGAGEMENT_TACTICS = "engagement_tactics"
+    PODCAST = "podcast"
 
 class LinkedInOptimization(Enum):
     ALGORITHM_FRIENDLY = "algorithm_friendly"
@@ -174,6 +175,8 @@ class LinkedInContentGenerator:
                     piece = await self._generate_long_form_article(journey_data, thinking_result, optimization_focus)
                 elif content_type == ContentType.ENGAGEMENT_TACTICS:
                     piece = await self._generate_engagement_tactics(journey_data, thinking_result, optimization_focus)
+                elif content_type == ContentType.PODCAST:
+                    piece = await self._generate_podcast_script(journey_data, thinking_result, optimization_focus)
                 
                 content_pieces.append(piece)
             
@@ -672,6 +675,126 @@ class LinkedInContentGenerator:
             return f"{separator}\n\n{theme}\n{subtitle}\n\n{separator}\n\nSTRATEGIC ENGAGEMENT FRAMEWORK:\n"
         else:
             return f"{separator}\n\n{theme}\n{subtitle}\n\n{separator}\n"
+
+    async def _generate_podcast_script(self, journey_data: ParsedJourneyData, 
+                                     thinking_result: AnalysisResult,
+                                     optimization: LinkedInOptimization) -> ContentPiece:
+        """
+        Generate podcast script content that can be converted to audio using Mulmocast.
+        Creates a conversational, engaging script suitable for business professionals.
+        """
+        # Extract key insights from the journey data
+        key_quotes = [quote.content for quote in journey_data.quotes[:3]]
+        key_insights = [insight.content for insight in journey_data.insights[:3]]
+        pain_points = [pp.content for pp in journey_data.pain_points[:2]]
+        
+        # Extract thinking insights safely
+        def safe_extract(items, default=""):
+            if not items:
+                return default
+            item = items[0]
+            if isinstance(item, dict):
+                return item.get('insight', item.get('story', item.get('content', str(item))))
+            return str(item)
+        
+        thinking_insight = safe_extract(thinking_result.insights, "Strategic insights emerging")
+        
+        prompt = f"""
+        Create an engaging podcast script about business insights that sounds natural when spoken aloud.
+        
+        Context:
+        Topic: {journey_data.title}
+        Background: {journey_data.summary[:400]}
+        
+        Key Information to Cover:
+        • Customer perspectives: {'; '.join(key_quotes) if key_quotes else 'Direct customer feedback'}
+        • Business intelligence: {'; '.join(key_insights) if key_insights else 'Strategic patterns'}
+        • Critical challenges: {'; '.join(pain_points) if pain_points else 'Operational barriers'}
+        • Strategic insight: {thinking_insight}
+        
+        Podcast Script Guidelines:
+        1. Start with a compelling hook that grabs attention in the first 10 seconds
+        2. Write in a conversational tone as if speaking to a business colleague over coffee
+        3. Include natural transitions between topics: "Here's what's interesting...", "But here's the real challenge...", "What I found surprising was..."
+        4. Break down complex ideas into digestible segments
+        5. Use concrete examples and scenarios that listeners can visualize
+        6. Include strategic questions that make listeners think: "Ask yourself this...", "Consider this scenario..."
+        7. End with a clear, actionable takeaway that listeners can implement
+        8. Aim for 3-5 minutes of speaking content (approximately 450-750 words)
+        9. Write in first person as an expert sharing insights
+        10. Include natural pauses and emphasis points marked with [PAUSE] and [EMPHASIS]
+        
+        Format as a complete script ready for audio production. No need for multiple speakers or complex dialogue - this should be a single expert sharing insights.
+        
+        Create the script now:
+        """
+        
+        try:
+            response = await self._call_anthropic(prompt)
+            clean_content = self._clean_content_formatting(response)
+            
+            # Calculate scores specific to podcast content
+            thought_leadership_score = 8.5  # Podcasts have high thought leadership potential
+            professional_authority_score = 9.0  # Audio format builds authority
+            human_authenticity_score = 9.2  # Conversational tone increases authenticity
+            
+            return ContentPiece(
+                content_type=ContentType.PODCAST,
+                title=f"Business Insights Podcast: {journey_data.title[:50]}...",
+                content=clean_content,
+                hook="Transform your business strategy with insights from real customer experiences",
+                call_to_action="What's one insight from this episode you'll implement this week?",
+                hashtags=self._extract_hashtags(clean_content),
+                engagement_triggers=["business insights", "strategic thinking", "customer experience"],
+                thought_leadership_score=thought_leadership_score,
+                professional_authority_score=professional_authority_score,
+                human_authenticity_score=human_authenticity_score,
+                estimated_reach="High (podcast format drives deep engagement)",
+                target_audience="Business executives and strategic decision makers",
+                posting_time_recommendation="Share during commute hours (7-9AM, 5-7PM)",
+                follow_up_suggestions=["Create podcast series", "LinkedIn Live discussion", "Written summary post"]
+            )
+            
+        except Exception as e:
+            logger.error(f"Podcast script generation failed: {str(e)}")
+            return self._create_fallback_podcast(journey_data, thinking_result)
+
+    def _create_fallback_podcast(self, journey_data: ParsedJourneyData, thinking_result: AnalysisResult) -> ContentPiece:
+        """Create fallback podcast content when generation fails."""
+        fallback_content = f"""
+        Welcome to our business insights podcast. Today we're exploring {journey_data.title}.
+
+        [PAUSE]
+
+        Here's what's fascinating about this topic: {journey_data.summary[:200] if journey_data.summary else 'Customer experiences reveal critical business patterns'}.
+
+        [EMPHASIS] The key insight here is that successful businesses listen deeply to their customers. [PAUSE]
+
+        What I find most compelling is how these insights connect to broader strategic decisions. When we really understand our customers' journeys, we can anticipate their needs and create better experiences.
+
+        [PAUSE]
+
+        So here's my challenge to you: Take one insight from today's discussion and ask yourself - how can this change the way we approach our customer relationships?
+
+        That's your takeaway for this episode. Thanks for listening, and remember - every customer interaction is a chance to learn something valuable.
+        """
+        
+        return ContentPiece(
+            content_type=ContentType.PODCAST,
+            title=f"Business Insights: {journey_data.title}",
+            content=fallback_content.strip(),
+            hook="Discover the strategic insights hiding in your customer data",
+            call_to_action="What customer insight will drive your next strategic decision?",
+            hashtags=["#BusinessInsights", "#CustomerExperience", "#Strategy", "#Leadership"],
+            engagement_triggers=["strategic insights", "customer intelligence", "business strategy"],
+            thought_leadership_score=7.5,
+            professional_authority_score=8.0,
+            human_authenticity_score=8.5,
+            estimated_reach="Medium-High (podcast format encourages deeper engagement)",
+            target_audience="Business professionals and strategic thinkers",
+            posting_time_recommendation="Mornings (8-10AM) or evening commute (5-7PM)",
+            follow_up_suggestions=["Podcast series expansion", "Interactive Q&A session", "Written insight summary"]
+        )
 
     def _extract_hashtags(self, content: str) -> List[str]:
         """

@@ -14,8 +14,8 @@ services:
       - "8448:8448"   # Video Transcriptor HTTPS
       - "8449:8449"   # LinkedIn Generator HTTPS
       - "8450:8450"   # Miro Generator HTTPS
-      - "8451:8451"   # AI Presentation Generator (Next.js) HTTPS
-      - "8452:8452"   # MulmoCast - AI Multimedia Generator HTTPS
+      - "8451:8451"   # Image Caption Generator HTTPS
+      - "8452:8452"   # AI Presentation Generator HTTPS
       - "8453:8453"   # FLUX LoRA Studio HTTPS
     volumes:
       - ./ssl-certs:/etc/nginx/ssl:ro
@@ -28,9 +28,9 @@ services:
       - nxthumans_ai_cx_workbench-video-analyzer-1:video-analyzer
       - nxthumans_ai_cx_workbench-linkedin-generator-1:linkedin-generator
       - nxthumans_ai_cx_workbench-miro-generator-1:miro-generator
+      - nxthumans_ai_cx_workbench-image-captioner-1:image-captioner
       - nxthumans_ai_cx_workbench-flux-lora-studio-1:flux-lora-studio
-      - nxthumans_ai_cx_workbench-presentation-ai-1:presentation-ai
-      - nxthumans_ai_cx_workbench-mulmocast-1:mulmocast
+      - nxthumans_ai_cx_workbench-presentation-generator-1:presentation-generator
     restart: unless-stopped
 
 networks:

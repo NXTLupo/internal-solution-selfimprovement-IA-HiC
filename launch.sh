@@ -237,8 +237,7 @@ services:
       - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
       - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
       - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
-      - PRESENTATION_AI_CLIENT_URL=https://localhost:8451
-      - MULMOCAST_CLIENT_URL=https://localhost:8452
+      - PRESENTATION_GENERATOR_CLIENT_URL=https://localhost:8452
 
   video-analyzer:
     environment:
@@ -305,8 +304,7 @@ echo -e "  ${BLUE}LinkedIn Generator:${NC}       http://localhost:5003"
 echo -e "  ${BLUE}Miro Generator:${NC}           http://localhost:5004"
 echo -e "  ${BLUE}Image Captioner:${NC}          http://localhost:5005"
 echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         http://localhost:5006"
-echo -e "  ${BLUE}Presentation AI (Next.js):${NC} http://localhost:3002"
-echo -e "  ${BLUE}MulmoCast:${NC}                http://localhost:5008"
+echo -e "  ${BLUE}Presentation Generator:${NC}    http://localhost:5007"
 echo ""
 echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
@@ -315,8 +313,7 @@ echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"
 echo -e "  ${BLUE}LinkedIn Generator:${NC}       https://localhost:8449"
 echo -e "  ${BLUE}Miro Generator:${NC}           https://localhost:8450"
-echo -e "  ${BLUE}Presentation AI (Next.js):${NC} https://localhost:8451"
-echo -e "  ${BLUE}MulmoCast:${NC}                https://localhost:8452"
+echo -e "  ${BLUE}Presentation Generator:${NC}    https://localhost:8452"
 echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         https://localhost:8453"
 echo ""
 echo -e "${YELLOW}${BOLD}🛡️  BROWSER SECURITY:${NC}"

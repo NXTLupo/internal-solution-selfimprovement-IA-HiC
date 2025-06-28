@@ -52,7 +52,6 @@ def get_dynamic_urls():
     # Internal URLs for service checks (container to container)
     journey_mapper_url = os.environ.get('JOURNEY_MAPPER_URL', 'http://journey-mapper:8000')
     claude4_journey_mapper_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_URL', 'http://claude4-journey-mapper:8095')
-    openai_journey_mapper_url = os.environ.get('OPENAI_JOURNEY_MAPPER_URL', 'http://openai-journey-mapper:8000')
     reddit_ripper_url = os.environ.get('REDDIT_RIPPER_URL', 'http://reddit-ripper:5000')
     social_research_url = os.environ.get('SOCIAL_RESEARCH_URL', 'http://social-research-frontend:3000')
     video_analyzer_url = os.environ.get('VIDEO_ANALYZER_URL', 'http://video-analyzer:5000')
@@ -61,15 +60,12 @@ def get_dynamic_urls():
     image_captioner_url = os.environ.get('IMAGE_CAPTIONER_URL', 'http://image-captioner:5005')
     flux_lora_studio_url = os.environ.get('FLUX_LORA_STUDIO_URL', 'http://flux-lora-studio:5006')
     presentation_generator_url = os.environ.get('PRESENTATION_GENERATOR_URL', 'http://presentation-generator:5007')
-    presentation_ai_url = os.environ.get('PRESENTATION_AI_URL', 'http://presentation-ai:3000')
-    mulmocast_url = os.environ.get('MULMOCAST_URL', 'http://mulmocast:5008')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
     social_mcp_url = os.environ.get('SOCIAL_MCP_URL', 'http://social-mcp:8502')
     journey_mcp_url = os.environ.get('JOURNEY_MCP_URL', 'http://journey-mcp:8503')
     claude4_journey_mcp_url = os.environ.get('CLAUDE4_JOURNEY_MCP_URL', 'http://claude4-journey-mcp:8506')
-    openai_journey_mcp_url = os.environ.get('OPENAI_JOURNEY_MCP_URL', 'http://openai-journey-mcp:8505')
     video_mcp_url = os.environ.get('VIDEO_MCP_URL', 'http://video-mcp:8504')
     # Using 'agent' hostname as configured in docker-compose-agent.yml
     agent_url = os.environ.get('AGENT_URL', 'http://agent:8500')
@@ -79,7 +75,6 @@ def get_dynamic_urls():
     # External URLs for client browsers
     journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
     claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8095')
-    openai_journey_mapper_client_url = os.environ.get('OPENAI_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8090')
     reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
     social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
     video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
@@ -88,8 +83,6 @@ def get_dynamic_urls():
     image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_CLIENT_URL', 'http://localhost:5005')
     flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
     presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
-    presentation_ai_client_url = os.environ.get('PRESENTATION_AI_CLIENT_URL', 'http://localhost:3002')
-    mulmocast_client_url = os.environ.get('MULMOCAST_CLIENT_URL', 'http://localhost:5008')
 
     urls = {
         'journey_mapper': {
@@ -99,10 +92,6 @@ def get_dynamic_urls():
         'claude4_journey_mapper': {
             'client_url': claude4_journey_mapper_client_url,
             'internal_url': claude4_journey_mapper_url
-        },
-        'openai_journey_mapper': {
-            'client_url': openai_journey_mapper_client_url,
-            'internal_url': openai_journey_mapper_url
         },
         'reddit_ripper': {
             'client_url': reddit_ripper_client_url,
@@ -136,14 +125,6 @@ def get_dynamic_urls():
             'client_url': presentation_generator_client_url,
             'internal_url': presentation_generator_url
         },
-        'presentation_ai': {
-            'client_url': presentation_ai_client_url,
-            'internal_url': presentation_ai_url
-        },
-        'mulmocast': {
-            'client_url': mulmocast_client_url,
-            'internal_url': mulmocast_url
-        }
     }
 
     # Add agent and MCP URLs if CX agent is enabled
@@ -154,7 +135,6 @@ def get_dynamic_urls():
                 'social': social_mcp_url,
                 'journey': journey_mcp_url,
                 'claude4_journey': claude4_journey_mcp_url,
-                'openai_journey': openai_journey_mcp_url,
                 'video': video_mcp_url
             },
             'agent': {
@@ -178,8 +158,6 @@ services_status = {
     "image_captioner": {"status": "unknown", "last_checked": None},
     "flux_lora_studio": {"status": "unknown", "last_checked": None},
     "presentation_generator": {"status": "unknown", "last_checked": None},
-    "presentation_ai": {"status": "unknown", "last_checked": None},
-    "mulmocast": {"status": "unknown", "last_checked": None}
 }
 
 # Add agent services if enabled
@@ -299,6 +277,8 @@ def update_all_services():
     check_service("linkedin_generator")
     check_service("miro_generator")
     check_service("image_captioner")
+    check_service("flux_lora_studio")
+    check_service("presentation_generator")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
@@ -356,9 +336,7 @@ def index():
         'miro_generator': services_status['miro_generator']['status'],
         'image_captioner': services_status['image_captioner']['status'],
         'flux_lora_studio': services_status['flux_lora_studio']['status'],
-        'presentation_generator': services_status['presentation_generator']['status'],
-        'presentation_ai': services_status['presentation_ai']['status'],
-        'mulmocast': services_status['mulmocast']['status']
+        'presentation_generator': services_status['presentation_generator']['status']
     }
 
     # Determine if CX agent is enabled
@@ -377,8 +355,6 @@ def index():
                        image_captioner_url=urls['image_captioner']['client_url'],
                        flux_lora_studio_url=urls['flux_lora_studio']['client_url'],
                        presentation_generator_url=urls['presentation_generator']['client_url'],
-                       presentation_ai_url=urls['presentation_ai']['client_url'],
-                       mulmocast_url=urls['mulmocast']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))
@@ -413,9 +389,7 @@ def status_page():
         'miro_generator': services_status['miro_generator']['status'],
         'image_captioner': services_status['image_captioner']['status'],
         'flux_lora_studio': services_status['flux_lora_studio']['status'],
-        'presentation_generator': services_status['presentation_generator']['status'],
-        'presentation_ai': services_status['presentation_ai']['status'],
-        'mulmocast': services_status['mulmocast']['status']
+        'presentation_generator': services_status['presentation_generator']['status']
     }
 
     # Determine if CX agent is enabled for template
@@ -842,16 +816,6 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
         target_url = f"{urls['mcp']['journey']}/{path}"
         return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
         
-    @app.route('/proxy/openai-journey-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
-    def proxy_openai_journey_mcp(path):
-        """Proxy requests to the OpenAI Journey MCP server"""
-        urls = get_dynamic_urls()
-        if 'mcp' not in urls or 'openai_journey' not in urls['mcp']:
-            return jsonify({"error": "OpenAI Journey MCP not configured"}), 404
-
-        target_url = f"{urls['mcp']['openai_journey']}/{path}"
-        return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
-        
     @app.route('/proxy/video-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_video_mcp(path):
         """Proxy requests to the Video MCP server"""
@@ -1004,10 +968,6 @@ def get_mcp_servers():
         "video": {
             "url": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
             "description": "Video transcription and analysis tools"
-        },
-        "openai_journey": {
-            "url": urls.get('mcp', {}).get('openai_journey', 'http://openai-journey-mcp:8505'),
-            "description": "Customer journey mapping with OpenAI o3 reasoning model"
         },
         "claude4_journey": {
             "url": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),

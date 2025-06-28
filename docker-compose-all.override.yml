@@ -9,8 +9,7 @@ services:
       - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
       - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
       - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
-      - PRESENTATION_AI_CLIENT_URL=https://localhost:8451
-      - MULMOCAST_CLIENT_URL=https://localhost:8452
+      - PRESENTATION_GENERATOR_CLIENT_URL=https://localhost:8452
 
   video-analyzer:
     environment:

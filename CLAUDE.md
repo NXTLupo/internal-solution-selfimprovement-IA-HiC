@@ -86,6 +86,31 @@ docker --version && docker compose version  # Verify Docker setup
 # Primary startup command
 ./launch.sh                           # Unified launcher with port conflict detection
 python port_scanner.py --fix          # Auto-resolve port conflicts before startup
+
+# Alternative startup with explicit conflict resolution
+python port_scanner.py               # Check for conflicts first
+./launch.sh                          # Then launch all services
+```
+
+### Essential Commands for Development
+```bash
+# Service health checks
+curl http://localhost:8000/health     # Launchpad status
+curl http://localhost:8500/health     # Agent status
+docker compose -f docker-compose-all.yml ps  # All container status
+
+# View logs for debugging
+docker compose -f docker-compose-all.yml logs -f [service-name]
+docker logs -f agent                  # Agent-specific logs (critical for debugging)
+
+# Restart specific services
+docker compose -f docker-compose-all.yml restart agent
+docker compose -f docker-compose-all.yml restart launchpad
+
+# Complete system reset
+docker compose -f docker-compose-all.yml down
+docker system prune -f
+./launch.sh
 ```
 
 ### Service Management
@@ -259,7 +284,7 @@ python test_whisper_api.py
 #### LinkedIn Post Generator Development
 
 ```bash
-# Run LinkedIn Generator standalone
+# Run LinkedIn Generator standalone with podcast support
 cd internal-solutions-linkedin-generator
 python -m venv venv
 source venv/bin/activate
@@ -267,15 +292,25 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm  # Download spaCy language model
 export ANTHROPIC_API_KEY=your_anthropic_key_here
 export OPENAI_API_KEY=your_openai_key_here
+export MULMOCAST_URL=http://localhost:5008          # For Docker internal communication
+export MULMOCAST_CLIENT_URL=http://localhost:5008   # For frontend audio access
 python -m uvicorn app:app --host 0.0.0.0 --port 5000 --reload  # Starts service on port 5003 (mapped from 5000)
 
 # Test API connectivity
 python -c "import anthropic; print('Anthropic SDK installed')"
 python -c "import openai; print('OpenAI SDK installed')"
 
-# Using Docker
-docker compose -f docker-compose-all.yml up linkedin-generator
+# Test podcast generation
+python -c "import requests; print('✅ Podcast test:', requests.get('http://localhost:5008/health').json())"
+
+# Using Docker with podcast support
+docker compose -f docker-compose-all.yml up linkedin-generator mulmocast
+
+# Test podcast generation in browser
+open test_linkedin_podcast.html  # Quick status check and audio player test
 ```
+
+**CRITICAL PODCAST FIX APPLIED**: Fixed podcast audio URL generation where frontend couldn't access Mulmocast audio files. Added `MULMOCAST_CLIENT_URL` environment variable to generate client-accessible URLs (`http://localhost:5008`) instead of internal Docker URLs (`http://mulmocast:5008`).
 
 #### Miro Generator (TypeScript CLI)
 ```bash
@@ -347,47 +382,85 @@ npm run test         # tsx test runner
 npm run lint         # ESLint + Prettier
 ```
 
-#### AI Presentation Generator (Dual AI Pipeline)
+#### AI Presentation Generator (Claude 4 Strategic Visual Intelligence)
 ```bash
-# Standalone development
+# Standalone development with Claude 4 strategic visual generation
 cd internal-solutions-presentation-generator
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt  # Includes cairosvg, Wand for SVG processing
 export ANTHROPIC_API_KEY=your_key && export OPENAI_API_KEY=your_key
-python app.py        # Starts on port 5007
 
-# Using Docker with HTTPS
+# Install ImageMagick for enhanced SVG conversion (recommended)
+brew install imagemagick
+pip install --upgrade Wand cairosvg
+
+# ALWAYS use the updated app.py with strategic visual intelligence
+./start-claude4-svg.sh          # Enhanced startup script with dependency checks
+# OR manually:
+python app.py        # Starts on port 5007 with Claude 4 strategic visuals
+
+# Using Docker (automatically includes all dependencies)
 docker compose -f docker-compose-all.yml up presentation-generator
 # Access via https://localhost:8452 (HTTPS proxy)
 
-# Test dual AI pipeline
+# Test Claude 4 strategic visual generation
+curl http://localhost:5007/test-svg/strategic_framework  # Test strategic visuals  
+curl http://localhost:5007/svg-capabilities              # View all visual types
 curl -X POST http://localhost:5007/generate \
-  -F "file=@journey_map.json" \
-  -F "output_format=pptx"
+  -F "file=@business_strategy.pdf" \
+  -F "output_format=pptx"                               # Generate strategic presentation
+
+# Strategic visual types available:
+# - strategic_framework: 2x2 matrices, competitive positioning
+# - transformation_journey: Evolution paths, maturity models
+# - ecosystem_diagram: Stakeholder maps, value networks
+# - process_flow: Strategic workflows, decision frameworks
+# - conceptual_model: Business model canvases, strategic architecture
+# - relationship_map: Influence networks, organizational dynamics
+# - strategic_metaphor: Visual analogies for complex concepts
 ```
+
+**CRITICAL BUG FIX APPLIED**: Fixed "unhashable type: 'list'" error in Claude 4 SVG generation where `framework_type` could be passed as a list instead of string. The system now ensures type safety in the `generate_svg_with_claude4()` function, preventing crashes during strategic visual generation.
+
+**CLAUDE 4 MODEL FIX APPLIED**: Updated both `analyze_content_with_ai()` and `generate_svg_with_claude4()` functions to use the correct Claude 4 model (`claude-sonnet-4-20250514`) instead of Claude 3.5 Sonnet. This ensures the service actually uses Claude 4's advanced reasoning capabilities for strategic visual intelligence.
+
+**STRATEGIC VISUAL INTELLIGENCE**: The presentation generator now uses Claude 4's advanced reasoning to create sophisticated, consultative-grade visualizations focused on strategic frameworks rather than basic charts. This addresses user feedback requesting "more strategic and insightful and conceptual information graphics."
+
+**CRITICAL: The app.py file contains Claude 4 SVG generation code. Always restart the service after modifications to load the updated code.**
 
 ### Testing Infrastructure
 
-#### Comprehensive Testing Commands
+#### Test Commands by Category
 ```bash
-# API Integration Testing
-python test_anthropic_api.py      # Claude API (3.7 and 4)  
-python test_openai_api.py         # OpenAI API (o3 and others)
+# Essential API Testing (Run these first)
+python test_anthropic_api.py      # Claude API (3.7 and 4) - REQUIRED
+python test_openai_api.py         # OpenAI API (o3 and others) - REQUIRED
 python test_whisper_api.py        # Whisper API for video transcription
 
-# Agent & WebSocket Testing  
+# Agent & System Testing
 python test_agent_tools_comprehensive.py    # Complete agent functionality
 python test_complete_chatbot_functionality.py  # End-to-end testing
-
-# MCP Service Testing
 python test_mcp_tools.py          # All MCP service tools
 python test_video_complete.py     # Video processing pipeline
 
-# TypeScript Testing (Miro Generator only has full test suite)
+# TypeScript Testing (Only Miro Generator has comprehensive test suite)
 cd internal-solutions-miro-generator
-npm test && npm run test:coverage
+npm test                          # Jest + TypeScript tests
+npm run test:coverage             # Generate coverage reports
+npm run test:watch                # Watch mode for development
+
+# Modern Frontend Testing (Social Research - no tests configured yet)
+cd internal-solutions-socialresearch/frontend
+npm run lint                      # ESLint with TypeScript
+npm run build                     # TypeScript compilation check
 ```
+
+#### Critical Testing Notes
+- **48+ Python test scripts** exist but no pytest framework is configured
+- **Only Miro Generator** has comprehensive Jest testing infrastructure
+- **React applications** lack configured test frameworks despite modern build systems
+- **Most tests focus on API connectivity** rather than unit/integration testing
 
 #### Agent Development
 
@@ -698,17 +771,35 @@ MulmoCast MCP:          8507 (MulmoCast multimedia wrapper)
 
 **Communication Flow**: `Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Service`
 
-## Memories
+## Critical Development Guidelines
 
-### TypeScript and Modern Frontend Development
+### CRITICAL: Agent Service Modification Warning
 
-The Social Research Tool has been updated to use modern development practices:
-- TypeScript 5.7+ with strict type checking
-- React 19 with latest hooks and features
-- Vite 6+ for fast development and building
-- ESLint with TypeScript rules for code quality
+**⚠️ NEVER modify `/mcp-services/agent/app.py` core logic without extreme caution**
 
-When working on frontend components, follow the established patterns in `internal-solutions-socialresearch/frontend/src/`.
+- **Working Backup**: `mcp-services/agent/app.py.backup.websocket_fix` contains the last known working version
+- **Common Failure**: Modifying tool execution logic breaks the entire agent system
+- **Safe Restoration**: `cp app.py.backup.websocket_fix app.py && docker compose -f docker-compose-all.yml restart agent`
+- **Core Functions**: Never modify `process_message()` or `parse_tool_calls()` functions
+- **Testing**: Always test tool execution after any agent changes with `python test_agent_tools_comprehensive.py`
+
+### TypeScript and Frontend Architecture Patterns
+
+**Modern Stack (Social Research Tool)**:
+- TypeScript 5.7+ with strict compilation and path aliases (`@/*` → `./src/*`)
+- React 19 + Vite 6+ with ESM modules and lightning-fast HMR
+- Redux Toolkit 2.6+ for state management, Material-UI 6.4+ components
+- **No testing framework configured** despite modern build system
+
+**Legacy Stack (Journey Mapper)**:
+- React 17 + Webpack 5 with Babel for Mermaid diagram compatibility
+- Custom Webpack configuration for stable ecosystem integration
+- Proxy configuration for development (port 3000 → 8000)
+
+**Professional CLI (Miro Generator)**:
+- TypeScript 5.3+ with Jest 29.7+ comprehensive testing suite
+- ES2022 target with Commander.js and full coverage reporting
+- **Only service with complete test infrastructure**
 
 ### Database Requirements for Social Research Tool
 
@@ -891,37 +982,39 @@ The platform includes specialized AI services with distinct architectural patter
 - **MulmoCast**: Multi-modal presentation platform with MulmoScript JSON format for AI-native content
 - **AI Presentation Generator**: Dual AI analysis pipeline (Claude 3.7 + OpenAI GPT-4o) for PowerPoint generation
 
-## Key File Locations
+## Key File Locations & Development Priorities
 
-When working on specific functionality, these are the critical files to understand:
+### Most Critical Files (Modify with Extreme Caution)
+- `mcp-services/agent/app.py`: **CRITICAL** - AI agent orchestrator (has working backup)
+- `launchpad/app.py`: WebSocket proxy and service coordinator
+- `port_scanner.py`: Port conflict resolution system
+- `launch.sh`: Primary startup script with conflict detection
 
-### Core Service Files
-- `launchpad/app.py`: Main WebSocket proxy and service coordinator
-- `launchpad/templates/index.html`: Main UI template
-- `mcp-services/agent/app.py`: AI agent service implementation (CRITICAL - do not modify core tool execution logic)
-- `launch.sh`: Primary startup script with port conflict detection
+#### FastAPI Services (Modern Python)
+- `internal-solutions-claude4-journey-mapper/run.py`: Claude 4 Journey Mapper (advanced reasoning)
+- `internal-solutions-openai-journey-mapper/run.py`: OpenAI o3 Journey Mapper (reasoning models)  
+- `internal-solutions-video-analyzer/run.py`: Video Transcriptor (YouTube + file upload)
+- `internal-solutions-linkedin-generator/app.py`: LinkedIn Generator (Extended Thinking pipeline)
+- `internal-solutions-image-captioner/app.py`: Image Caption Generator (TensorFlow + Claude Vision)
+- `internal-solutions-presentation-generator/app.py`: AI Presentation Generator (Dual AI pipeline)
 
-### Configuration Files
-- `docker-compose-all.yml`: Complete service configuration
-- `docker-compose-all.override.yml`: Generated by launch.sh with API keys
-- `dynamic-compose.yml`: Development configuration with dynamic ports
-- `.env`: Environment variables (create from examples in documentation)
-- `port_scanner.py`: Port conflict resolution utility
+#### Flask Services (Legacy Python)
+- `internal-solutions-journeymapper/run.py`: Journey Mapper Claude 3.7 (Webpack + React 17)
+- `internal-solutions-socialresearch/backend/run.py`: Social Research backend (pgvector)
+- `internal-solutions-flux-lora-studio/app.py`: FLUX LoRA Studio (Apple Silicon M3)
 
-### Tool-Specific Entry Points
-- `internal-solutions-journeymapper/run.py`: Journey Mapper standalone entry (Claude 3.7)
-- `internal-solutions-claude4-journey-mapper/run.py`: Claude 4 Journey Mapper entry (advanced reasoning)
-- `internal-solutions-openai-journey-mapper/run.py`: OpenAI o3 Journey Mapper entry (reasoning models)
-- `internal-solutions-video-analyzer/run.py`: Video Transcriptor entry (YouTube + file upload)
-- `internal-solutions-linkedin-generator/app.py`: LinkedIn Post Generator entry (FastAPI + Extended Thinking)
-- `internal-solutions-miro-generator/app.py`: Miro Generator web interface entry (Flask + TypeScript CLI integration)
-- `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI entry (TypeScript + Commander.js)
-- `internal-solutions-image-captioner/app.py`: Image Caption Generator entry (FastAPI + TensorFlow)
-- `internal-solutions-flux-lora-studio/app.py`: FLUX LoRA Studio entry (Apple Silicon M3 optimized)
-- `internal-solutions-mulmocast/src/cli/bin.ts`: MulmoCast CLI entry (TypeScript + GraphAI)
-- `internal-solutions-presentation-generator/app.py`: AI Presentation Generator entry (Dual AI pipeline)
-- `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend entry (React 19 + TypeScript)
-- `internal-solutions-socialresearch/backend/run.py`: Social Research backend entry (Flask + pgvector)
+#### TypeScript Services
+- `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI (Jest testing)
+- `internal-solutions-mulmocast/src/cli/bin.ts`: MulmoCast CLI (GraphAI integration)
+- `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend (React 19 + Vite)
+
+#### MCP Service Wrappers (Port 8501-8507)
+- `mcp-services/reddit-mcp/app.py`: Reddit Data Collector wrapper
+- `mcp-services/social-mcp/app.py`: Social Research wrapper  
+- `mcp-services/journey-mcp/app.py`: Claude 3.7 Journey Mapper wrapper
+- `mcp-services/claude4-journey-mcp/app.py`: Claude 4 Journey Mapper wrapper
+- `mcp-services/openai-journey-mcp/app.py`: OpenAI o3 Journey Mapper wrapper
+- `mcp-services/video-mcp/app.py`: Video Transcriptor wrapper
 
 ### Frontend Build Configuration Files
 - `internal-solutions-socialresearch/frontend/package.json`: Modern Vite + TypeScript stack
@@ -940,21 +1033,38 @@ When working on specific functionality, these are the critical files to understa
 - `launchpad/static/chatbot.js`: Frontend chat client (source of link corruption issue)
 - `client-fallback.js`: Browser-side WebSocket reconnection fallback
 
-## Testing Infrastructure & Development Patterns
+## Testing Infrastructure Reality Check
 
-### Testing Framework Availability
+### Critical Testing Infrastructure Assessment
 
-**Jest (TypeScript) - Fully Configured**: Only the Miro Generator has a complete testing infrastructure
+**IMPORTANT**: Despite extensive documentation, the testing infrastructure has significant gaps that affect development workflow.
+
+#### Testing Framework Status by Service:
+- ✅ **Miro Generator Only**: Complete Jest + TypeScript testing framework (jest.config.js, 30s timeout, coverage reports)
+- ❌ **Social Research Tool**: No testing framework configured (React 19 + Vite 6 has no vitest.config.ts)
+- ❌ **Journey Mapper**: No testing framework configured (React 17 + Webpack has no jest.config.js)
+- ❌ **All Python Services**: 30+ ad-hoc test scripts without pytest framework (no pytest.ini, conftest.py, or pyproject.toml)
+
+#### Missing Critical Test Configurations:
+```bash
+# What should exist but doesn't:
+pytest.ini                                                    # Python test configuration
+conftest.py                                                   # Python test fixtures  
+internal-solutions-socialresearch/frontend/vitest.config.ts   # Modern React testing
+internal-solutions-journeymapper/jest.config.js              # Legacy React testing
+```
+
+#### Available Testing (Jest - TypeScript Only):
 ```bash
 cd internal-solutions-miro-generator
 npm test                    # Jest + TypeScript with 30s timeout
-npm run test:coverage       # Text, LCOV, and HTML reporters
+npm run test:coverage       # Text, LCOV, and HTML reporters  
 npm run test:watch          # Watch mode for TDD
 ```
 
-**Python Testing - Ad-hoc Scripts**: 30+ standalone test scripts without unified framework
+#### Available Testing (Python - Ad-hoc Scripts):
 ```bash
-# Core functionality validation
+# Core functionality validation (no unified framework)
 python test_agent_tools_comprehensive.py test_complete_chatbot_functionality.py
 python test_anthropic_api.py test_openai_api.py test_whisper_api.py
 
@@ -962,17 +1072,204 @@ python test_anthropic_api.py test_openai_api.py test_whisper_api.py
 python test_mcp_tools.py test_video_complete.py test_websocket_server.py
 ```
 
-**Frontend Testing Gap**: Neither React application has configured test frameworks despite modern build systems.
+## Development Workflow Best Practices
 
-## Code Quality Standards
+### Before Making Changes
+1. **Test API Keys**: `python test_anthropic_api.py && python test_openai_api.py`
+2. **Check Agent Health**: `curl http://localhost:8500/health`
+3. **Backup Critical Files**: Especially if modifying `mcp-services/agent/app.py`
+4. **Identify Technology Stack**: FastAPI vs Flask, React 19 vs React 17, Jest vs ad-hoc testing
 
-### Python Code Style
-- **Formatting**: 4-space indentation, 120 character line limit
-- **Type Hints**: Use Python type hints for all function parameters and return values
-- **Error Handling**: Use specific exception types, proper logging with `src.utils.logger`
-- **Imports**: Group imports (stdlib, third-party, local) with spaces between groups
+### Making Changes Safely
+1. **Use Appropriate Testing**: Jest for Miro Generator, ad-hoc scripts for Python services
+2. **Follow Stack Patterns**: Modern stack (Vite + React 19) vs Legacy stack (Webpack + React 17)
+3. **Test Tool Execution**: `python test_agent_tools_comprehensive.py` after agent changes
+4. **Check Service Integration**: Test MCP service wrappers if modifying core services
 
-### JavaScript/TypeScript Code Style
-- **TypeScript**: Strict mode enabled, use proper type definitions
-- **React**: Use functional components with hooks, follow modern React patterns
-- **ESLint**: Follow configured ESLint rules for consistency (Social Research and Miro Generator)
+### Code Quality Standards
+
+#### Python Services
+- **FastAPI**: Use async/await patterns, Pydantic models, proper error handling
+- **Flask**: Follow existing patterns, use SQLAlchemy ORM for database services
+- **Type Hints**: All function parameters and return values
+- **Error Handling**: Specific exceptions, proper logging
+- **Testing**: Create corresponding `test_*.py` scripts for new functionality (no pytest framework available)
+
+#### TypeScript Services
+- **Modern Stack (Social Research)**: React 19 hooks, strict TypeScript, Redux Toolkit patterns
+- **Legacy Stack (Journey Mapper)**: React 17 patterns, Webpack compatibility
+- **CLI Tools (Miro Generator)**: Commander.js patterns, comprehensive Jest testing
+- **Path Aliases**: Use `@/*` imports where configured
+
+#### TypeScript Configuration Patterns
+
+**Advanced Path Mapping (Miro Generator)**:
+```json
+{
+  "paths": {
+    "@/*": ["src/*"],
+    "@cli/*": ["src/cli/*"],
+    "@parsers/*": ["src/parsers/*"],
+    "@miro/*": ["src/miro/*"],
+    "@utils/*": ["src/utils/*"],
+    "@types/*": ["src/types/*"]
+  }
+}
+```
+
+**Modern React Configuration (Social Research)**:
+```json
+{
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+```
+
+**Development Patterns**:
+- **ES2022 Target**: Modern JavaScript features in CLI tools
+- **Project References**: Vite-optimized TypeScript compilation
+- **Strict Configuration**: Professional-grade type checking with selective overrides
+
+## Environment Configuration Architecture
+
+### Multi-Level Environment Management
+
+The platform uses a hierarchical environment configuration system that can be complex to navigate:
+
+**Root Level**: `/.env` (master configuration)
+**Service Level**: Individual service `.env` files for service-specific overrides
+**Development**: `.env.example` templates for developer onboarding
+
+#### Environment File Hierarchy:
+```bash
+.env                                           # Master configuration
+internal-solutions-video-analyzer/.env         # Service-specific overrides
+internal-solutions-presentation-generator/.env # Service-specific overrides
+internal-solutions-socialresearch/.env.example # Development template
+```
+
+#### Environment Injection Scripts:
+- `internal-solutions-video-analyzer/set_env_at_startup.py`
+- Service-specific environment loading patterns throughout the codebase
+
+## Development Automation Scripts
+
+### Script Categories in `backup-scripts/`
+
+The `backup-scripts/` directory contains critical development automation:
+
+```bash
+# Launch Scripts (12+ variants)
+backup-scripts/unified-launch.sh              # Comprehensive launcher
+backup-scripts/quick-launch.sh                # Fast development startup  
+backup-scripts/enhanced-check-and-run.sh      # With conflict detection
+
+# Fix Scripts (20+ specialized)
+backup-scripts/fix-websocket-connection.sh    # WebSocket debugging
+backup-scripts/fix-reddit-tools.sh            # Tool parameter fixes
+backup-scripts/patch-agent-hallucination.sh   # Agent behavior fixes
+
+# API Key Management (5+ scripts)
+backup-scripts/update_anthropic_key_enhanced.sh
+backup-scripts/update-whisper-key.sh
+backup-scripts/test-whisper-key.sh
+
+# Monitoring & Debugging (8+ scripts)
+backup-scripts/monitor-video-service.sh
+backup-scripts/verify-tools.sh
+backup-scripts/debug.sh
+```
+
+#### Critical Scripts for Development:
+- `backup-scripts/enhanced-check-and-run.sh`: Pre-startup validation with port conflict detection
+- `backup-scripts/fix-websocket-connection.sh`: Connection recovery procedures
+- `backup-scripts/patch-agent-hallucination.sh`: Agent behavior fixes and recovery
+
+## SSL Certificate Management
+
+### Certificate Infrastructure
+
+Complete SSL certificate management system for HTTPS development:
+
+```bash
+ssl-certs/
+├── localhost+2-key.pem          # Multi-domain private key
+├── localhost+2.pem              # Multi-domain certificate  
+├── localhost.crt                # Standard certificate
+├── localhost.key                # Standard private key
+└── openssl.conf                 # Certificate configuration
+
+# Certificate Management Scripts:
+setup-https.sh                   # Automated HTTPS setup
+setup-trusted-https.sh           # Trusted certificate installation
+install-certificate.sh          # Browser certificate installation
+```
+
+#### HTTPS Proxy Configuration:
+- **nginx-https.conf**: Production HTTPS configuration
+- **nginx-simple.conf**: Development HTTPS configuration
+- **Extended Timeouts**: 500MB upload support with 10-minute timeouts
+
+## CI/CD and Deployment
+
+### Azure Container Apps Integration (Social Research Tool)
+
+The Social Research Tool includes production deployment infrastructure:
+
+- **GitHub Actions**: Automated build and deployment pipeline (`.github/workflows/build-and-deploy.yml`)
+- **Azure ACR**: Container registry integration with automated image builds
+- **Production Environment**: `social-research-env` in East US 2
+- **Configuration**: `compose.deploy.yml` for production builds, `containerapp.yaml` for Azure deployment
+
+```bash
+# Production deployment
+docker compose -f compose.deploy.yml build
+docker compose -f compose.deploy.yml push
+```
+
+## Architecture Visualization
+
+### Service Communication Flow:
+```
+Client Browser → Launchpad (8000) → Agent (8500) → MCP Services (8501-8507) → Core Services (5001-5008, 8080-8095)
+```
+
+### Port Allocation Matrix:
+```
+Core Services:     5001-5008, 8080-8095
+MCP Wrappers:      8501-8507  
+Infrastructure:    8000 (Launchpad), 8500 (Agent)
+HTTPS Proxy:       8443-8450
+```
+
+### Technology Stack Matrix:
+```
+Modern Frontend:   React 19 + Vite 6 + TypeScript 5.7
+Legacy Frontend:   React 17 + Webpack 5 + Babel 7
+Backend:          FastAPI (modern) + Flask (legacy)
+Databases:        PostgreSQL 16 + pgvector
+Infrastructure:   Docker + nginx + SSL certificates
+```
+
+## Docker Architecture Patterns
+
+### Dockerfile Variants by Service Type:
+- **Standard Dockerfiles**: Basic containerization
+- **Enhanced Dockerfiles**: `Dockerfile.enhanced` for optimized builds
+- **Simple Dockerfiles**: `Dockerfile.simple` for minimal containers
+- **Development Dockerfiles**: Development-specific configurations
+
+#### Container Optimization Patterns:
+```bash
+# Multi-stage build patterns
+internal-solutions-*/Dockerfile.enhanced       # Production-optimized
+internal-solutions-*/Dockerfile.simple         # Minimal footprint
+presentation-ai/Dockerfile.simple              # Next.js optimized
+```
+
+#### Frontend Container Architecture:
+- **Dual-container Pattern**: Frontend + Backend separation (Social Research)
+- **Single-container Pattern**: Monolithic services
+- **CLI Container Pattern**: Tool-based containers (Miro Generator)

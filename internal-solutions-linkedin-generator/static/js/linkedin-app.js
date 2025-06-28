@@ -23,7 +23,7 @@ class LinkedInPostGenerator {
         fileInput.addEventListener('change', this.fileChangeListener);
 
         // Generate button click
-        const generateButton = document.getElementById('generateButton');
+        const generateButton = document.getElementById('generateMarketingButton');
         generateButton.addEventListener('click', () => this.startGeneration());
 
         // Upload section click - only allow if not currently processing
@@ -106,10 +106,10 @@ class LinkedInPostGenerator {
         const fileName = document.getElementById('fileName');
         fileName.textContent = `Selected: ${file.name}`;
 
-        // Show thinking options
-        const thinkingOptions = document.getElementById('thinkingOptions');
-        thinkingOptions.style.display = 'block';
-        thinkingOptions.scrollIntoView({ behavior: 'smooth' });
+        // Show marketing options
+        const marketingOptions = document.getElementById('marketingOptions');
+        marketingOptions.style.display = 'block';
+        marketingOptions.scrollIntoView({ behavior: 'smooth' });
 
         // Upload file
         this.uploadFile(file);
@@ -163,10 +163,18 @@ class LinkedInPostGenerator {
             // Start content generation
             const formData = new FormData();
             formData.append('session_id', this.sessionId);
-            formData.append('depth_level', config.depthLevel);
-            formData.append('sophistication', config.sophistication);
-            formData.append('content_types', config.contentTypes);
-            formData.append('optimization_focus', config.optimizationFocus);
+            formData.append('marketing_objective', config.marketingObjective);
+            formData.append('target_audience', config.targetAudience);
+            formData.append('content_tone', config.contentTone);
+            formData.append('industry_focus', config.industryFocus);
+            formData.append('competitive_angle', config.competitiveAngle);
+            formData.append('include_data_points', config.includeDataPoints);
+            
+            // Explicitly request podcast content along with other LinkedIn content types
+            formData.append('content_types', 'short_form,carousel,long_form,engagement_tactics,podcast');
+            formData.append('depth_level', 'comprehensive');
+            formData.append('sophistication', 'expert');
+            formData.append('optimization_focus', 'thought_leadership');
 
             const response = await fetch('/generate-extended', {
                 method: 'POST',
@@ -191,22 +199,22 @@ class LinkedInPostGenerator {
     }
 
     getGenerationConfig() {
-        const depthLevel = document.getElementById('depthLevel').value;
-        const sophistication = document.getElementById('sophistication').value;
-        const optimizationFocus = document.getElementById('optimizationFocus').value;
+        const marketingObjective = document.getElementById('marketingObjective').value;
+        const targetAudience = document.getElementById('targetAudience').value;
+        const contentTone = document.getElementById('contentTone').value;
+        const industryFocus = document.getElementById('industryFocus').value;
 
-        // Get selected content types
-        const contentTypes = [];
-        const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:checked');
-        checkboxes.forEach(checkbox => {
-            contentTypes.push(checkbox.value);
-        });
+        // Get checkbox settings
+        const competitiveAngle = document.getElementById('competitiveAngle').checked;
+        const includeDataPoints = document.getElementById('includeDataPoints').checked;
 
         return {
-            depthLevel,
-            sophistication,
-            contentTypes: contentTypes.join(','),
-            optimizationFocus
+            marketingObjective,
+            targetAudience,
+            contentTone,
+            industryFocus,
+            competitiveAngle,
+            includeDataPoints
         };
     }
 
@@ -215,9 +223,9 @@ class LinkedInPostGenerator {
         processingSection.classList.add('active');
         processingSection.scrollIntoView({ behavior: 'smooth' });
 
-        // Hide thinking options
-        const thinkingOptions = document.getElementById('thinkingOptions');
-        thinkingOptions.style.display = 'none';
+        // Hide marketing options
+        const marketingOptions = document.getElementById('marketingOptions');
+        marketingOptions.style.display = 'none';
 
         // Initialize thinking stages
         this.initializeThinkingStages();
@@ -407,8 +415,8 @@ class LinkedInPostGenerator {
         // Display thinking insights
         const thinkingInsights = document.getElementById('thinkingInsights');
         thinkingInsights.innerHTML = `
-            <h4 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">🧠 Extended Thinking Analysis</h4>
-            <pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">${insights}</pre>
+            <h4 style="color: var(--primary-purple); margin-bottom: 0.5rem;">🧠 Extended Thinking Analysis</h4>
+            <pre style="white-space: pre-wrap; font-family: inherit; margin: 0; color: #ffffff;">${insights}</pre>
         `;
     }
 
@@ -429,16 +437,7 @@ class LinkedInPostGenerator {
                     </div>
                     
                     <div class="content-preview">
-                        <div class="linkedin-post">
-                            <div class="post-header">
-                                <div class="author-avatar">YN</div>
-                                <div class="author-info">
-                                    <div class="author-name">Your Name</div>
-                                    <div class="author-title">Your Professional Title</div>
-                                </div>
-                            </div>
-                            <div class="post-content">${this.formatContentPreview(piece.content)}</div>
-                        </div>
+                        ${piece.content_type === 'podcast' ? this.renderPodcastPreview(piece) : this.renderPostPreview(piece)}
                     </div>
                     
                     <div class="content-metrics">
@@ -481,7 +480,8 @@ class LinkedInPostGenerator {
             'short_form': { icon: '📝', name: 'Short-Form Post' },
             'carousel': { icon: '🎠', name: 'Carousel Content' },
             'long_form': { icon: '📄', name: 'Long-Form Article' },
-            'engagement_tactics': { icon: '🎯', name: 'Engagement Tactics' }
+            'engagement_tactics': { icon: '🎯', name: 'Engagement Tactics' },
+            'podcast': { icon: '🎙️', name: 'Podcast Episode' }
         };
         return configs[type] || { icon: '📄', name: 'Content' };
     }
@@ -507,6 +507,68 @@ class LinkedInPostGenerator {
             return plainText.substring(0, 300) + '...';
         }
         return plainText;
+    }
+
+    renderPostPreview(piece) {
+        return `
+            <div class="linkedin-post">
+                <div class="post-header">
+                    <div class="author-avatar">YN</div>
+                    <div class="author-info">
+                        <div class="author-name">Your Name</div>
+                        <div class="author-title">Your Professional Title</div>
+                    </div>
+                </div>
+                <div class="post-content">${this.formatContentPreview(piece.content)}</div>
+            </div>
+        `;
+    }
+
+    renderPodcastPreview(piece) {
+        const hasAudio = piece.podcast_audio && piece.podcast_audio.preview_url;
+        
+        return `
+            <div class="podcast-preview">
+                <div class="podcast-header">
+                    <div class="podcast-icon">🎙️</div>
+                    <div class="podcast-info">
+                        <div class="podcast-title">LinkedIn Content Podcast</div>
+                        <div class="podcast-duration">${piece.podcast_audio?.duration_estimate || 'Generating...'}</div>
+                    </div>
+                </div>
+                ${hasAudio ? `
+                    <div class="podcast-player">
+                        <audio controls style="width: 100%; margin: 1rem 0;">
+                            <source src="${piece.podcast_audio.preview_url}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                ` : `
+                    <div class="podcast-generating">
+                        <div class="thinking-animation" style="width: 40px; height: 40px; margin: 1rem auto;"></div>
+                        <div style="text-align: center; color: var(--light-grey);">Generating podcast audio...</div>
+                    </div>
+                `}
+                <div class="podcast-content-preview">
+                    <strong>Script Preview:</strong><br>
+                    ${this.formatContentPreview(piece.content)}
+                </div>
+                ${hasAudio ? `
+                    <div class="podcast-actions" style="margin-top: 1rem; text-align: center;">
+                        <a href="${piece.podcast_audio.download_url}" 
+                           class="action-button primary" 
+                           style="display: inline-block; text-decoration: none; margin: 0 0.5rem;">
+                            🎵 Download Audio
+                        </a>
+                        <button onclick="navigator.clipboard.writeText('${piece.podcast_audio.preview_url}')" 
+                                class="action-button" 
+                                style="margin: 0 0.5rem;">
+                            🔗 Copy Audio Link
+                        </button>
+                    </div>
+                ` : ''}
+            </div>
+        `;
     }
 
     // Action Methods
@@ -595,7 +657,7 @@ class LinkedInPostGenerator {
         modal.innerHTML = `
             <div style="
                 background: var(--dark-bg);
-                border: 1px solid var(--primary-cyan);
+                border: 1px solid var(--primary-purple);
                 border-radius: 12px;
                 padding: 2rem;
                 max-width: 800px;
@@ -604,7 +666,7 @@ class LinkedInPostGenerator {
                 width: 100%;
             ">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                    <h2 style="color: var(--primary-cyan); margin: 0;">${typeConfig.icon} ${typeConfig.name}</h2>
+                    <h2 style="color: var(--primary-purple); margin: 0;">${typeConfig.icon} ${typeConfig.name}</h2>
                     <button onclick="this.closest('div').parentElement.remove()" style="
                         background: transparent;
                         border: none;
@@ -620,6 +682,7 @@ class LinkedInPostGenerator {
                     white-space: pre-wrap;
                     line-height: 1.6;
                     font-family: 'Segoe UI', sans-serif;
+                    color: #ffffff;
                 ">${piece.content}</div>
                 <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
                     <button onclick="linkedInGenerator.copyContent('${piece.content_type}')" class="action-button primary">

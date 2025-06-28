@@ -13,6 +13,8 @@ import logging
 import json
 from pathlib import Path
 from dataclasses import asdict, is_dataclass
+import requests
+import tempfile
 
 from fastapi import FastAPI, HTTPException, Form, UploadFile, File, BackgroundTasks
 from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
@@ -105,7 +107,7 @@ professional_formatter = create_professional_formatter()
 class ExtendedThinkingRequest(BaseModel):
     depth_level: str = "comprehensive"
     sophistication: str = "expert"
-    content_types: List[str] = ["short_form", "carousel", "long_form", "engagement_tactics"]
+    content_types: List[str] = ["short_form", "carousel", "long_form", "engagement_tactics", "podcast"]
     optimization_focus: str = "thought_leadership"
 
 class ContentGenerationResponse(BaseModel):
@@ -314,7 +316,7 @@ async def generate_content_extended(
     session_id: str = Form(...),
     depth_level: str = Form("comprehensive"),
     sophistication: str = Form("expert"),
-    content_types: str = Form("short_form,carousel,long_form,engagement_tactics"),
+    content_types: str = Form("short_form,carousel,long_form,engagement_tactics,podcast"),
     optimization_focus: str = Form("thought_leadership")
 ):
     """
@@ -432,6 +434,90 @@ async def get_generation_results(session_id: str):
     except Exception as e:
         logger.error(f"Results retrieval failed: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Results retrieval failed: {str(e)}")
+
+@app.get("/podcast-audio/{session_id}")
+async def get_podcast_audio(session_id: str):
+    """Get direct link to podcast audio file."""
+    try:
+        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        
+        # Get files from Mulmocast
+        files_response = requests.get(f"{mulmocast_url}/api/files")
+        if not files_response.ok:
+            raise HTTPException(status_code=503, detail="Mulmocast service unavailable")
+            
+        files_data = files_response.json()
+        
+        # Find audio files for this session
+        session_audio_files = [
+            f for f in files_data 
+            if f.get("type") == "audio" and session_id in f.get("name", "")
+        ]
+        
+        if not session_audio_files:
+            raise HTTPException(status_code=404, detail="No audio file found for session")
+        
+        # Get the largest/main audio file (usually the combined one)
+        main_audio = max(session_audio_files, key=lambda x: x.get("size", 0))
+        
+        return {
+            "session_id": session_id,
+            "audio_file": main_audio["name"],
+            "file_size": main_audio["size"],
+            "download_url": f"{mulmocast_url}/download/{main_audio['path']}",
+            "streaming_url": f"{mulmocast_url}/api/preview/{main_audio['path']}",
+            "direct_link": f"http://localhost:5003/download-podcast/{session_id}"
+        }
+        
+    except Exception as e:
+        logger.error(f"Podcast audio retrieval failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Audio retrieval failed: {str(e)}")
+
+@app.get("/download-podcast/{session_id}")
+async def download_podcast_audio(session_id: str):
+    """Proxy download of podcast audio file."""
+    try:
+        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        
+        # Get files from Mulmocast
+        files_response = requests.get(f"{mulmocast_url}/api/files")
+        if not files_response.ok:
+            raise HTTPException(status_code=503, detail="Mulmocast service unavailable")
+            
+        files_data = files_response.json()
+        
+        # Find audio files for this session
+        session_audio_files = [
+            f for f in files_data 
+            if f.get("type") == "audio" and session_id in f.get("name", "")
+        ]
+        
+        if not session_audio_files:
+            raise HTTPException(status_code=404, detail="No audio file found for session")
+        
+        # Get the largest/main audio file
+        main_audio = max(session_audio_files, key=lambda x: x.get("size", 0))
+        
+        # Stream the file from Mulmocast
+        download_url = f"{mulmocast_url}/download/{main_audio['path']}"
+        audio_response = requests.get(download_url, stream=True)
+        
+        if not audio_response.ok:
+            raise HTTPException(status_code=404, detail="Audio file not accessible")
+        
+        # Return the audio file with proper headers
+        return Response(
+            content=audio_response.content,
+            media_type="audio/mpeg",
+            headers={
+                "Content-Disposition": f"attachment; filename={main_audio['name']}",
+                "Content-Length": str(main_audio['size'])
+            }
+        )
+        
+    except Exception as e:
+        logger.error(f"Podcast download failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Download failed: {str(e)}")
 
 @app.post("/customize-thinking")
 async def customize_thinking_parameters(
@@ -669,11 +755,66 @@ async def process_content_generation(
         )
         
         session.update({
-            "progress": 95,
+            "progress": 85,
             "message": f"Generated {len(generated_content.content_pieces)} content pieces with {generated_content.overall_quality_score:.1f}/10 quality"
         })
         
-        # Stage 4: Finalization and File Generation (95-100%)
+        # Stage 4: Podcast Generation (85-95%) - if podcast content type requested
+        podcast_pieces = [piece for piece in generated_content.content_pieces if piece.content_type == ContentType.PODCAST]
+        
+        if podcast_pieces and get_mulmocast_health():
+            session.update({
+                "progress": 85,
+                "current_stage": "podcast_generation",
+                "stage_name": "Podcast Generation",
+                "message": "Generating podcast audio using Mulmocast..."
+            })
+            
+            for podcast_piece in podcast_pieces:
+                try:
+                    podcast_result = await generate_podcast_from_content(
+                        podcast_piece.content, 
+                        session_id
+                    )
+                    
+                    if podcast_result and podcast_result.get("success"):
+                        # Add podcast metadata to the content piece
+                        podcast_piece_dict = make_serializable(podcast_piece)
+                        client_mulmocast_url = os.getenv("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+                        podcast_piece_dict["podcast_audio"] = {
+                            "download_url": podcast_result["download_url"],
+                            "preview_url": podcast_result["preview_url"],
+                            "file_size": podcast_result["file_size"],
+                            "duration_estimate": podcast_result["duration_estimate"],
+                            "audio_file": podcast_result["audio_file"],
+                            "direct_download": f"{client_mulmocast_url}/download/{podcast_result['audio_path']}",
+                            "streaming_url": f"{client_mulmocast_url}/api/preview/{podcast_result['audio_path']}"
+                        }
+                        
+                        # Update the content piece in session data directly
+                        for i, piece_data in enumerate(session["content_pieces"]):
+                            if piece_data.get("content_type") == "podcast":
+                                session["content_pieces"][i].update(podcast_piece_dict)
+                                break
+                        else:
+                            # If no podcast piece found in session, add it
+                            session["content_pieces"].append(podcast_piece_dict)
+                        
+                        logger.info(f"Podcast with audio generated successfully for session {session_id}")
+                        logger.info(f"Audio download URL: {podcast_result['download_url']}")
+                        
+                    else:
+                        logger.warning(f"Podcast generation failed for session {session_id}")
+                        
+                except Exception as e:
+                    logger.error(f"Podcast generation error for session {session_id}: {str(e)}")
+            
+            session.update({
+                "progress": 95,
+                "message": "Podcast generation completed"
+            })
+        
+        # Stage 5: Finalization and File Generation (95-100%)
         session.update({
             "progress": 95,
             "current_stage": "finalizing",
@@ -997,6 +1138,180 @@ async def refine_content_piece(content_pieces: List[Dict], content_type: str,
     
     return refined_piece
 
+# Mulmocast Integration Functions
+
+async def generate_podcast_from_content(content: str, session_id: str) -> Optional[Dict[str, Any]]:
+    """
+    Generate podcast audio from LinkedIn content using Mulmocast proper workflow.
+    """
+    try:
+        # Mulmocast service URL (from docker-compose)
+        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        
+        logger.info(f"Generating podcast for session {session_id} using Mulmocast at {mulmocast_url}")
+        
+        # Step 1: Create Mulmo script JSON directly for podcast (correct schema)
+        mulmo_script = {
+            "$mulmocast": {
+                "version": "1.0",
+                "credit": "closing"
+            },
+            "canvasSize": {
+                "width": 1280,
+                "height": 720
+            },
+            "speechParams": {
+                "provider": "openai",
+                "speakers": {
+                    "Host": {
+                        "displayName": {"en": "Host"},
+                        "voiceId": "alloy"
+                    }
+                }
+            },
+            "audioParams": {
+                "padding": 0.3,
+                "introPadding": 1,
+                "closingPadding": 0.8,
+                "outroPadding": 1,
+                "bgmVolume": 0.1,
+                "audioVolume": 1
+            },
+            "title": f"LinkedIn Content Podcast - {session_id}",
+            "description": "AI-generated podcast from LinkedIn content",
+            "lang": "en",
+            "beats": [
+                {
+                    "speaker": "Host",
+                    "text": "Welcome to our LinkedIn content podcast. In today's episode, we'll be exploring some thought-provoking professional insights."
+                },
+                {
+                    "speaker": "Host", 
+                    "text": content
+                },
+                {
+                    "speaker": "Host",
+                    "text": "Thank you for listening to our LinkedIn content podcast. These insights can help drive meaningful professional conversations and engagement on LinkedIn."
+                }
+            ]
+        }
+        
+        # Step 2: Upload Mulmo script as JSON file
+        script_filename = f"linkedin_podcast_{session_id}.json"
+        script_content = json.dumps(mulmo_script, indent=2)
+        
+        upload_response = requests.post(
+            f"{mulmocast_url}/api/upload",
+            files={'files': (script_filename, script_content, 'application/json')},
+            timeout=30
+        )
+        
+        if not upload_response.ok:
+            logger.error(f"Script upload failed: {upload_response.text}")
+            return None
+            
+        upload_result = upload_response.json()
+        if not upload_result.get("success", False):
+            logger.error(f"Script upload unsuccessful: {upload_result}")
+            return None
+            
+        # Get the uploaded script file path
+        uploaded_files = upload_result.get("files", [])
+        if not uploaded_files:
+            logger.error(f"No files in upload result: {upload_result}")
+            return None
+            
+        script_file_path = uploaded_files[0].get("path", f"uploads/{script_filename}")
+        logger.info(f"Script uploaded successfully: {script_file_path}")
+        
+        # Step 3: Generate audio directly from the uploaded script
+        audio_response = requests.post(
+            f"{mulmocast_url}/api/execute",
+            json={
+                "command": "audio",
+                "args": [script_file_path, "--force"]
+            },
+            timeout=300
+        )
+        
+        if not audio_response.ok:
+            logger.error(f"Audio generation failed: {audio_response.text}")
+            return None
+            
+        audio_result = audio_response.json()
+        if not audio_result.get("success", False):
+            logger.error(f"Audio generation unsuccessful: {audio_result}")
+            return None
+            
+        logger.info(f"Audio generated successfully")
+        
+        # Step 5: Get the generated audio file
+        files_response = requests.get(f"{mulmocast_url}/api/files")
+        
+        if files_response.ok:
+            files_data = files_response.json()
+            
+            # Find audio files that match our session
+            session_audio_files = [
+                f for f in files_data 
+                if f.get("type") == "audio" and session_id in f.get("name", "")
+            ]
+            
+            # If no session-specific files, get the most recent audio file
+            if not session_audio_files:
+                audio_files = [f for f in files_data if f.get("type") == "audio"]
+                if audio_files:
+                    # Sort by modification time (newest first)
+                    audio_files.sort(key=lambda x: x.get("modified", 0), reverse=True)
+                    session_audio_files = [audio_files[0]]
+            
+            if session_audio_files:
+                latest_audio = session_audio_files[0]
+                
+                # Generate client-accessible URLs (use localhost for frontend access)
+                client_mulmocast_url = os.getenv("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+                
+                return {
+                    "success": True,
+                    "audio_file": latest_audio["name"],
+                    "audio_path": latest_audio["path"],
+                    "download_url": f"{client_mulmocast_url}/download/{latest_audio['path']}",
+                    "preview_url": f"{client_mulmocast_url}/api/preview/{latest_audio['path']}",
+                    "file_size": latest_audio.get("size", 0),
+                    "duration_estimate": "2-5 minutes"
+                }
+        
+        logger.warning("No audio files found after Mulmocast generation")
+        return None
+        
+    except requests.exceptions.Timeout:
+        logger.error(f"Mulmocast request timed out for session {session_id}")
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Mulmocast request failed for session {session_id}: {str(e)}")
+        return None
+    except Exception as e:
+        logger.error(f"Podcast generation failed for session {session_id}: {str(e)}")
+        return None
+    finally:
+        # Clean up temporary script file
+        try:
+            if 'temp_script_path' in locals():
+                os.unlink(temp_script_path)
+        except:
+            pass
+
+def get_mulmocast_health() -> bool:
+    """
+    Check if Mulmocast service is available.
+    """
+    try:
+        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        response = requests.get(f"{mulmocast_url}/health", timeout=5)
+        return response.ok
+    except:
+        return False
+
 # Startup and shutdown events
 
 @app.on_event("startup")
@@ -1012,6 +1327,12 @@ async def startup_event():
     logger.info("Extended thinking engine initialized")
     logger.info("HTML parser initialized")
     logger.info("Content generator initialized")
+    
+    # Check Mulmocast service availability
+    if get_mulmocast_health():
+        logger.info("Mulmocast service available - podcast generation enabled")
+    else:
+        logger.warning("Mulmocast service not available - podcast generation will be skipped")
     
     logger.info("LinkedIn Post Generator ready!")
 

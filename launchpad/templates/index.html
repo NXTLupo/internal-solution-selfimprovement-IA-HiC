@@ -341,57 +341,7 @@
           </div>
         </div>
 
-        <div class="enterprise-card" data-category="generation" data-service="presentation-ai">
-          <div class="card-header">
-            <div class="service-icon">
-              <i class="fas fa-chart-pie"></i>
-            </div>
-            <div class="service-status">
-              <div class="status-indicator status-unknown" id="presentation-ai-status"></div>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="service-title">AI Presentation Generator (Next.js)</h3>
-            <p class="service-description">Advanced Next.js-based presentation platform with database integration, complex UI components, and enhanced PowerPoint generation</p>
-            <div class="service-tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">Database</span>
-              <span class="tag">PowerPoint</span>
-            </div>
-          </div>
-          <div class="card-footer">
-            <a href="{{ presentation_ai_url }}" id="presentation-ai-url" target="_blank" class="enterprise-btn">
-              <i class="fas fa-external-link-alt"></i>
-              Launch Application
-            </a>
-          </div>
-        </div>
 
-        <div class="enterprise-card" data-category="generation" data-service="mulmocast">
-          <div class="card-header">
-            <div class="service-icon">
-              <i class="fas fa-video"></i>
-            </div>
-            <div class="service-status">
-              <div class="status-indicator status-unknown" id="mulmocast-status"></div>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="service-title">MulmoCast - AI Multimedia Generator</h3>
-            <p class="service-description">Comprehensive AI-powered multimedia presentation generator with TypeScript CLI interface, supporting multi-format output (video, audio, PDF)</p>
-            <div class="service-tags">
-              <span class="tag">Multimedia</span>
-              <span class="tag">AI Video</span>
-              <span class="tag">TypeScript CLI</span>
-            </div>
-          </div>
-          <div class="card-footer">
-            <a href="{{ mulmocast_url }}" id="mulmocast-url" target="_blank" class="enterprise-btn">
-              <i class="fas fa-external-link-alt"></i>
-              Launch Application
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -411,15 +361,12 @@
     const redditRipperStatus = document.getElementById('reddit-ripper-status');
     const socialResearchStatus = document.getElementById('social-research-status');
     const journeyMapperStatus = document.getElementById('journey-mapper-status');
-    const openaiJourneyMapperStatus = document.getElementById('openai-journey-mapper-status');
     const videoAnalyzerStatus = document.getElementById('video-analyzer-status');
     const linkedinGeneratorStatus = document.getElementById('linkedin-generator-status');
     const miroGeneratorStatus = document.getElementById('miro-generator-status');
     const imageCaptionerStatus = document.getElementById('image-captioner-status');
     const fluxLoraStudioStatus = document.getElementById('flux-lora-studio-status');
     const presentationGeneratorStatus = document.getElementById('presentation-generator-status');
-    const presentationAiStatus = document.getElementById('presentation-ai-status');
-    const mulmocastStatus = document.getElementById('mulmocast-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -427,20 +374,16 @@
     const redditRipperUrlLink = document.getElementById('reddit-ripper-url');
     const socialResearchUrlLink = document.getElementById('social-research-url');
     const journeyMapperUrlLink = document.getElementById('journey-mapper-url');
-    const openaiJourneyMapperUrlLink = document.getElementById('openai-journey-mapper-url');
     const videoAnalyzerUrlLink = document.getElementById('video-analyzer-url');
     const linkedinGeneratorUrlLink = document.getElementById('linkedin-generator-url');
     const miroGeneratorUrlLink = document.getElementById('miro-generator-url');
     const imageCaptionerUrlLink = document.getElementById('image-captioner-url');
     const fluxLoraStudioUrlLink = document.getElementById('flux-lora-studio-url');
     const presentationGeneratorUrlLink = document.getElementById('presentation-generator-url');
-    const presentationAiUrlLink = document.getElementById('presentation-ai-url');
-    const mulmocastUrlLink = document.getElementById('mulmocast-url');
     
     // URL display elements
     const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
     const journeyMapperUrlDisplay = document.getElementById('journey-mapper-url-display');
-    const openaiJourneyMapperUrlDisplay = document.getElementById('openai-journey-mapper-url-display');
     const redditRipperUrlDisplay = document.getElementById('reddit-ripper-url-display');
     const socialResearchUrlDisplay = document.getElementById('social-research-url-display');
     const videoAnalyzerUrlDisplay = document.getElementById('video-analyzer-url-display');
@@ -450,7 +393,6 @@
     // Port display elements
     const launchpadPortDisplay = document.getElementById('launchpad-port-display');
     const journeyMapperPortDisplay = document.getElementById('journey-mapper-port-display');
-    const openaiJourneyMapperPortDisplay = document.getElementById('openai-journey-mapper-port-display');
     const redditRipperPortDisplay = document.getElementById('reddit-ripper-port-display');
     const socialResearchPortDisplay = document.getElementById('social-research-port-display');
     const videoAnalyzerPortDisplay = document.getElementById('video-analyzer-port-display');
@@ -460,7 +402,6 @@
     // Port badge elements
     const launchpadPortBadge = document.getElementById('launchpad-port-badge');
     const journeyMapperPortBadge = document.getElementById('journey-mapper-port-badge');
-    const openaiJourneyMapperPortBadge = document.getElementById('openai-journey-mapper-port-badge');
     const redditRipperPortBadge = document.getElementById('reddit-ripper-port-badge');
     const socialResearchPortBadge = document.getElementById('social-research-port-badge');
     const videoAnalyzerPortBadge = document.getElementById('video-analyzer-port-badge');
@@ -469,7 +410,6 @@
     
     // Set initial URLs and display values
     let journeyMapperUrl = "{{ journey_mapper_url }}";
-    let openaiJourneyMapperUrl = "{{ openai_journey_mapper_url }}";
     let redditRipperUrl = "{{ reddit_ripper_url }}";
     let socialResearchUrl = "{{ social_research_url }}";
     let videoAnalyzerUrl = "{{ video_analyzer_url }}";
@@ -478,13 +418,10 @@
     let imageCaptionerUrl = "{{ image_captioner_url }}";
     let fluxLoraStudioUrl = "{{ flux_lora_studio_url }}";
     let presentationGeneratorUrl = "{{ presentation_generator_url }}";
-    let presentationAiUrl = "{{ presentation_ai_url }}";
-    let mulmocastUrl = "{{ mulmocast_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
     let journeyMapperPort = "8080";
-    let openaiJourneyMapperPort = "8090";
     let redditRipperPort = "5001";
     let socialResearchPort = "3000";
     let videoAnalyzerPort = "5002";
@@ -493,8 +430,6 @@
     let imageCaptionerPort = "5005";
     let fluxLoraStudioPort = "5006";
     let presentationGeneratorPort = "5007";
-    let presentationAiPort = "3002";
-    let mulmocastPort = "5008";
     let launchpadPort = "8000";
     
     // Check if a port is different from default
@@ -519,20 +454,16 @@
       if (redditRipperUrlLink) redditRipperUrlLink.href = redditRipperUrl;
       if (socialResearchUrlLink) socialResearchUrlLink.href = socialResearchUrl;
       if (journeyMapperUrlLink) journeyMapperUrlLink.href = journeyMapperUrl;
-      if (openaiJourneyMapperUrlLink) openaiJourneyMapperUrlLink.href = openaiJourneyMapperUrl;
       if (videoAnalyzerUrlLink) videoAnalyzerUrlLink.href = videoAnalyzerUrl;
       if (linkedinGeneratorUrlLink) linkedinGeneratorUrlLink.href = linkedinGeneratorUrl;
       if (miroGeneratorUrlLink) miroGeneratorUrlLink.href = miroGeneratorUrl;
       if (imageCaptionerUrlLink) imageCaptionerUrlLink.href = imageCaptionerUrl;
       if (fluxLoraStudioUrlLink) fluxLoraStudioUrlLink.href = fluxLoraStudioUrl;
       if (presentationGeneratorUrlLink) presentationGeneratorUrlLink.href = presentationGeneratorUrl;
-      if (presentationAiUrlLink) presentationAiUrlLink.href = presentationAiUrl;
-      if (mulmocastUrlLink) mulmocastUrlLink.href = mulmocastUrl;
       
       // Update URL displays (only if elements exist)
       if (launchpadUrlDisplay) launchpadUrlDisplay.textContent = launchpadUrl;
       if (journeyMapperUrlDisplay) journeyMapperUrlDisplay.textContent = journeyMapperUrl;
-      if (openaiJourneyMapperUrlDisplay) openaiJourneyMapperUrlDisplay.textContent = openaiJourneyMapperUrl;
       if (redditRipperUrlDisplay) redditRipperUrlDisplay.textContent = redditRipperUrl;
       if (socialResearchUrlDisplay) socialResearchUrlDisplay.textContent = socialResearchUrl;
       if (videoAnalyzerUrlDisplay) videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
@@ -542,7 +473,6 @@
       // Update port displays (only if elements exist)
       if (launchpadPortDisplay) launchpadPortDisplay.textContent = launchpadPort;
       if (journeyMapperPortDisplay) journeyMapperPortDisplay.textContent = journeyMapperPort;
-      if (openaiJourneyMapperPortDisplay) openaiJourneyMapperPortDisplay.textContent = openaiJourneyMapperPort;
       if (redditRipperPortDisplay) redditRipperPortDisplay.textContent = redditRipperPort;
       if (socialResearchPortDisplay) socialResearchPortDisplay.textContent = socialResearchPort;
       if (videoAnalyzerPortDisplay) videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
@@ -552,7 +482,6 @@
       // Update port badge styling (only if elements exist)
       if (launchpadPortBadge) updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
       if (journeyMapperPortBadge) updatePortBadge(journeyMapperPortBadge, journeyMapperPort, "8080");
-      if (openaiJourneyMapperPortBadge) updatePortBadge(openaiJourneyMapperPortBadge, openaiJourneyMapperPort, "8090");
       if (redditRipperPortBadge) updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
       if (socialResearchPortBadge) updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
       if (videoAnalyzerPortBadge) updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
@@ -572,10 +501,6 @@
           journeyMapperPort = data.journey_mapper.port;
         }
         
-        if (data.openai_journey_mapper) {
-          openaiJourneyMapperUrl = data.openai_journey_mapper.url;
-          openaiJourneyMapperPort = data.openai_journey_mapper.port;
-        }
         
         if (data.reddit_ripper) {
           redditRipperUrl = data.reddit_ripper.url;
@@ -623,9 +548,6 @@
           updateStatusIndicator(journeyMapperStatus, data.services.journey_mapper.status);
         }
         
-        if (data.services && data.services.openai_journey_mapper) {
-          updateStatusIndicator(openaiJourneyMapperStatus, data.services.openai_journey_mapper.status);
-        }
         
         if (data.services && data.services.video_analyzer) {
           updateStatusIndicator(videoAnalyzerStatus, data.services.video_analyzer.status);
@@ -678,7 +600,6 @@
       setTimeout(() => window.open(videoAnalyzerUrl, '_blank'), 300);
       setTimeout(() => window.open(socialResearchUrl, '_blank'), 600);
       setTimeout(() => window.open(journeyMapperUrl, '_blank'), 900);
-      setTimeout(() => window.open(openaiJourneyMapperUrl, '_blank'), 1200);
       setTimeout(() => window.open(linkedinGeneratorUrl, '_blank'), 1500);
       setTimeout(() => window.open(miroGeneratorUrl, '_blank'), 1800);
       });

@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📦 Dataset Preparation Studio</title>
+    <title>FLUX LoRA Studio | NXT Humans AI CX Workbench</title>
     <link rel="icon" href="/static/flux-favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-purple: #7C3AED;
+            --dark-bg: #121B26;
+            --light-grey: #5A6275;
+            --medium-grey: #4A5165;
+            --white: #FFFFFF;
+            --nxt-cyan: #01C4C8;
+            --gradient-bg: linear-gradient(135deg, #121B26 0%, #1E2832 50%, #2A3441 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,32 +26,170 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #121B26;
-            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Force ALL text to be white */
+        * {
+            color: #ffffff !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+            color: #ffffff !important;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .header {
+        /* Intelligence Augmentation Header */
+        .intelligence-augmentation-header {
+            background: #000000;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .intelligence-augmentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
+            transform: skewX(-20deg) translateX(20%);
+            z-index: 1;
+        }
+
+        .ia-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ia-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ia-logo-image {
+            width: 140px;
+            height: auto;
+            opacity: 1;
+            filter: brightness(1.1);
+            object-fit: contain;
+        }
+
+        .ia-text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ia-introducing {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .ia-main-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ia-intelligence,
+        .ia-augmentation {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ia-augmentation {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ia-intelligence {
+            margin-bottom: -0.3rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--gradient-bg);
+            min-height: calc(100vh - 240px);
+            padding: 60px 0;
+        }
+
+        .hero-section {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
         }
 
-        .header h1 {
-            color: #01C4C8;
+        .hero-title {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .header p {
-            color: #B8BCC8;
-            font-size: 1.1rem;
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .workflow {
@@ -49,21 +200,25 @@
         }
 
         .step-card {
-            background: #1E2A38;
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #2A3441;
+            background: rgba(30, 42, 56, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            padding: 30px;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .step-card.active {
-            border-color: #01C4C8;
-            box-shadow: 0 4px 20px rgba(1, 196, 200, 0.2);
+            border-color: var(--nxt-cyan);
+            box-shadow: 0 8px 32px rgba(1, 196, 200, 0.3);
+            transform: translateY(-2px);
         }
 
         .step-card.completed {
             border-color: #4CAF50;
-            background: #1A2F1F;
+            background: rgba(26, 47, 31, 0.8);
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
         }
 
         .step-header {
@@ -73,27 +228,30 @@
         }
 
         .step-number {
-            background: #01C4C8;
-            color: #121B26;
-            width: 32px;
-            height: 32px;
+            background: linear-gradient(135deg, var(--nxt-cyan), #00A5A9);
+            color: #000000 !important;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            margin-right: 12px;
-            font-size: 14px;
+            font-weight: 700;
+            margin-right: 16px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(1, 196, 200, 0.3);
         }
 
         .step-number.completed {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            color: #ffffff !important;
         }
 
         .step-title {
-            color: #01C4C8;
-            font-size: 1.2rem;
+            color: var(--nxt-cyan) !important;
+            font-size: 1.4rem;
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(1, 196, 200, 0.3);
         }
 
         .form-group {
@@ -103,29 +261,32 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #01C4C8;
+            color: var(--nxt-cyan) !important;
             font-weight: 600;
+            font-size: 16px;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            background: #2A3441;
-            border: 1px solid #3A4451;
-            border-radius: 8px;
-            color: #FFFFFF;
+            padding: 14px 18px;
+            background: rgba(42, 52, 65, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            color: #FFFFFF !important;
             font-size: 16px;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #01C4C8;
-            box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.1);
+            border-color: var(--nxt-cyan);
+            box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.2);
+            background: rgba(42, 52, 65, 0.9);
         }
 
         .form-row {
@@ -135,11 +296,11 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, #01C4C8, #00A5A9);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-purple), #8B5CF6);
+            color: white !important;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
@@ -147,47 +308,68 @@
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(1, 196, 200, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
         }
 
         .btn:disabled {
-            background: #3A4451;
+            background: rgba(58, 68, 81, 0.6);
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
+            opacity: 0.6;
         }
 
         .btn-large {
             width: 100%;
             font-size: 18px;
-            padding: 18px;
+            padding: 20px;
+            border-radius: 16px;
         }
 
         .btn-success {
             background: linear-gradient(135deg, #4CAF50, #388E3C);
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.4);
         }
 
         .btn-warning {
             background: linear-gradient(135deg, #FF9800, #F57C00);
+            box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3);
         }
 
         .upload-area {
-            border: 2px dashed #3A4451;
-            border-radius: 12px;
-            padding: 40px 20px;
+            border: 2px dashed rgba(124, 58, 237, 0.5);
+            background: rgba(30, 42, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 50px 30px;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
             margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-area:hover {
+            border-color: var(--nxt-cyan);
+            background: rgba(1, 196, 200, 0.1);
+            transform: translateY(-2px);
         }
 
         .upload-area.dragover {
-            border-color: #01C4C8;
-            background: rgba(1, 196, 200, 0.1);
+            border-color: var(--nxt-cyan);
+            background: rgba(1, 196, 200, 0.15);
+            box-shadow: 0 8px 32px rgba(1, 196, 200, 0.3);
         }
 
         .upload-area input[type="file"] {
@@ -195,9 +377,11 @@
         }
 
         .upload-icon {
-            font-size: 3rem;
-            color: #01C4C8;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            color: var(--nxt-cyan) !important;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(1, 196, 200, 0.5);
+            filter: drop-shadow(0 0 10px rgba(1, 196, 200, 0.3));
         }
 
         .image-grid {
@@ -338,6 +522,49 @@
         }
 
         @media (max-width: 768px) {
+            .intelligence-augmentation-header {
+                height: 180px;
+                padding: 1rem 0;
+            }
+            
+            .ia-container {
+                padding: 0 1.5rem;
+            }
+            
+            .ia-content {
+                gap: 2rem;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .ia-logo-image {
+                width: 100px;
+            }
+            
+            .ia-introducing {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2.8rem;
+                line-height: 0.8;
+                letter-spacing: -1px;
+            }
+
+            .ia-augmentation {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+
             .workflow {
                 grid-template-columns: 1fr;
             }
@@ -345,16 +572,72 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        @media (max-width: 480px) {
+            .intelligence-augmentation-header {
+                height: 140px;
+            }
+            
+            .ia-content {
+                gap: 1.5rem;
+            }
+            
+            .ia-logo-image {
+                width: 80px;
+            }
+            
+            .ia-introducing {
+                font-size: 1rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .ia-augmentation {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📦 Dataset Preparation Studio</h1>
-            <p>Simple Image Captioning & Dataset ZIP Export for Training</p>
+    <!-- Header -->
+    <header class="intelligence-augmentation-header">
+        <div class="ia-container">
+            <div class="ia-content">
+                <div class="ia-logo-section">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                </div>
+                <div class="ia-text-section">
+                    <div class="ia-introducing">Intelligence Augmentation</div>
+                    <div class="ia-main-text">
+                        <div class="ia-intelligence">FLUX LoRA</div>
+                        <div class="ia-augmentation">Studio</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <div class="workflow">
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Real Local LoRA Training for Apple Silicon M3</h1>
+                <p class="hero-subtitle">Professional Dataset Preparation with AI-Powered Image Captioning</p>
+                <p class="hero-description">
+                    Upload images and generate professional training datasets with AI-powered captions and seamless ZIP export for LoRA training workflows using Kohya_ss backend optimized for Apple Silicon M3.
+                </p>
+            </section>
+
+            <div class="workflow">
             <!-- Step 1: Dataset Upload -->
             <div class="step-card active" id="step1">
                 <div class="step-header">
@@ -407,8 +690,9 @@
                     📥 Download Dataset ZIP
                 </button>
             </div>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script>
         let projectId = null;
