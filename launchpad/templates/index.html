@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/static/enhanced-components.css?v={{ timestamp }}">
   <link rel="stylesheet" href="/static/enterprise-dashboard.css?v={{ timestamp }}">
   <link rel="stylesheet" href="/static/nxt-header.css?v={{ timestamp }}">
+  <link rel="stylesheet" href="/static/app-thumbnails.css?v={{ timestamp }}">
   <!-- Favicon declarations in proper order -->
   <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -59,6 +60,9 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="collection" data-service="reddit-ripper">
+          <div class="card-thumbnail">
+            <img src="/static/Reddit_Data_Collector.gif" alt="Reddit Data Collector Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-comments"></i>
@@ -84,6 +88,9 @@
         </div>
         
         <div class="enterprise-card" data-category="collection" data-service="video-analyzer">
+          <div class="card-thumbnail">
+            <img src="/static/Video_Transcript_Generator.gif" alt="Video Transcription Service Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-microphone"></i>
@@ -123,6 +130,9 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="analysis" data-service="social-research">
+          <div class="card-thumbnail">
+            <img src="/static/Social_Research.gif" alt="Social Research Analytics Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-chart-bar"></i>
@@ -149,6 +159,9 @@
         </div>
         
         <div class="enterprise-card" data-category="analysis" data-service="journey-mapper">
+          <div class="card-thumbnail">
+            <img src="/static/journey_mapper_3_7.gif" alt="Journey Mapper Claude 3.7 Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-route"></i>
@@ -174,6 +187,9 @@
         </div>
 
         <div class="enterprise-card" data-category="analysis" data-service="claude4-journey-mapper">
+          <div class="card-thumbnail">
+            <img src="/static/journey_mapper_4.gif" alt="Journey Mapper Claude 4 Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-brain"></i>
@@ -213,6 +229,9 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="generation" data-service="linkedin-generator">
+          <div class="card-thumbnail">
+            <img src="/static/LinkedIn_Content_Generator.gif" alt="LinkedIn Content Generator Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-pen"></i>
@@ -238,6 +257,9 @@
         </div>
         
         <div class="enterprise-card" data-category="generation" data-service="miro-generator">
+          <div class="card-thumbnail">
+            <img src="/static/miro_board_generator.gif" alt="Miro Board Generator Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-th"></i>
@@ -264,6 +286,9 @@
         </div>
 
         <div class="enterprise-card" data-category="generation" data-service="image-captioner">
+          <div class="card-thumbnail">
+            <img src="/static/a11y.gif" alt="A11y Image Caption Generator Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-universal-access"></i>
@@ -290,6 +315,9 @@
         </div>
 
         <div class="enterprise-card" data-category="generation" data-service="flux-lora-studio">
+          <div class="card-thumbnail">
+            <img src="/static/LoRA_Studio.gif" alt="FLUX LoRA Studio Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-image"></i>
@@ -316,6 +344,9 @@
         </div>
 
         <div class="enterprise-card" data-category="generation" data-service="presentation-generator">
+          <div class="card-thumbnail">
+            <img src="/static/presentation_generator.gif" alt="AI Presentation Generator Demo" class="app-thumbnail" />
+          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-file"></i>
@@ -669,6 +700,9 @@
     setInterval(fetchUpdatedUrls, 30000);
   </script>
   
+  
+  <!-- GIF Controls script -->
+  <script src="/static/gif-controls.js?v={{ timestamp }}"></script>
   
   <!-- Chatbot script -->
   <script src="/static/chatbot.js?v={{ timestamp }}"></script>

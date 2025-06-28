@@ -2406,18 +2406,12 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
         # Add title slide using intelligent layout selection (title slide can use any layout)
         print(f"\n📝 Creating title slide...")
         
-        # Find best title slide layout (prefer "Title and Content" or simple layouts)
-        # Safely determine title layout index within available layouts
+        # Use Layout 0 (first master layout) for title slide as specified by user
+        # The user has manually added a title slide master layout with title placeholder to Layout 0
         max_layout_index = len(prs.slide_layouts) - 1
-        title_layout_index = min(35, max_layout_index) if max_layout_index >= 0 else 0
+        title_layout_index = 0  # Use Layout 0 specifically for title slides
         print(f"📊 Template has {len(prs.slide_layouts)} layouts available (0-{max_layout_index})")
-        
-        # Look for better title slide options
-        for i, layout in enumerate(prs.slide_layouts):
-            capabilities = analyze_layout_capabilities(layout)
-            if capabilities['has_title'] and (not capabilities['has_image'] or layout.name in ['Title and Content', '1', '2']):
-                title_layout_index = i
-                break
+        print(f"🎯 Using Layout 0 for title slide as configured by user")
         
         title_layout = prs.slide_layouts[title_layout_index]
         slide = prs.slides.add_slide(title_layout)
