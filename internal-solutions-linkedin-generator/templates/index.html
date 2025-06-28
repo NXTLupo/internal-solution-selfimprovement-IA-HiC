@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/static/linkedin-favicon.svg">
     <link rel="stylesheet" href="/static/css/nxt-header.css">
     <link rel="stylesheet" href="/static/css/linkedin-styles.css">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -828,7 +829,7 @@
 <body>
     <!-- Header -->
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -840,6 +841,10 @@
                         <div class="ia-augmentation">Generator</div>
                     </div>
                 </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/LinkedIn_Content_Generator.gif" alt="LinkedIn Content Generator Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Content Creation Demo</div>
             </div>
         </div>
     </header>
@@ -991,5 +996,8 @@
     </main>
 
     <script src="/static/js/linkedin-app.js"></script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

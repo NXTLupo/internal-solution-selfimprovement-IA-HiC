@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/nxt-header.css">
     <link rel="stylesheet" href="/static/nxt-humans-styles.css">
     <link rel="stylesheet" href="/static/enhanced-components.css">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Favicon declarations in proper order -->
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
@@ -657,7 +658,7 @@
 </head>
 <body>
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -669,6 +670,10 @@
                         <div class="ia-augmentation">Generator</div>
                     </div>
                 </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/miro_board_generator.gif" alt="Miro Board Generator Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Board Generation Demo</div>
             </div>
         </div>
     </header>
@@ -1160,5 +1165,8 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
     </script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

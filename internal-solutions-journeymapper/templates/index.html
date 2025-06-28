@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="/static/nxt-humans-styles.css">
     <link rel="stylesheet" href="/static/nxt-header.css">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <!-- Favicon declarations in proper order -->
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
@@ -16,7 +17,7 @@
 </head>
 <body>
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -29,10 +30,17 @@
                     </div>
                 </div>
             </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/journey_mapper_3_7.gif" alt="Journey Mapper Claude 3.7 Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Claude 3.7 Demo</div>
+            </div>
         </div>
     </header>
 
     <div id="root"></div>
     <script src="/static/js/main.js"></script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

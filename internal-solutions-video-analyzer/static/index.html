@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/static/enhanced-styles.css">
     <link rel="stylesheet" href="/static/enhanced-components.css">
     <link rel="stylesheet" href="/static/nxt-header.css">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -527,7 +528,7 @@
 </head>
 <body>
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -539,6 +540,10 @@
                         <div class="ia-augmentation">Transcription</div>
                     </div>
                 </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/Video_Transcript_Generator.gif" alt="Video Transcription Service Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Transcription Demo</div>
             </div>
         </div>
     </header>
@@ -1011,5 +1016,8 @@
             </div>
         </div>
     </footer>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>
