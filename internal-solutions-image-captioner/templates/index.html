@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <style>
         :root {
             --primary-cyan: #01C4C8;
@@ -90,6 +91,10 @@
             justify-content: center;
             position: relative;
             z-index: 2;
+        }
+
+        .ia-container.has-thumbnail {
+            padding-right: 240px;
         }
 
         .ia-content {
@@ -742,7 +747,7 @@
 <body>
     <!-- Header -->
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -754,6 +759,10 @@
                         <div class="ia-augmentation">Caption Generator</div>
                     </div>
                 </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/a11y.gif" alt="A11y Image Caption Generator Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Accessibility Demo</div>
             </div>
         </div>
     </header>
@@ -1379,5 +1388,8 @@
             });
         });
     </script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

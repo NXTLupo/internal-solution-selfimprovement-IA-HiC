@@ -6,6 +6,7 @@ Transform journey maps and PDFs into professional presentations using dual AI an
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
@@ -59,6 +60,9 @@ os.makedirs("templates", exist_ok=True)
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Templates setup
+templates = Jinja2Templates(directory="templates")
 
 def extract_content_from_file(file_path: str, file_extension: str) -> str:
     """Extract text content from uploaded files"""
@@ -2421,11 +2425,22 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
         # Apply master layout branding to title slide
         apply_master_layout_branding(slide, 0, len(analysis["structure"]["slides"]) + 1)
         
-        # Set title using the intelligent title detection
+        # Enhanced title detection - ensuring title is properly inserted into first slide master layout
         title_set = False
         title_text = analysis["structure"]["title"]
+        print(f"🎯 Setting title slide title: {title_text}")
+        print(f"📋 Available placeholders on title slide:")
         
-        # Try standard title shape first
+        # Log all available placeholders for debugging
+        for shape in slide.placeholders:
+            try:
+                placeholder_type = getattr(shape.placeholder_format, 'type', None)
+                placeholder_idx = shape.placeholder_format.idx
+                print(f"   - Placeholder idx: {placeholder_idx}, type: {placeholder_type}")
+            except Exception as e:
+                print(f"   - Placeholder inspection failed: {e}")
+        
+        # Strategy 1: Try standard title shape first (most reliable)
         if slide.shapes.title:
             try:
                 slide.shapes.title.text = title_text
@@ -2434,22 +2449,43 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
             except Exception as e:
                 print(f"⚠️ Failed to set title via shapes.title: {e}")
         
-        # Try title placeholder if standard method failed
+        # Strategy 2: Find and use the actual TITLE placeholder (type 1) in master layout
         if not title_set:
+            print(f"🔍 Searching for TITLE placeholder (type 1) in master layout...")
             for shape in slide.placeholders:
                 try:
                     placeholder_type = getattr(shape.placeholder_format, 'type', None)
+                    placeholder_idx = shape.placeholder_format.idx
+                    
                     if placeholder_type == 1:  # TITLE placeholder
                         shape.text = title_text
-                        print(f"✅ Set title via TITLE placeholder (idx {shape.placeholder_format.idx}): {title_text}")
+                        print(f"✅ Set title via TITLE placeholder (idx {placeholder_idx}): {title_text}")
+                        title_set = True
+                        break
+                except Exception as e:
+                    print(f"   - Failed to set title at placeholder idx {getattr(shape.placeholder_format, 'idx', 'unknown')}: {e}")
+                    continue
+        
+        # Strategy 3: Try all text placeholders if title placeholder not found
+        if not title_set:
+            print(f"🔍 TITLE placeholder not found, trying all text placeholders...")
+            for shape in slide.placeholders:
+                try:
+                    placeholder_type = getattr(shape.placeholder_format, 'type', None)
+                    placeholder_idx = shape.placeholder_format.idx
+                    
+                    # Try common text placeholder types that might serve as title
+                    if placeholder_type in [2, 7, 13]:  # BODY, OBJECT, CONTENT
+                        shape.text = title_text
+                        print(f"✅ Set title via text placeholder (idx {placeholder_idx}, type {placeholder_type}): {title_text}")
                         title_set = True
                         break
                 except Exception as e:
                     continue
         
-        # Manual title if all else fails
+        # Strategy 4: Manual title as final fallback
         if not title_set:
-            print("⚠️ Creating manual title text box...")
+            print("⚠️ No suitable placeholder found, creating manual title text box...")
             try:
                 left = Inches(1)
                 top = Inches(1)
@@ -2460,53 +2496,17 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                 title_frame.text = title_text
                 title_frame.paragraphs[0].font.size = Pt(36)
                 title_frame.paragraphs[0].font.bold = True
-                print(f"✅ Added manual title: {title_text}")
+                title_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
+                print(f"✅ Added manual title text box: {title_text}")
+                title_set = True
             except Exception as e:
                 print(f"❌ Failed to add manual title: {e}")
         
-        # Enhanced subtitle detection with multiple strategies
-        subtitle_set = False
-        subtitle_text = f"Generated by NXT Humans AI • {datetime.now().strftime('%B %d, %Y')}"
-        print(f"🔍 Looking for subtitle placeholder...")
+        if not title_set:
+            print(f"❌ WARNING: Title could not be set on title slide!")
         
-        for shape in slide.placeholders:
-            try:
-                placeholder_type = getattr(shape.placeholder_format, 'type', None)
-                placeholder_idx = shape.placeholder_format.idx
-                print(f"   - Checking placeholder idx: {placeholder_idx}, type: {placeholder_type}")
-                
-                # Try common subtitle placeholder types and indices
-                if (placeholder_type == 2 or  # BODY
-                    placeholder_type == 7 or  # OBJECT
-                    placeholder_idx in [1, 2, 10, 11]):
-                    
-                    # Skip if this is the title placeholder
-                    if placeholder_type == 1:
-                        continue
-                        
-                    shape.text = subtitle_text
-                    print(f"✅ Set subtitle at idx {placeholder_idx}: {subtitle_text}")
-                    subtitle_set = True
-                    break
-            except Exception as e:
-                print(f"   - Failed to set subtitle at idx {getattr(shape.placeholder_format, 'idx', 'unknown')}: {e}")
-                continue
-        
-        if not subtitle_set:
-            print("⚠️ No subtitle placeholder found, attempting manual text box...")
-            try:
-                # Add manual subtitle text box
-                left = Inches(1)
-                top = Inches(2.8)
-                width = Inches(8)
-                height = Inches(1)
-                subtitle_textbox = slide.shapes.add_textbox(left, top, width, height)
-                subtitle_frame = subtitle_textbox.text_frame
-                subtitle_frame.text = subtitle_text
-                subtitle_frame.paragraphs[0].font.size = Pt(18)
-                print(f"✅ Added manual subtitle: {subtitle_text}")
-            except Exception as e:
-                print(f"❌ Failed to add manual subtitle: {e}")
+        # Skip subtitle generation - no longer adding "Generated by NXT Humans AI" text
+        print(f"🔍 Skipping subtitle generation per user request...")
         
         # Add content slides using intelligent layout selection
         slide_count = 0
@@ -3363,7 +3363,7 @@ async def home():
     </body>
     </html>
     """
-    return html_content
+    return FileResponse('templates/index.html')
 
 @app.get("/health")
 async def health_check():

@@ -128,11 +128,14 @@ kill_running_processes() {
   
   kill_port 8000  # Launchpad
   kill_port 8080  # Journey Mapper
+  kill_port 8095  # Claude 4 Journey Mapper
   kill_port 5001  # Reddit Ripper
   kill_port 5002  # Video Analyzer
   kill_port 5003  # LinkedIn Generator
   kill_port 5004  # Miro Generator
   kill_port 5005  # Image Captioner
+  kill_port 5006  # FLUX LoRA Studio
+  kill_port 5007  # Presentation Generator
   kill_port 3000  # Social Research Frontend
   kill_port 8081  # Social Research Backend
   kill_port 8500  # Agent
@@ -140,6 +143,7 @@ kill_running_processes() {
   kill_port 8502  # Social MCP
   kill_port 8503  # Journey MCP
   kill_port 8504  # Video MCP
+  kill_port 8506  # Claude 4 Journey MCP
 }
 
 # Generate SSL certificates for HTTPS
@@ -231,13 +235,15 @@ services:
     environment:
       # HTTPS Client URLs for secure navigation
       - JOURNEY_MAPPER_CLIENT_URL=https://localhost:8444
+      - CLAUDE4_JOURNEY_CLIENT_URL=https://localhost:8445
       - REDDIT_RIPPER_CLIENT_URL=https://localhost:8446
       - SOCIAL_RESEARCH_CLIENT_URL=https://localhost:8447
       - VIDEO_ANALYZER_CLIENT_URL=https://localhost:8448
       - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
       - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
-      - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
+      - IMAGE_CAPTIONER_CLIENT_URL=https://localhost:8451
       - PRESENTATION_GENERATOR_CLIENT_URL=https://localhost:8452
+      - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
 
   video-analyzer:
     environment:
@@ -257,6 +263,16 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
 
+  claude4-journey-mapper:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE4_MODEL=claude-sonnet-4-20250514
+
+  presentation-generator:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5007
 
   agent:
     environment:
@@ -297,7 +313,8 @@ echo -e "\n${GREEN}${BOLD}ALL SERVICES HAVE BEEN STARTED!${NC}"
 echo ""
 echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"
-echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   http://localhost:8080"
+echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} http://localhost:8080"
+echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  http://localhost:8095"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       http://localhost:5002"
 echo -e "  ${BLUE}LinkedIn Generator:${NC}       http://localhost:5003"
@@ -308,11 +325,13 @@ echo -e "  ${BLUE}Presentation Generator:${NC}    http://localhost:5007"
 echo ""
 echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
-echo -e "  ${BLUE}Journey Mapper (Claude):${NC}   https://localhost:8444"
+echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} https://localhost:8444"
+echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  https://localhost:8445"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"
 echo -e "  ${BLUE}LinkedIn Generator:${NC}       https://localhost:8449"
 echo -e "  ${BLUE}Miro Generator:${NC}           https://localhost:8450"
+echo -e "  ${BLUE}Image Captioner:${NC}          https://localhost:8451"
 echo -e "  ${BLUE}Presentation Generator:${NC}    https://localhost:8452"
 echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         https://localhost:8453"
 echo ""

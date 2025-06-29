@@ -23,34 +23,67 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 
 ## Architecture
 
-The workbench uses a microservices architecture with Docker for containerization. Each service runs independently and communicates through a shared Docker network.
+The workbench uses a microservices architecture with Docker for containerization. Each service runs independently and communicates through a shared Docker network using the Model Context Protocol (MCP) pattern.
+
+### Service Communication Flow
+
+```
+Client Browser → Launchpad (8000) → Agent (8500) → MCP Services (8501-8507) → Core Services (5001-5008, 8080-8095)
+```
+
+**How it works:**
+1. **Client requests** go to the Launchpad web interface
+2. **Launchpad** proxies WebSocket connections to the Agent service
+3. **Agent** receives user messages and determines which tools to invoke
+4. **MCP Services** act as standardized wrappers around core tools
+5. **Core Services** perform the actual work (data collection, analysis, generation)
 
 ### Component Architecture
 
-1. **Launchpad**: Central hub with WebSocket proxy for agent communication
-2. **MCP (Model Context Protocol) Services**: Lightweight wrappers around tools for agent integration
-   - reddit-mcp: Exposes Reddit Data Collector functionality
-   - social-mcp: Exposes Social Research Tool functionality
-   - journey-mcp: Exposes Claude 3.7 Journey Mapper functionality
-   - claude4-journey-mcp: Exposes Claude 4 Journey Mapper functionality
-   - openai-journey-mcp: Exposes OpenAI o3 Journey Mapper functionality
-   - video-mcp: Exposes Video Transcriptor functionality
-   - mulmocast-mcp: Exposes MulmoCast multimedia content generation functionality
-3. **Agent Service**: Manages conversation context and tool invocation using Claude API
+1. **Launchpad (Port 8000)**: Central hub with WebSocket proxy for agent communication
+   - Serves web interface for all services
+   - Handles WebSocket connections and message routing
+   - Provides unified access point for the entire platform
+
+2. **Agent Service (Port 8500)**: AI orchestrator that manages conversation context and tool invocation
+   - Uses Claude API for natural language understanding
+   - Parses user requests and determines appropriate tool chains
+   - **CRITICAL**: Core agent logic should never be modified without extreme caution
+
+3. **MCP (Model Context Protocol) Services (Ports 8501-8507)**: Lightweight wrappers around tools for agent integration
+   - reddit-mcp (8501): Exposes Reddit Data Collector functionality
+   - social-mcp (8502): Exposes Social Research Tool functionality
+   - journey-mcp (8503): Exposes Claude 3.7 Journey Mapper functionality
+   - video-mcp (8504): Exposes Video Transcriptor functionality
+   - openai-journey-mcp (8505): Exposes OpenAI o3 Journey Mapper functionality
+   - claude4-journey-mcp (8506): Exposes Claude 4 Journey Mapper functionality
+   - mulmocast-mcp (8507): Exposes MulmoCast multimedia content generation functionality
+
+4. **Core Services**: The actual tools that perform work
+   - **AI Journey Mappers**: Claude 3.7 (8080), Claude 4 (8095), OpenAI o3 (8090)
+   - **Data Collection**: Reddit Ripper (5001), Social Research (3000/8081)
+   - **Content Generation**: LinkedIn (5003), Video Transcriptor (5002), Presentation (5007)
+   - **Specialized Tools**: Miro Generator (5004), Image Captioner (5005), FLUX LoRA (5006), MulmoCast (5008)
 
 ### Key Files and Directories
 
 - `launchpad/app.py`: Central WebSocket proxy and service coordinator
 - `mcp-services/`: Contains MCP service implementations
 - `internal-solutions-*/`: Individual tool implementations
-- `docker-compose.yml`: Main Docker Compose configuration
-- `docker-compose-agent.yml`: Configuration with agent integration
-- `docker-compose-claude4.yml`: Configuration for Claude 4 Journey Mapper
-- `docker-compose-video-fixed.yml`: Configuration for Video Transcriptor service
-- `docker-compose-all.yml`: Full configuration with all services
-- `dynamic-compose.yml`: Configuration with dynamic port allocation for development
-- `nxt-compose.yml`: Alternative compose configuration
+- `docker-compose-all.yml`: **PRIMARY** - Full configuration with all services
+- `docker-compose-agent.yml`: Core services with agent integration
+- `docker-compose-claude4.yml`: Claude 4 Journey Mapper specific configuration
+- `docker-compose-video-fixed.yml`: Video Transcriptor only
+- `docker-compose-https.yml`: HTTPS proxy with SSL certificates
+- `dynamic-compose.yml`: Dynamic port allocation for development
+- `nxt-compose.yml`: Alternative configuration with enhanced networking
 - `port_scanner.py`: Port conflict detection and resolution utility
+
+#### Service Entry Points
+- **FastAPI Services**: Use `run.py` or `app.py` pattern with uvicorn
+- **Flask Services**: Use `run.py` pattern with flask.run()
+- **TypeScript CLI**: Use `src/index.ts` with Commander.js patterns
+- **React Frontends**: Use `src/main.tsx` (Vite) or `src/index.js` (Webpack)
 
 ## Quick Start
 
@@ -78,6 +111,39 @@ docker --version && docker compose version  # Verify Docker setup
   OPENAI_API_KEY=your_openai_key
   ```
 - For Social Research Tool local development: PostgreSQL 16+ with pgvector extension
+
+## ⚠️ CRITICAL WARNINGS - READ FIRST
+
+### NEVER Modify Agent Core Logic
+**MOST CRITICAL**: Never modify `mcp-services/agent/app.py` without extreme caution. This file controls the entire agent system.
+
+- **Working Backup**: `mcp-services/agent/app.py.backup.websocket_fix` contains the last known working version
+- **Common Failure**: Modifying tool execution logic breaks the entire agent system
+- **Safe Restoration**: 
+  ```bash
+  cd mcp-services/agent
+  cp app.py.backup.websocket_fix app.py
+  docker compose -f docker-compose-all.yml restart agent
+  ```
+- **Test After Changes**: Always run `python test_agent_tools_comprehensive.py` after any agent modifications
+
+### Development Workflow Essentials
+```bash
+# ALWAYS check these before making changes
+python test_anthropic_api.py && python test_openai_api.py  # Test API keys
+curl http://localhost:8500/health                          # Check agent health
+docker compose -f docker-compose-all.yml ps                # Check container status
+
+# ALWAYS use these for safe startup
+./launch.sh                        # Primary startup with conflict detection
+python port_scanner.py --fix       # Resolve port conflicts
+```
+
+### Critical Files - Backup Before Modifying
+- `mcp-services/agent/app.py` - **MOST CRITICAL** - AI agent orchestrator
+- `launchpad/app.py` - WebSocket proxy and service coordinator
+- `port_scanner.py` - Port conflict resolution system
+- `launch.sh` - Primary startup script
 
 ## Build and Development Commands
 
@@ -512,19 +578,236 @@ docker system prune -f && ./launch.sh
 
 #### Frontend Code Quality
 ```bash
-# Modern Vite Stack (Social Research)
+# Modern Vite Stack (Social Research) - React 19 + TypeScript 5.7
 cd internal-solutions-socialresearch/frontend  
-npm run lint && npm run build    # ESLint + TypeScript compilation
+npm install                      # Install dependencies
+npm run lint                     # ESLint with TypeScript rules
+npm run lint:fix                 # Auto-fix ESLint issues
+npm run build                    # TypeScript + Vite production build
+npm run preview                  # Preview production build
+npm run dev                      # Development server with HMR (port 5173)
 
-# Legacy Webpack Stack (Journey Mapper)  
+# Legacy Webpack Stack (Journey Mapper) - React 17 + Webpack 5
 cd internal-solutions-journeymapper
+npm install                      # Install dependencies
 npm run build                    # Webpack production build
+npm run dev-server               # Development server (port 3000 → proxy to 8000)
+npm run start                    # Build + start backend
 
-# TypeScript CLI (Miro Generator)
+# TypeScript CLI (Miro Generator) - Only service with comprehensive testing
 cd internal-solutions-miro-generator
-npm run lint && npm test         # ESLint + Jest testing
+npm install                      # Install dependencies
+npm run build                    # TypeScript compilation
+npm run lint                     # ESLint with TypeScript
+npm run test                     # Jest test suite
+npm run test:coverage            # Test coverage reports
+npm run test:watch               # Watch mode for TDD
+npm run dev                      # ts-node development mode
 ```
 
+#### Python Service Quality Standards
+```bash
+# FastAPI Services (Modern Pattern)
+cd internal-solutions-[service-name]
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app:app --host 0.0.0.0 --port [PORT] --reload  # Development with auto-reload
+
+# Flask Services (Legacy Pattern) 
+cd internal-solutions-[service-name]
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python run.py                    # Standard Flask startup
+
+# Testing (No pytest framework - ad-hoc scripts only)
+python test_[service]_api.py     # Service-specific API tests
+python test_[feature].py         # Feature-specific tests
+```
+
+## Development Patterns & Code Conventions
+
+### Technology Stack Decision Matrix
+When working with different services, understand which technology stack to use:
+
+**Modern React Stack (Social Research Tool)**:
+- **When to use**: New frontend features, modern UI components, performance-critical interfaces
+- **Pattern**: React 19 + Vite + TypeScript 5.7 + Tailwind CSS + Redux Toolkit
+- **Key files**: `vite.config.ts`, `tsconfig.json`, `tailwind.config.js`
+- **Commands**: `npm run dev` (port 5173), `npm run build`, `npm run lint`
+
+**Legacy React Stack (Journey Mapper)**:
+- **When to use**: Mermaid diagram integration, stable ecosystem compatibility
+- **Pattern**: React 17 + Webpack 5 + Babel + Custom configuration
+- **Key files**: `webpack.config.js`, `package.json` (note: no modern test framework)
+- **Commands**: `npm run dev-server` (port 3000), `npm run build`
+
+**TypeScript CLI (Miro Generator)**:
+- **When to use**: Command-line tools, comprehensive testing needed
+- **Pattern**: TypeScript 5.3 + Commander.js + Jest 29.7 + ES2022
+- **Key files**: `jest.config.js`, `tsconfig.json` with path aliases
+- **Commands**: `npm test`, `npm run test:coverage`, `npm run test:watch`
+
+### Service Development Patterns
+
+#### FastAPI Services (Modern - Ports 5002-5007, 8090, 8095)
+```python
+# Standard pattern for modern services
+from fastapi import FastAPI, UploadFile, File
+from pydantic import BaseModel
+import uvicorn
+
+app = FastAPI()
+
+class RequestModel(BaseModel):
+    field: str
+
+@app.post("/api/endpoint")
+async def endpoint(request: RequestModel):
+    # Use async/await patterns
+    result = await process_data(request.field)
+    return {"result": result}
+
+# Development server
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+```
+
+#### Flask Services (Legacy - Ports 5001, 8080, 8081)
+```python
+# Standard pattern for legacy services
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/api/endpoint', methods=['POST'])
+def endpoint():
+    data = request.json
+    result = process_data(data['field'])
+    return jsonify({"result": result})
+
+# Standard Flask startup
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=True)
+```
+
+#### MCP Service Wrapper Pattern (Ports 8501-8507)
+```python
+# Standard MCP wrapper pattern
+from fastapi import FastAPI
+import httpx
+
+app = FastAPI()
+
+@app.post("/tools/{tool_name}")
+async def tool_proxy(tool_name: str, payload: dict):
+    # Proxy to core service with parameter conversion
+    async with httpx.AsyncClient() as client:
+        response = await client.post(f"{CORE_SERVICE_URL}/{tool_name}", json=payload)
+        return response.json()
+```
+
+### Environment Configuration Patterns
+
+#### Service-Level Environment Management
+```bash
+# Root level configuration
+/.env                           # Master configuration for all services
+
+# Service-specific overrides
+/internal-solutions-[service]/.env     # Service-specific environment variables
+/internal-solutions-[service]/.env.example  # Developer templates
+```
+
+#### Required Environment Variables by Service Type
+```bash
+# All AI Services
+ANTHROPIC_API_KEY=your_key     # Required for Claude 3.7 and 4 services
+OPENAI_API_KEY=your_key        # Required for OpenAI and Whisper services
+
+# MCP Agent Configuration
+AGENT_WS_URL=ws://agent:8500          # Container-to-container WebSocket URL
+AGENT_CLIENT_WS_URL=ws://localhost:8500  # Client-to-container WebSocket URL
+
+# Database Services (Social Research Only)
+DATABASE_URL=postgresql://user:pass@localhost:5432/db
+PGVECTOR_ENABLED=true
+```
+
+### Testing Strategy by Technology Stack
+
+#### Jest Testing (TypeScript - Miro Generator Only)
+```json
+// jest.config.js - Only comprehensive testing framework
+{
+  "testEnvironment": "node",
+  "testTimeout": 30000,
+  "coverageReporters": ["text", "lcov", "html"],
+  "testPathIgnorePatterns": ["/node_modules/", "/dist/"]
+}
+```
+
+#### Python Testing (Ad-hoc Scripts - No pytest framework)
+```bash
+# API connectivity testing
+python test_anthropic_api.py          # ALWAYS run first
+python test_openai_api.py             # ALWAYS run first
+python test_whisper_api.py            # For video services
+
+# System integration testing
+python test_agent_tools_comprehensive.py  # Complete agent functionality
+python test_complete_chatbot_functionality.py  # End-to-end testing
+python test_mcp_tools.py               # All MCP service tools
+```
+
+#### Setting Up Testing Frameworks (Future Improvement)
+```bash
+# For Python services (recommended setup)
+# Create pytest.ini in project root:
+[tool:pytest]
+testpaths = tests
+python_files = test_*.py
+python_functions = test_*
+
+# For Social Research frontend (recommended setup)
+# Create vitest.config.ts:
+import { defineConfig } from 'vitest/config'
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts']
+  }
+})
+```
+
+### Docker Development Patterns
+
+#### Multi-Compose Strategy
+```bash
+# Full stack deployment
+docker-compose-all.yml          # All 14 services + infrastructure
+
+# Development scenarios
+dynamic-compose.yml             # Environment-based port allocation
+docker-compose-https.yml        # HTTPS proxy with SSL certificates
+docker-compose-claude4.yml      # Claude 4 specific services only
+docker-compose-video-fixed.yml  # Video transcriptor only
+```
+
+#### Container Networking Patterns
+```yaml
+# Standard service definition pattern
+services:
+  service-name:
+    build: ./internal-solutions-service-name
+    ports:
+      - "${SERVICE_PORT:-5001}:5000"  # Environment-based port mapping
+    networks:
+      - nxt-humans-network            # Shared network for inter-service communication
+    environment:
+      - API_KEY=${API_KEY}            # Environment variable injection
+```
 
 ## Troubleshooting
 
@@ -1153,6 +1436,28 @@ internal-solutions-socialresearch/.env.example # Development template
 #### Environment Injection Scripts:
 - `internal-solutions-video-analyzer/set_env_at_startup.py`
 - Service-specific environment loading patterns throughout the codebase
+
+## Additional Documentation References
+
+The project includes 35+ specialized documentation files for specific scenarios:
+
+### Architecture & Integration Documentation
+- `mcp-agent-architecture.md`: Detailed MCP service architecture
+- `WEBSOCKET-FIX-DOCUMENTATION.md`: WebSocket connection troubleshooting
+- `TOOL-INTEGRATION-GUIDE.md`: MCP tool integration patterns
+- `PORT-CONFLICT-MANAGEMENT.md`: Port conflict resolution strategies
+
+### Service-Specific Fix Documentation
+- `CX-AGENT-FIXES.md`: Agent parameter naming fixes
+- `CLAUDE4-JOURNEY-MAPPER-INTEGRATION-FIX.md`: Claude 4 integration details
+- `VIDEO_TRANSCRIBER_FIX_SUMMARY.md`: Video service fixes
+- `PRESENTATION_GENERATOR_DEPLOYMENT_SUMMARY.md`: Presentation service deployment
+
+### Development & Operations Guides
+- `brand-style-guide.md`: NXT Humans branding specifications
+- `FLUX-LOCAL-LAUNCHER.md`: Local LoRA training setup
+- `API-KEY-SETUP.md`: API key configuration guide
+- `WHISPER-API-GUIDE.md`: Whisper integration details
 
 ## Development Automation Scripts
 

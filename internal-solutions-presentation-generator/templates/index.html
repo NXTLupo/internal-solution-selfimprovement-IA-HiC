@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Presentation Generator | NXT Humans AI CX Workbench</title>
+    <!-- Favicon declarations in proper order -->
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="/static/presentation-favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/presentation-favicon.svg">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #7C3AED;
+            --primary-cyan: #01C4C8;
+            --dark-bg: #121B26;
+            --light-grey: #5A6275;
+            --medium-grey: #4A5165;
+            --white: #FFFFFF;
+            --gradient-bg: linear-gradient(135deg, #121B26 0%, #1E2832 50%, #2A3441 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Force ALL text to be white */
+        * {
+            color: #ffffff !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+            color: #ffffff !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Intelligence Augmentation Header */
+        .intelligence-augmentation-header {
+            background: #000000;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .intelligence-augmentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
+            transform: skewX(-20deg) translateX(20%);
+            z-index: 1;
+        }
+
+        .ia-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ia-container.has-thumbnail {
+            padding-right: 240px;
+        }
+
+        .ia-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ia-logo-image {
+            width: 140px;
+            height: auto;
+            opacity: 1;
+            filter: brightness(1.1);
+            object-fit: contain;
+        }
+
+        .ia-text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ia-introducing {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .ia-main-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ia-intelligence,
+        .ia-augmentation {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ia-augmentation {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ia-intelligence {
+            margin-bottom: -0.3rem;
+        }
+
+        .ia-thumbnail-section {
+            width: 200px;
+            height: 140px;
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .ia-app-thumbnail {
+            width: 180px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ia-thumbnail-label {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Claude 4 Strategic Visual Intelligence Badge */
+        .claude4-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--primary-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .claude4-icon {
+            width: 16px;
+            height: 16px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-section:hover {
+            border-color: var(--primary-purple);
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .upload-section.dragover {
+            border-color: var(--primary-purple);
+            background: rgba(124, 58, 237, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-subtext {
+            color: var(--light-grey);
+            font-size: 0.9rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, #00BFFF 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(1, 196, 200, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, rgba(139, 92, 246, 1) 100%);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+        }
+
+        /* Status Messages */
+        .status {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .status.info {
+            background: rgba(1, 196, 200, 0.1);
+            border: 1px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+        }
+
+        .status.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+
+        .status.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        /* Progress Tracking */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* API Endpoints Section */
+        .api-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .api-code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            margin: 0.5rem 0;
+            white-space: pre-wrap;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ia-container.has-thumbnail {
+                padding-right: 2rem;
+            }
+            
+            .ia-thumbnail-section {
+                display: none;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Intelligence Augmentation Header -->
+    <header class="intelligence-augmentation-header">
+        <div class="ia-container has-thumbnail">
+            <div class="ia-content">
+                <div class="ia-logo-section">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                </div>
+                <div class="ia-text-section">
+                    <div class="ia-introducing">Intelligence Augmentation</div>
+                    <div class="ia-main-text">
+                        <div class="ia-intelligence">AI Presentation</div>
+                        <div class="ia-augmentation">Generator</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/presentation_generator.gif" alt="AI Presentation Generator Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Strategic Visuals Demo</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Transform Business Data into Strategic PowerPoint Presentations</h1>
+                <p class="hero-subtitle">Claude 4 Strategic Visual Intelligence</p>
+                <p class="hero-description">
+                    Upload PDFs, journey maps, or business documents and generate professional PowerPoint presentations 
+                    with Claude 4's advanced reasoning and strategic visual framework generation.
+                </p>
+                <div class="claude4-badge">
+                    <div class="claude4-icon"></div>
+                    Claude 4 Strategic Visual Intelligence Pipeline
+                </div>
+            </section>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <div class="content-card">
+                    <h2 class="card-title">💼 Upload Business Data</h2>
+                    <div class="upload-section" onclick="document.getElementById('fileInput').click()">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">Upload PDF, JSON, Markdown, or Text files</p>
+                        <p class="upload-subtext">Supported formats: .pdf, .json, .txt, .md</p>
+                    </div>
+                    <input type="file" id="fileInput" style="display: none;" accept=".pdf,.json,.txt,.md" onchange="handleFileUpload(event)">
+                    
+                    <div class="status" id="status"></div>
+                    
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div id="progressText">Processing...</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <button class="btn" onclick="generatePresentation()">🚀 Generate Presentation</button>
+                        <button class="btn btn-secondary" onclick="checkStatus()">📊 Check Status</button>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="content-card">
+                    <h2 class="card-title">🎯 Claude 4 Strategic Visual Intelligence</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-cyan);">🧠</span>
+                            <strong>Strategic Framework Generation:</strong> 2x2 matrices, competitive positioning, transformation journeys
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-cyan);">📊</span>
+                            <strong>Ecosystem Diagrams:</strong> Stakeholder maps, value networks, relationship dynamics
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-cyan);">🎨</span>
+                            <strong>Conceptual Models:</strong> Business model canvases, strategic architecture, visual metaphors
+                        </li>
+                        <li style="margin: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-cyan);">⚡</span>
+                            <strong>Process Flows:</strong> Strategic workflows, decision frameworks, transformation paths
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- API Endpoints Section -->
+            <div class="content-card api-section">
+                <h2 class="card-title">🔗 API Endpoints</h2>
+                <div class="api-code">POST /upload - Upload files for presentation generation
+POST /generate - Generate presentation from uploaded content  
+GET /status/{job_id} - Check generation status
+GET /download/{file_id} - Download generated presentation
+GET /health - Service health check</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="/static/app-gif-controls.js"></script>
+    <script>
+        let uploadedFiles = [];
+        let currentJobId = null;
+        let pollInterval = null;
+        
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            const status = document.getElementById('status');
+            
+            if (files.length > 0) {
+                uploadedFiles = Array.from(files);
+                showStatus(`📁 Selected ${files.length} file(s): ${Array.from(files).map(f => f.name).join(', ')}`, 'info');
+            }
+        }
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+        
+        function showProgress(progress, text) {
+            const container = document.getElementById('progressContainer');
+            const fill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            container.style.display = 'block';
+            fill.style.width = `${progress}%`;
+            progressText.textContent = text || 'Processing...';
+        }
+        
+        function hideProgress() {
+            const container = document.getElementById('progressContainer');
+            container.style.display = 'none';
+        }
+        
+        async function generatePresentation() {
+            if (uploadedFiles.length === 0) {
+                showStatus('❌ Please select files first', 'error');
+                return;
+            }
+            
+            showStatus('📤 Uploading files...', 'info');
+            showProgress(10, 'Uploading files...');
+            
+            try {
+                // Step 1: Upload files
+                const formData = new FormData();
+                uploadedFiles.forEach(file => {
+                    formData.append('files', file);
+                });
+                
+                const uploadResponse = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!uploadResponse.ok) {
+                    throw new Error(`Upload failed: ${uploadResponse.status}`);
+                }
+                
+                const uploadResult = await uploadResponse.json();
+                showStatus('✅ Files uploaded successfully! Starting generation...', 'info');
+                showProgress(30, 'Files uploaded, starting AI analysis...');
+                
+                // Step 2: Start generation
+                const generateResponse = await fetch('/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        file_ids: uploadResult.file_ids,
+                        options: {
+                            theme: 'professional',
+                            template: 'default'
+                        }
+                    })
+                });
+                
+                if (!generateResponse.ok) {
+                    throw new Error(`Generation failed: ${generateResponse.status}`);
+                }
+                
+                const generateResult = await generateResponse.json();
+                currentJobId = generateResult.job_id;
+                
+                showStatus(`🚀 Generation started! Job ID: ${generateResult.job_id}`, 'success');
+                showProgress(50, 'Claude 4 Strategic Analysis in progress...');
+                
+                // Start polling for status
+                pollStatus(generateResult.job_id);
+                
+            } catch (error) {
+                console.error('Generation error:', error);
+                showStatus(`❌ Error: ${error.message}`, 'error');
+                hideProgress();
+            }
+        }
+        
+        async function checkStatus() {
+            if (!currentJobId) {
+                showStatus('❌ No active job. Please start generation first.', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/status/${currentJobId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Status check failed: ${response.status}`);
+                }
+                
+                const status = await response.json();
+                updateStatus(status);
+                
+            } catch (error) {
+                console.error('Status check error:', error);
+                showStatus(`❌ Error checking status: ${error.message}`, 'error');
+            }
+        }
+        
+        function pollStatus(jobId) {
+            if (pollInterval) {
+                clearInterval(pollInterval);
+            }
+            
+            pollInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/status/${jobId}`);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Status check failed: ${response.status}`);
+                    }
+                    
+                    const status = await response.json();
+                    updateStatus(status);
+                    
+                    if (status.status === 'completed' || status.status === 'failed') {
+                        clearInterval(pollInterval);
+                        pollInterval = null;
+                    }
+                    
+                } catch (error) {
+                    console.error('Polling error:', error);
+                    clearInterval(pollInterval);
+                    pollInterval = null;
+                    showStatus(`❌ Error polling status: ${error.message}`, 'error');
+                    hideProgress();
+                }
+            }, 3000); // Poll every 3 seconds
+        }
+        
+        function updateStatus(status) {
+            const progress = status.progress || 0;
+            const message = status.message || 'Processing...';
+            
+            if (status.status === 'completed') {
+                showStatus(`✅ ${message}`, 'success');
+                showProgress(100, 'Complete!');
+                
+                if (status.download_url) {
+                    // Create download link
+                    const downloadBtn = document.createElement('a');
+                    downloadBtn.href = status.download_url;
+                    downloadBtn.className = 'btn';
+                    downloadBtn.textContent = '📥 Download Presentation';
+                    downloadBtn.style.display = 'inline-block';
+                    downloadBtn.style.marginTop = '1rem';
+                    
+                    const statusDiv = document.getElementById('status');
+                    statusDiv.appendChild(document.createElement('br'));
+                    statusDiv.appendChild(downloadBtn);
+                }
+                
+                setTimeout(hideProgress, 3000);
+                
+            } else if (status.status === 'failed') {
+                showStatus(`❌ ${message}`, 'error');
+                hideProgress();
+                
+            } else {
+                showStatus(`🔄 ${message}`, 'info');
+                showProgress(progress, message);
+            }
+        }
+        
+        // Allow drag and drop
+        const uploadSection = document.querySelector('.upload-section');
+        
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.classList.add('dragover');
+        });
+        
+        uploadSection.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+        });
+        
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                uploadedFiles = Array.from(files);
+                showStatus(`📁 Selected ${files.length} file(s): ${Array.from(files).map(f => f.name).join(', ')}`, 'info');
+            }
+        });
+    </script>
+</body>
+</html>

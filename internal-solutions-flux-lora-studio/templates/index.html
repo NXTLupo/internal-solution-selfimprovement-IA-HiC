@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
     <style>
         :root {
             --primary-purple: #7C3AED;
@@ -87,6 +88,10 @@
             justify-content: center;
             position: relative;
             z-index: 2;
+        }
+
+        .ia-container.has-thumbnail {
+            padding-right: 240px;
         }
 
         .ia-content {
@@ -609,7 +614,7 @@
 <body>
     <!-- Header -->
     <header class="intelligence-augmentation-header">
-        <div class="ia-container">
+        <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -621,6 +626,10 @@
                         <div class="ia-augmentation">Studio</div>
                     </div>
                 </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/LoRA_Studio.gif" alt="FLUX LoRA Studio Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Apple Silicon M3 Demo</div>
             </div>
         </div>
     </header>
@@ -997,5 +1006,8 @@
         // Local training success - no modals needed
         // Real .safetensors files are downloaded directly
     </script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>
