@@ -1816,58 +1816,58 @@ def get_format_label(format_type):
 async def analyze_content_with_ai(content: str, file_name: str) -> Dict[str, Any]:
     """Analyze content using Claude 4 for intelligent presentation structure"""
     try:
-        # Claude 4 Executive Storyteller and CX Analyst prompt for human-centered narrative
-        claude_prompt = """You are an expert Business Strategist, Industry Analyst and AI Expert with 20+ years of Fortune 500 experience. Your specialty is transforming business data into compelling strategic opportunities that leverage rich insights, creating more efficient ways of working for employees, and higher impact experiences for customers, deepening connections to the brand
+        # Claude 4 Content Analysis prompt focused on faithful interpretation
+        claude_prompt = """You are an expert Content Analyst specializing in objective data interpretation and faithful representation of source material.
 
-TRANSFORMATION MISSION: Analyze this content from """ + file_name + """ and craft an impactful executive story:
+ANALYSIS MISSION: Analyze this content from """ + file_name + """ and create a comprehensive presentation that accurately represents the information:
 
 CONTENT TO ANALYZE:
 """ + content[:15000] + """
 
-EXECUTIVE STORYTELLING APPROACH:
-1. **Insightful Industry Perspective**: Find the business strategy behind the data - what do industry trends mean for the business and for customers
-2. **Insightful Themes**: Identify key strategic themes and recommendations for the business and for the customer
-3. **Strategic Narrative Arc**: Build a compelling story with tension, insight, and resolution that drives business action
-4. **Impact-Focused Messaging**: Frame insights as opportunities for meaningful change and competitive advantage
+OBJECTIVE ANALYSIS APPROACH:
+1. **Faithful Content Interpretation**: Present what the data actually shows, not what it might imply
+2. **Source-Driven Insights**: Base all conclusions directly on evidence present in the content
+3. **Balanced Perspective**: Present multiple viewpoints when they exist in the source material
+4. **Evidence-Based Structure**: Support every point with specific references to the source content
 
-NARRATIVE DESIGN PRINCIPLES:
-- Lead with business strategy and insight, support with strategic data when it strengthens the story
-- Create empathy and connection through customer understanding
-- Use data as proof points, not as the primary narrative
-- Focus on transformation opportunities and strategic implications
-- Build compelling visual narratives that support the story arc
-- Design visuals that illuminate insights, not just display data
+CONTENT FIDELITY PRINCIPLES:
+- Stay true to the original context and meaning of the source material
+- Distinguish clearly between what the data shows versus potential interpretations
+- Preserve the author's original intent and perspective when identifiable
+- Present findings objectively without adding external assumptions
+- Use direct quotes and specific data points from the source when possible
+- Avoid overinterpreting limited data or extrapolating beyond what's supported
 
-STORYTELLING FRAMEWORK:
-- Setup: What challenge or opportunity does this data reveal?
-- Conflict: What friction, pain, or missed opportunity exists?
-- Insight: What deeper truth about human behavior emerges?
-- Resolution: How can strategic action create positive impact?
-- Call to Action: What specific steps will improve brand experiences?
+ANALYTICAL FRAMEWORK:
+- Content Overview: What does this material actually contain and discuss?
+- Key Findings: What specific information, data, or conclusions are presented?
+- Supporting Evidence: What concrete details support the main points?
+- Source Context: What is the original purpose and scope of this content?
+- Objective Summary: What can be concluded based solely on the provided information?
 
-Create a comprehensive minimalist executive presentation with 12-15 slides (minimum 10, target 12-15) following enterprise design principles:
-- Maximum 3 key insights per slide (3-second comprehension rule)
-- Compelling business narrative
-- Strategic use of customer, analyst, and employee quotes as visual focal points
-- Advanced SVG infographics that illuminate insights through cutting-edge design
-- Premium executive aesthetics with glass morphism, metallic gradients, and sophisticated depth
-- REQUIRED: One enterprise-grade visual element for EVERY slide using advanced SVG capabilities
+Create a comprehensive presentation with 12-15 slides (minimum 12, target 12-15) that faithfully represents the source content:
+- Maximum 3 key points per slide based directly on source material
+- Clear, objective information structure
+- Strategic use of direct quotes and specific data from the source
+- Advanced SVG visualizations that accurately represent the information
+- Professional presentation aesthetics with clear visual hierarchy
+- REQUIRED: One data-driven visual element for EVERY slide using advanced SVG capabilities
 
 Return your analysis as valid JSON with this exact structure:
 
 {
-    "title": "Executive Presentation Title",
-    "executive_summary": "3-sentence summary of key strategic insights",
+    "title": "Objective Content Analysis Title",
+    "executive_summary": "3-sentence summary of key findings from the source material",
     "slides": [
         {
-            "title": "Compelling Slide Title",
-            "content": ["Insight with impact", "Key finding", "Strategic implication for action"],
-            "strategic_quote": "Insightful statement for visual emphasis",
+            "title": "Clear, Factual Slide Title",
+            "content": ["Specific finding from source", "Supporting data point", "Direct conclusion from content"],
+            "source_quote": "Direct quote from the source material for emphasis",
             "visual": {
                 "type": "KPI_dashboard|journey_map|block_quote|executive_insight_framework|visualization|infographic|data_story|technical_diagram|process_flow|comparison_matrix|performance_dashboard|stakeholder_map|vision_metaphor|growth_trajectory|competitive_landscape",
-                "title": "Minimalist Visual Title (1-3 words)",
-                "concept": "concept that advances the story",
-                "context": "How this visual creates connection and illuminates strategy and insights",
+                "title": "Clear Visual Title (1-3 words)",
+                "concept": "concept that accurately represents the data",
+                "context": "How this visual clearly communicates the source information",
                 "design_approach": "glass_morphism|holographic_gradients|metallic_premium|neon_accents|sophisticated_depth",
                 "advanced_svg_features": {
                     "visual_effects": "multi_layered_glow|glass_morphism_blur|gradient_mesh_depth",
@@ -1875,11 +1875,11 @@ Return your analysis as valid JSON with this exact structure:
                     "typography": "executive_minimal|high_contrast|strategic_spacing",
                     "layout_system": "golden_ratio|8px_grid|safe_margins|negative_space_60_percent"
                 },
-                "human_insights": {
-                    "emotional_elements": ["Customer feeling or state", "Journey moment", "Breakthrough experience"],
-                    "narrative_progression": "How this visual advances the story",
-                    "executive_impact": "Strategic action this insight enables",
-                    "minimalist_focus": "Single most important customer truth to convey"
+                "source_insights": {
+                    "content_elements": ["Key data point from source", "Supporting evidence", "Factual conclusion"],
+                    "information_flow": "How this visual represents the source content",
+                    "practical_relevance": "What this information means based on the source",
+                    "objective_focus": "Single most important fact to convey from the source material"
                 }
             }
         }
@@ -1906,7 +1906,7 @@ DESIGN SYSTEM REQUIREMENTS:
 5. **Information Architecture**: Clear dominant/subdominant/subordinate element relationships
 6. **Technical Excellence**: Precise SVG execution with high contrast and accessibility considerations
 
-Focus on creating visuals that inspire action and provide clear strategic direction."""
+Focus on creating visuals that accurately represent the source material and provide clear, objective information display."""
         
         print(f"\n🧠 Using Claude 4 Extended Thinking Analysis...")
         print(f"📝 Prompt length: {len(claude_prompt)} characters")
