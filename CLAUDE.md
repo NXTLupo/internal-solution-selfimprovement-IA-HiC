@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring fourteen main applications integrated through a unified AI agent interface:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring sixteen main applications integrated through a unified AI agent interface:
 
 1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
 2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
@@ -19,7 +19,9 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 11. **FLUX LoRA Studio**: Real local LoRA training using Kohya_ss backend optimized for Apple Silicon M3 (internal-solutions-flux-lora-studio)
 12. **MulmoCast**: Multi-modal presentation platform for AI-native content creation with MulmoScript format (internal-solutions-mulmocast)
 13. **AI Presentation Generator**: Dual AI analysis pipeline for creating professional PowerPoint presentations (internal-solutions-presentation-generator)
-14. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
+14. **Claude 4 Journey Mapper V2**: Enhanced customer journey mapping with advanced React architecture (internal-solutions-claude4-journey-mapper-v2)
+15. **Presentation AI**: Next.js-based presentation platform with Plate editor and advanced UI components (presentation-ai)
+16. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
 
 ## Architecture
 
@@ -433,19 +435,60 @@ docker compose -f docker-compose-all.yml up flux-lora-studio
 
 #### MulmoCast (Multi-modal Presentation Platform)
 ```bash
-# CLI development
+# CLI development with GraphAI integration
 cd internal-solutions-mulmocast
 npm install
 npm run build
 
-# CLI usage
+# CLI usage with AI agents (8 different AI integrations)
 npx mulmocast create --format video --input journey.json
 npx mulmocast generate --output presentation.mp4
 
-# Development
+# Development with ESM modules
 npm run dev          # TypeScript compilation in watch mode
-npm run test         # tsx test runner
+npm run test         # tsx test runner (Node.js native testing)
 npm run lint         # ESLint + Prettier
+
+# 15+ specialized CLI commands for AI processing
+npx mulmocast --help # View all available AI processing commands
+```
+
+#### Claude 4 Journey Mapper V2 (Enhanced React Architecture)
+```bash
+# Enhanced Claude 4 service with React 17 + Webpack
+cd internal-solutions-claude4-journey-mapper-v2
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=your_api_key_here
+python run.py        # Starts enhanced service (port varies)
+
+# Frontend development (identical to main Journey Mapper)
+npm install
+npm run dev-server   # Webpack dev server
+npm run build        # Webpack production build
+
+# Note: This is an enhanced version of the main Claude 4 Journey Mapper
+# with improved React architecture and additional features
+```
+
+#### Presentation AI (Next.js Platform)
+```bash
+# Modern Next.js 14 + React 18 + TypeScript 5.7
+cd presentation-ai
+npm install
+npm run dev -p 3002  # Next.js dev server on port 3002
+npm run build        # Next.js production build
+
+# Database operations (Prisma ORM)
+npm run db:push      # Push schema to database
+npm run db:studio    # Open Prisma Studio
+
+# Advanced features
+# - Plate editor with 40+ plugins for rich text editing
+# - Radix UI component library for modern interface
+# - AI SDK integration with multiple providers
+# - No testing framework configured (potential improvement area)
 ```
 
 #### AI Presentation Generator (Claude 4 Strategic Visual Intelligence)
@@ -525,8 +568,10 @@ npm run build                     # TypeScript compilation check
 #### Critical Testing Notes
 - **48+ Python test scripts** exist but no pytest framework is configured
 - **Only Miro Generator** has comprehensive Jest testing infrastructure
-- **React applications** lack configured test frameworks despite modern build systems
+- **React applications** lack configured test frameworks despite modern build systems (Social Research Tool has no vitest.config.ts, Journey Mapper has no jest.config.js)
+- **Presentation AI** (Next.js) and **Claude 4 Journey Mapper V2** also lack test configurations
 - **Most tests focus on API connectivity** rather than unit/integration testing
+- **MulmoCast** uses Node.js native testing (`tsx --test`) but lacks comprehensive framework
 
 #### Agent Development
 
@@ -646,6 +691,18 @@ When working with different services, understand which technology stack to use:
 - **Pattern**: TypeScript 5.3 + Commander.js + Jest 29.7 + ES2022
 - **Key files**: `jest.config.js`, `tsconfig.json` with path aliases
 - **Commands**: `npm test`, `npm run test:coverage`, `npm run test:watch`
+
+**Next.js Platform (Presentation AI)**:
+- **When to use**: Full-stack applications, rich text editing, database integration
+- **Pattern**: Next.js 14 + React 18 + TypeScript 5.7 + Prisma ORM
+- **Key files**: `next.config.js`, Advanced Plate editor, Radix UI components
+- **Commands**: `npm run dev -p 3002`, `npm run db:push`, `npm run db:studio`
+
+**Advanced ESM CLI (MulmoCast)**:
+- **When to use**: Complex AI orchestration, multi-modal content processing
+- **Pattern**: TypeScript 5.7 + GraphAI + ESModule + 8 AI agent integrations
+- **Key files**: `package.json` with ESModule type, `tsconfig.json` with NodeNext
+- **Commands**: `tsx --test` (Node.js native), 15+ specialized AI commands
 
 ### Service Development Patterns
 
@@ -1290,6 +1347,8 @@ The platform includes specialized AI services with distinct architectural patter
 - `internal-solutions-miro-generator/src/index.ts`: Miro Generator CLI (Jest testing)
 - `internal-solutions-mulmocast/src/cli/bin.ts`: MulmoCast CLI (GraphAI integration)
 - `internal-solutions-socialresearch/frontend/src/main.tsx`: Social Research frontend (React 19 + Vite)
+- `presentation-ai/src/app/page.tsx`: Presentation AI main page (Next.js 14 + Prisma)
+- `internal-solutions-claude4-journey-mapper-v2/run.py`: Enhanced Claude 4 Journey Mapper
 
 #### MCP Service Wrappers (Port 8501-8507)
 - `mcp-services/reddit-mcp/app.py`: Reddit Data Collector wrapper
@@ -1310,6 +1369,9 @@ The platform includes specialized AI services with distinct architectural patter
 - `internal-solutions-miro-generator/jest.config.js`: Jest configuration for comprehensive testing
 - `internal-solutions-mulmocast/package.json`: Advanced ESM + GraphAI stack with multiple AI integrations
 - `internal-solutions-mulmocast/tsconfig.json`: TypeScript 5.7+ configuration with ESM modules
+- `presentation-ai/package.json`: Next.js 14 + React 18 + TypeScript 5.7 with Plate editor
+- `presentation-ai/next.config.js`: Next.js configuration with AI SDK integration
+- `internal-solutions-claude4-journey-mapper-v2/package.json`: Enhanced Claude 4 React architecture
 
 ### Critical Backup Files
 - `mcp-services/agent/app.py.backup.websocket_fix`: Working agent backup (restore if tool execution breaks)
@@ -1335,6 +1397,9 @@ pytest.ini                                                    # Python test conf
 conftest.py                                                   # Python test fixtures  
 internal-solutions-socialresearch/frontend/vitest.config.ts   # Modern React testing
 internal-solutions-journeymapper/jest.config.js              # Legacy React testing
+presentation-ai/jest.config.js                               # Next.js testing
+internal-solutions-claude4-journey-mapper-v2/jest.config.js  # Enhanced Claude 4 testing
+internal-solutions-mulmocast/jest.config.js                  # Advanced CLI testing (uses tsx --test instead)
 ```
 
 #### Available Testing (Jest - TypeScript Only):
@@ -1551,11 +1616,14 @@ HTTPS Proxy:       8443-8450
 
 ### Technology Stack Matrix:
 ```
-Modern Frontend:   React 19 + Vite 6 + TypeScript 5.7
-Legacy Frontend:   React 17 + Webpack 5 + Babel 7
-Backend:          FastAPI (modern) + Flask (legacy)
-Databases:        PostgreSQL 16 + pgvector
-Infrastructure:   Docker + nginx + SSL certificates
+Cutting-Edge Frontend: React 19.0.0 + Vite 6.1.0 + TypeScript 5.7.2 (Social Research)
+Next.js Platform:      Next.js 14.2.23 + React 18.2.0 + TypeScript 5.7.3 (Presentation AI)
+Advanced CLI:          TypeScript 5.7.3 + GraphAI + ESModule (MulmoCast)
+Professional CLI:      TypeScript 5.3.2 + Jest 29.7.0 + ES2022 (Miro Generator)
+Legacy Frontend:       React 17.0.2 + Webpack 5.64.0 + Babel 7.16.0 (Journey Mappers)
+Backend:              FastAPI (modern) + Flask (legacy)
+Databases:            PostgreSQL 16 + pgvector + Prisma ORM
+Infrastructure:       Docker + nginx + SSL certificates
 ```
 
 ## Docker Architecture Patterns
@@ -1578,3 +1646,22 @@ presentation-ai/Dockerfile.simple              # Next.js optimized
 - **Dual-container Pattern**: Frontend + Backend separation (Social Research)
 - **Single-container Pattern**: Monolithic services
 - **CLI Container Pattern**: Tool-based containers (Miro Generator)
+- **Next.js Container Pattern**: Full-stack applications with database integration (Presentation AI)
+
+## Important Notes for Future Development
+
+### Keeping CLAUDE.md Updated
+
+This file should be updated when:
+- New services are added to the platform
+- Technology stacks are upgraded (React versions, TypeScript, etc.)
+- Testing frameworks are implemented 
+- New build commands or development patterns are introduced
+- Critical architecture changes affect multiple services
+
+### Current Gaps to Address
+
+1. **Testing Infrastructure**: Implement modern testing frameworks for Social Research Tool (vitest), Journey Mappers (jest), and Presentation AI
+2. **Service Discovery**: Some services (Presentation AI, Claude 4 V2) were not documented until this analysis
+3. **Version Management**: Track major dependency updates across the 16+ services
+4. **Documentation Sync**: Ensure README.md and CLAUDE.md stay synchronized with actual service capabilities

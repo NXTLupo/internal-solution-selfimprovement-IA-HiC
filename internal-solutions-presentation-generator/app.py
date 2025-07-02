@@ -371,7 +371,7 @@ Before generating any SVG, you must THINK HARD and analyze:
 5. **MODERN VISUAL LANGUAGE**: What geometric forms, precise typography, and strategic use of space would create a beautifully simple visualization?
 
 EXAMPLE CONCEPTUAL THINKING:
-- If showing customer journey: Think "timeline with key emotional moments" → horizontal line with precise milestone markers
+- If showing customer journey: Think "timeline with key needs, tasks, and pain points" → horizontal line with precise milestone markers
 - If showing performance data: Think "comparative values" → clean bar comparison or progress indicators  
 - If showing framework: Think "relationship matrix" → geometric grid with clear quadrant labels
 - If showing process: Think "sequential flow" → connected geometric shapes with directional clarity
@@ -1817,7 +1817,7 @@ async def analyze_content_with_ai(content: str, file_name: str) -> Dict[str, Any
     """Analyze content using Claude 4 for intelligent presentation structure"""
     try:
         # Claude 4 Executive Storyteller and CX Analyst prompt for human-centered narrative
-        claude_prompt = """You are an expert Executive Storyteller and Customer Experience Analyst with 20+ years of Fortune 500 experience. Your specialty is transforming business data into compelling human-centered narratives that create emotional connection and drive strategic action.
+        claude_prompt = """You are an expert Business Strategist, Industry Analyst and AI Expert with 20+ years of Fortune 500 experience. Your specialty is transforming business data into compelling strategic opportunities that leverage rich insights, creating more efficient ways of working for employees, and higher impact experiences for customers, deepening connections to the brand
 
 TRANSFORMATION MISSION: Analyze this content from """ + file_name + """ and craft an impactful executive story:
 
@@ -1825,50 +1825,49 @@ CONTENT TO ANALYZE:
 """ + content[:15000] + """
 
 EXECUTIVE STORYTELLING APPROACH:
-1. **Human-Centered Perspective**: Find the human stories behind the data - what do customers feel, experience, struggle with?
-2. **Emotional Resonance**: Identify moments of frustration, delight, breakthrough, or transformation in customer journeys
+1. **Insightful Industry Perspective**: Find the business strategy behind the data - what do industry trends mean for the business and for customers
+2. **Insightful Themes**: Identify key strategic themes and recommendations for the business and for the customer
 3. **Strategic Narrative Arc**: Build a compelling story with tension, insight, and resolution that drives business action
-4. **Empathy-Driven Insights**: Understand the "why" behind behaviors, not just the "what" of metrics
-5. **Impact-Focused Messaging**: Frame insights as opportunities for meaningful change and competitive advantage
+4. **Impact-Focused Messaging**: Frame insights as opportunities for meaningful change and competitive advantage
 
 NARRATIVE DESIGN PRINCIPLES:
-- Lead with human insight, support with strategic data when it strengthens the story
-- Create emotional connection through customer empathy and understanding
-- Use data as proof points for human truths, not as the primary narrative
+- Lead with business strategy and insight, support with strategic data when it strengthens the story
+- Create empathy and connection through customer understanding
+- Use data as proof points, not as the primary narrative
 - Focus on transformation opportunities and strategic implications
-- Build compelling visual narratives that support the emotional story arc
-- Design visuals that illuminate human insights, not just display data
+- Build compelling visual narratives that support the story arc
+- Design visuals that illuminate insights, not just display data
 
 STORYTELLING FRAMEWORK:
-- Setup: What human challenge or opportunity does this data reveal?
-- Conflict: What friction, pain, or missed opportunity exists for people?
+- Setup: What challenge or opportunity does this data reveal?
+- Conflict: What friction, pain, or missed opportunity exists?
 - Insight: What deeper truth about human behavior emerges?
-- Resolution: How can strategic action create positive human impact?
-- Call to Action: What specific steps will improve human experiences?
+- Resolution: How can strategic action create positive impact?
+- Call to Action: What specific steps will improve brand experiences?
 
 Create a comprehensive minimalist executive presentation with 12-15 slides (minimum 10, target 12-15) following enterprise design principles:
 - Maximum 3 key insights per slide (3-second comprehension rule)
-- Compelling human-centered narrative
-- Strategic use of customer quotes as visual focal points
-- Advanced SVG infographics that illuminate human insights through cutting-edge design
+- Compelling business narrative
+- Strategic use of customer, analyst, and employee quotes as visual focal points
+- Advanced SVG infographics that illuminate insights through cutting-edge design
 - Premium executive aesthetics with glass morphism, metallic gradients, and sophisticated depth
 - REQUIRED: One enterprise-grade visual element for EVERY slide using advanced SVG capabilities
 
 Return your analysis as valid JSON with this exact structure:
 
 {
-    "title": "Strategic Executive Presentation Title",
+    "title": "Executive Presentation Title",
     "executive_summary": "3-sentence summary of key strategic insights",
     "slides": [
         {
             "title": "Compelling Slide Title",
-            "content": ["Human insight with emotional impact", "Customer experience finding", "Strategic implication for action"],
-            "strategic_quote": "Empathetic customer-focused statement for visual emphasis",
+            "content": ["Insight with impact", "Key finding", "Strategic implication for action"],
+            "strategic_quote": "Insightful statement for visual emphasis",
             "visual": {
-                "type": "customer_experience_dashboard|transformation_journey_map|executive_insight_framework|emotional_progression_flow|stakeholder_empathy_map|breakthrough_moment_timeline",
+                "type": "KPI_dashboard|journey_map|block_quote|executive_insight_framework|visualization|infographic|data_story|technical_diagram|process_flow|comparison_matrix|performance_dashboard|stakeholder_map|vision_metaphor|growth_trajectory|competitive_landscape",
                 "title": "Minimalist Visual Title (1-3 words)",
-                "concept": "Human-centered concept that advances the customer story",
-                "context": "How this visual creates emotional connection and illuminates customer insights",
+                "concept": "concept that advances the story",
+                "context": "How this visual creates connection and illuminates strategy and insights",
                 "design_approach": "glass_morphism|holographic_gradients|metallic_premium|neon_accents|sophisticated_depth",
                 "advanced_svg_features": {
                     "visual_effects": "multi_layered_glow|glass_morphism_blur|gradient_mesh_depth",
@@ -1878,7 +1877,7 @@ Return your analysis as valid JSON with this exact structure:
                 },
                 "human_insights": {
                     "emotional_elements": ["Customer feeling or state", "Journey moment", "Breakthrough experience"],
-                    "narrative_progression": "How this visual advances the human story",
+                    "narrative_progression": "How this visual advances the story",
                     "executive_impact": "Strategic action this insight enables",
                     "minimalist_focus": "Single most important customer truth to convey"
                 }
