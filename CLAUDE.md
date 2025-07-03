@@ -104,6 +104,30 @@ docker --version && docker compose version  # Verify Docker setup
 ./backup-scripts/launch-with-all-services.sh  # Legacy all-services launcher
 ```
 
+### Common Development Commands
+
+```bash
+# Test suite (run before making changes)
+python test_anthropic_api.py && python test_openai_api.py
+python test_agent_tools_comprehensive.py
+
+# Single service development
+cd internal-solutions-[service-name]
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python run.py  # or python app.py for FastAPI services
+
+# Frontend development (varies by stack)
+cd internal-solutions-socialresearch/frontend && npm run dev    # Modern React 19 + Vite
+cd internal-solutions-journeymapper && npm run dev-server       # Legacy React 17 + Webpack
+cd internal-solutions-miro-generator && npm test                # TypeScript CLI with Jest
+
+# Docker operations
+docker compose -f docker-compose-all.yml up -d     # Start all services
+docker compose -f docker-compose-all.yml logs -f agent  # View agent logs
+docker compose -f docker-compose-all.yml restart agent  # Restart critical agent
+```
+
 ### Prerequisites
 
 - Docker Desktop with sufficient resources (8GB+ RAM recommended)
@@ -128,6 +152,15 @@ docker --version && docker compose version  # Verify Docker setup
   docker compose -f docker-compose-all.yml restart agent
   ```
 - **Test After Changes**: Always run `python test_agent_tools_comprehensive.py` after any agent modifications
+
+### Code Quality and Build Requirements
+
+Before committing any changes:
+1. **Python Services**: Ensure virtual environment is activated and dependencies are installed
+2. **React Apps**: Run `npm run build` to verify TypeScript compilation
+3. **Agent Changes**: ALWAYS test with `python test_agent_tools_comprehensive.py`
+4. **Port Conflicts**: Run `python port_scanner.py --fix` before starting services
+5. **API Keys**: Verify with `python test_anthropic_api.py && python test_openai_api.py`
 
 ### Development Workflow Essentials
 ```bash
