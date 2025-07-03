@@ -48,7 +48,7 @@ if ANTHROPIC_API_KEY:
 # MCP requests are now proxied to the agent service
 
 # Parse URLs from environment variables
-def get_dynamic_urls():
+def get_dynamic_urls(request_is_secure=False):
     # Internal URLs for service checks (container to container)
     journey_mapper_url = os.environ.get('JOURNEY_MAPPER_URL', 'http://journey-mapper:8000')
     claude4_journey_mapper_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_URL', 'http://claude4-journey-mapper:8095')
@@ -72,17 +72,35 @@ def get_dynamic_urls():
     agent_ws_url = os.environ.get('AGENT_WS_URL', 'ws://agent:8500')
     agent_client_url = os.environ.get('AGENT_CLIENT_URL', 'http://localhost:8090')
 
-    # External URLs for client browsers
-    journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
-    claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8095')
-    reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
-    social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
-    video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
-    linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_CLIENT_URL', 'http://localhost:5003')
-    miro_generator_client_url = os.environ.get('MIRO_GENERATOR_CLIENT_URL', 'http://localhost:5004')
-    image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_CLIENT_URL', 'http://localhost:5005')
-    flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
-    presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
+    # External URLs for client browsers - dynamically adjust protocol based on request
+    logger.info(f"[URL DEBUG] get_dynamic_urls called with request_is_secure={request_is_secure}")
+    
+    if request_is_secure:
+        # HTTPS URLs - use HTTPS proxy ports
+        logger.info(f"[URL DEBUG] Using HTTPS URLs")
+        journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_HTTPS_URL', 'https://localhost:8444')
+        claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_HTTPS_URL', 'https://localhost:8445')
+        reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_HTTPS_URL', 'https://localhost:8446')
+        social_research_client_url = os.environ.get('SOCIAL_RESEARCH_HTTPS_URL', 'https://localhost:8447')
+        video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_HTTPS_URL', 'https://localhost:8448')
+        linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_HTTPS_URL', 'https://localhost:8449')
+        miro_generator_client_url = os.environ.get('MIRO_GENERATOR_HTTPS_URL', 'https://localhost:8450')
+        image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_HTTPS_URL', 'https://localhost:8451')
+        flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_HTTPS_URL', 'https://localhost:8453')
+        presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_HTTPS_URL', 'https://localhost:8452')
+    else:
+        # HTTP URLs - use original ports
+        logger.info(f"[URL DEBUG] Using HTTP URLs")
+        journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
+        claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8095')
+        reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
+        social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
+        video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
+        linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_CLIENT_URL', 'http://localhost:5003')
+        miro_generator_client_url = os.environ.get('MIRO_GENERATOR_CLIENT_URL', 'http://localhost:5004')
+        image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_CLIENT_URL', 'http://localhost:5005')
+        flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
+        presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
 
     urls = {
         'journey_mapper': {
@@ -173,7 +191,7 @@ if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
 
 def check_service(service_name):
     """Check if a service is running by making a request to its URL"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Always use HTTP for internal service checks
 
     # Skip checking MCP and agent services if CX agent is disabled
     if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp", "agent"] and \
@@ -322,8 +340,18 @@ def index():
     # Ensure status is updated before rendering
     update_all_services()
 
-    # Get dynamic URLs for client
-    urls = get_dynamic_urls()
+    # Detect if request is secure (HTTPS) with debugging
+    request_is_secure = request.is_secure or request.headers.get('X-Forwarded-Proto') == 'https'
+    
+    # Debug logging to see what's happening
+    logger.info(f"[URL DEBUG] Request URL: {request.url}")
+    logger.info(f"[URL DEBUG] Request scheme: {request.scheme}")
+    logger.info(f"[URL DEBUG] request.is_secure: {request.is_secure}")
+    logger.info(f"[URL DEBUG] X-Forwarded-Proto header: {request.headers.get('X-Forwarded-Proto')}")
+    logger.info(f"[URL DEBUG] Final request_is_secure: {request_is_secure}")
+
+    # Get dynamic URLs for client with protocol detection
+    urls = get_dynamic_urls(request_is_secure=request_is_secure)
 
     # Get current service statuses
     service_statuses = {
@@ -375,8 +403,11 @@ def status_page():
     # Ensure status is updated before rendering
     update_all_services()
 
-    # Get dynamic URLs for client
-    urls = get_dynamic_urls()
+    # Detect if request is secure (HTTPS)
+    request_is_secure = request.is_secure or request.headers.get('X-Forwarded-Proto') == 'https'
+
+    # Get dynamic URLs for client with protocol detection
+    urls = get_dynamic_urls(request_is_secure=request_is_secure)
 
     # Get current service statuses
     service_statuses = {
@@ -405,15 +436,21 @@ def status_page():
 @app.route('/api/status')
 def status():
     """API endpoint to get service status"""
+    # Detect if request is secure (HTTPS)
+    request_is_secure = request.is_secure or request.headers.get('X-Forwarded-Proto') == 'https'
+    
     return jsonify({
         "services": services_status,
-        "urls": get_dynamic_urls()
+        "urls": get_dynamic_urls(request_is_secure=request_is_secure)
     })
 
 @app.route('/redirect/<service>')
 def redirect_to_service(service):
     """Redirect to a specific service"""
-    urls = get_dynamic_urls()
+    # Detect if request is secure (HTTPS)
+    request_is_secure = request.is_secure or request.headers.get('X-Forwarded-Proto') == 'https'
+    
+    urls = get_dynamic_urls(request_is_secure=request_is_secure)
 
     if service in urls:
         return redirect(urls[service]['client_url'])
@@ -423,7 +460,10 @@ def redirect_to_service(service):
 @app.route('/api/urls')
 def get_urls():
     """Return the URLs for all services"""
-    urls = get_dynamic_urls()
+    # Detect if request is secure (HTTPS)
+    request_is_secure = request.is_secure or request.headers.get('X-Forwarded-Proto') == 'https'
+    
+    urls = get_dynamic_urls(request_is_secure=request_is_secure)
 
     # Extract ports from URLs for display
     def extract_port(url):
@@ -449,8 +489,8 @@ def get_urls():
             'port': extract_port(urls['video_analyzer']['client_url'])
         },
         'launchpad': {
-            'url': os.environ.get('LAUNCHPAD_URL', f"http://localhost:{os.environ.get('PORT', 8000)}"),
-            'port': os.environ.get('PORT', 8000)
+            'url': request.url_root.rstrip('/'),  # Use the current request URL root
+            'port': extract_port(request.url_root)
         }
     }
 
@@ -469,7 +509,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/api/chat/conversation', methods=['POST'])
     def create_conversation():
         """Proxy chat conversation creation to agent service"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'agent' not in urls:
             return jsonify({"error": "Agent not configured"}), 404
         
@@ -480,7 +520,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/api/chat/message', methods=['POST'])
     def send_chat_message():
         """Proxy chat message to agent service"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'agent' not in urls:
             return jsonify({"error": "Agent not configured"}), 404
         
@@ -491,7 +531,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/api/chat/model', methods=['POST'])
     def set_chat_model():
         """Proxy model setting to agent service"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'agent' not in urls:
             return jsonify({"error": "Agent not configured"}), 404
         
@@ -502,7 +542,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/api/chat/models', methods=['GET'])
     def get_chat_models():
         """Proxy models list to agent service"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'agent' not in urls:
             return jsonify({"error": "Agent not configured"}), 404
         
@@ -528,7 +568,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
         logger.info(f"WebSocket proxy connection established: {conn_id}")
         
         # Get correct agent URL
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         agent_ws_url = urls['agent']['ws_url'] if 'agent' in urls else None
 
         # Check agent service status
@@ -779,7 +819,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/proxy/agent/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_agent(path):
         """Proxy requests to the agent server"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'agent' not in urls:
             return jsonify({"error": "Agent not configured"}), 404
 
@@ -789,7 +829,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/proxy/reddit-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_reddit_mcp(path):
         """Proxy requests to the Reddit MCP server"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'mcp' not in urls or 'reddit' not in urls['mcp']:
             return jsonify({"error": "Reddit MCP not configured"}), 404
 
@@ -799,7 +839,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/proxy/social-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_social_mcp(path):
         """Proxy requests to the Social MCP server"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'mcp' not in urls or 'social' not in urls['mcp']:
             return jsonify({"error": "Social MCP not configured"}), 404
 
@@ -809,7 +849,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/proxy/journey-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_journey_mcp(path):
         """Proxy requests to the Journey MCP server"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'mcp' not in urls or 'journey' not in urls['mcp']:
             return jsonify({"error": "Journey MCP not configured"}), 404
 
@@ -819,7 +859,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     @app.route('/proxy/video-mcp/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE'])
     def proxy_video_mcp(path):
         """Proxy requests to the Video MCP server"""
-        urls = get_dynamic_urls()
+        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
         if 'mcp' not in urls or 'video' not in urls['mcp']:
             return jsonify({"error": "Video MCP not configured"}), 404
 
@@ -830,7 +870,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
 @app.route('/api/mcp/conversation', methods=['POST'])
 def create_mcp_conversation():
     """Create a new MCP conversation via agent service"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     if 'agent' not in urls:
         return jsonify({"error": "Agent service not configured"}), 500
     
@@ -862,7 +902,7 @@ def create_mcp_conversation():
 @app.route('/api/mcp/message', methods=['POST'])
 def send_mcp_message():
     """Send a message to the MCP chatbot via agent service"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     if 'agent' not in urls:
         return jsonify({"error": "Agent service not configured"}), 500
     
@@ -948,7 +988,7 @@ def send_mcp_message():
 @app.route('/api/mcp/servers')
 def get_mcp_servers():
     """Get MCP server status"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     server_status = {}
     
     # Define MCP servers
@@ -1003,7 +1043,7 @@ def get_mcp_servers():
 
 def get_mcp_tools():
     """Get available tools from all MCP servers"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     all_tools = []
     
     mcp_servers = {
@@ -1046,7 +1086,7 @@ def get_mcp_tools():
 
 def execute_mcp_tool(tool_name, parameters):
     """Execute a tool call via the appropriate MCP server"""
-    urls = get_dynamic_urls()
+    urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     
     mcp_servers = {
         "reddit": urls.get('mcp', {}).get('reddit', 'http://reddit-mcp:8501'),
