@@ -18,23 +18,15 @@ services:
       - "8451:8451"   # Image Caption Generator HTTPS
       - "8452:8452"   # AI Presentation Generator HTTPS
       - "8453:8453"   # FLUX LoRA Studio HTTPS
+      - "8454:8454"   # AI Soundtrack Generator HTTPS
     volumes:
       - ./ssl-certs:/etc/nginx/ssl:ro
       - ./nginx-simple.conf:/etc/nginx/nginx.conf:ro
-    external_links:
-      - nxthumans_ai_cx_workbench-launchpad-1:launchpad
-      - nxthumans_ai_cx_workbench-journey-mapper-1:journey-mapper
-      - nxthumans_ai_cx_workbench-reddit-ripper-1:reddit-ripper
-      - nxthumans_ai_cx_workbench-social-research-1:social-research-frontend
-      - nxthumans_ai_cx_workbench-video-analyzer-1:video-analyzer
-      - nxthumans_ai_cx_workbench-linkedin-generator-1:linkedin-generator
-      - nxthumans_ai_cx_workbench-miro-generator-1:miro-generator
-      - nxthumans_ai_cx_workbench-image-captioner-1:image-captioner
-      - nxthumans_ai_cx_workbench-flux-lora-studio-1:flux-lora-studio
-      - nxthumans_ai_cx_workbench-presentation-generator-1:presentation-generator
+    networks:
+      - nxt-humans-network
     restart: unless-stopped
 
 networks:
-  default:
+  nxt-humans-network:
     external: true
     name: nxthumans_ai_cx_workbench_nxt-humans-network

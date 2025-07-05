@@ -1,17 +1,8 @@
 services:
   launchpad:
     environment:
-      # HTTPS Client URLs for secure navigation
-      - JOURNEY_MAPPER_CLIENT_URL=https://localhost:8444
-      - CLAUDE4_JOURNEY_CLIENT_URL=https://localhost:8445
-      - REDDIT_RIPPER_CLIENT_URL=https://localhost:8446
-      - SOCIAL_RESEARCH_CLIENT_URL=https://localhost:8447
-      - VIDEO_ANALYZER_CLIENT_URL=https://localhost:8448
-      - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
-      - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
-      - IMAGE_CAPTIONER_CLIENT_URL=https://localhost:8451
-      - PRESENTATION_GENERATOR_CLIENT_URL=https://localhost:8452
-      - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
+      # Let Flask app handle dynamic HTTP/HTTPS URL detection
+      # No hardcoded CLIENT_URLs - app will determine based on request protocol
 
   video-analyzer:
     environment:

@@ -14,6 +14,7 @@ services:
       - IMAGE_CAPTIONER_URL=http://image-captioner:5005
       - FLUX_LORA_STUDIO_URL=http://flux-lora-studio:5006
       - PRESENTATION_GENERATOR_URL=http://presentation-generator:5007
+      - SOUNDTRACK_GENERATOR_URL=http://soundtrack-generator:5009
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
       - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
       - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
@@ -23,6 +24,7 @@ services:
       - IMAGE_CAPTIONER_CLIENT_URL=http://localhost:${IMAGE_CAPTIONER_PORT:-5005}
       - FLUX_LORA_STUDIO_CLIENT_URL=http://localhost:${FLUX_LORA_STUDIO_PORT:-5006}
       - PRESENTATION_GENERATOR_CLIENT_URL=http://localhost:${PRESENTATION_GENERATOR_PORT:-5007}
+      - SOUNDTRACK_GENERATOR_CLIENT_URL=http://localhost:${SOUNDTRACK_GENERATOR_PORT:-5009}
       - PORT=8000
       - ENABLE_CX_AGENT=true
       - AGENT_URL=http://agent:8500
@@ -424,6 +426,26 @@ services:
     networks:
       - nxt-humans-network
 
+  soundtrack-generator:
+    build:
+      context: ./internal-solutions-soundtrack-generator
+      dockerfile: Dockerfile
+    ports:
+      - "${SOUNDTRACK_GENERATOR_PORT:-5009}:5009"
+    environment:
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5009
+      - MAX_FILE_SIZE=524288000
+      - DEFAULT_VOICE_ID=EXAVITQu4vr4xnSDxMaL
+    volumes:
+      - ./internal-solutions-soundtrack-generator:/app
+      - soundtrack-generator-uploads:/app/uploads
+      - soundtrack-generator-generated:/app/generated
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
 
 
 networks:
@@ -458,4 +480,8 @@ volumes:
   presentation-generator-uploads:
     driver: local
   presentation-generator-generated:
+    driver: local
+  soundtrack-generator-uploads:
+    driver: local
+  soundtrack-generator-generated:
     driver: local

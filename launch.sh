@@ -136,6 +136,7 @@ kill_running_processes() {
   kill_port 5005  # Image Captioner
   kill_port 5006  # FLUX LoRA Studio
   kill_port 5007  # Presentation Generator
+  kill_port 5009  # Soundtrack Generator
   kill_port 3000  # Social Research Frontend
   kill_port 8081  # Social Research Backend
   kill_port 8500  # Agent
@@ -233,17 +234,8 @@ start_services() {
 services:
   launchpad:
     environment:
-      # HTTPS Client URLs for secure navigation
-      - JOURNEY_MAPPER_CLIENT_URL=https://localhost:8444
-      - CLAUDE4_JOURNEY_CLIENT_URL=https://localhost:8445
-      - REDDIT_RIPPER_CLIENT_URL=https://localhost:8446
-      - SOCIAL_RESEARCH_CLIENT_URL=https://localhost:8447
-      - VIDEO_ANALYZER_CLIENT_URL=https://localhost:8448
-      - LINKEDIN_GENERATOR_CLIENT_URL=https://localhost:8449
-      - MIRO_GENERATOR_CLIENT_URL=https://localhost:8450
-      - IMAGE_CAPTIONER_CLIENT_URL=https://localhost:8451
-      - PRESENTATION_GENERATOR_CLIENT_URL=https://localhost:8452
-      - FLUX_LORA_STUDIO_CLIENT_URL=https://localhost:8453
+      # Let Flask app handle dynamic HTTP/HTTPS URL detection
+      # No hardcoded CLIENT_URLs - app will determine based on request protocol
 
   video-analyzer:
     environment:
@@ -322,6 +314,7 @@ echo -e "  ${BLUE}Miro Generator:${NC}           http://localhost:5004"
 echo -e "  ${BLUE}Image Captioner:${NC}          http://localhost:5005"
 echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         http://localhost:5006"
 echo -e "  ${BLUE}Presentation Generator:${NC}    http://localhost:5007"
+echo -e "  ${BLUE}Soundtrack Generator:${NC}      http://localhost:5009"
 echo ""
 echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
@@ -334,6 +327,7 @@ echo -e "  ${BLUE}Miro Generator:${NC}           https://localhost:8450"
 echo -e "  ${BLUE}Image Captioner:${NC}          https://localhost:8451"
 echo -e "  ${BLUE}Presentation Generator:${NC}    https://localhost:8452"
 echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         https://localhost:8453"
+echo -e "  ${BLUE}Soundtrack Generator:${NC}      https://localhost:8454"
 echo ""
 echo -e "${YELLOW}${BOLD}🛡️  BROWSER SECURITY:${NC}"
 echo -e "• HTTPS URLs eliminate 'Not Secure' warnings"

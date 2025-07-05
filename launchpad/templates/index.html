@@ -61,7 +61,7 @@
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="collection" data-service="reddit-ripper">
           <div class="card-thumbnail">
-            <img src="/static/Reddit_Data_Collector.gif" alt="Reddit Data Collector Demo" class="app-thumbnail" />
+            <img src="/static/Reddit_Data_Collector.gif" alt="Social Data Collector Demo" class="app-thumbnail" />
           </div>
           <div class="card-header">
             <div class="service-icon">
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="card-content">
-            <h3 class="service-title">Reddit Data Collector</h3>
+            <h3 class="service-title">Social Data Collector</h3>
             <p class="service-description">Extract and analyze posts, comments, and engagement metrics from Reddit communities for comprehensive social sentiment analysis</p>
             <div class="service-tags">
               <span class="tag">Social Media</span>
@@ -372,6 +372,54 @@
           </div>
         </div>
 
+        <div class="enterprise-card soundtrack-generator" data-category="generation" data-service="soundtrack-generator">
+          <div class="card-thumbnail soundtrack-thumbnail">
+            <img src="/static/soundtrack_generator.gif" alt="AI Soundtrack Generator Demo" class="app-thumbnail" />
+            <div class="soundtrack-overlay">
+              <div class="sound-waves">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+              </div>
+              <div class="audio-visualizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-music"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="soundtrack-generator-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">AI Soundtrack Generator</h3>
+            <p class="service-description">Create professional soundtracks with ElevenLabs TTS dialogue, custom sound effects, and background music. Separate field control for each audio component</p>
+            <div class="service-tags">
+              <span class="tag">ElevenLabs API</span>
+              <span class="tag">TTS</span>
+              <span class="tag">Sound Effects</span>
+              <span class="tag">Music Generation</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ soundtrack_generator_url }}" id="soundtrack-generator-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -398,6 +446,7 @@
     const imageCaptionerStatus = document.getElementById('image-captioner-status');
     const fluxLoraStudioStatus = document.getElementById('flux-lora-studio-status');
     const presentationGeneratorStatus = document.getElementById('presentation-generator-status');
+    const soundtrackGeneratorStatus = document.getElementById('soundtrack-generator-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -411,6 +460,7 @@
     const imageCaptionerUrlLink = document.getElementById('image-captioner-url');
     const fluxLoraStudioUrlLink = document.getElementById('flux-lora-studio-url');
     const presentationGeneratorUrlLink = document.getElementById('presentation-generator-url');
+    const soundtrackGeneratorUrlLink = document.getElementById('soundtrack-generator-url');
     
     // URL display elements
     const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
@@ -449,6 +499,7 @@
     let imageCaptionerUrl = "{{ image_captioner_url }}";
     let fluxLoraStudioUrl = "{{ flux_lora_studio_url }}";
     let presentationGeneratorUrl = "{{ presentation_generator_url }}";
+    let soundtrackGeneratorUrl = "{{ soundtrack_generator_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
@@ -461,6 +512,7 @@
     let imageCaptionerPort = "5005";
     let fluxLoraStudioPort = "5006";
     let presentationGeneratorPort = "5007";
+    let soundtrackGeneratorPort = "5009";
     let launchpadPort = "8000";
     
     // Check if a port is different from default
@@ -491,6 +543,7 @@
       if (imageCaptionerUrlLink) imageCaptionerUrlLink.href = imageCaptionerUrl;
       if (fluxLoraStudioUrlLink) fluxLoraStudioUrlLink.href = fluxLoraStudioUrl;
       if (presentationGeneratorUrlLink) presentationGeneratorUrlLink.href = presentationGeneratorUrl;
+      if (soundtrackGeneratorUrlLink) soundtrackGeneratorUrlLink.href = soundtrackGeneratorUrl;
       
       // Update URL displays (only if elements exist)
       if (launchpadUrlDisplay) launchpadUrlDisplay.textContent = launchpadUrl;
@@ -594,6 +647,10 @@
         
         if (data.services && data.services.image_captioner) {
           updateStatusIndicator(imageCaptionerStatus, data.services.image_captioner.status);
+        }
+
+        if (data.services && data.services.soundtrack_generator) {
+          updateStatusIndicator(soundtrackGeneratorStatus, data.services.soundtrack_generator.status);
         }
       } catch (error) {
         console.error('Error fetching service status:', error);
@@ -1048,6 +1105,136 @@
       color: var(--text-grey);
     }
     
+    /* Soundtrack Generator Specific Styling */
+    .soundtrack-generator {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soundtrack-thumbnail {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soundtrack-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(1, 196, 200, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .soundtrack-generator:hover .soundtrack-overlay {
+      opacity: 1;
+    }
+
+    /* Sound Wave Animation */
+    .sound-waves {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 30px;
+    }
+
+    .wave {
+      width: 3px;
+      background: linear-gradient(to top, #01C4C8, #8B5CF6);
+      border-radius: 1.5px;
+      animation: soundWave 1.5s ease-in-out infinite;
+    }
+
+    .wave:nth-child(1) { animation-delay: 0s; height: 10px; }
+    .wave:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+    .wave:nth-child(3) { animation-delay: 0.2s; height: 30px; }
+    .wave:nth-child(4) { animation-delay: 0.3s; height: 20px; }
+    .wave:nth-child(5) { animation-delay: 0.4s; height: 15px; }
+
+    @keyframes soundWave {
+      0%, 100% {
+        transform: scaleY(0.5);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    /* Audio Visualizer */
+    .audio-visualizer {
+      display: flex;
+      align-items: end;
+      gap: 2px;
+      height: 20px;
+    }
+
+    .bar {
+      width: 2px;
+      background: #01C4C8;
+      border-radius: 1px;
+      animation: audioBar 1.2s ease-in-out infinite;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0s; }
+    .bar:nth-child(2) { animation-delay: 0.15s; }
+    .bar:nth-child(3) { animation-delay: 0.3s; }
+    .bar:nth-child(4) { animation-delay: 0.45s; }
+    .bar:nth-child(5) { animation-delay: 0.6s; }
+    .bar:nth-child(6) { animation-delay: 0.75s; }
+    .bar:nth-child(7) { animation-delay: 0.9s; }
+    .bar:nth-child(8) { animation-delay: 1.05s; }
+
+    @keyframes audioBar {
+      0%, 100% {
+        height: 3px;
+      }
+      25% {
+        height: 10px;
+      }
+      50% {
+        height: 15px;
+      }
+      75% {
+        height: 8px;
+      }
+    }
+
+    /* Enhanced hover effect for soundtrack generator */
+    .soundtrack-generator:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(1, 196, 200, 0.2);
+    }
+
+    .soundtrack-generator .service-icon i {
+      color: #01C4C8 !important;
+      animation: musicPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes musicPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px rgba(1, 196, 200, 0.5);
+      }
+    }
+
+    /* Special tag styling for soundtrack generator */
+    .soundtrack-generator .service-tags .tag {
+      background: linear-gradient(135deg, #01C4C8, #8B5CF6);
+      color: white;
+      border: none;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .apps-grid {
@@ -1057,6 +1244,14 @@
       
       .info-grid {
         max-width: 100%;
+      }
+
+      .sound-waves {
+        height: 25px;
+      }
+
+      .audio-visualizer {
+        height: 15px;
       }
     }
   </style>
