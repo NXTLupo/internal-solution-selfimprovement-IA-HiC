@@ -722,9 +722,11 @@ class LinkedInContentGenerator:
         7. End with a clear, actionable takeaway that listeners can implement
         8. Aim for 3-5 minutes of speaking content (approximately 450-750 words)
         9. Write in first person as an expert sharing insights
-        10. Include natural pauses and emphasis points marked with [PAUSE] and [EMPHASIS]
+        10. ALWAYS reference where the research and insights came from - mention the uploaded content analysis and research sources naturally in the script
+        11. DO NOT include any production notes, brackets, or parentheses like [PAUSE], [EMPHASIS], (pause here), etc. - write the script as pure spoken content only
         
         Format as a complete script ready for audio production. No need for multiple speakers or complex dialogue - this should be a single expert sharing insights.
+        The script should flow naturally without any technical directions or production notes.
         
         Create the script now:
         """
@@ -762,17 +764,11 @@ class LinkedInContentGenerator:
     def _create_fallback_podcast(self, journey_data: ParsedJourneyData, thinking_result: AnalysisResult) -> ContentPiece:
         """Create fallback podcast content when generation fails."""
         fallback_content = f"""
-        Welcome to our business insights podcast. Today we're exploring {journey_data.title}.
-
-        [PAUSE]
+        Welcome to our business insights podcast. Today we're exploring {journey_data.title} based on research and analysis from our uploaded content study.
 
         Here's what's fascinating about this topic: {journey_data.summary[:200] if journey_data.summary else 'Customer experiences reveal critical business patterns'}.
 
-        [EMPHASIS] The key insight here is that successful businesses listen deeply to their customers. [PAUSE]
-
-        What I find most compelling is how these insights connect to broader strategic decisions. When we really understand our customers' journeys, we can anticipate their needs and create better experiences.
-
-        [PAUSE]
+        The key insight here is that successful businesses listen deeply to their customers. What I find most compelling is how these insights from our research connect to broader strategic decisions. When we really understand our customers' journeys, we can anticipate their needs and create better experiences.
 
         So here's my challenge to you: Take one insight from today's discussion and ask yourself - how can this change the way we approach our customer relationships?
 

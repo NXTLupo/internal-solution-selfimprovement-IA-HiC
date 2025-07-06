@@ -210,8 +210,8 @@ start_https_proxy() {
   # Wait for main services to be ready
   sleep 5
   
-  # Start HTTPS proxy
-  docker compose -f docker-compose-https.yml up -d
+  # Start HTTPS proxy with the main network
+  docker compose -f docker-compose-https.yml up -d https-proxy
   
   if [ $? -eq 0 ]; then
     echo -e "${GREEN}HTTPS proxy started successfully!${NC}"
@@ -220,14 +220,68 @@ start_https_proxy() {
   fi
 }
 
+# Verify that critical services are responding
+verify_services() {
+  echo -e "${YELLOW}Verifying services are ready...${NC}"
+  
+  sleep 5  # Additional wait for services to fully start
+  
+  # Test critical HTTP endpoints
+  echo -e "${BLUE}Testing HTTP endpoints:${NC}"
+  
+  # Check launchpad
+  if curl -s -f http://localhost:8000 >/dev/null 2>&1; then
+    echo -e "  ✅ Launchpad (HTTP): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Launchpad (HTTP): ${RED}Not responding${NC}"
+  fi
+  
+  # Check LinkedIn Generator
+  if curl -s -f http://localhost:5003 >/dev/null 2>&1; then
+    echo -e "  ✅ LinkedIn Generator: ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ LinkedIn Generator: ${RED}Not responding${NC}"
+  fi
+  
+  # Check Journey Mapper
+  if curl -s -f http://localhost:8080 >/dev/null 2>&1; then
+    echo -e "  ✅ Journey Mapper: ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Journey Mapper: ${RED}Not responding${NC}"
+  fi
+  
+  # Test critical HTTPS endpoints
+  echo -e "${BLUE}Testing HTTPS endpoints:${NC}"
+  
+  # Check HTTPS launchpad
+  if curl -k -s -f https://localhost:8443 >/dev/null 2>&1; then
+    echo -e "  ✅ Launchpad (HTTPS): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Launchpad (HTTPS): ${RED}Not responding${NC}"
+  fi
+  
+  # Check HTTPS LinkedIn Generator
+  if curl -k -s -f https://localhost:8449 >/dev/null 2>&1; then
+    echo -e "  ✅ LinkedIn Generator (HTTPS): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ LinkedIn Generator (HTTPS): ${RED}Not responding${NC}"
+  fi
+  
+  echo -e "${GREEN}Service verification complete!${NC}"
+}
+
 # Start services using Docker
 start_services() {
   echo -e "${YELLOW}Starting all services...${NC}"
   
-  # Stop any existing containers
+  # Stop any existing containers and clean up
+  echo -e "${YELLOW}Stopping existing containers...${NC}"
   docker compose -f docker-compose-all.yml down 2>/dev/null || true
   docker compose -f docker-compose-https.yml down 2>/dev/null || true
   docker compose down 2>/dev/null || true
+  
+  # Clean up any orphaned containers
+  docker container prune -f 2>/dev/null || true
   
   # Create or update the docker-compose-all.override.yml file with explicit API keys and HTTPS URLs
   cat > docker-compose-all.override.yml << EOF
@@ -272,13 +326,23 @@ services:
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
 EOF
 
-  # Start all services
+  # Start all services without explicit list to avoid Docker Compose concurrency bug
   docker compose -f docker-compose-all.yml -f docker-compose-all.override.yml up -d
   
   if [ $? -eq 0 ]; then
-    echo -e "${GREEN}All services started successfully!${NC}"
+    echo -e "${GREEN}All HTTP services started successfully!${NC}"
+    
+    # Wait for services to be ready before starting HTTPS proxy
+    echo -e "${YELLOW}Waiting for services to be ready...${NC}"
+    sleep 15
+    
     # Start HTTPS proxy after main services
     start_https_proxy
+    
+    echo -e "${GREEN}Both HTTP and HTTPS stacks are now running!${NC}"
+    
+    # Verify critical services are responding
+    verify_services
   else
     echo -e "${RED}Error starting services. Check Docker logs for details.${NC}"
     exit 1
@@ -301,7 +365,7 @@ fi
 # Start services
 start_services
 
-echo -e "\n${GREEN}${BOLD}ALL SERVICES HAVE BEEN STARTED!${NC}"
+echo -e "\n${GREEN}${BOLD}🚀 ALL SERVICES HAVE BEEN STARTED - HTTP & HTTPS STACKS READY!${NC}"
 echo ""
 echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"

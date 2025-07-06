@@ -1698,3 +1698,46 @@ This file should be updated when:
 2. **Service Discovery**: Some services (Presentation AI, Claude 4 V2) were not documented until this analysis
 3. **Version Management**: Track major dependency updates across the 16+ services
 4. **Documentation Sync**: Ensure README.md and CLAUDE.md stay synchronized with actual service capabilities
+
+## Quick Reference Commands
+
+### Essential Daily Commands
+```bash
+# Start everything
+./launch.sh
+
+# Check system health
+python test_anthropic_api.py && python test_openai_api.py
+curl http://localhost:8500/health && curl http://localhost:8000/health
+
+# Fix port conflicts
+python port_scanner.py --fix
+
+# Restart agent (safe)
+docker compose -f docker-compose-all.yml restart agent
+
+# View logs
+docker compose -f docker-compose-all.yml logs -f agent
+docker compose -f docker-compose-all.yml logs -f [service-name]
+```
+
+### Development by Service Type
+```bash
+# Modern React Stack (Social Research)
+cd internal-solutions-socialresearch/frontend && npm run dev
+
+# Legacy React Stack (Journey Mappers)  
+cd internal-solutions-journeymapper && npm run dev-server
+
+# TypeScript CLI (Miro Generator)
+cd internal-solutions-miro-generator && npm test
+
+# Next.js Platform (Presentation AI)
+cd presentation-ai && npm run dev -p 3002
+
+# FastAPI Services
+uvicorn app:app --host 0.0.0.0 --port [PORT] --reload
+
+# Flask Services
+python run.py
+```

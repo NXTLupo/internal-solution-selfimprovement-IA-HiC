@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT Humans | Journey Mapper</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="/static/nxt-humans-styles.css">
-  <link rel="stylesheet" href="/static/enhanced-components.css">
   <link rel="stylesheet" href="/static/nxt-header.css">
-  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <!-- Favicon declarations in proper order -->
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/svg+xml" href="/static/route-favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/route-favicon.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
@@ -152,7 +158,7 @@
       display: block;
       width: 100%;
       padding: 0.9rem;
-      background: linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%);
+      background: linear-gradient(135deg, rgba(1, 196, 200, 0.8) 0%, rgba(0, 161, 165, 0.9) 100%);
       color: white;
       border: none;
       border-radius: 0.5rem;
@@ -160,12 +166,12 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+      box-shadow: 0 4px 15px rgba(1, 196, 200, 0.3);
     }
 
     .submit-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+      box-shadow: 0 6px 20px rgba(1, 196, 200, 0.4);
     }
 
     .file-list {
@@ -282,7 +288,7 @@
 </head>
 <body>
   <header class="intelligence-augmentation-header">
-    <div class="ia-container">
+    <div class="ia-container has-thumbnail">
       <div class="ia-content">
         <div class="ia-logo-section">
           <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -294,6 +300,10 @@
             <div class="ia-augmentation">Mapper</div>
           </div>
         </div>
+      </div>
+      <div class="ia-thumbnail-section">
+        <img src="/static/journey_mapper_4.gif" alt="Journey Mapper Claude 4 Demo" class="ia-app-thumbnail" />
+        <div class="ia-thumbnail-label">Claude 4 Demo</div>
       </div>
     </div>
   </header>
@@ -526,7 +536,7 @@
     
     dropArea.addEventListener('dragover', function(e) {
       e.preventDefault();
-      dropArea.style.borderColor = '#4264D0';
+      dropArea.style.borderColor = '#01C4C8';
     });
     
     dropArea.addEventListener('dragleave', function() {
@@ -550,5 +560,8 @@
       }
     });
   </script>
+  
+  <!-- App GIF Controls -->
+  <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

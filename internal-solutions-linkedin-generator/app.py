@@ -16,6 +16,11 @@ from dataclasses import asdict, is_dataclass
 import requests
 import tempfile
 
+# ElevenLabs imports for enhanced podcast generation
+import elevenlabs
+from elevenlabs import VoiceSettings
+from pydub import AudioSegment
+
 from fastapi import FastAPI, HTTPException, Form, UploadFile, File, BackgroundTasks
 from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -74,6 +79,19 @@ app = FastAPI(
     description="Transform journey maps into 2025-optimized LinkedIn content with extended thinking",
     version="1.0.0"
 )
+
+# Initialize ElevenLabs client for PRIMARY podcast generation (REPLACED MULMOCAST)
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "REDACTED")
+elevenlabs_client = None
+if ELEVENLABS_API_KEY:
+    try:
+        elevenlabs_client = elevenlabs.ElevenLabs(api_key=ELEVENLABS_API_KEY)
+        logger.info("ElevenLabs client initialized as PRIMARY podcast generation system")
+    except Exception as e:
+        logger.error(f"Failed to initialize ElevenLabs client: {e}")
+        logger.warning("Podcast generation will not be available")
+else:
+    logger.warning("ELEVENLABS_API_KEY not found - podcast generation disabled")
 
 # Add CORS middleware
 app.add_middleware(
@@ -435,88 +453,184 @@ async def get_generation_results(session_id: str):
         logger.error(f"Results retrieval failed: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Results retrieval failed: {str(e)}")
 
-@app.get("/podcast-audio/{session_id}")
-async def get_podcast_audio(session_id: str):
-    """Get direct link to podcast audio file."""
+# OLD MULMOCAST PODCAST ENDPOINTS REMOVED - NOW USING ELEVENLABS ONLY
+
+
+# ElevenLabs Podcast Generation Endpoints (REPLACED MULMOCAST)
+
+# Serve static audio files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/enhanced-podcast/voices")
+async def get_elevenlabs_voices():
+    """Get list of available ElevenLabs voices for enhanced podcast generation."""
+    if not elevenlabs_client:
+        raise HTTPException(status_code=503, detail="ElevenLabs not available - check API key")
+    
     try:
-        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        # Get voices from ElevenLabs API
+        voices_response = elevenlabs_client.voices.get_all()
         
-        # Get files from Mulmocast
-        files_response = requests.get(f"{mulmocast_url}/api/files")
-        if not files_response.ok:
-            raise HTTPException(status_code=503, detail="Mulmocast service unavailable")
-            
-        files_data = files_response.json()
+        # Format voices for frontend
+        formatted_voices = []
+        for voice in voices_response.voices:
+            formatted_voices.append({
+                "voice_id": voice.voice_id,
+                "name": voice.name,
+                "category": getattr(voice, 'category', 'General'),
+                "gender": getattr(voice.labels, 'gender', 'Unknown') if hasattr(voice, 'labels') and voice.labels else 'Unknown',
+                "accent": getattr(voice.labels, 'accent', 'Unknown') if hasattr(voice, 'labels') and voice.labels else 'Unknown',
+                "description": getattr(voice, 'description', f"High-quality voice: {voice.name}"),
+                "preview_url": voice.preview_url if hasattr(voice, 'preview_url') else None
+            })
         
-        # Find audio files for this session
-        session_audio_files = [
-            f for f in files_data 
-            if f.get("type") == "audio" and session_id in f.get("name", "")
+        logger.info(f"Retrieved {len(formatted_voices)} ElevenLabs voices")
+        return {"voices": formatted_voices, "success": True}
+        
+    except Exception as e:
+        logger.error(f"Failed to get ElevenLabs voices: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve voices: {str(e)}")
+
+
+@app.post("/enhanced-podcast/generate/{session_id}")
+async def generate_enhanced_podcast(
+    session_id: str,
+    voice_id: str = Form(...),
+    voice_speed: float = Form(1.0),
+    voice_stability: float = Form(0.5),
+    output_quality: str = Form("mp3_22050_32")
+):
+    """Generate enhanced podcast using ElevenLabs with custom voice settings."""
+    if not elevenlabs_client:
+        raise HTTPException(status_code=503, detail="ElevenLabs not available - check API key")
+    
+    try:
+        # Get the session and content
+        if session_id not in processing_sessions:
+            raise HTTPException(status_code=404, detail="Session not found")
+        
+        session = processing_sessions[session_id]
+        
+        # Find podcast content piece
+        podcast_pieces = [
+            piece for piece in session.get("content_pieces", [])
+            if piece.get("content_type") == "podcast"
         ]
         
-        if not session_audio_files:
-            raise HTTPException(status_code=404, detail="No audio file found for session")
+        if not podcast_pieces:
+            raise HTTPException(status_code=404, detail="No podcast content found for this session")
         
-        # Get the largest/main audio file (usually the combined one)
-        main_audio = max(session_audio_files, key=lambda x: x.get("size", 0))
+        podcast_content = podcast_pieces[0].get("content", "")
+        if not podcast_content.strip():
+            raise HTTPException(status_code=400, detail="Podcast content is empty")
+        
+        logger.info(f"Generating enhanced podcast for session {session_id} with voice {voice_id}")
+        
+        # Generate audio using ElevenLabs
+        voice_settings = VoiceSettings(
+            stability=voice_stability,
+            similarity_boost=0.75,
+            style=0.5,
+            use_speaker_boost=True
+        )
+        
+        # Generate the audio
+        audio_result = elevenlabs_client.text_to_speech.convert(
+            voice_id=voice_id,
+            text=podcast_content,
+            model_id="eleven_multilingual_v2",
+            voice_settings=voice_settings,
+            output_format=output_quality
+        )
+        
+        # Save the audio file
+        output_dir = Path("generated_content")
+        output_dir.mkdir(exist_ok=True)
+        
+        audio_filename = f"enhanced_podcast_{session_id}_{int(time.time())}.mp3"
+        audio_path = output_dir / audio_filename
+        
+        # Write audio data to file (iterate over generator chunks)
+        with open(audio_path, "wb") as f:
+            # The text_to_speech.convert method returns a generator of chunks
+            for chunk in audio_result:
+                if chunk:
+                    f.write(chunk)
+        
+        # Get file size
+        file_size = audio_path.stat().st_size
+        
+        # Update session with enhanced podcast info
+        enhanced_podcast_data = {
+            "enhanced_podcast": {
+                "file_path": str(audio_path),
+                "file_name": audio_filename,
+                "file_size": file_size,
+                "voice_id": voice_id,
+                "voice_speed": voice_speed,
+                "voice_stability": voice_stability,
+                "output_quality": output_quality,
+                "download_url": f"/enhanced-podcast/download/{session_id}/{audio_filename}",
+                "created_at": datetime.now().isoformat()
+            }
+        }
+        
+        # Add to session
+        processing_sessions[session_id].update(enhanced_podcast_data)
+        
+        # CRITICAL: Also update the podcast content piece with enhanced audio info
+        session = processing_sessions[session_id]
+        if "content_pieces" in session:
+            for i, piece in enumerate(session["content_pieces"]):
+                if hasattr(piece, 'content_type') and piece.content_type == "podcast":
+                    # Update the podcast piece with enhanced audio data
+                    session["content_pieces"][i].enhanced_podcast = enhanced_podcast_data["enhanced_podcast"]
+                elif isinstance(piece, dict) and piece.get("content_type") == "podcast":
+                    # Handle dict format as well
+                    session["content_pieces"][i]["enhanced_podcast"] = enhanced_podcast_data["enhanced_podcast"]
+        
+        logger.info(f"Enhanced podcast generated successfully: {audio_filename} ({file_size} bytes)")
         
         return {
-            "session_id": session_id,
-            "audio_file": main_audio["name"],
-            "file_size": main_audio["size"],
-            "download_url": f"{mulmocast_url}/download/{main_audio['path']}",
-            "streaming_url": f"{mulmocast_url}/api/preview/{main_audio['path']}",
-            "direct_link": f"http://localhost:5003/download-podcast/{session_id}"
+            "success": True,
+            "message": "Enhanced podcast generated successfully",
+            "file_name": audio_filename,
+            "file_size": file_size,
+            "download_url": enhanced_podcast_data["enhanced_podcast"]["download_url"],
+            "duration_estimate": f"{len(podcast_content.split()) * 0.6:.1f} seconds"  # Rough estimate
         }
         
     except Exception as e:
-        logger.error(f"Podcast audio retrieval failed: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Audio retrieval failed: {str(e)}")
+        logger.error(f"Enhanced podcast generation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Generation failed: {str(e)}")
 
-@app.get("/download-podcast/{session_id}")
-async def download_podcast_audio(session_id: str):
-    """Proxy download of podcast audio file."""
+
+@app.get("/enhanced-podcast/download/{session_id}/{filename}")
+async def download_enhanced_podcast(session_id: str, filename: str):
+    """Download enhanced podcast file."""
     try:
-        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
+        if session_id not in processing_sessions:
+            raise HTTPException(status_code=404, detail="Session not found")
         
-        # Get files from Mulmocast
-        files_response = requests.get(f"{mulmocast_url}/api/files")
-        if not files_response.ok:
-            raise HTTPException(status_code=503, detail="Mulmocast service unavailable")
-            
-        files_data = files_response.json()
+        session = processing_sessions[session_id]
+        enhanced_podcast = session.get("enhanced_podcast")
         
-        # Find audio files for this session
-        session_audio_files = [
-            f for f in files_data 
-            if f.get("type") == "audio" and session_id in f.get("name", "")
-        ]
+        if not enhanced_podcast or enhanced_podcast.get("file_name") != filename:
+            raise HTTPException(status_code=404, detail="Enhanced podcast file not found")
         
-        if not session_audio_files:
-            raise HTTPException(status_code=404, detail="No audio file found for session")
+        file_path = Path(enhanced_podcast["file_path"])
+        if not file_path.exists():
+            raise HTTPException(status_code=404, detail="Audio file not found on disk")
         
-        # Get the largest/main audio file
-        main_audio = max(session_audio_files, key=lambda x: x.get("size", 0))
-        
-        # Stream the file from Mulmocast
-        download_url = f"{mulmocast_url}/download/{main_audio['path']}"
-        audio_response = requests.get(download_url, stream=True)
-        
-        if not audio_response.ok:
-            raise HTTPException(status_code=404, detail="Audio file not accessible")
-        
-        # Return the audio file with proper headers
-        return Response(
-            content=audio_response.content,
+        return FileResponse(
+            path=file_path,
             media_type="audio/mpeg",
-            headers={
-                "Content-Disposition": f"attachment; filename={main_audio['name']}",
-                "Content-Length": str(main_audio['size'])
-            }
+            filename=filename,
+            headers={"Content-Disposition": f"attachment; filename={filename}"}
         )
         
     except Exception as e:
-        logger.error(f"Podcast download failed: {str(e)}")
+        logger.error(f"Enhanced podcast download failed: {e}")
         raise HTTPException(status_code=500, detail=f"Download failed: {str(e)}")
 
 @app.post("/customize-thinking")
@@ -759,55 +873,60 @@ async def process_content_generation(
             "message": f"Generated {len(generated_content.content_pieces)} content pieces with {generated_content.overall_quality_score:.1f}/10 quality"
         })
         
-        # Stage 4: Podcast Generation (85-95%) - if podcast content type requested
+        # Stage 4: Podcast Generation (85-95%) - using ElevenLabs (REPLACED MULMOCAST)
         podcast_pieces = [piece for piece in generated_content.content_pieces if piece.content_type == ContentType.PODCAST]
         
-        if podcast_pieces and get_mulmocast_health():
+        if podcast_pieces and elevenlabs_client:
             session.update({
                 "progress": 85,
                 "current_stage": "podcast_generation",
-                "stage_name": "Podcast Generation",
-                "message": "Generating podcast audio using Mulmocast..."
+                "stage_name": "ElevenLabs Podcast Generation",
+                "message": "Generating professional podcast audio using ElevenLabs AI voices..."
             })
             
             for podcast_piece in podcast_pieces:
                 try:
-                    podcast_result = await generate_podcast_from_content(
-                        podcast_piece.content, 
-                        session_id
-                    )
-                    
-                    if podcast_result and podcast_result.get("success"):
-                        # Add podcast metadata to the content piece
-                        podcast_piece_dict = make_serializable(podcast_piece)
-                        client_mulmocast_url = os.getenv("MULMOCAST_CLIENT_URL", "http://localhost:5008")
-                        podcast_piece_dict["podcast_audio"] = {
-                            "download_url": podcast_result["download_url"],
-                            "preview_url": podcast_result["preview_url"],
-                            "file_size": podcast_result["file_size"],
-                            "duration_estimate": podcast_result["duration_estimate"],
-                            "audio_file": podcast_result["audio_file"],
-                            "direct_download": f"{client_mulmocast_url}/download/{podcast_result['audio_path']}",
-                            "streaming_url": f"{client_mulmocast_url}/api/preview/{podcast_result['audio_path']}"
-                        }
+                    # Generate a basic podcast audio using ElevenLabs with default settings
+                    default_voice_id = await get_default_elevenlabs_voice()
+                    if default_voice_id:
+                        podcast_result = await generate_elevenlabs_podcast(
+                            content=podcast_piece.content,
+                            session_id=session_id,
+                            voice_id=default_voice_id,
+                            voice_speed=1.0,
+                            voice_stability=0.5,
+                            output_quality="mp3_22050_32"
+                        )
                         
-                        # Update the content piece in session data directly
-                        for i, piece_data in enumerate(session["content_pieces"]):
-                            if piece_data.get("content_type") == "podcast":
-                                session["content_pieces"][i].update(podcast_piece_dict)
-                                break
+                        if podcast_result and podcast_result.get("success"):
+                            # Add podcast metadata to the content piece
+                            podcast_piece_dict = make_serializable(podcast_piece)
+                            podcast_piece_dict["podcast_audio"] = {
+                                "download_url": podcast_result["download_url"],
+                                "preview_url": podcast_result["download_url"],  # Same for ElevenLabs
+                                "file_size": podcast_result["file_size"],
+                                "duration_estimate": podcast_result["duration_estimate"],
+                                "audio_file": podcast_result["file_name"],
+                                "voice_info": podcast_result["voice_info"]
+                            }
+                            
+                            # Update the content piece in session data directly
+                            for i, piece_data in enumerate(session["content_pieces"]):
+                                if piece_data.get("content_type") == "podcast":
+                                    session["content_pieces"][i].update(podcast_piece_dict)
+                                    break
+                            else:
+                                # If no podcast piece found in session, add it
+                                session["content_pieces"].append(podcast_piece_dict)
+                            
+                            logger.info(f"ElevenLabs podcast generated successfully for session {session_id}")
+                            logger.info(f"Audio download URL: {podcast_result['download_url']}")
+                            
                         else:
-                            # If no podcast piece found in session, add it
-                            session["content_pieces"].append(podcast_piece_dict)
-                        
-                        logger.info(f"Podcast with audio generated successfully for session {session_id}")
-                        logger.info(f"Audio download URL: {podcast_result['download_url']}")
-                        
-                    else:
-                        logger.warning(f"Podcast generation failed for session {session_id}")
-                        
+                            logger.warning(f"ElevenLabs podcast generation failed for session {session_id}")
+                            
                 except Exception as e:
-                    logger.error(f"Podcast generation error for session {session_id}: {str(e)}")
+                    logger.error(f"ElevenLabs podcast generation error for session {session_id}: {str(e)}")
             
             session.update({
                 "progress": 95,
@@ -1138,179 +1257,120 @@ async def refine_content_piece(content_pieces: List[Dict], content_type: str,
     
     return refined_piece
 
-# Mulmocast Integration Functions
+# ElevenLabs Integration Functions (REPLACED MULMOCAST)
 
-async def generate_podcast_from_content(content: str, session_id: str) -> Optional[Dict[str, Any]]:
-    """
-    Generate podcast audio from LinkedIn content using Mulmocast proper workflow.
-    """
+async def get_default_elevenlabs_voice() -> Optional[str]:
+    """Get a default voice for podcast generation."""
     try:
-        # Mulmocast service URL (from docker-compose)
-        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
-        
-        logger.info(f"Generating podcast for session {session_id} using Mulmocast at {mulmocast_url}")
-        
-        # Step 1: Create Mulmo script JSON directly for podcast (correct schema)
-        mulmo_script = {
-            "$mulmocast": {
-                "version": "1.0",
-                "credit": "closing"
-            },
-            "canvasSize": {
-                "width": 1280,
-                "height": 720
-            },
-            "speechParams": {
-                "provider": "openai",
-                "speakers": {
-                    "Host": {
-                        "displayName": {"en": "Host"},
-                        "voiceId": "alloy"
-                    }
-                }
-            },
-            "audioParams": {
-                "padding": 0.3,
-                "introPadding": 1,
-                "closingPadding": 0.8,
-                "outroPadding": 1,
-                "bgmVolume": 0.1,
-                "audioVolume": 1
-            },
-            "title": f"LinkedIn Content Podcast - {session_id}",
-            "description": "AI-generated podcast from LinkedIn content",
-            "lang": "en",
-            "beats": [
-                {
-                    "speaker": "Host",
-                    "text": "Welcome to our LinkedIn content podcast. In today's episode, we'll be exploring some thought-provoking professional insights."
-                },
-                {
-                    "speaker": "Host", 
-                    "text": content
-                },
-                {
-                    "speaker": "Host",
-                    "text": "Thank you for listening to our LinkedIn content podcast. These insights can help drive meaningful professional conversations and engagement on LinkedIn."
-                }
-            ]
-        }
-        
-        # Step 2: Upload Mulmo script as JSON file
-        script_filename = f"linkedin_podcast_{session_id}.json"
-        script_content = json.dumps(mulmo_script, indent=2)
-        
-        upload_response = requests.post(
-            f"{mulmocast_url}/api/upload",
-            files={'files': (script_filename, script_content, 'application/json')},
-            timeout=30
-        )
-        
-        if not upload_response.ok:
-            logger.error(f"Script upload failed: {upload_response.text}")
+        if not elevenlabs_client:
             return None
-            
-        upload_result = upload_response.json()
-        if not upload_result.get("success", False):
-            logger.error(f"Script upload unsuccessful: {upload_result}")
-            return None
-            
-        # Get the uploaded script file path
-        uploaded_files = upload_result.get("files", [])
-        if not uploaded_files:
-            logger.error(f"No files in upload result: {upload_result}")
-            return None
-            
-        script_file_path = uploaded_files[0].get("path", f"uploads/{script_filename}")
-        logger.info(f"Script uploaded successfully: {script_file_path}")
         
-        # Step 3: Generate audio directly from the uploaded script
-        audio_response = requests.post(
-            f"{mulmocast_url}/api/execute",
-            json={
-                "command": "audio",
-                "args": [script_file_path, "--force"]
-            },
-            timeout=300
-        )
+        voices_response = elevenlabs_client.voices.get_all()
+        voices = voices_response.voices
         
-        if not audio_response.ok:
-            logger.error(f"Audio generation failed: {audio_response.text}")
-            return None
-            
-        audio_result = audio_response.json()
-        if not audio_result.get("success", False):
-            logger.error(f"Audio generation unsuccessful: {audio_result}")
-            return None
-            
-        logger.info(f"Audio generated successfully")
+        # Prefer Rachel, then any female voice, then first available
+        for voice in voices:
+            if "Rachel" in voice.name:
+                return voice.voice_id
         
-        # Step 5: Get the generated audio file
-        files_response = requests.get(f"{mulmocast_url}/api/files")
-        
-        if files_response.ok:
-            files_data = files_response.json()
-            
-            # Find audio files that match our session
-            session_audio_files = [
-                f for f in files_data 
-                if f.get("type") == "audio" and session_id in f.get("name", "")
-            ]
-            
-            # If no session-specific files, get the most recent audio file
-            if not session_audio_files:
-                audio_files = [f for f in files_data if f.get("type") == "audio"]
-                if audio_files:
-                    # Sort by modification time (newest first)
-                    audio_files.sort(key=lambda x: x.get("modified", 0), reverse=True)
-                    session_audio_files = [audio_files[0]]
-            
-            if session_audio_files:
-                latest_audio = session_audio_files[0]
+        for voice in voices:
+            if hasattr(voice, 'labels') and 'female' in str(voice.labels).lower():
+                return voice.voice_id
                 
-                # Generate client-accessible URLs (use localhost for frontend access)
-                client_mulmocast_url = os.getenv("MULMOCAST_CLIENT_URL", "http://localhost:5008")
-                
-                return {
-                    "success": True,
-                    "audio_file": latest_audio["name"],
-                    "audio_path": latest_audio["path"],
-                    "download_url": f"{client_mulmocast_url}/download/{latest_audio['path']}",
-                    "preview_url": f"{client_mulmocast_url}/api/preview/{latest_audio['path']}",
-                    "file_size": latest_audio.get("size", 0),
-                    "duration_estimate": "2-5 minutes"
-                }
-        
-        logger.warning("No audio files found after Mulmocast generation")
-        return None
-        
-    except requests.exceptions.Timeout:
-        logger.error(f"Mulmocast request timed out for session {session_id}")
-        return None
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Mulmocast request failed for session {session_id}: {str(e)}")
+        # Fallback to first voice
+        if voices:
+            return voices[0].voice_id
+            
         return None
     except Exception as e:
-        logger.error(f"Podcast generation failed for session {session_id}: {str(e)}")
+        logger.error(f"Failed to get default ElevenLabs voice: {e}")
         return None
-    finally:
-        # Clean up temporary script file
+
+async def generate_elevenlabs_podcast(
+    content: str, 
+    session_id: str,
+    voice_id: str,
+    voice_speed: float = 1.0,
+    voice_stability: float = 0.5,
+    output_quality: str = "mp3_22050_32"
+) -> Optional[Dict[str, Any]]:
+    """Generate podcast audio using ElevenLabs."""
+    try:
+        if not elevenlabs_client:
+            logger.error("ElevenLabs client not available")
+            return None
+            
+        logger.info(f"Generating ElevenLabs podcast for session {session_id} with voice {voice_id}")
+        
+        # Clean and prepare content for audio
+        clean_content = content.replace('[', '').replace(']', '').replace('*', '').replace('#', '')
+        if len(clean_content) > 5000:  # ElevenLabs character limit
+            clean_content = clean_content[:4900] + "..."
+        
+        # Set voice settings
+        voice_settings = VoiceSettings(
+            stability=voice_stability,
+            similarity_boost=0.8,
+            style=0.1,
+            use_speaker_boost=True
+        )
+        
+        # Generate audio
+        audio_result = elevenlabs_client.text_to_speech.convert(
+            voice_id=voice_id,
+            text=clean_content,
+            model_id="eleven_multilingual_v2",
+            voice_settings=voice_settings,
+            output_format="mp3_22050_32"
+        )
+        
+        # Save audio file
+        audio_dir = Path("static/audio")
+        audio_dir.mkdir(exist_ok=True)
+        
+        file_name = f"podcast_{session_id}_{int(time.time())}.mp3"
+        file_path = audio_dir / file_name
+        
+        # Write audio data
+        with open(file_path, "wb") as f:
+            # The text_to_speech.convert method returns bytes directly
+            f.write(audio_result)
+        
+        file_size = file_path.stat().st_size
+        
+        # Estimate duration (rough approximation)
+        word_count = len(clean_content.split())
+        duration_seconds = word_count / 2.5  # Approximate words per second
+        duration_estimate = f"{int(duration_seconds // 60)}:{int(duration_seconds % 60):02d}"
+        
+        # Get voice info
+        voice_info = f"ElevenLabs Voice {voice_id}"
         try:
-            if 'temp_script_path' in locals():
-                os.unlink(temp_script_path)
+            voices_response = elevenlabs_client.voices.get_all()
+            for voice in voices_response.voices:
+                if voice.voice_id == voice_id:
+                    voice_info = f"{voice.name} ({voice.category if hasattr(voice, 'category') else 'Professional'})"
+                    break
         except:
             pass
+        
+        return {
+            "success": True,
+            "file_name": file_name,
+            "file_path": str(file_path),
+            "download_url": f"/static/audio/{file_name}",
+            "file_size": file_size,
+            "duration_estimate": duration_estimate,
+            "voice_info": voice_info,
+            "voice_id": voice_id,
+            "output_quality": output_quality
+        }
+        
+    except Exception as e:
+        logger.error(f"ElevenLabs podcast generation failed for session {session_id}: {str(e)}")
+        return None
 
-def get_mulmocast_health() -> bool:
-    """
-    Check if Mulmocast service is available.
-    """
-    try:
-        mulmocast_url = os.getenv("MULMOCAST_URL", "http://localhost:5008")
-        response = requests.get(f"{mulmocast_url}/health", timeout=5)
-        return response.ok
-    except:
-        return False
+# OLD MULMOCAST FUNCTIONS COMPLETELY REMOVED - NOW USING ELEVENLABS ONLY
 
 # Startup and shutdown events
 
@@ -1328,11 +1388,11 @@ async def startup_event():
     logger.info("HTML parser initialized")
     logger.info("Content generator initialized")
     
-    # Check Mulmocast service availability
-    if get_mulmocast_health():
-        logger.info("Mulmocast service available - podcast generation enabled")
+    # Check ElevenLabs service availability (REPLACED MULMOCAST)
+    if elevenlabs_client:
+        logger.info("ElevenLabs service available - podcast generation enabled")
     else:
-        logger.warning("Mulmocast service not available - podcast generation will be skipped")
+        logger.warning("ElevenLabs service not available - podcast generation will be skipped")
     
     logger.info("LinkedIn Post Generator ready!")
 

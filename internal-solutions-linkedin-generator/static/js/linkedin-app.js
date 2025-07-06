@@ -390,6 +390,14 @@ class LinkedInPostGenerator {
         // Display content pieces
         this.displayContentPieces(results.content_pieces);
 
+        // Load ElevenLabs voices for enhanced podcast generation if podcast content exists
+        const hasPodcastContent = results.content_pieces && 
+                                 results.content_pieces.some(piece => piece.content_type === 'podcast');
+        if (hasPodcastContent) {
+            // Load voices after a short delay to ensure DOM is ready
+            setTimeout(() => this.loadElevenLabsVoices(), 500);
+        }
+
         // Show success message
         this.showSuccess('Content generation completed successfully! 🎉');
     }
@@ -526,6 +534,7 @@ class LinkedInPostGenerator {
 
     renderPodcastPreview(piece) {
         const hasAudio = piece.podcast_audio && piece.podcast_audio.preview_url;
+        const hasEnhancedAudio = piece.enhanced_podcast && piece.enhanced_podcast.file_name;
         
         return `
             <div class="podcast-preview">
@@ -533,40 +542,120 @@ class LinkedInPostGenerator {
                     <div class="podcast-icon">🎙️</div>
                     <div class="podcast-info">
                         <div class="podcast-title">LinkedIn Content Podcast</div>
-                        <div class="podcast-duration">${piece.podcast_audio?.duration_estimate || 'Generating...'}</div>
+                        <div class="podcast-duration">${piece.podcast_audio?.duration_estimate || 'Ready for generation'}</div>
                     </div>
                 </div>
+                
+                <!-- Enhanced Podcast Generation Controls -->
+                <div class="enhanced-podcast-controls" style="background: rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; margin: 1rem 0; border: 2px solid var(--primary-purple);">
+                    <h4 style="margin: 0 0 1rem 0; color: var(--primary-purple); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🎤</span> Enhanced Voice Generation
+                    </h4>
+                    
+                    <div class="voice-controls-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group">
+                            <label style="color: white; font-weight: 500;">Voice Selection:</label>
+                            <select id="voice-select-${this.sessionId}" class="select-input" style="width: 100%;">
+                                <option value="">Loading voices...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="color: white; font-weight: 500;">Audio Quality:</label>
+                            <select id="quality-select-${this.sessionId}" class="select-input" style="width: 100%;">
+                                <option value="mp3_22050_32" selected>Standard (32kbps)</option>
+                                <option value="mp3_44100_32">Enhanced (32kbps, 44kHz)</option>
+                                <option value="pcm_16000">Raw PCM (16kHz)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="color: white; font-weight: 500;">Voice Speed:</label>
+                            <select id="speed-select-${this.sessionId}" class="select-input" style="width: 100%;">
+                                <option value="0.8">0.8 - Slower</option>
+                                <option value="0.9">0.9 - Slightly Slow</option>
+                                <option value="1.0" selected>1.0 - Normal</option>
+                                <option value="1.1">1.1 - Slightly Fast</option>
+                                <option value="1.2">1.2 - Fast</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="color: white; font-weight: 500;">Voice Stability:</label>
+                            <select id="stability-select-${this.sessionId}" class="select-input" style="width: 100%;">
+                                <option value="0.3">0.3 - Very Expressive</option>
+                                <option value="0.4">0.4 - Expressive</option>
+                                <option value="0.5" selected>0.5 - Balanced</option>
+                                <option value="0.6">0.6 - Stable</option>
+                                <option value="0.7">0.7 - Very Stable</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button onclick="linkedInGenerator.generateEnhancedPodcast()" 
+                                id="generate-enhanced-btn-${this.sessionId}"
+                                class="action-button primary" 
+                                style="background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple)); padding: 0.75rem 2rem; font-weight: 600;">
+                            🎤 Generate Enhanced Podcast
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Traditional Audio Player (if available) -->
                 ${hasAudio ? `
                     <div class="podcast-player">
-                        <audio controls style="width: 100%; margin: 1rem 0;">
+                        <h5 style="color: var(--light-grey); margin: 0.5rem 0;">Traditional Podcast:</h5>
+                        <audio controls style="width: 100%; margin: 0.5rem 0;">
                             <source src="${piece.podcast_audio.preview_url}" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                     </div>
-                ` : `
-                    <div class="podcast-generating">
-                        <div class="thinking-animation" style="width: 40px; height: 40px; margin: 1rem auto;"></div>
-                        <div style="text-align: center; color: var(--light-grey);">Generating podcast audio...</div>
+                ` : ''}
+
+                <!-- Enhanced Audio Player (if available) -->
+                ${hasEnhancedAudio ? `
+                    <div class="enhanced-podcast-player" style="background: rgba(139, 69, 19, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                        <h5 style="color: var(--primary-purple); margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🎤</span> Enhanced ElevenLabs Podcast:
+                        </h5>
+                        <audio controls style="width: 100%; margin: 0.5rem 0;">
+                            <source src="${piece.enhanced_podcast.download_url}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div style="font-size: 0.9rem; color: var(--light-grey); margin-top: 0.5rem;">
+                            Voice: ${piece.enhanced_podcast.voice_id} | Quality: ${piece.enhanced_podcast.output_quality} | 
+                            Size: ${(piece.enhanced_podcast.file_size / 1024 / 1024).toFixed(2)} MB
+                        </div>
                     </div>
-                `}
+                ` : ''}
+                
                 <div class="podcast-content-preview">
                     <strong>Script Preview:</strong><br>
                     ${this.formatContentPreview(piece.content)}
                 </div>
-                ${hasAudio ? `
-                    <div class="podcast-actions" style="margin-top: 1rem; text-align: center;">
+                
+                <!-- Action Buttons -->
+                <div class="podcast-actions" style="margin-top: 1rem; text-align: center; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+                    ${hasAudio ? `
                         <a href="${piece.podcast_audio.download_url}" 
-                           class="action-button primary" 
-                           style="display: inline-block; text-decoration: none; margin: 0 0.5rem;">
-                            🎵 Download Audio
+                           class="action-button" 
+                           style="display: inline-block; text-decoration: none;">
+                            🎵 Download Basic Audio
                         </a>
-                        <button onclick="navigator.clipboard.writeText('${piece.podcast_audio.preview_url}')" 
-                                class="action-button" 
-                                style="margin: 0 0.5rem;">
-                            🔗 Copy Audio Link
-                        </button>
-                    </div>
-                ` : ''}
+                    ` : ''}
+                    ${hasEnhancedAudio ? `
+                        <a href="${piece.enhanced_podcast.download_url}" 
+                           class="action-button primary" 
+                           style="display: inline-block; text-decoration: none;">
+                            🎤 Download Enhanced Audio
+                        </a>
+                    ` : ''}
+                    <button onclick="linkedInGenerator.copyContent('podcast')" 
+                            class="action-button">
+                        📋 Copy Script
+                    </button>
+                </div>
             </div>
         `;
     }
@@ -703,6 +792,108 @@ class LinkedInPostGenerator {
                 modal.remove();
             }
         });
+    }
+
+    // Enhanced Podcast Generation Methods
+
+    async loadElevenLabsVoices() {
+        try {
+            const response = await fetch('/enhanced-podcast/voices');
+            if (!response.ok) {
+                console.warn('ElevenLabs voices not available:', await response.text());
+                return;
+            }
+            
+            const data = await response.json();
+            if (data.success && data.voices) {
+                const voiceSelect = document.getElementById(`voice-select-${this.sessionId}`);
+                if (voiceSelect) {
+                    voiceSelect.innerHTML = '<option value="">Choose a voice...</option>';
+                    
+                    data.voices.forEach(voice => {
+                        const option = document.createElement('option');
+                        option.value = voice.voice_id;
+                        option.textContent = `${voice.name} (${voice.gender}, ${voice.accent})`;
+                        option.title = voice.description;
+                        voiceSelect.appendChild(option);
+                    });
+                    
+                    // Pre-select a good default voice
+                    const defaultVoice = data.voices.find(v => v.name.includes('Rachel')) || 
+                                       data.voices.find(v => v.gender === 'Female') || 
+                                       data.voices[0];
+                    if (defaultVoice) {
+                        voiceSelect.value = defaultVoice.voice_id;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Failed to load ElevenLabs voices:', error);
+        }
+    }
+
+    async generateEnhancedPodcast() {
+        if (!this.sessionId) {
+            this.showError('No session available. Please upload content first.');
+            return;
+        }
+
+        const voiceSelect = document.getElementById(`voice-select-${this.sessionId}`);
+        const qualitySelect = document.getElementById(`quality-select-${this.sessionId}`);
+        const speedSelect = document.getElementById(`speed-select-${this.sessionId}`);
+        const stabilitySelect = document.getElementById(`stability-select-${this.sessionId}`);
+        const generateBtn = document.getElementById(`generate-enhanced-btn-${this.sessionId}`);
+
+        if (!voiceSelect.value) {
+            this.showError('Please select a voice for podcast generation.');
+            return;
+        }
+
+        // Store original button state outside try block
+        const originalText = generateBtn.innerHTML;
+
+        try {
+            // Update button state
+            generateBtn.innerHTML = '🎤 Generating Enhanced Podcast...';
+            generateBtn.disabled = true;
+
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('voice_id', voiceSelect.value);
+            formData.append('voice_speed', speedSelect.value);
+            formData.append('voice_stability', stabilitySelect.value);
+            formData.append('output_quality', qualitySelect.value);
+
+            // Generate enhanced podcast
+            const response = await fetch(`/enhanced-podcast/generate/${this.sessionId}`, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.detail || 'Enhanced podcast generation failed');
+            }
+
+            const result = await response.json();
+            
+            if (result.success) {
+                this.showSuccess(`🎤 Enhanced podcast generated successfully! File: ${result.file_name}`);
+                
+                // Refresh the results by fetching them again
+                await this.fetchResults();
+            } else {
+                throw new Error('Enhanced podcast generation was not successful');
+            }
+
+        } catch (error) {
+            console.error('Enhanced podcast generation error:', error);
+            this.showError(`Enhanced podcast generation failed: ${error.message}`);
+        } finally {
+            // Restore button state
+            generateBtn.innerHTML = originalText;
+            generateBtn.disabled = false;
+        }
     }
 
     // Utility Methods

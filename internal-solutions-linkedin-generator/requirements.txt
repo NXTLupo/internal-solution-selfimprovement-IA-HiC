@@ -13,3 +13,5 @@ textstat==0.7.3
 spacy==3.7.2
 lxml==4.9.3
 regex==2023.10.3
+elevenlabs>=1.8.0
+pydub==0.25.1

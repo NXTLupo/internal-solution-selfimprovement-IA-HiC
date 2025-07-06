@@ -87,12 +87,28 @@
 
 .content-preview .linkedin-post {
     background: #FFFFFF;
-    color: #000000;
+    color: #000000 !important;
     padding: 1rem;
     border-radius: 8px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.5;
     margin: 0.5rem 0;
+}
+
+/* Override global white text for LinkedIn preview content */
+.content-preview .linkedin-post *,
+.content-preview .linkedin-post h1,
+.content-preview .linkedin-post h2,
+.content-preview .linkedin-post h3,
+.content-preview .linkedin-post h4,
+.content-preview .linkedin-post h5,
+.content-preview .linkedin-post h6,
+.content-preview .linkedin-post p,
+.content-preview .linkedin-post span,
+.content-preview .linkedin-post div,
+.content-preview .linkedin-post a,
+.content-preview .linkedin-post label {
+    color: #000000 !important;
 }
 
 .content-preview .linkedin-post .post-header {
@@ -129,7 +145,7 @@
 
 .content-preview .linkedin-post .author-title {
     font-size: 0.8rem;
-    color: #666666;
+    color: #666666 !important;
 }
 
 .content-preview .linkedin-post .post-content {
@@ -289,6 +305,51 @@
 
 .tooltip:hover::before {
     opacity: 1;
+}
+
+/* Base Content Card Styling */
+.content-card {
+    background: rgba(30, 42, 56, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.content-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.content-card .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.content-card .content-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.content-card .quality-score {
+    color: #FFFFFF !important;
+    font-weight: 600;
+    padding: 4px 8px;
+    background: rgba(124, 58, 237, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
 /* Content Type Specific Styling */

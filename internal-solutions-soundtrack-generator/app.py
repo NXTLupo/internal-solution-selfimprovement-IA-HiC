@@ -160,7 +160,7 @@ class SoundtrackGenerator:
                                         music_duration: int = 15,
                                         music_prompt_influence: float = 0.2,
                                         mood: str = "neutral",
-                                        output_quality: str = "mp3_44100_192",
+                                        output_quality: str = "mp3_22050_32",
                                         dialogue_level: int = 0,
                                         effects_level: int = -8,
                                         music_level: int = -12) -> str:
@@ -357,12 +357,12 @@ class SoundtrackGenerator:
                 use_speaker_boost=True   # Enable speaker boost for clarity
             )
             
-            result = self.elevenlabs.generate(
+            result = self.elevenlabs.text_to_speech.convert(
+                voice_id=selected_voice,
                 text=text,
-                voice=selected_voice,
-                model="eleven_multilingual_v2",
+                model_id="eleven_multilingual_v2",
                 voice_settings=voice_settings,
-                stream=False
+                output_format="mp3_22050_32"
             )
             
             # Save temporary file
@@ -382,7 +382,7 @@ class SoundtrackGenerator:
             logger.error(f"Error generating dialogue: {e}")
             raise
     
-    async def _generate_custom_sound_effects(self, effects_description: str, duration: int, mood: str = "neutral", prompt_influence: float = 0.3, output_format: str = "mp3_44100_192") -> AudioSegment:
+    async def _generate_custom_sound_effects(self, effects_description: str, duration: int, mood: str = "neutral", prompt_influence: float = 0.3, output_format: str = "mp3_22050_32") -> AudioSegment:
         """Generate custom sound effects with ElevenLabs optimal settings for maximum variety"""
         try:
             # Use user's description and enhance with variety keywords
@@ -435,7 +435,7 @@ class SoundtrackGenerator:
             logger.error(f"Error generating custom sound effects: {e}")
             return AudioSegment.silent(duration=1000)
 
-    async def _generate_custom_background_music(self, music_description: str, duration: int, mood: str = "neutral", prompt_influence: float = 0.2, output_format: str = "mp3_44100_192") -> AudioSegment:
+    async def _generate_custom_background_music(self, music_description: str, duration: int, mood: str = "neutral", prompt_influence: float = 0.2, output_format: str = "mp3_22050_32") -> AudioSegment:
         """Generate custom background music with ElevenLabs optimal settings for maximum variety"""
         try:
             # Use user's description and enhance with variety keywords
@@ -1130,7 +1130,7 @@ async def generate_text_soundtrack(
     music_duration: int = Form(default=15),
     music_prompt_influence: float = Form(default=0.2),
     mood: str = Form(default="neutral"),
-    output_quality: str = Form(default="mp3_44100_192"),
+    output_quality: str = Form(default="mp3_22050_32"),
     dialogue_level: int = Form(default=0),
     effects_level: int = Form(default=-8),
     music_level: int = Form(default=-12)
