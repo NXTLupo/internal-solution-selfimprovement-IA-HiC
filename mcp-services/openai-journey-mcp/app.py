@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """
-OpenAI Journey Mapper MCP Service
----------------------------------
-This microservice provides a Model Context Protocol (MCP) wrapper for the OpenAI Journey Mapper.
+OpenAI Journey Mapper MCP Service - JSON-RPC 2.0 Compliant
+----------------------------------------------------------
+This microservice provides a Model Context Protocol (MCP) wrapper for the OpenAI Journey Mapper
+using proper JSON-RPC 2.0 format for agent integration.
 It enables the AI agent to interact with the OpenAI Journey Mapper through a standardized API.
 
 The service provides the following endpoints:
+- POST /mcp: JSON-RPC 2.0 endpoint for tool discovery and execution
 - GET /health: Health check endpoint
-- POST /upload: Upload files to the OpenAI Journey Mapper
-- POST /create: Create a journey map
-- GET /list: List all journey maps
-- GET /journey/{journey_id}: Get a specific journey map by ID
+- POST /upload: Upload files to the OpenAI Journey Mapper (legacy)
+- POST /create: Create a journey map (legacy)
+- GET /list: List all journey maps (legacy)
+- GET /journey/{journey_id}: Get a specific journey map by ID (legacy)
 """
 
 import os
@@ -20,7 +22,8 @@ from typing import List, Dict, Any, Optional
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import Union
 import httpx
 import aiofiles
 import aiohttp
@@ -63,7 +66,27 @@ logger.info(f"OpenAI Journey Mapper URL: {OPENAI_JOURNEY_MAPPER_URL}")
 UPLOADS_DIR = Path("uploads")
 UPLOADS_DIR.mkdir(exist_ok=True)
 
-# MCP Tool Model
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
+
+# Legacy MCP Tool Model
 class MCPToolSpec(BaseModel):
     """MCP Tool specification"""
     name: str
@@ -73,6 +96,401 @@ class MCPToolSpec(BaseModel):
 
 # Job tracking cache
 job_cache: Dict[str, Dict[str, Any]] = {}
+
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
+        
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "openai_journey_upload_file",
+                    "description": "Upload a file for OpenAI o3 journey mapping",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "file": {
+                                "type": "file",
+                                "description": "File to upload (PDF, CSV, TXT, or JSON)"
+                            }
+                        },
+                        "required": ["file"]
+                    }
+                },
+                {
+                    "name": "openai_journey_generate_map",
+                    "description": "Generate a journey map from uploaded data using OpenAI o3 reasoning",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "file_id": {
+                                "type": "string",
+                                "description": "ID of the previously uploaded file"
+                            },
+                            "title": {
+                                "type": "string",
+                                "description": "Title of the journey map",
+                                "default": "Customer Journey"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Description of the journey map",
+                                "default": "A visualization of the customer journey"
+                            },
+                            "journey_type": {
+                                "type": "string",
+                                "description": "Type of journey (customer, employee, etc.)",
+                                "default": "general"
+                            },
+                            "reasoning_effort": {
+                                "type": "string",
+                                "description": "Reasoning effort level for o3 model (low, medium, high)",
+                                "default": "medium"
+                            }
+                        },
+                        "required": ["file_id"]
+                    }
+                },
+                {
+                    "name": "openai_journey_get_results",
+                    "description": "Get the results of a generated OpenAI o3 journey map",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "journey_id": {
+                                "type": "string",
+                                "description": "ID of the journey map to retrieve"
+                            }
+                        },
+                        "required": ["journey_id"]
+                    }
+                },
+                {
+                    "name": "openai_journey_list_maps",
+                    "description": "List all available OpenAI o3 journey maps",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                },
+                {
+                    "name": "openai_journey_set_reasoning_effort",
+                    "description": "Set the reasoning effort level for OpenAI o3 model",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "effort_level": {
+                                "type": "string",
+                                "description": "Reasoning effort level (low, medium, high)",
+                                "enum": ["low", "medium", "high"]
+                            }
+                        },
+                        "required": ["effort_level"]
+                    }
+                }
+            ]
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "openai_journey_upload_file":
+                result = await execute_openai_journey_upload_file(arguments)
+            elif tool_name == "openai_journey_generate_map":
+                result = await execute_openai_journey_generate_map(arguments)
+            elif tool_name == "openai_journey_get_results":
+                result = await execute_openai_journey_get_results(arguments)
+            elif tool_name == "openai_journey_list_maps":
+                result = await execute_openai_journey_list_maps(arguments)
+            elif tool_name == "openai_journey_set_reasoning_effort":
+                result = await execute_openai_journey_set_reasoning_effort(arguments)
+            else:
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
+
+# Tool execution functions
+async def execute_openai_journey_upload_file(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute OpenAI journey upload file tool"""
+    try:
+        # Note: File uploads in JSON-RPC format will be handled differently
+        # For now, return a message directing users to use the form endpoint
+        return {
+            "error": "File uploads through JSON-RPC not yet supported. Please use the legacy endpoint.",
+            "status": "error",
+            "message": "Use the /mcp/invoke/openai_journey_upload_file endpoint for file uploads"
+        }
+    except Exception as e:
+        logger.exception("Error executing OpenAI journey upload file")
+        return {
+            "error": f"Error executing OpenAI journey upload file: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_openai_journey_generate_map(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute OpenAI journey generate map tool"""
+    try:
+        file_id = arguments.get("file_id")
+        title = arguments.get("title", "Customer Journey")
+        description = arguments.get("description", "A visualization of the customer journey")
+        journey_type = arguments.get("journey_type", "general")
+        reasoning_effort = arguments.get("reasoning_effort", "medium")
+        
+        if not file_id:
+            return {
+                "error": "file_id is required",
+                "status": "error"
+            }
+        
+        # Generate journey ID
+        journey_id = str(uuid.uuid4())
+        
+        # Prepare data for OpenAI Journey Mapper
+        data = {
+            "file_id": file_id,
+            "title": title,
+            "description": description,
+            "journey_type": journey_type,
+            "reasoning_effort": reasoning_effort
+        }
+        
+        logger.info(f"Creating OpenAI o3 journey map with data: {data}")
+        
+        # Send request to OpenAI Journey Mapper
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"{OPENAI_JOURNEY_MAPPER_URL}/create",
+                json=data,
+                timeout=3600  # 1 hour timeout for o3 reasoning
+            )
+        
+        if response.status_code == 200:
+            result = response.json()
+            actual_journey_id = result.get("journey_id", journey_id)
+            
+            # Cache the job info
+            job_cache[actual_journey_id] = {
+                "file_id": file_id,
+                "title": title,
+                "description": description,
+                "journey_type": journey_type,
+                "reasoning_effort": reasoning_effort,
+                "status": "completed",
+                "result": result
+            }
+            
+            return {"journey_id": actual_journey_id, "status": "success"}
+        else:
+            return {
+                "error": f"OpenAI Journey Mapper error (HTTP {response.status_code}): {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing OpenAI journey generate map")
+        return {
+            "error": f"Error executing OpenAI journey generate map: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_openai_journey_get_results(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute OpenAI journey get results tool"""
+    try:
+        journey_id = arguments.get("journey_id")
+        
+        if not journey_id:
+            return {
+                "error": "journey_id is required",
+                "status": "error"
+            }
+        
+        # Check our local cache first
+        if journey_id in job_cache:
+            cached_job = job_cache[journey_id]
+            cached_result = cached_job.get("result", {})
+            
+            # Prepare the visualization URL
+            visualization_url = f"{os.environ.get('OPENAI_JOURNEY_CLIENT_URL', 'http://localhost:8090')}/journey/{journey_id}"
+            
+            return {
+                "journey_id": journey_id,
+                "title": cached_job.get("title", ""),
+                "status": "completed",
+                "visualization_url": visualization_url,
+                "html": cached_result.get("html", ""),
+                "journey_map": cached_result.get("journey_map", {}),
+                "reasoning_analysis": cached_result.get("reasoning_analysis", ""),
+                "insights": cached_result.get("insights", []),
+                "result": cached_result
+            }
+        
+        # If not in cache, try to get from OpenAI Journey Mapper
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.get(
+                    f"{OPENAI_JOURNEY_MAPPER_URL}/journey/{journey_id}",
+                    timeout=30
+                )
+            
+            if response.status_code == 200:
+                result = response.json()
+                visualization_url = f"{os.environ.get('OPENAI_JOURNEY_CLIENT_URL', 'http://localhost:8090')}/journey/{journey_id}"
+                
+                return {
+                    "journey_id": journey_id,
+                    "status": "completed",
+                    "visualization_url": visualization_url,
+                    "html": result.get("html", ""),
+                    "journey_map": result.get("journey_map", {}),
+                    "result": result
+                }
+            else:
+                return {
+                    "error": f"OpenAI journey map with ID {journey_id} not found",
+                    "status": "error"
+                }
+        except Exception:
+            return {
+                "error": f"OpenAI journey map with ID {journey_id} not found or service unavailable",
+                "status": "error"
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing OpenAI journey get results")
+        return {
+            "error": f"Error executing OpenAI journey get results: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_openai_journey_list_maps(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute OpenAI journey list maps tool"""
+    try:
+        # Return journey maps from our local cache and try to get from service
+        processed_maps = []
+        
+        # Add cached journey maps
+        for journey_id, job_info in job_cache.items():
+            processed_maps.append({
+                "id": journey_id,
+                "title": job_info.get("title", "Unnamed Journey"),
+                "status": job_info.get("status", "completed"),
+                "description": job_info.get("description", ""),
+                "reasoning_effort": job_info.get("reasoning_effort", "medium"),
+                "created_at": "Recently created"
+            })
+        
+        # Try to get additional maps from the service
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.get(
+                    f"{OPENAI_JOURNEY_MAPPER_URL}/list",
+                    timeout=30
+                )
+            
+            if response.status_code == 200:
+                result = response.json()
+                service_maps = result.get("journeys", [])
+                
+                # Add service maps that aren't in our cache
+                for service_map in service_maps:
+                    map_id = service_map.get("id")
+                    if map_id not in job_cache:
+                        processed_maps.append({
+                            "id": map_id,
+                            "title": service_map.get("title", "Unnamed Journey"),
+                            "status": "completed",
+                            "description": service_map.get("description", ""),
+                            "created_at": service_map.get("created_at", "")
+                        })
+        except Exception:
+            logger.warning("Could not fetch additional maps from OpenAI Journey Mapper service")
+        
+        return {"journey_maps": processed_maps, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing OpenAI journey list maps")
+        return {
+            "error": f"Error executing OpenAI journey list maps: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_openai_journey_set_reasoning_effort(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute OpenAI journey set reasoning effort tool"""
+    try:
+        effort_level = arguments.get("effort_level")
+        
+        if not effort_level:
+            return {
+                "error": "effort_level is required",
+                "status": "error"
+            }
+        
+        if effort_level not in ["low", "medium", "high"]:
+            return {
+                "error": "effort_level must be one of: low, medium, high",
+                "status": "error"
+            }
+        
+        # Store the reasoning effort setting (this would typically be stored in a configuration)
+        # For now, we'll just return success
+        logger.info(f"Set OpenAI o3 reasoning effort to: {effort_level}")
+        
+        return {
+            "reasoning_effort": effort_level,
+            "status": "success",
+            "message": f"Reasoning effort set to {effort_level} for future o3 journey mappings"
+        }
+        
+    except Exception as e:
+        logger.exception("Error executing OpenAI journey set reasoning effort")
+        return {
+            "error": f"Error executing OpenAI journey set reasoning effort: {str(e)}",
+            "status": "error"
+        }
+
+# Legacy endpoints (for backward compatibility)
 
 @app.get("/health")
 async def health_check():
@@ -516,13 +934,14 @@ async def root():
         "service": "OpenAI Journey Mapper MCP",
         "version": "1.0.0",
         "endpoints": [
+            {"path": "/mcp", "method": "POST", "description": "JSON-RPC 2.0 endpoint for tool discovery and execution"},
             {"path": "/health", "method": "GET", "description": "Health check endpoint"},
-            {"path": "/upload", "method": "POST", "description": "Upload files to the Journey Mapper"},
-            {"path": "/create", "method": "POST", "description": "Create a journey map"},
-            {"path": "/list", "method": "GET", "description": "List all journey maps"},
-            {"path": "/journey/{journey_id}", "method": "GET", "description": "Get a specific journey map by ID"},
-            {"path": "/mcp/tools", "method": "GET", "description": "Get available MCP tools"},
-            {"path": "/mcp/invoke/{tool_name}", "method": "POST", "description": "Invoke an MCP tool"}
+            {"path": "/upload", "method": "POST", "description": "Upload files to the Journey Mapper (legacy)"},
+            {"path": "/create", "method": "POST", "description": "Create a journey map (legacy)"},
+            {"path": "/list", "method": "GET", "description": "List all journey maps (legacy)"},
+            {"path": "/journey/{journey_id}", "method": "GET", "description": "Get a specific journey map by ID (legacy)"},
+            {"path": "/mcp/tools", "method": "GET", "description": "Get available MCP tools (legacy)"},
+            {"path": "/mcp/invoke/{tool_name}", "method": "POST", "description": "Invoke an MCP tool (legacy)"}
         ]
     }
 

@@ -21,7 +21,8 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 13. **AI Presentation Generator**: Dual AI analysis pipeline for creating professional PowerPoint presentations (internal-solutions-presentation-generator)
 14. **Claude 4 Journey Mapper V2**: Enhanced customer journey mapping with advanced React architecture (internal-solutions-claude4-journey-mapper-v2)
 15. **Presentation AI**: Next.js-based presentation platform with Plate editor and advanced UI components (presentation-ai)
-16. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
+16. **Soundtrack Generator**: AI-powered audio content generation for multimedia presentations (internal-solutions-soundtrack-generator)
+17. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
 
 ## Architecture
 
@@ -77,8 +78,9 @@ Client Browser → Launchpad (8000) → Agent (8500) → MCP Services (8501-8507
 - `docker-compose-claude4.yml`: Claude 4 Journey Mapper specific configuration
 - `docker-compose-video-fixed.yml`: Video Transcriptor only
 - `docker-compose-https.yml`: HTTPS proxy with SSL certificates
-- `dynamic-compose.yml`: Dynamic port allocation for development
+- `dynamic-compose.yml`: Dynamic port allocation for development using environment variables
 - `nxt-compose.yml`: Alternative configuration with enhanced networking
+- `docker-compose-all.override.yml`: Automatically generated runtime configuration with API keys
 - `port_scanner.py`: Port conflict detection and resolution utility
 
 #### Service Entry Points
@@ -93,7 +95,7 @@ For immediate deployment of the entire workbench:
 
 ```bash
 # One-command startup (recommended for new users)
-./launch.sh
+./launch.sh                           # Includes SSL cert generation, port conflict resolution, and HTTPS proxy
 
 # Prerequisites check before launch
 python port_scanner.py                  # Check for port conflicts
@@ -103,6 +105,14 @@ docker --version && docker compose version  # Verify Docker setup
 ./backup-scripts/unified-launch.sh      # Unified launcher with all services
 ./backup-scripts/launch-with-all-services.sh  # Legacy all-services launcher
 ```
+
+### Automated Features in launch.sh
+The main launch script includes several automated features:
+- **Automatic SSL Certificate Generation**: Creates self-signed certificates for HTTPS
+- **Port Conflict Resolution**: Automatically kills conflicting processes
+- **HTTPS Proxy Setup**: Configures nginx proxy for secure connections
+- **API Key Validation**: Ensures required API keys are present in .env
+- **Service Health Verification**: Tests both HTTP and HTTPS endpoints
 
 ### Common Development Commands
 
@@ -571,6 +581,35 @@ curl -X POST http://localhost:5007/generate \
 
 **CRITICAL: The app.py file contains Claude 4 SVG generation code. Always restart the service after modifications to load the updated code.**
 
+#### Soundtrack Generator Development
+
+```bash
+# AI-powered soundtrack generation for multimedia content
+cd internal-solutions-soundtrack-generator
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export OPENAI_API_KEY=your_openai_key_here    # Required for audio generation
+python app.py        # Starts on port 5009
+
+# Using Docker
+docker compose -f docker-compose-all.yml up soundtrack-generator
+
+# Test soundtrack generation endpoints
+curl http://localhost:5009/health              # Service health check
+curl -X POST http://localhost:5009/generate \
+  -F "duration=30" \
+  -F "mood=energetic" \
+  -F "style=electronic"                       # Generate 30-second energetic electronic track
+```
+
+**Features**:
+- AI-powered music composition using OpenAI's audio models
+- Multiple genre and mood options (electronic, ambient, cinematic, etc.)
+- Variable duration support (15s to 5 minutes)
+- Integration with MulmoCast for multimedia presentations
+- Real-time generation with progress tracking
+
 ### Testing Infrastructure
 
 #### Test Commands by Category
@@ -991,6 +1030,7 @@ MIRO_GENERATOR_PORT=5004             # Optional, default: 5004
 IMAGE_CAPTIONER_PORT=5005            # Optional, default: 5005
 FLUX_LORA_STUDIO_PORT=5006           # Optional, default: 5006
 PRESENTATION_GENERATOR_PORT=5007     # Optional, default: 5007
+SOUNDTRACK_GENERATOR_PORT=5009       # Optional, default: 5009
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -1025,6 +1065,7 @@ MIRO_GENERATOR_CLIENT_URL=http://localhost:5004
 IMAGE_CAPTIONER_CLIENT_URL=http://localhost:5005
 FLUX_LORA_STUDIO_CLIENT_URL=http://localhost:5006
 PRESENTATION_GENERATOR_CLIENT_URL=http://localhost:5007
+SOUNDTRACK_GENERATOR_CLIENT_URL=http://localhost:5009
 ```
 
 ## Tool Integration
@@ -1561,7 +1602,7 @@ The project includes 35+ specialized documentation files for specific scenarios:
 
 ### Script Categories in `backup-scripts/`
 
-The `backup-scripts/` directory contains critical development automation:
+The `backup-scripts/` directory contains critical development automation and over 40 specialized scripts organized by function:
 
 ```bash
 # Launch Scripts (12+ variants)

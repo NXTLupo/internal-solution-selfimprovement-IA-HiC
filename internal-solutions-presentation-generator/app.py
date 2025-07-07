@@ -33,8 +33,10 @@ from typing import Union
 import xml.etree.ElementTree as ET
 import subprocess
 import tempfile
+# Import the maximum quality D3 infographic generator
+from d3_infographic_generator_max_quality import MaxQualityD3InfographicGenerator, create_max_quality_d3_infographic
 
-app = FastAPI(title="AI Presentation Generator", description="FastAPI-based presentation generation service")
+app = FastAPI(title="AI Presentation Generator", description="FastAPI-based presentation generation service with maximum quality graphics")
 
 # CORS middleware
 app.add_middleware(
@@ -250,6 +252,178 @@ def create_accessibility_features(ax, chart_type, data_summary):
     
     return alt_text
 
+def convert_svg_to_max_quality_png(svg_path: str, png_path: str) -> bool:
+    """
+    Convert SVG to ultra-high quality PNG with maximum resolution and text clarity.
+    Uses multiple conversion methods to ensure the highest possible quality.
+    """
+    try:
+        print(f"🎯 MAXIMUM QUALITY SVG-to-PNG conversion...")
+        
+        # MAXIMUM QUALITY SETTINGS
+        QUALITY_MULTIPLIER = 6  # 6x base resolution
+        BASE_WIDTH = 1200      # Base width for presentation graphics
+        BASE_HEIGHT = 800      # Base height for presentation graphics
+        
+        # Calculate ultra-high resolution
+        target_width = BASE_WIDTH * QUALITY_MULTIPLIER   # 7200px
+        target_height = BASE_HEIGHT * QUALITY_MULTIPLIER # 4800px
+        target_dpi = 300 * QUALITY_MULTIPLIER             # 1800 DPI
+        
+        print(f"   Target resolution: {target_width}×{target_height}px @ {target_dpi} DPI")
+        print(f"   Quality multiplier: {QUALITY_MULTIPLIER}x")
+        
+        # Method 1: Try CairoSVG with maximum quality settings
+        try:
+            import cairosvg
+            print(f"   Using CairoSVG for maximum quality conversion...")
+            
+            cairosvg.svg2png(
+                url=svg_path,
+                write_to=png_path,
+                output_width=target_width,
+                output_height=target_height,
+                dpi=target_dpi,
+                # Maximum quality settings
+                background_color='transparent'
+            )
+            
+            if os.path.exists(png_path):
+                png_size = os.path.getsize(png_path)
+                print(f"✅ CairoSVG conversion successful: {png_size:,} bytes")
+                return True
+        except ImportError:
+            print(f"   CairoSVG not available, trying alternative methods...")
+        except Exception as e:
+            print(f"   CairoSVG failed: {e}")
+        
+        # Method 2: Try Playwright with maximum quality rendering
+        try:
+            print(f"   Using Playwright for ultra-high quality rendering...")
+            
+            # Use the max quality D3 generator's Playwright setup for SVG conversion
+            import asyncio
+            from playwright.async_api import async_playwright
+            
+            async def convert_with_playwright():
+                async with async_playwright() as p:
+                    browser = await p.chromium.launch(
+                        headless=True,
+                        args=[
+                            '--disable-web-security',
+                            '--disable-features=VizDisplayCompositor',
+                            f'--force-device-scale-factor={QUALITY_MULTIPLIER}',
+                            '--high-dpi-support=1',
+                            '--force-color-profile=srgb',
+                            '--enable-gpu-rasterization',
+                            '--disable-background-timer-throttling'
+                        ]
+                    )
+                    
+                    try:
+                        page = await browser.new_page(
+                            device_scale_factor=QUALITY_MULTIPLIER,
+                            viewport={'width': target_width, 'height': target_height}
+                        )
+                        
+                        # Load SVG file
+                        await page.goto(f"file://{svg_path}")
+                        
+                        # Wait for fonts and rendering
+                        await page.evaluate("document.fonts.ready")
+                        await page.wait_for_timeout(2000)
+                        
+                        # Screenshot with maximum quality
+                        screenshot_bytes = await page.screenshot(
+                            type='png',
+                            omit_background=True,
+                            full_page=True,
+                            animations='disabled'
+                        )
+                        
+                        # Save to file
+                        with open(png_path, 'wb') as f:
+                            f.write(screenshot_bytes)
+                        
+                        return True
+                        
+                    finally:
+                        await browser.close()
+            
+            # Run async conversion
+            success = asyncio.run(convert_with_playwright())
+            if success and os.path.exists(png_path):
+                png_size = os.path.getsize(png_path)
+                print(f"✅ Playwright conversion successful: {png_size:,} bytes")
+                return True
+                
+        except Exception as e:
+            print(f"   Playwright conversion failed: {e}")
+        
+        # Method 3: Try ImageMagick/Wand with maximum quality
+        try:
+            from wand.image import Image as WandImage
+            print(f"   Using Wand/ImageMagick for maximum quality conversion...")
+            
+            with WandImage(filename=svg_path) as img:
+                # Set maximum quality parameters
+                img.format = 'png'
+                img.background_color = 'transparent'
+                img.resolution = (target_dpi, target_dpi)
+                
+                # Resize to target dimensions with high-quality resampling
+                img.resize(target_width, target_height)
+                
+                # Apply maximum quality filters
+                img.unsharp_mask(radius=0, sigma=0.5, amount=1, threshold=0)
+                
+                # Save with maximum compression quality
+                img.compression_quality = 100
+                img.save(filename=png_path)
+            
+            if os.path.exists(png_path):
+                png_size = os.path.getsize(png_path)
+                print(f"✅ Wand conversion successful: {png_size:,} bytes")
+                return True
+                
+        except ImportError:
+            print(f"   Wand not available")
+        except Exception as e:
+            print(f"   Wand conversion failed: {e}")
+        
+        # Method 4: Fallback with subprocess (Inkscape if available)
+        try:
+            print(f"   Trying Inkscape command-line conversion...")
+            
+            cmd = [
+                'inkscape',
+                f'--export-filename={png_path}',
+                f'--export-width={target_width}',
+                f'--export-height={target_height}',
+                f'--export-dpi={target_dpi}',
+                '--export-background-opacity=0',
+                svg_path
+            ]
+            
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            
+            if result.returncode == 0 and os.path.exists(png_path):
+                png_size = os.path.getsize(png_path)
+                print(f"✅ Inkscape conversion successful: {png_size:,} bytes")
+                return True
+            else:
+                print(f"   Inkscape failed: {result.stderr}")
+                
+        except (subprocess.SubprocessError, FileNotFoundError, subprocess.TimeoutExpired) as e:
+            print(f"   Inkscape not available or failed: {e}")
+        
+        print(f"❌ All conversion methods failed")
+        return False
+        
+    except Exception as e:
+        print(f"❌ Maximum quality PNG conversion error: {e}")
+        return False
+
 def generate_chart_from_spec(visual_spec: Dict[str, Any], output_path: str) -> bool:
     """Generate elegant minimalist SVG infographics using Claude 4 with dual-pass chain-of-thought refinement"""
     try:
@@ -260,10 +434,20 @@ def generate_chart_from_spec(visual_spec: Dict[str, Any], output_path: str) -> b
         context = visual_spec.get('context', '')
         concept = visual_spec.get('concept', 'business strategy')
         
+        # NEW: Extract actual slide content for relevancy
+        slide_content = visual_spec.get('slide_content', {})
+        slide_title = slide_content.get('title', '')
+        content_points = slide_content.get('content_points', [])
+        source_quote = slide_content.get('source_quote', '')
+        slide_number = slide_content.get('slide_number', 1)
+        
         # Debug output to understand what we're receiving
-        print(f"🔍 DEBUG - Visual Spec Received:")
+        print(f"🔍 DEBUG - Enhanced Visual Spec Received:")
         print(f"  Chart Type: {chart_type}")
-        print(f"  Title: {title}")
+        print(f"  Visual Title: {title}")
+        print(f"  Slide Title: {slide_title}")
+        print(f"  Content Points: {len(content_points)}")
+        print(f"  Source Quote: {source_quote[:100] if source_quote else 'None'}...")
         print(f"  Context: {context}")
         print(f"  Concept: {concept}")
         print(f"  Data: {data}")
@@ -342,25 +526,33 @@ STRATEGIC CONTEXT: {context}
 EXECUTIVE TITLE: {title}
 VISUAL TYPE: {chart_type}
 
-CONCRETE DATA TO VISUALIZE:
+🎯 **ACTUAL SLIDE CONTENT TO VISUALIZE** (SLIDE #{slide_number}):
+**SLIDE TITLE**: "{slide_title}"
+
+**SLIDE CONTENT POINTS**:
+{chr(10).join([f"• {point}" for point in content_points]) if content_points else "• No specific content points provided"}
+
+**SOURCE QUOTE**: "{source_quote if source_quote else 'No quote provided'}"
+
+**LEGACY DATA** (use only if relevant to slide content):
 - ELEMENTS: {elements}
 - METRICS: {metrics}  
 - RELATIONSHIPS: {relationships}
 - STRATEGIC QUOTE: "{strategic_quote}"
 - EMPHASIS FOCUS: {emphasis_elements}
-- HUMAN INSIGHTS: {human_insights}
 
-🚨 **CRITICAL DATA AUTHENTICITY REQUIREMENTS**:
-- **NEVER INVENT DATA**: Only use statistics, numbers, and metrics that actually exist in the source material
-- **NO PLACEHOLDER NUMBERS**: If no specific metrics are provided, do NOT create fake percentages like 25%, 50%, 75%
-- **AUTHENTIC CONTENT ONLY**: Every data point in your infographic must come from the actual user-uploaded content
-- **NO HALLUCINATED STATISTICS**: If the data lists are empty [], create conceptual visuals without fake numbers
-- **VERIFY DATA SOURCE**: Before including ANY statistic, confirm it exists in the original content
+🚨 **CRITICAL CONTENT RELEVANCY REQUIREMENTS**:
+- **VISUALIZE THE SLIDE CONTENT**: Create an infographic that directly represents the slide title and content points above
+- **NEVER IGNORE SLIDE CONTENT**: The infographic must reflect what this specific slide is about
+- **AUTHENTIC REPRESENTATION**: Use the actual slide content points as the foundation for your visualization
+- **NO GENERIC PLACEHOLDERS**: Don't create generic business graphics - make it specific to this slide's message
+- **CONTENT-FIRST DESIGN**: Let the slide content drive the visual concept, not the chart type
+- **VERIFY RELEVANCE**: Every visual element must relate to the slide title or content points
 
-CONCEPTUAL ANALYSIS PHASE - THINK LIKE DIETER RAMS:
+CONTENT-DRIVEN ANALYSIS PHASE - THINK LIKE DIETER RAMS:
 Before generating any SVG, you must THINK HARD and analyze:
 
-1. **SLIDE CONTENT ANALYSIS**: What is the core message of this slide? What are the key concepts being communicated?
+1. **SLIDE CONTENT ANALYSIS**: What is the core message of "{slide_title}"? What are the key concepts in the content points?
 
 2. **RAMS CONCEPTUAL APPROACH**: How would Dieter Rams visually represent these concepts? What would he reduce this complex information down to?
 
@@ -376,14 +568,21 @@ EXAMPLE CONCEPTUAL THINKING:
 - If showing framework: Think "relationship matrix" → geometric grid with clear quadrant labels
 - If showing process: Think "sequential flow" → connected geometric shapes with directional clarity
 
-SPECIFIC VISUAL REQUIREMENTS:
-You MUST create a functional infographic based on your conceptual analysis, NOT just a circle with text. Design what Dieter Rams would create for this specific content.
+CONTENT-SPECIFIC VISUAL REQUIREMENTS:
+You MUST create a functional infographic that directly represents the slide content above. Design what Dieter Rams would create to visualize "{slide_title}" and its content points.
+
+CONTENT-DRIVEN DESIGN APPROACH:
+- **Slide Title Integration**: The slide title "{slide_title}" should be prominently featured
+- **Content Point Visualization**: Each content point should be visually represented through icons, shapes, or text
+- **Quote Integration**: If a source quote exists, incorporate it meaningfully into the design
+- **Conceptual Representation**: Create visual metaphors that relate to the actual content meaning
+- **Relevant Visual Elements**: Every shape, icon, or graphic element must relate to the slide's message
 
 INCORPORATE TYPOGRAPHY ENHANCEMENTS:
-- Use BOLD text with font-weight="700" for key insights and emphasis elements
-- Include strategic quotes with proper text elements and stroke borders
-- Add minimalist geometric shapes (12px or 16px) for functional purposes
-- Apply clean typographic hierarchy with explicit font sizes
+- Use BOLD text with font-weight="700" for the slide title and key content points
+- Include source quotes with proper text elements and stroke borders
+- Add minimalist geometric shapes that represent the content concepts
+- Apply clean typographic hierarchy that prioritizes the slide content
 
 🎨 DIETER RAMS DESIGN ANALYSIS FROM REFERENCE IMAGES:
 
@@ -499,51 +698,63 @@ RAMS EXECUTION PRINCIPLES:
 - **Typography Discipline**: Maximum 3 font sizes, consistent letter-spacing
 - **Breathing Space**: 60%+ negative space for visual clarity
 
-SPECIFIC VISUAL TYPE INSTRUCTIONS:
+CONTENT-DRIVEN VISUAL INSTRUCTIONS:
 
-IF chart_type contains "dashboard" or "performance":
-- Create multiple data cards with metrics, like the reference images
+📋 **PRIMARY INSTRUCTION - READ THE SLIDE CONTENT**:
+Analyze the slide title "{slide_title}" and content points to determine the most appropriate visual representation:
+
+IF the slide content involves NUMBERS, METRICS, or PERFORMANCE:
+- Create data cards representing the specific metrics mentioned in the content points
 - Use rectangular cards with stroke="#333333" stroke-width="1"
-- Show actual numbers from the metrics array with font-weight="700"
-- Add progress bars or indicators for each metric
-- Include relevant geometric shapes (16px): rectangles, circles, triangles
-- Add quote if available using text elements with stroke borders
+- Display actual numbers/percentages from the slide content with font-weight="700"
+- Add progress bars only if the content mentions progress or comparisons
+- Include the slide title prominently at the top
+- Add the source quote if available using text elements with stroke borders
 
-IF chart_type contains "framework" or "matrix":
-- Create a 2x2 or 2x3 grid layout with explicit coordinates
-- Label each quadrant with elements from the data using font-size="12"
-- Bold key insights using font-weight="700"
-- Add minimal connecting lines if showing relationships
-- Include geometric icons (12px) for each quadrant: circles, squares, triangles
-- Position quote (if available) below grid with stroke border
+IF the slide content involves FRAMEWORKS, COMPARISONS, or CATEGORIES:
+- Create a grid layout that organizes the content points into logical groups
+- Label each section with text from the actual content points using font-size="12"
+- Bold key insights from the slide content using font-weight="700"
+- Add minimal connecting lines only if the content implies relationships
+- Include geometric icons that represent the content concepts
+- Position the slide title prominently and source quote below
 
-IF chart_type contains "journey" or "timeline":
-- Create horizontal timeline with precise tick marks
-- Show progression through the elements array
-- Use circles or squares as milestone markers with geometric shapes inside
-- Add connecting lines between stages with directional arrows
-- Bold key milestone names using font-weight="700"
-- Include customer quote with proper text and quotation marks
+IF the slide content involves PROCESS, JOURNEY, or SEQUENCE:
+- Create a timeline or flow that represents the sequence mentioned in content points
+- Use the actual content points as milestone/step labels
+- Add connecting lines with directional arrows only if content implies progression
+- Bold key stage names from the slide content using font-weight="700"
+- Include the slide title as the main heading
+- Incorporate source quote meaningfully
 
-IF chart_type contains "flow" or "process":
-- Create sequential steps using the elements array
-- Connect with clean arrows using line elements
-- Show progression from left to right
-- Use rectangular containers for each step
-- Bold action words and key insights using font-weight="700"
-- Add geometric shapes: arrows, circles, plus signs (16px size)
-- Include relevant quote positioned strategically within flow
+IF the slide content involves CONCEPTS, IDEAS, or INSIGHTS:
+- Create a conceptual visualization using geometric shapes and typography
+- Feature the slide title as the central element
+- Arrange content points around the central theme using clean typography
+- Use minimalist icons that represent the specific concepts mentioned
+- Include source quote as supporting evidence
+
+🎯 **FINAL CONTENT-DRIVEN INSTRUCTION**:
+Ignore the generic chart_type suggestion. Instead, read the slide content above and create a Dieter Rams-inspired infographic that accurately visualizes:
+1. The slide title: "{slide_title}"
+2. The specific content points listed above
+3. The source quote (if provided)
+
+Make it relevant to what THIS SPECIFIC SLIDE is actually about.
 
 CRITICAL INSTRUCTIONS:
-- DO NOT create just a circle with text or any generic placeholder
-- First complete your conceptual analysis thinking process
-- Then design the specific infographic that Dieter Rams would create for this exact content
-- Use the actual data elements, metrics, quotes, and relationships provided
-- Create geometric shapes, charts, grids, timelines, or flows based on your conceptual analysis
-- Apply brutal minimalism - every element must serve a clear communicative purpose
+- DO NOT create generic business graphics or placeholder content
+- DO NOT ignore the slide content in favor of the chart type
+- First analyze what "{slide_title}" and its content points are specifically about
+- Then design the exact infographic that represents this slide's unique message
+- Use the actual slide content as labels, data points, and visual elements
+- Apply Dieter Rams minimalism while staying true to the slide content
 
-RAMS WOULD ASK: "What is the essential visual truth I need to communicate here?"
-Then create THAT specific visualization.
+CONTENT-FIRST DESIGN PROCESS:
+1. Read the slide title and content points carefully
+2. Identify the key concepts and relationships in this specific content
+3. Design visual elements that represent these specific concepts
+4. Create THAT content-specific visualization
 
 CRITICAL SVG REQUIREMENTS:
 - **UNRESTRICTED DIMENSIONS**: Use optimal width and height for best visual impact - NO size restrictions
@@ -1864,11 +2075,11 @@ Return your analysis as valid JSON with this exact structure:
             "content": ["Specific finding from source", "Supporting data point", "Direct conclusion from content"],
             "source_quote": "Direct quote from the source material for emphasis",
             "visual": {
-                "type": "KPI_dashboard|journey_map|block_quote|executive_insight_framework|visualization|infographic|data_story|technical_diagram|process_flow|comparison_matrix|performance_dashboard|stakeholder_map|vision_metaphor|growth_trajectory|competitive_landscape",
+                "type": "kpi_dashboard|gauge_chart|progress_ring|performance_scorecard|executive_dashboard|automation_rate_display|advanced_bar_comparison|split_comparison|benchmark_chart|competitive_positioning|before_after_comparison|ranking_visualization|strategic_matrix_2x2|swot_analysis_grid|bcg_matrix|porter_five_forces|value_chain_diagram|business_model_canvas|process_flow_advanced|customer_journey_map|timeline_advanced|strategic_roadmap|conversion_funnel|organizational_hierarchy|stakeholder_map|network_relationship|business_ecosystem|influence_diagram|financial_waterfall|revenue_breakdown|roi_visualization|trend_analysis_advanced|forecast_visualization|growth_trajectory|distribution_analysis|correlation_matrix|risk_assessment_matrix|risk_heatmap|compliance_scorecard|innovation_pipeline|portfolio_analysis|customer_segmentation|satisfaction_analysis|market_share_analysis|executive_quote_display|key_insight_highlight|testimonial_layout|fact_sheet_display|executive_summary_visual|conclusion_highlight|pie_chart_advanced|bar_chart_professional|line_chart_executive|scatter_analysis|heatmap_professional|treemap_hierarchy|capacity_utilization|resource_allocation|operational_efficiency|quality_metrics|employee_metrics",
                 "title": "Clear Visual Title (1-3 words)",
                 "concept": "concept that accurately represents the data",
                 "context": "How this visual clearly communicates the source information",
-                "design_approach": "glass_morphism|holographic_gradients|metallic_premium|neon_accents|sophisticated_depth",
+                "design_approach": "ultra_minimal|executive_professional|strategic_clarity|data_focused|insight_driven",
                 "advanced_svg_features": {
                     "visual_effects": "multi_layered_glow|glass_morphism_blur|gradient_mesh_depth",
                     "color_palette": "gold_metallic|sapphire_premium|platinum_elite|neon_accents", 
@@ -1886,17 +2097,66 @@ Return your analysis as valid JSON with this exact structure:
     ]
 }
 
-SOPHISTICATED INFORMATION DESIGN GUIDELINES:
-- strategic_framework: Mathematical grid layouts, sophisticated 2x2 matrices, strategic positioning with metallic accent treatments
-- transformation_journey: Timeline-based layouts with systematic spacing, evolution paths using gradient progressions
-- ecosystem_diagram: Network visualizations with card-based containers, stakeholder relationships using strategic color assignments
-- process_flow: Step-by-step flows with accent bars, systematic information hierarchy, professional spacing relationships
-- comparison_matrix: Side-by-side analysis using grid principles, clear visual separation, strategic color coding
-- performance_dashboard: KPI cards with metallic gradients, sophisticated typography scales, systematic visual hierarchy
-- stakeholder_map: Network diagrams with card containers, influence relationships, systematic layout principles
-- vision_metaphor: Conceptual visualizations using sophisticated design language, premium visual effects
-- growth_trajectory: Trend visualizations with mathematical precision, gradient progressions, systematic data representation
-- competitive_landscape: Market positioning using grid layouts, strategic color assignments, sophisticated visual organization
+COMPREHENSIVE VISUAL CLARITY SYSTEM - NO OVERLAPPING ELEMENTS:
+
+**CRITICAL VISUAL CLARITY REQUIREMENTS:**
+1. **Perfect Element Spacing**: Minimum 16px between any two elements - NEVER allow overlapping
+2. **Mathematical Grid System**: All elements align to 8px grid - perfect registration required
+3. **Clear Reading Hierarchy**: Primary → Secondary → Tertiary with size ratios of 1.0 → 0.85 → 0.7
+4. **Safe Margins**: 24px minimum from all edges, 32px for important elements
+5. **Text Readability**: Minimum 12px font size, maximum 70 characters per line
+6. **Touch-Safe Spacing**: Minimum 28px between interactive elements
+7. **Contrast Verification**: All text must have 7:1+ contrast ratio against background
+
+**ADVANCED LAYOUT PRECISION SYSTEM:**
+- **Bounding Box Calculation**: Every element must have defined x,y,width,height boundaries
+- **Collision Detection Logic**: Elements cannot occupy overlapping coordinates
+- **Intelligent Positioning**: Auto-adjust placement to prevent visual conflicts
+- **Responsive Spacing**: Scale spacing proportionally with content density
+- **Visual Weight Distribution**: Balance heavy elements across the composition
+
+**PROFESSIONAL CHART TYPE SPECIFICATIONS:**
+
+**PERFORMANCE & KPI VISUALIZATIONS:**
+- gauge_chart: Circular progress with clear percentage display, min 120px diameter
+- kpi_dashboard: Card-based layout with 16px padding, max 4 cards per row
+- progress_ring: Donut chart with center text, stroke-width proportional to size
+- performance_scorecard: Table layout with alternating row colors, clear headers
+- automation_rate_display: Large percentage with context bars, clear numerical hierarchy
+
+**STRATEGIC FRAMEWORKS:**
+- strategic_matrix_2x2: Perfect quadrants with equal spacing, clear axis labels
+- swot_analysis_grid: Four-section layout with color-coded categories
+- porter_five_forces: Pentagon layout with force arrows, balanced positioning
+- value_chain_diagram: Horizontal flow with activity boxes, clear connections
+- business_model_canvas: Nine-section grid with consistent spacing and typography
+
+**COMPARISON & BENCHMARKING:**
+- advanced_bar_comparison: Horizontal bars with clear labels, value indicators
+- split_comparison: Two-column layout with central divider, mirrored elements
+- benchmark_chart: Reference line with performance indicators, clear thresholds
+- before_after_comparison: Side-by-side panels with clear temporal indicators
+
+**PROCESS & JOURNEY VISUALIZATIONS:**
+- process_flow_advanced: Step-by-step with directional arrows, consistent spacing
+- customer_journey_map: Timeline with touchpoints, emotional indicators
+- timeline_advanced: Horizontal or vertical with milestone markers, date clarity
+- conversion_funnel: Decreasing width sections with conversion rates
+
+**RISK & COMPLIANCE:**
+- risk_assessment_matrix: Impact vs Probability grid with color-coded zones
+- risk_heatmap: Color intensity mapping with clear legends
+- compliance_scorecard: Status indicators with red/yellow/green system
+
+**FINANCIAL & BUSINESS METRICS:**
+- financial_waterfall: Sequential bars showing cumulative changes
+- revenue_breakdown: Segmented visualization with clear category labels
+- roi_visualization: Return metrics with time-based comparisons
+
+**TEXTUAL & INSIGHT DISPLAYS:**
+- executive_quote_display: Large quote with attribution, visual emphasis
+- key_insight_highlight: Callout box with accent colors, clear typography
+- fact_sheet_display: Organized data points with consistent formatting
 
 DESIGN SYSTEM REQUIREMENTS:
 1. **Systematic Visual Hierarchy**: Apply 8px spacing system and typography scales consistently across all visuals
@@ -2614,15 +2874,25 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                 print(f"   Visual spec keys: {list(visual_spec.keys())}")
                 print(f"   Visual spec content: {visual_spec}")
                 
-                print(f"📊 Generating Claude 4 SVG infographic:")
-                print(f"   Chart type: {visual_spec.get('type', 'Unknown')}")
-                print(f"   Chart title: {visual_spec.get('title', 'Unknown')}")
-                print(f"   Concept: {visual_spec.get('concept', 'Unknown')}")
-                print(f"   Context: {visual_spec.get('context', 'Unknown')}")
+                # ENHANCE: Add actual slide content to the visual spec for better relevancy
+                enhanced_visual_spec = visual_spec.copy()
+                enhanced_visual_spec['slide_content'] = {
+                    'title': slide_data.get('title', ''),
+                    'content_points': slide_data.get('content', []),
+                    'source_quote': slide_data.get('source_quote', ''),
+                    'slide_number': slide_count,
+                    'total_slides': len(analysis["structure"]["slides"])
+                }
+                
+                print(f"📊 Generating CONTENT-RELEVANT Claude 4 SVG infographic:")
+                print(f"   Chart type: {enhanced_visual_spec.get('type', 'Unknown')}")
+                print(f"   Chart title: {enhanced_visual_spec.get('title', 'Unknown')}")
+                print(f"   Slide title: {enhanced_visual_spec['slide_content']['title']}")
+                print(f"   Content points: {len(enhanced_visual_spec['slide_content']['content_points'])}")
                 print(f"   Output path: {chart_path}")
                 
-                # Generate the SVG infographic
-                chart_generated = generate_chart_from_spec(visual_spec, chart_path)
+                # Generate the SVG infographic using Claude 4 with enhanced content relevancy
+                chart_generated = generate_chart_from_spec(enhanced_visual_spec, chart_path)
                 
                 if chart_generated:
                     print(f"✅ SVG infographic generated successfully: {chart_path}")
@@ -2686,61 +2956,51 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                 try:
                     # Convert SVG to PNG for PowerPoint compatibility
                     png_path = chart_path.replace('.svg', '.png')
-                    print(f"🔄 High-fidelity SVG to PNG conversion (576×504px @ 144 DPI)...")
+                    print(f"🎯 MAXIMUM QUALITY SVG to PNG conversion (7200×4800px @ 1800 DPI)...")
                     print(f"   SVG: {chart_path}")
                     print(f"   PNG: {png_path}")
                     
-                    # High-fidelity SVG to PNG conversion using CairoSVG
-                    try:
-                        import cairosvg
+                    # MAXIMUM QUALITY SVG to PNG conversion
+                    conversion_success = convert_svg_to_max_quality_png(chart_path, png_path)
+                    
+                    if conversion_success and os.path.exists(png_path):
+                        png_size = os.path.getsize(png_path)
+                        print(f"✅ MAXIMUM QUALITY SVG converted to PNG: {png_size:,} bytes")
                         
-                        # High-quality conversion with increased DPI for crisp rendering
-                        cairosvg.svg2png(
-                            url=chart_path,
-                            write_to=png_path,
-                            output_width=576,   # 2x resolution for crisp rendering
-                            output_height=504,  # 2x resolution for crisp rendering  
-                            dpi=144             # High DPI for sharp graphics
-                        )
+                        # Insert into PowerPoint template image placeholder
+                        image_inserted = False
                         
-                        if os.path.exists(png_path):
-                            png_size = os.path.getsize(png_path)
-                            print(f"✅ SVG converted to PNG: {png_size} bytes")
-                            
-                            # Insert into PowerPoint template image placeholder
-                            image_inserted = False
-                            
-                            # Look for PICTURE placeholder in the slide
-                            for shape in slide.placeholders:
-                                try:
-                                    placeholder_type = getattr(shape.placeholder_format, 'type', None)
-                                    placeholder_idx = shape.placeholder_format.idx
+                        # Look for PICTURE placeholder in the slide
+                        for shape in slide.placeholders:
+                            try:
+                                placeholder_type = getattr(shape.placeholder_format, 'type', None)
+                                placeholder_idx = shape.placeholder_format.idx
+                                
+                                if placeholder_type == 18:  # PICTURE placeholder
+                                    print(f"📍 Found PICTURE placeholder {placeholder_idx} - inserting PNG")
                                     
-                                    if placeholder_type == 18:  # PICTURE placeholder
-                                        print(f"📍 Found PICTURE placeholder {placeholder_idx} - inserting PNG")
-                                        
-                                        # Get placeholder position and size
-                                        left = shape.left
-                                        top = shape.top
-                                        width = shape.width
-                                        height = shape.height
-                                        
-                                        # Insert PNG image into placeholder position
-                                        chart_shape = slide.shapes.add_picture(png_path, left, top, width, height)
-                                        
-                                        # Remove the original placeholder
-                                        sp = shape._element
-                                        sp.getparent().remove(sp)
-                                        
-                                        print(f"✅ Claude 4 infographic inserted into PICTURE placeholder {placeholder_idx}")
-                                        print(f"   📍 Position: ({left.inches:.1f}\", {top.inches:.1f}\")")
-                                        print(f"   📐 Size: {width.inches:.1f}\" x {height.inches:.1f}\"")
-                                        image_inserted = True
-                                        break
-                                        
-                                except Exception as e:
-                                    print(f"⚠️ Error with placeholder {placeholder_idx}: {e}")
-                                    continue
+                                    # Get placeholder position and size
+                                    left = shape.left
+                                    top = shape.top
+                                    width = shape.width
+                                    height = shape.height
+                                    
+                                    # Insert PNG image into placeholder position
+                                    chart_shape = slide.shapes.add_picture(png_path, left, top, width, height)
+                                    
+                                    # Remove the original placeholder
+                                    sp = shape._element
+                                    sp.getparent().remove(sp)
+                                    
+                                    print(f"✅ MAXIMUM QUALITY Claude 4 infographic inserted into PICTURE placeholder {placeholder_idx}")
+                                    print(f"   📍 Position: ({left.inches:.1f}\", {top.inches:.1f}\")")
+                                    print(f"   📐 Size: {width.inches:.1f}\" x {height.inches:.1f}\"")
+                                    image_inserted = True
+                                    break
+                                    
+                            except Exception as e:
+                                print(f"⚠️ Error with placeholder {placeholder_idx}: {e}")
+                                continue
                             
                             # Fallback to left side positioning if no PICTURE placeholder
                             if not image_inserted:
@@ -2753,12 +3013,10 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                                 chart_shape = slide.shapes.add_picture(png_path, chart_left, chart_top, chart_width, chart_height)
                                 print(f"✅ Added to left side: {chart_left.inches}\" x {chart_top.inches}\"")
                         
-                        else:
-                            print(f"❌ PNG file not created")
-                            
-                    except ImportError as e:
-                        print(f"❌ Missing dependency for SVG conversion: {e}")
-                        print(f"   CairoSVG is required for SVG to PNG conversion")
+                    else:
+                        print(f"❌ MAXIMUM QUALITY PNG conversion failed")
+                        print(f"   All conversion methods (CairoSVG, Playwright, Wand, Inkscape) failed")
+                        print(f"   Consider installing: cairosvg, playwright, wand, or inkscape")
                     
                 except Exception as e:
                     print(f"❌ Failed to convert and insert SVG: {e}")

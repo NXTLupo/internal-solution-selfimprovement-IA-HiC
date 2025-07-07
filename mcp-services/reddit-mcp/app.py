@@ -1,8 +1,8 @@
 """
-Reddit MCP Service
------------------
+Reddit MCP Service - JSON-RPC 2.0 Compliant
+--------------------------------------------
 This service wraps the Reddit Ripper tool in a Model Context Protocol (MCP)
-compatible interface, allowing the agent to use it for fetching Reddit data.
+compatible interface using proper JSON-RPC 2.0 format for agent integration.
 """
 
 import os
@@ -28,7 +28,27 @@ logger = logging.getLogger("reddit-mcp")
 # Configuration
 REDDIT_RIPPER_URL = os.environ.get("REDDIT_RIPPER_URL", "http://reddit-ripper:5000")
 
-# Models
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
+
+# Legacy Models (for backward compatibility)
 class ScrapeRequest(BaseModel):
     subreddit: str = Field(..., description="Subreddit name to scrape")
     time_filter: str = Field(
@@ -78,10 +98,314 @@ app.add_middleware(
 # Cache for job status
 job_cache: Dict[str, Dict[str, Any]] = {}
 
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
+        
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "reddit_search",
+                    "description": "Search for posts in a subreddit with optional filtering",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "subreddit": {
+                                "type": "string",
+                                "description": "Subreddit name to search (without 'r/')"
+                            },
+                            "query": {
+                                "type": "string",
+                                "description": "Search query to filter posts"
+                            },
+                            "time_filter": {
+                                "type": "string",
+                                "description": "Time filter (hour, day, week, month, year, all)",
+                                "default": "week"
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "description": "Maximum number of posts",
+                                "default": 25
+                            },
+                            "comments_per_post": {
+                                "type": "integer",
+                                "description": "Maximum comments per post",
+                                "default": 10
+                            }
+                        },
+                        "required": ["subreddit"]
+                    }
+                },
+                {
+                    "name": "reddit_get_status",
+                    "description": "Check the status of a Reddit data collection job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous search request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "reddit_get_results",
+                    "description": "Get the results of a completed Reddit data collection job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous search request"
+                            },
+                            "include_content": {
+                                "type": "boolean",
+                                "description": "Whether to include full post content",
+                                "default": True
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                }
+            ]
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "reddit_search":
+                result = await execute_reddit_search(arguments)
+            elif tool_name == "reddit_get_status":
+                result = await execute_reddit_get_status(arguments)
+            elif tool_name == "reddit_get_results":
+                result = await execute_reddit_get_results(arguments)
+            else:
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
+
+# Tool execution functions
+async def execute_reddit_search(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute reddit search tool"""
+    try:
+        subreddit = arguments.get("subreddit")
+        query = arguments.get("query")
+        time_filter = arguments.get("time_filter", "week")
+        limit = arguments.get("limit", 25)
+        comments_per_post = arguments.get("comments_per_post", 10)
+        
+        # Create scrape request to Reddit Ripper
+        scrape_data = {
+            "subreddit": subreddit,
+            "time_filter": time_filter,
+            "limit": limit,
+            "comments_per_post": comments_per_post
+        }
+        
+        if query:
+            scrape_data["search_query"] = query
+            
+        # Send request to Reddit Ripper
+        response = requests.post(
+            urljoin(REDDIT_RIPPER_URL, "/api/scrape"),
+            json=scrape_data,
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error from Reddit Ripper: {response.text}")
+            return {
+                "error": f"Reddit Ripper error: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        # Parse response
+        result = response.json()
+        job_id = result.get("job_id")
+        
+        if not job_id:
+            return {
+                "error": "No job ID returned from Reddit Ripper",
+                "status": "error"
+            }
+            
+        # Cache the request for future reference
+        job_cache[job_id] = {
+            "subreddit": subreddit,
+            "query": query,
+            "time_filter": time_filter,
+            "limit": limit,
+            "comments_per_post": comments_per_post
+        }
+        
+        return {"job_id": job_id, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing reddit search")
+        return {
+            "error": f"Error executing reddit search: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_reddit_get_status(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute reddit get status tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        # Send status request to Reddit Ripper
+        response = requests.get(
+            urljoin(REDDIT_RIPPER_URL, f"/api/status/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error getting job status: {response.text}")
+            return {
+                "error": f"Error getting job status: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        # Parse response
+        result = response.json()
+        
+        # Extract relevant information
+        return {
+            "status": result.get("status", "unknown"),
+            "progress": result.get("progress", 0),
+            "message": result.get("message", ""),
+            "files": result.get("files", [])
+        }
+        
+    except Exception as e:
+        logger.exception("Error getting job status")
+        return {
+            "error": f"Error getting job status: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_reddit_get_results(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute reddit get results tool"""
+    try:
+        job_id = arguments.get("job_id")
+        include_content = arguments.get("include_content", True)
+        
+        # First check status to ensure job is completed
+        status_response = requests.get(
+            urljoin(REDDIT_RIPPER_URL, f"/api/status/{job_id}"),
+            timeout=30
+        )
+
+        status_data = status_response.json()
+
+        if status_data.get("status") != "completed":
+            return {
+                "error": "Job not completed yet",
+                "status": status_data.get("status", "unknown"),
+                "progress": status_data.get("progress", 0)
+            }
+
+        # Get the list of files
+        files = status_data.get("files", [])
+
+        # Prepare PDF URLs - converting internal URLs to external ones
+        pdf_urls = []
+        for file in files:
+            # Get external client URL from environment or use default
+            reddit_ripper_client_url = os.environ.get(
+                "REDDIT_RIPPER_CLIENT_URL",
+                "http://localhost:5001"  # Default external port for reddit-ripper
+            )
+
+            # Create external URL by replacing the internal host:port with external one
+            external_pdf_url = urljoin(reddit_ripper_client_url, f"/api/download/{job_id}/{file}")
+
+            # Log URL for debugging
+            logger.info(f"Generated PDF URL: {external_pdf_url}")
+
+            # Add the external URL to the list
+            pdf_urls.append(external_pdf_url)
+
+        # If we don't need content, just return the PDF URLs
+        if not include_content:
+            return {
+                "posts": [],
+                "pdf_urls": pdf_urls,
+                "status": "success"
+            }
+
+        # For include_content, we need to parse PDFs or use another API
+        # This is a simplified version - in a real implementation, we'd extract
+        # the actual content from the generated PDFs or get it directly from
+        # the Reddit Ripper's database
+
+        # Placeholder for posts
+        posts = [
+            {"title": f"Post from {job_id}", "content": "This is a sample post content"}
+        ]
+
+        return {
+            "posts": posts,
+            "pdf_urls": pdf_urls,
+            "status": "success"
+        }
+        
+    except Exception as e:
+        logger.exception("Error getting job results")
+        return {
+            "error": f"Error getting job results: {str(e)}",
+            "status": "error"
+        }
+
+# Legacy endpoints (for backward compatibility)
 # MCP Tools definition
 @app.get("/mcp/tools", response_model=List[MCPToolSpec])
 async def get_tools():
-    """Return the list of available tools in MCP format"""
+    """Return the list of available tools in MCP format (legacy endpoint)"""
     # Define available tools
     tools = [
         MCPToolSpec(

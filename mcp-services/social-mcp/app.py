@@ -28,6 +28,26 @@ logger = logging.getLogger("social-mcp")
 # Configuration
 SOCIAL_RESEARCH_BACKEND_URL = os.environ.get("SOCIAL_RESEARCH_BACKEND_URL", "http://social-research-backend:8081")
 
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
+
 # Models
 class TopicModelRequest(BaseModel):
     data_source: str = Field(..., description="Source of data (e.g., 'reddit', 'twitter')")
@@ -68,6 +88,188 @@ app.add_middleware(
 
 # Cache for job status
 job_cache: Dict[str, Dict[str, Any]] = {}
+
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
+        
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "social_topic_model",
+                    "description": "Perform topic modeling on social media data",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "data_source": {
+                                "type": "string",
+                                "description": "Source of data (e.g., 'reddit', 'twitter')"
+                            },
+                            "search_query": {
+                                "type": "string",
+                                "description": "Query to search for in the dataset"
+                            },
+                            "num_topics": {
+                                "type": "integer",
+                                "description": "Number of topics to identify (default: auto)",
+                                "default": 0
+                            },
+                            "topic_terms": {
+                                "type": "integer",
+                                "description": "Number of terms per topic",
+                                "default": 10
+                            }
+                        },
+                        "required": ["data_source", "search_query"]
+                    }
+                },
+                {
+                    "name": "social_get_topic_status",
+                    "description": "Check the status of a topic modeling job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous topic modeling request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "social_get_topic_results",
+                    "description": "Get the results of a completed topic modeling job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous topic modeling request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "social_sentiment_analysis",
+                    "description": "Perform sentiment analysis on social media data",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "search_id": {
+                                "type": "string",
+                                "description": "ID of search results to analyze"
+                            },
+                            "sentiment_type": {
+                                "type": "string",
+                                "description": "Sentiment analysis algorithm to use",
+                                "default": "roberta"
+                            }
+                        },
+                        "required": ["search_id"]
+                    }
+                },
+                {
+                    "name": "social_get_sentiment_results",
+                    "description": "Get the results of sentiment analysis",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from sentiment analysis request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "social_search",
+                    "description": "Search for social media posts and data",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "query": {
+                                "type": "string",
+                                "description": "Search query"
+                            },
+                            "data_source": {
+                                "type": "string",
+                                "description": "Data source to search",
+                                "default": "reddit"
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "description": "Maximum number of results",
+                                "default": 100
+                            }
+                        },
+                        "required": ["query"]
+                    }
+                }
+            ]
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "social_topic_model":
+                result = await execute_social_topic_model(arguments)
+            elif tool_name == "social_get_topic_status":
+                result = await execute_social_get_topic_status(arguments)
+            elif tool_name == "social_get_topic_results":
+                result = await execute_social_get_topic_results(arguments)
+            elif tool_name == "social_sentiment_analysis":
+                result = await execute_social_sentiment_analysis(arguments)
+            elif tool_name == "social_get_sentiment_results":
+                result = await execute_social_get_sentiment_results(arguments)
+            elif tool_name == "social_search":
+                result = await execute_social_search(arguments)
+            else:
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
 
 # MCP Tools definition
 @app.get("/mcp/tools", response_model=List[MCPToolSpec])
@@ -659,6 +861,248 @@ async def invoke_search(
             status_code=500,
             detail=f"Error performing search: {str(e)}"
         )
+
+# Tool execution functions for JSON-RPC 2.0
+async def execute_social_topic_model(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social topic modeling tool"""
+    try:
+        data_source = arguments.get("data_source")
+        search_query = arguments.get("search_query")
+        num_topics = arguments.get("num_topics", 0)
+        topic_terms = arguments.get("topic_terms", 10)
+        
+        # Create request data for social research backend
+        request_data = {
+            "data_source": data_source,
+            "search_query": search_query,
+            "num_topics": num_topics,
+            "topic_terms": topic_terms
+        }
+        
+        # Send request to social research backend
+        response = requests.post(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, "/api/topic-model"),
+            json=request_data,
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error from Social Research Backend: {response.text}")
+            return {
+                "error": f"Social Research Backend error: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        job_id = result.get("job_id")
+        
+        if not job_id:
+            return {
+                "error": "No job ID returned from Social Research Backend",
+                "status": "error"
+            }
+            
+        # Cache the request for future reference
+        job_cache[job_id] = {
+            "data_source": data_source,
+            "search_query": search_query,
+            "num_topics": num_topics,
+            "topic_terms": topic_terms
+        }
+        
+        return {"job_id": job_id, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing social topic model")
+        return {
+            "error": f"Error executing social topic model: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_social_get_topic_status(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social get topic status tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        response = requests.get(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/status/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error getting topic modeling status: {response.text}")
+            return {
+                "error": f"Error getting topic modeling status: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        
+        return {
+            "status": result.get("status", "unknown"),
+            "progress": result.get("progress", 0),
+            "message": result.get("message", "")
+        }
+        
+    except Exception as e:
+        logger.exception("Error getting topic modeling status")
+        return {
+            "error": f"Error getting topic modeling status: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_social_get_topic_results(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social get topic results tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        response = requests.get(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/topic-model/results/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error getting topic modeling results: {response.text}")
+            return {
+                "error": f"Error getting topic modeling results: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        
+        return {
+            "topics": result.get("topics", []),
+            "status": "success"
+        }
+        
+    except Exception as e:
+        logger.exception("Error getting topic modeling results")
+        return {
+            "error": f"Error getting topic modeling results: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_social_sentiment_analysis(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social sentiment analysis tool"""
+    try:
+        search_id = arguments.get("search_id")
+        sentiment_type = arguments.get("sentiment_type", "roberta")
+        
+        request_data = {
+            "search_id": search_id,
+            "sentiment_type": sentiment_type
+        }
+        
+        response = requests.post(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, "/api/sentiment-analysis"),
+            json=request_data,
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error from Social Research Backend: {response.text}")
+            return {
+                "error": f"Social Research Backend error: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        job_id = result.get("job_id")
+        
+        if not job_id:
+            return {
+                "error": "No job ID returned from Social Research Backend",
+                "status": "error"
+            }
+            
+        return {"job_id": job_id, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing sentiment analysis")
+        return {
+            "error": f"Error executing sentiment analysis: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_social_get_sentiment_results(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social get sentiment results tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        response = requests.get(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, f"/api/sentiment-analysis/results/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error getting sentiment results: {response.text}")
+            return {
+                "error": f"Error getting sentiment results: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        
+        return {
+            "sentiments": result.get("sentiments", []),
+            "summary": result.get("summary", {}),
+            "status": "success"
+        }
+        
+    except Exception as e:
+        logger.exception("Error getting sentiment results")
+        return {
+            "error": f"Error getting sentiment results: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_social_search(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute social search tool"""
+    try:
+        query = arguments.get("query")
+        data_source = arguments.get("data_source", "reddit")
+        limit = arguments.get("limit", 100)
+        
+        request_data = {
+            "query": query,
+            "data_source": data_source,
+            "limit": limit
+        }
+        
+        response = requests.post(
+            urljoin(SOCIAL_RESEARCH_BACKEND_URL, "/api/search"),
+            json=request_data,
+            timeout=30
+        )
+        
+        if response.status_code != 200:
+            logger.error(f"Error from Social Research Backend: {response.text}")
+            return {
+                "error": f"Social Research Backend error: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+            
+        result = response.json()
+        
+        return {
+            "search_id": result.get("search_id"),
+            "results": result.get("results", []),
+            "total_count": result.get("total_count", 0),
+            "status": "success"
+        }
+        
+    except Exception as e:
+        logger.exception("Error executing social search")
+        return {
+            "error": f"Error executing social search: {str(e)}",
+            "status": "error"
+        }
 
 # Health check endpoint
 @app.get("/health")

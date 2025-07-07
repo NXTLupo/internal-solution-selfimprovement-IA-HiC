@@ -447,38 +447,77 @@ class ChatbotWidget {
   }
   
   /**
-   * Format message content with basic markdown-like formatting
+   * Format message content with robust markdown-like formatting
    * @param {string} content - The raw message content
    * @returns {string} - The formatted HTML
    */
   formatMessageContent(content) {
-    // Convert code blocks
-    content = content.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
-      return `<pre>${this.escapeHTML(code.trim())}</pre>`;
+    // First, escape any existing HTML to prevent injection
+    let processedContent = content;
+    
+    // Convert code blocks first (protect from other processing)
+    const codeBlocks = [];
+    processedContent = processedContent.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, language, code) => {
+      const index = codeBlocks.length;
+      codeBlocks.push(`<pre>${this.escapeHTML(code.trim())}</pre>`);
+      return `__CODE_BLOCK_${index}__`;
     });
     
-    // Convert inline code
-    content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // Convert inline code (protect from other processing)
+    const inlineCodes = [];
+    processedContent = processedContent.replace(/`([^`]+)`/g, (match, code) => {
+      const index = inlineCodes.length;
+      inlineCodes.push(`<code>${this.escapeHTML(code)}</code>`);
+      return `__INLINE_CODE_${index}__`;
+    });
     
-    // Convert links - remove problematic HTML attributes that show as text
-    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    // Process markdown links with proper URL validation
+    processedContent = processedContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
+      // Strict URL cleaning - remove any potential HTML injection
+      const cleanUrl = url.trim().replace(/[<>"'\s]/g, '');
+      const cleanText = this.escapeHTML(text.trim());
+      
+      // Validate URL format
+      if (!cleanUrl.match(/^https?:\/\//)) {
+        return `${cleanText} (${cleanUrl})`;
+      }
+      
+      return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanText}</a>`;
+    });
     
-    // Convert raw URLs to links - remove problematic HTML attributes
-    content = content.replace(/(https?:\/\/[^\s]+)/g, (match) => {
-      if (match.includes('</a>')) return match; // Skip if already in a link
-      return `<a href="${match}">${match}</a>`;
+    // Process standalone URLs - with strict matching to prevent corruption
+    processedContent = processedContent.replace(/(?<!href="|>)(https?:\/\/[^\s<>"'\]]+)(?![^<]*<\/a>)/g, (match) => {
+      // Additional protection: ensure we're not inside an existing link
+      const cleanUrl = match.trim().replace(/[<>"'\]]+$/, '');
+      
+      // Validate URL format
+      if (!cleanUrl.match(/^https?:\/\//)) {
+        return match;
+      }
+      
+      return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
     });
     
     // Convert bold
-    content = content.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    processedContent = processedContent.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
     
     // Convert italic
-    content = content.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    processedContent = processedContent.replace(/\*([^*]+)\*/g, '<em>$1</em>');
     
     // Convert newlines to <br> tags
-    content = content.replace(/\n/g, '<br>');
+    processedContent = processedContent.replace(/\n/g, '<br>');
     
-    return content;
+    // Restore code blocks
+    codeBlocks.forEach((code, index) => {
+      processedContent = processedContent.replace(`__CODE_BLOCK_${index}__`, code);
+    });
+    
+    // Restore inline codes
+    inlineCodes.forEach((code, index) => {
+      processedContent = processedContent.replace(`__INLINE_CODE_${index}__`, code);
+    });
+    
+    return processedContent;
   }
   
   /**

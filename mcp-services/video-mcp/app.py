@@ -1,8 +1,8 @@
 """
-Video Transcriptor MCP Service
------------------------------
+Video Transcriptor MCP Service - JSON-RPC 2.0 Compliant
+-------------------------------------------------------
 This service wraps the Video Transcriptor tool in a Model Context Protocol (MCP)
-compatible interface, allowing the agent to use it for video transcription and analysis.
+compatible interface using proper JSON-RPC 2.0 format for agent integration.
 """
 
 import os
@@ -27,6 +27,26 @@ logger = logging.getLogger("video-mcp")
 
 # Configuration
 VIDEO_ANALYZER_URL = os.environ.get("VIDEO_ANALYZER_URL", "http://video-analyzer:5000")
+
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
 
 # Models
 class MCPToolSpec(BaseModel):
@@ -54,6 +74,323 @@ app.add_middleware(
 
 # Cache for job status
 job_cache: Dict[str, Dict[str, Any]] = {}
+
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
+        
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "video_transcribe_youtube",
+                    "description": "Transcribe a YouTube video by URL",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "description": "YouTube video URL to transcribe"
+                            }
+                        },
+                        "required": ["url"]
+                    }
+                },
+                {
+                    "name": "video_get_job_status",
+                    "description": "Check the status of a video transcription job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous transcription request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "video_get_transcript",
+                    "description": "Get the transcript of a completed transcription job",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "job_id": {
+                                "type": "string",
+                                "description": "Job ID from a previous transcription request"
+                            }
+                        },
+                        "required": ["job_id"]
+                    }
+                },
+                {
+                    "name": "video_list_jobs",
+                    "description": "List all video transcription jobs",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                }
+            ]
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "video_transcribe_youtube":
+                result = await execute_video_transcribe_youtube(arguments)
+            elif tool_name == "video_get_job_status":
+                result = await execute_video_get_job_status(arguments)
+            elif tool_name == "video_get_transcript":
+                result = await execute_video_get_transcript(arguments)
+            elif tool_name == "video_list_jobs":
+                result = await execute_video_list_jobs(arguments)
+            else:
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
+
+# Tool execution functions
+async def execute_video_transcribe_youtube(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute video transcribe YouTube tool"""
+    try:
+        youtube_url = arguments.get("url")
+        
+        if not youtube_url:
+            return {
+                "error": "url is required",
+                "status": "error"
+            }
+        
+        logger.info(f"Starting transcription for YouTube URL: {youtube_url}")
+        
+        # Prepare request data
+        data = {"url": youtube_url}
+        
+        # Forward request to video analyzer
+        response = requests.post(
+            urljoin(VIDEO_ANALYZER_URL, "/analyze-youtube"),
+            json=data,
+            timeout=60
+        )
+        
+        # Check response
+        if response.status_code == 200:
+            result = response.json()
+            job_id = result.get("job_id")
+            
+            if not job_id:
+                return {
+                    "error": "No job ID returned from Video Transcriptor",
+                    "status": "error"
+                }
+            
+            # Cache the job info
+            job_cache[job_id] = {
+                "type": "youtube_url",
+                "youtube_url": youtube_url,
+                "status": "pending"
+            }
+            
+            return {
+                "job_id": job_id,
+                "status": result.get("status", "pending")
+            }
+        else:
+            logger.error(f"Video transcriptor returned error: {response.status_code} - {response.text}")
+            return {
+                "error": f"Video transcriptor error: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+    
+    except Exception as e:
+        logger.exception("Error executing video transcribe YouTube")
+        return {
+            "error": f"Error executing video transcribe YouTube: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_video_get_job_status(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute video get job status tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        if not job_id:
+            return {
+                "error": "job_id is required",
+                "status": "error"
+            }
+        
+        # Send status request to Video Transcriptor
+        response = requests.get(
+            urljoin(VIDEO_ANALYZER_URL, f"/jobs/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            
+            # Extract relevant information
+            status_info = {
+                "status": result.get("status", "unknown"),
+                "progress": result.get("progress", 0),
+                "message": result.get("message", "")
+            }
+            
+            # Update cache
+            if job_id in job_cache:
+                job_cache[job_id]["status"] = status_info["status"]
+            
+            return status_info
+        else:
+            logger.error(f"Error getting job status: {response.text}")
+            return {
+                "error": f"Error getting job status: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing video get job status")
+        return {
+            "error": f"Error executing video get job status: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_video_get_transcript(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute video get transcript tool"""
+    try:
+        job_id = arguments.get("job_id")
+        
+        if not job_id:
+            return {
+                "error": "job_id is required",
+                "status": "error"
+            }
+        
+        # Send transcript request to Video Transcriptor
+        response = requests.get(
+            urljoin(VIDEO_ANALYZER_URL, f"/transcript/{job_id}"),
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            
+            # Prepare the download URL
+            video_analyzer_client_url = os.environ.get(
+                "VIDEO_ANALYZER_CLIENT_URL",
+                "http://localhost:5002"  # Default external port for video analyzer
+            )
+            download_url = f"{video_analyzer_client_url}/transcript/{job_id}"
+            
+            # Extract transcript information
+            transcript = result.get("transcript", "")
+            transcript_segments = result.get("segments", [])
+            
+            return {
+                "transcript": transcript,
+                "transcript_segments": transcript_segments,
+                "download_url": download_url,
+                "status": "success"
+            }
+        else:
+            logger.error(f"Error getting transcript: {response.text}")
+            return {
+                "error": f"Error getting transcript: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing video get transcript")
+        return {
+            "error": f"Error executing video get transcript: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_video_list_jobs(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute video list jobs tool"""
+    try:
+        # Send request to Video Transcriptor
+        response = requests.get(
+            urljoin(VIDEO_ANALYZER_URL, "/jobs"),
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            jobs = result if isinstance(result, list) else result.get("jobs", [])
+            
+            # Process jobs to make them more concise
+            processed_jobs = []
+            for job in jobs:
+                processed_jobs.append({
+                    "job_id": job.get("id") or job.get("job_id", ""),
+                    "status": job.get("status", "unknown"),
+                    "created_at": job.get("created_at", ""),
+                    "video_info": job.get("video_info", {})
+                })
+            
+            return {"jobs": processed_jobs, "status": "success"}
+        else:
+            logger.error(f"Error listing jobs: {response.text}")
+            return {
+                "error": f"Error listing jobs: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing video list jobs")
+        return {
+            "error": f"Error executing video list jobs: {str(e)}",
+            "status": "error"
+        }
+
+# Legacy endpoints (for backward compatibility)
 
 # MCP Tools definition
 @app.get("/mcp/tools", response_model=List[MCPToolSpec])
@@ -452,12 +789,13 @@ async def root():
         "version": "1.0.0",
         "status": "running",
         "endpoints": {
-            "mcp/tools": "Get available tools",
-            "mcp/invoke/video.transcribe_file": "Transcribe uploaded video file",
-            "mcp/invoke/video.transcribe_youtube": "Transcribe YouTube video",
-            "mcp/invoke/video.get_job_status": "Check transcription status",
-            "mcp/invoke/video.get_transcript": "Get transcription results",
-            "mcp/invoke/video.list_jobs": "List all transcription jobs"
+            "mcp": "JSON-RPC 2.0 endpoint for tool discovery and execution",
+            "mcp/tools": "Get available tools (legacy)",
+            "mcp/invoke/video_transcribe_file": "Transcribe uploaded video file (legacy)",
+            "mcp/invoke/video_transcribe_youtube": "Transcribe YouTube video (legacy)",
+            "mcp/invoke/video_get_job_status": "Check transcription status (legacy)",
+            "mcp/invoke/video_get_transcript": "Get transcription results (legacy)",
+            "mcp/invoke/video_list_jobs": "List all transcription jobs (legacy)"
         }
     }
 

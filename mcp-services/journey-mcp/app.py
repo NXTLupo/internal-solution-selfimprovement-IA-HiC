@@ -1,8 +1,8 @@
 """
-Journey Mapper MCP Service
--------------------------
+Journey Mapper MCP Service - JSON-RPC 2.0 Compliant
+---------------------------------------------------
 This service wraps the Journey Mapper tool in a Model Context Protocol (MCP)
-compatible interface, allowing the agent to use it for customer journey mapping.
+compatible interface using proper JSON-RPC 2.0 format for agent integration.
 Importantly, this service handles file uploads to enable processing data files.
 """
 
@@ -30,6 +30,26 @@ logger = logging.getLogger("journey-mcp")
 
 # Configuration
 JOURNEY_MAPPER_URL = os.environ.get("JOURNEY_MAPPER_URL", "http://journey-mapper:8000")
+
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
 
 # Models
 class JourneyRequest(BaseModel):
@@ -69,6 +89,443 @@ file_cache: Dict[str, str] = {}  # Maps file_id to temporary file path
 
 # Create temporary directory for uploaded files
 os.makedirs("/tmp/journey-mcp", exist_ok=True)
+
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
+        
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "journey_upload_file",
+                    "description": "Upload a file for journey mapping",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "file": {
+                                "type": "file",
+                                "description": "File to upload (PDF, CSV, TXT, or JSON)"
+                            },
+                            "file_name": {
+                                "type": "string",
+                                "description": "Name of the file (if not provided in file object)"
+                            }
+                        },
+                        "required": ["file"]
+                    }
+                },
+                {
+                    "name": "journey_generate_map",
+                    "description": "Generate a customer journey map from uploaded file",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "file_id": {
+                                "type": "string",
+                                "description": "ID of previously uploaded file"
+                            },
+                            "journey_name": {
+                                "type": "string",
+                                "description": "Name for the journey map"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Description of the journey context",
+                                "default": ""
+                            }
+                        },
+                        "required": ["file_id"]
+                    }
+                },
+                {
+                    "name": "journey_get_status",
+                    "description": "Check the status of a journey map generation",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "journey_id": {
+                                "type": "string",
+                                "description": "Journey ID from a previous generation request"
+                            }
+                        },
+                        "required": ["journey_id"]
+                    }
+                },
+                {
+                    "name": "journey_get_results",
+                    "description": "Get the results of a completed journey mapping",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "journey_id": {
+                                "type": "string",
+                                "description": "Journey ID from a previous generation request"
+                            }
+                        },
+                        "required": ["journey_id"]
+                    }
+                },
+                {
+                    "name": "journey_list_maps",
+                    "description": "List all available journey maps",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                }
+            ]
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "journey_upload_file":
+                result = await execute_journey_upload_file(arguments)
+            elif tool_name == "journey_generate_map":
+                result = await execute_journey_generate_map(arguments)
+            elif tool_name == "journey_get_status":
+                result = await execute_journey_get_status(arguments)
+            elif tool_name == "journey_get_results":
+                result = await execute_journey_get_results(arguments)
+            elif tool_name == "journey_list_maps":
+                result = await execute_journey_list_maps(arguments)
+            else:
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
+            
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
+
+# Tool execution functions
+async def execute_journey_upload_file(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute journey upload file tool"""
+    try:
+        # Note: File uploads in JSON-RPC format will be handled differently
+        # For now, return a message directing users to use the form endpoint
+        return {
+            "error": "File uploads through JSON-RPC not yet supported. Please use the legacy endpoint.",
+            "status": "error",
+            "message": "Use the /mcp/invoke/journey_upload_file endpoint for file uploads"
+        }
+    except Exception as e:
+        logger.exception("Error executing journey upload file")
+        return {
+            "error": f"Error executing journey upload file: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_journey_generate_map(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute journey generate map tool"""
+    try:
+        file_id = arguments.get("file_id")
+        journey_name = arguments.get("journey_name")
+        description = arguments.get("description", "")
+        
+        if not file_id:
+            return {
+                "error": "file_id is required",
+                "status": "error"
+            }
+            
+        # Generate default journey name if not provided
+        if not journey_name:
+            journey_name = "Customer Journey Map"
+        
+        # Check if file_id exists in cache
+        file_path = file_cache.get(file_id)
+        if not file_path or not os.path.exists(file_path):
+            return {
+                "error": f"File with ID {file_id} not found. Please upload the file first.",
+                "status": "error"
+            }
+        
+        with open(file_path, "rb") as f:
+            file_data = f.read()
+        file_name = os.path.basename(file_path).split("_", 1)[1]  # Remove file_id_ prefix
+        
+        # Create multipart form data for the file upload to Journey Mapper
+        files = {"files": (file_name, file_data, "application/octet-stream")}
+        
+        data = {
+            "title": journey_name,
+            "description": description,
+            "journey_type": "customer_journey",
+            "llm_model": "claude-3-7-sonnet-20250219"
+        }
+        
+        logger.info(f"Sending file {file_name} to Journey Mapper with data: {data}")
+        
+        # Send request to Journey Mapper analyze endpoint
+        response = requests.post(
+            urljoin(JOURNEY_MAPPER_URL, "/api/analyze"),
+            files=files,
+            data=data,
+            timeout=1200,  # 20 minutes timeout
+            allow_redirects=False
+        )
+        
+        journey_id = None
+        
+        # Check response - Journey Mapper returns a redirect (303) to the generated HTML
+        if response.status_code == 303:
+            # Extract journey_id from the redirect URL
+            redirect_url = response.headers.get("location", "")
+            logger.info(f"Journey Mapper redirected to: {redirect_url}")
+            
+            # Extract journey ID from URL like "/journey_maps/journey_map_{id}.html"
+            match = re.search(r'/journey_maps/journey_map_([^/]+)\.html', redirect_url)
+            if match:
+                journey_id = match.group(1)
+                logger.info(f"Extracted journey_id: {journey_id}")
+            else:
+                return {
+                    "error": f"Could not extract journey ID from redirect URL: {redirect_url}",
+                    "status": "error"
+                }
+        elif response.status_code == 200:
+            # Unexpected 200 response - try to parse as JSON
+            try:
+                result = response.json()
+                journey_id = result.get("journey_id")
+                if not journey_id:
+                    return {
+                        "error": "No journey ID returned from Journey Mapper",
+                        "status": "error"
+                    }
+            except json.JSONDecodeError as e:
+                return {
+                    "error": f"Invalid JSON response from Journey Mapper: {str(e)}",
+                    "status": "error"
+                }
+        else:
+            return {
+                "error": f"Journey Mapper processing error (HTTP {response.status_code}): {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+        if not journey_id:
+            return {
+                "error": "No journey ID returned from Journey Mapper",
+                "status": "error"
+            }
+        
+        # Cache journey details for future reference
+        job_cache[journey_id] = {
+            "file_id": file_id,
+            "journey_name": journey_name,
+            "description": description,
+            "status": "completed"
+        }
+        
+        return {"journey_id": journey_id, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing journey generate map")
+        return {
+            "error": f"Error executing journey generate map: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_journey_get_status(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute journey get status tool"""
+    try:
+        journey_id = arguments.get("journey_id")
+        
+        if not journey_id:
+            return {
+                "error": "journey_id is required",
+                "status": "error"
+            }
+        
+        # Check our local cache first since analyze endpoint processes immediately
+        if journey_id in job_cache:
+            cached_job = job_cache[journey_id]
+            return {
+                "status": cached_job.get("status", "completed"),
+                "progress": 100,
+                "journey_id": journey_id,
+                "journey_name": cached_job.get("journey_name", ""),
+                "message": "Journey map completed"
+            }
+        
+        # If not in cache, check if the journey map file exists in the journey mapper
+        try:
+            # Check if journey map HTML file exists
+            response = requests.get(
+                urljoin(JOURNEY_MAPPER_URL, f"/api/export-pdf/{journey_id}"),
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                return {
+                    "status": "completed",
+                    "progress": 100,
+                    "journey_id": journey_id,
+                    "message": "Journey map completed and available"
+                }
+            else:
+                return {
+                    "status": "not_found",
+                    "progress": 0,
+                    "journey_id": journey_id,
+                    "message": "Journey map not found"
+                }
+        except Exception:
+            return {
+                "status": "not_found",
+                "progress": 0,
+                "journey_id": journey_id,
+                "message": "Journey map not found"
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing journey get status")
+        return {
+            "error": f"Error executing journey get status: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_journey_get_results(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute journey get results tool"""
+    try:
+        journey_id = arguments.get("journey_id")
+        
+        if not journey_id:
+            return {
+                "error": "journey_id is required",
+                "status": "error"
+            }
+        
+        # Check our local cache first for the result
+        if journey_id in job_cache:
+            cached_job = job_cache[journey_id]
+            cached_result = cached_job.get("result", {})
+            
+            # Prepare the visualization URL
+            visualization_url = urljoin(
+                os.environ.get("JOURNEY_MAPPER_CLIENT_URL", "http://localhost:8080"),
+                f"/static/journey_map_{journey_id}.html"
+            )
+            
+            return {
+                "journey_id": journey_id,
+                "journey_name": cached_job.get("journey_name", ""),
+                "status": "completed",
+                "visualization_url": visualization_url,
+                "html_url": cached_result.get("html_url", ""),
+                "mermaid_code": cached_result.get("mermaid_code", ""),
+                "journey_summary": cached_result.get("journey_summary", ""),
+                "result": cached_result
+            }
+        
+        # If not in cache, try to get the HTML file directly from the journey mapper
+        try:
+            # Check if journey map HTML file exists and get download URL
+            html_url = urljoin(
+                os.environ.get("JOURNEY_MAPPER_CLIENT_URL", "http://localhost:8080"),
+                f"/static/journey_map_{journey_id}.html"
+            )
+            
+            # Try to access the PDF export endpoint to verify the journey exists
+            pdf_response = requests.head(
+                urljoin(JOURNEY_MAPPER_URL, f"/api/export-pdf/{journey_id}"),
+                timeout=30
+            )
+            
+            if pdf_response.status_code == 200:
+                return {
+                    "journey_id": journey_id,
+                    "status": "completed",
+                    "visualization_url": html_url,
+                    "html_url": html_url,
+                    "message": "Journey map completed. You can download the HTML file from the URL provided.",
+                    "download_instructions": f"Visit {html_url} to view or download the interactive journey map."
+                }
+            else:
+                return {
+                    "error": f"Journey map with ID {journey_id} not found",
+                    "status": "error"
+                }
+                
+        except requests.RequestException:
+            return {
+                "error": f"Journey map with ID {journey_id} not found or service unavailable",
+                "status": "error"
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing journey get results")
+        return {
+            "error": f"Error executing journey get results: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_journey_list_maps(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute journey list maps tool"""
+    try:
+        # Return journey maps from our local cache
+        processed_maps = []
+        
+        # Add cached journey maps
+        for journey_id, job_info in job_cache.items():
+            processed_maps.append({
+                "id": journey_id,
+                "name": job_info.get("journey_name", "Unnamed Journey"),
+                "status": job_info.get("status", "completed"),
+                "description": job_info.get("description", ""),
+                "created_at": "Recently created"
+            })
+        
+        return {"journey_maps": processed_maps, "status": "success"}
+        
+    except Exception as e:
+        logger.exception("Error executing journey list maps")
+        return {
+            "error": f"Error executing journey list maps: {str(e)}",
+            "status": "error"
+        }
+
+# Legacy endpoints (for backward compatibility)
 
 # MCP Tools definition
 @app.get("/mcp/tools", response_model=List[MCPToolSpec])
@@ -127,7 +584,7 @@ async def get_tools():
                         "default": ""
                     }
                 },
-                "required": ["file_id", "journey_name"]
+                "required": ["file_id"]
             },
             returns={
                 "journey_id": {
@@ -590,12 +1047,13 @@ async def root():
         "version": "1.0.0",
         "status": "running",
         "endpoints": {
-            "mcp/tools": "Get available tools",
-            "mcp/invoke/journey_upload_file": "Upload a file",
-            "mcp/invoke/journey_generate_map": "Generate a journey map",
-            "mcp/invoke/journey_get_status": "Check journey generation status",
-            "mcp/invoke/journey_get_results": "Get journey results",
-            "mcp/invoke/journey_list_maps": "List all journey maps"
+            "mcp": "JSON-RPC 2.0 endpoint for tool discovery and execution",
+            "mcp/tools": "Get available tools (legacy)",
+            "mcp/invoke/journey_upload_file": "Upload a file (legacy)",
+            "mcp/invoke/journey_generate_map": "Generate a journey map (legacy)",
+            "mcp/invoke/journey_get_status": "Check journey generation status (legacy)",
+            "mcp/invoke/journey_get_results": "Get journey results (legacy)",
+            "mcp/invoke/journey_list_maps": "List all journey maps (legacy)"
         }
     }
 

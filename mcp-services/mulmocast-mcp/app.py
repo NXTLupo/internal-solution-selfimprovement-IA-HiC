@@ -1,602 +1,629 @@
-#!/usr/bin/env python3
 """
-MulmoCast MCP Service
-Model Context Protocol wrapper for MulmoCast CLI
+MulmoCast MCP Service - JSON-RPC 2.0 Compliant
+----------------------------------------------
+This service wraps the MulmoCast multimedia content generation tool in a Model Context Protocol (MCP)
+compatible interface using proper JSON-RPC 2.0 format for agent integration.
 """
 
 import os
-import sys
 import json
-import asyncio
-import logging
-import subprocess
+import uuid
 import tempfile
-from typing import Dict, List, Any, Optional
-from urllib.parse import urljoin
 import requests
-import time
-
-# Add parent directory to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-try:
-    from mcp.server import Server
-    from mcp.types import Tool, TextContent
-    import mcp.server.stdio
-except ImportError:
-    print("MCP library not found. Installing...")
-    import subprocess
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "mcp"])
-    from mcp.server import Server
-    from mcp.types import Tool, TextContent
-    import mcp.server.stdio
+from urllib.parse import urljoin
+from typing import Dict, List, Any, Optional, Union
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Depends, Request
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+import logging
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger("mulmocast-mcp")
 
-# MulmoCast service configuration
-MULMOCAST_BASE_URL = os.getenv("MULMOCAST_BASE_URL", "http://mulmocast:5008")
-MULMOCAST_CLIENT_URL = os.getenv("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+# Configuration
+MULMOCAST_URL = os.environ.get("MULMOCAST_URL", "http://mulmocast:5008")
 
-class MulmoCastMCPService:
-    def __init__(self):
-        self.base_url = MULMOCAST_BASE_URL
-        self.session = requests.Session()
-        self.session.timeout = 30
+# JSON-RPC 2.0 Models
+class JSONRPCRequest(BaseModel):
+    """JSON-RPC 2.0 request format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    method: str = Field(..., description="Method name")
+    params: Dict[str, Any] = Field({}, description="Method parameters")
+
+class JSONRPCResponse(BaseModel):
+    """JSON-RPC 2.0 response format"""
+    jsonrpc: str = Field("2.0", description="JSON-RPC version")
+    id: Union[str, int] = Field(..., description="Request ID")
+    result: Optional[Dict[str, Any]] = Field(None, description="Method result")
+    error: Optional[Dict[str, Any]] = Field(None, description="Error information")
+
+class ToolCallParams(BaseModel):
+    """Parameters for tool/call method"""
+    name: str = Field(..., description="Tool name")
+    arguments: Dict[str, Any] = Field({}, description="Tool arguments")
+
+# Legacy Models
+class MCPToolSpec(BaseModel):
+    """MCP Tool specification"""
+    name: str
+    description: str
+    parameters: Dict[str, Any]
+    returns: Dict[str, Any]
+
+# Create FastAPI app
+app = FastAPI(
+    title="MulmoCast MCP Service",
+    description="MCP-compatible service for MulmoCast multimedia content generation",
+    version="1.0.0"
+)
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify exact origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Cache for job status
+job_cache: Dict[str, Dict[str, Any]] = {}
+
+# Main MCP JSON-RPC 2.0 endpoint
+@app.post("/mcp", response_model=JSONRPCResponse)
+async def handle_mcp_request(request: JSONRPCRequest):
+    """Handle MCP JSON-RPC 2.0 requests"""
+    try:
+        logger.info(f"Received MCP request: method={request.method}, id={request.id}")
         
-    def _make_request(self, method: str, endpoint: str, **kwargs) -> Dict[str, Any]:
-        """Make HTTP request to MulmoCast web interface"""
-        url = urljoin(self.base_url, endpoint)
-        
-        try:
-            response = self.session.request(method, url, **kwargs)
-            response.raise_for_status()
+        if request.method == "tools/list":
+            # Return list of available tools
+            tools = [
+                {
+                    "name": "mulmocast_get_templates",
+                    "description": "Get available MulmoCast content templates",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                },
+                {
+                    "name": "mulmocast_generate_script",
+                    "description": "Generate a MulmoScript from topic and template",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "template": {
+                                "type": "string",
+                                "description": "Template type (business, children_book, ghibli_comic, podcast_standard, etc.)"
+                            },
+                            "topic": {
+                                "type": "string", 
+                                "description": "Topic or title for the content"
+                            },
+                            "urls": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "Optional URLs for research (for some templates)",
+                                "default": []
+                            },
+                            "interactive": {
+                                "type": "boolean",
+                                "description": "Whether to use interactive mode",
+                                "default": False
+                            }
+                        },
+                        "required": ["template", "topic"]
+                    }
+                },
+                {
+                    "name": "mulmocast_generate_audio",
+                    "description": "Generate audio from a MulmoScript file",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "script_path": {
+                                "type": "string",
+                                "description": "Path to the MulmoScript JSON file"
+                            },
+                            "force": {
+                                "type": "boolean",
+                                "description": "Force regeneration even if files exist",
+                                "default": False
+                            }
+                        },
+                        "required": ["script_path"]
+                    }
+                },
+                {
+                    "name": "mulmocast_generate_images",
+                    "description": "Generate images from a MulmoScript file",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "script_path": {
+                                "type": "string",
+                                "description": "Path to the MulmoScript JSON file"
+                            },
+                            "force": {
+                                "type": "boolean",
+                                "description": "Force regeneration even if files exist",
+                                "default": False
+                            }
+                        },
+                        "required": ["script_path"]
+                    }
+                },
+                {
+                    "name": "mulmocast_generate_movie",
+                    "description": "Generate a video/movie from a MulmoScript file",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "script_path": {
+                                "type": "string",
+                                "description": "Path to the MulmoScript JSON file"
+                            },
+                            "force": {
+                                "type": "boolean",
+                                "description": "Force regeneration even if files exist",
+                                "default": False
+                            }
+                        },
+                        "required": ["script_path"]
+                    }
+                },
+                {
+                    "name": "mulmocast_create_complete_workflow",
+                    "description": "Complete workflow: generate script and create multimedia content",
+                    "inputSchema": {
+                        "type": "object",
+                        "properties": {
+                            "template": {
+                                "type": "string",
+                                "description": "Template type (business, children_book, ghibli_comic, podcast_standard, etc.)"
+                            },
+                            "topic": {
+                                "type": "string",
+                                "description": "Topic or title for the content"
+                            },
+                            "output_formats": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": ["audio", "images", "movie", "pdf"]
+                                },
+                                "description": "Output formats to generate",
+                                "default": ["audio"]
+                            },
+                            "urls": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "Optional URLs for research",
+                                "default": []
+                            }
+                        },
+                        "required": ["template", "topic"]
+                    }
+                }
+            ]
             
-            if response.headers.get('content-type', '').startswith('application/json'):
-                return response.json()
+            return JSONRPCResponse(
+                id=request.id,
+                result={"tools": tools}
+            )
+            
+        elif request.method == "tools/call":
+            # Handle tool execution
+            tool_params = ToolCallParams(**request.params)
+            tool_name = tool_params.name
+            arguments = tool_params.arguments
+            
+            logger.info(f"Executing tool: {tool_name} with arguments: {arguments}")
+            
+            if tool_name == "mulmocast_get_templates":
+                result = await execute_mulmocast_get_templates(arguments)
+            elif tool_name == "mulmocast_generate_script":
+                result = await execute_mulmocast_generate_script(arguments)
+            elif tool_name == "mulmocast_generate_audio":
+                result = await execute_mulmocast_generate_audio(arguments)
+            elif tool_name == "mulmocast_generate_images":
+                result = await execute_mulmocast_generate_images(arguments)
+            elif tool_name == "mulmocast_generate_movie":
+                result = await execute_mulmocast_generate_movie(arguments)
+            elif tool_name == "mulmocast_create_complete_workflow":
+                result = await execute_mulmocast_create_complete_workflow(arguments)
             else:
-                return {"content": response.text, "status_code": response.status_code}
-                
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Request failed: {e}")
-            return {"error": str(e), "status": "failed"}
-    
-    def get_templates(self) -> Dict[str, Any]:
-        """Get available MulmoCast templates"""
-        return self._make_request("GET", "/api/templates")
-    
-    def execute_cli_command(self, command: str, args: List[str] = None) -> Dict[str, Any]:
-        """Execute a mulmo CLI command through the web interface"""
-        if args is None:
-            args = []
+                return JSONRPCResponse(
+                    id=request.id,
+                    error={
+                        "code": -32601,
+                        "message": f"Tool '{tool_name}' not found"
+                    }
+                )
             
-        data = {
-            "command": command,
-            "args": args
+            return JSONRPCResponse(
+                id=request.id,
+                result=result
+            )
+        else:
+            return JSONRPCResponse(
+                id=request.id,
+                error={
+                    "code": -32601,
+                    "message": f"Method '{request.method}' not found"
+                }
+            )
+            
+    except Exception as e:
+        logger.exception(f"Error handling MCP request: {str(e)}")
+        return JSONRPCResponse(
+            id=request.id,
+            error={
+                "code": -32603,
+                "message": f"Internal error: {str(e)}"
+            }
+        )
+
+# Tool execution functions
+async def execute_mulmocast_get_templates(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast get templates tool"""
+    try:
+        # Get available templates from MulmoCast service
+        response = requests.get(
+            urljoin(MULMOCAST_URL, "/api/templates"),
+            timeout=30
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            return {"templates": result.get("templates", []), "status": "success"}
+        else:
+            return {
+                "error": f"Error getting templates: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing MulmoCast get templates")
+        return {
+            "error": f"Error executing MulmoCast get templates: {str(e)}",
+            "status": "error"
         }
-        return self._make_request("POST", "/api/execute", json=data)
-    
-    def generate_script(self, template: str, topic: str = None, urls: List[str] = None, interactive: bool = False) -> Dict[str, Any]:
-        """Generate script using CLI scripting tool"""
+
+async def execute_mulmocast_generate_script(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast generate script tool"""
+    try:
+        template = arguments.get("template")
+        topic = arguments.get("topic")
+        urls = arguments.get("urls", [])
+        interactive = arguments.get("interactive", False)
+        
+        if not template:
+            return {"error": "template is required", "status": "error"}
+        if not topic:
+            return {"error": "topic is required", "status": "error"}
+        
+        # Prepare data for MulmoCast scripting API
         data = {
             "template": template,
+            "topic": topic,
             "interactive": interactive
         }
         
-        if topic:
-            data["topic"] = topic
-            
         if urls:
             data["urls"] = urls
-            
-        return self._make_request("POST", "/api/scripting", json=data)
-    
-    def generate_audio(self, script_path: str, force: bool = False) -> Dict[str, Any]:
-        """Generate audio from script"""
-        data = {
-            "script_path": script_path,
-            "force": force
-        }
-        return self._make_request("POST", "/api/audio", json=data)
-    
-    def generate_images(self, script_path: str, force: bool = False) -> Dict[str, Any]:
-        """Generate images from script"""
-        data = {
-            "script_path": script_path,
-            "force": force
-        }
-        return self._make_request("POST", "/api/images", json=data)
-    
-    def generate_movie(self, script_path: str, force: bool = False) -> Dict[str, Any]:
-        """Generate movie from script"""
-        data = {
-            "script_path": script_path,
-            "force": force
-        }
-        return self._make_request("POST", "/api/movie", json=data)
-    
-    def generate_pdf(self, script_path: str, force: bool = False) -> Dict[str, Any]:
-        """Generate PDF from script"""
-        data = {
-            "script_path": script_path,
-            "force": force
-        }
-        return self._make_request("POST", "/api/pdf", json=data)
-    
-    def list_files(self) -> Dict[str, Any]:
-        """List generated files"""
-        return self._make_request("GET", "/api/files")
-
-# Initialize MCP server
-server = Server("mulmocast-mcp")
-service = MulmoCastMCPService()
-
-@server.list_tools()
-async def list_tools() -> List[Tool]:
-    """List available MulmoCast tools"""
-    return [
-        Tool(
-            name="mulmocast_get_templates",
-            description="Get available MulmoCast templates for different content types",
-            inputSchema={
-                "type": "object",
-                "properties": {},
-                "required": []
-            }
-        ),
-        Tool(
-            name="mulmocast_generate_script",
-            description="Generate a MulmoScript using the CLI tool scripting command",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "template": {
-                        "type": "string",
-                        "description": "Template type (business, children_book, ghibli_comic, podcast_standard, etc.)"
-                    },
-                    "topic": {
-                        "type": "string",
-                        "description": "Topic or title for the script"
-                    },
-                    "urls": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "URLs to source content from (optional)"
-                    },
-                    "interactive": {
-                        "type": "boolean",
-                        "description": "Use interactive mode",
-                        "default": False
-                    }
-                },
-                "required": ["template"]
-            }
-        ),
-        Tool(
-            name="mulmocast_generate_audio",
-            description="Generate audio from a MulmoScript file",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "script_path": {
-                        "type": "string",
-                        "description": "Path to the MulmoScript JSON file"
-                    },
-                    "force": {
-                        "type": "boolean",
-                        "description": "Force regeneration even if files exist",
-                        "default": False
-                    }
-                },
-                "required": ["script_path"]
-            }
-        ),
-        Tool(
-            name="mulmocast_generate_images",
-            description="Generate images from a MulmoScript file",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "script_path": {
-                        "type": "string",
-                        "description": "Path to the MulmoScript JSON file"
-                    },
-                    "force": {
-                        "type": "boolean",
-                        "description": "Force regeneration even if files exist",
-                        "default": False
-                    }
-                },
-                "required": ["script_path"]
-            }
-        ),
-        Tool(
-            name="mulmocast_generate_movie",
-            description="Generate a video/movie from a MulmoScript file",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "script_path": {
-                        "type": "string",
-                        "description": "Path to the MulmoScript JSON file"
-                    },
-                    "force": {
-                        "type": "boolean",
-                        "description": "Force regeneration even if files exist",
-                        "default": False
-                    }
-                },
-                "required": ["script_path"]
-            }
-        ),
-        Tool(
-            name="mulmocast_generate_pdf",
-            description="Generate a PDF presentation from a MulmoScript file",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "script_path": {
-                        "type": "string",
-                        "description": "Path to the MulmoScript JSON file"
-                    },
-                    "force": {
-                        "type": "boolean",
-                        "description": "Force regeneration even if files exist",
-                        "default": False
-                    }
-                },
-                "required": ["script_path"]
-            }
-        ),
-        Tool(
-            name="mulmocast_list_files",
-            description="List all generated files in the output directory",
-            inputSchema={
-                "type": "object",
-                "properties": {},
-                "required": []
-            }
-        ),
-        Tool(
-            name="mulmocast_execute_command",
-            description="Execute a raw mulmo CLI command",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "command": {
-                        "type": "string",
-                        "description": "The mulmo command to execute (without 'mulmo' prefix)"
-                    },
-                    "args": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "Command arguments"
-                    }
-                },
-                "required": ["command"]
-            }
-        ),
-        Tool(
-            name="mulmocast_create_complete_workflow",
-            description="Complete workflow: generate script and create multimedia content",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "template": {
-                        "type": "string",
-                        "description": "Template type (business, children_book, ghibli_comic, podcast_standard, etc.)"
-                    },
-                    "topic": {
-                        "type": "string",
-                        "description": "Topic or title for the content"
-                    },
-                    "output_formats": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "enum": ["audio", "images", "movie", "pdf"]
-                        },
-                        "description": "Output formats to generate",
-                        "default": ["movie"]
-                    },
-                    "urls": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "URLs to source content from (optional)"
-                    }
-                },
-                "required": ["template", "topic"]
-            }
+        
+        logger.info(f"Generating script with data: {data}")
+        
+        # Send request to MulmoCast scripting API
+        response = requests.post(
+            urljoin(MULMOCAST_URL, "/api/scripting"),
+            json=data,
+            timeout=300  # 5 minutes for script generation
         )
-    ]
-
-@server.call_tool()
-async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
-    """Handle tool calls"""
-    
-    try:
-        if name == "mulmocast_get_templates":
-            result = service.get_templates()
-            
-            if isinstance(result, list):
-                templates_text = "\n".join([f"• {template}" for template in result])
-                return [TextContent(
-                    type="text",
-                    text=f"Available MulmoCast templates:\n{templates_text}"
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"Available MulmoCast templates:\n{json.dumps(result, indent=2)}"
-                )]
         
-        elif name == "mulmocast_generate_script":
-            template = arguments["template"]
-            topic = arguments.get("topic")
-            urls = arguments.get("urls", [])
-            interactive = arguments.get("interactive", False)
+        if response.status_code == 200:
+            result = response.json()
+            script_path = result.get("script_path", "")
+            script_content = result.get("script_content", {})
             
-            result = service.generate_script(template, topic, urls, interactive)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error generating script: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"✅ Script generated successfully!\n\nOutput:\n{stdout}\n\n"
-                         f"Use the generated script path with other MulmoCast tools to create multimedia content.\n"
-                         f"Visit {MULMOCAST_CLIENT_URL} to see the generated files."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Script generation failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_generate_audio":
-            script_path = arguments["script_path"]
-            force = arguments.get("force", False)
-            
-            result = service.generate_audio(script_path, force)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error generating audio: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"🎵 Audio generation completed!\n\nOutput:\n{stdout}\n\n"
-                         f"Visit {MULMOCAST_CLIENT_URL} to download the audio files."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Audio generation failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_generate_images":
-            script_path = arguments["script_path"]
-            force = arguments.get("force", False)
-            
-            result = service.generate_images(script_path, force)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error generating images: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"🖼️ Image generation completed!\n\nOutput:\n{stdout}\n\n"
-                         f"Visit {MULMOCAST_CLIENT_URL} to view the generated images."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Image generation failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_generate_movie":
-            script_path = arguments["script_path"]
-            force = arguments.get("force", False)
-            
-            result = service.generate_movie(script_path, force)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error generating movie: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"🎬 Movie generation completed!\n\nOutput:\n{stdout}\n\n"
-                         f"Visit {MULMOCAST_CLIENT_URL} to download the video files."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Movie generation failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_generate_pdf":
-            script_path = arguments["script_path"]
-            force = arguments.get("force", False)
-            
-            result = service.generate_pdf(script_path, force)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error generating PDF: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"📄 PDF generation completed!\n\nOutput:\n{stdout}\n\n"
-                         f"Visit {MULMOCAST_CLIENT_URL} to download the PDF files."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ PDF generation failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_list_files":
-            result = service.list_files()
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error listing files: {result['error']}"
-                )]
-            
-            if isinstance(result, list) and len(result) == 0:
-                return [TextContent(
-                    type="text",
-                    text="No files have been generated yet. Create content using the MulmoCast tools first."
-                )]
-            
-            if isinstance(result, list):
-                files_text = "\n".join([f"• {file['name']} ({file['path']}) - {file['size']/1024:.1f}KB" for file in result])
-                return [TextContent(
-                    type="text",
-                    text=f"Generated files:\n{files_text}\n\nVisit {MULMOCAST_CLIENT_URL} to download files."
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"Files:\n{json.dumps(result, indent=2)}"
-                )]
-        
-        elif name == "mulmocast_execute_command":
-            command = arguments["command"]
-            args = arguments.get("args", [])
-            
-            result = service.execute_cli_command(command, args)
-            
-            if "error" in result:
-                return [TextContent(
-                    type="text",
-                    text=f"Error executing command: {result['error']}"
-                )]
-            
-            success = result.get("success", False)
-            stdout = result.get("stdout", "")
-            stderr = result.get("stderr", "")
-            
-            if success:
-                return [TextContent(
-                    type="text",
-                    text=f"✅ Command executed successfully!\n\nOutput:\n{stdout}"
-                )]
-            else:
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Command failed!\n\nError:\n{stderr or stdout}"
-                )]
-        
-        elif name == "mulmocast_create_complete_workflow":
-            template = arguments["template"]
-            topic = arguments["topic"]
-            output_formats = arguments.get("output_formats", ["movie"])
-            urls = arguments.get("urls", [])
-            
-            # Step 1: Generate script
-            script_result = service.generate_script(template, topic, urls)
-            
-            if "error" in script_result or not script_result.get("success"):
-                error_msg = script_result.get("error") or script_result.get("stderr", "Unknown error")
-                return [TextContent(
-                    type="text",
-                    text=f"❌ Script generation failed: {error_msg}"
-                )]
-            
-            # Extract script path from output (this is a simplification)
-            script_path = f"output/{topic.replace(' ', '_')}.json"
-            
-            results = [f"📝 Script generated successfully for topic: {topic}"]
-            
-            # Step 2: Generate each requested format
-            for format_type in output_formats:
-                if format_type == "audio":
-                    result = service.generate_audio(script_path)
-                elif format_type == "images":
-                    result = service.generate_images(script_path)
-                elif format_type == "movie":
-                    result = service.generate_movie(script_path)
-                elif format_type == "pdf":
-                    result = service.generate_pdf(script_path)
-                else:
-                    results.append(f"❓ Unknown format: {format_type}")
-                    continue
-                
-                if result.get("success"):
-                    results.append(f"✅ {format_type.title()} generation completed")
-                else:
-                    error_msg = result.get("error") or result.get("stderr", "Unknown error")
-                    results.append(f"❌ {format_type.title()} generation failed: {error_msg}")
-            
-            results.append(f"\n🌐 Visit {MULMOCAST_CLIENT_URL} to download your content.")
-            
-            return [TextContent(
-                type="text",
-                text="\n".join(results)
-            )]
-        
+            return {
+                "script_path": script_path,
+                "script_content": script_content,
+                "status": "success",
+                "message": f"Script generated successfully at {script_path}"
+            }
         else:
-            return [TextContent(
-                type="text",
-                text=f"Unknown tool: {name}"
-            )]
-    
+            return {
+                "error": f"Error generating script: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
     except Exception as e:
-        logger.error(f"Tool execution error: {e}")
-        return [TextContent(
-            type="text",
-            text=f"Error executing {name}: {str(e)}"
-        )]
+        logger.exception("Error executing MulmoCast generate script")
+        return {
+            "error": f"Error executing MulmoCast generate script: {str(e)}",
+            "status": "error"
+        }
 
-async def main():
-    """Run the MCP server"""
-    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
-        await server.run(
-            read_stream,
-            write_stream,
-            server.create_initialization_options()
+async def execute_mulmocast_generate_audio(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast generate audio tool"""
+    try:
+        script_path = arguments.get("script_path")
+        force = arguments.get("force", False)
+        
+        if not script_path:
+            return {"error": "script_path is required", "status": "error"}
+        
+        # Prepare data for MulmoCast audio generation
+        data = {
+            "script_path": script_path,
+            "force": force
+        }
+        
+        logger.info(f"Generating audio with data: {data}")
+        
+        # Send request to MulmoCast audio generation API
+        response = requests.post(
+            urljoin(MULMOCAST_URL, "/api/audio"),
+            json=data,
+            timeout=600  # 10 minutes for audio generation
         )
+        
+        if response.status_code == 200:
+            result = response.json()
+            audio_files = result.get("audio_files", [])
+            
+            # Convert internal URLs to client-accessible URLs
+            client_url = os.environ.get("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+            audio_urls = []
+            for audio_file in audio_files:
+                if audio_file.startswith("http"):
+                    # Already a full URL, convert to client URL
+                    audio_urls.append(audio_file.replace(MULMOCAST_URL, client_url))
+                else:
+                    # Relative path, create full client URL
+                    audio_urls.append(urljoin(client_url, audio_file))
+            
+            return {
+                "audio_files": audio_files,
+                "audio_urls": audio_urls,
+                "status": "success",
+                "message": f"Generated {len(audio_files)} audio files"
+            }
+        else:
+            return {
+                "error": f"Error generating audio: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing MulmoCast generate audio")
+        return {
+            "error": f"Error executing MulmoCast generate audio: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_mulmocast_generate_images(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast generate images tool"""
+    try:
+        script_path = arguments.get("script_path")
+        force = arguments.get("force", False)
+        
+        if not script_path:
+            return {"error": "script_path is required", "status": "error"}
+        
+        # Prepare data for MulmoCast image generation
+        data = {
+            "script_path": script_path,
+            "force": force
+        }
+        
+        logger.info(f"Generating images with data: {data}")
+        
+        # Send request to MulmoCast image generation API
+        response = requests.post(
+            urljoin(MULMOCAST_URL, "/api/images"),
+            json=data,
+            timeout=1200  # 20 minutes for image generation
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            image_files = result.get("image_files", [])
+            
+            # Convert internal URLs to client-accessible URLs
+            client_url = os.environ.get("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+            image_urls = []
+            for image_file in image_files:
+                if image_file.startswith("http"):
+                    # Already a full URL, convert to client URL
+                    image_urls.append(image_file.replace(MULMOCAST_URL, client_url))
+                else:
+                    # Relative path, create full client URL
+                    image_urls.append(urljoin(client_url, image_file))
+            
+            return {
+                "image_files": image_files,
+                "image_urls": image_urls,
+                "status": "success",
+                "message": f"Generated {len(image_files)} image files"
+            }
+        else:
+            return {
+                "error": f"Error generating images: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing MulmoCast generate images")
+        return {
+            "error": f"Error executing MulmoCast generate images: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_mulmocast_generate_movie(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast generate movie tool"""
+    try:
+        script_path = arguments.get("script_path")
+        force = arguments.get("force", False)
+        
+        if not script_path:
+            return {"error": "script_path is required", "status": "error"}
+        
+        # Prepare data for MulmoCast movie generation
+        data = {
+            "script_path": script_path,
+            "force": force
+        }
+        
+        logger.info(f"Generating movie with data: {data}")
+        
+        # Send request to MulmoCast movie generation API
+        response = requests.post(
+            urljoin(MULMOCAST_URL, "/api/movie"),
+            json=data,
+            timeout=1800  # 30 minutes for movie generation
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            movie_file = result.get("movie_file", "")
+            
+            # Convert internal URL to client-accessible URL
+            client_url = os.environ.get("MULMOCAST_CLIENT_URL", "http://localhost:5008")
+            if movie_file.startswith("http"):
+                movie_url = movie_file.replace(MULMOCAST_URL, client_url)
+            else:
+                movie_url = urljoin(client_url, movie_file)
+            
+            return {
+                "movie_file": movie_file,
+                "movie_url": movie_url,
+                "status": "success",
+                "message": f"Movie generated successfully: {movie_file}"
+            }
+        else:
+            return {
+                "error": f"Error generating movie: {response.text}",
+                "status": "error",
+                "status_code": response.status_code
+            }
+        
+    except Exception as e:
+        logger.exception("Error executing MulmoCast generate movie")
+        return {
+            "error": f"Error executing MulmoCast generate movie: {str(e)}",
+            "status": "error"
+        }
+
+async def execute_mulmocast_create_complete_workflow(arguments: Dict[str, Any]) -> Dict[str, Any]:
+    """Execute MulmoCast complete workflow tool"""
+    try:
+        template = arguments.get("template")
+        topic = arguments.get("topic")
+        output_formats = arguments.get("output_formats", ["audio"])
+        urls = arguments.get("urls", [])
+        
+        if not template:
+            return {"error": "template is required", "status": "error"}
+        if not topic:
+            return {"error": "topic is required", "status": "error"}
+        
+        # Step 1: Generate script
+        script_result = await execute_mulmocast_generate_script({
+            "template": template,
+            "topic": topic,
+            "urls": urls,
+            "interactive": False
+        })
+        
+        if script_result.get("status") != "success":
+            return script_result
+        
+        script_path = script_result.get("script_path")
+        if not script_path:
+            return {"error": "Failed to get script path from generation", "status": "error"}
+        
+        # Step 2: Generate requested formats
+        results = {
+            "script_path": script_path,
+            "script_content": script_result.get("script_content", {}),
+            "generated_content": {},
+            "status": "success"
+        }
+        
+        for format_type in output_formats:
+            if format_type == "audio":
+                audio_result = await execute_mulmocast_generate_audio({
+                    "script_path": script_path,
+                    "force": False
+                })
+                results["generated_content"]["audio"] = audio_result
+                
+            elif format_type == "images":
+                images_result = await execute_mulmocast_generate_images({
+                    "script_path": script_path,
+                    "force": False
+                })
+                results["generated_content"]["images"] = images_result
+                
+            elif format_type == "movie":
+                movie_result = await execute_mulmocast_generate_movie({
+                    "script_path": script_path,
+                    "force": False
+                })
+                results["generated_content"]["movie"] = movie_result
+                
+            elif format_type == "pdf":
+                # PDF generation would be implemented here if the API supports it
+                results["generated_content"]["pdf"] = {
+                    "status": "not_implemented",
+                    "message": "PDF generation not yet implemented"
+                }
+        
+        return results
+        
+    except Exception as e:
+        logger.exception("Error executing MulmoCast complete workflow")
+        return {
+            "error": f"Error executing MulmoCast complete workflow: {str(e)}",
+            "status": "error"
+        }
+
+# Health check endpoint
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "service": "mulmocast-mcp"}
+
+# Root endpoint for service info
+@app.get("/")
+async def root():
+    """Root endpoint with service information"""
+    return {
+        "service": "MulmoCast MCP Service",
+        "version": "1.0.0",
+        "status": "running",
+        "endpoints": {
+            "mcp": "JSON-RPC 2.0 endpoint for tool discovery and execution",
+            "health": "Health check endpoint"
+        }
+    }
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    import uvicorn
+    port = int(os.environ.get("PORT", 8507))
+    uvicorn.run(app, host="0.0.0.0", port=port)
