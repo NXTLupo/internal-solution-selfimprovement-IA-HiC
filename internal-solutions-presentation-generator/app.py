@@ -33,8 +33,7 @@ from typing import Union
 import xml.etree.ElementTree as ET
 import subprocess
 import tempfile
-# Import the maximum quality D3 infographic generator
-from d3_infographic_generator_max_quality import MaxQualityD3InfographicGenerator, create_max_quality_d3_infographic
+# Claude 4 SVG generation is the primary infographic system - no D3 dependency needed
 
 app = FastAPI(title="AI Presentation Generator", description="FastAPI-based presentation generation service with maximum quality graphics")
 
@@ -3001,17 +3000,17 @@ def create_powerpoint_presentation(analysis: Dict[str, Any], output_path: str) -
                             except Exception as e:
                                 print(f"⚠️ Error with placeholder {placeholder_idx}: {e}")
                                 continue
+                        
+                        # Fallback to left side positioning if no PICTURE placeholder was found
+                        if not image_inserted:
+                            print(f"⚠️ No PICTURE placeholder found, adding to left side")
+                            chart_left = Inches(0.5)
+                            chart_top = Inches(1.5)
+                            chart_width = Inches(4.0)
+                            chart_height = Inches(3.5)
                             
-                            # Fallback to left side positioning if no PICTURE placeholder
-                            if not image_inserted:
-                                print(f"⚠️ No PICTURE placeholder found, adding to left side")
-                                chart_left = Inches(0.5)
-                                chart_top = Inches(1.5)
-                                chart_width = Inches(4.0)
-                                chart_height = Inches(3.5)
-                                
-                                chart_shape = slide.shapes.add_picture(png_path, chart_left, chart_top, chart_width, chart_height)
-                                print(f"✅ Added to left side: {chart_left.inches}\" x {chart_top.inches}\"")
+                            chart_shape = slide.shapes.add_picture(png_path, chart_left, chart_top, chart_width, chart_height)
+                            print(f"✅ Added to left side: {chart_left.inches}\" x {chart_top.inches}\"")
                         
                     else:
                         print(f"❌ MAXIMUM QUALITY PNG conversion failed")
