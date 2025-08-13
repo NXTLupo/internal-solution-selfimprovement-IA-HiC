@@ -7,11 +7,11 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Install system dependencies for audio/video processing
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     curl \
     ffmpeg \
     libsndfile1 \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
