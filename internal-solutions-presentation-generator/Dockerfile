@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies including SVG processing libraries
+# Install system dependencies including SVG processing libraries and OCR
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     curl \
     build-essential \
@@ -13,6 +13,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     shared-mime-info \
     imagemagick \
     libmagickwand-dev \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies

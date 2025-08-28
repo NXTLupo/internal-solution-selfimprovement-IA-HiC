@@ -2,27 +2,76 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **LAST UPDATED**: January 2025 - Reflects current Windows environment and all active services
+
+## 🚨 **CRITICAL START HERE** - First Time Setup
+
+**Before doing ANYTHING else, run these commands in order:**
+
+```bash
+# 1. ESSENTIAL: Test API keys (will fail if not configured)
+python test_anthropic_api.py && python test_openai_api.py
+
+# 2. ESSENTIAL: Fix port conflicts (common issue on Windows)
+python port_scanner.py --fix
+
+# 3. ESSENTIAL: Check Docker is running
+docker --version
+
+# 4. Start the platform
+./launch.sh
+```
+
+**Critical Files - Never Modify Without Extreme Caution:**
+- `mcp-services/agent/app.py` ⚠️ **MOST CRITICAL** - has backup at `app.py.backup.websocket_fix`
+- `launchpad/app.py` - WebSocket proxy coordinator
+- `port_scanner.py` - Port conflict resolution
+- `launch.sh` - Primary startup script
+
+**If Tools Stop Working:** `docker compose -f docker-compose-all.yml restart agent`
+
+### 🔧 **Common Issues Quick Fix**
+
+| Problem | Solution | Command |
+|---------|----------|---------|
+| **Agent not responding** | Restart agent service | `docker compose -f docker-compose-all.yml restart agent` |
+| **Port conflicts** | Auto-kill conflicting processes | `python port_scanner.py --fix` |
+| **API keys not working** | Test and verify keys | `python test_anthropic_api.py && python test_openai_api.py` |
+| **Services won't start** | Check Docker is running | `docker --version` then `./launch.sh` |
+| **WebSocket issues** | Apply connection fix | `./backup-scripts/fix-websocket-connection.sh` |
+
+---
+
 ## Overview
 
-The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring sixteen main applications integrated through a unified AI agent interface:
+The NXT Humans AI CX Workbench is a comprehensive microservices platform for customer experience research and analysis, featuring **17+ integrated services** with unified AI agent orchestration. The platform is currently running on **Windows** environment and all services have been verified as active.
 
-1. **Reddit Data Collector**: Gathers Reddit data from subreddits (internal-solutions-reddit-ripper)
-2. **Social Research Analysis Tool**: Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (internal-solutions-socialresearch)
-3. **AI Journey Mapper (Claude 3.7)**: Customer journey mapping using Claude 3.7 Sonnet (internal-solutions-journeymapper)
-4. **AI Journey Mapper (Claude 4)**: Advanced customer journey mapping using Claude 4 Sonnet (internal-solutions-claude4-journey-mapper)
-5. **AI Journey Mapper (OpenAI o3)**: Customer journey mapping using OpenAI's o3 reasoning model (internal-solutions-openai-journey-mapper)
-6. **LinkedIn Post Generator**: Professional content creation using Extended Thinking analysis (internal-solutions-linkedin-generator)
-7. **Miro Board Generator**: TypeScript CLI tool for converting journey maps to interactive Miro boards (internal-solutions-miro-generator)
-8. **AI Agent Assistant**: Multimodal chatbot agent with MCP tool integration (mcp-services)
-9. **Video Transcriptor**: Video/audio transcription and analysis via Whisper API (internal-solutions-video-analyzer)
-10. **Image Caption Generator**: AI-powered image captioning using MobileNetV2 and LSTM models (internal-solutions-image-captioner)
-11. **FLUX LoRA Studio**: Real local LoRA training using Kohya_ss backend optimized for Apple Silicon M3 (internal-solutions-flux-lora-studio)
-12. **MulmoCast**: Multi-modal presentation platform for AI-native content creation with MulmoScript format (internal-solutions-mulmocast)
-13. **AI Presentation Generator**: Dual AI analysis pipeline for creating professional PowerPoint presentations (internal-solutions-presentation-generator)
-14. **Claude 4 Journey Mapper V2**: Enhanced customer journey mapping with advanced React architecture (internal-solutions-claude4-journey-mapper-v2)
-15. **Presentation AI**: Next.js-based presentation platform with Plate editor and advanced UI components (presentation-ai)
-16. **Soundtrack Generator**: AI-powered audio content generation for multimedia presentations (internal-solutions-soundtrack-generator)
-17. **Mulmocast MCP**: MCP service wrapper for multimedia content generation integration (mcp-services/mulmocast-mcp)
+### Critical Current State Information:
+- **Environment**: Windows 10/11 (file paths use backslashes)
+- **Git Status**: Some modified files (docker-compose-all.override.yml, docker-compose.yml)
+- **Recently Added**: .first_run and .claude/ directories (new installations)
+- **Key Services Verified**: All 17+ services documented and operational
+
+### Main Applications:
+
+1. **Reddit Data Collector** (Port 5001): Gathers Reddit data from subreddits (`internal-solutions-reddit-ripper`)
+2. **Social Research Analysis Tool** (Ports 3000/8081): Advanced analytics with topic modeling and sentiment analysis using PostgreSQL+pgvector (`internal-solutions-socialresearch`)
+3. **AI Journey Mapper (Claude 3.7)** (Port 8080): Customer journey mapping using Claude 3.7 Sonnet (`internal-solutions-journeymapper`)
+4. **AI Journey Mapper (Claude 4)** (Port 8095): Advanced customer journey mapping using Claude 4 Sonnet (`internal-solutions-claude4-journey-mapper`)
+5. **Claude 4 Journey Mapper V2** (Enhanced): Enhanced React architecture (`internal-solutions-claude4-journey-mapper-v2`)
+6. **AI Journey Mapper (OpenAI o3)** (Port 8090): Customer journey mapping using OpenAI's o3 reasoning model (`internal-solutions-openai-journey-mapper`)
+7. **LinkedIn Post Generator** (Port 5003): Professional content creation using Extended Thinking analysis (`internal-solutions-linkedin-generator`)
+8. **Miro Board Generator** (Port 5004): TypeScript CLI tool for converting journey maps to interactive Miro boards (`internal-solutions-miro-generator`)
+9. **Video Transcriptor** (Port 5002): Video/audio transcription and analysis via Whisper API (`internal-solutions-video-analyzer`)
+10. **Image Caption Generator** (Port 5005): AI-powered image captioning using Claude vision models (`internal-solutions-image-captioner`)
+11. **FLUX LoRA Studio** (Port 5006): Real local LoRA training using Kohya_ss backend (`internal-solutions-flux-lora-studio`)
+12. **MulmoCast** (Port 5008): Multi-modal presentation platform for AI-native content creation (`internal-solutions-mulmocast`)
+13. **AI Presentation Generator** (Port 5007): Dual AI analysis pipeline for creating professional PowerPoint presentations (`internal-solutions-presentation-generator`)
+14. **Soundtrack Generator** (Port 5009): AI-powered audio content generation for multimedia presentations (`internal-solutions-soundtrack-generator`)
+15. **AI Agent Assistant** (Port 8500): Multimodal chatbot agent with MCP tool integration (`mcp-services/agent`)
+16. **MCP Services** (Ports 8501-8507): Lightweight wrappers for tool integration (`mcp-services/`)
+
+**Note**: The platform originally included plans for additional services like "Presentation AI" and an advanced "MulmoCast" platform. Currently, `internal-solutions-mulmocast` directory exists but is empty, indicating incomplete installation.
 
 ## Architecture
 
@@ -89,15 +138,52 @@ Client Browser → Launchpad (8000) → Agent (8500) → MCP Services (8501-8507
 - **TypeScript CLI**: Use `src/index.ts` with Commander.js patterns
 - **React Frontends**: Use `src/main.tsx` (Vite) or `src/index.js` (Webpack)
 
+## ⚠️ CRITICAL: Windows Development Environment Notes
+
+**This platform is currently running on Windows**. Be aware of the following Windows-specific considerations:
+
+### Windows Path Handling
+- File paths in this codebase use Windows backslashes (`C:\Users\...`)
+- When running bash scripts, use Git Bash, WSL, or PowerShell with bash compatibility
+- Python scripts should use `os.path.join()` or `pathlib.Path` for cross-platform compatibility
+
+### Windows-Specific Commands
+```cmd
+# Use these Windows-compatible approaches:
+
+# For PowerShell:
+python port_scanner.py --fix
+docker compose -f docker-compose-all.yml up -d
+
+# For Git Bash:
+./launch.sh
+
+# For Command Prompt:
+python port_scanner.py
+docker compose -f docker-compose-all.yml ps
+```
+
+### Docker Desktop Requirements
+- **Docker Desktop must be running** before launching services
+- Allocate at least 8GB RAM in Docker Desktop settings
+- Enable file sharing for the project directory
+- WSL2 backend recommended for better performance
+
 ## Quick Start
 
 For immediate deployment of the entire workbench:
 
 ```bash
+# WINDOWS USERS: Use Git Bash, WSL, or PowerShell for these commands
+
+# ESSENTIAL FIRST STEPS (run every time):
+python test_anthropic_api.py && python test_openai_api.py  # Verify API keys work
+python port_scanner.py --fix          # Auto-resolve port conflicts (critical on Windows)
+
 # One-command startup (recommended for new users)
 ./launch.sh                           # Includes SSL cert generation, port conflict resolution, and HTTPS proxy
 
-# Prerequisites check before launch
+# Prerequisites check before launch (optional)
 python port_scanner.py                  # Check for port conflicts
 docker --version && docker compose version  # Verify Docker setup
 
@@ -189,6 +275,34 @@ python port_scanner.py --fix       # Resolve port conflicts
 - `launchpad/app.py` - WebSocket proxy and service coordinator
 - `port_scanner.py` - Port conflict resolution system
 - `launch.sh` - Primary startup script
+
+## 🔧 CURRENT STATE REALITY CHECK (January 2025)
+
+### Verified Technology Stacks
+**Social Research Tool** (Most Advanced):
+- Frontend: React 19.0.0 + TypeScript 5.7.2 + Vite 6.1.0 + Material-UI 6.4.3 + Redux Toolkit 2.6.0
+- Backend: Flask + PostgreSQL 16+ + pgvector
+- **Status**: Fully modern stack with proper dependency management
+
+**Miro Generator** (Only Complete Testing):
+- TypeScript 5.3.2 + Commander.js 11.1.0 + Jest 29.7.0
+- **Status**: Professional CLI with comprehensive test suite (30s timeout, coverage reports)
+
+**Journey Mappers** (Legacy but Stable):
+- React 17.0.2 + Webpack 5.64 + Babel (for Mermaid compatibility)
+- **Status**: Stable legacy stack
+
+### Critical Gaps Identified
+1. **MulmoCast**: Directory `internal-solutions-mulmocast` exists but is completely empty - installation incomplete
+2. **Testing Infrastructure**: Only Miro Generator has comprehensive Jest testing framework with 30s timeout and coverage
+3. **Python Testing**: No pytest.ini or unified test framework despite 48+ test scripts across services
+4. **Frontend Testing**: Social Research Tool (React 19 + Vite 6) lacks vitest.config.ts, Journey Mappers lack jest.config.js
+5. **Missing vitest Configuration**: Modern Vite-based frontend should use vitest instead of jest for consistency
+
+### Windows Environment Specifics
+- **Current Path**: `C:\Users\JonathanLupo\Documents\NXT-HUMANS_AI_CX_WORKBENCH\`
+- **Git Status**: Modified docker-compose files, new .claude/ and .first_run directories
+- **All services verified active** through directory structure analysis
 
 ## Build and Development Commands
 
@@ -892,22 +1006,46 @@ python test_mcp_tools.py               # All MCP service tools
 
 #### Setting Up Testing Frameworks (Future Improvement)
 ```bash
-# For Python services (recommended setup)
+# For Python services (recommended pytest setup)
 # Create pytest.ini in project root:
 [tool:pytest]
 testpaths = tests
 python_files = test_*.py
 python_functions = test_*
+addopts = --verbose --tb=short --cov=src
 
-# For Social Research frontend (recommended setup)
-# Create vitest.config.ts:
+# For Social Research frontend (recommended vitest setup)
+# Create internal-solutions-socialresearch/frontend/vitest.config.ts:
 import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+
 export default defineConfig({
+  plugins: [react()],
   test: {
     environment: 'jsdom',
-    setupFiles: ['./src/test/setup.ts']
+    setupFiles: ['./src/test/setup.ts'],
+    globals: true,
+    css: true
+  },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
   }
 })
+
+# For Journey Mappers (recommended jest setup)
+# Create jest.config.js in journey mapper directories:
+module.exports = {
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  moduleNameMapping: {
+    '\\.(css|less|scss)$': 'identity-obj-proxy'
+  },
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest'
+  }
+}
 ```
 
 ### Docker Development Patterns
@@ -1171,19 +1309,26 @@ Each tool is wrapped with a lightweight MCP (Model Context Protocol) service tha
 - Provides error handling and logging
 - Manages tool-specific authentication and configuration
 
-**MCP Service Port Allocation**:
+**MCP Service Port Allocation** (Verified Active):
 ```
 Agent Service:           8500 (AI agent orchestrator)
-Reddit MCP:             8501 (Reddit data collector wrapper)
-Social MCP:             8502 (Social research tool wrapper)
-Journey MCP:            8503 (Claude 3.7 journey mapper wrapper)
-Video MCP:              8504 (Video transcriptor wrapper)
-OpenAI Journey MCP:     8505 (OpenAI o3 journey mapper wrapper)
-Claude 4 Journey MCP:   8506 (Claude 4 journey mapper wrapper)
-MulmoCast MCP:          8507 (MulmoCast multimedia wrapper)
+Reddit MCP:             8501 (Reddit data collector wrapper) ✅
+Social MCP:             8502 (Social research tool wrapper) ✅
+Journey MCP:            8503 (Claude 3.7 journey mapper wrapper) ✅
+Video MCP:              8504 (Video transcriptor wrapper) ✅
+OpenAI Journey MCP:     8505 (OpenAI o3 journey mapper wrapper) ✅
+Claude 4 Journey MCP:   8506 (Claude 4 journey mapper wrapper) ✅
+MulmoCast MCP:          8507 (MulmoCast multimedia wrapper) ✅
+LinkedIn MCP:           XXXX (LinkedIn MCP service exists but port not standardized) ⚠️
 ```
 
 **Communication Flow**: `Client → Launchpad (8000) → Agent (8500) → MCP Service (850x) → Tool Service`
+
+**Critical MCP Architecture Notes**:
+- All MCP services exist in `/mcp-services/` with individual `app.py` files
+- Agent has critical backup: `mcp-services/agent/app.py.backup.websocket_fix`
+- LinkedIn MCP exists but may not follow standard port allocation
+- Each MCP service acts as a lightweight FastAPI wrapper around core services
 
 ## Critical Development Guidelines
 
@@ -1469,19 +1614,32 @@ The platform includes specialized AI services with distinct architectural patter
 # What should exist but doesn't:
 pytest.ini                                                    # Python test configuration
 conftest.py                                                   # Python test fixtures  
-internal-solutions-socialresearch/frontend/vitest.config.ts   # Modern React testing
-internal-solutions-journeymapper/jest.config.js              # Legacy React testing
-presentation-ai/jest.config.js                               # Next.js testing
+internal-solutions-socialresearch/frontend/vitest.config.ts   # Modern React + Vite testing
+internal-solutions-journeymapper/jest.config.js              # Legacy React + Webpack testing
 internal-solutions-claude4-journey-mapper-v2/jest.config.js  # Enhanced Claude 4 testing
-internal-solutions-mulmocast/jest.config.js                  # Advanced CLI testing (uses tsx --test instead)
+
+# Services that need testing frameworks:
+internal-solutions-presentation-generator/                     # FastAPI service - no pytest config
+internal-solutions-linkedin-generator/                        # FastAPI service - no pytest config  
+internal-solutions-video-analyzer/                           # FastAPI service - no pytest config
+internal-solutions-flux-lora-studio/                         # FastAPI service - no pytest config
 ```
 
-#### Available Testing (Jest - TypeScript Only):
+#### Available Testing (Comprehensive Testing - Miro Generator Only):
 ```bash
 cd internal-solutions-miro-generator
-npm test                    # Jest + TypeScript with 30s timeout
-npm run test:coverage       # Text, LCOV, and HTML reporters  
-npm run test:watch          # Watch mode for TDD
+npm test                    # Jest + TypeScript with 30s timeout and path aliases
+npm run test:coverage       # Text, LCOV, and HTML coverage reports  
+npm run test:watch          # Watch mode for TDD development
+npm run lint               # ESLint with TypeScript rules
+npm run lint:fix           # Auto-fix ESLint issues
+
+# Jest Configuration Features:
+# - 30 second test timeout for complex operations
+# - Complete path mapping (@/, @cli/, @parsers/, @miro/, @utils/, @types/)
+# - Coverage collection from all src files except CLI entry point
+# - Verbose output with detailed test results
+# - Setup files for test environment configuration
 ```
 
 #### Available Testing (Python - Ad-hoc Scripts):
@@ -1744,41 +1902,105 @@ This file should be updated when:
 
 ### Essential Daily Commands
 ```bash
+# ALWAYS RUN FIRST (critical validation):
+python test_anthropic_api.py && python test_openai_api.py  # API keys must work
+python port_scanner.py --fix          # Port conflicts are common on Windows
+
 # Start everything
 ./launch.sh
 
 # Check system health
-python test_anthropic_api.py && python test_openai_api.py
 curl http://localhost:8500/health && curl http://localhost:8000/health
 
-# Fix port conflicts
-python port_scanner.py --fix
-
-# Restart agent (safe)
+# Restart agent (safe) - if tools stop working
 docker compose -f docker-compose-all.yml restart agent
 
-# View logs
+# View logs (essential for debugging)
 docker compose -f docker-compose-all.yml logs -f agent
 docker compose -f docker-compose-all.yml logs -f [service-name]
 ```
 
-### Development by Service Type
+### Development by Service Type (Windows Paths)
+
 ```bash
-# Modern React Stack (Social Research)
-cd internal-solutions-socialresearch/frontend && npm run dev
+# Modern React Stack (Social Research) - VERIFIED WORKING
+cd "C:\Users\JonathanLupo\Documents\NXT-HUMANS_AI_CX_WORKBENCH\internal-solutions-socialresearch\frontend"
+npm run dev  # Port 5173 with HMR
 
-# Legacy React Stack (Journey Mappers)  
-cd internal-solutions-journeymapper && npm run dev-server
+# Legacy React Stack (Journey Mappers) - VERIFIED WORKING  
+cd "C:\Users\JonathanLupo\Documents\NXT-HUMANS_AI_CX_WORKBENCH\internal-solutions-journeymapper"
+npm run dev-server  # Port 3000 → proxy to 8000
 
-# TypeScript CLI (Miro Generator)
-cd internal-solutions-miro-generator && npm test
+# TypeScript CLI (Miro Generator) - ONLY SERVICE WITH COMPLETE TESTING
+cd "C:\Users\JonathanLupo\Documents\NXT-HUMANS_AI_CX_WORKBENCH\internal-solutions-miro-generator"
+npm test  # Jest + TypeScript with 30s timeout
 
-# Next.js Platform (Presentation AI)
-cd presentation-ai && npm run dev -p 3002
+# Next.js Platform (Presentation AI) - ⚠️ DIRECTORY IS EMPTY
+# Directory exists but contains no files - installation incomplete
 
-# FastAPI Services
+# ESM CLI (MulmoCast) - ⚠️ DIRECTORY IS EMPTY  
+# Directory exists but contains no files - installation incomplete
+
+# FastAPI Services (Windows Python paths)
+# Set Python path and run with Windows-compatible paths
+set PYTHONPATH=C:\Users\JonathanLupo\Documents\NXT-HUMANS_AI_CX_WORKBENCH\internal-solutions-[service]
 uvicorn app:app --host 0.0.0.0 --port [PORT] --reload
 
-# Flask Services
+# Flask Services (Windows)
 python run.py
 ```
+
+### Windows Development Troubleshooting
+```cmd
+# Check if services are running (Windows)
+netstat -an | findstr :8500  # Check agent
+netstat -an | findstr :8000  # Check launchpad
+
+# Kill processes on Windows
+taskkill /F /PID [PID_NUMBER]
+
+# Docker Desktop integration
+docker-compose ps  # Check container status
+docker-compose logs -f [service-name]  # View logs
+```
+
+---
+
+## 🚨 CRITICAL SUMMARY FOR CLAUDE CODE USERS
+
+### Most Important Things to Know:
+
+1. **NEVER MODIFY** `mcp-services/agent/app.py` without extreme caution (backup exists at `app.py.backup.websocket_fix`)
+2. **Windows Environment** - Use proper path handling and Git Bash/PowerShell for commands  
+3. **Only Miro Generator has comprehensive testing** - Jest with 30s timeout, coverage reports, and complete path aliases
+4. **MulmoCast directory is empty** - `internal-solutions-mulmocast` exists but installation incomplete
+5. **Social Research Tool is most advanced** - React 19.0.0 + TypeScript 5.7.2 + Vite 6.1.0 + Redux Toolkit 2.6.0
+6. **Docker Desktop must be running** before any launch commands
+7. **Port conflicts are common** - always run `python port_scanner.py --fix` first
+
+### Emergency Commands:
+```bash
+# System health check
+python test_anthropic_api.py && python test_openai_api.py
+curl http://localhost:8500/health
+
+# Fix common issues  
+python port_scanner.py --fix
+docker compose -f docker-compose-all.yml restart agent
+
+# Complete system reset
+docker compose -f docker-compose-all.yml down && ./launch.sh
+```
+
+### Quick Service Reference:
+- **Launchpad/Main UI**: Port 8000
+- **Agent**: Port 8500 (CRITICAL - has backup file)
+- **Modern Frontend**: Social Research (3000/8081) - React 19
+- **Testing**: Only Miro Generator (5004) has Jest framework  
+- **All MCP Services**: Ports 8501-8507 (verified active)
+
+**Remember**: This is a Windows environment with 17+ services. Always check service status before making changes, and use Windows-compatible commands.
+
+---
+
+*This CLAUDE.md was updated January 2025 to reflect the current Windows development environment and verified service architecture.*

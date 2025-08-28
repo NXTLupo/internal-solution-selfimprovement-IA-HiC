@@ -1,37 +1,14 @@
-services:
-  launchpad:
-    image: python:3.9-slim
-    ports:
-      - "${LAUNCHPAD_PORT:-8000}:8000"
-    environment:
-      - JOURNEY_MAPPER_URL=http://journey-mapper:8000
-      - REDDIT_RIPPER_URL=http://reddit-ripper:5000
-      - SOCIAL_RESEARCH_URL=http://social-research-frontend:3000
-      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
-      - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
-      - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
-      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
-      - PORT=8000
-      - ENABLE_CX_AGENT=true
-    volumes:
-      - ./launchpad:/app
-    working_dir: /app
-    command: >
-      bash -c "pip install -r requirements.txt &&
-              python app.py"
-    networks:
-      - nxt-humans-network
 
-  journey-mapper:
+  claude4-journey-mapper:
     image: python:3.10-slim
     ports:
-      - "${JOURNEY_MAPPER_PORT:-8080}:8000"
+      - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=8000
-      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+      - ANTHROPIC_MODEL=claude-sonnet-4-20250514
     volumes:
-      - ./internal-solutions-journeymapper:/app
+      - ./internal-solutions-claude4-journey-mapper-v2:/app
     working_dir: /app
     command: >
       bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
@@ -42,127 +19,125 @@ services:
     networks:
       - nxt-humans-network
 
-  reddit-ripper:
-    image: python:3.9-slim
-    ports:
-      - "${REDDIT_RIPPER_PORT:-5001}:5000"
-    environment:
-      - PORT=5000
-    volumes:
-      - ./internal-solutions-reddit-ripper:/app
-    working_dir: /app
-    command: >
-      bash -c "pip install -r requirements.txt &&
-              python app.py"
-    networks:
-      - nxt-humans-network
-
-  social-research-frontend:
-    image: node:20-slim
-    ports:
-      - "${SOCIAL_RESEARCH_PORT:-3000}:3000"
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
-      - PORT=3000
-      - VITE_API_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
-    volumes:
-      - ./internal-solutions-socialresearch:/app
-    working_dir: /app/frontend
-    command: >
-      bash -c "npm install &&
-              npm run dev -- --port=3000"
-    networks:
-      - nxt-humans-network
-    depends_on:
-      - social-research-backend
-    container_name: nxthumans_ai_cx_workbench-social-research-1
-  
-  social-research-backend:
-    image: python:3.9-slim
-    ports:
-      - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
-      - AZURE_OPENAI_KEY=${AZURE_OPENAI_KEY}
-      - GEMINI_API_KEY=***REDACTED-GOOGLE-KEY***
-      - PORT=8081
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=app
-      - POSTGRES_SERVER=social-research-db
-      - POSTGRES_HOST=social-research-db
-      - POSTGRES_PORT=5432
-      - DATABASE_URL=postgresql://postgres:postgres@social-research-db:5432/app
-      - FLASK_DEBUG=true
-      - SKIP_AZURE_AUTH=true
-      - USE_LOCAL_MODELS=true
-      - MOCK_AZURE_SERVICES=true
-    volumes:
-      - ./internal-solutions-socialresearch:/app
-    working_dir: /app/backend
-    command: >
-      bash -c "apt-get update && apt-get install -y build-essential libpq-dev git &&
-              pip install --no-cache-dir --upgrade pip &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python init_db.py &&
-              python -m run"
-    networks:
-      - nxt-humans-network
-    depends_on:
-      - social-research-db
-  
-  social-research-db:
-    image: ankane/pgvector:v0.5.1
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=app
-    volumes:
-      - social-research-db-data:/var/lib/postgresql/data
-    networks:
-      - nxt-humans-network
-
-  video-analyzer:
+  linkedin-generator:
     image: python:3.11-slim
     ports:
-      - "${VIDEO_ANALYZER_PORT:-5002}:5000"
+      - "${LINKEDIN_GENERATOR_PORT:-5003}:5000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5000
+      - CLAUDE_MODEL=claude-3-7-sonnet-20250219
+      - OPENAI_MODEL=gpt-4o
+      - MAX_TOKENS=64000
+      - TEMPERATURE=0.3
     volumes:
-      - ./internal-solutions-video-analyzer:/app
+      - ./internal-solutions-linkedin-generator:/app
+      - linkedin-generator-uploads:/app/uploads
+      - linkedin-generator-generated:/app/generated_content
     working_dir: /app
     command: >
-      bash -c "apt-get update && apt-get install -y ffmpeg &&
+      bash -c "apt-get update && apt-get install -y build-essential &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
               pip install --no-cache-dir -r requirements.txt &&
-              python run.py"
+              python -m spacy download en_core_web_sm &&
+              mkdir -p uploads generated_content static/css static/js &&
+              uvicorn app:app --host 0.0.0.0 --port 5000"
     networks:
       - nxt-humans-network
 
-  video-mcp:
+  miro-generator:
     build:
-      context: ./mcp-services/video-mcp
+      context: ./internal-solutions-miro-generator
+      dockerfile: Dockerfile.simple
     ports:
-      - "${VIDEO_MCP_PORT:-8004}:8004"
+      - "${MIRO_GENERATOR_PORT:-5004}:5004"
     environment:
-      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
-      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
-      - PORT=8004
+      - MIRO_ACCESS_TOKEN=${MIRO_ACCESS_TOKEN}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5004
+      - NODE_ENV=production
+      - FLASK_ENV=production
     volumes:
-      - ./mcp-services/video-mcp:/app
+      - ./internal-solutions-miro-generator:/app
+      - miro-generator-uploads:/app/uploads
+      - miro-generator-output:/app/output
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
+  image-captioner:
+    build:
+      context: ./internal-solutions-image-captioner
+      dockerfile: Dockerfile
+    ports:
+      - "${IMAGE_CAPTIONER_PORT:-5005}:5005"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5005
+    volumes:
+      - ./internal-solutions-image-captioner:/app
+      - image-captioner-uploads:/app/uploads
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
+  flux-lora-studio:
+    build:
+      context: ./internal-solutions-flux-lora-studio
+      dockerfile: Dockerfile
+    ports:
+      - "${FLUX_LORA_STUDIO_PORT:-5006}:5006"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5006
+      - IMAGE_CAPTIONER_URL=http://image-captioner:5005
+    volumes:
+      - ./internal-solutions-flux-lora-studio:/app
+      - flux-lora-studio-uploads:/app/uploads
+      - flux-lora-studio-datasets:/app/datasets
+      - flux-lora-studio-zips:/app/zips
+    working_dir: /app
     networks:
       - nxt-humans-network
     depends_on:
-      - video-analyzer
+      - image-captioner
 
-networks:
-  nxt-humans-network:
-    driver: bridge
+  presentation-generator:
+    build:
+      context: ./internal-solutions-presentation-generator
+      dockerfile: Dockerfile
+    ports:
+      - "${PRESENTATION_GENERATOR_PORT:-5007}:5007"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5007
+    volumes:
+      - ./internal-solutions-presentation-generator:/app
+      - presentation-generator-uploads:/app/uploads
+      - presentation-generator-generated:/app/generated_content
+    working_dir: /app
+    networks:
+      - nxt-humans-network
 
-volumes:
-  social-research-db-data:
-    driver: local
+  soundtrack-generator:
+    build:
+      context: ./internal-solutions-soundtrack-generator
+      dockerfile: Dockerfile
+    ports:
+      - "${SOUNDTRACK_GENERATOR_PORT:-5009}:5009"
+    environment:
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5009
+      - MAX_FILE_SIZE=524288000
+      - DEFAULT_VOICE_ID=EXAVITQu4vr4xnSDxMaL
+    volumes:
+      - ./internal-solutions-soundtrack-generator:/app
+      - soundtrack-generator-uploads:/app/uploads
+      - soundtrack-generator-generated:/app/generated
+    working_dir: /app
+    networks:
+      - nxt-humans-network

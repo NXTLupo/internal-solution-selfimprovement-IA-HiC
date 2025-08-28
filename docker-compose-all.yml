@@ -183,42 +183,28 @@ services:
 
 
   journey-mapper:
-    image: python:3.10-slim
+    build:
+      context: ./internal-solutions-journeymapper
+      dockerfile: Dockerfile.enhanced
     ports:
       - "${JOURNEY_MAPPER_PORT:-8080}:8000"
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=8000
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
-    volumes:
-      - ./internal-solutions-journeymapper:/app
-    working_dir: /app
-    command: >
-      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
-              pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              mkdir -p logs uploads journey_maps &&
-              python run.py"
     networks:
       - nxt-humans-network
 
   claude4-journey-mapper:
-    image: python:3.10-slim
+    build:
+      context: ./internal-solutions-claude4-journey-mapper-v2
+      dockerfile: Dockerfile.enhanced
     ports:
       - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=8000
       - ANTHROPIC_MODEL=claude-sonnet-4-20250514
-    volumes:
-      - ./internal-solutions-claude4-journey-mapper-v2:/app
-    working_dir: /app
-    command: >
-      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
-              pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              mkdir -p logs uploads journey_maps &&
-              python run.py"
     networks:
       - nxt-humans-network
 
@@ -328,8 +314,8 @@ services:
     ports:
       - "${LINKEDIN_GENERATOR_PORT:-5003}:5000"
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5000
       - CLAUDE_MODEL=claude-3-7-sonnet-20250219
       - OPENAI_MODEL=gpt-4o
@@ -357,7 +343,7 @@ services:
     ports:
       - "${MIRO_GENERATOR_PORT:-5004}:5004"
     environment:
-      - MIRO_ACCESS_TOKEN=${MIRO_ACCESS_TOKEN}
+      - MIRO_ACCESS_TOKEN=REDACTED
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=5004
       - NODE_ENV=production
@@ -377,7 +363,7 @@ services:
     ports:
       - "${IMAGE_CAPTIONER_PORT:-5005}:5005"
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=5005
     volumes:
       - ./internal-solutions-image-captioner:/app
@@ -393,8 +379,8 @@ services:
     ports:
       - "${FLUX_LORA_STUDIO_PORT:-5006}:5006"
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5006
       - IMAGE_CAPTIONER_URL=http://image-captioner:5005
     volumes:
@@ -415,8 +401,8 @@ services:
     ports:
       - "${PRESENTATION_GENERATOR_PORT:-5007}:5007"
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5007
     volumes:
       - ./internal-solutions-presentation-generator:/app
@@ -433,8 +419,8 @@ services:
     ports:
       - "${SOUNDTRACK_GENERATOR_PORT:-5009}:5009"
     environment:
-      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ELEVENLABS_API_KEY=REDACTED
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5009
       - MAX_FILE_SIZE=524288000
       - DEFAULT_VOICE_ID=EXAVITQu4vr4xnSDxMaL

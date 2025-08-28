@@ -70,17 +70,96 @@ def extract_content_from_file(file_path: str, file_extension: str) -> str:
     try:
         print(f"Extracting content from: {file_path} (type: {file_extension})")
         
+        # Check if file exists and is not empty
+        if not os.path.exists(file_path):
+            error_msg = f"File not found: {file_path}"
+            print(f"❌ {error_msg}")
+            return error_msg
+            
+        file_size = os.path.getsize(file_path)
+        if file_size == 0:
+            error_msg = f"File is empty (0 bytes): {file_path}"
+            print(f"❌ {error_msg}")
+            return error_msg
+            
+        print(f"📁 File size: {file_size:,} bytes")
+        
         if file_extension.lower() == 'pdf':
-            # Extract PDF text using PyPDF2
+            # Try multiple PDF extraction methods for better compatibility
             pdf_text = ""
-            with open(file_path, 'rb') as pdf_file:
-                pdf_reader = PyPDF2.PdfReader(pdf_file)
-                print(f"PDF has {len(pdf_reader.pages)} pages")
-                for i, page in enumerate(pdf_reader.pages):
-                    page_text = page.extract_text()
-                    pdf_text += page_text + "\n"
-                    print(f"  Page {i+1}: {len(page_text)} characters")
-            print(f"Total PDF content extracted: {len(pdf_text)} characters")
+            
+            # Method 1: Try PyPDF2 first (fast but limited)
+            try:
+                with open(file_path, 'rb') as pdf_file:
+                    pdf_reader = PyPDF2.PdfReader(pdf_file)
+                    print(f"PDF has {len(pdf_reader.pages)} pages")
+                    for i, page in enumerate(pdf_reader.pages):
+                        page_text = page.extract_text()
+                        pdf_text += page_text + "\n"
+                        print(f"  Page {i+1}: {len(page_text)} characters")
+                    print(f"Total PDF content extracted with PyPDF2: {len(pdf_text)} characters")
+            except Exception as e:
+                print(f"⚠️ PyPDF2 extraction failed: {e}")
+            
+            # Method 2: If PyPDF2 extracted little/no text, try pymupdf (more robust)
+            if len(pdf_text.strip()) < 100:
+                print(f"⚠️ PyPDF2 extracted minimal text ({len(pdf_text)} chars), trying pymupdf...")
+                try:
+                    import fitz  # pymupdf
+                    doc = fitz.open(file_path)
+                    pymupdf_text = ""
+                    for page_num in range(len(doc)):
+                        page = doc.load_page(page_num)
+                        page_text = page.get_text()
+                        pymupdf_text += page_text + "\n"
+                        print(f"  Page {page_num+1}: {len(page_text)} characters (pymupdf)")
+                    doc.close()
+                    
+                    if len(pymupdf_text.strip()) > len(pdf_text.strip()):
+                        pdf_text = pymupdf_text
+                        print(f"✅ Using pymupdf extraction: {len(pdf_text)} characters")
+                    else:
+                        print(f"⚠️ pymupdf didn't improve extraction")
+                        
+                except ImportError:
+                    print(f"⚠️ pymupdf not available, sticking with PyPDF2 result")
+                except Exception as e:
+                    print(f"⚠️ pymupdf extraction failed: {e}")
+            
+            # Method 3: If still no text, try OCR (for scanned PDFs)
+            if len(pdf_text.strip()) < 50:
+                print(f"⚠️ No text extracted with standard methods, trying OCR...")
+                try:
+                    from pdf2image import convert_from_path
+                    import pytesseract
+                    
+                    # Convert PDF pages to images and OCR them
+                    pages = convert_from_path(file_path, dpi=300, first_page=1, last_page=min(5, 19))  # Limit to first 5 pages for speed
+                    ocr_text = ""
+                    
+                    print(f"📷 Converting {len(pages)} pages to images for OCR...")
+                    for i, page in enumerate(pages):
+                        page_text = pytesseract.image_to_string(page)
+                        ocr_text += page_text + "\n"
+                        print(f"  Page {i+1}: {len(page_text)} characters (OCR)")
+                    
+                    if len(ocr_text.strip()) > len(pdf_text.strip()):
+                        pdf_text = ocr_text
+                        print(f"✅ Using OCR extraction: {len(pdf_text)} characters")
+                    else:
+                        print(f"⚠️ OCR didn't improve extraction")
+                        
+                except ImportError:
+                    print(f"⚠️ OCR libraries not available (pdf2image, pytesseract)")
+                except Exception as e:
+                    print(f"⚠️ OCR extraction failed: {e}")
+            
+            # Final validation
+            if len(pdf_text.strip()) < 50:
+                error_msg = f"PDF text extraction failed - only {len(pdf_text)} characters extracted. This may be a complex image-based PDF requiring manual text input."
+                print(f"❌ {error_msg}")
+                return error_msg
+                
             return pdf_text
         
         elif file_extension.lower() == 'json':

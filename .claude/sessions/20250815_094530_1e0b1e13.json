@@ -1,0 +1,42 @@
+{
+  "session_id": "20250815_094530_1e0b1e13",
+  "created_at": "2025-08-15T09:45:30.791394",
+  "agent_config": {
+    "base_url": "http://localhost:11434",
+    "model": "gpt-oss:20b",
+    "permission_mode": "acceptEdits",
+    "project_root": "C:\\Users\\JonathanLupo\\Documents\\NXT-HUMANS_AI_CX_WORKBENCH"
+  },
+  "history": [],
+  "project_context": {
+    "working_directory": "C:\\Users\\JonathanLupo\\Documents\\NXT-HUMANS_AI_CX_WORKBENCH",
+    "timestamp": "2025-08-15T09:45:30.791420",
+    "project_files": {
+      "CLAUDE.md": {
+        "exists": true,
+        "size": 84561,
+        "modified": "2025-07-19T12:43:38.952664",
+        "hash": "7935d4113a4a52c397d69ec6d8d1447a"
+      }
+    }
+  },
+  "state": {
+    "current_directory": "C:\\Users\\JonathanLupo\\Documents\\NXT-HUMANS_AI_CX_WORKBENCH",
+    "permission_mode": "acceptEdits",
+    "todo_list": [],
+    "active_workflows": {},
+    "memory_entries": []
+  },
+  "statistics": {
+    "operations_count": 0,
+    "tools_used": {},
+    "files_modified": [],
+    "commands_executed": [],
+    "session_duration": 0
+  },
+  "metadata": {
+    "agent_version": "1.0",
+    "claude_code_parity": "95%",
+    "features_used": []
+  }
+}
