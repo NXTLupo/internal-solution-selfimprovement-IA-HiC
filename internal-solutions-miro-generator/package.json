@@ -1,0 +1,114 @@
+{
+  "name": "nxt-miro-generator",
+  "version": "1.0.0",
+  "description": "TypeScript CLI application to generate interactive Miro boards from Claude journey mapper HTML",
+  "main": "dist/index.js",
+  "bin": {
+    "miro-gen": "dist/cli/index.js",
+    "nxt-miro": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/cli/index.js",
+    "dev": "ts-node src/cli/index.ts",
+    "watch": "tsc --watch",
+    "start": "node dist/cli/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "clean": "rimraf dist",
+    "docker:build": "docker build -t nxt-miro-generator .",
+    "docker:run": "docker run -it nxt-miro-generator",
+    "docker:dev": "docker run -v $(pwd):/app -it nxt-miro-generator",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "miro",
+    "journey-mapping",
+    "cli",
+    "typescript",
+    "nxt-humans",
+    "customer-experience",
+    "visualization",
+    "board-generation"
+  ],
+  "author": "NXT Humans",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.2",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "inquirer": "^9.2.12",
+    "fs-extra": "^11.2.0",
+    "uuid": "^9.0.1",
+    "joi": "^17.11.0",
+    "lodash": "^4.17.21",
+    "p-limit": "^5.0.0",
+    "p-retry": "^6.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2",
+    "@types/node": "^20.10.0",
+    "@types/cheerio": "^0.22.35",
+    "@types/fs-extra": "^11.0.4",
+    "@types/uuid": "^9.0.7",
+    "@types/lodash": "^4.14.202",
+    "@types/inquirer": "^9.0.7",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.54.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "rimraf": "^5.0.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts",
+      "!src/cli/index.ts"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nxt-humans/miro-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nxt-humans/miro-generator/issues"
+  },
+  "homepage": "https://github.com/nxt-humans/miro-generator#readme"
+}

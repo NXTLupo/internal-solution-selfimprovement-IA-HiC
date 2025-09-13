@@ -1,142 +1,409 @@
 #!/bin/bash
 
-# NXT Humans AI CX Workbench Launcher
-# This script launches all components of the workbench using Docker Compose
-
-# Colors for output
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
+# Colors for terminal output
 RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+BOLD='\033[1m'
 NC='\033[0m' # No Color
 
-# Define the logo
-print_logo() {
-  echo -e "${BLUE}"
-  echo "  _   ___  _______   _   _ _   _ __  __          _   _  _____ "
-  echo " | \\ | \\ \\/ /_   _| | | | | | | |  \\/  |   /\\   | \\ | |/ ____|"
-  echo " |  \\| |\\  /  | |   | |_| | | | | \\  / |  /  \\  |  \\| | (___  "
-  echo " | . \` | /  \\ | |   |  _  | | | | |\\/| | / /\\ \\ | . \` |\\___ \\ "
-  echo " | |\\  |/ /\\ \\| |   | | | | |_| | |  | |/ ____ \\| |\\  |____) |"
-  echo " |_| \\_/_/  \\_\\_|   |_| |_|\\___/|_|  |_/_/    \\_\\_| \\_|_____/ "
-  echo -e "${NC}"
-  echo -e "${YELLOW}AI Customer Experience Workbench${NC}"
-  echo ""
-}
-
-# Print the logo
-print_logo
-
-# Check if Docker is installed and running
-echo -e "${BLUE}Checking Docker...${NC}"
-if ! command -v docker &> /dev/null; then
-    echo -e "${RED}Docker not found. Please install Docker and try again.${NC}"
-    exit 1
-fi
-
-if ! docker info &> /dev/null; then
-    echo -e "${RED}Docker is not running. Please start Docker and try again.${NC}"
-    exit 1
-fi
-
-echo -e "${GREEN}Docker is running.${NC}"
-
-# Check if .env file exists and ANTHROPIC_API_KEY is set
-ENV_FILE="$(dirname "$0")/.env"
-
-if [ ! -f "$ENV_FILE" ]; then
-    echo -e "${RED}Error: .env file not found.${NC}"
-    echo -e "${BLUE}Creating new .env file...${NC}"
-    
-    # Ask for API key
-    echo -e "${YELLOW}Please enter your Anthropic API key (required for Journey Mapper):${NC}"
-    read -r API_KEY
-    
-    # Create .env file
-    echo "ANTHROPIC_API_KEY=$API_KEY" > "$ENV_FILE"
-    echo -e "${GREEN}.env file created.${NC}"
-else
-    # Check if ANTHROPIC_API_KEY is set
-    if ! grep -q "ANTHROPIC_API_KEY=" "$ENV_FILE" || grep -q "ANTHROPIC_API_KEY=$" "$ENV_FILE" || grep -q "ANTHROPIC_API_KEY=your_api_key_here" "$ENV_FILE"; then
-        echo -e "${YELLOW}Anthropic API key not found in .env file.${NC}"
-        echo -e "${YELLOW}Please enter your Anthropic API key (required for Journey Mapper):${NC}"
-        read -r API_KEY
-        
-        # Update .env file
-        sed -i.bak "s/ANTHROPIC_API_KEY=.*/ANTHROPIC_API_KEY=$API_KEY/g" "$ENV_FILE"
-        if [ $? -ne 0 ]; then
-            # macOS compatibility
-            sed -i "" "s/ANTHROPIC_API_KEY=.*/ANTHROPIC_API_KEY=$API_KEY/g" "$ENV_FILE"
-        fi
-        echo -e "${GREEN}API key updated in .env file.${NC}"
-    fi
-fi
-
-# Start the services
-echo -e "${BLUE}Starting NXT Humans AI CX Workbench...${NC}"
-echo -e "${YELLOW}This may take a few minutes for the first run as Docker images are downloaded.${NC}"
-
-# Get the script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-
-# Start Docker Compose
-cd "$SCRIPT_DIR"
-docker compose up -d
-
-if [ $? -ne 0 ]; then
-    echo -e "${RED}Failed to start Docker Compose. See errors above.${NC}"
-    exit 1
-fi
-
-echo -e "${GREEN}Services are starting...${NC}"
-echo ""
-
-# Give services time to start
-echo -ne "${BLUE}Waiting for services to initialize"
-for i in {1..10}; do
-    echo -ne "."
-    sleep 1
-done
+# Print banner
+echo -e "${BLUE}${BOLD}"
+echo "███╗   ██╗██╗  ██╗████████╗    ██╗  ██╗██╗   ██╗███╗   ███╗ █████╗ ███╗   ██╗███████╗"
+echo "████╗  ██║╚██╗██╔╝╚══██╔══╝    ██║  ██║██║   ██║████╗ ████║██╔══██╗████╗  ██║██╔════╝"
+echo "██╔██╗ ██║ ╚███╔╝    ██║       ███████║██║   ██║██╔████╔██║███████║██╔██╗ ██║███████╗"
+echo "██║╚██╗██║ ██╔██╗    ██║       ██╔══██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║╚════██║"
+echo "██║ ╚████║██╔╝ ██╗   ██║       ██║  ██║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║███████║"
+echo "╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝       ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝"
+echo "                                                                                       "
+echo "            █████╗ ██╗    ██████╗██╗  ██╗    ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗     "
+echo "           ██╔══██╗██║   ██╔════╝╚██╗██╔╝    ██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝     "
+echo "           ███████║██║   ██║      ╚███╔╝     ██║ █╗ ██║██║   ██║██████╔╝█████╔╝      "
+echo "           ██╔══██║██║   ██║      ██╔██╗     ██║███╗██║██║   ██║██╔══██╗██╔═██╗      "
+echo "           ██║  ██║██║   ╚██████╗██╔╝ ██╗    ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗     "
+echo "           ╚═╝  ╚═╝╚═╝    ╚═════╝╚═╝  ╚═╝     ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝     "
 echo -e "${NC}"
 
-# Open browser to launchpad
-echo -e "${GREEN}Opening Launchpad in your default browser...${NC}"
-LAUNCHPAD_PORT=$(grep "LAUNCHPAD_PORT" "$ENV_FILE" 2>/dev/null | cut -d= -f2)
-if [ -z "$LAUNCHPAD_PORT" ]; then
-    LAUNCHPAD_PORT=8000
+echo -e "${GREEN}${BOLD}NXT HUMANS WORKBENCH LAUNCHER${NC}"
+echo -e "${BLUE}======================================${NC}"
+
+# Function to check if a process is running on a port
+check_port() {
+  lsof -i:$1 >/dev/null 2>&1
+  return $?
+}
+
+# Function to kill process on a port
+kill_port() {
+  echo -e "${YELLOW}Killing process on port $1...${NC}"
+  lsof -ti:$1 | xargs kill -9 2>/dev/null || true
+}
+
+# Function to check if Docker is running
+check_docker() {
+  docker info >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo -e "${GREEN}Docker is running.${NC}"
+    return 0
+  else
+    echo -e "${RED}Docker is not running. Please start Docker first.${NC}"
+    return 1
+  fi
+}
+
+# Ensure the .env file has API keys and proper formatting
+setup_env_file() {
+  echo -e "${YELLOW}Setting up environment...${NC}"
+  
+  if [ -f .env ]; then
+    # Add newline at end if missing
+    if [ "$(tail -c 1 .env)" != "" ]; then
+      echo "" >> .env
+    fi
+    
+    # Make sure we have API keys defined
+    if ! grep -q "ANTHROPIC_API_KEY" .env || ! grep -q "OPENAI_API_KEY" .env; then
+      echo -e "${RED}API keys are missing from .env file!${NC}"
+      exit 1
+    fi
+    
+    # Extract API keys
+    ANTHROPIC_API_KEY=$(grep "ANTHROPIC_API_KEY" .env | cut -d '=' -f2)
+    OPENAI_API_KEY=$(grep "OPENAI_API_KEY" .env | cut -d '=' -f2)
+    
+    echo -e "${GREEN}API keys found in .env file.${NC}"
+  else
+    echo -e "${RED}No .env file found!${NC}"
+    exit 1
+  fi
+  
+  # Make sure USE_WHISPER_API is in .env
+  if ! grep -q "USE_WHISPER_API" .env; then
+    echo "USE_WHISPER_API=true" >> .env
+    echo -e "${YELLOW}Added USE_WHISPER_API=true to .env file${NC}"
+  fi
+}
+
+# Create static directory for video analyzer
+setup_static_files() {
+  echo -e "${YELLOW}Setting up static files...${NC}"
+  
+  mkdir -p internal-solutions-video-analyzer/static
+  if [ ! -f internal-solutions-video-analyzer/static/index.html ]; then
+    cat > internal-solutions-video-analyzer/static/index.html << EOF
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Analyzer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Video Analyzer</h1>
+    <p>Upload a video or paste a YouTube URL to analyze.</p>
+</body>
+</html>
+EOF
+    echo -e "${GREEN}Created static/index.html for video analyzer${NC}"
+  fi
+}
+
+# Create the video analyzer .env file with the API key
+setup_video_analyzer() {
+  echo -e "${YELLOW}Setting up video analyzer...${NC}"
+  
+  OPENAI_API_KEY=$(grep "OPENAI_API_KEY" .env | cut -d '=' -f2)
+  mkdir -p internal-solutions-video-analyzer
+  echo "OPENAI_API_KEY=${OPENAI_API_KEY}" > internal-solutions-video-analyzer/.env
+  echo "USE_WHISPER_API=true" >> internal-solutions-video-analyzer/.env
+  echo -e "${GREEN}Created .env file for video analyzer with OpenAI API key${NC}"
+}
+
+# Kill any running processes on our ports
+kill_running_processes() {
+  echo -e "${YELLOW}Freeing up ports...${NC}"
+  
+  kill_port 8000  # Launchpad
+  kill_port 8080  # Journey Mapper
+  kill_port 8095  # Claude 4 Journey Mapper
+  kill_port 5001  # Reddit Ripper
+  kill_port 5002  # Video Analyzer
+  kill_port 5003  # LinkedIn Generator
+  kill_port 5004  # Miro Generator
+  kill_port 5005  # Image Captioner
+  kill_port 5006  # FLUX LoRA Studio
+  kill_port 5007  # Presentation Generator
+  kill_port 5009  # Soundtrack Generator
+  kill_port 3000  # Social Research Frontend
+  kill_port 8081  # Social Research Backend
+  kill_port 8500  # Agent
+  kill_port 8501  # Reddit MCP
+  kill_port 8502  # Social MCP
+  kill_port 8503  # Journey MCP
+  kill_port 8504  # Video MCP
+  kill_port 8506  # Claude 4 Journey MCP
+}
+
+# Generate SSL certificates for HTTPS
+setup_ssl_certificates() {
+  echo -e "${YELLOW}Setting up SSL certificates for HTTPS...${NC}"
+  
+  if [ ! -d "ssl-certs" ]; then
+    mkdir ssl-certs
+  fi
+  
+  if [ ! -f "ssl-certs/localhost.crt" ] || [ ! -f "ssl-certs/localhost.key" ]; then
+    echo -e "${YELLOW}Generating self-signed SSL certificates...${NC}"
+    
+    # Create OpenSSL configuration
+    cat > ssl-certs/openssl.conf << EOF
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = US
+ST = CA
+L = San Francisco
+O = NXT Humans
+OU = AI CX Workbench
+CN = localhost
+
+[v3_req]
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+DNS.2 = *.localhost
+IP.1 = 127.0.0.1
+IP.2 = ::1
+EOF
+    
+    # Generate certificate and key
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+      -keyout ssl-certs/localhost.key \
+      -out ssl-certs/localhost.crt \
+      -config ssl-certs/openssl.conf \
+      -extensions v3_req >/dev/null 2>&1
+    
+    if [ $? -eq 0 ]; then
+      echo -e "${GREEN}SSL certificates generated successfully!${NC}"
+    else
+      echo -e "${RED}Failed to generate SSL certificates${NC}"
+      exit 1
+    fi
+  else
+    echo -e "${GREEN}SSL certificates already exist.${NC}"
+  fi
+}
+
+# Start HTTPS proxy alongside main services
+start_https_proxy() {
+  echo -e "${YELLOW}Starting HTTPS proxy for secure connections...${NC}"
+  
+  # Wait for main services to be ready
+  sleep 5
+  
+  # Start HTTPS proxy with the main network
+  docker compose -f docker-compose-https.yml up -d https-proxy
+  
+  if [ $? -eq 0 ]; then
+    echo -e "${GREEN}HTTPS proxy started successfully!${NC}"
+  else
+    echo -e "${YELLOW}HTTPS proxy failed to start (this is optional)${NC}"
+  fi
+}
+
+# Verify that critical services are responding
+verify_services() {
+  echo -e "${YELLOW}Verifying services are ready...${NC}"
+  
+  sleep 5  # Additional wait for services to fully start
+  
+  # Test critical HTTP endpoints
+  echo -e "${BLUE}Testing HTTP endpoints:${NC}"
+  
+  # Check launchpad
+  if curl -s -f http://localhost:8000 >/dev/null 2>&1; then
+    echo -e "  ✅ Launchpad (HTTP): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Launchpad (HTTP): ${RED}Not responding${NC}"
+  fi
+  
+  # Check LinkedIn Generator
+  if curl -s -f http://localhost:5003 >/dev/null 2>&1; then
+    echo -e "  ✅ LinkedIn Generator: ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ LinkedIn Generator: ${RED}Not responding${NC}"
+  fi
+  
+  # Check Journey Mapper
+  if curl -s -f http://localhost:8080 >/dev/null 2>&1; then
+    echo -e "  ✅ Journey Mapper: ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Journey Mapper: ${RED}Not responding${NC}"
+  fi
+  
+  # Test critical HTTPS endpoints
+  echo -e "${BLUE}Testing HTTPS endpoints:${NC}"
+  
+  # Check HTTPS launchpad
+  if curl -k -s -f https://localhost:8443 >/dev/null 2>&1; then
+    echo -e "  ✅ Launchpad (HTTPS): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Launchpad (HTTPS): ${RED}Not responding${NC}"
+  fi
+  
+  # Check HTTPS LinkedIn Generator
+  if curl -k -s -f https://localhost:8449 >/dev/null 2>&1; then
+    echo -e "  ✅ LinkedIn Generator (HTTPS): ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ LinkedIn Generator (HTTPS): ${RED}Not responding${NC}"
+  fi
+  
+  echo -e "${GREEN}Service verification complete!${NC}"
+}
+
+# Start services using Docker
+start_services() {
+  echo -e "${YELLOW}Starting all services...${NC}"
+  
+  # Stop any existing containers and clean up
+  echo -e "${YELLOW}Stopping existing containers...${NC}"
+  docker compose -f docker-compose-all.yml down 2>/dev/null || true
+  docker compose -f docker-compose-https.yml down 2>/dev/null || true
+  docker compose down 2>/dev/null || true
+  
+  # Clean up any orphaned containers
+  docker container prune -f 2>/dev/null || true
+  
+  # Create or update the docker-compose-all.override.yml file with explicit API keys and HTTPS URLs
+  cat > docker-compose-all.override.yml << EOF
+services:
+  launchpad:
+    environment:
+      # Let Flask app handle dynamic HTTP/HTTPS URL detection
+      # No hardcoded CLIENT_URLs - app will determine based on request protocol
+
+  video-analyzer:
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - USE_WHISPER_API=true
+    volumes:
+      - ./internal-solutions-video-analyzer/static:/app/static
+
+  social-research-backend:
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_KEY=${OPENAI_API_KEY}
+
+  journey-mapper:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+
+  claude4-journey-mapper:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE4_MODEL=claude-sonnet-4-20250514
+
+  presentation-generator:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=5007
+
+  agent:
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+EOF
+
+  # Start all services without explicit list to avoid Docker Compose concurrency bug
+  docker compose -f docker-compose-all.yml -f docker-compose-all.override.yml up -d
+  
+  if [ $? -eq 0 ]; then
+    echo -e "${GREEN}All HTTP services started successfully!${NC}"
+    
+    # Wait for services to be ready before starting HTTPS proxy
+    echo -e "${YELLOW}Waiting for services to be ready...${NC}"
+    sleep 15
+    
+    # Start HTTPS proxy after main services
+    start_https_proxy
+    
+    echo -e "${GREEN}Both HTTP and HTTPS stacks are now running!${NC}"
+    
+    # Verify critical services are responding
+    verify_services
+  else
+    echo -e "${RED}Error starting services. Check Docker logs for details.${NC}"
+    exit 1
+  fi
+}
+
+# Main execution starts here
+setup_env_file
+setup_static_files
+setup_video_analyzer
+setup_ssl_certificates
+kill_running_processes
+
+# Check if Docker is running
+if ! check_docker; then
+  echo -e "${RED}Please start Docker and try again.${NC}"
+  exit 1
 fi
 
-# Open browser based on OS
-if [ "$(uname)" == "Darwin" ]; then
-    # macOS
-    open "http://localhost:$LAUNCHPAD_PORT"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Linux
-    xdg-open "http://localhost:$LAUNCHPAD_PORT" 2>/dev/null || \
-    sensible-browser "http://localhost:$LAUNCHPAD_PORT" 2>/dev/null || \
-    gio open "http://localhost:$LAUNCHPAD_PORT" 2>/dev/null || \
-    echo -e "${YELLOW}Please open http://localhost:$LAUNCHPAD_PORT in your browser${NC}"
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    # Windows
-    start "http://localhost:$LAUNCHPAD_PORT" || \
-    echo -e "${YELLOW}Please open http://localhost:$LAUNCHPAD_PORT in your browser${NC}"
-else
-    echo -e "${YELLOW}Please open http://localhost:$LAUNCHPAD_PORT in your browser${NC}"
-fi
+# Start services
+start_services
 
+echo -e "\n${GREEN}${BOLD}🚀 ALL SERVICES HAVE BEEN STARTED - HTTP & HTTPS STACKS READY!${NC}"
 echo ""
-echo -e "${GREEN}NXT Humans AI CX Workbench is now running!${NC}"
-echo -e "${BLUE}Launchpad: ${NC}http://localhost:$LAUNCHPAD_PORT"
-echo -e "${BLUE}Journey Mapper: ${NC}http://localhost:8080"
-echo -e "${BLUE}Reddit Ripper: ${NC}http://localhost:5000"
-echo -e "${BLUE}Social Research: ${NC}http://localhost:3000"
+echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
+echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"
+echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} http://localhost:8080"
+echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  http://localhost:8095"
+echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"
+echo -e "  ${BLUE}Video Transcriptor:${NC}       http://localhost:5002"
+echo -e "  ${BLUE}LinkedIn Generator:${NC}       http://localhost:5003"
+echo -e "  ${BLUE}Miro Generator:${NC}           http://localhost:5004"
+echo -e "  ${BLUE}Image Captioner:${NC}          http://localhost:5005"
+echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         http://localhost:5006"
+echo -e "  ${BLUE}Presentation Generator:${NC}    http://localhost:5007"
+echo -e "  ${BLUE}Soundtrack Generator:${NC}      http://localhost:5009"
 echo ""
-echo -e "${YELLOW}Press Ctrl+C to stop all services${NC}"
-
-# Trap Ctrl+C
-trap 'echo -e "\n${BLUE}Stopping services...${NC}"; docker compose down; echo -e "${GREEN}All services stopped.${NC}"; exit 0' INT
-
-# Keep the script running
-while true; do
-    sleep 1
-done
+echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
+echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
+echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} https://localhost:8444"
+echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  https://localhost:8445"
+echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
+echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"
+echo -e "  ${BLUE}LinkedIn Generator:${NC}       https://localhost:8449"
+echo -e "  ${BLUE}Miro Generator:${NC}           https://localhost:8450"
+echo -e "  ${BLUE}Image Captioner:${NC}          https://localhost:8451"
+echo -e "  ${BLUE}Presentation Generator:${NC}    https://localhost:8452"
+echo -e "  ${BLUE}FLUX LoRA Studio:${NC}         https://localhost:8453"
+echo -e "  ${BLUE}Soundtrack Generator:${NC}      https://localhost:8454"
+echo ""
+echo -e "${YELLOW}${BOLD}🛡️  BROWSER SECURITY:${NC}"
+echo -e "• HTTPS URLs eliminate 'Not Secure' warnings"
+echo -e "• Accept security warning on first visit (self-signed cert)"
+echo -e "• Both HTTP and HTTPS work - use HTTPS for secure look"
+echo ""
+echo -e "${YELLOW}To monitor logs:${NC}"
+echo -e "  docker compose -f docker-compose-all.yml logs -f [service-name]"
+echo -e "  docker compose -f docker-compose-https.yml logs -f"
+echo ""
+echo -e "${YELLOW}To stop all services:${NC}"
+echo -e "  docker compose -f docker-compose-all.yml down"
+echo -e "  docker compose -f docker-compose-https.yml down"
+echo ""
+echo -e "${GREEN}${BOLD}🚀 START BROWSING: Visit https://localhost:8443 for secure access!${NC}"

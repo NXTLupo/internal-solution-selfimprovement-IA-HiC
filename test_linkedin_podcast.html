@@ -1,0 +1,163 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Podcast Generation Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #121B26;
+            color: #ffffff;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .button {
+            background: linear-gradient(135deg, #7C3AED, #01C4C8);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0.5rem;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+        }
+        .output {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+        .status.success { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+        .status.error { background: rgba(239, 68, 68, 0.2); color: #EF4444; }
+        .status.info { background: rgba(59, 130, 246, 0.2); color: #3B82F6; }
+        .audio-player {
+            margin: 1rem 0;
+            width: 100%;
+        }
+        .download-link {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.2);
+            color: #7C3AED;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎙️ LinkedIn Podcast Generation Test</h1>
+        
+        <div class="test-section">
+            <h2>📊 Quick Status Check</h2>
+            <p>Check if all services are running and accessible</p>
+            <button class="button" onclick="quickStatusCheck()">⚡ Quick Check</button>
+            <div id="quick-output" class="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function log(elementId, message, type = 'info') {
+            const output = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            const statusClass = type === 'error' ? 'error' : type === 'success' ? 'success' : 'info';
+            output.innerHTML += `<div class="status ${statusClass}">[${timestamp}] ${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        async function quickStatusCheck() {
+            const outputId = 'quick-output';
+            document.getElementById(outputId).innerHTML = '';
+            
+            log(outputId, '🔍 Checking service status...', 'info');
+            
+            // Check LinkedIn Generator
+            try {
+                const linkedinResponse = await fetch('http://localhost:5003/');
+                if (linkedinResponse.ok) {
+                    log(outputId, '✅ LinkedIn Generator: Running', 'success');
+                } else {
+                    log(outputId, `❌ LinkedIn Generator: ${linkedinResponse.status}`, 'error');
+                }
+            } catch (error) {
+                log(outputId, `❌ LinkedIn Generator: Not accessible`, 'error');
+            }
+            
+            // Check Mulmocast
+            try {
+                const mulmocastResponse = await fetch('http://localhost:5008/health');
+                if (mulmocastResponse.ok) {
+                    const data = await mulmocastResponse.json();
+                    log(outputId, `✅ Mulmocast: ${data.status}`, 'success');
+                } else {
+                    log(outputId, `❌ Mulmocast: ${mulmocastResponse.status}`, 'error');
+                }
+            } catch (error) {
+                log(outputId, `❌ Mulmocast: Not accessible`, 'error');
+            }
+            
+            // Check if audio files exist
+            try {
+                const filesResponse = await fetch('http://localhost:5008/api/files');
+                if (filesResponse.ok) {
+                    const files = await filesResponse.json();
+                    const audioFiles = files.filter(f => f.type === 'audio');
+                    log(outputId, `🎵 Audio files found: ${audioFiles.length}`, audioFiles.length > 0 ? 'success' : 'info');
+                    
+                    if (audioFiles.length > 0) {
+                        const latestAudio = audioFiles[0];
+                        const previewUrl = `http://localhost:5008/api/preview/${latestAudio.path}`;
+                        log(outputId, `🎧 Testing latest audio: ${latestAudio.name}`, 'info');
+                        
+                        // Add audio player for latest file
+                        const audioHtml = `
+                            <audio controls class="audio-player">
+                                <source src="${previewUrl}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        `;
+                        document.getElementById(outputId).innerHTML += audioHtml;
+                        
+                        log(outputId, '🎉 Audio player added above. Try playing the latest generated audio\!', 'success');
+                    }
+                }
+            } catch (error) {
+                log(outputId, `❌ File check failed: ${error.message}`, 'error');
+            }
+            
+            log(outputId, '🎯 Status check complete. If you see audio above, podcast generation is working\!', 'info');
+        }
+
+        // Run quick check on page load
+        window.addEventListener('load', quickStatusCheck);
+    </script>
+</body>
+</html>
+EOF < /dev/null

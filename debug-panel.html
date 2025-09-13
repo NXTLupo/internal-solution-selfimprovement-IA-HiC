@@ -1,0 +1,68 @@
+<div id="debug-panel" style="position: fixed; top: 10px; right: 10px; background: #fff; border: 2px solid #01C4C8; padding: 15px; border-radius: 8px; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  <h3 style="margin-top: 0; color: #01C4C8;">Chatbot Debug</h3>
+  <div style="margin-bottom: 10px;">
+    <button id="debugInit" style="padding: 8px 12px; background: #01C4C8; color: white; border: none; border-radius: 4px; margin-right: 5px; cursor: pointer;">Force Init</button>
+    <button id="debugShow" style="padding: 8px 12px; background: #555; color: white; border: none; border-radius: 4px; margin-right: 5px; cursor: pointer;">Show Chat</button>
+    <button id="debugReconnect" style="padding: 8px 12px; background: #555; color: white; border: none; border-radius: 4px; cursor: pointer;">Reconnect WS</button>
+  </div>
+  <div style="margin-bottom: 10px;">
+    <button id="debugCheck" style="padding: 8px 12px; background: #555; color: white; border: none; border-radius: 4px; margin-right: 5px; cursor: pointer;">Check Status</button>
+    <button id="closeDebug" style="padding: 8px 12px; background: #ff5a5a; color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+  </div>
+  <div id="debugStatus" style="margin-top: 10px; font-size: 12px; background: #f5f5f5; padding: 5px; border-radius: 4px; max-height: 100px; overflow-y: auto;">Status will appear here</div>
+</div>
+
+<script>
+document.getElementById("debugInit").addEventListener("click", function() {
+  if (!window.chatbot) {
+    console.log("Manually initializing chatbot");
+    window.chatbot = new ChatbotWidget();
+    document.getElementById("debugStatus").textContent = "Chatbot initialized manually";
+  } else {
+    document.getElementById("debugStatus").textContent = "Chatbot already exists";
+  }
+});
+
+document.getElementById("debugShow").addEventListener("click", function() {
+  if (window.chatbot) {
+    window.chatbot.openChat();
+    document.getElementById("debugStatus").textContent = "Chat opened";
+  } else {
+    document.getElementById("debugStatus").textContent = "Chatbot not initialized";
+  }
+});
+
+document.getElementById("debugReconnect").addEventListener("click", function() {
+  if (window.chatbot) {
+    if (window.chatbot.socket) {
+      window.chatbot.socket.close();
+    }
+    window.chatbot.initWebSocket();
+    document.getElementById("debugStatus").textContent = "Reconnecting WebSocket...";
+  } else {
+    document.getElementById("debugStatus").textContent = "Chatbot not initialized";
+  }
+});
+
+document.getElementById("debugCheck").addEventListener("click", function() {
+  const status = {
+    chatbotExists: !!window.chatbot,
+    bodyAttr: document.body.getAttribute("data-enable-agent"),
+    cssLoaded: !!document.querySelector("link[href='/static/chatbot.css']"),
+    jsLoaded: !!document.querySelector("script[src='/static/chatbot.js']")
+  };
+  
+  if (window.chatbot) {
+    status.socketState = window.chatbot.socket ? 
+      ["CONNECTING", "OPEN", "CLOSING", "CLOSED"][window.chatbot.socket.readyState] : 
+      "No socket";
+    status.conversationId = window.chatbot.conversationId;
+  }
+  
+  document.getElementById("debugStatus").textContent = JSON.stringify(status, null, 2);
+});
+
+document.getElementById("closeDebug").addEventListener("click", function() {
+  document.getElementById("debug-panel").remove();
+});
+</script>

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # HTTPS Proxy for secure connections
+  https-proxy:
+    image: nginx:alpine
+    container_name: nxt-https-proxy
+    ports:
+      # HTTPS ports for each service
+      - "8443:8443"   # Main Launchpad HTTPS
+      - "8444:8444"   # Journey Mapper HTTPS
+      - "8445:8445"   # Claude 4 Journey Mapper HTTPS
+      - "8446:8446"   # Reddit Data Collector HTTPS
+      - "8447:8447"   # Social Research Tool HTTPS
+      - "8448:8448"   # Video Transcriptor HTTPS
+      - "8449:8449"   # LinkedIn Generator HTTPS
+      - "8450:8450"   # Miro Generator HTTPS
+      - "8451:8451"   # Image Caption Generator HTTPS
+      - "8452:8452"   # AI Presentation Generator HTTPS
+      - "8453:8453"   # FLUX LoRA Studio HTTPS
+      - "8454:8454"   # AI Soundtrack Generator HTTPS
+    volumes:
+      - ./ssl-certs:/etc/nginx/ssl:ro
+      - ./nginx-simple.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - nxt-humans-network
+    restart: unless-stopped
+
+networks:
+  nxt-humans-network:
+    external: true
+    name: nxthumans_ai_cx_workbench_nxt-humans-network

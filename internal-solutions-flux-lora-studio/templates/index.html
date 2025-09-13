@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLUX LoRA Studio | NXT Humans AI CX Workbench</title>
+    <link rel="icon" href="/static/flux-favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+    <style>
+        :root {
+            --primary-purple: #7C3AED;
+            --dark-bg: #121B26;
+            --light-grey: #5A6275;
+            --medium-grey: #4A5165;
+            --white: #FFFFFF;
+            --nxt-cyan: #01C4C8;
+            --gradient-bg: linear-gradient(135deg, #121B26 0%, #1E2832 50%, #2A3441 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Force ALL text to be white */
+        * {
+            color: #ffffff !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+            color: #ffffff !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Intelligence Augmentation Header */
+        .intelligence-augmentation-header {
+            background: #000000;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .intelligence-augmentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
+            transform: skewX(-20deg) translateX(20%);
+            z-index: 1;
+        }
+
+        .ia-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ia-container.has-thumbnail {
+            padding-right: 240px;
+        }
+
+        .ia-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ia-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ia-logo-image {
+            width: 140px;
+            height: auto;
+            opacity: 1;
+            filter: brightness(1.1);
+            object-fit: contain;
+        }
+
+        .ia-text-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ia-introducing {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .ia-main-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ia-intelligence,
+        .ia-augmentation {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ia-augmentation {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .ia-intelligence {
+            margin-bottom: -0.3rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--gradient-bg);
+            min-height: calc(100vh - 240px);
+            padding: 60px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .workflow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .step-card {
+            background: rgba(30, 42, 56, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-card.active {
+            border-color: var(--nxt-cyan);
+            box-shadow: 0 8px 32px rgba(1, 196, 200, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .step-card.completed {
+            border-color: #4CAF50;
+            background: rgba(26, 47, 31, 0.8);
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--nxt-cyan), #00A5A9);
+            color: #000000 !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 16px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(1, 196, 200, 0.3);
+        }
+
+        .step-number.completed {
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            color: #ffffff !important;
+        }
+
+        .step-title {
+            color: var(--nxt-cyan) !important;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(1, 196, 200, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--nxt-cyan) !important;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(42, 52, 65, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            color: #FFFFFF !important;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--nxt-cyan);
+            box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.2);
+            background: rgba(42, 52, 65, 0.9);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-purple), #8B5CF6);
+            color: white !important;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
+        }
+
+        .btn:disabled {
+            background: rgba(58, 68, 81, 0.6);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        .btn-large {
+            width: 100%;
+            font-size: 18px;
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-success:hover {
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            box-shadow: 0 4px 16px rgba(255, 152, 0, 0.3);
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(124, 58, 237, 0.5);
+            background: rgba(30, 42, 56, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-area:hover {
+            border-color: var(--nxt-cyan);
+            background: rgba(1, 196, 200, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--nxt-cyan);
+            background: rgba(1, 196, 200, 0.15);
+            box-shadow: 0 8px 32px rgba(1, 196, 200, 0.3);
+        }
+
+        .upload-area input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--nxt-cyan) !important;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(1, 196, 200, 0.5);
+            filter: drop-shadow(0 0 10px rgba(1, 196, 200, 0.3));
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-item {
+            background: #2A3441;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #3A4451;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .image-caption {
+            font-size: 12px;
+            color: #B8BCC8;
+            line-height: 1.3;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .image-caption:hover {
+            background: rgba(1, 196, 200, 0.1);
+        }
+
+        .image-caption.editing {
+            background: #2A3441;
+            border: 1px solid #01C4C8;
+        }
+
+        .caption-editor {
+            width: 100%;
+            background: #2A3441;
+            border: 1px solid #01C4C8;
+            border-radius: 4px;
+            color: #FFFFFF;
+            font-size: 12px;
+            padding: 4px;
+            resize: vertical;
+            min-height: 40px;
+        }
+
+        .caption-editor:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(1, 196, 200, 0.2);
+        }
+
+        .caption-actions {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .caption-btn {
+            background: #01C4C8;
+            border: none;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .caption-btn.cancel {
+            background: #666;
+        }
+
+        .training-status {
+            background: #1A2332;
+            border: 1px solid #01C4C8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .training-status.active {
+            display: block;
+        }
+
+        .progress-bar {
+            background: #2A3441;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #01C4C8, #00A5A9);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .form-help {
+            font-size: 14px;
+            color: #8A8E9A;
+            margin-top: 5px;
+        }
+
+        .status-message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+
+        .status-error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+            color: #F44336;
+        }
+
+        .status-info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+            color: #2196F3;
+        }
+
+        @media (max-width: 768px) {
+            .intelligence-augmentation-header {
+                height: 180px;
+                padding: 1rem 0;
+            }
+            
+            .ia-container {
+                padding: 0 1.5rem;
+            }
+            
+            .ia-content {
+                gap: 2rem;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .ia-logo-image {
+                width: 100px;
+            }
+            
+            .ia-introducing {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2.8rem;
+                line-height: 0.8;
+                letter-spacing: -1px;
+            }
+
+            .ia-augmentation {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .intelligence-augmentation-header {
+                height: 140px;
+            }
+            
+            .ia-content {
+                gap: 1.5rem;
+            }
+            
+            .ia-logo-image {
+                width: 80px;
+            }
+            
+            .ia-introducing {
+                font-size: 1rem;
+            }
+            
+            .ia-intelligence,
+            .ia-augmentation {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .ia-augmentation {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="intelligence-augmentation-header">
+        <div class="ia-container has-thumbnail">
+            <div class="ia-content">
+                <div class="ia-logo-section">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                </div>
+                <div class="ia-text-section">
+                    <div class="ia-introducing">Intelligence Augmentation</div>
+                    <div class="ia-main-text">
+                        <div class="ia-intelligence">FLUX LoRA</div>
+                        <div class="ia-augmentation">Studio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ia-thumbnail-section">
+                <img src="/static/LoRA_Studio.gif" alt="FLUX LoRA Studio Demo" class="ia-app-thumbnail" />
+                <div class="ia-thumbnail-label">Apple Silicon M3 Demo</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Real Local LoRA Training for Apple Silicon M3</h1>
+                <p class="hero-subtitle">Professional Dataset Preparation with AI-Powered Image Captioning</p>
+                <p class="hero-description">
+                    Upload images and generate professional training datasets with AI-powered captions and seamless ZIP export for LoRA training workflows using Kohya_ss backend optimized for Apple Silicon M3.
+                </p>
+            </section>
+
+            <div class="workflow">
+            <!-- Step 1: Dataset Upload -->
+            <div class="step-card active" id="step1">
+                <div class="step-header">
+                    <div class="step-number" id="step1-number">1</div>
+                    <div class="step-title">Upload Images</div>
+                </div>
+                
+                <div class="upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
+                    <div class="upload-icon">📷</div>
+                    <h3 style="color: #01C4C8; margin-bottom: 8px;">Upload Dataset Images</h3>
+                    <p style="color: #B8BCC8;">Click or drag & drop images here</p>
+                    <p style="color: #8A8E9A; font-size: 14px; margin-top: 8px;">JPG, PNG, WebP supported</p>
+                    <input type="file" id="imageInput" multiple accept="image/*">
+                </div>
+
+                <div id="imageGrid" class="image-grid"></div>
+                
+                <button class="btn btn-large" id="processImagesBtn" onclick="processImages()" disabled>
+                    🔄 Process Images & Generate Captions
+                </button>
+            </div>
+
+            <!-- Step 2: Dataset Configuration -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number" id="step2-number">2</div>
+                    <div class="step-title">Dataset Configuration</div>
+                </div>
+
+                <form id="configForm">
+                    <div class="form-group">
+                        <label for="projectName">Dataset Name</label>
+                        <input type="text" id="projectName" name="projectName" value="my_dataset" required>
+                        <div class="form-help">Name for your dataset ZIP file (no spaces)</div>
+                    </div>
+                </form>
+
+                <button class="btn btn-large btn-success" id="createZipBtn" onclick="createDatasetZip()" disabled>
+                    📦 Create Dataset ZIP
+                </button>
+            </div>
+        </div>
+
+        <!-- Dataset Status -->
+        <div class="training-status" id="datasetStatus">
+            <h3 style="color: #01C4C8; margin-bottom: 15px;">📦 Dataset ZIP Creation</h3>
+            <div id="statusMessage" style="margin-top: 15px; color: #B8BCC8;"></div>
+            <div id="downloadSection" style="margin-top: 20px; display: none;">
+                <button class="btn btn-large btn-success" id="downloadBtn">
+                    📥 Download Dataset ZIP
+                </button>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let projectId = null;
+        let uploadedImages = [];
+
+        // File upload handling
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            handleFiles(e.target.files);
+        });
+
+        // Drag and drop
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        function handleFiles(files) {
+            const imageGrid = document.getElementById('imageGrid');
+            uploadedImages = [];
+            imageGrid.innerHTML = '';
+
+            Array.from(files).forEach((file, index) => {
+                if (file.type.startsWith('image/')) {
+                    uploadedImages.push(file);
+                    
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const imageItem = document.createElement('div');
+                        imageItem.className = 'image-item';
+                        imageItem.innerHTML = `
+                            <img src="${e.target.result}" alt="Training image ${index + 1}">
+                            <div class="image-caption" title="Click to edit caption">Processing...</div>
+                        `;
+                        imageGrid.appendChild(imageItem);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            document.getElementById('processImagesBtn').disabled = uploadedImages.length === 0;
+        }
+
+        async function processImages() {
+            if (uploadedImages.length === 0) return;
+
+            const btn = document.getElementById('processImagesBtn');
+            btn.innerHTML = '🔄 Processing Images...';
+            btn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                uploadedImages.forEach(file => {
+                    formData.append('files', file);
+                });
+
+                const response = await fetch('/api/upload-images', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    projectId = result.project_id;
+                    
+                    // Update UI with captions
+                    const imageItems = document.querySelectorAll('.image-item');
+                    result.files.forEach((file, index) => {
+                        if (imageItems[index]) {
+                            const captionDiv = imageItems[index].querySelector('.image-caption');
+                            captionDiv.textContent = file.caption || 'No caption generated';
+                            captionDiv.style.color = file.caption ? '#B8BCC8' : '#FF9800';
+                            captionDiv.dataset.filename = file.filename;
+                            captionDiv.dataset.originalCaption = file.caption || '';
+                            
+                            // Add click handler for editing
+                            captionDiv.onclick = () => editCaption(captionDiv, file.filename);
+                        }
+                    });
+
+                    // Mark step 1 as completed
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step1-number').classList.add('completed');
+                    document.getElementById('step1-number').textContent = '✓';
+                    
+                    // Activate step 2
+                    document.getElementById('step2').classList.add('active');
+                    document.getElementById('createZipBtn').disabled = false;
+                    
+                    btn.innerHTML = '✅ Images Processed Successfully';
+                    btn.classList.add('btn-success');
+                    
+                    showStatus('success', `✅ Processed ${result.uploaded_files} images with captions`);
+                } else {
+                    throw new Error(result.message || 'Failed to process images');
+                }
+            } catch (error) {
+                console.error('Error processing images:', error);
+                showStatus('error', `❌ Error: ${error.message}`);
+                btn.innerHTML = '🔄 Process Images & Generate Captions';
+                btn.disabled = false;
+            }
+        }
+
+        async function createDatasetZip() {
+            if (!projectId) {
+                showStatus('error', '❌ Please upload and process images first');
+                return;
+            }
+
+            const btn = document.getElementById('createZipBtn');
+            btn.innerHTML = '📦 Creating Dataset ZIP...';
+            btn.disabled = true;
+
+            try {
+                // Get the configuration
+                const formData = new FormData(document.getElementById('configForm'));
+                const config = {
+                    project_name: formData.get('projectName'),
+                    project_id: projectId
+                };
+
+                // Create dataset ZIP
+                const response = await fetch('/api/create-dataset-zip', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(config)
+                });
+
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    // Mark step 2 as completed
+                    document.getElementById('step2').classList.add('completed');
+                    document.getElementById('step2-number').classList.add('completed');
+                    document.getElementById('step2-number').textContent = '✓';
+                    
+                    // Show dataset status
+                    document.getElementById('datasetStatus').classList.add('active');
+                    document.getElementById('statusMessage').innerHTML = '✅ Dataset ZIP created successfully!';
+                    
+                    // Show download section
+                    document.getElementById('downloadSection').style.display = 'block';
+                    document.getElementById('downloadBtn').onclick = () => downloadDataset();
+                    
+                    showStatus('success', '🎉 Dataset ZIP created successfully!');
+                    btn.innerHTML = '✅ ZIP Created';
+                    btn.classList.add('btn-success');
+                } else {
+                    throw new Error(result.message || 'Failed to create dataset ZIP');
+                }
+                
+            } catch (error) {
+                console.error('Error creating dataset ZIP:', error);
+                showStatus('error', `❌ Error: ${error.message}`);
+                btn.innerHTML = '📦 Create Dataset ZIP';
+                btn.disabled = false;
+            }
+        }
+
+        async function downloadDataset() {
+            try {
+                // Download the dataset ZIP file
+                const downloadLink = document.createElement('a');
+                downloadLink.href = `/api/download-dataset/${projectId}`;
+                const projectName = document.getElementById('projectName').value || 'dataset';
+                downloadLink.download = `${projectName}_dataset.zip`;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                showStatus('success', '✅ Dataset ZIP downloaded successfully!');
+            } catch (error) {
+                console.error('Error downloading dataset:', error);
+                showStatus('error', '❌ Error downloading dataset ZIP');
+            }
+        }
+
+        function showStatus(type, message) {
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status-message status-${type}`;
+            statusDiv.textContent = message;
+            
+            // Insert at top of container
+            const container = document.querySelector('.container');
+            container.insertBefore(statusDiv, container.firstChild);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                statusDiv.remove();
+            }, 5000);
+        }
+
+        function editCaption(captionDiv, filename) {
+            if (captionDiv.classList.contains('editing')) return;
+            
+            const originalText = captionDiv.textContent;
+            captionDiv.classList.add('editing');
+            
+            // Create editor
+            const editor = document.createElement('textarea');
+            editor.className = 'caption-editor';
+            editor.value = originalText;
+            
+            // Create action buttons
+            const actions = document.createElement('div');
+            actions.className = 'caption-actions';
+            
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'caption-btn';
+            saveBtn.textContent = 'Save';
+            saveBtn.onclick = () => saveCaption(captionDiv, editor, filename);
+            
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'caption-btn cancel';
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.onclick = () => cancelEdit(captionDiv, originalText);
+            
+            actions.appendChild(saveBtn);
+            actions.appendChild(cancelBtn);
+            
+            // Replace content
+            captionDiv.innerHTML = '';
+            captionDiv.appendChild(editor);
+            captionDiv.appendChild(actions);
+            
+            // Focus and select text
+            editor.focus();
+            editor.select();
+            
+            // Handle Enter key to save
+            editor.onkeydown = (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    saveCaption(captionDiv, editor, filename);
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    cancelEdit(captionDiv, originalText);
+                }
+            };
+        }
+
+        async function saveCaption(captionDiv, editor, filename) {
+            const newCaption = editor.value.trim();
+            
+            if (!newCaption) {
+                showStatus('error', 'Caption cannot be empty');
+                return;
+            }
+            
+            try {
+                const formData = new FormData();
+                formData.append('project_id', projectId);
+                formData.append('filename', filename);
+                formData.append('caption', newCaption);
+                
+                const response = await fetch('/api/update-caption', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    // Update UI
+                    captionDiv.classList.remove('editing');
+                    captionDiv.innerHTML = newCaption;
+                    captionDiv.style.color = '#B8BCC8';
+                    captionDiv.dataset.originalCaption = newCaption;
+                    captionDiv.onclick = () => editCaption(captionDiv, filename);
+                    
+                    showStatus('success', '✅ Caption updated successfully');
+                } else {
+                    throw new Error(result.message || 'Failed to update caption');
+                }
+            } catch (error) {
+                console.error('Error updating caption:', error);
+                showStatus('error', `❌ Error: ${error.message}`);
+                cancelEdit(captionDiv, captionDiv.dataset.originalCaption);
+            }
+        }
+
+        function cancelEdit(captionDiv, originalText) {
+            captionDiv.classList.remove('editing');
+            captionDiv.innerHTML = originalText;
+            captionDiv.onclick = () => editCaption(captionDiv, captionDiv.dataset.filename);
+        }
+
+        // Local training success - no modals needed
+        // Real .safetensors files are downloaded directly
+    </script>
+    
+    <!-- App GIF Controls -->
+    <script src="/static/app-gif-controls.js"></script>
+</body>
+</html>

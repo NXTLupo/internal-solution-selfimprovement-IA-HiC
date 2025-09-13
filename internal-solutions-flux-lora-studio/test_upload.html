@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Auto-Captioning Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #121B26; color: white; }
+        .upload-zone { border: 2px dashed #01C4C8; padding: 40px; text-align: center; border-radius: 12px; cursor: pointer; }
+        .upload-zone:hover { background: rgba(1, 196, 200, 0.1); }
+        .status { margin: 20px 0; padding: 15px; border-radius: 8px; background: #1E2A38; }
+        .loading { display: inline-block; width: 20px; height: 20px; border: 2px solid #01C4C8; border-radius: 50%; border-top-color: transparent; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>🎨 FLUX LoRA Studio - Auto-Captioning Test</h1>
+    <p style="color: #888;">Test the automatic image captioning with A11y Image Captioner service integration</p>
+    
+    <div class="upload-zone" onclick="document.getElementById('imageUpload').click()">
+        <div style="font-size: 3rem;">🎨</div>
+        <div>Drop images here or click to browse</div>
+        <div style="font-size: 0.9rem; color: #888;">Auto-captioning with A11y Image Captioner</div>
+    </div>
+    <input type="file" id="imageUpload" multiple accept="image/*" style="display: none;">
+    
+    <div id="uploadStatus" class="status hidden">
+        <span class="loading"></span>
+        <span>Generating captions with A11y Image Captioner...</span>
+    </div>
+    
+    <div id="results" class="status hidden">
+        <!-- Results will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', async function() {
+            const files = this.files;
+            if (files.length === 0) return;
+            
+            const uploadStatus = document.getElementById('uploadStatus');
+            const results = document.getElementById('results');
+            
+            uploadStatus.classList.remove('hidden');
+            results.classList.add('hidden');
+            
+            try {
+                const formData = new FormData();
+                Array.from(files).forEach(file => {
+                    formData.append('files', file);
+                });
+
+                const response = await fetch('/api/upload-images', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                uploadStatus.classList.add('hidden');
+                
+                if (response.ok) {
+                    const successfulCaptions = result.files.filter(f => f.caption_generated).length;
+                    results.innerHTML = `
+                        <h3>✅ Upload Complete!</h3>
+                        <p><strong>Images processed:</strong> ${files.length}</p>
+                        <p><strong>Captions generated:</strong> ${successfulCaptions}</p>
+                        <p><strong>Project ID:</strong> ${result.project_id}</p>
+                        
+                        <h4>Files with captions:</h4>
+                        <ul>
+                            ${result.files.map(f => `
+                                <li>
+                                    <strong>${f.filename}</strong>: 
+                                    ${f.caption_generated ? '✅' : '❌'} 
+                                    ${f.caption ? f.caption : (f.caption_error || 'No caption')}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        
+                        <p style="color: #01C4C8;">Ready for Google Colab training!</p>
+                    `;
+                    results.classList.remove('hidden');
+                } else {
+                    results.innerHTML = `<h3>❌ Error</h3><p>${result.detail || 'Upload failed'}</p>`;
+                    results.classList.remove('hidden');
+                }
+            } catch (error) {
+                uploadStatus.classList.add('hidden');
+                results.innerHTML = `<h3>❌ Error</h3><p>Network error: ${error.message}</p>`;
+                results.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

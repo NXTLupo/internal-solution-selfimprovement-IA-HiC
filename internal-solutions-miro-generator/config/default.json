@@ -1,0 +1,99 @@
+{
+  "name": "Default Configuration",
+  "description": "Default configuration for NXT Miro Generator",
+  "version": "1.0.0",
+  
+  "miro": {
+    "baseUrl": "https://api.miro.com/v2",
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000
+  },
+  
+  "parsing": {
+    "touchpoints": true,
+    "painPoints": true,
+    "quotes": true,
+    "emotions": true,
+    "channels": true,
+    "actions": true,
+    "customSelectors": {
+      "touchpoints": ".touchpoint, .touch-point, .interaction",
+      "painPoints": ".pain-point, .painpoint, .problem, .issue, .friction",
+      "quotes": ".quote, blockquote, .testimonial, .customer-quote",
+      "emotions": ".emotion, .feeling, .sentiment",
+      "actions": ".action, .activity, .task, .step-action",
+      "channels": ".channel, .platform, .medium"
+    }
+  },
+  
+  "layout": {
+    "grid": {
+      "cellWidth": 200,
+      "cellHeight": 150,
+      "marginX": 50,
+      "marginY": 50,
+      "columns": 8
+    },
+    "spacing": {
+      "phase": 100,
+      "element": 20,
+      "group": 40
+    },
+    "alignment": "center",
+    "distribution": "grid"
+  },
+  
+  "styling": {
+    "colorScheme": {
+      "primary": "#1A73E8",
+      "secondary": "#4285F4",
+      "accent": "#9AA0A6",
+      "background": "#FFFFFF",
+      "text": "#000000",
+      "painPoint": "#EA4335",
+      "positiveEmotion": "#34A853",
+      "negativeEmotion": "#FBBC04",
+      "neutral": "#9AA0A6"
+    },
+    "fonts": {
+      "primary": "Arial",
+      "secondary": "Helvetica",
+      "sizes": {
+        "small": 10,
+        "medium": 12,
+        "large": 16,
+        "xlarge": 20
+      }
+    },
+    "shapes": {
+      "default": "rectangle",
+      "touchpoint": "rectangle",
+      "painPoint": "rectangle",
+      "emotion": "circle",
+      "quote": "rectangle",
+      "action": "arrow_right",
+      "channel": "diamond"
+    },
+    "sizes": {
+      "small": { "width": 100, "height": 80 },
+      "medium": { "width": 150, "height": 100 },
+      "large": { "width": 200, "height": 120 },
+      "xlarge": { "width": 250, "height": 150 }
+    }
+  },
+  
+  "api": {
+    "rateLimit": 100,
+    "batchSize": 10,
+    "concurrentRequests": 5,
+    "timeout": 30000
+  },
+  
+  "performance": {
+    "memoryLimit": 512,
+    "processingTimeout": 300000,
+    "maxFileSize": 52428800,
+    "cacheEnabled": true
+  }
+}

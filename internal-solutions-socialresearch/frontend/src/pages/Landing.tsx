@@ -279,23 +279,15 @@ function Landing() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
-      {/* Header */}
-      <div className="w-full py-3 px-6 flex justify-between items-center border-b border-gray-700" style={{ backgroundColor }}>
-        <div className="flex items-center">
-          <div className="cursor-pointer" onClick={() => navigate('/')}>
-            <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
-          </div>
-        </div>
-        <div className="flex items-center">
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col" style={{ 
+      background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%)',
+      color: '#ffffff'
+    }}>
+      {/* Intelligence Augmentation header is rendered by HTML template */}
 
-      <div className="p-8 flex-grow pt-16">
+      <div className="p-8 flex-grow pt-8">
         <div className="max-w-screen-2xl mx-auto w-full">
-          <h1 className="pb-2 text-5xl font-bold mb-16 mt-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            Welcome to Social Listening Tools
-          </h1>
+      
           
           {/* Debug section - only visible in development */}
           {/* {process.env.NODE_ENV === 'development' && (
@@ -313,17 +305,30 @@ function Landing() {
             </div>
           )} */}
           
-          <div className="mt-10">
+          <div className="mt-16">
             <div className="mb-10">
               <div className="flex justify-between items-center">
-                <h2 className="text-2xl text-white">My Projects</h2>
+                <h2 className="text-3xl text-white font-semibold">Research Projects</h2>
                 
                 <button
                   onClick={() => setShowModal(true)}
-                  className="flex items-center px-8 py-3 bg-blue-100 text-blue-800 rounded-full hover:bg-blue-200 transition-colors font-medium text-lg"
+                  className="flex items-center px-8 py-3 rounded-lg font-medium text-lg transition-all duration-300 transform hover:-translate-y-1"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%)',
+                    color: 'white',
+                    boxShadow: '0 4px 15px rgba(255, 20, 147, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 20, 147, 0.9) 0%, rgba(196, 1, 128, 1) 100%)';
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(255, 20, 147, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 20, 147, 0.8) 0%, rgba(196, 1, 128, 0.9) 100%)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 20, 147, 0.3)';
+                  }}
                 >
                   <span className="mr-2">+</span>
-                  Create new
+                  Create New Project
                 </button>
               </div>
               <div className="border-b border-gray-600 border-dashed mt-3 w-full"></div>

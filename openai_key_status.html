@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenAI API Key Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>OpenAI API Key Status for Video Transcriber</h1>
+    
+    <div class="status success">
+        <strong>✅ OpenAI API Key Updated Successfully</strong>
+        <p>The OpenAI API key has been successfully updated for the Video Transcriber service.</p>
+    </div>
+    
+    <h2>Configuration Details</h2>
+    <ul>
+        <li><strong>API Key:</strong> <code>***REDACTED-OPENAI-KEY***</code></li>
+        <li><strong>USE_WHISPER_API:</strong> <code>true</code></li>
+        <li><strong>Video Transcriber URL:</strong> <a href="http://localhost:5002">http://localhost:5002</a></li>
+    </ul>
+    
+    <h2>Changes Made</h2>
+    <ol>
+        <li>Updated the OpenAI API key in <code>/Volumes/SSK SSD/NXT HUMANS_AI_CX_WORKBENCH/internal-solutions-video-analyzer/src/app.py</code></li>
+        <li>Created/updated <code>/Volumes/SSK SSD/NXT HUMANS_AI_CX_WORKBENCH/internal-solutions-video-analyzer/.env</code> with the new API key</li>
+        <li>Updated <code>/Volumes/SSK SSD/NXT HUMANS_AI_CX_WORKBENCH/docker-compose-video-fixed.yml</code> with the new API key</li>
+        <li>Injected the API key directly into the running container using <code>docker cp</code></li>
+        <li>Restarted the video-analyzer container to apply the changes</li>
+        <li>Created/updated <code>/Volumes/SSK SSD/NXT HUMANS_AI_CX_WORKBENCH/update_openai_key.sh</code> script for future updates</li>
+    </ol>
+    
+    <h2>How to Update in the Future</h2>
+    <p>Run the following command with your API key to update it:</p>
+    <pre>./update_openai_key.sh YOUR_API_KEY</pre>
+    <p>This will update all necessary files and restart the video-analyzer container if it's running.</p>
+    
+    <div class="status info">
+        <strong>ℹ️ For Troubleshooting</strong>
+        <p>If you encounter any issues with the Video Transcriber service, you can check the logs using:</p>
+        <pre>docker logs nxthumans_ai_cx_workbench-video-analyzer-1</pre>
+    </div>
+</body>
+</html>

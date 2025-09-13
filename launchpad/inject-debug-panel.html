@@ -1,0 +1,45 @@
+<div id="main-debug-panel" style="position: fixed; top: 10px; right: 10px; background: #fff; border: 2px solid red; padding: 15px; border-radius: 8px; z-index: 10000; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  <h3 style="margin-top: 0; color: red;">Emergency Chatbot Debug</h3>
+  <div style="margin-bottom: 10px;">
+    <button id="debugInit2" style="padding: 8px 12px; background: red; color: white; border: none; border-radius: 4px; margin-right: 5px; cursor: pointer;">Force Init</button>
+    <button id="debugShow2" style="padding: 8px 12px; background: #555; color: white; border: none; border-radius: 4px; margin-right: 5px; cursor: pointer;">Show Chat</button>
+  </div>
+  <div id="debugStatus2" style="margin-top: 10px; font-size: 12px; background: #f5f5f5; padding: 5px; border-radius: 4px; max-height: 100px; overflow-y: auto;">Status will appear here</div>
+</div>
+
+<script>
+// Emergency debug panel that won't conflict with existing elements
+document.getElementById('debugInit2').addEventListener('click', function() {
+  if (typeof ChatbotWidget \!== 'function') {
+    document.getElementById('debugStatus2').textContent = 'ERROR: ChatbotWidget class not found';
+    return;
+  }
+  
+  if (\!window.chatbot) {
+    try {
+      console.log('Emergency initialization of chatbot');
+      window.chatbot = new ChatbotWidget();
+      document.getElementById('debugStatus2').textContent = 'Chatbot initialized manually';
+    } catch (e) {
+      document.getElementById('debugStatus2').textContent = 'Error: ' + e.message;
+      console.error(e);
+    }
+  } else {
+    document.getElementById('debugStatus2').textContent = 'Chatbot already exists';
+  }
+});
+
+document.getElementById('debugShow2').addEventListener('click', function() {
+  if (\!window.chatbot) {
+    document.getElementById('debugStatus2').textContent = 'Chatbot not initialized. Click Force Init first.';
+    return;
+  }
+  
+  try {
+    window.chatbot.openChat();
+    document.getElementById('debugStatus2').textContent = 'Chat opened';
+  } catch (e) {
+    document.getElementById('debugStatus2').textContent = 'Error: ' + e.message;
+  }
+});
+</script>

@@ -1,0 +1,5 @@
+2025-05-11 18:39:24,835 - integrated-agent-fix - INFO - Successfully initialized Claude client
+2025-05-11 18:39:27,521 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-05-11 18:39:27,770 - integrated-agent-fix - ERROR - Error checking workbench status: Extra data: line 2 column 1 (char 1547)
+2025-05-11 18:39:27,773 - integrated-agent-fix - INFO - Created backup of template at /Volumes/SSK SSD/NXT HUMANS_AI_CX_WORKBENCH/launchpad/templates/enhanced-index.html.bak
+2025-05-11 18:39:27,775 - integrated-agent-fix - INFO - Successfully injected WebSocket fix into template

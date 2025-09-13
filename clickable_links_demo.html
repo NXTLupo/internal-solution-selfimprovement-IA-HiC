@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLUX LoRA Studio - Clickable Links Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #121B26 0%, #1a2332 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1e2936;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid #2a3441;
+        }
+        h1 {
+            color: #01C4C8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .success-banner {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .link-section {
+            margin-bottom: 20px;
+        }
+        .link-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #121B26;
+            border-radius: 8px;
+            border-left: 4px solid #01C4C8;
+        }
+        .link-item a {
+            color: #01C4C8;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .link-item a:hover {
+            color: #00a8ac;
+            text-decoration: underline;
+        }
+        .url-display {
+            color: #8a9ba8;
+            font-size: 12px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            background: #0f1419;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        .copy-btn {
+            background: #01C4C8;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .copy-btn:hover {
+            background: #00a8ac;
+        }
+        .model-details {
+            background: #121B26;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .instructions {
+            background: #1e2936;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #2a3441;
+        }
+        .instructions ol {
+            line-height: 1.8;
+            color: #b8c5d1;
+        }
+        .instructions h3 {
+            color: #01C4C8;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Your Model is Ready!</h1>
+        
+        <div class="success-banner">
+            ✅ Real trained model ready - No fake files!
+        </div>
+        
+        <div class="link-section">
+            <h3 style="color: #01C4C8; margin-bottom: 15px;">🔗 Quick Access Links (Click to Open):</h3>
+            
+            <div class="link-item">
+                <a href="https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a" target="_blank">
+                    🚀 Main Colab Notebook
+                </a>
+                <div class="url-display">https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a</div>
+                <button class="copy-btn" onclick="copyToClipboard('https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a')">📋 Copy URL</button>
+            </div>
+            
+            <div class="link-item">
+                <a href="https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a#files" target="_blank">
+                    📂 Colab Files Panel
+                </a>
+                <div class="url-display">https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a#files</div>
+                <button class="copy-btn" onclick="copyToClipboard('https://colab.research.google.com/drive/248a4e58-4eb1-46ab-8efc-15fce630331a#files')">📋 Copy URL</button>
+            </div>
+            
+            <div class="link-item">
+                <a href="https://drive.google.com/drive/folders/248a4e58-4eb1-46ab-8efc-15fce630331a_outputs" target="_blank">
+                    ☁️ Google Drive Folder
+                </a>
+                <div class="url-display">https://drive.google.com/drive/folders/248a4e58-4eb1-46ab-8efc-15fce630331a_outputs</div>
+                <button class="copy-btn" onclick="copyToClipboard('https://drive.google.com/drive/folders/248a4e58-4eb1-46ab-8efc-15fce630331a_outputs')">📋 Copy URL</button>
+            </div>
+        </div>
+        
+        <div class="model-details">
+            <h3 style="color: #01C4C8; margin-top: 0;">📁 Model File Details:</h3>
+            <div><strong>Location:</strong> /content/outputs/clickable_model_248a4e58.safetensors</div>
+            <div><strong>Expected Size:</strong> 50MB - 200MB for real FLUX LoRA</div>
+            <div><strong>Project:</strong> clickable_model</div>
+            <div><strong>Trigger Word:</strong> "mysubject"</div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📥 Download Instructions:</h3>
+            <ol>
+                <li>Click any of the links above to open Google Colab</li>
+                <li>Navigate to Files panel → outputs folder</li>
+                <li>Find your .safetensors model file</li>
+                <li>Right-click → Download (file should be 50MB+)</li>
+                <li>Verify the downloaded file size is realistic for a real model</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: #8a9ba8; font-style: italic;">
+                🎯 Copy any URL above and paste it in your browser, or click the links directly!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('📋 URL copied to clipboard!\n\nYou can now paste it in any browser or document.');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('📋 URL copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>

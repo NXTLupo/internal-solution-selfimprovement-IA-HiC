@@ -1,26 +1,40 @@
-# Social Research Analysis Tool
+# Social Research Analysis Tool - NXT Humans Intelligence Augmentation Suite
 
-This repository provides two  tools designed for Reddit-based social research:
+## 🎯 Overview
 
-## 🔍 Topic Modeling Tool
+The Social Research Analysis Tool is a comprehensive AI-powered analytics platform that combines advanced social media data analysis with cutting-edge vector database technology. Built with modern React 19 + TypeScript 5.7 + Vite 6.1 stack, it provides professional-grade social research capabilities with real-time insights and semantic search functionality.
 
-This tool helps users explore the **key themes** occurring in a subreddit, without a predefined topic.
+## ✨ Key Features
 
-- **Input**: Subreddit name.
+### 🔍 Advanced Topic Modeling Tool
+This tool helps users explore the **key themes** occurring in a subreddit using sophisticated AI models:
+
+- **Input**: Subreddit name and filtering parameters
+- **AI-Powered Analysis**: 
+  - **BERTopic Integration**: Advanced topic modeling with transformer-based embeddings
+  - **Vector Embeddings**: PostgreSQL + pgvector for semantic similarity search
+  - **Sentiment Analysis**: VADER and transformer-based sentiment scoring
+  - **Interactive Visualizations**: Dynamic theme maps and trend analysis
 - **Output**:
-  - Topics with sentiment scores.
-  - Interactive theme maps.
-  - RAG-powered AI chat
+  - Topics with detailed sentiment scores and confidence metrics
+  - Interactive theme maps with clustering visualization
+  - RAG-powered AI chat interface for conversational analysis
+  - Exportable analytics reports and data visualizations
 
-## 🧠 Social LLM Analyzer
+### 🧠 Social LLM Analyzer
+Advanced sentiment analysis tool that provides deep insights into specific topics within subreddit discussions:
 
-This tool helps users analyze sentiment around a **specific topic within a subreddit**, also provides tracable data to understand the nuances and emotional tone of discussions
-
-- **Input**: Subreddit name and a defined topic.
+- **Input**: Subreddit name, defined topic, and analysis parameters
+- **Advanced Processing**:
+  - **Multi-stage Sentiment Pipeline**: RoBERTa + DeBERTa + Custom LLM analysis
+  - **Aspect-Based Sentiment Analysis (ABSA)**: Topic-specific sentiment extraction
+  - **Clustering Algorithms**: Sentence-BERT + HDBSCAN for content grouping
+  - **Real-time Processing**: Live data streaming and progressive analysis
 - **Output**:
-  - Positive and negative aspects.
-  - Summary and suggestions.
-  - Visualizations.
+  - Comprehensive positive and negative sentiment breakdowns
+  - AI-generated summaries with actionable insights and recommendations
+  - Professional data visualizations and trend analysis
+  - Detailed analytics with statistical confidence measures
 
 
 ## Deployment option 1: Local Deployment with Docker
@@ -86,21 +100,35 @@ Container deployment is handled via the GitHub Actions workflow located at: ```.
 
 ## Deployment option 3: Local Deployment with Python virtual environment
 
-### Frontend Setup
+### Frontend Setup (Modern React 19 + Vite 6.1 Stack)
+
 1. Navigate to the frontend directory:
 ```bash
 cd frontend
 ```
 
-2. Install dependencies:
+2. Install dependencies (Node.js 18+ required):
 ```bash
 npm install
+# Or using yarn/pnpm for faster installs
+yarn install
+pnpm install
 ```
 
-3. Start the development server:
+3. Start the development server with HMR:
 ```bash
-npm start
+npm run dev          # Vite dev server with hot module replacement
+npm run build        # TypeScript + Vite production build  
+npm run preview      # Preview production build locally
+npm run lint         # ESLint with TypeScript rules
 ```
+
+**Development Features**:
+- **Hot Module Replacement (HMR)**: Instant updates without page refresh
+- **TypeScript Strict Mode**: Full type safety with path aliases (`@/components`, `@/utils`)
+- **Vite Dev Server**: Lightning-fast startup and builds (port 5173)
+- **ESLint Integration**: Real-time code quality checking
+- **Tailwind CSS**: Utility-first styling with live reloading
 
 ### Backend Setup
 1. Navigate to the backend directory:
@@ -230,16 +258,34 @@ graph TD
     class B,C,D,F1,F2,G,H,I,J default;
 ```
 
-## Tech Stack
+## 🚀 Modern Tech Stack
 
-### Frontend
-- React with TypeScript
-- Tailwind CSS
-- Real-time data streaming
+### Frontend (Cutting-Edge React 19 Stack)
+- **React 19**: Latest React with enhanced hooks, concurrent features, and server components
+- **TypeScript 5.7**: Strict type checking with advanced inference and path aliases (`@/*` → `./src/*`)
+- **Vite 6.1**: Lightning-fast development with ESM modules, HMR, and optimized builds
+- **Tailwind CSS 4.0**: Modern utility-first CSS with advanced features and PostCSS integration
+- **Material-UI 6.4+**: Professional component library with modern design tokens
+- **Redux Toolkit 2.6+**: State management with RTK Query for efficient data fetching
+- **Build System**: Modern Vite configuration with path aliases, strict TypeScript, and optimized bundling
 
-### Backend
-- Flask (Python)
-- PRAW (Python Reddit API Wrapper)
+### Backend (Production-Ready Python Stack)
+- **Flask**: Robust web framework with RESTful API design
+- **PostgreSQL 16+**: Advanced relational database with enterprise-grade performance
+- **pgvector Extension**: Vector embeddings for semantic search and similarity analysis
+- **PRAW**: Python Reddit API Wrapper for comprehensive Reddit data access
+- **BERTopic**: Advanced topic modeling with transformer-based embeddings
+- **Sentence-BERT**: Semantic text embeddings for clustering and similarity
+- **VADER & RoBERTa**: Multi-layered sentiment analysis pipeline
+- **HDBSCAN**: Density-based clustering for topic grouping
+- **Alembic**: Database migrations and schema management
+
+### AI & Analytics Infrastructure
+- **Vector Database**: PostgreSQL + pgvector for semantic search capabilities
+- **NLP Pipeline**: Advanced text processing with spaCy and NLTK
+- **ML Models**: BERTopic, Sentence-BERT, RoBERTa for comprehensive text analysis
+- **Real-time Processing**: WebSocket integration for live data streaming
+- **Data Visualization**: D3.js integration for interactive charts and analytics
 
 ## Setup with local virtual env 
 

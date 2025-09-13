@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  video-analyzer:
+    image: python:3.11-slim
+    container_name: nxthumans_ai_cx_workbench-video-analyzer-1
+    ports:
+      - "5002:5000"
+    environment:
+      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - OPENAI_API_KEY=sk-yOuRaPiKeYhErE
+      - PORT=5000
+    volumes:
+      - ./internal-solutions-video-analyzer:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y ffmpeg &&
+              pip install --no-cache-dir -r requirements.txt &&
+              pip install --no-cache-dir yt-dlp pytube pydub openai requests &&
+              python run.py"
+    networks:
+      - video-network
+    restart: always
+
+  video-mcp:
+    image: python:3.11-slim
+    container_name: nxthumans_ai_cx_workbench-video-mcp-1
+    ports:
+      - "8504:8504"
+    environment:
+      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:5002
+      - PORT=8504
+    volumes:
+      - ./mcp-services/video-mcp:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+              uvicorn app:app --host 0.0.0.0 --port ${PORT:-8504}"
+    networks:
+      - video-network
+    depends_on:
+      - video-analyzer
+    restart: always
+
+networks:
+  video-network:
+    driver: bridge

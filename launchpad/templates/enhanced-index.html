@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT Humans | AI CX Workbench</title>
-  <link rel="stylesheet" href="/static/nxt-humans-styles.css">
-  <link rel="stylesheet" href="/static/enhanced-styles.css">
-  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="stylesheet" href="/public/css/unified-styles.css">
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <meta name="description" content="                        AI CX Workbench - Comprehensive customer experience research platform">
+  <meta name="description" content="NXT Humans AI CX Workbench - Comprehensive customer experience research platform">
   <meta name="theme-color" content="#01C4C8">
+  <link rel="stylesheet" href="/static/chatbot.css">
 </head>
-<body>
+<body data-enable-agent="true">
   <header class="nxt-header">
     <div class="container">
       <div class="nxt-header-content">
@@ -28,13 +27,15 @@
   
   
   <div class="container mt-4">
+    <div class="category-section data-collection-section">
+    <h2 class="section-title"><i class="fa-solid fa-database mr-2"></i>Data Collection Tools</h2>
     <div class="app-grid">
       <div class="nxt-card app-card scale-in animate-delay-1">
         <div class="status-indicator status-unknown" id="reddit-ripper-status"></div>
         <div class="app-icon">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <h3 class="app-title">Reddit Data Collector</h3>
+        <h3 class="app-title">Social Data Collector</h3>
         <p class="app-description">Collect posts and comments from Reddit subreddits and export them to structured PDF format for analysis.</p>
         <div class="app-cta">
           <a href="{{ reddit_ripper_url }}" id="reddit-ripper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
@@ -43,6 +44,26 @@
         </div>
       </div>
       
+      <div class="nxt-card app-card scale-in animate-delay-4">
+        <div class="status-indicator status-unknown" id="video-analyzer-status"></div>
+        <div class="app-icon">
+          <i class="fa-solid fa-video"></i>
+        </div>
+        <h3 class="app-title">Video Transcriber</h3>
+        <p class="app-description">Transcribe video content from YouTube or local uploads using advanced AI models.</p>
+        <div class="app-cta">
+          <a href="{{ video_analyzer_url }}" id="video-analyzer-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
+            <i class="fa-solid fa-play mr-2"></i> Launch
+          </a>
+        </div>
+      </div>
+      
+    </div>
+</div>
+    
+<div class="category-section data-analysis-section">
+    <h2 class="section-title mt-5"><i class="fa-solid fa-chart-pie mr-2"></i>Data Analysis Tools</h2>
+    <div class="app-grid">
       <div class="nxt-card app-card scale-in animate-delay-2">
         <div class="status-indicator status-unknown" id="social-research-status"></div>
         <div class="app-icon">
@@ -62,7 +83,7 @@
         <div class="app-icon">
           <i class="fa-solid fa-map"></i>
         </div>
-        <h3 class="app-title">Journey Mapper</h3>
+        <h3 class="app-title">Journey Mapper (Claude)</h3>
         <p class="app-description">Generate interactive customer journey maps from various data sources using Claude 3.7 Sonnet LLM.</p>
         <div class="app-cta">
           <a href="{{ journey_mapper_url }}" id="journey-mapper-url" target="_blank" class="nxt-btn nxt-btn-primary nxt-btn-block">
@@ -70,7 +91,9 @@
           </a>
         </div>
       </div>
+      
     </div>
+</div>
     
     <div class="status-link-container fade-in">
       <a href="/status" class="status-link">
@@ -86,7 +109,7 @@
         <div class="port-badge" id="launchpad-port-badge">Port: <span id="launchpad-port-display">8000</span></div>
       </div>
       <div class="url-item">
-        <div class="url-label"><i class="fa-solid fa-map mr-2"></i> Journey Mapper:</div>
+        <div class="url-label"><i class="fa-solid fa-map mr-2"></i> Journey Mapper (Claude):</div>
         <div class="url-value" id="journey-mapper-url-display"></div>
         <div class="port-badge" id="journey-mapper-port-badge">Port: <span id="journey-mapper-port-display">8080</span></div>
       </div>
@@ -99,6 +122,11 @@
         <div class="url-label"><i class="fa-solid fa-chart-column mr-2"></i> Social Research:</div>
         <div class="url-value" id="social-research-url-display"></div>
         <div class="port-badge" id="social-research-port-badge">Port: <span id="social-research-port-display">3000</span></div>
+      </div>
+      <div class="url-item">
+        <div class="url-label"><i class="fa-solid fa-video mr-2"></i> Video Transcriber:</div>
+        <div class="url-value" id="video-analyzer-url-display"></div>
+        <div class="port-badge" id="video-analyzer-port-badge">Port: <span id="video-analyzer-port-display">5002</span></div>
       </div>
     </div>
   </div>
@@ -120,41 +148,48 @@
     const redditRipperStatus = document.getElementById('reddit-ripper-status');
     const socialResearchStatus = document.getElementById('social-research-status');
     const journeyMapperStatus = document.getElementById('journey-mapper-status');
+    const videoAnalyzerStatus = document.getElementById('video-analyzer-status');
     const exploreBtn = document.getElementById('explore-btn');
     
     // URL elements
     const redditRipperUrlLink = document.getElementById('reddit-ripper-url');
     const socialResearchUrlLink = document.getElementById('social-research-url');
     const journeyMapperUrlLink = document.getElementById('journey-mapper-url');
+    const videoAnalyzerUrlLink = document.getElementById('video-analyzer-url');
     
     // URL display elements
     const launchpadUrlDisplay = document.getElementById('launchpad-url-display');
     const journeyMapperUrlDisplay = document.getElementById('journey-mapper-url-display');
     const redditRipperUrlDisplay = document.getElementById('reddit-ripper-url-display');
     const socialResearchUrlDisplay = document.getElementById('social-research-url-display');
+    const videoAnalyzerUrlDisplay = document.getElementById('video-analyzer-url-display');
     
     // Port display elements
     const launchpadPortDisplay = document.getElementById('launchpad-port-display');
     const journeyMapperPortDisplay = document.getElementById('journey-mapper-port-display');
     const redditRipperPortDisplay = document.getElementById('reddit-ripper-port-display');
     const socialResearchPortDisplay = document.getElementById('social-research-port-display');
+    const videoAnalyzerPortDisplay = document.getElementById('video-analyzer-port-display');
     
     // Port badge elements
     const launchpadPortBadge = document.getElementById('launchpad-port-badge');
     const journeyMapperPortBadge = document.getElementById('journey-mapper-port-badge');
     const redditRipperPortBadge = document.getElementById('reddit-ripper-port-badge');
     const socialResearchPortBadge = document.getElementById('social-research-port-badge');
+    const videoAnalyzerPortBadge = document.getElementById('video-analyzer-port-badge');
     
     // Set initial URLs and display values
     let journeyMapperUrl = "{{ journey_mapper_url }}";
     let redditRipperUrl = "{{ reddit_ripper_url }}";
     let socialResearchUrl = "{{ social_research_url }}";
+    let videoAnalyzerUrl = "{{ video_analyzer_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
     let journeyMapperPort = "8080";
     let redditRipperPort = "5001";
     let socialResearchPort = "3000";
+    let videoAnalyzerPort = "5002";
     let launchpadPort = "8000";
     
     // Check if a port is different from default
@@ -179,24 +214,28 @@
       redditRipperUrlLink.href = redditRipperUrl;
       socialResearchUrlLink.href = socialResearchUrl;
       journeyMapperUrlLink.href = journeyMapperUrl;
+      videoAnalyzerUrlLink.href = videoAnalyzerUrl;
       
       // Update URL displays
       launchpadUrlDisplay.textContent = launchpadUrl;
       journeyMapperUrlDisplay.textContent = journeyMapperUrl;
       redditRipperUrlDisplay.textContent = redditRipperUrl;
       socialResearchUrlDisplay.textContent = socialResearchUrl;
+      videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
       
       // Update port displays
       launchpadPortDisplay.textContent = launchpadPort;
       journeyMapperPortDisplay.textContent = journeyMapperPort;
       redditRipperPortDisplay.textContent = redditRipperPort;
       socialResearchPortDisplay.textContent = socialResearchPort;
+      videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
       
       // Update port badge styling
       updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
       updatePortBadge(journeyMapperPortBadge, journeyMapperPort, "8080");
       updatePortBadge(redditRipperPortBadge, redditRipperPort, "5001");
       updatePortBadge(socialResearchPortBadge, socialResearchPort, "3000");
+      updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
     }
     
     // Get updated URLs from the server
@@ -211,6 +250,7 @@
           journeyMapperPort = data.journey_mapper.port;
         }
         
+        
         if (data.reddit_ripper) {
           redditRipperUrl = data.reddit_ripper.url;
           redditRipperPort = data.reddit_ripper.port;
@@ -219,6 +259,11 @@
         if (data.social_research) {
           socialResearchUrl = data.social_research.url;
           socialResearchPort = data.social_research.port;
+        }
+        
+        if (data.video_analyzer) {
+          videoAnalyzerUrl = data.video_analyzer.url;
+          videoAnalyzerPort = data.video_analyzer.port;
         }
         
         if (data.launchpad) {
@@ -250,6 +295,11 @@
         
         if (data.services && data.services.journey_mapper) {
           updateStatusIndicator(journeyMapperStatus, data.services.journey_mapper.status);
+        }
+        
+        
+        if (data.services && data.services.video_analyzer) {
+          updateStatusIndicator(videoAnalyzerStatus, data.services.video_analyzer.status);
         }
       } catch (error) {
         console.error('Error fetching service status:', error);
@@ -339,5 +389,40 @@
   
   <!-- Enhanced animations and interactions script -->
   <script src="/static/enhanced-animations.js"></script>
+
+  <!-- Chatbot script -->
+  <script src="/static/chatbot.js?v={{ timestamp }}"></script>
+  
+  <!-- Category section styling -->
+  <style>
+    .category-section {
+      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--cyan-primary));
+      border-radius: 3px;
+    }
+    
+    .data-analysis-section .section-title:after {
+      background: linear-gradient(90deg, var(--accent-purple), var(--cyan-primary));
+    }
+  </style>
+
+  <!-- Preload key resources -->
+  <link rel="preload" href="/static/nxt-humans-logo.png" as="image" fetchpriority="high">
 </body>
 </html>

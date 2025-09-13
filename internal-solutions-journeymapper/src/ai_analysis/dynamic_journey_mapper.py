@@ -1663,9 +1663,26 @@ Now, create the complete HTML document with all required elements and closing ta
 </div>
 """
         
-        # Add export functionality script tag
-        export_script_html = """
+        # Extract journey ID from the URL or generate one
+        import re
+        import uuid
+        
+        # Try to extract journey ID from existing content or generate a new one
+        journey_id_match = re.search(r'journey_map_([a-f0-9-]+)', html_content)
+        if journey_id_match:
+            journey_id = journey_id_match.group(1)
+        else:
+            # Generate a new journey ID if we can't find one
+            journey_id = str(uuid.uuid4())
+        
+        # Add export and editing functionality script tags
+        export_script_html = f"""
 <script src="/static/journey_export.js"></script>
+<script>
+// Journey Map Editing Functionality
+window.journeyMapId = '{journey_id}';
+</script>
+<script src="/static/journey_editor.js"></script>
 """
         
         # Add print media styles if not present

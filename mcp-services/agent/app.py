@@ -40,7 +40,9 @@ ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219"
 REDDIT_MCP_URL = os.environ.get("REDDIT_MCP_URL", "http://reddit-mcp:8501")
 SOCIAL_MCP_URL = os.environ.get("SOCIAL_MCP_URL", "http://social-mcp:8502")
 JOURNEY_MCP_URL = os.environ.get("JOURNEY_MCP_URL", "http://journey-mcp:8503")
-UPLOAD_MCP_URL = os.environ.get("UPLOAD_MCP_URL", "http://upload-mcp:8504")
+VIDEO_MCP_URL = os.environ.get("VIDEO_MCP_URL", "http://video-mcp:8504")
+OPENAI_JOURNEY_MCP_URL = os.environ.get("OPENAI_JOURNEY_MCP_URL", "http://openai-journey-mcp:8505")
+CLAUDE4_JOURNEY_MCP_URL = os.environ.get("CLAUDE4_JOURNEY_MCP_URL", "http://claude4-journey-mcp:8506")
 
 # Initialize Anthropic client
 anthropic_client = AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
@@ -59,6 +61,7 @@ class Conversation(BaseModel):
     messages: List[Message] = Field([], description="Conversation messages")
     active_tools: List[Dict[str, Any]] = Field([], description="Active tools in this conversation")
     file_mappings: Dict[str, str] = Field({}, description="Map file IDs to temporary file paths")
+    journey_mappings: Dict[str, str] = Field({}, description="Map file IDs to journey IDs for tracking journey generation")
 
 # Create FastAPI app
 app = FastAPI(
@@ -90,36 +93,142 @@ tool_services = {
     "reddit": REDDIT_MCP_URL,
     "social": SOCIAL_MCP_URL, 
     "journey": JOURNEY_MCP_URL,
-    "upload": UPLOAD_MCP_URL
+    "video": VIDEO_MCP_URL,
+    "openai_journey": OPENAI_JOURNEY_MCP_URL,
+    "claude4_journey": CLAUDE4_JOURNEY_MCP_URL
 }
 
 # Cache the available tools from each service
 async def fetch_and_cache_tools():
-    """Fetch tool definitions from all services and cache them"""
+    """Fetch tool definitions from all services and cache them using JSON-RPC 2.0"""
     global tool_definitions
     
+    # Clear existing tool definitions
+    tool_definitions = {}
+    
+    logger.info("Starting tool discovery from MCP services using JSON-RPC 2.0...")
+    
     for service_name, service_url in tool_services.items():
-        if service_name == "upload":
-            continue  # Skip upload service as it doesn't have tools
-            
         try:
-            response = requests.get(f"{service_url}/mcp/tools")
+            logger.info(f"Fetching tools from {service_name} at {service_url}/mcp")
             
-            if response.status_code == 200:
-                tools = response.json()
-                for tool in tools:
-                    tool_name = tool.get("name")
-                    if tool_name:
-                        tool_definitions[tool_name] = {
-                            "service": service_name,
-                            "url": f"{service_url}/mcp/invoke/{tool_name}",
-                            "spec": tool
-                        }
-                        logger.info(f"Cached tool definition for {tool_name}")
-            else:
-                logger.warning(f"Failed to fetch tools from {service_name}: {response.status_code}")
+            # Add retry mechanism for service connections
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    # Try JSON-RPC 2.0 format first
+                    jsonrpc_request = {
+                        "jsonrpc": "2.0",
+                        "id": f"tools_list_{service_name}_{attempt}",
+                        "method": "tools/list",
+                        "params": {}
+                    }
+                    
+                    response = requests.post(
+                        f"{service_url}/mcp",
+                        json=jsonrpc_request,
+                        headers={"Content-Type": "application/json"},
+                        timeout=10
+                    )
+                    
+                    if response.status_code == 200:
+                        result = response.json()
+                        
+                        # Check if it's a valid JSON-RPC response
+                        if result.get("jsonrpc") == "2.0" and "result" in result:
+                            tools = result["result"].get("tools", [])
+                            logger.info(f"✓ Successfully fetched {len(tools)} tools from {service_name} via JSON-RPC 2.0")
+                            
+                            for tool in tools:
+                                tool_name = tool.get("name")
+                                if tool_name:
+                                    tool_definitions[tool_name] = {
+                                        "service": service_name,
+                                        "url": f"{service_url}/mcp",  # Use main MCP endpoint
+                                        "spec": tool
+                                    }
+                                    logger.info(f"✓ Cached tool: {tool_name}")
+                                else:
+                                    logger.warning(f"Tool missing 'name' field: {tool}")
+                            
+                            break  # Success, exit retry loop
+                        else:
+                            logger.warning(f"Invalid JSON-RPC response from {service_name}: {result}")
+                    
+                    # Fallback to legacy format if JSON-RPC fails
+                    elif response.status_code == 404 or response.status_code == 422:
+                        logger.info(f"JSON-RPC not supported by {service_name}, trying legacy format...")
+                        
+                        legacy_response = requests.get(f"{service_url}/mcp/tools", timeout=10)
+                        
+                        if legacy_response.status_code == 200:
+                            tools = legacy_response.json()
+                            logger.info(f"✓ Successfully fetched {len(tools)} tools from {service_name} via legacy format")
+                            
+                            for tool in tools:
+                                tool_name = tool.get("name")
+                                if tool_name:
+                                    tool_definitions[tool_name] = {
+                                        "service": service_name,
+                                        "url": f"{service_url}/mcp/invoke/{tool_name}",  # Legacy URL
+                                        "spec": tool,
+                                        "legacy": True  # Mark as legacy
+                                    }
+                                    logger.info(f"✓ Cached legacy tool: {tool_name}")
+                                else:
+                                    logger.warning(f"Tool missing 'name' field: {tool}")
+                            
+                            break  # Success, exit retry loop
+                        else:
+                            logger.warning(f"Legacy endpoint also failed for {service_name}: HTTP {legacy_response.status_code}")
+                    else:
+                        logger.warning(f"Failed to fetch tools from {service_name}: HTTP {response.status_code}")
+                        if attempt < max_retries - 1:
+                            logger.info(f"Retrying {service_name} in 2 seconds... (attempt {attempt + 1}/{max_retries})")
+                            await asyncio.sleep(2)
+                        
+                except requests.exceptions.ConnectTimeout:
+                    logger.warning(f"Connection timeout to {service_name} (attempt {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(2)
+                except requests.exceptions.ConnectionError as e:
+                    logger.warning(f"Connection failed to {service_name}: {str(e)} (attempt {attempt + 1}/{max_retries})")
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(2)
+                except Exception as e:
+                    logger.error(f"Unexpected error connecting to {service_name}: {str(e)}")
+                    break  # Don't retry for unexpected errors
+                    
         except Exception as e:
             logger.error(f"Error fetching tools from {service_name}: {str(e)}")
+    
+    logger.info(f"🎯 Tool discovery complete! Total tools cached: {len(tool_definitions)}")
+    
+    if tool_definitions:
+        logger.info(f"📋 Available tools: {', '.join(sorted(tool_definitions.keys()))}")
+        
+        # Group tools by service for summary
+        service_summary = {}
+        for tool_name, tool_info in tool_definitions.items():
+            service = tool_info["service"]
+            is_legacy = tool_info.get("legacy", False)
+            if service not in service_summary:
+                service_summary[service] = {"tools": [], "legacy": 0, "jsonrpc": 0}
+            service_summary[service]["tools"].append(tool_name)
+            if is_legacy:
+                service_summary[service]["legacy"] += 1
+            else:
+                service_summary[service]["jsonrpc"] += 1
+        
+        for service, info in service_summary.items():
+            tools_list = ', '.join(info["tools"])
+            legacy_count = info["legacy"]
+            jsonrpc_count = info["jsonrpc"]
+            logger.info(f"  📦 {service}: {tools_list} (JSON-RPC: {jsonrpc_count}, Legacy: {legacy_count})")
+    else:
+        logger.error("❌ No tools were successfully cached! Check MCP service availability.")
+    
+    return tool_definitions
 
 # Create system message with tool definitions
 def create_system_message() -> str:
@@ -150,9 +259,12 @@ def create_system_message() -> str:
 
 Your primary tools are:
 
-1. Reddit Data Collector (reddit.*) - Scrapes and analyzes posts from Reddit
-2. Social Research Tool (social.*) - Performs topic modeling and sentiment analysis on social data
-3. Journey Mapper (journey.*) - Creates customer journey maps from data files
+1. Reddit Data Collector (reddit_*) - Scrapes and analyzes posts from Reddit
+2. Social Research Tool (social_*) - Performs topic modeling and sentiment analysis on social data  
+3. Journey Mapper (journey_*) - Creates customer journey maps using Claude 3.7 Sonnet
+4. OpenAI Journey Mapper (openai_journey_*) - Advanced journey mapping using OpenAI o3 reasoning models
+5. Claude 4 Journey Mapper (claude4_journey_*) - Most advanced journey mapping using Claude 4
+6. Video Transcriptor (video_*) - Transcribes and analyzes video content from URLs or uploads
 
 Here are all the available tools you can use:
 
@@ -176,21 +288,31 @@ To use a tool, you MUST respond in this exact format:
 IMPORTANT USAGE GUIDELINES:
 
 1. For Reddit Analysis:
-   - Start with `reddit.search` to fetch posts with specific parameters
-   - Use `reddit.get_status` to check progress
-   - Use `reddit.get_results` when complete
+   - Start with `reddit_search` to fetch posts with specific parameters
+   - Use `reddit_get_status` to check progress
+   - Use `reddit_get_results` when complete
 
 2. For Social Research:
-   - Use `social.search` for basic querying
-   - Use `social.topic_model` for topic analysis
-   - Use `social.sentiment_analysis` for sentiment analysis
+   - Use `social_search` for basic querying
+   - Use `social_topic_model` for topic analysis
+   - Use `social_sentiment_analysis` for sentiment analysis
    - Always check status with corresponding get_status tools
 
 3. For Journey Mapping:
    - Tell users to upload their files when needed
-   - Use `journey.upload_file` to process uploads
-   - Use `journey.generate_map` to create journey maps
-   - Provide visualization links from `journey.get_results`
+   - Use `journey_upload_file` to process uploads
+   - Use `journey_generate_map` to create journey maps
+   - Provide visualization links from `journey_get_results`
+   - You have THREE journey mappers available:
+     * `journey_*` - Claude 3.7 Sonnet (fast, reliable)
+     * `openai_journey_*` - OpenAI o3 (advanced reasoning)
+     * `claude4_journey_*` - Claude 4 (most advanced)
+
+4. For Video Transcription:
+   - Use `video_transcribe_youtube` with URL parameter for YouTube videos
+   - Use `video_get_job_status` to check transcription progress
+   - Use `video_get_transcript` when transcription is complete
+   - Support both YouTube URLs and direct video file uploads
 
 SPECIFIC EXAMPLES:
 
@@ -200,7 +322,7 @@ For Reddit data collection:
    {{
      "tool_calls": [
        {{
-         "name": "reddit.search",
+         "name": "reddit_search",
          "parameters": {{
            "subreddit": "nba",
            "time_filter": "week",
@@ -218,7 +340,7 @@ For social media analysis:
    {{
      "tool_calls": [
        {{
-         "name": "social.sentiment_analysis",
+         "name": "social_sentiment_analysis",
          "parameters": {{
            "search_query": "iPhone",
            "data_source": "reddit",
@@ -228,6 +350,39 @@ For social media analysis:
      ]
    }}
    ```
+
+For video transcription:
+1. When a user asks to "transcribe this YouTube video: https://www.youtube.com/watch?v=abc123", use:
+   ```json
+   {{
+     "tool_calls": [
+       {{
+         "name": "video_transcribe_youtube",
+         "parameters": {{
+           "url": "https://www.youtube.com/watch?v=abc123"
+         }}
+       }}
+     ]
+   }}
+   ```
+
+For journey mapping (choose the appropriate mapper based on complexity):
+1. For Claude 4 journey mapping from uploaded file:
+   ```json
+   {{
+     "tool_calls": [
+       {{
+         "name": "claude4_journey_upload_file",
+         "parameters": {{
+           "file": "file_id_from_upload"
+         }}
+       }}
+     ]
+   }}
+   ```
+
+IMPORTANT: You DO have video transcription tools available! Never tell users you don't have video tools.
+You have multiple journey mappers - always mention all three options and their strengths.
 
 Remember to explain what you're doing when using tools, and wait for tool results before proceeding.
 Always speak in a professional, helpful tone and focus on addressing the user's specific needs.
@@ -292,7 +447,7 @@ def parse_tool_calls(response: str) -> List[ToolCall]:
 
 # Execute a tool call
 async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[str, Any]:
-    """Execute a tool call and return the result"""
+    """Execute a tool call using JSON-RPC 2.0 or legacy format"""
     tool_name = tool_call.name
     parameters = tool_call.parameters
     
@@ -306,13 +461,23 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
     
     tool_info = tool_definitions[tool_name]
     tool_url = tool_info["url"]
+    is_legacy = tool_info.get("legacy", False)
     
-    # Replace any file_id parameters with actual file content if needed
+    # Handle file parameters if any
     file_data = None
     file_param_name = None
     
-    for param_name, param_value in parameters.items():
-        param_info = tool_info.get("spec", {}).get("parameters", {}).get(param_name, {})
+    for param_name, param_value in list(parameters.items()):
+        # Get parameter info from either legacy format or JSON-RPC inputSchema
+        param_info = {}
+        tool_spec = tool_info.get("spec", {})
+        
+        # Try legacy format first
+        if "parameters" in tool_spec:
+            param_info = tool_spec.get("parameters", {}).get(param_name, {})
+        # Try JSON-RPC inputSchema format
+        elif "inputSchema" in tool_spec and "properties" in tool_spec["inputSchema"]:
+            param_info = tool_spec["inputSchema"]["properties"].get(param_name, {})
         
         # If parameter is a file and the value is a file_id
         if param_info.get("type") == "file" and isinstance(param_value, str):
@@ -324,34 +489,132 @@ async def execute_tool_call(tool_call: ToolCall, conversation_id: str) -> Dict[s
                 with open(file_path, "rb") as f:
                     file_data = f.read()
                 file_param_name = param_name
+                file_name = os.path.basename(file_path)
                 
                 # Remove from parameters as we'll send it separately
                 parameters.pop(param_name)
+                break
+        
+        # Also check for file_id parameters that reference uploaded files
+        elif param_name == "file_id" and isinstance(param_value, str):
+            file_path = conversations[conversation_id].file_mappings.get(param_value)
+            
+            if file_path and os.path.exists(file_path):
+                # Load file for sending as a "file" parameter for legacy endpoints
+                with open(file_path, "rb") as f:
+                    file_data = f.read()
+                file_param_name = "file"  # Legacy endpoints expect "file" parameter name
+                file_name = os.path.basename(file_path)
+                
+                # Keep file_id in parameters for the service to track it
+                # Don't remove it since the service needs it for caching
+                break
+    
+    # Handle journey status and results tools that need journey_id instead of file_id
+    if tool_name.endswith(("_get_status", "_get_results")) and "file_id" in parameters:
+        file_id = parameters["file_id"]
+        journey_id = conversations[conversation_id].journey_mappings.get(file_id)
+        
+        if journey_id:
+            # Replace file_id with journey_id for status/results calls
+            parameters["journey_id"] = journey_id
+            parameters.pop("file_id")
+            logger.info(f"Converted file_id={file_id} to journey_id={journey_id} for tool {tool_name}")
+        else:
+            logger.warning(f"No journey_id found for file_id={file_id} in tool {tool_name}")
+    
+    # Handle journey_id parameters directly (user might have provided journey_id)
+    elif "journey_id" in parameters and tool_name.endswith(("_get_status", "_get_results")):
+        logger.info(f"Using provided journey_id for tool {tool_name}")
     
     try:
-        # Execute tool call
-        if file_data and file_param_name:
-            # If we have file data, send as multipart/form-data
-            files = {file_param_name: file_data}
+        if is_legacy:
+            # Use legacy form data format
+            logger.info(f"Executing tool {tool_name} using legacy format")
             
-            # Convert all parameters to form fields
-            form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
-                         for k, v in parameters.items()}
-            
-            response = requests.post(tool_url, files=files, data=form_data)
+            if file_data and file_param_name:
+                # If we have file data, send as multipart/form-data
+                files = {file_param_name: (file_name, file_data, "application/octet-stream")}
+                
+                # Convert all parameters to form fields
+                form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
+                             for k, v in parameters.items()}
+                
+                response = requests.post(tool_url, files=files, data=form_data, timeout=1800)
+            else:
+                # Otherwise, send as form data
+                form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
+                             for k, v in parameters.items()}
+                
+                response = requests.post(tool_url, data=form_data, timeout=1800)
         else:
-            # Otherwise, send as form data
-            form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
-                         for k, v in parameters.items()}
+            # Use JSON-RPC 2.0 format
+            logger.info(f"Executing tool {tool_name} using JSON-RPC 2.0 format")
             
-            response = requests.post(tool_url, data=form_data)
+            # Create JSON-RPC request
+            request_id = f"tool_call_{tool_name}_{uuid.uuid4().hex[:8]}"
+            jsonrpc_request = {
+                "jsonrpc": "2.0",
+                "id": request_id,
+                "method": "tools/call",
+                "params": {
+                    "name": tool_name,
+                    "arguments": parameters
+                }
+            }
+            
+            # Handle file uploads for JSON-RPC (if needed)
+            if file_data and file_param_name:
+                # For JSON-RPC with files, we need to handle this differently
+                # For now, we'll fallback to legacy format
+                logger.warning(f"File upload not yet supported in JSON-RPC format for {tool_name}, using legacy format")
+                
+                files = {file_param_name: (file_name, file_data, "application/octet-stream")}
+                form_data = {k: str(v) if not isinstance(v, (dict, list)) else json.dumps(v) 
+                             for k, v in parameters.items()}
+                
+                # Use legacy endpoint for file uploads
+                legacy_url = tool_url.replace("/mcp", f"/mcp/invoke/{tool_name}")
+                response = requests.post(legacy_url, files=files, data=form_data, timeout=1800)
+            else:
+                # Send JSON-RPC request
+                response = requests.post(
+                    tool_url,
+                    json=jsonrpc_request,
+                    headers={"Content-Type": "application/json"},
+                    timeout=1800
+                )
         
         if response.status_code == 200:
-            return response.json()
+            result = response.json()
+            
+            # Handle JSON-RPC response format
+            if not is_legacy and result.get("jsonrpc") == "2.0":
+                if result.get("error") is not None:
+                    # Handle JSON-RPC error response
+                    error_info = result["error"]
+                    logger.error(f"JSON-RPC error from {tool_name}: {error_info}")
+                    return {
+                        "error": error_info.get("message", "Unknown JSON-RPC error") if isinstance(error_info, dict) else str(error_info),
+                        "status": "error",
+                        "error_code": error_info.get("code") if isinstance(error_info, dict) else None
+                    }
+                elif "result" in result:
+                    # Handle successful JSON-RPC response
+                    return result["result"]
+                else:
+                    logger.warning(f"Invalid JSON-RPC response from {tool_name}: {result}")
+                    return {
+                        "error": "Invalid JSON-RPC response format - missing both result and error",
+                        "status": "error"
+                    }
+            else:
+                # Legacy response format
+                return result
         else:
-            logger.error(f"Error executing tool {tool_name}: {response.text}")
+            logger.error(f"Error executing tool {tool_name}: HTTP {response.status_code} - {response.text}")
             return {
-                "error": f"Error executing tool '{tool_name}': {response.text}",
+                "error": f"Error executing tool '{tool_name}': HTTP {response.status_code} - {response.text}",
                 "status": "error",
                 "status_code": response.status_code
             }
@@ -445,6 +708,14 @@ async def process_message(conversation_id: str, user_message: str, uploaded_file
             # Execute tool call
             tool_results = await execute_tool_call(tool_call, conversation_id)
             
+            # Track journey IDs for journey generation tools
+            if tool_call.name.endswith("_generate_map") and "journey_id" in tool_results:
+                journey_id = tool_results["journey_id"]
+                file_id = tool_call.parameters.get("file_id")
+                if file_id and journey_id:
+                    conversation.journey_mappings[file_id] = journey_id
+                    logger.info(f"Tracking journey mapping: file_id={file_id} -> journey_id={journey_id}")
+            
             # Format results for Claude
             formatted_results = format_tool_results(tool_call, tool_results)
             
@@ -532,6 +803,16 @@ async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
     # Initialize conversation if needed
     if conversation_id not in conversations:
         await initialize_conversation(conversation_id)
+        
+    # Send initial welcome message
+    logger.info(f"Sending welcome message to conversation {conversation_id}")
+    try:
+        await websocket.send_json({
+            "type": "message",
+            "content": "I'm the NXT Humans Customer Experience Workbench Assistant. I can help you analyze customer experiences using our specialized tools. How can I assist you today?"
+        })
+    except Exception as e:
+        logger.error(f"Error sending welcome message: {str(e)}")
     
     try:
         while True:
@@ -624,7 +905,35 @@ async def websocket_endpoint(websocket: WebSocket, conversation_id: str):
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "service": "agent-orchestrator"}
+    return {
+        "status": "healthy",
+        "service": "agent-orchestrator",
+        "model": ANTHROPIC_MODEL,
+        "tools_cached": len(tool_definitions),
+        "available_tools": list(tool_definitions.keys()),
+        "active_conversations": len(conversations)
+    }
+
+# Refresh tools endpoint
+@app.post("/refresh-tools")
+async def refresh_tools():
+    """Force refresh tool definitions"""
+    global tool_definitions, system_message
+    
+    # Clear existing tool definitions
+    tool_definitions = {}
+    
+    # Fetch and cache tools again
+    await fetch_and_cache_tools()
+    
+    # Update system message with new tool definitions
+    system_message = create_system_message()
+    
+    return {
+        "status": "success",
+        "message": "Tool definitions refreshed",
+        "tools": list(tool_definitions.keys())
+    }
 
 # Root endpoint for service info
 @app.get("/")
@@ -639,7 +948,8 @@ async def root():
             "/api/chat/conversation": "Create a new conversation",
             "/api/chat/message": "Send a message to the agent",
             "/api/chat/ws/{conversation_id}": "Get WebSocket endpoint info",
-            "/ws/{conversation_id}": "WebSocket endpoint for real-time chat"
+            "/ws/{conversation_id}": "WebSocket endpoint for real-time chat",
+            "/refresh-tools": "Force refresh tool definitions"
         }
     }
 

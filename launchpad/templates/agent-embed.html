@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans | AI Agent</title>
+  <link rel="stylesheet" href="/static/nxt-humans-styles.css">
+  <link rel="stylesheet" href="/static/enhanced-components.css">
+  <link rel="stylesheet" href="/static/enhanced-header.css">
+  <link rel="stylesheet" href="/static/chatbot.css">
+  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .agent-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .agent-header {
+      margin-bottom: 20px;
+    }
+    .agent-content {
+      flex: 1;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body data-enable-agent="true">
+  <header class="nxt-header">
+    <div class="container">
+      <div class="nxt-header-content">
+        <div class="nxt-logo-text">
+          <h1><span class="text-gradient">NXT HUMANS</span> AI Agent</h1>
+        </div>
+        <div class="nxt-header-actions">
+          <a href="/" class="nxt-btn nxt-btn-outline">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="agent-container">
+    <div class="agent-header">
+      <h2>AI Agent Assistant</h2>
+      <p>This page provides a dedicated interface for the AI Agent. You can also access the Agent as a chat widget from any page in the workbench.</p>
+    </div>
+    <div class="agent-content">
+      <p>The Agent has been loaded as a chat widget. Click the chat icon in the bottom right corner to interact with it.</p>
+      <p>You can use the Agent to:</p>
+      <ul>
+        <li>Collect data from Reddit subreddits</li>
+        <li>Analyze social media data for insights</li>
+        <li>Generate customer journey maps from uploaded files</li>
+        <li>Get help with using the NXT HUMANS AI CX WORKBENCH</li>
+      </ul>
+    </div>
+  </div>
+  
+  <footer class="nxt-footer">
+    <div class="container">
+      <div class="nxt-footer-content">
+        <div class="nxt-footer-text">
+          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Chatbot script -->
+  <script src="/static/chatbot.js"></script>
+  
+  <script>
+    // Force open the chatbot when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // Wait for chatbot to initialize
+      setTimeout(() => {
+        if (window.chatbot) {
+          window.chatbot.openChat();
+        } else {
+          console.error('Chatbot not initialized');
+          
+          // Try to force initialize
+          window.chatbot = new ChatbotWidget();
+          setTimeout(() => {
+            window.chatbot.openChat();
+          }, 500);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
