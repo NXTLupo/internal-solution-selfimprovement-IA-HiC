@@ -61,6 +61,7 @@ def get_dynamic_urls(request_is_secure=False):
     flux_lora_studio_url = os.environ.get('FLUX_LORA_STUDIO_URL', 'http://flux-lora-studio:5006')
     presentation_generator_url = os.environ.get('PRESENTATION_GENERATOR_URL', 'http://presentation-generator:5007')
     soundtrack_generator_url = os.environ.get('SOUNDTRACK_GENERATOR_URL', 'http://soundtrack-generator:5009')
+    consistent_character_generator_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_URL', 'http://consistent-character-generator:5010')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
@@ -90,6 +91,7 @@ def get_dynamic_urls(request_is_secure=False):
         flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_HTTPS_URL', 'https://localhost:8453')
         presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_HTTPS_URL', 'https://localhost:8452')
         soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_HTTPS_URL', 'https://localhost:8454')
+        consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_HTTPS_URL', 'https://localhost:8456')
     else:
         # HTTP URLs - use original ports
         logger.info(f"[URL DEBUG] Using HTTP URLs")
@@ -104,6 +106,7 @@ def get_dynamic_urls(request_is_secure=False):
         flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
         presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
         soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_CLIENT_URL', 'http://localhost:5009')
+        consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL', 'http://localhost:5010')
 
     urls = {
         'journey_mapper': {
@@ -150,6 +153,10 @@ def get_dynamic_urls(request_is_secure=False):
             'client_url': soundtrack_generator_client_url,
             'internal_url': soundtrack_generator_url
         },
+        'consistent_character_generator': {
+            'client_url': consistent_character_generator_client_url,
+            'internal_url': consistent_character_generator_url
+        },
     }
 
     # Add agent and MCP URLs if CX agent is enabled
@@ -184,6 +191,7 @@ services_status = {
     "flux_lora_studio": {"status": "unknown", "last_checked": None},
     "presentation_generator": {"status": "unknown", "last_checked": None},
     "soundtrack_generator": {"status": "unknown", "last_checked": None},
+    "consistent_character_generator": {"status": "unknown", "last_checked": None},
 }
 
 # Add agent services if enabled
@@ -305,6 +313,8 @@ def update_all_services():
     check_service("image_captioner")
     check_service("flux_lora_studio")
     check_service("presentation_generator")
+    check_service("soundtrack_generator")
+    check_service("consistent_character_generator")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
@@ -373,7 +383,8 @@ def index():
         'image_captioner': services_status['image_captioner']['status'],
         'flux_lora_studio': services_status['flux_lora_studio']['status'],
         'presentation_generator': services_status['presentation_generator']['status'],
-        'soundtrack_generator': services_status['soundtrack_generator']['status']
+        'soundtrack_generator': services_status['soundtrack_generator']['status'],
+        'consistent_character_generator': services_status['consistent_character_generator']['status']
     }
 
     # Determine if CX agent is enabled
@@ -393,6 +404,7 @@ def index():
                        flux_lora_studio_url=urls['flux_lora_studio']['client_url'],
                        presentation_generator_url=urls['presentation_generator']['client_url'],
                        soundtrack_generator_url=urls['soundtrack_generator']['client_url'],
+                       consistent_character_generator_url=urls['consistent_character_generator']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))

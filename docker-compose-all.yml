@@ -15,6 +15,7 @@ services:
       - FLUX_LORA_STUDIO_URL=http://flux-lora-studio:5006
       - PRESENTATION_GENERATOR_URL=http://presentation-generator:5007
       - SOUNDTRACK_GENERATOR_URL=http://soundtrack-generator:5009
+      - CONSISTENT_CHARACTER_GENERATOR_URL=http://consistent-character-generator:5010
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
       - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
       - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
@@ -25,6 +26,7 @@ services:
       - FLUX_LORA_STUDIO_CLIENT_URL=http://localhost:${FLUX_LORA_STUDIO_PORT:-5006}
       - PRESENTATION_GENERATOR_CLIENT_URL=http://localhost:${PRESENTATION_GENERATOR_PORT:-5007}
       - SOUNDTRACK_GENERATOR_CLIENT_URL=http://localhost:${SOUNDTRACK_GENERATOR_PORT:-5009}
+      - COMPETITIVE_INTELLIGENCE_CLIENT_URL=http://localhost:${COMPETITIVE_INTELLIGENCE_PORT:-5010}
       - PORT=8000
       - ENABLE_CX_AGENT=true
       - AGENT_URL=http://agent:8500
@@ -432,7 +434,20 @@ services:
     networks:
       - nxt-humans-network
 
-
+  consistent-character-generator:
+    build:
+      context: ./internal-solutions-consistent-character-generator
+      dockerfile: Dockerfile
+    ports:
+      - "${CONSISTENT_CHARACTER_GENERATOR_PORT:-5010}:5010"
+    environment:
+      - PORT=5010
+      - FLASK_ENV=production
+    volumes:
+      - ./internal-solutions-consistent-character-generator:/app
+    working_dir: /app
+    networks:
+      - nxt-humans-network
 
 networks:
   nxt-humans-network:
@@ -470,4 +485,6 @@ volumes:
   soundtrack-generator-uploads:
     driver: local
   soundtrack-generator-generated:
+    driver: local
+  consistent-character-generator-data:
     driver: local

@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # 1. ESSENTIAL: Test API keys (will fail if not configured)
-python test_anthropic_api.py && python test_openai_api.py
+python test-anthropic-api.py && python test_openai_api.py
 
 # 2. ESSENTIAL: Fix port conflicts (common issue on Windows)
 python port_scanner.py --fix
@@ -21,6 +21,12 @@ docker --version
 # 4. Start the platform
 ./launch.sh
 ```
+
+### 🔐 **Security Warning**
+**NEVER commit API keys to the repository.** Always use `.env` files and ensure they are in `.gitignore`. If you find hardcoded API keys in any files, immediately:
+1. Remove the hardcoded keys
+2. Add them to `.env` files
+3. Update the code to read from environment variables
 
 **Critical Files - Never Modify Without Extreme Caution:**
 - `mcp-services/agent/app.py` ⚠️ **MOST CRITICAL** - has backup at `app.py.backup.websocket_fix`
@@ -36,7 +42,7 @@ docker --version
 |---------|----------|---------|
 | **Agent not responding** | Restart agent service | `docker compose -f docker-compose-all.yml restart agent` |
 | **Port conflicts** | Auto-kill conflicting processes | `python port_scanner.py --fix` |
-| **API keys not working** | Test and verify keys | `python test_anthropic_api.py && python test_openai_api.py` |
+| **API keys not working** | Test and verify keys | `python test-anthropic-api.py && python test_openai_api.py` |
 | **Services won't start** | Check Docker is running | `docker --version` then `./launch.sh` |
 | **WebSocket issues** | Apply connection fix | `./backup-scripts/fix-websocket-connection.sh` |
 
@@ -71,7 +77,11 @@ The NXT Humans AI CX Workbench is a comprehensive microservices platform for cus
 15. **AI Agent Assistant** (Port 8500): Multimodal chatbot agent with MCP tool integration (`mcp-services/agent`)
 16. **MCP Services** (Ports 8501-8507): Lightweight wrappers for tool integration (`mcp-services/`)
 
-**Note**: The platform originally included plans for additional services like "Presentation AI" and an advanced "MulmoCast" platform. Currently, `internal-solutions-mulmocast` directory exists but is empty, indicating incomplete installation.
+**Additional Services Found**:
+17. **Presentation AI**: Next.js 14 platform with Plate editor (located in `/presentation-ai/`)
+18. **MulmoCast CLI**: Command-line multimedia content creation tool (located in `/mulmocast-cli/`)
+
+**Note**: The platform originally included plans for additional services. Currently, `internal-solutions-mulmocast` directory exists but is empty, while `mulmocast-cli` and `presentation-ai` are separate implementations with their own complete codebases.
 
 ## Architecture
 
@@ -177,7 +187,7 @@ For immediate deployment of the entire workbench:
 # WINDOWS USERS: Use Git Bash, WSL, or PowerShell for these commands
 
 # ESSENTIAL FIRST STEPS (run every time):
-python test_anthropic_api.py && python test_openai_api.py  # Verify API keys work
+python test-anthropic-api.py && python test_openai_api.py  # Verify API keys work
 python port_scanner.py --fix          # Auto-resolve port conflicts (critical on Windows)
 
 # One-command startup (recommended for new users)
@@ -204,7 +214,7 @@ The main launch script includes several automated features:
 
 ```bash
 # Test suite (run before making changes)
-python test_anthropic_api.py && python test_openai_api.py
+python test-anthropic-api.py && python test_openai_api.py
 python test_agent_tools_comprehensive.py
 
 # Single service development
@@ -256,12 +266,12 @@ Before committing any changes:
 2. **React Apps**: Run `npm run build` to verify TypeScript compilation
 3. **Agent Changes**: ALWAYS test with `python test_agent_tools_comprehensive.py`
 4. **Port Conflicts**: Run `python port_scanner.py --fix` before starting services
-5. **API Keys**: Verify with `python test_anthropic_api.py && python test_openai_api.py`
+5. **API Keys**: Verify with `python test-anthropic-api.py && python test_openai_api.py`
 
 ### Development Workflow Essentials
 ```bash
 # ALWAYS check these before making changes
-python test_anthropic_api.py && python test_openai_api.py  # Test API keys
+python test-anthropic-api.py && python test_openai_api.py  # Test API keys
 curl http://localhost:8500/health                          # Check agent health
 docker compose -f docker-compose-all.yml ps                # Check container status
 
@@ -394,7 +404,7 @@ docker compose -f dynamic-compose.yml up -d  # Uses environment variables for po
 ./update_openai_key.sh YOUR_API_KEY
 
 # Test API key configuration
-python test_anthropic_api.py    # Tests both Claude 3.7 and 4
+python test-anthropic-api.py    # Tests both Claude 3.7 and 4
 python test_whisper_key.py      # Tests Whisper API
 python test_openai_key.py       # Tests OpenAI API including o3 access
 
@@ -724,12 +734,50 @@ curl -X POST http://localhost:5009/generate \
 - Integration with MulmoCast for multimedia presentations
 - Real-time generation with progress tracking
 
+#### Standalone Services Development
+
+**Presentation AI (Next.js 14 + Plate Editor)**:
+```bash
+# Full-stack presentation platform with rich text editing
+cd presentation-ai
+npm install
+npm run dev -p 3002   # Next.js development server
+npm run build         # Production build
+
+# Database operations (if configured)
+npm run db:push       # Prisma schema push
+npm run db:studio     # Open Prisma Studio
+
+# Features:
+# - Plate editor with 40+ plugins for rich text editing
+# - Radix UI component library
+# - AI SDK integration with multiple providers
+# - TypeScript 5.7 with strict configuration
+```
+
+**MulmoCast CLI (Multimedia Content Creation)**:
+```bash
+# Command-line multimedia content creation tool
+cd mulmocast-cli
+npm install
+npm run build
+
+# CLI usage (if available)
+npx mulmocast create --format video --input data.json
+npx mulmocast generate --output presentation.mp4
+
+# Development
+npm run dev           # Development mode
+npm run test          # Run tests (if configured)
+npm run lint          # Code linting
+```
+
 ### Testing Infrastructure
 
 #### Test Commands by Category
 ```bash
 # Essential API Testing (Run these first)
-python test_anthropic_api.py      # Claude API (3.7 and 4) - REQUIRED
+python test-anthropic-api.py      # Claude API (3.7 and 4) - REQUIRED
 python test_openai_api.py         # OpenAI API (o3 and others) - REQUIRED
 python test_whisper_api.py        # Whisper API for video transcription
 
@@ -994,7 +1042,7 @@ PGVECTOR_ENABLED=true
 #### Python Testing (Ad-hoc Scripts - No pytest framework)
 ```bash
 # API connectivity testing
-python test_anthropic_api.py          # ALWAYS run first
+python test-anthropic-api.py          # ALWAYS run first (note: hyphenated filename)
 python test_openai_api.py             # ALWAYS run first
 python test_whisper_api.py            # For video services
 
@@ -1169,6 +1217,10 @@ IMAGE_CAPTIONER_PORT=5005            # Optional, default: 5005
 FLUX_LORA_STUDIO_PORT=5006           # Optional, default: 5006
 PRESENTATION_GENERATOR_PORT=5007     # Optional, default: 5007
 SOUNDTRACK_GENERATOR_PORT=5009       # Optional, default: 5009
+
+# Standalone Services (separate from main Docker compose)
+# PRESENTATION_AI_PORT=3002          # Next.js platform (standalone)
+# MULMOCAST_CLI_PORT=                # CLI tool (no port needed)
 
 # MCP Service Ports
 AGENT_PORT=8500                      # Agent service
@@ -1646,7 +1698,7 @@ npm run lint:fix           # Auto-fix ESLint issues
 ```bash
 # Core functionality validation (no unified framework)
 python test_agent_tools_comprehensive.py test_complete_chatbot_functionality.py
-python test_anthropic_api.py test_openai_api.py test_whisper_api.py
+python test-anthropic-api.py test_openai_api.py test_whisper_api.py
 
 # Service-specific testing  
 python test_mcp_tools.py test_video_complete.py test_websocket_server.py
@@ -1655,7 +1707,7 @@ python test_mcp_tools.py test_video_complete.py test_websocket_server.py
 ## Development Workflow Best Practices
 
 ### Before Making Changes
-1. **Test API Keys**: `python test_anthropic_api.py && python test_openai_api.py`
+1. **Test API Keys**: `python test-anthropic-api.py && python test_openai_api.py`
 2. **Check Agent Health**: `curl http://localhost:8500/health`
 3. **Backup Critical Files**: Especially if modifying `mcp-services/agent/app.py`
 4. **Identify Technology Stack**: FastAPI vs Flask, React 19 vs React 17, Jest vs ad-hoc testing
@@ -1903,7 +1955,7 @@ This file should be updated when:
 ### Essential Daily Commands
 ```bash
 # ALWAYS RUN FIRST (critical validation):
-python test_anthropic_api.py && python test_openai_api.py  # API keys must work
+python test-anthropic-api.py && python test_openai_api.py  # API keys must work
 python port_scanner.py --fix          # Port conflicts are common on Windows
 
 # Start everything
@@ -1981,7 +2033,7 @@ docker-compose logs -f [service-name]  # View logs
 ### Emergency Commands:
 ```bash
 # System health check
-python test_anthropic_api.py && python test_openai_api.py
+python test-anthropic-api.py && python test_openai_api.py
 curl http://localhost:8500/health
 
 # Fix common issues  
