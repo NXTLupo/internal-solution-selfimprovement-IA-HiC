@@ -1,21 +1,51 @@
 import os
 import anthropic
 import json
+from dotenv import load_dotenv, find_dotenv
+
+# Load environment variables from the nearest .env if present
+_env_path = find_dotenv(usecwd=True)
+if _env_path:
+    load_dotenv(dotenv_path=_env_path, override=True)
+
+# Function to refresh Claude API key - useful if container was restarted
+def refresh_claude_api_key():
+    # Try environment variable from multiple places
+    key = os.getenv("ANTHROPIC_API_KEY") or os.getenv("CLAUDE_API_KEY") or os.getenv("CLAUDE4_API_KEY")
+    if key:
+        print(f"Using Claude API Key: {key[:8]}...{key[-4:]}")
+        return key
+    return None
+
+# Get the current API key
+api_key = refresh_claude_api_key()
 
 # Initialize the Claude client
 client = anthropic.Anthropic(
-    api_key=os.getenv('CLAUDE_API_KEY')
+    api_key=api_key
 )
 
 def get_claude_completion(messages: list, temperature: float = 1) -> str:
     """Get chat completion from Anthropic's Claude API."""
     try:
+        # Always refresh the API key before making a call
+        api_key = refresh_claude_api_key()
+        if not api_key:
+            return '{"error": "ANTHROPIC_API_KEY not found."}'
+            
+        # Re-initialize the client with the refreshed key
+        client = anthropic.Anthropic(api_key=api_key)
+        
+        # Get model name from environment variable or use a default
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-20250514")
+        print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
+        
         # Convert messages to Anthropic format if needed
         anthropic_messages = messages
         
         # Call Claude API
         response = client.messages.create(
-            model="claude-3-7-sonnet-20250219",
+            model=model_name,
             messages=anthropic_messages,
             temperature=temperature,
             max_tokens=4096
@@ -27,14 +57,26 @@ def get_claude_completion(messages: list, temperature: float = 1) -> str:
         return ""
 
 def get_claude_completion_with_json(messages: list, temperature: float = 1) -> str:
-    """Get chat completion from Anthropic's Claude API."""
+    """Get chat completion from Anthropic's Claude API with JSON processing."""
     try:
+        # Always refresh the API key before making a call
+        api_key = refresh_claude_api_key()
+        if not api_key:
+            return '{"error": "ANTHROPIC_API_KEY not found."}'
+            
+        # Re-initialize the client with the refreshed key
+        client = anthropic.Anthropic(api_key=api_key)
+        
+        # Get model name from environment variable or use a default
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-20250514")
+        print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
+        
         # Convert messages to Anthropic format if needed
         anthropic_messages = messages
         
         # Call Claude API
         response = client.messages.create(
-            model="claude-3-7-sonnet-20250219",
+            model=model_name,
             messages=anthropic_messages,
             temperature=temperature,
             max_tokens=4096

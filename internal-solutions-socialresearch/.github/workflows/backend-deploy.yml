@@ -1,0 +1,172 @@
+name: "Social Research Backend Build & Deploy"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+concurrency:
+  group: backend-build-and-deploy-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  SUBSCRIPTION_ID: '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
+  REGISTRY: '${{ secrets.REGISTRY_LOGIN_SERVER_AIPLAYGROUND }}'
+  RESOURCE_GROUP: '${{ secrets.RESOURCE_GROUP_AIPLAYGROUND }}'
+  CONTAINER_APP_NAME: 'social-research-backend'
+  ENVIRONMENT_NAME: 'social-research-env'
+  LOCATION: 'eastus2'
+  BACKEND_CONTAINERAPP_YAML_PATH: '${{ github.workspace }}/backend-containerapp.yaml'
+  COMMIT_SHA: '${{ github.sha }}'
+  # Backend environment variables
+  AZURE_DEEPSEEK_KEY: '${{ secrets.AZURE_DEEPSEEK_KEY }}'
+  AZURE_OPENAI_ENDPOINT: '${{ secrets.AZURE_OPENAI_ENDPOINT }}'
+  AZURE_OPENAI_KEY: '${{ secrets.AZURE_OPENAI_KEY }}'
+  CLAUDE_API_KEY: '${{ secrets.CLAUDE_API_KEY }}'
+  CLIENT_ID: '${{ secrets.CLIENT_ID }}'
+  CLIENT_SECRET: '${{ secrets.CLIENT_SECRET }}'
+  DEEPSEEK_KEY: '${{ secrets.DEEPSEEK_KEY }}'
+  GEMINI_API_KEY: '${{ secrets.GEMINI_API_KEY }}'
+  PORT: '${{ secrets.PORT }}'
+  POSTGRES_DB: '${{ secrets.POSTGRES_DB }}'
+  POSTGRES_HOST: '${{ secrets.POSTGRES_HOST }}'
+  POSTGRES_PASSWORD: '${{ secrets.POSTGRES_PASSWORD }}'
+  POSTGRES_PORT: '${{ secrets.POSTGRES_PORT }}'
+  POSTGRES_USER: '${{ secrets.POSTGRES_USER }}'
+  REDDIT_CLIENT_ID: '${{ secrets.REDDIT_CLIENT_ID }}'
+  REDDIT_CLIENT_SECRET: '${{ secrets.REDDIT_CLIENT_SECRET }}'
+  REDDIT_USER_AGENT: '${{ secrets.REDDIT_USER_AGENT }}'
+  SENTIMENT_LOG_DIR: '${{ secrets.SENTIMENT_LOG_DIR }}'
+  TOPIC_LOG_DIR: '${{ secrets.TOPIC_LOG_DIR }}'
+  TOPIC_MODEL_DIR: '${{ secrets.TOPIC_MODEL_DIR }}'
+  DEPLOYMENT_ENV: '${{ secrets.DEPLOYMENT_ENV }}'
+  VITE_API_BASE_URL: '${{ secrets.VITE_API_BASE_URL }}'
+
+jobs:
+    build-and-deploy-backend:
+        runs-on: ubuntu-latest
+        steps:
+        # checkout the repo
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@v4
+        - name: 'Login via Azure CLI'
+          uses: azure/login@v2.3.0
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS_AIPLAYGROUND }}
+        - name: 'Docker Login to ACR'
+          run: |
+            echo ${{ secrets.REGISTRY_PASSWORD_AIPLAYGROUND }} | docker login $REGISTRY --username ${{ secrets.REGISTRY_USERNAME_AIPLAYGROUND }} --password-stdin
+        - name: 'Create .env file for Docker Compose'
+          run: |
+            echo "REGISTRY=$REGISTRY" >> .env
+            echo "COMMIT_SHA=${COMMIT_SHA}" >> .env
+            echo "AZURE_AUTH_LOCATION=/root/.azure" >> .env
+            echo "NODE_ENV=production" >> .env
+            # Add backend environment variables
+            echo "AZURE_DEEPSEEK_KEY=${AZURE_DEEPSEEK_KEY}" >> .env 
+            echo "AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}" >> .env
+            echo "AZURE_OPENAI_KEY=${AZURE_OPENAI_KEY}" >> .env
+            echo "CLAUDE_API_KEY=${CLAUDE_API_KEY}" >> .env
+            echo "CLIENT_ID=${CLIENT_ID}" >> .env
+            echo "CLIENT_SECRET=${CLIENT_SECRET}" >> .env
+            echo "DEEPSEEK_KEY=${DEEPSEEK_KEY}" >> .env
+            echo "GEMINI_API_KEY=${GEMINI_API_KEY}" >> .env
+            echo "PORT=${PORT}" >> .env
+            echo "POSTGRES_DB=${POSTGRES_DB}" >> .env
+            echo "POSTGRES_HOST=${POSTGRES_HOST}" >> .env
+            echo "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >> .env
+            echo "POSTGRES_PORT=${POSTGRES_PORT}" >> .env
+            echo "POSTGRES_USER=${POSTGRES_USER}" >> .env
+            echo "REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}" >> .env
+            echo "REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}" >> .env
+            echo "REDDIT_USER_AGENT=${REDDIT_USER_AGENT}" >> .env
+            echo "SENTIMENT_LOG_DIR=${SENTIMENT_LOG_DIR}" >> .env
+            echo "TOPIC_LOG_DIR=${TOPIC_LOG_DIR}" >> .env
+            echo "TOPIC_MODEL_DIR=${TOPIC_MODEL_DIR}" >> .env
+            echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" >> .env
+        - name: 'Ensure Container App Environment exists'
+          uses: azure/CLI@v2.1.0
+          with:
+            inlineScript: |
+              ENV_ID=$(az containerapp env show \
+                --name $ENVIRONMENT_NAME \
+                --resource-group $RESOURCE_GROUP \
+                --query id -o tsv 2>/dev/null || echo "")
+              if [ -z "$ENV_ID" ]; then
+                echo "Creating Container App Environment..."
+                az containerapp env create \
+                  --name $ENVIRONMENT_NAME \
+                  --resource-group $RESOURCE_GROUP \
+                  --location $LOCATION
+              else
+                echo "Container App Environment already exists."
+              fi
+              
+        - name: 'Build backend container'
+          run: |
+            docker compose -f compose.deploy.yml build backend
+            
+        - name: 'Push backend container'
+          run: |
+            docker compose -f compose.deploy.yml push backend
+                        
+        - name: 'Update backend-containerapp.yaml placeholders'
+          run: |
+            sed -i "s|SUBSCRIPTION_ID|${SUBSCRIPTION_ID}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|RESOURCE_GROUP|${RESOURCE_GROUP}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|ENVIRONMENT_NAME|${ENVIRONMENT_NAME}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|REGISTRY|${REGISTRY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|IMAGE_TAG|${COMMIT_SHA}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            # Add environment variable placeholders - order matters!
+            # Process longer variable names before shorter ones that might be substrings
+            # Process Reddit-related variables first
+            sed -i "s|REDDIT_CLIENT_ID_VALUE|${REDDIT_CLIENT_ID}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|REDDIT_CLIENT_SECRET_VALUE|${REDDIT_CLIENT_SECRET}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|REDDIT_USER_AGENT_VALUE|${REDDIT_USER_AGENT}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            # Then process PostgreSQL variables
+            sed -i "s|POSTGRES_PASSWORD_VALUE|${POSTGRES_PASSWORD}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|POSTGRES_PORT_VALUE|${POSTGRES_PORT}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|POSTGRES_HOST_VALUE|${POSTGRES_HOST}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|POSTGRES_USER_VALUE|${POSTGRES_USER}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|POSTGRES_DB_VALUE|${POSTGRES_DB}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            # Now process Azure and other API keys
+            sed -i "s|AZURE_DEEPSEEK_KEY_VALUE|${AZURE_DEEPSEEK_KEY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|AZURE_OPENAI_ENDPOINT_VALUE|${AZURE_OPENAI_ENDPOINT}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|AZURE_OPENAI_KEY_VALUE|${AZURE_OPENAI_KEY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|CLAUDE_API_KEY_VALUE|${CLAUDE_API_KEY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|DEEPSEEK_KEY_VALUE|${DEEPSEEK_KEY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|GEMINI_API_KEY_VALUE|${GEMINI_API_KEY}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            # Process general variables at the end
+            sed -i "s|CLIENT_ID_VALUE|${CLIENT_ID}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|CLIENT_SECRET_VALUE|${CLIENT_SECRET}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|PORT_VALUE|${PORT}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|SENTIMENT_LOG_DIR_VALUE|${SENTIMENT_LOG_DIR}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|TOPIC_LOG_DIR_VALUE|${TOPIC_LOG_DIR}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|TOPIC_MODEL_DIR_VALUE|${TOPIC_MODEL_DIR}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|DEPLOYMENT_ENV_VALUE|${DEPLOYMENT_ENV}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+            sed -i "s|VITE_API_BASE_URL_VALUE|${VITE_API_BASE_URL}|g" $BACKEND_CONTAINERAPP_YAML_PATH
+        - name: 'Deploy Backend to Azure Container Apps'
+          uses: azure/container-apps-deploy-action@v2
+          with:
+            resourceGroup: '${{ env.RESOURCE_GROUP }}'
+            location: '${{ env.LOCATION }}'
+            containerAppEnvironment: '${{ env.ENVIRONMENT_NAME }}'
+            containerAppName: '${{ env.CONTAINER_APP_NAME }}'
+            yamlConfigPath: '${{ env.BACKEND_CONTAINERAPP_YAML_PATH }}'
+            acrName: nxthumans
+            acrUsername: '${{ secrets.REGISTRY_USERNAME_AIPLAYGROUND }}'
+            acrPassword: '${{ secrets.REGISTRY_PASSWORD_AIPLAYGROUND }}'
+        - name: 'Get Container App URL'
+          uses: azure/CLI@v2.1.0
+          with:
+            inlineScript: |
+              echo "Getting the Container App URL..."
+              APP_URL=$(az containerapp show --name $CONTAINER_APP_NAME --resource-group $RESOURCE_GROUP --query "properties.configuration.ingress.fqdn" -o tsv)
+              
+              if [ -z "$APP_URL" ]; then
+                echo "❌ Could not retrieve Container App URL"
+                exit 1
+              fi
+              
+              echo "Container App URL: https://$APP_URL"
+              echo "Health endpoint: https://$APP_URL/health"

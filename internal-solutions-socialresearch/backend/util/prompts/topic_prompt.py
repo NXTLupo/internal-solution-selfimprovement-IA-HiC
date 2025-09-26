@@ -1,4 +1,3 @@
-from azure.ai.inference.models import SystemMessage, UserMessage
 from typing import Dict
 
 # def get_system_prompt() -> SystemMessage:
@@ -9,56 +8,79 @@ from typing import Dict
 
 def get_openai_generate_topic_prompt(top_words_list: list, example_sentences: list, keywords: str = None) -> str:
     """
-    Generates a prompt for summarizing topics based on keywords and example sentences.
+    Generates a prompt for summarizing topics based on keywords and example paragraphs.
     
     Args:
         top_words_list (list): List of top words for the topic
-        example_sentences (list): List of example sentences from documents
+        example_sentences (list): List of example paragraphs or content excerpts from documents
         keywords (str, optional): Search keywords that the topic is based on
         
     Returns:
         str: The prompt for generating topic summaries
     """
     # Start with the base prompt
-    prompt = "You are a helpful assistant tasked with summarizing Reddit discussion topics.\n"
+    prompt = "You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.\n"
     
     # Add keyword context if provided
     if keywords:
-        prompt += f"All information are based on searching keywords: {keywords}, summary should be based on the keywords.\n"
+        prompt += f"All information is based on searching keywords: {keywords}, summary should be based on the keywords.\n"
     
     # Add the common part of the prompt with keywords
-    prompt += f"""Given the following information about a topic:
+    prompt += f"""Given the following information about a topic discovered through topic modeling:
 - Top keywords: {', '.join(top_words_list)}
-- Example posts:
+- Example posts and discussions (longer excerpts to provide better context):
 """
 
-    # Add example sentences, up to 10 max for reasonable prompt size
-    max_examples = min(30, len(example_sentences))
+    # Add example content, limiting to preserve reasonable prompt size
+    # But allow for longer, more informative excerpts
+    max_examples = min(25, len(example_sentences))  # Increased from 15 to 25 to match the select_relevant_sentences change
+    max_chars_per_example = 600  # Slightly reduced per-example length to accommodate more examples
+    
     for i in range(max_examples):
-        prompt += f"{i+1}. {example_sentences[i]}\n"
+        # Truncate very long examples but preserve enough context
+        example = example_sentences[i]
+        if len(example) > max_chars_per_example:
+            # Try to truncate at a sentence boundary if possible
+            truncated = example[:max_chars_per_example]
+            last_period = truncated.rfind('.')
+            if last_period > max_chars_per_example * 0.7:  # If we can find a reasonable sentence break
+                example = truncated[:last_period+1] + " [...]"
+            else:
+                example = truncated + " [...]"
+                
+        # Format the example with a clear numbering and spacing
+        prompt += f"\nEXAMPLE {i+1}:\n{example}\n"
     
     # Continue with the rest of the prompt
     prompt += """
-Please provide three summaries of this topic:
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
 1. A long summary that:
    - Incorporates the most relevant keywords
-   - States the main topic directly without mentioning Reddit users
-   - Captures the main theme or discussion point
-   - Uses neutral, objective language
-   - Be general and not specific to the example sentences
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
 
 2. A one-sentence summary that:
-   - Distills the entire topic into a single clear sentence
-   - Captures the essential theme concisely
-   - Uses the most relevant keywords
-   - Is direct and informative
-   - Be general and not specific to the example sentences
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
 
 3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less
-   - Uses the most essential keywords
-   - Is clear and meaningful
-   - Be general and not specific to the example sentences
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
 Return your response as a JSON object with the following format:
 {"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
 
@@ -105,4 +127,14 @@ def get_sentiment_evidence_prompt(formatted_docs: str) -> str:
     Extract as many points as possible for each category. If there are insufficient points in a category, include fewer.
     """
     return prompt
+
+
+def get_image_description_prompt() -> str:
+    """
+    Generates a prompt for concise image description using GPT-4o vision.
+    
+    Returns:
+        str: The prompt for generating concise image descriptions
+    """
+    return "Describe what you see in this image. Focus on the key elements and any visible text. Be direct and concise, starts directly with what you see, under 3 sentences."
 

@@ -20,7 +20,7 @@ export interface AnalysisFormData {
   keyword: string;
   mergeMethod: 'deepseek' | 'sbert' | 'openai';
   chunkSize: number;
-  analysisModel: 'deepseek-r1' | 'openai-4o';
+  analysisModel: 'deepseek-r1' | 'openai-4';
   maxWorkers: number;
 }
 
@@ -79,6 +79,9 @@ export interface AnalysisData {
     [key: string]: Post[] | string | number | boolean | object;
   };
   analysis_id?: string;
+  ai_summary?: AISummaryResponse | null;
+  startDate?: string;
+  endDate?: string;
 }
 
 export interface AISummaryBoxProps {

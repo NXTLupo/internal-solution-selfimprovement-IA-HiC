@@ -121,14 +121,20 @@ If you're unsure about something, acknowledge the limitations of the data rather
 
 def extract_keywords_from_prompt(user_prompt):
     extraction_prompt = f"""
-You are an AI assistant that helps extract the single most important keyword from user questions about Reddit data.
+Extract 1-3 keywords or phrases from this question: "{user_prompt}"
 
-User question: "{user_prompt}"
+Focus on specific and distinctive terms that would appear in relevant social media posts.
+Return ONLY the keywords as a simple comma-separated list, with no punctuation, formatting, or explanations.
 
-Extract only the most relevant keyword that would help filter Reddit posts to answer this question.
-Do not include the word "Reddit" or any subreddit names.
-Return only the keyword, with no additional text, formatting, or punctuation.
-If you cannot identify any relevant keyword, respond with "none".
+Examples:
+Question: "What do users think about battery life?"
+battery life
+
+Question: "Are people having issues with the student hub features?"
+student hub
+
+Question: "What's the opinion on the new mexican food?"
+mexican food, taco
 """
     
     return extraction_prompt

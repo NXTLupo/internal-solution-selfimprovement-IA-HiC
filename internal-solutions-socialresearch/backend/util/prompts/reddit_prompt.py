@@ -1,4 +1,3 @@
-from azure.ai.inference.models import SystemMessage, UserMessage
 from typing import Dict
 
 # def get_system_prompt() -> SystemMessage:

@@ -4,6 +4,7 @@ from typing import Dict, List, Any, Optional
 import json
 from datetime import datetime
 import uuid
+from sqlalchemy import func, desc
 
 class RedditRepository:
     def __init__(self, db: Session):
@@ -193,7 +194,9 @@ class RedditRepository:
         post_count: int,
         sort_by: str,
         time_period: str,
-        project_id: str = None
+        project_id: str = None,
+        start_date: str = None,
+        end_date: str = None
     ) -> str:
         """
         Save or update a Reddit analysis result.
@@ -208,6 +211,8 @@ class RedditRepository:
             sort_by: How posts were sorted
             time_period: Time period for the analysis
             project_id: Optional ID for updating existing analysis
+            start_date: Optional start date for the analysis in format YYYY-MM-DD
+            end_date: Optional end date for the analysis in format YYYY-MM-DD
             
         Returns:
             The ID of the saved analysis
@@ -225,6 +230,8 @@ class RedditRepository:
                 project.post_count = post_count
                 project.sort_by = sort_by
                 project.time_period = time_period
+                project.startDate = start_date
+                project.endDate = end_date
                 analysis_id = project_id
             else:
                 # If project doesn't exist, create a new one
@@ -238,7 +245,9 @@ class RedditRepository:
                     topic=topic,
                     post_count=post_count,
                     sort_by=sort_by,
-                    time_period=time_period
+                    time_period=time_period,
+                    startDate=start_date,
+                    endDate=end_date
                 )
                 self.db.add(project)
         else:
@@ -253,7 +262,9 @@ class RedditRepository:
                 topic=topic,
                 post_count=post_count,
                 sort_by=sort_by,
-                time_period=time_period
+                time_period=time_period,
+                startDate=start_date,
+                endDate=end_date
             )
             self.db.add(project)
         
@@ -262,10 +273,8 @@ class RedditRepository:
 
     def update_analysis_summary(self, analysis_id, summary_data):
         """Update the summary field of a RedditAnalysisResult"""
-        print(f"[update_analysis_summary] Updating summary for analysis ID: {analysis_id}")
         analysis = self.db.query(RedditAnalysisResult).filter(RedditAnalysisResult.id == analysis_id).first()
         if analysis:
-            print(f"[update_analysis_summary] Found analysis, updating summary")
             analysis.summary = summary_data
             return True
         else:
@@ -281,13 +290,133 @@ class RedditRepository:
 
     def get_analysis_by_id(self, analysis_id):
         """Get an analysis result by its ID"""
-        print(f"[get_analysis_by_id] Looking up analysis with ID: {analysis_id}")
-        result = self.db.query(RedditAnalysisResult).filter(RedditAnalysisResult.id == analysis_id).first()
-        if result:
-            print(f"[get_analysis_by_id] Found analysis with ID: {analysis_id}")
-            print(f"[get_analysis_by_id] Analysis type: {result.type}")
-            print(f"[get_analysis_by_id] Analysis created at: {result.created_at}")
-            print(f"[get_analysis_by_id] Analysis has summary: {result.summary is not None}")
-        else:
-            print(f"[get_analysis_by_id] No analysis found with ID: {analysis_id}")
-        return result
+        return self.db.query(RedditAnalysisResult).filter(RedditAnalysisResult.id == analysis_id).first()
+
+    def get_subreddit_with_posts_and_comments(self, subreddit_name: str) -> Dict[str, Any]:
+        """
+        Get a subreddit with all its posts and comments.
+        
+        Args:
+            subreddit_name (str): The subreddit name to query
+            
+        Returns:
+            Dict containing subreddit details, posts, and hierarchical comments
+        """
+        # Normalize subreddit name
+        subreddit_name = subreddit_name.lower()
+        
+        # Get total count first
+        total_posts_count = self.db.query(func.count(RedditPost.id)).filter(
+            func.lower(RedditPost.subreddit) == subreddit_name
+        ).scalar() or 0
+        
+        if total_posts_count == 0:
+            return {
+                'subreddit': subreddit_name,
+                'totalPosts': 0,
+                'totalComments': 0,
+                'posts': []
+            }
+        
+        # Get ALL posts for this subreddit (no pagination)
+        posts = self.db.query(RedditPost).filter(
+            func.lower(RedditPost.subreddit) == subreddit_name
+        ).order_by(desc(RedditPost.created_utc)).all()
+        
+        # Get total comment count for this subreddit
+        total_comments_count = self.db.query(func.count(RedditComment.id)).join(
+            RedditPost, RedditComment.post_id == RedditPost.id
+        ).filter(
+            func.lower(RedditPost.subreddit) == subreddit_name
+        ).scalar() or 0
+        
+        if not posts:
+            return {
+                'subreddit': subreddit_name,
+                'totalPosts': total_posts_count,
+                'totalComments': total_comments_count,
+                'posts': []
+            }
+        
+        # Get all post IDs for efficient comment querying
+        post_ids = [post.id for post in posts]
+        
+        # Get all comments for these posts in a single query
+        all_comments = self.db.query(RedditComment).filter(
+            RedditComment.post_id.in_(post_ids)
+        ).all()
+        
+        # Group comments by post_id for easier processing
+        comments_by_post = {}
+        
+        for comment in all_comments:
+            if comment.post_id not in comments_by_post:
+                comments_by_post[comment.post_id] = []
+            comments_by_post[comment.post_id].append(comment)
+        
+        # Build the response with hierarchical comments
+        posts_with_comments = []
+        
+        for post in posts:
+            post_comments = comments_by_post.get(post.id, [])
+            
+            # Build hierarchical comment structure
+            comment_dict = {comment.id: {
+                'id': comment.id,
+                'post_id': comment.post_id,
+                'parent_comment_id': comment.parent_comment_id,
+                'body': comment.body,
+                'score': comment.score,
+                'created_utc': comment.created_utc,
+                'author': comment.author,
+                'replies': []
+            } for comment in post_comments}
+            
+            # Build the hierarchy
+            root_comments = []
+            for comment_id, comment_data in comment_dict.items():
+                parent_id = comment_data['parent_comment_id']
+                if parent_id and parent_id in comment_dict:
+                    # Add to parent's replies
+                    comment_dict[parent_id]['replies'].append(comment_data)
+                else:
+                    # This is a root comment
+                    root_comments.append(comment_data)
+            
+            # Sort comments recursively
+            def sort_comments(comments):
+                # Recursively sort replies first
+                for comment in comments:
+                    if comment['replies']:
+                        comment['replies'] = sort_comments(comment['replies'])
+                
+                # Sort current level by score desc, then by time desc
+                return sorted(comments, key=lambda c: (
+                    -(c['score'] or 0),  # Negative for descending
+                    -(c['created_utc'] or 0)  # Negative for descending
+                ))
+            
+            sorted_comments = sort_comments(root_comments)
+            
+            # Add post with comments to response
+            posts_with_comments.append({
+                'id': post.id,
+                'search_id': post.search_id,
+                'subreddit': post.subreddit,
+                'title': post.title,
+                'content': post.content,
+                'score': post.score,
+                'created_utc': post.created_utc,
+                'url': post.url,
+                'permalink': post.permalink,
+                'num_comments': post.num_comments,
+                'author': post.author,
+                'comments': sorted_comments
+            })
+        
+        return {
+            'subreddit': subreddit_name,
+            'totalPosts': total_posts_count,
+            'totalComments': total_comments_count,
+            'posts': posts_with_comments
+        }

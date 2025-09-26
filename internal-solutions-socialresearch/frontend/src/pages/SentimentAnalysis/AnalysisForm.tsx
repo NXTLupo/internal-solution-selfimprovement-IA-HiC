@@ -34,6 +34,7 @@ const validatePostLimit = (value: string): number => {
 };
 
 export const AnalysisForm = ({ 
+  onSubmit,
   error, 
   onClearError,
   formData,
@@ -45,6 +46,9 @@ export const AnalysisForm = ({
   const [tempPostLimit, setTempPostLimit] = useState<string>(formData.postLimit.toString());
   // State for advanced settings visibility - initially hidden
   const [showAdvancedSettings, setShowAdvancedSettings] = useState(false);
+  // Add validation states
+  const [subredditError, setSubredditError] = useState<string>('');
+  const [topicError, setTopicError] = useState<string>('');
   
   // Get the dispatch function from Redux
   const dispatch = useDispatch();
@@ -60,6 +64,9 @@ export const AnalysisForm = ({
     if (value.trim()) {
       console.log("Updating subreddit in Redux:", value);
       dispatch(setSubredditValue(value));
+      setSubredditError('');
+    } else {
+      setSubredditError('Subreddit is required');
     }
   };
   
@@ -68,6 +75,9 @@ export const AnalysisForm = ({
     if (value.trim()) {
       console.log("Updating topic in Redux:", value);
       dispatch(setTopicValue(value));
+      setTopicError('');
+    } else {
+      setTopicError('Topic is required');
     }
   };
   
@@ -77,9 +87,38 @@ export const AnalysisForm = ({
     dispatch(setPostLimitValue(value));
   };
 
+  // Function to validate form before submission
+  const validateForm = () => {
+    let isValid = true;
+    
+    if (!formData.subreddit.trim()) {
+      setSubredditError('Subreddit is required');
+      isValid = false;
+    } else {
+      setSubredditError('');
+    }
+    
+    if (!formData.applicationName.trim()) {
+      setTopicError('Topic is required');
+      isValid = false;
+    } else {
+      setTopicError('');
+    }
+    
+    return isValid;
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent, isDebugMode?: boolean) => {
+    e.preventDefault();
+    if (validateForm()) {
+      onSubmit(formData, isDebugMode, projectId);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-3">
-      <div className="p-1 rounded-xl shadow-xl border border-gray-700" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+      <div className="p-1 rounded-xl shadow-xl border border-gray-700 px-4" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
         {error && (
           <div className="mb-2 p-4 bg-red-900/50 text-red-200 rounded-lg border border-red-700 flex justify-between items-center">
             <span>{error}</span>
@@ -94,109 +133,195 @@ export const AnalysisForm = ({
         <h3 className="font-semibold text-blue-400 text-lg text-center">
           {projectId ? 'Project Settings' : 'Search Options'}
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-          
-          <div className="flex flex-col">
-            <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300">Subreddit:</label>
-            <input
-              id="subreddit"
-              type="text"
-              value={formData.subreddit}
-              onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, subreddit: e.target.value }))}
-              onBlur={(e) => updateSubredditInRedux(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  updateSubredditInRedux(e.currentTarget.value);
-                }
-              }}
-              placeholder="Enter subreddit name"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="appName" className="mb-2 font-medium text-gray-300">Topic:</label>
-            <input
-              id="appName"
-              type="text"
-              value={formData.applicationName}
-              onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, applicationName: e.target.value }))}
-              onBlur={(e) => updateTopicInRedux(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  updateTopicInRedux(e.currentTarget.value);
-                }
-              }}
-              placeholder="Enter topic"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="postLimit" className="mb-2 font-medium text-gray-300">
-              Number of Posts: <span className="text-sm text-gray-500">(1-2000)</span>
-            </label>
-            <input
-              id="postLimit"
-              value={tempPostLimit}
-              onChange={(e) => setTempPostLimit(e.target.value)}
-              onBlur={(e) => {
-                const validValue = validatePostLimit(e.target.value);
-                setTempPostLimit(validValue.toString());
-                setFormData((prev: AnalysisFormData) => ({ ...prev, postLimit: validValue }));
-                updatePostLimitInRedux(validValue);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  const validValue = validatePostLimit(e.currentTarget.value);
+        <form autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+            
+            <div className="flex flex-col">
+              <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300 flex items-center gap-1">
+                Subreddit: <span className="text-red-800">*</span>
+                <Tooltip
+                  content={
+                    <div className="text-xs text-gray-300">
+                      Choose active subreddits with sufficient posts
+                    </div>
+                  }
+                >
+                  <svg 
+                    className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                    />
+                  </svg>
+                </Tooltip>
+              </label>
+              <input
+                id="subreddit"
+                type="text"
+                value={formData.subreddit}
+                onChange={(e) => {
+                  setFormData((prev: AnalysisFormData) => ({ ...prev, subreddit: e.target.value }));
+                  if (e.target.value.trim()) {
+                    setSubredditError('');
+                  }
+                  // Clear any validation errors when user starts typing
+                  onClearError();
+                }}
+                onBlur={(e) => updateSubredditInRedux(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    updateSubredditInRedux(e.currentTarget.value);
+                  }
+                }}
+                placeholder="Enter subreddit name"
+                className={`p-2 border ${subredditError ? 'border-red-500' : 'border-gray-700'} rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input`}
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                autoComplete="off"
+                spellCheck="true"
+                required
+              />
+              {subredditError && (
+                <small className="mt-1 text-red-500">{subredditError}</small>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="appName" className="mb-2 font-medium text-gray-300 flex items-center gap-1">
+                Topic: <span className="text-red-800">*</span>
+                <Tooltip
+                  content={
+                    <div className="text-xs text-gray-300">
+                      This works exactly the same as searching in a subreddit. It's recommended to go to{" "}
+                      <a 
+                        href="https://www.reddit.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Reddit
+                      </a>
+                      {" "}and search it on your own to get an idea of what data sources look like.
+                    </div>
+                  }
+                >
+                  <svg 
+                    className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                    />
+                  </svg>
+                </Tooltip>
+              </label>
+              <input
+                id="appName"
+                type="text"
+                value={formData.applicationName}
+                onChange={(e) => {
+                  setFormData((prev: AnalysisFormData) => ({ ...prev, applicationName: e.target.value }));
+                  if (e.target.value.trim()) {
+                    setTopicError('');
+                  }
+                  // Clear any validation errors when user starts typing
+                  onClearError();
+                }}
+                onBlur={(e) => updateTopicInRedux(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    updateTopicInRedux(e.currentTarget.value);
+                  }
+                }}
+                placeholder="Enter topic"
+                className={`p-2 border ${topicError ? 'border-red-500' : 'border-gray-700'} rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input`}
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                autoComplete="off"
+                spellCheck="true"
+                required
+              />
+              {topicError && (
+                <small className="mt-1 text-red-500">{topicError}</small>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="postLimit" className="mb-2 font-medium text-gray-300">
+                Number of Posts: <span className="text-sm text-gray-500">(1-900)</span>
+              </label>
+              <input
+                id="postLimit"
+                value={tempPostLimit}
+                onChange={(e) => setTempPostLimit(e.target.value)}
+                onBlur={(e) => {
+                  const validValue = validatePostLimit(e.target.value);
                   setTempPostLimit(validValue.toString());
                   setFormData((prev: AnalysisFormData) => ({ ...prev, postLimit: validValue }));
                   updatePostLimitInRedux(validValue);
-                }
-              }}
-              placeholder="50"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            />
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const validValue = validatePostLimit(e.currentTarget.value);
+                    setTempPostLimit(validValue.toString());
+                    setFormData((prev: AnalysisFormData) => ({ ...prev, postLimit: validValue }));
+                    updatePostLimitInRedux(validValue);
+                  }
+                }}
+                placeholder="50"
+                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                autoComplete="off"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="sort" className="mb-2 font-medium text-gray-300">Sort By:</label>
+              <select
+                id="sort"
+                value={formData.sort}
+                onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, sort: e.target.value as AnalysisFormData['sort'] }))}
+                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              >
+                <option value="relevance">Relevance</option>
+                <option value="hot">Hot</option>
+                <option value="top">Top</option>
+                <option value="new">New</option>
+                <option value="comments">Comments</option>
+              </select>
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="timeFilter" className="mb-2 font-medium text-gray-300">Time Period:</label>
+              <select
+                id="timeFilter"
+                value={formData.timeFilter}
+                onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, timeFilter: e.target.value as AnalysisFormData['timeFilter'] }))}
+                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              >
+                <option value="hour">Past Hour</option>
+                <option value="day">Past Day</option>
+                <option value="week">Past Week</option>
+                <option value="month">Past Month</option>
+                <option value="year">Past Year</option>
+                <option value="all">All Time</option>
+              </select>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label htmlFor="sort" className="mb-2 font-medium text-gray-300">Sort By:</label>
-            <select
-              id="sort"
-              value={formData.sort}
-              onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, sort: e.target.value as AnalysisFormData['sort'] }))}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            >
-              <option value="relevance">Relevance</option>
-              <option value="hot">Hot</option>
-              <option value="top">Top</option>
-              <option value="new">New</option>
-              <option value="comments">Comments</option>
-            </select>
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="timeFilter" className="mb-2 font-medium text-gray-300">Time Period:</label>
-            <select
-              id="timeFilter"
-              value={formData.timeFilter}
-              onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, timeFilter: e.target.value as AnalysisFormData['timeFilter'] }))}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            >
-              <option value="hour">Past Hour</option>
-              <option value="day">Past Day</option>
-              <option value="week">Past Week</option>
-              <option value="month">Past Month</option>
-              <option value="year">Past Year</option>
-              <option value="all">All Time</option>
-            </select>
-          </div>
-        </div>
+        
         
         {/* Advanced Settings - Collapsible */}
         <div className="mt-4">
           <button 
+            type="button"
             onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
             className={`w-full flex justify-between items-center p-2.5 ${showAdvancedSettings ? 'rounded-t-lg border-b-0' : 'rounded-lg'} border border-gray-700 bg-gray-800/50 hover:bg-gray-700/60 focus:outline-none transition-colors`}
             aria-expanded={showAdvancedSettings}
@@ -261,7 +386,7 @@ export const AnalysisForm = ({
                 {formData.filterType === 'absa' && (
                   <div className="flex flex-col">
                     <label htmlFor="keyword" className="mb-2 font-medium text-gray-300 group relative">
-                      Filter Keyword: <span className="text-red-500">*</span>
+                      Filter Keyword: <span className="text-red-800">*</span>
                     </label>
                     <input
                       id="keyword"
@@ -269,9 +394,11 @@ export const AnalysisForm = ({
                       value={formData.keyword}
                       onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, keyword: e.target.value }))}
                       placeholder="Enter a specific aspect (e.g., battery, sleep tracking)"
-                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
+                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
                       style={{ backgroundColor: 'rgba(34,38,43,255)' }}
                       required
+                      autoComplete="off"
+                      spellCheck="true"
                     />
                   </div>
                 )}
@@ -332,8 +459,8 @@ export const AnalysisForm = ({
                     className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
                     style={{ backgroundColor: 'rgba(34,38,43,255)' }}
                   >
-                    <option value="deepseek-r1">DeepSeek-R1 (default)</option>
-                    <option value="openai-4o">OpenAI-4o</option>
+                    <option value="deepseek-r1">DeepSeek-R1</option>
+                    <option value="openai-4">OpenAI-4o(default)</option>
                   </select>
                 </div>
 
@@ -346,7 +473,7 @@ export const AnalysisForm = ({
                     className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
                     style={{ backgroundColor: 'rgba(34,38,43,255)' }}
                   >
-                    <option value="openai-4o">OpenAI-4o (default)</option>
+                    <option value="openai-4">OpenAI-4o (default)</option>
                   </select>
                 </div>
 
@@ -386,9 +513,10 @@ export const AnalysisForm = ({
                         setTempWorkers(validValue.toString());
                         setFormData((prev: AnalysisFormData) => ({ ...prev, maxWorkers: validValue }));
                       }}
-                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 w-full"
+                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 w-full dark-theme-input"
                       style={{ backgroundColor: 'rgba(34,38,43,255)' }}
                       placeholder="3"
+                      autoComplete="off"
                     />
                   </div>
                 </div>
@@ -396,6 +524,7 @@ export const AnalysisForm = ({
             </div>
           )}
         </div>
+        </form>
       </div>
     </div>
   );

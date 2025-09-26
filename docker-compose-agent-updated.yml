@@ -230,7 +230,8 @@ services:
       - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - GEMINI_API_KEY=***REDACTED-GOOGLE-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
       - PORT=8081
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres

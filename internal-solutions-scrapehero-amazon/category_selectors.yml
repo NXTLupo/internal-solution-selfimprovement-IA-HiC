@@ -1,0 +1,58 @@
+# Category page selectors for Amazon
+category_title:
+  css: '#s-result-count, .a-section h1, .a-size-base-plus'
+  type: Text
+
+search_info:
+  css: '.s-breadcrumb .a-section span, .a-size-base-plus'
+  type: Text
+
+products:
+  css: '[data-asin]:not([data-asin=""]), .s-result-item:not(.AdHolder), .sg-col-4-of-12.s-result-item'
+  multiple: true
+  type: Container
+  children:
+    asin:
+      css: null
+      xpath: null
+      type: Attribute
+      attribute: data-asin
+
+    title:
+      css: 'h2 a.a-link-normal, h2 span.a-size-medium, .a-size-base-plus, .a-link-normal.a-text-normal'
+      type: Text
+
+    url:
+      css: 'h2 a.a-link-normal, .a-section a.a-link-normal, .a-link-normal.a-text-normal'
+      type: Attribute
+      attribute: href
+
+    price:
+      css: '.a-price .a-offscreen, .a-color-base span.a-price span.a-offscreen, .a-price'
+      type: Text
+
+    rating:
+      css: '.a-icon-star-small .a-icon-alt, .a-icon-star .a-icon-alt, .a-icon-alt'
+      type: Text
+
+    review_count:
+      css: '.a-size-small .a-link-normal, a[href*="customerReviews"].a-link-normal, .a-size-base'
+      type: Text
+
+    image:
+      css: '.s-image, .a-section img, img.s-image'
+      type: Attribute
+      attribute: src
+
+pagination:
+  css: '.a-pagination li:not(.a-disabled), ul.a-pagination li, .a-last'
+  multiple: true
+  type: Container
+  children:
+    text:
+      css: 'a, span'
+      type: Text
+    url:
+      css: 'a'
+      type: Attribute
+      attribute: href

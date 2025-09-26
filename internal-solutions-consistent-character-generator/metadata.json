@@ -1,0 +1,5 @@
+{
+  "name": "Consistent Persona Scene Generator",
+  "description": "An application to generate consistent character images using AI and place them into various user-described scenes.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: backend
+    image: ${REGISTRY}/social-research-backend:${COMMIT_SHA}
+    volumes:
+      - ./backend:/app
+      - ${AZURE_AUTH_LOCATION:-~/.azure}:/root/.azure
+    environment:
+      - AZURE_DEEPSEEK_KEY=${AZURE_DEEPSEEK_KEY}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - AZURE_OPENAI_KEY=${AZURE_OPENAI_KEY}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - DEEPSEEK_KEY=${DEEPSEEK_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - PORT=${PORT}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      - SENTIMENT_LOG_DIR=${SENTIMENT_LOG_DIR}
+      - TOPIC_LOG_DIR=${TOPIC_LOG_DIR}
+      - TOPIC_MODEL_DIR=${TOPIC_MODEL_DIR}
+      - DEPLOYMENT_ENV=${DEPLOYMENT_ENV}
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+  frontend:
+    build:
+      context: frontend
+      args:
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    image: ${REGISTRY}/social-research-frontend:${COMMIT_SHA}
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production

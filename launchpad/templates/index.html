@@ -116,6 +116,34 @@
           </div>
         </div>
         
+        <div class="enterprise-card" data-category="collection" data-service="scrapehero-amazon">
+          <div class="card-thumbnail">
+            <img src="/static/amazon_reviews.gif" alt="Amazon Reviews Scraper Demo" class="app-thumbnail" />
+          </div>
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-shopping-basket"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="scrapehero-amazon-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">Amazon Reviews Scraper</h3>
+            <p class="service-description">Collect product reviews from Amazon for sentiment and topic analysis.</p>
+            <div class="service-tags">
+              <span class="tag">E-commerce</span>
+              <span class="tag">Data Collection</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ scrapehero_amazon_url }}" id="scrapehero-amazon-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+        
       </div>
     </div>
 
@@ -478,6 +506,7 @@
     const fluxLoraStudioStatus = document.getElementById('flux-lora-studio-status');
     const presentationGeneratorStatus = document.getElementById('presentation-generator-status');
     const soundtrackGeneratorStatus = document.getElementById('soundtrack-generator-status');
+    const scrapeheroAmazonStatus = document.getElementById('scrapehero-amazon-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -533,6 +562,7 @@
     let fluxLoraStudioUrl = "{{ flux_lora_studio_url }}";
     let presentationGeneratorUrl = "{{ presentation_generator_url }}";
     let soundtrackGeneratorUrl = "{{ soundtrack_generator_url }}";
+    let scrapeheroAmazonUrl = "{{ scrapehero_amazon_url }}";
     let launchpadUrl = window.location.origin;
     
     // Initial port values (will be updated)
@@ -577,6 +607,7 @@
       if (fluxLoraStudioUrlLink) fluxLoraStudioUrlLink.href = fluxLoraStudioUrl;
       if (presentationGeneratorUrlLink) presentationGeneratorUrlLink.href = presentationGeneratorUrl;
       if (soundtrackGeneratorUrlLink) soundtrackGeneratorUrlLink.href = soundtrackGeneratorUrl;
+      if (scrapeheroAmazonUrlLink) scrapeheroAmazonUrlLink.href = scrapeheroAmazonUrl;
       
       // Update URL displays (only if elements exist)
       if (launchpadUrlDisplay) launchpadUrlDisplay.textContent = launchpadUrl;
@@ -586,6 +617,7 @@
       if (videoAnalyzerUrlDisplay) videoAnalyzerUrlDisplay.textContent = videoAnalyzerUrl;
       if (linkedinGeneratorUrlDisplay) linkedinGeneratorUrlDisplay.textContent = linkedinGeneratorUrl;
       if (miroGeneratorUrlDisplay) miroGeneratorUrlDisplay.textContent = miroGeneratorUrl;
+      if (scrapeheroAmazonUrlDisplay) scrapeheroAmazonUrlDisplay.textContent = scrapeheroAmazonUrl;
       
       // Update port displays (only if elements exist)
       if (launchpadPortDisplay) launchpadPortDisplay.textContent = launchpadPort;
@@ -595,6 +627,7 @@
       if (videoAnalyzerPortDisplay) videoAnalyzerPortDisplay.textContent = videoAnalyzerPort;
       if (linkedinGeneratorPortDisplay) linkedinGeneratorPortDisplay.textContent = linkedinGeneratorPort;
       if (miroGeneratorPortDisplay) miroGeneratorPortDisplay.textContent = miroGeneratorPort;
+      if (scrapeheroAmazonPortDisplay) scrapeheroAmazonPortDisplay.textContent = scrapeheroAmazonPort;
       
       // Update port badge styling (only if elements exist)
       if (launchpadPortBadge) updatePortBadge(launchpadPortBadge, launchpadPort, "8000");
@@ -604,6 +637,7 @@
       if (videoAnalyzerPortBadge) updatePortBadge(videoAnalyzerPortBadge, videoAnalyzerPort, "5002");
       if (linkedinGeneratorPortBadge) updatePortBadge(linkedinGeneratorPortBadge, linkedinGeneratorPort, "5003");
       if (miroGeneratorPortBadge) updatePortBadge(miroGeneratorPortBadge, miroGeneratorPort, "5004");
+      if (scrapeheroAmazonPortBadge) updatePortBadge(scrapeheroAmazonPortBadge, scrapeheroAmazonPort, "5008");
     }
     
     // Get updated URLs from the server
@@ -684,6 +718,10 @@
 
         if (data.services && data.services.soundtrack_generator) {
           updateStatusIndicator(soundtrackGeneratorStatus, data.services.soundtrack_generator.status);
+        }
+        
+        if (data.services && data.services.scrapehero_amazon) {
+          updateStatusIndicator(scrapeheroAmazonStatus, data.services.scrapehero_amazon.status);
         }
       } catch (error) {
         console.error('Error fetching service status:', error);

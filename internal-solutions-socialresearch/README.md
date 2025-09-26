@@ -1,40 +1,26 @@
-# Social Research Analysis Tool - NXT Humans Intelligence Augmentation Suite
+# Social Research Analysis Tool
 
-## 🎯 Overview
+This repository provides two  tools designed for Reddit-based social research:
 
-The Social Research Analysis Tool is a comprehensive AI-powered analytics platform that combines advanced social media data analysis with cutting-edge vector database technology. Built with modern React 19 + TypeScript 5.7 + Vite 6.1 stack, it provides professional-grade social research capabilities with real-time insights and semantic search functionality.
+## 🔍 Topic Modeling Tool
 
-## ✨ Key Features
+This tool helps users explore the **key themes** occurring in a subreddit, without a predefined topic.
 
-### 🔍 Advanced Topic Modeling Tool
-This tool helps users explore the **key themes** occurring in a subreddit using sophisticated AI models:
-
-- **Input**: Subreddit name and filtering parameters
-- **AI-Powered Analysis**: 
-  - **BERTopic Integration**: Advanced topic modeling with transformer-based embeddings
-  - **Vector Embeddings**: PostgreSQL + pgvector for semantic similarity search
-  - **Sentiment Analysis**: VADER and transformer-based sentiment scoring
-  - **Interactive Visualizations**: Dynamic theme maps and trend analysis
+- **Input**: Subreddit name.
 - **Output**:
-  - Topics with detailed sentiment scores and confidence metrics
-  - Interactive theme maps with clustering visualization
-  - RAG-powered AI chat interface for conversational analysis
-  - Exportable analytics reports and data visualizations
+  - Topics with sentiment scores.
+  - Interactive theme maps.
+  - RAG-powered AI chat
 
-### 🧠 Social LLM Analyzer
-Advanced sentiment analysis tool that provides deep insights into specific topics within subreddit discussions:
+## 🧠 Social LLM Analyzer
 
-- **Input**: Subreddit name, defined topic, and analysis parameters
-- **Advanced Processing**:
-  - **Multi-stage Sentiment Pipeline**: RoBERTa + DeBERTa + Custom LLM analysis
-  - **Aspect-Based Sentiment Analysis (ABSA)**: Topic-specific sentiment extraction
-  - **Clustering Algorithms**: Sentence-BERT + HDBSCAN for content grouping
-  - **Real-time Processing**: Live data streaming and progressive analysis
+This tool helps users analyze sentiment around a **specific topic within a subreddit**, also provides tracable data to understand the nuances and emotional tone of discussions
+
+- **Input**: Subreddit name and a defined topic.
 - **Output**:
-  - Comprehensive positive and negative sentiment breakdowns
-  - AI-generated summaries with actionable insights and recommendations
-  - Professional data visualizations and trend analysis
-  - Detailed analytics with statistical confidence measures
+  - Positive and negative aspects.
+  - Summary and suggestions.
+  - Visualizations.
 
 
 ## Deployment option 1: Local Deployment with Docker
@@ -70,16 +56,21 @@ Advanced sentiment analysis tool that provides deep insights into specific topic
 
 6. **Build the Docker Containers**
    ```sh
-   docker compose build
+   docker compose -f docker-compose.dev.yml build
    ```
-   > **Note** ./docker-compose.yml will be used
+   > **Note** ./docker-compose.dev.yml will be used for local development
    
 7. Configure environment variables (ask developer for the .env file)
    
 8. **Run the Containers**
+   
+   For local development (recommended):
    ```sh
-   docker compose up
+   docker compose -f docker-compose.dev.yml up
    ```
+
+   
+   The application's frontend will be available at http://localhost:3000, backend at http://localhost:8081/, http://localhost:8081/health is available for checking
 
 ## Potential Errors and Solutions
 
@@ -88,47 +79,67 @@ Advanced sentiment analysis tool that provides deep insights into specific topic
 | Error exit code 139 with seg fault | Container crashes with segmentation fault | Check memory allocation with `docker stats`. If total memory is less than 8 GB, increase memory allocation in Docker configuration. For Mac users, see [this StackOverflow thread](https://stackoverflow.com/questions/44533319/how-to-assign-more-memory-to-docker-container). |
 | Azure login failure | `.azure` directory missing | Verify the `.azure` directory exists after running `palm az-login`. For Windows users, ensure the `AZURE_AUTH_LOCATION` is correctly set in your `.env` file. |
 | Network connection issues | Docker network not created | Run `docker network create nxt-humans` before starting containers. |
+| Docker daemon not running | Error: "this error may indicate that the docker daemon is not running" or "open //./pipe/docker_engine: The system cannot find the file specified" | Ensure Docker Desktop is running or start the Docker service. Verify with `docker info` or `docker version`. |
+|Front end type errors|| CD to ./frontend and use `npx eslint ./src`
 
    
-## Deployment option 2: Deploy it on Azure with Github Action (WIP)
-Container deployment is handled via the GitHub Actions workflow located at: ```.\.github\workflows\build-and-deploy.yml```, which will use ```\compose.deploy.yml``` instead of ```\docker-compose.yml```
-### ⚙️ Local Testing with `act`
+## Deployment option 2: Deploy it on Azure with Github Action
 
-> **Note**: GitHub Actions require you to push changes to GitHub in order to test them. To streamline local testing, use the following workflow: ```.github/workflows/local-build-act.yml```
-> This workflow is designed to be used with [`act`](https://github.com/nektos/act), a tool that enables local testing of GitHub Actions.
-> For more details, refer to the [`act` documentation](https://github.com/nektos/act).
+The application is deployed to Azure Container Apps using two separate GitHub Actions workflows:
+
+### CI/CD Pipeline Overview
+
+1. **Separate Workflows**:
+   - `.github/workflows/frontend-deploy.yml` - Builds and deploys the frontend container
+   - `.github/workflows/backend-deploy.yml` - Builds and deploys the backend container
+
+2. **Build Process**:
+   - Workflows are triggered manually via `workflow_dispatch`, or main branch is updated
+   - Containers are built using `frontend.compose.deploy.yml` and `backend.compose.deploy.yml`
+
+3. **Deployment Process**:
+   - Built containers are pushed to Azure Container Registry (ACR)
+   - The containers are then deployed to Azure Container Apps using the configuration in:
+     - `frontend-containerapp.yaml` for the frontend
+     - `backend-containerapp.yaml` for the backend
+
+4. **Environment Configuration**:
+   - All secrets must be added to GitHub repository secrets, please see .env.example for the required secrets
+   - Both applications share Container App Environment: `social-research-env`
+
+### How Secrets Flow from Repository to Production
+
+1. **Repository Secrets**: Secrets are stored in GitHub repository settings, or you can run `gh secret list` to check available environment variables set up on repository level secrets
+2. **GitHub Actions Access**: Workflows access these secrets using `${{ secrets.SECRET_NAME }}` syntax
+3. **Azure Authentication**: Workflows use Azure service principal secrets to authenticate with Azure
+4. **Container App Configuration**: During deployment, secrets are:
+   - Injected as environment variables into the container apps
+   - Replaced in the `*-containerapp.yaml` configuration files (Extra caution: order matters, e.g. first replace REDDIT_CLIENT_ID before CLIENT_ID, otherwise the REDDIT_CLIENT_ID will be partially replaced when CLIENT_ID is replaced)
+   - Made available to the running application containers
+5. **Runtime Access**: Applications access these as standard environment variables
+
+Example flow: `REDDIT_CLIENT_ID` → GitHub Secret → GitHub Actions → Azure Container Apps → Application Environment Variable
+
+To deploy: Add required secrets to GitHub repository settings or CLI, then trigger workflows from the GitHub Actions tab.
 
 ## Deployment option 3: Local Deployment with Python virtual environment
 
-### Frontend Setup (Modern React 19 + Vite 6.1 Stack)
-
+> **Note**: This deployment option is **not recommended**. We prefer using **Option 1 (Docker deployment)** for local development. This section may lack details and is provided for reference only.
+### Frontend Setup
 1. Navigate to the frontend directory:
 ```bash
 cd frontend
 ```
 
-2. Install dependencies (Node.js 18+ required):
+2. Install dependencies:
 ```bash
 npm install
-# Or using yarn/pnpm for faster installs
-yarn install
-pnpm install
 ```
 
-3. Start the development server with HMR:
+3. Start the development server:
 ```bash
-npm run dev          # Vite dev server with hot module replacement
-npm run build        # TypeScript + Vite production build  
-npm run preview      # Preview production build locally
-npm run lint         # ESLint with TypeScript rules
+npm start
 ```
-
-**Development Features**:
-- **Hot Module Replacement (HMR)**: Instant updates without page refresh
-- **TypeScript Strict Mode**: Full type safety with path aliases (`@/components`, `@/utils`)
-- **Vite Dev Server**: Lightning-fast startup and builds (port 5173)
-- **ESLint Integration**: Real-time code quality checking
-- **Tailwind CSS**: Utility-first styling with live reloading
 
 ### Backend Setup
 1. Navigate to the backend directory:
@@ -167,7 +178,7 @@ pip install -r requirements.txt
    ![image](https://github.com/user-attachments/assets/9f83d223-23b0-4507-866e-499e1e2236e6)
 
 
-## Database Setup (PostgreSQL with pgvector on macOS) (Havn't tested out)
+6. Database Setup (PostgreSQL with pgvector on macOS)
 
 * **Install PostgreSQL:** 
   * Install PostgreSQL version 11 or newer (version 16 recommended).
@@ -177,9 +188,9 @@ pip install -r requirements.txt
     brew services start postgresql@16
     ```
   * Verify installation: 
-    ```bash
+ ```bash
     psql --version
-    ```
+ ```
 
 * **Install pgvector Extension:** 
   * Using Homebrew: 
@@ -240,56 +251,60 @@ graph TD
     B --> C
     C --> D
     D --> E
-    E --> F1
-    E --> F2
-    F1 --> G
-    F2 --> G
+    E --> G
     G --> H
     H --> I
     I --> J
-    J --> K
+    J --> L
+    L --> M
 
     classDef default fill:#2d3748,stroke:#4299e1,stroke-width:2px,color:#e2e8f0;
-    classDef decision fill:#2c5282,stroke:#4299e1,stroke-width:2px,color:#e2e8f0;
     classDef process fill:#2d3748,stroke:#48bb78,stroke-width:2px,color:#e2e8f0;
+    classDef ml fill:#553c9a,stroke:#9f7aea,stroke-width:2px,color:#e2e8f0;
+    classDef llm fill:#744210,stroke:#d69e2e,stroke-width:2px,color:#e2e8f0;
     
-    class E decision;
-    class A,K process;
-    class B,C,D,F1,F2,G,H,I,J default;
+    class A,M process;
+    class D,E,G,I,J ml;
+    class H llm;
+    class B,C,L default;
 ```
 
-## 🚀 Modern Tech Stack
+## Topic Modeling Pipeline
+ML pipeline for topic discovery and analysis:
 
-### Frontend (Cutting-Edge React 19 Stack)
-- **React 19**: Latest React with enhanced hooks, concurrent features, and server components
-- **TypeScript 5.7**: Strict type checking with advanced inference and path aliases (`@/*` → `./src/*`)
-- **Vite 6.1**: Lightning-fast development with ESM modules, HMR, and optimized builds
-- **Tailwind CSS 4.0**: Modern utility-first CSS with advanced features and PostCSS integration
-- **Material-UI 6.4+**: Professional component library with modern design tokens
-- **Redux Toolkit 2.6+**: State management with RTK Query for efficient data fetching
-- **Build System**: Modern Vite configuration with path aliases, strict TypeScript, and optimized bundling
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'fontFamily': 'arial', 'fontSize': '13px' }}}%%
+graph TD
+    A[Start]
+    B[Reddit Data Fetch and Text Preprocessing]
+    C[Document Vectorization]
+    D[sentence-bert Embeddings]
+    E[UMAP Reduction]
+    G[HDBSCAN Clustering]
+    H[Topic Summarization with llm api]
+    I[Sentiment Analysis]
+    J[Topic Similarity]
+    L[PGVector Indexing]
+    M[Results Storage]
 
-### Backend (Production-Ready Python Stack)
-- **Flask**: Robust web framework with RESTful API design
-- **PostgreSQL 16+**: Advanced relational database with enterprise-grade performance
-- **pgvector Extension**: Vector embeddings for semantic search and similarity analysis
-- **PRAW**: Python Reddit API Wrapper for comprehensive Reddit data access
-- **BERTopic**: Advanced topic modeling with transformer-based embeddings
-- **Sentence-BERT**: Semantic text embeddings for clustering and similarity
-- **VADER & RoBERTa**: Multi-layered sentiment analysis pipeline
-- **HDBSCAN**: Density-based clustering for topic grouping
-- **Alembic**: Database migrations and schema management
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> L
+    L --> M
 
-### AI & Analytics Infrastructure
-- **Vector Database**: PostgreSQL + pgvector for semantic search capabilities
-- **NLP Pipeline**: Advanced text processing with spaCy and NLTK
-- **ML Models**: BERTopic, Sentence-BERT, RoBERTa for comprehensive text analysis
-- **Real-time Processing**: WebSocket integration for live data streaming
-- **Data Visualization**: D3.js integration for interactive charts and analytics
-
-## Setup with local virtual env 
-
-### Prerequisites
-- Python 3.11 (recommended), doesn't support 3.12
-- Node.js 14+
-
+    classDef default fill:#2d3748,stroke:#4299e1,stroke-width:2px,color:#e2e8f0;
+    classDef process fill:#2d3748,stroke:#48bb78,stroke-width:2px,color:#e2e8f0;
+    classDef ml fill:#553c9a,stroke:#9f7aea,stroke-width:2px,color:#e2e8f0;
+    classDef llm fill:#744210,stroke:#d69e2e,stroke-width:2px,color:#e2e8f0;
+    
+    class A,M process;
+    class D,E,G,I,J ml;
+    class H llm;
+    class B,C,L default;
+```

@@ -1,70 +1,64 @@
 import os
-import logging
+import openai
+from dotenv import load_dotenv, find_dotenv
 
-# Set Azure HTTP logging policy to ERROR level to disable request/response logging
-logging.getLogger("azure.core.pipeline.policies.http_logging_policy").setLevel(logging.ERROR)
+# Load environment variables from the nearest .env if present
+_env_path = find_dotenv(usecwd=True)
+if _env_path:
+    load_dotenv(dotenv_path=_env_path, override=True)
 
-# Check if we should use mock Azure services (default to True for safety)
-USE_MOCK = os.getenv('MOCK_AZURE_SERVICES', 'true').lower() == 'true' or os.getenv('SKIP_AZURE_AUTH', 'true').lower() == 'true'
+# Function to refresh OpenAI API key - useful if container was restarted
+def refresh_openai_api_key():
+    # Try environment variable from multiple places
+    key = os.getenv("OPENAI_API_KEY") or os.getenv("CHATGPT5_API_KEY")
+    
+    if key:
+        openai.api_key = key
+        print(f"Using OpenAI API Key: {key[:8]}...{key[-4:]}")
+        return key
+    return None
 
-# Initialize client as None first
-project = None
-client = None
-
-# Only try to connect to Azure if not using mock services
-if not USE_MOCK:
-    try:
-        from azure.ai.projects import AIProjectClient
-        from azure.identity import DefaultAzureCredential
-        
-        conn_str = os.getenv('PROJECT_CONNECTION_STRING')
-        if conn_str:
-            project = AIProjectClient.from_connection_string(
-                conn_str=conn_str,
-                credential=DefaultAzureCredential()
-            )
-            client = project.inference.get_chat_completions_client()
-            print("Successfully connected to Azure AI Project")
-        else:
-            print("PROJECT_CONNECTION_STRING not provided, using mock OpenAI service")
-    except Exception as e:
-        print(f"Error connecting to Azure AI Project: {e}")
-        print("Falling back to mock OpenAI service")
-else:
-    print("Using mock OpenAI service (MOCK_AZURE_SERVICES=true or SKIP_AZURE_AUTH=true)")
+# Initial setup
+openai_api_key = refresh_openai_api_key()
 
 def get_openai_completion(messages: list, temperature: float = 1) -> str:
-    """Get chat completion from Azure OpenAI or mock service."""
-    if client and not USE_MOCK:
-        try:
-            response = client.complete(
-                model="gpt-4o", 
-                messages=messages,
-                temperature=temperature
-            )
-            return response.choices[0].message.content
-        except Exception as e:
-            print(f"Error in get_completion: {e}")
-            return _get_mock_response(messages)
-    else:
-        return _get_mock_response(messages)
+    """Get chat completion from OpenAI."""
+    # Always refresh the API key before making a call
+    api_key = refresh_openai_api_key()
+    if not api_key:
+        return '{"error": "OPENAI_API_KEY not found."}'
 
-def _get_mock_response(messages: list) -> str:
-    """Provide a mock response when Azure OpenAI is not available."""
-    last_message = messages[-1]["content"] if messages else ""
-    
-    # Simple mock responses based on the content
-    if "hello" in last_message.lower() or "hi" in last_message.lower():
-        return "Hello! I'm a mock AI assistant. How can I help you today?"
-    
-    if "sentiment" in last_message.lower() or "analyze" in last_message.lower():
-        return "This text appears to have a neutral to slightly positive sentiment. There are elements of both factual information and subjective opinion, with moderate emotional content."
-    
-    if "summary" in last_message.lower() or "summarize" in last_message.lower():
-        return "This content discusses various aspects of product experiences and user feedback. Key points include feature requests, usability issues, and general satisfaction levels."
-    
-    # Default response for any other query
-    return "I've processed your request. As this is running in mock mode, I've generated this placeholder response. In production, this would be a detailed analysis from Azure OpenAI."
+    try:
+        # Get model name from environment variable or use a default
+        model_name = os.getenv("OPENAI_MODEL", "o3")
+        
+        # Print debug information
+        print(f"[openai.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
+        
+        # If the model is invalid, fallback to gpt-4o
+        try:
+            response = openai.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                temperature=temperature,
+                response_format={ "type": "json_object" }
+            )
+        except Exception as e:
+            print(f"Error with model {model_name}: {e}, falling back to gpt-4o")
+            try:
+                response = openai.chat.completions.create(
+                    model="gpt-4o",
+                    messages=messages,
+                    temperature=temperature,
+                    response_format={ "type": "json_object" }
+                )
+            except Exception as fallback_error:
+                print(f"Error with fallback model gpt-4o: {fallback_error}")
+                return '{"error": "' + str(fallback_error).replace('"', '\'') + '"}'
+                
+        return response.choices[0].message.content
+    except Exception as e:
+        return f'{{"error": "An error occurred during the API call: {str(e)}"}}'
 
 def test_api():
     """Test the API with a simple message."""
@@ -74,4 +68,3 @@ def test_api():
 
 if __name__ == "__main__":
     test_api()
-

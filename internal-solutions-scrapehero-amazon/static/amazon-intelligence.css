@@ -1,0 +1,637 @@
+/* 
+ * Amazon Market Intelligence - Specialized Styles
+ * Designed to complement the shared NXT HUMANS Intelligence Augmentation styles
+ */
+
+/* Specialized styles for Amazon product data */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-card {
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(70, 70, 70, 0.5);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(1, 196, 200, 0.3);
+}
+
+.product-image-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(26, 26, 26, 0.8);
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-details {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  /* Ensure titles don't overflow and show ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-rating {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.product-rating-value {
+  color: #01C4C8 !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+.product-rating-count {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.product-metrics {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.product-metric {
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.product-metric-icon {
+  color: #01C4C8 !important;
+  margin-right: 0.4rem;
+}
+
+.product-sentiment {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.sentiment-bar {
+  height: 6px;
+  background-color: rgba(26, 26, 26, 0.8);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.sentiment-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e74c3c 0%, #f39c12 30%, #01C4C8 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.sentiment-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-align: right;
+}
+
+/* Category and Brand Selection */
+.category-selector {
+  margin-bottom: 2rem;
+}
+
+.category-header {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.category-card {
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.category-card.active, .category-card:hover {
+  background-color: rgba(1, 196, 200, 0.15);
+  border-color: rgba(1, 196, 200, 0.4);
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+  color: #01C4C8 !important;
+}
+
+.category-name {
+  font-weight: 500;
+}
+
+/* Search Controls */
+.search-controls {
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.search-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .search-row {
+    flex-direction: column;
+  }
+}
+
+.search-field {
+  flex: 1;
+}
+
+.search-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Analysis Dashboard */
+.metrics-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .metrics-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metric-card {
+  background-color: rgba(34, 38, 43, 0.8);
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.metric-title {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.metric-trend {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.trend-positive {
+  color: #2ecc71 !important;
+}
+
+.trend-negative {
+  color: #e74c3c !important;
+}
+
+.trend-icon {
+  margin-right: 0.4rem;
+}
+
+/* Charts and Graphs Containers */
+.chart-container {
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.chart-header {
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chart-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chart-action:hover {
+  background-color: rgba(1, 196, 200, 0.15);
+  border-color: rgba(1, 196, 200, 0.4);
+}
+
+.chart-content {
+  height: 300px;
+  position: relative;
+}
+
+/* Specialized Table Styling */
+.data-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.data-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(1, 196, 200, 0.05);
+}
+
+/* Word Cloud Container */
+.word-cloud-container {
+  height: 300px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Charts Container for Market Insights */
+.charts-container {
+  margin-bottom: 2rem;
+}
+
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-card {
+  flex: 1 1 calc(50% - 1rem);
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  min-height: 300px;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-content {
+  height: 250px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+  }
+  
+  .chart-card {
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Insight Items */
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(34, 38, 43, 0.8);
+  border-left: 3px solid rgba(70, 70, 70, 0.5);
+}
+
+.insight-icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #01C4C8;
+}
+
+.insight-text {
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.insight-positive {
+  border-left: 3px solid #2ecc71;
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.insight-positive .insight-icon {
+  color: #2ecc71;
+}
+
+.insight-negative {
+  border-left: 3px solid #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.insight-negative .insight-icon {
+  color: #e74c3c;
+}
+
+.insights-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Loading Animation */
+#insights-loading {
+  text-align: center;
+  padding: 3rem;
+}
+
+.loading-indicator {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(70, 70, 70, 0.3);
+  border-radius: 50%;
+  border-top: 3px solid #01C4C8;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Info and Tip Boxes */
+.info-box {
+  background-color: rgba(26, 26, 26, 0.5);
+  border-left: 4px solid #01C4C8;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.info-box h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.info-box h3 i {
+  margin-right: 0.75rem;
+  color: #01C4C8;
+}
+
+.tip-box {
+  background-color: rgba(1, 196, 200, 0.1);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(1, 196, 200, 0.3);
+}
+
+.tip-box p {
+  margin: 0;
+}
+
+.tip-box strong {
+  color: #01C4C8;
+}
+
+/* Sentiment Analysis Display */
+.sentiment-summary {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sentiment-breakdown {
+  flex: 3;
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+.sentiment-insights {
+  flex: 5;
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid rgba(70, 70, 70, 0.3);
+}
+
+@media (max-width: 768px) {
+  .sentiment-summary {
+    flex-direction: column;
+  }
+}
+
+/* Badges and Status Indicators */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-positive {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71 !important;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.badge-neutral {
+  background-color: rgba(52, 152, 219, 0.15);
+  color: #3498db !important;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.badge-negative {
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c !important;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* LLM Generated Insights Styling */
+.insights-container {
+  background-color: rgba(26, 26, 26, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #01C4C8;
+  margin-bottom: 2rem;
+}
+
+.insights-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.insights-title-icon {
+  color: #01C4C8 !important;
+  margin-right: 0.75rem;
+  font-size: 1.6rem;
+}
+
+.insights-content {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.insights-content p {
+  margin-bottom: 1rem;
+}
+
+.insights-content strong {
+  color: #01C4C8 !important;
+  font-weight: 600;
+}
+
+.insights-section {
+  margin-bottom: 1.5rem;
+}
+
+.insights-section-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+}
+
+.insights-list {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.insights-list li {
+  position: relative;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.insights-list li::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #01C4C8;
+}

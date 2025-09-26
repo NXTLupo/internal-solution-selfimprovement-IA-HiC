@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" role="img" aria-label="NXT HUMANS">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#01C4C8"/>
+      <stop offset="100%" stop-color="#00A1A5"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="80" fill="none"/>
+  <!-- Left mark -->
+  <g transform="translate(10,10)">
+    <rect x="0" y="0" width="60" height="60" rx="8" ry="8" fill="url(#grad)"/>
+    <path d="M12 44 L30 18 L48 44" fill="none" stroke="#0B1725" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(85,56)">
+    <text x="0" y="0" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="34" fill="#FFFFFF" letter-spacing="2">
+      NXT HUMANS
+    </text>
+  </g>
+</svg>
+

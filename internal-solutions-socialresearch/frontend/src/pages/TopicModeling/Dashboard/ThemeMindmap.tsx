@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import * as d3 from 'd3';
-import { Network, ThumbsUp, ThumbsDown, Tag, Info, Search, Filter, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Network, ThumbsUp, ThumbsDown, Tag, Info, Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { Topic } from '../../../types/TopicModeling';
 
 interface TopicSimilarity {
@@ -27,8 +27,6 @@ const ThemeMindmap = ({
   const [minMentions, setMinMentions] = useState(0);
   const [similarityThreshold, setSimilarityThreshold] = useState(0.3);
   const [linkThicknessMultiplier, setLinkThicknessMultiplier] = useState(3);
-  // selectedNode is used in the UI rendering when a node is clicked
-  const [selectedNode, setSelectedNode] = useState<Topic | null>(null);
 
   // Add detailed logging of topic similarities
   console.log("Raw topicSimilarities:", topicSimilarities);
@@ -142,12 +140,6 @@ const ThemeMindmap = ({
     // Use backend-provided topic similarities
     if (topicSimilarities && topicSimilarities.length > 0) {
       topicSimilarities.forEach(similarity => {
-        console.log(`Checking similarity: source=${similarity.source}, target=${similarity.target}, weight=${similarity.weight}`);
-        console.log(`  Source exists: ${topicIdToIndex[similarity.source] !== undefined}`);
-        console.log(`  Target exists: ${topicIdToIndex[similarity.target] !== undefined}`);
-        console.log(`  Above threshold: ${similarity.weight >= similarityThreshold}`);
-        
-        // Ensure both source and target exist in our filtered dataset
         if (topicIdToIndex[similarity.source] !== undefined && 
             topicIdToIndex[similarity.target] !== undefined && 
             similarity.weight >= similarityThreshold) {
@@ -262,7 +254,7 @@ const ThemeMindmap = ({
     // Create a simulation with forces
     const simulation = d3.forceSimulation<SimNode>(nodes as SimNode[])
       .force("link", d3.forceLink<SimNode, SimLink>(links as unknown as SimLink[])
-        .id((d, i) => i)
+        .id((_d, i) => i)
         .strength(d => {
           if (!d || typeof d.strength === 'undefined') return 0.1;
           return d.strength;
@@ -333,7 +325,6 @@ const ThemeMindmap = ({
       .on("click", (event, d) => {
         event.stopPropagation();
         console.log("Node clicked:", d);
-        setSelectedNode(d.originalData);
         handleAction(d.originalData);
       });
 
@@ -406,19 +397,10 @@ const ThemeMindmap = ({
 
     // Add click handler to clear selection when clicking on background
     svg.on("click", () => {
-      setSelectedNode(null);
+      // Background click handler can be used for future functionality
     });
 
   }, [filteredTopics, dimensions, topicSimilarities, similarityThreshold, linkThicknessMultiplier, handleAction]);
-
-  // Get the sentiment color for text/borders
-  const getSentimentColor = (sentiment: string) => {
-    switch (sentiment) {
-      case 'positive': return '#10b981'; // green
-      case 'negative': return '#ef4444'; // red
-      default: return '#3b82f6'; // blue
-    }
-  };
 
   return (
     <div className="text-white bg-gray-800 p-4 rounded-lg border border-gray-800">
@@ -623,78 +605,12 @@ const ThemeMindmap = ({
             <div className="h-3 w-6 bg-blue-400 mr-1" style={{ height: "7px" }}></div>
             <span className="text-gray-300">Medium connection (0.5-0.7)</span>
           </div>
-          <div className="flex items-center ml-2">
+          <div className="flex items-center ml-2"> 
             <div className="h-3 w-6 bg-gray-500 mr-1" style={{ height: "7px" }}></div>
             <span className="text-gray-300">Weak connection (0.2-0.5)</span>
           </div>
         </div>
-        
-        {/* Selected Node Panel */}
-        {selectedNode && (
-          <div className="bg-gray-800 p-3 mb-3 rounded-lg border border-gray-700 animate-fadeIn">
-            <div className="flex justify-between items-start">
-              <div className="flex items-center gap-2">
-                <div 
-                  className="w-4 h-4 rounded-full" 
-                  style={{ backgroundColor: getSentimentColor(selectedNode.sentiment) }}
-                ></div>
-                <h4 className="text-md font-semibold">{selectedNode.topic}</h4>
-              </div>
-              <button 
-                onClick={() => setSelectedNode(null)}
-                className="text-gray-400 hover:text-white"
-              >
-                <X size={16} />
-              </button>
-            </div>
-            
-            <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
-              <div>
-                <span className="text-gray-400">Mentions:</span> 
-                <span className="ml-1 text-white">{selectedNode.count}</span>
-              </div>
-              <div>
-                <span className="text-gray-400">Sentiment:</span> 
-                <span 
-                  className="ml-1 capitalize" 
-                  style={{ color: getSentimentColor(selectedNode.sentiment) }}
-                >
-                  {selectedNode.sentiment}
-                </span>
-              </div>
-              {selectedNode.score !== undefined && (
-                <div>
-                  <span className="text-gray-400">Score:</span> 
-                  <span className="ml-1 text-white">{selectedNode.score.toFixed(2)}</span>
-                </div>
-              )}
-            </div>
-            
-            {selectedNode.related_terms && selectedNode.related_terms.length > 0 && (
-              <div className="mt-2">
-                <span className="text-gray-400 text-xs">Related terms:</span>
-                <div className="flex flex-wrap gap-1 mt-1">
-                  {selectedNode.related_terms.map((term, index) => (
-                    <span 
-                      key={index} 
-                      className="bg-gray-700 px-2 py-0.5 rounded-md text-xs"
-                    >
-                      {term}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {selectedNode.short_summary && (
-              <div className="mt-2">
-                <span className="text-gray-400 text-xs">Summary:</span>
-                <p className="text-sm mt-1">{selectedNode.short_summary}</p>
-              </div>
-            )}
-          </div>
-        )}
-        
+                
         {/* D3 Visualization */}
         <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
           {filteredTopics.length > 0 ? (

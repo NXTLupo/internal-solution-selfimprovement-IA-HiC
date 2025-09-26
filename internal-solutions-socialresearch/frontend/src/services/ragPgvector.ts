@@ -1,10 +1,11 @@
 import { TopicData } from '../types/TopicModeling';
-const API_BASE_URL = 'http://localhost:8081'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export interface RAGRequest {
   prompt: string;
   subreddit: string;
   topicData?: TopicData | null;
+  model?: string;
 }
 
 export const sendRAGRequest = async (request: RAGRequest) => {
@@ -18,6 +19,9 @@ export const sendRAGRequest = async (request: RAGRequest) => {
     if (request.topicData) {
       formData.append('topicData', JSON.stringify(request.topicData));
     }
+    
+    // Add model if it exists, default to "claude" if not specified
+    formData.append('model', request.model || "claude");
     
     const response = await fetch(`${API_BASE_URL}/api/rag/query`, {
       method: 'POST',

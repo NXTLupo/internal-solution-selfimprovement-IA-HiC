@@ -24,6 +24,9 @@ export const AISummaryBox = ({
   // Get project ID from Redux
   const projectId = useSelector((state: RootState) => state.sentimentAnalysis.projectId);
   
+  // LLM provider selection for Ask AI summary
+  const [llmProvider, setLlmProvider] = useState<'openai' | 'claude' | 'gemini'>('claude');
+  
   // Update local state when external state changes
   useEffect(() => {
     if (externalAiSummary !== undefined) {
@@ -144,14 +147,14 @@ export const AISummaryBox = ({
         const filteredData = getFilteredAnalysisData();
         // Ensure filteredData is not undefined before calling API
         if (filteredData) {
-          const regeneratedSummary = await regenerateAISummary(filteredData, projectId);
+          const regeneratedSummary = await regenerateAISummary(filteredData, projectId, llmProvider);
           setAiSummary(regeneratedSummary);
         } else {
           throw new Error('Unable to filter analysis data');
         }
       } else {
         // Fallback to just fetching the existing summary
-        const summaryData = await getAISummaryByProjectId(projectId);
+        const summaryData = await getAISummaryByProjectId(projectId, llmProvider);
         setAiSummary(summaryData);
       }
       
@@ -167,7 +170,7 @@ export const AISummaryBox = ({
     } finally {
       setLoading(false);
     }
-  }, [projectId, analysisData, getFilteredAnalysisData, onRefresh]);
+  }, [projectId, analysisData, getFilteredAnalysisData, onRefresh, llmProvider]);
   
   // Add useEffect to call fetchSummary
   useEffect(() => {
@@ -192,33 +195,45 @@ export const AISummaryBox = ({
           AI-Powered Summary
         </h3>
         
-        {/* Refresh button */}
-        {!isPlaceholder && projectId && (
-          <button 
-            onClick={handleRefresh}
-            disabled={loading}
-            className={`flex items-center px-3 py-1 rounded text-sm ${
-              loading 
-                ? 'bg-gray-700 text-gray-400 cursor-not-allowed' 
-                : 'bg-blue-600 text-white hover:bg-blue-700 transition-colors'
-            }`}
+        <div className="flex items-center space-x-2">
+          <select
+            className="bg-gray-700 text-gray-200 text-sm rounded px-2 py-1 border border-gray-600 focus:outline-none"
+            value={llmProvider}
+            onChange={(e) => setLlmProvider(e.target.value as 'openai' | 'claude' | 'gemini')}
+            title="Select AI model"
           >
-            <svg 
-              className={`w-4 h-4 mr-1 ${loading ? 'animate-spin' : ''}`} 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
+            <option value="openai">GPT-4o</option>
+            <option value="claude">Claude 3.7 Sonnet</option>
+            <option value="gemini">Gemini 2.5 Pro</option>
+          </select>
+          {/* Refresh button */}
+          {!isPlaceholder && projectId && (
+            <button 
+              onClick={handleRefresh}
+              disabled={loading}
+              className={`flex items-center px-3 py-1 rounded text-sm ${
+                loading 
+                  ? 'bg-gray-700 text-gray-400 cursor-not-allowed' 
+                  : 'bg-blue-600 text-white hover:bg-blue-700 transition-colors'
+              }`}
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
-              />
-            </svg>
-            {loading ? 'Refreshing...' : 'Refresh'}
-          </button>
-        )}
+              <svg 
+                className={`w-4 h-4 mr-1 ${loading ? 'animate-spin' : ''}`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
+                />
+              </svg>
+              {loading ? 'Refreshing...' : 'Refresh'}
+            </button>
+          )}
+        </div>
       </div>
       
       {loading ? (
@@ -249,17 +264,17 @@ export const AISummaryBox = ({
       ) : (
         <div className="space-y-4">
           <p className="text-gray-300">
-            {aiSummary.summary}
+            {aiSummary.summary || "No summary available"}
           </p>
           
           <div className="mt-2 space-y-2">
             <h4 className="text-sm font-semibold text-gray-400">Key Insights:</h4>
             <ul className="list-disc list-inside space-y-1">
               <li className="text-gray-300 text-sm">
-                <span className="text-green-400 font-medium">Top positive</span>: {aiSummary.topPositive}
+                <span className="text-green-400 font-medium">Top positive</span>: {aiSummary.topPositive || "No positive insights found"}
               </li>
               <li className="text-gray-300 text-sm">
-                <span className="text-red-400 font-medium">Main concerns</span>: {aiSummary.topNegative}
+                <span className="text-red-400 font-medium">Main concerns</span>: {aiSummary.topNegative || "No concerns found"}
               </li>
             </ul>
           </div>
@@ -267,11 +282,15 @@ export const AISummaryBox = ({
           <div className="mt-2 space-y-2">
             <h4 className="text-sm font-semibold text-gray-400">Recommendations:</h4>
             <ul className="list-disc list-inside space-y-1">
-              {aiSummary.recommendations.map((recommendation: string, index: number) => (
-                <li key={index} className="text-gray-300 text-sm">
-                  {recommendation}
-                </li>
-              ))}
+              {aiSummary.recommendations && Array.isArray(aiSummary.recommendations) ? (
+                aiSummary.recommendations.map((recommendation: string, index: number) => (
+                  <li key={index} className="text-gray-300 text-sm">
+                    {recommendation}
+                  </li>
+                ))
+              ) : (
+                <li className="text-gray-300 text-sm">No recommendations available</li>
+              )}
             </ul>
           </div>
         </div>
@@ -283,7 +302,7 @@ export const AISummaryBox = ({
         </svg>
         {isPlaceholder ? 
           "This is a placeholder. Actual implementation would provide custom insights based on your specific data." :
-          "Powered by Claude 3.7-sonnet"
+          (llmProvider === 'openai' ? 'Powered by GPT-4o' : llmProvider === 'gemini' ? 'Powered by Gemini 2.5 Pro' : 'Powered by Claude 3.7 Sonnet')
         }
       </div>
     </div>

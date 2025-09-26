@@ -147,4 +147,6 @@ export interface TopicData {
   keyword?: string;
   topic_similarities?: TopicSimilarity[];
   subreddit?: string;
+  startDate?: string;
+  endDate?: string;
 }

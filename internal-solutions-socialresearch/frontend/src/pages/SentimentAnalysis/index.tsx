@@ -3,15 +3,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AnalysisForm } from './AnalysisForm';
 import { AnalysisResults } from './AnalysisResults';
 import { useRedditAnalysis } from '../../hooks/useLLMAnalyzer';
+import { useUser } from '../../hooks/useUser';
 import { AnalysisFormData, Category, Point, AnalysisData } from '../../types/analysis';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import { setFormData, setAnalysisData } from '../../store/sentimentAnalysisSlice';
+import { setFormData, setAnalysisData, resetFormValues, clearAnalysisData } from '../../store/sentimentAnalysisSlice';
 import { AISummaryResponse } from '../../services/llmAnalyzer';
-
-// Define API base URL
-const API_BASE_URL = 'http://localhost:8081';
+import { userService } from '../../services/user';
 
 // Define a custom interface that extends the existing AnalysisData and includes ai_summary
 interface ExtendedAnalysisData extends AnalysisData {
@@ -125,6 +124,7 @@ function SentimentAnalysis() {
   // Get data from Redux store
   const reduxFormData = useSelector((state: RootState) => state.sentimentAnalysis);
   const user = useSelector((state: RootState) => state.user.currentUser);
+  const userProjects = useSelector((state: RootState) => state.user.currentUser?.projects || []);
   const dateFilteredData = useSelector((state: RootState) => state.sentimentAnalysis.dateFilteredData) as ExtendedAnalysisData | null;
   
   const {
@@ -136,15 +136,25 @@ function SentimentAnalysis() {
     streamedJson,
     isThinking,
     handleAnalyze,
-    cancelAnalysis,
     clearError,
-    isPolling
+    isPolling,
+    loadProjectWithJobStatus,
+    clearJobState,
+    updateProjectId
   } = useRedditAnalysis();
+  
+  const { fetchUserProjects, loading: userLoading, error: userError } = useUser();
 
+  // Add local validation error state
+  const [validationError, setValidationError] = useState<string | null>(null);
+
+  const validMaxWorkers = (typeof reduxFormData.maxWorkers === 'number' && reduxFormData.maxWorkers >= 1 && reduxFormData.maxWorkers <= 8)
+    ? reduxFormData.maxWorkers
+    : 3;
   const [formData, setLocalFormData] = useState<AnalysisFormData>({
-    subreddit: reduxFormData.subreddit || 'ouraring',
-    applicationName: reduxFormData.applicationName || 'ring',
-    postLimit: reduxFormData.postLimit || 50,
+    subreddit: reduxFormData.subreddit || '',
+    applicationName: reduxFormData.applicationName || '',
+    postLimit: reduxFormData.postLimit || 800,
     sort: reduxFormData.sort || 'relevance',
     timeFilter: reduxFormData.timeFilter || 'all',
     filterType: reduxFormData.filterType || 'cluster',
@@ -152,17 +162,90 @@ function SentimentAnalysis() {
     mergeMethod: reduxFormData.mergeMethod || 'deepseek',
     chunkSize: reduxFormData.chunkSize || 30000,
     analysisModel: reduxFormData.analysisModel || 'deepseek-r1',
-    maxWorkers: reduxFormData.maxWorkers || 3,
+    maxWorkers: validMaxWorkers,
   });
 
   const [projectLoaded, setProjectLoaded] = useState(false);
-
-  // Use a ref to access current formData without adding it as a dependency
+  
+  // Update projectId in Redux immediately when URL contains projectId
+  useEffect(() => {
+    if (projectId) {
+      updateProjectId(projectId);
+    } else {
+      updateProjectId(null);
+    }
+  }, [projectId, updateProjectId]);
+  
+  // Clear job state when project ID changes to ensure clean state between projects
+  useEffect(() => {
+    if (projectId) {
+      clearJobState();
+    }
+  }, [projectId, clearJobState]);
+  
+  // Track if we've tried loading the project and if it exists
+  const [projectLoadAttempted, setProjectLoadAttempted] = useState(false);
+  const [projectNotFound, setProjectNotFound] = useState(false);
   const formDataRef = useRef(formData);
-  // Update ref when formData changes
+
   useEffect(() => {
     formDataRef.current = formData;
   }, [formData]);
+  
+  // Sync local form data with Redux changes (for job parameters loading)
+  useEffect(() => {
+    const validMaxWorkers = (typeof reduxFormData.maxWorkers === 'number' && reduxFormData.maxWorkers >= 1 && reduxFormData.maxWorkers <= 8)
+      ? reduxFormData.maxWorkers
+      : 3;
+      
+    setLocalFormData({
+      subreddit: reduxFormData.subreddit || '',
+      applicationName: reduxFormData.applicationName || '',
+      postLimit: reduxFormData.postLimit || 800,
+      sort: reduxFormData.sort || 'relevance',
+      timeFilter: reduxFormData.timeFilter || 'all',
+      filterType: reduxFormData.filterType || 'cluster',
+      keyword: reduxFormData.keyword || '',
+      mergeMethod: reduxFormData.mergeMethod || 'deepseek',
+      chunkSize: reduxFormData.chunkSize || 30000,
+      analysisModel: reduxFormData.analysisModel || 'deepseek-r1',
+      maxWorkers: validMaxWorkers,
+    });
+  }, [reduxFormData]);
+  
+  // Clear subreddit in Redux when component unmounts
+  useEffect(() => {
+    return () => {
+      // Reset form values and clear analysis data when navigating away
+      dispatch(resetFormValues());
+      dispatch(clearAnalysisData());
+    };
+  }, [dispatch]);
+  
+  // Load projects if needed when accessing a project directly through URL
+  useEffect(() => {
+    const loadProjects = async () => {
+      if (projectId && userProjects.length === 0 && user && !userLoading && !projectLoadAttempted) {
+        setProjectLoadAttempted(true);
+        try {
+          // Attempt to load the user's projects
+          await fetchUserProjects(user.id);
+        } catch (error) {
+          console.error("Error loading user projects:", error);
+        }
+      }
+    };
+    
+    loadProjects();
+  }, [projectId, userProjects, user, userLoading, fetchUserProjects, projectLoadAttempted]);
+
+  // Check if project exists after loading
+  useEffect(() => {
+    if (projectId && projectLoadAttempted && !userLoading) {
+      const projectExists = userProjects.some(project => project.id === projectId);
+      setProjectNotFound(!projectExists);
+    }
+  }, [projectId, userProjects, userLoading, projectLoadAttempted]);
 
   // Load project data if projectId is provided
   useEffect(() => {
@@ -171,30 +254,17 @@ function SentimentAnalysis() {
       if (!projectId || projectLoaded || !user || !Array.isArray(user.projects)) {
         // If no projectId, already loaded, user not loaded, or projects not an array, don't proceed yet.
         // If projectId exists but user/projects aren't ready, this effect will re-run when they are.
-        if (projectId && !projectLoaded && user && !Array.isArray(user.projects)) {
-            console.log("Waiting for user projects to load...");
-        }
         return;
       }
 
-      try {
-        console.log("Loading project data for ID:", projectId);
+      setProjectLoaded(true);
 
-        // Now it's safe to access user.projects
-        const project = user.projects.find(p => p.id === projectId);
-        console.log("Found project in Redux:", project);
-        
-        if (project && project.data) {
-          // If project data exists in Redux, use it
-          console.log("Using project data from Redux:", project.data);
-          dispatch(setAnalysisData({
-            id: projectId,
-            data: project.data
-          }));
+      try {
+        try {
+          const project = await loadProjectWithJobStatus(projectId);
           
-          // Update form data if metadata is available
-          if (project.subreddit || project.topic) {
-            console.log("Updating form data with project metadata");
+          // Update form data with metadata if available
+          if (project && (project.subreddit || project.topic)) {
             const currentFormData = formDataRef.current;
             const updatedFormData: AnalysisFormData = {
               ...currentFormData,
@@ -215,22 +285,53 @@ function SentimentAnalysis() {
             dispatch(setFormData(updatedFormData));
           }
           
-          setProjectLoaded(true);
-        } else {
-          // If not in Redux, fetch from API
-          console.log("Fetching project data from API");
-          const response = await fetch(`${API_BASE_URL}/api/user/project/${projectId}`);
+          return;
+        } catch (error) {
+          console.error('[SentimentAnalysis] Error in loadProjectWithJobStatus:', error);
+          // Fallback handling
+        }
+
+        // Fallback: Check if project exists in Redux
+        const project = user.projects.find(p => p.id === projectId);
+        
+        if (project && project.data) {
+          // If project data exists in Redux, use it
+          dispatch(setAnalysisData({
+            id: projectId,
+            data: project.data as AnalysisData & { ai_summary?: AISummaryResponse | null }
+          }));
           
-          if (!response.ok) {
-            throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+          // Update form data if metadata is available
+          if (project.subreddit || project.topic) {
+            const currentFormData = formDataRef.current;
+            const updatedFormData: AnalysisFormData = {
+              ...currentFormData,
+              subreddit: project.subreddit || currentFormData.subreddit,
+              applicationName: project.topic || currentFormData.applicationName,
+              postLimit: project.post_count || currentFormData.postLimit,
+              sort: (project.sort_by as "relevance" | "hot" | "top" | "new" | "comments" | undefined) || currentFormData.sort,
+              timeFilter: (project.time_period as "hour" | "day" | "week" | "month" | "year" | "all" | undefined) || currentFormData.timeFilter,
+              filterType: currentFormData.filterType,
+              keyword: currentFormData.keyword,
+              mergeMethod: currentFormData.mergeMethod,
+              chunkSize: currentFormData.chunkSize,
+              analysisModel: currentFormData.analysisModel,
+              maxWorkers: currentFormData.maxWorkers
+            };
+            
+            setLocalFormData(updatedFormData);
+            dispatch(setFormData(updatedFormData));
           }
+        } else {
+          // Final fallback: fetch from API using the old method
+          console.log(`[SentimentAnalysis] Fetching project ${projectId} from API`);
+          const projectData = await userService.getProject(projectId);
           
-          const projectData = await response.json();
           if (projectData && projectData.data) {
             // Store in Redux
             dispatch(setAnalysisData({
               id: projectId,
-              data: projectData.data
+              data: projectData.data as AnalysisData & { ai_summary?: AISummaryResponse | null }
             }));
             
             // Update form data with metadata
@@ -253,8 +354,6 @@ function SentimentAnalysis() {
             setLocalFormData(updatedFormData);
             dispatch(setFormData(updatedFormData));
           }
-          
-          setProjectLoaded(true);
         }
       } catch (err: unknown) {
         console.error("Error loading project data:", err);
@@ -263,9 +362,24 @@ function SentimentAnalysis() {
     };
     
     loadProjectData();
-  }, [projectId, user, dispatch, projectLoaded]);
+  }, [projectId, user, dispatch, projectLoaded, loadProjectWithJobStatus]);
 
   const handleSubmit = () => {
+    // Validate required fields before proceeding
+    if (!formData.subreddit.trim()) {
+      setValidationError('Please enter a subreddit name');
+      return;
+    }
+    
+    if (!formData.applicationName.trim()) {
+      setValidationError('Please enter a topic to analyze');
+      return;
+    }
+    
+    // Clear any validation errors
+    setValidationError(null);
+    clearError(); // Clear any existing analysis errors
+    
     // Update Redux with the current form data
     dispatch(setFormData(formData));
     
@@ -276,30 +390,95 @@ function SentimentAnalysis() {
   const backgroundColor = 'rgba(16,18,20,255)';
 
   // Prepare analysis data for the AnalysisResults component
-  const analysisToDisplay = analysis ? 
-    { ...analysis } as ExtendedAnalysisData :
-    (reduxFormData.data ?
-      {
-        merged_result: reduxFormData.data.merged_result,
-        formatted_data: reduxFormData.data.formatted_data,
-        ai_summary: reduxFormData.data.ai_summary
-      } as ExtendedAnalysisData :
-      null);
+  let analysisToDisplay: ExtendedAnalysisData | null = null;
+  if (analysis) {
+    analysisToDisplay = { ...analysis } as ExtendedAnalysisData;
+  } else if (
+    reduxFormData.data &&
+    typeof reduxFormData.data === 'object' &&
+    'merged_result' in reduxFormData.data &&
+    'formatted_data' in reduxFormData.data
+  ) {
+    const data = reduxFormData.data as AnalysisData;
+    analysisToDisplay = {
+      ...data,
+      ai_summary: (data as ExtendedAnalysisData).ai_summary
+    };
+  } else {
+    analysisToDisplay = null;
+  }
 
   // Create a string-only version of rawResponse for AnalysisResults component
   const formattedRawResponse = typeof rawResponse === 'string' ? rawResponse : 
     (rawResponse ? JSON.stringify(rawResponse, null, 2) : null);
+    
+  // Render project not found message if needed
+  if (projectNotFound) {
+    return (
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
+        <div className="w-full py-3 px-6 flex items-center" style={{ backgroundColor }}>
+          <div className="flex items-center cursor-pointer" onClick={() => {
+            dispatch(resetFormValues());
+            navigate('/');
+          }}>
+            <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
+          </div>
+          <div className="text-white font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
+        </div>
+        <div className="flex-grow flex items-center justify-center">
+          <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-md w-full border border-gray-700">
+            <div className="flex items-center mb-6">
+              <div className="bg-red-500 p-3 rounded-full mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-white">Project Not Found</h2>
+            </div>
+            <p className="text-gray-300 mb-6">The project you're looking for doesn't exist or may have been deleted.</p>
+            <button 
+              className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              onClick={() => {
+                dispatch(resetFormValues());
+                navigate('/');
+              }}
+            >
+              Return to Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state while fetching user projects
+  if (userLoading && projectId) {
+    return (
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
+        <div className="w-full py-3 px-6 flex items-center" style={{ backgroundColor }}>
+          <div className="flex items-center cursor-pointer" onClick={() => {
+            dispatch(resetFormValues());
+            navigate('/');
+          }}>
+            <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
+          </div>
+          <div className="text-white font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
+        </div>
+        <div className="flex-grow flex items-center justify-center">
+          <div className="text-white text-xl">Loading project data...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
-      {/* Header */}
       <div className="w-full py-3 px-6 flex items-center" style={{ backgroundColor }}>
-        <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-        <div className="flex items-center">
-          <div className="cursor-pointer" onClick={() => navigate('/')}>
-            <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
-          </div>
-        </div>
+        <div className="flex items-center cursor-pointer" onClick={() => {
+          dispatch(resetFormValues());
+          navigate('/');
+        }}>
+          <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
         </div>
         
         <div className="text-white font-bold text-2xl mx-auto">
@@ -307,27 +486,17 @@ function SentimentAnalysis() {
         </div>
         
         <div className="flex items-center gap-4">
-          {isPolling ? (
-            <button 
-              onClick={cancelAnalysis}
-              className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg hover:shadow-red-500/20 h-[42px] w-32"
-            >
-              Cancel
-            </button>
-          ) : (
-            <button 
-              onClick={handleSubmit} 
-              disabled={loading}
-              className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg hover:shadow-blue-500/20 h-[42px] w-32"
-            >
-              {loading ? 'Analyzing...' : 'Analyze'}
-            </button>
-          )}
+          <button 
+            onClick={handleSubmit} 
+            disabled={loading}
+            className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg hover:shadow-blue-500/20 h-[42px] w-32"
+          >
+            {loading ? 'Analyzing...' : 'Analyze'}
+          </button>
           
           {analysisToDisplay && (
             <button
               onClick={() => {
-                console.log("Data being exported:", analysisToDisplay);
                 exportToMarkdown(
                   analysisToDisplay,
                   dateFilteredData,
@@ -350,8 +519,11 @@ function SentimentAnalysis() {
         <AnalysisForm
           onSubmit={(data) => handleAnalyze(data, projectId)}
           loading={loading}
-          error={error}
-          onClearError={clearError}
+          error={validationError || error || userError}
+          onClearError={() => {
+            setValidationError(null);
+            clearError();
+          }}
           formData={formData}
           setFormData={(value) => {
             if (typeof value === 'function') {

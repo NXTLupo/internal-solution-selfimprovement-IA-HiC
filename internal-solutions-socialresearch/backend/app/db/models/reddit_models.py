@@ -83,6 +83,8 @@ class RedditAnalysisResult(Base):
     sort_by = Column(String, nullable=True)
     time_period = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    startDate = Column(String, nullable=True)
+    endDate = Column(String, nullable=True)
 
     summary = Column(JSON, nullable=True)
     data = Column(JSON, nullable=False)

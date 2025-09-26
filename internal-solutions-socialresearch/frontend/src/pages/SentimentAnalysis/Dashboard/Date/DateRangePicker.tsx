@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './datapicker-custome.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDateFilteredData } from '../../../../store/sentimentAnalysisSlice';
@@ -13,6 +13,8 @@ interface DateRangePickerProps {
     toMonth: string | null;
   }) => void;
   maxDate?: string; // Format: "YYYY-MM-DD" or Unix timestamp
+  startDate?: string; // Format: "YYYY-MM-DD" from backend
+  endDate?: string; // Format: "YYYY-MM-DD" from backend
 }
 
 interface DateRange {
@@ -22,7 +24,7 @@ interface DateRange {
   toMonth: string | null;
 }
 
-export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxDate }) => {
+export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxDate, startDate, endDate }) => {
   const dispatch = useDispatch();
   const { data } = useSelector((state: RootState) => state.sentimentAnalysis);
   
@@ -65,16 +67,59 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
     };
   };
 
+  // Parse start date from backend if available
+  const getStartDate = () => {
+    if (startDate) {
+      try {
+        const date = new Date(startDate);
+        if (!isNaN(date.getTime())) {
+          return {
+            year: date.getFullYear().toString(),
+            month: String(date.getMonth() + 1).padStart(2, '0')
+          };
+        }
+      } catch (e) {
+        console.error("Error parsing startDate:", startDate, e);
+      }
+    }
+    return { year: null, month: null };
+  };
+
+  // Parse end date from backend if available
+  const getEndDate = () => {
+    if (endDate) {
+      try {
+        const date = new Date(endDate);
+        if (!isNaN(date.getTime())) {
+          return {
+            year: date.getFullYear().toString(),
+            month: String(date.getMonth() + 1).padStart(2, '0')
+          };
+        }
+      } catch (e) {
+        console.error("Error parsing endDate:", endDate, e);
+      }
+    }
+    
+    // If no end date provided, use max date
+    return getMaxDate();
+  };
+
   // Calculate max date once
   const maxDateValues = getMaxDate();
   const maxYear = maxDateValues.year;
   const maxMonth = maxDateValues.month;
 
+  // Get start date from props if available
+  const startDateValues = getStartDate();
+  // Get end date from props if available, otherwise use max date
+  const endDateValues = getEndDate();
+
   // Set initial state with calculated values
-  const [fromYear, setFromYear] = useState<string | null>(null);
-  const [fromMonth, setFromMonth] = useState<string | null>(null);
-  const [toYear, setToYear] = useState<string | null>(maxYear);
-  const [toMonth, setToMonth] = useState<string | null>(maxMonth);
+  const [fromYear, setFromYear] = useState<string | null>(startDateValues.year);
+  const [fromMonth, setFromMonth] = useState<string | null>(startDateValues.month);
+  const [toYear, setToYear] = useState<string | null>(endDateValues.year);
+  const [toMonth, setToMonth] = useState<string | null>(endDateValues.month);
 
   // Generate years from 2015 to max year
   const years = Array.from(
@@ -97,59 +142,65 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
     { value: '12', label: 'DEC' }
   ];
 
-  // Call onChange with initial values once on mount and when max date changes
-  useEffect(() => {
-    // Set state with new max values if they change
-    setToYear(maxYear);
-    setToMonth(maxMonth);
-    
-    // Notify parent component of initial values
-    onChange({
-      fromYear: null,
-      fromMonth: null,
-      toYear: maxYear,
-      toMonth: maxMonth,
-    });
-  }, [maxYear, maxMonth, onChange]);
+  // Helper function to convert timestamp to Date object (copied from AnalysisTab)
+  const getDateFromTimestamp = useCallback((timestamp: string): Date | null => {
+    try {
+      // Check if it's a numeric string (likely a Unix timestamp)
+      if (/^\d+$/.test(timestamp)) {
+        const timestampNum = parseInt(timestamp);
+        // Convert seconds to milliseconds if needed
+        const milliseconds = timestampNum > 10000000000 ? timestampNum : timestampNum * 1000;
+        const date = new Date(milliseconds);
+        if (!isNaN(date.getTime())) {
+          return date;
+        }
+      }
+      
+      // Try standard date parsing as fallback
+      const date = new Date(timestamp);
+      return !isNaN(date.getTime()) ? date : null;
+    } catch (e) {
+      console.error("Failed to parse date:", timestamp, e);
+      return null;
+    }
+  }, []);
 
-  const handleChange = (type: 'fromYear' | 'fromMonth' | 'toYear' | 'toMonth', value: string | null) => {
-    switch (type) {
-      case 'fromYear':
-        setFromYear(value);
-        if (!value) setFromMonth(null);
-        break;
-      case 'fromMonth':
-        setFromMonth(value);
-        break;
-      case 'toYear':
-        setToYear(value);
-        if (!value) setToMonth(null);
-        break;
-      case 'toMonth':
-        setToMonth(value);
-        break;
+  // Helper function to check if a post is within date range (similar to AnalysisTab)
+  const isPostWithinDateRange = useCallback((post: Post, dateRange: DateRange): boolean => {
+    const postDate = getDateFromTimestamp(post.created_utc);
+    if (!postDate) return true; // If can't parse date, include it
+
+    // If no date range is set, show all posts
+    if (!dateRange?.fromYear && !dateRange?.toYear) return true;
+
+    // Check if post is within the date range
+    let fromDate = null;
+    if (dateRange.fromYear && dateRange.fromMonth) {
+      fromDate = new Date(parseInt(dateRange.fromYear), parseInt(dateRange.fromMonth) - 1, 1);
+      fromDate.setHours(0, 0, 0, 0); // Start of day
+    }
+    
+    let toDate = null;
+    if (dateRange.toYear && dateRange.toMonth) {
+      // Get last day of month
+      const lastDay = new Date(parseInt(dateRange.toYear), parseInt(dateRange.toMonth), 0).getDate();
+      toDate = new Date(parseInt(dateRange.toYear), parseInt(dateRange.toMonth) - 1, lastDay);
+      toDate.setHours(23, 59, 59, 999); // End of day
     }
 
-    const newDateRange = {
-      fromYear: type === 'fromYear' ? value : fromYear,
-      fromMonth: type === 'fromMonth' ? value : fromMonth,
-      toYear: type === 'toYear' ? value : toYear,
-      toMonth: type === 'toMonth' ? value : toMonth,
-    };
-    
-    onChange(newDateRange);
-    
-    // Filter data based on date range and update Redux
-    if (data) {
-      const filteredData = filterDataByDateRange(data, newDateRange);
-      console.log("Date filter applied:", newDateRange);
-      console.log("Filtered data items:", filteredData);
-      dispatch(setDateFilteredData(filteredData));
+    if (fromDate && toDate) {
+      return postDate >= fromDate && postDate <= toDate;
+    } else if (fromDate) {
+      return postDate >= fromDate;
+    } else if (toDate) {
+      return postDate <= toDate;
     }
-  };
+
+    return true;
+  }, [getDateFromTimestamp]);
 
   // Function to filter data based on date range
-  const filterDataByDateRange = (data: AnalysisData, dateRange: DateRange): AnalysisData => {
+  const filterDataByDateRange = useCallback((data: AnalysisData, dateRange: DateRange): AnalysisData => {
     // If no date range is selected or it's the default (max date), return all data
     if (!data || (!dateRange.fromYear && dateRange.toYear === maxYear && dateRange.toMonth === maxMonth)) {
       return data;
@@ -205,62 +256,88 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
     // For other data structures, return as is
     console.log("Unknown data structure, returning original data");
     return data;
-  };
+  }, [maxYear, maxMonth, isPostWithinDateRange]);
 
-  // Helper function to check if a post is within date range (similar to AnalysisTab)
-  const isPostWithinDateRange = (post: Post, dateRange: DateRange): boolean => {
-    const postDate = getDateFromTimestamp(post.created_utc);
-    if (!postDate) return true; // If can't parse date, include it
+  // Call onChange with initial values once on mount and when dates change
+  useEffect(() => {
+    // Notify parent component of initial values
+    onChange({
+      fromYear,
+      fromMonth,
+      toYear,
+      toMonth,
+    });
+    
+    // Filter data based on date range and update Redux
+    if (data) {
+      const filteredData = filterDataByDateRange(data, {
+        fromYear,
+        fromMonth,
+        toYear,
+        toMonth,
+      });
+      dispatch(setDateFilteredData(filteredData));
+    }
+  }, [maxYear, maxMonth, fromYear, fromMonth, toYear, toMonth, onChange, data, dispatch, filterDataByDateRange]);
 
-    // If no date range is set, show all posts
-    if (!dateRange?.fromYear && !dateRange?.toYear) return true;
-
-    // Check if post is within the date range
-    let fromDate = null;
-    if (dateRange.fromYear && dateRange.fromMonth) {
-      fromDate = new Date(parseInt(dateRange.fromYear), parseInt(dateRange.fromMonth) - 1, 1);
-      fromDate.setHours(0, 0, 0, 0); // Start of day
+  // Effect to update state when props change
+  useEffect(() => {
+    if (startDate) {
+      try {
+        const date = new Date(startDate);
+        if (!isNaN(date.getTime())) {
+          setFromYear(date.getFullYear().toString());
+          setFromMonth(String(date.getMonth() + 1).padStart(2, '0'));
+        }
+      } catch (e) {
+        console.error("Error processing startDate in effect:", startDate, e);
+      }
     }
     
-    let toDate = null;
-    if (dateRange.toYear && dateRange.toMonth) {
-      // Get last day of month
-      const lastDay = new Date(parseInt(dateRange.toYear), parseInt(dateRange.toMonth), 0).getDate();
-      toDate = new Date(parseInt(dateRange.toYear), parseInt(dateRange.toMonth) - 1, lastDay);
-      toDate.setHours(23, 59, 59, 999); // End of day
-    }
-
-    if (fromDate && toDate) {
-      return postDate >= fromDate && postDate <= toDate;
-    } else if (fromDate) {
-      return postDate >= fromDate;
-    } else if (toDate) {
-      return postDate <= toDate;
-    }
-
-    return true;
-  };
-
-  // Helper function to convert timestamp to Date object (copied from AnalysisTab)
-  const getDateFromTimestamp = (timestamp: string): Date | null => {
-    try {
-      // Check if it's a numeric string (likely a Unix timestamp)
-      if (/^\d+$/.test(timestamp)) {
-        const timestampNum = parseInt(timestamp);
-        // Convert seconds to milliseconds if needed
-        const milliseconds = timestampNum > 10000000000 ? timestampNum : timestampNum * 1000;
-        const date = new Date(milliseconds);
+    if (endDate) {
+      try {
+        const date = new Date(endDate);
         if (!isNaN(date.getTime())) {
-          return date;
+          setToYear(date.getFullYear().toString());
+          setToMonth(String(date.getMonth() + 1).padStart(2, '0'));
         }
+      } catch (e) {
+        console.error("Error processing endDate in effect:", endDate, e);
       }
-      
-      // Try standard date parsing as fallback
-      const date = new Date(timestamp);
-      return !isNaN(date.getTime()) ? date : null;
-    } catch (e) {
-      console.error("Failed to parse date:", timestamp, e);
-      return null;
+    }
+  }, [startDate, endDate]);
+
+  const handleChange = (type: 'fromYear' | 'fromMonth' | 'toYear' | 'toMonth', value: string | null) => {
+    switch (type) {
+      case 'fromYear':
+        setFromYear(value);
+        if (!value) setFromMonth(null);
+        break;
+      case 'fromMonth':
+        setFromMonth(value);
+        break;
+      case 'toYear':
+        setToYear(value);
+        if (!value) setToMonth(null);
+        break;
+      case 'toMonth':
+        setToMonth(value);
+        break;
+    }
+
+    const newDateRange = {
+      fromYear: type === 'fromYear' ? value : fromYear,
+      fromMonth: type === 'fromMonth' ? value : fromMonth,
+      toYear: type === 'toYear' ? value : toYear,
+      toMonth: type === 'toMonth' ? value : toMonth,
+    };
+    
+    onChange(newDateRange);
+    
+    // Filter data based on date range and update Redux
+    if (data) {
+      const filteredData = filterDataByDateRange(data, newDateRange);
+      dispatch(setDateFilteredData(filteredData));
     }
   };
 

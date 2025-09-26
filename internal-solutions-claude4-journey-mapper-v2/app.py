@@ -644,6 +644,15 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Add mount point for uploads (usually kept private, be cautious about exposing this)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
+# Backward-compat logo alias: serve SVG when PNG is requested
+@app.get("/static/nxt-humans-logo.png")
+async def serve_legacy_logo_png():
+    png_path = os.path.join("static", "nxt-humans-logo.png")
+    svg_path = os.path.join("static", "nxt-humans-logo.svg")
+    if os.path.exists(png_path):
+        return FileResponse(png_path, media_type="image/png")
+    # Fallback to SVG to avoid broken links
+    return FileResponse(svg_path, media_type="image/svg+xml")
 @app.get("/api/export-pdf/{journey_id}")
 async def export_pdf(journey_id: str):
     """

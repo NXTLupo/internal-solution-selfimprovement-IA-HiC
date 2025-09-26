@@ -28,7 +28,15 @@ const userSlice = createSlice({
     },
     addProject: (state, action: PayloadAction<Project>) => {
       if (state.currentUser) {
-        state.currentUser.projects.push(action.payload);
+        // Check if project with this ID already exists
+        const existingProjectIndex = state.currentUser.projects.findIndex(p => p.id === action.payload.id);
+        if (existingProjectIndex !== -1) {
+          // Update existing project instead of adding duplicate
+          state.currentUser.projects[existingProjectIndex] = action.payload;
+        } else {
+          // Add new project
+          state.currentUser.projects.push(action.payload);
+        }
       }
     },
     updateProject: (state, action: PayloadAction<{id: string, updates: Partial<Project>}>) => {

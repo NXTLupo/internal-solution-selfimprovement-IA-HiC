@@ -1,4 +1,4 @@
-def get_openai_rag_prompt(user_query: str, rag_results: list, topic_data: dict = None) -> str:
+def get_rag_prompt(user_query: str, rag_results: list, topic_data: dict = None) -> str:
     # Start with the base prompt
     prompt = f"""You are a helpful AI assistant that answers questions based on the provided context.
 
@@ -39,15 +39,16 @@ USER QUERY:
 
 INSTRUCTIONS:
 1. Answer the user's query based ONLY on the information provided in the context.
-2. If the context doesn't contain enough information to answer the query, say "I don't have enough information to answer this question."
-3. Do not make up information or use knowledge outside of the provided context.
-4. For every piece of evidence you cite, add a reference at the end of the sentence in the format [postID] where postID is the exact ID of the source document.
-5. Example of proper reference: "Users are experiencing battery life issues with the device [qpmkvr]."
-6. Make sure all postID references are accurate and correspond to actual post IDs from the provided context.
-7. Do not modify the postID format - keep it exactly as shown in the context (do not add extra characters or modify the ID).
-8. Organize your response using markdown section headers (##) to categorize different perspectives.
-9. Use headers like "## Positive Perspectives", "## Criticisms", "## Feature Requests", "## Common Issues", etc. as appropriate for the query.
-10. Under each section header, provide a bulleted list explaining the key points with references.
+2. If the user's query is not related to the context, say "I don't have enough information to answer this question."
+3. If the context doesn't contain enough information to answer the query, say "I don't have enough information to answer this question."
+4. Do not make up information or use knowledge outside of the provided context.
+5. For every piece of evidence you cite, add a reference at the end of the sentence in the format [postID] where postID is the exact ID of the source document.
+6. Example of proper reference: "Users are experiencing battery life issues with the device [qpmkvr]."
+7. Make sure all postID references are accurate and correspond to actual post IDs from the provided context.
+8. Do not modify the postID format - keep it exactly as shown in the context (do not add extra characters or modify the ID).
+9. Organize your response using markdown section headers (##) to categorize different perspectives.
+10. Use headers like "## Positive Perspectives", "## Criticisms", "## Feature Requests", "## Common Issues", etc. as appropriate for the query.
+11. Under each section header, provide a bulleted list explaining the key points with references.
 
 
 ANSWER:

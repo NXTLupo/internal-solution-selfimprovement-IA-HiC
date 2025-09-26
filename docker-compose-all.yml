@@ -207,6 +207,8 @@ services:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
       - PORT=8000
       - ANTHROPIC_MODEL=claude-sonnet-4-20250514
+    volumes:
+      - ./internal-solutions-claude4-journey-mapper-v2/static:/app/static
     networks:
       - nxt-humans-network
 
@@ -250,12 +252,17 @@ services:
     ports:
       - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - CLAUDE_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
-      - AZURE_OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
-      - AZURE_OPENAI_KEY=***REDACTED-OPENAI-KEY***
-      - GEMINI_API_KEY=***REDACTED-GOOGLE-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE4_API_KEY=${CLAUDE4_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHATGPT5_API_KEY=${CHATGPT5_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      - REDDIT_REDIRECT_URI=${REDDIT_REDIRECT_URI}
+      - AZURE_DEEPSEEK_KEY=${AZURE_DEEPSEEK_KEY}
       - PORT=8081
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -265,9 +272,9 @@ services:
       - POSTGRES_PORT=5432
       - DATABASE_URL=postgresql://postgres:postgres@social-research-db:5432/app
       - FLASK_DEBUG=true
-      - SKIP_AZURE_AUTH=true
-      - USE_LOCAL_MODELS=true
-      - MOCK_AZURE_SERVICES=true
+
+      # Amazon Market Intelligence integration
+      - AMAZON_MARKET_INTELLIGENCE_URL=http://scrapehero-amazon:5000
     volumes:
       - ./internal-solutions-socialresearch:/app
     working_dir: /app/backend
@@ -299,7 +306,7 @@ services:
       - "${VIDEO_ANALYZER_PORT:-5002}:5000"
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - PORT=5000
     volumes:
       - ./internal-solutions-video-analyzer:/app
@@ -312,7 +319,9 @@ services:
       - nxt-humans-network
 
   linkedin-generator:
-    image: python:3.11-slim
+    build:
+      context: ./internal-solutions-linkedin-generator
+      dockerfile: Dockerfile
     ports:
       - "${LINKEDIN_GENERATOR_PORT:-5003}:5000"
     environment:
@@ -328,13 +337,7 @@ services:
       - linkedin-generator-uploads:/app/uploads
       - linkedin-generator-generated:/app/generated_content
     working_dir: /app
-    command: >
-      bash -c "apt-get update && apt-get install -y build-essential &&
-              pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python -m spacy download en_core_web_sm &&
-              mkdir -p uploads generated_content static/css static/js &&
-              uvicorn app:app --host 0.0.0.0 --port 5000"
+    command: uvicorn app:app --host 0.0.0.0 --port 5000
     networks:
       - nxt-humans-network
 
@@ -434,6 +437,27 @@ services:
     networks:
       - nxt-humans-network
 
+  # Amazon Market Intelligence Platform
+  scrapehero-amazon:
+    build:
+      context: ./internal-solutions-scrapehero-amazon
+      dockerfile: Dockerfile
+    ports:
+      - "${AMAZON_MARKET_INTELLIGENCE_PORT:-5008}:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_PORT=5000
+      - FLASK_DEBUG=1
+    volumes:
+      - ./internal-solutions-scrapehero-amazon:/app
+      - ./internal-solutions-scrapehero-amazon/static:/app/static
+      - ./internal-solutions-scrapehero-amazon/templates:/app/templates
+    working_dir: /app
+    command: flask run --host=0.0.0.0 --port=5000
+    networks:
+      - nxt-humans-network
+
+  # Consistent Character Generator Service
   consistent-character-generator:
     build:
       context: ./internal-solutions-consistent-character-generator
@@ -441,13 +465,18 @@ services:
     ports:
       - "${CONSISTENT_CHARACTER_GENERATOR_PORT:-5010}:5010"
     environment:
-      - PORT=5010
+      - FLASK_APP=app.py
       - FLASK_ENV=production
+      - PORT=5010
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./internal-solutions-consistent-character-generator:/app
+      - consistent-character-generator-data:/app/uploads
     working_dir: /app
     networks:
       - nxt-humans-network
+
+
 
 networks:
   nxt-humans-network:

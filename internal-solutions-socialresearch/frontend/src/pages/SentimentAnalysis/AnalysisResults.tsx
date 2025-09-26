@@ -10,6 +10,17 @@ import { RootState } from '../../store/store';
 import { setAISummary, setAISummaryLoading, setAISummaryError } from '../../store/sentimentAnalysisSlice';
 import { DateRangePicker } from './Dashboard/Date/DateRangePicker';
 import './Dashboard/Date/datapicker-custome.css';
+import { XCircle, CheckCircle2, Circle, Clock } from 'lucide-react';
+import { useRedditAnalysis } from '../../hooks/useLLMAnalyzer';
+
+const LLM_ANALYZER_STAGES = [
+  { progress: 1, message: 'Searching Reddit posts', timeEstimate: '~2-10 mins' },
+  { progress: 25, message: 'Processing and chunking data for analysis', timeEstimate: '~1 min' },
+  { progress: 30, message: 'Processing chunks with LLMs', timeEstimate: '~10-30 mins' },
+  { progress: 85, message: 'Merging analysis results', timeEstimate: '~2-5 mins' },
+  { progress: 98, message: 'Generating AI summary', timeEstimate: '~2-5 mins' },
+  { progress: 100, message: 'Analysis completed', timeEstimate: '<1 min' }
+];
 
 export const AnalysisResults = ({
   streamedJson,
@@ -19,6 +30,10 @@ export const AnalysisResults = ({
   isPolling
 }: AnalysisDisplayProps) => {
   const dispatch = useDispatch();
+  
+  // Import the cancelCurrentProject function from the hook
+  const { cancelCurrentProject } = useRedditAnalysis();
+  
   // Tabs: 'formatted', 'summary', 'analysis', 'visualization'
   const [activeTab, setActiveTab] = useState<'formatted' | 'summary' | 'analysis' | 'visualization'>('summary');
   const [dateRange, setDateRange] = useState<{
@@ -57,6 +72,11 @@ export const AnalysisResults = ({
   const [aiSummaryLoading, setAiSummaryLoading] = useState(reduxAISummaryLoading || false);
   const [aiSummaryError, setAiSummaryError] = useState<string | null>(reduxAISummaryError || null);
   const aiSummaryFetchedRef = useRef(false);
+
+  // Add state for job progress - extract from Redux or props
+  const jobProgress = useSelector((state: RootState) => state.sentimentAnalysis.jobProgress);
+  const jobStatus = useSelector((state: RootState) => state.sentimentAnalysis.jobStatus);
+  const jobMessage = useSelector((state: RootState) => state.sentimentAnalysis.jobMessage);
 
   // Helper function to convert timestamp to Date object
   const getDateFromTimestamp = useCallback((timestamp: string): Date | null => {
@@ -140,6 +160,138 @@ export const AnalysisResults = ({
     return latestDate.toISOString().split('T')[0]; // Fallback to ISO format
   };
 
+  // Find the current stage based on job progress
+  const getCurrentStage = () => {
+    if (jobProgress === null || jobProgress === undefined) return -1;
+    
+    for (let i = LLM_ANALYZER_STAGES.length - 1; i >= 0; i--) {
+      if (jobProgress >= LLM_ANALYZER_STAGES[i].progress) {
+        return i;
+      }
+    }
+    return 0;
+  };
+
+  // Handler for cancelling all jobs in the current project
+  const handleCancelJob = async () => {
+    const confirmMessage = 'Are you sure you want to cancel all sentiment analysis jobs for this project? This action cannot be undone.';
+    
+    if (window.confirm(confirmMessage)) {
+      try {
+        const result = await cancelCurrentProject();
+        if (result.cancelled_job_count > 0) {
+          console.log(`Successfully cancelled ${result.cancelled_job_count} jobs for project ${result.project_id}`);
+        } else {
+          console.log('No active jobs found to cancel for this project.');
+        }
+
+      } catch (err) {
+        console.error('Failed to cancel project jobs:', err);
+        
+        // Show error feedback to user
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+        alert(`Failed to cancel project: ${errorMessage}`);
+      }
+    }
+  };
+
+  // Render progress checklist component
+  const renderProgressChecklist = () => {
+    const currentStageIndex = getCurrentStage();
+    
+    // Check if job was cancelled
+    if (jobStatus === 'cancelled') {
+      return (
+        <div className="w-full max-w-lg mx-auto">
+          <div className="flex items-center justify-center mb-3">
+            <div className="text-red-400 font-medium flex items-center">
+              <XCircle className="w-5 h-5 mr-2" />
+              Sentiment analysis job was cancelled
+            </div>
+          </div>
+          
+          <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+            <div className="text-center">
+              <p className="text-gray-300 mb-2">The sentiment analysis process was cancelled.</p>
+              <p className="text-gray-400 text-sm">You can start a new analysis at any time.</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
+    return (
+      <div className="w-full max-w-lg mx-auto">
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-blue-400 font-medium flex items-center">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500 mr-2"></div>
+            Sentiment analysis in progress...
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={handleCancelJob}
+              className="flex items-center text-red-400 hover:text-red-300 transition-colors text-sm"
+              title="Cancel all jobs for this project"
+            >
+              <XCircle className="w-4 h-4 mr-1" />
+              <span>Cancel</span>
+            </button>
+          </div>
+        </div>
+          
+        <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+          {LLM_ANALYZER_STAGES.map((stage, index) => {
+            // Determine the status of this stage
+            const isCompleted = currentStageIndex > index;
+            const isCurrent = currentStageIndex === index;
+            const isPending = currentStageIndex < index;
+            
+            return (
+              <div 
+                key={index} 
+                className={`flex items-center p-2 rounded-md transition-colors ${
+                  isCurrent ? 'bg-blue-900 bg-opacity-40' : 
+                  isCompleted ? 'bg-gray-900 bg-opacity-30' : ''
+                }`}
+              >
+                <div className="mr-3">
+                  {isCompleted && (
+                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                  )}
+                  {isCurrent && (
+                    <Clock className="h-5 w-5 text-blue-400 animate-pulse" />
+                  )}
+                  {isPending && (
+                    <Circle className="h-5 w-5 text-gray-500" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <div className={`text-sm font-medium ${
+                    isCurrent ? 'text-blue-300' : 
+                    isCompleted ? 'text-green-300' : 
+                    'text-gray-400'
+                  }`}>
+                    {stage.message}
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500 ml-2">
+                  {stage.timeEstimate}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        {jobMessage && jobMessage !== LLM_ANALYZER_STAGES[currentStageIndex]?.message && (
+          <div className="mt-3 text-sm text-gray-400">
+            <span className="font-medium">Current operation:</span> {jobMessage}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // Handler for navigating to a specific category in the detailed analysis
   const handleCategoryClick = (sentiment: string, index: number) => {
     // Set the active tab to 'analysis'
@@ -195,13 +347,19 @@ export const AnalysisResults = ({
     }
   }, [activeTab, targetCategory]);
 
+  // Reset the aiSummaryFetchedRef when projectId changes
+  useEffect(() => {
+    // Reset the fetch flag when project ID changes
+    aiSummaryFetchedRef.current = false;
+  }, [projectId]);
 
   useEffect(() => {
     // Use project ID from analysis or from Redux
     const effectiveProjectId = analysis?.analysis_id || projectId;
-
-    if (!effectiveProjectId || aiSummaryFetchedRef.current || reduxAISummary) {
-      // If summary is already in Redux, ensure local state matches
+    if (!effectiveProjectId || 
+        aiSummaryFetchedRef.current || 
+        reduxAISummary || 
+        reduxAISummaryLoading) {
       if (reduxAISummary && aiSummaryData !== reduxAISummary) {
         setAiSummaryData(reduxAISummary);
       }
@@ -209,7 +367,7 @@ export const AnalysisResults = ({
     }
 
     const fetchAISummary = async () => {
-      aiSummaryFetchedRef.current = true; // Mark as attempted fetch
+      aiSummaryFetchedRef.current = true;
       try {
         setAiSummaryLoading(true);
         const summaryData = await getAISummaryByProjectId(effectiveProjectId);
@@ -227,8 +385,8 @@ export const AnalysisResults = ({
     };
 
     fetchAISummary();
-    // Depend on projectId, analysis?.analysis_id, dispatch, and reduxAISummary
-  }, [analysis?.analysis_id, projectId, dispatch, reduxAISummary, aiSummaryData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [analysis?.analysis_id, projectId, dispatch, reduxAISummary, reduxAISummaryLoading]);
 
   // Effect to sync local state if Redux summary changes (e.g., after regeneration)
   useEffect(() => {
@@ -239,7 +397,8 @@ export const AnalysisResults = ({
       setAiSummaryError(null);
       setAiSummaryLoading(false);
     }
-  }, [reduxAISummary, aiSummaryData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduxAISummary]);
 
   // Effect to sync local state with Redux for AI summary loading and error
   useEffect(() => {
@@ -352,13 +511,24 @@ export const AnalysisResults = ({
       <div className="p-6 rounded-xl shadow-xl border border-gray-700 min-h-screen" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
         {isPolling ? (
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
-              <p className="text-blue-400 font-medium">Analysis job in progress...</p>
-            </div>
-            <p className="text-gray-300">
-              {streamedJson || 'Your analysis is being processed. This may take several minutes for large datasets.'}
-            </p>
+            {/* Show progress checklist if jobProgress is available */}
+            {jobProgress !== null && jobProgress !== undefined ? (
+              <div className="text-center py-1">
+                {renderProgressChecklist()}
+              </div>
+            ) : (
+              <div>
+                <div className="flex items-center space-x-3">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+                  <p className="text-blue-400 font-medium">Analysis job in progress...</p>
+                </div>
+                <p className="text-gray-300">
+                  {streamedJson || 'Your analysis is being processed. This may take several minutes for large datasets.'}
+                </p>
+              </div>
+            )}
+            <div className="flex justify-center">
+              <div className="flex flex-col max-w-2xl w-full px-4">
             <div className="mt-4 bg-gray-800 rounded-lg p-4 text-sm text-gray-400">
               <p className="mb-2 text-gray-300 font-medium">Why is this taking time?</p>
               <p>
@@ -366,6 +536,25 @@ export const AnalysisResults = ({
                 AI processing, and result merging. You can continue using other parts of the 
                 application while waiting - your results will be displayed as soon as they're ready.
               </p>
+            </div>
+            
+            <div className="mt-4 bg-blue-900 bg-opacity-20 border border-blue-700 rounded-lg p-4 text-sm">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <p className="text-blue-300 font-medium mb-1">You can leave this page</p>
+                  <p className="text-blue-200">
+                    The analysis is running on our servers. Feel free to close this tab or navigate away - 
+                    you can return anytime to check the progress or view results when complete.
+                  </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         ) : (

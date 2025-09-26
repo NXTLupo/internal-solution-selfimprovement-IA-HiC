@@ -15,38 +15,71 @@ class JobsRepository:
 
     # Job Status Management Methods
     
-    def create_job(self, job_id: str, user_id: str, parameters: Dict) -> RedditJobStatus:
+    def create_job(self, job_id: str, user_id: str, project_id: str, parameters: Dict) -> RedditJobStatus:
         """
         Create a new job in the database
         
         Args:
             job_id: Unique identifier for the job
-            user_id: The ID of the user who created the job
-            parameters: Job configuration parameters (should contain search_id if needed)
+            user_id: ID of the user who created the job
+            project_id: ID of the project/analysis
+            parameters: Job configuration parameters (subreddit, query, analysis settings, etc.)
             
         Returns:
             The created job object
+            
+        Raises:
+            ValueError: If required parameters are invalid
+            Exception: If database operation fails
         """
-        # Get search_id from parameters if it exists, for logging purposes
-        search_id = parameters.get('search_id', 'unknown')
-        print(f"[create_job] Creating job {job_id} for user {user_id}, search {search_id}")
+        # Validate required parameters
+        if not job_id or not isinstance(job_id, str) or job_id.strip() == "":
+            raise ValueError("job_id is required and must be a non-empty string")
         
-        job = RedditJobStatus(
-            id=job_id,
-            user_id=user_id,
-            status="pending",
-            message="Job submitted and queued for processing",
-            parameters=parameters,
-            created_at=datetime.utcnow(),
-            updated_at=datetime.utcnow()
-        )
+        if not user_id or not isinstance(user_id, str) or user_id.strip() == "":
+            raise ValueError("user_id is required and must be a non-empty string")
+            
+        if not project_id or not isinstance(project_id, str) or project_id.strip() == "":
+            raise ValueError("project_id is required and must be a non-empty string")
+            
+        if parameters is None:
+            parameters = {}
+        elif not isinstance(parameters, dict):
+            raise ValueError("parameters must be a dictionary")
         
-        self.db.add(job)
-        self.db.commit()
-        self.db.refresh(job)
-        
-        print(f"[create_job] Created job with ID: {job.id}")
-        return job
+        try:
+            # Get subreddit and query from parameters for logging purposes
+            subreddit = parameters.get('subreddit', 'unknown')
+            query = parameters.get('query', 'unknown')
+            print(f"[create_job] Creating job {job_id} for user {user_id}, subreddit: {subreddit}, query: {query}")
+            
+            job = RedditJobStatus(
+                id=job_id,
+                user_id=user_id,
+                analysis_id=project_id,
+                status="pending",
+                message="Job created and queued for processing",
+                parameters=parameters,
+                progress=0,
+                created_at=datetime.utcnow(),
+                updated_at=datetime.utcnow()
+            )
+            
+            self.db.add(job)
+            self.db.commit()
+            self.db.refresh(job)
+            
+            print(f"[create_job] Created job with ID: {job.id}")
+            return job
+            
+        except ValueError:
+            # Re-raise validation errors
+            raise
+        except Exception as e:
+            # Rollback the transaction on any database error
+            self.db.rollback()
+            print(f"[create_job] Error creating job {job_id}: {str(e)}")
+            raise Exception(f"Failed to create job: {str(e)}")
     
     def update_job_status(self, job_id: str, status: str, message: str = None, 
                          progress: int = None, error: str = None, analysis_id: str = None) -> bool:
@@ -196,6 +229,52 @@ class JobsRepository:
             return True
             
         return False
+
+    def get_jobs_by_project_id(self, project_id: str) -> List[RedditJobStatus]:
+        """
+        Get all jobs associated with a project ID
+        
+        Args:
+            project_id: The project ID to search for
+            
+        Returns:
+            List of job objects that have this project_id in their parameters
+        """
+        # Query jobs where parameters JSON contains the project_id
+        jobs = self.db.query(RedditJobStatus).filter(
+            RedditJobStatus.parameters.op('->>')('project_id') == project_id
+        ).all()
+        
+        return jobs
+    
+    def cancel_jobs_by_project_id(self, project_id: str) -> int:
+        """
+        Cancel all jobs associated with a project ID that are pending or processing
+        
+        Args:
+            project_id: The project ID to cancel jobs for
+            
+        Returns:
+            Number of jobs that were cancelled
+        """
+        # Find all jobs with this project_id that can be cancelled
+        jobs = self.db.query(RedditJobStatus).filter(
+            RedditJobStatus.parameters.op('->>')('project_id') == project_id,
+            RedditJobStatus.status.in_(["pending", "processing"])
+        ).all()
+        
+        cancelled_count = 0
+        for job in jobs:
+            job.status = "cancelled"
+            job.message = "Job was cancelled by project cancellation request"
+            job.updated_at = datetime.utcnow()
+            cancelled_count += 1
+            
+        if cancelled_count > 0:
+            self.db.commit()
+            
+        print(f"[cancel_jobs_by_project_id] Cancelled {cancelled_count} jobs for project {project_id}")
+        return cancelled_count
 
 # Standalone functions for working with JobsRepository
 def update_job_status(job_id, status, message=None, progress=None, result=None, error=None):

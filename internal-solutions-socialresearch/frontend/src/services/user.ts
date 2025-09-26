@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:8081';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 export const userService = {
   // Get user projects
@@ -6,17 +7,23 @@ export const userService = {
     try {
       const response = await fetch(`${API_BASE_URL}/api/user/projects/${userId}`);
       if (!response.ok) {
-        throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+        throw new Error(`Server returned ${response.status} ${response.statusText}`);
       }
-      return await response.json();
-    } catch (error) {
+      
+      // Get the raw response first
+      const rawText = await response.text();
+      // Then parse it as JSON
+      const data = JSON.parse(rawText);
+      
+      return data;
+    } catch (error: unknown) {
       console.error('Error fetching user projects:', error);
       throw error;
     }
   },
 
   // Create new project
-  createProject: async (userId: string, projectType: string) => {
+  createProject: async (userId: string, projectType: string, additionalData = {}) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/user/projects`, {
         method: 'POST',
@@ -25,7 +32,8 @@ export const userService = {
         },
         body: JSON.stringify({
           user_id: userId,
-          type: projectType
+          type: projectType,
+          ...additionalData
         })
       });
       
@@ -59,6 +67,23 @@ export const userService = {
       return true;
     } catch (error) {
       console.error('Error deleting project:', error);
+      throw error;
+    }
+  },
+  
+  // Get single project by ID
+  getProject: async (projectId: string) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/user/project/${projectId}`);
+      
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+      }
+      
+      const project = await response.json();
+      return project;
+    } catch (error) {
+      console.error('Error fetching project:', error);
       throw error;
     }
   }

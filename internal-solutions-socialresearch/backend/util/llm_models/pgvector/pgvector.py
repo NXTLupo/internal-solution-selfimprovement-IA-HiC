@@ -2,11 +2,12 @@ import os
 import logging
 import json
 import uuid
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Union
 import numpy as np
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 from sentence_transformers import SentenceTransformer
+from util.device import get_torch_device
 from app.db.config.database import SessionLocal
 import psycopg2
 
@@ -21,7 +22,8 @@ SENTENCE_TRANSFORMER_MODEL = "all-mpnet-base-v2"
 
 def get_sentence_transformer():
     """Get the SentenceTransformer model used in BERTopic."""
-    return SentenceTransformer(SENTENCE_TRANSFORMER_MODEL)
+    # Use GPU if available, else CPU
+    return SentenceTransformer(SENTENCE_TRANSFORMER_MODEL, device=get_torch_device())
 
 def get_db_connection():
     """Get a database connection."""
@@ -67,6 +69,24 @@ def create_pgvector_tables():
         return False
     finally:
         db.close()
+
+def index_data_in_pgvector(subreddit: str, reddit_data: Optional[List[Dict]] = None, log_dir: Optional[str] = None) -> Dict[str, Union[bool, int, str]]:
+    """Compatibility wrapper expected by routes to index data into PGVector.
+    Creates tables if needed and stores embeddings for provided reddit_data.
+
+    Returns a dict with keys: success, inserted, error (optional).
+    """
+    try:
+        create_pgvector_tables()
+        inserted = 0
+        if reddit_data:
+            inserted = store_reddit_data_in_pgvector(subreddit, reddit_data)
+        return {"success": True, "inserted": inserted}
+    except Exception as e:
+        logger.error(f"index_data_in_pgvector failed: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        return {"success": False, "inserted": 0, "error": str(e)}
 
 def store_reddit_data_in_pgvector(subreddit: str, reddit_data: List[Dict]) -> int:
     """

@@ -157,6 +157,10 @@ def get_dynamic_urls(request_is_secure=False):
             'client_url': consistent_character_generator_client_url,
             'internal_url': consistent_character_generator_url
         },
+        'scrapehero_amazon': {
+            'client_url': os.environ.get('SCRAPEHERO_AMAZON_CLIENT_URL', 'http://localhost:5008'),
+            'internal_url': os.environ.get('SCRAPEHERO_AMAZON_URL', 'http://scrapehero-amazon:5000')
+        },
     }
 
     # Add agent and MCP URLs if CX agent is enabled
@@ -405,6 +409,7 @@ def index():
                        presentation_generator_url=urls['presentation_generator']['client_url'],
                        soundtrack_generator_url=urls['soundtrack_generator']['client_url'],
                        consistent_character_generator_url=urls['consistent_character_generator']['client_url'],
+                       scrapehero_amazon_url=urls['scrapehero_amazon']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))

@@ -1,6 +1,6 @@
-import { TopicData } from "../hooks/useTopicModeling";
+import { TopicData, AnalysisFormData } from "../types/TopicModeling";
 
-const API_BASE_URL = 'http://localhost:8081';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Async function that creates a job and returns the job ID
 export const analyzeTopicsAsync = async (params: {
@@ -9,10 +9,9 @@ export const analyzeTopicsAsync = async (params: {
   user_id?: string;
   project_id?: string;
   keyword?: string;
+  startDate?: string;
+  endDate?: string;
 }): Promise<{ job_id: string; status: string; message: string }> => {
-  console.log("topicService.analyzeTopicsAsync called with params:", params);
-  console.log("Project ID being sent to backend:", params.project_id);
-  
   const response = await fetch(`${API_BASE_URL}/api/topic-model/analyze-async`, {
     method: 'POST',
     headers: {
@@ -23,7 +22,9 @@ export const analyzeTopicsAsync = async (params: {
       sort: params.sort || 'relevance',
       user_id: params.user_id || '123',
       project_id: params.project_id,
-      keyword: params.keyword
+      keyword: params.keyword,
+      startDate: params.startDate,
+      endDate: params.endDate
     }),
   });
 
@@ -32,7 +33,6 @@ export const analyzeTopicsAsync = async (params: {
   }
   
   const jobData = await response.json();
-  console.log("topicService received job data:", jobData);
 
   return jobData;
 };
@@ -46,12 +46,12 @@ export const getJobStatus = async (jobId: string | undefined): Promise<{
   analysis_id?: string;
   result?: TopicData;
   error?: string;
+  created_at: string;
+  updated_at: string;
 }> => {
   if (!jobId) {
     throw new Error('Job ID is required');
   }
-  
-  console.log(`Checking status for job: ${jobId}`);
   
   const response = await fetch(`${API_BASE_URL}/api/topic-model/job-status/${jobId}`);
   
@@ -60,7 +60,6 @@ export const getJobStatus = async (jobId: string | undefined): Promise<{
   }
   
   const statusData = await response.json();
-  console.log(`Job status for ${jobId}:`, statusData);
   
   return statusData;
 };
@@ -71,8 +70,6 @@ export const cancelJob = async (jobId: string | undefined): Promise<{ job_id: st
     throw new Error('Job ID is required');
   }
   
-  console.log(`Cancelling job: ${jobId}`);
-  
   const response = await fetch(`${API_BASE_URL}/api/topic-model/job/${jobId}`, {
     method: 'DELETE'
   });
@@ -82,26 +79,65 @@ export const cancelJob = async (jobId: string | undefined): Promise<{ job_id: st
   }
   
   const result = await response.json();
-  console.log(`Cancel job result for ${jobId}:`, result);
   
   return result;
 };
 
-export const getSubredditStats = async (subreddit: string) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/llm-analyzer/subreddit-stats/${subreddit}`);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch subreddit stats: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    // console.log('Received stats:', data);
-    return data;
-  } catch (error) {
-    console.error('Error fetching subreddit stats:', error);
-    return { total_posts: 0, total_comments: 0 };
+// Function to cancel all jobs for a project
+export const cancelJobsByProject = async (projectId: string | undefined): Promise<{ 
+  project_id: string; 
+  status: string; 
+  message: string; 
+  cancelled_job_count: number;
+  cancelled_job_ids: string[];
+}> => {
+  if (!projectId) {
+    throw new Error('Project ID is required');
   }
+  
+  const response = await fetch(`${API_BASE_URL}/api/topic-model/project/${projectId}/cancel`, {
+    method: 'DELETE'
+  });
+  
+  if (!response.ok) {
+    throw new Error(`Failed to cancel jobs for project: ${response.status}`);
+  }
+  
+  const result = await response.json();
+  
+  return result;
+};
+
+// Function to get all jobs for a project
+export const getJobsByProject = async (projectId: string | undefined): Promise<{
+  project_id: string;
+  jobs: Array<{
+    job_id: string;
+    user_id: string;
+    status: string;
+    message: string;
+    progress?: number;
+    error?: string;
+    analysis_id?: string;
+    created_at: string;
+    updated_at: string;
+    parameters: AnalysisFormData;
+  }>;
+  total_jobs: number;
+}> => {
+  if (!projectId) {
+    throw new Error('Project ID is required');
+  }
+  
+  const response = await fetch(`${API_BASE_URL}/api/topic-model/jobs/project/${projectId}`);
+  
+  if (!response.ok) {
+    throw new Error(`Failed to get jobs for project: ${response.status}`);
+  }
+  
+  const result = await response.json();
+  
+  return result;
 };
 
 export const getPostData = async (postIds: string[]) => {
@@ -125,11 +161,9 @@ export const getPostData = async (postIds: string[]) => {
     
     const data = await response.json();
     return data.posts || [];
-  } catch (error) {
-    console.error('Error fetching post data:', error);
+  } catch {
     return [];
   }
 };
-
 
 

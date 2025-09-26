@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { AnalysisFormData, SortOption } from '../../types/TopicModeling';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSubreddit } from '../../store/topicSlice';
+import { setSubreddit, setStartDate, setEndDate } from '../../store/topicSlice';
 import { RootState } from '../../store/store';
 import { useLocation } from 'react-router-dom';
+import { Tooltip } from '../../components/Tooltip';
 
 type AnalysisFormProps = {
   error: string | null;
@@ -23,37 +24,60 @@ export const TopicModelingForm = ({
   
   const dispatch = useDispatch();
   const storeSubreddit = useSelector((state: RootState) => state.topic.subreddit);
+  const storeStartDate = useSelector((state: RootState) => state.topic.startDate);
+  const storeEndDate = useSelector((state: RootState) => state.topic.endDate);
   const location = useLocation();
   
   // Set default end date and check for project_id in URL
   useEffect(() => {
+    // Sync form data with Redux store if needed - only on initial load
+    const updatedFormData = { ...formData };
+    let shouldUpdate = false;
     
-    if (!formData.endDate) {
-      const today = new Date().toISOString().split('T')[0]; 
-      setFormData({ ...formData, endDate: today });
+    if (storeSubreddit && !formData.subreddit && formData.subreddit !== '') {
+      updatedFormData.subreddit = storeSubreddit;
+      shouldUpdate = true;
     }
     
-    // Sync form data with Redux store if needed
-    if (storeSubreddit && !formData.subreddit) {
-      setFormData({ ...formData, subreddit: storeSubreddit });
+    // Add startDate from Redux if available
+    if (storeStartDate && !formData.startDate) {
+      updatedFormData.startDate = storeStartDate;
+      shouldUpdate = true;
+    }
+    
+    // Add endDate from Redux if available
+    if (storeEndDate && !formData.endDate) {
+      updatedFormData.endDate = storeEndDate;
+      shouldUpdate = true;
+    } 
+    // Always set default end date to current UTC date if not already set
+    else if (!formData.endDate) {
+      // Get current UTC date in YYYY-MM-DD format
+      const now = new Date();
+      const utcDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+      const todayUTC = utcDate.toISOString().split('T')[0]; 
+      updatedFormData.endDate = todayUTC;
+      shouldUpdate = true;
+    }
+    
+    // Only update form state if we need to
+    if (shouldUpdate) {
+      setFormData(updatedFormData);
     }
     
     // Check URL for project_id parameter
     const searchParams = new URLSearchParams(location.search);
     const urlProjectId = searchParams.get('project_id');
     if (urlProjectId && !formData.project_id) {
-      setFormData({ ...formData, project_id: urlProjectId });
+      setFormData({ ...updatedFormData, project_id: urlProjectId });
     } else if (projectId && !formData.project_id) {
-      setFormData({ ...formData, project_id: projectId });
+      setFormData({ ...updatedFormData, project_id: projectId });
     }
-  }, [location, storeSubreddit, projectId, formData, setFormData]);
+  }, [location, storeSubreddit, storeStartDate, storeEndDate, projectId, formData, setFormData]);
 
   // Handle subreddit change
   const handleSubredditChange = (value: string) => {
-    // Update local form state
-    setFormData({ ...formData, subreddit: value });
-    // Update Redux store
-    console.log('Setting subreddit:', value);
+    // Update Redux store with the new value, even if empty
     dispatch(setSubreddit(value));
   };
 
@@ -74,40 +98,64 @@ export const TopicModelingForm = ({
         )}
         
         <h3 className="font-semibold text-blue-400 text-lg text-center">Searching Options</h3>
+        <form autoComplete="off">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           
           <div className="flex flex-col">
-            <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300">Subreddit:</label>
+            <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+              Subreddit:
+              <Tooltip
+                content={
+                  <div className="text-xs text-gray-300">
+                    Choose active subreddits with sufficient posts
+                  </div>
+                }
+              >
+                <svg 
+                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                  />
+                </svg>
+              </Tooltip>
+            </label>
             <input
               id="subreddit"
               type="text"
               value={formData.subreddit}
-              onChange={(e) => setFormData({...formData, subreddit: e.target.value})}
-              onBlur={(e) => handleSubredditChange(e.currentTarget.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  handleSubredditChange(e.currentTarget.value);
-                }
+              onChange={(e) => {
+                const newValue = e.target.value;
+                setFormData({...formData, subreddit: newValue});
+                handleSubredditChange(newValue);
               }}
               placeholder="Enter subreddit name"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
+              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
               style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              autoComplete="off"
+              spellCheck="true"
             />
-            <small className="mt-1 text-gray-400">Choose active subreddits with sufficient posts</small>
           </div>
-          
+
           <div className="flex flex-col">
             <label htmlFor="keyword" className="mb-2 font-medium text-gray-300">Keyword(optional):</label>
-            <input
-              id="keyword"
-              type="text"
-              value={formData.keyword || ''}
-              onChange={(e) => setFormData({...formData, keyword: e.target.value})}
-              placeholder="Search for posts containing"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
-            />
+                          <input
+                id="keyword"
+                type="text"
+                value={formData.keyword || ''}
+                onChange={(e) => setFormData({...formData, keyword: e.target.value})}
+                placeholder="Search for posts containing"
+                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
+                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                autoComplete="off"
+                spellCheck="true"
+              />
           </div>
           
           <div className="flex flex-col">
@@ -127,29 +175,92 @@ export const TopicModelingForm = ({
           
           {/* Date range selection fields */}
           <div className="flex flex-col">
-            <label htmlFor="startDate" className="mb-2 font-medium text-gray-300">Start Date:</label>
+            <label htmlFor="startDate" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+              Start Date:
+              <Tooltip
+                content={
+                  <div className="text-xs text-gray-300">
+                    <div className="font-semibold mb-1">UTC Date Range</div>
+                    <div>Reddit API uses UTC time for filtering.</div>
+                    <div>Leave empty to search from the beginning.</div>
+                  </div>
+                }
+              >
+                <svg 
+                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                  />
+                </svg>
+              </Tooltip>
+            </label>
             <input
               id="startDate"
               type="date"
               value={formData.startDate || ''}
-              onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+              onChange={(e) => {
+                const newValue = e.target.value;
+                setFormData({ ...formData, startDate: newValue });
+                // Also update Redux state
+                dispatch(setStartDate(newValue || undefined));
+              }}
+              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 dark-theme-input"
               style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              autoComplete="off"
             />
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="endDate" className="mb-2 font-medium text-gray-300">End Date:</label>
+            <label htmlFor="endDate" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+              End Date:
+              <Tooltip
+                content={
+                  <div className="text-xs text-gray-300">
+                    <div className="font-semibold mb-1">UTC Date Range</div>
+                    <div>Reddit API uses UTC time for filtering.</div>
+                    <div>Defaults to current UTC date.</div>
+                  </div>
+                }
+              >
+                <svg 
+                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                  />
+                </svg>
+              </Tooltip>
+            </label>
             <input
               id="endDate"
               type="date"
               value={formData.endDate || ''}
-              onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+              onChange={(e) => {
+                const newValue = e.target.value;
+                setFormData({ ...formData, endDate: newValue });
+                // Also update Redux state
+                dispatch(setEndDate(newValue || undefined));
+              }}
+              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 dark-theme-input"
               style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              autoComplete="off"
             />
           </div>
         </div>
+        </form>
       </div>
     </div>
   );

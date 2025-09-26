@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from config import Config
-from .routes.api import api_bp, register_routes
-from .routes.api_pgvector import rag_bp
-from app.routes.api_user import user_bp
-import nltk
-from util.llm_models.pgvector.pgvector import create_pgvector_tables
+from .routes.api import api_bp
+from app.db_init import init_db
 import logging
 
 # Disable Azure HTTP logging by setting log level to ERROR
@@ -14,42 +11,26 @@ logging.getLogger("azure.core.pipeline.policies.http_logging_policy").setLevel(l
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-    
-    # Download required NLTK data
+    # Ensure database tables exist (idempotent)
     try:
-        nltk.download('punkt')
-        print("[app] Successfully downloaded NLTK data")
+        init_db()
     except Exception as e:
-        print(f"[app] Error downloading NLTK data: {str(e)}")
+        app.logger.error(f"DB init failed: {e}")
     
     # Configure CORS with proper settings
     CORS(app, resources={
         r"/api/*": {
-            "origins": ["http://localhost:3000"],
+            "origins": [
+                "http://localhost:3000",
+                "https://social-research-frontend.kinddune-2ba3deb1.eastus.azurecontainerapps.io"
+            ],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"],
             "supports_credentials": True
         }
     })
     
-    # Register the main API blueprint
     app.register_blueprint(api_bp, url_prefix='/api')
-    
-    # Register additional routes (like local_llm)
-    register_routes(app)
-    
-    # Register the RAG blueprint
-    app.register_blueprint(rag_bp, url_prefix='/api/rag')
-    
-    # Register the user blueprint
-    app.register_blueprint(user_bp, url_prefix='/api/user')
-    
-    # Initialize PGVector tables
-    try:
-        create_pgvector_tables()
-        print("[app] Successfully initialized PGVector tables")
-    except Exception as e:
-        print(f"[app] Error initializing PGVector tables: {str(e)}")
     
     @app.route('/health')
     def health_check():

@@ -1,0 +1,1970 @@
+{
+  "analysis_id": "a60348ae-d804-4e35-9420-a8c51b52e2ac",
+  "created_at": "2025-09-25T04:06:22.652587",
+  "job_id": "a60348ae-d804-4e35-9420-a8c51b52e2ac",
+  "message": "Topic modeling completed successfully",
+  "progress": 100,
+  "result": {
+    "topic_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "topic_similarities": [
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 0,
+        "target": 1,
+        "weight": 0.17848341166973114
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "family"
+        ],
+        "source": 0,
+        "target": 2,
+        "weight": 0.5979536128044128
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "wants"
+        ],
+        "source": 0,
+        "target": 3,
+        "weight": 0.3646242570877075
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "wants"
+        ],
+        "source": 0,
+        "target": 4,
+        "weight": 0.32189425349235534
+      },
+      {
+        "overlap_count": 2,
+        "overlapping_words": [
+          "family",
+          "wants"
+        ],
+        "source": 0,
+        "target": 5,
+        "weight": 0.5555792951583862
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 0,
+        "target": 6,
+        "weight": 0.20365655422210693
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 0,
+        "target": 7,
+        "weight": 0.21274256706237793
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "toys"
+        ],
+        "source": 0,
+        "target": 8,
+        "weight": 0.489173526763916
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 1,
+        "target": 2,
+        "weight": 0.16263991594314575
+      },
+      {
+        "overlap_count": 2,
+        "overlapping_words": [
+          "clothing",
+          "wear"
+        ],
+        "source": 1,
+        "target": 3,
+        "weight": 0.5439000332355499
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 1,
+        "target": 4,
+        "weight": 0.050790634006261826
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 1,
+        "target": 5,
+        "weight": 0.006083089858293533
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "shirts"
+        ],
+        "source": 1,
+        "target": 6,
+        "weight": 0.5192855250835419
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 1,
+        "target": 7,
+        "weight": 0.12038833647966385
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 1,
+        "target": 8,
+        "weight": 0.13048146665096283
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 2,
+        "target": 3,
+        "weight": 0.12076453864574432
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 2,
+        "target": 4,
+        "weight": 0.18037502467632294
+      },
+      {
+        "overlap_count": 2,
+        "overlapping_words": [
+          "family",
+          "husband"
+        ],
+        "source": 2,
+        "target": 5,
+        "weight": 0.5948794388771057
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 2,
+        "target": 6,
+        "weight": 0.23247987031936646
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 2,
+        "target": 7,
+        "weight": 0.16609589755535126
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 2,
+        "target": 8,
+        "weight": 0.33300653100013733
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "wants"
+        ],
+        "source": 3,
+        "target": 4,
+        "weight": 0.28589976847171783
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "wants"
+        ],
+        "source": 3,
+        "target": 5,
+        "weight": 0.2565600824356079
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 3,
+        "target": 6,
+        "weight": 0.23223963379859924
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 3,
+        "target": 7,
+        "weight": 0.07787604629993439
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 3,
+        "target": 8,
+        "weight": 0.17914320528507233
+      },
+      {
+        "overlap_count": 2,
+        "overlapping_words": [
+          "wants",
+          "brother"
+        ],
+        "source": 4,
+        "target": 5,
+        "weight": 0.4953294003009796
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 4,
+        "target": 6,
+        "weight": 0.1851377636194229
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 4,
+        "target": 7,
+        "weight": 0.2962161600589752
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "play"
+        ],
+        "source": 4,
+        "target": 8,
+        "weight": 0.4958161962032318
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 5,
+        "target": 6,
+        "weight": -0.016461335122585297
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 5,
+        "target": 7,
+        "weight": 0.0791756734251976
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 5,
+        "target": 8,
+        "weight": 0.08701576292514801
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 6,
+        "target": 7,
+        "weight": 0.15831243991851807
+      },
+      {
+        "overlap_count": 1,
+        "overlapping_words": [
+          "dirty"
+        ],
+        "source": 6,
+        "target": 8,
+        "weight": 0.661621208190918
+      },
+      {
+        "overlap_count": 0,
+        "overlapping_words": [],
+        "source": 7,
+        "target": 8,
+        "weight": 0.28012120723724365
+      }
+    ],
+    "topics": {
+      "negative": {
+        "count": 4,
+        "topics": [
+          {
+            "count": 27,
+            "engagement": {
+              "avg_comments_per_post": 5.0,
+              "avg_score_per_post": 49.925925925925924,
+              "post_count": 27,
+              "total_comments": 135,
+              "total_score": 1348
+            },
+            "id": 2,
+            "one_sentence_summary": "Parents discuss strategies and challenges in finding quality time with their children during weekdays amid the demands of work, daycare schedules, and essential routines like preparing meals, clothing children, and managing bedtime.",
+            "post_ids": [
+              "1npp8vf",
+              "1nixzeh",
+              "1nfkkwn",
+              "1n8gefu",
+              "1n3x2xl",
+              "1mwnhlp",
+              "1mtxpkm",
+              "1meaib3",
+              "1mdaz0t",
+              "1mcxdp7",
+              "1m7tyju",
+              "1m4xn0s",
+              "1lz18vs",
+              "1lzqnnr",
+              "1lw17sx",
+              "1lknuho",
+              "1ljpfc9",
+              "1ld2o6s",
+              "1l6ut3p",
+              "1l70x2g",
+              "1l5u76d",
+              "1l5ofzw",
+              "1l0c1r5",
+              "1kzbcy6",
+              "1kzwdar",
+              "1ky0b6r",
+              "1kwbfo9"
+            ],
+            "post_sentiments": {
+              "1kwbfo9": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7268589735031128
+              },
+              "1ky0b6r": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.40245676040649414
+              },
+              "1kzbcy6": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5479752421379089
+              },
+              "1kzwdar": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8050146102905273
+              },
+              "1l0c1r5": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.805955171585083
+              },
+              "1l5ofzw": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l5u76d": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7659157514572144
+              },
+              "1l6ut3p": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l70x2g": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8147769570350647
+              },
+              "1ld2o6s": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1ljpfc9": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5842884182929993
+              },
+              "1lknuho": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.39602717757225037
+              },
+              "1lw17sx": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6309001445770264
+              },
+              "1lz18vs": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lzqnnr": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m4xn0s": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7821721434593201
+              },
+              "1m7tyju": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mcxdp7": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.774364709854126
+              },
+              "1mdaz0t": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.955093264579773
+              },
+              "1meaib3": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7428877353668213
+              },
+              "1mtxpkm": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mwnhlp": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8648052215576172
+              },
+              "1n3x2xl": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1n8gefu": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7658932209014893
+              },
+              "1nfkkwn": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.4700413644313812
+              },
+              "1nixzeh": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6341397166252136
+              },
+              "1npp8vf": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8264538049697876
+              }
+            },
+            "score": -0.3411200134842484,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Weekday parenting time crunch",
+            "summary": "Parents are discussing the challenges of balancing quality time with their children during busy weekdays. Many feel constrained by tight morning and evening routines focused on basic necessities like getting children fed, clothed, and ready for school or bed. The typical weekday involves rushed mornings preparing children, work during the day while kids are at daycare or school, and evenings dominated by dinner preparation, cleanup, and bedtime routines. Parents express frustration about having minimal time for meaningful interaction or fun activities with their children on weekdays, with many noting that parenting responsibilities are often unevenly distributed between spouses. Some seek advice on how to incorporate more quality time into their schedules or connect with other parents facing similar challenges.",
+            "terms": [
+              {
+                "term": "daycare",
+                "weight": 0.03314625575644134
+              },
+              {
+                "term": "wife",
+                "weight": 0.029778539285483015
+              },
+              {
+                "term": "dinner",
+                "weight": 0.028675630423057714
+              },
+              {
+                "term": "husband",
+                "weight": 0.027836742911605386
+              },
+              {
+                "term": "parent",
+                "weight": 0.025060274709130147
+              },
+              {
+                "term": "beach",
+                "weight": 0.022081480991576065
+              },
+              {
+                "term": "week",
+                "weight": 0.020816231221010284
+              },
+              {
+                "term": "family",
+                "weight": 0.01844223546867268
+              },
+              {
+                "term": "house",
+                "weight": 0.018369873133021658
+              },
+              {
+                "term": "leave",
+                "weight": 0.018049000525594012
+              }
+            ]
+          },
+          {
+            "count": 21,
+            "engagement": {
+              "avg_comments_per_post": 4.333333333333333,
+              "avg_score_per_post": 13.571428571428571,
+              "post_count": 21,
+              "total_comments": 91,
+              "total_score": 285
+            },
+            "id": 4,
+            "one_sentence_summary": "Parents discuss managing challenging sibling relationships where older children criticize younger siblings' play and possessions, while also addressing bedtime struggles that involve tantrums and boundary-testing behaviors.",
+            "post_ids": [
+              "1nh2cou",
+              "1nfzjl4",
+              "1ndled1",
+              "1ndiipd",
+              "1n7g8jh",
+              "1mzqhp8",
+              "1mv2ju2",
+              "1mpe15t",
+              "1mk2n8t",
+              "1me3r83",
+              "1mbzut5",
+              "1m3xx1f",
+              "1m0rljz",
+              "1lugloz",
+              "1lrx8cj",
+              "1lfbh61",
+              "1l6s1il",
+              "1l0n1a1",
+              "1l0kaox",
+              "1ktmk7p",
+              "1kq2to2"
+            ],
+            "post_sentiments": {
+              "1kq2to2": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5641099214553833
+              },
+              "1ktmk7p": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5786712169647217
+              },
+              "1l0kaox": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7444061636924744
+              },
+              "1l0n1a1": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7171266078948975
+              },
+              "1l6s1il": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7415720820426941
+              },
+              "1lfbh61": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.9531403183937073
+              },
+              "1lrx8cj": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5834108591079712
+              },
+              "1lugloz": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m0rljz": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.4576004147529602
+              },
+              "1m3xx1f": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6815698146820068
+              },
+              "1mbzut5": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.48859935998916626
+              },
+              "1me3r83": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.417879194021225
+              },
+              "1mk2n8t": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.9072023630142212
+              },
+              "1mpe15t": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.48450762033462524
+              },
+              "1mv2ju2": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.9477549195289612
+              },
+              "1mzqhp8": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1n7g8jh": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8055642247200012
+              },
+              "1ndiipd": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.4300902783870697
+              },
+              "1ndled1": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nfzjl4": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8277095556259155
+              },
+              "1nh2cou": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              }
+            },
+            "score": -0.3931657671928406,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Sibling conflicts and sleep",
+            "summary": "Parents are discussing sibling dynamics, particularly focusing on older children being critical and controlling toward their younger siblings. The discussion includes behaviors like an 8-year-old brother constantly criticizing his 6-year-old brother's play style, possessions, and imagination. Parents share concerns about bedtime routines, with children throwing tantrums, screaming, or hiding when it's time to sleep. The conversation explores strategies for managing these behaviors, including setting clear boundaries, ensuring both siblings receive individual attention, and helping younger children develop confidence to stand up for themselves. Parents worry about how these dynamics might affect children's future social relationships and self-expression.",
+            "terms": [
+              {
+                "term": "yo",
+                "weight": 0.02796722848116825
+              },
+              {
+                "term": "sleep",
+                "weight": 0.02495693493009939
+              },
+              {
+                "term": "throwing",
+                "weight": 0.021940605873069594
+              },
+              {
+                "term": "screaming",
+                "weight": 0.02157142636347379
+              },
+              {
+                "term": "brother",
+                "weight": 0.020868070782663235
+              },
+              {
+                "term": "play",
+                "weight": 0.02060883693017946
+              },
+              {
+                "term": "wants",
+                "weight": 0.02052495306131595
+              },
+              {
+                "term": "bed",
+                "weight": 0.020070112521716966
+              },
+              {
+                "term": "scream",
+                "weight": 0.01933463270374899
+              },
+              {
+                "term": "angry",
+                "weight": 0.01828320258439221
+              }
+            ]
+          },
+          {
+            "count": 21,
+            "engagement": {
+              "avg_comments_per_post": 5.523809523809524,
+              "avg_score_per_post": 174.1904761904762,
+              "post_count": 21,
+              "total_comments": 116,
+              "total_score": 3658
+            },
+            "id": 5,
+            "one_sentence_summary": "Parents and stepparents navigate complex family dynamics including discipline boundaries, sibling conflicts, co-parenting challenges, and concerns about children's behavior in blended family situations.",
+            "post_ids": [
+              "1n8g1cs",
+              "1n029dz",
+              "1mwz6ot",
+              "1mgui0h",
+              "1mbzllj",
+              "1m45j67",
+              "1m0k3an",
+              "1ltipt8",
+              "1loxd7p",
+              "1lnsb8r",
+              "1lmjxdu",
+              "1lm3y57",
+              "1lhyasj",
+              "1la18pn",
+              "1l98eaa",
+              "1l4lmc5",
+              "1l0951y",
+              "1kw51sj",
+              "1kv65jk",
+              "1kuh4h1",
+              "1kt3oes"
+            ],
+            "post_sentiments": {
+              "1kt3oes": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.45573845505714417
+              },
+              "1kuh4h1": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6490557789802551
+              },
+              "1kv65jk": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5939355492591858
+              },
+              "1kw51sj": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8591994047164917
+              },
+              "1l0951y": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l4lmc5": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.764366090297699
+              },
+              "1l98eaa": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5875101685523987
+              },
+              "1la18pn": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7988733053207397
+              },
+              "1lhyasj": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lm3y57": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.9165996313095093
+              },
+              "1lmjxdu": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.9257720112800598
+              },
+              "1lnsb8r": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.42077499628067017
+              },
+              "1loxd7p": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6448622345924377
+              },
+              "1ltipt8": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.47860831022262573
+              },
+              "1m0k3an": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8743875026702881
+              },
+              "1m45j67": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8405874371528625
+              },
+              "1mbzllj": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mgui0h": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6953856348991394
+              },
+              "1mwz6ot": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8243628740310669
+              },
+              "1n029dz": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.639334499835968
+              },
+              "1n8g1cs": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7713685035705566
+              }
+            },
+            "score": -0.37936310115314664,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Blended family challenges",
+            "summary": "This topic centers around complex family dynamics, particularly focusing on relationships between parents, children, and stepparents. Discussions involve challenges with blended families, including conflicts between biological and step-parents regarding child discipline and parenting approaches. There are recurring themes of parental concern about children's behavior, sibling rivalries, and difficulties in co-parenting across divided households. Many posts seek advice on appropriate boundaries with extended family, how to address concerning behavior in children, and navigating the complexities of step-parenting relationships. Questions about child support, custody arrangements, and managing relationships with ex-spouses also feature prominently.",
+            "terms": [
+              {
+                "term": "told",
+                "weight": 0.040987679697022245
+              },
+              {
+                "term": "child",
+                "weight": 0.03889883623227611
+              },
+              {
+                "term": "husband",
+                "weight": 0.037166332107201785
+              },
+              {
+                "term": "dad",
+                "weight": 0.033343645468061664
+              },
+              {
+                "term": "wants",
+                "weight": 0.02740755895313119
+              },
+              {
+                "term": "family",
+                "weight": 0.02653277596958646
+              },
+              {
+                "term": "sister",
+                "weight": 0.026368461858433417
+              },
+              {
+                "term": "asked",
+                "weight": 0.022631336585048917
+              },
+              {
+                "term": "brother",
+                "weight": 0.02258982161087847
+              },
+              {
+                "term": "went",
+                "weight": 0.022062429539295235
+              }
+            ]
+          },
+          {
+            "count": 12,
+            "engagement": {
+              "avg_comments_per_post": 5.25,
+              "avg_score_per_post": 18.333333333333332,
+              "post_count": 12,
+              "total_comments": 63,
+              "total_score": 220
+            },
+            "id": 8,
+            "one_sentence_summary": "Parents share strategies for encouraging children to participate in cleaning activities and household chores, including routines, positive reinforcement, incentives, and consequences for not picking up toys or completing assigned tasks.",
+            "post_ids": [
+              "1nleo9w",
+              "1n2mepj",
+              "1ngy51b",
+              "1n7bxc6",
+              "1n4t02m",
+              "1my3fdp",
+              "1mv10bx",
+              "1mnf2lm",
+              "1mgqncq",
+              "1m84xms",
+              "1lhcjbz",
+              "1l3frdi"
+            ],
+            "post_sentiments": {
+              "1l3frdi": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.514437198638916
+              },
+              "1lhcjbz": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m84xms": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.4616869390010834
+              },
+              "1mgqncq": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6864490509033203
+              },
+              "1mnf2lm": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.40966200828552246
+              },
+              "1mv10bx": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6660134196281433
+              },
+              "1my3fdp": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1n2mepj": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.44566622376441956
+              },
+              "1n4t02m": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7827023267745972
+              },
+              "1n7bxc6": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.3963453471660614
+              },
+              "1ngy51b": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nleo9w": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7680196762084961
+              }
+            },
+            "score": -0.2189695859948794,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Kids' cleaning responsibilities",
+            "summary": "Parents are discussing strategies for teaching children responsibility through cleaning and chores. Methods include establishing routines for picking up toys, maintaining tidy rooms, and completing household tasks. Many parents struggle with resistance and meltdowns when asking children to clean up after themselves. Effective approaches include positive reinforcement when children complete tasks voluntarily, implementing clear expectations with consequences, making cleaning part of daily routines, and using incentives like play time or special privileges after chores are done. The discussion reflects the challenges of balancing household cleanliness with maintaining a positive parent-child relationship while teaching important life skills.",
+            "terms": [
+              {
+                "term": "clean",
+                "weight": 0.06724118605810071
+              },
+              {
+                "term": "chores",
+                "weight": 0.049047906691411
+              },
+              {
+                "term": "cleaning",
+                "weight": 0.03549261272393387
+              },
+              {
+                "term": "toys",
+                "weight": 0.03395206045138278
+              },
+              {
+                "term": "pick",
+                "weight": 0.029293146861355746
+              },
+              {
+                "term": "blankets",
+                "weight": 0.028427820527301185
+              },
+              {
+                "term": "play",
+                "weight": 0.023696681912835246
+              },
+              {
+                "term": "cup",
+                "weight": 0.023621034889019454
+              },
+              {
+                "term": "trash",
+                "weight": 0.022975492057842533
+              },
+              {
+                "term": "dirty",
+                "weight": 0.022061975038897567
+              }
+            ]
+          }
+        ]
+      },
+      "neutral": {
+        "count": 3,
+        "topics": [
+          {
+            "count": 45,
+            "engagement": {
+              "avg_comments_per_post": 6.333333333333333,
+              "avg_score_per_post": 80.73333333333333,
+              "post_count": 45,
+              "total_comments": 285,
+              "total_score": 3633
+            },
+            "id": 0,
+            "one_sentence_summary": "Parents discuss the appropriateness of monetary gifts for children's birthdays, including whether the money should go directly to the child for toys and clothing or if parents can designate its use for other purposes like family vacations.",
+            "post_ids": [
+              "1nphims",
+              "1nirooh",
+              "1ng2wea",
+              "1nbpebt",
+              "1n9lwwa",
+              "1ne3hh5",
+              "1nd7zry",
+              "1ncjjy2",
+              "1nbot6k",
+              "1mj7xj0",
+              "1n2wyap",
+              "1mwc8px",
+              "1m1ak76",
+              "1mx4xwm",
+              "1msh9oc",
+              "1ms64xf",
+              "1mk0ihm",
+              "1miqzq0",
+              "1me1yk4",
+              "1mbu9fb",
+              "1mbuy2g",
+              "1m7qgyq",
+              "1m1im16",
+              "1m6soca",
+              "1lukqbq",
+              "1m4upri",
+              "1m413vz",
+              "1lzqg0b",
+              "1lyzefx",
+              "1m2j61r",
+              "1m1h4j6",
+              "1lyl2uw",
+              "1lx544u",
+              "1lux897",
+              "1lqszs4",
+              "1lq0dpz",
+              "1lkgvw4",
+              "1l7c3v0",
+              "1l7kjdr",
+              "1knyru2",
+              "1l0uhib",
+              "1kwqvhg",
+              "1ktjoa0",
+              "1kub257",
+              "1kst8gh"
+            ],
+            "post_sentiments": {
+              "1knyru2": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6589977741241455
+              },
+              "1kst8gh": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.4164935350418091
+              },
+              "1ktjoa0": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7054684162139893
+              },
+              "1kub257": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1kwqvhg": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l0uhib": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l7c3v0": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l7kjdr": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.538347065448761
+              },
+              "1lkgvw4": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lq0dpz": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lqszs4": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lukqbq": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7112675905227661
+              },
+              "1lux897": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5549007058143616
+              },
+              "1lx544u": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lyl2uw": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lyzefx": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6184242963790894
+              },
+              "1lzqg0b": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m1ak76": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5825990438461304
+              },
+              "1m1h4j6": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m1im16": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m2j61r": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.6252077221870422
+              },
+              "1m413vz": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5575377941131592
+              },
+              "1m4upri": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5116284489631653
+              },
+              "1m6soca": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.47229695320129395
+              },
+              "1m7qgyq": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.524365246295929
+              },
+              "1mbu9fb": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.48851343989372253
+              },
+              "1mbuy2g": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7058959007263184
+              },
+              "1me1yk4": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.9832233786582947
+              },
+              "1miqzq0": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6519415974617004
+              },
+              "1mj7xj0": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mk0ihm": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1ms64xf": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7390584349632263
+              },
+              "1msh9oc": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mwc8px": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mx4xwm": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1n2wyap": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.8454679846763611
+              },
+              "1n9lwwa": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nbot6k": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.541676938533783
+              },
+              "1nbpebt": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.766943633556366
+              },
+              "1ncjjy2": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nd7zry": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5034824013710022
+              },
+              "1ne3hh5": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5301931500434875
+              },
+              "1ng2wea": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5334867238998413
+              },
+              "1nirooh": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7746773362159729
+              },
+              "1nphims": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6539297699928284
+              }
+            },
+            "score": -0.055948031610912746,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Kid gift money ethics",
+            "summary": "This discussion focuses on children's birthdays and gifts, particularly the ethics and practices around monetary gifts. Parents are debating whether asking for money instead of toys is appropriate, especially when the funds might not benefit the child directly. Some families request cash for vacations or specific purposes, while others prefer to ensure children receive actual gifts they can enjoy. The topic also covers broader financial responsibilities, including when and how parents should expect children to start paying for their own expenses versus what parents typically cover, such as clothing, entertainment, and insurance. There's also consideration about teaching financial responsibility to children through allowances and spending decisions.",
+            "terms": [
+              {
+                "term": "money",
+                "weight": 0.0637579105600147
+              },
+              {
+                "term": "toys",
+                "weight": 0.03582108640665985
+              },
+              {
+                "term": "pay",
+                "weight": 0.02704746049709282
+              },
+              {
+                "term": "family",
+                "weight": 0.026805992634303288
+              },
+              {
+                "term": "kid",
+                "weight": 0.026238991392027504
+              },
+              {
+                "term": "birthday",
+                "weight": 0.025531666701107448
+              },
+              {
+                "term": "wants",
+                "weight": 0.023544227379209345
+              },
+              {
+                "term": "gifts",
+                "weight": 0.02152298282018726
+              },
+              {
+                "term": "bought",
+                "weight": 0.021277132749762347
+              },
+              {
+                "term": "job",
+                "weight": 0.021041281238013798
+              }
+            ]
+          },
+          {
+            "count": 21,
+            "engagement": {
+              "avg_comments_per_post": 7.476190476190476,
+              "avg_score_per_post": 149.0,
+              "post_count": 21,
+              "total_comments": 157,
+              "total_score": 3129
+            },
+            "id": 3,
+            "one_sentence_summary": "Parents discussing how to navigate children's unconventional clothing and hairstyle preferences while balancing respect for individuality with teaching appropriate social norms for appearance.",
+            "post_ids": [
+              "1niyxur",
+              "1nbrdcn",
+              "1nbgnpv",
+              "1n8ixat",
+              "1mv9bbv",
+              "1mtt87b",
+              "1mxds8o",
+              "1mqsfrg",
+              "1mivrqv",
+              "1miznd2",
+              "1mao3uk",
+              "1m9mh4e",
+              "1m8h0xq",
+              "1ldo9xe",
+              "1locbiu",
+              "1lifhk5",
+              "1lfrekx",
+              "1lddhgn",
+              "1lc99sr",
+              "1l76pyg",
+              "1kr3k5j"
+            ],
+            "post_sentiments": {
+              "1kr3k5j": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l76pyg": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lc99sr": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6427876949310303
+              },
+              "1lddhgn": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5553528666496277
+              },
+              "1ldo9xe": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.47295159101486206
+              },
+              "1lfrekx": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lifhk5": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.6691059470176697
+              },
+              "1locbiu": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.732219934463501
+              },
+              "1m8h0xq": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m9mh4e": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7901406288146973
+              },
+              "1mao3uk": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.48671573400497437
+              },
+              "1mivrqv": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7793306112289429
+              },
+              "1miznd2": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mqsfrg": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6977993249893188
+              },
+              "1mtt87b": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5948246717453003
+              },
+              "1mv9bbv": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.720242977142334
+              },
+              "1mxds8o": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5455009937286377
+              },
+              "1n8ixat": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nbgnpv": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5308258533477783
+              },
+              "1nbrdcn": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7829801440238953
+              },
+              "1niyxur": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7314930558204651
+              }
+            },
+            "score": 0.0005380028770083473,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Child appearance choices",
+            "summary": "Parents seeking advice about children's clothing and hair styling choices, particularly for girls who prefer unconventional styles. The discussion centers around balancing respect for a child's individuality and self-expression while teaching appropriate dress codes for different settings. Parents express concerns about their children's appearance reflecting on their parenting, especially when comparing to more conventionally dressed peers. Topics include managing meltdowns over clothing choices, teaching proper hair care versus controlling hairstyles, and encouraging independence while maintaining social norms. There's also consideration of how to handle situations where children refuse to wear clothes or have specific preferences about their appearance without damaging their self-confidence.",
+            "terms": [
+              {
+                "term": "wearing",
+                "weight": 0.045207743045207964
+              },
+              {
+                "term": "hair",
+                "weight": 0.04035233390662042
+              },
+              {
+                "term": "wear",
+                "weight": 0.035513341741073304
+              },
+              {
+                "term": "dress",
+                "weight": 0.03460838525281697
+              },
+              {
+                "term": "girl",
+                "weight": 0.03245041831982238
+              },
+              {
+                "term": "friend",
+                "weight": 0.03154611074347811
+              },
+              {
+                "term": "looks",
+                "weight": 0.028093588954645293
+              },
+              {
+                "term": "body",
+                "weight": 0.02598632839521845
+              },
+              {
+                "term": "clothing",
+                "weight": 0.02514746646952624
+              },
+              {
+                "term": "wants",
+                "weight": 0.02230284575166674
+              }
+            ]
+          },
+          {
+            "count": 18,
+            "engagement": {
+              "avg_comments_per_post": 7.0,
+              "avg_score_per_post": 71.94444444444444,
+              "post_count": 18,
+              "total_comments": 126,
+              "total_score": 1295
+            },
+            "id": 6,
+            "one_sentence_summary": "Strategies and experiences for managing laundry efficiently, including reducing unnecessary washing, implementing extra spin cycles, and establishing effective routines to handle clothing, towels, and bedding.",
+            "post_ids": [
+              "1nlvvkc",
+              "1njhjj5",
+              "1nkgeqs",
+              "1nidbc0",
+              "1ndn6bh",
+              "1mwqw0b",
+              "1mncnfi",
+              "1mcov1z",
+              "1lvbcty",
+              "1m06lu0",
+              "1lujt3k",
+              "1lnxhxo",
+              "1lhnm4u",
+              "1la62db",
+              "1lb2nd1",
+              "1kzen32",
+              "1kpowbp",
+              "1kpbyao"
+            ],
+            "post_sentiments": {
+              "1kpbyao": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1kpowbp": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1kzen32": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7544081211090088
+              },
+              "1la62db": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7625412940979004
+              },
+              "1lb2nd1": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6752429008483887
+              },
+              "1lhnm4u": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.41140463948249817
+              },
+              "1lnxhxo": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lujt3k": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.6809628009796143
+              },
+              "1lvbcty": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5178918242454529
+              },
+              "1m06lu0": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mcov1z": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mncnfi": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5283379554748535
+              },
+              "1mwqw0b": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1ndn6bh": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.43613508343696594
+              },
+              "1nidbc0": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6130471229553223
+              },
+              "1njhjj5": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1nkgeqs": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.4964973032474518
+              },
+              "1nlvvkc": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.5107555985450745
+              }
+            },
+            "score": -0.09120130704508887,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Efficient laundry management",
+            "summary": "Discussion about efficient laundry management techniques, particularly focusing on reducing the frequency and number of loads. Topics include strategies like giving clothes an extra spin cycle before drying, evaluating if items truly need washing before adding them to the laundry, proper handling of stained shirts, washing techniques for different fabrics, and organizing laundry routines. Participants share personal experiences about transitioning from multiple daily loads to more manageable schedules, with special consideration for families with children who generate significant laundry volume from towels, bedding, and clothing changes.",
+            "terms": [
+              {
+                "term": "laundry",
+                "weight": 0.12175403058734605
+              },
+              {
+                "term": "washing",
+                "weight": 0.07992926569446206
+              },
+              {
+                "term": "shirt",
+                "weight": 0.04978231218984316
+              },
+              {
+                "term": "dry",
+                "weight": 0.04715059191360839
+              },
+              {
+                "term": "shirts",
+                "weight": 0.04223731185405033
+              },
+              {
+                "term": "dirty",
+                "weight": 0.0384211376620801
+              },
+              {
+                "term": "load",
+                "weight": 0.03465512234469678
+              },
+              {
+                "term": "wash",
+                "weight": 0.03199486507713935
+              },
+              {
+                "term": "socks",
+                "weight": 0.03139905469836385
+              },
+              {
+                "term": "throw",
+                "weight": 0.03112047257562277
+              }
+            ]
+          }
+        ]
+      },
+      "positive": {
+        "count": 2,
+        "topics": [
+          {
+            "count": 31,
+            "engagement": {
+              "avg_comments_per_post": 6.419354838709677,
+              "avg_score_per_post": 39.29032258064516,
+              "post_count": 31,
+              "total_comments": 199,
+              "total_score": 1218
+            },
+            "id": 1,
+            "one_sentence_summary": "Parents seek advice on finding properly sized clothing, particularly pants and shirts that fit children with specific body types such as tall and slim builds.",
+            "post_ids": [
+              "1nm0nzs",
+              "1njwjns",
+              "1neq26e",
+              "1necs4d",
+              "1ndwq0o",
+              "1nd2gdf",
+              "1n0k7c7",
+              "1mu6x14",
+              "1m85d9q",
+              "1moexti",
+              "1mt16xe",
+              "1mno2d1",
+              "1mpo0v3",
+              "1mls9l8",
+              "1mg89p2",
+              "1mgpwih",
+              "1m8rnxe",
+              "1mka8v6",
+              "1mirsjl",
+              "1mbp5qv",
+              "1m8fei6",
+              "1m6wowt",
+              "1lzxo4y",
+              "1m617fr",
+              "1lygm5w",
+              "1m0tz1b",
+              "1lqdrpo",
+              "1ld526m",
+              "1ldqtv2",
+              "1l56lg6",
+              "1ky18zc"
+            ],
+            "post_sentiments": {
+              "1ky18zc": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.8101827502250671
+              },
+              "1l56lg6": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1ld526m": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1ldqtv2": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lqdrpo": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lygm5w": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.9190571904182434
+              },
+              "1lzxo4y": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.926118791103363
+              },
+              "1m0tz1b": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1m617fr": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7505393028259277
+              },
+              "1m6wowt": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.8275086879730225
+              },
+              "1m85d9q": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5984469652175903
+              },
+              "1m8fei6": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.43156883120536804
+              },
+              "1m8rnxe": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mbp5qv": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.767906129360199
+              },
+              "1mg89p2": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mgpwih": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mirsjl": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.6052038073539734
+              },
+              "1mka8v6": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mls9l8": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.7482254505157471
+              },
+              "1mno2d1": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1moexti": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.6185164451599121
+              },
+              "1mpo0v3": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mt16xe": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.9416822195053101
+              },
+              "1mu6x14": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.516841471195221
+              },
+              "1n0k7c7": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.870410144329071
+              },
+              "1nd2gdf": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5201001763343811
+              },
+              "1ndwq0o": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1necs4d": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.7434098124504089
+              },
+              "1neq26e": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.47111496329307556
+              },
+              "1njwjns": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.9706218242645264
+              },
+              "1nm0nzs": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              }
+            },
+            "score": 0.27236797155872466,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Clothing fit challenges",
+            "summary": "This topic focuses on clothing sizes and fit challenges, particularly for children and teenagers with specific body types. Parents discuss difficulties finding properly fitting pants and shirts for tall, slim children, with special attention to length and waistline proportions. The conversation covers various clothing retailers, brand recommendations, and shopping strategies. Participants share experiences with different types of clothing including jeans, leggings, athletic wear, and t-shirts, noting preferences for comfort, style, and durability. The discussion emphasizes the importance of finding appropriate sizes that children will actually wear, balancing practical concerns with personal preferences.",
+            "terms": [
+              {
+                "term": "pants",
+                "weight": 0.06356628928952199
+              },
+              {
+                "term": "clothing",
+                "weight": 0.05513336007811928
+              },
+              {
+                "term": "size",
+                "weight": 0.05384905397903958
+              },
+              {
+                "term": "sizes",
+                "weight": 0.048457878707543346
+              },
+              {
+                "term": "shirts",
+                "weight": 0.043944966668434705
+              },
+              {
+                "term": "wear",
+                "weight": 0.039783706968015316
+              },
+              {
+                "term": "fit",
+                "weight": 0.039759731747631394
+              },
+              {
+                "term": "brands",
+                "weight": 0.03811400900475398
+              },
+              {
+                "term": "navy",
+                "weight": 0.034616482776993515
+              },
+              {
+                "term": "shopping",
+                "weight": 0.03190078176118259
+              }
+            ]
+          },
+          {
+            "count": 16,
+            "engagement": {
+              "avg_comments_per_post": 5.75,
+              "avg_score_per_post": 22.4375,
+              "post_count": 16,
+              "total_comments": 92,
+              "total_score": 359
+            },
+            "id": 7,
+            "one_sentence_summary": "Parents can expect to spend approximately $3,800 on diapers, formula, and milk during a baby's first 14 months, with detailed cost breakdowns showing formula as the highest expense followed by diapers and transitioning to whole milk as a significant cost reduction.",
+            "post_ids": [
+              "1mz56k0",
+              "1mzql7o",
+              "1mvra96",
+              "1mg8woe",
+              "1mbiibx",
+              "1mb821c",
+              "1m9hzsw",
+              "1m92y2x",
+              "1lvk4mo",
+              "1lsjf2p",
+              "1lkj0pn",
+              "1lclua8",
+              "1l8uws9",
+              "1l3ej12",
+              "1krg7ek",
+              "1kphx4t"
+            ],
+            "post_sentiments": {
+              "1kphx4t": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.452694296836853
+              },
+              "1krg7ek": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1l3ej12": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.44072508811950684
+              },
+              "1l8uws9": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lclua8": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.582103967666626
+              },
+              "1lkj0pn": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1lsjf2p": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.4979490339756012
+              },
+              "1lvk4mo": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.8397906422615051
+              },
+              "1m92y2x": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.8599346876144409
+              },
+              "1m9hzsw": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.793989896774292
+              },
+              "1mb821c": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.47876209020614624
+              },
+              "1mbiibx": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mg8woe": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mvra96": {
+                "sentiment_category": "negative",
+                "sentiment_score": -0.8514660000801086
+              },
+              "1mz56k0": {
+                "sentiment_category": "neutral",
+                "sentiment_score": 0.0
+              },
+              "1mzql7o": {
+                "sentiment_category": "positive",
+                "sentiment_score": 0.5034087896347046
+              }
+            },
+            "score": 0.17003401555120945,
+            "sentiment_evidence": {
+              "negative": [],
+              "positive": []
+            },
+            "short_summary": "Baby essentials cost analysis",
+            "summary": "A comprehensive cost analysis of baby care essentials, primarily focusing on formula, milk, and diapers for the first 14 months of a child's life. The data indicates that parents can expect to spend approximately $3,800 during this period, with formula being the most significant expense at about $2,900 compared to $900 for diapers. Monthly diaper usage averages between 190-330 diapers, with various brands offering different price points ranging from economical options like Kirkland to premium choices like Coterie. Formula costs approximately $0.24 per ounce while transitioning to whole milk reduces costs to about $0.08 per ounce. Alternative options like cloth diapers are discussed as potential cost-saving and environmentally friendly alternatives, though with different convenience considerations.",
+            "terms": [
+              {
+                "term": "diapers",
+                "weight": 0.12477504555754218
+              },
+              {
+                "term": "diaper",
+                "weight": 0.09456428649823673
+              },
+              {
+                "term": "pee",
+                "weight": 0.07257437417036171
+              },
+              {
+                "term": "potty",
+                "weight": 0.06085121120082911
+              },
+              {
+                "term": "milk",
+                "weight": 0.060091213374710274
+              },
+              {
+                "term": "cost",
+                "weight": 0.05991496031856704
+              },
+              {
+                "term": "formula",
+                "weight": 0.05534869348543708
+              },
+              {
+                "term": "14",
+                "weight": 0.053608122390296824
+              },
+              {
+                "term": "wet",
+                "weight": 0.04925988192657064
+              },
+              {
+                "term": "night",
+                "weight": 0.04302387295098104
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "total_documents": 246,
+    "total_topics": 9
+  },
+  "status": "completed",
+  "updated_at": "2025-09-25T04:38:09.039536"
+}

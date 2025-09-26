@@ -26,11 +26,26 @@ def load_env_file():
 
 # Load environment variables from .env file if no Docker environment variables are set
 if not os.environ.get('OPENAI_API_KEY'):
-    load_env_file()
+    # Try to load from the root workbench .env file first
+    root_env_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+    if os.path.exists(root_env_file):
+        logger.info(f"Loading environment variables from root .env file: {root_env_file}")
+        with open(root_env_file, "r") as f:
+            for line in f:
+                if line.strip() and "=" in line and not line.startswith("#"):
+                    key, value = line.strip().split("=", 1)
+                    if key == "OPENAI_API_KEY":
+                        os.environ[key] = value
+                        logger.info(f"Set OPENAI_API_KEY from root .env file: {value[:8]}...")
+                        break
+    else:
+        # Fallback to local .env file
+        load_env_file()
 
-# Only set fallback API key if neither Docker nor .env file provided one
+# Log a warning if no API key is found
 if not os.environ.get('OPENAI_API_KEY'):
-    os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
+    logger.error("No OPENAI_API_KEY found in environment variables or .env files!")
+    logger.error("Please set OPENAI_API_KEY in your Docker environment or root .env file")
 
 if not os.environ.get('USE_WHISPER_API'):
     os.environ['USE_WHISPER_API'] = 'true'

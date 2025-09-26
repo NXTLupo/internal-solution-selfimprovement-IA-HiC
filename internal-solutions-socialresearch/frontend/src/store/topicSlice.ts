@@ -9,16 +9,20 @@ interface TopicState {
   projectId: string | null; // Add project ID
   loading: boolean;
   error: string | null;
+  startDate?: string; // Change to string type to match API response
+  endDate?: string; // Change to string type to match API response
 }
 
-// Initial state with "ouraring" as the default subreddit
+// Initial state with empty default subreddit
 const initialState: TopicState = {
   selectedTopic: null,
-  subreddit: "ouraring",  // Set default value to "ouraring"
+  subreddit: "",  // Empty string as default value
   topicData: null,
   projectId: null, // Initialize project ID as null
   loading: false,
-  error: null
+  error: null,
+  startDate: undefined,
+  endDate: undefined
 };
 
 // Create the slice
@@ -32,20 +36,44 @@ const topicSlice = createSlice({
     setSubreddit: (state, action: PayloadAction<string>) => {
       state.subreddit = action.payload;
     },
+    resetSubreddit: (state) => {
+      state.subreddit = "";
+    },
     setTopicData: (state, action: PayloadAction<TopicData | null>) => {
-      console.log("Redux: setTopicData called with data:", action.payload ? "data present" : "null");
       state.topicData = action.payload;
+    },
+    // New actions for date range
+    setStartDate: (state, action: PayloadAction<string | undefined>) => {
+      state.startDate = action.payload;
+    },
+    setEndDate: (state, action: PayloadAction<string | undefined>) => {
+      state.endDate = action.payload;
     },
     // New actions for project management
     setTopicProject: (state, action: PayloadAction<{id: string, data: TopicData | null}>) => {
       state.projectId = action.payload.id;
       state.topicData = action.payload.data;
+      
+      // Also update subreddit when it's available in the data
+      if (action.payload.data?.subreddit) {
+        state.subreddit = action.payload.data.subreddit;
+      }
+      
+      // Also update startDate and endDate when they're available in the data
+      if (action.payload.data?.startDate) {
+        state.startDate = action.payload.data.startDate;
+      }
+      
+      if (action.payload.data?.endDate) {
+        state.endDate = action.payload.data.endDate;
+      }
     },
     clearTopicProject: (state) => {
-      console.log("Redux: clearTopicProject called");
       state.topicData = null;
       state.projectId = null;
-      console.log("Redux: Cleared topic project data");
+      state.subreddit = ""; // Also reset subreddit when clearing project
+      state.startDate = undefined; // Reset startDate
+      state.endDate = undefined; // Reset endDate
     },
     setTopicLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
@@ -63,10 +91,13 @@ const topicSlice = createSlice({
 export const { 
   setSelectedTopic, 
   setSubreddit, 
+  resetSubreddit,
   setTopicData,
   setTopicProject,
   clearTopicProject,
   setTopicLoading,
-  setTopicError
+  setTopicError,
+  setStartDate,
+  setEndDate
 } = topicSlice.actions;
 export default topicSlice.reducer; 

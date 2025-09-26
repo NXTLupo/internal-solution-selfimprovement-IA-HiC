@@ -25,7 +25,6 @@ from util.text_processing.merge_sbert import PointMerger
 from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import logging
-from util.data_store import save_reddit_data, get_reddit_data
 from app.db.config.database import SessionLocal
 from app.repositories.reddit_repository import RedditRepository
 from app.repositories.jobs_repositories import JobsRepository, generate_job_id, update_job_status
@@ -34,8 +33,8 @@ import re
 from threading import Thread
 import traceback
 
-# Change the blueprint name to what's expected in api.py
-llm_analyzer_bp = Blueprint('reddit', __name__)
+# Changed blueprint name to avoid conflict with reddit API blueprint
+llm_analyzer_bp = Blueprint('llm_analyzer', __name__)
 CORS(llm_analyzer_bp)
 
 load_dotenv()
@@ -48,11 +47,10 @@ reddit = praw.Reddit(
 )
 
 text_processor = TextProcessor()
-analysis_results = {}
 
 def process_sentiment_analysis_job(
     job_id, 
-    search_id, 
+    search_params,  # Changed from search_id to search_params
     application_name, 
     filter_type, 
     keyword, 
@@ -70,22 +68,92 @@ def process_sentiment_analysis_job(
         
         setup_temp_directory()
 
-        if search_id not in analysis_results:
+        # First, perform Reddit search with the provided parameters
+        update_job_status(job_id, 'processing', 'Searching Reddit posts', progress=1)
+        
+        try:
+            subreddit_obj = reddit.subreddit(search_params['subreddit'])
+            
+            search_results = []
+            for submission in subreddit_obj.search(
+                search_params['query'], 
+                limit=search_params.get('limit', 5),
+                sort=search_params.get('sort', 'relevance'),
+                time_filter=search_params.get('time', 'all')
+            ):
+                # Fetch comments
+                submission.comments.replace_more(limit=0)
+                
+                def get_comment_data(comment, depth=0, max_depth=2):
+                    if depth > max_depth:
+                        return None
+                    
+                    comment_data = {
+                        'id': comment.id,
+                        'body': comment.body,
+                        'score': comment.score,
+                        'created_utc': comment.created_utc,
+                        'author': str(comment.author) if comment.author else '[deleted]',
+                        'replies': []
+                    }
+                    
+                    # Get up to 10 replies for this comment
+                    if comment.replies and depth < max_depth:
+                        for reply in list(comment.replies)[:10]:
+                            reply_data = get_comment_data(reply, depth + 1, max_depth)
+                            if reply_data:
+                                comment_data['replies'].append(reply_data)
+                    
+                    return comment_data
+
+                # Get top-level comments
+                comments = []
+                for comment in list(submission.comments)[:10]:
+                    comment_data = get_comment_data(comment, depth=0)
+                    if comment_data:
+                        comments.append(comment_data)
+
+                search_results.append({
+                    'id': submission.id,
+                    'title': submission.title,
+                    'score': submission.score,
+                    'created_utc': submission.created_utc,
+                    'selftext': submission.selftext if hasattr(submission, 'selftext') else None,
+                    'comments': comments,
+                    'url': submission.url,
+                    'permalink': submission.permalink,
+                    'num_comments': submission.num_comments,
+                    'author': str(submission.author) if submission.author else '[deleted]'
+                })
+            
+            # Create search data structure
+            search_data = {
+                'status': 'completed',
+                'created_at': datetime.utcnow().isoformat(),
+                'subreddit': search_params['subreddit'],
+                'parameters': {
+                    'query': search_params['query'],
+                    'limit': search_params.get('limit', 5),
+                    'sort': search_params.get('sort', 'relevance'),
+                    'time': search_params.get('time', 'all')
+                },
+                'results': search_results
+            }
+            
+        except Exception as e:
             update_job_status(
                 job_id, 
                 'failed', 
-                'Analysis data not found', 
-                error='Analysis data not found for the given search ID'
+                'Failed to search Reddit', 
+                error=f'Reddit search error: {str(e)}'
             )
             return
-            
-        search_data = analysis_results[search_id]
 
         # Save initial search data
         with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '1.search_data.json'), 'w', encoding='utf-8') as f:
             json.dump(search_data, f, indent=2)
         
-        update_job_status(job_id, 'processing', 'Processing and filtering data', progress=1)
+        update_job_status(job_id, 'processing', 'Processing and filtering data', progress=5)
         
         if skip_filtering:
             # Skip filtering steps but directly format the search data
@@ -114,19 +182,19 @@ def process_sentiment_analysis_job(
             }
         else:
             # Process and filter data
-            update_job_status(job_id, 'processing', 'Processing Reddit data', progress=2)
+            update_job_status(job_id, 'processing', 'Processing Reddit data', progress=10)
             processed_data = text_processor.process_reddit_data(search_data)
             with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '2.processed_data.json'), 'w', encoding='utf-8') as f:
                 json.dump(processed_data, f, indent=2)
 
             # Apply filters
-            update_job_status(job_id, 'processing', 'Applying RoBERTa filtering', progress=3)
+            update_job_status(job_id, 'processing', 'Applying RoBERTa filtering', progress=15)
             filtering_roberta = FilteringRoBERTa()
             roberta_filtered_data = filtering_roberta.filter_data(processed_data, keyword=keyword)
             with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '3.roberta_filtered.json'), 'w', encoding='utf-8') as f:
                 json.dump(roberta_filtered_data, f, indent=2)
 
-            update_job_status(job_id, 'processing', f'Applying {filter_type} filtering', progress=4)
+            update_job_status(job_id, 'processing', f'Applying {filter_type} filtering', progress=20)
             if filter_type == "cluster":
                 filtering_cluster = Filtering()
                 filtered_data = filtering_cluster.filter_data(roberta_filtered_data)
@@ -143,7 +211,7 @@ def process_sentiment_analysis_job(
                 json.dump(formatted_data, f, indent=2)
 
         # Chunk the data
-        update_job_status(job_id, 'processing', 'Chunking data for analysis', progress=5)
+        update_job_status(job_id, 'processing', 'Chunking data for analysis', progress=25)
         chunked_data = chunk_filtered_data(formatted_data, chunk_size=chunk_size)
         for i, chunk in enumerate(chunked_data):
             with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'5.{i+1}.chunk_data.json'), 'w', encoding='utf-8') as f:
@@ -153,7 +221,7 @@ def process_sentiment_analysis_job(
         chunk_results = []
         max_workers_count = min(len(chunked_data), max_workers)  # Limit max parallel threads
         
-        update_job_status(job_id, 'processing', f'Processing {len(chunked_data)} chunks with {max_workers_count} workers', progress=10)
+        update_job_status(job_id, 'processing', f'Processing {len(chunked_data)} chunks with {max_workers_count} workers', progress=30)
         
         with ThreadPoolExecutor(max_workers=max_workers_count) as executor:
             # Submit all chunks for parallel processing
@@ -176,7 +244,7 @@ def process_sentiment_analysis_job(
                     
                     # Update progress based on completed chunks
                     completed_chunks += 1
-                    progress_pct = 10 + int((completed_chunks / total_chunks) * 70)
+                    progress_pct = 30 + int((completed_chunks / total_chunks) * 50)
                     update_job_status(
                         job_id, 
                         'processing', 
@@ -188,7 +256,7 @@ def process_sentiment_analysis_job(
                     continue
 
         # Merge results
-        update_job_status(job_id, 'processing', 'Merging analysis results', progress=80)
+        update_job_status(job_id, 'processing', 'Merging analysis results', progress=85)
         json_data_list = []
         for result_file in chunk_results:
             with open(result_file, 'r', encoding='utf-8') as f:
@@ -196,7 +264,7 @@ def process_sentiment_analysis_job(
                     json_data = json.loads(f.read())
                     json_data_list.append(json_data)
                 except json.JSONDecodeError as e:
-                    print(f"[reddit.py] Error parsing JSON from {result_file}: {str(e)}")
+                    logging.error(f"Error parsing JSON from {result_file}: {str(e)}")
                     continue
 
         final_result = merge_and_categorize_results(json_data_list)
@@ -240,8 +308,6 @@ def process_sentiment_analysis_job(
                 project_id=project_id
             )
             
-            print(f"[reddit.py] Analysis result saved to database with ID: {analysis_id}")
-            
             # Add the analysis ID to the response
             combined_response["analysis_id"] = analysis_id
             
@@ -263,9 +329,8 @@ def process_sentiment_analysis_job(
             ai_summary_result = None
             try:
                 import requests
-                
-                # Use a direct URL instead of current_app to avoid application context issues
-                base_url = os.getenv('BASE_URL', 'http://localhost:8081')
+
+                base_url = os.getenv('VITE_API_BASE_URL')
                 
                 ai_summary_url = f"{base_url}/api/llm-analyzer/ai-summary"
                 summary_payload = {
@@ -281,21 +346,20 @@ def process_sentiment_analysis_job(
                 response.raise_for_status()
                 
                 ai_summary_result = response.json()
-                print(f"[reddit.py] AI summary received for analysis ID: {analysis_id}")
                 
                 # Add the AI summary to the combined response
                 combined_response["ai_summary"] = ai_summary_result
                 
             except requests.exceptions.RequestException as e:
-                print(f"[reddit.py] Error calling AI summary endpoint: {str(e)}")
+                logging.error(f"Error calling AI summary endpoint: {str(e)}")
                 # Optionally add error info to the response or handle differently
                 combined_response["ai_summary_error"] = f"Failed to generate AI summary: {str(e)}"
             except Exception as e:
-                 print(f"[reddit.py] Error processing AI summary response: {str(e)}")
-                 combined_response["ai_summary_error"] = f"Error processing AI summary: {str(e)}"
+                logging.error(f"Error processing AI summary response: {str(e)}")
+                combined_response["ai_summary_error"] = f"Error processing AI summary: {str(e)}"
                 
         except Exception as e:
-            print(f"[reddit.py] Error saving analysis result to database: {str(e)}")
+            logging.error(f"Error saving analysis result to database: {str(e)}")
             db_error = str(e)
             combined_response["db_error"] = db_error
         finally:
@@ -324,14 +388,26 @@ def process_sentiment_analysis_job(
             error=error_msg
         )
 
-@llm_analyzer_bp.route('/analyze-sentiment/<search_id>', methods=['POST'])
-def analyze_pros_cons(search_id):
+@llm_analyzer_bp.route('/analyze-sentiment', methods=['POST'])
+def analyze_pros_cons():
     try:
         data = request.get_json()
-        # Extract parameters
-        application_name = data.get('application_name', 'Student Hub')
+        
+        # Extract search parameters
+        subreddit = data.get('subreddit')
+        query = data.get('query')
+        limit = data.get('limit', 5)
+        sort = data.get('sort', 'relevance')
+        time_filter = data.get('time', 'all')
+        
+        # Validate required search parameters
+        if not subreddit or not query:
+            return jsonify({'error': 'Missing required parameters: subreddit and query'}), 400
+        
+        # Extract analysis parameters
+        application_name = data.get('application_name', query)
         filter_type = data.get('filter_type', 'cluster')
-        keyword = data.get('keyword', 'ring')
+        keyword = data.get('keyword', query)
         merge_method = data.get('merge_method', 'deepseek-r1')
         chunk_size = data.get('chunk_size', 40000)
         analysis_model = data.get('analysis_model', 'deepseek-r1')
@@ -339,13 +415,18 @@ def analyze_pros_cons(search_id):
         skip_filtering = data.get('skip_filtering', True)
         user_id = data.get('user_id', '123')
         project_id = data.get('project_id')  # Get project ID if provided
-
-        # Validate search_id
-        if search_id not in analysis_results:
-            return jsonify({'error': 'Analysis not found'}), 404
             
         # Generate a unique job ID
         job_id = generate_job_id()
+        
+        # Create search parameters object
+        search_params = {
+            'subreddit': subreddit,
+            'query': query,
+            'limit': limit,
+            'sort': sort,
+            'time': time_filter
+        }
         
         # Create a job record in database
         db = SessionLocal()
@@ -355,6 +436,11 @@ def analyze_pros_cons(search_id):
             
             # Job parameters to store
             job_parameters = {
+                'subreddit': subreddit,
+                'query': query,
+                'limit': limit,
+                'sort': sort,
+                'time': time_filter,
                 'application_name': application_name,
                 'filter_type': filter_type,
                 'keyword': keyword,
@@ -362,18 +448,18 @@ def analyze_pros_cons(search_id):
                 'chunk_size': chunk_size,
                 'analysis_model': analysis_model,
                 'max_workers': max_workers,
-                'project_id': project_id,
-                'search_id': search_id  # Store the search_id in parameters instead
+                'project_id': project_id
             }
             
             # Create job in database
             job = jobs_repo.create_job(
                 job_id=job_id,
                 user_id=user_id,
+                project_id=project_id,
                 parameters=job_parameters
             )
         except Exception as e:
-            print(f"Error creating job in database: {str(e)}")
+            logging.error(f"Error creating job in database: {str(e)}")
             return jsonify({'error': f'Failed to create job: {str(e)}'}), 500
         finally:
             db.close()
@@ -383,7 +469,7 @@ def analyze_pros_cons(search_id):
             target=process_sentiment_analysis_job,
             args=(
                 job_id, 
-                search_id, 
+                search_params, 
                 application_name, 
                 filter_type, 
                 keyword, 
@@ -450,6 +536,10 @@ def get_job_status(job_id):
                         if analysis:
                             response['result'] = analysis.data
                 
+                # Include parameters if they exist
+                if job.parameters:
+                    response['parameters'] = job.parameters
+                
                 return jsonify(response)
             
             return jsonify({'error': 'Job not found'}), 404
@@ -494,44 +584,64 @@ def cancel_job(job_id):
         logging.error(error_msg)
         return jsonify({'error': error_msg}), 500
 
+@llm_analyzer_bp.route('/project/<project_id>/cancel', methods=['DELETE'])
+def cancel_jobs_by_project(project_id):
+    """Cancel all sentiment analysis jobs associated with a project ID"""
+    try:
+        db = SessionLocal()
+        try:
+            jobs_repo = JobsRepository(db)
+            
+            # Get all jobs for this project that can be cancelled
+            jobs_to_cancel = [job for job in jobs_repo.get_jobs_by_project_id(project_id) 
+                            if job.status in ["pending", "processing"]]
+            
+            # Cancel all jobs in the database
+            cancelled_count = jobs_repo.cancel_jobs_by_project_id(project_id)
+            cancelled_job_ids = [job.id for job in jobs_to_cancel]
+            
+            return jsonify({
+                'project_id': project_id,
+                'status': 'cancelled',
+                'message': f'{cancelled_count} jobs were cancelled for project {project_id}',
+                'cancelled_job_count': cancelled_count,
+                'cancelled_job_ids': cancelled_job_ids
+            })
+            
+        finally:
+            db.close()
+                
+    except Exception as e:
+        error_msg = f"Error cancelling jobs for project {project_id}: {str(e)}"
+        logging.error(error_msg)
+        return jsonify({'error': error_msg}), 500
+
 @llm_analyzer_bp.route('/ai-summary/<project_id>', methods=['POST'])
 def get_ai_summary_by_project_id(project_id):
-    print(f"[get_ai_summary_by_project_id] Received request for project ID: {project_id}")
     try:
         # Create database session
         db = SessionLocal()
         repo = RedditRepository(db)
         
         # Get the analysis result from the database
-        print(f"[get_ai_summary_by_project_id] Querying database for analysis ID: {project_id}")
         analysis_result = repo.get_analysis_by_id(project_id)
         
         if not analysis_result:
-            print(f"[get_ai_summary_by_project_id] No analysis found with ID: {project_id}")
             return jsonify({
                 "error": "Analysis not found",
                 "message": f"No analysis found with ID: {project_id}"
             }), 404
         
-        print(f"[get_ai_summary_by_project_id] Found analysis with ID: {project_id}")
-        print(f"[get_ai_summary_by_project_id] Analysis summary exists: {analysis_result.summary is not None}")
-        
         # Check if summary already exists
         if analysis_result.summary:
-            print(f"[get_ai_summary_by_project_id] Returning existing summary for analysis ID: {project_id}")
             return jsonify(analysis_result.summary)
         
         # If no summary exists, generate one
         analysis_data = analysis_result.data.get('merged_result', {})
         application_name = analysis_result.topic or "Application"
         
-        print(f"[get_ai_summary_by_project_id] Generating new summary for analysis ID: {project_id}")
-        print(f"[get_ai_summary_by_project_id] Application name: {application_name}")
-        print(f"[get_ai_summary_by_project_id] Analysis data keys: {list(analysis_data.keys())}")
-        
         # Get prompt from reddit_prompt.py
         prompt = get_ai_summary_prompt(analysis_data, application_name)
-        print(f"[get_ai_summary_by_project_id] Generated prompt length: {len(prompt)}")
         
         # Log the AI summary prompt
         temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')
@@ -539,12 +649,9 @@ def get_ai_summary_by_project_id(project_id):
             f.write(prompt)
         
         # Call the LLM API
-        print(f"[get_ai_summary_by_project_id] Calling Claude API")
         llm_response = get_claude_completion_with_json(
             messages=[{"role": "user", "content": prompt}]
         )
-        
-        print(f"[get_ai_summary_by_project_id] Received response from Claude API, length: {len(llm_response)}")
         
         # Log the AI summary response
         with open(os.path.join(temp_dir, f'ai_summary_response_{project_id}.txt'), 'w', encoding='utf-8') as f:
@@ -553,20 +660,14 @@ def get_ai_summary_by_project_id(project_id):
         summary_result = None
         try:
             # Parse the JSON response
-            print(f"[get_ai_summary_by_project_id] Attempting to parse JSON response")
             summary_result = json.loads(llm_response)
-            print(f"[get_ai_summary_by_project_id] Successfully parsed JSON response")
         except Exception as json_err:
-            print(f"[get_ai_summary_by_project_id] JSON parsing error: {str(json_err)}")
-            print(f"[get_ai_summary_by_project_id] Response snippet: {llm_response[:200]}...")
+            logging.error(f"[get_ai_summary_by_project_id] JSON parsing error: {str(json_err)}")
+            logging.error(f"[get_ai_summary_by_project_id] Response snippet: {llm_response[:200]}...")
             # Fallback if JSON parsing fails
             # Calculate totals for fallback
             positive_categories = analysis_data.get('positive', [])
             negative_categories = analysis_data.get('negative', [])
-            
-            print(f"[get_ai_summary_by_project_id] Using fallback summary generation")
-            print(f"[get_ai_summary_by_project_id] Positive categories: {len(positive_categories)}")
-            print(f"[get_ai_summary_by_project_id] Negative categories: {len(negative_categories)}")
             
             def get_category_total(category):
                 return sum([point.get('frequency', 0) for point in category.get('points', [])])
@@ -607,20 +708,17 @@ def get_ai_summary_by_project_id(project_id):
         
         # Save the summary to the database
         try:
-            print(f"[get_ai_summary_by_project_id] Saving summary to database for analysis ID: {project_id}")
             repo.update_analysis_summary(project_id, summary_result)
             db.commit()
-            print(f"[get_ai_summary_by_project_id] Successfully saved summary to database")
         except Exception as db_err:
-            print(f"[get_ai_summary_by_project_id] Error saving summary to database: {str(db_err)}")
+            logging.error(f"[get_ai_summary_by_project_id] Error saving summary to database: {str(db_err)}")
             db.rollback()
         
         # Return the summary result
-        print(f"[get_ai_summary_by_project_id] Returning summary result")
         return jsonify(summary_result)
             
     except Exception as e:
-        print(f"[get_ai_summary_by_project_id] Error: {str(e)}")
+        logging.error(f"[get_ai_summary_by_project_id] Error: {str(e)}")
         import traceback
         traceback.print_exc()
         return jsonify({
@@ -642,7 +740,6 @@ def get_ai_summary():
         
         # Get prompt from reddit_prompt.py
         prompt = get_ai_summary_prompt(analysis_data, application_name)
-        print(f"[reddit.py] prompt: {prompt}")
         
         # Log the AI summary prompt
         temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')
@@ -650,7 +747,6 @@ def get_ai_summary():
             f.write(prompt)
             
         # Call the LLM API
-
         llm_response = get_claude_completion_with_json(
             messages=[{"role": "user", "content": prompt}]
         )
@@ -714,11 +810,9 @@ def get_ai_summary():
                 
                 # Since project_id is the same as analysis_id, use it directly
                 repo.update_analysis_summary(project_id, summary_result)
-                print(f"[reddit.py] Updated summary for analysis ID: {project_id}")
-                
                 db.commit()
             except Exception as e:
-                print(f"[reddit.py] Error saving summary to database: {str(e)}")
+                logging.error(f"[reddit.py] Error saving summary to database: {str(e)}")
                 if db:
                     db.rollback()
             finally:
@@ -729,134 +823,16 @@ def get_ai_summary():
         return jsonify(summary_result)
             
     except Exception as e:
-        print(f"Error generating AI summary: {str(e)}")
+        logging.error(f"Error generating AI summary: {str(e)}")
         return jsonify({
             "error": "Failed to generate AI summary",
             "message": str(e)
         }), 500
     
 
-@llm_analyzer_bp.route('/search', methods=['POST'])
-def search_subreddit():
-    data = request.get_json()
-    
-    if not data or 'subreddit' not in data or 'query' not in data:
-        return jsonify({'error': 'Missing required parameters: subreddit and query'}), 400
-        
-    subreddit = data['subreddit']
-    query = data['query']
-    limit = data.get('limit', 5)
-    sort = data.get('sort', 'relevance')
-    time_filter = data.get('time', 'all')
-    
-    print("[reddit.py] query", query)
-    print("[reddit.py] limit", limit)
-    print("[reddit.py] subreddit", subreddit)
-    print("[reddit.py] sort", sort)
-    print("[reddit.py] time_filter", time_filter)
-    
-    try:
-        subreddit_obj = reddit.subreddit(subreddit)
-        
-        search_results = []
-        for submission in subreddit_obj.search(
-            query, 
-            limit=limit,
-            sort=sort,
-            time_filter=time_filter
-        ):
-            # Fetch comments
-            submission.comments.replace_more(limit=0)
-            
-            def get_comment_data(comment, depth=0, max_depth=2):
-                if depth > max_depth:
-                    return None
-                
-                comment_data = {
-                    'id': comment.id,
-                    'body': comment.body,
-                    'score': comment.score,
-                    'created_utc': comment.created_utc,
-                    'author': str(comment.author) if comment.author else '[deleted]',
-                    'replies': []
-                }
-                
-                # Get up to 10 replies for this comment
-                if comment.replies and depth < max_depth:
-                    for reply in list(comment.replies)[:10]:
-                        reply_data = get_comment_data(reply, depth + 1, max_depth)
-                        if reply_data:
-                            comment_data['replies'].append(reply_data)
-                
-                return comment_data
-
-            # Get top-level comments
-            comments = []
-            for comment in list(submission.comments)[:10]:
-                comment_data = get_comment_data(comment, depth=0)
-                if comment_data:
-                    comments.append(comment_data)
-
-            search_results.append({
-                'id': submission.id,
-                'title': submission.title,
-                'score': submission.score,
-                'created_utc': submission.created_utc,
-                'selftext': submission.selftext if hasattr(submission, 'selftext') else None,
-                'comments': comments,
-                'url': submission.url,
-                'permalink': submission.permalink,
-                'num_comments': submission.num_comments,
-                'author': str(submission.author) if submission.author else '[deleted]'
-            })
-        
-        search_id = str(uuid.uuid4())
-        
-        result_data = {
-            'status': 'completed',
-            'created_at': datetime.utcnow().isoformat(),
-            'subreddit': subreddit,
-            'parameters': {
-                'query': query,
-                'limit': limit,
-                'sort': sort,
-                'time': time_filter
-            },
-            'results': search_results,
-            'search_id': search_id
-        }
-        
-        # Store search result data for current session
-        analysis_results[search_id] = result_data
-        
-        # Save directly to database
-        db = SessionLocal()
-        try:
-            repo = RedditRepository(db)
-            repo.save_search(
-                search_id=search_id,
-                subreddit=subreddit,
-                query=query,
-                parameters={
-                    'limit': limit,
-                    'sort': sort,
-                    'time': time_filter
-                }
-            )
-            repo.save_posts(search_id, search_results)
-        finally:
-            db.close()
-        
-        return jsonify(result_data)
-        
-    except Exception as e:
-        return jsonify({
-            'error': f'Failed to search subreddit: {str(e)}'
-        }), 500
-    
 @llm_analyzer_bp.route('/subreddit-stats/<subreddit>', methods=['GET'])
 def get_subreddit_stats_endpoint(subreddit):
-    """Get statistics about posts and comments for a specific subreddit"""
+    """Get statistics about posts and comments for a specific subreddit from the latest analysis result"""
     try:
         stats = get_subreddit_statistics(subreddit)
         return jsonify(stats)
@@ -903,17 +879,6 @@ def get_posts():
         return jsonify({'error': str(e)}), 500
     finally:
         db.close()
-    
-@llm_analyzer_bp.route('/results/<search_id>', methods=['GET'])
-def get_results(search_id):
-    if search_id not in analysis_results:
-        return jsonify({
-            'error': 'Analysis not found'
-        }), 404
-        
-    return jsonify(analysis_results[search_id])
-
-
 
 def setup_temp_directory():
     """Create and clean temporary directory for analysis files"""
@@ -925,7 +890,7 @@ def setup_temp_directory():
         try:
             os.remove(f)
         except Exception as e:
-            print(f"[reddit.py] Error deleting file {f}: {str(e)}")
+            logging.error(f"[reddit.py] Error deleting file {f}: {str(e)}")
 
 def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='deepseek-r1'):
     """Process a single data chunk and return the result with retries"""
@@ -937,7 +902,7 @@ def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='dee
                     application_name=application_name,
                     posts_data=json.dumps(chunk, indent=2)[1:-1]  # Remove the outer {} while keeping formatting
                 )
-            elif method == 'openai-4o':
+            elif method == 'openai-4':
                 prompt = openai_get_reddit_pros_cons_prompt(
                     application_name=application_name,
                     posts_data=json.dumps(chunk, indent=2)[1:-1]  # Remove the outer {} while keeping formatting
@@ -958,20 +923,17 @@ def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='dee
             if method == 'deepseek-r1':
                 for content in get_json_deepseek_completion(messages, stream=True):
                     if content:
-                        print(content, end="", flush=True)
+                        # Remove print statement that streams to stdout
                         chunk_result += content
-            elif method == 'openai-4o':
+            elif method == 'openai-4':
                 chunk_result = get_openai_completion(messages,temperature=0.6)
             
             result = process_chunk_result(chunk_result, chunk_idx)
             if result:
-                print(f"[reddit.py] Successfully processed chunk {chunk_idx+1} on attempt {attempt+1}")
                 return result
             
-            print(f"[reddit.py] Retry {attempt+1}/{max_retries} for chunk {chunk_idx+1} due to invalid result")
-            
         except Exception as e:
-            print(f"[reddit.py] Error on attempt {attempt+1}/{max_retries} for chunk {chunk_idx+1}: {str(e)}")
+            logging.error(f"[reddit.py] Error on attempt {attempt+1}/{max_retries} for chunk {chunk_idx+1}: {str(e)}")
             if attempt == max_retries - 1:  # Last attempt
                 logging.error(f"Failed all {max_retries} attempts to process chunk {chunk_idx+1}")
                 return None
@@ -1007,7 +969,7 @@ def process_chunk_result(chunk_result, chunk_idx):
 
         return chunk_result_file
     except json.JSONDecodeError as e:
-        print(f"[reddit.py] Error parsing JSON: {str(e)}")
+        logging.error(f"[reddit.py] Error parsing JSON: {str(e)}")
         error_info = {
             "error": str(e),
             "raw_content": chunk_result,
@@ -1032,7 +994,6 @@ def merge_and_categorize_results(json_data_list):
 
     while len(current_data_list) > max_list_items_for_single_llm_call and iteration_count < max_iterations:
         iteration_count += 1
-        print(f"[reddit.py] Starting merge iteration {iteration_count}/{max_iterations}. Items: {len(current_data_list)}")
         iteration_results = []
         
         for i in range(0, len(current_data_list), iteration_chunk_size):
@@ -1042,8 +1003,6 @@ def merge_and_categorize_results(json_data_list):
             if not chunk: # Skip empty chunks if any
                 continue
 
-            print(f"[reddit.py] Iteration {iteration_count}, processing chunk {chunk_index + 1}/{ (len(current_data_list) + iteration_chunk_size - 1) // iteration_chunk_size } (Size: {len(chunk)})")
-            
             # 1. Get mapping for the current chunk
             try:
                 merge_prompt = get_point_merger_prompt(chunk)
@@ -1062,12 +1021,11 @@ def merge_and_categorize_results(json_data_list):
                     f.write(mapping_response_chunk)
 
             except Exception as e:
-                print(f"[reddit.py] Error getting mapping for iteration {iteration_count}, chunk {chunk_index + 1}: {e}")
+                logging.error(f"[reddit.py] Error getting mapping for iteration {iteration_count}, chunk {chunk_index + 1}: {e}")
                 # Strategy: If LLM fails for a chunk, maybe append original chunk items to results?
                 # For now, let's just log error and skip, resulting in data loss for this chunk.
                 # A safer approach might be to add the unmerged 'chunk' data back.
                 # Or retry the LLM call. Let's append the original chunk for now to avoid data loss.
-                print(f"[reddit.py] Appending original chunk {chunk_index + 1} due to LLM error.")
                 iteration_results.extend(chunk) # Add original items back
                 continue
 
@@ -1082,20 +1040,17 @@ def merge_and_categorize_results(json_data_list):
                     json.dump(chunk_merged_data, f, indent=2)
 
             except Exception as e:
-                print(f"[reddit.py] Error applying mapping for iteration {iteration_count}, chunk {chunk_index + 1}: {e}")
+                logging.error(f"[reddit.py] Error applying mapping for iteration {iteration_count}, chunk {chunk_index + 1}: {e}")
                 # Strategy: If merging fails, append original chunk items?
-                print(f"[reddit.py] Appending original chunk {chunk_index + 1} due to merge error.")
                 iteration_results.extend(chunk) # Add original items back
                 continue
 
         # Update the list for the next iteration
         current_data_list = iteration_results
-        print(f"[reddit.py] Finished merge iteration {iteration_count}. Items remaining: {len(current_data_list)}")
 
     # --- Final Merge ---
-    print(f"[reddit.py] Proceeding to final merge. Items: {len(current_data_list)}")
     if not current_data_list:
-         print("[reddit.py] Error: Data list is empty after iterations. Cannot proceed.")
+         logging.error("[reddit.py] Error: Data list is empty after iterations. Cannot proceed.")
          # Handle this case - maybe return an error structure or raise exception
          # For now, create an empty result structure.
          merged_result = {"positive": [], "negative": []}
@@ -1117,13 +1072,11 @@ def merge_and_categorize_results(json_data_list):
             merged_filename = os.path.join(temp_dir, '9.final_merged_result.json')
             with open(merged_filename, 'w', encoding='utf-8') as f:
                 json.dump(merged_result, f, indent=2)
-            print("[reddit.py] Final merge successful.")
 
         except Exception as e:
-            print(f"[reddit.py] Error during final merge: {e}")
+            logging.error(f"[reddit.py] Error during final merge: {e}")
             # Strategy: If final merge fails, try to combine results without final LLM mapping?
             # Combine all points from current_data_list without further mapping as a fallback.
-            print("[reddit.py] Fallback: Combining points without final LLM-based merge.")
             merged_result = {"positive": [], "negative": []}
             for item_dict in current_data_list:
                  if isinstance(item_dict, dict):
@@ -1132,7 +1085,6 @@ def merge_and_categorize_results(json_data_list):
             # Note: This fallback loses the benefit of the final merge consistency check.
 
     # --- Categorization ---
-    print("[reddit.py] Proceeding to categorization.")
     try:
         category_prompt = get_category_merger_prompt(merged_result)
         category_prompt_filename = os.path.join(temp_dir, '10.category_merge_prompt.txt')
@@ -1147,7 +1099,7 @@ def merge_and_categorize_results(json_data_list):
             f.write(category_response)
 
     except Exception as e:
-        print(f"[reddit.py] Error getting category response: {e}")
+        logging.error(f"[reddit.py] Error getting category response: {e}")
         # Handle error - maybe return merged_result without categorization?
         # Or raise the exception? Let's raise for now.
         raise ValueError(f"Failed to get categorization from LLM: {e}") from e
@@ -1163,22 +1115,21 @@ def merge_and_categorize_results(json_data_list):
              if json_start == -1 or json_end == 0:
                  # If still no JSON, maybe the response is just text? Or malformed?
                  # Try to handle as error or log extensively.
-                 print(f"[reddit.py] Could not find JSON structure in category response: {category_response[:500]}...")
+                 logging.error(f"[reddit.py] Could not find JSON structure in category response: {category_response[:500]}...")
                  raise ValueError("Could not find JSON structure in category response")
              json_str = category_response[json_start:json_end]
         else:
              json_str = json_match.group(0)
              
         categorized_result = json.loads(json_str)
-        print("[reddit.py] Successfully parsed categorized result.")
 
     except json.JSONDecodeError as e:
-        print(f"[reddit.py] Error parsing categorized result JSON: {e}")
-        print(f"[reddit.py] Raw category response snippet: {category_response[:500]}...")
+        logging.error(f"[reddit.py] Error parsing categorized result JSON: {e}")
+        logging.error(f"[reddit.py] Raw category response snippet: {category_response[:500]}...")
         # Handle error: maybe return merged_result without categorization, or raise
         raise ValueError(f"Failed to parse JSON from category response: {e}") from e
     except Exception as e:
-        print(f"[reddit.py] Error processing category response: {e}")
+        logging.error(f"[reddit.py] Error processing category response: {e}")
         raise
 
     # Map categorized points back (with added safety checks)
@@ -1192,17 +1143,14 @@ def merge_and_categorize_results(json_data_list):
     # (Ensure this logic correctly handles the structure from categorized_result)
     for sentiment in ["positive", "negative"]:
          if sentiment not in categorized_result:
-              print(f"[reddit.py] Warning: Sentiment '{sentiment}' not found in categorized result.")
               continue
               
          if not isinstance(categorized_result[sentiment], list):
-             print(f"[reddit.py] Warning: Expected list for sentiment '{sentiment}', found {type(categorized_result[sentiment])}.")
              continue
 
          for category_group in categorized_result[sentiment]:
             # Check if category_group is a dictionary and has 'category' and 'points'
             if not isinstance(category_group, dict) or "category" not in category_group or "points" not in category_group:
-                 print(f"[reddit.py] Warning: Skipping invalid category group structure in '{sentiment}': {category_group}")
                  continue
 
             category_name = category_group["category"]
@@ -1212,7 +1160,6 @@ def merge_and_categorize_results(json_data_list):
             }
             
             if not isinstance(category_group["points"], list):
-                print(f"[reddit.py] Warning: Expected list for points in category '{category_name}', found {type(category_group['points'])}.")
                 continue
 
             for point_data in category_group["points"]:
@@ -1236,7 +1183,7 @@ def merge_and_categorize_results(json_data_list):
                              for k, v in original_evidence.items()
                          }
                     else:
-                         print(f"[reddit.py] Warning: Invalid evidence format for point '{point_data}': {original_evidence}")
+                         pass
 
                     new_category["points"].append({
                         "point": point_data,
@@ -1245,7 +1192,6 @@ def merge_and_categorize_results(json_data_list):
                     })
                 else:
                      # If point not found in merged_result, add with default values
-                     print(f"[reddit.py] Warning: Point '{point_data}' from categorization not found in merged results for sentiment '{sentiment}'. Adding with default frequency/evidence.")
                      new_category["points"].append({
                         "point": point_data,
                         "frequency": 1,
@@ -1254,7 +1200,6 @@ def merge_and_categorize_results(json_data_list):
             
             final_result[sentiment].append(new_category)
             
-    print("[reddit.py] Categorization mapping complete.")
     return final_result
 
 def format_comments(comments, indent_level=0):
@@ -1278,7 +1223,7 @@ def merge_points_with_mapping(json_data_list: List[Dict], mapping_str: str) -> D
         # Parse the mapping JSON string
         mapping = json.loads(mapping_str)
     except json.JSONDecodeError as e:
-        print(f"Error parsing mapping JSON: {str(e)}")
+        logging.error(f"Error parsing mapping JSON: {str(e)}")
         return {
             "positive": [item for data in json_data_list for item in data.get("positive", [])],
             "negative": [item for data in json_data_list for item in data.get("negative", [])]
@@ -1361,9 +1306,12 @@ def get_jobs_by_user(user_id):
                     'parameters': job.parameters
                 }
                 
-                # Include search_id from parameters if it exists
-                if job.parameters and 'search_id' in job.parameters:
-                    job_dict['search_id'] = job.parameters['search_id']
+                # Include subreddit and query from parameters for display
+                if job.parameters:
+                    if 'subreddit' in job.parameters:
+                        job_dict['subreddit'] = job.parameters['subreddit']
+                    if 'query' in job.parameters:
+                        job_dict['query'] = job.parameters['query']
                     
                 job_list.append(job_dict)
             
@@ -1405,9 +1353,12 @@ def get_jobs_by_analysis(analysis_id):
                     'parameters': job.parameters
                 }
                 
-                # Include search_id from parameters if it exists
-                if job.parameters and 'search_id' in job.parameters:
-                    job_dict['search_id'] = job.parameters['search_id']
+                # Include subreddit and query from parameters for display
+                if job.parameters:
+                    if 'subreddit' in job.parameters:
+                        job_dict['subreddit'] = job.parameters['subreddit']
+                    if 'query' in job.parameters:
+                        job_dict['query'] = job.parameters['query']
                     
                 job_list.append(job_dict)
             

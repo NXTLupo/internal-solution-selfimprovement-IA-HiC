@@ -15,6 +15,33 @@ export interface Project {
   post_count?: number;
   sort_by?: string;
   time_period?: string;
+  // Add date range properties that come from the API
+  startDate?: string;
+  endDate?: string;
+  // Add job-related properties
+  is_processing?: boolean;
+  job_status?: {
+    job_id: string;
+    status: string;
+    message: string;
+    progress?: number;
+    created_at: string;
+    updated_at: string;
+    error?: string;
+  };
+  parameters?: {
+    subreddit?: string;
+    num_posts?: number;
+    max_comments_per_post?: number;
+    index_in_pgvector?: boolean;
+    sort?: string;
+    project_id?: string;
+    keyword?: string;
+    summary_limit?: number | null;
+    startDate?: string | null;
+    endDate?: string | null;
+    [key: string]: string | number | boolean | null | undefined; // Allow for additional parameters
+  };
 }
 
 export interface User {

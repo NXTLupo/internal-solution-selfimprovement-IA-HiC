@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 local_llm_bp = Blueprint('local_llm', __name__)
 
 
-@local_llm_bp.route('/api/chat', methods=['POST'])
+@local_llm_bp.route('/chat', methods=['POST'])
 def chat():
     try:
         # Get data from request

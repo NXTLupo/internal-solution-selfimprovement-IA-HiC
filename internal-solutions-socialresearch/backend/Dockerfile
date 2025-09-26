@@ -1,21 +1,24 @@
-ARG PYTHON_VER=3.11
-FROM python:${PYTHON_VER} AS backend
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git build-essential \
+ && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
-ENV PYTHONUNBUFFERED=1
-WORKDIR /app
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir --upgrade pip
+# Install dependencies
+COPY requirements.txt /app/requirements.txt
+# Install CPU-only torch first to avoid heavy CUDA wheels
+RUN pip install --index-url https://download.pytorch.org/whl/cpu torch==2.4.1+cpu \
+ && pip install -r requirements.txt
 
-# Install CPU-only PyTorch before other requirements
-RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-# Install other requirements but skip PyTorch (pip will see it's already installed)
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Copy application code
 COPY . /app
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python", "-m", "run"]
+
+EXPOSE 8081
+
+CMD ["sh", "-lc", "python startup.py && gunicorn --bind 0.0.0.0:8081 --workers ${GUNICORN_WORKERS:-1} --timeout ${GUNICORN_TIMEOUT:-240} 'app:create_app()'"]

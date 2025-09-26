@@ -200,10 +200,12 @@ export const getAISummary = async (
 };
 
 export const getAISummaryByProjectId = async (
-  projectId: string
+  projectId: string,
+  llmProvider?: 'openai' | 'claude' | 'gemini'
 ): Promise<AISummaryResponse> => {
   try {
-    const url = `${API_BASE_URL}/api/llm-analyzer/ai-summary/${projectId}`;
+    const qp = llmProvider ? `?llm_provider=${encodeURIComponent(llmProvider)}` : '';
+    const url = `${API_BASE_URL}/api/llm-analyzer/ai-summary/${projectId}${qp}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -237,7 +239,8 @@ export const regenerateAISummary = async (
     positive: Category[];
     negative: Category[];
   },
-  projectId: string
+  projectId: string,
+  llmProvider?: 'openai' | 'claude' | 'gemini'
 ): Promise<AISummaryResponse> => {
   try {
     // Get application name from Redux store
@@ -263,7 +266,8 @@ export const regenerateAISummary = async (
       applicationName: applicationName
     };
 
-    const response = await fetch(`${API_BASE_URL}/api/llm-analyzer/ai-summary`, {
+    const qp = llmProvider ? `?llm_provider=${encodeURIComponent(llmProvider)}` : '';
+    const response = await fetch(`${API_BASE_URL}/api/llm-analyzer/ai-summary${qp}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

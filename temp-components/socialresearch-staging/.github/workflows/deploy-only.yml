@@ -1,0 +1,103 @@
+# This workflow deploys pre-built images to Azure Container Apps.
+# It expects the backend and frontend images with the specified tags
+# to already exist in the Azure Container Registry.
+on:
+  workflow_dispatch:
+    inputs:
+      backend_image_tag:
+        description: 'Tag for backend image (must exist in ACR)'
+        required: true
+        default: 'latest'
+      frontend_image_tag:
+        description: 'Tag for frontend image (must exist in ACR)'
+        required: true
+        default: 'latest'
+
+name: "Social Research Deploy Only"
+
+concurrency:
+  group: deploy-only-${{ github.ref }} # Added concurrency group
+  cancel-in-progress: true
+
+env:
+  SUBSCRIPTION_ID: '${{ secrets.AZURE_SUBSCRIPTION_ID }}'
+  REGISTRY: '${{ secrets.REGISTRY_LOGIN_SERVER_AIPLAYGROUND }}'
+  RESOURCE_GROUP: '${{ secrets.RESOURCE_GROUP_AIPLAYGROUND }}'
+  CONTAINER_APP_NAME: 'social-research'
+  ENVIRONMENT_NAME: 'social-research-env'
+  LOCATION: 'eastus2' # Matched location from build-and-deploy
+  CONTAINERAPP_YAML_PATH: '${{ github.workspace }}/containerapp.yaml'
+  # COMMIT_SHA is removed as we use input tags
+
+jobs:
+    deploy-only: # Renamed job for clarity
+        runs-on: ubuntu-latest
+        steps:
+        # checkout the repo to get containerapp.yaml
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@v4
+
+        - name: 'Debug directory'
+          run: |
+            pwd
+            ls -la
+
+        - name: 'Login via Azure CLI'
+          uses: azure/login@v2.3.0 # Use consistent version
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS_AIPLAYGROUND }}
+
+        # Docker Login is NOT needed here as we are not pushing,
+        # but the deploy action needs credentials to pull if registry is private.
+        # The deploy action handles this with acrUsername/acrPassword.
+
+        # Create .env is NOT needed as we are not building/pushing with compose.
+
+        - name: 'Ensure Container App Environment exists'
+          uses: azure/CLI@v2.1.0 # Use consistent version
+          with:
+            inlineScript: |
+              ENV_ID=$(az containerapp env show \
+                --name $ENVIRONMENT_NAME \
+                --resource-group $RESOURCE_GROUP \
+                --query id -o tsv 2>/dev/null || echo "")
+              if [ -z "$ENV_ID" ]; then
+                echo "Creating Container App Environment..."
+                az containerapp env create \
+                  --name $ENVIRONMENT_NAME \
+                  --resource-group $RESOURCE_GROUP \
+                  --location $LOCATION
+              else
+                echo "Container App Environment already exists."
+              fi
+
+        # Build and Push steps are removed.
+
+        - name: 'Update containerapp.yaml placeholders with input tags'
+          run: |
+            sed -i "s|SUBSCRIPTION_ID|${SUBSCRIPTION_ID}|g" $CONTAINERAPP_YAML_PATH
+            sed -i "s|RESOURCE_GROUP|${RESOURCE_GROUP}|g" $CONTAINERAPP_YAML_PATH
+            sed -i "s|ENVIRONMENT_NAME|${ENVIRONMENT_NAME}|g" $CONTAINERAPP_YAML_PATH
+            sed -i "s|REGISTRY|${REGISTRY}|g" $CONTAINERAPP_YAML_PATH
+            # Use input tags instead of COMMIT_SHA
+            sed -i "s|IMAGE_TAG_BACKEND|${{ github.event.inputs.backend_image_tag }}|g" $CONTAINERAPP_YAML_PATH
+            sed -i "s|IMAGE_TAG_FRONTEND|${{ github.event.inputs.frontend_image_tag }}|g" $CONTAINERAPP_YAML_PATH
+
+        - name: 'Verify containerapp.yaml contents' # Optional debug step
+          run: |
+            echo "--- Contents of containerapp.yaml after replacement ---"
+            cat $CONTAINERAPP_YAML_PATH
+            echo "------------------------------------------------------"
+
+        - name: Deploy to Azure Container Apps
+          uses: azure/container-apps-deploy-action@v2
+          with:
+            resourceGroup: '${{ env.RESOURCE_GROUP }}'
+            location: '${{ env.LOCATION }}'
+            containerAppEnvironment: '${{ env.ENVIRONMENT_NAME }}'
+            containerAppName: '${{ env.CONTAINER_APP_NAME }}'
+            yamlConfigPath: '${{ env.CONTAINERAPP_YAML_PATH }}'
+            acrName: nxthumans
+            acrUsername: '${{ secrets.REGISTRY_USERNAME_AIPLAYGROUND }}'
+            acrPassword: '${{ secrets.REGISTRY_PASSWORD_AIPLAYGROUND }}'
+

@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+set -e
 
-echo "Initializing database..."
-python -m app.db_init
-echo "Database initialized!"
+# Run initialization script
+echo "Running initialization script..."
+python /app/startup.py
 
-echo "Starting application..."
-exec "$@" 
+# Start Gunicorn
+echo "Starting Gunicorn server..."
+exec gunicorn --bind 0.0.0.0:${PORT:-8081} --workers ${GUNICORN_WORKERS:-1} --timeout ${GUNICORN_TIMEOUT:-240} "app:create_app()" 

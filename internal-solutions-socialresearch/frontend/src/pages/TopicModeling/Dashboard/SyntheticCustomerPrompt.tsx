@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../store/store';
@@ -14,6 +14,7 @@ const SyntheticCustomerPrompt = () => {
   const [postTopic, setPostTopic] = useState<Topic | null>(null);
   const [isLoadingPost, setIsLoadingPost] = useState(false);
   const [localChatHistory, setLocalChatHistory] = useState<ChatMessage[]>([]);
+  const [selectedModel, setSelectedModel] = useState<string>('openai');
   const dispatch = useDispatch();
   
   // Get state from Redux
@@ -23,6 +24,15 @@ const SyntheticCustomerPrompt = () => {
   const chatHistory = useSelector((state: RootState) => state.chat.chatHistory);
   const isLoading = useSelector((state: RootState) => state.chat.isLoading);
   const error = useSelector((state: RootState) => state.chat.error);
+  
+  // Available LLM models
+  const availableLLMModels = useMemo(() => {
+    return [
+      { id: 'openai', name: 'GPT 4o' },
+      { id: 'claude', name: 'Claude 4' },
+      { id: 'gemini', name: 'Gemini 2.5 Pro' }
+    ];
+  }, []);
   
   // Clear chat history when the component mounts
   useEffect(() => {
@@ -43,7 +53,8 @@ const SyntheticCustomerPrompt = () => {
       const response = await sendRAGRequest({
         prompt: userPrompt,
         subreddit: subreddit,
-        topicData: topicData
+        topicData: topicData,
+        llm_provider: selectedModel
       });
       
       return response;
@@ -373,9 +384,27 @@ const SyntheticCustomerPrompt = () => {
         <h3 className="text-lg font-medium text-white">Ask about the Reddit data</h3>
       </div>
       
-      <div className="text-sm text-gray-400 mb-4">
-        Ask the AI any question about the Reddit data for <span className="font-bold text-base">r/{subreddit}</span>. 
-        The AI will analyze the retrieved posts to provide insights.
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+        <div className="text-sm text-gray-400">
+          Ask the AI any question about the Reddit data for <span className="font-bold text-base">r/{subreddit}</span>. 
+          The AI will analyze the retrieved posts to provide insights.
+        </div>
+        
+        <div className="flex items-center space-x-2">
+          <label className="text-sm text-gray-400">Model:</label>
+          <select
+            value={selectedModel}
+            onChange={(e) => setSelectedModel(e.target.value)}
+            className="bg-gray-700 text-white border border-gray-600 rounded p-1 text-sm"
+            disabled={isLoading}
+          >
+            {availableLLMModels.map((model) => (
+              <option key={model.id} value={model.id}>
+                {model.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       
       {/* Chat History - using localChatHistory instead of Redux state */}

@@ -1,7 +1,7 @@
 import { Category, Point, Post, Comment, Reply, AnalysisData } from '../../../types/analysis';
 import { Tooltip } from '../../../components/Tooltip';
 import './Date/datapicker-custome.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DateRangePicker } from './Date/DateRangePicker';
 
 // Helper function to highlight text with context
@@ -122,6 +122,20 @@ export const AnalysisTab = ({
     negative: false
   });
 
+  // Extract startDate and endDate from analysis data if available
+  const [startDate, setStartDate] = useState<string | undefined>(undefined);
+  const [endDate, setEndDate] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (analysis?.startDate) {
+      setStartDate(analysis.startDate);
+    }
+    
+    if (analysis?.endDate) {
+      setEndDate(analysis.endDate);
+    }
+  }, [analysis]);
+
   // Toggle category expansion
   const toggleCategory = (sentiment: string, categoryIndex: number) => {
     const key = `${sentiment}-${categoryIndex}`;
@@ -152,7 +166,7 @@ export const AnalysisTab = ({
       onToggleExpandAll(sentiment, newExpandAllState);
     } else {
       // Otherwise, update internal state (if needed, though it might become redundant)
-      if (analysisData && analysisData[sentiment]) {
+      if (analysisData && isSentimentType(sentiment) && analysisData[sentiment]) {
         const updatedCategories = { ...internalExpandedCategories };
         analysisData[sentiment].forEach((_: Category, idx: number) => {
           updatedCategories[`${sentiment}-${idx}`] = newExpandAllState;
@@ -254,10 +268,15 @@ export const AnalysisTab = ({
     <div className="space-y-6">
       {/* Only show DateRangePicker if showDatePicker is true (which will be false when called from AnalysisResults) */}
       {showDatePicker && (
-        <DateRangePicker
-          onChange={onDateRangeChange}
-          maxDate={getLatestDate(analysis)}
-        />
+        <div className="mb-2 p-4 bg-gray-800 rounded-xl shadow-lg">
+          <h3 className="font-bold text-gray-300 mb-2">Filter by Date</h3>
+          <DateRangePicker 
+            onChange={onDateRangeChange} 
+            maxDate={getLatestDate(analysis)}
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </div>
       )}
       <div className={`${isFullScreen ? 'grid grid-cols-2 gap-6' : 'space-y-6'}`}>
         {['positive', 'negative'].map((sentiment) => {

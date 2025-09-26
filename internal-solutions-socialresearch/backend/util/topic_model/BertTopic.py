@@ -17,6 +17,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 import nltk
 from nltk.tokenize import sent_tokenize
+from nltk.stem import WordNetLemmatizer
 from hdbscan import HDBSCAN
 from nltk.corpus import stopwords
 import random  # Added for random document selection
@@ -81,8 +82,9 @@ def load_reddit_posts():
 
 def select_relevant_sentences(documents, top_words, max_sentences=5):
     """
-    Selects the most relevant sentences from a list of documents based on similarity to topic keywords.
-    Collects more sentences until reaching a character limit of 20,000.
+    Selects the most relevant content from documents based on similarity to topic keywords.
+    Instead of individual sentences, extracts meaningful paragraphs or post sections
+    to provide better context for topic summarization.
     """
     # Download NLTK punkt if not already downloaded
     try:
@@ -94,58 +96,100 @@ def select_relevant_sentences(documents, top_words, max_sentences=5):
     
     topic_embedding = model.encode(' '.join(top_words), convert_to_tensor=True)
     
-    selected_sentences = []
+    selected_content = []
     total_chars = 0
-    max_chars = 20000  # Maximum 20,000 characters total
+    max_chars = 30000  # Increased to 30,000 characters total
+    min_content_length = 100  # Minimum length for a meaningful paragraph
     
-    # Get all sentences from all documents and their similarities
-    all_sentences = []
-    all_similarities = []
+    # Process each document to extract meaningful chunks
+    doc_chunks = []
+    doc_similarities = []
     
     for doc in documents:
-        sentences = sent_tokenize(doc)
-        if not sentences:
+        # Skip empty documents
+        if not doc or len(doc.strip()) < 20:
             continue
             
-        sentence_embeddings = model.encode(sentences, convert_to_tensor=True)
+        # Split into paragraphs first (better context than sentences)
+        paragraphs = [p.strip() for p in doc.split('\n\n') if p.strip()]
         
-        # Compute cosine similarity between each sentence and topic
-        similarities = util.cos_sim(sentence_embeddings, topic_embedding)
+        # If no clear paragraphs, fall back to sentences but group them
+        if not paragraphs or all(len(p) < min_content_length for p in paragraphs):
+            sentences = sent_tokenize(doc)
+            
+            # Group sentences into meaningful chunks (3-5 sentences per chunk)
+            if len(sentences) <= 5:
+                # If few sentences, keep as one chunk
+                paragraphs = [' '.join(sentences)]
+            else:
+                # Group sentences into chunks of 3-5
+                paragraphs = []
+                for i in range(0, len(sentences), 4):
+                    chunk = ' '.join(sentences[i:i+4])
+                    if len(chunk) >= min_content_length:
+                        paragraphs.append(chunk)
         
-        # Process based on whether we have a single sentence or multiple
-        if len(sentences) == 1:
-            all_sentences.append(sentences[0])
-            all_similarities.append(similarities.item())
-        else:
-            # For multiple sentences
-            similarities = similarities.squeeze()
-            for i, sentence in enumerate(sentences):
-                all_sentences.append(sentence)
-                all_similarities.append(similarities[i].item())
+        # Calculate similarity for each paragraph
+        for paragraph in paragraphs:
+            if len(paragraph) < min_content_length:
+                continue
+                
+            # Get embedding for this paragraph
+            para_embedding = model.encode(paragraph, convert_to_tensor=True)
+            
+            # Calculate similarity to topic
+            similarity = util.cos_sim(para_embedding, topic_embedding).item()
+            
+            # Store paragraph and its similarity score
+            doc_chunks.append(paragraph)
+            doc_similarities.append(similarity)
     
-    # No sentences found
-    if not all_sentences:
-        return ["No relevant sentences found."]
+    # If no content found
+    if not doc_chunks:
+        return ["No relevant content found for this topic."]
     
-    # Sort all sentences by similarity
-    combined = list(zip(all_sentences, all_similarities))
+    # Sort content by similarity
+    combined = list(zip(doc_chunks, doc_similarities))
     combined.sort(key=lambda x: x[1], reverse=True)
     
-    # Take the most relevant sentences until reaching character limit
-    for sentence, _ in combined:
-        sentence_len = len(sentence)
-        if total_chars + sentence_len <= max_chars:
-            selected_sentences.append(sentence)
-            total_chars += sentence_len
+    # Take top chunks until reaching character limit
+    for content, _ in combined:
+        content_len = len(content)
+        if total_chars + content_len <= max_chars:
+            # Only add if it adds meaningful new information
+            if not any(similar_content(content, existing, 0.7) for existing in selected_content):
+                selected_content.append(content)
+                total_chars += content_len
+                
+                # Limit to reasonable number of examples - increased from 10 to 25
+                if len(selected_content) >= 25:
+                    break
         else:
-            # If we can't add any more full sentences, stop
+            # If we can't add any more full chunks, stop
             break
     
-    # If no sentences were selected (maybe all are too long), take the first most relevant one
-    if not selected_sentences and combined:
-        selected_sentences = [combined[0][0]]
+    # If no content was selected (maybe all are too long), take the first most relevant one
+    if not selected_content and combined:
+        selected_content = [combined[0][0]]
     
-    return selected_sentences
+    return selected_content
+
+def similar_content(text1, text2, threshold=0.7):
+    """
+    Check if two text chunks are similar to avoid redundancy.
+    Uses simple Jaccard similarity on word sets.
+    """
+    words1 = set(text1.lower().split())
+    words2 = set(text2.lower().split())
+    
+    if not words1 or not words2:
+        return False
+        
+    intersection = words1.intersection(words2)
+    union = words1.union(words2)
+    
+    jaccard = len(intersection) / len(union)
+    return jaccard > threshold
 
 def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None ):
     log_dir = os.path.join(os.getenv('TOPIC_LOG_DIR', './log_topic'))
@@ -185,7 +229,9 @@ def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None
             with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'w', encoding='utf-8') as f:
                 f.write(f"No words found for topic {topic_id}. Skipping.")
             continue
-        top_words_list = [word[0] for word in top_words[:7]]  # Take top 7 words
+        # Filter out redundant keywords before using them for summaries
+        filtered_top_words = filter_redundant_keywords(top_words, max_words=7)
+        top_words_list = [word[0] for word in filtered_top_words]  # Take filtered words
 
         # Extract representative sentences for this topic
         rep_docs = topic_model.get_representative_docs(topic_id)
@@ -215,16 +261,16 @@ def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None
                     
                     with open(os.path.join(log_dir, f'topic_{topic_id}_log.txt'), 'w', encoding='utf-8') as f:
                         f.write(f"Found {len(similar_docs)} semantically similar documents for topic {topic_id}.\n")
-                    example_sentences = select_relevant_sentences(similar_docs, top_words_list)
+                    example_content = select_relevant_sentences(similar_docs, top_words_list)
                     
-                    if not example_sentences or all(s == "No relevant sentences found." for s in example_sentences):
+                    if not example_content or all(s == "No relevant content found for this topic." for s in example_content):
                         with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'a', encoding='utf-8') as f:
-                            f.write(f"\nNo relevant sentences found in similar documents for topic {topic_id}. Using top words only.")
-                        example_sentences = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
+                            f.write(f"\nNo relevant content found in similar documents for topic {topic_id}. Using top words only.")
+                        example_content = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
                 except Exception as e:
                     with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'a', encoding='utf-8') as f:
                         f.write(f"\nError finding similar documents for topic {topic_id}: {e}. Using top words only.")
-                    example_sentences = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
+                    example_content = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
                 
                 # Clear memory
                 del doc_embeddings
@@ -238,16 +284,27 @@ def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None
             else:
                 with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'a', encoding='utf-8') as f:
                     f.write(f"\nNo documents found for topic {topic_id}. Using top words only.")
-                example_sentences = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
+                example_content = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
         else:
-            example_sentences = select_relevant_sentences(rep_docs, top_words_list)
-            if not example_sentences or all(s == "No relevant sentences found." for s in example_sentences):
+            example_content = select_relevant_sentences(rep_docs, top_words_list)
+            if not example_content or all(s == "No relevant content found for this topic." for s in example_content):
                 with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'w', encoding='utf-8') as f:
-                    f.write(f"No relevant sentences found for topic {topic_id}. Using top words only.")
-                example_sentences = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
+                    f.write(f"No relevant content found for topic {topic_id}. Using top words only.")
+                example_content = [f"Keywords related to this topic include: {', '.join(top_words_list)}."]
+        
+        # Log sample of content for debugging
+        with open(os.path.join(log_dir, f'topic_{topic_id}_content_sample.txt'), 'w', encoding='utf-8') as f:
+            f.write(f"Topic {topic_id} - Content Sample\n")
+            f.write(f"Number of content items: {len(example_content)}\n")
+            f.write(f"Top words: {', '.join(top_words_list)}\n\n")
+            
+            # Log first few content pieces
+            for idx, content in enumerate(example_content[:3]):
+                f.write(f"Content {idx+1} (length: {len(content)} chars):\n")
+                f.write(f"{content}\n\n")
         
         # Generate a structured sentence using the LLM
-        prompt = get_openai_generate_topic_prompt(top_words_list, example_sentences, keyword)
+        prompt = get_openai_generate_topic_prompt(top_words_list, example_content, keyword)
         with open(os.path.join(log_dir, f'summary_prompt_topic_{topic_id}.txt'), 'w', encoding='utf-8') as f:
             f.write(prompt)
 
@@ -256,7 +313,9 @@ def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None
         ]
         
         try:
-            topic_summary = get_claude_completion_with_json(messages)
+            topic_summary = get_claude_completion_with_json(messages, temperature=0.1)
+            with open(os.path.join(log_dir, f'summary_topic_{topic_id}.txt'), 'w', encoding='utf-8') as f:
+                f.write(topic_summary)
             topic_summaries[topic_id] = topic_summary
         except Exception as e:
             with open(os.path.join(log_dir, f'error_topic_{topic_id}.txt'), 'a', encoding='utf-8') as f:
@@ -270,14 +329,8 @@ def summarize_topics(topic_model, topics, documents, summary_limit, keyword=None
             del topic_docs
         if 'rep_docs' in locals():
             del rep_docs
-        del example_sentences
+        del example_content
         gc.collect()
-
-        # ---  API rate delay due to API rate limits, delete this line in the future --- 
-        with open(os.path.join(log_dir, 'topic_summarization_log.txt'), 'a', encoding='utf-8') as f:
-            f.write(f"Waiting 5 seconds before next topic...\n")
-        time.sleep(5) 
-        # ---------------------------------
 
     # Use the already defined limit_str variable to display the appropriate message
     with open(os.path.join(log_dir, 'topic_summarization_log.txt'), 'a', encoding='utf-8') as f:
@@ -300,17 +353,6 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
         debug_file.write(f"Sentiment Analysis Debug for Topic {topic_id}\n")
         debug_file.write(f"Number of documents to analyze: {len(topic_docs)}\n")
         
-        # Determine how many documents to analyze based on the total count
-        doc_count = len(topic_docs)
-        if doc_count < 150:
-            # For very small datasets, analyze all documents
-            max_docs_to_analyze = doc_count
-            debug_file.write(f"Small dataset detected - will analyze all {max_docs_to_analyze} documents\n\n")
-        else:
-            # For larger datasets, limit to 20 documents
-            max_docs_to_analyze = min(20, doc_count)
-            debug_file.write(f"Will analyze up to {max_docs_to_analyze} documents\n\n")
-        
         # Initialize sentiment analyzer
         debug_file.write("Initializing sentiment analyzer...\n")
         model1 = "CardiffNLP/twitter-roberta-base-sentiment"
@@ -319,8 +361,8 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
         
         # Analyze sentiment for each document (limited to first 512 tokens due to BERT limitations)
         sentiments = []
-        # If we have more documents than our limit, select a random sample to analyze
-        docs_to_analyze = topic_docs[:max_docs_to_analyze] if doc_count <= max_docs_to_analyze else random.sample(topic_docs, max_docs_to_analyze)
+        # Analyze all documents without sampling
+        docs_to_analyze = topic_docs
         
         for i, doc in enumerate(docs_to_analyze):
             debug_file.write(f"Document {i+1}:\n")
@@ -332,37 +374,63 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
                 for label in ["Content:", "Comments:", "Score:", "Title:"]:
                     cleaned_doc = cleaned_doc.replace(label, "")
                 
-                # Truncate long documents to prevent memory issues
-                truncated_doc = cleaned_doc[:1200]
-                debug_file.write(f"Truncated to: {len(truncated_doc)} characters\n")
-                debug_file.write(f"final_Content: {truncated_doc}\n\n")
+                # Split document into chunks of approximately 1600 characters each (≈450 tokens, well under 512 token limit)
+                chunk_size = 1600
+                max_chunks = 4
                 
-                # Analyze sentiment
-                debug_file.write("Analyzing sentiment...\n")
-                result = sentiment_analyzer(truncated_doc)[0]
-                debug_file.write(f"Raw result: {result}\n")
+                # Create chunks by splitting the document
+                chunks = []
+                for j in range(0, len(cleaned_doc), chunk_size):
+                    chunk = cleaned_doc[j:j + chunk_size]
+                    if chunk.strip():  # Only add non-empty chunks
+                        chunks.append(chunk)
+                    if len(chunks) >= max_chunks:
+                        break
                 
-                # Map the label to a score
-                # CardiffNLP model returns labels like 'LABEL_0' (negative), 'LABEL_1' (neutral), 'LABEL_2' (positive)
-                label = result['label']
-                confidence = result['score']  # This is the confidence score from the model
-                debug_file.write(f"Label: {label}\n")
-                debug_file.write(f"Confidence: {confidence}\n")
+                debug_file.write(f"Split into {len(chunks)} chunks (max {max_chunks})\n")
                 
-                # Convert to a normalized score between -1 and 1
-                if label == 'LABEL_0':  # Negative
-                    normalized_score = -1.0 * confidence
-                elif label == 'LABEL_1':  # Neutral
-                    normalized_score = 0.0  # Neutral is always 0 regardless of confidence
-                elif label == 'LABEL_2':  # Positive
-                    normalized_score = 1.0 * confidence
+                # Analyze sentiment for each chunk
+                chunk_sentiments = []
+                for chunk_idx, chunk in enumerate(chunks):
+                    debug_file.write(f"  Chunk {chunk_idx + 1} (length: {len(chunk)} characters):\n")
+                    debug_file.write(f"  Content preview: {chunk[:100]}...\n")
+                    
+                    # Analyze sentiment for this chunk
+                    debug_file.write(f"  Analyzing sentiment for chunk {chunk_idx + 1}...\n")
+                    result = sentiment_analyzer(chunk)[0]
+                    debug_file.write(f"  Raw result: {result}\n")
+                    
+                    # Map the label to a score
+                    # CardiffNLP model returns labels like 'LABEL_0' (negative), 'LABEL_1' (neutral), 'LABEL_2' (positive)
+                    label = result['label']
+                    confidence = result['score']  # This is the confidence score from the model
+                    debug_file.write(f"  Label: {label}\n")
+                    debug_file.write(f"  Confidence: {confidence}\n")
+                    
+                    # Convert to a normalized score between -1 and 1
+                    if label == 'LABEL_0':  # Negative
+                        normalized_score = -1.0 * confidence
+                    elif label == 'LABEL_1':  # Neutral
+                        normalized_score = 0.0  # Neutral is always 0 regardless of confidence
+                    elif label == 'LABEL_2':  # Positive
+                        normalized_score = 1.0 * confidence
+                    else:
+                        normalized_score = 0.0  # Default to neutral for unknown labels
+                    
+                    debug_file.write(f"  Normalized score (-1 to 1): {normalized_score}\n")
+                    chunk_sentiments.append(normalized_score)
+                
+                # Calculate average sentiment for this document across all chunks
+                if chunk_sentiments:
+                    doc_avg_sentiment = mean(chunk_sentiments)
+                    debug_file.write(f"Document {i+1} chunk sentiments: {chunk_sentiments}\n")
+                    debug_file.write(f"Document {i+1} average sentiment: {doc_avg_sentiment}\n\n")
+                    sentiments.append(doc_avg_sentiment)
                 else:
-                    normalized_score = 0.0  # Default to neutral for unknown labels
-                
-                debug_file.write(f"Normalized score (-1 to 1): {normalized_score}\n\n")
-                sentiments.append(normalized_score)
+                    debug_file.write(f"No valid chunks found for document {i+1}\n\n")
+                    
             except Exception as e:
-                debug_file.write(f"Error analyzing sentiment: {str(e)}\n\n")
+                debug_file.write(f"Error analyzing sentiment for document {i+1}: {str(e)}\n\n")
                 continue
         
         if not sentiments:
@@ -374,10 +442,10 @@ def analyze_topic_sentiment(topic_docs, topic_id, temp_dir):
             
             return "neutral", 0.0
         
-        # Calculate average sentiment score
+        # Calculate average sentiment score across all documents
         avg_score = mean(sentiments)
-        debug_file.write(f"All sentiment scores: {sentiments}\n")
-        debug_file.write(f"Average sentiment score: {avg_score}\n")
+        debug_file.write(f"All document sentiment scores: {sentiments}\n")
+        debug_file.write(f"Final average sentiment score: {avg_score}\n")
         
         # Categorize sentiment
         if avg_score > 0.25:
@@ -419,8 +487,10 @@ def calculate_topic_similarities(topic_model, topic_info):
         f.write("Calculating topic similarities...\n")
     
     for topic_id in valid_topics:
-        # Get top words for the topic
-        top_words = [word for word, _ in topic_model.get_topic(topic_id)][:10]  # Use top 10 words
+        # Get top words for the topic and filter them
+        raw_topic_words = topic_model.get_topic(topic_id)
+        filtered_topic_words = filter_redundant_keywords(raw_topic_words, max_words=10)
+        top_words = [word for word, _ in filtered_topic_words]  # Use filtered words
         # Create topic text representation
         topic_text = ' '.join(top_words)
         with open(os.path.join(log_dir, 'topic_similarities_log.txt'), 'a', encoding='utf-8') as f:
@@ -474,6 +544,153 @@ def calculate_topic_similarities(topic_model, topic_info):
     gc.collect()
     
     return similarities
+
+def filter_redundant_keywords(topic_words, max_words=10):
+    """
+    Filter out redundant keywords where individual words are part of longer meaningful phrases,
+    and also handle plural/singular forms and similar word variations using lemmatization.
+    
+    Args:
+        topic_words: List of tuples (word, weight) from BERTopic
+        max_words: Maximum number of words to return after filtering
+    
+    Returns:
+        List of tuples (word, weight) with redundant keywords removed
+    """
+    if not topic_words:
+        return topic_words
+    
+    # Sort by weight (importance) descending
+    sorted_words = sorted(topic_words, key=lambda x: x[1], reverse=True)
+    
+    # Keep track of words to include and words to exclude
+    filtered_words = []
+    excluded_words = set()
+    
+    # Initialize lemmatizer
+    try:
+        # Download required NLTK data if not already present
+        try:
+            nltk.data.find('corpora/wordnet')
+        except LookupError:
+            nltk.download('wordnet', quiet=True)
+        
+        try:
+            nltk.data.find('corpora/omw-1.4')
+        except LookupError:
+            nltk.download('omw-1.4', quiet=True)
+            
+        lemmatizer = WordNetLemmatizer()
+    except Exception as e:
+        print(f"Warning: Could not initialize lemmatizer: {e}. Falling back to basic filtering.")
+        lemmatizer = None
+    
+    # Helper function to check if two words are the same after lemmatization
+    def are_same_lemma(word1, word2):
+        """Check if two words have the same lemma (base form)"""
+        if not lemmatizer:
+            return False
+            
+        w1, w2 = word1.lower().strip(), word2.lower().strip()
+        
+        # Skip if words are too short or identical
+        if len(w1) < 3 or len(w2) < 3 or w1 == w2:
+            return False
+        
+        try:
+            # Try lemmatizing as noun first (most common for topics), then verb
+            lemma1_noun = lemmatizer.lemmatize(w1, pos='n')
+            lemma2_noun = lemmatizer.lemmatize(w2, pos='n')
+            
+            if lemma1_noun == lemma2_noun:
+                return True
+                
+            # Also try as verb in case they're action words
+            lemma1_verb = lemmatizer.lemmatize(w1, pos='v')
+            lemma2_verb = lemmatizer.lemmatize(w2, pos='v')
+            
+            if lemma1_verb == lemma2_verb:
+                return True
+                
+        except Exception:
+            # If lemmatization fails, fall back to False
+            pass
+            
+        return False
+    
+    # Helper function to check if two words are similar variations
+    def are_similar_variations(word1, word2):
+        """Check if two words are similar variations (like analyze/analysis)"""
+        w1, w2 = word1.lower(), word2.lower()
+        
+        # Skip if words are too short or too different in length
+        if len(w1) < 4 or len(w2) < 4 or abs(len(w1) - len(w2)) > 4:
+            return False
+            
+        # Check if one word is contained in another with similar stem
+        if len(w1) >= 4 and len(w2) >= 4:
+            # Get stems (first 3-4 characters)
+            stem1 = w1[:4] if len(w1) > 4 else w1[:3]
+            stem2 = w2[:4] if len(w2) > 4 else w2[:3]
+            
+            # If stems are very similar and one word contains the other's stem
+            if stem1 == stem2:
+                return True
+                
+        return False
+    
+    # First pass: identify longer phrases and mark their component words for potential exclusion
+    longer_phrases = []
+    individual_words = []
+    
+    for word, weight in sorted_words:
+        if ' ' in word.strip():  # Multi-word phrase
+            longer_phrases.append((word, weight))
+        else:  # Individual word
+            individual_words.append((word, weight))
+    
+    # Second pass: mark individual words that are part of longer phrases
+    for phrase, phrase_weight in longer_phrases:
+        phrase_words = phrase.lower().split()
+        for individual_word, individual_weight in individual_words:
+            # If the individual word is part of the phrase and the phrase has higher or similar weight
+            if (individual_word.lower() in phrase_words and 
+                phrase_weight >= individual_weight * 0.8):  # Allow some tolerance
+                excluded_words.add(individual_word)
+    
+    # Third pass: handle plural/singular and similar word variations among individual words
+    for i, (word1, weight1) in enumerate(individual_words):
+        if word1 in excluded_words:
+            continue
+            
+        for j, (word2, weight2) in enumerate(individual_words[i+1:], i+1):
+            if word2 in excluded_words:
+                continue
+                
+            # Check if they are the same lemma (handles irregular plurals) or similar variations
+            if are_same_lemma(word1, word2) or are_similar_variations(word1, word2):
+                # Keep the one with higher weight, or prefer longer/more specific forms
+                if weight1 > weight2:
+                    excluded_words.add(word2)
+                elif weight2 > weight1:
+                    excluded_words.add(word1)
+                else:
+                    # If weights are equal, prefer the longer word (usually more specific)
+                    if len(word2) > len(word1):
+                        excluded_words.add(word1)
+                    else:
+                        excluded_words.add(word2)
+    
+    # Fourth pass: build the final filtered list
+    for word, weight in sorted_words:
+        if word not in excluded_words:
+            filtered_words.append((word, weight))
+            
+            # Stop when we have enough words
+            if len(filtered_words) >= max_words:
+                break
+    
+    return filtered_words[:max_words]
 
 def analyze_topics(documents, post_ids, scores):
     """
@@ -561,12 +778,10 @@ def analyze_topics(documents, post_ids, scores):
         with open(os.path.join(log_dir, 'analyze_topics_log.txt'), 'a', encoding='utf-8') as f:
             f.write("Using special hyperparameters for extremely small dataset (<10 documents)\n")
             
-        # For extremely small datasets, use absolute counts instead of proportions
+        # For extremely small datasets, use only essential CountVectorizer parameters
         vectorizer_model = CountVectorizer(
             stop_words=all_stop_words,
             token_pattern=r"(?u)\b\w\w+\b",
-            min_df=1,         # Accept terms appearing in at least 1 document
-            max_df=num_documents,  # No upper limit (use absolute count)
             ngram_range=(1, 3)  # Consider 1-grams, 2-grams, and 3-grams
         )
 
@@ -606,12 +821,10 @@ def analyze_topics(documents, post_ids, scores):
         with open(os.path.join(log_dir, 'analyze_topics_log.txt'), 'a', encoding='utf-8') as f:
             f.write("Using specialized hyperparameters for very small dataset (<100 documents)\n")
             
-        # Custom vectorizer for very small datasets - more permissive
+        # Custom vectorizer for very small datasets
         vectorizer_model = CountVectorizer(
             stop_words=all_stop_words,
             token_pattern=r"(?u)\b\w\w+\b",
-            max_df=0.99,      # Less restrictive upper bound for small datasets
-            min_df=1,         # Only require terms to appear in at least 1 document
             ngram_range=(1, 3)  # Consider 1-grams, 2-grams, and 3-grams
         )
             
@@ -650,15 +863,14 @@ def analyze_topics(documents, post_ids, scores):
             hdbscan_model=custom_hdbscan,
         )
     elif num_documents < 201:
+        print("Using hyperparameters for small dataset (100-200 documents)")
         with open(os.path.join(log_dir, 'analyze_topics_log.txt'), 'a', encoding='utf-8') as f:
             f.write("Using hyperparameters for small dataset (100-200 documents)\n")
-            
+        
         # Custom vectorizer for small datasets
         vectorizer_model = CountVectorizer(
             stop_words=all_stop_words,
             token_pattern=r"(?u)\b\w\w+\b",
-            max_df=0.9,       # More permissive with term frequency
-            min_df=2,         # Require terms to appear in at least 2 documents
             ngram_range=(1, 3)  # Consider 1-grams, 2-grams, and 3-grams
         )
         
@@ -692,7 +904,8 @@ def analyze_topics(documents, post_ids, scores):
             umap_model=umap_model,    
             hdbscan_model=custom_hdbscan
         )
-    elif num_documents >= 600:
+    elif num_documents <= 600:
+        print("Using hyperparameters for large dataset (<=600 documents)")
         with open(os.path.join(log_dir, 'analyze_topics_log.txt'), 'a', encoding='utf-8') as f:
             f.write("Using hyperparameters for large dataset (≥600 documents)\n")
             
@@ -700,8 +913,6 @@ def analyze_topics(documents, post_ids, scores):
         vectorizer_model = CountVectorizer(
             stop_words=all_stop_words,
             token_pattern=r"(?u)\b\w\w+\b",
-            max_df=0.9,       # More permissive with very common terms
-            min_df=5,         # Require terms to appear in at least 5 documents
             ngram_range=(1, 3)  # Consider 1-grams, 2-grams, and 3-grams
         )
         
@@ -715,7 +926,7 @@ def analyze_topics(documents, post_ids, scores):
         )
         
         custom_hdbscan = HDBSCAN(
-            min_cluster_size=15,     # Minimum docs per topic (smaller = more topics)
+            min_cluster_size=5,     # Minimum docs per topic (smaller = more topics)
             min_samples=3,           # How tight clusters must be (smaller = more topics)
             metric='euclidean',      # Distance metric
             cluster_selection_method='eom',  # Excess of Mass method - better for detecting varied density clusters
@@ -723,7 +934,7 @@ def analyze_topics(documents, post_ids, scores):
         )
         
         topic_model = BERTopic(
-            min_topic_size=15,       # Minimum size of topics
+            min_topic_size=6,       # Minimum size of topics
             n_gram_range=(1, 3),     # Use unigrams and bigrams
             top_n_words=10,          # Number of words to represent each topic
             calculate_probabilities=True,
@@ -741,8 +952,6 @@ def analyze_topics(documents, post_ids, scores):
         vectorizer_model = CountVectorizer(
             stop_words=all_stop_words,
             token_pattern=r"(?u)\b\w\w+\b",
-            max_df=0.9,      # More permissive setting for term frequency
-            min_df=3,         # Require terms to appear in at least 3 documents
             ngram_range=(1, 3)  # Consider 1-grams, 2-grams, and 3-grams
         )
         
@@ -756,7 +965,7 @@ def analyze_topics(documents, post_ids, scores):
         )
         
         custom_hdbscan = HDBSCAN(
-            min_cluster_size=10,     # Balanced minimum docs per topic
+            min_cluster_size=7,     # Balanced minimum docs per topic
             min_samples=2,           # Balanced samples parameter
             metric='euclidean',      # Distance metric
             cluster_selection_method='eom',  # Excess of Mass method
@@ -764,7 +973,7 @@ def analyze_topics(documents, post_ids, scores):
         )
         
         topic_model = BERTopic(
-            min_topic_size=10,       # Balanced minimum size of topics
+            min_topic_size=8,       # Balanced minimum size of topics
             n_gram_range=(1, 3),     # Use unigrams, bigrams and trigrams
             top_n_words=10,          # Number of words to represent each topic
             calculate_probabilities=True,
@@ -789,42 +998,21 @@ def analyze_topics(documents, post_ids, scores):
             if "max_df corresponds to < documents than min_df" in str(e):
                 f.write("\nThis error occurs when max_df is too restrictive compared to min_df.\n")
                 f.write(f"Current settings: max_df={vectorizer_model.max_df}, min_df={vectorizer_model.min_df}\n")
-                f.write(f"Number of documents: {num_documents}\n\n")
+                f.write(f"Number of documents: {num_documents}\n")
                 
-                # Try to recover by creating a more permissive vectorizer
-                f.write("Attempting recovery with more permissive vectorizer settings...\n")
-                backup_vectorizer = CountVectorizer(
-                    stop_words=all_stop_words,
-                    token_pattern=r"(?u)\b\w\w+\b",
-                    max_df=1.0,  # Accept all terms regardless of frequency
-                    min_df=1,    # Accept terms appearing in at least 1 document
-                    ngram_range=(1, 3)
-                )
+                # Clean up resources
+                del sentence_transformer
+                del topic_model
+                if 'vectorizer_model' in locals():
+                    del vectorizer_model
+                if 'umap_model' in locals():
+                    del umap_model
+                if 'custom_hdbscan' in locals():
+                    del custom_hdbscan
+                gc.collect()
                 
-                # Update the model's vectorizer
-                topic_model.vectorizer_model = backup_vectorizer
-                
-                try:
-                    # Try again with the new vectorizer
-                    topics, probs = topic_model.fit_transform(documents)
-                    f.write("Recovery successful! Used backup vectorizer settings.\n")
-                except Exception as recovery_error:
-                    f.write(f"Recovery attempt failed: {str(recovery_error)}\n")
-                    
-                    # Clean up resources
-                    del sentence_transformer
-                    del topic_model
-                    if 'backup_vectorizer' in locals():
-                        del backup_vectorizer
-                    if 'vectorizer_model' in locals():
-                        del vectorizer_model
-                    if 'umap_model' in locals():
-                        del umap_model
-                    if 'custom_hdbscan' in locals():
-                        del custom_hdbscan
-                    gc.collect()
-                    
-                    raise ValueError(f"Topic modeling failed, even with recovery attempt: {str(recovery_error)}") from e
+                # Raise a more descriptive error
+                raise ValueError(f"Topic modeling failed: max_df is too restrictive compared to min_df. Try adjusting vectorizer parameters for your dataset size ({num_documents} documents).") from e
             else:
                 # Clean up resources
                 del sentence_transformer
@@ -871,8 +1059,8 @@ def analyze_topics(documents, post_ids, scores):
     return topic_model, topics, documents
 
 if __name__ == "__main__":
-    # Load data from data_topic_model.json in the current directory
-    data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_topic_model.json")
+    # Load data from post_data.json in the current directory
+    data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "post_data.json")
     
     with open(data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)

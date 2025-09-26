@@ -7,6 +7,7 @@ import { highlightKeywords } from '../../../components/TextHightLight';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
+import { userService } from '../../../services/user';
 
 // Interface for post data with extended properties from the API
 interface Post {
@@ -68,12 +69,6 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
       // Don't set document.body.style.overflow to prevent hiding scrollbars
       setTimeout(() => setIsVisible(true), 50);
     }
-    
-    // Log the topicData from Redux to see what's available
-    console.log('TopicDetailModal - topicData from Redux:', topicData);
-    console.log('TopicDetailModal - topic prop:', topic);
-    
-    // Handle escape key press to close modal
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         handleClose();
@@ -178,7 +173,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
     }
     
     // Add key point words if available (only when there's no keyword filter)
-    if (!topic.keyword_filter && topic.summary?.key_points && Array.isArray(topic.summary.key_points)) {
+    if (!topic.keyword_filter && topic.summary && typeof topic.summary === 'object' && topic.summary.key_points && Array.isArray(topic.summary.key_points)) {
       topic.summary.key_points.forEach(point => {
         if (typeof point === 'string') {
           point.toLowerCase().split(/\s+/).forEach(word => {
@@ -374,37 +369,16 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
     setIsCreatingProject(true);
     
     try {
-      // Define API base URL
-      const API_BASE_URL = 'http://localhost:8081';
-      
-      // Create a new project
-      const response = await fetch(`${API_BASE_URL}/api/user/projects`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_id: user.id,
-          type: 'sentiment',
-          // You can add additional data like topic name if needed
-          topic_name: topic.topic || "Unnamed Topic"
-        })
+      // Use the userService to create a new project
+      const data = await userService.createProject(user.id, 'sentiment', {
+        topic_name: topic.topic || "Unnamed Topic"
       });
       
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Server returned ${response.status}: ${errorText}`);
-      }
-      
-      const data = await response.json();
-      console.log("Project created successfully:", data);
-      const projectId = data.id;
-      
       // Navigate to sentiment analysis page with the new project ID
-      navigate(`/sentiment-analysis/${projectId}`);
+      navigate(`/sentiment-analysis/${data.id}`);
     } catch (error) {
       console.error("Error creating sentiment analysis project:", error);
-      // You could add error handling UI here
+      // Handle error appropriately
     } finally {
       setIsCreatingProject(false);
     }
@@ -512,7 +486,11 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                   <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Topic Summary</h4>
                   <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                     <p className="text-gray-100 text-lg leading-relaxed">
-                      {topic.summary?.summary || "No summary available for this topic."}
+                      {typeof topic.summary === 'object' && topic.summary.summary 
+                        ? topic.summary.summary 
+                        : typeof topic.summary === 'string' 
+                          ? topic.summary 
+                          : "No summary available for this topic."}
                     </p>
                   </div>
                 </div>
@@ -753,7 +731,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                       className="flex overflow-x-auto mb-4 pb-2 gap-2"
                       ref={sourceButtonsContainerRef}
                     >
-                      {posts.map((post, index) => (
+                      {posts.map((_, index) => (
                         <button
                           key={index}
                           className={`${

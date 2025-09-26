@@ -268,7 +268,7 @@ export const WordCloud = ({ words, width = chartConfig.wordCloud.defaultWidth, h
                   .style("top", `${event.pageY - tooltipHeight - 10}px`);
               }
             })
-            .on("mouseout", function(event: MouseEvent, d: unknown) {
+            .on("mouseout", function(_event: MouseEvent, d: unknown) {
               const wordData = d as LayoutWord;
               d3.select(this)
                 .transition()
@@ -277,7 +277,7 @@ export const WordCloud = ({ words, width = chartConfig.wordCloud.defaultWidth, h
                 .style("opacity", Math.min(1, Math.max(0.4, wordData.size / 40)));
               d3.selectAll(".word-cloud-tooltip").remove();
             })
-            .on("click", function(event: MouseEvent, d: unknown) {
+            .on("click", function(_event: MouseEvent, d: unknown) {
               const wordData = d as LayoutWord;
               // Highlight related words or do other interactions
               console.log("Clicked word:", wordData.text);
@@ -512,7 +512,9 @@ export const StackedBarChart = ({ data }: { data: { positive: Category[]; negati
       .style("opacity", 0.7)
       .on("mouseover", function(event, d) {
         d3.select(this).style("opacity", 1);
-        showTooltip(event, `Positive: ${d.positive} (${d.positivePercentage.toFixed(1)}%)`, true);
+        // Cast the event to MouseEvent to access pageX and pageY
+        const mouseEvent = event as unknown as MouseEvent;
+        showTooltip(mouseEvent, `Positive: ${d.positive} (${d.positivePercentage.toFixed(1)}%)`, true);
       })
       .on("mouseout", hideTooltip);
 
@@ -527,7 +529,9 @@ export const StackedBarChart = ({ data }: { data: { positive: Category[]; negati
       .style("opacity", 0.7)
       .on("mouseover", function(event, d) {
         d3.select(this).style("opacity", 1);
-        showTooltip(event, `Negative: ${d.negative} (${d.negativePercentage.toFixed(1)}%)`, false);
+        // Cast the event to MouseEvent to access pageX and pageY
+        const mouseEvent = event as unknown as MouseEvent;
+        showTooltip(mouseEvent, `Negative: ${d.negative} (${d.negativePercentage.toFixed(1)}%)`, false);
       })
       .on("mouseout", hideTooltip);
 

@@ -1,7 +1,7 @@
 from app.db.config.database import Base, engine, SessionLocal
 import logging
 from util.llm_models.pgvector.pgvector import clear_pgvector_data
-from app.db.models.reddit_models import User
+from app.db.models.reddit_models import User, RedditPost
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -32,6 +32,7 @@ def init_db():
         db.close()
         
     logger.info("Database tables created successfully!")
+    
 
 if __name__ == "__main__":
     # clear_pgvector_data()
