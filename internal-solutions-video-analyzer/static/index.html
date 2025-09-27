@@ -542,7 +542,11 @@
                 </div>
             </div>
             <div class="ia-thumbnail-section">
-                <img src="/static/Video_Transcript_Generator.gif" alt="Video Transcription Service Demo" class="ia-app-thumbnail" onerror="this.onerror=null; this.src='http://localhost:8000/static/Video_Transcript_Generator.gif'" />
+                <img src="/static/Video_Transcript_Generator.gif"
+                     alt="Video Transcription Service Demo"
+                     class="ia-app-thumbnail"
+                     crossorigin="anonymous"
+                     onerror="fallbackGif(this)" />
                 <div class="ia-thumbnail-label">Transcription Demo</div>
             </div>
         </div>
@@ -1019,5 +1023,19 @@
     
     <!-- App GIF Controls -->
     <script src="/static/app-gif-controls.js"></script>
+    <script>
+      // Progressive fallback for GIF thumbnail
+      function fallbackGif(img) {
+        const sources = [
+          '/static/Video_Transcript_Generator.gif',
+          '/static/launchpad/Video_Transcript_Generator.gif',
+          'http://localhost:8000/static/Video_Transcript_Generator.gif'
+        ];
+        const tried = parseInt(img.dataset.errIdx || '0', 10);
+        if (tried >= sources.length - 1) return;
+        img.dataset.errIdx = String(tried + 1);
+        img.src = sources[tried + 1];
+      }
+    </script>
 </body>
 </html>

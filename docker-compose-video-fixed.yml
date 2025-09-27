@@ -12,6 +12,7 @@ services:
       - PORT=5000
     volumes:
       - ./internal-solutions-video-analyzer:/app
+      - ./launchpad/static:/app/static/launchpad:ro
     working_dir: /app
     command: >
       bash -c "apt-get update && apt-get install -y ffmpeg &&
