@@ -1,0 +1,119 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: kids, feel, home, care, dinner, parent, husband
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I separated from their father two years ago after he up and left (turns out he was cheating- I don’t know how I was so blinded- anyway). I have them full time. with occasional visits from their dad when he’s in town.
+
+EXAMPLE 2:
+1. morning:  45 minutes doing whatever is possible to get them fed/clothed/cleaned and to school on time
+2. evening:  eating dinner together (5% talking, 95% cleaning spilled drinks/making alternate meals when they refuse to eat what we cooked/trying to get them to actually eat meal #2/etc.), then (for my wife) struggling to get them clean and ready for bed, then about 15 minutes of "fun".
+
+EXAMPLE 3:
+But the guilt is too strong That’s a rough age. I’m the “default parent” and as much as I love my wife it drives me nuts that it all falls to me. But it’s not the same as your situation. I know if I need some time she’ll take care of the kids for an hour or two.
+
+EXAMPLE 4:
+How do you have any quality time with your kids during the week? I mean that literally - am I doing something wrong, or is my family's seemingly normal schedule actually not normal?
+
+EXAMPLE 5:
+Just to preemptively retort any suggestions/questions, I take care of my children. I do the majority of the cooking, grocery shopping, buying them clothes (about a 50-50 split that one). She was traveling for work a lot, I racked up weeks of single parenting experience (cumulatively). I’m the more domestically inclined one in general. I handle my share of administrative tasks (although she does more here, and I strive to improve that balance). I woo my wife. She is as hot as she’s ever been. I am accepting of where she is, and that can mean giving her space. Lots of space. [...]
+
+EXAMPLE 6:
+* \~7am kids wake up 
+* 7-7:30am - breakfast 
+* 7:30-7:40 - clean them up, put on clothes, brush teeth
+* 7:45 - off to school (ideally; in practice it's usually more like a mad rush at like 7:55) - my wife typically takes them in the morning
+* 7:45-8am - breakfast (for me), then start working (I work from home; my wife is in the office a few days a week)
+* Mon/Wed/Fri:  the little one is in preschool and I pick him up at 3pm.  Our nanny picks up the other two at elementary school at 2:30 and I meet them at them at the park. [...]
+
+EXAMPLE 7:
+I feel like there is no time to do anything fun with my children (2, 5, and 7) during the week.  The daily schedule on a typical day is essentially this:
+
+EXAMPLE 8:
+Is this normal?  Is my schedule not as normal as I think it is?  Do people actually enjoy trying to get 3 kids bathed/clothed/fed and consider that to be "quality time"?  Is there some obvious way to improve the above schedule that I'm not seeing?
+
+EXAMPLE 9:
+I feel like my entire relationship with my kids during the week is making them do stuff (and a lot of the time, getting frustrated when they don't do it).  I'd love to be able to sit down with them and play legos or a game or something, but there's just no time.
+
+EXAMPLE 10:
+And the burden of being alone, a full time corporate employee, still not over being cheated on (I know my ex got married this summer- so I am battling resentment), and my sons’ not following simple instructions is slowly draining all the love I have for them. It kills me to write this.
+
+EXAMPLE 11:
+They won’t really appreciate all you’re doing until they’re older. But don’t ever forget that underneath it all they need you and they love you.
+
+EXAMPLE 12:
+I still don’t fully understand it though. Part of my realization is I don’t have to fully understand to say “I believe you.” I’d like to understand though. Why the sadness? Our lives are hard. Two really challenging (but amazing) boys ages 6 and 3. Older one is high functioning autistic / ADHD and we suspect younger is ADHD, struggling with some executive function stuff, so they’re a handful, but amazing. Full-time jobs. Friends, family, major city with smaller space and high cost of living. It’s hard, it makes me sort of chronically exhausted and burnt out, and under slept. But not sad. [...]
+
+EXAMPLE 13:
+If you're living a privileged life and are looking for solutions, then the first thing I would do is pay for more household help whether it be babysitting or housecleaning or mother's/father's helper on a consistent basis. Once there is extra time built in is when we are able to fill it with relaxation or hobbies or friendships that fill rather than deplete our cups.
+
+EXAMPLE 14:
+That being said, the times when I feel like you do I take a slightly different approach. When they do or say something terrible, I already know that it’s going to be rough. So I take away everything. PlayStation, tablets etc. and they have to do nothing the rest of the day. I won’t even let them go outside to play in the yard.
+
+EXAMPLE 15:
+Basically we have about 3 hours together, and about 90% of that time is spent trying to get them to do things (all necessary) that they don't want to do.
+
+EXAMPLE 16:
+I told her recently I am a little worried about her. And I confessed “I feel like you used to chase me. Now only I chase you. I don’t remember the last time I felt chased.” I just want her to be happy. But I can’t fix it. I can do things to help. Identify where the mental load is greatest and relieve it. Secure more hired help, which I do. But we aren’t at war, we are living privileged lives, we’re very lucky in many many ways. I came from a briefly happy family that became a broken home wrought with alcoholism (mom and dad). I am so grateful to have a family of four under one roof again. [...]
+
+EXAMPLE 17:
+I fell into the exact same thing with schedules and it’s only when my mom stayed a while that I realised this. I remember one time my youngest was having so much fun in the bath but it was time for jammies and bed and I was about to try and figure out how to get her to leave the tub and my mom just asked why, said that there’s time, we can afford another ten or twenty minutes in the bath. In the end what happened that night was we made a game of guessing what jammies she wanted to wear while she was bathing with my mom purposefully choosing ridiculous things (like suggesting she wears her dad’ [...]
+
+EXAMPLE 18:
+Trying to comprehend the mother - sadness thing This is somewhat about our relationship but ultimately about it as a reflection of having become parents of young children, thus why I’m posting it here.
+
+EXAMPLE 19:
+Husband / father here. I feel very immersed in what my wife is feeling and what she’s been saying. A lot of it I see here (things like: I feel touched out, life is just so hard, I struggle to get in touch with my sexuality, I don’t know what I want, the mental load is just so hard). I think I was too eager to “fix” things before, whirl around like Tasmanian Devil making her life easier so that the world wouldn’t get her down. I am now realizing her feelings are not mine to fix. Not truly, anyway. And with that realization I’m more in touch with what she’s saying.
+
+EXAMPLE 20:
+I always try to plan play dates, at least 3-4 times a week (during summer break). But getting them out the door screaming and shouting is getting on my last nerves. They don’t want to leave the house. I end up dragging them by their shirts to the outing. The eldest shouts and screams the entire drive about how I’m a horrible mom, forcing him to go out, forcing him to do things he doesn’t want, how he hates me, wishes I never existed.
+
+EXAMPLE 21:
+These boys were my world- I used to be the mom Jumping on the trampoline with them, running after them at parks, waking up at 6 am because I don’t want to miss 1 minute.
+
+EXAMPLE 22:
+I know it’s also probably resentment knowing that their father is living his single life while I am “trying” to parent and failing. It’s also them knowing how to manipulate the situation in their favor. But I don’t care if they spend 17 hours a days on screen anymore. They’ll live.
+
+EXAMPLE 23:
+It sounds harsh, I know. But it works for me. Once things have calmed down and the sorries come out (the real ones) I always sit down with them and tell them how much I love them. How much their behavior can upset me. That’s the part I look forward to - the post-screaming cuddles.
+
+EXAMPLE 24:
+I’m just wondering what it is. If the husband is good, what is it then? Identity shift? More difficult to become “mom” than “dad”? Harder expectations from society? No one congratulates me for anything I do as a husband or father, but maybe I don’t feel the same societal pressure to be perfect.
+
+EXAMPLE 25:
+Alright I’m gonna say something that I know won’t be popular but it’s the only thing that worked for us: ease up on the schedule a bit and allow for spontaneity. I would say preemptively decide which times in the schedule are hard caps (cannot be changed at all) and soft caps (there’s some wiggle room) and just allow the moments to come when they do. Especially if your kids are alright sleepers.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

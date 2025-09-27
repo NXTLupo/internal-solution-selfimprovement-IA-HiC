@@ -2,6 +2,9 @@ from flask import Flask, jsonify, request, render_template, abort, url_for
 from category_crawler import get_category_products
 from direct_search import get_product_direct, direct_amazon_search
 from market_insights import analyze_search_term
+from llm_analyzer import analyze_product_data, get_structured_analysis, answer_question
+from util.llm_models import LLM_PROVIDERS
+import os
 from selectorlib import Extractor
 import requests
 from dateutil import parser as dateparser
@@ -326,8 +329,13 @@ def crawl_category():
     
     # Try direct search first (more reliable) - with no fallbacks to mock data
     try:
-        logger.info(f"Trying direct Amazon search for category: {search_term}")
-        products = direct_amazon_search(search_term, max_attempts=5, use_fallback=False)
+        # Extract sort type and trending range
+        sort_by = data.get('sort', 'default')
+        trending_range = int(data.get('trending_range', 30))
+        
+        logger.info(f"Trying direct Amazon search for category: {search_term} with sort={sort_by}, trending_range={trending_range}")
+        products = direct_amazon_search(search_term, max_attempts=5, use_fallback=False, 
+                                       sort_by=sort_by, trending_range=trending_range)
         
         if products:
             logger.info(f"Direct search found {len(products)} products")
@@ -437,8 +445,13 @@ def get_market_insights():
         logger.info(f"Performing direct search for insights on: {search_term}")
         
         try:
+            # Extract sort type and trending range
+            sort_by = data.get('sort', 'default')
+            trending_range = int(data.get('trending_range', 30))
+            
             # Increase max_attempts for better reliability but disable fallback to mock data
-            products = direct_amazon_search(search_term, max_products=limit, max_attempts=5, use_fallback=False)
+            products = direct_amazon_search(search_term, max_products=limit, max_attempts=5, use_fallback=False,
+                                          sort_by=sort_by, trending_range=trending_range)
             logger.info(f"Direct search found {len(products) if products else 0} products")
         except Exception as direct_search_error:
             logger.error(f"Direct search error: {str(direct_search_error)}")
@@ -674,6 +687,130 @@ def scrape_product():
 @app.route('/health')
 def health_check():
     return jsonify({'status': 'healthy', 'service': 'scrapehero-amazon'})
+
+# LLM analysis endpoint
+@app.route('/api/analyze', methods=['POST'])
+def analyze_products():
+    try:
+        # Get data from request
+        data = request.get_json()
+        
+        # Validate request data
+        if not data or not isinstance(data, dict):
+            return jsonify({'error': 'Invalid request data'}), 400
+            
+        # Extract products and query from request
+        products = data.get('products', [])
+        query = data.get('query', '')
+        llm_provider = data.get('llm_provider', 'claude')
+        
+        # Validate products
+        if not products or not isinstance(products, list):
+            return jsonify({'error': 'No products provided'}), 400
+            
+        # Validate LLM provider
+        if llm_provider not in LLM_PROVIDERS:
+            return jsonify({
+                'error': f'Unknown LLM provider: {llm_provider}',
+                'available_providers': list(LLM_PROVIDERS.keys())
+            }), 400
+            
+        # Call the LLM analyzer
+        analysis_result = analyze_product_data(products, query, llm_provider)
+        
+        # Return the result
+        return jsonify(analysis_result)
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Structured analysis endpoint
+@app.route('/api/analyze/structured', methods=['POST'])
+def analyze_products_structured():
+    try:
+        # Get data from request
+        data = request.get_json()
+        
+        # Validate request data
+        if not data or not isinstance(data, dict):
+            return jsonify({'error': 'Invalid request data'}), 400
+            
+        # Extract products and query from request
+        products = data.get('products', [])
+        query = data.get('query', '')
+        llm_provider = data.get('llm_provider', 'claude')
+        
+        # Validate products
+        if not products or not isinstance(products, list):
+            return jsonify({'error': 'No products provided'}), 400
+            
+        # Validate LLM provider
+        if llm_provider not in LLM_PROVIDERS:
+            return jsonify({
+                'error': f'Unknown LLM provider: {llm_provider}',
+                'available_providers': list(LLM_PROVIDERS.keys())
+            }), 400
+            
+        # Call the LLM analyzer for structured analysis
+        analysis_result = get_structured_analysis(products, query, llm_provider)
+        
+        # Return the result
+        return jsonify(analysis_result)
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Question answering endpoint
+@app.route('/api/analyze/question', methods=['POST'])
+def answer_product_question():
+    try:
+        # Get data from request
+        data = request.get_json()
+        
+        # Validate request data
+        if not data or not isinstance(data, dict):
+            return jsonify({'error': 'Invalid request data'}), 400
+            
+        # Extract products, query, and question from request
+        products = data.get('products', [])
+        query = data.get('query', '')
+        question = data.get('question', '')
+        llm_provider = data.get('llm_provider', 'claude')
+        
+        # Validate products and question
+        if not products or not isinstance(products, list):
+            return jsonify({'error': 'No products provided'}), 400
+            
+        if not question:
+            return jsonify({'error': 'No question provided'}), 400
+            
+        # Validate LLM provider
+        if llm_provider not in LLM_PROVIDERS:
+            return jsonify({
+                'error': f'Unknown LLM provider: {llm_provider}',
+                'available_providers': list(LLM_PROVIDERS.keys())
+            }), 400
+            
+        # Call the question answering function
+        answer_result = answer_question(products, query, question, llm_provider)
+        
+        # Return the result
+        return jsonify(answer_result)
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Get available LLM providers
+@app.route('/api/llm-providers', methods=['GET'])
+def get_llm_providers():
+    providers = {}
+    for key, provider in LLM_PROVIDERS.items():
+        providers[key] = {
+            'name': provider['name'],
+            'model': provider['model'],
+            'available': bool(os.getenv(provider['env_var']))
+        }
+    return jsonify(providers)
 
 # Route for favicon.ico
 @app.route('/favicon.ico')

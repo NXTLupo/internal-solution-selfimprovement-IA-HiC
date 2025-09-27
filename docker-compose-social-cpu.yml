@@ -1,0 +1,6 @@
+services:
+  social-research-backend:
+    build:
+      context: ./internal-solutions-socialresearch/backend
+      dockerfile: Dockerfile.cpu
+

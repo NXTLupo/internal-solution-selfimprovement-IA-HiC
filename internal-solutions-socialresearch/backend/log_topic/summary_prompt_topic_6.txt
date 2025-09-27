@@ -1,0 +1,120 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: clean, room, away, things, help, chores, toys
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Just. Clean. Your. Room. My daughter recently turned 13 and her room is just constantly a disaster. I know that some of that just comes with age, but this is beyond livable. It’s not just clothes not put away, we’re talking dirty tissues and makeup pads and q-tips all over the floor, scraps of paper and fabric from craft projects littered all over, layers of stuff on the floor so that there is no usable path through, etc. Things break or are lost frequently. And she has zero respect for the value of items or desires to take care of her things.
+
+EXAMPLE 2:
+What “chores” are we giving our 3 year olds? Sorry, this is long! TLDR at the bottom. I wanted to start teaching our daughter responsibility around the house, especially because my husband had bone cancer, and had most of his pelvis removed and reconstructed, so he’s not going to be able to help much once he gets home. She just turned 3 in April and I had our second also in April, so she’s 3 months old now.
+
+EXAMPLE 3:
+I stayed home from work today and cleaned it again, and found ants in her room. This is actually the second time that’s happened in the past 6 months. There’s a difference between messy and filthy, and it’s filthy. Something has to change. But how do I make that happen?  Soooo what worked for my dad when I was living in a pig sty was to tell me I wasn't allowed *in* my room til it was clean. I could go in there to clean, get clothes, or sleep. Period. I had to change in the bathroom. I wasn't allowed to keep a light on when I went in to sleep. [...]
+
+EXAMPLE 4:
+And with all of that, I shall push my baby birdie out of the cleaning nest and have some real expectations of her to take care of her things!  Ok, I can very much relate to this. My kiddo struggles so hard to clean up and we have definitely had our battles. Ours was over clothes on the floor. I finally did go in there and pick out 5 clean shirts and pants at random and threw everything else in garbage bags. She didn’t say a word about it for 3 days. I honestly am not even sure she noticed. She just wore what she had and when she ran out she ASKED if SHE could do laundry. “Who is this kid?”. [...]
+
+EXAMPLE 5:
+This is about to sound like I’m bragging and I don’t want it to, but I’m having so much trouble because she’s already a super responsible girl for only being 3, and she truly gets joy out of it. She started by just helping me, and I decided to incorporate our Skylight, so now she can get stars for a chore and earn towards a reward. Now, I have a great problem on my hands…she LOVES to do chores and wants to do more. I just don’t know what to add. [...]
+
+EXAMPLE 6:
+I have been working on clean up skills with her since she was itty bitty. I fully understand that she gets overwhelmed, I get that she struggles with all things related to cleaning up.
+
+EXAMPLE 7:
+TLDR; my daughter loves chores, already has 10 each day (spread throughout the day) and wants more but idk what to give her. I get mine to help in the kitchen his literal favourite job is peeling garlic. He's almost 5 now and i get him to chop up some of the vegetables too, hes a very handy kitchen helper.
+
+EXAMPLE 8:
+Two, we’re going to take everything out of her room, and only take back in what she can put fully away into a designated spot on her own. Everything else will either find a place in the play room, or will go in the garage until she can /show that she’s capable of being responsible for more.
+
+EXAMPLE 9:
+I’ve yelled. I’ve pleaded. I’ve taken away privileges and electronics. Assigned dollar values to different chores to reward her for doing them. Not let her go do things unless her room was cleaned. I’ve written task lists, told her to write her own lists…I’m out of ideas. She is perfectly content to just live in rot, and it’s starting to spill into other areas of the house too.
+
+EXAMPLE 10:
+I feel like we’ve done it all. From me cleaning her room entirely, multiple times, hauling away bags of trash in the hopes that it would help her keep it clean if she’s starting from a clean slate…donating tons of clothes and things to make it easier to visually see where things go…bringing in extra storage to put things in…
+
+EXAMPLE 11:
+The plan is one, for us to take accountability for why we’re in the situation that we’re in. I’ve been using strategies designed for younger children, and not having high enough expectations to move into independence on this issue, while also allowing her to have an overwhelming amount of things that, even if they are able to be out of the way when tidied, are hard for her to tidy up on her own. I’m also going to apologize about the trash bag, because that wasn’t helpful or kind.
+
+EXAMPLE 12:
+I also told her that it’s okay to make a mess, what isn’t okay is refusing to care for her things, and making giant piles of crap that she leaves for everyone else to deal with. The current pile is in front of her drawers, so we can’t access her drawers to put away clothes or get out her pajamas. We also can’t set up the item that she was trying to use, because the pile is where it would go.
+
+EXAMPLE 13:
+I’ve organized our home to make this easier, I’ve labeled and tidied and decluttered and anything you can imagine. I have really done my best here.
+
+EXAMPLE 14:
+She does most of these alone, but I help with the stuff she can’t reach, I help with most of the glass, etc, but otherwise she’s pretty self sufficient. In total, this stuff takes about 30 minutes out of her entire day. I don’t want to give her a star for things like brushing her teeth, getting dressed, taking a bath, etc. but things that are actually “extra” so to speak.
+
+EXAMPLE 15:
+This is not the first time I’ve asked her to clean up or expected her to do so. It’s not a new skill, it’s something she’s capable of. Especially since what I was actually asking her to do was pull the blankets down, and just bring them to me so I could fold them. I asked and cued and all kinds of things at least 15 times and also gave her multiple opportunities to go in her swing or do some other form of regulation before I expected her to begin.
+
+EXAMPLE 16:
+What else can I get her to help me with? I’m kind of at a loss for other items. Should I start just giving her stars for things she’s already doing, like helping with the groceries or putting her laundry away? Or should I just keep the routine we have now? I don’t want her to ever feel like it’s too much. Right now, if she tells me she doesn’t want to do one of those things, I just say okay and I do it because I was going to do it anyways. She just doesn’t get a star for it towards her reward. Any other ideas? They also don’t have to be daily, they can be like once or twice a week items!
+
+EXAMPLE 17:
+Today, it’s the second week of school and we just came home from a long weekend trip. I tidied up my kids rooms so they could come home to a peaceful space. She didn’t feel like eating dinner, so she went upstairs and was “regulating.” I put it in quotes because rather than going in her swing, or using her peanut ball, or using her calm corner, she pulled about 10 blankets out of her closet and made a blanket mountain as a step stool so she could reach a different regulating item in the top of her closet that wasn’t set up because of space.
+
+EXAMPLE 18:
+He asked my husband what he could do to help clean today so he gave him the duster as asked him to get it as dirty as he could.
+
+EXAMPLE 19:
+She currently helps me with:
+-Feeding the dogs (AM/PM)
+-Loading/unloading the dishwasher (AM/PM)
+-Loading/unloading the bottle washer (AM/PM)
+-Make her bed (AM)
+-Prep coffee (PM)
+-Put away shoes (PM)
+-Toy cleanup (afternoon)
+
+EXAMPLE 20:
+I told her that if she has too much stuff to manage, I’m happy to take some of it to goodwill. She continued refusing, so I got out a big black bag. I pretty much told her that whatever she leaves in this giant pile is going in the bag, I don’t care how special it is.
+
+EXAMPLE 21:
+Am I being extreme? My daughter is 7. She is autistic. Since she was a baby, she dumps stuff and moves on. Baskets, drawers, laundry, whatever. She doesn’t even dump it and interact with the stuff. The other day, she dumped a full Lego bin and then walked away.
+
+EXAMPLE 22:
+I don’t always expect her to help, mostly because I just can’t stand fighting about stuff. She argues constantly. It’s less effort if I just do it, because in order to get it done, I have to set her up for success like I’m a damned occupational therapist. I can’t just say “hey, time to pick up” or “put it away when you’re done.” I have to sort the dumped pile of things she has mixed up and put them next to the bin they go in, make it exciting in some way (like, I gave her a small shovel for the legos), make it a game or a race, what have you. [...]
+
+EXAMPLE 23:
+Three, I’ll do some visual supports, like a timer, to-do list, and I’m also thinking that if she needs more support I can tape a picture of her items in the bottom of containers they go in.
+
+EXAMPLE 24:
+I told her it was fine that she did that, but she needed to clean it up. She started complaining about how she just can’t, it’s too much, she needs help. I told her I would help, but she needed to pull the mountain apart and then I would fold the blankets.
+
+EXAMPLE 25:
+So, to my question: am I being extreme with the trash bag? I don’t want to give her some scarcity complex. But I’m at my wits end, nothing else has worked, and I genuinely feel that if she has too much stuff to handle, we need to cull down her items to a manageable amount.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

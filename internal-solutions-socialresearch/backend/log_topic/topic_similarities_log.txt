@@ -1,0 +1,17 @@
+Calculating topic similarities...
+Topic 0 top words: ['pants', 'clothes', 'size', 'buy', 'fit', 'wear', 'school', 'brands']
+Topic 1 top words: ['kids', 'feel', 'home', 'care', 'dinner', 'parent', 'husband', 'work', 'wife', 'day']
+Topic 2 top words: ['said', 'daughter', 'clothes', 'wear', 'hair', 'naked', 'boy', 'year old']
+Topic 3 top words: ['diapers', 'baby', 'pee', 'milk', 'cost', '14', 'months', 'formula', 'potty']
+Topic 4 top words: ['baby', 'child', 'husband', 'mom', 'dad', 'stepmom', 'feel', 'daughter', 'said', 'told']
+Topic 5 top words: ['money', 'year', 'clothes', 'things', 'feel', 'pay', 'buy', 'kids', 'new', 'college']
+Topic 6 top words: ['clean', 'room', 'away', 'things', 'help', 'chores', 'toys', 'trash']
+Topic 7 top words: ['laundry', 'clothes', 'washing', 'day', 'dirty', 'loads', 'end', 'stained', 'shirt', 'change']
+Topic 8 top words: ['morning', 'day', 'breakfast', 'school', 'daycare', 'home', 'shoes', 'kids', 'grader']
+Topic 9 top words: ['throwing', 'away', 'thing', 'bed', 'school', 'angry', 'help', 'point', 'climbing', 'patience']
+Topic 10 top words: ['50', 'clothes', 'carrying', 'month old', 'baby', 'toddler', 'wallet']
+Topic 11 top words: ['clothes', 'school', 'buy', 'kid', 'pairs', 'size', 'shirts', 'label', 'leggings']
+Topic 12 top words: ['year', 'birthday', 'christmas', 'gifts', 'toys', 'buy', 'stuff', 'games', 'party']
+Topic 13 top words: ['hygiene', 'son', 'stink', 'shower', 'deodorant', 'hygiene habits', 'lying', 'bath']
+Topic 14 top words: ['screams', 'mean', 'son', 'talking', 'old', 'play', 'listen', 'wants', 'seconds', 'horrible']
+Found 105 topic similarity pairs

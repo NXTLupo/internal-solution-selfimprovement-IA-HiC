@@ -1,0 +1,121 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: baby, child, husband, mom, dad, stepmom, feel
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Your husband was off starting a new family while she endured who knows what moving between 11 schools and doing meth with an alcoholic mom.. I am certain she's not feeling too good about you, your husband or the baby. She probably feels abandoned and replaced.
+
+EXAMPLE 2:
+Some accessory information if relevant:
+Husband adores his dad and is pretty affectionate towards stepmom too. 
+Husband thinks the kids need to respect their elders and that they are free to discipline the kids but not spank them. 
+FIL and Stepmom do not live in our state, they only visit for a couple months in the summer.
+We are on the opposite side of political and religious beliefs from FIL and Stepmom. 
+Stepmom drinks, and it is never clear if she’s been drinking or not, the sippy cup either has water or wine in it.
+Stepmom also deals with chronic pain. [...]
+
+EXAMPLE 3:
+Edit: My daughter kicking stepmom was addressed at the time of the party by her dad, by me after the party, and through out the week we’ve talked about it as well. I did not mention that in the post because I wasn’t looking for opinions on whether or not the stepmom was justified in her actions, I was wondering why I feel like a POS for standing up for my kid. 
+It has been made clear to me that stepmom came into the event space raging. My mom said she had never seen her in such a state and said she must have been drunk. [...]
+
+EXAMPLE 4:
+Which feels like a big F...U to my husband and I. I told him I'm tired of the way she makes us feel and I'm gonna call her caseworker tomorrow to come get her cause I'm so stressed about this situation and I feel like she doesn't respect us or understand the gravity of the situation.
+
+EXAMPLE 5:
+Foster care teen So this is a sensitive subject and I'm not entirely sure what to do but I'll explain it the best I can in a short amount of time.
+
+EXAMPLE 6:
+Am I Overreacting: Grandparent Threatening Corporeal Punishment Saturday was my daughter’s 4th Birthday party, for the sake of the story we’ll call her Fiona. I stayed home with our youngest (M, 15mo) while my husband, his dad and stepmom, my mom and bonus mom, went to set-up at the park. When I arrived at the park I was approached by my mom and bonus mom telling me, “Stepmom was awful to Fiona. She was being really mean to Fiona and not letting her help. Fiona kicked her in the shin and then stepmom threatened to spank her. We intervened and took Fiona away from stepmom. [...]
+
+EXAMPLE 7:
+The next day I talked to my mom who reiterated what had happened and I received text messages from bonus-mom telling me to never let stepmom watch my kids ever again. I decided to call stepmom and get to the bottom of it. When I called she put me on speaker phone without my knowledge so my FIL could also hear what was said. I asked her really calmly what happened yesterday, it sounds like there was a bit of a misunderstanding? She tells me, “I was trying to put the table cloths on the table and Fiona wanted to help me. I was letting her help me but she was being really wild. [...]
+
+EXAMPLE 8:
+Need Parenting Advice: Taking in My Husband’s Troubled Teenage Daughter I (34f) could really use some advice from other parents right now.
+
+EXAMPLE 9:
+We’ve since learned a lot more from the mom’s aunt and uncle, who they have been staying with, since we've been here. Her mom is barely around—she’s back to heavy drinking and using drugs with a new boyfriend. The daughter has also been drinking, vaping, smoking weed regularly, and has used coke and meth multiple times. She’s been suspended for fighting and just switched schools again. She spends hours (sometimes 7+ straight) scrolling TikTok. She wears extremely revealing clothing, tiny booty shorts and low cut tops on the regular basis around town.
+
+EXAMPLE 10:
+My husband (33M) has a daughter who’s turning 13 this month. She’s lived with her mom her whole life, but it’s been very unstable—she’s been to 11 different schools, moved constantly between cities and states, and lived with different boyfriends. Her mom has struggled with alcohol addiction and poor choices, and although my husband has always tried to stay involved, their relationship has been rocky. She even blocked him for several months recently, and we had no way of contacting her, or no way of understanding why or what was going on.
+
+EXAMPLE 11:
+This is when I saw RED. I basically said I don’t think you understood what my husband said and that if he did say that I don’t give a shit and you will not be having a relationship with my kids if that’s how you think they can be treated. This was met with a “Husband was spanked and he turned out fine..”BS comment. I stayed the course and said I don’t care how you raised your kids, these are my kids and they don’t need to have a relationship with people that threaten to hurt them. [...]
+
+EXAMPLE 12:
+I don't want her to be like thank you, thank you, thank you for everything you do. I just want her to treat us like we are here like what we have done does matter. Not like we should be thanking her for the privilege of taking care of her.
+
+EXAMPLE 13:
+There's plenty of other situations where she has been like entitled, I guess is the best word for it but this is long already. If anyone wants I can make a comment or two about them. And the whole state paying for her college till she's 28 thing but she isn't going she'd rather go back to her bad influence of a father.
+
+EXAMPLE 14:
+Anyways I'm asking is calling her case manager something I should do? I know it's gonna be crazy if I do but I feel like I'm ripped apart cause she is family and we really did want to help her.
+
+EXAMPLE 15:
+My husband and I live in a small 2-bedroom townhouse with our 18-month-old son in a larger city. Space is tight, and we’re already stretched thin, but we want to do everything we can to help her feel safe, supported, and cared for. She’s never lived with us before—only short visits here and there.
+
+EXAMPLE 16:
+We told her if she needs anything she needs to tell us cause we can't read her mind. Like personal care stuff. We take her clothes shopping for a couple things when we take our daughter school clothes shopping. Oh yeah she dropped out of school before she turned 16 while her dad still had control of all that and refused to go back. I paid for her GED classes for her to do at home but she didn't do them.
+
+EXAMPLE 17:
+Last week, her mom called to say she had run away. We happened to be visiting family in their city for the holiday, so we immediately helped look for her. After three days, she was found at a trap house, where high she had been getting high on meth. We learned this wasn’t the first time. Her mom seemed somewhat unbothered afterward and just told my husband to hang out with her for the next few days.
+
+EXAMPLE 18:
+So she is 17 now turns 18 in August. As it gets closer to that time she has been I don't wanna be mean but kinda disrespectful? Ever since she has had unsupervised contact with her father.
+
+EXAMPLE 19:
+TDLR: 17 yr old cousin who's been in my care for fostering entitlement has gotten worse since she started talking to her father again, they made a go fund me saying she needs money for personal stuff cause shes in foster care. When we buy her everything she needs. This feels like a big slap in the face. I'm thinking about calling her case worker tomorrow to come pick her up cause this feels like the last straw. It sounds like you don't like this girl right now and she doesn't like you. When does she turn 18?
+
+EXAMPLE 20:
+She doesn't do her chores and she acts like any interaction with us is a death sentence, she only wants to participate in family activities if she thinks she can get something out of it. She won't come out of her room unless she benefits from it. Refuses to have interaction with us ever since she started talking to her dad again. It feels like walking on egg shells in our own house. We can't confront her about anything cause she refuses to take accountability and always tries to flip the blame.
+
+EXAMPLE 21:
+My husband and I took in my younger cousin when we 1st took her in she was 15. We ended up having to get DCF involved because her father went to prison for 15 months maybe a year after we took her in. Simply cause we had no way to take her to the doctor or enroll her in school.
+
+EXAMPLE 22:
+So today I find out her and her dad created a go fund me for her. Stating that she is in foster care and disabled (which is a lie she is not she just refuses to get out of her bed, doctor's have told her this) and she needs money to buy things she needs.
+
+EXAMPLE 23:
+She pretty much has whatever freedoms she wants. We aren't strict we ask her to do her  chores (cat litter, dishes when we can't do them, and keeping the bathroom picked up) and we PAY her to watch our daughter ($150) a month maybe like 5 days a month for a couple hours each day. Our daughter is 9 and is very independent she just has to make sure she eats.
+
+EXAMPLE 24:
+Her great aunt and uncle begged us to take her in, saying she’s being neglected and is in danger. Her mom is moving in with the new boyfriend this weekend, and again seems distracted. So here we are. We’re bringing her to live with us.
+
+EXAMPLE 25:
+I’m looking for advice on how to set her up for success. We know she needs structure, clear rules, and positive outlets—but we also want her to feel safe and not like she’s being punished. How do we balance firm boundaries with compassion and care? What can we do to help this poor girl get back on track?
+ FWIW I was in her shoes at 14 due to some trauma. I am doing well now... but I can tell you that your husband has some work in front of him.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

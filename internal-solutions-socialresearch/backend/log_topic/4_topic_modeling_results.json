@@ -1,0 +1,650 @@
+{
+  "total_topics": 15,
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 30,
+      "name": "0_pants_clothes_size_buy",
+      "representation": [
+        {
+          "term": "pants",
+          "weight": 0.02336516867372906
+        },
+        {
+          "term": "clothes",
+          "weight": 0.02292387730566724
+        },
+        {
+          "term": "size",
+          "weight": 0.015896418398688706
+        },
+        {
+          "term": "buy",
+          "weight": 0.015891149890457857
+        },
+        {
+          "term": "fit",
+          "weight": 0.015219379585319598
+        },
+        {
+          "term": "wear",
+          "weight": 0.013608940283502288
+        },
+        {
+          "term": "school",
+          "weight": 0.013418535420619581
+        },
+        {
+          "term": "brands",
+          "weight": 0.013065345565616105
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 20,
+      "name": "1_kids_feel_home_care",
+      "representation": [
+        {
+          "term": "kids",
+          "weight": 0.014496038207780582
+        },
+        {
+          "term": "feel",
+          "weight": 0.01356328872433283
+        },
+        {
+          "term": "home",
+          "weight": 0.010752919628115556
+        },
+        {
+          "term": "care",
+          "weight": 0.010002824329379798
+        },
+        {
+          "term": "dinner",
+          "weight": 0.009507325427887212
+        },
+        {
+          "term": "parent",
+          "weight": 0.009272052617369825
+        },
+        {
+          "term": "husband",
+          "weight": 0.0083004916641228
+        },
+        {
+          "term": "work",
+          "weight": 0.008241993746897673
+        },
+        {
+          "term": "wife",
+          "weight": 0.008075898156147702
+        },
+        {
+          "term": "day",
+          "weight": 0.008002313348988661
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 20,
+      "name": "2_said_daughter_clothes_wear",
+      "representation": [
+        {
+          "term": "said",
+          "weight": 0.016052139318237544
+        },
+        {
+          "term": "daughter",
+          "weight": 0.014932318789137406
+        },
+        {
+          "term": "clothes",
+          "weight": 0.01074241351946855
+        },
+        {
+          "term": "wear",
+          "weight": 0.009157175110046666
+        },
+        {
+          "term": "hair",
+          "weight": 0.009130271914116752
+        },
+        {
+          "term": "naked",
+          "weight": 0.009014139406031234
+        },
+        {
+          "term": "boy",
+          "weight": 0.007895353548478121
+        },
+        {
+          "term": "year old",
+          "weight": 0.0077408632909025995
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 19,
+      "name": "3_diapers_diaper_baby_pee",
+      "representation": [
+        {
+          "term": "diapers",
+          "weight": 0.02717286978221114
+        },
+        {
+          "term": "baby",
+          "weight": 0.015786275093173163
+        },
+        {
+          "term": "pee",
+          "weight": 0.01563390577447461
+        },
+        {
+          "term": "milk",
+          "weight": 0.01540387278669194
+        },
+        {
+          "term": "cost",
+          "weight": 0.013734446131723923
+        },
+        {
+          "term": "14",
+          "weight": 0.01309329186868815
+        },
+        {
+          "term": "months",
+          "weight": 0.012911138484045107
+        },
+        {
+          "term": "formula",
+          "weight": 0.012814270480565023
+        },
+        {
+          "term": "potty",
+          "weight": 0.01201337857552971
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 16,
+      "name": "4_baby_child_husband_mom",
+      "representation": [
+        {
+          "term": "baby",
+          "weight": 0.018108213701631043
+        },
+        {
+          "term": "child",
+          "weight": 0.016243927461789476
+        },
+        {
+          "term": "husband",
+          "weight": 0.014958143742174508
+        },
+        {
+          "term": "mom",
+          "weight": 0.014851319607747018
+        },
+        {
+          "term": "dad",
+          "weight": 0.014076068886098723
+        },
+        {
+          "term": "stepmom",
+          "weight": 0.011280812053509188
+        },
+        {
+          "term": "feel",
+          "weight": 0.010065389604377391
+        },
+        {
+          "term": "daughter",
+          "weight": 0.009923105766603763
+        },
+        {
+          "term": "said",
+          "weight": 0.009212642271878704
+        },
+        {
+          "term": "told",
+          "weight": 0.009051124540924022
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 15,
+      "name": "5_money_year_clothes_things",
+      "representation": [
+        {
+          "term": "money",
+          "weight": 0.03041153421436748
+        },
+        {
+          "term": "year",
+          "weight": 0.018580755805879097
+        },
+        {
+          "term": "clothes",
+          "weight": 0.016887207173278324
+        },
+        {
+          "term": "things",
+          "weight": 0.013758000188661149
+        },
+        {
+          "term": "feel",
+          "weight": 0.012852346773112993
+        },
+        {
+          "term": "pay",
+          "weight": 0.012677013941570111
+        },
+        {
+          "term": "buy",
+          "weight": 0.012215422305982332
+        },
+        {
+          "term": "kids",
+          "weight": 0.011559180187757312
+        },
+        {
+          "term": "new",
+          "weight": 0.011556383001459641
+        },
+        {
+          "term": "college",
+          "weight": 0.010585238237960126
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "count": 12,
+      "name": "6_clean_room_away_things",
+      "representation": [
+        {
+          "term": "clean",
+          "weight": 0.022385834707691697
+        },
+        {
+          "term": "room",
+          "weight": 0.019223808716062038
+        },
+        {
+          "term": "away",
+          "weight": 0.017013151357214044
+        },
+        {
+          "term": "things",
+          "weight": 0.01652659415354355
+        },
+        {
+          "term": "help",
+          "weight": 0.01630302533601007
+        },
+        {
+          "term": "chores",
+          "weight": 0.015969465365591188
+        },
+        {
+          "term": "toys",
+          "weight": 0.012070370703690316
+        },
+        {
+          "term": "trash",
+          "weight": 0.011556125633430635
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "count": 10,
+      "name": "7_laundry_clothes_washing_day",
+      "representation": [
+        {
+          "term": "laundry",
+          "weight": 0.05053948218067518
+        },
+        {
+          "term": "clothes",
+          "weight": 0.04282349146287658
+        },
+        {
+          "term": "washing",
+          "weight": 0.04144127523851357
+        },
+        {
+          "term": "day",
+          "weight": 0.0308979175906675
+        },
+        {
+          "term": "dirty",
+          "weight": 0.02302293068806309
+        },
+        {
+          "term": "loads",
+          "weight": 0.02021144203912808
+        },
+        {
+          "term": "end",
+          "weight": 0.016891854252444563
+        },
+        {
+          "term": "stained",
+          "weight": 0.016395495878172614
+        },
+        {
+          "term": "shirt",
+          "weight": 0.016349051174193968
+        },
+        {
+          "term": "change",
+          "weight": 0.015839743504161067
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "count": 10,
+      "name": "8_morning_day_breakfast_school",
+      "representation": [
+        {
+          "term": "morning",
+          "weight": 0.024299430478468796
+        },
+        {
+          "term": "day",
+          "weight": 0.023548846496157336
+        },
+        {
+          "term": "breakfast",
+          "weight": 0.02319187356498252
+        },
+        {
+          "term": "school",
+          "weight": 0.022783209074010623
+        },
+        {
+          "term": "daycare",
+          "weight": 0.018108620746584276
+        },
+        {
+          "term": "home",
+          "weight": 0.017652201968139113
+        },
+        {
+          "term": "shoes",
+          "weight": 0.01700329439759499
+        },
+        {
+          "term": "kids",
+          "weight": 0.012637016019778445
+        },
+        {
+          "term": "grader",
+          "weight": 0.01228139906733118
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "count": 9,
+      "name": "9_throwing_away_thing_bed",
+      "representation": [
+        {
+          "term": "throwing",
+          "weight": 0.014511188073347805
+        },
+        {
+          "term": "away",
+          "weight": 0.011764078794113602
+        },
+        {
+          "term": "thing",
+          "weight": 0.010976154320459713
+        },
+        {
+          "term": "bed",
+          "weight": 0.010268876794861175
+        },
+        {
+          "term": "school",
+          "weight": 0.009640445605502871
+        },
+        {
+          "term": "angry",
+          "weight": 0.009514479577541451
+        },
+        {
+          "term": "help",
+          "weight": 0.009472491858247617
+        },
+        {
+          "term": "point",
+          "weight": 0.0093652152144213
+        },
+        {
+          "term": "climbing",
+          "weight": 0.009311548329569267
+        },
+        {
+          "term": "patience",
+          "weight": 0.009124659194295504
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "count": 8,
+      "name": "10_50_clothes_carrying_month old",
+      "representation": [
+        {
+          "term": "50",
+          "weight": 0.027676046163680426
+        },
+        {
+          "term": "clothes",
+          "weight": 0.02081231552259734
+        },
+        {
+          "term": "carrying",
+          "weight": 0.01876314482994983
+        },
+        {
+          "term": "month old",
+          "weight": 0.01792718864136678
+        },
+        {
+          "term": "baby",
+          "weight": 0.017147416957725658
+        },
+        {
+          "term": "toddler",
+          "weight": 0.014143532291514624
+        },
+        {
+          "term": "wallet",
+          "weight": 0.014072358622462372
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "count": 8,
+      "name": "11_clothes_school_buy_kid",
+      "representation": [
+        {
+          "term": "clothes",
+          "weight": 0.036825105118004214
+        },
+        {
+          "term": "school",
+          "weight": 0.024669574888596432
+        },
+        {
+          "term": "buy",
+          "weight": 0.02062263700698934
+        },
+        {
+          "term": "kid",
+          "weight": 0.01890408392307356
+        },
+        {
+          "term": "pairs",
+          "weight": 0.018881827348712292
+        },
+        {
+          "term": "size",
+          "weight": 0.018729391031366404
+        },
+        {
+          "term": "shirts",
+          "weight": 0.017759979788838615
+        },
+        {
+          "term": "label",
+          "weight": 0.01720950476903243
+        },
+        {
+          "term": "leggings",
+          "weight": 0.016184423441753394
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "count": 7,
+      "name": "12_year_birthday_christmas_gifts",
+      "representation": [
+        {
+          "term": "year",
+          "weight": 0.02393659833979451
+        },
+        {
+          "term": "birthday",
+          "weight": 0.02262548901987652
+        },
+        {
+          "term": "christmas",
+          "weight": 0.022435110114215562
+        },
+        {
+          "term": "gifts",
+          "weight": 0.019942320101524944
+        },
+        {
+          "term": "toys",
+          "weight": 0.018905022167078598
+        },
+        {
+          "term": "buy",
+          "weight": 0.015868717437196343
+        },
+        {
+          "term": "stuff",
+          "weight": 0.015602305356479136
+        },
+        {
+          "term": "games",
+          "weight": 0.01288299521416818
+        },
+        {
+          "term": "party",
+          "weight": 0.01211338278004222
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "count": 6,
+      "name": "13_hygiene_son_habits_stink",
+      "representation": [
+        {
+          "term": "hygiene",
+          "weight": 0.03076695220593137
+        },
+        {
+          "term": "son",
+          "weight": 0.026724312063500236
+        },
+        {
+          "term": "stink",
+          "weight": 0.01842209860099677
+        },
+        {
+          "term": "shower",
+          "weight": 0.018026018587845794
+        },
+        {
+          "term": "deodorant",
+          "weight": 0.018004850225332446
+        },
+        {
+          "term": "hygiene habits",
+          "weight": 0.015763075602396873
+        },
+        {
+          "term": "lying",
+          "weight": 0.01378889534711251
+        },
+        {
+          "term": "bath",
+          "weight": 0.013286216509083905
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "count": 5,
+      "name": "14_screams_mean_son_talking",
+      "representation": [
+        {
+          "term": "screams",
+          "weight": 0.022358322214840663
+        },
+        {
+          "term": "mean",
+          "weight": 0.020363810386494634
+        },
+        {
+          "term": "son",
+          "weight": 0.01933582578712076
+        },
+        {
+          "term": "talking",
+          "weight": 0.01920327446600811
+        },
+        {
+          "term": "old",
+          "weight": 0.01770919827374944
+        },
+        {
+          "term": "play",
+          "weight": 0.017070020617151377
+        },
+        {
+          "term": "listen",
+          "weight": 0.014965007009072107
+        },
+        {
+          "term": "wants",
+          "weight": 0.01452690782722367
+        },
+        {
+          "term": "seconds",
+          "weight": 0.013328930164250605
+        },
+        {
+          "term": "horrible",
+          "weight": 0.012142251726191097
+        }
+      ]
+    }
+  ]
+}

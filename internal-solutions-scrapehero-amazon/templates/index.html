@@ -106,6 +106,16 @@
                                 <label class="search-label" for="productLimit">Product Limit</label>
                                 <input type="number" id="productLimit" name="productLimit" class="form-control" value="50" min="1" max="100">
                             </div>
+                            <div class="search-field">
+                                <label class="search-label" for="sortType">Sort By</label>
+                                <select id="sortType" name="sortType" class="form-control">
+                                    <option value="default">Default</option>
+                                    <option value="trending">Trending (Sales Count)</option>
+                                    <option value="rating">Rating (High to Low)</option>
+                                    <option value="price_high">Price (High to Low)</option>
+                                    <option value="price_low">Price (Low to High)</option>
+                                </select>
+                            </div>
                             <div class="search-field" style="flex: 0 0 auto; align-self: flex-end;">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-chart-bar"></i> Run Analysis
@@ -134,6 +144,15 @@
                             <div class="search-field">
                                 <label class="search-label" for="insightLimit">Sample Size</label>
                                 <input type="number" id="insightLimit" name="insightLimit" class="form-control" value="50" min="10" max="100">
+                            </div>
+                            <div class="search-field">
+                                <label class="search-label" for="trendingRange">Trending Period</label>
+                                <select id="trendingRange" name="trendingRange" class="form-control">
+                                    <option value="7">Last 7 days</option>
+                                    <option value="30" selected>Last 30 days</option>
+                                    <option value="90">Last 90 days</option>
+                                    <option value="365">Last year</option>
+                                </select>
                             </div>
                             <div class="search-field" style="flex: 0 0 auto; align-self: flex-end;">
                                 <button type="button" id="runInsightsBtn" class="btn btn-primary">
@@ -191,6 +210,119 @@
                             </div>
                             <div class="insights-content" id="insights-list">
                                 <!-- Insights will be populated dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- AI Analysis and Talk to Your Data -->
+                        <div class="ai-analysis-container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4><i class="fas fa-robot"></i> AI Analysis & Chat</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="ai-provider-selector">
+                                        <label>Select AI Provider:</label>
+                                        <div class="ai-provider-options">
+                                            <div class="ai-provider-option" data-provider="claude">
+                                                <input type="radio" name="ai-provider" id="provider-claude" value="claude" checked>
+                                                <label for="provider-claude">Claude 4</label>
+                                            </div>
+                                            <div class="ai-provider-option" data-provider="openai">
+                                                <input type="radio" name="ai-provider" id="provider-openai" value="openai">
+                                                <label for="provider-openai">OpenAI o3</label>
+                                            </div>
+                                            <div class="ai-provider-option" data-provider="gemini">
+                                                <input type="radio" name="ai-provider" id="provider-gemini" value="gemini">
+                                                <label for="provider-gemini">Gemini 2.5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="ai-actions" style="margin-top: 1rem;">
+                                        <button id="analyzeDataBtn" class="btn btn-primary">
+                                            <i class="fas fa-brain"></i> Analyze Results
+                                        </button>
+                                        <button id="structuredAnalysisBtn" class="btn btn-info">
+                                            <i class="fas fa-chart-pie"></i> Get Insights Dashboard
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="chat-container" style="margin-top: 1.5rem;">
+                                        <div class="chat-header">
+                                            <h5><i class="fas fa-comments"></i> Ask AI about these products</h5>
+                                        </div>
+                                        <div class="chat-input-container">
+                                            <input type="text" id="chatInput" class="form-control" placeholder="Ask a question about these products...">
+                                            <button id="askQuestionBtn" class="btn btn-primary">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                        <div class="chat-suggestions">
+                                            <span class="chat-suggestion" data-question="What's the best value option?">Best value?</span>
+                                            <span class="chat-suggestion" data-question="What features are most common?">Common features?</span>
+                                            <span class="chat-suggestion" data-question="Which product has the best reviews?">Best reviews?</span>
+                                            <span class="chat-suggestion" data-question="What's the price range for these products?">Price range?</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="ai-response-container" style="display: none; margin-top: 1.5rem;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 id="ai-response-header"><i class="fas fa-lightbulb"></i> AI Analysis</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="ai-response-content" class="ai-response">
+                                            <!-- AI response will be placed here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="structured-insights-container" style="display: none; margin-top: 1.5rem;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fas fa-chart-pie"></i> Product Insights Dashboard</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="insights-summary" class="insights-summary"></div>
+                                        
+                                        <div class="insights-metrics">
+                                            <div class="insights-metric price-metric">
+                                                <h5><i class="fas fa-tag"></i> Price</h5>
+                                                <div id="price-insights" class="insights-metric-content"></div>
+                                            </div>
+                                            <div class="insights-metric rating-metric">
+                                                <h5><i class="fas fa-star"></i> Ratings</h5>
+                                                <div id="rating-insights" class="insights-metric-content"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="insights-features">
+                                            <h5><i class="fas fa-list"></i> Common Features</h5>
+                                            <div id="feature-insights" class="insights-features-content"></div>
+                                        </div>
+                                        
+                                        <div class="insights-recommendations">
+                                            <h5><i class="fas fa-thumbs-up"></i> Recommendations</h5>
+                                            <div id="recommendations-insights" class="insights-recommendations-content"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="chat-history-container" style="display: none; margin-top: 1.5rem;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fas fa-comments"></i> Conversation History</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="chat-history" class="chat-history">
+                                            <!-- Chat history will be placed here -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -338,10 +470,14 @@
                     let productHTML = `
                     <div class="product-card" style="max-width: 800px; margin: 0 auto;">
                         <div class="product-image-container">
-                            <img src="${data.image || '/static/placeholder-image.png'}" alt="${data.title || 'Product'}" class="product-image">
+                            <a href="${data.url || '#'}" target="_blank">
+                                <img src="${data.image || '/static/placeholder-image.png'}" alt="${data.title || 'Product'}" class="product-image">
+                            </a>
                         </div>
                         <div class="product-details">
-                            <h3 class="product-title">${data.title || 'Product'}</h3>
+                            <a href="${data.url || '#'}" target="_blank" style="text-decoration: none; color: inherit;">
+                                <h3 class="product-title">${data.title || 'Product'}</h3>
+                            </a>
                             <div class="product-rating">
                                 <span class="product-rating-value">${data.rating || 'N/A'}</span>
                                 <span class="product-rating-count">(${data.review_count || 'No'} reviews)</span>
@@ -369,6 +505,11 @@
                                     <div class="sentiment-fill" style="width: ${data.rating ? (data.rating/5)*100 : 0}%"></div>
                                 </div>
                                 <div class="sentiment-label">Customer Sentiment</div>
+                            </div>
+                            <div class="view-product-link">
+                                <a href="${data.url || '#'}" target="_blank" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-external-link-alt"></i> View on Amazon
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -405,6 +546,7 @@
             
             const searchInput = document.getElementById('categoryUrl').value;
             const productLimit = document.getElementById('productLimit').value;
+            const sortType = document.getElementById('sortType').value;
             
             if (!searchInput) {
                 alert('Please enter a category, brand, or search term');
@@ -428,6 +570,8 @@
                     search: searchInput,
                     term: searchInput,
                     limit: parseInt(productLimit),
+                    sort: sortType,
+                    trending_range: sortType === 'trending' ? 30 : null, // Default to 30 days for trending
                 };
                 
                 console.log('Sending category data:', requestData);
@@ -477,10 +621,14 @@
                     productsHTML += `
                     <div class="product-card">
                         <div class="product-image-container">
-                            <img src="${product.image || '/static/placeholder-image.png'}" alt="${product.title || 'Product'}" class="product-image">
+                            <a href="${product.url || `https://www.amazon.com/dp/${product.asin}`}" target="_blank">
+                                <img src="${product.image || '/static/placeholder-image.png'}" alt="${product.title || 'Product'}" class="product-image">
+                            </a>
                         </div>
                         <div class="product-details">
-                            <h3 class="product-title">${product.title || 'Unknown Product'}</h3>
+                            <a href="${product.url || `https://www.amazon.com/dp/${product.asin}`}" target="_blank" style="text-decoration: none; color: inherit;">
+                                <h3 class="product-title">${product.title || 'Unknown Product'}</h3>
+                            </a>
                             <div class="product-rating">
                                 <span class="product-rating-value">${product.rating || 'N/A'}</span>
                                 <span class="product-rating-count">(${product.review_count || 'No'} reviews)</span>
@@ -494,6 +642,18 @@
                                     <i class="fas fa-box product-metric-icon"></i>
                                     <span>ASIN: ${product.asin || 'N/A'}</span>
                                 </div>
+                                ${product.trending_score ? `
+                                <div class="product-metric trending-metric">
+                                    <i class="fas fa-chart-line product-metric-icon"></i>
+                                    <span>Trending: ${product.trending_score}</span>
+                                </div>
+                                ` : ''}
+                                ${product.sales_estimate ? `
+                                <div class="product-metric">
+                                    <i class="fas fa-shopping-cart product-metric-icon"></i>
+                                    <span>Est. Sales: ${product.sales_estimate}</span>
+                                </div>
+                                ` : ''}
                             </div>
                             
                             ${product.rating ? `
@@ -501,9 +661,14 @@
                                 <div class="sentiment-bar">
                                     <div class="sentiment-fill" style="width: ${(product.rating/5)*100}%"></div>
                                 </div>
-                                <div class="sentiment-label">Rating Sentiment</div>
+                                <div class="sentiment-label">${product.trending_rank ? `Trending Rank: #${product.trending_rank}` : 'Rating Sentiment'}</div>
                             </div>
                             ` : ''}
+                            <div class="view-product-link">
+                                <a href="${product.url || `https://www.amazon.com/dp/${product.asin}`}" target="_blank" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-external-link-alt"></i> View on Amazon
+                                </a>
+                            </div>
                         </div>
                     </div>
                     `;
@@ -560,6 +725,7 @@
         document.getElementById('runInsightsBtn').addEventListener('click', async function() {
             const searchTerm = document.getElementById('insightSearch').value;
             const limit = document.getElementById('insightLimit').value;
+            const trendingRange = document.getElementById('trendingRange').value;
             
             if (!searchTerm) {
                 alert('Please enter a product category, brand, or search term');
@@ -576,7 +742,8 @@
                 const requestData = {
                     query: searchTerm,
                     term: searchTerm,
-                    limit: parseInt(limit)
+                    limit: parseInt(limit),
+                    trending_range: parseInt(trendingRange)
                 };
                 
                 // Log the request data for debugging
@@ -892,6 +1059,515 @@
                 `;
             }
         }
+    // LLM Analysis integration
+    let globalProductData = [];
+    let globalSearchQuery = '';
+    let chatHistory = [];
+
+    // Function to load available LLM providers
+    async function loadLLMProviders() {
+        try {
+            const response = await fetch('/api/llm-providers');
+            const providers = await response.json();
+            
+            // Update UI based on available providers
+            Object.keys(providers).forEach(key => {
+                const provider = providers[key];
+                const radioBtn = document.querySelector(`input[value="${key}"]`);
+                const label = document.querySelector(`label[for="provider-${key}"]`);
+                
+                if (radioBtn && label) {
+                    if (provider.available) {
+                        radioBtn.disabled = false;
+                        label.innerHTML = `${provider.name} <span class="provider-model">(${provider.model})</span>`;
+                    } else {
+                        radioBtn.disabled = true;
+                        label.innerHTML = `${provider.name} <span class="provider-model">(API key missing)</span>`;
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error loading LLM providers:', error);
+        }
+    }
+    
+    // Function to analyze products using selected LLM provider
+    async function analyzeProducts() {
+        if (!globalProductData || globalProductData.length === 0) {
+            alert('No product data available to analyze. Please run a search first.');
+            return;
+        }
+        
+        // Get selected provider
+        const selectedProvider = document.querySelector('input[name="ai-provider"]:checked').value;
+        
+        // Show loading state
+        document.getElementById('ai-response-container').style.display = 'block';
+        document.getElementById('ai-response-header').innerHTML = `<i class="fas fa-lightbulb"></i> ${getLLMProviderName(selectedProvider)} Analysis`;
+        document.getElementById('ai-response-content').innerHTML = '<div class="loading-indicator"></div><p>Analyzing product data...</p>';
+        
+        try {
+            // Prepare request data
+            const requestData = {
+                products: globalProductData,
+                query: globalSearchQuery,
+                llm_provider: selectedProvider
+            };
+            
+            // Call the API
+            const response = await fetch('/api/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                document.getElementById('ai-response-content').innerHTML = `<div class="warning-box">${result.error}</div>`;
+                return;
+            }
+            
+            // Format the analysis with markdown styling
+            const formattedAnalysis = formatAnalysis(result.analysis);
+            document.getElementById('ai-response-content').innerHTML = formattedAnalysis;
+            
+            // Hide structured insights and show analysis
+            document.getElementById('structured-insights-container').style.display = 'none';
+            document.getElementById('chat-history-container').style.display = 'none';
+            
+        } catch (error) {
+            document.getElementById('ai-response-content').innerHTML = `<div class="warning-box">Error: ${error.message}</div>`;
+        }
+    }
+    
+    // Function to get structured insights using selected LLM provider
+    async function getStructuredInsights() {
+        if (!globalProductData || globalProductData.length === 0) {
+            alert('No product data available to analyze. Please run a search first.');
+            return;
+        }
+        
+        // Get selected provider
+        const selectedProvider = document.querySelector('input[name="ai-provider"]:checked').value;
+        
+        // Show loading state
+        document.getElementById('structured-insights-container').style.display = 'block';
+        document.getElementById('insights-summary').innerHTML = '<div class="loading-indicator"></div><p>Generating structured insights...</p>';
+        
+        try {
+            // Prepare request data
+            const requestData = {
+                products: globalProductData,
+                query: globalSearchQuery,
+                llm_provider: selectedProvider
+            };
+            
+            // Call the API
+            const response = await fetch('/api/analyze/structured', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                document.getElementById('insights-summary').innerHTML = `<div class="warning-box">${result.error}</div>`;
+                return;
+            }
+            
+            // Render structured insights
+            renderStructuredInsights(result);
+            
+            // Hide AI response and show structured insights
+            document.getElementById('ai-response-container').style.display = 'none';
+            document.getElementById('chat-history-container').style.display = 'none';
+            
+        } catch (error) {
+            document.getElementById('insights-summary').innerHTML = `<div class="warning-box">Error: ${error.message}</div>`;
+        }
+    }
+    
+    // Function to ask a question about products using selected LLM provider
+    async function askQuestion(question) {
+        if (!globalProductData || globalProductData.length === 0) {
+            alert('No product data available to analyze. Please run a search first.');
+            return;
+        }
+        
+        if (!question) {
+            return;
+        }
+        
+        // Get selected provider
+        const selectedProvider = document.querySelector('input[name="ai-provider"]:checked').value;
+        
+        // Create a new message and add it to chat history
+        const userMessage = {
+            role: 'user',
+            content: question
+        };
+        
+        chatHistory.push(userMessage);
+        
+        // Show chat history container
+        document.getElementById('chat-history-container').style.display = 'block';
+        
+        // Render chat history
+        renderChatHistory();
+        
+        // Show AI is typing message
+        const aiMessage = {
+            role: 'assistant',
+            content: '<div class="loading-indicator"></div><p>Analyzing products and generating response...</p>',
+            isLoading: true
+        };
+        
+        chatHistory.push(aiMessage);
+        renderChatHistory();
+        
+        try {
+            // Prepare request data
+            const requestData = {
+                products: globalProductData,
+                query: globalSearchQuery,
+                question: question,
+                llm_provider: selectedProvider
+            };
+            
+            // Call the API
+            const response = await fetch('/api/analyze/question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                // Update AI message with error
+                chatHistory[chatHistory.length - 1] = {
+                    role: 'assistant',
+                    content: `<div class="warning-box">${result.error}</div>`,
+                    provider: getLLMProviderName(selectedProvider)
+                };
+            } else {
+                // Update AI message with response
+                chatHistory[chatHistory.length - 1] = {
+                    role: 'assistant',
+                    content: formatAnalysis(result.answer),
+                    provider: getLLMProviderName(selectedProvider)
+                };
+            }
+            
+            // Render chat history
+            renderChatHistory();
+            
+            // Hide other containers
+            document.getElementById('ai-response-container').style.display = 'none';
+            document.getElementById('structured-insights-container').style.display = 'none';
+            
+        } catch (error) {
+            // Update AI message with error
+            chatHistory[chatHistory.length - 1] = {
+                role: 'assistant',
+                content: `<div class="warning-box">Error: ${error.message}</div>`,
+                provider: getLLMProviderName(selectedProvider)
+            };
+            renderChatHistory();
+        }
+    }
+    
+    // Function to render the chat history
+    function renderChatHistory() {
+        const chatHistoryContainer = document.getElementById('chat-history');
+        chatHistoryContainer.innerHTML = '';
+        
+        chatHistory.forEach(message => {
+            const messageHTML = `
+            <div class="chat-message ${message.role === 'user' ? 'user-message' : 'assistant-message'}">
+                <div class="message-header">
+                    <i class="fas ${message.role === 'user' ? 'fa-user' : 'fa-robot'}"></i>
+                    <span>${message.role === 'user' ? 'You' : message.provider || 'AI Assistant'}</span>
+                </div>
+                <div class="message-content">
+                    ${message.content}
+                </div>
+            </div>
+            `;
+            
+            chatHistoryContainer.innerHTML += messageHTML;
+        });
+        
+        // Scroll to bottom of chat
+        chatHistoryContainer.scrollTop = chatHistoryContainer.scrollHeight;
+    }
+    
+    // Function to render structured insights
+    function renderStructuredInsights(insights) {
+        // Render summary
+        document.getElementById('insights-summary').innerHTML = `<p>${insights.summary}</p>`;
+        
+        // Render price insights
+        const priceInsightsHTML = `
+        <div class="insights-data">
+            <div class="insights-data-item">
+                <span class="data-label">Min:</span>
+                <span class="data-value">${insights.priceRange.min}</span>
+            </div>
+            <div class="insights-data-item">
+                <span class="data-label">Max:</span>
+                <span class="data-value">${insights.priceRange.max}</span>
+            </div>
+            <div class="insights-data-item">
+                <span class="data-label">Average:</span>
+                <span class="data-value">${insights.priceRange.average}</span>
+            </div>
+        </div>
+        <div class="insights-text">${insights.priceRange.insight}</div>
+        `;
+        document.getElementById('price-insights').innerHTML = priceInsightsHTML;
+        
+        // Render rating insights
+        const ratingInsightsHTML = `
+        <div class="insights-data">
+            <div class="insights-data-item">
+                <span class="data-label">Min:</span>
+                <span class="data-value">${insights.ratings.min}</span>
+            </div>
+            <div class="insights-data-item">
+                <span class="data-label">Max:</span>
+                <span class="data-value">${insights.ratings.max}</span>
+            </div>
+            <div class="insights-data-item">
+                <span class="data-label">Average:</span>
+                <span class="data-value">${insights.ratings.average}</span>
+            </div>
+        </div>
+        <div class="insights-text">${insights.ratings.insight}</div>
+        `;
+        document.getElementById('rating-insights').innerHTML = ratingInsightsHTML;
+        
+        // Render common features
+        let featuresHTML = '<ul class="feature-list">';
+        insights.commonFeatures.forEach(feature => {
+            featuresHTML += `<li>${feature}</li>`;
+        });
+        featuresHTML += '</ul>';
+        document.getElementById('feature-insights').innerHTML = featuresHTML;
+        
+        // Render recommendations
+        let recommendationsHTML = '<ul class="recommendations-list">';
+        insights.recommendations.forEach(recommendation => {
+            recommendationsHTML += `<li>${recommendation}</li>`;
+        });
+        recommendationsHTML += '</ul>';
+        document.getElementById('recommendations-insights').innerHTML = recommendationsHTML;
+        
+        // Add trending insights if available
+        if (insights.trendingInsights) {
+            const trendingHTML = `
+            <div class="insights-trending">
+                <h5><i class="fas fa-chart-line"></i> Trending Analysis</h5>
+                <div class="insights-trending-content">${insights.trendingInsights}</div>
+            </div>
+            `;
+            document.getElementById('recommendations-insights').insertAdjacentHTML('afterend', trendingHTML);
+        }
+    }
+    
+    // Helper function to format analysis with markdown-like styling
+    function formatAnalysis(text) {
+        if (!text) return '';
+        
+        // Replace markdown-style headers
+        text = text.replace(/^# (.+)$/gm, '<h3>$1</h3>');
+        text = text.replace(/^## (.+)$/gm, '<h4>$1</h4>');
+        text = text.replace(/^### (.+)$/gm, '<h5>$1</h5>');
+        
+        // Replace markdown-style lists
+        text = text.replace(/^\s*[\*\-]\s+(.+)$/gm, '<li>$1</li>');
+        text = text.replace(/(<li>.+<\/li>\n)+/g, '<ul>$&</ul>');
+        text = text.replace(/^\s*\d+\.\s+(.+)$/gm, '<li>$1</li>');
+        text = text.replace(/(<li>.+<\/li>\n)+/g, '<ol>$&</ol>');
+        
+        // Replace markdown-style emphasis
+        text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        
+        // Replace markdown-style paragraphs
+        text = text.replace(/\n\n/g, '</p><p>');
+        text = '<p>' + text + '</p>';
+        
+        // Clean up any nested paragraphs
+        text = text.replace(/<p><ul>/g, '<ul>');
+        text = text.replace(/<\/ul><\/p>/g, '</ul>');
+        text = text.replace(/<p><ol>/g, '<ol>');
+        text = text.replace(/<\/ol><\/p>/g, '</ol>');
+        text = text.replace(/<p><h(\d)>/g, '<h$1>');
+        text = text.replace(/<\/h(\d)><\/p>/g, '</h$1>');
+        
+        return text;
+    }
+    
+    // Helper function to get provider display name
+    function getLLMProviderName(providerKey) {
+        const providerMap = {
+            'claude': 'Claude 4',
+            'openai': 'OpenAI o3',
+            'gemini': 'Gemini 2.5'
+        };
+        return providerMap[providerKey] || 'AI';
+    }
+    
+    // Event listeners for AI analysis buttons
+    document.getElementById('analyzeDataBtn').addEventListener('click', function() {
+        analyzeProducts();
+    });
+    
+    document.getElementById('structuredAnalysisBtn').addEventListener('click', function() {
+        getStructuredInsights();
+    });
+    
+    // Event listener for chat input
+    document.getElementById('askQuestionBtn').addEventListener('click', function() {
+        const chatInput = document.getElementById('chatInput');
+        const question = chatInput.value.trim();
+        if (question) {
+            askQuestion(question);
+            chatInput.value = '';
+        }
+    });
+    
+    document.getElementById('chatInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const question = this.value.trim();
+            if (question) {
+                askQuestion(question);
+                this.value = '';
+            }
+        }
+    });
+    
+    // Event listeners for chat suggestions
+    document.querySelectorAll('.chat-suggestion').forEach(suggestion => {
+        suggestion.addEventListener('click', function() {
+            const question = this.getAttribute('data-question');
+            if (question) {
+                document.getElementById('chatInput').value = question;
+                askQuestion(question);
+            }
+        });
+    });
+    
+    // Store product data when category search succeeds
+    const originalRunCategoryAnalysis = document.querySelector('#category-tab .search-controls .btn-primary').onclick;
+    document.querySelector('#category-tab .search-controls .btn-primary').onclick = async function(e) {
+        e.preventDefault();
+        
+        // Call original function
+        if (originalRunCategoryAnalysis) {
+            await originalRunCategoryAnalysis.call(this, e);
+        }
+        
+        // Check if products were loaded
+        const productCards = document.querySelectorAll('.product-card');
+        if (productCards.length > 0) {
+            // Extract product data from the cards
+            globalProductData = Array.from(productCards).map((card, index) => {
+                const title = card.querySelector('.product-title')?.textContent || 'Unknown Product';
+                const price = card.querySelector('.product-metric:nth-child(1) span')?.textContent || 'N/A';
+                const rating = card.querySelector('.product-rating-value')?.textContent || 'N/A';
+                const reviewCount = card.querySelector('.product-rating-count')?.textContent || '(0 reviews)';
+                
+                let asin = 'N/A';
+                const asinElement = card.querySelector('.product-metric:nth-child(2) span');
+                if (asinElement && asinElement.textContent.includes('ASIN')) {
+                    asin = asinElement.textContent.replace('ASIN:', '').trim();
+                }
+                
+                const trendingElement = card.querySelector('.trending-metric span');
+                const trendingScore = trendingElement ? trendingElement.textContent.replace('Trending:', '').trim() : 'N/A';
+                
+                const trendingRank = card.querySelector('.sentiment-label')?.textContent.includes('Trending Rank') ?
+                    card.querySelector('.sentiment-label').textContent.replace('Trending Rank:', '').replace('#', '').trim() :
+                    'N/A';
+                
+                return {
+                    title,
+                    price,
+                    rating: isNaN(parseFloat(rating)) ? 'N/A' : parseFloat(rating),
+                    review_count: parseInt(reviewCount.replace(/[^0-9]/g, '')) || 0,
+                    asin,
+                    trending_score: trendingScore,
+                    trending_rank: trendingRank
+                };
+            });
+            
+            // Store the search query
+            globalSearchQuery = document.getElementById('categoryUrl').value;
+            console.log('Stored product data for LLM analysis:', globalProductData.length, 'products');
+        }
+    };
+    
+    // Store product data when insights search succeeds
+    const originalRunInsights = document.getElementById('runInsightsBtn').onclick;
+    document.getElementById('runInsightsBtn').onclick = async function() {
+        const searchTerm = document.getElementById('insightSearch').value;
+        if (!searchTerm) {
+            alert('Please enter a product category, brand, or search term');
+            return;
+        }
+        
+        // Call original function
+        if (originalRunInsights) {
+            await originalRunInsights.call(this);
+        }
+        
+        // Check if insights were loaded
+        if (document.getElementById('insights-content').style.display === 'block') {
+            // Make a separate API call to get the product data
+            try {
+                const requestData = {
+                    query: searchTerm,
+                    limit: parseInt(document.getElementById('insightLimit').value),
+                    trending_range: parseInt(document.getElementById('trendingRange').value)
+                };
+                
+                const response = await fetch('/api/category', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                const data = await response.json();
+                
+                if (!data.error && data.products && data.products.length > 0) {
+                    globalProductData = data.products;
+                    globalSearchQuery = searchTerm;
+                    console.log('Stored product data for LLM analysis:', globalProductData.length, 'products');
+                }
+            } catch (error) {
+                console.error('Error fetching product data for LLM analysis:', error);
+            }
+        }
+    };
+    
+    // Load available LLM providers on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadLLMProviders();
+    });
     </script>
+    <script src="{{ url_for("static", filename="fix-llm-analysis.js") }}"></script>
 </body>
 </html>

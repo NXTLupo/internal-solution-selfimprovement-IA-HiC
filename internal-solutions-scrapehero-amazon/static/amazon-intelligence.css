@@ -106,8 +106,17 @@
   margin-right: 0.4rem;
 }
 
+.trending-metric {
+  background-color: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.trending-metric .product-metric-icon {
+  color: #e74c3c !important;
+}
+
 .product-sentiment {
-  margin-top: auto;
+  margin-top: 0.75rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(70, 70, 70, 0.3);
 }
@@ -131,6 +140,21 @@
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7) !important;
   text-align: right;
+}
+
+.view-product-link {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.btn-sm i {
+  margin-right: 0.3rem;
 }
 
 /* Category and Brand Selection */
@@ -634,4 +658,296 @@
   height: 6px;
   border-radius: 50%;
   background-color: #01C4C8;
+}
+
+/* AI Analysis Styles */
+.ai-analysis-container {
+  margin-top: 2rem;
+}
+
+.ai-provider-selector {
+  margin-bottom: 1rem;
+}
+
+.ai-provider-selector label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.ai-provider-options {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ai-provider-option {
+  display: flex;
+  align-items: center;
+}
+
+.ai-provider-option input {
+  margin-right: 0.5rem;
+}
+
+.provider-model {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 0.25rem;
+}
+
+.ai-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.chat-container {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(70, 70, 70, 0.3);
+  padding-top: 1.5rem;
+}
+
+.chat-header {
+  margin-bottom: 1rem;
+}
+
+.chat-header h5 {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.chat-header h5 i {
+  margin-right: 0.5rem;
+  color: #01C4C8;
+}
+
+.chat-input-container {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.chat-input-container input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid rgba(70, 70, 70, 0.5);
+  background-color: rgba(26, 26, 26, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.chat-input-container button {
+  border-radius: 0 6px 6px 0;
+  padding: 0 1rem;
+}
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chat-suggestion {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(70, 70, 70, 0.3);
+  border-radius: 50px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chat-suggestion:hover {
+  background-color: rgba(1, 196, 200, 0.15);
+  border-color: rgba(1, 196, 200, 0.4);
+}
+
+.ai-response {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.ai-response h3, .ai-response h4, .ai-response h5 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #01C4C8;
+}
+
+.ai-response ul, .ai-response ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ai-response li {
+  margin-bottom: 0.5rem;
+}
+
+.ai-response p {
+  margin-bottom: 1rem;
+}
+
+.chat-history {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.chat-message {
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.message-header {
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.message-header i {
+  margin-right: 0.5rem;
+}
+
+.user-message .message-header {
+  background-color: rgba(1, 196, 200, 0.15);
+}
+
+.user-message .message-header i {
+  color: #01C4C8;
+}
+
+.assistant-message .message-header i {
+  color: #9b59b6;
+}
+
+.message-content {
+  background-color: rgba(34, 38, 43, 0.8);
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+.insights-summary {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.insights-metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.insights-metric {
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 8px;
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.insights-metric h5 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.insights-metric h5 i {
+  margin-right: 0.5rem;
+  color: #01C4C8;
+}
+
+.insights-data {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.insights-data-item {
+  flex: 1;
+  background-color: rgba(26, 26, 26, 0.5);
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.data-label {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
+}
+
+.data-value {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.price-metric h5 i {
+  color: #e74c3c;
+}
+
+.rating-metric h5 i {
+  color: #f1c40f;
+}
+
+.insights-text {
+  line-height: 1.5;
+}
+
+.insights-features, .insights-recommendations, .insights-trending {
+  margin-bottom: 1.5rem;
+}
+
+.insights-features h5, .insights-recommendations h5, .insights-trending h5 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.insights-features h5 i, .insights-recommendations h5 i, .insights-trending h5 i {
+  margin-right: 0.5rem;
+  color: #01C4C8;
+}
+
+.feature-list, .recommendations-list {
+  background-color: rgba(34, 38, 43, 0.8);
+  border-radius: 8px;
+  padding: 1.25rem;
+  list-style-type: none;
+}
+
+.feature-list li, .recommendations-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-list li:before, .recommendations-list li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #01C4C8;
+}
+
+.recommendations-list li:before {
+  background-color: #2ecc71;
+}
+
+@media (max-width: 768px) {
+  .insights-metrics {
+    flex-direction: column;
+  }
+  
+  .ai-provider-options {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 }

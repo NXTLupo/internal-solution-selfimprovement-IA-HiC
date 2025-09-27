@@ -1,0 +1,88 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: morning, day, breakfast, school, daycare, home, shoes
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Shit show in the morning Hello, I’m asking for advice on how to make mornings smoother with my 4- and 5-year-old boys when getting ready for school. Every morning feels like chaos — a constant repeat of what they need to do, especially when it comes to putting on their shoes so we can get out the door.
+
+EXAMPLE 2:
+Then right after breakfast go put shoes on. No getting distracted by toys or starting some Lego build that I need to pull kid away from. Down from the table, walk right to hallway and shoes. Then kid can play (we typically don't do shoes in the house, but this was the compromise for ensuring kid was ready to go in the mornings). Now he's much better at putting his shoes on without arguments so he can go play for a few minutes and then I'll call him over for shoes.
+
+EXAMPLE 3:
+For a while we also had a fun mini reward in the morning. The faster you get your shoes and jacket on, the more time we will have to read books. Want to argue with me about the shoes. Well I guess we only have time for one book.
+
+EXAMPLE 4:
+My husband and I have even resorted to dressing them in their clothes for the next day right after their bath, just to eliminate one extra step in the morning. Breakfast is another struggle: they never agree on what they want, and while the school does offer breakfast at 7:30 (they start at 8:00), it’s difficult to get them up, out of the house, and to school that early — especially since their day already runs until 4:30.
+
+EXAMPLE 5:
+How are we getting our pre-teen boys up and out the door on time for school? EDIT: We had a chat after school yesterday and I let him know that he is old enough to start taking responsibility for himself in the mornings. I told him that I will no longer be nagging him to get up - I will come in once to wake him up and the rest is up to him. If he’s not downstairs and ready to go by 7:35, no electronics for the day. Guess who was ready to go on time this morning? I did give him a 5 minute warning but that’s it. [...]
+
+EXAMPLE 6:
+I meal plan and that includes breakfast. I ask kid what he wants for breakfast that week, and that's what breakfast is. Breakfast is also simple. Do you want bagels or English muffins or banana bread. Great, that's breakfast menu for the week. We also do yogurt and I try to keep it at two different flavors, so it's not overwhelming choice in the morning. The only choices in the morning are "do you want your bagel plain or with cream cheese, do you want strawberry or orange yogurt"
+
+EXAMPLE 7:
+We take care of most things the night before - shower, laying out clothes for the next day (my daughter even wears her clothes to bed so it’s one less thing to do in the morning), getting backpacks together, etc - and they eat breakfast at school, so all he really has to do in the morning is put clothes on and brush his teeth. We live 5 minutes from school.
+
+EXAMPLE 8:
+What can I do to help make mornings go more smoothly and get to school on time? I don’t want to be punitive but this can’t continue. I also REALLY don’t want to have to get up earlier but maybe that’s the solution.  What time is their bedtime? Whenever we have late mornings, I can always relate it back to late nights. I also have a 12 year old son and last year we told him that every day I had a wake him up myself, was a day he wouldn’t get any screens. [...]
+
+EXAMPLE 9:
+- The cloth items in their room (boppy covers and seat covers) are stained and very very dirty looking.  
+- The girls often come home smelling bad, kind of a urine smell. They never smell like this otherwise… only after daycare.
+- When I come to pick them up they’ve often lost a sock, don’t know where their binky went, etc. and are unorganized with their belongings.
+- Manager of the daycare who walks around the rooms and interacts with the kids was in her office absolutely sick coughing up a lung 
+- They don’t ask you to take your shoes off so everyone is walking through the baby rooms in thei [...]
+
+EXAMPLE 10:
+For context: it’s two adults (me and my husband) trying to get two little kids out the door. The basics — eating breakfast, taking vitamins, brushing teeth, and putting on shoes — somehow take an hour and a half. Then I end up feeling guilty for rushing them, but it’s always “rush, rush, rush” first thing in the morning. On top of that, we also have a 25-minute drive to their school, which adds another layer of challenge. I have one kid, maybe that helps but here's what works for us
+
+EXAMPLE 11:
+Son is 12. Also have an 8 year old daughter. I’ll start this by saying none of us are morning people. However we are running late to school nearly every day because he doesn’t want to get out of bed.
+
+EXAMPLE 12:
+My twins are 3.5 months old and have been in daycare for going on 4 weeks. They are my first kids, so this daycare thing is totally new to me. I would love some perspective on whether this is a normal daycare experience or not.
+
+EXAMPLE 13:
+Biggest issue:
+The main teacher in their room seems great, but she leaves at around 1pm each day and it seems like communication between staff is very poor. There seem to be 2 main staff and then around 3 people who switch in and out throughout the day. One of my babies has been very congested and we are worried she has a cough. No fever, so I sent her to daycare. I explained the situation to the head teacher. I said can you please keep an eye on her and if you notice she seems very ill, lethargic, congested, or is coughing let me know. [...]
+
+EXAMPLE 14:
+We’ve tried making breakfast at home or bringing it along in the car, but it’s always stressful. I’m really looking for suggestions on how to start the day more smoothly because I can’t keep beginning my mornings completely stressed.
+
+EXAMPLE 15:
+Every morning it takes a half hour+ of me coming in his room every couple minutes and telling him to get up, him continuing to lay in the bed and whine, some days getting mad and yelling how he wants to stay home and I “never let him miss even one day!” He has an alarm clock that goes off at 7am and he just shuts it off and goes back to sleep, and then I’m left nagging him the rest of the morning, which is not a great way to start either of our days.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

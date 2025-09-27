@@ -1,0 +1,79 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: 50, clothes, carrying, month old, baby, toddler, wallet
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Is this really too much? I’ll also be baby-wearing my 9-month-old. If anything you might be missing a change of clothes for yourself in case the baby throws up or has a blowout on YOU while you’re carrying or holding them. They’ve got a great sense for when it would be really inconvenient to do so!
+
+EXAMPLE 2:
+For carry-ons:
+	•	One for my husband
+	•	One for me: diapers, wipes, toys for the kids, extra clothes in case of a blowout, latex gloves for messy situations (of course I wash my hands), my personal items, baby headphones, toddler headphones, toddler inflatable bed, and blankets for both kids
+	•	One big bag carry-on for my son (my husband will carry it with his own bag since I’ll be carrying the baby). This one has all the snacks, pouches, and baby treats.
+
+EXAMPLE 3:
+For instance, some of my main car supplies are:
+- change of clothes and shoes for everyone (weather appropriate)
+- blanket
+- toddler toilet seat and diaper setup for potty and diaper changes on the go 
+- nail clippers and tweezers, first aid kit 
+- small power supply, phone charger
+- water bottles and ready to feed formula 
+- window smasher, seat belt cutter, mace 
+- hand sanitizer, hand wipes, tissues
+
+EXAMPLE 4:
+Going to Hawaii tomorrow from LAX to Hawaii  from LAX , Husband says I'm packing too much. My husband says we’re bringing too many things on a 5-hour flight. With two little ones (a 9-month-old and a 2-year-old), I feel like I’d rather be more prepared than less.
+	•	One luggage for me
+	•	One luggage for my husband
+	•	One duffle bag for both kids (their clothes, formula—she takes a special formula I can’t just buy there—3 PopYum bottles, etc.)
+
+EXAMPLE 5:
+What do you carry with you in your car at all times to feel safe and prepared for emergencies, accidents, and other practical realities with your children?
+
+EXAMPLE 6:
+What are we carrying in our cars for preparedness? I used to be very good about carrying a lot of practical preparedness items in my car, but with an infant and toddler, that practice has gotten away from me a bit.
+
+EXAMPLE 7:
+What are things you accidentally did because of the sheer exhaustion of having a newborn? I'll go first, my wife and I are first time parents to a beautiful two month old little boy. Anyway just like many parents who have newborns, we are utterly exhausted. After a particularly rough night with the baby, I was doing laundry the next morning and somehow my wife's switch ended up in the laundry basket. I didn't notice it, I just stupidly dumped everything in the washer and only noticed it later when I was taking out the clothes.
+
+EXAMPLE 8:
+Was buying something from Facebook Marketplace that was $50 cash. The day before I went, I checked my wallet and had $40. I went to our safe and got $5 from our stash so I’d have the needed $50. Day of, checked my wallet to be sure I had $50 - saw two twenties and one five, so knew I had what I needed. Drove 30 mins to the persons house, grabbed my money from my wallet (again checking that it’s $50), picked up the item from the owner and said “$50, right?”. Handed over the $50. As I’m putting the item in my trunk they come up and tell me I’d only given them $45. [...]
+
+EXAMPLE 9:
+Tried everything but it's dead, my wife was so devastated that she cried. I have apologized and she says it's ok but I haven't stopped feeling horrible ever since it's happened. Mind you, the switch was relatively new , we bought it after our child was born and it was really helping her mentally with being post partum and all. Hopefully one day we can look back and laugh about it. Please tell me your stories to make me feel better.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

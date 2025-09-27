@@ -1,0 +1,120 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: said, daughter, clothes, wear, hair, naked, boy
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+She indicates that she does really want to go places and looks forward to it but cannot try any clothes on without shifting into a tantrum.
+
+EXAMPLE 2:
+We very body positive with ourselves and her.  We have books and we sing songs.  She has always loved her body.  I don’t know what happened.
+
+EXAMPLE 3:
+5 year old won’t wear clothes (going on 6 days in a row ) We have a 5 year old and 2.5 year old. As of 6 days ago the 5 year old has stopped wearing clothes - yesterday she has also stopped wearing underwear.
+
+EXAMPLE 4:
+She does have a minor history with sensory issues and has called things “too tight” before but this has usually been a preference indicator where she will choose another article for clothing. She is otherwise social and intelligent, and hasn’t ever done this before. She attended preschool.
+
+EXAMPLE 5:
+She was stressed and out of her routine (she is very routine oriented and not very flexible at times) and the outfit was weird. She had on a bathing suit and a skirt that didn’t go up very high and she kept pulling it up and getting frustrated and that’s when I asked what was going on and she started complaining.  I’m hopeful it was just a clothes issues - she can get very frustrated with uncomfortable clothes, like she only will wear a specific brand of high end socks without seams.
+
+EXAMPLE 6:
+* For a school parade where she had to wear clothes made from recycled materials, she didn’t want to participate because “it will look funny.”
+* Before birthday parties, she asks me what the birthday child will be wearing so she can prepare herself.
+* Every morning we have meltdowns about what she’ll wear to school, and she refuses pants or shorts, only wants to wear dresses and skirts.
+* She’s recently started refusing photos, and when I gently asked why, she told me, “because I don’t look nice in any photos.” That broke my heart. I didn’t know a 4-year-old could feel this way.
+
+EXAMPLE 7:
+She says that she is “figuring it out” and that she needs “many days” to figure out clothes. She often talks about the fun things she will do when she is ready for clothes again. Her appetite, diet, sleep, and everything else behavior wise is completely normal.
+
+EXAMPLE 8:
+-frankly, in the first couple of days, attempting to get a dress on and get her into the car (massive tantrum)
+
+EXAMPLE 9:
+She understands that a defined waist (something she seemed to be describing she wanted) is not a thing for everyone but that it can’t really occur till after puberty.  She also understands that body shapes are largely determined by genetics and she likes our body shapes (as well as everyone else in our family)
+
+EXAMPLE 10:
+She says that anything she wears is “too tight” and has a major meltdown. We are at the ends of our sanity. By major meltdown we are talking an hour+ tantrum, running screaming hitting things. She will strip off all articles of clothing.
+
+EXAMPLE 11:
+It was so weird and out of character.  If she ever feels she has a tummy she gets excited about its shape and how it sticks out a bit and I’m like, “love it girl! Look at your beautiful self!”  We talk about body function only - your long legs a help you climb and jump and stretch, your strong arms can push doors open and lift heaving things, your energized body can balance and dance.
+ 
+Any tips to help my daughter avoid developing a negative body image? We had a similar issue with ours around this age (son, not daughter), but he's ADHD (and I highly likely ASD from my observations over the ye [...]
+
+EXAMPLE 12:
+At home, we’ve completely stopped talking about physical appearance. We focus on praising her intelligence, creativity, kindness, and skills, but never her looks, clothes, or style. We try to reinforce in kid friendly language that outer appearance doesn’t matter, and we emphasize values we want her to grow up with. But it feels like she isn’t absorbing it, and it’s hard to watch her struggle.
+
+EXAMPLE 13:
+4 year old daughter obsessed with her looks, lost what to do! Hi, I have two daughters, a 4YO and a 2MO. My older one is a wonderful child, but for context, she was an objectively beautiful baby who’s grown into a very pretty little girl: bright eyes, dimples, curly hair. My husband and I are fairly average looking, and while she resembles both of us, she’s essentially a more striking version. Throughout her life, friends, family, even strangers have constantly commented on her looks. When we travel abroad, people have even stopped us to say how beautiful she is. [...]
+
+EXAMPLE 14:
+Not sure how relevant but my kids when they approached around 3/4 years of age became super fussy with what they wear and how they looked when they went out. We saw it as them expressing their opinion and independence. We didn't think it was them being focused on their looks (mostly because of how bad their taste was.. 😛).
+
+EXAMPLE 15:
+-introducing non-clothing ways for her body to feel pressure and texture (brushing, blankets, etc as a part of other activities or while she is distracted)
+
+EXAMPLE 16:
+I’m looking for advice on how to help her through this, and how to undo some of the early impact that constant compliments on her appearance may have had. I’d also love to know what we could have done differently from the beginning so we don’t repeat the same mistakes with our younger daughter. Hey
+You sound like you're doing a lot right. A couple of suggestions 
+1. One thing that you can do is compliment her appearance.  It would be great if looks didn't matter but the truth is that it does matter to her now. [...]
+
+EXAMPLE 17:
+-making being around the house very boring and unengaging, up to and including not doing things because those things are for people with clothes (she waits it out)
+
+EXAMPLE 18:
+It seems that what amounts to clinical or therapist consensus is to largely take all pressure to get clothes on away and encourage pressure/touch therapy and play with clothes. They suggest that hopefully this warms her up and that she has some sort of anxiety driving this. The clothing specialist said to take all pressure off for 3-5 days, keep her activities and routine as normal as possible  and see what happens.
+
+EXAMPLE 19:
+The only suggestion I really have for you is to maybe get her a soft robe to wear around the house. Fleecy, if she likes that texture, or satin or cotton- whatever texture she likes in a blanket/ sheets. I also googled “autism underwear” to find some sensory-friendly underwear, and I found some boy short style underwear that might feel better to her. Maybe her undies ride up, and that bothers her… no idea.
+
+EXAMPLE 20:
+Her concerns are even limiting her play. She avoids soccer because she thinks the uniform will not look good, and won’t try skating because helmets and kneepads “will look funny”. She fixates on having her hair styled a certain way, and melts down if it isn’t. It feels like she can’t fully relax and just be a child because she’s always worried about who might be watching and how she looks.
+
+EXAMPLE 21:
+Hey, first of all, you’re doing a great job. You’re doing a really, really hard job, and you’re doing well. You’re talking to professionals and to your child and to your partner, and your daughter is going to make it out of this phase okay.
+
+EXAMPLE 22:
+-incentivizing special circumstances (if we put our clothes on we can go to a toy store or to grandmas house)
+
+EXAMPLE 23:
+For context, she watches very limited things on TV (controlled by us), and we’re careful about media exposure. So outside of school, daycare, and peers, there aren’t other influences we can point to.
+
+EXAMPLE 24:
+My skinny 7 YO daughter had a meltdown because “her stomach was too big” My daughter is very thin, her BMI is in the 3rd percentile.  she can definitely eat a lot, especially when she likes the food, but she often rats like a bird. Tonight we started a vacation and she sort of freaked out and refused to leave our hotel room. For the first time ever, She said she has a big stomach and it was likely permanent because she doesn’t eat much at all and it’s grown so big and will just keep growing.
+
+EXAMPLE 25:
+-introducing this as a conversation with her and asking for her advice on what we can do to help her
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

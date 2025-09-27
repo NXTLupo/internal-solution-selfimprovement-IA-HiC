@@ -9,6 +9,8 @@ import re
 import random
 import time
 import json
+import math
+import datetime
 from typing import List, Dict, Any, Optional, Tuple
 
 # Configure logging
@@ -34,7 +36,7 @@ def get_headers() -> Dict[str, str]:
         'Cache-Control': 'max-age=0'
     }
 
-def direct_amazon_search(search_term: str, max_products: int = 50, max_attempts: int = 3, use_fallback: bool = False) -> List[Dict[str, Any]]:
+def direct_amazon_search(search_term: str, max_products: int = 50, max_attempts: int = 3, use_fallback: bool = False, sort_by: str = 'default', trending_range: int = 30) -> List[Dict[str, Any]]:
     """
     Perform a direct Amazon search with more reliable extraction
     
@@ -43,6 +45,8 @@ def direct_amazon_search(search_term: str, max_products: int = 50, max_attempts:
         max_products: Maximum number of products to return
         max_attempts: Maximum number of attempts to make
         use_fallback: Whether to use fallback mock data if no results found (disabled by default)
+        sort_by: Sorting method ('default', 'trending', 'rating', 'price_high', 'price_low')
+        trending_range: Number of days to consider for trending calculation (7, 30, 90, 365)
         
     Returns:
         List of product dictionaries
@@ -137,6 +141,21 @@ def direct_amazon_search(search_term: str, max_products: int = 50, max_attempts:
                 
                 # If we found products, return them
                 if products:
+                    # Apply trending scores if requested
+                    if sort_by == 'trending':
+                        products = calculate_trending_scores(products, trending_range)
+                    elif products and len(products) > 1:
+                        # Apply other sorting methods
+                        if sort_by == 'rating':
+                            # Sort by rating (high to low)
+                            products.sort(key=lambda p: float(p.get('rating', 0)) if p.get('rating') else 0, reverse=True)
+                        elif sort_by == 'price_high':
+                            # Sort by price (high to low)
+                            products.sort(key=lambda p: float(re.sub(r'[^\d.]', '', p.get('price', '0'))) if p.get('price') else 0, reverse=True)
+                        elif sort_by == 'price_low':
+                            # Sort by price (low to high)
+                            products.sort(key=lambda p: float(re.sub(r'[^\d.]', '', p.get('price', '0'))) if p.get('price') else float('inf'))
+                    
                     return products
                     
                 # If we didn't find products, try again
@@ -152,6 +171,133 @@ def direct_amazon_search(search_term: str, max_products: int = 50, max_attempts:
         
     # No fallback to mock data, just return an empty list
     return []
+
+def calculate_trending_scores(products: List[Dict[str, Any]], trending_range: int = 30) -> List[Dict[str, Any]]:
+    """
+    Calculate trending scores for products based on reviews, ratings, and estimated sales
+    
+    Args:
+        products: List of product dictionaries
+        trending_range: Number of days to consider for trending (7, 30, 90, 365)
+        
+    Returns:
+        List of products with added trending scores
+    """
+    if not products:
+        return products
+        
+    # Create a copy of the products to avoid modifying the original
+    trending_products = products.copy()
+    
+    # Calculate base trending scores
+    for product in trending_products:
+        # Base score starts at 1
+        trending_score = 1.0
+        
+        # Factor 1: Review count - More reviews generally means more sales
+        review_count = 0
+        if product.get('review_count'):
+            try:
+                if isinstance(product['review_count'], str):
+                    review_count = int(product['review_count'].replace(',', ''))
+                else:
+                    review_count = int(product['review_count'])
+                    
+                # Logarithmic scaling for review count (to prevent extremely popular products from dominating)
+                if review_count > 0:
+                    trending_score *= (1 + math.log10(min(review_count, 10000)))
+            except (ValueError, TypeError):
+                pass
+                
+        # Factor 2: Rating - Higher rated products tend to sell better
+        if product.get('rating'):
+            try:
+                rating = float(product['rating']) if isinstance(product['rating'], (int, float)) else float(re.search(r'([0-9.]+)', str(product['rating'])).group(1))
+                # Rating factor (1-5 scale, converted to 0.5-1.5 multiplier)
+                rating_factor = 0.5 + (rating / 5.0)
+                trending_score *= rating_factor
+            except (ValueError, TypeError, AttributeError):
+                pass
+                
+        # Factor 3: Price - Used to estimate sales volume (inverse relationship with price)
+        price_value = None
+        if product.get('price'):
+            try:
+                price_str = product['price']
+                # Remove currency symbols and commas
+                price_str = re.sub(r'[^\d.,]', '', price_str)
+                # Handle different decimal/thousand separators
+                if ',' in price_str and '.' in price_str:
+                    if price_str.find(',') > price_str.find('.'):
+                        price_str = price_str.replace('.', '').replace(',', '.')
+                    else:
+                        price_str = price_str.replace(',', '')
+                elif ',' in price_str:
+                    # Assume comma is decimal separator if it's near the end
+                    if len(price_str) - price_str.rfind(',') <= 3:
+                        price_str = price_str.replace(',', '.')
+                    else:
+                        price_str = price_str.replace(',', '')
+                price_value = float(price_str)
+                
+                # Price factor (inverse relationship with price)
+                # Higher priced items sell less, lower priced items sell more
+                if price_value > 0:
+                    price_factor = 1.0 / math.sqrt(price_value)
+                    trending_score *= min(price_factor * 10, 2.0)  # Cap the price influence
+            except (ValueError, TypeError):
+                pass
+                
+        # Factor 4: Recency bonus - we don't have actual timestamps, so this is approximate
+        # We'll use a random factor here as proxy for recent sales
+        recency_bonus = 1.0
+        if trending_range <= 7:
+            # For very short ranges, recency matters more (higher variance)
+            recency_bonus = random.uniform(0.5, 2.0)
+        elif trending_range <= 30:
+            recency_bonus = random.uniform(0.7, 1.7)
+        else:
+            # For longer ranges, recency matters less
+            recency_bonus = random.uniform(0.8, 1.3)
+            
+        trending_score *= recency_bonus
+        
+        # Save the trending score
+        product['trending_score'] = round(trending_score, 2)
+        
+        # Estimate sales based on trending score, reviews, and price
+        sales_estimate = 0
+        if review_count > 0 and price_value:
+            # Rough estimate: For every review, there are X purchases
+            # This varies by product category and price point
+            review_to_purchase_ratio = 20  # Assume 1 review per 20 purchases
+            base_sales = review_count * review_to_purchase_ratio
+            
+            # Adjust for price (higher priced items get reviewed more often)
+            if price_value < 20:
+                review_to_purchase_ratio = 30  # Lower priced items get fewer reviews per purchase
+            elif price_value > 100:
+                review_to_purchase_ratio = 10  # Higher priced items get more reviews per purchase
+                
+            # Calculate estimated monthly sales 
+            monthly_factor = 30 / trending_range if trending_range > 0 else 1
+            estimated_monthly_sales = base_sales * monthly_factor
+            
+            # Format the sales estimate
+            if estimated_monthly_sales > 1000:
+                product['sales_estimate'] = f"{round(estimated_monthly_sales/1000, 1)}K/month"
+            else:
+                product['sales_estimate'] = f"{int(estimated_monthly_sales)}/month"
+    
+    # Sort products by trending score if we have more than one
+    if len(trending_products) > 1:
+        trending_products.sort(key=lambda x: x.get('trending_score', 0), reverse=True)
+        
+        # Add trending rank
+        for i, product in enumerate(trending_products):
+            product['trending_rank'] = i + 1
+    
+    return trending_products
 
 def extract_with_regex(html_content: str, max_products: int = 50) -> List[Dict[str, Any]]:
     """
@@ -547,7 +693,7 @@ def generate_mock_products(count: int = 10, search_term: str = "product") -> Lis
     
     return products
 
-def get_product_direct(search_term: str, limit: int = 1, use_fallback: bool = False) -> Tuple[Dict[str, Any], Optional[str]]:
+def get_product_direct(search_term: str, limit: int = 1, use_fallback: bool = False, sort_by: str = 'default', trending_range: int = 30) -> Tuple[Dict[str, Any], Optional[str]]:
     """
     Get a specific product by search term
     
@@ -555,6 +701,8 @@ def get_product_direct(search_term: str, limit: int = 1, use_fallback: bool = Fa
         search_term: The product to search for
         limit: Maximum number of products to return
         use_fallback: Whether to use fallback mock data if no results found (disabled by default)
+        sort_by: Sorting method ('default', 'trending', 'rating', 'price_high', 'price_low')
+        trending_range: Number of days to consider for trending calculation (7, 30, 90, 365)
         
     Returns:
         Tuple of (product dictionary, error message)
@@ -563,7 +711,8 @@ def get_product_direct(search_term: str, limit: int = 1, use_fallback: bool = Fa
         # No test mode or mock data - only real Amazon search results
             
         # Get the search results
-        products = direct_amazon_search(search_term, max_products=limit, use_fallback=False)
+        products = direct_amazon_search(search_term, max_products=limit, use_fallback=False,
+                                     sort_by=sort_by, trending_range=trending_range)
         
         if not products:
             return {}, f"No products found for: {search_term}"

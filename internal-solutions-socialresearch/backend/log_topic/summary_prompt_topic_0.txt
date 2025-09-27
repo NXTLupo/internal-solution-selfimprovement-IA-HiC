@@ -1,0 +1,82 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: pants, clothes, size, buy, fit, wear, school
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Where are we buying pants for tall, skinny middle school girls? I put the flair as teenager because my daughter is almost 13. I'm kind of at a loss as to where to buy her pants. She's tall and has always been very slender and as a result we have a really hard time finding pants that fit her around the waist while still being long enough. To make it even harder to find her clothes, she is very particular about how her clothes fit and refuses to wear pants that are too "loose" or jeans. So no sweats and no jeans, pretty much only leggings. [...]
+
+EXAMPLE 2:
+My 12yo daughter is 5”5 and wears the size 0 leggings. I wear size 4 and need extra length in my pants even though I’m not unusually tall (5”8) and buy a lot of their styles in long/extra long.
+
+EXAMPLE 3:
+So we went to two different stores to buy him a suit that he will probably only wear once in his life for a 6-minute photo session. He's not gonna go to senior prom (trust me on this). If he ever has a job interview for an internship or something in college, he would be overdressed for his field of study. If we went to a family wedding (not looking likely for several years), he would wear our cultural dress. By the time he's in the age range to need a suit, he will hopefully have filled out a bit.  
+  
+He's skinny. Like, in the 1st percentile for his height skinny. [...]
+
+EXAMPLE 4:
+She complains when her pants are floody at all (and I get that, because she's built like me and I had the same problem with pants at her age) but when I find her pants that are long enough, she complains about them being too loose and refuses to wear them. Right now it's fine, but once school starts and she needs pants we're going to have a huge problem. She has literally no pants that she'll wear at this point-  the only pants she likes and tells me she would wear daily are her figure skating pants, but they're pricey and fleece lined so not something I would be super willing to buy her for e [...]
+
+EXAMPLE 5:
+So, parents, do you have any advice on where to get her pants without breaking the bank? Any particular brands or stores that have extra long leggings? They’re expensive but Lululemon has some good options.
+
+EXAMPLE 6:
+Set a budget and see if they can stick to it.  Give them the cash and a list of items they need (3 shirts, 2 shorts, jeans). At this age, they are growing quickly, so it’s important to have them try on their clothing in store. They are also at the age where they probably don’t want you in the dressing room with them so let them have their space.
+
+EXAMPLE 7:
+“Cool” Clothes? Where are we shopping for cool/trendy clothes that won’t cost half my paycheck? Especially for kids that are in bigger sizes than their peers! My oldest SS is 9 and in men’s sizes looking to get some clothes for back to school and I’m at a loss! I’ve been hitting the thrift stores looking for Nike/Underarmour/Adidas, all the athletic wear brands. I’ve gotten him a couple character shirts (mainly fortnite as that’s what he likes) but it’s tough to find anything in men’s for a kid that young! What brands are cool now? Please help, I feel so out of touch! This is a great age to gu [...]
+
+EXAMPLE 8:
+We usually find a good selection at Gap and Old Navy, and shop their sales heavily.  Our kids are younger, but we frequently let them pick out one shirt/dress if they are with us.
+
+EXAMPLE 9:
+His entire wardrobe consists of plain t-shirts and casual pants. Why pretend he's the type of kid who owns a suit? (The sales guy at Men's Warehouse was amazed we were buying a suit just for a yearbook photo).
+
+EXAMPLE 10:
+Going to Church/dinner out at a restaurant?  Explain why everyone needs a go-to button up, polo, and chino pants. Proper clothes for the proper occasion.
+
+EXAMPLE 11:
+I'm thinking about having him wear "business casual" with a black dress shirt and pants and a contrasting tie. Would he look completely out of place? I'm guessing it would be easier to find clothing that actually fits and he could wear again. Never heard of a school dictating the outfit of students for their picture. Why can't he wear what he already owns or wants to wear? What are they gonna do?
+
+EXAMPLE 12:
+Whoa... senior photo time already!??!? (allow me to vent and pick your collective brains) Senior (yearbook) photos are asking for "Black Own Clothing" for the photo shoot. The reference photos they sent have the boys in a black suit and tie. (Girls are in nice formal dresses)
+
+EXAMPLE 13:
+Going to school? Mostly a free for all, with some exceptions (most schools have some restrictions).  Let them pick out what they love. Ask questions about items you think might look good. You might get a response on why that item isn’t as cool as you think it is.
+
+EXAMPLE 14:
+And finally, although you retain veto privileges, try to be flexible.  I have a visceral disdain for Crocs yet my son really wanted a pair. I allowed it and they are now his go-to pair. Turns out his best friend had a pair and now they match at summer camp.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

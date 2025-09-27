@@ -1,0 +1,77 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: year, birthday, christmas, gifts, toys, buy, stuff
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+What are your 9 year old girls wanting!?!  It depends on the kid but my 10 year old is very sporty so for Christmas we are getting her new running shoes, a new glove for spring softball season, and a capture the flag game to play with her brother and friends. She also loves board games so we are getting Apples to Apples and Uno No Mercy. We do a book every year and ideally get a series. This year we are doing Percy Jackson. We also get her and her brother a Lego Set and a remote control car every year. [...]
+
+EXAMPLE 2:
+Christmas Shopping Early - How do you know what your kids will want? I feel like this used to be easier when my daughter was younger. My son who is 2 - I can shop in advance, hide presents, and know in four months he will still be excited over the same things.
+
+EXAMPLE 3:
+Any advice for parents that shop early and have kids in this age range with ever-changing tastes?  Oh my mother is the _queen_ of year-round Christmas shopping. This woman keeps a closet of gifts rotating year round, always ready for a last minute birthday or hostess gift or whatever. I try my best to follow in her footsteps, but the woman’s a mad man when it comes to it lol.
+
+EXAMPLE 4:
+The best “tip” I’ve picked up from her is simply there’s always another person for the gift. So for your daughter’s evolving tastes, just pick up gifts you think she’ll like as you see them! When it comes time to wrap them, anything you think she aged out of can be set back for another cousin or sibling or friend’s birthday party. Maybe this tip isn’t as helpful on a stricter budget, but I’ve implemented it & it’s been a huge help. Especially as the kids get older, it’s nice to have a little Vera Bradley wallet or whatever to be able to throw into a graduation gift. [...]
+
+EXAMPLE 5:
+However, my daugher is 8 and will be turning 9 a few weeks before Christmas. Which adds to it as well because its like double presents, only 3-4 weeks apart.
+
+EXAMPLE 6:
+I know not everyone shops early or plans early. I tend to, to spread out the cost of the holidays/birthdays over a few months and see if I can find deals. Plus I like to handmake presents as well which takes time.
+
+EXAMPLE 7:
+Anyway this is the first year Ive really run into the thought that if I make or buy anything for my daughter, by the time Christmas gets here, she might not even like the same stuff! Shes been into Hello Kitty for months....which means any day now it will be old news and she will be over it. I used to be set, always getting her craft/art supplies because shes very creative but honestly now she has quite a bit of that stuff and it doesnt bring her the same amount of joy. [...]
+
+EXAMPLE 8:
+Practical long-term gifts for newborns? My aunt has given me $100 to get my baby something he can have forever. 
+I've asked on another site and the answers I got was teddy bears and blankets. He has been gifted enough of these things I don't feel compelled to go buy him more as a keepsake.
+Growing up my mum always bought me practical gifts. Like a suitcase for my 18th, clothes and cellphones.
+I would love to use this money for something he will actually use one day, or will increase in value like an investment so he can sell it, because money is always useful. [...]
+
+EXAMPLE 9:
+9 is right around the age where she might like older stuff too, like supplies for a room redecoration? Next year when you’re not due the day after christmas you could “gift” paint chips and offer to repaint her room? New duvet color, a desk, a jewelry caddy? Some of my favorite gifts at that age were just like, a toiletry bag that made me feel like a grown up lol.
+
+EXAMPLE 10:
+Gift Ideas. 9 year old girl! My daughter is turning 9 this month and between her birthday and Christmas, I have absolutely no idea what to get her. For her birthday, I am taking her to Disney World so she really isn’t getting many gifts for her birthday (I bought her ears, shirts, stuff for the trip). But for Christmas, I really need help. She isn’t really into toys anymore except stuffed animals which she has an over abundance of. She does like crafts and board games and switch games. [...]
+
+EXAMPLE 11:
+Otherwise, what about “big kid” crafting supplies? Yarn and a loom to start learning how to knit / crochet? A sewing kit and some fabric to make her own clothes? Or no fabric and learning how to tailor lol? Maybe her own cookbook or apron if she likes cooking? There’s fun books full of science experiments if she’s into science at all, that provide a ton of fun and easy ideas, like “testing” to see what conditions makes a banana brown fastest and stuff.
+
+EXAMPLE 12:
+Edit: thank you everyone, I'm going to get him a gold bracelet. He can always choose to sell it, or he can choose to be sentimental with it haha  You could plant two trees or rose bushes etc that represent your baby and your aunt together. Then your baby can grow with them, sitting in its shade, playing underneath, etc. Or name a constellation in your baby's name. You could get one of those cute growth charts that you hang on a wall to mark their height each year.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

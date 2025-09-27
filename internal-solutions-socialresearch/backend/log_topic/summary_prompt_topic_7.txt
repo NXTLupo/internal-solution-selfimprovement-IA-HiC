@@ -1,0 +1,87 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: laundry, clothes, washing, day, dirty, loads, end
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+But yea I do laundry everyday.  It’s worse in the summer with swimsuits and towels and dirty camp clothes.
+
+EXAMPLE 2:
+How many loads of laundry are you doing a day? I do 2-3 loads of laundry every single day and if I don’t the laundry backs up, and it’s always backed up. My kids are 1,5yrs and 4yrs old. Am I doing something wrong? I don’t understand how some people are only doing 1-2 loads a week! Someone’s bedding always somehow needs washing, towels don’t dry fast enough to use multiple days in a row, kids go through 1-4 pairs of clothes depending on the day (lots of outside play or drink spills or whatever) and I always get dirty from the kids wiping shit on me. Also have a dog and an engineer husband. [...]
+
+EXAMPLE 3:
+I’m still mostly washing my towels after single uses, it’s hard to get them to dry right now. But it’s okay, my towels aren’t piling up, the washing isn’t piling up, everything is manageable. Even on the day I had to wash 2 sets of bedsheets. And throw blankets. And couch covers.
+
+EXAMPLE 4:
+It's just a matter of how dirty you're comfortable with their clothes being - if you just let them be dirty, it'll be less laundry, but some people just can't handle the messiness, which is also fine.
+
+EXAMPLE 5:
+How many loads of laundry are you doing a day? [UPDATE] A couple of weeks ago I posted on here asking for advice on how to cut my laundry down, I was typically doing 2-3 loads a day and was constantly behind.
+
+EXAMPLE 6:
+Nobody warned me about THIS part of parenting… I always thought the hardest part would be tantrums or sleepless nights. But honestly? Nobody told me the laundry would NEVER end. 😅 Like, how do these tiny humans produce more clothes in a week than I do in a month??
+
+EXAMPLE 7:
+The BEST advice I received that has truly been a game changer - someone mentioned they give their laundry an extra spin before chucking in the dryer. ABSOLUTE GAME CHANGER!
+
+EXAMPLE 8:
+I want to thank you all for your great advice, laundry is no longer daunting or stressful! Absolute legends!  I remember you! Glad to hear that you’re doing better in terms of not being stressed over this.
+
+EXAMPLE 9:
+I was flooded with a ton of great advice! It helped me reflect on my laundry habits, re-evaluate and start to tackle my laundry in a smarter way. And, it worked! I have successfully cut down my laundry to 1 load every 1-2 days!! Crazy! I’ve completely caught up on laundry, and even managed to do a free load for my son’s daycare, and it didn’t put me behind!
+
+EXAMPLE 10:
+Turns out - I was washing clothes entirely too often. Every time my boys got wet I’d throw the clothes in the washing - now I let the clothes dry and they re-wear them (unless they’re smelly) 
+At the end of the day whatever outfit they were wearing I’d automatically grab the clothes and put them in the washing, thanks to your advice I realised this was silly - I now check to see if it actually needs a wash, some things can be re-worn again!
+
+EXAMPLE 11:
+Every load of clothes gets an extra spin, and towels get 2 or 3 extra spins. My drying time has cut down by 2/3rds. Waiting for the dryer to finish was what was truly slowing the process down. And guess what? Now that I’m giving the clothes an extra spin, I can load more into my washing machine. It’s like a 2 for one bonus.
+
+EXAMPLE 12:
+When it was cold and wet outside, and I wanted to go in/out, my parents would have me change into play clothes and then change into my outfit for the day when I got back in. Instead of putting the wet clothes straight into the wash, we left them near the vents to air dry until we were ready to go back out, and we would just put on the same play clothes. Sometimes our play clothes wouldn't be washed for a few days at a time, especially when the weather was good.
+
+EXAMPLE 13:
+If my clothes were sitting on the floor I’d just put them in the washing. I’m now being more cautious to put them on the dresser until I can get to them, and I let them air out instead of rewashing just because they’re not fresh. I used to change my pants regularly if they got dirty from the kids, now I wear them all day and am less over the top about it. A couple marks isn’t a biggie.
+
+EXAMPLE 14:
+Parents of Reddit — what completely unexpected part of parenting caught YOU off guard?" Psst - we have perpetual laundry basket.  The drawers are just storage for clothes we never wear.  Kids just grab the same 5-7 combos from the laundry basket and folding happens once a week….
+
+EXAMPLE 15:
+If you're doing activities indoors that are messy, like finger paint or spaghetti dinner, you can put an oversized T-shirt on top of their regular clothes. Then their day clothes or pajamas or whatever are still clean and no change is needed, and you can use the same shirt a few times as its purpose is to be dirty and protect the clean clothes.
+
+EXAMPLE 16:
+If you have multiple kids, no one told me finding the right combo of kids/parent to do certain tasks will make your life easier. Until they all decide to change or fight or lose their mind.  The mental gymnastics just to figure out who can go to the store and who can stay home to complete chores.  I’m a goddamn hostage negotiator…..
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

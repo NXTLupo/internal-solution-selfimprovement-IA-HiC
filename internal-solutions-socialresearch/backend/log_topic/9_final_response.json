@@ -1,0 +1,2769 @@
+{
+  "total_documents": 219,
+  "total_topics": 15,
+  "topics": {
+    "positive": {
+      "count": 1,
+      "topics": [
+        {
+          "id": 11,
+          "count": 8,
+          "score": 0.15084770694375038,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 8,
+            "total_score": 48,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 6.0
+          },
+          "terms": [
+            {
+              "term": "clothes",
+              "weight": 0.036825105118004214
+            },
+            {
+              "term": "school",
+              "weight": 0.024669574888596432
+            },
+            {
+              "term": "buy",
+              "weight": 0.02062263700698934
+            },
+            {
+              "term": "kid",
+              "weight": 0.01890408392307356
+            },
+            {
+              "term": "pairs",
+              "weight": 0.018881827348712292
+            },
+            {
+              "term": "size",
+              "weight": 0.018729391031366404
+            },
+            {
+              "term": "shirts",
+              "weight": 0.017759979788838615
+            },
+            {
+              "term": "label",
+              "weight": 0.01720950476903243
+            },
+            {
+              "term": "leggings",
+              "weight": 0.016184423441753394
+            }
+          ],
+          "post_ids": [
+            "1nbpebt",
+            "1n9lwwa",
+            "1mj7xj0",
+            "1mbu9fb",
+            "1m8rnxe",
+            "1m1im16",
+            "1lzqg0b",
+            "1m1h4j6"
+          ],
+          "post_sentiments": {
+            "1nbpebt": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n9lwwa": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4968487322330475
+            },
+            "1mj7xj0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mbu9fb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7099329233169556
+            },
+            "1m8rnxe": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m1im16": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lzqg0b": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m1h4j6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about children's clothing management encompass comprehensive planning for school wardrobes, seasonal clothing needs, and practical organization strategies. Parents share detailed approaches to building functional school clothing collections, including specific quantities of essential items like shirts, pants, and outerwear to ensure adequate rotation throughout the school week. The conversations cover seasonal considerations such as layering strategies for winter months, appropriate clothing choices for different weather conditions, and the balance between comfort and presentation in school settings. Storage and organization methods feature prominently, with parents discussing size-based sorting systems, long-term storage solutions for future children, and space-saving techniques using vacuum-sealed bags and containers. Labeling strategies for daycare and school items represent another key concern, with parents weighing the benefits of permanent labeling against the desire to pass clothes down to other children. The discussions also address practical considerations like having backup clothing pairs, managing brand size variations, and maintaining clothing quality for hand-me-down purposes.",
+          "short_summary": "Children's clothing management",
+          "one_sentence_summary": "Parents discuss comprehensive strategies for managing children's school clothing including wardrobe planning, seasonal needs, organization methods, labeling decisions, and storage solutions."
+        }
+      ]
+    },
+    "negative": {
+      "count": 8,
+      "topics": [
+        {
+          "id": 1,
+          "count": 20,
+          "score": -0.31251820685962833,
+          "engagement": {
+            "post_count": 20,
+            "total_comments": 20,
+            "total_score": 1390,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 69.5
+          },
+          "terms": [
+            {
+              "term": "kids",
+              "weight": 0.014496038207780582
+            },
+            {
+              "term": "feel",
+              "weight": 0.01356328872433283
+            },
+            {
+              "term": "home",
+              "weight": 0.010752919628115556
+            },
+            {
+              "term": "care",
+              "weight": 0.010002824329379798
+            },
+            {
+              "term": "dinner",
+              "weight": 0.009507325427887212
+            },
+            {
+              "term": "parent",
+              "weight": 0.009272052617369825
+            },
+            {
+              "term": "husband",
+              "weight": 0.0083004916641228
+            },
+            {
+              "term": "work",
+              "weight": 0.008241993746897673
+            },
+            {
+              "term": "wife",
+              "weight": 0.008075898156147702
+            },
+            {
+              "term": "day",
+              "weight": 0.008002313348988661
+            }
+          ],
+          "post_ids": [
+            "1npp8vf",
+            "1nixzeh",
+            "1nfkkwn",
+            "1n8gefu",
+            "1n3x2xl",
+            "1mwnhlp",
+            "1mtxpkm",
+            "1meaib3",
+            "1mcxdp7",
+            "1m7tyju",
+            "1m4xn0s",
+            "1lzqnnr",
+            "1lz18vs",
+            "1lw17sx",
+            "1ld2o6s",
+            "1l6ut3p",
+            "1l70x2g",
+            "1l5u76d",
+            "1l5ofzw",
+            "1l0c1r5"
+          ],
+          "post_sentiments": {
+            "1npp8vf": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.10102766752243042
+            },
+            "1nixzeh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44834264119466144
+            },
+            "1nfkkwn": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.04893551766872406
+            },
+            "1n8gefu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6400474458932877
+            },
+            "1n3x2xl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.06369853019714355
+            },
+            "1mwnhlp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.431805282831192
+            },
+            "1mtxpkm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7091452032327652
+            },
+            "1meaib3": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7483257055282593
+            },
+            "1mcxdp7": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m7tyju": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.041801489889621735
+            },
+            "1m4xn0s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3699634075164795
+            },
+            "1lzqnnr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4579377621412277
+            },
+            "1lz18vs": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lw17sx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ld2o6s": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l6ut3p": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5370269864797592
+            },
+            "1l70x2g": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5241996347904205
+            },
+            "1l5u76d": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5588033050298691
+            },
+            "1l5ofzw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.1937873512506485
+            },
+            "1l0c1r5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8904879689216614
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about the daily challenges and emotional struggles of parenting young children, particularly focusing on the overwhelming nature of routine childcare tasks. Parents share experiences about the difficulty of managing morning and evening routines that involve getting kids fed, clothed, cleaned, and ready for school or bed. The discussions reveal a common theme of feeling like parent-child interactions during weekdays are dominated by necessary but unenjoyable tasks rather than quality bonding time. Many parents express frustration about the lack of time for meaningful activities like playing games or having fun with their children, as most of their limited time together is spent on essential care activities. The conversations also touch on relationship dynamics between spouses, with discussions about unequal distribution of domestic responsibilities and the mental load of parenting. Single parents particularly share struggles with managing full-time work while handling all childcare responsibilities alone. Parents frequently question whether their exhausting schedules are normal and seek advice on finding balance between necessary routines and creating enjoyable family moments. The topic includes discussions about behavioral challenges, discipline strategies, and the emotional toll of constant caregiving responsibilities.",
+          "short_summary": "Daily parenting struggles",
+          "one_sentence_summary": "Parents discuss the overwhelming daily challenges of managing childcare routines including feeding, clothing, and caring for children while struggling to find quality time for meaningful family interactions."
+        },
+        {
+          "id": 2,
+          "count": 20,
+          "score": -0.29861957182486853,
+          "engagement": {
+            "post_count": 20,
+            "total_comments": 20,
+            "total_score": 4376,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 218.8
+          },
+          "terms": [
+            {
+              "term": "said",
+              "weight": 0.016052139318237544
+            },
+            {
+              "term": "daughter",
+              "weight": 0.014932318789137406
+            },
+            {
+              "term": "clothes",
+              "weight": 0.01074241351946855
+            },
+            {
+              "term": "wear",
+              "weight": 0.009157175110046666
+            },
+            {
+              "term": "hair",
+              "weight": 0.009130271914116752
+            },
+            {
+              "term": "naked",
+              "weight": 0.009014139406031234
+            },
+            {
+              "term": "boy",
+              "weight": 0.007895353548478121
+            },
+            {
+              "term": "year old",
+              "weight": 0.0077408632909025995
+            }
+          ],
+          "post_ids": [
+            "1niyxur",
+            "1nbrdcn",
+            "1nbgnpv",
+            "1nai0cj",
+            "1n8ixat",
+            "1mtt87b",
+            "1mqsfrg",
+            "1mivrqv",
+            "1miznd2",
+            "1mao3uk",
+            "1m9mh4e",
+            "1m8h0xq",
+            "1lyyhl0",
+            "1locbiu",
+            "1ldo9xe",
+            "1lddhgn",
+            "1lc99sr",
+            "1lb3uui",
+            "1l76pyg",
+            "1l4lmc5"
+          ],
+          "post_sentiments": {
+            "1niyxur": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.575923502445221
+            },
+            "1nbrdcn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.35467928647994995
+            },
+            "1nbgnpv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.14231714606285095
+            },
+            "1nai0cj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7919049064318339
+            },
+            "1n8ixat": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mtt87b": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mqsfrg": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.022956093152364094
+            },
+            "1mivrqv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.08829164505004883
+            },
+            "1miznd2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.29938191175460815
+            },
+            "1mao3uk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.05302844444910685
+            },
+            "1m9mh4e": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8719520568847656
+            },
+            "1m8h0xq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4337616264820099
+            },
+            "1lyyhl0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9015457332134247
+            },
+            "1locbiu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6905869245529175
+            },
+            "1ldo9xe": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lddhgn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3700025975704193
+            },
+            "1lc99sr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7448694705963135
+            },
+            "1lb3uui": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5094072818756104
+            },
+            "1l76pyg": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l4lmc5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7477298676967621
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses parental discussions about children's clothing-related behavioral challenges and body image concerns. The conversations primarily focus on young children, particularly daughters, who are experiencing difficulties with wearing clothes, ranging from complete refusal to wear any garments to extreme selectivity about specific items due to sensory sensitivities or comfort issues. Parents describe children having major meltdowns, tantrums, and distress when attempting to put on clothes, with some children expressing that everything feels 'too tight' or uncomfortable. The discussions also cover emerging body image anxieties in young children who become preoccupied with their physical appearance, worry about how they look in clothes, and avoid activities due to concerns about their appearance. Parents share strategies for addressing these challenges, including sensory-friendly clothing options, pressure-free approaches, professional consultations, and methods to promote positive body image while avoiding appearance-focused praise. The conversations reflect broader parenting concerns about supporting children through developmental phases involving clothing sensitivities, self-image formation, and the balance between accommodating sensory needs while maintaining daily routines.",
+          "short_summary": "Children's clothing challenges",
+          "one_sentence_summary": "Parents discuss children's clothing refusal behaviors, sensory sensitivities with garments, and early body image concerns that impact daily routines and activities."
+        },
+        {
+          "id": 4,
+          "count": 16,
+          "score": -0.3996348663543661,
+          "engagement": {
+            "post_count": 16,
+            "total_comments": 16,
+            "total_score": 461,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 28.8125
+          },
+          "terms": [
+            {
+              "term": "baby",
+              "weight": 0.018108213701631043
+            },
+            {
+              "term": "child",
+              "weight": 0.016243927461789476
+            },
+            {
+              "term": "husband",
+              "weight": 0.014958143742174508
+            },
+            {
+              "term": "mom",
+              "weight": 0.014851319607747018
+            },
+            {
+              "term": "dad",
+              "weight": 0.014076068886098723
+            },
+            {
+              "term": "stepmom",
+              "weight": 0.011280812053509188
+            },
+            {
+              "term": "feel",
+              "weight": 0.010065389604377391
+            },
+            {
+              "term": "daughter",
+              "weight": 0.009923105766603763
+            },
+            {
+              "term": "said",
+              "weight": 0.009212642271878704
+            },
+            {
+              "term": "told",
+              "weight": 0.009051124540924022
+            }
+          ],
+          "post_ids": [
+            "1nosppm",
+            "1n8g1cs",
+            "1n029dz",
+            "1mwz6ot",
+            "1mgui0h",
+            "1mbzllj",
+            "1m45j67",
+            "1m0k3an",
+            "1ltipt8",
+            "1loxd7p",
+            "1lnsb8r",
+            "1lmjxdu",
+            "1lm3y57",
+            "1lhyasj",
+            "1la18pn",
+            "1l98eaa"
+          ],
+          "post_sentiments": {
+            "1nosppm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.30794382095336914
+            },
+            "1n8g1cs": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7343271374702454
+            },
+            "1n029dz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28546787798404694
+            },
+            "1mwz6ot": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6196085810661316
+            },
+            "1mgui0h": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6170900464057922
+            },
+            "1mbzllj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6622005105018616
+            },
+            "1m45j67": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.00953000783920288
+            },
+            "1m0k3an": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7886969447135925
+            },
+            "1ltipt8": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.23498496413230896
+            },
+            "1loxd7p": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0039418041706085205
+            },
+            "1lnsb8r": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.37659940123558044
+            },
+            "1lmjxdu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9379907250404358
+            },
+            "1lm3y57": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3539055585861206
+            },
+            "1lhyasj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7642017503579458
+            },
+            "1la18pn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8465238809585571
+            },
+            "1l98eaa": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.33909839391708374
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about complex family dynamics and parenting challenges involving blended families, foster care situations, and troubled teenagers. The conversations center around stepmothers navigating relationships with stepchildren, parents dealing with behavioral issues in adolescents, and families taking in relatives' children who have experienced trauma, neglect, or substance abuse. Key concerns include establishing boundaries and discipline approaches, managing conflicts between different parenting philosophies across generations, addressing disrespectful or entitled behavior from teenagers, and balancing compassion with firm structure when caring for children from unstable backgrounds. The discussions reveal ongoing tensions around authority, respect, and appropriate consequences, particularly when children have experienced multiple school changes, parental addiction, or placement instability. Parents and caregivers express frustration with feeling unappreciated despite providing support, while also grappling with decisions about whether to continue care arrangements when relationships become strained.",
+          "short_summary": "Blended family parenting",
+          "one_sentence_summary": "Discussions focus on complex family dynamics involving stepmothers, foster care arrangements, and parenting challenges with troubled teenagers from unstable backgrounds."
+        },
+        {
+          "id": 7,
+          "count": 10,
+          "score": -0.2890875697135925,
+          "engagement": {
+            "post_count": 10,
+            "total_comments": 10,
+            "total_score": 1292,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 129.2
+          },
+          "terms": [
+            {
+              "term": "laundry",
+              "weight": 0.05053948218067518
+            },
+            {
+              "term": "clothes",
+              "weight": 0.04282349146287658
+            },
+            {
+              "term": "washing",
+              "weight": 0.04144127523851357
+            },
+            {
+              "term": "day",
+              "weight": 0.0308979175906675
+            },
+            {
+              "term": "dirty",
+              "weight": 0.02302293068806309
+            },
+            {
+              "term": "loads",
+              "weight": 0.02021144203912808
+            },
+            {
+              "term": "end",
+              "weight": 0.016891854252444563
+            },
+            {
+              "term": "stained",
+              "weight": 0.016395495878172614
+            },
+            {
+              "term": "shirt",
+              "weight": 0.016349051174193968
+            },
+            {
+              "term": "change",
+              "weight": 0.015839743504161067
+            }
+          ],
+          "post_ids": [
+            "1nkgeqs",
+            "1njhjj5",
+            "1nidbc0",
+            "1ndn6bh",
+            "1mwqw0b",
+            "1mrs2xh",
+            "1mncnfi",
+            "1lujt3k",
+            "1la62db",
+            "1lb2nd1"
+          ],
+          "post_sentiments": {
+            "1nkgeqs": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5982125401496887
+            },
+            "1njhjj5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4558025300502777
+            },
+            "1nidbc0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7710366249084473
+            },
+            "1ndn6bh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6634197235107422
+            },
+            "1mwqw0b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8094929456710815
+            },
+            "1mrs2xh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7612454295158386
+            },
+            "1mncnfi": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lujt3k": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7730818092823029
+            },
+            "1la62db": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.721807599067688
+            },
+            "1lb2nd1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3265553116798401
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about household laundry management challenges focus on the overwhelming daily burden of washing clothes, particularly for families with young children. Parents share experiences of doing multiple loads of laundry per day, struggling with endless cycles of dirty clothes, and feeling caught off guard by the sheer volume of washing required. The conversations reveal common concerns about laundry frequency, with many initially overwashing items and later learning to be more selective about what actually needs cleaning. Key themes include strategies for reducing laundry loads by allowing clothes to air dry and reusing items when appropriate, techniques for improving washing efficiency such as extra spin cycles to reduce drying time, and the realization that children generate disproportionate amounts of dirty clothing through spills, outdoor play, and frequent outfit changes. The discussions emphasize practical solutions like using protective clothing during messy activities, being less rigid about minor stains, and developing more efficient sorting and washing routines to manage the constant flow of dirty laundry.",
+          "short_summary": "Daily laundry management",
+          "one_sentence_summary": "Parents discuss strategies for managing overwhelming daily laundry loads and share techniques for reducing the frequency of washing clothes while maintaining household cleanliness standards."
+        },
+        {
+          "id": 8,
+          "count": 10,
+          "score": -0.32278203666210176,
+          "engagement": {
+            "post_count": 10,
+            "total_comments": 10,
+            "total_score": 1401,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 140.1
+          },
+          "terms": [
+            {
+              "term": "morning",
+              "weight": 0.024299430478468796
+            },
+            {
+              "term": "day",
+              "weight": 0.023548846496157336
+            },
+            {
+              "term": "breakfast",
+              "weight": 0.02319187356498252
+            },
+            {
+              "term": "school",
+              "weight": 0.022783209074010623
+            },
+            {
+              "term": "daycare",
+              "weight": 0.018108620746584276
+            },
+            {
+              "term": "home",
+              "weight": 0.017652201968139113
+            },
+            {
+              "term": "shoes",
+              "weight": 0.01700329439759499
+            },
+            {
+              "term": "kids",
+              "weight": 0.012637016019778445
+            },
+            {
+              "term": "grader",
+              "weight": 0.01228139906733118
+            }
+          ],
+          "post_ids": [
+            "1nhkcl4",
+            "1nbhi4v",
+            "1n3a4lx",
+            "1n15k7t",
+            "1mqp8qu",
+            "1mp92u2",
+            "1mpqaru",
+            "1mdaz0t",
+            "1lknuho",
+            "1ljpfc9"
+          ],
+          "post_sentiments": {
+            "1nhkcl4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.26702454686164856
+            },
+            "1nbhi4v": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9522665143013
+            },
+            "1n3a4lx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.06683427095413208
+            },
+            "1n15k7t": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mqp8qu": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4325198233127594
+            },
+            "1mp92u2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8487497568130493
+            },
+            "1mpqaru": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mdaz0t": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8791383504867554
+            },
+            "1lknuho": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ljpfc9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7799952924251556
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about morning routines and preparation challenges for families with school-age children and daycare attendees. Parents share strategies and frustrations regarding daily morning tasks such as getting children dressed, eating breakfast, putting on shoes, and arriving at school or daycare on time. Common themes include time management difficulties, the chaos of coordinating multiple children's needs, and various approaches to streamline morning preparations. Many discussions focus on establishing consistent routines, preparing items the night before, managing breakfast choices, and dealing with children's resistance to getting ready. Parents exchange advice on reducing morning stress, implementing reward systems, and finding the right balance between structure and flexibility in their daily schedules.",
+          "short_summary": "Morning school routines",
+          "one_sentence_summary": "Parents discuss strategies and challenges related to managing morning routines and getting children ready for school or daycare on time."
+        },
+        {
+          "id": 9,
+          "count": 9,
+          "score": -0.41109298335181343,
+          "engagement": {
+            "post_count": 9,
+            "total_comments": 9,
+            "total_score": 56,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 6.222222222222222
+          },
+          "terms": [
+            {
+              "term": "throwing",
+              "weight": 0.014511188073347805
+            },
+            {
+              "term": "away",
+              "weight": 0.011764078794113602
+            },
+            {
+              "term": "thing",
+              "weight": 0.010976154320459713
+            },
+            {
+              "term": "bed",
+              "weight": 0.010268876794861175
+            },
+            {
+              "term": "school",
+              "weight": 0.009640445605502871
+            },
+            {
+              "term": "angry",
+              "weight": 0.009514479577541451
+            },
+            {
+              "term": "help",
+              "weight": 0.009472491858247617
+            },
+            {
+              "term": "point",
+              "weight": 0.0093652152144213
+            },
+            {
+              "term": "climbing",
+              "weight": 0.009311548329569267
+            },
+            {
+              "term": "patience",
+              "weight": 0.009124659194295504
+            }
+          ],
+          "post_ids": [
+            "1nq0jhd",
+            "1nh2cou",
+            "1ndled1",
+            "1ndiipd",
+            "1mzqhp8",
+            "1mv2ju2",
+            "1mk2n8t",
+            "1mbzut5",
+            "1l0kaox"
+          ],
+          "post_sentiments": {
+            "1nq0jhd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6669149398803711
+            },
+            "1nh2cou": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ndled1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6101457476615906
+            },
+            "1ndiipd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4204075038433075
+            },
+            "1mzqhp8": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.011024991671244303
+            },
+            "1mv2ju2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4643888970216115
+            },
+            "1mk2n8t": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.732923686504364
+            },
+            "1mbzut5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l0kaox": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7940310835838318
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about parental challenges managing children's behavioral difficulties during daily routines and transitions, particularly involving anger management and clothing-related struggles. Parents share experiences dealing with children who exhibit intense emotional outbursts, including throwing objects, refusing to get dressed, and displaying aggressive behaviors during morning routines and bedtime preparations. The conversations focus on children having meltdowns when asked to put on clothes for school, throwing garments around rooms during tantrums, and parents seeking help with managing these disruptive episodes. Common themes include difficulties with kindergarten transitions, children throwing things when angry, resistance to getting dressed, and parents feeling overwhelmed by their child's emotional dysregulation. Parents discuss various strategies for handling situations where children refuse to wear clothes, throw clothing items during outbursts, and become aggressive during daily care routines, with many seeking advice on whether these behaviors are normal developmental phases or require professional intervention.",
+          "short_summary": "Childhood behavioral challenges",
+          "one_sentence_summary": "Parents discuss managing children's behavioral challenges involving anger outbursts, clothing resistance, and throwing behaviors during daily routines and school transitions."
+        },
+        {
+          "id": 13,
+          "count": 6,
+          "score": -0.4492909808953603,
+          "engagement": {
+            "post_count": 6,
+            "total_comments": 6,
+            "total_score": 162,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 27.0
+          },
+          "terms": [
+            {
+              "term": "hygiene",
+              "weight": 0.03076695220593137
+            },
+            {
+              "term": "son",
+              "weight": 0.026724312063500236
+            },
+            {
+              "term": "stink",
+              "weight": 0.01842209860099677
+            },
+            {
+              "term": "shower",
+              "weight": 0.018026018587845794
+            },
+            {
+              "term": "deodorant",
+              "weight": 0.018004850225332446
+            },
+            {
+              "term": "hygiene habits",
+              "weight": 0.015763075602396873
+            },
+            {
+              "term": "lying",
+              "weight": 0.01378889534711251
+            },
+            {
+              "term": "bath",
+              "weight": 0.013286216509083905
+            }
+          ],
+          "post_ids": [
+            "1n43qqy",
+            "1mjjivb",
+            "1mdkl9h",
+            "1m3pqza",
+            "1m1pczw",
+            "1l7cs9j"
+          ],
+          "post_sentiments": {
+            "1n43qqy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3269985318183899
+            },
+            "1mjjivb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.819708526134491
+            },
+            "1mdkl9h": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.11886128783226013
+            },
+            "1m3pqza": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6700108051300049
+            },
+            "1m1pczw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.38400569558143616
+            },
+            "1l7cs9j": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.37616103887557983
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses parental discussions about adolescent and pre-teen hygiene challenges, particularly focusing on boys who resist basic personal care routines. Parents share experiences dealing with children who avoid showering, refuse to wear deodorant, neglect teeth brushing, and rewear dirty clothes despite parental guidance and enforcement attempts. The discussions reveal common patterns of hygiene resistance during developmental stages, with parents expressing frustration about persistent body odor, poor grooming habits, and the social implications for their children. Many posts describe ongoing battles over basic cleanliness standards, with parents seeking advice on motivating better hygiene practices while considering factors like ADHD, depression, and peer pressure. The conversations also address situations where parents must navigate hygiene issues involving their children's friends, balancing social considerations with household comfort. Parents frequently mention trying various approaches including natural consequences, direct confrontation, and professional counseling to address these hygiene-related behavioral challenges.",
+          "short_summary": "Teen hygiene struggles",
+          "one_sentence_summary": "Parents discuss ongoing struggles with children, particularly adolescent boys, who resist basic hygiene practices like showering, using deodorant, and wearing clean clothes despite persistent parental efforts."
+        },
+        {
+          "id": 14,
+          "count": 5,
+          "score": -0.7291564603646596,
+          "engagement": {
+            "post_count": 5,
+            "total_comments": 5,
+            "total_score": 157,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 31.4
+          },
+          "terms": [
+            {
+              "term": "screams",
+              "weight": 0.022358322214840663
+            },
+            {
+              "term": "mean",
+              "weight": 0.020363810386494634
+            },
+            {
+              "term": "son",
+              "weight": 0.01933582578712076
+            },
+            {
+              "term": "talking",
+              "weight": 0.01920327446600811
+            },
+            {
+              "term": "old",
+              "weight": 0.01770919827374944
+            },
+            {
+              "term": "play",
+              "weight": 0.017070020617151377
+            },
+            {
+              "term": "listen",
+              "weight": 0.014965007009072107
+            },
+            {
+              "term": "wants",
+              "weight": 0.01452690782722367
+            },
+            {
+              "term": "seconds",
+              "weight": 0.013328930164250605
+            },
+            {
+              "term": "horrible",
+              "weight": 0.012142251726191097
+            }
+          ],
+          "post_ids": [
+            "1nqa1vp",
+            "1n7g8jh",
+            "1me3r83",
+            "1lfbh61",
+            "1l6s1il"
+          ],
+          "post_sentiments": {
+            "1nqa1vp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5843666891256968
+            },
+            "1n7g8jh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6889132559299469
+            },
+            "1me3r83": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6532649993896484
+            },
+            "1lfbh61": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8589430153369904
+            },
+            "1l6s1il": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8602943420410156
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses parental discussions about challenging child behaviors and developmental concerns, particularly focusing on children who exhibit disruptive communication patterns, defiant attitudes, and behavioral issues at home. Parents describe children who engage in excessive talking, display mean or selfish behaviors toward family members, refuse to listen to instructions, and demonstrate inconsistent behavior between public and private settings. Common concerns include children who scream, show disrespect toward parents, struggle with following directions, and exhibit attention-seeking behaviors through constant talking or disruptive play. Many discussions center around developmental appropriateness of these behaviors, with parents questioning whether their child's meanness, inability to listen, or compulsive talking patterns are normal for their age. The conversations often involve children between ages 2-10 who are described as being polite in public but difficult at home, with parents seeking advice on managing behaviors like refusing to help with household tasks, being unkind to siblings, and displaying attention or focus issues. Some parents mention seeking professional assessments for conditions like ADHD when children exhibit persistent patterns of misbehavior they cannot explain, excessive talking, or difficulty with self-regulation and listening skills.",
+          "short_summary": "Challenging child behaviors",
+          "one_sentence_summary": "Parents discuss challenging child behaviors including excessive talking, meanness toward family members, defiant attitudes, and difficulty listening or following instructions at home."
+        }
+      ]
+    },
+    "neutral": {
+      "count": 6,
+      "topics": [
+        {
+          "id": 0,
+          "count": 30,
+          "score": 0.09476036528746287,
+          "engagement": {
+            "post_count": 30,
+            "total_comments": 30,
+            "total_score": 1570,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 52.333333333333336
+          },
+          "terms": [
+            {
+              "term": "pants",
+              "weight": 0.02336516867372906
+            },
+            {
+              "term": "clothes",
+              "weight": 0.02292387730566724
+            },
+            {
+              "term": "size",
+              "weight": 0.015896418398688706
+            },
+            {
+              "term": "buy",
+              "weight": 0.015891149890457857
+            },
+            {
+              "term": "fit",
+              "weight": 0.015219379585319598
+            },
+            {
+              "term": "wear",
+              "weight": 0.013608940283502288
+            },
+            {
+              "term": "school",
+              "weight": 0.013418535420619581
+            },
+            {
+              "term": "brands",
+              "weight": 0.013065345565616105
+            }
+          ],
+          "post_ids": [
+            "1nm0nzs",
+            "1njwjns",
+            "1neq26e",
+            "1necs4d",
+            "1ndwq0o",
+            "1nd2gdf",
+            "1n0k7c7",
+            "1mu6x14",
+            "1mt16xe",
+            "1moexti",
+            "1mpo0v3",
+            "1mno2d1",
+            "1mls9l8",
+            "1mg89p2",
+            "1mgpwih",
+            "1mka8v6",
+            "1mirsjl",
+            "1mbp5qv",
+            "1m85d9q",
+            "1m8fei6",
+            "1m6wowt",
+            "1m617fr",
+            "1m4upri",
+            "1lygm5w",
+            "1m0tz1b",
+            "1lzxo4y",
+            "1lqdrpo",
+            "1ld526m",
+            "1ldqtv2",
+            "1l56lg6"
+          ],
+          "post_sentiments": {
+            "1nm0nzs": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5458624958992004
+            },
+            "1njwjns": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1neq26e": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1necs4d": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ndwq0o": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nd2gdf": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.46649056673049927
+            },
+            "1n0k7c7": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8248247504234314
+            },
+            "1mu6x14": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6386392712593079
+            },
+            "1mt16xe": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9753958582878113
+            },
+            "1moexti": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8663626909255981
+            },
+            "1mpo0v3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mno2d1": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mls9l8": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mg89p2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5890753269195557
+            },
+            "1mgpwih": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4461105167865753
+            },
+            "1mka8v6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mirsjl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.2475016713142395
+            },
+            "1mbp5qv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m85d9q": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9157169461250305
+            },
+            "1m8fei6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4571482241153717
+            },
+            "1m6wowt": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m617fr": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7218762040138245
+            },
+            "1m4upri": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6887361407279968
+            },
+            "1lygm5w": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4406753480434418
+            },
+            "1m0tz1b": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lzxo4y": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7495798468589783
+            },
+            "1lqdrpo": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ld526m": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4949623942375183
+            },
+            "1ldqtv2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l56lg6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about children's clothing challenges encompass the difficulties parents face when shopping for school-age kids and teenagers, particularly regarding proper fit, size, and style preferences. The conversations reveal common struggles with finding clothes that accommodate growing children's changing body proportions, such as tall and skinny builds that require specific sizing considerations for pants, shirts, and formal wear. Parents seek advice on balancing budget constraints with quality purchases while navigating their children's increasing fashion preferences and peer influence. The discussions cover various shopping strategies including thrift store hunting, sales timing, and brand selection, while addressing the challenge of finding age-appropriate trendy clothes in extended sizes. Special occasion clothing needs, such as formal wear for school photos or events, present additional complexity as parents weigh cost versus limited usage. The conversations also touch on allowing children more autonomy in clothing choices while maintaining parental guidance on appropriateness for different settings like school, church, or formal events.",
+          "short_summary": "Children's clothing challenges",
+          "one_sentence_summary": "Parents discuss the challenges of finding properly fitting, affordable, and age-appropriate clothing for their growing children while balancing budget constraints, style preferences, and various occasion requirements."
+        },
+        {
+          "id": 5,
+          "count": 15,
+          "score": -0.16708946691619025,
+          "engagement": {
+            "post_count": 15,
+            "total_comments": 15,
+            "total_score": 3992,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 266.1333333333333
+          },
+          "terms": [
+            {
+              "term": "money",
+              "weight": 0.03041153421436748
+            },
+            {
+              "term": "year",
+              "weight": 0.018580755805879097
+            },
+            {
+              "term": "clothes",
+              "weight": 0.016887207173278324
+            },
+            {
+              "term": "things",
+              "weight": 0.013758000188661149
+            },
+            {
+              "term": "feel",
+              "weight": 0.012852346773112993
+            },
+            {
+              "term": "pay",
+              "weight": 0.012677013941570111
+            },
+            {
+              "term": "buy",
+              "weight": 0.012215422305982332
+            },
+            {
+              "term": "kids",
+              "weight": 0.011559180187757312
+            },
+            {
+              "term": "new",
+              "weight": 0.011556383001459641
+            },
+            {
+              "term": "college",
+              "weight": 0.010585238237960126
+            }
+          ],
+          "post_ids": [
+            "1ng2wea",
+            "1n56kva",
+            "1mwc8px",
+            "1miqzq0",
+            "1mbuy2g",
+            "1m7qgyq",
+            "1lyzefx",
+            "1m1ak76",
+            "1lx544u",
+            "1lux897",
+            "1lqszs4",
+            "1lq0dpz",
+            "1l7c3v0",
+            "1l7kjdr",
+            "1l0uhib"
+          ],
+          "post_sentiments": {
+            "1ng2wea": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.23374253511428833
+            },
+            "1n56kva": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5658411979675293
+            },
+            "1mwc8px": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1miqzq0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5921511650085449
+            },
+            "1mbuy2g": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4966661036014557
+            },
+            "1m7qgyq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lyzefx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7918855845928192
+            },
+            "1m1ak76": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lx544u": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2917684316635132
+            },
+            "1lux897": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.22639897465705872
+            },
+            "1lqszs4": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4089750647544861
+            },
+            "1lq0dpz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l7c3v0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.32401614387830097
+            },
+            "1l7kjdr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.46270742019017536
+            },
+            "1l0uhib": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.48632362484931946
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about financial constraints and their impact on family purchasing decisions, particularly regarding children's clothing and material possessions. Parents share experiences of managing limited budgets while trying to provide adequate clothing and other necessities for their children, often through thrifting, bargain shopping, and careful money management. The conversations reveal tensions between wanting to give children nice things versus financial realities, with many parents feeling pressure from their children's comparisons to wealthier peers. Common themes include children's growing awareness of economic disparities, parental guilt about not being able to afford certain items or experiences, and debates over who should benefit financially when selling children's outgrown clothes and possessions. Parents discuss strategies for teaching children about money, the value of items, and managing expectations while maintaining dignity despite financial limitations.",
+          "short_summary": "Family financial clothing struggles",
+          "one_sentence_summary": "Parents discuss managing limited finances while purchasing children's clothing and dealing with kids' awareness of economic disparities compared to their peers."
+        },
+        {
+          "id": 3,
+          "count": 19,
+          "score": -0.10177257657051086,
+          "engagement": {
+            "post_count": 19,
+            "total_comments": 19,
+            "total_score": 423,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 22.263157894736842
+          },
+          "terms": [
+            {
+              "term": "diapers",
+              "weight": 0.02717286978221114
+            },
+            {
+              "term": "baby",
+              "weight": 0.015786275093173163
+            },
+            {
+              "term": "pee",
+              "weight": 0.01563390577447461
+            },
+            {
+              "term": "milk",
+              "weight": 0.01540387278669194
+            },
+            {
+              "term": "cost",
+              "weight": 0.013734446131723923
+            },
+            {
+              "term": "14",
+              "weight": 0.01309329186868815
+            },
+            {
+              "term": "months",
+              "weight": 0.012911138484045107
+            },
+            {
+              "term": "formula",
+              "weight": 0.012814270480565023
+            },
+            {
+              "term": "potty",
+              "weight": 0.01201337857552971
+            }
+          ],
+          "post_ids": [
+            "1nlvvkc",
+            "1mz56k0",
+            "1mzql7o",
+            "1mvra96",
+            "1mg8woe",
+            "1mcov1z",
+            "1mbiibx",
+            "1mb821c",
+            "1m9hzsw",
+            "1m92y2x",
+            "1lvbcty",
+            "1lvk4mo",
+            "1lsjf2p",
+            "1lnxhxo",
+            "1lkj0pn",
+            "1lhnm4u",
+            "1lclua8",
+            "1l8uws9",
+            "1l3ej12"
+          ],
+          "post_sentiments": {
+            "1nlvvkc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5373677611351013
+            },
+            "1mz56k0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mzql7o": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28024834394454956
+            },
+            "1mvra96": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.620114266872406
+            },
+            "1mg8woe": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mcov1z": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6457414627075195
+            },
+            "1mbiibx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5038551688194275
+            },
+            "1mb821c": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m9hzsw": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6151229739189148
+            },
+            "1m92y2x": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lvbcty": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7973318696022034
+            },
+            "1lvk4mo": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.858767569065094
+            },
+            "1lsjf2p": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lnxhxo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.43814903497695923
+            },
+            "1lkj0pn": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lhnm4u": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lclua8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5025559663772583
+            },
+            "1l8uws9": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l3ej12": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5750967860221863
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about comprehensive baby care expenses and practical challenges during early childhood development, focusing on detailed cost tracking and consumption patterns for essential items like diapers, formula, and milk over extended periods. Parents share extensive data analysis of monthly expenditures, usage quantities, and consumption trends, with particular emphasis on diaper changing frequency, milk consumption volumes, and associated costs during the first 14 months of a child's life. The conversations include practical problem-solving for common childcare issues such as diaper management difficulties, nighttime wetting problems, and behavioral challenges related to diaper tampering. Cost considerations encompass brand comparisons, bulk purchasing strategies, waste reduction through portion control, and budget planning for ongoing baby care expenses. Additional discussions cover developmental milestones related to feeding transitions, toilet training challenges, and clothing management strategies to address frequent changes due to accidents and leaks.",
+          "short_summary": "Baby care costs",
+          "one_sentence_summary": "Parents discuss comprehensive cost tracking and practical management strategies for baby care expenses including diapers, formula, and associated childcare challenges during early development."
+        },
+        {
+          "id": 6,
+          "count": 12,
+          "score": -0.1901666522026062,
+          "engagement": {
+            "post_count": 12,
+            "total_comments": 12,
+            "total_score": 213,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 17.75
+          },
+          "terms": [
+            {
+              "term": "clean",
+              "weight": 0.022385834707691697
+            },
+            {
+              "term": "room",
+              "weight": 0.019223808716062038
+            },
+            {
+              "term": "away",
+              "weight": 0.017013151357214044
+            },
+            {
+              "term": "things",
+              "weight": 0.01652659415354355
+            },
+            {
+              "term": "help",
+              "weight": 0.01630302533601007
+            },
+            {
+              "term": "chores",
+              "weight": 0.015969465365591188
+            },
+            {
+              "term": "toys",
+              "weight": 0.012070370703690316
+            },
+            {
+              "term": "trash",
+              "weight": 0.011556125633430635
+            }
+          ],
+          "post_ids": [
+            "1nleo9w",
+            "1ngy51b",
+            "1n7bxc6",
+            "1n4t02m",
+            "1n2mepj",
+            "1my3fdp",
+            "1mv10bx",
+            "1mnf2lm",
+            "1mgqncq",
+            "1mbxoef",
+            "1m84xms",
+            "1l3frdi"
+          ],
+          "post_sentiments": {
+            "1nleo9w": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6868754029273987
+            },
+            "1ngy51b": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n7bxc6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n4t02m": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6278830468654633
+            },
+            "1n2mepj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1my3fdp": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mv10bx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.36007387936115265
+            },
+            "1mnf2lm": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4626537412405014
+            },
+            "1mgqncq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.06942248344421387
+            },
+            "1mbxoef": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6669129133224487
+            },
+            "1m84xms": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.22374172508716583
+            },
+            "1l3frdi": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.24858908355236053
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about household management and child development focus on teaching children responsibility through age-appropriate chores and maintaining clean living spaces. Parents share strategies for helping children learn to clean their rooms, put away clothes and toys, and develop organizational skills. The conversations reveal common challenges including children who resist cleaning tasks, struggle with overwhelming amounts of belongings, or have difficulty maintaining tidy spaces. Parents discuss various approaches such as implementing chore systems with rewards, decluttering possessions to manageable amounts, providing visual supports and structured guidance, and setting clear expectations for room cleanliness. Special considerations are given to children with developmental differences who may need additional support with cleaning and organizational tasks. The discussions emphasize the balance between teaching independence and providing appropriate help, with parents seeking advice on effective methods to instill responsibility while managing their own frustrations with messy living spaces.",
+          "short_summary": "Children's household chores",
+          "one_sentence_summary": "Parents discuss strategies for teaching children household responsibility through chores and room cleaning while addressing common challenges with maintaining organized living spaces."
+        },
+        {
+          "id": 10,
+          "count": 8,
+          "score": 0.04717717692255974,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 8,
+            "total_score": 1009,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 126.125
+          },
+          "terms": [
+            {
+              "term": "50",
+              "weight": 0.027676046163680426
+            },
+            {
+              "term": "clothes",
+              "weight": 0.02081231552259734
+            },
+            {
+              "term": "carrying",
+              "weight": 0.01876314482994983
+            },
+            {
+              "term": "month old",
+              "weight": 0.01792718864136678
+            },
+            {
+              "term": "baby",
+              "weight": 0.017147416957725658
+            },
+            {
+              "term": "toddler",
+              "weight": 0.014143532291514624
+            },
+            {
+              "term": "wallet",
+              "weight": 0.014072358622462372
+            }
+          ],
+          "post_ids": [
+            "1nr13vx",
+            "1ncjjy2",
+            "1mtt2zu",
+            "1msh9oc",
+            "1mfilmg",
+            "1m413vz",
+            "1m06lu0",
+            "1lukqbq"
+          ],
+          "post_sentiments": {
+            "1nr13vx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ncjjy2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mtt2zu": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1msh9oc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mfilmg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44755789637565613
+            },
+            "1m413vz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m06lu0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.824975311756134
+            },
+            "1lukqbq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about parenting preparedness and organization focus on carrying essential items and clothes for infants and toddlers during travel and daily activities. Parents share experiences about packing strategies for flights, car emergency supplies, and maintaining readiness for unexpected situations with young children. The conversations emphasize the importance of having extra clothes, diapers, and other necessities when caring for babies and toddlers, particularly during travel or outings. Parents discuss the challenges of balancing preparedness with practicality, often debating how much to pack for various scenarios. These discussions also include stories about parenting mistakes and oversights that occur due to exhaustion, such as accidentally washing electronics with clothes or miscounting money in wallets during routine transactions.",
+          "short_summary": "Parenting preparedness essentials",
+          "one_sentence_summary": "Parents discuss strategies for carrying essential items and clothes when traveling or preparing for emergencies with infants and toddlers."
+        },
+        {
+          "id": 12,
+          "count": 7,
+          "score": 0.051531083527065466,
+          "engagement": {
+            "post_count": 7,
+            "total_comments": 7,
+            "total_score": 48,
+            "avg_comments_per_post": 1.0,
+            "avg_score_per_post": 6.857142857142857
+          },
+          "terms": [
+            {
+              "term": "year",
+              "weight": 0.02393659833979451
+            },
+            {
+              "term": "birthday",
+              "weight": 0.02262548901987652
+            },
+            {
+              "term": "christmas",
+              "weight": 0.022435110114215562
+            },
+            {
+              "term": "gifts",
+              "weight": 0.019942320101524944
+            },
+            {
+              "term": "toys",
+              "weight": 0.018905022167078598
+            },
+            {
+              "term": "buy",
+              "weight": 0.015868717437196343
+            },
+            {
+              "term": "stuff",
+              "weight": 0.015602305356479136
+            },
+            {
+              "term": "games",
+              "weight": 0.01288299521416818
+            },
+            {
+              "term": "party",
+              "weight": 0.01211338278004222
+            }
+          ],
+          "post_ids": [
+            "1nphims",
+            "1ne3hh5",
+            "1nbot6k",
+            "1mx4xwm",
+            "1ms64xf",
+            "1m2j61r",
+            "1lyl2uw"
+          ],
+          "post_sentiments": {
+            "1nphims": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7059239745140076
+            },
+            "1ne3hh5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6333374977111816
+            },
+            "1nbot6k": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mx4xwm": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5702852805455526
+            },
+            "1ms64xf": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7867740988731384
+            },
+            "1m2j61r": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3429196774959564
+            },
+            "1lyl2uw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about gift-giving strategies and challenges for children's birthdays and Christmas celebrations. Parents share concerns about purchasing presents in advance while dealing with children's rapidly changing interests and preferences, particularly for school-age children who are transitioning away from traditional toys. The conversations reveal common dilemmas around timing purchases, managing costs by shopping early, and selecting age-appropriate gifts that will remain relevant months later. Parents discuss various gift categories including crafts, board games, sports equipment, books, and practical items, while seeking advice on how to navigate the evolution of children's tastes over time. The discussions also touch on strategies for repurposing gifts when children outgrow interests, budget management across multiple gift-giving occasions, and the challenge of finding meaningful presents that provide lasting value. Examples include concerns about character-themed items like Hello Kitty losing appeal, transitions from traditional toys to more mature interests, and practical approaches like maintaining gift closets for various occasions.",
+          "short_summary": "Children's gift planning",
+          "one_sentence_summary": "Parents discuss strategies and challenges for selecting birthday and Christmas gifts for children, particularly managing early shopping while dealing with rapidly changing interests and age-appropriate present selection."
+        }
+      ]
+    }
+  },
+  "topic_similarities": [
+    {
+      "source": 0,
+      "target": 1,
+      "weight": 0.10518303513526917,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "weight": 0.5016782486438751,
+      "overlapping_words": [
+        "wear",
+        "clothes"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "weight": 0.1936817765235901,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "weight": 0.018250994384288788,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "weight": 0.5067020857334137,
+      "overlapping_words": [
+        "clothes",
+        "buy"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "weight": 0.16232284903526306,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "weight": 0.42678510665893554,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "weight": 0.5466403913497925,
+      "overlapping_words": [
+        "school"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "weight": 0.269036169052124,
+      "overlapping_words": [
+        "school"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "weight": 0.4256739866733551,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "weight": 1.0,
+      "overlapping_words": [
+        "size",
+        "clothes",
+        "buy",
+        "school"
+      ],
+      "overlap_count": 4
+    },
+    {
+      "source": 0,
+      "target": 12,
+      "weight": 0.3533732843399048,
+      "overlapping_words": [
+        "buy"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 13,
+      "weight": 0.2191908210515976,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 14,
+      "weight": 0.0849105641245842,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.21733875572681427,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "weight": 0.11345218867063522,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "weight": 0.6687323951721191,
+      "overlapping_words": [
+        "husband",
+        "feel"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "weight": 0.6770511770248413,
+      "overlapping_words": [
+        "feel",
+        "kids"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "weight": 0.3602953851222992,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "weight": 0.4236585748195648,
+      "overlapping_words": [
+        "day"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "weight": 0.9197579503059388,
+      "overlapping_words": [
+        "day",
+        "kids",
+        "home"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "weight": 0.16538406908512115,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "weight": 0.19940268993377686,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "weight": 0.18713903427124023,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "weight": 0.38639676570892334,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "weight": 0.31725212931632996,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 14,
+      "weight": 0.26005178689956665,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "weight": 0.21438632905483246,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "weight": 0.7321946227550507,
+      "overlapping_words": [
+        "said",
+        "daughter"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "weight": 0.3740498971939087,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "weight": 0.3266535699367523,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "weight": 0.35874248564243316,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "weight": 0.29796677827835083,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "weight": 0.20369169116020203,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "weight": 0.3884187889099121,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "weight": 0.4395720314979553,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 12,
+      "weight": 0.2532293200492859,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 13,
+      "weight": 0.43688318133354187,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 14,
+      "weight": 0.3837723731994629,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "weight": 0.2371802207827568,
+      "overlapping_words": [
+        "baby"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "weight": 0.17808422446250916,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "weight": 0.1916189193725586,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "weight": 0.21230068802833557,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "weight": 0.21930529177188873,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "weight": 0.13327860832214355,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 10,
+      "weight": 0.4643573713302612,
+      "overlapping_words": [
+        "baby"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "weight": 0.19655974209308624,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 12,
+      "weight": 0.15717145800590515,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 13,
+      "weight": 0.27812379598617554,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 14,
+      "weight": 0.18007023632526398,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 0.37951820611953735,
+      "overlapping_words": [
+        "feel"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "weight": 0.11802619695663452,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "weight": 0.12248150259256363,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "weight": 0.1929033398628235,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 9,
+      "weight": 0.12979038059711456,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "weight": 0.2537539702653885,
+      "overlapping_words": [
+        "baby"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 11,
+      "weight": 0.0809512734413147,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 12,
+      "weight": 0.16483819484710693,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 13,
+      "weight": 0.20227330923080444,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 14,
+      "weight": 0.29564380645751953,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "weight": 0.5195739817619324,
+      "overlapping_words": [
+        "things"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "weight": 0.33218176186084747,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "weight": 0.4484425735473633,
+      "overlapping_words": [
+        "kids"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "weight": 0.1635877788066864,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "weight": 0.5331754636764526,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 11,
+      "weight": 0.5452682876586914,
+      "overlapping_words": [
+        "clothes",
+        "buy"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "weight": 0.9106915497779846,
+      "overlapping_words": [
+        "buy",
+        "year"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 13,
+      "weight": 0.21895265579223633,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "weight": 0.15768253803253174,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "weight": 0.4352090358734131,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "weight": 0.2968890070915222,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "weight": 0.738647391796112,
+      "overlapping_words": [
+        "help",
+        "away"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "weight": 0.3003528416156769,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "weight": 0.1816851794719696,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 12,
+      "weight": 0.5041007351875305,
+      "overlapping_words": [
+        "toys"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 6,
+      "target": 13,
+      "weight": 0.5059986114501953,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 14,
+      "weight": 0.2837640643119812,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "weight": 0.5106034529209137,
+      "overlapping_words": [
+        "day"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "weight": 0.31491878628730774,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "weight": 0.3864717137813568,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "weight": 0.5020630311965942,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 12,
+      "weight": 0.15933944284915924,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 13,
+      "weight": 0.5174805521965027,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 14,
+      "weight": 0.1525680273771286,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "weight": 0.438450391292572,
+      "overlapping_words": [
+        "school"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "weight": 0.28744831681251526,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "weight": 0.6090227913856506,
+      "overlapping_words": [
+        "school"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "weight": 0.3057871460914612,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 13,
+      "weight": 0.31735163927078247,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 14,
+      "weight": 0.2203674018383026,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "weight": 0.2563779950141907,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 11,
+      "weight": 0.3386249494552612,
+      "overlapping_words": [
+        "school"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 12,
+      "weight": 0.12420801818370819,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "weight": 0.2199621945619583,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 14,
+      "weight": 0.25301703810691833,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "weight": 0.5466143143177032,
+      "overlapping_words": [
+        "clothes"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "weight": 0.3289216458797455,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 13,
+      "weight": 0.23826226592063904,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "weight": 0.12201955914497375,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "weight": 0.4142395210266113,
+      "overlapping_words": [
+        "buy"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "weight": 0.2132415473461151,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "weight": 0.1472724974155426,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "weight": 0.199926495552063,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "weight": 0.19904954731464386,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "weight": 0.40460991382598877,
+      "overlapping_words": [
+        "son"
+      ],
+      "overlap_count": 1
+    }
+  ],
+  "topic_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ]
+}

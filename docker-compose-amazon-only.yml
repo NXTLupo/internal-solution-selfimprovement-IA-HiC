@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  scrapehero-amazon:
+    build:
+      context: ./internal-solutions-scrapehero-amazon
+      dockerfile: Dockerfile
+    ports:
+      - "5010:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_PORT=5000
+      - FLASK_DEBUG=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./internal-solutions-scrapehero-amazon:/app
+      - ./internal-solutions-scrapehero-amazon/static:/app/static
+      - ./internal-solutions-scrapehero-amazon/templates:/app/templates
+    working_dir: /app
+    command: bash -c "pip install --no-cache-dir anthropic>=0.18.0 google-generativeai openai python-dotenv && flask run --host=0.0.0.0 --port=5000"

@@ -1,0 +1,129 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: clothes, summary should be based on the keywords.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: diapers, baby, pee, milk, cost, 14, months
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Between formula, milk, and diapers, it all comes down to about $3812 for the first 14 months. That does not include wipes, diaper cream, lotions, body wash, clothes, any other foods like purees, finger foods, and a lot of other things.
+
+EXAMPLE 2:
+Please remember this is just one data point for one baby on one type of milk and one kind of diapers. The cost of diapers can easily double if you go for something fancy like Coterie.
+
+EXAMPLE 3:
+[Diaper cost by month](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-7w5rvvuiy9ff1.png?width=640&crop=smart&auto=webp&s=ac6d12fe19ab3021276c1a71276a3f020f3300e2)
+
+EXAMPLE 4:
+|Month|1|2|3|4|5|6|7|8|9|10|11|12|13|14|
+|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|
+|Diapers|330|294|242|272|225|204|192|202|232|233|224|251|228|220|
+|Cost|$89|$79|$65|$73|$61|$55|$52|$55|$63|$63|$60|$68|$62|$59|
+
+EXAMPLE 5:
+[Cost of milk calculation](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-cath18f1f9ff1.png?width=640&crop=smart&auto=webp&s=26d0c4dc02f270cb1a03d85abbf670d021656eb4)
+
+EXAMPLE 6:
+[Diapers changed by month](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-ems2tb8ku9ff1.png?width=640&crop=smart&auto=webp&s=ac04a41476804fe29b3b3393f57477f367a0fd92)
+
+EXAMPLE 7:
+[Milk consumption chart](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fi-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-hdgfln66b9ff1.png%3Fwidth%3D1124%26format%3Dpng%26auto%3Dwebp%26s%3D4664e7a1f5c08fb49fa82341b6b43cc7f736c959)
+
+EXAMPLE 8:
+There are many different brands for every budget. We stuck to Huggies from the beginning because these worked the best for us. You can look for deals on big sizes on ebay, use subscribe and save on amazon, stock up on black friday, prime day, etc, buying for weeks/months ahead. Based on our estimated, a blended cost of one diaper in this time was around 27 cents, or $0.27.
+
+EXAMPLE 9:
+Hello, future, soon to be, and already parents! When our baby was on the way, I tried to find out what the formula and diapers will cost. After all, this is one expensive journey, and it's good to be prepared! There are multiple estimates out there that vary widely, so I always wanted to see what it will actually cost.
+
+EXAMPLE 10:
+* We primarily used Huggies with wetness indicator which was super helpful. A few times, we've used diapers without it, and it was a bit of a guessing game as to when it was necessary to change the diaper.
+* We always changed the diaper when dirty.
+* When it was wet, we estimated how full it was, without trying to test the limits. We'd rather change a few more diapers than deal with leaks. I guess if you pushed the diapers closer to the limit, it could decrease the numbers but you risk a diaper rash and an uncomfortable baby (good diaper cream is expensive). [...]
+
+EXAMPLE 11:
+* Baby actually drank 85.6% of served milk, or $2489 worth of it
+* It means $419 basically put down the drain.
+* You can potentially get some savings if you prepare less milk at a time to avoid spoilage, but you risk baby crying in the middle of the night waiting for more milk while you try to save a dollar here or there - carefully weight your choices haha
+
+EXAMPLE 12:
+Over the first 14 months, our baby drank 10,876 ounces of milk. That is roughly 322 liters or 85 gallons.
+
+EXAMPLE 13:
+Should we stop trying? Night diapers with 6 year old Our daughter recently turned 6 and has still been wearing pull ups every night because she would always have a wet diaper in the morning. We know she has been intentionally peeing in them, because she'll wake up in the morning on her own and go downstairs without going to the bathroom at all. There's also been a number of times that she would pee in it before even falling asleep.
+
+EXAMPLE 14:
+Exchanging diapers for pull ups - helps with the strap problem, but he'll still move and tuck things around enough to still wet himself.
+
+EXAMPLE 15:
+But we weren't sure how much she was actually still peeing while asleep. So a week ago we finally tried taking them away and told her if she could go through the whole night without wetting, we'd get a special treat for her, but that also if she does pee we won't be mad, she won't be in trouble, etc.
+
+EXAMPLE 16:
+Only wearing onesies buttoned OVER the pants: most success, but he will still try his damndest to stick his hand in anyway, misaligning the diaper just enough to cause leaks.
+
+EXAMPLE 17:
+* 18 - Most diapers changed in a day. That was when the baby was 4 days old. We were then informed by the pediatrician that we could perhaps try relaxing a bit and change the diapers less frequently.
+* 14 - Most diapers changed in a day after we realized there is no need to change it that frequently. That was in the period when baby got norovirus and there were many dirty diapers.
+* 2246 - Wet only diapers
+* 1103 - Dirty/Mixed diapers
+
+EXAMPLE 18:
+Only wearing onesies with pants, no lone shirts: sticks his hand down the pants, into the diaper from the side as opposed to the top
+
+EXAMPLE 19:
+Again, my problem is not the touching itself - it's a social barrier, he will learn it in time. My problem is the constant wetting it causes and that I'm sick of changing his sheets everyday and washing his whole wardrobe every 2-3 days. I love him, but he's a persistent little bugger. Please help!
+ Try a cloth diaper cover over his diaper
+
+EXAMPLE 20:
+* Around 4 months, we started purees and food other than milk.
+* Around 8-9 months, we peaked with milk consumption with baby eating around 35 ounces a day
+* Around 8-9 months, we started feeding her more and more of what we ate, with that trend accelerating once the baby went off formula after 1st birthday.
+
+EXAMPLE 21:
+Now for the cost calculation. This can vary a lot based on what formula you're using. We were using Hipp formula that tends to cost around $45 for 800g. It takes around 4.3 g of that formula to prepare 1 oz of milk.
+
+EXAMPLE 22:
+Pajamas are onesies put on backwards: helped with the outright removing diapers at night, but he still tampers with the diaper through the cloth. The diaper straps in the morning are warped, or he's managed to move the diaper enough to free the goods.
+
+EXAMPLE 23:
+Toddler boy constantly wet My 2 year old, for the last 3-4 weeks, will NOT stop sticking his hand down his pants and into his diaper. Now, I 100% understand that this is a normal part of a kids development - he has an older brother. We've had the touch yourself only in private conversation, though he is a bit young to understand that. My problem is NOT the touching, it's that he does it so much, and so forcefully around any barriers we've created, that it moves his diaper and he is constantly wet. We are changing clothes upwards of 5 times a day, and he never wakes up from nap or sleep dry.
+
+EXAMPLE 24:
+|Month|1|2|3|4|5|6|7|8|9|10|11|12|13|14|
+|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|
+|Oz served|765|906|884|1013|1058|1128|1132|1232|1140|858|836|745|611|396|
+|Cost|   $ 185|   $ 219|   $ 214|   $ 245|   $ 256|   $ 273|   $ 274|   $ 298|   $ 276|   $ 208|   $ 202|   $ 180|   $ 48|   $ 31|
+
+EXAMPLE 25:
+There are multiple apps on appstores that you can use to replicate it. Me and my wife used an app called 'Baby Tracker' by Nighp Software for iOS. Free version is absolutely enough, unless ads bother you or you need watch integration. Ads are not intrusive though and apple watch screen is too small to bother with in when you're in the middle of changing diapers anyway, so stick with free version.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

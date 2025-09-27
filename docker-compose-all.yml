@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   launchpad:
     image: python:3.9-slim
@@ -39,9 +41,8 @@ services:
     volumes:
       - ./launchpad:/app
     working_dir: /app
-    command: >
-      bash -c "pip install -r requirements.txt &&
-              python app.py"
+    command: >-
+      bash -c "pip install -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
 
@@ -51,7 +52,7 @@ services:
     ports:
       - "${AGENT_ORCHESTRATOR_PORT:-8500}:8500"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=8500
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
       - REDDIT_MCP_URL=http://reddit-mcp:8501
@@ -64,10 +65,8 @@ services:
     working_dir: /app
     container_name: agent
     hostname: agent
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python app.py"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
     depends_on:
@@ -88,10 +87,8 @@ services:
     volumes:
       - ./mcp-services/reddit-mcp:/app
     working_dir: /app
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python app.py"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
     depends_on:
@@ -108,10 +105,8 @@ services:
     volumes:
       - ./mcp-services/social-mcp:/app
     working_dir: /app
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python app.py"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
     depends_on:
@@ -129,11 +124,8 @@ services:
       - ./mcp-services/journey-mcp:/app
       - journey-uploads:/app/uploads
     working_dir: /app
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              mkdir -p uploads &&
-              python app.py"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && mkdir -p uploads && python app.py"
     networks:
       - nxt-humans-network
     depends_on:
@@ -151,11 +143,8 @@ services:
       - ./mcp-services/claude4-journey-mcp:/app
       - claude4-journey-uploads:/app/uploads
     working_dir: /app
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              mkdir -p uploads &&
-              python app.py"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && mkdir -p uploads && python app.py"
     networks:
       - nxt-humans-network
     depends_on:
@@ -168,21 +157,18 @@ services:
       - "${VIDEO_MCP_PORT:-8504}:8504"
     environment:
       - PORT=8504
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
     volumes:
       - ./mcp-services/video-mcp:/app
     working_dir: /app
-    command: >
-      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
-              pip install --no-cache-dir -r requirements.txt &&
-              uvicorn app:app --host 0.0.0.0 --port ${PORT:-8504}"
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port ${PORT:-8504}"
     networks:
       - nxt-humans-network
     depends_on:
       - video-analyzer
-
 
   journey-mapper:
     build:
@@ -191,7 +177,7 @@ services:
     ports:
       - "${JOURNEY_MAPPER_PORT:-8080}:8000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=8000
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
     networks:
@@ -204,7 +190,7 @@ services:
     ports:
       - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=8000
       - ANTHROPIC_MODEL=claude-sonnet-4-20250514
     volumes:
@@ -221,34 +207,34 @@ services:
     volumes:
       - ./internal-solutions-reddit-ripper:/app
     working_dir: /app
-    command: >
-      bash -c "pip install -r requirements.txt &&
-              python app.py"
+    command: >-
+      bash -c "pip install -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
 
   social-research-frontend:
     image: node:20-slim
     ports:
-      - "${SOCIAL_RESEARCH_PORT:-3000}:3000"
+      - "${SOCIAL_RESEARCH_PORT:-3000}:5173"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - PORT=3000
-      - VITE_API_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - VITE_API_BASE_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
+      - NODE_ENV=development
     volumes:
       - ./internal-solutions-socialresearch:/app
     working_dir: /app/frontend
-    command: >
-      bash -c "npm install &&
-              npm run dev -- --port=3000"
+    command: >-
+      bash -c "npm install && npm run dev -- --host 0.0.0.0 --port=5173"
     networks:
       - nxt-humans-network
     depends_on:
       - social-research-backend
     container_name: nxthumans_ai_cx_workbench-social-research-1
-  
+
   social-research-backend:
-    image: python:3.9-slim
+    build:
+      context: ./internal-solutions-socialresearch/backend
+      dockerfile: Dockerfile
     ports:
       - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
     environment:
@@ -272,23 +258,24 @@ services:
       - POSTGRES_PORT=5432
       - DATABASE_URL=postgresql://postgres:postgres@social-research-db:5432/app
       - FLASK_DEBUG=true
-
       # Amazon Market Intelligence integration
       - AMAZON_MARKET_INTELLIGENCE_URL=http://scrapehero-amazon:5000
     volumes:
-      - ./internal-solutions-socialresearch:/app
-    working_dir: /app/backend
-    command: >
-      bash -c "apt-get update && apt-get install -y build-essential libpq-dev git &&
-              pip install --no-cache-dir --upgrade pip &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python init_db.py &&
-              python -m run"
+      - ./internal-solutions-socialresearch/backend:/app
+    # Use the image's default WORKDIR and CMD (startup.py + gunicorn)
+    # working_dir and command intentionally omitted to rely on Dockerfile
     networks:
       - nxt-humans-network
     depends_on:
-      - social-research-db
-  
+      social-research-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import socket,sys; s=socket.socket(); s.settimeout(2); s.connect(('localhost',8081)); s.close(); sys.exit(0)\""]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 240s
+
   social-research-db:
     image: ankane/pgvector:v0.5.1
     environment:
@@ -299,22 +286,26 @@ services:
       - social-research-db-data:/var/lib/postgresql/data
     networks:
       - nxt-humans-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   video-analyzer:
     image: python:3.11-slim
     ports:
       - "${VIDEO_ANALYZER_PORT:-5002}:5000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5000
     volumes:
       - ./internal-solutions-video-analyzer:/app
     working_dir: /app
-    command: >
-      bash -c "apt-get update && apt-get install -y ffmpeg &&
-              pip install --no-cache-dir -r requirements.txt &&
-              python run.py"
+    command: >-
+      bash -c "apt-get update && apt-get install -y ffmpeg && pip install --no-cache-dir -r requirements.txt && python run.py"
     networks:
       - nxt-humans-network
 
@@ -325,8 +316,8 @@ services:
     ports:
       - "${LINKEDIN_GENERATOR_PORT:-5003}:5000"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5000
       - CLAUDE_MODEL=claude-3-7-sonnet-20250219
       - OPENAI_MODEL=gpt-4o
@@ -348,8 +339,8 @@ services:
     ports:
       - "${MIRO_GENERATOR_PORT:-5004}:5004"
     environment:
-      - MIRO_ACCESS_TOKEN=REDACTED
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - MIRO_ACCESS_TOKEN=${MIRO_ACCESS_TOKEN}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=5004
       - NODE_ENV=production
       - FLASK_ENV=production
@@ -368,7 +359,7 @@ services:
     ports:
       - "${IMAGE_CAPTIONER_PORT:-5005}:5005"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - PORT=5005
     volumes:
       - ./internal-solutions-image-captioner:/app
@@ -384,8 +375,8 @@ services:
     ports:
       - "${FLUX_LORA_STUDIO_PORT:-5006}:5006"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5006
       - IMAGE_CAPTIONER_URL=http://image-captioner:5005
     volumes:
@@ -406,8 +397,8 @@ services:
     ports:
       - "${PRESENTATION_GENERATOR_PORT:-5007}:5007"
     environment:
-      - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5007
     volumes:
       - ./internal-solutions-presentation-generator:/app
@@ -424,8 +415,8 @@ services:
     ports:
       - "${SOUNDTRACK_GENERATOR_PORT:-5009}:5009"
     environment:
-      - ELEVENLABS_API_KEY=REDACTED
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=5009
       - MAX_FILE_SIZE=524288000
       - DEFAULT_VOICE_ID=EXAVITQu4vr4xnSDxMaL
@@ -448,12 +439,15 @@ services:
       - FLASK_APP=app.py
       - FLASK_RUN_PORT=5000
       - FLASK_DEBUG=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./internal-solutions-scrapehero-amazon:/app
       - ./internal-solutions-scrapehero-amazon/static:/app/static
       - ./internal-solutions-scrapehero-amazon/templates:/app/templates
     working_dir: /app
-    command: flask run --host=0.0.0.0 --port=5000
+    command: bash -c "pip install anthropic google-generativeai openai python-dotenv && flask run --host=0.0.0.0 --port=5000"
     networks:
       - nxt-humans-network
 
@@ -475,8 +469,6 @@ services:
     working_dir: /app
     networks:
       - nxt-humans-network
-
-
 
 networks:
   nxt-humans-network:

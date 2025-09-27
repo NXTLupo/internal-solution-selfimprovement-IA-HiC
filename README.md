@@ -6,6 +6,10 @@ A comprehensive microservices platform for customer experience research and anal
 
 The NXT Humans Intelligence Augmentation platform is a complete ecosystem for customer experience analysis, combining data collection, advanced analytics, AI-powered journey mapping, content generation, and professional visualization tools with enterprise-grade security.
 
+## Docker Guide
+
+For setup, running, HTTPS, data volumes, and troubleshooting using Docker and Docker Compose, see `README-DOCKER.md`.
+
 ## 🚀 Latest Updates (January 2025)
 
 ### ✨ **New Claude Sonnet 4 Integration**

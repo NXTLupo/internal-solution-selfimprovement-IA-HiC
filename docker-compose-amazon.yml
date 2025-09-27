@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  scrapehero-amazon:
+    build:
+      context: ./internal-solutions-scrapehero-amazon
+      dockerfile: Dockerfile
+    ports:
+      - "5010:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_PORT=5000
+      - FLASK_DEBUG=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./internal-solutions-scrapehero-amazon:/app
+      - ./internal-solutions-scrapehero-amazon/static:/app/static
+      - ./internal-solutions-scrapehero-amazon/templates:/app/templates
+
+networks:
+  default:
+    name: nxt-humans_ai_cx_workbench_nxt-humans-network
+    external: true
