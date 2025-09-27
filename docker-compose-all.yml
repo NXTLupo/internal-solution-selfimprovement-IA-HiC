@@ -447,6 +447,7 @@ services:
       - ./internal-solutions-scrapehero-amazon:/app
       - ./internal-solutions-scrapehero-amazon/static:/app/static
       - ./internal-solutions-scrapehero-amazon/templates:/app/templates
+      - ./launchpad/static:/app/static/launchpad:ro
     working_dir: /app
     command: bash -c "pip install anthropic google-generativeai openai python-dotenv && flask run --host=0.0.0.0 --port=5000"
     networks:
