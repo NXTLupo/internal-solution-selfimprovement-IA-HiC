@@ -15,7 +15,10 @@
         <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
-                    <img src="{{ url_for('static', filename='nxt-humans-logo.svg') }}" alt="NXT HUMANS Logo" class="ia-logo-image">
+                    <img src="{{ url_for('static', filename='nxt-humans-logo.png') }}"
+                         alt="NXT HUMANS Logo"
+                         class="ia-logo-image"
+                         onerror="this.onerror=null; this.src='/static/launchpad/nxt-humans-logo.png'">
                 </div>
                 <div class="ia-text-section">
                     <span class="ia-introducing">Introducing</span>

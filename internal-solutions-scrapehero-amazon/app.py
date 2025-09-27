@@ -38,7 +38,7 @@ app.jinja_env.globals.update(url_for=url_for)
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Amazon Review Scraper</title>
+    <title>Amazon Review Collector</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -113,7 +113,7 @@ app.jinja_env.globals.update(url_for=url_for)
 </head>
 <body>
     <div class="container">
-        <h1>Amazon Review Scraper</h1>
+        <h1>Amazon Review Collector</h1>
         <form action="/api/scrape" method="get" id="scrapeForm">
             <div class="form-group">
                 <label for="url">Amazon Product URL:</label>

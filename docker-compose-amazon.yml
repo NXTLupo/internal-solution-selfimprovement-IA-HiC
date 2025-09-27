@@ -18,6 +18,7 @@ services:
       - ./internal-solutions-scrapehero-amazon:/app
       - ./internal-solutions-scrapehero-amazon/static:/app/static
       - ./internal-solutions-scrapehero-amazon/templates:/app/templates
+      - ./launchpad/static:/app/static/launchpad:ro
 
 networks:
   default:
