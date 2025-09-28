@@ -15,10 +15,10 @@
         <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
-                    <img src="{{ url_for('static', filename='nxt-humans-logo.png') }}"
+                    <img src="{{ url_for('static', filename='nxt-humans-logo.png') }}?v=2"
                          alt="NXT HUMANS Logo"
                          class="ia-logo-image"
-                         onerror="this.onerror=null; this.src='/static/launchpad/nxt-humans-logo.png'">
+                         onerror="fallbackLogo(this)">
                 </div>
                 <div class="ia-text-section">
                     <span class="ia-introducing">Introducing</span>
@@ -1574,3 +1574,17 @@
     <script src="{{ url_for("static", filename="fix-llm-analysis.js") }}"></script>
 </body>
 </html>
+<script>
+  // Progressive fallback for NXT HUMANS logo
+  function fallbackLogo(img) {
+    const sources = [
+      '/static/nxt-humans-logo.png',
+      '/static/launchpad/nxt-humans-logo.png',
+      'http://localhost:8000/static/nxt-humans-logo.png'
+    ];
+    const tried = parseInt(img.dataset.errIdx || '0', 10);
+    if (tried >= sources.length - 1) return;
+    img.dataset.errIdx = String(tried + 1);
+    img.src = sources[tried + 1] + '?t=' + Date.now();
+  }
+</script>
