@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/static/nxt-humans-styles.css">
   <link rel="stylesheet" href="/static/enhanced-components.css">
   <link rel="stylesheet" href="/static/nxt-header.css">
-  <link rel="icon" href="/static/nxt-humans-logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/nxt-humans-logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
@@ -285,7 +285,7 @@
     <div class="ia-container">
       <div class="ia-content">
         <div class="ia-logo-section">
-          <img src="/static/nxt-humans-logo.svg" alt="NXT HUMANS Logo" class="ia-logo-image">
+          <img src="/static/nxt-humans-logo.png?v=2" alt="NXT HUMANS Logo" class="ia-logo-image" onerror="fallbackLogo(this)">
         </div>
         <div class="ia-text-section">
           <div class="ia-introducing">Intelligence Augmentation</div>
@@ -394,7 +394,20 @@
   </footer>
 
   <!-- Preload key resources -->
-  <link rel="preload" href="/static/nxt-humans-logo.svg" as="image">
+  <link rel="preload" href="/static/nxt-humans-logo.png" as="image">
+  <script>
+    function fallbackLogo(img) {
+      const sources = [
+        '/static/nxt-humans-logo.png',
+        '/static/launchpad/nxt-humans-logo.png',
+        'http://localhost:8000/static/nxt-humans-logo.png'
+      ];
+      const tried = parseInt(img.dataset.errIdx || '0', 10);
+      if (tried >= sources.length - 1) return;
+      img.dataset.errIdx = String(tried + 1);
+      img.src = sources[tried + 1] + '?t=' + Date.now();
+    }
+  </script>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
   
   <script>
