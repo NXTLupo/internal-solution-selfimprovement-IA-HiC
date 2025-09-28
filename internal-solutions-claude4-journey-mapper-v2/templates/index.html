@@ -20,7 +20,7 @@
         <div class="ia-container has-thumbnail">
             <div class="ia-content">
                 <div class="ia-logo-section">
-                    <img src="/static/nxt-humans-logo.png?v=2" alt="NXT HUMANS Logo" class="ia-logo-image" onerror="fallbackLogo(this)">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
                 </div>
                 <div class="ia-text-section">
                     <div class="ia-introducing">Intelligence Augmentation</div>
@@ -42,19 +42,7 @@
     
     <!-- App GIF Controls -->
     <script src="/static/app-gif-controls.js"></script>
-    <script>
-      // Progressive fallback for NXT HUMANS logo (local -> mounted launchpad -> Launchpad HTTP)
-      function fallbackLogo(img) {
-        const sources = [
-          '/static/nxt-humans-logo.png',
-          '/static/launchpad/nxt-humans-logo.png',
-          'http://localhost:8000/static/nxt-humans-logo.png'
-        ];
-        const tried = parseInt(img.dataset.errIdx || '0', 10);
-        if (tried >= sources.length - 1) return;
-        img.dataset.errIdx = String(tried + 1);
-        img.src = sources[tried + 1] + '?t=' + Date.now();
-      }
-    </script>
 </body>
 </html>
+
+
