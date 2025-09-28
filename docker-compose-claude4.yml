@@ -12,6 +12,7 @@ services:
       - ANTHROPIC_MODEL=anthropic.claude-sonnet-4-20250514-v1:0
     volumes:
       - ./internal-solutions-claude4-journey-mapper:/app
+      - ./launchpad/static:/app/static/launchpad:ro
     working_dir: /app
     command: >
       bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&

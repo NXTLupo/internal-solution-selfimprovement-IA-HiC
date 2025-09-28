@@ -195,6 +195,7 @@ services:
       - ANTHROPIC_MODEL=claude-sonnet-4-20250514
     volumes:
       - ./internal-solutions-claude4-journey-mapper-v2/static:/app/static
+      - ./launchpad/static:/app/static/launchpad:ro
     networks:
       - nxt-humans-network
 
