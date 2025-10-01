@@ -8,11 +8,9 @@
   <link rel="stylesheet" href="/static/enhanced-components.css">
   <link rel="stylesheet" href="/static/nxt-header.css">
   <link rel="stylesheet" href="/static/app-header-thumbnails.css">
-  <!-- Favicon declarations in proper order -->
+  <!-- Favicon declarations -->
   <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/svg+xml" href="/static/reddit-favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/static/reddit-favicon.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
@@ -26,7 +24,6 @@
       overflow-x: hidden;
     }
 
-    /* Intelligence Augmentation Header */
     .intelligence-augmentation-header {
       background: #000000;
       height: 240px;
@@ -132,12 +129,79 @@
       color: transparent;
     }
 
-    /* Force ALL text to be white */
-    * {
-      color: #ffffff !important;
+    /* Source selector styles */
+    .source-selector {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+    .source-option {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(20, 20, 20, 0.7) 100%);
+      text-align: center;
+    }
+
+    .source-option:hover {
+      border-color: rgba(37, 99, 235, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .source-option.active {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
+      border-color: rgba(59, 130, 246, 1);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .source-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .source-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .source-description {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Dynamic form fields */
+    .dynamic-fields {
+      transition: all 0.3s ease;
+    }
+
+    .field-transition {
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    * {
       color: #ffffff !important;
     }
 
@@ -148,8 +212,6 @@
       margin: 1.25rem 0;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
 
     .progress-bar {
@@ -164,7 +226,6 @@
       color: white;
       font-size: 0.875rem;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
     }
 
     .download-list {
@@ -178,11 +239,8 @@
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
       border-radius: 0.5rem;
       margin-bottom: 0.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .download-item:hover {
@@ -202,14 +260,15 @@
       color: rgba(255, 255, 255, 0.9);
     }
 
-    .time-filter-grid {
+    .time-filter-grid,
+    .sort-filter-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 0.5rem;
       margin-bottom: 1.25rem;
     }
 
-    .time-filter-option {
+    .filter-option {
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 0.375rem;
       padding: 0.625rem;
@@ -218,22 +277,18 @@
       transition: all 0.2s ease;
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
       color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
 
-    .time-filter-option:hover {
+    .filter-option:hover {
       border-color: rgba(37, 99, 235, 0.3);
       background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.15) 100%);
       transform: translateY(-2px);
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
     }
 
-    .time-filter-option.active {
+    .filter-option.active {
       background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
       color: white;
       border-color: rgba(37, 99, 235, 0.5);
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
     }
 
     #results-panel {
@@ -241,7 +296,7 @@
     }
 
     #error-message {
-      color: #60a5fa;
+      color: #ff6b6b;
       font-weight: 600;
       padding: 1rem;
       background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
@@ -249,8 +304,6 @@
       margin-bottom: 1rem;
       display: none;
       border: 1px solid rgba(231, 76, 60, 0.3);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
 
     .instructions-card {
@@ -260,36 +313,6 @@
       padding: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .instructions-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .instructions-card h2 {
-      color: #FFFFFF;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    .instructions-card p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 1rem;
-    }
-
-    .instructions-card ol {
-      padding-left: 2rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .instructions-card li {
-      margin-bottom: 0.75rem;
     }
 
     .nxt-card {
@@ -297,17 +320,8 @@
       border-radius: 0.75rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .nxt-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
-      border-color: rgba(255, 255, 255, 0.15);
     }
 
     .nxt-card-title {
@@ -315,11 +329,6 @@
       font-weight: 600;
       margin-bottom: 1rem;
       color: #FFFFFF;
-    }
-
-    .nxt-card-body {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 1rem;
     }
 
     .nxt-form-group {
@@ -340,9 +349,7 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 0.375rem;
       color: #FFFFFF;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      transition: border-color 0.2s ease;
     }
 
     .nxt-form-control:focus {
@@ -362,8 +369,6 @@
       transition: all 0.2s ease;
       outline: none;
       border: none;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
 
     .nxt-btn-primary {
@@ -377,16 +382,11 @@
       background: linear-gradient(135deg, rgba(37, 99, 235, 1) 0%, rgba(59, 130, 246, 1) 100%);
       box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
       transform: translateY(-3px);
-      border-color: rgba(37, 99, 235, 0.5);
     }
 
     .nxt-btn-block {
       display: block;
       width: 100%;
-    }
-
-    .text-grey {
-      color: rgba(255, 255, 255, 0.6);
     }
 
     .container {
@@ -397,6 +397,10 @@
 
     .mt-5 {
       margin-top: 2rem;
+    }
+
+    .text-grey {
+      color: rgba(255, 255, 255, 0.6);
     }
   </style>
 </head>
@@ -410,196 +414,263 @@
         <div class="ia-text-section">
           <div class="ia-introducing">Intelligence Augmentation</div>
           <div class="ia-main-text">
-            <div class="ia-intelligence">Reddit Data</div>
+            <div class="ia-intelligence">Social Data</div>
             <div class="ia-augmentation">Collector</div>
           </div>
         </div>
       </div>
-      <div class="ia-thumbnail-section">
-        <img src="/static/Reddit_Data_Collector.gif" alt="Social Data Collector Demo" class="ia-app-thumbnail" />
-        <div class="ia-thumbnail-label">Live Demo</div>
-      </div>
     </div>
   </header>
-  
+
   <div class="container mt-5">
     <div class="nxt-card instructions-card">
-      <h2 class="nxt-card-title">How It Works</h2>
-      <p>This tool collects Reddit posts and comments from specified subreddits and saves them as PDF files for further analysis:</p>
-      <ol>
-        <li>Enter a subreddit name (without the "r/" prefix)</li>
-        <li>Specify how many posts to collect (maximum recommended: 1000)</li>
-        <li>Select the time filter (past day, week, month, year, or all time)</li>
-        <li>Choose how many comments to include for each post</li>
-        <li>Click "Start Collection" and wait for the process to complete</li>
-        <li>Download the generated PDF files</li>
-      </ol>
+      <h2 class="nxt-card-title">Multi-Source Data Collection</h2>
+      <p>Collect and analyze data from multiple social platforms:</p>
+      <ul>
+        <li><strong>Reddit:</strong> Gather posts and comments from subreddit communities</li>
+        <li><strong>TrustPilot:</strong> Extract company reviews and ratings for reputation analysis</li>
+      </ul>
+      <p>Select your data source below, configure parameters, and download results in PDF or JSON format.</p>
     </div>
-    
+
     <div class="nxt-card" id="form-panel">
-      <h2 class="nxt-card-title">Social Data Collection</h2>
-      <p class="nxt-card-body">Enter a subreddit name and collection parameters to begin harvesting posts and comments for analysis.</p>
-      
-      <form id="scrape-form">
-        <div class="nxt-form-group">
-          <label class="nxt-form-label" for="subreddit">Subreddit Name</label>
-          <input type="text" class="nxt-form-control" id="subreddit" placeholder="Enter subreddit name (without r/)" required>
+      <h2 class="nxt-card-title">Configure Data Collection</h2>
+
+      <!-- Source Selector -->
+      <div class="source-selector">
+        <div class="source-option active" data-source="reddit">
+          <span class="source-icon">🔥</span>
+          <div class="source-label">Reddit</div>
+          <div class="source-description">Community discussions & posts</div>
         </div>
-        
-        <div class="nxt-form-group">
-          <label class="nxt-form-label" for="post-count">Number of Posts</label>
-          <input type="number" class="nxt-form-control" id="post-count" value="100" min="10" max="1000">
-          <small class="text-grey">Recommended maximum: 1000 posts</small>
+        <div class="source-option" data-source="trustpilot">
+          <span class="source-icon">⭐</span>
+          <div class="source-label">TrustPilot</div>
+          <div class="source-description">Company reviews & ratings</div>
         </div>
-        
-        <div class="nxt-form-group">
-          <label class="nxt-form-label">Time Filter</label>
-          <div class="time-filter-grid">
-            <div class="time-filter-option" data-value="day">Past Day</div>
-            <div class="time-filter-option" data-value="week">Past Week</div>
-            <div class="time-filter-option" data-value="month">Past Month</div>
-            <div class="time-filter-option active" data-value="year">Past Year</div>
-            <div class="time-filter-option" data-value="all">All Time</div>
+      </div>
+
+      <form id="collection-form">
+        <div id="dynamic-fields" class="dynamic-fields">
+          <!-- Reddit fields (default) -->
+          <div id="reddit-fields" class="source-fields">
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="reddit-target">Subreddit Name</label>
+              <input type="text" class="nxt-form-control" id="reddit-target" placeholder="Enter subreddit name (without r/)">
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="reddit-count">Number of Posts</label>
+              <input type="number" class="nxt-form-control" id="reddit-count" value="100" min="10" max="1000">
+              <small class="text-grey">Maximum: 1000 posts</small>
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label">Time Filter</label>
+              <div class="time-filter-grid">
+                <div class="filter-option" data-value="day">Past Day</div>
+                <div class="filter-option" data-value="week">Past Week</div>
+                <div class="filter-option" data-value="month">Past Month</div>
+                <div class="filter-option active" data-value="year">Past Year</div>
+                <div class="filter-option" data-value="all">All Time</div>
+              </div>
+              <input type="hidden" id="reddit-time-filter" value="year">
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="reddit-comments">Comments Per Post</label>
+              <input type="number" class="nxt-form-control" id="reddit-comments" value="5" min="0" max="50">
+            </div>
           </div>
-          <input type="hidden" id="time-filter" value="year">
+
+          <!-- TrustPilot fields (hidden by default) -->
+          <div id="trustpilot-fields" class="source-fields" style="display: none;">
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="trustpilot-target">Company URL or Name</label>
+              <input type="text" class="nxt-form-control" id="trustpilot-target" placeholder="e.g., amazon.com or https://trustpilot.com/review/amazon.com">
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="trustpilot-count">Number of Reviews</label>
+              <input type="number" class="nxt-form-control" id="trustpilot-count" value="100" min="10" max="1000">
+              <small class="text-grey">Maximum: 1000 reviews</small>
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label">Sort By</label>
+              <div class="sort-filter-grid">
+                <div class="filter-option active" data-sort="recency">Most Recent</div>
+                <div class="filter-option" data-sort="rating">By Rating</div>
+              </div>
+              <input type="hidden" id="trustpilot-sort" value="recency">
+            </div>
+
+            <div class="nxt-form-group">
+              <label class="nxt-form-label" for="trustpilot-min-rating">Minimum Rating</label>
+              <select class="nxt-form-control" id="trustpilot-min-rating">
+                <option value="1">All Ratings</option>
+                <option value="2">2+ Stars</option>
+                <option value="3">3+ Stars</option>
+                <option value="4">4+ Stars</option>
+                <option value="5">5 Stars Only</option>
+              </select>
+            </div>
+          </div>
         </div>
-        
-        <div class="nxt-form-group">
-          <label class="nxt-form-label" for="comments-per-post">Comments Per Post</label>
-          <input type="number" class="nxt-form-control" id="comments-per-post" value="5" min="0" max="50">
-        </div>
-        
+
         <div id="error-message"></div>
-        
-        <button type="submit" class="nxt-btn nxt-btn-primary nxt-btn-block">Start Collection</button>
+
+        <button type="submit" class="nxt-btn nxt-btn-primary nxt-btn-block">
+          <i class="fas fa-play-circle" style="margin-right: 0.5rem;"></i>
+          Start Collection
+        </button>
       </form>
     </div>
-    
+
     <div class="nxt-card" id="results-panel">
       <h2 class="nxt-card-title">Collection Progress</h2>
-      <p id="status-message">Collecting data from r/<span id="subreddit-name"></span>...</p>
-      
+      <p id="status-message">Collecting data...</p>
+
       <div class="progress-container">
         <div class="progress-bar" id="progress-bar">0%</div>
       </div>
-      
-      <p class="text-grey" id="progress-details">Processed 0 of 0 posts</p>
-      
+
+      <p class="text-grey" id="progress-details">Processing...</p>
+
       <div class="download-list" id="download-list">
         <!-- Downloads will appear here -->
       </div>
+
+      <button id="new-collection-btn" class="nxt-btn nxt-btn-primary" style="display: none; margin-top: 1rem;">
+        <i class="fas fa-plus-circle" style="margin-right: 0.5rem;"></i>
+        New Collection
+      </button>
     </div>
   </div>
-  
-  <footer class="nxt-footer">
-    <div class="container">
-      <div class="nxt-footer-content">
-        <div class="nxt-footer-text">
-          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <!-- Enhanced animations and interactions script -->
-  <script src="/static/enhanced-animations.js"></script>
-
-  <!-- Preload key resources -->
-  <link rel="preload" href="/static/nxt-humans-logo.png" as="image">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-  
   <script>
     // DOM elements
-    const scrapeForm = document.getElementById('scrape-form');
+    const collectionForm = document.getElementById('collection-form');
     const formPanel = document.getElementById('form-panel');
     const resultsPanel = document.getElementById('results-panel');
-    const subredditInput = document.getElementById('subreddit');
-    const postCountInput = document.getElementById('post-count');
-    const commentsPerPostInput = document.getElementById('comments-per-post');
-    const timeFilterInput = document.getElementById('time-filter');
-    const timeFilterOptions = document.querySelectorAll('.time-filter-option');
     const errorMessage = document.getElementById('error-message');
     const progressBar = document.getElementById('progress-bar');
     const progressDetails = document.getElementById('progress-details');
-    const subredditName = document.getElementById('subreddit-name');
     const statusMessage = document.getElementById('status-message');
     const downloadList = document.getElementById('download-list');
-    
-    // Current job details
+    const newCollectionBtn = document.getElementById('new-collection-btn');
+
+    // Source selection
+    const sourceOptions = document.querySelectorAll('.source-option');
+    let currentSource = 'reddit';
+
+    // Job tracking
     let currentJobId = null;
     let statusCheckInterval = null;
-    
-    // Event listeners
-    timeFilterOptions.forEach(option => {
+
+    // Source switching
+    sourceOptions.forEach(option => {
       option.addEventListener('click', function() {
-        // Remove active class from all options
-        timeFilterOptions.forEach(opt => opt.classList.remove('active'));
-        
-        // Add active class to clicked option
+        // Update active state
+        sourceOptions.forEach(opt => opt.classList.remove('active'));
         this.classList.add('active');
-        
-        // Update hidden input value
-        timeFilterInput.value = this.dataset.value;
+
+        // Get selected source
+        currentSource = this.dataset.source;
+
+        // Show/hide appropriate fields with animation
+        document.querySelectorAll('.source-fields').forEach(fields => {
+          fields.style.display = 'none';
+        });
+
+        const fieldsToShow = document.getElementById(`${currentSource}-fields`);
+        if (fieldsToShow) {
+          fieldsToShow.style.display = 'block';
+          fieldsToShow.classList.add('field-transition');
+        }
       });
     });
-    
-    scrapeForm.addEventListener('submit', async function(e) {
+
+    // Filter options for Reddit
+    const timeFilterOptions = document.querySelectorAll('.time-filter-grid .filter-option');
+    timeFilterOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        timeFilterOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById('reddit-time-filter').value = this.dataset.value;
+      });
+    });
+
+    // Sort options for TrustPilot
+    const sortFilterOptions = document.querySelectorAll('.sort-filter-grid .filter-option');
+    sortFilterOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        sortFilterOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById('trustpilot-sort').value = this.dataset.sort;
+      });
+    });
+
+    // Form submission
+    collectionForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      
-      // Validate inputs
-      const subreddit = subredditInput.value.trim();
-      const postCount = parseInt(postCountInput.value);
-      const commentsPerPost = parseInt(commentsPerPostInput.value);
-      const timeFilter = timeFilterInput.value;
-      
-      if (!subreddit) {
-        showError('Please enter a subreddit name');
-        return;
+
+      // Build request data based on source
+      let requestData = {
+        source: currentSource
+      };
+
+      if (currentSource === 'reddit') {
+        requestData.target = document.getElementById('reddit-target').value.trim();
+        requestData.count = parseInt(document.getElementById('reddit-count').value);
+        requestData.time_filter = document.getElementById('reddit-time-filter').value;
+        requestData.comments_per_post = parseInt(document.getElementById('reddit-comments').value);
+
+        if (!requestData.target) {
+          showError('Please enter a subreddit name');
+          return;
+        }
+      } else if (currentSource === 'trustpilot') {
+        requestData.target = document.getElementById('trustpilot-target').value.trim();
+        requestData.count = parseInt(document.getElementById('trustpilot-count').value);
+        requestData.sort_by = document.getElementById('trustpilot-sort').value;
+        requestData.min_rating = parseInt(document.getElementById('trustpilot-min-rating').value);
+
+        if (!requestData.target) {
+          showError('Please enter a company name or URL');
+          return;
+        }
       }
-      
-      if (isNaN(postCount) || postCount < 10 || postCount > 1000) {
-        showError('Post count must be between 10 and 1000');
-        return;
-      }
-      
-      if (isNaN(commentsPerPost) || commentsPerPost < 0 || commentsPerPost > 50) {
-        showError('Comments per post must be between 0 and 50');
-        return;
-      }
-      
+
       // Hide error message
       errorMessage.style.display = 'none';
-      
+
       try {
-        // Make API request to start scraping
-        const response = await fetch('/api/scrape', {
+        // Start collection
+        const response = await fetch('/api/collect', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
-            subreddit,
-            post_count: postCount,
-            time_filter: timeFilter,
-            comments_per_post: commentsPerPost
-          })
+          body: JSON.stringify(requestData)
         });
-        
+
         const data = await response.json();
-        
+
         if (response.ok) {
           // Show results panel
           formPanel.style.display = 'none';
           resultsPanel.style.display = 'block';
-          
+
           // Update UI
-          subredditName.textContent = subreddit;
+          statusMessage.textContent = `Collecting ${currentSource} data from ${requestData.target}...`;
           progressBar.style.width = '0%';
           progressBar.textContent = '0%';
-          progressDetails.textContent = `Processed 0 of ${postCount} posts`;
+          progressDetails.textContent = `Processing...`;
           downloadList.innerHTML = '';
-          
-          // Start checking status
+          newCollectionBtn.style.display = 'none';
+
+          // Start status checking
           currentJobId = data.job_id;
           statusCheckInterval = setInterval(checkStatus, 2000);
         } else {
@@ -610,84 +681,103 @@
         console.error(error);
       }
     });
-    
+
     async function checkStatus() {
       if (!currentJobId) return;
-      
+
       try {
         const response = await fetch(`/api/status/${currentJobId}`);
         const data = await response.json();
-        
+
         if (!response.ok) {
           clearInterval(statusCheckInterval);
-          showError('Error checking status: ' + (data.error || 'Unknown error'));
+          showError('Error checking status');
           return;
         }
-        
+
         // Update progress
-        const progress = data.progress;
-        const total = data.total;
-        const percentage = Math.round((progress / total) * 100);
-        
-        progressBar.style.width = `${percentage}%`;
-        progressBar.textContent = `${percentage}%`;
-        progressDetails.textContent = `Processed ${progress} of ${total} posts`;
-        
-        // Update status message
+        const progress = data.progress || 0;
+        const total = data.total || 100;
+        const collected = data.collected || 0;
+
+        progressBar.style.width = `${progress}%`;
+        progressBar.textContent = `${progress}%`;
+        progressDetails.textContent = `Processed ${collected} of ${total} items`;
+
+        // Handle completion
         if (data.status === 'completed') {
-          statusMessage.textContent = `Collection complete! ${data.files.length} files generated.`;
+          statusMessage.textContent = `Collection complete! ${data.files ? data.files.length : 0} files generated.`;
           clearInterval(statusCheckInterval);
+          newCollectionBtn.style.display = 'inline-flex';
         } else if (data.status === 'error') {
           statusMessage.textContent = `Error: ${data.error || 'Unknown error'}`;
           clearInterval(statusCheckInterval);
+          newCollectionBtn.style.display = 'inline-flex';
         }
-        
+
         // Update download list
-        updateDownloadList(data.files);
-        
+        if (data.files && data.files.length > 0) {
+          updateDownloadList(data.files);
+        }
+
       } catch (error) {
         console.error('Error checking status:', error);
       }
     }
-    
+
     function updateDownloadList(files) {
-      if (!files || files.length === 0) return;
-      
       downloadList.innerHTML = '';
-      
+
       files.forEach(file => {
         const downloadItem = document.createElement('div');
         downloadItem.className = 'download-item';
-        
-        const downloadIcon = document.createElement('div');
-        downloadIcon.className = 'download-icon';
-        downloadIcon.innerHTML = '📄';
-        
-        const downloadName = document.createElement('div');
-        downloadName.className = 'download-name';
-        downloadName.textContent = file;
-        
-        const downloadButton = document.createElement('a');
-        downloadButton.className = 'nxt-btn nxt-btn-primary nxt-btn-sm';
-        downloadButton.textContent = 'Download';
-        downloadButton.href = `/api/download/${currentJobId}/${file}`;
-        downloadButton.setAttribute('download', true);
-        
-        downloadItem.appendChild(downloadIcon);
-        downloadItem.appendChild(downloadName);
-        downloadItem.appendChild(downloadButton);
-        
+
+        const icon = file.endsWith('.json') ? '📊' : '📄';
+        const fileType = file.endsWith('.json') ? 'JSON Data' : 'PDF Report';
+
+        downloadItem.innerHTML = `
+          <div class="download-icon">${icon}</div>
+          <div class="download-name">
+            <div>${file}</div>
+            <small class="text-grey">${fileType}</small>
+          </div>
+          <a href="/api/download/${currentJobId}/${file}"
+             class="nxt-btn nxt-btn-primary"
+             download>
+            <i class="fas fa-download"></i> Download
+          </a>
+        `;
+
         downloadList.appendChild(downloadItem);
       });
     }
-    
+
     function showError(message) {
       errorMessage.textContent = message;
       errorMessage.style.display = 'block';
     }
+
+    // New collection button
+    newCollectionBtn.addEventListener('click', function() {
+      formPanel.style.display = 'block';
+      resultsPanel.style.display = 'none';
+      currentJobId = null;
+      collectionForm.reset();
+    });
+
+    // Load available sources on page load
+    async function loadSources() {
+      try {
+        const response = await fetch('/api/sources');
+        const data = await response.json();
+        console.log('Available sources:', data.sources);
+      } catch (error) {
+        console.error('Error loading sources:', error);
+      }
+    }
+
+    // Initialize
+    loadSources();
   </script>
-  
-  <!-- App GIF Controls -->
-  <script src="/static/app-gif-controls.js"></script>
 </body>
 </html>

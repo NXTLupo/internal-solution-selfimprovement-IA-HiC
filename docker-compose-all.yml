@@ -209,7 +209,7 @@ services:
       - ./internal-solutions-reddit-ripper:/app
     working_dir: /app
     command: >-
-      bash -c "pip install -r requirements.txt && python app.py"
+      bash -c "pip install -r requirements.txt && python app_unified.py"
     networks:
       - nxt-humans-network
 
