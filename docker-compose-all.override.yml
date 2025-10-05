@@ -13,6 +13,7 @@ services:
 
   social-research-backend:
     environment:
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
 
   journey-mapper:
     environment:

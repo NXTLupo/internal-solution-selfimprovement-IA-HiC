@@ -217,10 +217,10 @@ def query_pgvector(subreddit: str, query: str, top_k: int = 25):
 
         result = db.execute(
             text("""
-                SELECT e.id, e.post_id, e.subreddit, 
+                SELECT e.id, e.post_id, e.subreddit,
                        e.embedding <=> CAST(:query_embedding AS vector) AS distance
                 FROM reddit_embeddings e
-                WHERE e.subreddit = :subreddit
+                WHERE LOWER(e.subreddit) = LOWER(:subreddit)
                 ORDER BY distance
                 LIMIT :top_k
             """),

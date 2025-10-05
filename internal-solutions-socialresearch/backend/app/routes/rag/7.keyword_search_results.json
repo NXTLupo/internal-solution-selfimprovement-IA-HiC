@@ -1,13 +1,18 @@
 {
   "keywords": [
-    "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.'",
+    "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
+    "to use 'response_format' of type 'json_object'.'",
     "'type': 'invalid_request_error'",
-    "'param': None",
-    "'code': 'invalid_api_key'}}\"}"
+    "'param': 'messages'",
+    "'code': None}}\"}"
   ],
   "keyword_post_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.",
+      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
+      "post_ids": []
+    },
+    {
+      "keyword": "to use 'response_format' of type 'json_object'.",
       "post_ids": []
     },
     {
@@ -15,17 +20,22 @@
       "post_ids": []
     },
     {
-      "keyword": "param': None",
+      "keyword": "param': 'messages",
       "post_ids": []
     },
     {
-      "keyword": "code': 'invalid_api_key'}}\"}",
+      "keyword": "code': None}}\"}",
       "post_ids": []
     }
   ],
   "keyword_comment_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.",
+      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
+      "comment_ids": [],
+      "post_ids": []
+    },
+    {
+      "keyword": "to use 'response_format' of type 'json_object'.",
       "comment_ids": [],
       "post_ids": []
     },
@@ -35,12 +45,12 @@
       "post_ids": []
     },
     {
-      "keyword": "param': None",
+      "keyword": "param': 'messages",
       "comment_ids": [],
       "post_ids": []
     },
     {
-      "keyword": "code': 'invalid_api_key'}}\"}",
+      "keyword": "code': None}}\"}",
       "comment_ids": [],
       "post_ids": []
     }
