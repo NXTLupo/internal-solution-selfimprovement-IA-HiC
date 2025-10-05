@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 import os
+from pathlib import Path
 
-# Force set the environment variables
-os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
-os.environ['USE_WHISPER_API'] = 'true'
+# Load API key from root .env file
+if not os.environ.get('OPENAI_API_KEY'):
+    root_dir = Path(__file__).parent.parent
+    root_env_file = root_dir / ".env"
 
-# Update the app.py file to hardcode the API key
-app_py_path = '/app/src/app.py'
+    if root_env_file.exists():
+        with open(root_env_file, "r") as f:
+            for line in f:
+                if line.strip() and "=" in line and not line.startswith("#"):
+                    key, value = line.strip().split("=", 1)
+                    if key == "OPENAI_API_KEY":
+                        os.environ[key] = value
+                        print(f"inject_env.py: Loaded OPENAI_API_KEY from root .env")
+                        break
+    else:
+        print(f"WARNING: Root .env file not found at {root_env_file}")
 
-with open(app_py_path, 'r') as f:
-    content = f.read()
+# Set default for USE_WHISPER_API
+if not os.environ.get('USE_WHISPER_API'):
+    os.environ['USE_WHISPER_API'] = 'true'
 
-# Modify the file to hardcode the API key at the top
-modified_content = content.replace(
-    "# OpenAI API key (should be set as environment variable in production)",
-    "# OpenAI API key (should be set as environment variable in production)\nOPENAI_API_KEY = '***REDACTED-OPENAI-KEY***'\n\n# Force set API key in environment as well for compatibility with other modules\nos.environ['OPENAI_API_KEY'] = OPENAI_API_KEY\nos.environ['USE_WHISPER_API'] = 'true'"
-)
-
-# Write the modified content back
-with open(app_py_path, 'w') as f:
-    f.write(modified_content)
-
-print("Successfully updated app.py with hardcoded API key")
+print(f"inject_env.py: OPENAI_API_KEY is {'set' if os.environ.get('OPENAI_API_KEY') else 'NOT set'}")
+print(f"inject_env.py: USE_WHISPER_API = {os.environ.get('USE_WHISPER_API')}")

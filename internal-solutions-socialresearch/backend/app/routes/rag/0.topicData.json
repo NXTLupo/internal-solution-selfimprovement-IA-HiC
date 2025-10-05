@@ -1,83 +1,32 @@
 {
   "positive": [
     {
-      "id": 11,
-      "one_sentence_summary": "Parents discuss comprehensive strategies for managing children's school clothing including wardrobe planning, seasonal needs, organization methods, labeling decisions, and storage solutions.",
-      "short_summary": "Children's clothing management"
+      "id": 2,
+      "one_sentence_summary": "Medical professionals discuss specialty training choices and career transitions for establishing direct primary care practices, comparing family medicine and medicine-pediatrics pathways.",
+      "short_summary": "DPC specialty selection"
+    },
+    {
+      "id": 1,
+      "one_sentence_summary": "Discussions focus on medical practice transitions, acquisitions, and employment opportunities, particularly involving Direct Primary Care models and independent practice ownership alternatives to corporate healthcare systems.",
+      "short_summary": "Medical practice transitions"
     }
   ],
   "neutral": [
     {
       "id": 0,
-      "one_sentence_summary": "Parents discuss the challenges of finding properly fitting, affordable, and age-appropriate clothing for their growing children while balancing budget constraints, style preferences, and various occasion requirements.",
-      "short_summary": "Children's clothing challenges"
-    },
-    {
-      "id": 5,
-      "one_sentence_summary": "Parents discuss managing limited finances while purchasing children's clothing and dealing with kids' awareness of economic disparities compared to their peers.",
-      "short_summary": "Family financial clothing struggles"
+      "one_sentence_summary": "Healthcare providers discuss Direct Primary Care models and alternative practice structures that eliminate insurance billing to create more autonomous, patient-focused medical practices.",
+      "short_summary": "DPC practice models"
     },
     {
       "id": 3,
-      "one_sentence_summary": "Parents discuss comprehensive cost tracking and practical management strategies for baby care expenses including diapers, formula, and associated childcare challenges during early development.",
-      "short_summary": "Baby care costs"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Parents discuss strategies for teaching children household responsibility through chores and room cleaning while addressing common challenges with maintaining organized living spaces.",
-      "short_summary": "Children's household chores"
-    },
-    {
-      "id": 10,
-      "one_sentence_summary": "Parents discuss strategies for carrying essential items and clothes when traveling or preparing for emergencies with infants and toddlers.",
-      "short_summary": "Parenting preparedness essentials"
-    },
-    {
-      "id": 12,
-      "one_sentence_summary": "Parents discuss strategies and challenges for selecting birthday and Christmas gifts for children, particularly managing early shopping while dealing with rapidly changing interests and age-appropriate present selection.",
-      "short_summary": "Children's gift planning"
-    }
-  ],
-  "negative": [
-    {
-      "id": 1,
-      "one_sentence_summary": "Parents discuss the overwhelming daily challenges of managing childcare routines including feeding, clothing, and caring for children while struggling to find quality time for meaningful family interactions.",
-      "short_summary": "Daily parenting struggles"
-    },
-    {
-      "id": 2,
-      "one_sentence_summary": "Parents discuss children's clothing refusal behaviors, sensory sensitivities with garments, and early body image concerns that impact daily routines and activities.",
-      "short_summary": "Children's clothing challenges"
+      "one_sentence_summary": "Healthcare professionals discuss career opportunities, practice models, and professional pathways in addiction medicine, particularly its integration with primary care and family medicine practices.",
+      "short_summary": "Addiction medicine careers"
     },
     {
       "id": 4,
-      "one_sentence_summary": "Discussions focus on complex family dynamics involving stepmothers, foster care arrangements, and parenting challenges with troubled teenagers from unstable backgrounds.",
-      "short_summary": "Blended family parenting"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Parents discuss strategies for managing overwhelming daily laundry loads and share techniques for reducing the frequency of washing clothes while maintaining household cleanliness standards.",
-      "short_summary": "Daily laundry management"
-    },
-    {
-      "id": 8,
-      "one_sentence_summary": "Parents discuss strategies and challenges related to managing morning routines and getting children ready for school or daycare on time.",
-      "short_summary": "Morning school routines"
-    },
-    {
-      "id": 9,
-      "one_sentence_summary": "Parents discuss managing children's behavioral challenges involving anger outbursts, clothing resistance, and throwing behaviors during daily routines and school transitions.",
-      "short_summary": "Childhood behavioral challenges"
-    },
-    {
-      "id": 13,
-      "one_sentence_summary": "Parents discuss ongoing struggles with children, particularly adolescent boys, who resist basic hygiene practices like showering, using deodorant, and wearing clean clothes despite persistent parental efforts.",
-      "short_summary": "Teen hygiene struggles"
-    },
-    {
-      "id": 14,
-      "one_sentence_summary": "Parents discuss challenging child behaviors including excessive talking, meanness toward family members, defiant attitudes, and difficulty listening or following instructions at home.",
-      "short_summary": "Challenging child behaviors"
+      "one_sentence_summary": "Physicians discuss navigating non-compete restrictions while exploring alternative practice models like Direct Primary Care and weighing career transitions between different medical specialties and geographic locations.",
+      "short_summary": "Physician career transitions"
     }
-  ]
+  ],
+  "negative": []
 }

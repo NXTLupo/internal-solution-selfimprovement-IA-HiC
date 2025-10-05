@@ -20,7 +20,7 @@ from ..models import TranscriptionResult, TranscriptSegment
 logger = logging.getLogger("video-analyzer.openai_whisper_api")
 
 # Force set API key in this module
-os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
+# API key loaded from root .env file by load_env.py
 os.environ['USE_WHISPER_API'] = 'true'
 
 # Get OpenAI API key from environment

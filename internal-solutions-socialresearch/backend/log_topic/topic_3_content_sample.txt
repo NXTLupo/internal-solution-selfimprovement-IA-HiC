@@ -1,13 +1,13 @@
 Topic 3 - Content Sample
 Number of content items: 25
-Top words: diapers, baby, pee, milk, cost, 14, months
+Top words: addiction, abertheham, practice, primary, user3, fm, job
 
-Content 1 (length: 235 chars):
-Between formula, milk, and diapers, it all comes down to about $3812 for the first 14 months. That does not include wipes, diaper cream, lotions, body wash, clothes, any other foods like purees, finger foods, and a lot of other things.
+Content 1 (length: 234 chars):
+I’m about to start my first big boy job in a primary clinic doing mostly FM but taking referrals for addiction treatment. Depending on demand that may expand to have dedicated addiction days, e-consults, or an addiction-only practice.
 
-Content 2 (length: 183 chars):
-Please remember this is just one data point for one baby on one type of milk and one kind of diapers. The cost of diapers can easily double if you go for something fancy like Coterie.
+Content 2 (length: 165 chars):
+Bit harder for peds or IM because addiction knows no boundaries. With an FM primary, you can manage addiction in everyone from pregnancy/neonatal through geriatrics.
 
-Content 3 (length: 200 chars):
-[Diaper cost by month](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-7w5rvvuiy9ff1.png?width=640&crop=smart&auto=webp&s=ac6d12fe19ab3021276c1a71276a3f020f3300e2)
+Content 3 (length: 262 chars):
+P.S. u/darthbeeman wrote up [a fantastic post detailing his journey](https://www.reddit.com/r/AddictionMedicine/comments/1497rwf/addiction_medicine_practice_pathway_education_and/) through the process as well. Highly recommend checking that out for more reading.
 

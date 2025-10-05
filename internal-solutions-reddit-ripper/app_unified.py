@@ -219,6 +219,13 @@ def collect_data_background(job: CollectionJob):
                 'sort_by': getattr(job, 'sort_by', 'recency'),
                 'min_rating': getattr(job, 'min_rating', 1)
             }
+        elif job.source == 'playstore':
+            params = {
+                'review_count': getattr(job, 'review_count', job.total_items),
+                'language': getattr(job, 'language', 'en'),
+                'country': getattr(job, 'country', 'us'),
+                'sort_by': getattr(job, 'sort_by', 'newest')
+            }
 
         # Collect data
         job.status = 'running'

@@ -5,6 +5,7 @@ from .api_topic_model import topic_model_bp
 from .api_user import user_bp
 from .api_pgvector import rag_bp
 from .api_reddit import reddit_bp
+from .api_reddit_proxy import reddit_proxy_bp
 
 
 # Main API blueprint
@@ -28,3 +29,6 @@ api_bp.register_blueprint(rag_bp, url_prefix='/rag')
 
 # Register the Reddit blueprint
 api_bp.register_blueprint(reddit_bp, url_prefix='/reddit')
+
+# Register the Reddit proxy blueprint for CORS handling
+api_bp.register_blueprint(reddit_proxy_bp, url_prefix='/reddit-proxy')

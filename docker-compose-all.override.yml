@@ -6,6 +6,7 @@ services:
 
   video-analyzer:
     environment:
+      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
       - USE_WHISPER_API=true
     volumes:
       - ./internal-solutions-video-analyzer/static:/app/static

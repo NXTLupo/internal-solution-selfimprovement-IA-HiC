@@ -22,11 +22,11 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 
 
 # Added by fix script
-api_key = '***REDACTED-OPENAI-KEY***'
+api_key=os.environ.get('OPENAI_API_KEY', '')
 
 
 # Added by fix script
-api_key = '***REDACTED-OPENAI-KEY***'
+api_key=os.environ.get('OPENAI_API_KEY', '')
 
 from ..models import TranscriptionResult, TranscriptSegment
 

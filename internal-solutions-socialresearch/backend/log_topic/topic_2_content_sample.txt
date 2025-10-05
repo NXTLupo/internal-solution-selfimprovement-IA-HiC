@@ -1,13 +1,13 @@
 Topic 2 - Content Sample
-Number of content items: 25
-Top words: said, daughter, clothes, wear, hair, naked, boy
+Number of content items: 22
+Top words: fm, medicine, dpc, year, peds, work, patients
 
-Content 1 (length: 139 chars):
-She indicates that she does really want to go places and looks forward to it but cannot try any clothes on without shifting into a tantrum.
+Content 1 (length: 808 chars):
+10 year FM DPC doc with an employed DPC pediatrician for six months-   1.  While we have a wonderful pediatrician with a great local reputation, it is much much easier to fill an FM doc panel than peds.  Until the Trumpists gut Medicaid and ACA subsidies, a large percentage of kids have great insurance coverage via Medicaid.   FM docs not only can see all ages, many have more office procedure, ortho or gyn skills that many DPC patients value.   2.   OTOH, med peds gives you the option to specialize if you change your mind about primary care in the first few years of practice. 3.  Finally, while there is an opportunity cost for that extra year, it's only about half the salary difference because in most states you're paying close to 50% marginal income tax rate with combined federal and state taxes.
 
-Content 2 (length: 140 chars):
-We very body positive with ourselves and her.  We have books and we sing songs.  She has always loved her body.  I don’t know what happened.
+Content 2 (length: 310 chars):
+\- Compared to MedPeds, has a fraction of Peds expertise and I feel like parents who seek out a DPC doctors have certain expectations,  and with most parents already preferring to see a pediatrician for their kid rather than an FM doctor, I feel like the lack of training in Peds would make one less marketable
 
-Content 3 (length: 208 chars):
-5 year old won’t wear clothes (going on 6 days in a row ) We have a 5 year old and 2.5 year old. As of 6 days ago the 5 year old has stopped wearing clothes - yesterday she has also stopped wearing underwear.
+Content 3 (length: 276 chars):
+\-Less competent in Peds, from what I have seen on reddit, it seems like fm doctors can handle the regular cold like symptoms, ear ache, strep throat, physicals, etc but once it becomes more than that then they refer to peds, I feel like that would defeat the purpose of a DPC
 

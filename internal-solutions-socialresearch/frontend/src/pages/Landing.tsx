@@ -257,27 +257,18 @@ function Landing() {
     pendingFetches.current.add(cleanSubredditName);
     
     try {
-      const response = await fetch(`https://www.reddit.com/r/${cleanSubredditName}/about.json`);
+      // Use backend proxy to avoid CORS issues
+      const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8081';
+      const response = await fetch(`${backendUrl}/api/reddit-proxy/subreddit/${cleanSubredditName}/icon`);
+
       if (response.ok) {
         const data = await response.json();
-        
-        // First try to get the community icon
-        if (data?.data?.community_icon) {
-          // Remove any query parameters from the URL
-          const iconUrl = data.data.community_icon.split('?')[0];
+
+        // Check if we got an icon URL
+        if (data?.icon_url) {
           setSubredditIcons(prev => ({
             ...prev,
-            [cleanSubredditName]: iconUrl
-          }));
-          return;
-        }
-        
-        // Fall back to icon_img if community_icon is not available
-        if (data?.data?.icon_img) {
-          const iconUrl = data.data.icon_img.split('?')[0];
-          setSubredditIcons(prev => ({
-            ...prev,
-            [cleanSubredditName]: iconUrl
+            [cleanSubredditName]: data.icon_url
           }));
           return;
         }

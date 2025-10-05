@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **LAST UPDATED**: October 2025 - Windows environment, 17+ services, innovation-alpha-004 branch
+> **LAST UPDATED**: December 2025 - Windows environment, 17+ services, innovation-alpha-005 branch
 
 ## 🚨 CRITICAL: Never Modify These Files
 
@@ -57,18 +57,19 @@ pip install -r requirements.txt
 python init_db.py && python -m run
 ```
 
-### Journey Mappers (Legacy but Stable)
-```bash
-# Claude 4 Journey Mapper (Port 8095)
-cd internal-solutions-claude4-journey-mapper-v2
-python run.py                      # Auto-selects available port
-# OR
-uvicorn src.app:app --host=0.0.0.0 --port=8095 --reload
+### Journey Mappers
 
-# Testing & Quality
-python -m pytest tests/
-mypy src/
-flake8 src/
+#### Claude 4 Journey Mapper (Port 8095) - RECOMMENDED
+```bash
+cd internal-solutions-claude4-journey-mapper-v2
+python app.py                       # Auto-selects available port
+# Features: 200K token analysis, extended thinking mode
+```
+
+#### Claude 3.7 Journey Mapper (Port 8080) - Legacy but stable
+```bash
+cd internal-solutions-journeymapper
+python run.py                       # Standard journey mapping
 ```
 
 ### Miro Generator (Only Complete Testing)
@@ -82,7 +83,7 @@ npm run test:watch                  # Development mode
 
 ## Testing Strategy
 
-### Python Services (48+ test scripts)
+### Python Services (68+ test scripts in root)
 ```bash
 # Critical tests to run before commits
 python test-anthropic-api.py       # Verify Anthropic API
@@ -211,11 +212,28 @@ docker compose -f docker-compose-all.yml logs -f [service]
 - OpenAI Journey MCP: 8505 → OpenAI Journey Mapper (8090)
 - Claude4 Journey MCP: 8506 → Claude 4 Journey Mapper (8095)
 
+## Recently Updated Services
+
+### Reddit Ripper (Enhanced)
+- **New**: Unified collector supporting Reddit + TrustPilot + Play Store
+- **Architecture**: Factory pattern with source-specific collectors
+- **Key Files**: `app_unified.py`, `services/collectors.py`
+- **Models**: `models/trustpilot.py`, `models/playstore.py`
+```bash
+cd internal-solutions-reddit-ripper
+python app_unified.py               # Unified app with multi-source support
+```
+
+### Presentation Generator
+- **Port**: 5007
+- **Features**: Claude integration, PowerPoint API, python-pptx
+- **Key File**: `internal-solutions-presentation-generator/app.py` (190KB)
+
 ## Testing Gaps & Recommendations
 
 **Current State**:
 - ✅ Miro Generator: Complete Jest setup with coverage
-- ⚠️ Python: 48+ scattered test files, no pytest.ini
+- ⚠️ Python: 68+ scattered test files in root, no pytest.ini
 - ❌ React Apps: No vitest or jest configuration
 
-**TODO**: Consolidate Python tests into unified pytest framework
+**TODO**: Consolidate Python tests into unified pytest framework with configuration file

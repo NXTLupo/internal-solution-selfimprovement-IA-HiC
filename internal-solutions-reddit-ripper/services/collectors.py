@@ -230,10 +230,20 @@ class TrustPilotCollector(DataCollector):
 class CollectorFactory:
     """Factory class to create appropriate collector instances"""
 
-    _collectors = {
-        'reddit': RedditCollector,
-        'trustpilot': TrustPilotCollector
-    }
+    _collectors = None
+
+    @classmethod
+    def _init_collectors(cls):
+        """Initialize collectors dict with lazy imports to avoid circular dependencies"""
+        if cls._collectors is None:
+            # Import here to avoid circular imports
+            from services.playstore_collector import PlayStoreCollector
+
+            cls._collectors = {
+                'reddit': RedditCollector,
+                'trustpilot': TrustPilotCollector,
+                'playstore': PlayStoreCollector
+            }
 
     @classmethod
     def create_collector(cls, source: str) -> DataCollector:
@@ -241,7 +251,7 @@ class CollectorFactory:
         Create a collector instance for the specified source
 
         Args:
-            source: Data source name ('reddit' or 'trustpilot')
+            source: Data source name ('reddit', 'trustpilot', 'appstore', 'playstore')
 
         Returns:
             DataCollector instance
@@ -249,6 +259,7 @@ class CollectorFactory:
         Raises:
             ValueError: If source is not supported
         """
+        cls._init_collectors()
         collector_class = cls._collectors.get(source.lower())
         if not collector_class:
             raise ValueError(f"Unsupported data source: {source}")
@@ -258,6 +269,7 @@ class CollectorFactory:
     @classmethod
     def get_supported_sources(cls) -> List[str]:
         """Get list of supported data sources"""
+        cls._init_collectors()
         return list(cls._collectors.keys())
 
     @classmethod
@@ -332,6 +344,65 @@ class CollectorFactory:
                         {'value': 5, 'label': '5 Stars Only'}
                     ],
                     'default': 1
+                }
+            },
+            'playstore': {
+                'target': {
+                    'type': 'string',
+                    'label': 'Package Name',
+                    'placeholder': 'e.g., com.spotify.music',
+                    'required': True
+                },
+                'review_count': {
+                    'type': 'number',
+                    'label': 'Number of Reviews',
+                    'default': 100,
+                    'min': 1,
+                    'max': 1000
+                },
+                'language': {
+                    'type': 'select',
+                    'label': 'Language',
+                    'options': [
+                        {'value': 'en', 'label': 'English'},
+                        {'value': 'es', 'label': 'Spanish'},
+                        {'value': 'fr', 'label': 'French'},
+                        {'value': 'de', 'label': 'German'},
+                        {'value': 'it', 'label': 'Italian'},
+                        {'value': 'pt', 'label': 'Portuguese'},
+                        {'value': 'ru', 'label': 'Russian'},
+                        {'value': 'ja', 'label': 'Japanese'},
+                        {'value': 'ko', 'label': 'Korean'},
+                        {'value': 'zh', 'label': 'Chinese'}
+                    ],
+                    'default': 'en'
+                },
+                'country': {
+                    'type': 'select',
+                    'label': 'Country',
+                    'options': [
+                        {'value': 'us', 'label': 'United States'},
+                        {'value': 'gb', 'label': 'United Kingdom'},
+                        {'value': 'ca', 'label': 'Canada'},
+                        {'value': 'au', 'label': 'Australia'},
+                        {'value': 'de', 'label': 'Germany'},
+                        {'value': 'fr', 'label': 'France'},
+                        {'value': 'es', 'label': 'Spain'},
+                        {'value': 'it', 'label': 'Italy'},
+                        {'value': 'jp', 'label': 'Japan'},
+                        {'value': 'br', 'label': 'Brazil'}
+                    ],
+                    'default': 'us'
+                },
+                'sort_by': {
+                    'type': 'select',
+                    'label': 'Sort By',
+                    'options': [
+                        {'value': 'newest', 'label': 'Newest'},
+                        {'value': 'rating', 'label': 'By Rating'},
+                        {'value': 'helpful', 'label': 'Most Helpful'}
+                    ],
+                    'default': 'newest'
                 }
             }
         }

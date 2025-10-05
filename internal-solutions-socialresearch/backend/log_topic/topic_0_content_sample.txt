@@ -1,15 +1,13 @@
 Topic 0 - Content Sample
-Number of content items: 14
-Top words: pants, clothes, size, buy, fit, wear, school
+Number of content items: 25
+Top words: dpc, care, patients, practice, insurance, work, clinic
 
-Content 1 (length: 703 chars):
-Where are we buying pants for tall, skinny middle school girls? I put the flair as teenager because my daughter is almost 13. I'm kind of at a loss as to where to buy her pants. She's tall and has always been very slender and as a result we have a really hard time finding pants that fit her around the waist while still being long enough. To make it even harder to find her clothes, she is very particular about how her clothes fit and refuses to wear pants that are too "loose" or jeans. So no sweats and no jeans, pretty much only leggings. It has always been a struggle to find her pants, but she went through a big growth spurt this past year and now it's even harder to find her clothes she likes.
+Content 1 (length: 553 chars):
+\-            Start my own dpc system. I like this option the most because it finally gives me the freedom to practice medicine I would like to do. One possibility is to start from scratch but I do not have the capital for this. Another possibility is to join with another DPC that will take 30% of my profits. This would provide overhead, supplies, and marketing for the business. That sounds a little better. However, with the new tariffs and economy, I am not sure if people would be willing to pay 75$ a month for dpc. What on earth is this set up??
 
-Content 2 (length: 193 chars):
-My 12yo daughter is 5”5 and wears the size 0 leggings. I wear size 4 and need extra length in my pants even though I’m not unusually tall (5”8) and buy a lot of their styles in long/extra long.
+Content 2 (length: 158 chars):
+"Micro practice" model? Why isn't it done more? Hey all - incoming MS1 interested in primary care. Everywhere I turn (as a pt myself), insurance is the enemy.
 
-Content 3 (length: 770 chars):
-So we went to two different stores to buy him a suit that he will probably only wear once in his life for a 6-minute photo session. He's not gonna go to senior prom (trust me on this). If he ever has a job interview for an internship or something in college, he would be overdressed for his field of study. If we went to a family wedding (not looking likely for several years), he would wear our cultural dress. By the time he's in the age range to need a suit, he will hopefully have filled out a bit.  
-  
-He's skinny. Like, in the 1st percentile for his height skinny. The closest size dress pants that would fit him would be 28X32, and would still need to be taken in. They happened to have a size 35 jacket that would not need to be altered, but it was around $200!
+Content 3 (length: 349 chars):
+Summary: volume 15-32 pt per day ($35 for most visits), only provider, iPad, etc. 700 sqft office space, if you are interested about how someone is pulling this off! With the DPC you can charge $70-$100 per patient per month and make a comfortable living seeing 4-8 patients a day. You still don't bill insurance and your overhead should be similar.
 

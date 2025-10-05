@@ -1,90 +1,76 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: clothes, summary should be based on the keywords.
+All information is based on searching keywords: dpc, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: said, daughter, clothes, wear, hair, naked, boy
+- Top keywords: fm, medicine, dpc, year, peds, work, patients
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-She indicates that she does really want to go places and looks forward to it but cannot try any clothes on without shifting into a tantrum.
+10 year FM DPC doc with an employed DPC pediatrician for six months-   1.  While we have a wonderful pediatrician with a great local reputation, it is much much easier to fill an FM doc panel than peds.  Until the Trumpists gut Medicaid and ACA subsidies, a large percentage of kids have great insurance coverage via Medicaid.   FM docs not only can see all ages, many have more office procedure, ortho or gyn skills that many DPC patients value.   2.   OTOH, med peds gives you the option to specialize if you change your mind about primary care in the first few years of practice. 3. [...]
 
 EXAMPLE 2:
-We very body positive with ourselves and her.  We have books and we sing songs.  She has always loved her body.  I don’t know what happened.
+\- Compared to MedPeds, has a fraction of Peds expertise and I feel like parents who seek out a DPC doctors have certain expectations,  and with most parents already preferring to see a pediatrician for their kid rather than an FM doctor, I feel like the lack of training in Peds would make one less marketable
 
 EXAMPLE 3:
-5 year old won’t wear clothes (going on 6 days in a row ) We have a 5 year old and 2.5 year old. As of 6 days ago the 5 year old has stopped wearing clothes - yesterday she has also stopped wearing underwear.
+\-Less competent in Peds, from what I have seen on reddit, it seems like fm doctors can handle the regular cold like symptoms, ear ache, strep throat, physicals, etc but once it becomes more than that then they refer to peds, I feel like that would defeat the purpose of a DPC
 
 EXAMPLE 4:
-She does have a minor history with sensory issues and has called things “too tight” before but this has usually been a preference indicator where she will choose another article for clothing. She is otherwise social and intelligent, and hasn’t ever done this before. She attended preschool.
+\- 4 years of training dedicated to strictly adults or peds, so trades out the breadth in FM for more depth in the things that you would actually do in practice
 
 EXAMPLE 5:
-She was stressed and out of her routine (she is very routine oriented and not very flexible at times) and the outfit was weird. She had on a bathing suit and a skirt that didn’t go up very high and she kept pulling it up and getting frustrated and that’s when I asked what was going on and she started complaining.  I’m hopeful it was just a clothes issues - she can get very frustrated with uncomfortable clothes, like she only will wear a specific brand of high end socks without seams.
+MedPeds vs Family Medicine for DPC Hello, I am only a second year medical student so forgive me for any ignorance. I have future aspirations of creating a DPC and I feel like the best specialty for it is either FM or MedPeds but I am having a hard time trying to figure out which is better. Here is my rationale in pro/ con format.
 
 EXAMPLE 6:
-* For a school parade where she had to wear clothes made from recycled materials, she didn’t want to participate because “it will look funny.”
-* Before birthday parties, she asks me what the birthday child will be wearing so she can prepare herself.
-* Every morning we have meltdowns about what she’ll wear to school, and she refuses pants or shorts, only wants to wear dresses and skirts.
-* She’s recently started refusing photos, and when I gently asked why, she told me, “because I don’t look nice in any photos.” That broke my heart. I didn’t know a 4-year-old could feel this way.
+\- More Peds knowledge: Has a higher threshold for handling complex kids without having to refer, which I think is great for DPC
 
 EXAMPLE 7:
-She says that she is “figuring it out” and that she needs “many days” to figure out clothes. She often talks about the fun things she will do when she is ready for clothes again. Her appetite, diet, sleep, and everything else behavior wise is completely normal.
+I am not boarded in FM. Currently boarded and practicing as an EM attending, for about 10 years. I have been slowly and methodically planning my exit from EM through sports medicine, and I'll be applying for fellowship in Primary Care Sports Medicine this summer/cycle. I'm a little bit terrified of clinic work because of how much I dont know/have forgotten. I masquerade as a PCP to some of my patients, because they won't/can't/don't see a true PCP. But I know where my weaknesses are, trust me.
 
 EXAMPLE 8:
--frankly, in the first couple of days, attempting to get a dress on and get her into the car (massive tantrum)
+PS - EM=/=FM boards. I get that. ED docs can't just work in a clinic because it's slower and they can 'figure it out.' What you guys do is an art that I dont know about. Learn me your ways, I'm here to absorb. I've been reading through the FM subreddit for at least 6 months or more, you guys are civil and realistic over here, and you seem to like your jobs. Most of the EM forums here and SDN are pretty rowdy and hate filled. I think we hate our choices and don't know how to fix it as a whole. I'd say being comfortable waiting is the biggest learning. [...]
 
 EXAMPLE 9:
-She understands that a defined waist (something she seemed to be describing she wanted) is not a thing for everyone but that it can’t really occur till after puberty.  She also understands that body shapes are largely determined by genetics and she likes our body shapes (as well as everyone else in our family)
+I'd like to consider a DPC style clinic maybe with hybrid sports medicine in the future; what will make me not look like an idiot to my FM/clinic based peers and to the specialists I'll work with? I know there isn't an easy/quick answer, but I want to try and put in the work now to help me amd my patients later.
 
 EXAMPLE 10:
-She says that anything she wears is “too tight” and has a major meltdown. We are at the ends of our sanity. By major meltdown we are talking an hour+ tantrum, running screaming hitting things. She will strip off all articles of clothing.
+However, I hear a lot of conflicting things about FM lifestyle. There are the stories of people seeing 30-40 patients a day and being buried in admin work and paperwork for most of their off-time, which legitimately sounds like a nightmare to me and I'd rather go back to being a scribe than do that. I've also read stories of people saying they see 18 patients a day for 30 mins at a time, 4 days a week, which definitely sounds more desirable and doable to me.
 
 EXAMPLE 11:
-It was so weird and out of character.  If she ever feels she has a tummy she gets excited about its shape and how it sticks out a bit and I’m like, “love it girl! Look at your beautiful self!”  We talk about body function only - your long legs a help you climb and jump and stretch, your strong arms can push doors open and lift heaving things, your energized body can balance and dance.
- 
-Any tips to help my daughter avoid developing a negative body image? We had a similar issue with ours around this age (son, not daughter), but he's ADHD (and I highly likely ASD from my observations over the ye [...]
+\-Can't specialize into one of the ologies so if DPC becomes unviable for some reason, stuck (would not want to do primary care if it is not through DPC)
 
 EXAMPLE 12:
-At home, we’ve completely stopped talking about physical appearance. We focus on praising her intelligence, creativity, kindness, and skills, but never her looks, clothes, or style. We try to reinforce in kid friendly language that outer appearance doesn’t matter, and we emphasize values we want her to grow up with. But it feels like she isn’t absorbing it, and it’s hard to watch her struggle.
+\- The largest scope of all of medicine, so could craft practice to fit needs of patient population while still being in scope
 
 EXAMPLE 13:
-4 year old daughter obsessed with her looks, lost what to do! Hi, I have two daughters, a 4YO and a 2MO. My older one is a wonderful child, but for context, she was an objectively beautiful baby who’s grown into a very pretty little girl: bright eyes, dimples, curly hair. My husband and I are fairly average looking, and while she resembles both of us, she’s essentially a more striking version. Throughout her life, friends, family, even strangers have constantly commented on her looks. When we travel abroad, people have even stopped us to say how beautiful she is. [...]
+So overall I feel like there is no clear winner in terms of what would be better to match into for hopes of a dpc practice in the future, so I would love feedback from anyone who may have some insightful ideas
 
 EXAMPLE 14:
-Not sure how relevant but my kids when they approached around 3/4 years of age became super fussy with what they wear and how they looked when they went out. We saw it as them expressing their opinion and independence. We didn't think it was them being focused on their looks (mostly because of how bad their taste was.. 😛).
+\- Marketable: Being double certified in both Internal medicine and Pediatrics seems marketable to me, and parents that prefer their children seeing a pediatrician may appreciate that
 
 EXAMPLE 15:
--introducing non-clothing ways for her body to feel pressure and texture (brushing, blankets, etc as a part of other activities or while she is distracted)
+If I wanted to come and work in a clinic as an EM trauma center doctor, what are my big weaknesses going to be? What books or conferences can I start investigating/using to be better for my patients. I know that nothing I do will replace an FM residency, but I want to be better for my patients. Which direction would you point me for learning?
 
 EXAMPLE 16:
-I’m looking for advice on how to help her through this, and how to undo some of the early impact that constant compliments on her appearance may have had. I’d also love to know what we could have done differently from the beginning so we don’t repeat the same mistakes with our younger daughter. Hey
-You sound like you're doing a lot right. A couple of suggestions 
-1. One thing that you can do is compliment her appearance.  It would be great if looks didn't matter but the truth is that it does matter to her now. [...]
+Am I being naive by thinking by doing FM it will be easy and doable to find reasonably paced 4-day workweek jobs out there?  Or is the job market generally bleaker than that in terms of workload? Money is not a big driver for me and I would be happy making $150k a year if I had a chill work-life balance. I live in a VHCOL city, and see 18-20ish patients per day. I work 8-4 four days a week, 8-12 one day a week. 30 min physical/new/procedures and 15 min problem visits. [...]
 
 EXAMPLE 17:
--making being around the house very boring and unengaging, up to and including not doing things because those things are for people with clothes (she waits it out)
+Am I being naive going into FM? Soon to be M4 here who is heavily considering applying FM this year. My main reasons are:
 
 EXAMPLE 18:
-It seems that what amounts to clinical or therapist consensus is to largely take all pressure to get clothes on away and encourage pressure/touch therapy and play with clothes. They suggest that hopefully this warms her up and that she has some sort of anxiety driving this. The clothing specialist said to take all pressure off for 3-5 days, keep her activities and routine as normal as possible  and see what happens.
+If you were wanting to work in an ED, I'd gladly take on the challenge, and help you out. In my mind, you need to know how to deal with crashing patients, and be adept at procedures. Those things I'm good at.
 
 EXAMPLE 19:
-The only suggestion I really have for you is to maybe get her a soft robe to wear around the house. Fleecy, if she likes that texture, or satin or cotton- whatever texture she likes in a blanket/ sheets. I also googled “autism underwear” to find some sensory-friendly underwear, and I found some boy short style underwear that might feel better to her. Maybe her undies ride up, and that bothers her… no idea.
+I honestly have grown to like my job, mostly because now 4 years out of residency I’ve started to get a bit more confident. Definitely the hardest part is the learning curve in the first few years. I have learned to be very efficient and do not bring notes or any work home. I answer portal messages during the day between seeing patients. I’m usually out by 4:20 pm at the latest. Last year between salary and productivity I took home $330k.
 
 EXAMPLE 20:
-Her concerns are even limiting her play. She avoids soccer because she thinks the uniform will not look good, and won’t try skating because helmets and kneepads “will look funny”. She fixates on having her hair styled a certain way, and melts down if it isn’t. It feels like she can’t fully relax and just be a child because she’s always worried about who might be watching and how she looks.
+1. I want to be a generalist. I get bored in specialty rotations seeing the same organ system/things over and over again, so that kind of narrows it down to FM/EM/IM. Out of those 3 I prefer the clinic over the hospital.
+2. I like the versatility of what you can do and where you can practice: outpatient clinic/hospitalist/urgent care/DPC/rural ER etc.
+3. Work-life balance. I really, really would like to work a 4-day workweek once I'm an attending, and part-time once I'm older, and I've heard FM is one of the main specialties in medicine where this is doable.
 
 EXAMPLE 21:
-Hey, first of all, you’re doing a great job. You’re doing a really, really hard job, and you’re doing well. You’re talking to professionals and to your child and to your partner, and your daughter is going to make it out of this phase okay.
+\- Rotations in Surgery and OB, which for me is essentially wasting time in something that I will never do in any city that I would like to live in, I am also not a fan of surgery or OB
 
 EXAMPLE 22:
--incentivizing special circumstances (if we put our clothes on we can go to a toy store or to grandmas house)
-
-EXAMPLE 23:
-For context, she watches very limited things on TV (controlled by us), and we’re careful about media exposure. So outside of school, daycare, and peers, there aren’t other influences we can point to.
-
-EXAMPLE 24:
-My skinny 7 YO daughter had a meltdown because “her stomach was too big” My daughter is very thin, her BMI is in the 3rd percentile.  she can definitely eat a lot, especially when she likes the food, but she often rats like a bird. Tonight we started a vacation and she sort of freaked out and refused to leave our hotel room. For the first time ever, She said she has a big stomach and it was likely permanent because she doesn’t eat much at all and it’s grown so big and will just keep growing.
-
-EXAMPLE 25:
--introducing this as a conversation with her and asking for her advice on what we can do to help her
+\- One year longer and harder to match into, and with there being less than 80 residencies in the country, very few options for desirable locations to live in
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

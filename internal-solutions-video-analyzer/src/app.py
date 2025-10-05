@@ -17,7 +17,7 @@ except ImportError:
     pass
 
 # Force set OpenAI API key
-os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
+# API key loaded from root .env file by load_env.py
 os.environ['USE_WHISPER_API'] = 'true'
 
 from .models import (

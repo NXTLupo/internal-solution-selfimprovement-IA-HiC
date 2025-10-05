@@ -1,99 +1,83 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: clothes, summary should be based on the keywords.
+All information is based on searching keywords: dpc, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: diapers, baby, pee, milk, cost, 14, months
+- Top keywords: addiction, abertheham, practice, primary, user3, fm, job
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Between formula, milk, and diapers, it all comes down to about $3812 for the first 14 months. That does not include wipes, diaper cream, lotions, body wash, clothes, any other foods like purees, finger foods, and a lot of other things.
+I’m about to start my first big boy job in a primary clinic doing mostly FM but taking referrals for addiction treatment. Depending on demand that may expand to have dedicated addiction days, e-consults, or an addiction-only practice.
 
 EXAMPLE 2:
-Please remember this is just one data point for one baby on one type of milk and one kind of diapers. The cost of diapers can easily double if you go for something fancy like Coterie.
+Bit harder for peds or IM because addiction knows no boundaries. With an FM primary, you can manage addiction in everyone from pregnancy/neonatal through geriatrics.
 
 EXAMPLE 3:
-[Diaper cost by month](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-7w5rvvuiy9ff1.png?width=640&crop=smart&auto=webp&s=ac6d12fe19ab3021276c1a71276a3f020f3300e2)
+P.S. u/darthbeeman wrote up [a fantastic post detailing his journey](https://www.reddit.com/r/AddictionMedicine/comments/1497rwf/addiction_medicine_practice_pathway_education_and/) through the process as well. Highly recommend checking that out for more reading.
 
 EXAMPLE 4:
-|Month|1|2|3|4|5|6|7|8|9|10|11|12|13|14|
-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|
-|Diapers|330|294|242|272|225|204|192|202|232|233|224|251|228|220|
-|Cost|$89|$79|$65|$73|$61|$55|$52|$55|$63|$63|$60|$68|$62|$59|
+Addiction Med Q&A I have had a good number of people reach out to me expressing interest and asking questions about Addiction Medicine.  Bear in mind that I'm just a PGY-5 FM MD in the mid-west.  One of the best things about AdMed IMO is that any specialty can put it into practice and the variability even within a specialty can be dramatic.  Would love to hear other addiction docs' input and feedback, so please feel free to have at it.
 
 EXAMPLE 5:
-[Cost of milk calculation](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-cath18f1f9ff1.png?width=640&crop=smart&auto=webp&s=26d0c4dc02f270cb1a03d85abbf670d021656eb4)
+Hi! I realized we ve talked before! I do really want to practice addiction and grow full time eventually and I hope I’m able to build a good private practice model and I was wondering how job variety is and compensation is?
 
 EXAMPLE 6:
-[Diapers changed by month](https://preview.redd.it/i-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-ems2tb8ku9ff1.png?width=640&crop=smart&auto=webp&s=ac04a41476804fe29b3b3393f57477f367a0fd92)
+Hello! I saw a comment on reddit of yours about chill medical specialties and im looking into addiction med but I wanted to ask your thoughts about lifestyle and compensation?
 
 EXAMPLE 7:
-[Milk consumption chart](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fi-tracked-14-months-of-baby-data-every-diaper-every-ounce-v0-hdgfln66b9ff1.png%3Fwidth%3D1124%26format%3Dpng%26auto%3Dwebp%26s%3D4664e7a1f5c08fb49fa82341b6b43cc7f736c959)
+You’re all good! I would love to optimize compensation and the variety of practice setting now! I’m between addiction and sleep and leaning more towards addiction rn but what do you think? What type of practice setting do you do now?
 
 EXAMPLE 8:
-There are many different brands for every budget. We stuck to Huggies from the beginning because these worked the best for us. You can look for deals on big sizes on ebay, use subscribe and save on amazon, stock up on black friday, prime day, etc, buying for weeks/months ahead. Based on our estimated, a blended cost of one diaper in this time was around 27 cents, or $0.27.
+Hello! Saw your comment about addiction med, thanks for being open for some questions! I basically thought only after 2025 admed will require fellowship…right now i thought you only needed to take the test ? what’s the most exciting part of your day when directly related to admed? thanks so much
 
 EXAMPLE 9:
-Hello, future, soon to be, and already parents! When our baby was on the way, I tried to find out what the formula and diapers will cost. After all, this is one expensive journey, and it's good to be prepared! There are multiple estimates out there that vary widely, so I always wanted to see what it will actually cost.
+Job outlook is open to whatever you want to do with it, i.e. it depends on what proportion of your time and practice you want to commit to it. I work mostly in primary care and take internal referrals from colleagues to provide outpatient treatment and/or evals to funnel patients into higher levels of care. But some people choose to work exclusively in addiction, in settings like inpatient treatment facilities, hospital consultation services, detox centers, and OTPs. The field is still new so the possibilities are largely open to your imagination and networking opportunities.
 
 EXAMPLE 10:
-* We primarily used Huggies with wetness indicator which was super helpful. A few times, we've used diapers without it, and it was a bit of a guessing game as to when it was necessary to change the diaper.
-* We always changed the diaper when dirty.
-* When it was wet, we estimated how full it was, without trying to test the limits. We'd rather change a few more diapers than deal with leaks. I guess if you pushed the diapers closer to the limit, it could decrease the numbers but you risk a diaper rash and an uncomfortable baby (good diaper cream is expensive). [...]
+Variety is great—you can do pretty much whatever you like with it. Some run outpatient addiction clinics, some do inpatient rehab/detox management, some do hospital consult/liaison, some run methadone clinics… Demand is high so you can sort of choose your own adventure so-to-speak.
 
 EXAMPLE 11:
-* Baby actually drank 85.6% of served milk, or $2489 worth of it
-* It means $419 basically put down the drain.
-* You can potentially get some savings if you prepare less milk at a time to avoid spoilage, but you risk baby crying in the middle of the night waiting for more milk while you try to save a dollar here or there - carefully weight your choices haha
+I’ve been working through my application and my addiction personal statement in the midst of all of it
 
 EXAMPLE 12:
-Over the first 14 months, our baby drank 10,876 ounces of milk. That is roughly 322 liters or 85 gallons.
+My parents are Asian and I apologize for asking about compensation. They made me feel bad about choosing FM and choosing addiction because they don’t think I’ll be able to live a comfortable nice life with addiction
 
 EXAMPLE 13:
-Should we stop trying? Night diapers with 6 year old Our daughter recently turned 6 and has still been wearing pull ups every night because she would always have a wet diaper in the morning. We know she has been intentionally peeing in them, because she'll wake up in the morning on her own and go downstairs without going to the bathroom at all. There's also been a number of times that she would pee in it before even falling asleep.
+I enjoy FM and want to practice it initially at least, but I’m open to being drawn into a sub specialty if the work shows up (or if primary care goes all the way to shit).
 
 EXAMPLE 14:
-Exchanging diapers for pull ups - helps with the strap problem, but he'll still move and tuck things around enough to still wet himself.
+It wouldn't hurt to have publications, QI projects, volunteering experience that shows some predilection toward working with use disorders, but I wouldn't say that's critical.
 
 EXAMPLE 15:
-But we weren't sure how much she was actually still peeing while asleep. So a week ago we finally tried taking them away and told her if she could go through the whole night without wetting, we'd get a special treat for her, but that also if she does pee we won't be mad, she won't be in trouble, etc.
+It’s still a relatively new field so there is not like a single “typical” pathway or work scenario. That flexibility affords a lot of possibilities for great work/life balance. Anything from research and clinical trials, to primary care, to methadone clinics and residential treatment facilities; pain clinics, palliative clinics… it kind of runs the gambit.
 
 EXAMPLE 16:
-Only wearing onesies buttoned OVER the pants: most success, but he will still try his damndest to stick his hand in anyway, misaligning the diaper just enough to cause leaks.
+That’s good to hear! Personally though, especially after nights and flipping back and forth, I mainly want to prioritize my long term health and happiness I used to do a suboxone clinic in addition to my regular family medicine clinic. Patients came every month. They were charged 100 a month and charged 10 for their uds. I got 50 a patient. Ended up making about 500 an hour.
 
 EXAMPLE 17:
-* 18 - Most diapers changed in a day. That was when the baby was 4 days old. We were then informed by the pediatrician that we could perhaps try relaxing a bit and change the diapers less frequently.
-* 14 - Most diapers changed in a day after we realized there is no need to change it that frequently. That was in the period when baby got norovirus and there were many dirty diapers.
-* 2246 - Wet only diapers
-* 1103 - Dirty/Mixed diapers
+The most exciting part of my day is meeting people where they're at. Ad med gets a lot of eye-rolls and 'oh man I bet that's a difficult population' kind of reactions, but it's an incredibly fulfilling field. What a lot of people don't consider is that by the time someone with a use disorder is sitting in your specialty clinic, they really just want help. I really enjoy employing harm reduction techniques and the open discourse that can genuinely give people their lives back in an incredibly powerful way. [...]
 
 EXAMPLE 18:
-Only wearing onesies with pants, no lone shirts: sticks his hand down the pants, into the diaper from the side as opposed to the top
+As I interviewed potential fellows last year, it felt like some applicants were doing addiction medicine and/or applying to our program just because it showed up in their list on ERAS. Programs are obviously going to want to know why you want to train with them specifically, so do your best to make that come through as well.
 
 EXAMPLE 19:
-Again, my problem is not the touching itself - it's a social barrier, he will learn it in time. My problem is the constant wetting it causes and that I'm sick of changing his sheets everyday and washing his whole wardrobe every 2-3 days. I love him, but he's a persistent little bugger. Please help!
- Try a cloth diaper cover over his diaper
+**- what is continuing to be worked on/ideas for future:** expanding career resources and info, start some sort of advocacy in FM resource, establish a schedule of AMA's on variety of topics (different practice models, AMA with recruiter, FM/OB AMA, rural practice AMA, etc). Goal for the year is set up a recurring AMA event. If you're interested in doing an AMA, message mods!! Would love to hear if there is interest.
 
 EXAMPLE 20:
-* Around 4 months, we started purees and food other than milk.
-* Around 8-9 months, we peaked with milk consumption with baby eating around 35 ounces a day
-* Around 8-9 months, we started feeding her more and more of what we ate, with that trend accelerating once the baby went off formula after 1st birthday.
+**- expanded wiki resource:** on the right sidebar, the wiki contains info about the subreddit moderation standards, applicant resources, residency topics including exams, and a career tab that is in process but currently includes a FAQ about DPC practice.
 
 EXAMPLE 21:
-Now for the cost calculation. This can vary a lot based on what formula you're using. We were using Hipp formula that tends to cost around $45 for 800g. It takes around 4.3 g of that formula to prepare 1 oz of milk.
+Its also nice to be the one people turn to when they don't know how to handle those tricky situations. The education part and working to end stigma is quite important as well--both with patients and colleagues.
 
 EXAMPLE 22:
-Pajamas are onesies put on backwards: helped with the outright removing diapers at night, but he still tampers with the diaper through the cloth. The diaper straps in the morning are warped, or he's managed to move the diaper enough to free the goods.
+Wow these are all amazing considerations and insights. Thank you so much for your reply and may you continue to have the positive impact on the people’s live you touch, you are appreciated!
 
 EXAMPLE 23:
-Toddler boy constantly wet My 2 year old, for the last 3-4 weeks, will NOT stop sticking his hand down his pants and into his diaper. Now, I 100% understand that this is a normal part of a kids development - he has an older brother. We've had the touch yourself only in private conversation, though he is a bit young to understand that. My problem is NOT the touching, it's that he does it so much, and so forcefully around any barriers we've created, that it moves his diaper and he is constantly wet. We are changing clothes upwards of 5 times a day, and he never wakes up from nap or sleep dry.
+**- mandatory user flair:** added earlier this year to distinctly display a person's job status (MD/DO/resident/RN/layperson etc) and has cut significantly down on spam and non-medical persons posting! If you have a specific request for user flair not currently listed, message mods.
 
 EXAMPLE 24:
-|Month|1|2|3|4|5|6|7|8|9|10|11|12|13|14|
-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|
-|Oz served|765|906|884|1013|1058|1128|1132|1232|1140|858|836|745|611|396|
-|Cost|   $ 185|   $ 219|   $ 214|   $ 245|   $ 256|   $ 273|   $ 274|   $ 298|   $ 276|   $ 208|   $ 202|   $ 180|   $ 48|   $ 31|
+Regardless, I’m not sure how much you’ve looked into the job market, but FM compensation isn’t anything to bat an eye at…
 
 EXAMPLE 25:
-There are multiple apps on appstores that you can use to replicate it. Me and my wife used an app called 'Baby Tracker' by Nighp Software for iOS. Free version is absolutely enough, unless ads bother you or you need watch integration. Ads are not intrusive though and apple watch screen is too small to bother with in when you're in the middle of changing diapers anyway, so stick with free version.
+That’s a good question and a fair point actually. I guess maybe calling or emailing to ask for details would be the best avenue if there’s not much online. Otherwise just showing curiosity and asking for those details during the interview while also showing interest in AdMed as a whole and/or the geographic region.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

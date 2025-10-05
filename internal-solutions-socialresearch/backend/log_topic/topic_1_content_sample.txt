@@ -1,14 +1,13 @@
 Topic 1 - Content Sample
-Number of content items: 25
-Top words: kids, feel, home, care, dinner, parent, husband
+Number of content items: 11
+Top words: practice, dpc, looking, model, listing, memberdirectory _listing, year
 
-Content 1 (length: 216 chars):
-I separated from their father two years ago after he up and left (turns out he was cheating- I don’t know how I was so blinded- anyway). I have them full time. with occasional visits from their dad when he’s in town.
+Content 1 (length: 471 chars):
+What’s the best way to find an interested buyer, particularly one who might want to convert it to a DPC model? Are there networks, forums, or organizations that focus on matching independent physicians with practices for sale? Any advice or resources would be greatly appreciated! I bought a practice from a retiring solo doc 25 years ago when I was fresh out of residency. It did not go well for me, and I ended up selling it 5 years later for 1/3 of what I paid for it.
 
-Content 2 (length: 392 chars):
-1. morning:  45 minutes doing whatever is possible to get them fed/clothed/cleaned and to school on time
-2. evening:  eating dinner together (5% talking, 95% cleaning spilled drinks/making alternate meals when they refuse to eat what we cooked/trying to get them to actually eat meal #2/etc.), then (for my wife) struggling to get them clean and ready for bed, then about 15 minutes of "fun".
+Content 2 (length: 720 chars):
+She has run this practice on her own for decades (probably since the late 80’s) and does not have any employees—she handles all her own scheduling and day to day operations. This was quite shocking to me as well!! The practice does not use electronic medical records, as she has continued with a paper-based system and not interested in converting prior to retirement. She also owns the office building (a beautiful Victorian building with another long term professional tenant) and is open to selling it along with the practice. While she currently participates with insurance, I thought the setup could be ideal for a physician looking to transition to direct primary care (DPC) and move away from the insurance model.
 
-Content 3 (length: 262 chars):
-But the guilt is too strong That’s a rough age. I’m the “default parent” and as much as I love my wife it drives me nuts that it all falls to me. But it’s not the same as your situation. I know if I need some time she’ll take care of the kids for an hour or two.
+Content 3 (length: 705 chars):
+Best place to hire a doc to join my DPC practice in Missoula, MT? Howdy! I run a 2 provider DPC practice with my partner (both MDs, partner is functional medicine trained as well) in Missoula, MT that we opened last fall and have already outgrown our space (currently doubling the clinic from 6 to 12 exam rooms) and almost filled our panels! We need to hire a doc sometime in the next few months, and I have no idea where to start that search. We've got a few other docs in the pipeline that we're planning to hire over the next few years as they finish their PSLF requirements, but we need someone before that! I'm not sure if it's kosher to post this kind of thing here, but figured I'd give it a shot.
 

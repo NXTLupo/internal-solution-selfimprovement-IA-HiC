@@ -2,76 +2,26 @@
   {
     "topic_id": 0,
     "sentiment_category": "neutral",
-    "sentiment_score": 0.09476036528746287
+    "sentiment_score": -0.0426406975496899
   },
   {
     "topic_id": 1,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.31251820685962833
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.2334620708769018
   },
   {
     "topic_id": 2,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.29861957182486853
+    "sentiment_category": "positive",
+    "sentiment_score": 0.2541567873623636
   },
   {
     "topic_id": 3,
     "sentiment_category": "neutral",
-    "sentiment_score": -0.10177257657051086
+    "sentiment_score": 0.0992000550031662
   },
   {
     "topic_id": 4,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.3996348663543661
-  },
-  {
-    "topic_id": 5,
     "sentiment_category": "neutral",
-    "sentiment_score": -0.16708946691619025
-  },
-  {
-    "topic_id": 6,
-    "sentiment_category": "neutral",
-    "sentiment_score": -0.1901666522026062
-  },
-  {
-    "topic_id": 7,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.2890875697135925
-  },
-  {
-    "topic_id": 8,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.32278203666210176
-  },
-  {
-    "topic_id": 9,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.41109298335181343
-  },
-  {
-    "topic_id": 10,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.04717717692255974
-  },
-  {
-    "topic_id": 11,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.15084770694375038
-  },
-  {
-    "topic_id": 12,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.051531083527065466
-  },
-  {
-    "topic_id": 13,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.4492909808953603
-  },
-  {
-    "topic_id": 14,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.7291564603646596
+    "sentiment_score": -0.041929543018341064
   }
 ]

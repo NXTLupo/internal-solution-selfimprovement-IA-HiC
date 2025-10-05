@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 import os
 import logging
+from pathlib import Path
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
-# API key
-API_KEY = "***REDACTED-OPENAI-KEY***"
-logger.info(f"Setting API key: {API_KEY[:8]}...{API_KEY[-4:]}")
+# Load API key from root .env file
+API_KEY = None
+root_dir = Path(__file__).parent.parent
+root_env_file = root_dir / ".env"
+
+if root_env_file.exists():
+    with open(root_env_file, "r") as f:
+        for line in f:
+            if line.strip() and "=" in line and not line.startswith("#"):
+                key, value = line.strip().split("=", 1)
+                if key == "OPENAI_API_KEY":
+                    API_KEY = value
+                    logger.info(f"Loaded API key from root .env: {API_KEY[:8]}...{API_KEY[-4:]}")
+                    break
+
+if not API_KEY:
+    logger.error("No OPENAI_API_KEY found in root .env file!")
+    exit(1)
 
 # Apply to environment directly
 os.environ["OPENAI_API_KEY"] = API_KEY
