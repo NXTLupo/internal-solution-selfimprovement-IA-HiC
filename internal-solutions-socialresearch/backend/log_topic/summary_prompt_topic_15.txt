@@ -1,31 +1,52 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: pharmacy, medication, amazon, canada, pillpack, practice, prescription
+- Top keywords: trump, obamacare, republicans, aca, affordable care, affordable care act, care act
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-It's too bad, because I was very satisfied with PillPack and I also like Amazon for most things, but as a pharmacy, Amazon is very unsatisfactory.
-Divvydose is where I went
+As the ACA’s popularity reaches new heights, Republicans explore new ways to gut it  **From Steve Benen, producer for “The Rachel Maddow Show”:**
 
 EXAMPLE 2:
-Pill Sorting Pharmacies (PillPack Alternatives) Anyone have suggestions for good pharmacies that provide pill sorting services (similar to pillpack, but open to different pack forms) that are NOT pillpack?  Preferably accept BCBS of TX Blue Advantage HMO (my insurance) and/or Superior Medicaid (my kids' insurance).  Pillpack has transitioned to all through Amazon and it's an absolute headache.  Thanks! I see you are finding solutions that work for you.  I just wanted to share what I did in case others come searching and find this thread. [...]
+For those who followed the debate over the Affordable Care Act when it was still in its infancy, there were plenty of substantive challenges surrounding overhauling the nation’s health care infrastructure. But there was also a political problem: The reform law known as “Obamacare” was not at all popular at the time.
 
 EXAMPLE 3:
-Doctor stopped accepting my insurance and I ran out of medication Hello, I've been taking Bupropion 300MG for about 3 years to help with my major depressive disorder diagnosis. Recently, the practice I had been going to decided they were going to stop accepting my insurance, which coincidentally lined up perfectly for when my medication ran out. I sent a message to my doctor asking if I could get one last prescription sent in while I try to find another practice and they denied my request, saying that I need supervision of a care provider while on my medication and since I wouldn't be at their [...]
+Twelve years later, health care policy has led to another shutdown, but the circumstances are largely reversed: In 2025, unlike in 2013, it’s Democrats who are fighting to protect the ACA from a Republican majority that’s already taken steps to sabotage the system known as Obamacare, and Republicans are prepared to make things worse by allowing new price hikes to take effect in the coming weeks.
+The United States is bankrupt . [...]
 
 EXAMPLE 4:
-Pharmacist refusing to let me pay out of pocket. Is this legal? My insurance didn't approve my new medication right away and most likely wont, so I asked to pay out of pocket instead with a coupon. He said that since it was a controlled substance I had to wait for insurance to deny it first before I was allowed to use a coupon. He would not let me just run it without insurance. I have private insurance that has no issue with me paying out of pocket, and I have done it before with schedule two medication. [...]
+Read more: [https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073](https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073)
 
 EXAMPLE 5:
-While there are no laws that say you can’t pay out of pocket anytime you want, the bottom line is that you are at the mercy of the pharmacist and their personal fear of being flagged for someone in the database. Do you have access to another Safeway location? Have you checked with King Soopers/City Market (generally competitive with Safeway)?
-I've already had to get my provider to change the pharmacy once because it was too expensive at Walgreens. If I change it to a third pharmacy that's just going to be extra suspicious and I'm afraid I'll have the same problem. [...]
+About a decade ago, Donald Trump stressed one specific point as a way of differentiating himself from his adopted political party. “I’m not going to cut Social Security like every other Republican, and I’m not going to cut Medicare or Medicaid,” Trump declared in 2015. “Every other Republican’s going to cut, and even if they wouldn’t, they don’t know what to do because they don’t know where the money is. I do. I do.”
 
 EXAMPLE 6:
-I hope you're able to get the access of meds you need. If you ever get to that point again of crisis, contact the [crisis intervention number 988](https://988lifeline.org/learn/our-crisis-centers/crisis-centers-by-state-and-u-s-territory/)  (police may not be the best option, but emergency services are fine and not illegal to call). Mobile crisis teams can also reach you in person if needed.
-Thank you to everyone for the replies. I will look into telemed for the time being and if that doesnt work out ill go to urgent care. [...]
+‘We could come up with a new system’: On the ACA, Trump has an unintentionally funny line  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
 
 EXAMPLE 7:
-I would suggest to make sure you are released with any and all of your medical records (not just appointment summaries) which may be an extra fee, but its more difficult to obtain after practice has been closed for awhile. I would also go that route of filing a complaint with medical board for a physician abandoning you mid treatment without providing any alternatives and leaving you without meds with little to no notice. Make screenshots of any messages sent to doctor asking for recommendations/med issues you had.
+Despite campaign promises, White House eyes new changes to Social Security and Medicare  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
+
+EXAMPLE 8:
+Nevertheless, as Trump tried to return to power last year, he again declared: “I will never do anything that will jeopardize or hurt Social Security or Medicare. We’ll have to do it elsewhere. But we’re not going to do anything to hurt them.”
+>But we’re not going to do anything to hurt them.”
+
+EXAMPLE 9:
+Exactly 12 years ago, congressional Republicans followed Sen. Ted Cruz’s lead and shut down the federal government for one reason: health care. At the time, the Texas senator and his colleagues believed a shutdown offered one last opportunity to derail the Affordable Care Act before it was fully implemented.
+
+EXAMPLE 10:
+Once in office, that didn’t quite work out. As a Washington Post report summarized in 2023, “His avowed stance, however, is at odds with Trump’s own record as president: Each of his White House budget proposals included cuts to Social Security and Medicare programs.” (He also failed to figure out “where the money is.”)
+
+EXAMPLE 11:
+Not surprisingly, as the number of Americans with favorable views of the Affordable Care Act reaches new heights, unfavorable views have collapsed: Around this time 11 years ago, the KFF Health Tracking Poll found a 53% majority disliked the ACA. Now, that number has dropped to 30%, an all-time low.
+
+EXAMPLE 12:
+It was difficult to imagine 14 years ago that two-thirds of the public would express support for the ACA, but Democratic leaders who swore that its popularity would grow over time were correct.
+
+EXAMPLE 13:
+Hmmm...noting that he understands that this will "hurt" them.   And he knows that many cannot afford to eat at McDonalds.
+it's good, but i think the article could be stronger if it put more into showing what Trumps says changed between his campaign for 45, and his campaign for 47.  It's too easy to 'defeat' this article by saying 'lots changed in 8 years'.
+
+EXAMPLE 14:
+Two weeks later, after the Obama White House and congressional Democrats refused to pay Cruz’s ransom, GOP officials grudgingly accepted reality and retreated.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

@@ -1,13 +1,16 @@
 Topic 19 - Content Sample
-Number of content items: 22
-Top words: patient, outcomes, supplies, care, pros, performance, doctors
+Number of content items: 7
+Top words: drug, trump, president, price, drug prices, sell, sources
 
-Content 1 (length: 426 chars):
-Why Patient-Reported Outcomes Are the Gold Standard for Measuring Provider Performance As healthcare shifts toward value-based care, the need for a meaningful, consistent way to measure provider performance across all specialties has never been more critical. Traditional metrics—such as readmission rates, mortality, and procedure volumes—offer important insights but often miss the most essential perspective: the patient’s.
+Content 1 (length: 339 chars):
+Exclusive: Lutnick says Trump will force drugmakers to lower prices  Drugs aren't going to be cheaper. They'll just be more expensive in other markets.
+> The president's going to say that you drug manufacturers cannot sell here unless you sell there at a higher price. Stop being willing to sell to them at such a low price," Lutnick said.
 
-Content 2 (length: 280 chars):
-Patient-reported outcomes offer a powerful and scalable path forward. They provide a holistic, equitable, and patient-driven approach to measuring provider performance—one that transcends specialty lines and centers healthcare around its ultimate goal: better outcomes for people.
+Content 2 (length: 418 chars):
+The Dream of Lowering Drug Prices in America: How the Power Elite Performs Democratic Opposition A while back [I wrote about the price of breathing and noted that Treleg](https://jacoblstump.substack.com/p/the-price-of-breathing-how-corporate)y, a drug that treats the symptoms of COPD, costs $800 per month in the US and the equivalent made by the same company, but sold in Egypt, costs $10 per month.  
+  
+Lucky day!
 
-Content 3 (length: 313 chars):
-Patient-reported outcomes (PROs) provide a clear, consistent, and patient-centered way to assess performance across all providers, regardless of specialty. They allow organizations to move beyond volume and process metrics to focus on what truly matters—how patients feel, function, and live after receiving care.
+Content 3 (length: 321 chars):
+[President Trump sent handwritten letters to pharmaceutical executives](https://www.nytimes.com/2025/07/31/health/drug-prices-trump.html), demanding they slash drug prices by September or face unspecified consequences. Trump scribbled out last names to address the CEOs by their first names: "Albert," "David," and "Len".
 

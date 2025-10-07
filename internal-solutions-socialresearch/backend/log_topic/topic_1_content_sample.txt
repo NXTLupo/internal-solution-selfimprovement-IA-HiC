@@ -1,14 +1,49 @@
 Topic 1 - Content Sample
 Number of content items: 25
-Top words: healthcare, insurance, care, costs, companies, private, countries
+Top words: rural, hospitals, 202 224, medicaid, contact, senator, closed
 
-Content 1 (length: 136 chars):
-Doctors do outsource this work but regardless of who does the work it costs money.
-(Presuming you mean healthcare in the United States).
+Content 1 (length: 2041 chars):
+* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
+* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
+* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
+* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
+* St. Joseph's Hospital (Chippewa Falls, Wisconsin) and Sacred Heart Hospital (Eau Claire, Wisconsin): Closed in March 2024 due to operational and staffing challenges.
+* Jellico Regional Hospital (Jellico, Tennessee): Closed in March 2024 due to a lack of administration and the owner's decision to pull out.
+* Select Specialty Hospital (Longview, Texas): Expected to close in June 2025 because the host hospital decided not to renew the lease.
+* New England Sinai Hospital (Stoughton, Massachusetts): Closed in April 2024 due to financial losses, with many patients on Medicare or Medicaid.
+* Mercy Hospital (Independence, Kansas): Closed in 2015.
+* Parkway Regional Hospital (Fulton, Kentucky): Closed in 2015.
+* Marlboro Park Hospital (Bennettsville, South Carolina): Closed in 2015.
+* Mercy Hospital Fort Scott (Fort Scott, Kansas): Closed in 2018, leaving the town without a hospital within 30 miles.
+* Washington County Hospital (Plymouth, North Carolina): Closed in February 2019 due to financial difficulties.
+* Oswego Community Hospital (Oswego, Kansas): Closed in February 2019, just before Washington County Hospital.
+* Fairfield Memorial Hospital (Winnsboro, South Carolina): Closed in December 2018.
+* Adventist Health Feather River Hospital (Paradise, California): Closed in November 2018 due to fire damage.
+* Latimer County General Hospital (Wilburton, Oklahoma): Officially closed in October 2018, though it had closed its doors earlier in May.
 
-Content 2 (length: 191 chars):
-Americans are paying $600,000 more  for a lifetime of healthcare (PPP) than peer countries on average, yet we worse health outcomes than every single one. The impact of these costs is insane.
+Content 2 (length: 1761 chars):
+* Population density: 49 per square mile
+   * Median population density by county across entire USA: 45
+   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
+* Hospital closed in 2015 ([https://www.nytimes.com/2015/10/09/us/closing-a-hospital-and-fearing-for-the-future.html?unlocked\_article\_code=1.T08.D2aH.1fbLqKEEUFeT&smid=url-share](https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes))
+* A hospital in neighboring Labette County opened a clinic in Independence in order to help file the gap left by the closed hospital
+   * [https://klcjournal.com/how-independence-kansas-survived-losing-its-hospital-and-what-it-means-for-endangered-health-care-in-rural-kansas/](https://klcjournal.com/how-independence-kansas-survived-losing-its-hospital-and-what-it-means-for-endangered-health-care-in-rural-kansas/)
+   * Labette Health System is on average more dependent on Medicaid than the US healthcare system as a whole (27% of revenue vs 19% of revenue)
+* Median household income in the county continued to increase year over year, thanks in large part to local manufacturing (e.g. - Textron/Cessna).
+* TL;DR - Things turned out significantly better in Independence, KS overall. The county had other economic drivers other than the hospital. Mercy hospital was far less adversarial to the community in closing its hospital, allowing neighboring health systems to step in and fill (some) gaps in health care access left by the closed hospital. There was still a similar reduction in the absolute number of households, again almost entirely among the poorest households.
 
-Content 3 (length: 306 chars):
-My girlfriend has $300,000 in medical debt after what her $20,000/yr BCBS PPO insurance for her and her son covered. To be fair, the "No Surprises Act" eliminated *some* of the bullshit insurance refuses to cover, but too late to help her. Anyway you look at it though, US healthcare is insanely expensive.
+Content 3 (length: 1869 chars):
+* Population density: 37 per square mile
+   * Median population density by county across entire USA: 45
+   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
+* Hospital closed in 2015 ([https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes](https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes))
+* Owner of the hospital, which owns competing hospitals in the region, prevented the facility from being used in the future for acute care.
+   * [https://kyhealthnews.net/2019/01/14/chain-that-robbed-fulton-of-its-hospital-continues-to-abandon-small-towns-says-its-no-longer-a-rural-hospital-company/](https://kyhealthnews.net/2019/01/14/chain-that-robbed-fulton-of-its-hospital-continues-to-abandon-small-towns-says-its-no-longer-a-rural-hospital-company/)
+* Median household income in 2012 of 2961 households was $36,813 (inflation adjusted to 2023)
+   * Peak number of households and peak median household income
+* Median household income in 2014 of 2,662 households was $32,948 (inflation adjusted to 2023)
+* Median household income in 2015 of 2,568 households was $28,359 (inflation adjusted to 2023)
+* [https://data.census.gov/table/ACSST5Y2023.S1901?g=050XX00US21075](https://data.census.gov/table/ACSST5Y2023.S1901?g=050XX00US21075)
+* [https://data.census.gov/table/ACSST5Y2014.S0601?g=050XX00US21075](https://data.census.gov/table/ACSST5Y2014.S0601?g=050XX00US21075)
+* TL;DR - Very sudden drop in median household income and number of households after the hospital closed. Median household income has returned to 2012 levels, but this can be explained ***entirely*** by the loss of the poorest households (where did they go / what happened to them?).
 

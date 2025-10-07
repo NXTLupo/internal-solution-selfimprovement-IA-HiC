@@ -1,96 +1,31 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: hospital, closed, rural, medicaid, 2015, cuts, county
+- Top keywords: trans, woman, meme, questions, trans care, tiktok, planned parenthood
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Rural Hospitals are closing down because rural healthcare relies heavily on government subsides to stay afloat. These communities couldn't support a CareNow or standalone ER.
+Adult Trans Care Under Fire: 'Devastating' Impacts for Those Who Lose Access
+— As government crackdowns widen, physicians warn of consequences to health
 
 EXAMPLE 2:
-* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
-* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
-* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
-* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
-* St. [...]
+Government’s demand for trans care info sought addresses, doctors’ notes, texts  Unpopular opinion: Gender-affirming care (whether psychiatric and/or cosmetic) should remain a private matter.
 
 EXAMPLE 3:
-[https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm\_source=chatgpt.com](https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm_source=chatgpt.com)
-If rural hospitals are going to be affected by this, maybe it’s time for greedy healthcare providers to lower their prices for the average citizen… that which is poor. [...]
+Elaboration in a part 2:
+https://www.tiktok.com/t/ZP8A6q9QU/ Nah, they just ask for sex, gender and pronouns if that’s what they are trying to figure out. It’s not controversial to ask for those things on a form.
+Oh, interesting. Seems bizarre to be rolling out questions already at a hospital when that bill is only in the introduction phase still, as cited by the US Congress official website. Maybe they are testing it out?
+So basically they wanted to know if she was using an implant like an IUD or something else that was preventing a pregnancy.  It is a standard review of systems. [...]
 
 EXAMPLE 4:
-Trying to understand what impact of BBB will be on some small communities Having driven cross country many times, including legs off of the interstate highways through the *really* rural areas, I could not help but notice how often the difference between a town appearing to be able to thrive and a town looking fairly desolate depends is whether or not that town has either a college or a hospital. So in addition to the loss of care that many people will face with the cuts to Medicare and Medicaid, I wonder what to expect in terms of the economic impact to some of those small towns. [...]
+Patients with urgent or serious physical medical conditions — including transgender individuals with heart disease, lung disease, diabetes, obesity, cancer, and similar illnesses — should receive top priority for care.
+How is medical treatment not between a licensed professional and a patient for these people?
+Clear hippa violations the patients should sue
 
 EXAMPLE 5:
-* Population density: 37 per square mile
-   * Median population density by county across entire USA: 45
-   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
-* Hospital closed in 2015 ([https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes](https://www.westkyjournal. [...]
+"Are you physically able to conceive?" New Routine Question at Hospitals? I just saw a rather disturbing Tiktok about a woman's experience at the hospital for jaw pain. She was asked the standard questions, and then she was asked if there was anything preventing her from conceiving, if she was physically capable of concieving, and also, later on a form, if she was capable of carrying a fetus to full term.
 
 EXAMPLE 6:
-* Population density: 49 per square mile
-   * Median population density by county across entire USA: 45
-   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
-* Hospital closed in 2015 ([https://www.nytimes.com/2015/10/09/us/closing-a-hospital-and-fearing-for-the-future.html?unlocked\_article\_code=1.T08.D2aH.1fbLqKEEUFeT&smid=url-share](https://www.westkyjournal. [...]
-
-EXAMPLE 7:
-There are still people in these communities with Medicaid and without the high overhead cost of a brick and mortar it seems like a mobile clinic could operate with reduced staff and bill Medicaid to be profitable and still provide service in rural America.
-
-EXAMPLE 8:
-Hospital closures - Mobile clinics I’m curious, with many rural hospitals operating at a negative and cutting much needed services like OB wards for example why aren’t there more mobile clinics.
-
-EXAMPLE 9:
-The hardest-hit will be those already on the margins: rural hospitals barely holding on, and safety-net providers in socioeconomically disadvantaged urban areas. These are institutions that depend on every fraction of DSH eligibility to survive. A 10% drop in Medicaid enrollment isn’t just a technical shift, it’s a financial cliff.
-
-EXAMPLE 10:
-**Anyone think this will go another way?** It’s a death warrant for rural hospitals…..signed, sealed, and delivered by our elected officials. Sadly, I think you’re absolutely right. Pharma has been angling for this outcome for decades, and now they’ve been handed the perfect policy vehicle; one that quietly undercuts 340B by targeting eligibility itself rather than the program directly.
-
-EXAMPLE 11:
-For many hospitals that are just over their required % to make their entity type... say bye bye. Unless you can find a serious workaround to losing 10% of your Medicaid patients, your eligibility is about to drop.
-
-EXAMPLE 12:
-Where else is the money going to come from to pay for facilities and staff? Are you going to have a Lab clinic truck and a Radiology clinic truck and an ER truck and an OB truck going convoy down the highway?
-
-EXAMPLE 13:
-It's an interesting strategy that I don't think pharma could have come up with themselves, but has just been handed to them by Trump. If you can't fight the 340B legislation on the books, reduce the amount of hospitals that qualify for it.
-
-EXAMPLE 14:
-For relative comparison, if the administration and family redirected the funding allocated to renovate the plane gifted by Qatar and the funding allocated to build the new ballroom, roughly 700 mobile clinics can be fully funded to operate for 3 years or roughly 100 rural hospitals can avoid closure.
-300k is the base cost but adding mammography and other capabilities for preventative screenings and that cost jumps closer to 1 million for each van.
-
-EXAMPLE 15:
-The mobile clinic idea is more feasible for ambulatory, primary-type care. Let's say you set it up with a physician at a central hub and you have two mobile clinics. Each mobile clinic is operated by a tech/LVN/driver and a nurse practitioner. When one mobile clinic is on the road the other is parked and operating at designated community location or remote home. The physician would satellite in; the staggered schedule would help manage demand.
-
-EXAMPLE 16:
-I think states have to have this implemented by 12/31/26. Once those numbers hit the Medicare cost report, it's going to be a blood bath.
-
-EXAMPLE 17:
-The Big Beautiful Bill has included a couple of new controls, most notably a work requirement, for Medicaid eligibility that's expected to reduce the patient pop by 10-11%. I bet this number goes even higher. This will obviously negatively impact the DSH% as you can see in the second half of the formula.
-
-EXAMPLE 18:
-The current implosion is happening in Red states especially because they decided they don't want to spend government money on healthcare. In TX we begged Perry and then Abbott for help and both said no.
-
-EXAMPLE 19:
-The BBB is going to smoke a lot of 340B hospitals eligibility The primary factor in determining if a hospital's 340B eligibility is its DSH percentage. To qualify, each hospital needs to meet a certain threshold in order to qualify under whatever designation you're shooting for - RRC 8%, DSH 11.75%, etc.
-
-EXAMPLE 20:
-To calculate the metric, you take into account two things - Medicare population and Medicaid population. *(see below)*
-
-EXAMPLE 21:
-How are they going to work exactly?
-[thenightgaunt](https://www.reddit.com/user/thenightgaunt/) is spot on regarding hospitals.
-
-EXAMPLE 22:
-This isn’t regulatory reform, it’s pure sabotage wrapped in bureaucracy. And it’s going to decimate access where it’s needed most.
-12% is the expected average according to the CBO across all states. Individually Washington estimated to get hit by 26%.
-
-EXAMPLE 23:
-Cost: Let's say physician comp is $275000, NP/PAs are 2x $150000, Tech/LVN/driver are 2x $60000. Each vehicle is $300k upfront and $80k annual maintenance. Add in consumable supplies, StarLink internet, etc. and we're looking at $1M in annual operating spend.
-
-EXAMPLE 24:
-Revenue: Let's say the average visit costs $150. That means we'd need about 13 visits per day or about 3250 visits per vehicle per year.
-
-EXAMPLE 25:
-https://preview.redd.it/6w712ayi3wbf1.png?width=965&format=png&auto=webp&s=3902d26e67be030e168751489f3da3babf6a8288
+This is all terrifying shit. I just wanted to know if any uterus owners have experienced these questions. This woman experienced this at the VA and the nurse claimed they were new questions they had to ask now.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

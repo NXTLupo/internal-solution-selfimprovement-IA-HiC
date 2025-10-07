@@ -1,14 +1,16 @@
 Topic 5 - Content Sample
-Number of content items: 25
-Top words: ai, healthcare, love, patients, help, use, clinics
+Number of content items: 16
+Top words: mha, healthcare, degree, experience, mba, career, school
 
-Content 1 (length: 225 chars):
-I need to think of a tech solution to bring wait times down and get morale back up and I’m looking to Reddit for some help. I want to help everyone; the providers, the front and back office staff, and of course, the patients.
+Content 1 (length: 441 chars):
+If you’re serious about building a long-term career in healthcare administration, you’ll eventually need to pursue a graduate degree. A Master of Healthcare Administration (MHA) is considered the gold standard in this field. If you’re looking for broader career flexibility, an MBA with a healthcare concentration can also be valuable, though in some markets it may not carry the same weight as an MHA for leadership roles in health systems.
 
-Content 2 (length: 441 chars):
-But curious if this is something that’s even relevant to begin with. Would love to get anyone’s perspective here, for the safe use of AI in healthcare.  If you’re using AI for clinical medicine, you should only do so for quickly finding evidence based information. Not as a replacement for foundational training and medical decision making.
-It is not safe to rely on without confirming the information with evidence based sources. Full stop.
+Content 2 (length: 736 chars):
+If you are uncertain about committing fully to a career in healthcare, you may also want to consider an MBA with a healthcare concentration.
+Oh absolutely great advice. I am 100% committed to healthcare. And more recently the operational side of healthcare. Originally I had planned on going into research (biostats, or Epi) through an MPH. However the field is rocky and I feel there are other ways to make an impact, particularly through an MHA. I’m also good at operations, as I discovered in my last position as a PM for medical imaging equipment. I enjoyed the leadership and organizational aspects of project management. 
+(Organizing a team, navigating moving parts, and creating a well structured strategy for project completion)
 
-Content 3 (length: 537 chars):
-TLDR: I need to make my boss happy and fix patient wait times, improve staff communication + make work less stressful, and manage patient flow better during our rushes. Need to think of some kind of tech solution for this. This is an issue that stems from the fee-for-service model. Simple fix is to have fewer patients. You’d either need to charge more per patient to make up for it (not realistic because of carrier contacts) or reduce expenses to hit profitability sooner and with less revenue (develop much more efficient processes).
+Content 3 (length: 776 chars):
+Any pointers or realistic checks would be great.  MHA would be good if you’re going towards the operations route. Especially since your undergrad is not operational.
+I think the most important question to consider is what you ultimately hope to achieve in your career with an MHA. If the degree is pursued without a clear direction—simply with the hope that something will open up—it may be worth taking time to reflect on what you truly want to do. The MHA is a powerful and respected degree, but it is best suited for those who are committed to building a career in healthcare, particularly in leadership, administration, and operations. That said, I also know several individuals who have leveraged an MHA into high-level roles in IT and EMR strategy within health systems.
 

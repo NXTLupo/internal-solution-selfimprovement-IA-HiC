@@ -1,25 +1,22 @@
 Documents for Topic 12 (showing first 3):
 
 Document 1:
-Treasure Coast Hospice Confirms Data Breach Affecting Patient Records Treasure Coast Hospice (Health & Palliative Services of the Treasure Coast, Inc.) recently reported a data breach affecting sensitive patient information. 
-
-On September 25, 2024, unusual activity was detected on their email system. An investigation found that an unauthorized third party may have accessed personal and protected health information, including:
-
-Names and dates of birth 
-Social Security numbers 
-Driver’s license ...
+Why would charges be reversed but not payments? I’m looking at the healthcare claims data for a client of ours, and I look at the appointment, in the charge data, and I see a reversal happening, but when I look at the corresponding collections data, the payment is not being reversed. I look at the task details and it just says ‘claim voided’ or something, like it would be either billing the wrong insurance so a refund needs to be provided, but there is reversal of the payment hitting the books. ...
 
 Document 2:
-US HealthConnect Reports Data Breach – What Patients & Professionals Should Know US HealthConnect, Inc. recently confirmed a **data breach** impacting sensitive personal information, including Social Security numbers, driver’s licenses, and financial account details.
+One medical bill for new customer visit My recent visit to one medical they posted a "new patient office" bill of $218 (insurance has not helped much). The doctor only checked basic stuff and in the end suggested me an OTC medicine. 
 
-**What Happened?**
+Is this a normal amount? I find it too high. 
 
-* On January 25, 2025, US HealthConnect discovered suspicious activity in its systems.
-* An investigation confirmed that an unauthorized third party gained access to sensitive data.
-* On September 4, 2025, US He...
+Any way I can contest it?  
+ Was this a virtual visit or an actual face to face?
+Face to face
+Why did you seek a professional service if you weren’t prepared to pay for the service?
+
+It doesn’t matter whether or not yo...
 
 Document 3:
-Retina Group of Florida reports data breach affecting 152,000 patients Just a heads-up for anyone who has been a patient at the Retina Group of Florida. On Sept. 3, the group reported a cybersecurity incident to the U.S. Department of Health and Human Services that impacted more than 152,000 individuals across the state.
+Is Included Health a scam company? Applied for a job there after never receiving services through them and now I allegedly owe them money. I found a job on LinkedIn for a job at a healthcare company I’ve never sought services from called Included Health. I never apply on LinkedIn; I go to the company’s website. I found the job there and applied. A few weeks later, I got an email from an unfamiliar domain name saying I owe the company $10.00 for healthcare services.
 
-According to the filing, sensitive patient data may have been exposed, though official letters to impacted patients have not yet been sent out....
+Obviously, I didn’t click any...
 

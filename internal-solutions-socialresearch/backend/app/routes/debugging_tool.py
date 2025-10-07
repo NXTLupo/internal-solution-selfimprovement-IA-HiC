@@ -32,7 +32,7 @@ try:
 except FileNotFoundError:
     print(f"Error: File not found at {file_path}")
     # Try alternative path
-    alt_path = os.path.join(os.environ.get('SENTIMENT_LOG_DIR', 'temp'), '1.search_data.json')
+    alt_path = os.path.join(os.environ.get('SENTIMENT_LOG_DIR', '/app/temp'), '1.search_data.json')
     print(f"Trying alternative path: {alt_path}")
     try:
         with open(alt_path, 'r') as file:

@@ -1,88 +1,100 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: healthcare, insurance, care, costs, companies, private, countries
+- Top keywords: rural, hospitals, 202 224, medicaid, contact, senator, closed
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Doctors do outsource this work but regardless of who does the work it costs money.
-(Presuming you mean healthcare in the United States).
+* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
+* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
+* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
+* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
+* St. [...]
 
 EXAMPLE 2:
-Americans are paying $600,000 more  for a lifetime of healthcare (PPP) than peer countries on average, yet we worse health outcomes than every single one. The impact of these costs is insane.
+* Population density: 49 per square mile
+   * Median population density by county across entire USA: 45
+   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
+* Hospital closed in 2015 ([https://www.nytimes.com/2015/10/09/us/closing-a-hospital-and-fearing-for-the-future.html?unlocked\_article\_code=1.T08.D2aH.1fbLqKEEUFeT&smid=url-share](https://www.westkyjournal. [...]
 
 EXAMPLE 3:
-My girlfriend has $300,000 in medical debt after what her $20,000/yr BCBS PPO insurance for her and her son covered. To be fair, the "No Surprises Act" eliminated *some* of the bullshit insurance refuses to cover, but too late to help her. Anyway you look at it though, US healthcare is insanely expensive.
+* Population density: 37 per square mile
+   * Median population density by county across entire USA: 45
+   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
+* Hospital closed in 2015 ([https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes](https://www.westkyjournal. [...]
 
 EXAMPLE 4:
-What is the Truth Behind USA Healthcare and Insurance? I am really trying to find out the truth behind USA healthcare. I've never had to use it extensively, but obviously many have, and I'd love to hear your experience with financing your care.
+Trying to understand what impact of BBB will be on some small communities Having driven cross country many times, including legs off of the interstate highways through the *really* rural areas, I could not help but notice how often the difference between a town appearing to be able to thrive and a town looking fairly desolate depends is whether or not that town has either a college or a hospital. So in addition to the loss of care that many people will face with the cuts to Medicare and Medicaid, I wonder what to expect in terms of the economic impact to some of those small towns. [...]
 
 EXAMPLE 5:
-\[1\] How well American insurance companies do this is a matter up for debate. Well, not much of a debate: pretty much everyone agrees that insurance companies are doing a terrible job of following their own policies. The debate is more over the details and what to do about it.
+Contact Your Senators Directly: The website gives you an easy way to find your Senators’ contact information and even provides a ready-to-use script, so you know exactly what to say and who to call or email.
 
 EXAMPLE 6:
-Thanks!   The truth....hummm.. there are a lot of 'truths' out there and most of them favor the insurer doing whatever they have to to turn a profit.. You want examples of how these plans work, the reality is MOST Americans don't have a clue, and that includes me... As in these 'instruments' are engineered to be so confusing that 'normal' people can't get what they think they are buying. The other part is you talk about having the 9k out of pocket... Most of us don't have more than $1k to spare much less $9k so.. yeah that accounts for a lot of bankruptcies. [...]
+* **REPUBLICAN SENATOR LISA MARKOWSKI - ALASKA**
+* PHONE NUMBER: (202) 224-6665
+* EMAIL: [https://www.murkowski.senate.gov/contact/email](https://www.murkowski.senate.gov/contact/email)
 
 EXAMPLE 7:
-36% of US households with insurance put off needed care  [due to the cost](https://www.commonwealthfund.org/publications/surveys/2023/oct/paying-for-it-costs-debt-americans-sicker-poorer-2023-affordability-survey); 64% of households without insurance. One in four have [trouble paying a medical bill.](https://www.kff.org/health-costs/issue-brief/data-note-americans-challenges-health-care-costs/) Of [those with insurance one in five have trouble paying a medical bill](https://www.kff. [...]
+**Three Senators will be particularly important for this vote: Johnson (WI), Collins (ME) and Murkowski** **(AK). If you live in Maine, Wisconsin or Alaska, please find their contact numbers below as well as a script that you can write or leave on their voicemail.**
 
 EXAMPLE 8:
-Providers spend a LOT of time on the phone with insurance companies. In essence this is argument over whether or not the patient *really needs* the care the provider has deemed medically necessary, and if that care is *actually covered* under the insurance policy. There are a lot of perverse incentives in this conversation that are hard to talk about. The insurance company doesn't know the details about the patient and rarely is the person on the other end of the phone line an expert in the narrow field of medicine that is part of the claim. [...]
+* **REPUBLICAN SENATOR RON JOHNSON - WISCONSIN**
+* PHONE: (202) 224-5323
+* EMAIL: [https://www.ronjohnson.senate.gov/email-the-senator](https://www.ronjohnson.senate.gov/email-the-senator)
 
 EXAMPLE 9:
-With healthcare spending [expected to increase](https://www.cms.gov/files/document/nhe-projections-forecast-summary.pdf) from an already unsustainable $15,705 in 2025, to an absolutely catastrophic $21,927 by 2032 (with no signs of slowing down), things are only going to get much worse if nothing is done.
+Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to demand that the Senator vote no on the budget bill. We all know it’s awful. We know it’ll cost lives, force children to go to bed hungry, cost hundreds of thousands of jobs, increase prices on pretty much everything, and destroy our healthcare system—especially in rural areas. We also know that Republicans will pay dearly at the ballot box for passing it. I know the Senator is afraid to stand up to Trump but s/he can and s/he must—in fact s/he will be regarded as a hero for doing so. [...]
 
 EXAMPLE 10:
-What hoops doctors jump to accept insurance / are there solutions for this? I read the thread a while back on this subreddit about all the problems that doctors face if they want to accept insurance. It was mostly caused by insurance companies negotiating hard with them, and also a fair amount of red tape and documentation.
+Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to thank the Senator for committing to opposing the awful Republican reconciliation bill. I know Democrats worked through the weekend to drag this process out and get as much bad stuff out of the bill as possible and I really appreciate it. I know you’re still working to slow it down. THANK YOU! Please keep holding Republicans’ feet to the fire. Do all you can. We’re counting on you to leave it all on the field, and we have your back in return. Thanks.
 
 EXAMPLE 11:
-https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022
+The AAMC projects a physician shortage of roughly 86,000 by 2036, which the bill would only exacerbate. As the number of physicians declines, the quality of care and patient outcomes would very likely deteriorate due to a lack of physician representation and care in an ever-growing patient population. Areas in dire need of doctors would be hit the hardest, impacting rural areas, underserved communities, and VA hospitals. We need doctors more than ever, and restricting access on the basis of income rather than potential and talent will be detrimental in the long run.
 
 EXAMPLE 12:
-https://www.milbank.org/wp-content/uploads/mq/volume-66/issue-03/66-3-Hospital-Quality-Competition-and-the-Economics-of-Imperfect-Information.pdf
+A clause in the **"One Big Beautiful Bill"** aims to eliminate the Grad PLUS loan program, a lifeline for graduate and professional students. Grad PLUS has been pivotal in making medical school tuition affordable for 75% of students. If the bill is enacted, thousands of future doctors will be priced out of pursuing medicine. The vote is THIS WEEK. Your call to an undecided Senator will truly decide the future of American healthcare for all. We are just **TWO “NO” votes away from stopping this**. Your call to an undecided Senator could be the tiebreaker vote to oppose the bill. Take ACTION!
 
 EXAMPLE 13:
-What is the bottom of the truth here? Would appreciate responses as well from healthcare workers who know the system very well, are people going broke because they can't afford out of pocket max? Or because out of pocket max is an illusion if you get really sick or injured?
+* **REPUBLICAN SENATOR SUSAN COLLINS - MAINE**
+* PHONE NUMBER: (202) 224-2523
+* EMAIL: [https://www.collins.senate.gov/contact/email-senator-collins](https://www.collins.senate.gov/contact/email-senator-collins)
 
 EXAMPLE 14:
-Let's say a person is doing okay financially and has 100k in the bank sitting there. They have a policy of 9k OOP and want to plan for the next 10 years. If they put that 100k aside for healthcare costs, then they should be entirely covered for the 10 years (with 10k to spare). Their maximum total healthcare costs over the 10 year period would be 90k. Or, if you get hit by a bus, can you expect to pay more than the 90k over the next 10 years? Will insurance not cover this or that so that the true OOP is much higher? I can't seem to find that answer anywhere, even in research on medical bankrup [...]
+Sign the Petition: Add your name to the official petition to show Congress that Americans care about the future of medicine. (Share this post with friends, family, classmates, and on every social platform.)
 
 EXAMPLE 15:
-Why MD clinics & hospitals may be selling to PEs in first place 
-https://thehill.com/opinion/healthcare/4365741-private-equity-is-buying-up-health-care-but-the-real-problem-is-why-doctors-are-selling/
+URGENT: Senate “Vote-a-Rama” on One Big Beautiful Bill—Just 2 More GOP “NO” Votes Can Save Medical Student Loans and the Future of Healthcare **A vote-a-rama is happening in the Senate for the One Big Beautiful Bill as you read this.** During a vote-a-rama, Senators are on the floor voting on amendment after amendment, and their offices are tracking every single call in real time. This is the moment when your call is most likely to be noticed and can directly influence how a Senator votes.
 
 EXAMPLE 16:
-https://www.aha.org/aha-center-health-innovation-market-scan/2024-04-02-payer-denial-tactics-how-confront-20-billion-problem
-Look up healthcare reports from consultancies, banks, law firms, and government (CMS). McKinsey and Bain regularly publish solid industry overviews and outlook reports every year. Many other professional firms do too. Those will be more topically relevant and digestible than probably any book since books will generally go deep into a very specific topic that may not even be super relevant to today
-What kind of healthcare consulting? Pharmaceuticals, government programs ( [...]
+BIG BEAUTIFUL BILL vote is TONIGHT! Here is how you can help stop it: ***Call your SENATORS TO OPPOSE THE BILL! VOTE TONIGHT! 202-224-3121 or look up their office numbers*** [***here***](https://www.senate.gov/senators/senators-contact.htm?Class=1)***.***
 
 EXAMPLE 17:
-No. That's not how insurance works. Not just for health insurance in America, but any kind of insurance anywhere. What you're talking about sounds more like a warranty.
+The Senate is currently voting on the bill that can end Grad PLUS loans for medical students. The Grad PLUS program under the Direct PLUS program has put thousands for doctors through medical school in US. Around 70-75% of MD students rely on the program to cover the cost of attending medical school. Four out of five DO students rely on Grad PLUS to cover similar costs. The Grad PLUS loan funds the entire cost of attendance, including tuition and living expenses. Grad PLUS has made medical education a possibility for the average American. [...]
 
 EXAMPLE 18:
-\[3\] This isn't just your doctor ordering a surgery because he wants to make a downpayment on a boat---although that does happen. It's also doctors being extra cautious to rule out rare conditions because they don't want to be sued for making a mistake. Or it's incentives from other companies in the healthcare business that feel like kickbacks. Yes, there are zillion pieces of regulation that try to close these loopholes. But these are fundamental problems inherent in large systems like these.
+If you live in these states, your call is critical. If not, please share this with friends or family who do:
 
 EXAMPLE 19:
-https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/health-care-access-and-quality
+(Mods: This is a nonpartisan, fact-based, time-sensitive action for the future of medicine. Please pin if possible)
 
 EXAMPLE 20:
-PE impacts on Clinical practices 
-https://www.healthcaredive.com/news/private-equity-healthcare-hhs-ftc-probe/709472/
+***You can also send*** [***this Resistbot letter***](https://resist.bot/petitions/PPWCSD) ***opposing the bill by texting SIGN PPWCSD to 50409*** thank you, im reposting this
+Done all. Also:
+Here is a more complete roster
 
 EXAMPLE 21:
-We hear all the time that even medically insured people go broke if they get really sick. It's well-documented. But why? Is that because they can't afford their out of pocket max each year? Or, are they paying thousands and thousands beyond their out of pocket max because a) some services are out of network and hence not covered, 2) insurance companies simply reject claims if they think they can get away with it, 3) patients choose for themselves services not covered by their insurance?
+All responses can be emailed to [doctorsnotdebt@gmail.com](mailto:doctorsnotdebt@gmail.com). Please include your name (first name required only), your current standing in medical education (pre-med, MD, fellow, attending, etc), and the college you are attending if applicable. All submitted responses will be a part of the Story section of the Doctors Not Debt website.
 
 EXAMPLE 22:
-A doctor can outsource the process of filing insurance claims on behalf of their patients. They do this by hiring a medical billing company. It's that business which that acts as a middle-man between the medical provider and the insurance company. I'll explain how that works in a reply to this comment.
+**These are RON JOHNSON’s company donors** listed in order of donation amount (high to low). Contact these donors to tell Johnson’s to VOTE NO. A threat to boycott their products always works best! |[Johnsonville Sausage](https://johnsonville.com/)| |[Klondike Cheese](https://www.klondikecheese.com/)| |[RDV Corp](https://jobs.rdvcorp.com/)| |[Oral Surgery Clinic of La Crosse](https://www.facebook.com/p/Oral-Surgery-Clinic-of-La-Crosse-100066448942232/)| |[Abc Supply](https://www.abcsupply.com/)| |[Michels Corp](https://www.michels.us/)|
 
 EXAMPLE 23:
-For example, suppose you are insured with Blue Cross and have an out-of-pocket max of 9k per year, which means that once you pay that amount out in a single year, the insurance company should cover the rest. But, that is of COVERED services only, IN NETWORK. So, how many services are usually not covered? Are many services required often out of network? Have you heard of people (or have experienced yourself) spending far beyond the out-of-pocket max of their insurance to cover their medical care? Is that normal? Or, could one count on the 9k being the MAXIMUM charges one could theoretically inc [...]
+This is not just about the future of medical doctors. This is about every patient, every family, and the future of our nation's healthcare system. This issue affects most students from any discipline pursuing higher education.
 
 EXAMPLE 24:
-Why/how PEs are harming clinics/hospitals 
-https://lowninstitute.org/the-rising-danger-of-private-equity-in-healthcare/
+**These are LISA MARKOWSKIs company donors** listed in order of donation amount (high to low). Contact these donors to tell Murkowski to VOTE NO. A threat to boycott their products always works best!: [Trident Seafoods](https://www.tridentseafoods.com/)| |[Van Ness Feldman](https://www.vnf.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_content=DC)| |[Lynden Inc.](https://www.lynden.com/)| |[General Communication Inc.](https://www.gci.com/)| |[KKR & CO.](https://www.kkr.com/)|
 
 EXAMPLE 25:
-This is **paneling.** The insurance company checks all your paperwork with the state. They evaluate if you're a good provider. They look at how long you've been in practice and where you practice---because healthcare costs vary a lot by zipcode. They might even send someone out to check out your business (although this is less common today.) And finally if all goes well the insurance company invites you to be one of the providers that their policyholders should visit. This means you are now **in network.**
+You can take action TODAY. Voice your opinions to those you have put into positions of power. The bill is currently in the Senate for voting. This prime time to call your Senators. During the vote-a-rama, the Senate is in constant debate, and members are proposing amendments to the bill. Many Senators are all ears and are eager to hear from their constituents in regards to the bill. Voting in alignment with their constituents can increase their chances of reelection. [...]
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

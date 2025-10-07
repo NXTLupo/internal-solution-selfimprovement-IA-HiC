@@ -1,18 +1,13 @@
 Topic 25 - Content Sample
-Number of content items: 8
-Top words: frontiers, mercor, remote, healthcare, working, company provides, independently
+Number of content items: 17
+Top words: medicare, sequestration, budget, sequestration order, beneficiaries, cuts, trust
 
-Content 1 (length: 250 chars):
-If anyone is interested in outsourcing Healthcare Frontiers/Verification services for ACA, Medicaid, medicare, please let me know. We are currently having a team of 20 Experienced Frontiers working for multiple licensed insurance agents based in USA.
+Content 1 (length: 371 chars):
+Generally, Medicare’s benefit structure remains unchanged under a mandatory sequestration order and beneficiaries see few direct impacts. However, Medicare plans, providers, and suppliers see reductions in payments. Due to varying plan and provider payment mechanisms among the four parts of Medicare, sequestration is implemented somewhat differently across the program.
 
-Content 2 (length: 339 chars):
-Perfect Remote Work side gig Mercor is seeking expert evaluators to support a high-impact evaluation workflow in partnership with a leading AI research lab. This project focuses on the Healthcare domain, where you will assess agent-generated research reports related to medical trends, healthcare technologies, and industry best practices.
+Content 2 (length: 614 chars):
+Medicare is a federal program that pays for certain health care services of qualified beneficiaries. The program is funded using both mandatory and discretionary spending and is impacted by any sequestration order issued in accordance with the aforementioned laws. Medicare benefit payments (the majority of Medicare expenditures) are considered mandatory spending and therefore are subject to the sequestration of mandatory funds. Special sequestration rules limit the extent to which Medicare benefit spending can be reduced in a given fiscal year. This limit varies depending on the type of sequestration order.
 
-Content 3 (length: 206 chars):
-Our tasks include but are not limited to:
-• Pre qualification 
-• Validation of current healthcare benefits 
-• Live Transfer to online agen/closures 
-• Scheduling appointments for discussions
-• Daily reports
+Content 3 (length: 518 chars):
+Under a BCA mandatory sequestration order, Medicare benefit payments and Medicare Integrity Program spending cannot be reduced by more than 2%. Under a Statutory PAYGO sequestration order, Medicare benefit payments and Medicare Program Integrity spending cannot be reduced by more than 4%. These limits do not apply to mandatory administrative Medicare spending under either type of sequestration order. These limits also do not apply to discretionary administrative Medicare spending under an FRA sequestration order.
 

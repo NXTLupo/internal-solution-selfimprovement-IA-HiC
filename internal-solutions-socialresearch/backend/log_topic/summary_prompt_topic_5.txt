@@ -1,90 +1,59 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: ai, healthcare, love, patients, help, use, clinics
+- Top keywords: mha, healthcare, degree, experience, mba, career, school
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-I need to think of a tech solution to bring wait times down and get morale back up and I’m looking to Reddit for some help. I want to help everyone; the providers, the front and back office staff, and of course, the patients.
+If you’re serious about building a long-term career in healthcare administration, you’ll eventually need to pursue a graduate degree. A Master of Healthcare Administration (MHA) is considered the gold standard in this field. If you’re looking for broader career flexibility, an MBA with a healthcare concentration can also be valuable, though in some markets it may not carry the same weight as an MHA for leadership roles in health systems.
 
 EXAMPLE 2:
-But curious if this is something that’s even relevant to begin with. Would love to get anyone’s perspective here, for the safe use of AI in healthcare.  If you’re using AI for clinical medicine, you should only do so for quickly finding evidence based information. Not as a replacement for foundational training and medical decision making.
-It is not safe to rely on without confirming the information with evidence based sources. Full stop.
+If you are uncertain about committing fully to a career in healthcare, you may also want to consider an MBA with a healthcare concentration.
+Oh absolutely great advice. I am 100% committed to healthcare. And more recently the operational side of healthcare. Originally I had planned on going into research (biostats, or Epi) through an MPH. However the field is rocky and I feel there are other ways to make an impact, particularly through an MHA. I’m also good at operations, as I discovered in my last position as a PM for medical imaging equipment. [...]
 
 EXAMPLE 3:
-TLDR: I need to make my boss happy and fix patient wait times, improve staff communication + make work less stressful, and manage patient flow better during our rushes. Need to think of some kind of tech solution for this. This is an issue that stems from the fee-for-service model. Simple fix is to have fewer patients. You’d either need to charge more per patient to make up for it (not realistic because of carrier contacts) or reduce expenses to hit profitability sooner and with less revenue (develop much more efficient processes).
+Any pointers or realistic checks would be great.  MHA would be good if you’re going towards the operations route. Especially since your undergrad is not operational.
+I think the most important question to consider is what you ultimately hope to achieve in your career with an MHA. If the degree is pursued without a clear direction—simply with the hope that something will open up—it may be worth taking time to reflect on what you truly want to do. [...]
 
 EXAMPLE 4:
-This short survey isn’t just about billing—we also want to understand **how healthcare professionals feel about the way they are treated** in today’s world. Your insights will help shape solutions that truly support you.We know your time is valuable, so we’ve made sure to keep it **quick and easy**—it won’t take more than a few minutes!
+If you choose the MHA route, I highly recommend applying for a post-graduate fellowship. It’s one of the most effective ways to get your foot in the door, gain meaningful leadership experience, and build a strong professional network.
 
 EXAMPLE 5:
-I haven’t been working here for long, but I think the major problems are that appointments are only done via phone and we only have one receptionist for every three practitioners, the providers don’t really track the patient order and chart between patients, the providers have designated rooms which makes some of them super busy and others not at all, and there’s not really a good protocol in place for when people call out and we can’t handle the volume.
+Be open to different pathways, take initiative, and commit yourself to learning as much as possible along the way. Ultimately, it’s your work ethic, communication,  and soft skills that are going to be your biggest accelerators to career growth.
+I work in healthcare administration, specifically division level operations. Not something you must do, but something I encourage is bolstering your resume with internships (whether in senior living facilities, clinics, hospitals, etc.) and eventually getting a graduate degree (MHA, MBA, MPH, etc.). [...]
 
 EXAMPLE 6:
-I’m exploring an idea like a ‘Vanta’ for healthcare AI, that would continually check the accuracy and safety of LLM’s.
+I think with your experience, the MBA is more than sufficient and a second MHA/MHSA is both duplicative and probably not a good return on investment.  As such, the accrediting agency is moot.  Your experience in administration, especially if you are a senior NCO or officer, counts more than adding another graduate degree.
+Thank you for sharing that information. Military Healthcare is all I have known since 18. Transitioning to civilian sector is pretty unknown territory to me because I don't know what jobs look for. I really appreciate the information. [...]
 
 EXAMPLE 7:
-If the government and hospitals won’t fix the system, let’s take matters into our own hands. I’ve created a crowdsourced database where people can anonymously submit what they paid for medical procedures, hospital visits, and medications.
+My main question: how important is CAHME accreditation for the MHA/MSHA? Is it a must-have for career progression after the military, or would a regionally accredited (but not CAHME) program still carry enough weight? I recently retired from senior leadership in a multi-state medical system. Most of my professional peers at my level have a MBA/MHA/other financial or management degree in addition to whatever clinical degrees they had. As you climb the admin ladder, being familiar with business, financial and managerial concepts and implementation becomes more important. [...]
 
 EXAMPLE 8:
-Not allowing walk ins helps, so does switching to an EHR that allows patients to self schedule. Direct messaging their provider can reduce the need for scheduled visits, alleviating some in-office throughput issues.
+Ideally I would love to couple my undergraduate studies with the MHA and land a role in government affairs or relations in the hospital. I know it’s a lofty goal but (Director of Gov Affairs) would be an amazing position to end up in, or at least something close to there, and from what I understand that’s certainly doable with Political Science BA and the MHA combined.
 
 EXAMPLE 9:
-If you’ve ever been hit with an outrageous bill—or if you just want to help—please take 30 seconds to submit your costs here: Link: https://airtable.com/appkvjQ8eSvegYN5Q/pagTnq3AYdHoPqSG0/form
+Since you already hold an MBA, pursuing an MHA may not add as much value or career prospects, as the two are largely comparable degrees. CAHME accreditation is especially valuable for early-career professionals seeking fellowships, but given your experience, you likely won’t need a fellowship to transition successfully and make an immediate impact in the workplace.
 
 EXAMPLE 10:
-I’m an administrator at a medical group and our patient volume has jumped 10% in the last six months. The wait times are driving our patients crazy and stressing out our staff.
+Wanting to get into healthcare admin need some advice I want to get into healthcare admin and I know it’s competitive where I’m at. I recently graduate with a degree in business general management. But I want to know what certifications should I get to stand out or learn from as I try to get into this field.  Start by gaining healthcare experience in any capacity—whether it’s scheduling, revenue cycle, or another operational role. Getting exposure to the inner workings of a healthcare organization is a critical first step.
 
 EXAMPLE 11:
-Your feedback could help drive meaningful change. Feel free to **comment or share** with your colleagues! 
-How Much Did You Pay for Healthcare? Let’s Bring Transparency Together.
+Before committing, I would encourage you to do some job shadowing or connect with professionals in your area who already hold an MHA. Learning more about their day-to-day work can help you determine whether that path excites you. Every career trajectory is unique, and while an MHA provides a strong foundation of knowledge, it is just that….a foundation. To maximize its value, you’ll want to hone your focus and determine whether the investment aligns with your long-term goals.
 
 EXAMPLE 12:
-That said, 10 day primary care wait is pretty good. Average wait in my state is 28 days.
-Template scheduling (designated new/return slots) can help bring down the time to next appointment.  Check out in room scheduling is also necessary. Contacting people via phone after a visit is a huge drain on resources and time.  Cross train your rooming staff to go back into the room following the visit and scheduling the patients follow up. One receptionist is not sustainable for all of the work.
-There is no technology that will bring wait times down and boost morale. [...]
+Poli Sci BA, with a minor in PH. Is an MHA a viable? The title says it all. I’m considering going the MHA route rather than the MPH I had planned on originally because the field is being systemically dismantled.
 
 EXAMPLE 13:
-Healthcare costs in the U.S. are out of control, and the worst part? No one knows what they’re actually supposed to pay. Prices vary wildly, hospitals hide costs, and people end up with surprise bills that feel impossible to fight.
+How important is CAHME accreditation for healthcare administration careers? I’m currently active duty Navy with 16 years in the healthcare field. I just wrapped up an MBA and I’m planning to add PMP, Scrum Master, and Data Analytics certs by mid-next year. I’ll be finishing my career at 20 years and I’m looking into a second grad degree in Healthcare Administration.
 
 EXAMPLE 14:
-Thank you. Hi! For my master's thesis, I'm studying **wearable technology** (electronic devices that can be worn on the body or clothing, such as smartwatches, bands, rings, and glasses) for migraine management. I intend to investigate how wearable technology can be designed to help all patients manage this disease and minimize the significant impact it has on their lives.   
-Therefore, I'm collecting answers from **migraine sufferers** for my survey and I really appreciate your response, as it is a crucial contribution to the research. [...]
+Personally, I came into healthcare administration from the clinical side and transitioned into leadership roles from there. It’s opened a lot of doors but every pathway is unique.
 
 EXAMPLE 15:
-We will more-aggressively moderate this kind of activity. Anything that is abuse will result in a sub ban, as well as reporting dangerous activity to the site admins. Please message the mods if you want support and advice before posting.  'Scary words are for bad actors'.  It is our interest to support legitimate activity in the healthcare community.
+Shadowing is not something I had thought of but is a great suggestion. I will start looking locally and see if there is anyone willing to let me take a peek into their daily job routine in healthcare administration to see if it’s a fit.
 
 EXAMPLE 16:
-I would say that new patient appointment wait times are about 10 days for primary care and 45 days for a specialist, existing patients are 4 days for primary care and 15 for a specialist, and wait times in-clinic are 30 min in the waiting room, 15 in the exam room, and 10 for checkout…
-
-EXAMPLE 17:
-If you’re going to have to confirm everything with your own research anyway, better just to use UpToDate from the get
-This is relevant, especially given the growing concerns about hallucinations and other LLM errors in the medical niche. In healthcare, incorrect AI results can cause not only reputational damage, but also directly impact patient safety, regulatory compliance, and physician confidence.
-
-EXAMPLE 18:
-Hallucinations are not just a modeling error, but in sensitive areas such as medicine, it is an error that can do a lot of damage. Therefore, there is a need for continuous supervision of AI results.
-
-EXAMPLE 19:
-[Ever hear about those court cases where lawyers cited fake cases that ChatGPT made up](https://www.theguardian.com/us-news/2025/may/31/utah-lawyer-chatgpt-ai-court-brief)? Imagine doing that with someone’s health and then they die. Pretty sure “ChatGPT told me to do it” wouldn’t be a great medicolegal defense
-
-EXAMPLE 20:
-One way to address this is through structured responsible AI audit. This system doesn't just check accuracy - it assesses bias, reliability, explainability, and compliance with ethical and regulatory standards such as HIPAA or the EU AI Act. In essence, responsible AI audit turns the LLM into a model you can trust.
-
-EXAMPLE 21:
-I’m pretty much open to any ideas like a scheduling AI or an internal workflow system or some kind of communication platform…not really sure where to begin and would love some ideas from people who have more experience in the field. Thanks for the help!
-
-EXAMPLE 22:
-If you want responsible AI audit to be more than just a theoretical defense, it needs to be built into the AI lifecycle - from data collection to deployment - and performed continuously, not just when the model is run. This is the way to detect degradation, detect drift, and maintain a safe LLM over time.
-
-EXAMPLE 23:
-The more data we collect, the harder it will be for the system to stay broken. Together, we can expose price disparities and help people make informed decisions.
-
-EXAMPLE 24:
-However, we want to investigate if a single stickied post (like this one) to anchor polls and surveys.  The post could be a place for those who are interested in opportunities to give back and help students, researchers, new ventures, and others.
-
-EXAMPLE 25:
-This is a test.  It might not be the right thing, and we'll stop it.  
-Please share your concerns.  
-Please share your interest.
+I also have always loved working with kids and working for a children’s hospital would be an amazing place for me to find myself in the future.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

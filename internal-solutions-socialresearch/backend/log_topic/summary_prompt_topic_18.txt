@@ -1,68 +1,50 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: plan, deductible, marketplace, cobra, employer, marketplace plans, coverage
+- Top keywords: cdc, vaccine, covid, agency, employees, cdc director, covid 19
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-I'm leaving employment, where I have coverage through the state-employee plan (Anthem "CovaCare", which is for VA).  I won't be eligible for Medicare for several more years.
+What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
 
 EXAMPLE 2:
-Certainly I have individual circumstances.  I guess my distilled question is “do marketplace plans tend to be similar to employer-based plans, st the same nominal price?”.
-I definitely think someone from VA needs to answer this. I work in healthcare and deal with insurance a lot. In Texas the marketplace plans are junk compared to the employer plans and here’s why. Gosh forbid you or a family member have something catastrophic that happens to you medically, the Marketplace plans lack post acute benefits. [...]
+“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. [...]
 
 EXAMPLE 3:
-Quality of marketplace plans vs (good) employer-plans?  (Anthem CovaCare vs Healthkeepers) I'm asking specific to Virginia (US), but bigger perspective could be nice too:
+“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
 
 EXAMPLE 4:
-But before committing to a big change (I can't go back to the employer plan once I pass up the opportunity), I wanted to check if people felt happy with their gold-tier marketplace plans, and maybe even specifically if they've noticed differences between the specific plans (CovaCare vs Healthkeepers).
+“This was, in one sense, the first attack of its kind on the CDC,” Landman writes. “The shooter, whom law-enforcement officials have identified as Patrick Joseph White, a 30-year-old resident of an Atlanta suburb, was reportedly fixated on the idea that the COVID-19 vaccine had made him depressed and suicidal. No employees were injured by the bullets that entered the buildings, according to a CDC representative. But an Atlanta police officer named David Rose was shot and later died from his injuries. White, too, was found dead—fatally shot—at the scene. [...]
 
 EXAMPLE 5:
-Choosing level of healthcare coverage I’m located in the US. I just started a new job and need to sign up for benefits
+“In another sense, public-health workers have been facing escalating hostility since the early days of the coronavirus pandemic. In 2020, armed protesters gathered on the Ohio Health Department director’s front lawn, and the chief health officer of Orange County, California, was met with death threats after issuing a mask mandate. She had to hire extra security and was eventually driven to resign. Anthony Fauci, who served as the director of the National Institute of Allergy and Infectious Diseases during the country’s initial COVID response, has faced regular death threats since 2020. [...]
 
 EXAMPLE 6:
-If you ask me I’d say get a different employer that offers better benefits. I only pay $600 a year.
-Yeah, while employed, my employer paid for most of that healthcare plan!  Upon leaving, I have the *option* of keeping that plan, but won’t have an employer picking up most of the tab any more.
+“...In the hours immediately after the shooting, while many CDC employees remained barricaded in offices and marooned in conference rooms, they heard nothing from Robert F. Kennedy Jr. or President Trump,” Landman continues. In the following days, CDC employees have received statements from Susan Monarez, the newly confirmed CDC director, and Kennedy. (The White House and HHS did not respond to requests for comment.)
 
 EXAMPLE 7:
-The state plan has been good, and we are happy with it.  I have the option of paying to keep it (about $13k/yr for my family of 3), or going to the marketplace.  There, I see another Anthem plan "Healthkeepers" (gold tier), whose *nominal* cost is also about $13k/yr, BUT with the tax credits (due to our reduced income) it will be about a quarter of that.
+‘I’m Actually Surprised It Didn’t Happen Sooner’  “When gunfire pelted the Atlanta-based headquarters of the CDC yesterday, hundreds of employees were inside the campus’s buildings,” Keren Landman, journalist and physician trained in infectious diseases, writes. “The experience was terrifying. But some of the employees were not particularly shocked. ‘I’m actually surprised it didn’t happen sooner,’ a nearly 20-year veteran of the agency told me. (She, like others I spoke with for this article, requested anonymity out of fear of losing her job.)”
 
 EXAMPLE 8:
-For myself personally, I recently decided to stop paying for the high premium plan as I do not use healthcare as frequently as the cost of the premium. Granted- my “high deductible” health plan is only 2,000. I’m building up an HSA account that also reduces my taxable income. I can use those funds for other eligible items at the grocery store like allergy meds - only take 1 rx drug and OTC allergy meds daily - which are considerably expensive. I have resources in case of any emergency but actively live a lifestyle that mitigates any unexpected health issues. It works for me. [...]
+“The reality of what’s unfolding inside the CDC is more complicated than widespread meddling, according to the employees I spoke with. And that makes navigating the information coming out of the agency even more of a challenge for everyone on the outside.”
 
 EXAMPLE 9:
-The deductible waived options seem enticing but questionable in the long term and depends on the consumer.
+Before COVID there was a Facebook group by nurses where they shared ways to scam and lie to their employers about getting vaccinated. They'd do things like go to Walgreens, pay for a booster, get the receipt and leave without getting the shot. And then use the receipt as proof at work.
 
 EXAMPLE 10:
-How many times a - month - am I consuming any healthcare? What would my cost share be between all of the options?
+What are your thoughts on this? [Henry Ford Health warns anti-vaccine group to stop using info from 'fatally flawed' project](https://bluewaterhealthyliving.com/news/local-news/michigan/henry-ford-health-warns-anti-vaccine-group-to-stop-using-info-from-fatally-flawed-project/) I think the ONLY way to stop these antivaxer is going to be for doctors and healthcare companies to attack them directly.
 
 EXAMPLE 11:
-It depends on the specifics. How much is the premium per month for each plan and how much is the deductible? How much is your company contributing to your HSA? Does your plan year restart in Jan? Do you expect the surgery to cost so much that you’ll hit your out of pocket maximum?
+And when this is over,we are going to need to ferret out every antivaxer physician and nurse and give them the boot.
 
 EXAMPLE 12:
-Normally, I would sign up for the high deductible health plan so that I can contribute to the HSA. This year, I’m expecting that I may need more healthcare than usual because I might need a minor surgery.
+As someone who frequently works with healthcare research, I sometimes wonder if the general public needs less access to what universities and scientists work on and publish. But I also don't want to limit access either. Quite a conundrum.
 
 EXAMPLE 13:
-I know i will need it but damn it sucks loosing almost 10% a year on payments to insurance i dont even use.
+I don't even know how to stop these folks from just spreading lies and pretending there is some veracity to it because it's "research." They cannot understand the difference between good, sound, peer-reviewed research and a literal draft that was scrapped because the methodology was ass.
 
 EXAMPLE 14:
-I can confirm that both plans cover our biggest medicine costs (incl. my T2 diabetes), and our current doctors (perhaps because both plans are through Anthem).  (I am finding it kinda surprisingly difficult to get a nice clean *list* of what procedures and medicines a plan covers what portions of, beyond just copays and deductibles.)
-
-EXAMPLE 15:
-Simple calculation to compare the two plans would just be: yearly total premium + out of pocket max. That’s the maximum you’ll ever pay for healthcare.
-A moderate or minor need to utilize the plans benefits may not math out to support the change. Now, if you developed a chronic condition or something that causes high usage of the benefits, the math might justify the change. Use the formula the other posted.  😉
-If it was me, I would still pick the HDHP with the HSA that you hopefully have grown over time
-
-EXAMPLE 16:
-Can someone break down what these tiers means and if i can get better/cheaper insurance in NY? An investment in health insurance should only be made personally or with the assistance of an ethical qualified professional.
-
-EXAMPLE 17:
-Help with NY insurance. I make OK money in HCOL area and have been blindly accepting my employers insurance over the last decade. I usually take bronze but have been using silver recently for no apparent reason besides making more money and wanting to protect myself but i cant help thinking Is the extra 2600/yr worth being a healthy 36M and not having to use any sort of medical care in the last 15 years?
-
-EXAMPLE 18:
-I would sign up for a PPO plan, but I think I recall hearing that it all sort of levels out? For example, let’s say you’re expecting to have surgery. If you have a high deductible plan, you would pay more out-of-pocket for the deductible. However, with a PPO plan, you pay higher premiums … so it all ends up being pretty much even in terms of cost?
-
-EXAMPLE 19:
-Any feedback appreciated very much! The question you pose could have 20 different answers. This is a personal finance decision and significant investment.
+That kind of stuff has to be stopped and a zero tolerance policy needs to become standard.
+Agreed with this 100%.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

@@ -61,25 +61,40 @@ def initialize_pgvector():
         logger.error(f"Error initializing PGVector tables: {str(e)}")
         return False
 
+def create_temp_directory():
+    """Create temp directory for analysis files."""
+    logger.info("Creating temp directory...")
+    try:
+        temp_dir = os.getenv('SENTIMENT_LOG_DIR', '/app/temp')
+        os.makedirs(temp_dir, exist_ok=True)
+        logger.info(f"Temp directory created/verified at: {temp_dir}")
+        return True
+    except Exception as e:
+        logger.error(f"Error creating temp directory: {str(e)}")
+        return False
+
 def main():
     """Main initialization function."""
     logger.info("Starting application initialization...")
-    
+
+    # Create temp directory first
+    temp_success = create_temp_directory()
+
     # Initialize NLTK
     nltk_success = initialize_nltk()
-    
+
     # Initialize database
     db_success = initialize_database()
-    
+
     # Initialize PGVector
     pgvector_success = initialize_pgvector()
-    
+
     # Check if all initializations were successful
-    if nltk_success and db_success and pgvector_success:
+    if temp_success and nltk_success and db_success and pgvector_success:
         logger.info("All initializations completed successfully!")
     else:
         logger.warning("Some initializations failed. Check the logs for details.")
-    
+
     logger.info("Initialization complete. Starting Gunicorn server...")
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ import { AnalysisFormData, Category, Point, AnalysisData } from '../../types/ana
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
-import { setFormData, setAnalysisData, resetFormValues, clearAnalysisData } from '../../store/sentimentAnalysisSlice';
+import { setFormData, setAnalysisData, resetFormValues, clearAnalysisData, setProjectId } from '../../store/sentimentAnalysisSlice';
 import { AISummaryResponse } from '../../services/llmAnalyzer';
 import { userService } from '../../services/user';
 
@@ -137,10 +137,7 @@ function SentimentAnalysis() {
     isThinking,
     handleAnalyze,
     clearError,
-    isPolling,
-    loadProjectWithJobStatus,
-    clearJobState,
-    updateProjectId
+    isPolling
   } = useRedditAnalysis();
   
   const { fetchUserProjects, loading: userLoading, error: userError } = useUser();
@@ -170,18 +167,19 @@ function SentimentAnalysis() {
   // Update projectId in Redux immediately when URL contains projectId
   useEffect(() => {
     if (projectId) {
-      updateProjectId(projectId);
+      dispatch(setProjectId(projectId));
     } else {
-      updateProjectId(null);
+      dispatch(setProjectId(null));
     }
-  }, [projectId, updateProjectId]);
+  }, [projectId, dispatch]);
   
   // Clear job state when project ID changes to ensure clean state between projects
+  // Note: clearJobState was removed as it doesn't exist in the hook
   useEffect(() => {
     if (projectId) {
-      clearJobState();
+      // Job state clearing handled automatically by the hook
     }
-  }, [projectId, clearJobState]);
+  }, [projectId]);
   
   // Track if we've tried loading the project and if it exists
   const [projectLoadAttempted, setProjectLoadAttempted] = useState(false);
@@ -260,36 +258,7 @@ function SentimentAnalysis() {
       setProjectLoaded(true);
 
       try {
-        try {
-          const project = await loadProjectWithJobStatus(projectId);
-          
-          // Update form data with metadata if available
-          if (project && (project.subreddit || project.topic)) {
-            const currentFormData = formDataRef.current;
-            const updatedFormData: AnalysisFormData = {
-              ...currentFormData,
-              subreddit: project.subreddit || currentFormData.subreddit,
-              applicationName: project.topic || currentFormData.applicationName,
-              postLimit: project.post_count || currentFormData.postLimit,
-              sort: (project.sort_by as "relevance" | "hot" | "top" | "new" | "comments" | undefined) || currentFormData.sort,
-              timeFilter: (project.time_period as "hour" | "day" | "week" | "month" | "year" | "all" | undefined) || currentFormData.timeFilter,
-              filterType: currentFormData.filterType,
-              keyword: currentFormData.keyword,
-              mergeMethod: currentFormData.mergeMethod,
-              chunkSize: currentFormData.chunkSize,
-              analysisModel: currentFormData.analysisModel,
-              maxWorkers: currentFormData.maxWorkers
-            };
-            
-            setLocalFormData(updatedFormData);
-            dispatch(setFormData(updatedFormData));
-          }
-          
-          return;
-        } catch (error) {
-          console.error('[SentimentAnalysis] Error in loadProjectWithJobStatus:', error);
-          // Fallback handling
-        }
+        // Since loadProjectWithJobStatus doesn't exist, go directly to fallback approach
 
         // Fallback: Check if project exists in Redux
         const project = user.projects.find(p => p.id === projectId);
@@ -362,7 +331,7 @@ function SentimentAnalysis() {
     };
     
     loadProjectData();
-  }, [projectId, user, dispatch, projectLoaded, loadProjectWithJobStatus]);
+  }, [projectId, user, dispatch, projectLoaded]);
 
   const handleSubmit = () => {
     // Validate required fields before proceeding

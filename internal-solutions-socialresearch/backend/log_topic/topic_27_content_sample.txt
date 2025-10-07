@@ -1,15 +1,20 @@
 Topic 27 - Content Sample
 Number of content items: 25
-Top words: temperature, doctors, pain, patients, trained, body, cold
+Top words: doctors, patients, temperature, normal, mask, symptoms, trained
 
-Content 1 (length: 549 chars):
-I realize that at hospitals, for example, worrying about each person's average temperature would be a pain, but I've been going to my clinic for 18 years. They often say I have a "raised temperature" if its in the 99-100 range.  mine varies in the 96 - 98 range at clinics, and is considered normal . . .
-Doc here. It is actually exactly because of normal / wide variations in body temperatures. Based on recordings of millions of temperature data points, about 95% fall less than 100.4 and therefore that is what is selected as abnormal.
-Thank you.
+Content 1 (length: 236 chars):
+So I’d love to hear from doctors, nurses, med students, or clinical staff:
+- What guides your decision around masking today?
+- Does patient comfort or safety factor in?
+- How do you reconcile your ethical commitments with current norms?
 
-Content 2 (length: 213 chars):
-Why do doctors have a standard temperature for fevers when normal temperature varies person to person? This is just something I have pondered for a while now, so thought I would ask Reddit and get it off my chest.
+Content 2 (length: 892 chars):
+This isn’t meant to accuse—just to open a respectful dialogue about care, risk, and responsibility. I truly want to understand how you weigh these choices. Acute care icu RN, if you are immunocompromised and you’re inpatient we will wear masks around you. But I don’t wear masks around the hospital in general and not around patients who don’t need me too.
+If the patient is neutropenic or has a known severe immune deficiency then it’s standard to mask.  If I’m feeling ill, then I mask.  If a patient or family requests that I or all staff/visitors mask then we mask.  If there’s a pandemic, then I mask. 
+In the end, you’re the best advocate for yourself.  If you would like healthcare professionals to mask around you, just politely request that they do so.
+If only all healthcare facilities were so accommodating. Thank you for your feedback, and thank you for masking for your patients.
 
-Content 3 (length: 600 chars):
-i should note i’m talking about after imaging/tests and a full evaluation is done. of course, it’s relatively impossible to diagnose/give clear answers w/o that first.  The answer isn’t always a clear yes or no answer. If you ask a doctor why your hands are cold at night, there could be dozens of different reasons why, ranging from the AC is too cold, my house is drafty, I work in a freezer and didn’t mention that (some people do these things),  to Iron deficiency Anemia, Reynaud’s syndrome, Sickle Cell Disease, Lupus, Carpal Tunnel, thyroid problems, and even medications can cause cold hands.
+Content 3 (length: 222 chars):
+Doctors: Do You Still Mask Around Your Patients? How Does That Align With Your Ethical Oath? 
+I’m an immunocompromised patient navigating a healthcare system that’s increasingly abandoning masks. And I’m genuinely curious:
 

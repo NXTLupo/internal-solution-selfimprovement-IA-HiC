@@ -1,42 +1,85 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: cdc, vaccine, covid, agency, employees, cdc director, covid 19
+- Top keywords: 2026, medicaid, coverage, proposed, income, apply, finalized
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
+In order to successfully enroll in any health care plan, some sort of proof of income is required. Under current legislation, these documents are required within 90 days of the submission of the application with an optional one-time extension of 60 days for individuals who missed the initial period. If these documents are not provided the insured could lose subsidy and or coverage all together. Proposed legislation, if passed, would remove this 60 day extension. If approved, this rule would apply to applications for 2026 coverage. [...]
 
 EXAMPLE 2:
-“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. [...]
+In 2026, applicants will no longer be able to self-attest to their income in situations where it cannot be automatically verified using federal data sources. In these cases, supporting financial documents will be required before the enrollment can be finalized and coverage and subsidies can begin. This will be effective when applying for next year's plans.
 
 EXAMPLE 3:
-“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
+I’m not even sure if this is the right place to ask, but I don’t have enough karma to post on most subreddits. I tried doing research and could not find a definitive answer to this, even after actually reading part of the bill. I’m assuming the answer is there but that I’m just misinterpreting something, as politics and such are not my strong suit.  That’s… actually kinda crazy. Again, I don’t know much about how politics work, but I feel like this is something that should have a clear answer because of how big Medicaid is and how many people rely on it. [...]
 
 EXAMPLE 4:
-“This was, in one sense, the first attack of its kind on the CDC,” Landman writes. “The shooter, whom law-enforcement officials have identified as Patrick Joseph White, a 30-year-old resident of an Atlanta suburb, was reportedly fixated on the idea that the COVID-19 vaccine had made him depressed and suicidal. No employees were injured by the bullets that entered the buildings, according to a CDC representative. But an Atlanta police officer named David Rose was shot and later died from his injuries. White, too, was found dead—fatally shot—at the scene. [...]
+If this proposed rule is approved, individuals who have not filed their income tax return, within the one year grace period, will not be eligible for government subsidy. These individuals can still apply for health coverage but no government subsidy will be awarded. The current two year grace period may be shortened to only one year. For example, if I am looking for health coverage for 2026, I need to, at least, have filed income taxes in 2024. If approved, this rule would apply to policies for 2026 coverage. We can expect a final decision within the next couple of months.
 
 EXAMPLE 5:
-“In another sense, public-health workers have been facing escalating hostility since the early days of the coronavirus pandemic. In 2020, armed protesters gathered on the Ohio Health Department director’s front lawn, and the chief health officer of Orange County, California, was met with death threats after issuing a mask mandate. She had to hire extra security and was eventually driven to resign. Anthony Fauci, who served as the director of the National Institute of Allergy and Infectious Diseases during the country’s initial COVID response, has faced regular death threats since 2020. [...]
+Important Obamacare/ACA Changes To Know Heading Into 2026 *Hello everyone, it looks like there's gonna be a ton of changes going into the 2026 OEP and coverage year so I've put together this list explaining everything to the best of my understanding. I know it is extensive but this was primarily intended for circulation amongst my agency to keep everyone up to date.*
 
 EXAMPLE 6:
-“...In the hours immediately after the shooting, while many CDC employees remained barricaded in offices and marooned in conference rooms, they heard nothing from Robert F. Kennedy Jr. or President Trump,” Landman continues. In the following days, CDC employees have received statements from Susan Monarez, the newly confirmed CDC director, and Kennedy. (The White House and HHS did not respond to requests for comment.)
+The definition of a lawfully present individual has officially been changed and DACA recipients are no longer on this list. Because of this DACA recipients are no longer allowed to receive subsidized health care. This applies to both new enrollments and ongoing renewals. This rule will be effective on January 1st, 2026.
 
 EXAMPLE 7:
-‘I’m Actually Surprised It Didn’t Happen Sooner’  “When gunfire pelted the Atlanta-based headquarters of the CDC yesterday, hundreds of employees were inside the campus’s buildings,” Keren Landman, journalist and physician trained in infectious diseases, writes. “The experience was terrifying. But some of the employees were not particularly shocked. ‘I’m actually surprised it didn’t happen sooner,’ a nearly 20-year veteran of the agency told me. (She, like others I spoke with for this article, requested anonymity out of fear of losing her job.)”
+I don’t think this has been studied extensively, at least not in public. The only example I could find [was from 2015.](https://www.urban.org/sites/default/files/publication/74561/2000522-More-than-10-Million-Uninsured-Could-Obtain-Marketplace-Coverage-through-Special-Enrollment-Periods.pdf?utm_source=chatgpt.com)
+This is so helpful, thank you!
+13. **FINALIZED:** **Self attestation of income is no longer permitted.**
 
 EXAMPLE 8:
-“The reality of what’s unfolding inside the CDC is more complicated than widespread meddling, according to the employees I spoke with. And that makes navigating the information coming out of the agency even more of a challenge for everyone on the outside.”
+I read a bunch of stories the other day about people who might be losing this type of Expanded Medicaid and for every one of them there was another way of securing the coverage.  The one with the most reason was that they were too \_\_\_\_\_\_\_\_\_\_\_ (sorry I don‘t know the word, could be many) to apply for disability  - either SSI or SSDI.
 
 EXAMPLE 9:
-US pediatricians' new COVID-19 shot recommendations differ from CDC advice  Duh. Because wormbrian is running the CDC and the official advice from the Trump CDC/HHS is "let the kids die. It'll build character among the survivors."
+This results in, from a birds eye view, an overall increase in premiums and decrease in eligibility. To get more technical, individuals and families over the 400% FPL used to be able to receive some level of government subsidy as their premiums were tied to a max percentage of their income. Under the new ruling, any individual over the 400% FPL is no longer eligible for government subsidy and will see a very significant rise in premium prices. [...]
 
 EXAMPLE 10:
-No one should be listening to the CDC or HHS right now.
->US pediatricians' new COVID-19 shot recommendations differ from CDC advice
+Why should there be an asset / resource test for those above and not for those who might qualify for  Expanded Medicaid sometimes referred to as MAGI Medicaid.
 
 EXAMPLE 11:
-Found out the VA probably won't get the new Covid booster until October.
-Good.  Listen to doctors with free will and access to science.
+In 2026, ACA plans overall will see higher premiums, reduced subsidies, and increased deductibles and OOPMs. This means most people can expect to pay more overall for healthcare coverage, both monthly and when accessing care. The federally set out-of-pocket maximum limit for individuals is said to increase to about $10,600, with an even higher limit for families. Premiums are expected to increase by about 2-7% and OOPMs are expected to increase by 50-75% for some plans. This will be effective going into next year's plans.
+
+EXAMPLE 12:
+Currently, only the same insurer can block coverage based on unpaid premiums. Under new rules, all insurers would have access to premium delinquency data and could deny new coverage until debts are cleared. If approved, this would apply to applications and renewals for 2026 coverage. Final decisions are expected by late 2025.
+
+EXAMPLE 13:
+5. *PROPOSED:* **Subsidies will not be awarded to individuals who have not filed their income taxes.**
+
+EXAMPLE 14:
+Currently, SEP candidates could first apply for coverage and then later submit the necessary documentation proving their QLE, usually 30 to 60 days later. If the proposed rule becomes finalized, applicants must provide documentation before applying in order to successfully qualify. We can expect a final decision by the end of 2025. If approved, this would apply to SEPs occurring after January 1st, 2026.
+
+EXAMPLE 15:
+11. **FINALIZED:** **Enhanced advanced premium tax credits (eAPTC) will be terminated at the end of 2025.**
+
+EXAMPLE 16:
+8. *PROPOSED:* **Silver plans will be receiving overall lower deductibles and out of pocket costs.**
+
+EXAMPLE 17:
+Medicaid keeps getting more popular as Republicans aim to cut it by $800 billion  Healthcare layoffs on the horizon!
+Why should a person get Medicaid if they aren’t low income elderly (65+), blind, disabled, a child or a pregnant woman or a new born to such a mother?
+
+EXAMPLE 18:
+What happens if they have a ton of money sittting in an HSA which they no longer contribute due to this middle ground type retirement they have chosen - doe this even count in their ability to qualify for MAGI Medicaid ?   Of course, for a person going this route, having health coverage is important - so they could plan it for an ACA type plan but if they can look poor enough on their tax return - MAGI Medicaid is not out of the question.
+
+EXAMPLE 19:
+6. *PROPOSED:* **Unverified auto enrolled plans will be charged an extra $5 monthly premium until eligibility status is verified.**
+
+EXAMPLE 20:
+Previously, individuals who are at or below 150% of the FPL, around $23K/year for individuals and $48K/year for a family of four, are able to enroll year round without having to experience any sort of QLE. This is no longer the case. Effective on August 8th, 2025, the federal government will institute a pause on the low income SEP. This pause is, as of yet, not technically a permanent change and it is expected to last until the end of 2026. Some SBMs may choose to uphold or change this ruling but ultimately it will be up to them.
+
+EXAMPLE 21:
+3. *PROPOSED:* **SEP applicants must now present documentation proving their QLE before applying for coverage.**
+
+EXAMPLE 22:
+How does the Medicaid work requirement in the “Big, Beautiful Bill” apply to students? I’m a college student who’s on Medicaid, and who’s confused about the 80 hours per month work requirement for the upcoming “Big, Beautiful Bill”. i read through that section of the bill, and from what I understand, being a student fulfills the work requirement.
+
+EXAMPLE 23:
+For the most part, you are only allowed to change or enroll in health insurance policies during the annual OEP. Under current ruling this period lasts from November 1st to January 15th. If you miss your chance and don’t make changes to your health insurance during this period, you’re pretty much s.o.l. until next year, unless you undergo a QLE. There is proposed legislation to shorten this period by a month and have it end on December 15th. If approved, this rule would apply to the upcoming OEP in fall of 2025. We can expect a final decision within the next couple of months.
+
+EXAMPLE 24:
+Why should the Feds reimburse the states MORE for these Expanded types, sometimes a whole lot more, than the one that are the neediest of the needy?  A bribe to the states to keep them insured.
+
+EXAMPLE 25:
+Silver plans are set to receive decreases in deductibles, cost sharing, OOPMs. Even though there is expected to be an overall increase in prices across the board, comparatively silver plans are set to be better than they are this year. Final official values will be published before this year's open enrollment.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

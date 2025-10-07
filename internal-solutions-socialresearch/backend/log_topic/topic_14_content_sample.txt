@@ -1,30 +1,17 @@
 Topic 14 - Content Sample
-Number of content items: 25
-Top words: hospital, closed, rural, medicaid, 2015, cuts, county
+Number of content items: 6
+Top words: trans, woman, meme, questions, trans care, tiktok, planned parenthood
 
-Content 1 (length: 174 chars):
-Rural Hospitals are closing down because rural healthcare relies heavily on government subsides to stay afloat. These communities couldn't support a CareNow or standalone ER.
+Content 1 (length: 152 chars):
+Adult Trans Care Under Fire: 'Devastating' Impacts for Those Who Lose Access
+— As government crackdowns widen, physicians warn of consequences to health
 
-Content 2 (length: 2041 chars):
-* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
-* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
-* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
-* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
-* St. Joseph's Hospital (Chippewa Falls, Wisconsin) and Sacred Heart Hospital (Eau Claire, Wisconsin): Closed in March 2024 due to operational and staffing challenges.
-* Jellico Regional Hospital (Jellico, Tennessee): Closed in March 2024 due to a lack of administration and the owner's decision to pull out.
-* Select Specialty Hospital (Longview, Texas): Expected to close in June 2025 because the host hospital decided not to renew the lease.
-* New England Sinai Hospital (Stoughton, Massachusetts): Closed in April 2024 due to financial losses, with many patients on Medicare or Medicaid.
-* Mercy Hospital (Independence, Kansas): Closed in 2015.
-* Parkway Regional Hospital (Fulton, Kentucky): Closed in 2015.
-* Marlboro Park Hospital (Bennettsville, South Carolina): Closed in 2015.
-* Mercy Hospital Fort Scott (Fort Scott, Kansas): Closed in 2018, leaving the town without a hospital within 30 miles.
-* Washington County Hospital (Plymouth, North Carolina): Closed in February 2019 due to financial difficulties.
-* Oswego Community Hospital (Oswego, Kansas): Closed in February 2019, just before Washington County Hospital.
-* Fairfield Memorial Hospital (Winnsboro, South Carolina): Closed in December 2018.
-* Adventist Health Feather River Hospital (Paradise, California): Closed in November 2018 due to fire damage.
-* Latimer County General Hospital (Wilburton, Oklahoma): Officially closed in October 2018, though it had closed its doors earlier in May.
+Content 2 (length: 191 chars):
+Government’s demand for trans care info sought addresses, doctors’ notes, texts  Unpopular opinion: Gender-affirming care (whether psychiatric and/or cosmetic) should remain a private matter.
 
-Content 3 (length: 709 chars):
-[https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm\_source=chatgpt.com](https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm_source=chatgpt.com)
-If rural hospitals are going to be affected by this, maybe it’s time for greedy healthcare providers to lower their prices for the average citizen… that which is poor.  At some point, the greed of overcharging for everything, driving prices so high they are looked at by the top administration of the government.  Greed will always come back and bite you in the arse!
+Content 3 (length: 730 chars):
+Elaboration in a part 2:
+https://www.tiktok.com/t/ZP8A6q9QU/ Nah, they just ask for sex, gender and pronouns if that’s what they are trying to figure out. It’s not controversial to ask for those things on a form.
+Oh, interesting. Seems bizarre to be rolling out questions already at a hospital when that bill is only in the introduction phase still, as cited by the US Congress official website. Maybe they are testing it out?
+So basically they wanted to know if she was using an implant like an IUD or something else that was preventing a pregnancy.  It is a standard review of systems. I think the check in only changed questions because the patient refused to just answer yes or no in the beginning and started to take offense.
 

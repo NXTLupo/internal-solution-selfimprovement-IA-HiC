@@ -1,13 +1,14 @@
 Topic 13 - Content Sample
-Number of content items: 11
-Top words: cdc, vaccine, covid, agency, employees, cdc director, covid 19
+Number of content items: 25
+Top words: 2026, medicaid, coverage, proposed, income, apply, finalized
 
-Content 1 (length: 421 chars):
-What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
+Content 1 (length: 601 chars):
+In order to successfully enroll in any health care plan, some sort of proof of income is required. Under current legislation, these documents are required within 90 days of the submission of the application with an optional one-time extension of 60 days for individuals who missed the initial period. If these documents are not provided the insured could lose subsidy and or coverage all together. Proposed legislation, if passed, would remove this 60 day extension. If approved, this rule would apply to applications for 2026 coverage. We can expect a final decision within the next couple of months.
 
-Content 2 (length: 750 chars):
-“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. Just this week, he canceled nearly $500 million in federally funded research on mRNA vaccines—widely considered among CDC employees and public-health experts to be the greatest domestic triumph of the U.S. pandemic response—stating incorrectly that they cause more risk than benefit against the flu and COVID.”
+Content 2 (length: 358 chars):
+In 2026, applicants will no longer be able to self-attest to their income in situations where it cannot be automatically verified using federal data sources. In these cases, supporting financial documents will be required before the enrollment can be finalized and coverage and subsidies can begin. This will be effective when applying for next year's plans.
 
-Content 3 (length: 399 chars):
-“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
+Content 3 (length: 1299 chars):
+I’m not even sure if this is the right place to ask, but I don’t have enough karma to post on most subreddits. I tried doing research and could not find a definitive answer to this, even after actually reading part of the bill. I’m assuming the answer is there but that I’m just misinterpreting something, as politics and such are not my strong suit.  That’s… actually kinda crazy. Again, I don’t know much about how politics work, but I feel like this is something that should have a clear answer because of how big Medicaid is and how many people rely on it. But, seriously, thank you for the response! I’ll keep all of this in mind.
+I too have been worrying about this for weeks. I’m a full time (overtime, technically) student. Not working, had a full time business that supported me for 6 years, slowed it to part time when I moved to be with a partner at which point my income dipped to Medicaid levels, closed it completely when I went back to school. Had wanted to find a part time job in school, but then experienced difficulty in classes, we found out along the way I’ve had learning disabilities for years that went undetected due to my parents’ ignorance homeschooling me. It was causing me to fail classes, so I suspended my job search and put everything into making it through classes.
 

@@ -1,87 +1,60 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: insurance, pay, car, company, urgent care, claims, car accident
+- Top keywords: test, doctor, visit, screening, xrays, cancer, pcp
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Insurance doesn't just cut you off because you had a car accident.  Insurance can deny covering a claim because there may be liability coverage involved.  But that's when the other person or your own car insurance may come into play if you have any medical benefits there.
+My question for you guys is: where should I consider to go for these kinds of screenings ( I don’t to travelling parts of Asia , turkey etc) I want a full panel of diagnostics and maybe key words to look up when checking online to help me find the right clinic. I want this so when I come back I will knows what to check up on and what exactly is wrong
+ Going to provisionally approve this because it's asking about strategies for seeking qualified care.  But again as a reminder, we do not allow personal medical questions or other kinds of medical advice.
 
 EXAMPLE 2:
-When I finally went to urgent care to get it looked at the lady at the front desk told me that I would pay out of pocket to get it looked at because they don't take insurance for car accidents and I had $20 which wasn't enough and then she advised me to just lie about how I got hurt so I could get it looked at.
+A simple, non-invasive test that could revolutionize cancer diagnosis  The article was a bit confusing to me. Many screening tests are not fully diagnostic, and may still require some definitive test for confirmation, ie a 'gold standard'. For example, a PSA test (looking for prostate cancer) that is high needs to be confirmed with a prostate biopsy. A low-dose screening CT of the lungs (looking for lung cancer in a smoker) will need a needle biopsy of any detected lesions for confirmation, etc, etc, etc. [...]
 
 EXAMPLE 3:
-Your care isn't dependent on whether you were in a car accident or not.  The doctor doesn't care.  If you have a hole in your leg, they're going to treat the hole, not the cause of the hole.
+It’s absolute bullshit.  I hear you and see you.
+Nothing is broken. The patient’s PCP simply does not have an account with genesight
+If that is the case then I can easily pay for it out-of-pocket. At this point it’s just about finding a healthcare provider to order it for me
 
 EXAMPLE 4:
-How is your life messed up?  Are you not able to do something in your life now because you had a car accident?  I don't understand any of this.
-So my insurance didn't cut me off cuz of the car accident. They cut me off because I had set up auto pay with them and apparently it hadn't gone through for a few months and they were sending the letters to the wrong address, so I tried to see if I could get it fixed and pay off the full difference of how much I owed and they still denied that. [...]
+The article, unless I missed it, didn't get into the problem of false positive tests. Even if a screening test has a fairly high sensitivity and specificity for detection of some cancer, if the cancer is rare enough in the population of patients being screened, then the number of false positive (or false negative) tests may render the test of marginal utility. The actual usefulness in the real world has to be proven by a randomized controlled trial, usually involving 50,000 or 100,000 patients or more, and lasting for years -- these trials are expensive and very tricky to do correctly, but hav [...]
 
 EXAMPLE 5:
-The next day I went to go back to urgent care and told them that my wound was from a car accident and try to see if I could get that reworked or relooked at and the lady at the front office at that time told me to come back another time because they were about to close and that my insurance at the time actually did cover car accidents.
+I agree that these screenings are not always that helpful, but it doesn't look like OP has many options available to them at this point.
 
 EXAMPLE 6:
-If you have a lawyer, it means someone else was at fault for the car accident.  And that would mean that they are responsible for your medical bills.  It's also how the lawyer gets paid.  You wouldn't have a lawyer for your own car accident against yourself.  That's just not how it works.
+Called the GeneSight lady back, she didn’t pick up. Called my doctor’s office again, the woman with whom I spoke said that it doesn’t matter if my doctor was registered to order the test at a previous practice, since he’s with Duly now and they aren’t registered he can’t order me the test.
 
 EXAMPLE 7:
-Why was husband's $280 "not covered by insurance" and why was son's $600 additional not paid? It's not at all surprising to have to pay both the facility and the dr, it's also not surprising they have an button for lawyers to push, urgent cares handle stuff like workmans comp and whatnot. I highly doubt it's because they get sued so much, that all gets done through mail/paperwork not the phone.
+First I called my primary care physician (whom I have only seen once since I had to switch doctors in May after my last one, whom I also had only seen once, left the practice). Found out his practice isn’t registered with GeneSight to order the test. Called GeneSight, spoke to a representative who told me that my PCP was registered to order the test, just at a previous practice and she would reach out on my behalf to my doctor’s office about ordering the test. Never heard back. [...]
 
 EXAMPLE 8:
-I'm really upset, I can hardly sleep anymore, keep getting headaches and overall I feel my life is falling apart idk who to complain to or if there's anyway to fix this because it fucked up potentialness for my entire case , I feel like a huge idiot and no clue how to handle this I'm at a huge loss with this accident and it's affected every aspect of my life I feel like I'm kinda dying inside from the stress and confusion.
+So, OP and everyone, please referring from asking or answering personal medical questions and focus on options for evaluating treatment providers
+Even doing [one whole-body test isn’t a conclusive way to find general problems](https://pmc.ncbi.nlm.nih.gov/articles/PMC6850647/), so it seems unlikely that a larger protocol would be effective.
 
 EXAMPLE 9:
-After an ER visit, for the next month, you'll get dozens of letters from things like "Acme Imaging Consultants" or "Integrated Health Specialists, LLC" for "Medical Care" or something similarly vague.  There will be a really sketchy bill pay site or a number for a call center with any questions, and the letter itself will be so unprofessional that it might as well be in comic sans.  It will be a ton of odd amounts due, with no real explanation, and the best you can do is trace through your insurance claim history and look for cleared amounts in the 20 pages of claims for the year matching up w [...]
+Finding full body check up clinics I heard about all these clinics around the world that offer comprehensive screenings . I have severe hormonal and digestive issues that no doctor/ hospital takes seriously, and when they do all I get it antibiotics that now seem to make things worse not better…. It helps in the moment but the infection comes back full force. I have resistant staph on my skin from all the antibiotics but no recovery program…. [...]
 
 EXAMPLE 10:
-I see a lawyer two days later and I was still suffering from physical and mental pain from all this and my parents had to convince me to go to him and he said it was foolish to not say it was from a car accident
+I feel like I’m losing my fucking mind, why is it so goddamn hard to get this fucking cheek swab test ordered so I can start on medication. At this point I don’t know if I need to consider switching doctors AGAIN or if there’s something else I can do that I just haven’t thought of yet; I’m 19 and handling all of this healthcare shit on my own is very stressful and new to me. And that is one of the biggest things that is broken about our healthcare system, is that too much of the burden of patient care is imposed on the patient these days.
 
 EXAMPLE 11:
-Sounds to me like you might have a deductible, but hard to know.
-I don't know why they weren't covered, probably because they were unreasonable charges?
-Wow, that sounds frustrating! It looks like both visits might have been miscoded for place of service or facility type. Definitely file a formal appeal with your insurance and ask them to review the claims with the correct coding. Keep all your documentation handy. If they’re misrepresenting themselves, you can also report the urgent care to your state’s insurance department. [...]
+I’m about to lose my mind. Recently went through something traumatic that shook me to my core and all of my bottled up, very unmedicated anxiety and depression resurfaced. In the process of being diagnosed with acute stress disorder (PTSD Lite™) and possibly a more serious underlying mood disorder, and trying to start medication ASAP. My therapist told me he recommends I have GeneSight psychotropic testing done so that I know which SSRI and anxiety meds to avoid. Turns out, GeneSight is a private company that requires the test to be ordered by a doctor, I cannot order it for myself.
 
 EXAMPLE 12:
-What are our options?   Is there somewhere to report them for misrepresenting themselves?   If I had wanted to pay ER rates, I would have gone to the ER.  🤦 What do your EOBs from your health insurance company say you owe? The same amount urgent care does?
+A full-body clinic is doing the opposite of good science. Instead of responding to symptoms with a specific, proven test, the clinic is running many tests first and then suggesting conditions regardless of symptoms.
 
 EXAMPLE 13:
-Then, before we had the first billing issue, my son cut his hand... Took him in and they glued it- 20 minute appointment.  They billed insurance as a "hospital" and charged $2,400.  Insurance paid $1,800, and now they want the additional $600.
+OP is clearly not getting care they need, and in a country with single-payer health care, there generally isn't an option to just find a new doctor or whatever.
 
 EXAMPLE 14:
-First, my husband went in to get an inhaler prescription on short notice (his doctor didn't have appointments for weeks).  He paid an $85 copay in office and then was sent a bill for another $280 "not covered by insurance".   They billed insurance twice- one for the facility and one for the doctor and insurance paid one of them but not the other.
+The larger issue—which /u/perfect-resist5478 calls “grift”—is public understanding of science. Diagnostic tests are built by forming a hypothesis, running controlled experiments, and repeating them to increase confidence. When a test shows positive results in patients with symptoms, and negative results in those without, it gains credibility. Double-blind methods and controlling for physiology, environment, and genetics all further strengthen reliability.
 
 EXAMPLE 15:
-You also could have just gone to a different urgent care or the emergency room.  It's not like you have to go back to urgent care a second time for follow up care.
+What OP can do is make changes to diet, physical activity, and environment. Reducing stressors and making adjustments based on what large-scale studies show is beneficial is a form of whole-body action. For example, environmental changes like moving to an area with different pollens could bring relief, even if no single diagnostic test can demonstrate it—because such effects are difficult to design and prove in studies.
+Depending on what province they are in, it can be really hard to get comprehensive care in Canada. [...]
 
 EXAMPLE 16:
-If you go to one place on one day for treatment, you should get one consolidated bill.  Itemized, but all in one billing statement.  Even if the hospitals just require their contractors to submit through them rather than directly to the patient.  I really don't think that that is too much to ask.  I agree. The price is sticker shock enough. But ffs, don’t make me wait to accumulate bills
-Then like a year later, you get a final notice worded to be as urgent and terrifying as possible from [scammylookingcollectionsstartup.com](http://scammylookingcollectionsstartup. [...]
-
-EXAMPLE 17:
-We've called and they refuse to budge on the bills.   There's actually a phone tree option for "lawyers" to press when you call, so clearly they get sued a lot.
-
-EXAMPLE 18:
-There should be a regulation that all of the billing for a single ER visit or hospital stay needs to be consolidated into a single statement. Private equity hospitals have taken to bringing in contractors for everything as a workaround for private health insurance's per-procedure/per-visit billable maximum, and the result is a completely unmanageable mess of bills completing processing over the course of several months, all coming from different billing agencies, some of which don't even look legitimate.
-
-EXAMPLE 19:
-So I had talk to my lawyer who was setting me up to see a neurologist but said he couldn't cuz the urgent care I went to said something about me mentioning and getting influenced by a lawyer and so it cut me from a lot of the check ups I was gonna get
-
-EXAMPLE 20:
-When I came back it was the first or second of July and I went back to see if I could do a follow up but my insurance cut me off unexpectedly and I still didn't have the money. A few days later the doctor called and was asking me about updates and I told her I was still in pain but I tried to go back to see if I can fix the statement and just get it looked at after seeing a lawyer and she said she knew my wound was from something else and understood saying she's been in the same situation and I should head to the ER when I can which I did and they found some issues but to go back to them when  [...]
-
-EXAMPLE 21:
-This is probably one of the most frustrating, embarrassing situations I've ever dealt with in my life and that says something, I try to be a positive figure to a lot of people I'm surrounded by but nothing has made this better currently and a certain family member has made me resent my existence, I'm glad I don't own a g** cuz I would've blown my own brains out dealing with all this. I'm so overwhelmed and confused I really don't think I can do this and need more help socially navigating through everything I wanna break down cuz I'm heartbroken by all of this
-You would be surprised how skittis [...]
-
-EXAMPLE 22:
-I did go to the ER not too long ago but I'm still confused on everything, only reason I haven't been consulting my lawyer is because my anxiety has gone through the roof and it's so hard to confront and even process a lot of this.
-
-EXAMPLE 23:
-The doctor knew my story was off but I didn't have money to get it looked and I had no clue how to go about things so she took some notes and advised me to come back if it got worse
-
-EXAMPLE 24:
-I was advised by my mom to probably cut ever going to that facility ever again but I was really hoping to talk to someone to see if I can fix this. I seen their Google reviews are regularly updated and responded to publicly within a day so I'm wondering if I should write about being falsely advised to lie and then giving information later messing up my case to see if they'll attempt to fix things cuz I'm not doing well at all since and I'm kinda going absolutely crazy This doesn't make any sense.
-
-EXAMPLE 25:
-I fucked up legally and it's putting me breaking point I got into a car accident a month ago and had a huge wound but the stress from it being a family car and my dealing with the cops trying to falsely arrest me from the incident had me paranoid and I already suffer from anxiety.
+I have empathy for OP and am sorry to learn they are experiencing severe symptoms. It is disheartening to hear they have had such negative experience with practitioners.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

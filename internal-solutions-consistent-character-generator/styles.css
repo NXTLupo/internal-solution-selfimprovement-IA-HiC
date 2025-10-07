@@ -692,19 +692,23 @@ a:hover {
 
 .video-status {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #FCD34D;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin: 0.5rem 0;
   font-weight: 600;
 }
 
-.video-status::before {
-  content: '';
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
+.video-status > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Spinner animation for generating videos */
+.animate-spin {
   animation: spin 1s linear infinite;
 }
 

@@ -1,84 +1,32 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: patient, outcomes, supplies, care, pros, performance, doctors
+- Top keywords: drug, trump, president, price, drug prices, sell, sources
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Why Patient-Reported Outcomes Are the Gold Standard for Measuring Provider Performance As healthcare shifts toward value-based care, the need for a meaningful, consistent way to measure provider performance across all specialties has never been more critical. Traditional metrics—such as readmission rates, mortality, and procedure volumes—offer important insights but often miss the most essential perspective: the patient’s.
+Exclusive: Lutnick says Trump will force drugmakers to lower prices  Drugs aren't going to be cheaper. They'll just be more expensive in other markets.
+> The president's going to say that you drug manufacturers cannot sell here unless you sell there at a higher price. Stop being willing to sell to them at such a low price," Lutnick said.
 
 EXAMPLE 2:
-Patient-reported outcomes offer a powerful and scalable path forward. They provide a holistic, equitable, and patient-driven approach to measuring provider performance—one that transcends specialty lines and centers healthcare around its ultimate goal: better outcomes for people.
+The Dream of Lowering Drug Prices in America: How the Power Elite Performs Democratic Opposition A while back [I wrote about the price of breathing and noted that Treleg](https://jacoblstump.substack.com/p/the-price-of-breathing-how-corporate)y, a drug that treats the symptoms of COPD, costs $800 per month in the US and the equivalent made by the same company, but sold in Egypt, costs $10 per month.  
+  
+Lucky day!
 
 EXAMPLE 3:
-Patient-reported outcomes (PROs) provide a clear, consistent, and patient-centered way to assess performance across all providers, regardless of specialty. They allow organizations to move beyond volume and process metrics to focus on what truly matters—how patients feel, function, and live after receiving care.
+[President Trump sent handwritten letters to pharmaceutical executives](https://www.nytimes.com/2025/07/31/health/drug-prices-trump.html), demanding they slash drug prices by September or face unspecified consequences. Trump scribbled out last names to address the CEOs by their first names: "Albert," "David," and "Len".
 
 EXAMPLE 4:
-One of the most significant challenges in evaluating provider performance lies in the diversity of clinical specialties. Each field—from orthopedics to oncology to psychiatry—has unique procedures, goals, and benchmarks. This makes cross-specialty comparisons difficult using traditional measures.
+And what will the government do if/when the drug makers refuse and stop selling in the US?
+I really doubt that'll happen. The US is their most profitable market by far, and they can afford to cut those giant profits. They won't refuse, it's too big of a loss to just not sell in the US. Also, some of them only sell in the US and are not looking to expand to other countries.
 
 EXAMPLE 5:
-Patient-reported outcomes offer a universal framework. Whether evaluating pain reduction after surgery, mental health stability following therapy, or improved quality of life after cancer treatment, PROs capture the direct impact of care from the patient’s perspective. This common lens makes performance measurement specialty-agnostic and outcome-focused.
+One day later, that same ["Albert"—Pfizer CEO Albert Bourla—attended a $25 million fundraiser at Trump's golf club](https://www.cbsnews.com/news/pfizer-ceo-albert-bourla-trump-golf-club-drug-price-cuts-sources-say/).
 
 EXAMPLE 6:
-Because they originate from patients themselves, PROs naturally shift the focus from procedures to outcomes. They reinforce accountability by assessing the effectiveness and impact of care—not just the process of delivering it.
+Connecticut could make history as first state to manufacture its own GLP-1 drugs # I do hope that Connecticut is able to move this forward because if they do, it will force pharma to lower these prices as the insurance companies refuse to pay for obesity related medications that actually work! Hopefully other states will follow suit because obesity is a killer that deserves affordable treatment like every other deadly disease. [https://www.fox61.com/article/news/local/state-senator-connecticut-history-first-state-manufacturer-n-glp1-drugs/520-b4ece586-3bce-4b8b-a393-435f2c8a201e](https://www. [...]
 
 EXAMPLE 7:
-This data provides a clearer view of treatment effectiveness and care experience. Just as importantly, patient-reported outcomes let patients see you listening. By giving patients a structured way to share their voice—and by acting on that feedback—health systems demonstrate that care is truly collaborative.
-
-EXAMPLE 8:
-PROs uncover these gaps. They make the invisible visible by measuring the patient’s lived experience—bringing clarity to whether care is actually improving lives.
-
-EXAMPLE 9:
-The chapter from Atul Gawande's book complications focuses more on the implications of this for algorithms, but I would have thought that what would be cool is if primary care and general hospitals focus on diagnoses, and referred to these factories, more specialised than existing consultants by far on just a handful of procedures that make up the majority of interventions (stunts, cataract surgery, orthroscopies, hip replacements etc.).
-
-EXAMPLE 10:
-They also promote health equity. By systematically capturing data across diverse patient populations, PROs help identify disparities in outcomes tied to race, gender, language, or socioeconomic status. This empowers organizations to close gaps and ensure that high-quality care is delivered to everyone.
-
-EXAMPLE 11:
-When patients speak, healthcare gets better. And when systems respond, patients don’t just feel heard—they see you listening.
-
-EXAMPLE 12:
-PROs are more than just surveys. They are validated instruments designed to measure aspects of health that only patients can accurately report:
-
-EXAMPLE 13:
-Traditional clinical data often paints only part of the picture. A successful surgery may be measured by technical outcomes, yet the patient may still experience chronic pain or limited mobility. A mental health treatment plan may meet clinical benchmarks, but the patient may report continued difficulty functioning.
-
-EXAMPLE 14:
-Specifically for these supplies, there are far more items under each billing code.  Whereas with wheelchairs, there are different billing codes for different types of wheelchairs but for catheters there are 3 codes for over 1300 products.  What that means is that a lot of specialty supplies bill under the same codes as the basic supplies.  If these items are part of competitive bidding then a lot patients needing these more expensive items will likely not be able to find a supplier for them or they'll have higher out of pocket costs. [...]
-
-EXAMPLE 15:
-Competitive bidding must be stopped COMPETITIVE BIDDING AND PATIENT
-HARM:
-WHY OSTOMY, TRACH, AND UROLOGICAL
-SUPPLIES MUST BE EXEMPT
-CMS is proposing to include ostomy, trach, and urological supplies in the next 
-round of competitive bidding—a move that threatens to undermine patient 
-choice, access, and quality of care for individuals with bowel and bladder 
-management issues or tracheostomies who require daily use of trach, ostomy 
-and urological supplies. [...]
-
-EXAMPLE 16:
-Personally, I don’t see any problem with the proposal but I am not a patient.
-There's already an audit program to fight fraud and companies also have to be accredited.  This will do more to eliminate choices for people that need DME than it will to reduce fraud.  It's ultimately just helping the largest companies kill off any small companies that are left.  This will result in an increasing amount of products being mailed to patients instead of hand delivered. [...]
-
-EXAMPLE 17:
-One of the issues is that we just don’t have good data, and that’s in part because healthcare data coordination isn’t as strong everywhere in the world. [Sweden does a good job of this on knee replacements, for example.](https://slr.registercentrum.se/in-english/the-swedish-hip-arthroplasty-register/p/ryouZwaoe)
-Thanks a lot for the links, I'll definitely check it out. The chapter in the books was mostly anecdotal, so yes, this may well be the case.
-
-EXAMPLE 18:
-A Hernia Repair Factory Has anyone tried expanding the Shouldice Hospital Factory style of maximising focus on one procedure?  
-For those who don't know, outside Toronto, there is a hospital where all they do all day is repair hernias using a method that is used in many hospitals. Their failure rate is <1% compared to the typical 12.5% and they don't even rely on super special surgeons, three out of 12 weren't even trained as general surgeons. It also takes less than 1/2 an hour, record time for most hospitals.
-
-EXAMPLE 19:
-Aside from having less supply choices, there will also be even fewer brick and mortar stores available for patients to pickup additional supplies in an emergency.  Consolidation within the industry has already greatly reduced the number of local stores.  When there are no local stores available patients have to go to the ER when they have shortages.
-
-EXAMPLE 20:
-Has anyone attempted to make a healthcare, I guess supply chain, like this? The data isn’t quite as strong as you say. A [large meta study shows](https://pmc.ncbi.nlm.nih.gov/articles/PMC11298397/) a recurrence rate of 1.08% vs 5.11% for inguinal hernias, the most common type. And much of that difference can be explained by the fact that “despite the scientific evidence brought by the most recent literature, general surgeons often do not follow the guidelines regarding the adopt.”
-
-EXAMPLE 21:
-Implementing a system-wide PROs platform requires thoughtful investment—in technology, in workflow integration, and in culture change. However, the benefits are significant:
-
-EXAMPLE 22:
-So literally, the generalists just aren’t keeping up to date. This wouldn’t necessarily close the gap entirely, but it’s a valid point to consider.
+This sequence, threaten and then accept payment, exposes not democratic failure, but democratic theater serving what [C. Wright Mills identified as the "power elite"](https://www.google.com/books/edition/The_Power_Elite/J1ISDAAAQBAJ?hl=en&gbpv=1&printsec=frontcover)—the interconnected network of corporate, political, and military leaders whose interests coincide despite apparent opposition.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

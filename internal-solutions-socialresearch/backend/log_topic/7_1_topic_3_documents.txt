@@ -1,21 +1,31 @@
 Documents for Topic 3 (showing first 3):
 
 Document 1:
-Difference between Wellness Exams and Primary Care Visits? I haven’t been do a doctor in at least 10 years and I figured I should get myself checked out. I’m looking through my insurance website and they have two services I was unsure of. 
+Experimenting with polls and surveys We are exploring a new pattern for polls and surveys.
 
-*Prevantative Care - Wellness Exams
+We will provide a stickied post, where those seeking feedback can comment with the information about the poll, survey, and related feedback sought.
 
-*Provider Visits - Primary Care Provider In-Person Visit
+# History:
 
-Are these the same thing? Can a primary care visit perform the same checks as a wellness exam? The wellness exam is what you’d consider a standard annual checkup - ...
+In order to be fair to our community members, we stop people from making these posts in the general feed.  We currently get 1-5 requests each day for this kind of post, and it would clog up the list.
+
+# Upsides:
+
+However, we want to investigate if...
 
 Document 2:
-Is this the correct medical billing code? On my referral my PCP wrote 'chronic multiple joint pain (M25.50)' and refereed me to rheumatologist.  
-I have soft tissue issues (tendon and ligament) it takes me LONG time to heal from mild injures.  
-I don't have any joint issue pain or whatever, pain only starts after injuries. I had ankle/knee pain before, now I'm having shoulder and hand pain due to tendinitis as my orthopedic said. 
+Nursing admins: how do you enforce facility-specific OT/bonus rules without manual spreadsheet checks? Our facilities have different OT thresholds (some 8hr, some 12hr daily) plus shift differentials that vary by location. Manually auditing payroll each week is killing us and we still miss stuff. Looking for practical guardrails that staff actually follow and managers can review quickly. 
 
-I'm not expert or anything, but I'm not sure if this billing cod...
+What systems are you using that flag violations before payroll runs? Need something that works with our exi...
 
 Document 3:
-What to do if the referral reason to a specialist is inaccurate? I saw a temporary PCP (covering my PCP for one day because they re-located), and I noticed they wrote on the after visit notes and the referral 'multiple joint pain' which is inaccurate. I'm afraid this will affect my diagnosis later when I see the specialist, and insurance covering. And I just don't want to keep that in my chart. **How I can fix this?** I have a new PCP in the same clinic now. It won’t matter. Lots of times PCPs w...
+referring companies Hey everyone,  
+
+I’m working with a software company that helps NEMT dispatchers and transport providers optimize their operations.  
+
+If you know any transportation or dispatch companies, this can turn into passive income.
+
+[https://www.atmoditor.com/Ref](https://www.atmoditor.com/Ref)
+
+Each referred company just needs to mention your full name and contact info in their intro email so the bonus gets linked to you....
 

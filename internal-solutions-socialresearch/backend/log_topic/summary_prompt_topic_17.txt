@@ -1,52 +1,64 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: obamacare, republicans, democrats, trump, affordable care act, affordable care, care act
+- Top keywords: plan, deductible, employer, cobra, marketplace, hsa, options
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-For those who followed the debate over the Affordable Care Act when it was still in its infancy, there were plenty of substantive challenges surrounding overhauling the nation’s health care infrastructure. But there was also a political problem: The reform law known as “Obamacare” was not at all popular at the time.
+Normally, I would sign up for the high deductible health plan so that I can contribute to the HSA. This year, I’m expecting that I may need more healthcare than usual because I might need a minor surgery.
 
 EXAMPLE 2:
-As the ACA’s popularity reaches new heights, Republicans explore new ways to gut it  **From Steve Benen, producer for “The Rachel Maddow Show”:**
+I'm leaving employment, where I have coverage through the state-employee plan (Anthem "CovaCare", which is for VA).  I won't be eligible for Medicare for several more years.
 
 EXAMPLE 3:
-Twelve years later, health care policy has led to another shutdown, but the circumstances are largely reversed: In 2025, unlike in 2013, it’s Democrats who are fighting to protect the ACA from a Republican majority that’s already taken steps to sabotage the system known as Obamacare, and Republicans are prepared to make things worse by allowing new price hikes to take effect in the coming weeks.
-The United States is bankrupt . [...]
+A level funded health plan is specifically how an employer funds paying for the benefits of the health plans they choose to offer their employees. They still might choose shitty options to reduce cost by shifting it to the employee.
+Incorrect. Level funded only means that the positive difference between claims paid by UHC and premiums paid by employee/employer get split 50/50 between UHC and the employer. As for the deductible being high, yes it is. [...]
 
 EXAMPLE 4:
-Despite campaign promises, White House eyes new changes to Social Security and Medicare  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
+If you ask me I’d say get a different employer that offers better benefits. I only pay $600 a year.
+Yeah, while employed, my employer paid for most of that healthcare plan!  Upon leaving, I have the *option* of keeping that plan, but won’t have an employer picking up most of the tab any more.
 
 EXAMPLE 5:
-Read more: [https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073](https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073)
+It depends on the specifics. How much is the premium per month for each plan and how much is the deductible? How much is your company contributing to your HSA? Does your plan year restart in Jan? Do you expect the surgery to cost so much that you’ll hit your out of pocket maximum?
 
 EXAMPLE 6:
-About a decade ago, Donald Trump stressed one specific point as a way of differentiating himself from his adopted political party. “I’m not going to cut Social Security like every other Republican, and I’m not going to cut Medicare or Medicaid,” Trump declared in 2015. “Every other Republican’s going to cut, and even if they wouldn’t, they don’t know what to do because they don’t know where the money is. I do. I do.”
+They have a HDHP, which is a function of benefits design, which plans an employer chooses to offer, and which product the employer enrolls in.
 
 EXAMPLE 7:
-‘We could come up with a new system’: On the ACA, Trump has an unintentionally funny line  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
+Simple calculation to compare the two plans would just be: yearly total premium + out of pocket max. That’s the maximum you’ll ever pay for healthcare.
+A moderate or minor need to utilize the plans benefits may not math out to support the change. Now, if you developed a chronic condition or something that causes high usage of the benefits, the math might justify the change. Use the formula the other posted.  😉
+If it was me, I would still pick the HDHP with the HSA that you hopefully have grown over time
 
 EXAMPLE 8:
-Exactly 12 years ago, congressional Republicans followed Sen. Ted Cruz’s lead and shut down the federal government for one reason: health care. At the time, the Texas senator and his colleagues believed a shutdown offered one last opportunity to derail the Affordable Care Act before it was fully implemented.
+Choosing level of healthcare coverage I’m located in the US. I just started a new job and need to sign up for benefits
 
 EXAMPLE 9:
-Nevertheless, as Trump tried to return to power last year, he again declared: “I will never do anything that will jeopardize or hurt Social Security or Medicare. We’ll have to do it elsewhere. But we’re not going to do anything to hurt them.”
->But we’re not going to do anything to hurt them.”
+The state plan has been good, and we are happy with it.  I have the option of paying to keep it (about $13k/yr for my family of 3), or going to the marketplace.  There, I see another Anthem plan "Healthkeepers" (gold tier), whose *nominal* cost is also about $13k/yr, BUT with the tax credits (due to our reduced income) it will be about a quarter of that.
 
 EXAMPLE 10:
-Once in office, that didn’t quite work out. As a Washington Post report summarized in 2023, “His avowed stance, however, is at odds with Trump’s own record as president: Each of his White House budget proposals included cuts to Social Security and Medicare programs.” (He also failed to figure out “where the money is.”)
+But before committing to a big change (I can't go back to the employer plan once I pass up the opportunity), I wanted to check if people felt happy with their gold-tier marketplace plans, and maybe even specifically if they've noticed differences between the specific plans (CovaCare vs Healthkeepers).
 
 EXAMPLE 11:
-Not surprisingly, as the number of Americans with favorable views of the Affordable Care Act reaches new heights, unfavorable views have collapsed: Around this time 11 years ago, the KFF Health Tracking Poll found a 53% majority disliked the ACA. Now, that number has dropped to 30%, an all-time low.
+Certainly I have individual circumstances.  I guess my distilled question is “do marketplace plans tend to be similar to employer-based plans, st the same nominal price?”.
+I definitely think someone from VA needs to answer this. I work in healthcare and deal with insurance a lot. In Texas the marketplace plans are junk compared to the employer plans and here’s why. Gosh forbid you or a family member have something catastrophic that happens to you medically, the Marketplace plans lack post acute benefits. [...]
 
 EXAMPLE 12:
-It was difficult to imagine 14 years ago that two-thirds of the public would express support for the ACA, but Democratic leaders who swore that its popularity would grow over time were correct.
+United healthcare Good afternoon, the company I work for just switched plans from Aetna to United healthcare because Edna was stopping service in my state. My deductible for Aetna was 2000 which seems pretty reasonable of going to the doctor and getting medicine now it’s a whopping $8000!!!!!!!!! Who in the world goes to the doctor enough to match that? Since this is happening mid-year, check with your HR to see if you can get credit for the amount you already applied to your deductible to the new insurance.
+This is not the same issue that OP is facing.
 
 EXAMPLE 13:
-Two weeks later, after the Obama White House and congressional Democrats refused to pay Cruz’s ransom, GOP officials grudgingly accepted reality and retreated.
+Quality of marketplace plans vs (good) employer-plans?  (Anthem CovaCare vs Healthkeepers) I'm asking specific to Virginia (US), but bigger perspective could be nice too:
 
 EXAMPLE 14:
-Hmmm...noting that he understands that this will "hurt" them.   And he knows that many cannot afford to eat at McDonalds.
-it's good, but i think the article could be stronger if it put more into showing what Trumps says changed between his campaign for 45, and his campaign for 47.  It's too easy to 'defeat' this article by saying 'lots changed in 8 years'.
+I can confirm that both plans cover our biggest medicine costs (incl. my T2 diabetes), and our current doctors (perhaps because both plans are through Anthem).  (I am finding it kinda surprisingly difficult to get a nice clean *list* of what procedures and medicines a plan covers what portions of, beyond just copays and deductibles.)
+
+EXAMPLE 15:
+Regardless, a level funded plan is just a smarter funding strategy for your employer if claims are low and the population is generally healthy.
+
+EXAMPLE 16:
+I would sign up for a PPO plan, but I think I recall hearing that it all sort of levels out? For example, let’s say you’re expecting to have surgery. If you have a high deductible plan, you would pay more out-of-pocket for the deductible. However, with a PPO plan, you pay higher premiums … so it all ends up being pretty much even in terms of cost?
+
+EXAMPLE 17:
+Any feedback appreciated very much! The question you pose could have 20 different answers. This is a personal finance decision and significant investment.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

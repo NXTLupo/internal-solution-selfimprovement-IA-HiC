@@ -1,13 +1,14 @@
 Topic 28 - Content Sample
-Number of content items: 25
-Top words: 202 224, contact 202, contact 202 224, senator, vote
+Number of content items: 16
+Top words: cigna, insurance, year, paycheck, month, pocket, getting
 
-Content 1 (length: 266 chars):
-**Three Senators will be particularly important for this vote: Johnson (WI), Collins (ME) and Murkowski** **(AK). If you live in Maine, Wisconsin or Alaska, please find their contact numbers below as well as a script that you can write or leave on their voicemail.**
+Content 1 (length: 330 chars):
+OBBB & healthcare changes I am a 36 year old female living in California. About an hour ago, I received a call from my insurance company (BCBS) to schedule a general check up with a GP, with the rep reiterating that it’s a zero copay and included in my benefits (and was very pushy with getting me scheduled right then and there).
 
-Content 2 (length: 207 chars):
-Contact Your Senators Directly: The website gives you an easy way to find your Senators’ contact information and even provides a ready-to-use script, so you know exactly what to say and who to call or email.
+Content 2 (length: 258 chars):
+Pharma is separated out from regular health to have a separate out of pocket max, and even if it weren't, the ones they flat out refuse to cover, the highest monthly out of pocket, aren't even run through insurance, and so don't even count toward that limit.
 
-Content 3 (length: 638 chars):
-Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to demand that the Senator vote no on the budget bill. We all know it’s awful. We know it’ll cost lives, force children to go to bed hungry, cost hundreds of thousands of jobs, increase prices on pretty much everything, and destroy our healthcare system—especially in rural areas. We also know that Republicans will pay dearly at the ballot box for passing it. I know the Senator is afraid to stand up to Trump but s/he can and s/he must—in fact s/he will be regarded as a hero for doing so. Please ask him/her to protect American lives and vote no. Thanks.
+Content 3 (length: 430 chars):
+And all of this is before even getting to dental, which also is separate, and adds up with other chronic health conditions, and has no maximum besides a low maximum that insurance will pay per year.
+What medication?  Can you use good rx or something similar?  Have you asked your doc for an alternative or called to see what you need for the insurance formulary?  It may be that your doctor needs to provide updated documentation.
 

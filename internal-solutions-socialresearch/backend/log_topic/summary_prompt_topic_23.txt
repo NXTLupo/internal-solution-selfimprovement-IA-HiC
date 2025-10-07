@@ -1,34 +1,55 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: doctors, economics, canada, work immediately, soon able, able work immediately, health workers soon
+- Top keywords: diem, work, job, tips, use, healthcare, questions
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-U.S. health workers will soon be able to work immediately in Ontario In case anyone was interested, [this](https://www.thestar.com/politics/provincial/u-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario/article_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html) is the actual link.
+new role as a fresh grad i am starting a position as a data analyst at a hospital, fresh grad in data sci with no healthcare exp.
 
 EXAMPLE 2:
-[Non-paywalled link](https://www.removepaywall.com/search?url=https%3A%2F%2Fwww.thestar.com%2Fpolitics%2Fprovincial%2Fu-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario%2Farticle_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html).
+first shift as a healthcare assistant tomorrow Hi. I live in ireland. I've been doing an online course to become a qualified HCA and have accepted a 12 hr shift at a nursing home tomorrow.   
+Anyone here who works as a HCA/etc and preferably in IE/UK - what is it like + what should i expect? I've never worked in healthcare before, let alone had to work a shift over 8 hrs, so I'm quite nervous of course lol.  what exactly would they assess for during competency checks (dumb question, i know, i really don't wanna mess up this opportunity so i just want to know exactly). [...]
 
 EXAMPLE 3:
-Who profits off Canada’s health care crisis? Nurses in Canada, like Birgit Umaigba-Omoruyi, know firsthand how a patient’s postal code can determine the quality of care they receive.
+Per diem Training I  just got hired for a per diem job at a hospital. The entire process took about over a month to get onboarded and my start date was today with orientation. Problem is I emailed my supervisor and they’re asking me to do two full weeks of training. Im assuming its monday-friday, 8–4. I already work a full-time job which im about to cut to part time within the next like 10 days so I can work more per diem shifts. But I didn’t expect a per diem position to require that kind of schedule for training.
 
 EXAMPLE 4:
-Doctors have no choice but to “grab the bull by the horns” to find the sweet spot where “good compromises” between good medicine and good economics can peacefully co-exist. The Covid pandemic demonstrated to us that doctors must be at the forefront of designing and delivering care. There is nothing that is non-medical about a hospital enterprise.
+If staff have a bad attitude or they’re lazy about patient/resident care, make very sure you don’t pick up their habits. Be a gentle, upbeat person to the patients/residents even the grumpy ones, and do your tasks with pride. Don’t let anyone else drag you down. HCAs are the backbone of a facility. Take pride in your good work.
 
 EXAMPLE 5:
-But the balance between economics and medicine is a gentle and delicate one. A balance that can only be maintained with alignment and mutual coordination. The risk to doctors is when “good medicine” cedes too much space to “good economics.”
+how can i prepare myself in the area of healthcare domain, what should i familiarise myself with that would be useful for a analyst in this industry? Learn about managed healthcare: claims and utilization management. How HMOs work, different lines of business that exist in the space and how state and federal regulation affect it.
+Learn healthcare
+1) Network. Get a diagram of your organization structure and the roles of people within it. [...]
 
 EXAMPLE 6:
-Over a nourishing Nigerian meal of jollof rice and fufu, Birgit sits down with Nathan Sing to unpack the root causes of Canada’s nursing crisis—from Bill 124, which capped wage increases at just 1% amid record inflation and staffing shortages, to the racial and systemic inequities nurses face on the frontlines. Drawing on her own experience from the frontlines, Birgit explains what she calls the “cappuccino effect,” breaking down how racism operates in healthcare and how cost-cutting policies have deepened the pay gap between executives and the people doing the work.
+Never gossip about patients/residents even if other staff members do.  Treat your charges the way you would want to be treated if you were in their shoes. Reflects on this.
 
 EXAMPLE 7:
-There is also a growing trend towards privatization of healthcare in emerging economies. In markets like India, almost 70% of all care is in the private sector. Even in countries like China, where the state is pervasive, over the last decade, the share of private hospitals has increased from 10-12% to about 40-45%. The USA has a strong network of private hospitals. Fee-for-service payment mechanisms continue to be dominant and contribute close to 70% of the healthcare provided in the USA. In a largely private system, economics will always be front and center.
+3) Use AI like Wikipedia. AI isn’t great at everything but it does give you strings to tug on. Write questions down from meetings and conversations and go look them up online. Keeps good notes about everything. Don’t leave a question unasked or unanswered.
 
 EXAMPLE 8:
-Most Doctors, privately and in smaller groups, continue to rue and helplessly grumble over their almost complete loss of franchise and agency within the hospital system. Unlike in the past, when it was just the doctor and the patient in a “parent-child” relationship, healthcare systems are now incredibly complex. Hospitals are heavily indebted to banks, shareholders, PE, increasingly powerful regulators, and litigious “consumerist” patients.
+5) Set boundaries. This is the compliment to #4. Set boundaries on your work/life balance and don’t be flexible about it—whatever those boundaries are.
 
 EXAMPLE 9:
-Are Doctors Reluctant Leaders ? Seems to me that Doctors have ceded a lot of space to management and administration for far too long. I can appreciate that clinical duties are paramount. However, several decisions that directly and indirectly impact patient care plans, safety, and performance get taken many a time without the doctors being adequately involved or designing them. It seems to me that hospital administrators prefer keeping their doctors at the periphery, especially when it comes to economics.
+The trainer will tell you what skills you need to have. They will be all of what you learned in school. It’s possible the facility will have a different way of doing things than what you learned in school. That’s ok as long as patient/resident is safe and cared for in a way that protects their dignity.
+
+EXAMPLE 10:
+6) Reflection. Every quarter or six months reserve a few hours to reflect back on the last few months and evaluate your decisions and adjust appropriately. You’re young. You have more flexibility to make small or big life decisions.
+
+EXAMPLE 11:
+Has anyone else been expected to do this for a per diem role? Is this normal to be expected to do two full weeks of training away from your main job and do we know if there is any type of flexibility? Should I bring up my full-time job about scheduling ? I already emailed my per diem role supervisor letting her know im scheduled at my current job and if we can work something out for the next two weeks.  In my experience yes this is normal to be front loaded with shifts the first few weeks. They want you oriented and ready to work independently as soon as possible. [...]
+
+EXAMPLE 12:
+4) Extra effort. Depending on your ambitions, do more. This isn’t for everyone but if you desire to be a leader in your field, you have to work harder than those around you. Since your early career you likely won’t have the responsibilities like a family to split your time with. Put in extra time designated to learning and growing professionally. As you get older, this becomes much more difficult to do. Be hungry.
+
+EXAMPLE 13:
+Last bit of advice: save and invest as much as you can and spend as little as you can early on. Compound interest and time will do you wonders in terms of freedom and flexibility down the road. Start now.
+
+EXAMPLE 14:
+2) Learn the EMR and data architecture they use. Inquire about certifications. If they use Epic, there are plenty of self paced accreditations you can do. Reserve time on your calendar to learn.
+
+EXAMPLE 15:
+Feel free to DM if you have other questions. Happy to share all the things I wish someone had shared with me at your age.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

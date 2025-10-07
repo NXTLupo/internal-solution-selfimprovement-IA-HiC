@@ -1,14 +1,13 @@
 Topic 18 - Content Sample
-Number of content items: 19
-Top words: plan, deductible, marketplace, cobra, employer, marketplace plans, coverage
+Number of content items: 14
+Top words: cdc, vaccine, covid, agency, employees, cdc director, covid 19
 
-Content 1 (length: 173 chars):
-I'm leaving employment, where I have coverage through the state-employee plan (Anthem "CovaCare", which is for VA).  I won't be eligible for Medicare for several more years.
+Content 1 (length: 421 chars):
+What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
 
-Content 2 (length: 784 chars):
-Certainly I have individual circumstances.  I guess my distilled question is “do marketplace plans tend to be similar to employer-based plans, st the same nominal price?”.
-I definitely think someone from VA needs to answer this. I work in healthcare and deal with insurance a lot. In Texas the marketplace plans are junk compared to the employer plans and here’s why. Gosh forbid you or a family member have something catastrophic that happens to you medically, the Marketplace plans lack post acute benefits. So if you were to need major surgery and need HH or even rehab afterwards, it will be hard to find because the hix (marketplace) plans have very few there contracted with or have day limits on the policy. I’m terms of regular coverage for going to the dr, they are adequate.
+Content 2 (length: 750 chars):
+“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. Just this week, he canceled nearly $500 million in federally funded research on mRNA vaccines—widely considered among CDC employees and public-health experts to be the greatest domestic triumph of the U.S. pandemic response—stating incorrectly that they cause more risk than benefit against the flu and COVID.”
 
-Content 3 (length: 170 chars):
-Quality of marketplace plans vs (good) employer-plans?  (Anthem CovaCare vs Healthkeepers) I'm asking specific to Virginia (US), but bigger perspective could be nice too:
+Content 3 (length: 399 chars):
+“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
 

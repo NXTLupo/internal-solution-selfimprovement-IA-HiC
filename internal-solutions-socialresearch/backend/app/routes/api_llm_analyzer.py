@@ -150,7 +150,7 @@ def process_sentiment_analysis_job(
             return
 
         # Save initial search data
-        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '1.search_data.json'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '1.search_data.json'), 'w', encoding='utf-8') as f:
             json.dump(search_data, f, indent=2)
         
         update_job_status(job_id, 'processing', 'Processing and filtering data', progress=5)
@@ -184,37 +184,37 @@ def process_sentiment_analysis_job(
             # Process and filter data
             update_job_status(job_id, 'processing', 'Processing Reddit data', progress=10)
             processed_data = text_processor.process_reddit_data(search_data)
-            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '2.processed_data.json'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '2.processed_data.json'), 'w', encoding='utf-8') as f:
                 json.dump(processed_data, f, indent=2)
 
             # Apply filters
             update_job_status(job_id, 'processing', 'Applying RoBERTa filtering', progress=15)
             filtering_roberta = FilteringRoBERTa()
             roberta_filtered_data = filtering_roberta.filter_data(processed_data, keyword=keyword)
-            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '3.roberta_filtered.json'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '3.roberta_filtered.json'), 'w', encoding='utf-8') as f:
                 json.dump(roberta_filtered_data, f, indent=2)
 
             update_job_status(job_id, 'processing', f'Applying {filter_type} filtering', progress=20)
             if filter_type == "cluster":
                 filtering_cluster = Filtering()
                 filtered_data = filtering_cluster.filter_data(roberta_filtered_data)
-                with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '3.1.cluster_filtered.json'), 'w', encoding='utf-8') as f:
+                with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '3.1.cluster_filtered.json'), 'w', encoding='utf-8') as f:
                     json.dump(filtered_data, f, indent=2)
             else:
                 filtering_absa = FilteringABSA()
                 filtered_data = filtering_absa.filter_data(roberta_filtered_data, keyword=keyword)
-                with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '3.1.absa_filtered.json'), 'w', encoding='utf-8') as f:
+                with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '3.1.absa_filtered.json'), 'w', encoding='utf-8') as f:
                     json.dump(filtered_data, f, indent=2)
 
             formatted_data = text_processor.format_filtered_data(filtered_data)
-            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '4.filtered_data.json'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '4.filtered_data.json'), 'w', encoding='utf-8') as f:
                 json.dump(formatted_data, f, indent=2)
 
         # Chunk the data
         update_job_status(job_id, 'processing', 'Chunking data for analysis', progress=25)
         chunked_data = chunk_filtered_data(formatted_data, chunk_size=chunk_size)
         for i, chunk in enumerate(chunked_data):
-            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'5.{i+1}.chunk_data.json'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), f'5.{i+1}.chunk_data.json'), 'w', encoding='utf-8') as f:
                 json.dump(chunk, f, indent=2)
 
         # Initialize thread pool executor, this is only for processing the chunking process
@@ -278,7 +278,7 @@ def process_sentiment_analysis_job(
             "formatted_data": filtered_data
         }
 
-        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), '11.result.json'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), '11.result.json'), 'w', encoding='utf-8') as f:
             json.dump(combined_response, f, indent=2)
         
         update_job_status(job_id, 'processing', 'Saving analysis results to database', progress=95)
@@ -387,6 +387,120 @@ def process_sentiment_analysis_job(
             'Analysis failed', 
             error=error_msg
         )
+
+@llm_analyzer_bp.route('/search', methods=['POST'])
+def search_subreddit():
+    """Search Reddit and return results"""
+    try:
+        data = request.get_json()
+
+        # Extract search parameters
+        subreddit = data.get('subreddit')
+        query = data.get('query')
+        limit = data.get('limit', 5)
+        sort = data.get('sort', 'relevance')
+        time_filter = data.get('time', 'all')
+
+        # Validate required parameters
+        if not subreddit or not query:
+            return jsonify({'error': 'Missing required parameters: subreddit and query'}), 400
+
+        # Generate a unique search ID
+        search_id = str(uuid.uuid4())
+
+        # Perform Reddit search
+        try:
+            subreddit_obj = reddit.subreddit(subreddit)
+
+            search_results = []
+            for submission in subreddit_obj.search(
+                query,
+                limit=limit,
+                sort=sort,
+                time_filter=time_filter
+            ):
+                # Fetch comments
+                submission.comments.replace_more(limit=0)
+
+                comments = []
+                for comment in submission.comments.list()[:10]:  # Limit to first 10 comments
+                    comments.append({
+                        'id': comment.id,
+                        'body': comment.body[:500],  # Limit comment length
+                        'score': comment.score,
+                        'author': str(comment.author) if comment.author else '[deleted]'
+                    })
+
+                search_results.append({
+                    'id': submission.id,
+                    'title': submission.title,
+                    'selftext': submission.selftext[:1000],  # Limit text length
+                    'score': submission.score,
+                    'num_comments': submission.num_comments,
+                    'url': submission.url,
+                    'created_utc': submission.created_utc,
+                    'author': str(submission.author) if submission.author else '[deleted]',
+                    'comments': comments
+                })
+
+            # Return search results
+            return jsonify({
+                'search_id': search_id,
+                'subreddit': subreddit,
+                'query': query,
+                'results': search_results,
+                'count': len(search_results)
+            })
+
+        except Exception as e:
+            logging.error(f"Error searching Reddit: {str(e)}")
+            return jsonify({'error': f'Failed to search Reddit: {str(e)}'}), 500
+
+    except Exception as e:
+        logging.error(f"Error in search endpoint: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@llm_analyzer_bp.route('/analyze-sentiment/<search_id>', methods=['POST'])
+def analyze_sentiment_by_search_id(search_id):
+    """Start sentiment analysis for a search result"""
+    try:
+        data = request.get_json()
+
+        # Extract analysis parameters
+        application_name = data.get('application_name', 'Application')
+        filter_type = data.get('filter_type', 'cluster')
+        keyword = data.get('keyword', '')
+        merge_method = data.get('merge_method', 'deepseek-r1')
+        chunk_size = data.get('chunk_size', 40000)
+        analysis_model = data.get('analysis_model', 'deepseek-r1')
+        max_workers = data.get('max_workers', 3)
+        skip_filtering = data.get('skip_filtering', True)
+        user_id = data.get('user_id', '123')
+        project_id = data.get('project_id')
+
+        # For now, we'll just create a job and return immediately
+        # The actual analysis would be done asynchronously
+        job_id = generate_job_id()
+
+        # Store the job in the database
+        try:
+            # Create the job with minimal processing for now
+            update_job_status(job_id, 'pending', 'Job created and queued for processing')
+
+            # Return job information
+            return jsonify({
+                'job_id': job_id,
+                'status': 'pending',
+                'message': 'Analysis job created successfully'
+            })
+
+        except Exception as e:
+            logging.error(f"Error creating job: {str(e)}")
+            return jsonify({'error': f'Failed to create job: {str(e)}'}), 500
+
+    except Exception as e:
+        logging.error(f"Error in analyze-sentiment endpoint: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 @llm_analyzer_bp.route('/analyze-sentiment', methods=['POST'])
 def analyze_pros_cons():
@@ -644,7 +758,7 @@ def get_ai_summary_by_project_id(project_id):
         prompt = get_ai_summary_prompt(analysis_data, application_name)
         
         # Log the AI summary prompt
-        temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')
+        temp_dir = os.getenv('SENTIMENT_LOG_DIR', '/app/temp')
         with open(os.path.join(temp_dir, f'ai_summary_prompt_{project_id}.txt'), 'w', encoding='utf-8') as f:
             f.write(prompt)
         
@@ -742,7 +856,7 @@ def get_ai_summary():
         prompt = get_ai_summary_prompt(analysis_data, application_name)
         
         # Log the AI summary prompt
-        temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')
+        temp_dir = os.getenv('SENTIMENT_LOG_DIR', '/app/temp')
         with open(os.path.join(temp_dir, 'ai_summary_prompt.txt'), 'w', encoding='utf-8') as f:
             f.write(prompt)
             
@@ -882,10 +996,10 @@ def get_posts():
 
 def setup_temp_directory():
     """Create and clean temporary directory for analysis files"""
-    temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')  # Use 'temp' as default if not set
+    temp_dir = os.getenv('SENTIMENT_LOG_DIR', '/app/temp')  # Use '/app/temp' as default if not set
     os.makedirs(temp_dir, exist_ok=True)
     tem_files = glob.glob(os.path.join(temp_dir, '*'))
-    
+
     for f in tem_files:
         try:
             os.remove(f)
@@ -911,7 +1025,7 @@ def process_chunk(chunk, chunk_idx, application_name, max_retries=3, method='dee
                 raise ValueError(f"Unsupported method: {method}")
             
             # Write prompt to file for debugging
-            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'6.{chunk_idx+1}.prompt_log.txt'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), f'6.{chunk_idx+1}.prompt_log.txt'), 'w', encoding='utf-8') as f:
                 f.write(f"Timestamp: {datetime.utcnow().isoformat()}\nPrompt:\n{prompt}")
             
             messages = [{"role": "user", "content": prompt}]
@@ -947,7 +1061,7 @@ def process_chunk_result(chunk_result, chunk_idx):
         return None
 
     # Save raw chunk result before processing
-    raw_chunk_result_file = os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'7.{chunk_idx+1}.raw_chunk_result.json')
+    raw_chunk_result_file = os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), f'7.{chunk_idx+1}.raw_chunk_result.json')
     with open(raw_chunk_result_file, 'w', encoding='utf-8') as f:
         f.write(chunk_result)
 
@@ -963,7 +1077,7 @@ def process_chunk_result(chunk_result, chunk_idx):
         chunk_result = json.dumps(json_data)
 
         # Save processed chunk result
-        chunk_result_file = os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'7.{chunk_idx+1}.{chunk_idx+1}.chunk_result.json')
+        chunk_result_file = os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), f'7.{chunk_idx+1}.{chunk_idx+1}.chunk_result.json')
         with open(chunk_result_file, 'w', encoding='utf-8') as f:
             f.write(chunk_result)
 
@@ -975,14 +1089,14 @@ def process_chunk_result(chunk_result, chunk_idx):
             "raw_content": chunk_result,
             "timestamp": datetime.utcnow().isoformat()
         }
-        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', 'temp'), f'error_7.{chunk_idx+1}.chunk_result.json'), 'w', encoding='utf-8') as f:
+        with open(os.path.join(os.getenv('SENTIMENT_LOG_DIR', '/app/temp'), f'error_7.{chunk_idx+1}.chunk_result.json'), 'w', encoding='utf-8') as f:
             json.dump(error_info, f, indent=2)
         return None
 
 def merge_and_categorize_results(json_data_list):
     """Merge and categorize the analysis results using iterative merging for large inputs."""
     
-    temp_dir = os.getenv('SENTIMENT_LOG_DIR', 'temp')
+    temp_dir = os.getenv('SENTIMENT_LOG_DIR', '/app/temp')
     os.makedirs(temp_dir, exist_ok=True) # Ensure temp dir exists
     
     # --- Iterative Merging ---

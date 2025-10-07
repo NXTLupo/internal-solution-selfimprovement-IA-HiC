@@ -1,84 +1,58 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: insurance, health insurance, income, medicaid, qualify, job, plan
+- Top keywords: tech, school, job, cna, career, years, work
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-ok i am just over the EP So last year i didn't work too much, and I had just migrated to the US, so i was getting Medicare. Now, as i was talking with one of the insurance brokers, she calculated my weekly income and got my yearly gross income to be higher at the end of 2025, i.e., 42k, so she said i will not qualify for any essential plan, and i need to buy insurance from the marketplace. Then she showed me some very pricey stuff. I think i am doomed. What should i do guys ?? We found my wife health insurance on marketplace for $15 dollars a month you just gotta look they’re out there. [...]
+CA method 3 CNA to LVN is a total scam. Do not bother pursuing this path for your lvn 10 years worked as a CNA in Med/Surg. If you have just one of the items on their checklist of 30 skills marked as "NO" the board will not take any of your hours to meet their 48 month MedSurg requirement. Many of the skills are tasks outside of the CNA scope such as
+"performing an enema by yourself" or "donning sterile aseptic gloves to collect a urine sample" use of diabetic dipstick (many facilities do not use dipsticks let alone allow their CNAs to use them. [...]
 
 EXAMPLE 2:
-I apologize if I'm already explaining things you know and have looked at, but if you have to look at marketplace based health insurance next year, you still qualify for pretty good subsidies there until you hit 60,000 in yearly income. It still is not going to feel good though, because at a projected $42,000 of income this, you would still have a monthly premium for healthcare around $300.
+They have wasted $750 of my money on application fees and years of my life acquiring “bedside nursing experience” only to reject my application over tiny technicalities. They will find every excuse to throw out your work experience forms and they have a long laundry list of 20 skills they say that every single one has to be check marked as “YES” by your RN supervisor. If 19/20 skills are marked YES, one marked NO, your work experience form goes straight into the trash. Doesn’t matter if you worked there for several years as a CNA. [...]
 
 EXAMPLE 3:
-3) healthcare.gov you can buy a plan but it won’t be “cheap” only a job would offer you cheap because the employer pays part or all of the premium
-Sadly, only 40% of small businesses with part time employees offer health insurance, despite what some folks are saying on here.   So you would be better off finding full time employment with a larger company/organization/govt.  If you can move to Poland and the EU, I would do that sooner rather than later. At least you will have free at point of service healthcare. That's the best move!
-1. It is true. [...]
+It's not like school where the professors get in serious trouble if they DONT help you get licensed after passing. In the workforce, your employers can potentially get in trouble BY HELPING. bvnpt said they will audit everything and get your supervisor in trouble if they mark off a single skill that your facility does not provide. Your RN supervisor knows this too so they don't help. Decades of CNA work down the drain..
+I’m so sorry as someone who worked their way up the nursing ladder starting as a cna and now an NP I had no idea this existed and sadly OP I do not agree with it.
 
 EXAMPLE 4:
-If you really like your current job and can find the superhuman strength to work another 30 hours on top of whatever your current schedule is, that's the magic number of hours to be considered eligible for insurance at Walmart and Amazon. Most locations are also pretty flexible if you have a second (primary) job and can only work say.... Second shift weekdays or first and second on weekends.
+They also expect you to obtain 240 hours in a Maternity ward and 240 hours with pediatrics. The crazy thing is none of the maternity wards in LA hire CNAs for the role. They run the show without CNA‘s. It’s just RNs. There is no possible way to obtain this experience as a CNA, I have tried. They also want 240 hours of Peds but you can count on one hand how many pediatric acute care centers there are in all of Southern California. If just one item is Mark no, they reject all your pediatric hours. [...]
 
 EXAMPLE 5:
-Now... With all that being said, does your employer offer their own health insurance plan, and is it even cheaper?
+These bvnpt bastards also refuse to give you any information or answer any questions on anything regarding your previous nursing education unless you pay them $330 to evaluate your transcripts for “possible credit in lieu of CNA work experience.” Then once you’ve paid them, they tell you that you are missing something, but that you are unable to correct the “deficiency” until you pay them another $330 in 2 years after the now open application expires. [...]
 
 EXAMPLE 6:
-3) Do I have any other options to attain free/affordable healthcare excluding getting a full-time job?
+What are the odds of getting a hospital to pay to further my education from any of these programs? ( Im dirt poor and cant take out more loans because I was stupid when I was 19 ).  You won’t have trouble finding a job because the school is bottlenecking those that are interested. Depending on the state you live, if you need licensing to work as a tech that will keep the workforce down. Some states don’t require a license though, which is wild to me. Those states could have for-profit schools pop up with subpar education cranking out techs and popping the bubble
 
 EXAMPLE 7:
-2) I have Crohn's Disease, but not a registered disability. As a back-up, I thought I'd qualify for Medicaid, but I was denied when I applied; apparently a low income isn't enough to quality in this post-COVID reality. Is there really no way I'd qualify for Medicaid? I tried the Marketplace after being denied, but the premiums were so high. A representative told me that I must earn at least $15,650 to be eligible for a Marketplace discount.
+Nurses whether LPN, LVN, or RN should be a graduate of a nursing program. I personally wouldn’t sign off on a cna performing an invasive procedure. I’m sorry you were misled and shame on the board for allowing it.
 
 EXAMPLE 8:
-If your current employer does not offer affordable healthcare and you can't swing 300 a month on a marketplace plan, as soul crushing and awful as most people find working for Walmart and Amazon...they're almost always hiring and you probably would have a decent shot at getting in. I can tell you that in most states, the average Amazon warehouse worker makes about 50k a year and the average Walmart store associate makes about 40K a year, but both companies provide insanely cheap health insurance. I'm talking $50 a month or less. [...]
+I was talking with my mom, who has been a nurse most of my life, and she suggested I go into the medical field.  My local community college has a lot of medical programs, including radiologic tech, sonography, surgical tech, and lab tech.  I like helping people and missed human interaction while I was a programmer, and the idea of using xrays to take pictures of people's busted insides to help fix them kinda geeks me out.
 
 EXAMPLE 9:
-I recently completed grad school and just turned 26 in the state of Florida. I was on my father's employer's health care plan until my 26th birthday, which was when we were informed that I'm no longer eligible to stay on it. I have a few questions:
+They have wacky requirements such as “perform an enema” “diabetic urine testing” “collection of specimens” “sterile aseptic technique” and other skills outside of a CNA scope in California that a facility would never authorize a CNA to do, let alone sign you off for it. These are tasks delegated to the LVN/RN only. If you write in “No, but assisted the RN in performing skill” that isn’t good enough for them and your work experience form goes to the trash. [...]
 
 EXAMPLE 10:
-While an obvious solution is to seek full-time employment, I am thinking about moving to Poland in the very near future (which I have dual-citizenship with), especially since my grandmother's health is declining. I'm looking for health insurance in the meantime. I'd appreciate it if you could point me in the right direction; any advice is welcome!
+I'm 38 and going back to school.  I messed around with non-profits for most of my 20s, learned to code during my 30s, and lost my foothold in the tech industry just as I was getting in. I watched the tech bubble burst right under me and lost about a year to a deep depression.
 
 EXAMPLE 11:
-If I'm understanding this right, that's definitely a tough spot to be in. Anyway you cut it, you're going from pretty much free healthcare with no monthly cost to a system where you will have monthly premiums and likely hire out-of-pocket costs for things like co-pays and deductibles.
+Challenging the LVN exam as a CNA via Method 3 in California is a total sham/scam. My experience. For RN students or dropouts, or those with years of CNA work experience hoping to challenge the NCLEX for LVN via Method 3 in California, I can tell you this pathway to nursing does not exist. The BVNPT (board of vocational nurses) makes it absolutely impossible for one to qualify via Method 3 unless you are a foreign graduate of a bsn program.
 
 EXAMPLE 12:
-1) Is it true that I'm no longer eligible? I know that 26 years old is usually the cut-off date, but I'm unmarried with a part-time job (soon to be 2). When I called my father's HR department, they said that I was only eligble for a Cobra extension—which I'm not interested in 'cause it's rather expensive. Is the ineligibility due to me being no longer in school? It may be important to note that the company my father works for has its headquarters out-of-state.
+Going back to school advice - which program? is Rad Tech a bubble? Sorry for the long post, but I feel like I need some advice.
 
 EXAMPLE 13:
-If it's incredibly expensive, is your ability to be in the US employer-sponsored? If it's not, do you have an option to look at reduced hours for a second job or even switching jobs? As much as I hate to say it?
+I still think it’s worth it. The growth and specialization potential is huge and I don’t think that tech will ever remove the human element (knock on wood)
+Thanks for the reply - I was kind of freaking out about the possibility of going further into debt, not getting into the program, and then having to work at aldi or some shit for a year while I waited to try again.  My advisor noted that with the gen eds I'm taking + 1 class I can get a certificate to be some kind of assistant x-ray tech making way less. [...]
 
 EXAMPLE 14:
-Did you originally qualify because you came here in the middle of the year and the fraction of an entire year's salary simply was below that threshold? That is to say, if you had worked for the entire year having come here at the very beginning of 2024, would you have still made about 40 Grand last year?
+On my first day of class, my Anatomy and Physiology teacher asked me what program I was trying to get into, and when I said rad tech, she said I should consider other programs because everyone and their mother is trying to get into rad tech. Everything I read indicates that rad tech pays significantly more than and is less stressful than all of the other careers.  I'm worried that the massive number of people fighting for this job reminds of when I started to learn how to code and I'm terrified that I either wont be able to get into the program or I will get into the program just as the supply [...]
 
 EXAMPLE 15:
-Now, thankfully she was fortunate enough to have very good travel insurance through her MasterCard that paid for the trip. It covered up to $150,000 in her medical expenses. By the way, interesting fact, medical expenses covered by travel insurance does NOT count as health insurance. Which was a pain in the ass because we had been dealing with the contracted health insurance company "AXA", who struggled to communicate with us and especially the hospital. [...]
+I knew that the rad tech program was competitive, but now that I've started classes, it has sunk in just how competitive it is.  The acceptance rate is about 10% and is weighted to accept people already in the medical field.  That means I need straight As to have a shot - and I'm starting in the summer when everything moves at twice the pace.... and while I'm enthusiastic about learning, I'm pretty ADHD, so school is hard.
 
 EXAMPLE 16:
-TLDR; My (29M, US citizen) fiancée (30F, Brazilian) is visiting for a couple months on a tourist visa while we wait for her K1-Fiancée visa to be approved. Six days into visiting she was in a grease fire accident which resulted in 3rd degree burns to all of her right arm and hand from the bicep down, her right thigh and the majority of her left leg and foot. She’s now out of the hospital and recovering. Her travel insurance medical expenses are capped out at $150,000 and they said they are not negotiating prices with the hospital, leaving us with potentially over $112,000 in medical debt unles [...]
-
-EXAMPLE 17:
-My LDR fiancée is visiting for a few months and got 3rd degree grease burns 6 days into the trip. Looking for advice regarding US health insurance, travel insurance, and hospital bills. What can we do? Hi Reddit, this is our first time posting looking for advice. To be honest, it’s kind of a hail Mary. But we're really needing/hoping we could receive some guidance on what to do with my current situation. Apologies in advance for any reddit mistakes and thank you for your patience.
-
-EXAMPLE 18:
-Now, my fiancée and I have decent savings accounts that could help some. But nothing that could cover this potential additional $112,000 in debt. Our savings accounts were supposed to be to help us start a life together, not... this. Aside from the medical expenses her travel insurance covered for her mom to travel here to help take care of her, which has been a huge blessing to both of us. The insurance is also offering to cover both her and her mom’s flights back home to Brazil once she’s recovered enough to deal with airport germs. [...]
-
-EXAMPLE 19:
-Again, I know very little about what type of rules apply to you if you are not fully a US citizen at the moment, but if you are a full citizen and you find yourself in a rocking a hard place like this, you could always just start with trying to get into the place like Walmart or Amazon and then if you're one of the rare people that finds the work enjoyable, you could easily just ask for more hours and cut ties or reduce with your current place.
-
-EXAMPLE 20:
-T & M Look up the name of the hospital and “financial assistance” and review the hospital’s financial assistance policy. If it is a tax-exempt hospital, it will be required to comply with IRS code 501r which, in addition to the financial assistance practice, will limit the hospital’s charges to the “amount generally billed.” Depending on the state it is located, the hospital may also be required to offer financial assistance for people with incomes below a set threshold.  This should all be spelled out in that financial assistance policy. [...]
-
-EXAMPLE 21:
-There's also been a lot of other surprise expenses, all hitting at the exact same time as this accident. It's made our finances even more tight and stressful. This is just overall so difficult to deal with on so many levels, especially when you have no idea the scope of the systems you're dealing with. It's just been a nightmare from start to finish, and it's not even done yet. Please give us an outside view looking in. We're trying to remain calm, but the looming debt gets closer every day. Any relevant experiences, tips, tricks, or advice; it's all welcome. [...]
-
-EXAMPLE 22:
-We still haven't gotten the bill, but we got an estimate with detailed items of $224,400.18 that included medicine, wound care, procedures and the room rate. We were keeping track of that bill almost twice a week but after she was discharged our new estimate also had specific charges for every doctor stacked on. Resulting in a surprise extra sum of $38,553.14. Making the new total expenses $262,953.32 (which is a terrifying prospect). [...]
-
-EXAMPLE 23:
-Feel free to ask any questions or provide any more info that might help. But hopefully this helps a little!
-
-EXAMPLE 24:
-A little background on us and the circumstances around her visiting the US. My fiancée and I have been in a long-distance relationship for 6 years come October. We are currently going through the K1-Fiancée visa process and are approaching the final stages, where she will be required to visit the U.S. embassy in Brazil to finish the process.  Back in July, she was amicably released from my full-time job in Brazil. She was given advance notice of her last day, so we decided she should travel to the US for a few months on her tourist visa while we wait. [...]
-
-EXAMPLE 25:
-When I arrived, I rushed her to the closest emergency room. She was stabilized until she could be transferred to another hospital with a full body burn unit. The only one in the state. She was treated very well by the staff there. Nurses, doctors, therapists, everyone. They communicated great and really helped to keep us as comfortable and at peace as possible. In her words, the only bad part of the stay was the food, but that could be expected, I think. Monday, August 11th was her first procedure to have the dead and damaged skin removed from her arm removed to see if she needed grafts. [...]
+I’m in the same boat, almost done with my points classes to apply (again) in January. For 2025 I was 30 on the wait list and my community college only accepts 30 a year and there’s only 3 accredited schools in my whole state
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

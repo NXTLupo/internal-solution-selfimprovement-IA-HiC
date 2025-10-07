@@ -1,14 +1,13 @@
 Topic 3 - Content Sample
 Number of content items: 25
-Top words: doctor, visit, told, pain, pcp, said, appointment
+Top words: ai, healthcare, working, care, scheduling, clinics, patients
 
-Content 1 (length: 333 chars):
-I told her that I have a rare, time sensitive appointment, and I talked to her supervisor before due to an issue with the front desk. 
-By the time, I didn’t know what I was talking about since I was experiencing a lot of pain. She immediately agreed to move my testing to this Tuesday.  She usually does not see patients on this day.
+Content 1 (length: 537 chars):
+TLDR: I need to make my boss happy and fix patient wait times, improve staff communication + make work less stressful, and manage patient flow better during our rushes. Need to think of some kind of tech solution for this. This is an issue that stems from the fee-for-service model. Simple fix is to have fewer patients. You’d either need to charge more per patient to make up for it (not realistic because of carrier contacts) or reduce expenses to hit profitability sooner and with less revenue (develop much more efficient processes).
 
-Content 2 (length: 684 chars):
-I have spoken with the office manager about my concerns. She told me that she would speak to the provider (she was big mad about the NP telling me she thinks I have cancer before even doing the biopsy, much less waiting for the results, but honestly I was glad the NP was straight with me about that). She said she would like the chance to make it right and for me to continue with their practice, but if I do, I will need to stay with the NP I saw initially who could not take one minute of her day to tell me how to take care of my wound and who lied in my patient notes. I know I don't want to see this provider again, so I have decided I will look elsewhere for further treatment.
+Content 2 (length: 118 chars):
+I’m exploring an idea like a ‘Vanta’ for healthcare AI, that would continually check the accuracy and safety of LLM’s.
 
-Content 3 (length: 710 chars):
-I also got instructions to access the patient portal to view the notes from my visit. The notes documented the shave biopsy for the lesion and counseling me about the cyst on my back. The notes also said we talked about two other conditions she had noticed (I don't remember the names, and I can't copy and paste from my record)--some dark spots caused by sun damage and some wart-like growths that are benign and common as people age. She also said she counseled me about how I could treat the dark spots a number of ways, and that I should wear sunscreen and UPF clothing. We NEVER talked about the dark spots, the wart-like growths, sunscreen, or UPF clothing, so those notes in my report are flat-out lies.
+Content 3 (length: 225 chars):
+I need to think of a tech solution to bring wait times down and get morale back up and I’m looking to Reddit for some help. I want to help everyone; the providers, the front and back office staff, and of course, the patients.
 

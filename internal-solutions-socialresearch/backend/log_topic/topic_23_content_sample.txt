@@ -1,13 +1,16 @@
 Topic 23 - Content Sample
-Number of content items: 9
-Top words: doctors, economics, canada, work immediately, soon able, able work immediately, health workers soon
+Number of content items: 15
+Top words: diem, work, job, tips, use, healthcare, questions
 
-Content 1 (length: 289 chars):
-U.S. health workers will soon be able to work immediately in Ontario In case anyone was interested, [this](https://www.thestar.com/politics/provincial/u-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario/article_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html) is the actual link.
+Content 1 (length: 129 chars):
+new role as a fresh grad i am starting a position as a data analyst at a hospital, fresh grad in data sci with no healthcare exp.
 
-Content 2 (length: 239 chars):
-[Non-paywalled link](https://www.removepaywall.com/search?url=https%3A%2F%2Fwww.thestar.com%2Fpolitics%2Fprovincial%2Fu-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario%2Farticle_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html).
+Content 2 (length: 1444 chars):
+first shift as a healthcare assistant tomorrow Hi. I live in ireland. I've been doing an online course to become a qualified HCA and have accepted a 12 hr shift at a nursing home tomorrow.   
+Anyone here who works as a HCA/etc and preferably in IE/UK - what is it like + what should i expect? I've never worked in healthcare before, let alone had to work a shift over 8 hrs, so I'm quite nervous of course lol.  what exactly would they assess for during competency checks (dumb question, i know, i really don't wanna mess up this opportunity so i just want to know exactly).
+Just in case, know your roles of the job and don't deviate from it. I love nurses but there's also some bad ones where they'll have you do something unethical so they don't have to. Otherwise learn from the job and wash your hands often. If you have the hand moisturizing hand sanitizer with 60% + alcohol from 3M, use that shit often. I used to horde it in my hospital wing just cause it was the best and the admin were cheap asses.
+Wear very comfortable padded sole shoes. You will be walking a lot. Protect your back. Wash your hands thoroughly more than you think you need to. If there is an infection break out, wear a mask faithfully  and glove up. Keep your hands below your shoulders at all times even when you are off duty. . If you have to touch your face, use a tissue to do it. Keep them in your pocket and dispose of them immediately. Never reuse a tissue.
 
-Content 3 (length: 182 chars):
-Who profits off Canada’s health care crisis? Nurses in Canada, like Birgit Umaigba-Omoruyi, know firsthand how a patient’s postal code can determine the quality of care they receive.
+Content 3 (length: 520 chars):
+Per diem Training I  just got hired for a per diem job at a hospital. The entire process took about over a month to get onboarded and my start date was today with orientation. Problem is I emailed my supervisor and they’re asking me to do two full weeks of training. Im assuming its monday-friday, 8–4. I already work a full-time job which im about to cut to part time within the next like 10 days so I can work more per diem shifts. But I didn’t expect a per diem position to require that kind of schedule for training.
 

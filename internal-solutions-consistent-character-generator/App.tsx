@@ -724,7 +724,47 @@ const App: React.FC = () => {
 
                 {videoClips.length > 0 && (
                   <section className="glass-panel">
-                    <h2 className="section-title">Generated Video Clips</h2>
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="section-title">Generated Video Clips</h2>
+                      <div className="flex gap-2">
+                        <Button
+                          onClick={() => {
+                            const failedOrGenerating = videoClips.filter(clip =>
+                              clip.videoData?.status === 'generating' ||
+                              clip.videoData?.status === 'failed'
+                            );
+                            if (failedOrGenerating.length > 0) {
+                              if (confirm(`Clear ${failedOrGenerating.length} stuck/failed video(s)?`)) {
+                                Promise.all(failedOrGenerating.map(clip => deleteVideoClipFromDB(clip.id)))
+                                  .then(() => {
+                                    setVideoClips(prev => prev.filter(c =>
+                                      c.videoData?.status === 'completed'
+                                    ));
+                                  });
+                              }
+                            } else {
+                              alert('No stuck or failed videos to clear');
+                            }
+                          }}
+                          className="ia-button ia-button--subtle"
+                        >
+                          Clear Failed
+                        </Button>
+                        <Button
+                          onClick={() => {
+                            if (confirm(`Clear all ${videoClips.length} video clip(s)? This cannot be undone.`)) {
+                              Promise.all(videoClips.map(clip => deleteVideoClipFromDB(clip.id)))
+                                .then(() => {
+                                  setVideoClips([]);
+                                });
+                            }
+                          }}
+                          className="ia-button--danger"
+                        >
+                          Clear All Videos
+                        </Button>
+                      </div>
+                    </div>
                     <div className="column-stack">
                       {videoClips.map((clip) => (
                         <div key={clip.id} className="video-card">
@@ -736,7 +776,33 @@ const App: React.FC = () => {
                           </div>
 
                           {clip.videoData?.status === 'generating' && (
-                            <div className="video-status">Generating video...</div>
+                            <div className="video-status">
+                              <div className="flex items-center gap-2">
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
+                                <span>Generating video...</span>
+                                <span className="text-xs opacity-60">
+                                  (Started {new Date(clip.createdAt).toLocaleTimeString()})
+                                </span>
+                              </div>
+                              {/* Show warning if it's been stuck for more than 5 minutes */}
+                              {(new Date().getTime() - new Date(clip.createdAt).getTime()) > 300000 && (
+                                <div className="text-yellow-500 text-sm mt-2">
+                                  ⚠️ This video seems stuck. Consider clearing it.
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {clip.videoData?.status === 'failed' && (
+                            <div className="video-status text-red-500">
+                              <div className="flex items-center gap-2">
+                                <span>❌</span>
+                                <span>Video generation failed</span>
+                              </div>
+                              <div className="text-xs opacity-60 mt-1">
+                                Try generating again or clear this entry
+                              </div>
+                            </div>
                           )}
 
                           {clip.videoData?.status === 'completed' && clip.videoData.url && (
