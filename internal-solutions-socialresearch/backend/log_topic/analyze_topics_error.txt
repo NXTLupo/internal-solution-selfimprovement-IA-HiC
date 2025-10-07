@@ -1,0 +1,1 @@
+Error in BERTopic.fit_transform: n_neighbors must be greater than 1
