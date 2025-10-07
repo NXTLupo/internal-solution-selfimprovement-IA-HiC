@@ -1,7 +1,8 @@
 Calculating topic similarities...
-Topic 0 top words: ['dpc', 'care', 'patients', 'practice', 'insurance', 'work', 'clinic', 'model', 'pay']
-Topic 1 top words: ['practice', 'dpc', 'looking', 'model', 'listing', 'memberdirectory _listing', 'year']
-Topic 2 top words: ['fm', 'medicine', 'dpc', 'year', 'peds', 'work', 'patients', 'family medicine', 'kids']
-Topic 3 top words: ['addiction', 'abertheham', 'practice', 'primary', 'user3', 'fm', 'job', 'compensation', 'specialty', 'thank']
-Topic 4 top words: ['non', 'dpc', 'non compete', 'options', 'metro area', 'gen surg']
-Found 10 topic similarity pairs
+Topic 0 top words: ['nba', '00', 'game', 'reddit', 'nba game', 'vs', 'pm', 'nba nba', 'nba nba game', 'play']
+Topic 1 top words: ['points', 'rebounds', 'game', 'year', 'assists', 'nba', 'season', 'scored', 'points rebounds']
+Topic 2 top words: ['nba', 'player', 'team', 'gonzalez', 'celtics', 'years', 'said', 'league']
+Topic 3 top words: ['tag', 'highlight', 'flea', 'luka', 'thank', 'preseason reminder', 'tag highlights', 'descriptive', 'tag use']
+Topic 4 top words: ['bronny', 'lakers', 'lebron', 'week', 'james', 'story', 'bronny james', 'team', 'year', 'week week']
+Topic 5 top words: ['curry', 'horford', 'highlight', 'years', 'young', 'blows', '15 years', 'steph', 'bronny', 'lesperm']
+Found 15 topic similarity pairs

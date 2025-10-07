@@ -1,83 +1,22 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: dpc, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: addiction, abertheham, practice, primary, user3, fm, job
+- Top keywords: tag, highlight, flea, luka, thank, preseason reminder, tag highlights
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-I’m about to start my first big boy job in a primary clinic doing mostly FM but taking referrals for addiction treatment. Depending on demand that may expand to have dedicated addiction days, e-consults, or an addiction-only practice.
+Jordan Poole throws a lob from beyond half court  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+the poole party is starting
+Some baddies in Melbourne lol
 
 EXAMPLE 2:
-Bit harder for peds or IM because addiction knows no boundaries. With an FM primary, you can manage addiction in everyone from pregnancy/neonatal through geriatrics.
+Year 3 Wembanyama…  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+How do you defend him now
+Doubles, triples, quadruples, quintuples
 
 EXAMPLE 3:
-P.S. u/darthbeeman wrote up [a fantastic post detailing his journey](https://www.reddit.com/r/AddictionMedicine/comments/1497rwf/addiction_medicine_practice_pathway_education_and/) through the process as well. Highly recommend checking that out for more reading.
-
-EXAMPLE 4:
-Addiction Med Q&A I have had a good number of people reach out to me expressing interest and asking questions about Addiction Medicine.  Bear in mind that I'm just a PGY-5 FM MD in the mid-west.  One of the best things about AdMed IMO is that any specialty can put it into practice and the variability even within a specialty can be dramatic.  Would love to hear other addiction docs' input and feedback, so please feel free to have at it.
-
-EXAMPLE 5:
-Hi! I realized we ve talked before! I do really want to practice addiction and grow full time eventually and I hope I’m able to build a good private practice model and I was wondering how job variety is and compensation is?
-
-EXAMPLE 6:
-Hello! I saw a comment on reddit of yours about chill medical specialties and im looking into addiction med but I wanted to ask your thoughts about lifestyle and compensation?
-
-EXAMPLE 7:
-You’re all good! I would love to optimize compensation and the variety of practice setting now! I’m between addiction and sleep and leaning more towards addiction rn but what do you think? What type of practice setting do you do now?
-
-EXAMPLE 8:
-Hello! Saw your comment about addiction med, thanks for being open for some questions! I basically thought only after 2025 admed will require fellowship…right now i thought you only needed to take the test ? what’s the most exciting part of your day when directly related to admed? thanks so much
-
-EXAMPLE 9:
-Job outlook is open to whatever you want to do with it, i.e. it depends on what proportion of your time and practice you want to commit to it. I work mostly in primary care and take internal referrals from colleagues to provide outpatient treatment and/or evals to funnel patients into higher levels of care. But some people choose to work exclusively in addiction, in settings like inpatient treatment facilities, hospital consultation services, detox centers, and OTPs. The field is still new so the possibilities are largely open to your imagination and networking opportunities.
-
-EXAMPLE 10:
-Variety is great—you can do pretty much whatever you like with it. Some run outpatient addiction clinics, some do inpatient rehab/detox management, some do hospital consult/liaison, some run methadone clinics… Demand is high so you can sort of choose your own adventure so-to-speak.
-
-EXAMPLE 11:
-I’ve been working through my application and my addiction personal statement in the midst of all of it
-
-EXAMPLE 12:
-My parents are Asian and I apologize for asking about compensation. They made me feel bad about choosing FM and choosing addiction because they don’t think I’ll be able to live a comfortable nice life with addiction
-
-EXAMPLE 13:
-I enjoy FM and want to practice it initially at least, but I’m open to being drawn into a sub specialty if the work shows up (or if primary care goes all the way to shit).
-
-EXAMPLE 14:
-It wouldn't hurt to have publications, QI projects, volunteering experience that shows some predilection toward working with use disorders, but I wouldn't say that's critical.
-
-EXAMPLE 15:
-It’s still a relatively new field so there is not like a single “typical” pathway or work scenario. That flexibility affords a lot of possibilities for great work/life balance. Anything from research and clinical trials, to primary care, to methadone clinics and residential treatment facilities; pain clinics, palliative clinics… it kind of runs the gambit.
-
-EXAMPLE 16:
-That’s good to hear! Personally though, especially after nights and flipping back and forth, I mainly want to prioritize my long term health and happiness I used to do a suboxone clinic in addition to my regular family medicine clinic. Patients came every month. They were charged 100 a month and charged 10 for their uds. I got 50 a patient. Ended up making about 500 an hour.
-
-EXAMPLE 17:
-The most exciting part of my day is meeting people where they're at. Ad med gets a lot of eye-rolls and 'oh man I bet that's a difficult population' kind of reactions, but it's an incredibly fulfilling field. What a lot of people don't consider is that by the time someone with a use disorder is sitting in your specialty clinic, they really just want help. I really enjoy employing harm reduction techniques and the open discourse that can genuinely give people their lives back in an incredibly powerful way. [...]
-
-EXAMPLE 18:
-As I interviewed potential fellows last year, it felt like some applicants were doing addiction medicine and/or applying to our program just because it showed up in their list on ERAS. Programs are obviously going to want to know why you want to train with them specifically, so do your best to make that come through as well.
-
-EXAMPLE 19:
-**- what is continuing to be worked on/ideas for future:** expanding career resources and info, start some sort of advocacy in FM resource, establish a schedule of AMA's on variety of topics (different practice models, AMA with recruiter, FM/OB AMA, rural practice AMA, etc). Goal for the year is set up a recurring AMA event. If you're interested in doing an AMA, message mods!! Would love to hear if there is interest.
-
-EXAMPLE 20:
-**- expanded wiki resource:** on the right sidebar, the wiki contains info about the subreddit moderation standards, applicant resources, residency topics including exams, and a career tab that is in process but currently includes a FAQ about DPC practice.
-
-EXAMPLE 21:
-Its also nice to be the one people turn to when they don't know how to handle those tricky situations. The education part and working to end stigma is quite important as well--both with patients and colleagues.
-
-EXAMPLE 22:
-Wow these are all amazing considerations and insights. Thank you so much for your reply and may you continue to have the positive impact on the people’s live you touch, you are appreciated!
-
-EXAMPLE 23:
-**- mandatory user flair:** added earlier this year to distinctly display a person's job status (MD/DO/resident/RN/layperson etc) and has cut significantly down on spam and non-medical persons posting! If you have a specific request for user flair not currently listed, message mods.
-
-EXAMPLE 24:
-Regardless, I’m not sure how much you’ve looked into the job market, but FM compensation isn’t anything to bat an eye at…
-
-EXAMPLE 25:
-That’s a good question and a fair point actually. I guess maybe calling or emailing to ask for details would be the best avenue if there’s not much online. Otherwise just showing curiosity and asking for those details during the interview while also showing interest in AdMed as a whole and/or the geographic region.
+Bald Rudy Gobert Channels Kareem and Drains the Skyhook  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+Gobert realizes he's actually left-handed in year 13 and averages 30 on 55/43/87
+That would be so funny if it took until he was 33 to realize he was a lefty
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

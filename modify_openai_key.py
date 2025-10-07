@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 # Set the correct OpenAI API key
-OPENAI_KEY = "***REDACTED-OPENAI-KEY***"
+OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
 
 # Create a file with Python code to directly modify the modules inside the container
 openai_fix = """

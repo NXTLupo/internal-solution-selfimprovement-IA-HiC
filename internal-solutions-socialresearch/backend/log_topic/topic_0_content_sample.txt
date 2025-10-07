@@ -1,13 +1,16 @@
 Topic 0 - Content Sample
-Number of content items: 25
-Top words: dpc, care, patients, practice, insurance, work, clinic
+Number of content items: 17
+Top words: nba, 00, game, reddit, nba game, vs, pm
 
-Content 1 (length: 553 chars):
-\-            Start my own dpc system. I like this option the most because it finally gives me the freedom to practice medicine I would like to do. One possibility is to start from scratch but I do not have the capital for this. Another possibility is to join with another DPC that will take 30% of my profits. This would provide overhead, supplies, and marketing for the business. That sounds a little better. However, with the new tariffs and economy, I am not sure if people would be willing to pay 75$ a month for dpc. What on earth is this set up??
+Content 1 (length: 609 chars):
+|Away|Home|Score|GT|PGT|
+|:--|:--|:-:|:-:|:-:|
+|[](/OKC) Oklahoma City Thunder |[](/CHA) Charlotte Hornets | 135 - 114 | [Link](https://www.reddit.com/r/nba/comments/1nyzhli/game_thread_oklahoma_city_thunder_00_charlotte/) | [Link](https://www.reddit.com/r/nba/comments/1nz3ivw/post_game_thread_the_oklahoma_city_thunder_00/) |
+|[](/LAL) Los Angeles Lakers |[](/GSW) Golden State Warriors | 103 - 111 | [Link](https://www.reddit.com/r/nba/comments/1nyzhlo/game_thread_los_angeles_lakers_01_golden_state/) | [Link](https://www.reddit.com/r/nba/comments/1nza3wa/post_game_thread_the_golden_state_warriors_10/) |
 
-Content 2 (length: 158 chars):
-"Micro practice" model? Why isn't it done more? Hey all - incoming MS1 interested in primary care. Everywhere I turn (as a pt myself), insurance is the enemy.
+Content 2 (length: 169 chars):
+**Box Scores: [NBA](https://www.nba.com/game/LAL-vs-GSW-0012500030/boxscore) & [Yahoo](http://sports.yahoo.com/nba/los-angeles-lakers-golden-state-warriors-2025100509)**
 
-Content 3 (length: 349 chars):
-Summary: volume 15-32 pt per day ($35 for most visits), only provider, iPad, etc. 700 sqft office space, if you are interested about how someone is pulling this off! With the DPC you can charge $70-$100 per patient per month and make a comfortable living seeing 4-8 patients a day. You still don't bill insurance and your overhead should be similar.
+Content 3 (length: 168 chars):
+**Box Scores: [NBA](https://www.nba.com/game/OKC-vs-CHA-0012500029/boxscore) & [Yahoo](http://sports.yahoo.com/nba/oklahoma-city-thunder-charlotte-hornets-2025100530)**
 

@@ -28,7 +28,7 @@ def load_env_file():
 load_env_file()
 
 # Force set API key
-os.environ['OPENAI_API_KEY'] = '***REDACTED-OPENAI-KEY***'
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', '')
 os.environ['USE_WHISPER_API'] = 'true'
 
 # Log environment variables

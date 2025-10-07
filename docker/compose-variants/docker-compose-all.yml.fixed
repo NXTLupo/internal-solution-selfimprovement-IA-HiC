@@ -1,0 +1,378 @@
+services:
+  launchpad:
+    image: python:3.9-slim
+    ports:
+      - "${LAUNCHPAD_PORT:-8000}:8000"
+    environment:
+      - JOURNEY_MAPPER_URL=http://journey-mapper:8000
+      - REDDIT_RIPPER_URL=http://reddit-ripper:5000
+      - SOCIAL_RESEARCH_URL=http://social-research-frontend:3000
+      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
+      - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
+      - SOCIAL_RESEARCH_CLIENT_URL=http://localhost:${SOCIAL_RESEARCH_PORT:-3000}
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
+      - PORT=8000
+      - ENABLE_CX_AGENT=true
+      - AGENT_URL=http://agent:8500
+      - AGENT_WS_URL=ws://agent:8500
+      - AGENT_CLIENT_URL=http://localhost:${AGENT_ORCHESTRATOR_PORT:-8500}
+      - REDDIT_MCP_URL=http://reddit-mcp:8501
+      - SOCIAL_MCP_URL=http://social-mcp:8502
+      - JOURNEY_MCP_URL=http://journey-mcp:8503
+      - VIDEO_MCP_URL=http://video-mcp:8504
+      - CLAUDE4_JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
+      - CLAUDE4_JOURNEY_MAPPER_CLIENT_URL=http://localhost:${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}
+      - CLAUDE4_JOURNEY_MCP_URL=http://claude4-journey-mcp:8506
+    volumes:
+      - ./launchpad:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install -r requirements.txt &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    extra_hosts:
+      - "agent:172.18.0.7"  # Will be determined at runtime
+
+  # Agent Orchestrator Service
+  agent:
+    image: python:3.10-slim
+    ports:
+      - "${AGENT_ORCHESTRATOR_PORT:-8500}:8500"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=8500
+      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+      - REDDIT_MCP_URL=http://reddit-mcp:8501
+      - SOCIAL_MCP_URL=http://social-mcp:8502
+      - JOURNEY_MCP_URL=http://journey-mcp:8503
+      - VIDEO_MCP_URL=http://video-mcp:8504
+      - CLAUDE4_JOURNEY_MCP_URL=http://claude4-journey-mcp:8506
+    volumes:
+      - ./mcp-services/agent:/app
+    working_dir: /app
+    container_name: agent
+    hostname: agent
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - reddit-mcp
+      - social-mcp
+      - journey-mcp
+      - video-mcp
+      - claude4-journey-mcp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8500/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Reddit Ripper MCP Wrapper
+  reddit-mcp:
+    image: python:3.9-slim
+    ports:
+      - "${REDDIT_MCP_PORT:-8501}:8501"
+    environment:
+      - PORT=8501
+      - REDDIT_RIPPER_URL=http://reddit-ripper:5000
+    volumes:
+      - ./mcp-services/reddit-mcp:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - reddit-ripper
+
+  # Social Research MCP Wrapper
+  social-mcp:
+    image: python:3.9-slim
+    ports:
+      - "${SOCIAL_MCP_PORT:-8502}:8502"
+    environment:
+      - PORT=8502
+      - SOCIAL_RESEARCH_BACKEND_URL=http://social-research-backend:8081
+    volumes:
+      - ./mcp-services/social-mcp:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - social-research-backend
+
+  # Journey Mapper MCP Wrapper
+  journey-mcp:
+    image: python:3.10-slim
+    ports:
+      - "${JOURNEY_MCP_PORT:-8503}:8503"
+    environment:
+      - PORT=8503
+      - JOURNEY_MAPPER_URL=http://journey-mapper:8000
+    volumes:
+      - ./mcp-services/journey-mcp:/app
+      - journey-uploads:/app/uploads
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p uploads &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - journey-mapper
+      
+  # OpenAI Journey Mapper MCP Wrapper
+  openai-journey-mcp:
+    image: python:3.10-slim
+    ports:
+      - "${OPENAI_JOURNEY_MCP_PORT:-8505}:8505"
+    environment:
+      - PORT=8505
+      - OPENAI_JOURNEY_MAPPER_URL=http://openai-journey-mapper:8000
+    volumes:
+      - ./mcp-services/openai-journey-mcp:/app
+      - openai-journey-uploads:/app/uploads
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p uploads &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - openai-journey-mapper
+
+  # Video Analyzer MCP Wrapper
+  video-mcp:
+    image: python:3.11-slim
+    ports:
+      - "${VIDEO_MCP_PORT:-8504}:8504"
+    environment:
+      - PORT=8504
+      - VIDEO_ANALYZER_URL=http://video-analyzer:5000
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
+    volumes:
+      - ./mcp-services/video-mcp:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              uvicorn app:app --host 0.0.0.0 --port ${PORT:-8504}"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - video-analyzer
+
+  journey-mapper:
+    image: python:3.10-slim
+    ports:
+      - "${JOURNEY_MAPPER_PORT:-8080}:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=8000
+      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+    volumes:
+      - ./internal-solutions-journeymapper:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p logs uploads journey_maps &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+  openai-journey-mapper:
+    image: python:3.10-slim
+    ports:
+      - "${OPENAI_JOURNEY_MAPPER_PORT:-8090}:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=8000
+      - OPENAI_MODEL=o3
+      - REASONING_EFFORT=medium
+    volumes:
+      - ./internal-solutions-openai-journey-mapper:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p logs uploads journey_maps &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+  # Claude 4 Journey Mapper - New journey mapping tool optimized for Claude 4
+  claude4-journey-mapper:
+    image: python:3.10-slim
+    ports:
+      - "${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=8000
+      - ANTHROPIC_MODEL=anthropic.claude-sonnet-4-20250514-v1:0
+    volumes:
+      - ./internal-solutions-claude4-journey-mapper:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential python3-dev wkhtmltopdf xvfb libpq-dev git curl make &&
+              pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p logs uploads journey_maps &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+  # Claude 4 Journey MCP Wrapper
+  claude4-journey-mcp:
+    image: python:3.10-slim
+    ports:
+      - "${CLAUDE4_JOURNEY_MCP_PORT:-8506}:8506"
+    environment:
+      - PORT=8506
+      - JOURNEY_MAPPER_URL=http://claude4-journey-mapper:8000
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${CLAUDE4_JOURNEY_MAPPER_PORT:-8095}
+    volumes:
+      - ./internal-solutions-claude4-journey-mapper/mcp-service:/app
+      - claude4-journey-uploads:/app/uploads
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel &&
+              pip install --no-cache-dir -r requirements.txt &&
+              mkdir -p uploads &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - claude4-journey-mapper
+
+  reddit-ripper:
+    image: python:3.9-slim
+    ports:
+      - "${REDDIT_RIPPER_PORT:-5001}:5000"
+    environment:
+      - PORT=5000
+    volumes:
+      - ./internal-solutions-reddit-ripper:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install -r requirements.txt &&
+              python app.py"
+    networks:
+      - nxt-humans-network
+
+  social-research-frontend:
+    image: node:20-slim
+    ports:
+      - "${SOCIAL_RESEARCH_PORT:-3000}:3000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=3000
+      - VITE_API_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
+    volumes:
+      - ./internal-solutions-socialresearch:/app
+    working_dir: /app/frontend
+    command: >
+      bash -c "npm install &&
+              npm run dev -- --port=3000"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - social-research-backend
+    container_name: nxthumans_ai_cx_workbench-social-research-1
+  
+  social-research-backend:
+    image: python:3.9-slim
+    ports:
+      - "${SOCIAL_RESEARCH_BACKEND_PORT:-8081}:8081"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - CLAUDE_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=***REDACTED-GOOGLE-KEY***
+      - PORT=8081
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=app
+      - POSTGRES_SERVER=social-research-db
+      - POSTGRES_HOST=social-research-db
+      - POSTGRES_PORT=5432
+      - DATABASE_URL=postgresql://postgres:postgres@social-research-db:5432/app
+      - FLASK_DEBUG=true
+      - SKIP_AZURE_AUTH=true
+      - USE_LOCAL_MODELS=true
+      - MOCK_AZURE_SERVICES=true
+    volumes:
+      - ./internal-solutions-socialresearch:/app
+    working_dir: /app/backend
+    command: >
+      bash -c "apt-get update && apt-get install -y build-essential libpq-dev git &&
+              pip install --no-cache-dir --upgrade pip &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python init_db.py &&
+              python -m run"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - social-research-db
+  
+  social-research-db:
+    image: ankane/pgvector:v0.5.1
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=app
+    volumes:
+      - social-research-db-data:/var/lib/postgresql/data
+    networks:
+      - nxt-humans-network
+
+  video-analyzer:
+    image: python:3.11-slim
+    ports:
+      - "${VIDEO_ANALYZER_PORT:-5002}:5000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=5000
+    volumes:
+      - ./internal-solutions-video-analyzer:/app
+    working_dir: /app
+    command: >
+      bash -c "apt-get update && apt-get install -y ffmpeg &&
+              pip install --no-cache-dir -r requirements.txt &&
+              python run.py"
+    networks:
+      - nxt-humans-network
+
+networks:
+  nxt-humans-network:
+    driver: bridge
+
+volumes:
+  social-research-db-data:
+    driver: local
+  journey-uploads:
+    driver: local
+  openai-journey-uploads:
+    driver: local
+  claude4-journey-uploads:
+    driver: local

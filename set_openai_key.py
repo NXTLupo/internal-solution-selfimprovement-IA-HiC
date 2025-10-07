@@ -2,7 +2,7 @@ import os
 import subprocess
 
 # The correct API key
-OPENAI_KEY = "***REDACTED-OPENAI-KEY***"
+OPENAI_KEY = os.environ.get("OPENAI_API_KEY", "")
 CONTAINER_NAME = "nxt-humans_ai_cx_workbench-social-research-backend-1"
 
 print("=========================================================")

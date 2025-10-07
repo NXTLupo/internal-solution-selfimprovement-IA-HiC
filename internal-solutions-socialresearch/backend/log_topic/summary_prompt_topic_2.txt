@@ -1,76 +1,54 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: dpc, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: fm, medicine, dpc, year, peds, work, patients
+- Top keywords: nba, player, team, gonzalez, celtics, years, said
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-10 year FM DPC doc with an employed DPC pediatrician for six months-   1.  While we have a wonderful pediatrician with a great local reputation, it is much much easier to fill an FM doc panel than peds.  Until the Trumpists gut Medicaid and ACA subsidies, a large percentage of kids have great insurance coverage via Medicaid.   FM docs not only can see all ages, many have more office procedure, ortho or gyn skills that many DPC patients value.   2.   OTOH, med peds gives you the option to specialize if you change your mind about primary care in the first few years of practice. 3. [...]
+That’s NBA life for Gonzalez, the 19-year-old the Celtics picked 28th overall in the 2025 draft. Pro life isn’t necessarily new for Gonzalez, who played for Real Madrid last season. So he’s already used to being around adults. Still, there are challenging adjustments and surprises as he also navigates life in a whole different country.
 
 EXAMPLE 2:
-\- Compared to MedPeds, has a fraction of Peds expertise and I feel like parents who seek out a DPC doctors have certain expectations,  and with most parents already preferring to see a pediatrician for their kid rather than an FM doctor, I feel like the lack of training in Peds would make one less marketable
+The plan is still unclear for Gonzalez once games actually start later this month. The Celtics have sent their rookies to the G League for portions of the season to get them real playing time. That was the case for Jordan Walsh and Baylor Scheierman. So it’ll depend on how the rotation shakes out for the Celtics and what their plans are for Gonzalez.
 
 EXAMPLE 3:
-\-Less competent in Peds, from what I have seen on reddit, it seems like fm doctors can handle the regular cold like symptoms, ear ache, strep throat, physicals, etc but once it becomes more than that then they refer to peds, I feel like that would defeat the purpose of a DPC
+“In Europe, it’s different and here every single player has impressed me,” Gonzalez said. “I wouldn’t say impressed me because I know how good they are, but they have been practicing — everybody here — super hard. And practicing since the first minute at 100%. So I would say everybody.” Poor dude already got misquoted by the media in a basketnews article. He tweeted about it this morning lol
+Celtics to go
 
 EXAMPLE 4:
-\- 4 years of training dedicated to strictly adults or peds, so trades out the breadth in FM for more depth in the things that you would actually do in practice
+BOSTON — Hugo Gonzalez said some in the Celtics organization try to speak Spanish with him, but for the most part, he’s soaking in his new NBA life in English. The coaching staff said they’re fine explaining things to him twice so the message gets across, which also means "I’ve got to be more attentive," he explained.
 
 EXAMPLE 5:
-MedPeds vs Family Medicine for DPC Hello, I am only a second year medical student so forgive me for any ignorance. I have future aspirations of creating a DPC and I feel like the best specialty for it is either FM or MedPeds but I am having a hard time trying to figure out which is better. Here is my rationale in pro/ con format.
+But the real work began this week with training camp and upcoming preseason games. It’ll become clearer what the organization’s plan is for Gonzalez going forward. For now, he’s just looking to improve his English and learn how the Celtics as a team operates.
 
 EXAMPLE 6:
-\- More Peds knowledge: Has a higher threshold for handling complex kids without having to refer, which I think is great for DPC
+Gonzalez already got a taste of American ball at Summer League, though the situations are different. He was also fresh off his Real Madrid season, where he was drafted the same night — or the early hours of the morning — the team won their championship. Comparatively, he’s eased into the transition more over the past few months.
 
 EXAMPLE 7:
-I am not boarded in FM. Currently boarded and practicing as an EM attending, for about 10 years. I have been slowly and methodically planning my exit from EM through sports medicine, and I'll be applying for fellowship in Primary Care Sports Medicine this summer/cycle. I'm a little bit terrified of clinic work because of how much I dont know/have forgotten. I masquerade as a PCP to some of my patients, because they won't/can't/don't see a true PCP. But I know where my weaknesses are, trust me.
+[MassLive] Boston Celtics rookie explains challenges from 1st NBA training camp [Source](https://www.masslive.com/celtics/2025/10/boston-celtics-rookie-explains-challenges-from-1st-nba-training-camp.html)
 
 EXAMPLE 8:
-PS - EM=/=FM boards. I get that. ED docs can't just work in a clinic because it's slower and they can 'figure it out.' What you guys do is an art that I dont know about. Learn me your ways, I'm here to absorb. I've been reading through the FM subreddit for at least 6 months or more, you guys are civil and realistic over here, and you seem to like your jobs. Most of the EM forums here and SDN are pretty rowdy and hate filled. I think we hate our choices and don't know how to fix it as a whole. I'd say being comfortable waiting is the biggest learning. [...]
+some NBA team would bring out a cracked old head hooper who's either super slim, or is rocking some extra weight, but never missed a free throw in their life to shoot free throws for them
 
 EXAMPLE 9:
-I'd like to consider a DPC style clinic maybe with hybrid sports medicine in the future; what will make me not look like an idiot to my FM/clinic based peers and to the specialists I'll work with? I know there isn't an easy/quick answer, but I want to try and put in the work now to help me amd my patients later.
+2- isn’t his birthday dec 9?
+1. Thanks for the clarification
+2. Yeah I got confused by this ESPN article that was written on 12/13/24 when he was still 16, but his birthday is on 12/18, so he would've been 17 just a few days later. So he will turn 19 before the end of that calendar year [https://www.espn.com/nba/story/\_/id/42950291/dash-daniels-brother-hawks-dyson-signs-melbourne-16](https://www.espn.com/nba/story/_/id/42950291/dash-daniels-brother-hawks-dyson-signs-melbourne-16)
+I'm not mad at any player getting their money, so more power to Paolo.
 
 EXAMPLE 10:
-However, I hear a lot of conflicting things about FM lifestyle. There are the stories of people seeing 30-40 patients a day and being buried in admin work and paperwork for most of their off-time, which legitimately sounds like a nightmare to me and I'd rather go back to being a scribe than do that. I've also read stories of people saying they see 18 patients a day for 30 mins at a time, 4 days a week, which definitely sounds more desirable and doable to me.
+“We’re going really, really deep now in these practices and also in the training camp that we’ve got,” Gonzalez said. “We’re going deep in the details. I think that apart from the basics, they are the most important thing. We’re going into detail on every single situation so that when we are in the game and we’ve got that situation, we can handle it in the best way possible so we can succeed on defense.”
 
 EXAMPLE 11:
-\-Can't specialize into one of the ologies so if DPC becomes unviable for some reason, stuck (would not want to do primary care if it is not through DPC)
+Questions one regarding the draft and one about contracts 1. From the ESPN article regarding Paolo Banchero's rookie extension it mentions that he can still qualify for the rookie supermax if he makes an All-NBA team this season. However I thought to qualify for the rookie max he had to reach All NBA twice in a 3 year span? Isn't that why Jalen Williams also needs to reach All NBA again to qualify for that same supermax contract?
+2. I've read that Dash Daniels can qualify for the 2026 NBA Draft even though he'd only be 18 by the end of the calendar year of the 26 Draft. [...]
 
 EXAMPLE 12:
-\- The largest scope of all of medicine, so could craft practice to fit needs of patient population while still being in scope
+15th roster spot. would make the dream of making the league more achievable and instantly become a fan favorite
+Steph averages 40 off of jimmy’s fts lol
 
 EXAMPLE 13:
-So overall I feel like there is no clear winner in terms of what would be better to match into for hopes of a dpc practice in the future, so I would love feedback from anyone who may have some insightful ideas
-
-EXAMPLE 14:
-\- Marketable: Being double certified in both Internal medicine and Pediatrics seems marketable to me, and parents that prefer their children seeing a pediatrician may appreciate that
-
-EXAMPLE 15:
-If I wanted to come and work in a clinic as an EM trauma center doctor, what are my big weaknesses going to be? What books or conferences can I start investigating/using to be better for my patients. I know that nothing I do will replace an FM residency, but I want to be better for my patients. Which direction would you point me for learning?
-
-EXAMPLE 16:
-Am I being naive by thinking by doing FM it will be easy and doable to find reasonably paced 4-day workweek jobs out there?  Or is the job market generally bleaker than that in terms of workload? Money is not a big driver for me and I would be happy making $150k a year if I had a chill work-life balance. I live in a VHCOL city, and see 18-20ish patients per day. I work 8-4 four days a week, 8-12 one day a week. 30 min physical/new/procedures and 15 min problem visits. [...]
-
-EXAMPLE 17:
-Am I being naive going into FM? Soon to be M4 here who is heavily considering applying FM this year. My main reasons are:
-
-EXAMPLE 18:
-If you were wanting to work in an ED, I'd gladly take on the challenge, and help you out. In my mind, you need to know how to deal with crashing patients, and be adept at procedures. Those things I'm good at.
-
-EXAMPLE 19:
-I honestly have grown to like my job, mostly because now 4 years out of residency I’ve started to get a bit more confident. Definitely the hardest part is the learning curve in the first few years. I have learned to be very efficient and do not bring notes or any work home. I answer portal messages during the day between seeing patients. I’m usually out by 4:20 pm at the latest. Last year between salary and productivity I took home $330k.
-
-EXAMPLE 20:
-1. I want to be a generalist. I get bored in specialty rotations seeing the same organ system/things over and over again, so that kind of narrows it down to FM/EM/IM. Out of those 3 I prefer the clinic over the hospital.
-2. I like the versatility of what you can do and where you can practice: outpatient clinic/hospitalist/urgent care/DPC/rural ER etc.
-3. Work-life balance. I really, really would like to work a 4-day workweek once I'm an attending, and part-time once I'm older, and I've heard FM is one of the main specialties in medicine where this is doable.
-
-EXAMPLE 21:
-\- Rotations in Surgery and OB, which for me is essentially wasting time in something that I will never do in any city that I would like to live in, I am also not a fan of surgery or OB
-
-EXAMPLE 22:
-\- One year longer and harder to match into, and with there being less than 80 residencies in the country, very few options for desirable locations to live in
+How would the meta of NBA change if teams were able to choose who takes the free throw? 
+How would the meta of NBA change if teams were able to choose who takes the free throw in NBA than automatically giving it to the player who was fouled? For example, in soccer the player who was fouled does not automatically take the penalty but the team and the coach strategise who takes the penalty.  designated shooter
+itd be sick
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

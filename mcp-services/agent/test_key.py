@@ -3,7 +3,7 @@ import os
 import sys
 
 # Set API key directly
-os.environ['ANTHROPIC_API_KEY'] = '***REDACTED-ANTHROPIC-KEY***'
+os.environ['ANTHROPIC_API_KEY'] = os.environ.get('ANTHROPIC_API_KEY', '')
 
 try:
     client = anthropic.Anthropic(api_key=os.environ.get('ANTHROPIC_API_KEY'))

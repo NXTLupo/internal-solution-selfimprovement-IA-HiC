@@ -40,6 +40,6 @@ def test_api_key(api_key):
 
 if __name__ == "__main__":
     # Try with the key you just provided
-    api_key = "***REDACTED-ANTHROPIC-KEY***"
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     print("\nTesting your API key...")
     test_api_key(api_key)

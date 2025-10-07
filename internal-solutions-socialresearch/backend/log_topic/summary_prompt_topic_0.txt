@@ -1,83 +1,99 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: dpc, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: dpc, care, patients, practice, insurance, work, clinic
+- Top keywords: nba, 00, game, reddit, nba game, vs, pm
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-\-            Start my own dpc system. I like this option the most because it finally gives me the freedom to practice medicine I would like to do. One possibility is to start from scratch but I do not have the capital for this. Another possibility is to join with another DPC that will take 30% of my profits. This would provide overhead, supplies, and marketing for the business. That sounds a little better. However, with the new tariffs and economy, I am not sure if people would be willing to pay 75$ a month for dpc. What on earth is this set up??
+|Away|Home|Score|GT|PGT|
+|:--|:--|:-:|:-:|:-:|
+|[](/OKC) Oklahoma City Thunder |[](/CHA) Charlotte Hornets | 135 - 114 | [Link](https://www.reddit.com/r/nba/comments/1nyzhli/game_thread_oklahoma_city_thunder_00_charlotte/) | [Link](https://www.reddit.com/r/nba/comments/1nz3ivw/post_game_thread_the_oklahoma_city_thunder_00/) |
+|[](/LAL) Los Angeles Lakers |[](/GSW) Golden State Warriors | 103 - 111 | [Link](https://www.reddit.com/r/nba/comments/1nyzhlo/game_thread_los_angeles_lakers_01_golden_state/) | [Link](https://www.reddit. [...]
 
 EXAMPLE 2:
-"Micro practice" model? Why isn't it done more? Hey all - incoming MS1 interested in primary care. Everywhere I turn (as a pt myself), insurance is the enemy.
+**Box Scores: [NBA](https://www.nba.com/game/LAL-vs-GSW-0012500030/boxscore) & [Yahoo](http://sports.yahoo.com/nba/los-angeles-lakers-golden-state-warriors-2025100509)**
 
 EXAMPLE 3:
-Summary: volume 15-32 pt per day ($35 for most visits), only provider, iPad, etc. 700 sqft office space, if you are interested about how someone is pulling this off! With the DPC you can charge $70-$100 per patient per month and make a comfortable living seeing 4-8 patients a day. You still don't bill insurance and your overhead should be similar.
+**Box Scores: [NBA](https://www.nba.com/game/OKC-vs-CHA-0012500029/boxscore) & [Yahoo](http://sports.yahoo.com/nba/oklahoma-city-thunder-charlotte-hornets-2025100530)**
 
 EXAMPLE 4:
-Any stories/information people have on people successfully cutting out the middleman in a NON-concierge style practice (including non-DPC.. which is interesting, but asking for a FFS model without insurance).
+|**Team**|**PTS**|**FG**|**FG%**|**3P**|**3P%**|**FT**|**FT%**|**OREB**|**TREB**|**AST**|**PF**|**STL**|**TO**|**BLK**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|Los Angeles Lakers|103|35-84|41.699999999999996%|12-34|35.3%|21-27|77.8%|12|48|25|20|7|18|5|
+|Golden State Warriors|111|39-84|46.400000000000006%|17-43|39.5%|16-21|76.2%|8|57|35|24|11|18|7|
 
 EXAMPLE 5:
-So a buddy of mine went to an urgent care (uninsured) for an STD & after a physical exam referred him to the ER for 200$. My deductible to see my PCM was $120 last visit. Why isn't this model just blatantly out competing an urgent care? Rent an office space & see patients for cheaper than urgent care/deductible.
+|**Team**|**PTS**|**FG**|**FG%**|**3P**|**3P%**|**FT**|**FT%**|**OREB**|**TREB**|**AST**|**PF**|**STL**|**TO**|**BLK**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|Los Angeles Lakers|103|35-84|41.699999999999996%|12-34|35.3%|21-27|77.8%|12|48|25|20|7|18|5|
+|Golden State Warriors|111|39-84|46.400000000000006%|17-43|39.5%|16-21|76.2%|8|57|35|24|11|18|7|
+LeBron ducking Curry yet again. Smh.
 
 EXAMPLE 6:
-EDIT: to clarify, I do NOT do this. And in fact I'm not even in corporate traditional PCP land anymore. I own a DPC and med spa. But I still think back to the hamster-wheel days... I think like all things nothing is black and white. I work in a VBC model so that frames my thinking a it too.
+[Post Game Thread] The Oklahoma City Thunder (0-0) defeat the Charlotte Hornets (0-0), 135-114. ||
+|:-:|
+|[](/OKC) **135 -  114** [](/CHA)|
+|**Box Scores: [NBA](http://www.nba.com/game/OKC-vs-CHA-0012500029/box-score) - [Yahoo](https://sports.yahoo.com/nba/scoreboard/)**|
 
 EXAMPLE 7:
-Manipulating your schedule/follow-ups/etc? In corporate traditional primary care, one of the few things we lowly physicians have control over is when/if our patients follow up.
+|**Team**|**PTS**|**FG**|**FG%**|**3P**|**3P%**|**FT**|**FT%**|**OREB**|**TREB**|**AST**|**PF**|**STL**|**TO**|**BLK**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|Oklahoma City Thunder|135|50-94|53.2%|20-49|40.8%|15-19|78.9%|8|55|33|24|11|14|2|
+|Charlotte Hornets|114|37-94|39.4%|15-51|29.4%|25-30|83.3%|14|55|23|14|8|17|4|
 
 EXAMPLE 8:
-Are you getting tons of volume that you don't want? Schedule follow ups for patients you know to be unreliable and won't show.
+|**Team**|**Q1**|**Q2**|**Q3**|**Q4**|**Total**|
+|:---|:--|:--|:--|:--|:--|
+|Oklahoma City Thunder|36|34|37|28|135|
+|Charlotte Hornets|26|31|31|26|114|
 
 EXAMPLE 9:
-I've never really consciously done these things, but it's entered my mind and I can see how it happens. Had an older attending at a practice once whose schedule was literally nothing but "2 month follow-up" right down the board, non-diabetics, elderly, utterly useless appointments (except maybe in the patients' non-informed minds). He protected himself well from the corporation, though I don't think did much good for the community, and I guess corporate was totally fine with this proce$$.....
+|**Team**|**Q1**|**Q2**|**Q3**|**Q4**|**Total**|
+|:---|:--|:--|:--|:--|:--|
+|Los Angeles Lakers|31|24|25|23|103|
+|Golden State Warriors|32|30|40|9|111|
 
 EXAMPLE 10:
-I see that you are **WAY** under what newly employed FM physician makes. But- Set your own schedule, earn what you do- Minimize the "running your own business" since you are almost not hiring at all.- Less documentation since you aren't documenting for insurance/coding- Less documentation/coding in general- Not accepting insurance means less government regulation (no medicare/medicaid)- You are not at the whim of insurance companies (contracts, new regulations, recent Change Healthcare hack), so you are truly independent
+||||||||||||||||
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+**[](/OKC) Oklahoma City Thunder**|**MIN**|**PTS**|**FGM-A**|**3PM-A**|**FTM-A**|**ORB**|**DRB**|**REB**|**AST**|**STL**|**BLK**|**TO**|**PF**|**±**|
+|Aaron Wiggins^SF|24:33|23|10-14|2-4|1-1|0|2|2|6|0|0|3|1|23|
+|Ousmane Dieng^PF|33:14|17|7-14|3-6|0-0|1|7|8|6|1|0|2|3|1|
+|Jaylin Williams^C|21:44|17|6-9|5-8|0-0|0|2|2|3|0|0|2|5|7|
+|Isaiah Joe^SG|20:06|7|2-7|0-4|3-3|1|5|6|2|0|0|0|0|12|
+|Nikola Topić^PG|31:27|10|4-9|0-3|2-2|2|2|4|7|1|0|3|2|1|
+|Branden Carlson|10:59|7|3-8|1-6|0-0|1|2|3|2|1|0|0|2|15|
+|Brooks Barnhizer|25:26 [...]
 
 EXAMPLE 11:
-Is your office jamming new est patients into your schedule? Schedule everyone for 2-3 month follow ups to blockade it.
+[SERIOUS NEXT DAY THREAD] Post-Game Discussion (October 05, 2025) Here is a place to have in depth, x's and o's, discussions on yesterday's games. Post-game discussions are linked in the table, keep your memes and reactions there.
 
 EXAMPLE 12:
-Essentially the model is stay as lean as possible & do not bill insurance (which helps you stay lean). In the above example, he doesn't even have reception, pts just check in on an iPad.
+|**Team**|**PTS**|**FG**|**FG%**|**3P**|**3P%**|**FT**|**FT%**|**OREB**|**TREB**|**AST**|**PF**|**STL**|**TO**|**BLK**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|Oklahoma City Thunder|135|50-94|53.2%|20-49|40.8%|15-19|78.9%|8|55|33|24|11|14|2|
+|Charlotte Hornets|114|37-94|39.4%|15-51|29.4%|25-30|83.3%|14|55|23|14|8|17|4|
+People say to not overreact to the preseason, but the Thunder played two rotation guys and the rookies/deep bench/two way players for a wire to wire win. This team has luxurious depth. Youngblood is playing his way to a two way contract.
 
 EXAMPLE 13:
-Your overhead is rent (tiny office), utilities, EMR, and malpractice insurance (am I missing anything else?),
+With almost 13,000 members, we are one of the largest NBA chat servers. It's not only basketball. There are 2K sims that are run by community members and much more.
 
 EXAMPLE 14:
-Monthly follow up for my patient with stable (but still active) schizophrenia? Yes because i truly believe shooting the shit with him and saying CPM once a month helps remind him we’re here for him and helps keep him out of the ER. He still has magical delusions but they’re never violent (anymore). So I think that standing visit helps him and helps me pad my schedule with an easy visit. And I recognize full well if he decompensates that I am prepared for a tough visit
+Please keep your discussion of a particular game in the respective comment thread. **All direct replies to this post will be removed.**
 
 EXAMPLE 15:
-Scheduling a flakey patient knowing they’ll likely no-show? That’s more gray to me. If they should be following up then by all means. If you’re doing it solely for the potential free time then
+--------------------------------------------------
+Looking for another place to talk ball besides the subreddit? We have a thriving and active community over at [discord.gg/rNBA](https://discord.gg/rNBA) and we'd love to have you check it out.
 
 EXAMPLE 16:
-That brings up my medical director. I am honestly feeling like a medical resident again. She often brings me into the clinic to correct my notes saying not to write things like that or you’re typing too much. I am also having to defend my medical decision making to my medical director on a regular basis to the point where she says that I should not order labs on her patients when they come in for a physical. She says that I am practicing bad medicine and gets mad at me when I conduct USPTF guidelines for preventative care. [...]
+||
+|:-:|
+|&nbsp;|
+|**GAME SUMMARY**|
+|**Location:** North Charleston Coliseum|
+|**Officials:** Curtis Blair, Andy Nagy, and Jenna Reneau|
 
 EXAMPLE 17:
-In the end I think medicine has been corporatized and we as physicians and providers need to advocate for ourselves because that ultimately is what affects our patients. Do I feel bad not squeezing in an extra patient when I’m pressured to? At times, but that feeling passes quick when I remember for every time we let that slip, some corporate overlord gets the idea we can more work in less time and soon enough we’re all seeing 20+ patients a day and practicing poorer quality medicine
-
-EXAMPLE 18:
-For example, the FM doc that set up a [$35/visit (now at $40)](https://www.wtae.com/article/pittsburgh-doctor-timothy-wong-35-dollars-with-without-insurance/30969261) urgent-care type microclinic. Just him & an iPad. He charges extra for more complex visits, but not by much. Looks like he's still open after 4 years since the article was written.
-
-EXAMPLE 19:
-\-            Telemedicine so that I do not have to really deal with MA staff and can focus on patient care.
-
-EXAMPLE 20:
-That brings me to my most recent job. I found it within 2 weeks of leaving my last job. It is a large hospital owned medical group with a lot more infrastructure. Mostly took HMO and PPO but it was close to my house, maybe 5 minutes away. I interviewed and within 2 weeks of leaving my past job, I found this one. The medical director seemed nice enough but she said that “we work hard, and play hard” and “we are all a family” mentality here. A little odd but ok. The other doctors here were kind and I liked them. [...]
-
-EXAMPLE 21:
-I hate this. I hate feeling like a resident constantly watching my step with everyone and needing to defend my medical practices to higher ups. I feel like I am walking on egg shells. This brings me to why I am writing. Some days I feel that this is a good opportunity for me to grow my practice in my hometown, but I feel genuinely unhappy. There are many different clinical settings including academic and urgent care, but not a lot of private practice. My parents want me to stay and pay my time here, but I feel that after residency, I do not want to survive, I want to thrive. [...]
-
-EXAMPLE 22:
-\-            I already reached out to the higher positions to ask for a transfer and to air out my concerns. From what I understand, my clinic has been struggling to keep other doctors because I am the third doctor from 3 years that has been there and left. I am hoping to go to a different clinic to see if the culture is different elsewhere. Maybe I would go down on my hours so that I am not going for shareholder track but happy to go in and do my job. Maybe I could ask instead to do urgent care with less hours and just finish the job. [...]
-
-EXAMPLE 23:
-\-            I could try to work in the prison system. Great pay and do not mind the firearms and danger. I do not have to deal with insurance, and it seems that there is a good amount of down time. I feel that I could do this for a while I build up my DPC.
-
-EXAMPLE 24:
-I hope everyone is doing well. I was hoping to post this story with a half rant and half seeking advice. I just recently graduated from residency from a rural community based family medicine program and was really proud to be a physician. It was tough work, but I got a lot of satisfaction from it. I won multiple awards while in residency, but I seem to have the personality of people either really liking me or really disliking me. I moved back to my family’s hometown afterwards though.
-
-EXAMPLE 25:
-\-            I leave the position and do locums work in the area for a while to get my head straight. I do have feelers out there and there are plenty of positions in the area. I could start applying and interviewing for positions.
+Like football, soccer, F1, baseball, and other sports? You're bound to find like-minded people to talk about that as well.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

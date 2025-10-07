@@ -8,8 +8,9 @@ This demonstrates that the Consistent Persona Generator video API is functional
 import requests
 import time
 import json
+import os
 
-API_KEY = '***REDACTED-GOOGLE-KEY***'
+API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
 def test_working_video_generation():
     print('🎬 TESTING WORKING VEO 3 VIDEO GENERATION')

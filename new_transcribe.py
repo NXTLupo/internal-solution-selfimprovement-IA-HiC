@@ -7,7 +7,7 @@ import json
 from openai import OpenAI
 
 # Set API key directly
-OPENAI_API_KEY = "***REDACTED-OPENAI-KEY***"
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 os.environ["USE_WHISPER_API"] = "true"
 

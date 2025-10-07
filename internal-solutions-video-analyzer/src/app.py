@@ -16,6 +16,9 @@ try:
 except ImportError:
     pass
 
+# CRITICAL FIX: Force correct OpenAI API key
+import force_correct_key
+
 # Force set OpenAI API key
 # API key loaded from root .env file by load_env.py
 os.environ['USE_WHISPER_API'] = 'true'

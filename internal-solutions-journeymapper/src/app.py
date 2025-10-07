@@ -30,7 +30,7 @@ except ImportError:
 # Set the correct API key
 if not os.environ.get("ANTHROPIC_API_KEY"):
     # Use updated API key
-    api_key = "***REDACTED-ANTHROPIC-KEY***"
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     os.environ["ANTHROPIC_API_KEY"] = api_key
     
     # Verify API key before continuing

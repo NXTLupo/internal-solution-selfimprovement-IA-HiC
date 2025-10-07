@@ -9,11 +9,11 @@ from pydantic import BaseModel
 
 
 # Added by fix script
-os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', '***REDACTED-OPENAI-KEY***')
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', os.environ.get('OPENAI_API_KEY', ''))
 
 
 # Added by fix script
-os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', '***REDACTED-OPENAI-KEY***')
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', os.environ.get('OPENAI_API_KEY', ''))
 
 from ..models import TranscriptionResult, TranscriptSegment
 

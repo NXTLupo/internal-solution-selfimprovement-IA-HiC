@@ -3,7 +3,7 @@ import anthropic
 import os
 
 # Set API key from environment or use default
-api_key = os.environ.get("ANTHROPIC_API_KEY", "***REDACTED-ANTHROPIC-KEY***")
+api_key = os.environ.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY", ""))
 
 # Work around SDK issue by setting env var instead of passing to constructor
 os.environ["ANTHROPIC_API_KEY"] = api_key

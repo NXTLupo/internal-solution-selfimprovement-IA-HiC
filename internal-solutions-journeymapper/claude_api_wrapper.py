@@ -9,7 +9,7 @@ def claude_api_call(prompt, model="claude-3-7-sonnet-20250219", max_tokens=64000
     Simple wrapper for Anthropic API that doesn't use the SDK
     """
     # Use user's API key
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "***REDACTED-ANTHROPIC-KEY***")
+    api_key = os.environ.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY", ""))
     if not api_key:
         raise ValueError("ANTHROPIC_API_KEY not set in environment variables")
     # If extended thinking is desired, enhance the system prompt

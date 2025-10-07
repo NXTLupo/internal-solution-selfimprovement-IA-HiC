@@ -1,14 +1,38 @@
 {
-  "1nfwsj8": {
-    "sentiment_category": "positive",
-    "sentiment_score": 0.7751560807228088
-  },
-  "1fmw2y3": {
+  "1nzq7qp": {
     "sentiment_category": "neutral",
     "sentiment_score": 0.0
   },
-  "1fjxebl": {
+  "1nzn1sx": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.637626051902771
+  },
+  "1nz8geb": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1nzpnov": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.900944709777832
+    "sentiment_score": -0.6421099901199341
+  },
+  "1nxmm01": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.741147518157959
+  },
+  "1nyd7hd": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1nzomeo": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1nxkmmj": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6660406589508057
+  },
+  "1nz83ch": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
   }
 }

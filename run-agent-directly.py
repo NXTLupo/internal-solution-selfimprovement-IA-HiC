@@ -247,7 +247,7 @@ def run_agent(agent_dir, venv_path):
     print_color(BLUE, "Starting the agent service...")
     
     env = {
-        "ANTHROPIC_API_KEY": "***REDACTED-ANTHROPIC-KEY***",
+        "ANTHROPIC_API_KEY": os.environ.get("ANTHROPIC_API_KEY", ""),
         "ANTHROPIC_MODEL": "claude-3-7-sonnet-20250219",
         "PORT": "8500",
         "PYTHONUNBUFFERED": "1"  # Ensure output is not buffered

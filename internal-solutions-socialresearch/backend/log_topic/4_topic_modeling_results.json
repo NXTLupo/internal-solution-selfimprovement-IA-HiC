@@ -1,202 +1,269 @@
 {
-  "total_topics": 5,
+  "total_topics": 6,
   "topics": [
     {
       "topic_id": 0,
-      "count": 22,
-      "name": "0_dpc_care_patients_practice",
+      "count": 41,
+      "name": "0_nba_00_game_reddit",
       "representation": [
         {
-          "term": "dpc",
-          "weight": 0.02749505445582597
+          "term": "nba",
+          "weight": 0.03772918130175213
         },
         {
-          "term": "care",
-          "weight": 0.01868185786870384
+          "term": "00",
+          "weight": 0.03408981498740251
         },
         {
-          "term": "patients",
-          "weight": 0.018606754660795505
+          "term": "game",
+          "weight": 0.030414301376205117
         },
         {
-          "term": "practice",
-          "weight": 0.01792612274442579
+          "term": "reddit",
+          "weight": 0.01684547524754654
         },
         {
-          "term": "insurance",
-          "weight": 0.015927341327892232
+          "term": "nba game",
+          "weight": 0.01670216382068494
         },
         {
-          "term": "work",
-          "weight": 0.014452951249935803
+          "term": "vs",
+          "weight": 0.016463206649343143
         },
         {
-          "term": "clinic",
-          "weight": 0.01259039010532981
+          "term": "pm",
+          "weight": 0.016361245948030574
         },
         {
-          "term": "model",
-          "weight": 0.012105288745401128
+          "term": "nba nba",
+          "weight": 0.015817731638306534
         },
         {
-          "term": "pay",
-          "weight": 0.011706491537269185
+          "term": "nba nba game",
+          "weight": 0.015817731638306534
+        },
+        {
+          "term": "play",
+          "weight": 0.015223905184689293
         }
       ]
     },
     {
       "topic_id": 1,
-      "count": 11,
-      "name": "1_practice_dpc_looking_model",
+      "count": 36,
+      "name": "1_points_rebounds_game_year",
       "representation": [
         {
-          "term": "practice",
-          "weight": 0.03591653227386608
+          "term": "points",
+          "weight": 0.03378315092778892
         },
         {
-          "term": "dpc",
-          "weight": 0.03324318819473599
+          "term": "rebounds",
+          "weight": 0.020144113451404082
         },
         {
-          "term": "looking",
-          "weight": 0.020368240707432445
-        },
-        {
-          "term": "model",
-          "weight": 0.01572017841902781
-        },
-        {
-          "term": "listing",
-          "weight": 0.01509126765746062
-        },
-        {
-          "term": "memberdirectory _listing",
-          "weight": 0.01509126765746062
+          "term": "game",
+          "weight": 0.014637816170345316
         },
         {
           "term": "year",
-          "weight": 0.014466912111419367
+          "weight": 0.013282933569727868
+        },
+        {
+          "term": "assists",
+          "weight": 0.01324960499423659
+        },
+        {
+          "term": "nba",
+          "weight": 0.013098409766944851
+        },
+        {
+          "term": "season",
+          "weight": 0.012982457873651192
+        },
+        {
+          "term": "scored",
+          "weight": 0.011218979110960266
+        },
+        {
+          "term": "points rebounds",
+          "weight": 0.011074346434596824
         }
       ]
     },
     {
       "topic_id": 2,
-      "count": 6,
-      "name": "2_fm_medicine_dpc_year",
+      "count": 24,
+      "name": "2_nba_player_team_gonzalez",
       "representation": [
         {
-          "term": "fm",
-          "weight": 0.04353881259123991
+          "term": "nba",
+          "weight": 0.024708248610557284
         },
         {
-          "term": "medicine",
-          "weight": 0.02681228492847528
+          "term": "player",
+          "weight": 0.016346821221605155
         },
         {
-          "term": "dpc",
-          "weight": 0.02231602911220703
+          "term": "team",
+          "weight": 0.014716420968025036
         },
         {
-          "term": "year",
-          "weight": 0.020810538255513968
+          "term": "gonzalez",
+          "weight": 0.014070392967724884
         },
         {
-          "term": "peds",
-          "weight": 0.020783119404341698
+          "term": "celtics",
+          "weight": 0.012974683348067485
         },
         {
-          "term": "work",
-          "weight": 0.019439219431163654
+          "term": "years",
+          "weight": 0.012469584044176358
         },
         {
-          "term": "patients",
-          "weight": 0.0176952116294333
+          "term": "said",
+          "weight": 0.012468052240436863
         },
         {
-          "term": "family medicine",
-          "weight": 0.017319266170284748
-        },
-        {
-          "term": "kids",
-          "weight": 0.016049815933100627
+          "term": "league",
+          "weight": 0.009867088238933341
         }
       ]
     },
     {
       "topic_id": 3,
-      "count": 6,
-      "name": "3_addiction_abertheham_practice_primary",
+      "count": 13,
+      "name": "3_tag_highlight_flea_luka",
       "representation": [
         {
-          "term": "addiction",
-          "weight": 0.026349644856116235
+          "term": "tag",
+          "weight": 0.033997114520892754
         },
         {
-          "term": "abertheham",
-          "weight": 0.01717249272816369
+          "term": "highlight",
+          "weight": 0.025986107408981822
         },
         {
-          "term": "practice",
-          "weight": 0.0157624006649836
+          "term": "flea",
+          "weight": 0.02398551328740131
         },
         {
-          "term": "primary",
-          "weight": 0.013608515478284977
-        },
-        {
-          "term": "user3",
-          "weight": 0.01147936533194586
-        },
-        {
-          "term": "fm",
-          "weight": 0.011069189641840655
-        },
-        {
-          "term": "job",
-          "weight": 0.010960261804714821
-        },
-        {
-          "term": "compensation",
-          "weight": 0.010881231141085171
-        },
-        {
-          "term": "specialty",
-          "weight": 0.01042865431701167
+          "term": "luka",
+          "weight": 0.023433847027526697
         },
         {
           "term": "thank",
-          "weight": 0.009850821724913111
+          "weight": 0.022664743013928502
+        },
+        {
+          "term": "preseason reminder",
+          "weight": 0.018692124258862863
+        },
+        {
+          "term": "tag highlights",
+          "weight": 0.018692124258862863
+        },
+        {
+          "term": "descriptive",
+          "weight": 0.018692124258862863
+        },
+        {
+          "term": "tag use",
+          "weight": 0.018692124258862863
         }
       ]
     },
     {
       "topic_id": 4,
-      "count": 3,
-      "name": "4_non_dpc_non compete_compete",
+      "count": 9,
+      "name": "4_bronny_lakers_lebron_week",
       "representation": [
         {
-          "term": "non",
-          "weight": 0.043279115531934156
+          "term": "bronny",
+          "weight": 0.05804357213206897
         },
         {
-          "term": "dpc",
-          "weight": 0.034910463793132125
+          "term": "lakers",
+          "weight": 0.03179658215752308
         },
         {
-          "term": "non compete",
-          "weight": 0.0344109662542648
+          "term": "lebron",
+          "weight": 0.027986397629694848
         },
         {
-          "term": "options",
-          "weight": 0.028852743687956102
+          "term": "week",
+          "weight": 0.02721145011067841
         },
         {
-          "term": "metro area",
-          "weight": 0.0269010007527226
+          "term": "james",
+          "weight": 0.024057368075630782
         },
         {
-          "term": "gen surg",
-          "weight": 0.0269010007527226
+          "term": "story",
+          "weight": 0.01963468279898178
+        },
+        {
+          "term": "bronny james",
+          "weight": 0.01785918159746272
+        },
+        {
+          "term": "team",
+          "weight": 0.016514568867655104
+        },
+        {
+          "term": "year",
+          "weight": 0.016183396652429537
+        },
+        {
+          "term": "week week",
+          "weight": 0.01577182465361276
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 8,
+      "name": "5_curry_horford_highlight_years",
+      "representation": [
+        {
+          "term": "curry",
+          "weight": 0.06796215835595554
+        },
+        {
+          "term": "horford",
+          "weight": 0.06384144226219432
+        },
+        {
+          "term": "highlight",
+          "weight": 0.05090190579632933
+        },
+        {
+          "term": "years",
+          "weight": 0.05002166472893734
+        },
+        {
+          "term": "young",
+          "weight": 0.0486365573817298
+        },
+        {
+          "term": "blows",
+          "weight": 0.0439372346084765
+        },
+        {
+          "term": "15 years",
+          "weight": 0.03907137135025673
+        },
+        {
+          "term": "steph",
+          "weight": 0.03469857845575136
+        },
+        {
+          "term": "bronny",
+          "weight": 0.031123363677712845
+        },
+        {
+          "term": "lesperm",
+          "weight": 0.030844384877651423
         }
       ]
     }

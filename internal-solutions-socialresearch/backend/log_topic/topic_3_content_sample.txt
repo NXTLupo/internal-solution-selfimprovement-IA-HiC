@@ -1,13 +1,19 @@
 Topic 3 - Content Sample
-Number of content items: 25
-Top words: addiction, abertheham, practice, primary, user3, fm, job
+Number of content items: 3
+Top words: tag, highlight, flea, luka, thank, preseason reminder, tag highlights
 
-Content 1 (length: 234 chars):
-I’m about to start my first big boy job in a primary clinic doing mostly FM but taking referrals for addiction treatment. Depending on demand that may expand to have dedicated addiction days, e-consults, or an addiction-only practice.
+Content 1 (length: 255 chars):
+Jordan Poole throws a lob from beyond half court  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+the poole party is starting
+Some baddies in Melbourne lol
 
-Content 2 (length: 165 chars):
-Bit harder for peds or IM because addiction knows no boundaries. With an FM primary, you can manage addiction in everyone from pregnancy/neonatal through geriatrics.
+Content 2 (length: 234 chars):
+Year 3 Wembanyama…  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+How do you defend him now
+Doubles, triples, quadruples, quintuples
 
-Content 3 (length: 262 chars):
-P.S. u/darthbeeman wrote up [a fantastic post detailing his journey](https://www.reddit.com/r/AddictionMedicine/comments/1497rwf/addiction_medicine_practice_pathway_education_and/) through the process as well. Highly recommend checking that out for more reading.
+Content 3 (length: 361 chars):
+Bald Rudy Gobert Channels Kareem and Drains the Skyhook  Small preseason reminder, as we get into the season, please tag highlights with the [Highlight] tag and use accurate, descriptive titles. Thank you
+Gobert realizes he's actually left-handed in year 13 and averages 30 on 55/43/87
+That would be so funny if it took until he was 33 to realize he was a lefty
 

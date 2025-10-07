@@ -1,14 +1,14 @@
 {
   "basic_metrics": {
-    "total_posts": 48,
-    "total_comments": 48,
-    "total_score": 2074,
-    "avg_comments_per_post": 1.0,
-    "avg_score_per_post": 43.208333333333336
+    "total_posts": 140,
+    "total_comments": 1184,
+    "total_score": 103842,
+    "avg_comments_per_post": 8.457142857142857,
+    "avg_score_per_post": 741.7285714285714
   },
   "engagement_distribution": {
-    "high_engagement_posts": 0,
-    "medium_engagement_posts": 48,
-    "low_engagement_posts": 0
+    "high_engagement_posts": 14,
+    "medium_engagement_posts": 92,
+    "low_engagement_posts": 34
   }
 }

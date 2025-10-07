@@ -2,26 +2,31 @@
   {
     "topic_id": 0,
     "sentiment_category": "neutral",
-    "sentiment_score": -0.0426406975496899
+    "sentiment_score": 0.18054210742314655
   },
   {
     "topic_id": 1,
     "sentiment_category": "neutral",
-    "sentiment_score": 0.2334620708769018
+    "sentiment_score": 0.11559147475396886
   },
   {
     "topic_id": 2,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.2541567873623636
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.03795408457517624
   },
   {
     "topic_id": 3,
     "sentiment_category": "neutral",
-    "sentiment_score": 0.0992000550031662
+    "sentiment_score": 0.23523458150716928
   },
   {
     "topic_id": 4,
     "sentiment_category": "neutral",
-    "sentiment_score": -0.041929543018341064
+    "sentiment_score": -0.1568524572584364
+  },
+  {
+    "topic_id": 5,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.08602273464202881
   }
 ]

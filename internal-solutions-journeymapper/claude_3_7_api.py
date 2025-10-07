@@ -18,7 +18,7 @@ curl https://api.anthropic.com/v1/messages \
 """
 
 # API key from the codebase
-API_KEY = "***REDACTED-ANTHROPIC-KEY***"
+API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # Initialize client (API key is passed here, equivalent to x-api-key header)
 client = anthropic.Anthropic(api_key=API_KEY)

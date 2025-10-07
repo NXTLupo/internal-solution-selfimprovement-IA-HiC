@@ -8,8 +8,9 @@ This test verifies that our custom bucket configuration works correctly
 import requests
 import time
 import json
+import os
 
-API_KEY = '***REDACTED-GOOGLE-KEY***'
+API_KEY = os.environ.get('GEMINI_API_KEY', '')
 BUCKET_NAME = 'nxtveovideos'
 
 def test_bucket_video_generation():

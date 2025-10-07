@@ -17,7 +17,7 @@ from typing import Dict, List, Optional, Any, Set
 import shutil
 
 # Force set API key
-OPENAI_API_KEY = "***REDACTED-OPENAI-KEY***"
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 os.environ["USE_WHISPER_API"] = "true"
 

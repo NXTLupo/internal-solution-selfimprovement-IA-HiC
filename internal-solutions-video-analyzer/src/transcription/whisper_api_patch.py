@@ -253,7 +253,7 @@ print("OpenAI API Key set in environment:", os.environ.get('OPENAI_API_KEY', 'No
 
 
 # Added by fix script
-os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', '***REDACTED-OPENAI-KEY***')
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY', os.environ.get('OPENAI_API_KEY', ''))
 
 
 # Force set API key in environment

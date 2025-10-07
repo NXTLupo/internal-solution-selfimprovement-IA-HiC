@@ -8,8 +8,9 @@ Tests the corrected REST API approach to prove video generation works
 import requests
 import time
 import json
+import os
 
-API_KEY = '***REDACTED-GOOGLE-KEY***'
+API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
 def test_video_generation():
     print('🎬 TESTING GEMINI VEO 3 VIDEO GENERATION...')

@@ -1,0 +1,52 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: curry, horford, highlight, years, young, blows, 15 years
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+[Highlight] Quick Give-And-Go Between Curry and Horford For the And-1  Daddy Horford provides
+Horford was an amazing fit with other elite pg’s (Kyrie, Kemba, IT) and now he gets to play with Steph Curry who is the best by far of the bunch listed above.
+Horford is going to fit in so well with these guys
+
+EXAMPLE 2:
+[Lowlight] Al Horford strips Bronny James and Steph Curry blows the back the back pass to Buddy Hield on the fastbreak.  OP blows the post title
+I read it as 'Steph blows out Buddy Hield's back' and was expecting something different.
+He should go the back the back
+
+EXAMPLE 3:
+Kawhi: "I just didn’t wanna stop there. I just wanted to keep going for another month or so, so I could just train my body for a pounding."  Why does he look so old here man
+Baggy eyes.  Probably having a hard time sleeping wondering where his Aspiration money at.
+You: "I'm only 35, I have my whole life ahead of me."
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

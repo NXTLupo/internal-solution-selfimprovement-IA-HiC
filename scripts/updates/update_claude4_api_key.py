@@ -29,6 +29,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         api_key = sys.argv[1]
     else:
-        api_key = "***REDACTED-ANTHROPIC-KEY***"
+        api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     
     update_api_key(api_key)

@@ -3,7 +3,7 @@ import os
 import sys
 
 # API key to use
-API_KEY = "***REDACTED-OPENAI-KEY***"
+API_KEY = os.environ.get("OPENAI_API_KEY", "")
 
 # Directly modify the app.py file
 app_py_path = os.path.join(os.path.dirname(__file__), "app.py")

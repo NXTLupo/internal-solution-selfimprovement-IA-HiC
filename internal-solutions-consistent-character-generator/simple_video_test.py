@@ -7,8 +7,9 @@ Simple video generation test - PROOF THAT IT WORKS!
 import requests
 import time
 import json
+import os
 
-API_KEY = '***REDACTED-GOOGLE-KEY***'
+API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
 def generate_and_monitor_video():
     print('🎬 CONSISTENT PERSONA GENERATOR - VIDEO PROOF!')

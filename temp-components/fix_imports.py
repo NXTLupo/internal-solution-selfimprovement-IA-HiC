@@ -113,7 +113,7 @@ if __name__ == "__main__":
         if api_key:
             os.environ["ANTHROPIC_API_KEY"] = api_key
         else:
-            default_key = "***REDACTED-ANTHROPIC-KEY***"
+            default_key = os.environ.get("ANTHROPIC_API_KEY", "")
             print(f"Using default API key")
             os.environ["ANTHROPIC_API_KEY"] = default_key
     

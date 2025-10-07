@@ -1,91 +1,270 @@
 {
-  "total_documents": 48,
-  "total_topics": 5,
+  "total_documents": 140,
+  "total_topics": 6,
   "topics": {
     "positive": {
       "count": 2,
       "topics": [
         {
-          "id": 2,
-          "count": 6,
-          "score": 0.2541567873623636,
+          "id": 0,
+          "count": 41,
+          "score": 0.18054210742314655,
           "engagement": {
-            "post_count": 6,
-            "total_comments": 6,
-            "total_score": 237,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 39.5
+            "post_count": 41,
+            "total_comments": 251,
+            "total_score": 4392,
+            "avg_comments_per_post": 6.121951219512195,
+            "avg_score_per_post": 107.1219512195122
           },
           "terms": [
             {
-              "term": "fm",
-              "weight": 0.04353881259123991
+              "term": "nba",
+              "weight": 0.03772918130175213
             },
             {
-              "term": "medicine",
-              "weight": 0.02681228492847528
+              "term": "00",
+              "weight": 0.03408981498740251
             },
             {
-              "term": "dpc",
-              "weight": 0.02231602911220703
+              "term": "game",
+              "weight": 0.030414301376205117
             },
             {
-              "term": "year",
-              "weight": 0.020810538255513968
+              "term": "reddit",
+              "weight": 0.01684547524754654
             },
             {
-              "term": "peds",
-              "weight": 0.020783119404341698
+              "term": "nba game",
+              "weight": 0.01670216382068494
             },
             {
-              "term": "work",
-              "weight": 0.019439219431163654
+              "term": "vs",
+              "weight": 0.016463206649343143
             },
             {
-              "term": "patients",
-              "weight": 0.0176952116294333
+              "term": "pm",
+              "weight": 0.016361245948030574
             },
             {
-              "term": "family medicine",
-              "weight": 0.017319266170284748
+              "term": "nba nba",
+              "weight": 0.015817731638306534
             },
             {
-              "term": "kids",
-              "weight": 0.016049815933100627
+              "term": "nba nba game",
+              "weight": 0.015817731638306534
+            },
+            {
+              "term": "play",
+              "weight": 0.015223905184689293
             }
           ],
           "post_ids": [
-            "1n1oshh",
-            "1jiveh7",
-            "1idfmzk",
-            "1bg8bld",
-            "18125hi",
-            "1783vjp"
+            "1nzwq1j",
+            "1nzn3d2",
+            "1nzwy8e",
+            "1nza3wa",
+            "1nzy3vl",
+            "1nz13h5",
+            "1nyyls2",
+            "1nzy3vp",
+            "1nzy3vd",
+            "1nzy3w1",
+            "1nzy3v7",
+            "1nz3ivw",
+            "1nz2btp",
+            "1nzy3uy",
+            "1nzme9j",
+            "1nyzhlo",
+            "1nzae0i",
+            "1nyzhli",
+            "1nyfrby",
+            "1nz1gia",
+            "1nytwp8",
+            "1nzspig",
+            "1nys0y4",
+            "1ny2mkw",
+            "1nz6naw",
+            "1ny8umf",
+            "1ny8umb",
+            "1nxkjqr",
+            "1ny6u4q",
+            "1ny8umh",
+            "1nxkowi",
+            "1nxvg5i",
+            "1ny8um3",
+            "1nz3gne",
+            "1nxgtsd",
+            "1nxi7bb",
+            "1nxg2iz",
+            "1nyfyc0",
+            "1ny81c1",
+            "1ny12db",
+            "1nxfr9u"
           ],
           "post_sentiments": {
-            "1n1oshh": {
+            "1nzwq1j": {
               "sentiment_category": "neutral",
-              "sentiment_score": -0.18793776631355286
+              "sentiment_score": 0.0
             },
-            "1jiveh7": {
+            "1nzn3d2": {
               "sentiment_category": "neutral",
-              "sentiment_score": -0.24635587632656097
+              "sentiment_score": 0.0
             },
-            "1idfmzk": {
+            "1nzwy8e": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.43973594903945923
+            },
+            "1nza3wa": {
               "sentiment_category": "neutral",
-              "sentiment_score": 0.02111897865931193
+              "sentiment_score": 0.0
             },
-            "1bg8bld": {
+            "1nzy3vl": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.41342565417289734
+              "sentiment_score": 0.5164889693260193
             },
-            "18125hi": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.8799216151237488
+            "1nz13h5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
             },
-            "1783vjp": {
+            "1nyyls2": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.6447681188583374
+              "sentiment_score": 0.9791429042816162
+            },
+            "1nzy3vp": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7057349681854248
+            },
+            "1nzy3vd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzy3w1": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6137159466743469
+            },
+            "1nzy3v7": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4812377393245697
+            },
+            "1nz3ivw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz2btp": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzy3uy": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzme9j": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyzhlo": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzae0i": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyzhli": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7915090322494507
+            },
+            "1nyfrby": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz1gia": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nytwp8": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzspig": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nys0y4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny2mkw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz6naw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny8umf": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny8umb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxkjqr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny6u4q": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny8umh": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxkowi": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxvg5i": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny8um3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz3gne": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxgtsd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxi7bb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6701005697250366
+            },
+            "1nxg2iz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyfyc0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4708886444568634
+            },
+            "1ny81c1": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6163818836212158
+            },
+            "1ny12db": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5301234722137451
+            },
+            "1nxfr9u": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8831815719604492
             }
           },
           "sentiment_evidence": {
@@ -93,108 +272,126 @@
             "positive": [],
             "negative": []
           },
-          "summary": "Discussions about medical specialty selection and career planning for direct primary care (DPC) practice models, focusing on the comparative advantages and disadvantages of family medicine (FM) versus medicine-pediatrics (MedPeds) training pathways. Medical students and physicians evaluate factors such as scope of practice, patient demographics, marketability, and training depth when considering DPC careers. Key considerations include family medicine's broader scope covering all ages and procedures versus medicine-pediatrics' specialized dual certification in internal medicine and pediatrics. Participants discuss practical concerns about patient panel composition, insurance coverage patterns, referral thresholds, and long-term career flexibility. The conversations also address work-life balance expectations, patient volume management, and the viability of different specialty backgrounds for transitioning into DPC models, with some emergency medicine physicians exploring primary care transitions.",
-          "short_summary": "DPC specialty selection",
-          "one_sentence_summary": "Medical professionals discuss specialty training choices and career transitions for establishing direct primary care practices, comparing family medicine and medicine-pediatrics pathways."
+          "summary": "This topic encompasses NBA game-related content and structured data presentation on Reddit, focusing on the systematic organization and discussion of basketball game information. The content primarily consists of formatted game threads, post-game discussions, and statistical summaries that provide comprehensive coverage of NBA matchups. These discussions include standardized elements such as game scores, team statistics, box scores, quarter-by-quarter breakdowns, and player performance data presented in tabular formats. The topic captures the community-driven approach to documenting and analyzing professional basketball games, featuring structured templates for game threads that link to official NBA and Yahoo Sports resources. Examples include matchups between teams like the Oklahoma City Thunder versus Charlotte Hornets and Los Angeles Lakers versus Golden State Warriors, demonstrating the consistent formatting used across different games. The content also encompasses next-day serious discussion threads for in-depth analysis and community engagement features that extend beyond individual games to broader NBA discourse and related sports discussions.",
+          "short_summary": "NBA game threads",
+          "one_sentence_summary": "This topic covers structured NBA game discussions and statistical data presentation in Reddit game threads and post-game analysis."
         },
         {
-          "id": 1,
-          "count": 11,
-          "score": 0.2334620708769018,
+          "id": 3,
+          "count": 13,
+          "score": 0.23523458150716928,
           "engagement": {
-            "post_count": 11,
-            "total_comments": 11,
-            "total_score": 279,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 25.363636363636363
+            "post_count": 13,
+            "total_comments": 124,
+            "total_score": 34779,
+            "avg_comments_per_post": 9.538461538461538,
+            "avg_score_per_post": 2675.3076923076924
           },
           "terms": [
             {
-              "term": "practice",
-              "weight": 0.03591653227386608
+              "term": "tag",
+              "weight": 0.033997114520892754
             },
             {
-              "term": "dpc",
-              "weight": 0.03324318819473599
+              "term": "highlight",
+              "weight": 0.025986107408981822
             },
             {
-              "term": "looking",
-              "weight": 0.020368240707432445
+              "term": "flea",
+              "weight": 0.02398551328740131
             },
             {
-              "term": "model",
-              "weight": 0.01572017841902781
+              "term": "luka",
+              "weight": 0.023433847027526697
             },
             {
-              "term": "listing",
-              "weight": 0.01509126765746062
+              "term": "thank",
+              "weight": 0.022664743013928502
             },
             {
-              "term": "memberdirectory _listing",
-              "weight": 0.01509126765746062
+              "term": "preseason reminder",
+              "weight": 0.018692124258862863
             },
             {
-              "term": "year",
-              "weight": 0.014466912111419367
+              "term": "tag highlights",
+              "weight": 0.018692124258862863
+            },
+            {
+              "term": "descriptive",
+              "weight": 0.018692124258862863
+            },
+            {
+              "term": "tag use",
+              "weight": 0.018692124258862863
             }
           ],
           "post_ids": [
-            "1mvp6t4",
-            "1mal2ej",
-            "1mf8lc8",
-            "1lw121l",
-            "1jnsmbf",
-            "1gl5xdc",
-            "1f36lil",
-            "1er0elg",
-            "1ckre0f",
-            "187abb0",
-            "17nuces"
+            "1nzyn24",
+            "1nypc30",
+            "1ny9nmo",
+            "1nys65w",
+            "1nyegsc",
+            "1nyc7o2",
+            "1nyruzn",
+            "1ny3o06",
+            "1nxiiik",
+            "1nyblgd",
+            "1nxhh1b",
+            "1nxino0",
+            "1nxlojf"
           ],
           "post_sentiments": {
-            "1mvp6t4": {
+            "1nzyn24": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.8903777003288269
+              "sentiment_score": 0.43463456630706787
             },
-            "1mal2ej": {
+            "1nypc30": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9240965843200684
+            },
+            "1ny9nmo": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1mf8lc8": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.8699139356613159
+            "1nys65w": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
             },
-            "1lw121l": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.5820282697677612
+            "1nyegsc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
             },
-            "1jnsmbf": {
+            "1nyc7o2": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6083076000213623
+            },
+            "1nyruzn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8162623047828674
+            },
+            "1ny3o06": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9575117230415344
+            },
+            "1nxiiik": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyblgd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxhh1b": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.40032365918159485
+              "sentiment_score": -0.5656206011772156
             },
-            "1gl5xdc": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1f36lil": {
+            "1nxino0": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.6174170970916748
+              "sentiment_score": 0.7035054564476013
             },
-            "1er0elg": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1ckre0f": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "187abb0": {
+            "1nxlojf": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.4949200749397278
-            },
-            "17nuces": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.5035895109176636
+              "sentiment_score": -0.8206480741500854
             }
           },
           "sentiment_evidence": {
@@ -202,9 +399,9 @@
             "positive": [],
             "negative": []
           },
-          "summary": "This topic encompasses discussions about medical practice transitions, acquisitions, and employment opportunities within the healthcare sector, with particular emphasis on Direct Primary Care (DPC) practice models. The conversations center around physicians seeking guidance on buying, selling, or converting traditional medical practices, often involving solo practitioners planning retirement or younger doctors looking to establish independent practices. Key concerns include finding appropriate buyers or sellers, navigating practice valuations, understanding different compensation structures, and exploring alternatives to corporate healthcare systems. The discussions reveal patterns of physicians preferring independent practice ownership over hospital system employment, with DPC models emerging as an attractive alternative care delivery method. Geographic considerations play a role, with practitioners seeking opportunities in specific markets and regions. The topic also covers practical aspects of practice management, including staffing decisions, patient panel sizes, work-life balance considerations, and the transition from traditional fee-for-service models to membership-based care structures.",
-          "short_summary": "Medical practice transitions",
-          "one_sentence_summary": "Discussions focus on medical practice transitions, acquisitions, and employment opportunities, particularly involving Direct Primary Care models and independent practice ownership alternatives to corporate healthcare systems."
+          "summary": "This topic encompasses community moderation and content organization discussions within sports forums, specifically focusing on standardized posting guidelines for video highlights and memorable plays. The discussions center around proper content tagging protocols, with moderators providing reminders about using appropriate highlight tags and descriptive titles to maintain forum organization. The content includes basketball highlight posts featuring various players and plays, with community members engaging in discussions about player performance, defensive strategies, and humorous observations about player development. These conversations demonstrate the intersection of community management practices with fan engagement around sports content sharing.",
+          "short_summary": "Highlight tagging guidelines",
+          "one_sentence_summary": "Community discussions about proper tagging and formatting guidelines for sports highlight posts in online forums."
         }
       ]
     },
@@ -213,167 +410,237 @@
       "topics": []
     },
     "neutral": {
-      "count": 3,
+      "count": 4,
       "topics": [
         {
-          "id": 0,
-          "count": 22,
-          "score": -0.0426406975496899,
+          "id": 1,
+          "count": 36,
+          "score": 0.11559147475396886,
           "engagement": {
-            "post_count": 22,
-            "total_comments": 22,
-            "total_score": 668,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 30.363636363636363
+            "post_count": 36,
+            "total_comments": 220,
+            "total_score": 4066,
+            "avg_comments_per_post": 6.111111111111111,
+            "avg_score_per_post": 112.94444444444444
           },
           "terms": [
             {
-              "term": "dpc",
-              "weight": 0.02749505445582597
+              "term": "points",
+              "weight": 0.03378315092778892
             },
             {
-              "term": "care",
-              "weight": 0.01868185786870384
+              "term": "rebounds",
+              "weight": 0.020144113451404082
             },
             {
-              "term": "patients",
-              "weight": 0.018606754660795505
+              "term": "game",
+              "weight": 0.014637816170345316
             },
             {
-              "term": "practice",
-              "weight": 0.01792612274442579
+              "term": "year",
+              "weight": 0.013282933569727868
             },
             {
-              "term": "insurance",
-              "weight": 0.015927341327892232
+              "term": "assists",
+              "weight": 0.01324960499423659
             },
             {
-              "term": "work",
-              "weight": 0.014452951249935803
+              "term": "nba",
+              "weight": 0.013098409766944851
             },
             {
-              "term": "clinic",
-              "weight": 0.01259039010532981
+              "term": "season",
+              "weight": 0.012982457873651192
             },
             {
-              "term": "model",
-              "weight": 0.012105288745401128
+              "term": "scored",
+              "weight": 0.011218979110960266
             },
             {
-              "term": "pay",
-              "weight": 0.011706491537269185
+              "term": "points rebounds",
+              "weight": 0.011074346434596824
             }
           ],
           "post_ids": [
-            "1lidy1r",
-            "1kmkw1f",
-            "1juuofr",
-            "1jt9rfa",
-            "1jji9r3",
-            "1i4g7a7",
-            "1how068",
-            "1g57ymy",
-            "1fqj0zq",
-            "1dhy595",
-            "1ddwnqn",
-            "1ckyoju",
-            "1cm9bct",
-            "1ck5csx",
-            "1bv408h",
-            "1apkbe1",
-            "18bf0d9",
-            "184bfzr",
-            "1844b6b",
-            "16ry082",
-            "16n8ts3",
-            "16m296c"
+            "1nzyznu",
+            "1nzowiw",
+            "1nzq97k",
+            "1nzp8ud",
+            "1nzvxc2",
+            "1nzfeay",
+            "1nznt3n",
+            "1nzo4re",
+            "1nzck5y",
+            "1nyy6tf",
+            "1nypzx5",
+            "1nyxve1",
+            "1nzqm1b",
+            "1nykm95",
+            "1nytjum",
+            "1nyt085",
+            "1nzldcl",
+            "1nyy4sk",
+            "1nyi69e",
+            "1nys67n",
+            "1nxtza0",
+            "1nysjxh",
+            "1nyhn7q",
+            "1nxz6gz",
+            "1nxwj3w",
+            "1ny3m46",
+            "1ny1f0v",
+            "1nxy76p",
+            "1nxxl6f",
+            "1nxu0io",
+            "1nyqalj",
+            "1nywse7",
+            "1nxhq80",
+            "1nye5tj",
+            "1nxpf2m",
+            "1nxhpd6"
           ],
           "post_sentiments": {
-            "1lidy1r": {
+            "1nzyznu": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1kmkw1f": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.3099600076675415
-            },
-            "1juuofr": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.5078493803739548
-            },
-            "1jt9rfa": {
+            "1nzowiw": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1jji9r3": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.8634132742881775
-            },
-            "1i4g7a7": {
+            "1nzq97k": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1how068": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.45891815423965454
-            },
-            "1g57ymy": {
+            "1nzp8ud": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.7792819738388062
+              "sentiment_score": 0.3392384648323059
             },
-            "1fqj0zq": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1dhy595": {
+            "1nzvxc2": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.4570845067501068
+              "sentiment_score": 0.37508517503738403
             },
-            "1ddwnqn": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.45973992347717285
-            },
-            "1ckyoju": {
+            "1nzfeay": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1cm9bct": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.26547932624816895
-            },
-            "1ck5csx": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1bv408h": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1apkbe1": {
+            "1nznt3n": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.6908982396125793
+              "sentiment_score": 0.4770220220088959
             },
-            "18bf0d9": {
+            "1nzo4re": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5394940376281738
+            },
+            "1nzck5y": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.53493332862854
+            },
+            "1nyy6tf": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "184bfzr": {
+            "1nypzx5": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1844b6b": {
+            "1nyxve1": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "16ry082": {
+            "1nzqm1b": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "16n8ts3": {
+            "1nykm95": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4027545750141144
+            },
+            "1nytjum": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "16m296c": {
+            "1nyt085": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8027311563491821
+            },
+            "1nzldcl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyy4sk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyi69e": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.2319384068250656
+            },
+            "1nys67n": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxtza0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nysjxh": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyhn7q": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxz6gz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxwj3w": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ny3m46": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7733369469642639
+            },
+            "1ny1f0v": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxy76p": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxxl6f": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5464239716529846
+            },
+            "1nxu0io": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyqalj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nywse7": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxhq80": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nye5tj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxpf2m": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxhpd6": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             }
@@ -383,93 +650,175 @@
             "positive": [],
             "negative": []
           },
-          "summary": "Discussions about Direct Primary Care (DPC) practice models and alternative healthcare delivery systems that bypass traditional insurance structures. Healthcare providers explore various non-traditional practice arrangements including micro-practices, cash-pay models, and lean operational structures that eliminate insurance billing overhead. The conversations center on physicians seeking greater autonomy in patient care while addressing economic viability, with practitioners sharing experiences about reduced documentation requirements, flexible scheduling, and direct patient-provider relationships. Examples include fee-for-service models charging patients directly, subscription-based monthly payment systems, and minimal-overhead clinics using simplified technology like iPad check-ins. The discussions also encompass broader frustrations with corporate healthcare environments, insurance company constraints, and the search for practice models that prioritize clinical freedom over administrative burden.",
-          "short_summary": "DPC practice models",
-          "one_sentence_summary": "Healthcare providers discuss Direct Primary Care models and alternative practice structures that eliminate insurance billing to create more autonomous, patient-focused medical practices."
+          "summary": "This topic encompasses discussions about NBA player performance statistics, career achievements, and historical records. The conversations center around analyzing various basketball metrics including points scored, rebounds collected, assists made, and games played across different seasons and career spans. A significant focus is placed on consecutive games played streaks and ironman records, with detailed statistical breakdowns of playing time and performance consistency. The discussions also cover injury impacts on player careers, championship achievements, winning streaks by teams, and career milestones. Examples include analysis of players like A.C. Green's consecutive games record, Bill Walton's injury-plagued but successful career, and the Houston Rockets' 22-game winning streak. The topic reflects the NBA community's interest in quantifying and comparing player contributions through statistical analysis, examining both individual excellence and team success across different eras of professional basketball.",
+          "short_summary": "NBA player statistics",
+          "one_sentence_summary": "Discussions focus on NBA player statistics, career records, consecutive games played streaks, and historical performance analysis across seasons and careers."
         },
         {
-          "id": 3,
-          "count": 6,
-          "score": 0.0992000550031662,
+          "id": 2,
+          "count": 24,
+          "score": 0.03795408457517624,
           "engagement": {
-            "post_count": 6,
-            "total_comments": 6,
-            "total_score": 668,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 111.33333333333333
+            "post_count": 24,
+            "total_comments": 277,
+            "total_score": 35503,
+            "avg_comments_per_post": 11.541666666666666,
+            "avg_score_per_post": 1479.2916666666667
           },
           "terms": [
             {
-              "term": "addiction",
-              "weight": 0.026349644856116235
+              "term": "nba",
+              "weight": 0.024708248610557284
             },
             {
-              "term": "abertheham",
-              "weight": 0.01717249272816369
+              "term": "player",
+              "weight": 0.016346821221605155
             },
             {
-              "term": "practice",
-              "weight": 0.0157624006649836
+              "term": "team",
+              "weight": 0.014716420968025036
             },
             {
-              "term": "primary",
-              "weight": 0.013608515478284977
+              "term": "gonzalez",
+              "weight": 0.014070392967724884
             },
             {
-              "term": "user3",
-              "weight": 0.01147936533194586
+              "term": "celtics",
+              "weight": 0.012974683348067485
             },
             {
-              "term": "fm",
-              "weight": 0.011069189641840655
+              "term": "years",
+              "weight": 0.012469584044176358
             },
             {
-              "term": "job",
-              "weight": 0.010960261804714821
+              "term": "said",
+              "weight": 0.012468052240436863
             },
             {
-              "term": "compensation",
-              "weight": 0.010881231141085171
-            },
-            {
-              "term": "specialty",
-              "weight": 0.01042865431701167
-            },
-            {
-              "term": "thank",
-              "weight": 0.009850821724913111
+              "term": "league",
+              "weight": 0.009867088238933341
             }
           ],
           "post_ids": [
-            "1m8zolg",
-            "1hea5pi",
-            "1f562m5",
-            "18co348",
-            "17vg4wi",
-            "16uf183"
+            "1nzkz35",
+            "1nzsnx5",
+            "1nz5hre",
+            "1nzmy8t",
+            "1nz61gj",
+            "1nyrd1z",
+            "1nz4lyz",
+            "1nyxcsb",
+            "1nyrsmi",
+            "1nygqse",
+            "1nxyvtm",
+            "1ny2kij",
+            "1ny2aeq",
+            "1nya3ni",
+            "1nyr7dr",
+            "1nxt3nk",
+            "1nymiha",
+            "1nxk1wl",
+            "1nxfc6u",
+            "1nxhavx",
+            "1nxsp64",
+            "1nz2lcu",
+            "1nxjblq",
+            "1nxl0f5"
           ],
           "post_sentiments": {
-            "1m8zolg": {
+            "1nzkz35": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.6592800617218018
+              "sentiment_score": -0.6038816571235657
             },
-            "1hea5pi": {
+            "1nzsnx5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz5hre": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7281157374382019
+            },
+            "1nzmy8t": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7545510530471802
+            },
+            "1nz61gj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyrd1z": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz4lyz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8432021141052246
+            },
+            "1nyxcsb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyrsmi": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nygqse": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxyvtm": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.8077284097671509
+              "sentiment_score": -0.7973278164863586
             },
-            "1f562m5": {
+            "1ny2kij": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.7560922205448151
+              "sentiment_score": 0.9596241116523743
             },
-            "18co348": {
+            "1ny2aeq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5251898169517517
+            },
+            "1nya3ni": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyr7dr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxt3nk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nymiha": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxk1wl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7073206305503845
+            },
+            "1nxfc6u": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.3531090021133423
+              "sentiment_score": 0.8869427442550659
             },
-            "17vg4wi": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.9530075788497925
+            "1nxhavx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
             },
-            "16uf183": {
+            "1nxsp64": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz2lcu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6278178095817566
+            },
+            "1nxjblq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxl0f5": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             }
@@ -479,64 +828,216 @@
             "positive": [],
             "negative": []
           },
-          "summary": "Discussions about career pathways and practice opportunities in addiction medicine, focusing on the integration of addiction treatment within primary care and family medicine practices. Healthcare professionals explore various practice models, from incorporating addiction services into existing primary care clinics to establishing dedicated addiction-focused practices. The conversations cover job market prospects, compensation considerations, and the flexibility of addiction medicine as a specialty that can be practiced across different healthcare settings including outpatient clinics, inpatient facilities, methadone clinics, and hospital consultation services. Practitioners discuss the rewarding aspects of working with patients with substance use disorders, emphasizing harm reduction approaches and the fulfilling nature of helping patients recover. The topic includes considerations about fellowship requirements, application processes, and the evolving landscape of addiction medicine as a relatively new but growing field with diverse career opportunities.",
-          "short_summary": "Addiction medicine careers",
-          "one_sentence_summary": "Healthcare professionals discuss career opportunities, practice models, and professional pathways in addiction medicine, particularly its integration with primary care and family medicine practices."
+          "summary": "Discussions about NBA player development and team management strategies, focusing on rookie integration, training processes, and organizational planning. The conversations center around how young players adapt to professional basketball environments, including challenges with language barriers, cultural adjustments, and the transition from international leagues to the NBA. Key themes include team decisions regarding player development pathways such as G League assignments, the depth and detail of professional training camps, and how organizations support players through various adjustment periods. The discussions also explore hypothetical rule changes and contract structures that could impact player performance and team strategy, reflecting broader interests in how NBA operations and player management systems function.",
+          "short_summary": "NBA player development",
+          "one_sentence_summary": "Discussions about NBA rookie development, team management strategies, and player adaptation to professional basketball environments."
+        },
+        {
+          "id": 5,
+          "count": 8,
+          "score": -0.08602273464202881,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 63,
+            "total_score": 6020,
+            "avg_comments_per_post": 7.875,
+            "avg_score_per_post": 752.5
+          },
+          "terms": [
+            {
+              "term": "curry",
+              "weight": 0.06796215835595554
+            },
+            {
+              "term": "horford",
+              "weight": 0.06384144226219432
+            },
+            {
+              "term": "highlight",
+              "weight": 0.05090190579632933
+            },
+            {
+              "term": "years",
+              "weight": 0.05002166472893734
+            },
+            {
+              "term": "young",
+              "weight": 0.0486365573817298
+            },
+            {
+              "term": "blows",
+              "weight": 0.0439372346084765
+            },
+            {
+              "term": "15 years",
+              "weight": 0.03907137135025673
+            },
+            {
+              "term": "steph",
+              "weight": 0.03469857845575136
+            },
+            {
+              "term": "bronny",
+              "weight": 0.031123363677712845
+            },
+            {
+              "term": "lesperm",
+              "weight": 0.030844384877651423
+            }
+          ],
+          "post_ids": [
+            "1nzvdkq",
+            "1nz5mx6",
+            "1nz7hhu",
+            "1nyyoc5",
+            "1nzai8l",
+            "1nz5ey3",
+            "1nyrgpd",
+            "1nxlkja"
+          ],
+          "post_sentiments": {
+            "1nzvdkq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz5mx6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.729305624961853
+            },
+            "1nz7hhu": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nyyoc5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzai8l": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nz5ey3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.951367974281311
+            },
+            "1nyrgpd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9102442264556885
+            },
+            "1nxlkja": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Basketball game highlights and lowlights featuring veteran players and their on-court performances, with discussions focusing on player chemistry, team fit, and individual plays during games. The conversations center around analyzing specific plays, both successful and unsuccessful, while evaluating how experienced players integrate with new teammates and adapt their playing styles. Commentary includes observations about player appearances, performance quality, and strategic gameplay elements, with particular attention to veteran athletes' continued effectiveness and adaptation over their careers.",
+          "short_summary": "Basketball player highlights",
+          "one_sentence_summary": "Basketball game highlights and performance discussions featuring veteran player gameplay and team chemistry analysis."
         },
         {
           "id": 4,
-          "count": 3,
-          "score": -0.041929543018341064,
+          "count": 9,
+          "score": -0.1568524572584364,
           "engagement": {
-            "post_count": 3,
-            "total_comments": 3,
-            "total_score": 222,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 74.0
+            "post_count": 9,
+            "total_comments": 124,
+            "total_score": 12000,
+            "avg_comments_per_post": 13.777777777777779,
+            "avg_score_per_post": 1333.3333333333333
           },
           "terms": [
             {
-              "term": "non",
-              "weight": 0.043279115531934156
+              "term": "bronny",
+              "weight": 0.05804357213206897
             },
             {
-              "term": "dpc",
-              "weight": 0.034910463793132125
+              "term": "lakers",
+              "weight": 0.03179658215752308
             },
             {
-              "term": "non compete",
-              "weight": 0.0344109662542648
+              "term": "lebron",
+              "weight": 0.027986397629694848
             },
             {
-              "term": "options",
-              "weight": 0.028852743687956102
+              "term": "week",
+              "weight": 0.02721145011067841
             },
             {
-              "term": "metro area",
-              "weight": 0.0269010007527226
+              "term": "james",
+              "weight": 0.024057368075630782
             },
             {
-              "term": "gen surg",
-              "weight": 0.0269010007527226
+              "term": "story",
+              "weight": 0.01963468279898178
+            },
+            {
+              "term": "bronny james",
+              "weight": 0.01785918159746272
+            },
+            {
+              "term": "team",
+              "weight": 0.016514568867655104
+            },
+            {
+              "term": "year",
+              "weight": 0.016183396652429537
+            },
+            {
+              "term": "week week",
+              "weight": 0.01577182465361276
             }
           ],
           "post_ids": [
-            "1nfwsj8",
-            "1fmw2y3",
-            "1fjxebl"
+            "1nzq7qp",
+            "1nzn1sx",
+            "1nz8geb",
+            "1nzpnov",
+            "1nxmm01",
+            "1nyd7hd",
+            "1nzomeo",
+            "1nxkmmj",
+            "1nz83ch"
           ],
           "post_sentiments": {
-            "1nfwsj8": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.7751560807228088
-            },
-            "1fmw2y3": {
+            "1nzq7qp": {
               "sentiment_category": "neutral",
               "sentiment_score": 0.0
             },
-            "1fjxebl": {
+            "1nzn1sx": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.637626051902771
+            },
+            "1nz8geb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzpnov": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.900944709777832
+              "sentiment_score": -0.6421099901199341
+            },
+            "1nxmm01": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.741147518157959
+            },
+            "1nyd7hd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nzomeo": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nxkmmj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6660406589508057
+            },
+            "1nz83ch": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
             }
           },
           "sentiment_evidence": {
@@ -544,9 +1045,9 @@
             "positive": [],
             "negative": []
           },
-          "summary": "This topic encompasses discussions about physician career transitions and practice model alternatives, particularly focusing on navigating non-compete clauses and exploring Direct Primary Care (DPC) options. The conversations reveal physicians weighing various career paths including general surgery, emergency medicine, and family medicine while considering factors like work-life balance, financial autonomy, and geographic constraints. A central theme involves physicians seeking to escape restrictive employment contracts, with non-compete agreements limiting their ability to practice within certain metro areas and forcing consideration of longer commutes or alternative practice models. DPC emerges as an attractive option offering both financial independence and professional autonomy, with examples of successful practitioners achieving substantial income while maintaining better quality of life. The discussions also touch on rural medicine opportunities, career burnout leading to consideration of non-clinical alternatives, and the challenges of balancing family life with demanding medical specialties.",
-          "short_summary": "Physician career transitions",
-          "one_sentence_summary": "Physicians discuss navigating non-compete restrictions while exploring alternative practice models like Direct Primary Care and weighing career transitions between different medical specialties and geographic locations."
+          "summary": "Discussions about professional basketball player development, draft strategies, and family legacy dynamics in the NBA. The conversations center on how nepotism and family connections influence team roster decisions, particularly regarding second-generation players entering the league. Users analyze draft positioning tactics, agent negotiations, and the business considerations teams make when balancing talent evaluation with marketing opportunities and star player retention. The topic encompasses broader themes of player development trajectories, performance expectations for rookies with famous parents, and the intersection of sports business with family relationships. Specific focus includes the Lakers' drafting of Bronny James, his early season performance statistics, and the strategic maneuvering by Klutch Sports to ensure father-son team placement, illustrating how modern NBA franchises navigate complex decisions involving player legacy, commercial appeal, and competitive roster construction.",
+          "short_summary": "NBA nepotism discussions",
+          "one_sentence_summary": "Discussions about NBA draft strategies, player development, and how family connections and nepotism influence professional basketball roster decisions and business considerations."
         }
       ]
     }
@@ -555,95 +1056,124 @@
     {
       "source": 0,
       "target": 1,
-      "weight": 0.549847948551178,
+      "weight": 0.6298442983627319,
       "overlapping_words": [
-        "dpc",
-        "practice",
-        "model"
-      ],
-      "overlap_count": 3
-    },
-    {
-      "source": 0,
-      "target": 2,
-      "weight": 0.6967444598674775,
-      "overlapping_words": [
-        "dpc",
-        "work",
-        "patients"
-      ],
-      "overlap_count": 3
-    },
-    {
-      "source": 0,
-      "target": 3,
-      "weight": 0.5447580766677856,
-      "overlapping_words": [
-        "practice"
-      ],
-      "overlap_count": 1
-    },
-    {
-      "source": 0,
-      "target": 4,
-      "weight": 0.44930463552474975,
-      "overlapping_words": [
-        "dpc"
-      ],
-      "overlap_count": 1
-    },
-    {
-      "source": 1,
-      "target": 2,
-      "weight": 0.4650259667634964,
-      "overlapping_words": [
-        "year",
-        "dpc"
+        "game",
+        "nba"
       ],
       "overlap_count": 2
     },
     {
-      "source": 1,
-      "target": 3,
-      "weight": 0.2041360166668892,
+      "source": 0,
+      "target": 2,
+      "weight": 0.40970009088516235,
       "overlapping_words": [
-        "practice"
+        "nba"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "weight": 0.184914231300354,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "weight": 0.4348147213459015,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "weight": 0.395331472158432,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.6255707097053528,
+      "overlapping_words": [
+        "nba"
       ],
       "overlap_count": 1
     },
     {
       "source": 1,
+      "target": 3,
+      "weight": 0.10959960520267487,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
       "target": 4,
-      "weight": 0.3304290723800659,
+      "weight": 0.5653364610671997,
       "overlapping_words": [
-        "dpc"
+        "year"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "weight": 0.43092966079711914,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "weight": 0.18959525227546692,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "weight": 0.4849463653564453,
+      "overlapping_words": [
+        "team"
       ],
       "overlap_count": 1
     },
     {
       "source": 2,
-      "target": 3,
-      "weight": 0.6826571178436279,
+      "target": 5,
+      "weight": 0.45881619572639465,
       "overlapping_words": [
-        "fm"
-      ],
-      "overlap_count": 1
-    },
-    {
-      "source": 2,
-      "target": 4,
-      "weight": 0.34067420184612274,
-      "overlapping_words": [
-        "dpc"
+        "years"
       ],
       "overlap_count": 1
     },
     {
       "source": 3,
       "target": 4,
-      "weight": 0.2071356624364853,
+      "weight": 0.24840813875198364,
       "overlapping_words": [],
       "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "weight": 0.32742756128311157,
+      "overlapping_words": [
+        "highlight"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 0.664640839099884,
+      "overlapping_words": [
+        "bronny"
+      ],
+      "overlap_count": 1
     }
   ],
   "topic_ids": [
@@ -651,6 +1181,7 @@
     1,
     2,
     3,
-    4
+    4,
+    5
   ]
 }

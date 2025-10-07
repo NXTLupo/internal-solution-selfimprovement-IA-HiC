@@ -7,8 +7,9 @@ Monitor the existing video generation operation
 import requests
 import time
 import json
+import os
 
-API_KEY = '***REDACTED-GOOGLE-KEY***'
+API_KEY = os.environ.get('GEMINI_API_KEY', '')
 OPERATION_ID = 'bif4or1661qx'  # From the curl test
 
 def monitor_operation():
