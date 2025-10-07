@@ -68,11 +68,17 @@ setup_env_file() {
       exit 1
     fi
     
-    # Extract API keys
-    ANTHROPIC_API_KEY=$(grep "ANTHROPIC_API_KEY" .env | cut -d '=' -f2)
-    OPENAI_API_KEY=$(grep "OPENAI_API_KEY" .env | cut -d '=' -f2)
-    
-    echo -e "${GREEN}API keys found in .env file.${NC}"
+    # Extract and export API keys to ensure Docker Compose uses correct values
+    export ANTHROPIC_API_KEY=$(grep "ANTHROPIC_API_KEY" .env | cut -d '=' -f2)
+    export OPENAI_API_KEY=$(grep "OPENAI_API_KEY" .env | cut -d '=' -f2)
+    export GEMINI_API_KEY=$(grep "GEMINI_API_KEY" .env | cut -d '=' -f2)
+
+    # Override any system environment variables
+    unset OPENAI_API_KEY 2>/dev/null || true
+    export OPENAI_API_KEY=$(grep "OPENAI_API_KEY" .env | cut -d '=' -f2)
+
+    echo -e "${GREEN}API keys loaded and exported from .env file.${NC}"
+    echo -e "${BLUE}OpenAI API Key ends with: ${OPENAI_API_KEY: -4}${NC}"
   else
     echo -e "${RED}No .env file found!${NC}"
     exit 1
