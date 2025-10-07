@@ -1,37 +1,82 @@
 {
-  "positive": [
-    {
-      "id": 0,
-      "one_sentence_summary": "This topic covers structured NBA game discussions and statistical data presentation in Reddit game threads and post-game analysis.",
-      "short_summary": "NBA game threads"
-    },
-    {
-      "id": 3,
-      "one_sentence_summary": "Community discussions about proper tagging and formatting guidelines for sports highlight posts in online forums.",
-      "short_summary": "Highlight tagging guidelines"
-    }
-  ],
+  "positive": [],
   "neutral": [
     {
-      "id": 1,
-      "one_sentence_summary": "Discussions focus on NBA player statistics, career records, consecutive games played streaks, and historical performance analysis across seasons and careers.",
-      "short_summary": "NBA player statistics"
-    },
-    {
-      "id": 2,
-      "one_sentence_summary": "Discussions about NBA rookie development, team management strategies, and player adaptation to professional basketball environments.",
-      "short_summary": "NBA player development"
+      "id": 0,
+      "one_sentence_summary": "Discussions about educational pathways, career development strategies, and realistic expectations for building successful careers in healthcare administration.",
+      "short_summary": "Healthcare administration careers"
     },
     {
       "id": 5,
-      "one_sentence_summary": "Basketball game highlights and performance discussions featuring veteran player gameplay and team chemistry analysis.",
-      "short_summary": "Basketball player highlights"
+      "one_sentence_summary": "Healthcare professionals discuss operational challenges, AI implementation safety, and technology solutions for improving patient care delivery and clinic efficiency.",
+      "short_summary": "Healthcare AI implementation"
+    },
+    {
+      "id": 10,
+      "one_sentence_summary": "Discussions about personal experiences with dietary choices, particularly challenges with plant-based eating and health impacts of different nutritional approaches.",
+      "short_summary": "Diet health experiences"
+    }
+  ],
+  "negative": [
+    {
+      "id": 1,
+      "one_sentence_summary": "Discussions focus on healthcare system challenges, insurance coverage complexities, medical costs, and the financial burden of healthcare on patients and providers.",
+      "short_summary": "Healthcare insurance costs"
+    },
+    {
+      "id": 2,
+      "one_sentence_summary": "Discussions focus on navigating health insurance eligibility, affordability challenges, and coverage transitions across various life circumstances in the US healthcare system.",
+      "short_summary": "Health insurance navigation"
+    },
+    {
+      "id": 3,
+      "one_sentence_summary": "Discussions focus on patient experiences with healthcare providers, medical appointments, and navigating healthcare system complaints and provider relationships.",
+      "short_summary": "Healthcare provider experiences"
     },
     {
       "id": 4,
-      "one_sentence_summary": "Discussions about NBA draft strategies, player development, and how family connections and nepotism influence professional basketball roster decisions and business considerations.",
-      "short_summary": "NBA nepotism discussions"
+      "one_sentence_summary": "Discussions focus on patient experiences with medical record access, portal management issues, and administrative challenges in healthcare systems including record corrections and appointment coordination.",
+      "short_summary": "Medical records access"
+    },
+    {
+      "id": 6,
+      "one_sentence_summary": "Discussions focus on healthcare payment practices, particularly the increasing trend of providers requiring upfront payments, deposits, and payment plans before delivering medical services, and patients' struggles with understanding billing processes and managing medical costs.",
+      "short_summary": "Healthcare payment practices"
+    },
+    {
+      "id": 7,
+      "one_sentence_summary": "Discussions focus on proposed Republican healthcare legislation that would cut Medicaid funding and lead to rural hospital closures, disproportionately affecting red states and conservative-voting areas.",
+      "short_summary": "Rural hospital closures"
+    },
+    {
+      "id": 8,
+      "one_sentence_summary": "Discussions examining contradictions between political health advocacy rhetoric and actual government environmental and health policy decisions, alongside sharing of legal documents related to political scandals.",
+      "short_summary": "Political health policy contradictions"
+    },
+    {
+      "id": 9,
+      "one_sentence_summary": "Discussions focus on federal regulatory enforcement actions addressing anticompetitive practices and market concentration issues in the healthcare industry.",
+      "short_summary": "Healthcare regulatory enforcement"
+    },
+    {
+      "id": 12,
+      "one_sentence_summary": "Discussions about data breaches and unauthorized access to sensitive healthcare and government databases containing personal medical information.",
+      "short_summary": "Healthcare data breaches"
+    },
+    {
+      "id": 11,
+      "one_sentence_summary": "Healthcare workers discuss systemic staffing shortages, unsafe patient ratios, management dismissiveness, workplace burnout, and challenging patient interactions within increasingly strained clinical environments.",
+      "short_summary": "Healthcare staffing crisis"
+    },
+    {
+      "id": 13,
+      "one_sentence_summary": "Discussions about declining public trust and institutional crisis within federal health agencies amid leadership changes, political interference, and concerns about scientific independence.",
+      "short_summary": "Health agency crisis"
+    },
+    {
+      "id": 14,
+      "one_sentence_summary": "Discussions examine the crisis of rural hospital closures driven by Medicaid cuts and funding challenges, exploring the economic impact on small communities and potential mobile clinic alternatives.",
+      "short_summary": "Rural hospital closures"
     }
-  ],
-  "negative": []
+  ]
 }

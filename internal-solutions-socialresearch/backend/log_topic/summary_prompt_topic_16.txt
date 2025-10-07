@@ -1,0 +1,117 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: insurance, pay, car, company, urgent care, claims, car accident
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Insurance doesn't just cut you off because you had a car accident.  Insurance can deny covering a claim because there may be liability coverage involved.  But that's when the other person or your own car insurance may come into play if you have any medical benefits there.
+
+EXAMPLE 2:
+When I finally went to urgent care to get it looked at the lady at the front desk told me that I would pay out of pocket to get it looked at because they don't take insurance for car accidents and I had $20 which wasn't enough and then she advised me to just lie about how I got hurt so I could get it looked at.
+
+EXAMPLE 3:
+Your care isn't dependent on whether you were in a car accident or not.  The doctor doesn't care.  If you have a hole in your leg, they're going to treat the hole, not the cause of the hole.
+
+EXAMPLE 4:
+How is your life messed up?  Are you not able to do something in your life now because you had a car accident?  I don't understand any of this.
+So my insurance didn't cut me off cuz of the car accident. They cut me off because I had set up auto pay with them and apparently it hadn't gone through for a few months and they were sending the letters to the wrong address, so I tried to see if I could get it fixed and pay off the full difference of how much I owed and they still denied that. [...]
+
+EXAMPLE 5:
+The next day I went to go back to urgent care and told them that my wound was from a car accident and try to see if I could get that reworked or relooked at and the lady at the front office at that time told me to come back another time because they were about to close and that my insurance at the time actually did cover car accidents.
+
+EXAMPLE 6:
+If you have a lawyer, it means someone else was at fault for the car accident.  And that would mean that they are responsible for your medical bills.  It's also how the lawyer gets paid.  You wouldn't have a lawyer for your own car accident against yourself.  That's just not how it works.
+
+EXAMPLE 7:
+Why was husband's $280 "not covered by insurance" and why was son's $600 additional not paid? It's not at all surprising to have to pay both the facility and the dr, it's also not surprising they have an button for lawyers to push, urgent cares handle stuff like workmans comp and whatnot. I highly doubt it's because they get sued so much, that all gets done through mail/paperwork not the phone.
+
+EXAMPLE 8:
+I'm really upset, I can hardly sleep anymore, keep getting headaches and overall I feel my life is falling apart idk who to complain to or if there's anyway to fix this because it fucked up potentialness for my entire case , I feel like a huge idiot and no clue how to handle this I'm at a huge loss with this accident and it's affected every aspect of my life I feel like I'm kinda dying inside from the stress and confusion.
+
+EXAMPLE 9:
+After an ER visit, for the next month, you'll get dozens of letters from things like "Acme Imaging Consultants" or "Integrated Health Specialists, LLC" for "Medical Care" or something similarly vague.  There will be a really sketchy bill pay site or a number for a call center with any questions, and the letter itself will be so unprofessional that it might as well be in comic sans.  It will be a ton of odd amounts due, with no real explanation, and the best you can do is trace through your insurance claim history and look for cleared amounts in the 20 pages of claims for the year matching up w [...]
+
+EXAMPLE 10:
+I see a lawyer two days later and I was still suffering from physical and mental pain from all this and my parents had to convince me to go to him and he said it was foolish to not say it was from a car accident
+
+EXAMPLE 11:
+Sounds to me like you might have a deductible, but hard to know.
+I don't know why they weren't covered, probably because they were unreasonable charges?
+Wow, that sounds frustrating! It looks like both visits might have been miscoded for place of service or facility type. Definitely file a formal appeal with your insurance and ask them to review the claims with the correct coding. Keep all your documentation handy. If they’re misrepresenting themselves, you can also report the urgent care to your state’s insurance department. [...]
+
+EXAMPLE 12:
+What are our options?   Is there somewhere to report them for misrepresenting themselves?   If I had wanted to pay ER rates, I would have gone to the ER.  🤦 What do your EOBs from your health insurance company say you owe? The same amount urgent care does?
+
+EXAMPLE 13:
+Then, before we had the first billing issue, my son cut his hand... Took him in and they glued it- 20 minute appointment.  They billed insurance as a "hospital" and charged $2,400.  Insurance paid $1,800, and now they want the additional $600.
+
+EXAMPLE 14:
+First, my husband went in to get an inhaler prescription on short notice (his doctor didn't have appointments for weeks).  He paid an $85 copay in office and then was sent a bill for another $280 "not covered by insurance".   They billed insurance twice- one for the facility and one for the doctor and insurance paid one of them but not the other.
+
+EXAMPLE 15:
+You also could have just gone to a different urgent care or the emergency room.  It's not like you have to go back to urgent care a second time for follow up care.
+
+EXAMPLE 16:
+If you go to one place on one day for treatment, you should get one consolidated bill.  Itemized, but all in one billing statement.  Even if the hospitals just require their contractors to submit through them rather than directly to the patient.  I really don't think that that is too much to ask.  I agree. The price is sticker shock enough. But ffs, don’t make me wait to accumulate bills
+Then like a year later, you get a final notice worded to be as urgent and terrifying as possible from [scammylookingcollectionsstartup.com](http://scammylookingcollectionsstartup. [...]
+
+EXAMPLE 17:
+We've called and they refuse to budge on the bills.   There's actually a phone tree option for "lawyers" to press when you call, so clearly they get sued a lot.
+
+EXAMPLE 18:
+There should be a regulation that all of the billing for a single ER visit or hospital stay needs to be consolidated into a single statement. Private equity hospitals have taken to bringing in contractors for everything as a workaround for private health insurance's per-procedure/per-visit billable maximum, and the result is a completely unmanageable mess of bills completing processing over the course of several months, all coming from different billing agencies, some of which don't even look legitimate.
+
+EXAMPLE 19:
+So I had talk to my lawyer who was setting me up to see a neurologist but said he couldn't cuz the urgent care I went to said something about me mentioning and getting influenced by a lawyer and so it cut me from a lot of the check ups I was gonna get
+
+EXAMPLE 20:
+When I came back it was the first or second of July and I went back to see if I could do a follow up but my insurance cut me off unexpectedly and I still didn't have the money. A few days later the doctor called and was asking me about updates and I told her I was still in pain but I tried to go back to see if I can fix the statement and just get it looked at after seeing a lawyer and she said she knew my wound was from something else and understood saying she's been in the same situation and I should head to the ER when I can which I did and they found some issues but to go back to them when  [...]
+
+EXAMPLE 21:
+This is probably one of the most frustrating, embarrassing situations I've ever dealt with in my life and that says something, I try to be a positive figure to a lot of people I'm surrounded by but nothing has made this better currently and a certain family member has made me resent my existence, I'm glad I don't own a g** cuz I would've blown my own brains out dealing with all this. I'm so overwhelmed and confused I really don't think I can do this and need more help socially navigating through everything I wanna break down cuz I'm heartbroken by all of this
+You would be surprised how skittis [...]
+
+EXAMPLE 22:
+I did go to the ER not too long ago but I'm still confused on everything, only reason I haven't been consulting my lawyer is because my anxiety has gone through the roof and it's so hard to confront and even process a lot of this.
+
+EXAMPLE 23:
+The doctor knew my story was off but I didn't have money to get it looked and I had no clue how to go about things so she took some notes and advised me to come back if it got worse
+
+EXAMPLE 24:
+I was advised by my mom to probably cut ever going to that facility ever again but I was really hoping to talk to someone to see if I can fix this. I seen their Google reviews are regularly updated and responded to publicly within a day so I'm wondering if I should write about being falsely advised to lie and then giving information later messing up my case to see if they'll attempt to fix things cuz I'm not doing well at all since and I'm kinda going absolutely crazy This doesn't make any sense.
+
+EXAMPLE 25:
+I fucked up legally and it's putting me breaking point I got into a car accident a month ago and had a huge wound but the stress from it being a family car and my dealing with the cops trying to falsely arrest me from the incident had me paranoid and I already suffer from anxiety.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,98 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: plan, deductible, marketplace, cobra, employer, marketplace plans, coverage
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I'm leaving employment, where I have coverage through the state-employee plan (Anthem "CovaCare", which is for VA).  I won't be eligible for Medicare for several more years.
+
+EXAMPLE 2:
+Certainly I have individual circumstances.  I guess my distilled question is “do marketplace plans tend to be similar to employer-based plans, st the same nominal price?”.
+I definitely think someone from VA needs to answer this. I work in healthcare and deal with insurance a lot. In Texas the marketplace plans are junk compared to the employer plans and here’s why. Gosh forbid you or a family member have something catastrophic that happens to you medically, the Marketplace plans lack post acute benefits. [...]
+
+EXAMPLE 3:
+Quality of marketplace plans vs (good) employer-plans?  (Anthem CovaCare vs Healthkeepers) I'm asking specific to Virginia (US), but bigger perspective could be nice too:
+
+EXAMPLE 4:
+But before committing to a big change (I can't go back to the employer plan once I pass up the opportunity), I wanted to check if people felt happy with their gold-tier marketplace plans, and maybe even specifically if they've noticed differences between the specific plans (CovaCare vs Healthkeepers).
+
+EXAMPLE 5:
+Choosing level of healthcare coverage I’m located in the US. I just started a new job and need to sign up for benefits
+
+EXAMPLE 6:
+If you ask me I’d say get a different employer that offers better benefits. I only pay $600 a year.
+Yeah, while employed, my employer paid for most of that healthcare plan!  Upon leaving, I have the *option* of keeping that plan, but won’t have an employer picking up most of the tab any more.
+
+EXAMPLE 7:
+The state plan has been good, and we are happy with it.  I have the option of paying to keep it (about $13k/yr for my family of 3), or going to the marketplace.  There, I see another Anthem plan "Healthkeepers" (gold tier), whose *nominal* cost is also about $13k/yr, BUT with the tax credits (due to our reduced income) it will be about a quarter of that.
+
+EXAMPLE 8:
+For myself personally, I recently decided to stop paying for the high premium plan as I do not use healthcare as frequently as the cost of the premium. Granted- my “high deductible” health plan is only 2,000. I’m building up an HSA account that also reduces my taxable income. I can use those funds for other eligible items at the grocery store like allergy meds - only take 1 rx drug and OTC allergy meds daily - which are considerably expensive. I have resources in case of any emergency but actively live a lifestyle that mitigates any unexpected health issues. It works for me. [...]
+
+EXAMPLE 9:
+The deductible waived options seem enticing but questionable in the long term and depends on the consumer.
+
+EXAMPLE 10:
+How many times a - month - am I consuming any healthcare? What would my cost share be between all of the options?
+
+EXAMPLE 11:
+It depends on the specifics. How much is the premium per month for each plan and how much is the deductible? How much is your company contributing to your HSA? Does your plan year restart in Jan? Do you expect the surgery to cost so much that you’ll hit your out of pocket maximum?
+
+EXAMPLE 12:
+Normally, I would sign up for the high deductible health plan so that I can contribute to the HSA. This year, I’m expecting that I may need more healthcare than usual because I might need a minor surgery.
+
+EXAMPLE 13:
+I know i will need it but damn it sucks loosing almost 10% a year on payments to insurance i dont even use.
+
+EXAMPLE 14:
+I can confirm that both plans cover our biggest medicine costs (incl. my T2 diabetes), and our current doctors (perhaps because both plans are through Anthem).  (I am finding it kinda surprisingly difficult to get a nice clean *list* of what procedures and medicines a plan covers what portions of, beyond just copays and deductibles.)
+
+EXAMPLE 15:
+Simple calculation to compare the two plans would just be: yearly total premium + out of pocket max. That’s the maximum you’ll ever pay for healthcare.
+A moderate or minor need to utilize the plans benefits may not math out to support the change. Now, if you developed a chronic condition or something that causes high usage of the benefits, the math might justify the change. Use the formula the other posted.  😉
+If it was me, I would still pick the HDHP with the HSA that you hopefully have grown over time
+
+EXAMPLE 16:
+Can someone break down what these tiers means and if i can get better/cheaper insurance in NY? An investment in health insurance should only be made personally or with the assistance of an ethical qualified professional.
+
+EXAMPLE 17:
+Help with NY insurance. I make OK money in HCOL area and have been blindly accepting my employers insurance over the last decade. I usually take bronze but have been using silver recently for no apparent reason besides making more money and wanting to protect myself but i cant help thinking Is the extra 2600/yr worth being a healthy 36M and not having to use any sort of medical care in the last 15 years?
+
+EXAMPLE 18:
+I would sign up for a PPO plan, but I think I recall hearing that it all sort of levels out? For example, let’s say you’re expecting to have surgery. If you have a high deductible plan, you would pay more out-of-pocket for the deductible. However, with a PPO plan, you pay higher premiums … so it all ends up being pretty much even in terms of cost?
+
+EXAMPLE 19:
+Any feedback appreciated very much! The question you pose could have 20 different answers. This is a personal finance decision and significant investment.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

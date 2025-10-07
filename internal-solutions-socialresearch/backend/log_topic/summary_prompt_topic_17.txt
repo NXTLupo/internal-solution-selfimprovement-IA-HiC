@@ -1,0 +1,82 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: obamacare, republicans, democrats, trump, affordable care act, affordable care, care act
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+For those who followed the debate over the Affordable Care Act when it was still in its infancy, there were plenty of substantive challenges surrounding overhauling the nation’s health care infrastructure. But there was also a political problem: The reform law known as “Obamacare” was not at all popular at the time.
+
+EXAMPLE 2:
+As the ACA’s popularity reaches new heights, Republicans explore new ways to gut it  **From Steve Benen, producer for “The Rachel Maddow Show”:**
+
+EXAMPLE 3:
+Twelve years later, health care policy has led to another shutdown, but the circumstances are largely reversed: In 2025, unlike in 2013, it’s Democrats who are fighting to protect the ACA from a Republican majority that’s already taken steps to sabotage the system known as Obamacare, and Republicans are prepared to make things worse by allowing new price hikes to take effect in the coming weeks.
+The United States is bankrupt . [...]
+
+EXAMPLE 4:
+Despite campaign promises, White House eyes new changes to Social Security and Medicare  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
+
+EXAMPLE 5:
+Read more: [https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073](https://www.msnbc.com/rachel-maddow-show/maddowblog/obamacare-popularity-republicans-cuts-aca-rcna215073)
+
+EXAMPLE 6:
+About a decade ago, Donald Trump stressed one specific point as a way of differentiating himself from his adopted political party. “I’m not going to cut Social Security like every other Republican, and I’m not going to cut Medicare or Medicaid,” Trump declared in 2015. “Every other Republican’s going to cut, and even if they wouldn’t, they don’t know what to do because they don’t know where the money is. I do. I do.”
+
+EXAMPLE 7:
+‘We could come up with a new system’: On the ACA, Trump has an unintentionally funny line  **From Steve Benen, editor of MaddowBlog and producer for "The Rachel Maddow Show”:**
+
+EXAMPLE 8:
+Exactly 12 years ago, congressional Republicans followed Sen. Ted Cruz’s lead and shut down the federal government for one reason: health care. At the time, the Texas senator and his colleagues believed a shutdown offered one last opportunity to derail the Affordable Care Act before it was fully implemented.
+
+EXAMPLE 9:
+Nevertheless, as Trump tried to return to power last year, he again declared: “I will never do anything that will jeopardize or hurt Social Security or Medicare. We’ll have to do it elsewhere. But we’re not going to do anything to hurt them.”
+>But we’re not going to do anything to hurt them.”
+
+EXAMPLE 10:
+Once in office, that didn’t quite work out. As a Washington Post report summarized in 2023, “His avowed stance, however, is at odds with Trump’s own record as president: Each of his White House budget proposals included cuts to Social Security and Medicare programs.” (He also failed to figure out “where the money is.”)
+
+EXAMPLE 11:
+Not surprisingly, as the number of Americans with favorable views of the Affordable Care Act reaches new heights, unfavorable views have collapsed: Around this time 11 years ago, the KFF Health Tracking Poll found a 53% majority disliked the ACA. Now, that number has dropped to 30%, an all-time low.
+
+EXAMPLE 12:
+It was difficult to imagine 14 years ago that two-thirds of the public would express support for the ACA, but Democratic leaders who swore that its popularity would grow over time were correct.
+
+EXAMPLE 13:
+Two weeks later, after the Obama White House and congressional Democrats refused to pay Cruz’s ransom, GOP officials grudgingly accepted reality and retreated.
+
+EXAMPLE 14:
+Hmmm...noting that he understands that this will "hurt" them.   And he knows that many cannot afford to eat at McDonalds.
+it's good, but i think the article could be stronger if it put more into showing what Trumps says changed between his campaign for 45, and his campaign for 47.  It's too easy to 'defeat' this article by saying 'lots changed in 8 years'.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

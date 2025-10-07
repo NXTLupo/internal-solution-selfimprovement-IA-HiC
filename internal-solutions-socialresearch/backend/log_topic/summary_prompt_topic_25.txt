@@ -1,0 +1,67 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: frontiers, mercor, remote, healthcare, working, company provides, independently
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+If anyone is interested in outsourcing Healthcare Frontiers/Verification services for ACA, Medicaid, medicare, please let me know. We are currently having a team of 20 Experienced Frontiers working for multiple licensed insurance agents based in USA.
+
+EXAMPLE 2:
+Perfect Remote Work side gig Mercor is seeking expert evaluators to support a high-impact evaluation workflow in partnership with a leading AI research lab. This project focuses on the Healthcare domain, where you will assess agent-generated research reports related to medical trends, healthcare technologies, and industry best practices.
+
+EXAMPLE 3:
+Our tasks include but are not limited to:
+• Pre qualification 
+• Validation of current healthcare benefits 
+• Live Transfer to online agen/closures 
+• Scheduling appointments for discussions
+• Daily reports
+
+EXAMPLE 4:
+Does anyone know of a company that provides Elder Patient Health Advocates for hire? Does anyone know of a company that provides competent Elder Patient Health Advocates for hire?  I am a neighbor of a 76 yo with heart issues, who lives alone and has no support. Does anyone know of a company that provides patient advocacy for elders?  (Navigating insurance, filing claims, point of contact with providers and hospitals, pickup prescriptions, schedule appts, transport to appts, etc).  Anyone have experience with private patient advocates?
+
+EXAMPLE 5:
+We consider all qualified applicants without regard to legally protected characteristics and provide reasonable accommodations upon request. I make almost double your rate working in the outpatient setting as remote triage. I'll pass, thanks though.
+It’s really geared more towards someone trying to pick up some side-gig $
+
+EXAMPLE 6:
+Mercor is a San Francisco-based company that connects elite professionals with frontier AI research. Our backers include Benchmark, General Catalyst, Adam D’Angelo, Larry Summers, and Jack Dorsey.
+
+EXAMPLE 7:
+We have a fully Modern Setup with Experienced Frontiers ( Native Neutral american Accent) working Monday to Friday.
+
+EXAMPLE 8:
+We are looking for evaluators with a background in Healthcare, Medicine, Public Health, or related fields. This workflow is ideal for individuals who:
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

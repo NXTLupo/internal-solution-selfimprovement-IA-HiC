@@ -1,0 +1,52 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: abortion, meme, planned parenthood, woman, meme gen, gen ai, gen ai meme
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Judge blocks Trump from cutting off Planned Parenthood funding under "big, beautiful bill" [https://meme-gen.ai/meme/20250708054920\_437173](https://meme-gen.ai/meme/20250708054920_437173)
+
+EXAMPLE 2:
+FDA approves another generic abortion pill  'The only reason this routine approval is making headlines is because anti-abortion politicians have turned health care into a political battlefield."
+
+EXAMPLE 3:
+Exclusive: Pregnant Woman in Tennessee Denied PreNatal Care for Being Unmarried  “ The woman at the town hall explained that her representatives are not responsive to her questions, even as she repeatedly calls Sen. Marsha Blackburn. When she reached staff at Sen. Bill Hagerty’s office, they told her, “he’s not obligated to listen to his constituents.”
+
+EXAMPLE 4:
+A generic already exists, this is just another one. The only reason it's making news is because we have done a terrible job of health education in the US and the people trying to control women's reproductive choices are very loud about it.
+
+EXAMPLE 5:
+What do you think? Oh. My. Goodness... I am stealing this gif, this is too perfect! And I am here for this judge fighting the good fight but it's not over yet
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

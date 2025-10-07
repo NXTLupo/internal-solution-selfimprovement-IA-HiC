@@ -1,0 +1,14 @@
+Topic 4 - Content Sample
+Number of content items: 25
+Top words: records, medical, patient, mychart, office, portal, appointment
+
+Content 1 (length: 309 chars):
+Thanks for your thoughts. Go to the hospital and do a formal records request. They have to do it within a reasonable amount of time legally and you will see everything on the portal including doctors notes and even some things not available on MyChart. The records office should be able to help you with that.
+
+Content 2 (length: 130 chars):
+May 15:
+	•	Called Simply Healthcare and was told I would need a referral and possibly prior authorization to go to a hospital lab.
+
+Content 3 (length: 272 chars):
+Edit: records from most hospitals in the US  today (not all obviously) should be able to help get your request fulfilled within a few days (a lot are same day depending on where you are). I know it’s not ideal, but it is an option and generally just a simple form request.
+

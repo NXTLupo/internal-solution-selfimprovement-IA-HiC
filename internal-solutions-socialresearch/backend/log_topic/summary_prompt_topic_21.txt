@@ -1,0 +1,59 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: trump, drug, price, president, drug prices, big pharma, albert
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+The Dream of Lowering Drug Prices in America: How the Power Elite Performs Democratic Opposition A while back [I wrote about the price of breathing and noted that Treleg](https://jacoblstump.substack.com/p/the-price-of-breathing-how-corporate)y, a drug that treats the symptoms of COPD, costs $800 per month in the US and the equivalent made by the same company, but sold in Egypt, costs $10 per month.  
+  
+Lucky day!
+
+EXAMPLE 2:
+[President Trump sent handwritten letters to pharmaceutical executives](https://www.nytimes.com/2025/07/31/health/drug-prices-trump.html), demanding they slash drug prices by September or face unspecified consequences. Trump scribbled out last names to address the CEOs by their first names: "Albert," "David," and "Len".
+
+EXAMPLE 3:
+One day later, that same ["Albert"—Pfizer CEO Albert Bourla—attended a $25 million fundraiser at Trump's golf club](https://www.cbsnews.com/news/pfizer-ceo-albert-bourla-trump-golf-club-drug-price-cuts-sources-say/).
+
+EXAMPLE 4:
+Pfizer CEO attending $25 million fundraiser at Trump's golf club after president demands drug price cuts, sources say  He will return with orange tinge around his mouth.
+Don't hate the player, hate the game.
+We should be paying attention to all of the healthcare CEOs and leadership teams, industry PACs that are bending a knee. He's not the only one.
+
+EXAMPLE 5:
+This California bill weakens PBMs and helps drugmakers. Why is nobody talking about it? [https://prescottenews.com/2025/08/13/big-pharma-puts-profits-over-president-trumps-agenda-inside-sources/](https://prescottenews.com/2025/08/13/big-pharma-puts-profits-over-president-trumps-agenda-inside-sources/) You got a source that isn’t absolutely laden with propaganda? I bet it might shed some light.
+
+EXAMPLE 6:
+This sequence, threaten and then accept payment, exposes not democratic failure, but democratic theater serving what [C. Wright Mills identified as the "power elite"](https://www.google.com/books/edition/The_Power_Elite/J1ISDAAAQBAJ?hl=en&gbpv=1&printsec=frontcover)—the interconnected network of corporate, political, and military leaders whose interests coincide despite apparent opposition.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

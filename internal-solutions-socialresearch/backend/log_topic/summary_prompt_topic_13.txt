@@ -1,0 +1,72 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: cdc, vaccine, covid, agency, employees, cdc director, covid 19
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
+
+EXAMPLE 2:
+“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. [...]
+
+EXAMPLE 3:
+“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
+
+EXAMPLE 4:
+“This was, in one sense, the first attack of its kind on the CDC,” Landman writes. “The shooter, whom law-enforcement officials have identified as Patrick Joseph White, a 30-year-old resident of an Atlanta suburb, was reportedly fixated on the idea that the COVID-19 vaccine had made him depressed and suicidal. No employees were injured by the bullets that entered the buildings, according to a CDC representative. But an Atlanta police officer named David Rose was shot and later died from his injuries. White, too, was found dead—fatally shot—at the scene. [...]
+
+EXAMPLE 5:
+“In another sense, public-health workers have been facing escalating hostility since the early days of the coronavirus pandemic. In 2020, armed protesters gathered on the Ohio Health Department director’s front lawn, and the chief health officer of Orange County, California, was met with death threats after issuing a mask mandate. She had to hire extra security and was eventually driven to resign. Anthony Fauci, who served as the director of the National Institute of Allergy and Infectious Diseases during the country’s initial COVID response, has faced regular death threats since 2020. [...]
+
+EXAMPLE 6:
+“...In the hours immediately after the shooting, while many CDC employees remained barricaded in offices and marooned in conference rooms, they heard nothing from Robert F. Kennedy Jr. or President Trump,” Landman continues. In the following days, CDC employees have received statements from Susan Monarez, the newly confirmed CDC director, and Kennedy. (The White House and HHS did not respond to requests for comment.)
+
+EXAMPLE 7:
+‘I’m Actually Surprised It Didn’t Happen Sooner’  “When gunfire pelted the Atlanta-based headquarters of the CDC yesterday, hundreds of employees were inside the campus’s buildings,” Keren Landman, journalist and physician trained in infectious diseases, writes. “The experience was terrifying. But some of the employees were not particularly shocked. ‘I’m actually surprised it didn’t happen sooner,’ a nearly 20-year veteran of the agency told me. (She, like others I spoke with for this article, requested anonymity out of fear of losing her job.)”
+
+EXAMPLE 8:
+“The reality of what’s unfolding inside the CDC is more complicated than widespread meddling, according to the employees I spoke with. And that makes navigating the information coming out of the agency even more of a challenge for everyone on the outside.”
+
+EXAMPLE 9:
+US pediatricians' new COVID-19 shot recommendations differ from CDC advice  Duh. Because wormbrian is running the CDC and the official advice from the Trump CDC/HHS is "let the kids die. It'll build character among the survivors."
+
+EXAMPLE 10:
+No one should be listening to the CDC or HHS right now.
+>US pediatricians' new COVID-19 shot recommendations differ from CDC advice
+
+EXAMPLE 11:
+Found out the VA probably won't get the new Covid booster until October.
+Good.  Listen to doctors with free will and access to science.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

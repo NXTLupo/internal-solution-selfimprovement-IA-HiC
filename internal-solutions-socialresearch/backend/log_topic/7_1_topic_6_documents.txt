@@ -1,0 +1,29 @@
+Documents for Topic 6 (showing first 3):
+
+Document 1:
+One medical bill for new customer visit My recent visit to one medical they posted a "new patient office" bill of $218 (insurance has not helped much). The doctor only checked basic stuff and in the end suggested me an OTC medicine. 
+
+Is this a normal amount? I find it too high. 
+
+Any way I can contest it?  
+ Was this a virtual visit or an actual face to face?
+Face to face
+Why did you seek a professional service if you weren’t prepared to pay for the service?
+
+It doesn’t matter whether or not yo...
+
+Document 2:
+Why would charges be reversed but not payments? I’m looking at the healthcare claims data for a client of ours, and I look at the appointment, in the charge data, and I see a reversal happening, but when I look at the corresponding collections data, the payment is not being reversed. I look at the task details and it just says ‘claim voided’ or something, like it would be either billing the wrong insurance so a refund needs to be provided, but there is reversal of the payment hitting the books. ...
+
+Document 3:
+Received bills from a lab dating Feb 2024, but statement date is August 2025. Do I pay? I received four bills all at once from a med lab. They back billed me four charges for four drug tests. I take these tests at my physician's office for my mental disability medication, so I thought it was included in my office visit bill.
+
+The bills are dated:
+
+* February 2024
+* June 2024
+* September 2024
+* April 2025
+
+Each of them are the same CPT codes but are varying costs. How should I go about this? I ca...
+

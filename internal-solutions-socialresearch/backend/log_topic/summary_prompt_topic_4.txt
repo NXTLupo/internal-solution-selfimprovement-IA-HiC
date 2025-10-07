@@ -1,0 +1,131 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: records, medical, patient, mychart, office, portal, appointment
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Thanks for your thoughts. Go to the hospital and do a formal records request. They have to do it within a reasonable amount of time legally and you will see everything on the portal including doctors notes and even some things not available on MyChart. The records office should be able to help you with that.
+
+EXAMPLE 2:
+May 15:
+	•	Called Simply Healthcare and was told I would need a referral and possibly prior authorization to go to a hospital lab.
+
+EXAMPLE 3:
+Edit: records from most hospitals in the US  today (not all obviously) should be able to help get your request fulfilled within a few days (a lot are same day depending on where you are). I know it’s not ideal, but it is an option and generally just a simple form request.
+
+EXAMPLE 4:
+We respect and understand hospital staff is very busy and doesn't have time to give every little detail of what's going on--and family wants and needs  to know. That's why the portal is helpful to everyone.
+
+EXAMPLE 5:
+Wrong information in MyChart medical records So without getting too personal my wife has a very important procedure coming up. She got a call to answer the typical pre-op questions. When they got to the drug use section the nurse says it says here that you quit the use of heroin and cocaine 2 weeks ago. Which shocked us both she has never touched either.
+
+EXAMPLE 6:
+Later June 2:
+	•	I called the hospital lab myself.
+	•	They said they never received a fax.
+	•	Confirmed I do need a referral, and that it must be submitted before walking in.
+
+EXAMPLE 7:
+NOTE: I'm Mom's DPOA and medical proxy--designated person to access all medical info.  
+ALSO: I signed into my own portal account and it was just fine--so not a system issue.
+
+EXAMPLE 8:
+This is unfortunate but it happens. Typically it's not a big deal to clear up.
+You have the right to request it. You don't have the right to amend your records. To answer the OP question of how this happens, just like many complicated applications, medical records and be confusing and sometimes a misclick or typing in the wrong box when you think you are typing in a different box can add a diagnosis code to your record. Once it's there, it is part of the medical history. Reach out and explain to medical records, hopefully someone can remove it.
+
+EXAMPLE 9:
+May 27:
+	•	Got a callback. I re-explained everything. Receptionist put me on hold, then said they had faxed the lab paperwork to the hospital lab and that the hospital would call me.
+
+EXAMPLE 10:
+https://www.hhs.gov/hipaa/for-individuals/medical-records/index.html
+This is the correct answer. Request an amendment. Contact the facilities medical records department/HIM and tell them you'd like to request an amendment. Fill out and submit any form you get. They will either make the amendment or deny and keep the amendment request and denial in your record.
+
+EXAMPLE 11:
+Ideally the patients advocate office can get your portal access back, but know you do have that option and they can’t legally stop you.
+
+EXAMPLE 12:
+The receptionist on the 27th put me on hold after I explained all of this and came back saying they’d faxed it and that the hospital would call me, which never happened. Turns out, the hospital never got anything, and they confirmed (again) that I can’t just walk in — I absolutely need a referral submitted in advance. It’s been so frustrating feeling like I’ve been super clear, but still getting nowhere.
+
+EXAMPLE 13:
+Sorry, getting ready to head out or would answer more. Good luck! Hopefully tech support can just get your portal access back.
+There is only I issue I can see where there is a valid refusal to reactivate the account. The POA may not extend to the portal access.  Many companies that hold PHI have stricter rules around accessing online protected information.  You still have access to all the paper copies you want through conversation and HIPAA compliant medical records requests, but maybe not through the patient online portal.
+This is absolutely the case here. [...]
+
+EXAMPLE 14:
+Also---I called the patient advocate's office. My SIL said I could request for now to discuss general concerns anonymously, and I left voicemail to that effect, but when the Advocate called back she said my name. I mentioned I had intentionally not said my name--as I had articulated in my voicemail---and she said "I looked you up. You're in the hospital system and that's how I know it was you."  I gave her high level run thru of concerns and asked that she NOT discuss with the case manager but speak with my Mom directly--but it was not 20 minutes after that call that the portal got deactivated [...]
+
+EXAMPLE 15:
+I work in a dermatology office in MA, and this wouldn't slide at our clinic. People make mistakes, but things like this need to be addressed. I think you would be justified in asking to speak with a clinic manager and explaining the situation so this doesn't happen again. Speaking with a clinic manager might help get things moving as well. Just try to remain polite and factual. If they're reasonable, then this should be addressed.
+Thank you so much for taking the time to read the whole post — I seriously appreciate it. [...]
+
+EXAMPLE 16:
+I guess my question is how does something like this happen, does this happen often and what’s the best way to get this fixed? Under HIPAA, you have the right to amend your medical records.  Per HHS, "If you think the information in your medical or billing record is incorrect, you can request a change, or amendment, to your record. The health care provider or health plan must respond to your request. If it created the information, it must amend inaccurate or incomplete information. [...]
+
+EXAMPLE 17:
+Elderly Mom in hospital for 3 weeks. I'm point person for large extended family--which includes NPs, nurses, docs, etc. I've provided updates on care, labs, clinical visits, discharge. Case mgr learned I was assessing her chart and suddenly Mom's portal was deactivated. How can we get it reinstated? **\*\*\*\*SOLVED\*\*\*\*Technical assistance confirmed the case manager de-activated my Mom's account**. **Portal has been reactivated for Mom (who was also accessing it herself--not just me). I have received access via my own portal account---as her legal proxy.**
+
+EXAMPLE 18:
+I think you’re right — I may need to ask to speak directly with a clinic manager. I’ve been trying not to come off as “difficult,” but at this point, it feels like I’ve done all I can on my end. Thank you again — just hearing that this wouldn’t fly at your office helps me feel a little less crazy.
+I see Simply Healthcare is an HMO.  If I recall correctly with HMOs, your primary care provider has to submit the referral.  Ask your primary provider for a referral and see if that moves things along.  The back and forth is frustrating with Accutane.
+
+EXAMPLE 19:
+June 2:
+	•	Received a voicemail from the derm office:
+	•	Claimed the original lab paperwork was “tentative”
+	•	Said they thought I already had labs done
+	•	Told me the hospital lab is “walk-in” and I can just go with the paper in hand
+	•	No mention of referral or prior auth — despite me stating that in multiple voicemails and directly during the May 27 call
+
+EXAMPLE 20:
+At this point, I’m exhausted. It’s not a refusal to comply on my part — it’s their refusal to help facilitate a workaround. And the worst part? I still have no idea if they’ve actually submitted the prior authorization or if they ever plan to call me back. I plan to go to the dermatologist office in person tomorrow. 
+ Your derm should be taking this more seriously, considering you're a month without meds at this point. I would call again and explain that the hospital lab needs the lab orders faxed directly to them and won't accept walk-in paperwork. [...]
+
+EXAMPLE 21:
+It’s now been nearly a month since I first requested this — I’ve been out of medication, despite doing everything in my power to meet their requirements. I’ve attempted multiple blood draws (they’ve noted my difficult veins in my chart), got exact instructions from my insurance, and even tried helping them with what to fax.
+
+EXAMPLE 22:
+After more back-and-forth today, I finally got a call from the dermatologist’s office — they claimed they had now faxed the referral to the hospital lab. Then called me back immediately and said yeah they said they don’t accept your insurance and you need to go to Labcorp. I said no I just spoke to them yesterday and they said they need a referral and possible prior authorization. The receptionist then told me “idk what to say you need to call your insurance we can’t send this med without the labs!!”
+
+EXAMPLE 23:
+So I reached back out to my insurance (Simply Healthcare/Medicaid), and they confirmed exactly what I was originally told: LabCorp is the only in-network lab, but if my provider sends a prior authorization, I can go to the hospital lab.
+
+EXAMPLE 24:
+Derm office delaying Accutane prescription due to their own miscommunication — stuck due to Medicaid limits. Is this normal? ** (Incoming wall of text — but if anyone can skim or read through it, I’d be forever grateful.) **
+
+EXAMPLE 25:
+TL;DR:
+My Accutane treatment has stalled because my bloodwork hemolyzed, and my dermatologist’s office keeps failing to send the referral I need for a hospital lab. I’ve contacted insurance, attempted multiple blood draws, and left several voicemails explaining everything clearly. The office either hasn’t listened or is miscommunicating internally. I’m out of meds, and I feel trapped since this is the only derm that takes my Medicaid. Is this normal? What should I do next?
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

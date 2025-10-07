@@ -1,0 +1,13 @@
+Topic 16 - Content Sample
+Number of content items: 25
+Top words: insurance, pay, car, company, urgent care, claims, car accident
+
+Content 1 (length: 272 chars):
+Insurance doesn't just cut you off because you had a car accident.  Insurance can deny covering a claim because there may be liability coverage involved.  But that's when the other person or your own car insurance may come into play if you have any medical benefits there.
+
+Content 2 (length: 312 chars):
+When I finally went to urgent care to get it looked at the lady at the front desk told me that I would pay out of pocket to get it looked at because they don't take insurance for car accidents and I had $20 which wasn't enough and then she advised me to just lie about how I got hurt so I could get it looked at.
+
+Content 3 (length: 190 chars):
+Your care isn't dependent on whether you were in a car accident or not.  The doctor doesn't care.  If you have a hole in your leg, they're going to treat the hole, not the cause of the hole.
+

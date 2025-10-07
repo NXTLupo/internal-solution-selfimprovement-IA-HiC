@@ -1,0 +1,5955 @@
+{
+  "total_documents": 655,
+  "total_topics": 29,
+  "topics": {
+    "positive": {
+      "count": 0,
+      "topics": []
+    },
+    "negative": {
+      "count": 12,
+      "topics": [
+        {
+          "id": 1,
+          "count": 60,
+          "score": -0.48115807056090254,
+          "engagement": {
+            "post_count": 60,
+            "total_comments": 265,
+            "total_score": 1175,
+            "avg_comments_per_post": 4.416666666666667,
+            "avg_score_per_post": 19.583333333333332
+          },
+          "terms": [
+            {
+              "term": "healthcare",
+              "weight": 0.01739924677248041
+            },
+            {
+              "term": "insurance",
+              "weight": 0.015141735675404265
+            },
+            {
+              "term": "care",
+              "weight": 0.0105592712682215
+            },
+            {
+              "term": "costs",
+              "weight": 0.007875334584678265
+            },
+            {
+              "term": "companies",
+              "weight": 0.006652935595218788
+            },
+            {
+              "term": "private",
+              "weight": 0.006305068209272647
+            },
+            {
+              "term": "countries",
+              "weight": 0.0061864925839217174
+            },
+            {
+              "term": "year",
+              "weight": 0.005951712901227803
+            }
+          ],
+          "post_ids": [
+            "1nyrv76",
+            "1nx04fd",
+            "1ny4cwa",
+            "1nwi6jt",
+            "1nm0qfl",
+            "1nlnu5t",
+            "1ni8rs2",
+            "1nbr9wo",
+            "1nflfez",
+            "1ndp61b",
+            "1n95n7q",
+            "1n8j5cb",
+            "1n50tqk",
+            "1n20478",
+            "1n29lga",
+            "1mybmik",
+            "1mxmuka",
+            "1mx0da1",
+            "1mwkvsr",
+            "1mvkz45",
+            "1mvsmbo",
+            "1muwo3m",
+            "1muf4nm",
+            "1mttz24",
+            "1mpw5s2",
+            "1moh641",
+            "1mkavyb",
+            "1mk094s",
+            "1mir87k",
+            "1mio1tg",
+            "1mhta5n",
+            "1mi2gqy",
+            "1mfhyic",
+            "1meu8t9",
+            "1mccxy3",
+            "1m9fmmy",
+            "1m7ihmy",
+            "1m86z8b",
+            "1m7j360",
+            "1m7llwl",
+            "1m6jvzv",
+            "1m6iucq",
+            "1m6ux1i",
+            "1m445x0",
+            "1m0qgyo",
+            "1lzines",
+            "1lz3joc",
+            "1lvkr8j",
+            "1luk7lz",
+            "1lvay8r",
+            "1lu9bqw",
+            "1ltoaxl",
+            "1lsaupz",
+            "1lso81h",
+            "1lq8trg",
+            "1lnv7pv",
+            "1lnkbja",
+            "1lhd6g8",
+            "1lbauyx",
+            "1l921j0"
+          ],
+          "post_sentiments": {
+            "1nyrv76": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5442922413349152
+            },
+            "1nx04fd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.446240762869517
+            },
+            "1ny4cwa": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9315983653068542
+            },
+            "1nwi6jt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.46172165870666504
+            },
+            "1nm0qfl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.722528487443924
+            },
+            "1nlnu5t": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9091016054153442
+            },
+            "1ni8rs2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nbr9wo": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.26101425290107727
+            },
+            "1nflfez": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7557347416877747
+            },
+            "1ndp61b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.578200101852417
+            },
+            "1n95n7q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8713170886039734
+            },
+            "1n8j5cb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7451109886169434
+            },
+            "1n50tqk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n20478": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.39192888140678406
+            },
+            "1n29lga": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7193854451179504
+            },
+            "1mybmik": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6025653183460236
+            },
+            "1mxmuka": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4743647277355194
+            },
+            "1mx0da1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.675118088722229
+            },
+            "1mwkvsr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.32487741112709045
+            },
+            "1mvkz45": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8109616041183472
+            },
+            "1mvsmbo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6874390244483948
+            },
+            "1muwo3m": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8527806401252747
+            },
+            "1muf4nm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.512846827507019
+            },
+            "1mttz24": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6010240912437439
+            },
+            "1mpw5s2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.780584454536438
+            },
+            "1moh641": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mkavyb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7114757001399994
+            },
+            "1mk094s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6099537014961243
+            },
+            "1mir87k": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3061440587043762
+            },
+            "1mio1tg": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mhta5n": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3868715465068817
+            },
+            "1mi2gqy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8805825114250183
+            },
+            "1mfhyic": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.29890112578868866
+            },
+            "1meu8t9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.45787081122398376
+            },
+            "1mccxy3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.08348140120506287
+            },
+            "1m9fmmy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6236708760261536
+            },
+            "1m7ihmy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5478577017784119
+            },
+            "1m86z8b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8546180725097656
+            },
+            "1m7j360": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8594064712524414
+            },
+            "1m7llwl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44060882925987244
+            },
+            "1m6jvzv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4953824083010356
+            },
+            "1m6iucq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6492782831192017
+            },
+            "1m6ux1i": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m445x0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5505647212266922
+            },
+            "1m0qgyo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8567734956741333
+            },
+            "1lzines": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5304906368255615
+            },
+            "1lz3joc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9063982367515564
+            },
+            "1lvkr8j": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.48214906454086304
+            },
+            "1luk7lz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3590056747198105
+            },
+            "1lvay8r": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.2246311604976654
+            },
+            "1lu9bqw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7414502700169882
+            },
+            "1ltoaxl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5994163751602173
+            },
+            "1lsaupz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9343542456626892
+            },
+            "1lso81h": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3023753762245178
+            },
+            "1lq8trg": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lnv7pv": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5447341203689575
+            },
+            "1lnkbja": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lhd6g8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7376357316970825
+            },
+            "1lbauyx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6426829695701599
+            },
+            "1l921j0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6749287247657776
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses comprehensive discussions about healthcare systems, insurance coverage, and medical costs, with particular focus on the challenges and complexities of healthcare financing. The conversations reveal widespread concerns about the affordability and accessibility of medical care, examining how insurance companies, healthcare providers, and patients navigate complex coverage policies and cost structures. Key themes include the financial burden of medical expenses on individuals and families, the role of private insurance companies in determining coverage and costs, and comparative analyses of healthcare systems across different countries. The discussions highlight systemic issues such as claim denials, out-of-network charges, medical billing processes, and the gap between insurance coverage promises and actual patient experiences. Participants share experiences with medical debt, insurance policy limitations, and the administrative complexities that healthcare providers face when working with insurance companies. The topic also addresses broader healthcare industry trends, including private equity involvement in healthcare facilities and the economic sustainability of current healthcare spending patterns. Specific examples include discussions of Blue Cross Blue Shield policies, medical debt cases exceeding hundreds of thousands of dollars, and comparative healthcare spending data showing significantly higher costs in certain healthcare systems compared to international peers.",
+          "short_summary": "Healthcare insurance costs",
+          "one_sentence_summary": "Discussions focus on healthcare system challenges, insurance coverage complexities, medical costs, and the financial burden of healthcare on patients and providers."
+        },
+        {
+          "id": 2,
+          "count": 26,
+          "score": -0.30968337601576096,
+          "engagement": {
+            "post_count": 26,
+            "total_comments": 102,
+            "total_score": 580,
+            "avg_comments_per_post": 3.923076923076923,
+            "avg_score_per_post": 22.307692307692307
+          },
+          "terms": [
+            {
+              "term": "insurance",
+              "weight": 0.02460990086522806
+            },
+            {
+              "term": "health insurance",
+              "weight": 0.014765060789909776
+            },
+            {
+              "term": "income",
+              "weight": 0.013651305897471037
+            },
+            {
+              "term": "medicaid",
+              "weight": 0.01261663013525633
+            },
+            {
+              "term": "qualify",
+              "weight": 0.011616079983664375
+            },
+            {
+              "term": "job",
+              "weight": 0.01071750616104759
+            },
+            {
+              "term": "plan",
+              "weight": 0.010596507319327184
+            },
+            {
+              "term": "state",
+              "weight": 0.009343609078632919
+            },
+            {
+              "term": "coverage",
+              "weight": 0.008853978659863464
+            }
+          ],
+          "post_ids": [
+            "1nu64fv",
+            "1ntm85h",
+            "1nso8bq",
+            "1nqwwgc",
+            "1nomkcx",
+            "1np01on",
+            "1nml4xn",
+            "1nd565e",
+            "1nd5qie",
+            "1n7m3x6",
+            "1my1pga",
+            "1mwfvzh",
+            "1msc015",
+            "1mrhhp7",
+            "1mkj5z2",
+            "1mkinnk",
+            "1me9p54",
+            "1m8oqxi",
+            "1m77vgz",
+            "1m35t8x",
+            "1lw08mq",
+            "1lssurv",
+            "1lsdr9i",
+            "1lkafbi",
+            "1lfujx5",
+            "1l18cw9"
+          ],
+          "post_sentiments": {
+            "1nu64fv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.648582398891449
+            },
+            "1ntm85h": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nso8bq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.25045308470726013
+            },
+            "1nqwwgc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5142595171928406
+            },
+            "1nomkcx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5118160843849182
+            },
+            "1np01on": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.24826589226722717
+            },
+            "1nml4xn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5496408343315125
+            },
+            "1nd565e": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.293741375207901
+            },
+            "1nd5qie": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5713791251182556
+            },
+            "1n7m3x6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1my1pga": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5095115303993225
+            },
+            "1mwfvzh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7062593698501587
+            },
+            "1msc015": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mrhhp7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.38065260648727417
+            },
+            "1mkj5z2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mkinnk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1me9p54": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.02578495939572652
+            },
+            "1m8oqxi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6893121600151062
+            },
+            "1m77vgz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5745363235473633
+            },
+            "1m35t8x": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lw08mq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4616653025150299
+            },
+            "1lssurv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.37208718061447144
+            },
+            "1lsdr9i": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lkafbi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6534149646759033
+            },
+            "1lfujx5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l18cw9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6428811550140381
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about navigating health insurance coverage challenges in the United States, particularly focusing on eligibility requirements and affordability barriers across different life circumstances. The conversations center around individuals struggling to qualify for government programs like Medicaid due to income thresholds, while simultaneously finding marketplace insurance plans financially prohibitive. Key concerns include transitioning between different types of coverage when life circumstances change, such as aging out of parental plans, immigration status changes, or employment transitions. The discussions frequently explore alternative pathways to obtaining affordable coverage, including seeking employment with companies known for providing subsidized health benefits, understanding marketplace subsidies based on income levels, and navigating the complex relationship between work hours, job types, and insurance eligibility. A significant portion of the discourse addresses the financial burden of medical expenses for those without adequate coverage, including strategies for managing hospital bills and understanding financial assistance programs. The topic also covers special circumstances such as temporary visitors dealing with medical emergencies and the limitations of travel insurance versus traditional health coverage.",
+          "short_summary": "Health insurance navigation",
+          "one_sentence_summary": "Discussions focus on navigating health insurance eligibility, affordability challenges, and coverage transitions across various life circumstances in the US healthcare system."
+        },
+        {
+          "id": 3,
+          "count": 26,
+          "score": -0.4995882245592582,
+          "engagement": {
+            "post_count": 26,
+            "total_comments": 113,
+            "total_score": 214,
+            "avg_comments_per_post": 4.346153846153846,
+            "avg_score_per_post": 8.23076923076923
+          },
+          "terms": [
+            {
+              "term": "doctor",
+              "weight": 0.016090502792240835
+            },
+            {
+              "term": "visit",
+              "weight": 0.011428779283608692
+            },
+            {
+              "term": "told",
+              "weight": 0.01070489456863296
+            },
+            {
+              "term": "pain",
+              "weight": 0.009898723485908891
+            },
+            {
+              "term": "pcp",
+              "weight": 0.009687673055550305
+            },
+            {
+              "term": "said",
+              "weight": 0.009538842516182016
+            },
+            {
+              "term": "appointment",
+              "weight": 0.009383478145057593
+            },
+            {
+              "term": "care",
+              "weight": 0.007635877627558974
+            },
+            {
+              "term": "patient",
+              "weight": 0.007245687071745456
+            },
+            {
+              "term": "primary",
+              "weight": 0.006953220045546763
+            }
+          ],
+          "post_ids": [
+            "1nzo8b4",
+            "1nzgtsu",
+            "1ny6rlr",
+            "1nv73uq",
+            "1nuhht3",
+            "1nqq04w",
+            "1nqa9h7",
+            "1njgdm1",
+            "1ninztq",
+            "1nhwlym",
+            "1nei4w3",
+            "1ndwgo0",
+            "1my08ck",
+            "1mtynvo",
+            "1m988vy",
+            "1m8qpdt",
+            "1m7bj6l",
+            "1m70s8w",
+            "1m5ouvr",
+            "1m280ie",
+            "1lvtgwi",
+            "1lp66xu",
+            "1lhk2id",
+            "1l76zbt",
+            "1l391ad",
+            "1l1ps8x"
+          ],
+          "post_sentiments": {
+            "1nzo8b4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2536323368549347
+            },
+            "1nzgtsu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7775741815567017
+            },
+            "1ny6rlr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8754221200942993
+            },
+            "1nv73uq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nuhht3": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.46888719002405804
+            },
+            "1nqq04w": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5480509996414185
+            },
+            "1nqa9h7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7569076418876648
+            },
+            "1njgdm1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.33013442158699036
+            },
+            "1ninztq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6011102795600891
+            },
+            "1nhwlym": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6091604232788086
+            },
+            "1nei4w3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.1610579490661621
+            },
+            "1ndwgo0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1my08ck": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7041711807250977
+            },
+            "1mtynvo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6902750134468079
+            },
+            "1m988vy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.29138392210006714
+            },
+            "1m8qpdt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3716405729452769
+            },
+            "1m7bj6l": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6909095048904419
+            },
+            "1m70s8w": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.47814807295799255
+            },
+            "1m5ouvr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8426259160041809
+            },
+            "1m280ie": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lvtgwi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7566632231076559
+            },
+            "1lp66xu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5217063426971436
+            },
+            "1lhk2id": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7454199492931366
+            },
+            "1l76zbt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4458955079317093
+            },
+            "1l391ad": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5957987904548645
+            },
+            "1l1ps8x": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7948341965675354
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about patient experiences with healthcare providers, focusing on medical appointments, treatment interactions, and healthcare system navigation. The conversations center around patient-doctor relationships, including visits with primary care physicians (PCPs), specialists, and other healthcare professionals where patients describe being told diagnoses, experiencing pain management issues, and receiving various forms of medical advice. A significant portion involves patients reporting concerns about inadequate care, documentation disputes, and communication breakdowns with healthcare providers. Many discussions involve patients seeking guidance on filing complaints through proper channels, reporting providers to licensing boards, and navigating healthcare system policies when treatment relationships deteriorate. The examples illustrate broader patterns of healthcare advocacy, patient rights regarding medical records and test results, and the complexities of switching between healthcare systems or providers when therapeutic relationships break down.",
+          "short_summary": "Healthcare provider experiences",
+          "one_sentence_summary": "Discussions focus on patient experiences with healthcare providers, medical appointments, and navigating healthcare system complaints and provider relationships."
+        },
+        {
+          "id": 4,
+          "count": 26,
+          "score": -0.5040660364887654,
+          "engagement": {
+            "post_count": 26,
+            "total_comments": 105,
+            "total_score": 144,
+            "avg_comments_per_post": 4.038461538461538,
+            "avg_score_per_post": 5.538461538461538
+          },
+          "terms": [
+            {
+              "term": "records",
+              "weight": 0.012941862335909477
+            },
+            {
+              "term": "medical",
+              "weight": 0.012805383122178535
+            },
+            {
+              "term": "patient",
+              "weight": 0.012686038827604993
+            },
+            {
+              "term": "mychart",
+              "weight": 0.011560143787106679
+            },
+            {
+              "term": "office",
+              "weight": 0.010531560020563626
+            },
+            {
+              "term": "portal",
+              "weight": 0.010016591181181181
+            },
+            {
+              "term": "appointment",
+              "weight": 0.009492293184113746
+            },
+            {
+              "term": "hospital",
+              "weight": 0.008872656722007006
+            },
+            {
+              "term": "lab",
+              "weight": 0.008160026650564258
+            },
+            {
+              "term": "information",
+              "weight": 0.007649110803696035
+            }
+          ],
+          "post_ids": [
+            "1o0ibpo",
+            "1nz4jkk",
+            "1nwt8a7",
+            "1nqnb9j",
+            "1nniujl",
+            "1njn7nw",
+            "1ndv23q",
+            "1n6p0ua",
+            "1n3j4ye",
+            "1n35mwf",
+            "1mmu12b",
+            "1mffbp7",
+            "1meijnj",
+            "1ma2opc",
+            "1m8s4xr",
+            "1m9e9i1",
+            "1m8rej4",
+            "1m4dkxr",
+            "1m0t8p1",
+            "1lr06ff",
+            "1lg5yto",
+            "1lc14ks",
+            "1la082u",
+            "1l5snzg",
+            "1l4ibwu",
+            "1l1lgbo"
+          ],
+          "post_sentiments": {
+            "1o0ibpo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7282457947731018
+            },
+            "1nz4jkk": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.673733115196228
+            },
+            "1nwt8a7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6448503732681274
+            },
+            "1nqnb9j": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8904287219047546
+            },
+            "1nniujl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.12714043259620667
+            },
+            "1njn7nw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9509363770484924
+            },
+            "1ndv23q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6177806258201599
+            },
+            "1n6p0ua": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9304949045181274
+            },
+            "1n3j4ye": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n35mwf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5706085562705994
+            },
+            "1mmu12b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9190145134925842
+            },
+            "1mffbp7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2953184247016907
+            },
+            "1meijnj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ma2opc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m8s4xr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.36118441820144653
+            },
+            "1m9e9i1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7466817498207092
+            },
+            "1m8rej4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m4dkxr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.211231529712677
+            },
+            "1m0t8p1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9636143445968628
+            },
+            "1lr06ff": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6716578006744385
+            },
+            "1lg5yto": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.674637496471405
+            },
+            "1lc14ks": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2765396535396576
+            },
+            "1la082u": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.455880065759023
+            },
+            "1l5snzg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8805298209190369
+            },
+            "1l4ibwu": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l1lgbo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5152082294225693
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about medical record management and patient portal access issues within healthcare systems. The conversations center around patients and their advocates navigating challenges with accessing, correcting, and managing medical records through digital portals like MyChart and traditional records offices. Key concerns include portal access being unexpectedly deactivated, incorrect information appearing in medical records, difficulties obtaining proper referrals and prior authorizations for procedures, and communication breakdowns between healthcare offices, insurance providers, and patients. The discussions reveal systemic issues with healthcare administration, including miscommunication between medical offices and labs, insurance coverage complications, and the complex processes required to amend medical records under HIPAA regulations. Participants share experiences with patient advocacy services, medical records departments, and the legal rights patients have to access and correct their health information. The conversations highlight the frustration patients experience when trying to coordinate care between multiple healthcare entities, particularly when dealing with insurance restrictions and administrative inefficiencies that can delay necessary medical treatments.",
+          "short_summary": "Medical records access",
+          "one_sentence_summary": "Discussions focus on patient experiences with medical record access, portal management issues, and administrative challenges in healthcare systems including record corrections and appointment coordination."
+        },
+        {
+          "id": 6,
+          "count": 21,
+          "score": -0.4464631809128655,
+          "engagement": {
+            "post_count": 21,
+            "total_comments": 89,
+            "total_score": 62,
+            "avg_comments_per_post": 4.238095238095238,
+            "avg_score_per_post": 2.9523809523809526
+          },
+          "terms": [
+            {
+              "term": "payment",
+              "weight": 0.017594737612451915
+            },
+            {
+              "term": "insurance",
+              "weight": 0.0163057741021843
+            },
+            {
+              "term": "pay",
+              "weight": 0.015347402258235061
+            },
+            {
+              "term": "visit",
+              "weight": 0.01369889620754748
+            },
+            {
+              "term": "collections",
+              "weight": 0.012057429744024722
+            },
+            {
+              "term": "payment plan",
+              "weight": 0.00952870787115163
+            },
+            {
+              "term": "test",
+              "weight": 0.009352272203517701
+            },
+            {
+              "term": "ask",
+              "weight": 0.009247624162492231
+            },
+            {
+              "term": "surgery",
+              "weight": 0.009121572021243257
+            }
+          ],
+          "post_ids": [
+            "1nwzm65",
+            "1ny2nuw",
+            "1nb9eup",
+            "1n67yqp",
+            "1n3cvdf",
+            "1n19xyy",
+            "1n089h8",
+            "1mr95zi",
+            "1m9klkr",
+            "1lx6913",
+            "1lr49xk",
+            "1llokvc",
+            "1lkbo37",
+            "1lgjk7h",
+            "1lg8zo5",
+            "1lef5pm",
+            "1lec9lp",
+            "1ldc7p7",
+            "1ld6dac",
+            "1l63tt6",
+            "1l4udwe"
+          ],
+          "post_sentiments": {
+            "1nwzm65": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7620302438735962
+            },
+            "1ny2nuw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nb9eup": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6515698432922363
+            },
+            "1n67yqp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5865827798843384
+            },
+            "1n3cvdf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.41300275921821594
+            },
+            "1n19xyy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5170694887638092
+            },
+            "1n089h8": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3752867877483368
+            },
+            "1mr95zi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6952816247940063
+            },
+            "1m9klkr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lx6913": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.721788227558136
+            },
+            "1lr49xk": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5551749467849731
+            },
+            "1llokvc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.652097076177597
+            },
+            "1lkbo37": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5792916814486185
+            },
+            "1lgjk7h": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lg8zo5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.590898871421814
+            },
+            "1lef5pm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.25703194737434387
+            },
+            "1lec9lp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5654473900794983
+            },
+            "1ldc7p7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7509190142154694
+            },
+            "1ld6dac": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5035295486450195
+            },
+            "1l63tt6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l4udwe": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9492981433868408
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about healthcare payment practices and financial arrangements between patients and medical providers. The conversations primarily focus on upfront payment requirements, where healthcare facilities increasingly demand payment before services are rendered, including specialist visits, diagnostic tests, and surgical procedures. Patients express confusion and frustration about being asked to pay estimated costs or full deductibles prior to appointments, particularly when they have insurance coverage that should handle billing through traditional copay structures. The discussions reveal a broader trend of healthcare systems shifting financial risk to patients by requiring advance payments, payment plans, and deposits before providing care. Common concerns include billing department communication issues, insurance processing delays, unexpected cost estimates, and the financial burden of managing healthcare expenses. The topic also touches on payment plan arrangements, collections processes, and situations where patients must navigate complex billing systems while dealing with medical needs. Some examples illustrate extreme cases involving medical tourism and fraudulent practices, but the overarching theme centers on the evolving landscape of healthcare payment structures and the challenges patients face in understanding and managing medical costs within insurance frameworks.",
+          "short_summary": "Healthcare payment practices",
+          "one_sentence_summary": "Discussions focus on healthcare payment practices, particularly the increasing trend of providers requiring upfront payments, deposits, and payment plans before delivering medical services, and patients' struggles with understanding billing processes and managing medical costs."
+        },
+        {
+          "id": 7,
+          "count": 21,
+          "score": -0.7269529482674977,
+          "engagement": {
+            "post_count": 21,
+            "total_comments": 73,
+            "total_score": 857,
+            "avg_comments_per_post": 3.4761904761904763,
+            "avg_score_per_post": 40.80952380952381
+          },
+          "terms": [
+            {
+              "term": "rural",
+              "weight": 0.035167037722852054
+            },
+            {
+              "term": "hospitals",
+              "weight": 0.031882798875237095
+            },
+            {
+              "term": "trump",
+              "weight": 0.0236622808314538
+            },
+            {
+              "term": "states",
+              "weight": 0.021556031971380986
+            },
+            {
+              "term": "red",
+              "weight": 0.019696789688008046
+            },
+            {
+              "term": "medicaid",
+              "weight": 0.018844666973370346
+            },
+            {
+              "term": "republicans",
+              "weight": 0.01752550983848238
+            },
+            {
+              "term": "cuts",
+              "weight": 0.016302165690496553
+            },
+            {
+              "term": "tax",
+              "weight": 0.015272607395237617
+            },
+            {
+              "term": "voted",
+              "weight": 0.013005941122367566
+            }
+          ],
+          "post_ids": [
+            "1nugkmo",
+            "1naeeze",
+            "1n7223y",
+            "1n62ot7",
+            "1n2b92s",
+            "1n0nfl0",
+            "1mchfut",
+            "1ma46ct",
+            "1lef90e",
+            "1m7gwxf",
+            "1m7byis",
+            "1m2orta",
+            "1lrwub3",
+            "1lpf8xf",
+            "1lngy3u",
+            "1ll8vmn",
+            "1ll4r6k",
+            "1lkluuv",
+            "1le4668",
+            "1l2cxmp",
+            "1l1se9b"
+          ],
+          "post_sentiments": {
+            "1nugkmo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7223624587059021
+            },
+            "1naeeze": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9171788692474365
+            },
+            "1n7223y": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5218088030815125
+            },
+            "1n62ot7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9156211614608765
+            },
+            "1n2b92s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8953916430473328
+            },
+            "1n0nfl0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.902377724647522
+            },
+            "1mchfut": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7758156061172485
+            },
+            "1ma46ct": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6513388752937317
+            },
+            "1lef90e": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8271310329437256
+            },
+            "1m7gwxf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6144184470176697
+            },
+            "1m7byis": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7601938247680664
+            },
+            "1m2orta": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.919352114200592
+            },
+            "1lrwub3": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7021735906600952
+            },
+            "1lpf8xf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8954699039459229
+            },
+            "1lngy3u": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8392536242802938
+            },
+            "1ll8vmn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.650251030921936
+            },
+            "1ll4r6k": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6020825505256653
+            },
+            "1lkluuv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1le4668": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9186491370201111
+            },
+            "1l2cxmp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.685422956943512
+            },
+            "1l1se9b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5497185587882996
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about healthcare policy impacts focus on proposed Republican legislation that would significantly cut Medicaid funding and its consequences for hospital closures, particularly affecting rural communities and red states. The conversations center around a legislative proposal that would slash approximately $1 trillion from Medicaid, potentially forcing 338 hospitals to close and disproportionately impacting rural areas where healthcare access is already limited. Participants express concerns about the political dynamics, noting that Republican-leaning rural areas and red states would be most severely affected by these cuts, creating a paradox where conservative voters might suffer from policies supported by their preferred political party. The discussions highlight the broader healthcare accessibility crisis, emphasizing how Medicaid cuts could leave millions of Americans, particularly low-income individuals including veterans, seniors, and disabled people, without adequate healthcare access. Many posts focus on the geographic disparities in healthcare impact, noting that while urban areas might see reduced services, rural areas face complete hospital closures, potentially requiring patients to travel hours for emergency care. The conversations also include calls for political action, encouraging people to contact their representatives regardless of party affiliation, and discussions about the economic implications of such healthcare policy changes on both state and national levels.",
+          "short_summary": "Rural hospital closures",
+          "one_sentence_summary": "Discussions focus on proposed Republican healthcare legislation that would cut Medicaid funding and lead to rural hospital closures, disproportionately affecting red states and conservative-voting areas."
+        },
+        {
+          "id": 8,
+          "count": 20,
+          "score": -0.5525958299636841,
+          "engagement": {
+            "post_count": 20,
+            "total_comments": 54,
+            "total_score": 524,
+            "avg_comments_per_post": 2.7,
+            "avg_score_per_post": 26.2
+          },
+          "terms": [
+            {
+              "term": "trump",
+              "weight": 0.02647740748985827
+            },
+            {
+              "term": "rfk jr",
+              "weight": 0.023072256293134304
+            },
+            {
+              "term": "maha",
+              "weight": 0.022967002250788425
+            },
+            {
+              "term": "epstein",
+              "weight": 0.0204020945159083
+            },
+            {
+              "term": "epa",
+              "weight": 0.0204020945159083
+            },
+            {
+              "term": "health",
+              "weight": 0.013280189841585608
+            },
+            {
+              "term": "pdf",
+              "weight": 0.011505130884196975
+            },
+            {
+              "term": "medical",
+              "weight": 0.010354861011193149
+            }
+          ],
+          "post_ids": [
+            "1nokvap",
+            "1no6ft1",
+            "1nm4eea",
+            "1nl7vfb",
+            "1nhlv3q",
+            "1ngz3gj",
+            "1nfbzu0",
+            "1n7w8xc",
+            "1n54tlc",
+            "1n388ih",
+            "1mpnmt4",
+            "1mkc429",
+            "1miuydi",
+            "1mgub2k",
+            "1mcjmt6",
+            "1mbm8d8",
+            "1m9j0at",
+            "1lu8xg9",
+            "1lof8j5",
+            "1lf8uur"
+          ],
+          "post_sentiments": {
+            "1nokvap": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9530895352363586
+            },
+            "1no6ft1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8793730139732361
+            },
+            "1nm4eea": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8985998034477234
+            },
+            "1nl7vfb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5549997687339783
+            },
+            "1nhlv3q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.25145602226257324
+            },
+            "1ngz3gj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9018145799636841
+            },
+            "1nfbzu0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5953821539878845
+            },
+            "1n7w8xc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6179287433624268
+            },
+            "1n54tlc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.27783122658729553
+            },
+            "1n388ih": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5555034875869751
+            },
+            "1mpnmt4": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9748466610908508
+            },
+            "1mkc429": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.625400185585022
+            },
+            "1miuydi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9578820466995239
+            },
+            "1mgub2k": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9693139791488647
+            },
+            "1mcjmt6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9168746471405029
+            },
+            "1mbm8d8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4980258047580719
+            },
+            "1m9j0at": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lu8xg9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5163401961326599
+            },
+            "1lof8j5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7868437170982361
+            },
+            "1lf8uur": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2701043486595154
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about political controversies and policy contradictions involving government health and environmental initiatives. The conversations center around tensions between public health advocacy movements and regulatory agency actions, particularly regarding environmental protection policies and toxic chemical regulations. Participants share and analyze government documents, court filings, and policy reports to examine inconsistencies between stated health-focused political rhetoric and actual administrative decisions. The discussions include scrutiny of federal agency funding cuts, pesticide regulation policies, and environmental contamination standards. A significant portion of the discourse involves sharing documentary evidence and legal materials related to political figure scandals and alleged misconduct, with users exchanging links to court documents, government reports, and investigative materials. The conversations reflect broader concerns about corporate influence on regulatory agencies, the effectiveness of grassroots health advocacy movements, and the gap between campaign promises and policy implementation in environmental and public health domains.",
+          "short_summary": "Political health policy contradictions",
+          "one_sentence_summary": "Discussions examining contradictions between political health advocacy rhetoric and actual government environmental and health policy decisions, alongside sharing of legal documents related to political scandals."
+        },
+        {
+          "id": 9,
+          "count": 19,
+          "score": -0.4875866339394921,
+          "engagement": {
+            "post_count": 19,
+            "total_comments": 61,
+            "total_score": 608,
+            "avg_comments_per_post": 3.210526315789474,
+            "avg_score_per_post": 32.0
+          },
+          "terms": [
+            {
+              "term": "ftc",
+              "weight": 0.021139267306042864
+            },
+            {
+              "term": "ftc gov",
+              "weight": 0.01193506768555271
+            },
+            {
+              "term": "agreements",
+              "weight": 0.011773880792665704
+            },
+            {
+              "term": "federal",
+              "weight": 0.01167501677161837
+            },
+            {
+              "term": "unitedhealth",
+              "weight": 0.011488381519302272
+            },
+            {
+              "term": "healthcare",
+              "weight": 0.010409992116589852
+            },
+            {
+              "term": "noncompete agreements",
+              "weight": 0.009109218885004818
+            },
+            {
+              "term": "news",
+              "weight": 0.008862759334332164
+            },
+            {
+              "term": "patients",
+              "weight": 0.008651503425519031
+            }
+          ],
+          "post_ids": [
+            "1npwc3n",
+            "1nfbua1",
+            "1ndkq54",
+            "1n7u0f4",
+            "1n4hloc",
+            "1mye2by",
+            "1mnhm3h",
+            "1mjzvx4",
+            "1mjvmyv",
+            "1meazxk",
+            "1m8ilrk",
+            "1m6kvwa",
+            "1m3w0wk",
+            "1m19bpw",
+            "1lycv01",
+            "1lxxt3i",
+            "1lyhteb",
+            "1lhyefc",
+            "1l20l9f"
+          ],
+          "post_sentiments": {
+            "1npwc3n": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nfbua1": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.46985089778900146
+            },
+            "1ndkq54": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n7u0f4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9015341997146606
+            },
+            "1n4hloc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2600913941860199
+            },
+            "1mye2by": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6723733693361282
+            },
+            "1mnhm3h": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9096255898475647
+            },
+            "1mjzvx4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.24491962790489197
+            },
+            "1mjvmyv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9429385662078857
+            },
+            "1meazxk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m8ilrk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m6kvwa": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9568460583686829
+            },
+            "1m3w0wk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m19bpw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7256742715835571
+            },
+            "1lycv01": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7640482783317566
+            },
+            "1lxxt3i": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6629540920257568
+            },
+            "1lyhteb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8948412537574768
+            },
+            "1lhyefc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8920385837554932
+            },
+            "1l20l9f": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9061116576194763
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about federal regulatory oversight and enforcement actions in healthcare markets, focusing on government agencies' efforts to address anticompetitive practices and market concentration issues. The conversations center on regulatory bodies like the Federal Trade Commission taking action against restrictive employment agreements, particularly noncompete clauses that limit healthcare worker mobility and patient choice. Participants discuss how federal authorities are investigating unfair business practices, issuing warning letters to healthcare employers and staffing companies, and pursuing enforcement actions to protect competition in medical services. The topic encompasses broader concerns about healthcare market dynamics, including corporate consolidation, regulatory compliance, and the balance between private healthcare delivery and government intervention. Specific examples include FTC actions against noncompete agreements affecting nurses and physicians, legal challenges to healthcare corporations like UnitedHealth, and discussions about potential federal healthcare delivery models as alternatives to private systems experiencing financial pressures and quality issues.",
+          "short_summary": "Healthcare regulatory enforcement",
+          "one_sentence_summary": "Discussions focus on federal regulatory enforcement actions addressing anticompetitive practices and market concentration issues in the healthcare industry."
+        },
+        {
+          "id": 12,
+          "count": 14,
+          "score": -0.4494017703192575,
+          "engagement": {
+            "post_count": 14,
+            "total_comments": 23,
+            "total_score": 94,
+            "avg_comments_per_post": 1.6428571428571428,
+            "avg_score_per_post": 6.714285714285714
+          },
+          "terms": [
+            {
+              "term": "breach",
+              "weight": 0.04620538787264524
+            },
+            {
+              "term": "data",
+              "weight": 0.04331465380674016
+            },
+            {
+              "term": "oracle",
+              "weight": 0.03930682515854006
+            },
+            {
+              "term": "data breach",
+              "weight": 0.02908108869307802
+            },
+            {
+              "term": "oracle cloud",
+              "weight": 0.021227447116698613
+            },
+            {
+              "term": "cloud health",
+              "weight": 0.021227447116698613
+            },
+            {
+              "term": "oracle cloud health",
+              "weight": 0.01958319933897747
+            },
+            {
+              "term": "information",
+              "weight": 0.01902688035199946
+            }
+          ],
+          "post_ids": [
+            "1o0gxw8",
+            "1ntjt1s",
+            "1nl7we9",
+            "1nkihk5",
+            "1njjt46",
+            "1ncl3t0",
+            "1mrd402",
+            "1mk6q8r",
+            "1maqnpv",
+            "1m7p6j5",
+            "1m2khy7",
+            "1lya6nj",
+            "1ltymr9",
+            "1ll581z"
+          ],
+          "post_sentiments": {
+            "1o0gxw8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6580197215080261
+            },
+            "1ntjt1s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.288968950510025
+            },
+            "1nl7we9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6583386659622192
+            },
+            "1nkihk5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.931787371635437
+            },
+            "1njjt46": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8280229568481445
+            },
+            "1ncl3t0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9383476972579956
+            },
+            "1mrd402": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.49850425124168396
+            },
+            "1mk6q8r": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1maqnpv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6662662029266357
+            },
+            "1m7p6j5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m2khy7": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lya6nj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8233689665794373
+            },
+            "1ltymr9": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ll581z": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about data breaches and unauthorized access to sensitive personal information, particularly focusing on healthcare and government databases containing medical records and personal data. The conversations center around cybersecurity incidents involving cloud-based healthcare systems and concerns about government agencies gaining access to medical databases for enforcement purposes. Key themes include the vulnerability of legacy cloud infrastructure, the exposure of protected health information (PHI) from hospital systems, and policy agreements that grant immigration enforcement agencies access to Medicare and Medicaid databases containing personal information of millions of recipients. The discussions also touch on the broader implications of data security in healthcare technology, the role of artificial intelligence in both facilitating attacks and potentially providing alternative solutions, and concerns about privacy rights when government agencies access medical databases for non-healthcare purposes.",
+          "short_summary": "Healthcare data breaches",
+          "one_sentence_summary": "Discussions about data breaches and unauthorized access to sensitive healthcare and government databases containing personal medical information."
+        },
+        {
+          "id": 11,
+          "count": 15,
+          "score": -0.5590995543532902,
+          "engagement": {
+            "post_count": 15,
+            "total_comments": 67,
+            "total_score": 70,
+            "avg_comments_per_post": 4.466666666666667,
+            "avg_score_per_post": 4.666666666666667
+          },
+          "terms": [
+            {
+              "term": "job",
+              "weight": 0.012405387420124595
+            },
+            {
+              "term": "patients",
+              "weight": 0.012246515885435849
+            },
+            {
+              "term": "clinical",
+              "weight": 0.011134560113970848
+            },
+            {
+              "term": "healthcare",
+              "weight": 0.010095385235967595
+            },
+            {
+              "term": "burnout",
+              "weight": 0.009942995245384457
+            },
+            {
+              "term": "staff",
+              "weight": 0.009623011905596385
+            },
+            {
+              "term": "told",
+              "weight": 0.00927627436859761
+            },
+            {
+              "term": "new",
+              "weight": 0.008716120888759903
+            },
+            {
+              "term": "work",
+              "weight": 0.008650105980156713
+            },
+            {
+              "term": "comes",
+              "weight": 0.008184202818519512
+            }
+          ],
+          "post_ids": [
+            "1n63my8",
+            "1mxfan0",
+            "1mq3e43",
+            "1mnktms",
+            "1migllz",
+            "1m3ia9h",
+            "1lteq8k",
+            "1ln0ohc",
+            "1lfwi7s",
+            "1lekg18",
+            "1ldrwyd",
+            "1l78ack",
+            "1l8xp9u",
+            "1l8a9ti",
+            "1l6l8vh"
+          ],
+          "post_sentiments": {
+            "1n63my8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7088673710823059
+            },
+            "1mxfan0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.571912407875061
+            },
+            "1mq3e43": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6581979393959045
+            },
+            "1mnktms": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8096963167190552
+            },
+            "1migllz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5501131415367126
+            },
+            "1m3ia9h": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9646214842796326
+            },
+            "1lteq8k": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7845460474491119
+            },
+            "1ln0ohc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4893459379673004
+            },
+            "1lfwi7s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6559740304946899
+            },
+            "1lekg18": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ldrwyd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8359627723693848
+            },
+            "1l78ack": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.664559543132782
+            },
+            "1l8xp9u": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.41475799679756165
+            },
+            "1l8a9ti": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7275315125783285
+            },
+            "1l6l8vh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8668026924133301
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Healthcare workplace challenges and systemic staffing issues represent a dominant theme in discussions about clinical work environments. The conversations reveal widespread concerns about unsafe staffing ratios, with healthcare workers reporting reductions in staff-to-patient ratios that compromise patient safety and worker wellbeing. Management responses to staff concerns are frequently described as dismissive, with administrators often telling workers to accept deteriorating conditions as unavoidable. The discussions highlight burnout among healthcare staff, particularly nurses and healthcare assistants, who face increasing patient loads with fewer resources. Workers express frustration about being held accountable for incidents that result from inadequate staffing decisions made by management. The conversations also touch on patient interactions and workplace dynamics, including challenges faced by new healthcare workers dealing with difficult patients or family members, and issues with administrative staff like receptionists who may not provide adequate customer service. A broader demographic context emerges regarding aging populations creating unsustainable demands on healthcare systems globally, with predictions that conditions will worsen through 2030-2040 as baby boomers require more care while healthcare resources remain constrained.",
+          "short_summary": "Healthcare staffing crisis",
+          "one_sentence_summary": "Healthcare workers discuss systemic staffing shortages, unsafe patient ratios, management dismissiveness, workplace burnout, and challenging patient interactions within increasingly strained clinical environments."
+        },
+        {
+          "id": 13,
+          "count": 13,
+          "score": -0.5669532708632641,
+          "engagement": {
+            "post_count": 13,
+            "total_comments": 21,
+            "total_score": 124,
+            "avg_comments_per_post": 1.6153846153846154,
+            "avg_score_per_post": 9.538461538461538
+          },
+          "terms": [
+            {
+              "term": "cdc",
+              "weight": 0.0853018930648479
+            },
+            {
+              "term": "vaccine",
+              "weight": 0.037039767060555714
+            },
+            {
+              "term": "covid",
+              "weight": 0.0284339643549493
+            },
+            {
+              "term": "agency",
+              "weight": 0.0240681993534966
+            },
+            {
+              "term": "employees",
+              "weight": 0.02351614745231922
+            },
+            {
+              "term": "cdc director",
+              "weight": 0.01777325361035694
+            },
+            {
+              "term": "covid 19",
+              "weight": 0.01661726044753464
+            },
+            {
+              "term": "kennedy",
+              "weight": 0.015834358632101624
+            }
+          ],
+          "post_ids": [
+            "1nlmmbj",
+            "1nla2pn",
+            "1njnhph",
+            "1nhb9n0",
+            "1nc8dk8",
+            "1n1z635",
+            "1n29owc",
+            "1mzythx",
+            "1mzn9gw",
+            "1mufo9p",
+            "1mpz9w8",
+            "1mmsmw8",
+            "1mgzya1"
+          ],
+          "post_sentiments": {
+            "1nlmmbj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7830185294151306
+            },
+            "1nla2pn": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1njnhph": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6971295475959778
+            },
+            "1nhb9n0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nc8dk8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7540810704231262
+            },
+            "1n1z635": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9623348116874695
+            },
+            "1n29owc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5481663942337036
+            },
+            "1mzythx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mzn9gw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8377208113670349
+            },
+            "1mufo9p": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6635386347770691
+            },
+            "1mpz9w8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7978947162628174
+            },
+            "1mmsmw8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7134960492451986
+            },
+            "1mgzya1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6130119562149048
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about institutional crisis and public trust in federal health agencies, particularly focusing on organizational upheaval, leadership changes, and declining confidence in public health guidance. The conversations center on concerns about political interference in scientific decision-making, staff departures, budget cuts, and policy changes affecting vaccine recommendations and COVID-19 response protocols. Users express skepticism about agency credibility following administrative restructuring and discuss the broader implications for public health infrastructure. The topic encompasses workplace safety concerns for health agency employees, including security threats and hostile public sentiment toward public health workers. Commentary reflects debates about the reliability of official health guidance versus independent medical advice, with particular attention to pediatric vaccination recommendations and institutional autonomy in scientific matters.",
+          "short_summary": "Health agency crisis",
+          "one_sentence_summary": "Discussions about declining public trust and institutional crisis within federal health agencies amid leadership changes, political interference, and concerns about scientific independence."
+        },
+        {
+          "id": 14,
+          "count": 12,
+          "score": -0.6603368258837498,
+          "engagement": {
+            "post_count": 12,
+            "total_comments": 38,
+            "total_score": 265,
+            "avg_comments_per_post": 3.1666666666666665,
+            "avg_score_per_post": 22.083333333333332
+          },
+          "terms": [
+            {
+              "term": "hospital",
+              "weight": 0.03064972844899654
+            },
+            {
+              "term": "closed",
+              "weight": 0.02545077849150863
+            },
+            {
+              "term": "rural",
+              "weight": 0.021501329028743042
+            },
+            {
+              "term": "medicaid",
+              "weight": 0.02064421197882912
+            },
+            {
+              "term": "2015",
+              "weight": 0.012463271252106622
+            },
+            {
+              "term": "cuts",
+              "weight": 0.011700670483809548
+            },
+            {
+              "term": "county",
+              "weight": 0.010734916443919367
+            },
+            {
+              "term": "mobile",
+              "weight": 0.010421990991859453
+            },
+            {
+              "term": "kansas",
+              "weight": 0.010421990991859453
+            }
+          ],
+          "post_ids": [
+            "1nxj6l5",
+            "1nv6pw1",
+            "1mu0m68",
+            "1mi3ipg",
+            "1m6mmey",
+            "1me3y0p",
+            "1m7ivya",
+            "1lvqh1q",
+            "1lstl2s",
+            "1lrkdqc",
+            "1lrn8ut",
+            "1ldlpge"
+          ],
+          "post_sentiments": {
+            "1nxj6l5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6134709119796753
+            },
+            "1nv6pw1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5245193839073181
+            },
+            "1mu0m68": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.30531784892082214
+            },
+            "1mi3ipg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.43785205483436584
+            },
+            "1m6mmey": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9162253141403198
+            },
+            "1me3y0p": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9600285887718201
+            },
+            "1m7ivya": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6876544952392578
+            },
+            "1lvqh1q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6939508418242136
+            },
+            "1lstl2s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8405038714408875
+            },
+            "1lrkdqc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6186864972114563
+            },
+            "1lrn8ut": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ldlpge": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6654952764511108
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about rural healthcare infrastructure challenges focus on the widespread closure of hospitals in low-population areas due to financial instability and reduced government funding. The conversations examine how cuts to Medicaid reimbursements and changes to eligibility requirements are forcing rural medical facilities to shut down, creating healthcare deserts in communities that depend heavily on government subsidies to maintain basic medical services. Participants analyze the economic impact of hospital closures on small towns, noting that healthcare facilities often serve as economic anchors alongside colleges. The discussions explore policy changes, including work requirements for Medicaid that could reduce patient populations by 10-11%, and their effects on hospital eligibility for programs like 340B drug pricing. Alternative solutions are debated, particularly mobile clinic models as potential replacements for traditional brick-and-mortar facilities, with detailed analysis of operational costs, staffing requirements, and revenue projections. The conversations highlight how rural areas with low population density are disproportionately affected, with specific examples including facilities that closed around 2015 and more recent closures attributed to declining insurance reimbursements and reduced patient volumes.",
+          "short_summary": "Rural hospital closures",
+          "one_sentence_summary": "Discussions examine the crisis of rural hospital closures driven by Medicaid cuts and funding challenges, exploring the economic impact on small communities and potential mobile clinic alternatives."
+        }
+      ]
+    },
+    "neutral": {
+      "count": 3,
+      "topics": [
+        {
+          "id": 0,
+          "count": 85,
+          "score": 0.055472445195796444,
+          "engagement": {
+            "post_count": 85,
+            "total_comments": 259,
+            "total_score": 184,
+            "avg_comments_per_post": 3.0470588235294116,
+            "avg_score_per_post": 2.164705882352941
+          },
+          "terms": [
+            {
+              "term": "healthcare",
+              "weight": 0.014538780421681522
+            },
+            {
+              "term": "school",
+              "weight": 0.012842708834822514
+            },
+            {
+              "term": "mha",
+              "weight": 0.012343713262667347
+            },
+            {
+              "term": "degree",
+              "weight": 0.01145214652171944
+            },
+            {
+              "term": "experience",
+              "weight": 0.011450616171478592
+            },
+            {
+              "term": "career",
+              "weight": 0.010549386612734826
+            },
+            {
+              "term": "job",
+              "weight": 0.009995917132932864
+            },
+            {
+              "term": "work",
+              "weight": 0.009559569866138803
+            },
+            {
+              "term": "tech",
+              "weight": 0.009496629761333485
+            },
+            {
+              "term": "years",
+              "weight": 0.007925960789130519
+            }
+          ],
+          "post_ids": [
+            "1nza5tt",
+            "1nwfhaq",
+            "1nvlrgr",
+            "1nuww1y",
+            "1nucb20",
+            "1ntxom2",
+            "1ntxjq3",
+            "1ntjmyl",
+            "1nsir0c",
+            "1nsd5r9",
+            "1nh7868",
+            "1nqo2yc",
+            "1nqfhdy",
+            "1now8yl",
+            "1nogahu",
+            "1njpe8l",
+            "1njhww3",
+            "1niy5af",
+            "1nhui7y",
+            "1ngetfo",
+            "1nfxq2c",
+            "1ne9n46",
+            "1nbaijx",
+            "1n8slc0",
+            "1n8e3oz",
+            "1n6z42p",
+            "1n2zwns",
+            "1n0bw1a",
+            "1mzfs7l",
+            "1mydjxu",
+            "1muot41",
+            "1muw4hk",
+            "1mu86lq",
+            "1mtnnxe",
+            "1mtyv5f",
+            "1mtcbw3",
+            "1mt3dc3",
+            "1mr6xdc",
+            "1mntstj",
+            "1mmhclj",
+            "1mm7axw",
+            "1mkjzq3",
+            "1mjnf52",
+            "1mfggys",
+            "1md9yod",
+            "1mcwk73",
+            "1mbf1f3",
+            "1majwpg",
+            "1m9sbif",
+            "1m9e1h3",
+            "1m5wshc",
+            "1m5jm4w",
+            "1m4gdzp",
+            "1m3dmv2",
+            "1m38uns",
+            "1m2ftla",
+            "1m1qnhv",
+            "1m148ml",
+            "1lzs63q",
+            "1lzlwjb",
+            "1lxn40a",
+            "1ltbizt",
+            "1lwqoa3",
+            "1lvhl44",
+            "1lv6hck",
+            "1lu92mn",
+            "1ltuxun",
+            "1ls8nte",
+            "1lprs77",
+            "1lo8cox",
+            "1lmp3wb",
+            "1lll6yt",
+            "1llf3su",
+            "1ljyk9f",
+            "1lgldcy",
+            "1letzdd",
+            "1lc09sh",
+            "1lb7l5t",
+            "1l7cgks",
+            "1l96x8j",
+            "1l85nxw",
+            "1l89ell",
+            "1l4e9uv",
+            "1l2kzdk",
+            "1l21vs5"
+          ],
+          "post_sentiments": {
+            "1nza5tt": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nwfhaq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nvlrgr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nuww1y": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8901815414428711
+            },
+            "1nucb20": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9328051209449768
+            },
+            "1ntxom2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ntxjq3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ntjmyl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nsir0c": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5793212652206421
+            },
+            "1nsd5r9": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nh7868": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nqo2yc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.13807575404644012
+            },
+            "1nqfhdy": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1now8yl": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nogahu": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6546621918678284
+            },
+            "1njpe8l": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.26665058732032776
+            },
+            "1njhww3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3429957330226898
+            },
+            "1niy5af": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4901258647441864
+            },
+            "1nhui7y": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6047862768173218
+            },
+            "1ngetfo": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nfxq2c": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3788808286190033
+            },
+            "1ne9n46": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.31646081805229187
+            },
+            "1nbaijx": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n8slc0": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n8e3oz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1n6z42p": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6080330610275269
+            },
+            "1n2zwns": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2953703999519348
+            },
+            "1n0bw1a": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7524877190589905
+            },
+            "1mzfs7l": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.516298234462738
+            },
+            "1mydjxu": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.49488916993141174
+            },
+            "1muot41": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8843623995780945
+            },
+            "1muw4hk": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6461377739906311
+            },
+            "1mu86lq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8026362955570221
+            },
+            "1mtnnxe": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mtyv5f": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6717563271522522
+            },
+            "1mtcbw3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mt3dc3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mr6xdc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mntstj": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.41561731696128845
+            },
+            "1mmhclj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.540021538734436
+            },
+            "1mm7axw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28724783658981323
+            },
+            "1mkjzq3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6756564080715179
+            },
+            "1mjnf52": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7537310123443604
+            },
+            "1mfggys": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1md9yod": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5957277715206146
+            },
+            "1mcwk73": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7404091954231262
+            },
+            "1mbf1f3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.38929760456085205
+            },
+            "1majwpg": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m9sbif": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m9e1h3": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m5wshc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m5jm4w": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6197750568389893
+            },
+            "1m4gdzp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5036507844924927
+            },
+            "1m3dmv2": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m38uns": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m2ftla": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.34434619545936584
+            },
+            "1m1qnhv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m148ml": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lzs63q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.736465334892273
+            },
+            "1lzlwjb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lxn40a": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6506691575050354
+            },
+            "1ltbizt": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5709903240203857
+            },
+            "1lwqoa3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6535668969154358
+            },
+            "1lvhl44": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.15484940012296042
+            },
+            "1lv6hck": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4906127154827118
+            },
+            "1lu92mn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4393884837627411
+            },
+            "1ltuxun": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ls8nte": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lprs77": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lo8cox": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lmp3wb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lll6yt": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1llf3su": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5284339785575867
+            },
+            "1ljyk9f": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lgldcy": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1letzdd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lc09sh": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lb7l5t": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5295982956886292
+            },
+            "1l7cgks": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l96x8j": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l85nxw": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.35879412293434143
+            },
+            "1l89ell": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l4e9uv": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.19121861457824707
+            },
+            "1l2kzdk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.24903637170791626
+            },
+            "1l21vs5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about career pathways and educational requirements in healthcare administration, focusing on degree options, professional development strategies, and realistic career expectations. The conversations center around the importance of graduate education, particularly Master of Healthcare Administration (MHA) degrees, as essential credentials for advancing into leadership positions within healthcare organizations. Participants share guidance on building relevant experience through entry-level positions, internships, and fellowships, while emphasizing that career progression typically requires starting in operational roles and gradually advancing over time. The discussions also address income expectations, with contributors noting that while healthcare administration can provide stable, comfortable earnings, it may not lead to exceptional wealth and requires realistic financial expectations. Additionally, some conversations touch on challenges within nursing career advancement pathways, including regulatory barriers and certification requirements that can complicate professional transitions. Overall, the topic encompasses comprehensive career planning advice for healthcare administration, covering educational investments, experience-building strategies, networking opportunities, and long-term professional development within the healthcare industry.",
+          "short_summary": "Healthcare administration careers",
+          "one_sentence_summary": "Discussions about educational pathways, career development strategies, and realistic expectations for building successful careers in healthcare administration."
+        },
+        {
+          "id": 5,
+          "count": 24,
+          "score": -0.07095225734843148,
+          "engagement": {
+            "post_count": 24,
+            "total_comments": 73,
+            "total_score": 317,
+            "avg_comments_per_post": 3.0416666666666665,
+            "avg_score_per_post": 13.208333333333334
+          },
+          "terms": [
+            {
+              "term": "ai",
+              "weight": 0.029397910672193807
+            },
+            {
+              "term": "healthcare",
+              "weight": 0.011078077958377999
+            },
+            {
+              "term": "love",
+              "weight": 0.008590260031705627
+            },
+            {
+              "term": "patients",
+              "weight": 0.008422456751139284
+            },
+            {
+              "term": "help",
+              "weight": 0.00828262575361626
+            },
+            {
+              "term": "use",
+              "weight": 0.007956956169573095
+            },
+            {
+              "term": "clinics",
+              "weight": 0.007527247197732269
+            },
+            {
+              "term": "scheduling",
+              "weight": 0.007442470330262953
+            },
+            {
+              "term": "data",
+              "weight": 0.007279010818423835
+            },
+            {
+              "term": "chatgpt",
+              "weight": 0.007143928354720987
+            }
+          ],
+          "post_ids": [
+            "1iwjv98",
+            "1nx7dsf",
+            "1nsk59r",
+            "1nr9rzo",
+            "1njfd6k",
+            "1ng3dnw",
+            "1ne1zgx",
+            "1n35r2v",
+            "1mwaqda",
+            "1mpnal7",
+            "1mok10g",
+            "1mp3slz",
+            "1mostsf",
+            "1mgcu2i",
+            "1meilef",
+            "1m1sgi1",
+            "1m0xvda",
+            "1lq5xad",
+            "1lpv6pd",
+            "1lokbex",
+            "1lkqakq",
+            "1liz6er",
+            "1lcb5l7",
+            "1l9qhdc"
+          ],
+          "post_sentiments": {
+            "1iwjv98": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.124167005221049
+            },
+            "1nx7dsf": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1nsk59r": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3911161720752716
+            },
+            "1nr9rzo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6193950176239014
+            },
+            "1njfd6k": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ng3dnw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1ne1zgx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5014839768409729
+            },
+            "1n35r2v": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5758984088897705
+            },
+            "1mwaqda": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mpnal7": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.45756295323371887
+            },
+            "1mok10g": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6681140065193176
+            },
+            "1mp3slz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.36591836810112
+            },
+            "1mostsf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6445363163948059
+            },
+            "1mgcu2i": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2923697829246521
+            },
+            "1meilef": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6561315357685089
+            },
+            "1m1sgi1": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m0xvda": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8547716736793518
+            },
+            "1lq5xad": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lpv6pd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lokbex": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2672569453716278
+            },
+            "1lkqakq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.789458692073822
+            },
+            "1liz6er": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.21294459700584412
+            },
+            "1lcb5l7": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l9qhdc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "This topic encompasses discussions about healthcare system improvements and technology integration, focusing on operational challenges and potential solutions in medical settings. The conversations center around addressing patient wait times, staff workflow optimization, and the implementation of AI and digital tools in healthcare environments. Healthcare professionals and administrators share concerns about clinic efficiency, patient flow management, appointment scheduling systems, and staffing limitations that impact both patient satisfaction and provider morale. A significant portion of the discussion involves the safe and responsible use of AI in clinical settings, with emphasis on the need for continuous monitoring, accuracy verification, and compliance with healthcare regulations to prevent potential harm from AI hallucinations or errors. Additional themes include healthcare cost transparency initiatives, wearable technology for patient monitoring, and crowdsourced efforts to address systemic healthcare pricing issues. The discussions reflect broader concerns about healthcare accessibility, quality of care, and the balance between technological innovation and patient safety in medical practice.",
+          "short_summary": "Healthcare AI implementation",
+          "one_sentence_summary": "Healthcare professionals discuss operational challenges, AI implementation safety, and technology solutions for improving patient care delivery and clinic efficiency."
+        },
+        {
+          "id": 10,
+          "count": 15,
+          "score": -0.11367632548014323,
+          "engagement": {
+            "post_count": 15,
+            "total_comments": 25,
+            "total_score": 53,
+            "avg_comments_per_post": 1.6666666666666667,
+            "avg_score_per_post": 3.533333333333333
+          },
+          "terms": [
+            {
+              "term": "mask",
+              "weight": 0.021100475236038335
+            },
+            {
+              "term": "covid",
+              "weight": 0.016971801020249422
+            },
+            {
+              "term": "vegan",
+              "weight": 0.012966048161866
+            },
+            {
+              "term": "eat",
+              "weight": 0.01172248624224352
+            },
+            {
+              "term": "human",
+              "weight": 0.011635229283429457
+            },
+            {
+              "term": "bloomberg news",
+              "weight": 0.010111092648472386
+            },
+            {
+              "term": "energy",
+              "weight": 0.009698177002569785
+            },
+            {
+              "term": "lost",
+              "weight": 0.00953090985705227
+            },
+            {
+              "term": "kill",
+              "weight": 0.009377988993794816
+            }
+          ],
+          "post_ids": [
+            "1nfvwkj",
+            "1narz0g",
+            "1n6i9h5",
+            "1n04frk",
+            "1mrj916",
+            "1mpsmr9",
+            "1mkn8sx",
+            "1mhawlx",
+            "1m9ou1y",
+            "1m9ovrw",
+            "1m88v5a",
+            "1lrtr3f",
+            "1lcq8ib",
+            "1l4csva",
+            "1l2ze12"
+          ],
+          "post_sentiments": {
+            "1nfvwkj": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.31412890553474426
+            },
+            "1narz0g": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.31234580278396606
+            },
+            "1n6i9h5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.623874306678772
+            },
+            "1n04frk": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1mrj916": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5957855582237244
+            },
+            "1mpsmr9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8466744422912598
+            },
+            "1mkn8sx": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.47602370381355286
+            },
+            "1mhawlx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5739908814430237
+            },
+            "1m9ou1y": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m9ovrw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1m88v5a": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7586354613304138
+            },
+            "1lrtr3f": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1lcq8ib": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1l4csva": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6751583814620972
+            },
+            "1l2ze12": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6995962262153625
+            }
+          },
+          "sentiment_evidence": {
+            "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+            "positive": [],
+            "negative": []
+          },
+          "summary": "Discussions about dietary choices and their health impacts, particularly focusing on experiences with plant-based eating and transitions between different dietary approaches. The conversations center around personal health outcomes, energy levels, and nutritional challenges associated with vegan diets, with many users sharing experiences of fatigue, brain fog, and nutrient deficiencies. The topic encompasses broader themes of sustainable living and healthcare practices, including medical waste reduction and environmental considerations in healthcare systems. Participants discuss the balance between ethical food choices and individual health needs, often describing transitions from veganism back to omnivorous diets due to health concerns, while others explore compromise approaches like sourcing meat from local farmers with ethical practices.",
+          "short_summary": "Diet health experiences",
+          "one_sentence_summary": "Discussions about personal experiences with dietary choices, particularly challenges with plant-based eating and health impacts of different nutritional approaches."
+        }
+      ]
+    }
+  },
+  "topic_similarities": [
+    {
+      "source": 0,
+      "target": 1,
+      "weight": 0.34085045278072357,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "weight": 0.4115523052215576,
+      "overlapping_words": [
+        "job"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "weight": 0.20636942982673645,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "weight": 0.41312623023986816,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "weight": 0.5042616677284241,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "weight": 0.3066544234752655,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "weight": 0.2103547304868698,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "weight": 0.29736483097076416,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "weight": 0.38122641563415527,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "weight": 0.1586715579032898,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "weight": 0.5815438807010651,
+      "overlapping_words": [
+        "job",
+        "healthcare",
+        "work"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 0,
+      "target": 12,
+      "weight": 0.2138391137123108,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 13,
+      "weight": 0.2555946409702301,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 14,
+      "weight": 0.2568814158439636,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 15,
+      "weight": 0.08416938036680222,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 16,
+      "weight": 0.23287221789360046,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 17,
+      "weight": 0.21906355023384094,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 18,
+      "weight": 0.4196275722980499,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 19,
+      "weight": 0.3096771836280823,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 20,
+      "weight": 0.11201637238264084,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 21,
+      "weight": 0.11404295265674591,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 22,
+      "weight": 0.08619628846645355,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 23,
+      "weight": 0.3626903295516968,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 24,
+      "weight": 0.27898699045181274,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 25,
+      "weight": 0.44832008600234985,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 26,
+      "weight": 0.11486008763313293,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 27,
+      "weight": 0.207652285695076,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 28,
+      "weight": 0.12365677952766418,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.3916534435749054,
+      "overlapping_words": [
+        "insurance"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "weight": 0.32717957615852356,
+      "overlapping_words": [
+        "care"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "weight": 0.16458293795585632,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "weight": 0.36054132401943206,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "weight": 0.44540473341941833,
+      "overlapping_words": [
+        "insurance"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "weight": 0.30378252267837524,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "weight": 0.15052329003810883,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "weight": 0.4850742769241333,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "weight": 0.17575788497924805,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "weight": 0.3052683424949646,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "weight": 0.2940918207168579,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "weight": 0.12825456261634827,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 14,
+      "weight": 0.2611071467399597,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 15,
+      "weight": 0.234956294298172,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 16,
+      "weight": 0.4751194667816162,
+      "overlapping_words": [
+        "insurance"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 17,
+      "weight": 0.3305736482143402,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 18,
+      "weight": 0.5162001800537109,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 19,
+      "weight": 0.31751378893852233,
+      "overlapping_words": [
+        "care"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 20,
+      "weight": 0.1924974024295807,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 21,
+      "weight": 0.32222414016723633,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 22,
+      "weight": 0.14716163277626038,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 23,
+      "weight": 0.24804146587848663,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 24,
+      "weight": 0.18751156330108643,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 25,
+      "weight": 0.45991315960884094,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 26,
+      "weight": 0.1385013610124588,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 27,
+      "weight": 0.15270929038524628,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 28,
+      "weight": 0.05428703874349594,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "weight": 0.17790775001049042,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "weight": 0.18270288407802582,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "weight": 0.14738890528678894,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "weight": 0.577927942276001,
+      "overlapping_words": [
+        "insurance"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "weight": 0.49956607341766357,
+      "overlapping_words": [
+        "medicaid"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "weight": 0.16703131794929504,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "weight": 0.24516907334327698,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "weight": 0.07430218905210495,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "weight": 0.2387700182199478,
+      "overlapping_words": [
+        "job"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 12,
+      "weight": 0.13219378888607025,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 13,
+      "weight": 0.16799074411392212,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 14,
+      "weight": 0.46037864208221435,
+      "overlapping_words": [
+        "medicaid"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 15,
+      "weight": 0.1506064534187317,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 16,
+      "weight": 0.4671219539642334,
+      "overlapping_words": [
+        "insurance"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 17,
+      "weight": 0.3501374125480652,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 18,
+      "weight": 0.8376316928863525,
+      "overlapping_words": [
+        "plan",
+        "coverage"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 19,
+      "weight": 0.1543566882610321,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 20,
+      "weight": 0.09090287238359451,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 21,
+      "weight": 0.1710497885942459,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 22,
+      "weight": 0.2296544760465622,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 23,
+      "weight": 0.2421548217535019,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 24,
+      "weight": 0.7812487983703613,
+      "overlapping_words": [
+        "qualify",
+        "medicaid"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 25,
+      "weight": 0.20653115212917328,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 26,
+      "weight": 0.1922893524169922,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 27,
+      "weight": 0.06942121684551239,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 28,
+      "weight": 0.09723710268735886,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "weight": 0.6020410561561584,
+      "overlapping_words": [
+        "patient",
+        "appointment"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "weight": 0.3680441379547119,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "weight": 0.5502592575550079,
+      "overlapping_words": [
+        "visit"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "weight": 0.17772029340267181,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "weight": 0.19682343304157257,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "weight": 0.2209632694721222,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 10,
+      "weight": 0.05182424187660217,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "weight": 0.440982426404953,
+      "overlapping_words": [
+        "told"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 12,
+      "weight": 0.22867830097675323,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 13,
+      "weight": 0.17711280286312103,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 14,
+      "weight": 0.21392221748828888,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 15,
+      "weight": 0.30901041626930237,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 16,
+      "weight": 0.29954278469085693,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 17,
+      "weight": 0.13867510855197906,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 18,
+      "weight": 0.15632271766662598,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 19,
+      "weight": 0.6769331002235413,
+      "overlapping_words": [
+        "patient",
+        "care"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 20,
+      "weight": 0.0365283340215683,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 21,
+      "weight": 0.15206527709960938,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 22,
+      "weight": 0.17188619077205658,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 23,
+      "weight": 0.29437005519866943,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 24,
+      "weight": 0.08392931520938873,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 25,
+      "weight": 0.17675906419754028,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 26,
+      "weight": 0.06692802906036377,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 27,
+      "weight": 0.47776442289352417,
+      "overlapping_words": [
+        "pain"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 28,
+      "weight": 0.15086640417575836,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 0.5729974508285522,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "weight": 0.3542907238006592,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "weight": 0.19103899598121643,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "weight": 0.4270845603942871,
+      "overlapping_words": [
+        "medical"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 9,
+      "weight": 0.2732101082801819,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "weight": 0.11176291853189468,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 11,
+      "weight": 0.2828160226345062,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 12,
+      "weight": 0.47841625928878784,
+      "overlapping_words": [
+        "information"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 13,
+      "weight": 0.284100204706192,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 14,
+      "weight": 0.4729735207557678,
+      "overlapping_words": [
+        "hospital"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 15,
+      "weight": 0.24811038374900818,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 16,
+      "weight": 0.24746611714363098,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 17,
+      "weight": 0.12728601694107056,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 18,
+      "weight": 0.1990695595741272,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 19,
+      "weight": 0.6144864511489868,
+      "overlapping_words": [
+        "patient"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 20,
+      "weight": -0.0024044644087553024,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 21,
+      "weight": 0.11802323907613754,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 22,
+      "weight": 0.15759938955307007,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 23,
+      "weight": 0.33137187361717224,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 24,
+      "weight": 0.13484761118888855,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 25,
+      "weight": 0.31656306982040405,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 26,
+      "weight": 0.20038004219532013,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 27,
+      "weight": 0.2754116356372833,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 28,
+      "weight": 0.13826338946819305,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "weight": 0.37201690673828125,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "weight": 0.25164422392845154,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "weight": 0.23169460892677307,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "weight": 0.5048481130599975,
+      "overlapping_words": [
+        "patients",
+        "healthcare"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "weight": 0.19682687520980835,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 11,
+      "weight": 0.6019559705257416,
+      "overlapping_words": [
+        "patients",
+        "healthcare"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "weight": 0.4281604242324829,
+      "overlapping_words": [
+        "data"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 13,
+      "weight": 0.2087848037481308,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "weight": 0.31390365958213806,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 15,
+      "weight": 0.2448757141828537,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 16,
+      "weight": 0.2774839997291565,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 17,
+      "weight": 0.2082551121711731,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 18,
+      "weight": 0.3578149926662445,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 19,
+      "weight": 0.3844316899776459,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 20,
+      "weight": 0.21084599196910858,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 21,
+      "weight": 0.19990810751914978,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 22,
+      "weight": 0.17911216616630554,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 23,
+      "weight": 0.4134994447231293,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 24,
+      "weight": 0.24773843586444855,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 25,
+      "weight": 0.4628998589515686,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 26,
+      "weight": 0.11620709300041199,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 27,
+      "weight": 0.4294721734523773,
+      "overlapping_words": [
+        "patients"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 28,
+      "weight": 0.1842542290687561,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "weight": 0.24206547439098358,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "weight": 0.21565034985542297,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "weight": 0.36703091859817505,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "weight": 0.09656092524528503,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "weight": 0.22380170226097107,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 12,
+      "weight": 0.285426527261734,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 13,
+      "weight": 0.06346315145492554,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 14,
+      "weight": 0.2653234302997589,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 15,
+      "weight": 0.19881658256053925,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 16,
+      "weight": 0.7806235456466675,
+      "overlapping_words": [
+        "pay",
+        "insurance"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 6,
+      "target": 17,
+      "weight": 0.3022814691066742,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 18,
+      "weight": 0.4322873055934906,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 19,
+      "weight": 0.4269684851169586,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 20,
+      "weight": 0.052965790033340454,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 21,
+      "weight": 0.15205802023410797,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 22,
+      "weight": 0.28471213579177856,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 23,
+      "weight": 0.28807181119918823,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 24,
+      "weight": 0.29842373728752136,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 25,
+      "weight": 0.24199795722961426,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 26,
+      "weight": 0.14282062649726868,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 27,
+      "weight": 0.16758640110492706,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 28,
+      "weight": 0.16622605919837952,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "weight": 0.39433782815933227,
+      "overlapping_words": [
+        "trump"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "weight": 0.3268386125564575,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "weight": 0.1858040988445282,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "weight": 0.209823340177536,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 12,
+      "weight": 0.132375568151474,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 13,
+      "weight": 0.18042053282260895,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 14,
+      "weight": 0.9470030546188355,
+      "overlapping_words": [
+        "cuts",
+        "rural",
+        "medicaid"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 7,
+      "target": 15,
+      "weight": 0.2245127111673355,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 16,
+      "weight": 0.20016814768314362,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 17,
+      "weight": 0.6974238955974579,
+      "overlapping_words": [
+        "trump",
+        "republicans"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 7,
+      "target": 18,
+      "weight": 0.3181098997592926,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 19,
+      "weight": 0.24570578336715698,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 20,
+      "weight": 0.16716861724853516,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 21,
+      "weight": 0.4274556589126587,
+      "overlapping_words": [
+        "trump"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 22,
+      "weight": 0.38430914282798767,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 23,
+      "weight": 0.22176997363567352,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 24,
+      "weight": 0.5834522199630737,
+      "overlapping_words": [
+        "medicaid"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 25,
+      "weight": 0.355246365070343,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 26,
+      "weight": 0.25283122062683105,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 27,
+      "weight": 0.1311149150133133,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 28,
+      "weight": 0.26546236872673035,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "weight": 0.4664324223995209,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "weight": 0.3344978392124176,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "weight": 0.13217169046401978,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "weight": 0.325276255607605,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 13,
+      "weight": 0.37801581621170044,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 14,
+      "weight": 0.24353580176830292,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 15,
+      "weight": 0.14530469477176666,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 16,
+      "weight": 0.12572751939296722,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 17,
+      "weight": 0.4771439981460571,
+      "overlapping_words": [
+        "trump"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 8,
+      "target": 18,
+      "weight": 0.1905057728290558,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 19,
+      "weight": 0.2900642156600952,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 20,
+      "weight": 0.2040083259344101,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 21,
+      "weight": 0.5315134179592133,
+      "overlapping_words": [
+        "trump"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 8,
+      "target": 22,
+      "weight": 0.26660117506980896,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 23,
+      "weight": 0.26651692390441895,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 24,
+      "weight": 0.26369696855545044,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 25,
+      "weight": 0.24091097712516785,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 26,
+      "weight": 0.21630269289016724,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 27,
+      "weight": 0.13952435553073883,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 28,
+      "weight": 0.2766674757003784,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "weight": 0.2544814944267273,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 11,
+      "weight": 0.42439525365829467,
+      "overlapping_words": [
+        "patients",
+        "healthcare"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 9,
+      "target": 12,
+      "weight": 0.35795897245407104,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "weight": 0.24968494474887848,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 14,
+      "weight": 0.2942849099636078,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 15,
+      "weight": 0.2920473515987396,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 16,
+      "weight": 0.2166524976491928,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 17,
+      "weight": 0.4786917567253113,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 18,
+      "weight": 0.45441346883773803,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 19,
+      "weight": 0.39814841747283936,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 20,
+      "weight": 0.21835950016975403,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 21,
+      "weight": 0.35640549659729004,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 22,
+      "weight": 0.3671101927757263,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 23,
+      "weight": 0.3319127857685089,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 24,
+      "weight": 0.3279377520084381,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 25,
+      "weight": 0.5305293750762939,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 26,
+      "weight": 0.3403991162776947,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 27,
+      "weight": 0.2599870663881302,
+      "overlapping_words": [
+        "patients"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 28,
+      "weight": 0.2106751799583435,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "weight": 0.21618437767028809,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "weight": 0.2758186459541321,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 13,
+      "weight": 0.5637353014945984,
+      "overlapping_words": [
+        "covid"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "weight": 0.16896328330039978,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 15,
+      "weight": 0.13344666361808777,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "weight": 0.13522595167160034,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 17,
+      "weight": 0.30244922637939453,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 18,
+      "weight": 0.17137393355369568,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 19,
+      "weight": 0.15713359415531158,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 20,
+      "weight": 0.24911105632781982,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 21,
+      "weight": 0.2900026738643646,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 22,
+      "weight": 0.1179138720035553,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 23,
+      "weight": 0.25989726185798645,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 24,
+      "weight": 0.1595429629087448,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 25,
+      "weight": 0.20429906249046326,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 26,
+      "weight": 0.1515248566865921,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 27,
+      "weight": 0.13613814115524292,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 28,
+      "weight": 0.19392378628253937,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "weight": 0.2070511281490326,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "weight": 0.2528442144393921,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "weight": 0.24900545179843903,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 15,
+      "weight": 0.21540792286396027,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 16,
+      "weight": 0.2502899765968323,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 17,
+      "weight": 0.10011972486972809,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 18,
+      "weight": 0.2913864654302597,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 19,
+      "weight": 0.327519953250885,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 20,
+      "weight": 0.018541906028985977,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 21,
+      "weight": 0.05680502578616142,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 22,
+      "weight": 0.15557415783405304,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 23,
+      "weight": 0.3400372862815857,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 24,
+      "weight": 0.17533227801322937,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 25,
+      "weight": 0.4204392087459564,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 26,
+      "weight": -0.015257112681865692,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 27,
+      "weight": 0.3702557337284088,
+      "overlapping_words": [
+        "patients"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 28,
+      "weight": 0.06871578842401505,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "weight": 0.23591458797454834,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "weight": 0.15711131691932678,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 15,
+      "weight": 0.2534816265106201,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 16,
+      "weight": 0.21036548912525177,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 17,
+      "weight": 0.24499505758285522,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "weight": 0.2317754626274109,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 19,
+      "weight": 0.29574888944625854,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 20,
+      "weight": 0.13865643739700317,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 21,
+      "weight": 0.23723331093788147,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 22,
+      "weight": 0.25930750370025635,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 23,
+      "weight": 0.24558943510055542,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 24,
+      "weight": 0.17753593623638153,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 25,
+      "weight": 0.21411286294460297,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 26,
+      "weight": 0.14445634186267853,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 27,
+      "weight": 0.14332440495491028,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 28,
+      "weight": 0.21047407388687134,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "weight": 0.22227701544761658,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 15,
+      "weight": 0.19387824833393097,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 16,
+      "weight": 0.1219668760895729,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 17,
+      "weight": 0.19337566196918488,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 18,
+      "weight": 0.17834243178367615,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 19,
+      "weight": 0.17275822162628174,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 20,
+      "weight": 0.11629398912191391,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 21,
+      "weight": 0.21279242634773254,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 22,
+      "weight": 0.2372128963470459,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 23,
+      "weight": 0.31827929615974426,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 24,
+      "weight": 0.1992809772491455,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 25,
+      "weight": 0.23574885725975037,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 26,
+      "weight": 0.12385112792253494,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 27,
+      "weight": 0.13425329327583313,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 28,
+      "weight": 0.2819318473339081,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "weight": 0.24971279501914978,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 16,
+      "weight": 0.24875673651695251,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "weight": 0.24304990470409393,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 18,
+      "weight": 0.3226192593574524,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 19,
+      "weight": 0.276723712682724,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 20,
+      "weight": 0.13383351266384125,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 21,
+      "weight": 0.17937007546424866,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 22,
+      "weight": 0.300826758146286,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 23,
+      "weight": 0.12504228949546814,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 24,
+      "weight": 0.4350459825992584,
+      "overlapping_words": [
+        "medicaid"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 14,
+      "target": 25,
+      "weight": 0.3565220236778259,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 26,
+      "weight": 0.21017074584960938,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 27,
+      "weight": 0.16282586753368378,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 28,
+      "weight": 0.1637224406003952,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "weight": 0.18161632120609283,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 17,
+      "weight": 0.21210220456123352,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 18,
+      "weight": 0.22787782549858093,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 19,
+      "weight": 0.3514377176761627,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 20,
+      "weight": 0.08435876667499542,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 21,
+      "weight": 0.44954416155815125,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 22,
+      "weight": 0.24417974054813385,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 23,
+      "weight": 0.4443110775947571,
+      "overlapping_words": [
+        "canada"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 15,
+      "target": 24,
+      "weight": 0.1872662454843521,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 25,
+      "weight": 0.2689456343650818,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 26,
+      "weight": 0.31889066100120544,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 27,
+      "weight": 0.1283576339483261,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 28,
+      "weight": 0.2031664401292801,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "weight": 0.22062069177627563,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 18,
+      "weight": 0.3239794373512268,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 19,
+      "weight": 0.1800282597541809,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 20,
+      "weight": 0.037241145968437195,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 21,
+      "weight": 0.12597601115703583,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 22,
+      "weight": 0.11142696440219879,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 23,
+      "weight": 0.29157721996307373,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 24,
+      "weight": 0.1628568321466446,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 25,
+      "weight": 0.20503941178321838,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 26,
+      "weight": 0.05860036611557007,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 27,
+      "weight": 0.1427297592163086,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 28,
+      "weight": 0.14076116681098938,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "weight": 0.39800122380256653,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 19,
+      "weight": 0.21083512902259827,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 20,
+      "weight": 0.39668866991996765,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 21,
+      "weight": 0.6037183356285095,
+      "overlapping_words": [
+        "trump"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 17,
+      "target": 22,
+      "weight": 0.3772808015346527,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 23,
+      "weight": 0.34039101004600525,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 24,
+      "weight": 0.4843297004699707,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 25,
+      "weight": 0.17492327094078064,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 26,
+      "weight": 0.22158297896385193,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 27,
+      "weight": 0.05521683022379875,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 17,
+      "target": 28,
+      "weight": 0.34558552503585815,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "weight": 0.2526974380016327,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 20,
+      "weight": 0.06998194009065628,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 21,
+      "weight": 0.2914201617240906,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 22,
+      "weight": 0.29849934577941895,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 23,
+      "weight": 0.20435160398483276,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 24,
+      "weight": 0.43231528997421265,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 25,
+      "weight": 0.3729377341270447,
+      "overlapping_words": [
+        "healthcare"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 18,
+      "target": 26,
+      "weight": 0.19052527844905853,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 27,
+      "weight": 0.04811232164502144,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 18,
+      "target": 28,
+      "weight": 0.11592209339141846,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "weight": 0.020321765914559364,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "weight": 0.20281340181827545,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 22,
+      "weight": 0.16275589168071747,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 23,
+      "weight": 0.3910919678211212,
+      "overlapping_words": [
+        "doctors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 19,
+      "target": 24,
+      "weight": 0.19738192856311798,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 25,
+      "weight": 0.38474270701408386,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 26,
+      "weight": 0.2375531792640686,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 19,
+      "target": 27,
+      "weight": 0.4203067374229431,
+      "overlapping_words": [
+        "doctors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 19,
+      "target": 28,
+      "weight": 0.13886255025863647,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "weight": 0.21925212442874908,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 22,
+      "weight": 0.13266123831272125,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 23,
+      "weight": 0.1803438812494278,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 24,
+      "weight": 0.23422342538833618,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 25,
+      "weight": 0.06280249357223511,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 26,
+      "weight": 0.07042549550533295,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 27,
+      "weight": 0.01833021640777588,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 20,
+      "target": 28,
+      "weight": 0.18169507384300232,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "weight": 0.2726639211177826,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 23,
+      "weight": 0.2683732807636261,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 24,
+      "weight": 0.2543923854827881,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 25,
+      "weight": 0.15231427550315857,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 26,
+      "weight": 0.2846762239933014,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 27,
+      "weight": 0.09500934183597565,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 21,
+      "target": 28,
+      "weight": 0.24203640222549438,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "weight": 0.20996113121509552,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 24,
+      "weight": 0.43105974793434143,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 25,
+      "weight": 0.09476760774850845,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 26,
+      "weight": 0.12163295596837997,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 27,
+      "weight": 0.0520797036588192,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 22,
+      "target": 28,
+      "weight": 0.2419838011264801,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 23,
+      "target": 24,
+      "weight": 0.22715550661087036,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 23,
+      "target": 25,
+      "weight": 0.3060944080352783,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 23,
+      "target": 26,
+      "weight": 0.12240825593471527,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 23,
+      "target": 27,
+      "weight": 0.3946761739253998,
+      "overlapping_words": [
+        "doctors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 23,
+      "target": 28,
+      "weight": 0.20383065938949585,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 24,
+      "target": 25,
+      "weight": 0.24138838052749634,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 24,
+      "target": 26,
+      "weight": 0.1461036205291748,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 24,
+      "target": 27,
+      "weight": 0.0722869262099266,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 24,
+      "target": 28,
+      "weight": 0.26346808671951294,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "weight": 0.11282063275575638,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 25,
+      "target": 27,
+      "weight": 0.14385980367660522,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 25,
+      "target": 28,
+      "weight": 0.23934200406074524,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 26,
+      "target": 27,
+      "weight": 0.003767519723623991,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 26,
+      "target": 28,
+      "weight": 0.15855443477630615,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 27,
+      "target": 28,
+      "weight": 0.018495341762900352,
+      "overlapping_words": [],
+      "overlap_count": 0
+    }
+  ],
+  "topic_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ]
+}

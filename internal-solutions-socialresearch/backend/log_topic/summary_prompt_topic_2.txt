@@ -1,0 +1,114 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: insurance, health insurance, income, medicaid, qualify, job, plan
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+ok i am just over the EP So last year i didn't work too much, and I had just migrated to the US, so i was getting Medicare. Now, as i was talking with one of the insurance brokers, she calculated my weekly income and got my yearly gross income to be higher at the end of 2025, i.e., 42k, so she said i will not qualify for any essential plan, and i need to buy insurance from the marketplace. Then she showed me some very pricey stuff. I think i am doomed. What should i do guys ?? We found my wife health insurance on marketplace for $15 dollars a month you just gotta look they’re out there. [...]
+
+EXAMPLE 2:
+I apologize if I'm already explaining things you know and have looked at, but if you have to look at marketplace based health insurance next year, you still qualify for pretty good subsidies there until you hit 60,000 in yearly income. It still is not going to feel good though, because at a projected $42,000 of income this, you would still have a monthly premium for healthcare around $300.
+
+EXAMPLE 3:
+3) healthcare.gov you can buy a plan but it won’t be “cheap” only a job would offer you cheap because the employer pays part or all of the premium
+Sadly, only 40% of small businesses with part time employees offer health insurance, despite what some folks are saying on here.   So you would be better off finding full time employment with a larger company/organization/govt.  If you can move to Poland and the EU, I would do that sooner rather than later. At least you will have free at point of service healthcare. That's the best move!
+1. It is true. [...]
+
+EXAMPLE 4:
+If you really like your current job and can find the superhuman strength to work another 30 hours on top of whatever your current schedule is, that's the magic number of hours to be considered eligible for insurance at Walmart and Amazon. Most locations are also pretty flexible if you have a second (primary) job and can only work say.... Second shift weekdays or first and second on weekends.
+
+EXAMPLE 5:
+Now... With all that being said, does your employer offer their own health insurance plan, and is it even cheaper?
+
+EXAMPLE 6:
+3) Do I have any other options to attain free/affordable healthcare excluding getting a full-time job?
+
+EXAMPLE 7:
+2) I have Crohn's Disease, but not a registered disability. As a back-up, I thought I'd qualify for Medicaid, but I was denied when I applied; apparently a low income isn't enough to quality in this post-COVID reality. Is there really no way I'd qualify for Medicaid? I tried the Marketplace after being denied, but the premiums were so high. A representative told me that I must earn at least $15,650 to be eligible for a Marketplace discount.
+
+EXAMPLE 8:
+If your current employer does not offer affordable healthcare and you can't swing 300 a month on a marketplace plan, as soul crushing and awful as most people find working for Walmart and Amazon...they're almost always hiring and you probably would have a decent shot at getting in. I can tell you that in most states, the average Amazon warehouse worker makes about 50k a year and the average Walmart store associate makes about 40K a year, but both companies provide insanely cheap health insurance. I'm talking $50 a month or less. [...]
+
+EXAMPLE 9:
+I recently completed grad school and just turned 26 in the state of Florida. I was on my father's employer's health care plan until my 26th birthday, which was when we were informed that I'm no longer eligible to stay on it. I have a few questions:
+
+EXAMPLE 10:
+While an obvious solution is to seek full-time employment, I am thinking about moving to Poland in the very near future (which I have dual-citizenship with), especially since my grandmother's health is declining. I'm looking for health insurance in the meantime. I'd appreciate it if you could point me in the right direction; any advice is welcome!
+
+EXAMPLE 11:
+If I'm understanding this right, that's definitely a tough spot to be in. Anyway you cut it, you're going from pretty much free healthcare with no monthly cost to a system where you will have monthly premiums and likely hire out-of-pocket costs for things like co-pays and deductibles.
+
+EXAMPLE 12:
+1) Is it true that I'm no longer eligible? I know that 26 years old is usually the cut-off date, but I'm unmarried with a part-time job (soon to be 2). When I called my father's HR department, they said that I was only eligble for a Cobra extension—which I'm not interested in 'cause it's rather expensive. Is the ineligibility due to me being no longer in school? It may be important to note that the company my father works for has its headquarters out-of-state.
+
+EXAMPLE 13:
+If it's incredibly expensive, is your ability to be in the US employer-sponsored? If it's not, do you have an option to look at reduced hours for a second job or even switching jobs? As much as I hate to say it?
+
+EXAMPLE 14:
+Did you originally qualify because you came here in the middle of the year and the fraction of an entire year's salary simply was below that threshold? That is to say, if you had worked for the entire year having come here at the very beginning of 2024, would you have still made about 40 Grand last year?
+
+EXAMPLE 15:
+Now, thankfully she was fortunate enough to have very good travel insurance through her MasterCard that paid for the trip. It covered up to $150,000 in her medical expenses. By the way, interesting fact, medical expenses covered by travel insurance does NOT count as health insurance. Which was a pain in the ass because we had been dealing with the contracted health insurance company "AXA", who struggled to communicate with us and especially the hospital. [...]
+
+EXAMPLE 16:
+TLDR; My (29M, US citizen) fiancée (30F, Brazilian) is visiting for a couple months on a tourist visa while we wait for her K1-Fiancée visa to be approved. Six days into visiting she was in a grease fire accident which resulted in 3rd degree burns to all of her right arm and hand from the bicep down, her right thigh and the majority of her left leg and foot. She’s now out of the hospital and recovering. Her travel insurance medical expenses are capped out at $150,000 and they said they are not negotiating prices with the hospital, leaving us with potentially over $112,000 in medical debt unles [...]
+
+EXAMPLE 17:
+My LDR fiancée is visiting for a few months and got 3rd degree grease burns 6 days into the trip. Looking for advice regarding US health insurance, travel insurance, and hospital bills. What can we do? Hi Reddit, this is our first time posting looking for advice. To be honest, it’s kind of a hail Mary. But we're really needing/hoping we could receive some guidance on what to do with my current situation. Apologies in advance for any reddit mistakes and thank you for your patience.
+
+EXAMPLE 18:
+Now, my fiancée and I have decent savings accounts that could help some. But nothing that could cover this potential additional $112,000 in debt. Our savings accounts were supposed to be to help us start a life together, not... this. Aside from the medical expenses her travel insurance covered for her mom to travel here to help take care of her, which has been a huge blessing to both of us. The insurance is also offering to cover both her and her mom’s flights back home to Brazil once she’s recovered enough to deal with airport germs. [...]
+
+EXAMPLE 19:
+Again, I know very little about what type of rules apply to you if you are not fully a US citizen at the moment, but if you are a full citizen and you find yourself in a rocking a hard place like this, you could always just start with trying to get into the place like Walmart or Amazon and then if you're one of the rare people that finds the work enjoyable, you could easily just ask for more hours and cut ties or reduce with your current place.
+
+EXAMPLE 20:
+T & M Look up the name of the hospital and “financial assistance” and review the hospital’s financial assistance policy. If it is a tax-exempt hospital, it will be required to comply with IRS code 501r which, in addition to the financial assistance practice, will limit the hospital’s charges to the “amount generally billed.” Depending on the state it is located, the hospital may also be required to offer financial assistance for people with incomes below a set threshold.  This should all be spelled out in that financial assistance policy. [...]
+
+EXAMPLE 21:
+There's also been a lot of other surprise expenses, all hitting at the exact same time as this accident. It's made our finances even more tight and stressful. This is just overall so difficult to deal with on so many levels, especially when you have no idea the scope of the systems you're dealing with. It's just been a nightmare from start to finish, and it's not even done yet. Please give us an outside view looking in. We're trying to remain calm, but the looming debt gets closer every day. Any relevant experiences, tips, tricks, or advice; it's all welcome. [...]
+
+EXAMPLE 22:
+We still haven't gotten the bill, but we got an estimate with detailed items of $224,400.18 that included medicine, wound care, procedures and the room rate. We were keeping track of that bill almost twice a week but after she was discharged our new estimate also had specific charges for every doctor stacked on. Resulting in a surprise extra sum of $38,553.14. Making the new total expenses $262,953.32 (which is a terrifying prospect). [...]
+
+EXAMPLE 23:
+Feel free to ask any questions or provide any more info that might help. But hopefully this helps a little!
+
+EXAMPLE 24:
+A little background on us and the circumstances around her visiting the US. My fiancée and I have been in a long-distance relationship for 6 years come October. We are currently going through the K1-Fiancée visa process and are approaching the final stages, where she will be required to visit the U.S. embassy in Brazil to finish the process.  Back in July, she was amicably released from my full-time job in Brazil. She was given advance notice of her last day, so we decided she should travel to the US for a few months on her tourist visa while we wait. [...]
+
+EXAMPLE 25:
+When I arrived, I rushed her to the closest emergency room. She was stabilized until she could be transferred to another hospital with a full body burn unit. The only one in the state. She was treated very well by the staff there. Nurses, doctors, therapists, everyone. They communicated great and really helped to keep us as comfortable and at peace as possible. In her words, the only bad part of the stay was the food, but that could be expected, I think. Monday, August 11th was her first procedure to have the dead and damaged skin removed from her arm removed to see if she needed grafts. [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

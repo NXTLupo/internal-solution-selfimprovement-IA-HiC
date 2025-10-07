@@ -1,0 +1,1204 @@
+{
+  "total_topics": 29,
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 85,
+      "name": "0_healthcare_school_mha_degree",
+      "representation": [
+        {
+          "term": "healthcare",
+          "weight": 0.014538780421681522
+        },
+        {
+          "term": "school",
+          "weight": 0.012842708834822514
+        },
+        {
+          "term": "mha",
+          "weight": 0.012343713262667347
+        },
+        {
+          "term": "degree",
+          "weight": 0.01145214652171944
+        },
+        {
+          "term": "experience",
+          "weight": 0.011450616171478592
+        },
+        {
+          "term": "career",
+          "weight": 0.010549386612734826
+        },
+        {
+          "term": "job",
+          "weight": 0.009995917132932864
+        },
+        {
+          "term": "work",
+          "weight": 0.009559569866138803
+        },
+        {
+          "term": "tech",
+          "weight": 0.009496629761333485
+        },
+        {
+          "term": "years",
+          "weight": 0.007925960789130519
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 60,
+      "name": "1_healthcare_insurance_health_care",
+      "representation": [
+        {
+          "term": "healthcare",
+          "weight": 0.01739924677248041
+        },
+        {
+          "term": "insurance",
+          "weight": 0.015141735675404265
+        },
+        {
+          "term": "care",
+          "weight": 0.0105592712682215
+        },
+        {
+          "term": "costs",
+          "weight": 0.007875334584678265
+        },
+        {
+          "term": "companies",
+          "weight": 0.006652935595218788
+        },
+        {
+          "term": "private",
+          "weight": 0.006305068209272647
+        },
+        {
+          "term": "countries",
+          "weight": 0.0061864925839217174
+        },
+        {
+          "term": "year",
+          "weight": 0.005951712901227803
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 26,
+      "name": "2_insurance_health insurance_income_medicaid",
+      "representation": [
+        {
+          "term": "insurance",
+          "weight": 0.02460990086522806
+        },
+        {
+          "term": "health insurance",
+          "weight": 0.014765060789909776
+        },
+        {
+          "term": "income",
+          "weight": 0.013651305897471037
+        },
+        {
+          "term": "medicaid",
+          "weight": 0.01261663013525633
+        },
+        {
+          "term": "qualify",
+          "weight": 0.011616079983664375
+        },
+        {
+          "term": "job",
+          "weight": 0.01071750616104759
+        },
+        {
+          "term": "plan",
+          "weight": 0.010596507319327184
+        },
+        {
+          "term": "state",
+          "weight": 0.009343609078632919
+        },
+        {
+          "term": "coverage",
+          "weight": 0.008853978659863464
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 26,
+      "name": "3_doctor_visit_told_pain",
+      "representation": [
+        {
+          "term": "doctor",
+          "weight": 0.016090502792240835
+        },
+        {
+          "term": "visit",
+          "weight": 0.011428779283608692
+        },
+        {
+          "term": "told",
+          "weight": 0.01070489456863296
+        },
+        {
+          "term": "pain",
+          "weight": 0.009898723485908891
+        },
+        {
+          "term": "pcp",
+          "weight": 0.009687673055550305
+        },
+        {
+          "term": "said",
+          "weight": 0.009538842516182016
+        },
+        {
+          "term": "appointment",
+          "weight": 0.009383478145057593
+        },
+        {
+          "term": "care",
+          "weight": 0.007635877627558974
+        },
+        {
+          "term": "patient",
+          "weight": 0.007245687071745456
+        },
+        {
+          "term": "primary",
+          "weight": 0.006953220045546763
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 26,
+      "name": "4_records_medical_patient_mychart",
+      "representation": [
+        {
+          "term": "records",
+          "weight": 0.012941862335909477
+        },
+        {
+          "term": "medical",
+          "weight": 0.012805383122178535
+        },
+        {
+          "term": "patient",
+          "weight": 0.012686038827604993
+        },
+        {
+          "term": "mychart",
+          "weight": 0.011560143787106679
+        },
+        {
+          "term": "office",
+          "weight": 0.010531560020563626
+        },
+        {
+          "term": "portal",
+          "weight": 0.010016591181181181
+        },
+        {
+          "term": "appointment",
+          "weight": 0.009492293184113746
+        },
+        {
+          "term": "hospital",
+          "weight": 0.008872656722007006
+        },
+        {
+          "term": "lab",
+          "weight": 0.008160026650564258
+        },
+        {
+          "term": "information",
+          "weight": 0.007649110803696035
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 24,
+      "name": "5_ai_healthcare_love_patients",
+      "representation": [
+        {
+          "term": "ai",
+          "weight": 0.029397910672193807
+        },
+        {
+          "term": "healthcare",
+          "weight": 0.011078077958377999
+        },
+        {
+          "term": "love",
+          "weight": 0.008590260031705627
+        },
+        {
+          "term": "patients",
+          "weight": 0.008422456751139284
+        },
+        {
+          "term": "help",
+          "weight": 0.00828262575361626
+        },
+        {
+          "term": "use",
+          "weight": 0.007956956169573095
+        },
+        {
+          "term": "clinics",
+          "weight": 0.007527247197732269
+        },
+        {
+          "term": "scheduling",
+          "weight": 0.007442470330262953
+        },
+        {
+          "term": "data",
+          "weight": 0.007279010818423835
+        },
+        {
+          "term": "chatgpt",
+          "weight": 0.007143928354720987
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "count": 21,
+      "name": "6_payment_insurance_pay_visit",
+      "representation": [
+        {
+          "term": "payment",
+          "weight": 0.017594737612451915
+        },
+        {
+          "term": "insurance",
+          "weight": 0.0163057741021843
+        },
+        {
+          "term": "pay",
+          "weight": 0.015347402258235061
+        },
+        {
+          "term": "visit",
+          "weight": 0.01369889620754748
+        },
+        {
+          "term": "collections",
+          "weight": 0.012057429744024722
+        },
+        {
+          "term": "payment plan",
+          "weight": 0.00952870787115163
+        },
+        {
+          "term": "test",
+          "weight": 0.009352272203517701
+        },
+        {
+          "term": "ask",
+          "weight": 0.009247624162492231
+        },
+        {
+          "term": "surgery",
+          "weight": 0.009121572021243257
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "count": 21,
+      "name": "7_rural_hospitals_trump_states",
+      "representation": [
+        {
+          "term": "rural",
+          "weight": 0.035167037722852054
+        },
+        {
+          "term": "hospitals",
+          "weight": 0.031882798875237095
+        },
+        {
+          "term": "trump",
+          "weight": 0.0236622808314538
+        },
+        {
+          "term": "states",
+          "weight": 0.021556031971380986
+        },
+        {
+          "term": "red",
+          "weight": 0.019696789688008046
+        },
+        {
+          "term": "medicaid",
+          "weight": 0.018844666973370346
+        },
+        {
+          "term": "republicans",
+          "weight": 0.01752550983848238
+        },
+        {
+          "term": "cuts",
+          "weight": 0.016302165690496553
+        },
+        {
+          "term": "tax",
+          "weight": 0.015272607395237617
+        },
+        {
+          "term": "voted",
+          "weight": 0.013005941122367566
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "count": 20,
+      "name": "8_trump_jr_rfk_rfk jr",
+      "representation": [
+        {
+          "term": "trump",
+          "weight": 0.02647740748985827
+        },
+        {
+          "term": "rfk jr",
+          "weight": 0.023072256293134304
+        },
+        {
+          "term": "maha",
+          "weight": 0.022967002250788425
+        },
+        {
+          "term": "epstein",
+          "weight": 0.0204020945159083
+        },
+        {
+          "term": "epa",
+          "weight": 0.0204020945159083
+        },
+        {
+          "term": "health",
+          "weight": 0.013280189841585608
+        },
+        {
+          "term": "pdf",
+          "weight": 0.011505130884196975
+        },
+        {
+          "term": "medical",
+          "weight": 0.010354861011193149
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "count": 19,
+      "name": "9_ftc_ftc gov_agreements_federal",
+      "representation": [
+        {
+          "term": "ftc",
+          "weight": 0.021139267306042864
+        },
+        {
+          "term": "ftc gov",
+          "weight": 0.01193506768555271
+        },
+        {
+          "term": "agreements",
+          "weight": 0.011773880792665704
+        },
+        {
+          "term": "federal",
+          "weight": 0.01167501677161837
+        },
+        {
+          "term": "unitedhealth",
+          "weight": 0.011488381519302272
+        },
+        {
+          "term": "healthcare",
+          "weight": 0.010409992116589852
+        },
+        {
+          "term": "noncompete agreements",
+          "weight": 0.009109218885004818
+        },
+        {
+          "term": "news",
+          "weight": 0.008862759334332164
+        },
+        {
+          "term": "patients",
+          "weight": 0.008651503425519031
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "count": 15,
+      "name": "10_mask_covid_vegan_eat",
+      "representation": [
+        {
+          "term": "mask",
+          "weight": 0.021100475236038335
+        },
+        {
+          "term": "covid",
+          "weight": 0.016971801020249422
+        },
+        {
+          "term": "vegan",
+          "weight": 0.012966048161866
+        },
+        {
+          "term": "eat",
+          "weight": 0.01172248624224352
+        },
+        {
+          "term": "human",
+          "weight": 0.011635229283429457
+        },
+        {
+          "term": "bloomberg news",
+          "weight": 0.010111092648472386
+        },
+        {
+          "term": "energy",
+          "weight": 0.009698177002569785
+        },
+        {
+          "term": "lost",
+          "weight": 0.00953090985705227
+        },
+        {
+          "term": "kill",
+          "weight": 0.009377988993794816
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "count": 15,
+      "name": "11_job_patients_clinical_healthcare",
+      "representation": [
+        {
+          "term": "job",
+          "weight": 0.012405387420124595
+        },
+        {
+          "term": "patients",
+          "weight": 0.012246515885435849
+        },
+        {
+          "term": "clinical",
+          "weight": 0.011134560113970848
+        },
+        {
+          "term": "healthcare",
+          "weight": 0.010095385235967595
+        },
+        {
+          "term": "burnout",
+          "weight": 0.009942995245384457
+        },
+        {
+          "term": "staff",
+          "weight": 0.009623011905596385
+        },
+        {
+          "term": "told",
+          "weight": 0.00927627436859761
+        },
+        {
+          "term": "new",
+          "weight": 0.008716120888759903
+        },
+        {
+          "term": "work",
+          "weight": 0.008650105980156713
+        },
+        {
+          "term": "comes",
+          "weight": 0.008184202818519512
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "count": 14,
+      "name": "12_breach_data_oracle_data breach",
+      "representation": [
+        {
+          "term": "breach",
+          "weight": 0.04620538787264524
+        },
+        {
+          "term": "data",
+          "weight": 0.04331465380674016
+        },
+        {
+          "term": "oracle",
+          "weight": 0.03930682515854006
+        },
+        {
+          "term": "data breach",
+          "weight": 0.02908108869307802
+        },
+        {
+          "term": "oracle cloud",
+          "weight": 0.021227447116698613
+        },
+        {
+          "term": "cloud health",
+          "weight": 0.021227447116698613
+        },
+        {
+          "term": "oracle cloud health",
+          "weight": 0.01958319933897747
+        },
+        {
+          "term": "information",
+          "weight": 0.01902688035199946
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "count": 13,
+      "name": "13_cdc_vaccine_covid_agency",
+      "representation": [
+        {
+          "term": "cdc",
+          "weight": 0.0853018930648479
+        },
+        {
+          "term": "vaccine",
+          "weight": 0.037039767060555714
+        },
+        {
+          "term": "covid",
+          "weight": 0.0284339643549493
+        },
+        {
+          "term": "agency",
+          "weight": 0.0240681993534966
+        },
+        {
+          "term": "employees",
+          "weight": 0.02351614745231922
+        },
+        {
+          "term": "cdc director",
+          "weight": 0.01777325361035694
+        },
+        {
+          "term": "covid 19",
+          "weight": 0.01661726044753464
+        },
+        {
+          "term": "kennedy",
+          "weight": 0.015834358632101624
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "count": 12,
+      "name": "14_hospital_closed_rural_medicaid",
+      "representation": [
+        {
+          "term": "hospital",
+          "weight": 0.03064972844899654
+        },
+        {
+          "term": "closed",
+          "weight": 0.02545077849150863
+        },
+        {
+          "term": "rural",
+          "weight": 0.021501329028743042
+        },
+        {
+          "term": "medicaid",
+          "weight": 0.02064421197882912
+        },
+        {
+          "term": "2015",
+          "weight": 0.012463271252106622
+        },
+        {
+          "term": "cuts",
+          "weight": 0.011700670483809548
+        },
+        {
+          "term": "county",
+          "weight": 0.010734916443919367
+        },
+        {
+          "term": "mobile",
+          "weight": 0.010421990991859453
+        },
+        {
+          "term": "kansas",
+          "weight": 0.010421990991859453
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "count": 12,
+      "name": "15_pharmacy_medication_amazon_canada",
+      "representation": [
+        {
+          "term": "pharmacy",
+          "weight": 0.027588014327732818
+        },
+        {
+          "term": "medication",
+          "weight": 0.02400623007994638
+        },
+        {
+          "term": "amazon",
+          "weight": 0.02388183076190116
+        },
+        {
+          "term": "canada",
+          "weight": 0.017334636184228
+        },
+        {
+          "term": "pillpack",
+          "weight": 0.015296258234836747
+        },
+        {
+          "term": "practice",
+          "weight": 0.010985634828913285
+        },
+        {
+          "term": "prescription",
+          "weight": 0.01061696646330436
+        },
+        {
+          "term": "crisis",
+          "weight": 0.010360444983620938
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "count": 12,
+      "name": "16_insurance_pay_urgent_car",
+      "representation": [
+        {
+          "term": "insurance",
+          "weight": 0.03156034943617054
+        },
+        {
+          "term": "pay",
+          "weight": 0.016903807611740974
+        },
+        {
+          "term": "car",
+          "weight": 0.013057726291253471
+        },
+        {
+          "term": "company",
+          "weight": 0.012886509802817275
+        },
+        {
+          "term": "urgent care",
+          "weight": 0.012679054437804418
+        },
+        {
+          "term": "claims",
+          "weight": 0.01115479908443321
+        },
+        {
+          "term": "car accident",
+          "weight": 0.010278866676663294
+        },
+        {
+          "term": "bills",
+          "weight": 0.009903207009202534
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "count": 11,
+      "name": "17_obamacare_republicans_democrats_trump",
+      "representation": [
+        {
+          "term": "obamacare",
+          "weight": 0.027233987861806405
+        },
+        {
+          "term": "republicans",
+          "weight": 0.02608268692970618
+        },
+        {
+          "term": "democrats",
+          "weight": 0.025454917741931645
+        },
+        {
+          "term": "trump",
+          "weight": 0.024148016801600943
+        },
+        {
+          "term": "affordable care act",
+          "weight": 0.022331164407511407
+        },
+        {
+          "term": "affordable care",
+          "weight": 0.022331164407511407
+        },
+        {
+          "term": "care act",
+          "weight": 0.022005579342384042
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "count": 11,
+      "name": "18_plan_plans_deductible_marketplace",
+      "representation": [
+        {
+          "term": "plan",
+          "weight": 0.04743008842705681
+        },
+        {
+          "term": "deductible",
+          "weight": 0.02352747674396082
+        },
+        {
+          "term": "marketplace",
+          "weight": 0.021801551640058738
+        },
+        {
+          "term": "cobra",
+          "weight": 0.019059774961985538
+        },
+        {
+          "term": "employer",
+          "weight": 0.018357518367543745
+        },
+        {
+          "term": "marketplace plans",
+          "weight": 0.015485905622586796
+        },
+        {
+          "term": "coverage",
+          "weight": 0.014695524095025695
+        },
+        {
+          "term": "high deductible",
+          "weight": 0.012585727982291071
+        },
+        {
+          "term": "healthcare",
+          "weight": 0.012571388784864863
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "count": 10,
+      "name": "19_patient_patients_outcomes_supplies",
+      "representation": [
+        {
+          "term": "patient",
+          "weight": 0.02318702013605618
+        },
+        {
+          "term": "outcomes",
+          "weight": 0.01581805765935325
+        },
+        {
+          "term": "supplies",
+          "weight": 0.015793860307612213
+        },
+        {
+          "term": "care",
+          "weight": 0.013118098756331844
+        },
+        {
+          "term": "pros",
+          "weight": 0.012950556229526173
+        },
+        {
+          "term": "performance",
+          "weight": 0.012430863016770351
+        },
+        {
+          "term": "doctors",
+          "weight": 0.012032283210256317
+        },
+        {
+          "term": "prior",
+          "weight": 0.011209831458074781
+        },
+        {
+          "term": "patient reported outcomes",
+          "weight": 0.010231711474669768
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "count": 9,
+      "name": "20_abortion_meme_parenthood_planned parenthood",
+      "representation": [
+        {
+          "term": "abortion",
+          "weight": 0.06288131348440454
+        },
+        {
+          "term": "meme",
+          "weight": 0.05564158471311745
+        },
+        {
+          "term": "planned parenthood",
+          "weight": 0.043020189149100815
+        },
+        {
+          "term": "woman",
+          "weight": 0.035787244165225364
+        },
+        {
+          "term": "meme gen",
+          "weight": 0.031350084581528735
+        },
+        {
+          "term": "gen ai",
+          "weight": 0.031350084581528735
+        },
+        {
+          "term": "gen ai meme",
+          "weight": 0.031350084581528735
+        },
+        {
+          "term": "ai meme",
+          "weight": 0.031350084581528735
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "count": 8,
+      "name": "21_trump_drug_price_president",
+      "representation": [
+        {
+          "term": "trump",
+          "weight": 0.046261088367111916
+        },
+        {
+          "term": "drug",
+          "weight": 0.046099985505446
+        },
+        {
+          "term": "price",
+          "weight": 0.03540244604486475
+        },
+        {
+          "term": "president",
+          "weight": 0.03519749977782167
+        },
+        {
+          "term": "drug prices",
+          "weight": 0.03160080146904761
+        },
+        {
+          "term": "big pharma",
+          "weight": 0.029705296790484465
+        },
+        {
+          "term": "albert",
+          "weight": 0.02787450457975446
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "count": 8,
+      "name": "22_medicare_sequestration_social security_budget",
+      "representation": [
+        {
+          "term": "medicare",
+          "weight": 0.06104830800493267
+        },
+        {
+          "term": "sequestration",
+          "weight": 0.028421282841870017
+        },
+        {
+          "term": "social security",
+          "weight": 0.021427313795191544
+        },
+        {
+          "term": "budget",
+          "weight": 0.021103613615056485
+        },
+        {
+          "term": "benefit",
+          "weight": 0.020152095511426906
+        },
+        {
+          "term": "trust",
+          "weight": 0.01859903596864021
+        },
+        {
+          "term": "sequestration order",
+          "weight": 0.01798552200064791
+        }
+      ]
+    },
+    {
+      "topic_id": 23,
+      "count": 8,
+      "name": "23_doctors_economics_canada_work immediately",
+      "representation": [
+        {
+          "term": "doctors",
+          "weight": 0.02884216277061033
+        },
+        {
+          "term": "economics",
+          "weight": 0.025223958123275672
+        },
+        {
+          "term": "canada",
+          "weight": 0.022260132075139914
+        },
+        {
+          "term": "work immediately",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "soon able",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "able work immediately",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "health workers soon",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "work immediately ontario",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "soon able work",
+          "weight": 0.017331902082399486
+        },
+        {
+          "term": "infectious disease",
+          "weight": 0.017331902082399486
+        }
+      ]
+    },
+    {
+      "topic_id": 24,
+      "count": 8,
+      "name": "24_medicaid_magi medicaid_magi_subsidies",
+      "representation": [
+        {
+          "term": "medicaid",
+          "weight": 0.04244473070502788
+        },
+        {
+          "term": "magi medicaid",
+          "weight": 0.020891968456081544
+        },
+        {
+          "term": "subsidies",
+          "weight": 0.02022696255974668
+        },
+        {
+          "term": "expanded",
+          "weight": 0.019019785090099408
+        },
+        {
+          "term": "qualify",
+          "weight": 0.018820506558726725
+        },
+        {
+          "term": "retirement",
+          "weight": 0.017925120317417727
+        },
+        {
+          "term": "aca",
+          "weight": 0.01669650043951799
+        },
+        {
+          "term": "2026",
+          "weight": 0.014963008216212352
+        },
+        {
+          "term": "subsidies learn",
+          "weight": 0.014658282790822895
+        }
+      ]
+    },
+    {
+      "topic_id": 25,
+      "count": 7,
+      "name": "25_frontiers_mercor_remote_healthcare",
+      "representation": [
+        {
+          "term": "frontiers",
+          "weight": 0.0253793443232547
+        },
+        {
+          "term": "mercor",
+          "weight": 0.0253793443232547
+        },
+        {
+          "term": "remote",
+          "weight": 0.025091826648704425
+        },
+        {
+          "term": "healthcare",
+          "weight": 0.022257681354140964
+        },
+        {
+          "term": "working",
+          "weight": 0.020716044550341196
+        },
+        {
+          "term": "company provides",
+          "weight": 0.01976989342391348
+        },
+        {
+          "term": "independently",
+          "weight": 0.017604389272830017
+        },
+        {
+          "term": "advocates",
+          "weight": 0.017604389272830017
+        },
+        {
+          "term": "research",
+          "weight": 0.01634601193987359
+        }
+      ]
+    },
+    {
+      "topic_id": 26,
+      "count": 7,
+      "name": "26_connecticut_sales_connecticut history state_history state",
+      "representation": [
+        {
+          "term": "connecticut",
+          "weight": 0.04083672275881723
+        },
+        {
+          "term": "sales",
+          "weight": 0.033970881978512966
+        },
+        {
+          "term": "connecticut history state",
+          "weight": 0.03181081616769618
+        },
+        {
+          "term": "history state",
+          "weight": 0.03181081616769618
+        },
+        {
+          "term": "connecticut history",
+          "weight": 0.03181081616769618
+        },
+        {
+          "term": "weight loss",
+          "weight": 0.02896016659809375
+        },
+        {
+          "term": "drugs",
+          "weight": 0.023266082664500545
+        }
+      ]
+    },
+    {
+      "topic_id": 27,
+      "count": 7,
+      "name": "27_temperature_doctors_pain_patients",
+      "representation": [
+        {
+          "term": "temperature",
+          "weight": 0.02092012929384997
+        },
+        {
+          "term": "doctors",
+          "weight": 0.02061475095463495
+        },
+        {
+          "term": "pain",
+          "weight": 0.015919741902551476
+        },
+        {
+          "term": "patients",
+          "weight": 0.015829047008171854
+        },
+        {
+          "term": "trained",
+          "weight": 0.01510173789837525
+        },
+        {
+          "term": "body",
+          "weight": 0.011993551517798514
+        },
+        {
+          "term": "cold",
+          "weight": 0.011622294052138873
+        },
+        {
+          "term": "kidney",
+          "weight": 0.011452842728560682
+        },
+        {
+          "term": "say",
+          "weight": 0.011447405430233693
+        }
+      ]
+    },
+    {
+      "topic_id": 28,
+      "count": 7,
+      "name": "28_202_202 224_224_contact",
+      "representation": [
+        {
+          "term": "202 224",
+          "weight": 0.04735736500940366
+        },
+        {
+          "term": "contact 202",
+          "weight": 0.033146535970104966
+        },
+        {
+          "term": "contact 202 224",
+          "weight": 0.033146535970104966
+        },
+        {
+          "term": "senator",
+          "weight": 0.03175905765981988
+        },
+        {
+          "term": "vote",
+          "weight": 0.01983791323494954
+        }
+      ]
+    }
+  ]
+}

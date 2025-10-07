@@ -1,0 +1,118 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: rural, hospitals, trump, states, red, medicaid, republicans
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+This is the maybe not so credible source that reported it: [GOP Faces Headwinds on Push for Second Big Tax and Spending Bill](https://finance.yahoo.com/news/gop-faces-headwinds-push-second-100000559.html) Rural health facilities will close.
+Well they did vote for this
+The patients don’t care and I am glad is happening.
+
+EXAMPLE 2:
+Republicans to start voting on cutting medicaid expansion to all 40 states by October? There were two credible sources saying Republicans are pushing a second tax bill that cuts medicaid expansion to all 40 states that expanded it, with an effort to push people towards private healthcare.
+
+EXAMPLE 3:
+MAGA's budget is apparently going to have a slush fund to bail out red state hospitals while allowing blue state hospitals to close due to devastating Medicaid cuts.  This is next level evil.
+anyone can debate the medicaid cut.
+
+EXAMPLE 4:
+**338 rural** **hospitals are at risk of closing.** That’s nearly **1 hospital per 1 million people** in the U.S.
+
+EXAMPLE 5:
+**This is a direct hit to lives and livelihoods. We can’t let it happen.**
+It's sad because the Republicans know what they are doing to everyone only to benefit the rich. Article says, "every major health system in Louisiana sent a letter Saturday to the state’s entire congressional delegation, including Speaker Mike Johnson (R), warning that planned cuts to Medicaid would be".
+
+EXAMPLE 6:
+Rural areas and red states will be hit especially hard. And no, the slush fund for red states of $15 billion won't help. It cannot compensate for hundreds of hospitals gone!
+
+EXAMPLE 7:
+You can adjust for that by creating a fund that supports sparse areas.... socializing the support funding for those more at-risk... if you will. Or you can let those people go with effectively-zero-care.  Will you choose the latter, because rural people are typically conservatives?
+I'm sorry if this hurts Red States, but the Blue states need to just cut the rest off. California already talked about doing this, I think this should help establish a precedent for doing it. Actions have consequences. If you cannot represent your constituents, the Union will fail. That is all there is to it. [...]
+
+EXAMPLE 8:
+Until the hospitals close the people who voted for them won't realize it affects them till it's too late.
+
+EXAMPLE 9:
+**Republicans, Democrats, Independents: this affects** ***ALL OF US.*** That chart doesn’t show the severity of the problem. Even urban hospitals and health systems that have huge government payor mixes are at risk. Not sure that’s accurately reflected here.
+You're right! This bill will hurt everyone: red states, blue states, rural towns, big cities, Republicans, Democrats.
+
+EXAMPLE 10:
+338 Hospitals face closure. Red states will be hardest hit. **UPDATE (7.30 am EST, June 30th) : 4 major nation-wide polls that have come out this morning show overwhelming disapproval from the American public - Republicans, Democrats and Independents - on the "Big Beautiful Bill"**
+
+EXAMPLE 11:
+[https://www.markey.senate.gov/imo/media/doc/letter\_on\_rural\_hospitals.pdf](https://www.markey.senate.gov/imo/media/doc/letter_on_rural_hospitals.pdf)
+
+EXAMPLE 12:
+Republicans are deeply divided on this bill, with many knowing voters will turn on them when its disastrous impact hits every state. The bill can still be stopped, but if not it will slash **$1 TRILLION from Medicaid threatening access to hospitals for millions of Americans.**
+
+EXAMPLE 13:
+* **Oklahoma** (4.1M inhabitants): 21 hospitals at risk. That’s **nearly 12%** of the population. 483,000 people facing delayed or no care.
+* **Louisiana** (4.6M inhabitants): 33 hospitals. At least to **17%** could lose easy access to healthcare.
+* **Kentucky** (4.6M inhabitants): 35 hospitals. At least **17.5%** affected.
+* **Mississippi** (2.9M inhabitants): 8 hospitals on the line. At least **6%** of people affected
+* **New Mexico** (2.1M inhabitants): 15 hospitals at risk. [...]
+
+EXAMPLE 14:
+338 hospitals are immediately at risk. Furthermore, this bill targets the 30% of Americans with the lowest incomes: veterans, seniors, disabled people, caregivers, and working families who already struggle to afford food and healthcare.
+
+EXAMPLE 15:
+You can accept that as-is and let rural hospital close, ensuring some regions effectively have no care.
+
+EXAMPLE 16:
+- In dense urban areas, that means hospitals stay open but server fewer people.  
+- in sparse rural areas that means hospitals close
+
+EXAMPLE 17:
+**Medicaid and SNAP will be gutted.** The national deficit will **explode by trillions**, dragging down the entire economy.
+
+EXAMPLE 18:
+**A stroke or heart attack could mean a 1.5-hour drive** **to the nearest ER**. And if you rely on ongoing care for chronic illnesses, you could lose access purely because no hospital will be close enough to visit regularly.
+
+EXAMPLE 19:
+[https://www.bloomberg.com/news/articles/2025-09-02/gop-faces-headwinds-on-push-for-second-big-tax-and-spending-bill](https://www.bloomberg.com/news/articles/2025-09-02/gop-faces-headwinds-on-push-for-second-big-tax-and-spending-bill)
+
+EXAMPLE 20:
+[https://thehill.com/business/5469152-trump-republicans-tax-cut-extension/](https://thehill.com/business/5469152-trump-republicans-tax-cut-extension/)
+
+EXAMPLE 21:
+**Now is the time to call, email and send messages on social media to your Senators and House Representatives.**
+
+EXAMPLE 22:
+This means that if Senators vote 'yes' on this bill, they would go against the wishes of the vast majority of Americans.
+
+EXAMPLE 23:
+We can all call our Senator to tell them "NO". Here’s the number list: [Senator Contact List (PDF)](https://www.senate.gov/general/resources/pdf/senators_phone_list.pdf)  
+Or find your rep's email address on this page. [Find Your Representative](https://www.house.gov/representatives/find-your-representative)
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

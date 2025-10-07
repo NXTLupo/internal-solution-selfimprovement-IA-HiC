@@ -1,0 +1,119 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: trump, rfk jr, maha, epstein, epa, health, pdf
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+[https://www.epa.gov/sites/default/files/2019-02/documents/pfas\_action\_plan\_021319\_508compliant\_1.pdf](https://www.epa.gov/sites/default/files/2019-02/documents/pfas_action_plan_021319_508compliant_1.pdf)
+
+EXAMPLE 2:
+https://joshwho.net/EpsteinList/black-book-unredacted.pdf (verified pre-Bondi) Trump is on page 85, or pdf pg. 80
+
+EXAMPLE 3:
+MAHA Wants Action on Pesticides. It’s Not Going to Get It From Trump’s Corporate-Friendly EPA  You really need to be a shill for herbicide and pesticide makers, in order to claim that using AI to prep the doc could have misrepresented how harmful these are.   Particularly when other countries' regulator bodies have banned them.
+The final MAHA [strategy report](https://www.whitehouse.gov/wp-content/uploads/2025/09/The-MAHA-Strategy-WH.pdf), with input from multiple agencies, was released from the White House on Tuesday. Lee Zeldin, the EPA administrator, said in a [statement](https://www.hhs. [...]
+
+EXAMPLE 4:
+Read more: [https://www.wired.com/story/the-epas-closeness-to-industry-stands-in-the-way-of-it-helping-maha/](https://www.wired.com/story/the-epas-closeness-to-industry-stands-in-the-way-of-it-helping-maha/)
+
+EXAMPLE 5:
+[https://www.epa.gov/newsreleases/epa-announces-it-will-keep-maximum-contaminant-levels-pfoa-pfos](https://www.epa.gov/newsreleases/epa-announces-it-will-keep-maximum-contaminant-levels-pfoa-pfos)
+
+EXAMPLE 6:
+https://joshwho.net/EpsteinList/gov.uscourts.nysd.447706.1320.0-combined.pdf (verified court documents)
+
+EXAMPLE 7:
+Pediatric Brain Cancer Group to Lose Federal Funding  Ghouls. What is this regime doing with the money that's been cut, I wonder.
+Helping themselves. Certainly not anyone who actually needs it.
+Here are all of the Epstein Files that have either been leaked or released.
+
+EXAMPLE 8:
+https://cdn.factcheck.org/UploadedFiles/Johnson_TrumpEpstein_Calif_Lawsuit.pdf here’s a court doc of Epstein and Trump raping a 13 yr old together.
+
+EXAMPLE 9:
+Trump administration actions contradict MAHA rhetoric on toxic chemicals  This article is not well structured, IMO, and contributes to the confusion. This administration is making broad and deep changes in the way that funding happens overall. In order to affect that it has to eliminate funding structures before creating new ones. That broadly affects research funding, and the structural change prevents nuanced targeting of funding the bridge to change.
+
+EXAMPLE 10:
+FBI coverup to remove Trumps name from the Epstein list
+https://www.muellershewrote.com/p/the-epstein-cover-up-at-the-fbi
+
+EXAMPLE 11:
+Because the lack of that awareness leads people to write articles like this, thinking that you can perform such large change to governmental processes and maintain some nuanced decision-making process.  Or the same lack of awareness, in readers, leads people to read an article like this and think that it's a generally accurate message to convey.
+The EPA mandates were a Trump 1.0 era mandate.  Biden inherited it.
+
+EXAMPLE 12:
+Zen Honeycutt is the executive director of Moms Across America, a grassroots advocacy group at the core of the MAHA movement. ([Robert F. Kennedy, Jr](https://www.wired.com/tag/robert-f-kennedy-jr/) is on the board of advisers.) Honeycutt says she has been overall “very encouraged by the collaborative initiatives of this administration to welcome bipartisan experts.” But she had harsh criticisms for how the new strategy document handled the issue of pesticides. The new report, she says, is “blatant pandering to the pesticide companies.”
+
+EXAMPLE 13:
+Trump-Epstein timeline:  https://thepresidential.medium.com/we-have-been-gaslit-about-donald-trump-and-jeffrey-epstein-for-four-years-fbda67c20f75
+
+EXAMPLE 14:
+The May [MAHA commission report](https://www.whitehouse.gov/wp-content/uploads/2025/05/MAHA-Report-The-White-House.pdf) called out two popular pesticides—glyphosate and atrazine—by name as potentially harmful to human health. (As other outlets have [asserted](https://www.washingtonpost.com/health/2025/05/29/maha-rfk-jr-ai-garble/) that the report possibly used AI to create false research, WIRED checked the footnotes in the sections on these two chemicals; all of the studies cited exist. [...]
+
+EXAMPLE 15:
+I did the research that NPR refused to do, or at least hid from you.  Here is the EPA statement saying the the levels will not be increased.
+
+EXAMPLE 16:
+Here's the flight logs https://www.documentcloud.org/documents/21165424-epstein-flight-logs-released-in-usa-vs-maxwell/
+
+EXAMPLE 17:
+Trump rapes 13yr old girl: NY court docs -
+https://www.courtlistener.com/docket/4524664/doe-v-trump/
+
+EXAMPLE 18:
+Trump's modeling agency was probably part of Jeffreys pipeline: https://www.motherjones.com/politics/2016/08/donald-trump-model-management-illegal-immigration/
+
+EXAMPLE 19:
+Will new channels are funding be created afterward, that are aligned with researchers like the toxicology person that is cited early in the article? One would like to hope there is such consistency, regardless of political alignment.  I'm not arguing that the fall through happen, that consistency exists, that fairness is a part of any of this process, or even which policies are right.
+
+EXAMPLE 20:
+Trump’s name is circled. The circled individuals are the ones involved in the trafficking ring according to the person who originally released the book.  These people would be “The List “ Here is the story.
+
+EXAMPLE 21:
+Epstein pleads the 5th when asked if he has ever “socialized” with underage girls in the presence of Trump.  
+https://www.youtube.com/shorts/2mpTy2cYDpA
+
+EXAMPLE 22:
+Trump admitting to peeping on 14-15 year old girls at around 1:40 on the Howard Stern Radio Show: https://youtu.be/iFaQL_kv_QY?si=vBs75kaxPjJJThka
+
+EXAMPLE 23:
+My point is to make awareness for people that don't understand how the larger system most funding through programs in offices and broader Federal structure.
+
+EXAMPLE 24:
+Trump's promise to his daughter: https://www.huffpost.com/entry/donald-trump-ivanka-trump-dating-promise_n_57ee98cbe4b024a52d2ead02 “I have a deal with her. She’s 17 and doing great ― Ivanka. She made me promise, swear to her that I would never date a girl younger than her”
+
+EXAMPLE 25:
+Some people think this claim is a hoax.  Here is Katies testimony on youtube: https://www.youtube.com/watch?v=gnib-OORRRo
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,98 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: healthcare, school, mha, degree, experience, career, job
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+If you’re serious about building a long-term career in healthcare administration, you’ll eventually need to pursue a graduate degree. A Master of Healthcare Administration (MHA) is considered the gold standard in this field. If you’re looking for broader career flexibility, an MBA with a healthcare concentration can also be valuable, though in some markets it may not carry the same weight as an MHA for leadership roles in health systems.
+
+EXAMPLE 2:
+While earning a bachelor’s degree is an important step toward a career in healthcare administration, it will not immediately place you in a high-paying role. Most professionals begin in entry-level positions, gradually advancing into higher-level leadership roles while narrowing their focus to a specific area of the field. This is especially true if you do not have a clinical background (RN, RT, OT, LPN, etc.)For those seeking senior leadership positions, the terminal degrees are typically a Master of Healthcare Administration (MHA) or a Master of Business Administration (MBA) with a healthcar [...]
+
+EXAMPLE 3:
+Be open to different pathways, take initiative, and commit yourself to learning as much as possible along the way. Ultimately, it’s your work ethic, communication,  and soft skills that are going to be your biggest accelerators to career growth.
+I work in healthcare administration, specifically division level operations. Not something you must do, but something I encourage is bolstering your resume with internships (whether in senior living facilities, clinics, hospitals, etc.) and eventually getting a graduate degree (MHA, MBA, MPH, etc.). [...]
+
+EXAMPLE 4:
+If you choose the MHA route, I highly recommend applying for a post-graduate fellowship. It’s one of the most effective ways to get your foot in the door, gain meaningful leadership experience, and build a strong professional network.
+
+EXAMPLE 5:
+Wanting to get into healthcare admin need some advice I want to get into healthcare admin and I know it’s competitive where I’m at. I recently graduate with a degree in business general management. But I want to know what certifications should I get to stand out or learn from as I try to get into this field.  Start by gaining healthcare experience in any capacity—whether it’s scheduling, revenue cycle, or another operational role. Getting exposure to the inner workings of a healthcare organization is a critical first step.
+
+EXAMPLE 6:
+Healthcare Administration i was in the military for a few years and  separated now pursuing my bachelors in healthcare administration just wondering for those of you that work in the medical field how likely am i to be able to get my degree and jump right into a relatively good income? im living off my savings while i attend school. if not should i consider changing my degree and if so into what? Thank you for your time i appreciate any advice  A “good” income is highly subjective and varies greatly depending on expectations and perspective.
+
+EXAMPLE 7:
+Healthcare administration can be incredibly rewarding, but its greatest returns are often in purpose, impact, and the opportunity to improve care.
+I don't expect generational wealth but i was making under 25ka year and that's completely unsustainable in our current financial climate, at-least where i live in New Hampshire thank you for your in-depth response i really appreciate the help :)
+Thanks for your service!
+
+EXAMPLE 8:
+To be direct, if your primary motivation for entering healthcare administration is to secure quick wealth, you may want to reconsider your goal. This is not an industry known for producing extraordinary personal wealth or extravagant lifestyles. It’s comfortable but not everyone is making gobs of cash.
+
+EXAMPLE 9:
+Personally, I came into healthcare administration from the clinical side and transitioned into leadership roles from there. It’s opened a lot of doors but every pathway is unique.
+
+EXAMPLE 10:
+They have wasted $750 of my money on application fees and years of my life acquiring “bedside nursing experience” only to reject my application over tiny technicalities. They will find every excuse to throw out your work experience forms and they have a long laundry list of 20 skills they say that every single one has to be check marked as “YES” by your RN supervisor. If 19/20 skills are marked YES, one marked NO, your work experience form goes straight into the trash. Doesn’t matter if you worked there for several years as a CNA. [...]
+
+EXAMPLE 11:
+It's not like school where the professors get in serious trouble if they DONT help you get licensed after passing. In the workforce, your employers can potentially get in trouble BY HELPING. bvnpt said they will audit everything and get your supervisor in trouble if they mark off a single skill that your facility does not provide. Your RN supervisor knows this too so they don't help. Decades of CNA work down the drain..
+I’m so sorry as someone who worked their way up the nursing ladder starting as a cna and now an NP I had no idea this existed and sadly OP I do not agree with it.
+
+EXAMPLE 12:
+They also expect you to obtain 240 hours in a Maternity ward and 240 hours with pediatrics. The crazy thing is none of the maternity wards in LA hire CNAs for the role. They run the show without CNA‘s. It’s just RNs. There is no possible way to obtain this experience as a CNA, I have tried. They also want 240 hours of Peds but you can count on one hand how many pediatric acute care centers there are in all of Southern California. If just one item is Mark no, they reject all your pediatric hours. [...]
+
+EXAMPLE 13:
+Nurses whether LPN, LVN, or RN should be a graduate of a nursing program. I personally wouldn’t sign off on a cna performing an invasive procedure. I’m sorry you were misled and shame on the board for allowing it.
+
+EXAMPLE 14:
+The answer to this question depends on a TON of variables including where you live, previous experience, and the area within admin you want to pursue. You likely will not enter directly into any type of management role without experience but a good income depends wholly on the area you live in and how much you are needing to make.
+
+EXAMPLE 15:
+This may sound silly but when I was in school we had to look up professionals in the industry and reach out to them for informational interviews where we would ask their type of role, experience and any questions we had. It was awkward at first, but it did help to kind of discover what you’re really interested in within that field and then you can start looking at open job postings to see what type of salaries you can expect before applying.
+
+EXAMPLE 16:
+A traditional business degree, coupled with early entry into the workforce, may offer a faster path to higher earnings in either sales, business, real estate, banking, etc.
+
+EXAMPLE 17:
+These bvnpt bastards also refuse to give you any information or answer any questions on anything regarding your previous nursing education unless you pay them $330 to evaluate your transcripts for “possible credit in lieu of CNA work experience.” Then once you’ve paid them, they tell you that you are missing something, but that you are unable to correct the “deficiency” until you pay them another $330 in 2 years after the now open application expires. [...]
+
+EXAMPLE 18:
+They have wacky requirements such as “perform an enema” “diabetic urine testing” “collection of specimens” “sterile aseptic technique” and other skills outside of a CNA scope in California that a facility would never authorize a CNA to do, let alone sign you off for it. These are tasks delegated to the LVN/RN only. If you write in “No, but assisted the RN in performing skill” that isn’t good enough for them and your work experience form goes to the trash. [...]
+
+EXAMPLE 19:
+Challenging the LVN exam as a CNA via Method 3 in California is a total sham/scam. My experience. For RN students or dropouts, or those with years of CNA work experience hoping to challenge the NCLEX for LVN via Method 3 in California, I can tell you this pathway to nursing does not exist. The BVNPT (board of vocational nurses) makes it absolutely impossible for one to qualify via Method 3 unless you are a foreign graduate of a bsn program.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

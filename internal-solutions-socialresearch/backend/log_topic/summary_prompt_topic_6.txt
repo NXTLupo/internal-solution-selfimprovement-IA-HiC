@@ -1,0 +1,115 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: payment, insurance, pay, visit, collections, payment plan, test
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I had this happen once for lab work where LabCorp made me pay out of pocket for my lab and I had to wait for them to refund me after insurance paid.
+It is getting more commen for providers to ask for payment upfront for things like deductible.
+
+EXAMPLE 2:
+I would call billing, or whoever sent this ( which may not be billing it pay be a pre registering dept) some possibleilty 
+1. They did not get your insurance set up so the systrm/ estimate sees you as self pay.
+2. You are also schulded to have a test which is outside the copay that is pulling your deductible. 
+3. This is an ask not a demand. Meaning they prefer you pay upfront but will work with you if you can't _ won't
+4. [...]
+
+EXAMPLE 3:
+If they are not planning on a specific procedure, then ask them why you wouldn’t just pay your regular copay and they bill insurance as usual.
+
+EXAMPLE 4:
+I remembered that the doctor said something about setting up a payment plan, but my wife believes that the payment plan would have to be set up and paid off before surgery. Her only surgery though has been with her pregnancy and they made her set up a payment plan leading up to the birth. To me, that felt different since that was preparing something and even then we had 8ish months (the person did tell her that if she couldn't make the payments she would have to find another facility, which feels kind of rude).  She is primarily using Kelsey seybold.
+
+EXAMPLE 5:
+I've tried looking into it, and find conflicting information. I have read that lots of officers do require the full deductible payment upfront before billing. So I'm not really sure.
+
+EXAMPLE 6:
+Many health systems now require upfront payment for outpatient procedures due to rising costs and unpaid bills from patients. Unfortunate for the patients I know! The health systems have a need to ensure profitability to continue providing care and keeping the lights on and staff employed.
+
+EXAMPLE 7:
+Told to pay $1,100 for cardiology apt BEFORE the apt? We have to take my son to see a cardiologist for a heart murmur and I received a message saying that we will be expected to pay $1,100 upon arrival to the appointment. I’m confused because we have good insurance coverage and our copay for a specialist visit is supposed to be $30 and this sounds like they’re charging us like an out of network patient? Like expecting us to pay up front and then seek reimbursement from our insurance later? This is an in network provider for us. [...]
+
+EXAMPLE 8:
+I know there's care credit or just opening a credit card. But that's the last thing I want to do, especially when my credit isn't great. But at the same time, it feels like negligence to just let my daughter go deaf when it could have been prevented. I’m sorry you’re going through this. Managing care for your daughter while navigating through the billing uncertainty is incredibly stressful.
+
+EXAMPLE 9:
+That said, each system has its own policies and processes. I’d recommend asking for a good faith estimate and checking if they offer a payment plan that doesn’t require full payment before the surgery.
+Thank you. I will try. It's Kelsey seybold. My wife uses them because they just sort of have it all. I'm just kind of annoyed how they seem to want to wait literally right before the surgery to give us the cost
+Ah yes, the American "healthcare" system, where if you're poor, you die from lack of care. Where profit is more important than life itself. [...]
+
+EXAMPLE 10:
+At the organization I work for, a 50% down payment for out of pocket expenses is required before an elective or outpatient surgery, with the remainder set up as a payment plan.
+
+EXAMPLE 11:
+**Dr. Serdar Bademci** said he would start the refund process and even requested my bank details. After that, he stopped replying completely.
+
+EXAMPLE 12:
+At the clinic, I met with both **Dr. Celal Candirli** and **Dr. Serdar Bademci**. We discussed the surgical plan and the pricing. After I returned home, **Dr. Serdar Bademci** contacted me via WhatsApp saying I needed to send a **25% deposit immediately** to lock in the agreed price. I transferred the payment directly to **Dr. Serdar Bademci**, and over time, I ended up sending a total of **£20,000** (approx. $26,900 / €23,000) to him.
+
+EXAMPLE 13:
+It’s been incredibly frustrating and upsetting. I saved for this surgery for years. To end up with no procedure, no refund, and no accountability is something I never imagined. Just wanted to share so others know to be extremely cautious Where are the people that were endorsing medical
+tourism now?
+The moral seems to be: don't pay in advance for a promise of future labor. This is as true for the labor of a surgeon as it is for the labor of a home renovator or any other endeavor involving ... work. Pay for the work after it is completed and satisfactory. [...]
+
+EXAMPLE 14:
+My wife then messaged her insurance company who told her to expect to pay anywhere from 2600-3000 (essentially her deductable plus some copay).
+
+EXAMPLE 15:
+After a few days the nurse who schedules surgeries called my wife. My wife asked if she knew how much it would cost, the nurse said she wasn't billing and couldn't tell her for sure but that it would be a few thousand dollars and if she couldn't pay before they would not proceed.
+
+EXAMPLE 16:
+The surgery was originally scheduled for **March 2025**, but it kept getting postponed with excuse after excuse. By **June**, it still hadn’t happened. Due to my job, I had limited availability later in the year, so I asked for a refund — something I had been told was always possible if plans changed.
+
+EXAMPLE 17:
+This on the other hand, is something I don't believe is able to be just pushed off. To me it would make more sense to maybe pay something small up front and set up payment after (especially since the doctor said her ears are small, and that while he thinks he can do it, there has been one case where he couldn't. So why why would I pay 3 grand up front for a surgery that may or may not happen?)
+
+EXAMPLE 18:
+UPDATE: Thank you everyone for commenting and helping me figure out how to navigate this! We did call back to get clarification and the clinic said that was an estimate of the cost of an echo, and apparently is the amount that we will owe after insurance. They said it's not expected to be paid up front (even though it explicitly said that in the message we received). We've also learned that apparently it's much cheaper to get an echo done in a clinic setting, which we thought this was but we learned it is a clinic billed through a hospital, so we're going to see about getting the actual echo d [...]
+
+EXAMPLE 19:
+Then, in **late July**, I was contacted by **Dr. Celal Candirli**, who told me that **Dr. Serdar Bademci had taken my money — and money from other patients — and spent it abroad**. Since then, **Dr. Serdar Bademci** has not responded to any attempts at contact.
+
+EXAMPLE 20:
+I’ve reported this to my bank’s fraud department, and also to **Action Fraud UK**, but so far the money has not been recovered. I’m now seeking legal advice and exploring next steps.
+
+EXAMPLE 21:
+Dr Celal Candirli & Dr Serdar Bademci NO SURGERY NO REFUND £20,000 ($26,900) I want to share my experience in case it helps prevent someone else from going through the same thing.
+
+EXAMPLE 22:
+In **November 2024**, I traveled to Istanbul for a consultation with **Dr. Celal Candirli** regarding jaw surgery to correct an underbite. The appointment was arranged by Dr. Serdar Bademci.
+
+EXAMPLE 23:
+My daughter has ad frequent ear infections since she was born. She's currently 14 months old. We were finally able to get into an ENT who informed us that she has lots of fluid behind her ears and had mild to moderate hearing loss and will need tubes.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

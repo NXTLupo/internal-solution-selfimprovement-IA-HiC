@@ -1,0 +1,13 @@
+Topic 23 - Content Sample
+Number of content items: 9
+Top words: doctors, economics, canada, work immediately, soon able, able work immediately, health workers soon
+
+Content 1 (length: 289 chars):
+U.S. health workers will soon be able to work immediately in Ontario In case anyone was interested, [this](https://www.thestar.com/politics/provincial/u-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario/article_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html) is the actual link.
+
+Content 2 (length: 239 chars):
+[Non-paywalled link](https://www.removepaywall.com/search?url=https%3A%2F%2Fwww.thestar.com%2Fpolitics%2Fprovincial%2Fu-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario%2Farticle_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html).
+
+Content 3 (length: 182 chars):
+Who profits off Canada’s health care crisis? Nurses in Canada, like Birgit Umaigba-Omoruyi, know firsthand how a patient’s postal code can determine the quality of care they receive.
+

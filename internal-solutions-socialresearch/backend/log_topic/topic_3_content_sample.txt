@@ -1,0 +1,14 @@
+Topic 3 - Content Sample
+Number of content items: 25
+Top words: doctor, visit, told, pain, pcp, said, appointment
+
+Content 1 (length: 333 chars):
+I told her that I have a rare, time sensitive appointment, and I talked to her supervisor before due to an issue with the front desk. 
+By the time, I didn’t know what I was talking about since I was experiencing a lot of pain. She immediately agreed to move my testing to this Tuesday.  She usually does not see patients on this day.
+
+Content 2 (length: 684 chars):
+I have spoken with the office manager about my concerns. She told me that she would speak to the provider (she was big mad about the NP telling me she thinks I have cancer before even doing the biopsy, much less waiting for the results, but honestly I was glad the NP was straight with me about that). She said she would like the chance to make it right and for me to continue with their practice, but if I do, I will need to stay with the NP I saw initially who could not take one minute of her day to tell me how to take care of my wound and who lied in my patient notes. I know I don't want to see this provider again, so I have decided I will look elsewhere for further treatment.
+
+Content 3 (length: 710 chars):
+I also got instructions to access the patient portal to view the notes from my visit. The notes documented the shave biopsy for the lesion and counseling me about the cyst on my back. The notes also said we talked about two other conditions she had noticed (I don't remember the names, and I can't copy and paste from my record)--some dark spots caused by sun damage and some wart-like growths that are benign and common as people age. She also said she counseled me about how I could treat the dark spots a number of ways, and that I should wear sunscreen and UPF clothing. We NEVER talked about the dark spots, the wart-like growths, sunscreen, or UPF clothing, so those notes in my report are flat-out lies.
+

@@ -1,0 +1,13 @@
+Topic 13 - Content Sample
+Number of content items: 11
+Top words: cdc, vaccine, covid, agency, employees, cdc director, covid 19
+
+Content 1 (length: 421 chars):
+What It’s Like to Work Inside a Broken CDC  Keren Landman: “Since Robert F. Kennedy Jr. pushed out the CDC’s director and three other senior officials resigned in protest, public-health experts—including a former CDC director, a renowned vaccine expert, and at least one departing official—have broadcast an unprecedented loss of faith in the agency. The public, they say, should no longer trust the advice the CDC gives.
+
+Content 2 (length: 750 chars):
+“...To the CDC employees I spoke with, the sluggish response is the latest episode in the administration’s escalating abandonment of the agency. Since January, the Trump administration has hit the CDC with massive layoffs, proposed halving its budget, and forced changes to internal policies governing the fundamentals of its scientific work. Earlier this year, Kennedy purged the committee that advises the CDC on vaccine recommendations. Just this week, he canceled nearly $500 million in federally funded research on mRNA vaccines—widely considered among CDC employees and public-health experts to be the greatest domestic triumph of the U.S. pandemic response—stating incorrectly that they cause more risk than benefit against the flu and COVID.”
+
+Content 3 (length: 399 chars):
+“That message has put CDC staffers left behind in an awkward position. Nine current and former employees told me they appreciated the need to sound the alarm about Kennedy tampering with the agency’s vaccine-evaluation machinery. But a blanket warning about the CDC implicates more than the agency’s vaccine recommendations; it casts doubt on the ongoing work of the rank and file across the agency.
+

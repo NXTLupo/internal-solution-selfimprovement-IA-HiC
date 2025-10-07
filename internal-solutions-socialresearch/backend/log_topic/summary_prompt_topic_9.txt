@@ -1,0 +1,90 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: ftc, ftc gov, agreements, federal, unitedhealth, healthcare, noncompete agreements
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+FTC Chairman Ferguson Issues Noncompete Warning Letters to Healthcare Employers and Staffing Companies Today, Federal Trade Commission Chairman Andrew N. Ferguson sent letters to several large healthcare employers and staffing firms urging them to conduct a comprehensive review of their employment agreements—including any noncompetes or other restrictive agreements—to ensure they are appropriately tailored and comply with the law.
+
+EXAMPLE 2:
+The FTC has authority under Section 5 the FTC Act to investigate unfair methods of competition, including noncompete agreements that are unjustified, overbroad, or otherwise unfair or anticompetitive. The letters follow a Commission [vote](https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule) last week to withdraw from its defense of the Biden-Harris administration’s nationwide noncompete ban, which the courts had enjoined on constitutional grounds. In his [statement](https://www.ftc. [...]
+
+EXAMPLE 3:
+The Federal Trade Commission works to [promote competition](https://www.ftc.gov/about-ftc/bureaus-offices/bureau-competition), and to protect and educate consumers. The FTC will never demand money, make threats, tell you to transfer money, or promise you a prize. You can learn more about [how competition benefits consumers](https://www.ftc.gov/system/files/attachments/competition-counts/pdf-0116_competition-counts.pdf), [file an antitrust complaint](https://www.ftc.gov/faq/competition/report-antitrust-violation), or [comment on a proposed merger](https://www.ftc. [...]
+
+EXAMPLE 4:
+The Chairman’s letter today follows several recent FTC actions to protect workers from noncompete agreements, including the [launch of a public inquiry](https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-issues-request-information-employee-noncompete-agreements) to gather input to inform possible future enforcement actions. The FTC also [recently ordered](https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-takes-action-protect-workers-noncompete-agreements) the nation’s largest pet cremation business to stop enforcing noncompete agreements, freeing [...]
+
+EXAMPLE 5:
+Many healthcare employers and staffing companies may include unreasonable noncompete agreements in employment contracts for vital roles like nurses, physicians, and other medical professionals. These restrictions can unreasonably limit healthcare professionals’ employment options and thereby limit patients’ choices over who provides their medical care—including, critically, in rural areas where medical services are already stretched thin, the letters state.
+
+EXAMPLE 6:
+“Enforcement against unreasonable noncompete agreements remains a top priority for the Federal Trade Commission,” said Kelse Moen, Deputy Director of the Bureau of Competition and co-chair of the agency’s Joint Labor Task Force. “We strongly encourage all employers—not just those receiving letters today—to review their contracts closely, to ensure that any restrictions on employee mobility are in full compliance with the law.”
+
+EXAMPLE 7:
+This law firm helps UnitedHealth silence critics with legal threats—films pulled, journalists sued, doctors and investors intimidated
+
+EXAMPLE 8:
+Financial pressures
+In a written statement, managing director of hospital owner blamed
+-problems on industry-wide financial
+pressures affecting hospitals that treat low-income, uninsured, and otherwise vulnerable patients.
+"Safety net hospitals, which serve as lifelines for our most vulnerable populations, face reduced Medicaid coverage for their patient populations and declining Medicaid reimbursements," E A said, noting that other hospital chains are
+cutting services, laying off staff, or declaring bankruptcy because of rising costs and low reimbursements. [...]
+
+EXAMPLE 9:
+Clare Locke, a high-powered defamation law firm, has spearheaded an aggressive campaign on behalf of UnitedHealth Group to silence critics through legal threats and intimidation tactics. They sent cease-and-desist letters to platforms like Amazon and Vimeo, leading to the removal of Modern Medical Mafia, a docuseries by filmmaker Mary Strause that harshly criticized pharmacy benefit managers like Optum Rx, a UnitedHealth subsidiary. They targeted Dr. [...]
+
+EXAMPLE 10:
+Medical Center, one of three trauma centers serving a county
+of 3.2 million people, was castigated by state regulators for substandard care and practices that led to at least one patient death and put hundreds of others at grave risk, the
+An investigation in February by the Department of Public Health paints a
+troubling picture of the 282-bed hospitar in
+that is a main treatment
+center for stroke patients and many of the county's critically injured. [...]
+
+EXAMPLE 11:
+State blasts California hospital for failing to pay lab vendors, endangering hundreds of patients [https://www.ocregister.com/2025/07/12/state-blasts-orange-county-global-for-troubling-practices-that-endangered-patients/?share=2looo2wtbmtrutegeron](https://www.ocregister.com/2025/07/12/state-blasts-orange-county-global-for-troubling-practices-that-endangered-patients/?share=2looo2wtbmtrutegeron) Excuses given by a For-Profit hospital system to cause harm
+Form the OC Register. This is journalism
+
+EXAMPLE 12:
+I think we need to throw in the towel, and just fund federal hospitals and medical clinics - all Medicaid and straight Medicare go there for all care.  What better test-bed for UHC than to actually, you know, do it?
+
+EXAMPLE 13:
+Private hospitals can then resize to accommodate private payers exclusively, including ACA and Medicare Advantage plans.
+
+EXAMPLE 14:
+No EMTALA.  Uninsured/unconscious go to federal hospitals.  Insured taken to private hospitals.  Cost of uninsured is borne by society through taxation, as it should be.  This way, there is no BS obscuring of the actual cost of care delivery, or bankrupting private entities to pay for unfunded mandates.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

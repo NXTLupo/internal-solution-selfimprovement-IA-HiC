@@ -1,0 +1,69 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: mask, covid, vegan, eat, human, bloomberg news, energy
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+This will probably offend vegan Reddit—but it’s what saved my mental health. yeah, i know this is gonna get me roasted. but i’m not here to argue, just sharing what actually worked for me.
+
+EXAMPLE 2:
+Pig Hearts and Frog Skin: Mary Roach Tackles the Quest to Rebuild the Body *In Replaceable You, the science writer surveys medicine’s greatest breakthroughs and strangest failures, from cataract surgery to polyester hair transplants.* *Alice Robb for Bloomberg News*  
+  
+When Paul McCartney was growing up in Liverpool, his father suggested he have all his teeth ripped out at 21 — replacing them now would save him the trouble of letting them rot one by one. In certain mid-century American and British circles, these preemptive dentures were considered a prudent rite of passage. [...]
+
+EXAMPLE 3:
+i was vegan for years. did it “right”. whole foods, supplements, no processed junk. and i still felt like crap.  
+constant brain fog, anxiety, zero energy. kept telling myself it was stress or mindset. tried journaling, meditation, yoga… nothing fixed it.
+
+EXAMPLE 4:
+The Doctor Trying to Cure Medicine’s Addiction to Disposables *The global healthcare system is built on throwaway gowns, plastic and instruments. Forbes McGain is finding solutions to cut down on waste — and save money.* *Jason Gale for Bloomberg News*  
+  
+Hospitals are among the most resource-hungry institutions, packed with single-use plastics and equipment and energy-intensive machines. They’re also surprisingly large sources of greenhouse gases like anesthesia. [...]
+
+EXAMPLE 5:
+vegan works for some people, and that’s great. but if you’re constantly exhausted and foggy despite “doing it right,” maybe it’s not you. maybe it’s the diet. I've never seen anyone miserable while eating pizza.
+I tried to be vegan a long time ago. It is a lot harder if 1. you cannot afford the supplements you need and 2. you cannot eat soy.
+
+EXAMPLE 6:
+My solution is that I do eat meat again, but I only buy from farmers at the farmers market where I can talk with them about their farm and the living conditions of their animals. I eat significantly less meat now and I feel good doing it.
+
+EXAMPLE 7:
+I lasted about 2 weeks before my anemia went AWOL and I had no energy to do anything. The moment I stopped being vegan I was instantly better. Kudos to anyone doing it, but everyone is different and it is not for me.
+I tried veganism for 6 months as a way to reduce the harm I was inflicting on animals. Like you, I was lethargic, cloudy-headed and had sore muscles for days after mild exercise.
+
+EXAMPLE 8:
+within weeks my head felt clear again. mood was steady. i wasn’t dragging myself through the day anymore.  
+turns out it wasn’t a discipline problem. i was just running low on stuff like b12, dha, iron, zinc… all the brain fuel i thought i could “hack” with chia seeds and spirulina.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

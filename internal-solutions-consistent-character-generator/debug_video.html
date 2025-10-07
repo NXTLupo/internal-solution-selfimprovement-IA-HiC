@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Generation Debug</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; }
+        #status { margin: 20px 0; padding: 10px; background: #f0f0f0; }
+        #video-container { margin: 20px 0; }
+        video { max-width: 600px; }
+    </style>
+</head>
+<body>
+    <h1>Video Generation Debug Test</h1>
+
+    <button onclick="testVideoGeneration()">Test Video Generation</button>
+    <button onclick="clearStatus()">Clear</button>
+
+    <div id="status"></div>
+    <div id="video-container"></div>
+
+    <script>
+        const API_KEY = '***REDACTED-GOOGLE-KEY***';
+
+        function log(message, isError = false) {
+            const status = document.getElementById('status');
+            const time = new Date().toLocaleTimeString();
+            status.innerHTML += `<div style="color: ${isError ? 'red' : 'black'}">[${time}] ${message}</div>`;
+            console.log(message);
+        }
+
+        function clearStatus() {
+            document.getElementById('status').innerHTML = '';
+            document.getElementById('video-container').innerHTML = '';
+        }
+
+        async function testVideoGeneration() {
+            clearStatus();
+            log('Starting video generation test...');
+
+            try {
+                // Step 1: Generate video
+                const requestBody = {
+                    instances: [{
+                        prompt: "A beautiful butterfly landing on a flower, cinematic, 5 seconds"
+                    }],
+                    parameters: {
+                        aspectRatio: "16:9"
+                    }
+                };
+
+                log('Sending request to Veo 3 API...');
+                const response = await fetch(
+                    `https://generativelanguage.googleapis.com/v1beta/models/veo-3.0-generate-001:predictLongRunning?key=${API_KEY}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(requestBody)
+                    }
+                );
+
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`API Error ${response.status}: ${error}`);
+                }
+
+                const data = await response.json();
+                log(`Success! Operation ID: ${data.name}`);
+
+                // Extract operation ID
+                const operationId = data.name.split('/').pop();
+                log(`Extracted operation ID: ${operationId}`);
+
+                // Step 2: Poll for completion
+                pollVideoOperation(operationId);
+
+            } catch (error) {
+                log(`Error: ${error.message}`, true);
+            }
+        }
+
+        async function pollVideoOperation(operationId) {
+            let attempts = 0;
+            const maxAttempts = 60; // 5 minutes
+
+            const pollInterval = setInterval(async () => {
+                attempts++;
+                log(`Polling attempt ${attempts}/${maxAttempts}...`);
+
+                try {
+                    const response = await fetch(
+                        `https://generativelanguage.googleapis.com/v1beta/models/veo-3.0-generate-001/operations/${operationId}?key=${API_KEY}`
+                    );
+
+                    if (!response.ok) {
+                        throw new Error(`Poll error ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    if (data.done) {
+                        clearInterval(pollInterval);
+
+                        if (data.error) {
+                            log(`Video generation failed: ${data.error.message}`, true);
+                        } else if (data.response?.generateVideoResponse?.generatedSamples?.[0]?.video?.uri) {
+                            const videoUrl = data.response.generateVideoResponse.generatedSamples[0].video.uri;
+                            log(`Video ready! URL: ${videoUrl}`);
+
+                            // Display video
+                            const videoContainer = document.getElementById('video-container');
+                            videoContainer.innerHTML = `
+                                <video controls autoplay>
+                                    <source src="${videoUrl}?key=${API_KEY}" type="video/mp4">
+                                </video>
+                            `;
+                        } else {
+                            log('Video completed but no URL found', true);
+                            log('Response: ' + JSON.stringify(data));
+                        }
+                    } else {
+                        log(`Still processing... (${data.metadata?.progressPercentage || 0}%)`);
+                    }
+
+                    if (attempts >= maxAttempts) {
+                        clearInterval(pollInterval);
+                        log('Timeout: Video generation took too long', true);
+                    }
+                } catch (error) {
+                    log(`Poll error: ${error.message}`, true);
+                }
+            }, 5000); // Poll every 5 seconds
+        }
+    </script>
+</body>
+</html>

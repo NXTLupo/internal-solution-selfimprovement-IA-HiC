@@ -1,0 +1,122 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: 202 224, contact 202, contact 202 224, senator, vote
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+**Three Senators will be particularly important for this vote: Johnson (WI), Collins (ME) and Murkowski** **(AK). If you live in Maine, Wisconsin or Alaska, please find their contact numbers below as well as a script that you can write or leave on their voicemail.**
+
+EXAMPLE 2:
+Contact Your Senators Directly: The website gives you an easy way to find your Senators’ contact information and even provides a ready-to-use script, so you know exactly what to say and who to call or email.
+
+EXAMPLE 3:
+Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to demand that the Senator vote no on the budget bill. We all know it’s awful. We know it’ll cost lives, force children to go to bed hungry, cost hundreds of thousands of jobs, increase prices on pretty much everything, and destroy our healthcare system—especially in rural areas. We also know that Republicans will pay dearly at the ballot box for passing it. I know the Senator is afraid to stand up to Trump but s/he can and s/he must—in fact s/he will be regarded as a hero for doing so. [...]
+
+EXAMPLE 4:
+BIG BEAUTIFUL BILL vote is TONIGHT! Here is how you can help stop it: ***Call your SENATORS TO OPPOSE THE BILL! VOTE TONIGHT! 202-224-3121 or look up their office numbers*** [***here***](https://www.senate.gov/senators/senators-contact.htm?Class=1)***.***
+
+EXAMPLE 5:
+* **REPUBLICAN SENATOR LISA MARKOWSKI - ALASKA**
+* PHONE NUMBER: (202) 224-6665
+* EMAIL: [https://www.murkowski.senate.gov/contact/email](https://www.murkowski.senate.gov/contact/email)
+
+EXAMPLE 6:
+Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to thank the Senator for committing to opposing the awful Republican reconciliation bill. I know Democrats worked through the weekend to drag this process out and get as much bad stuff out of the bill as possible and I really appreciate it. I know you’re still working to slow it down. THANK YOU! Please keep holding Republicans’ feet to the fire. Do all you can. We’re counting on you to leave it all on the field, and we have your back in return. Thanks.
+
+EXAMPLE 7:
+* **REPUBLICAN SENATOR RON JOHNSON - WISCONSIN**
+* PHONE: (202) 224-5323
+* EMAIL: [https://www.ronjohnson.senate.gov/email-the-senator](https://www.ronjohnson.senate.gov/email-the-senator)
+
+EXAMPLE 8:
+* **REPUBLICAN SENATOR SUSAN COLLINS - MAINE**
+* PHONE NUMBER: (202) 224-2523
+* EMAIL: [https://www.collins.senate.gov/contact/email-senator-collins](https://www.collins.senate.gov/contact/email-senator-collins)
+
+EXAMPLE 9:
+URGENT: Senate “Vote-a-Rama” on One Big Beautiful Bill—Just 2 More GOP “NO” Votes Can Save Medical Student Loans and the Future of Healthcare **A vote-a-rama is happening in the Senate for the One Big Beautiful Bill as you read this.** During a vote-a-rama, Senators are on the floor voting on amendment after amendment, and their offices are tracking every single call in real time. This is the moment when your call is most likely to be noticed and can directly influence how a Senator votes.
+
+EXAMPLE 10:
+A clause in the **"One Big Beautiful Bill"** aims to eliminate the Grad PLUS loan program, a lifeline for graduate and professional students. Grad PLUS has been pivotal in making medical school tuition affordable for 75% of students. If the bill is enacted, thousands of future doctors will be priced out of pursuing medicine. The vote is THIS WEEK. Your call to an undecided Senator will truly decide the future of American healthcare for all. We are just **TWO “NO” votes away from stopping this**. Your call to an undecided Senator could be the tiebreaker vote to oppose the bill. Take ACTION!
+
+EXAMPLE 11:
+You can take action TODAY. Voice your opinions to those you have put into positions of power. The bill is currently in the Senate for voting. This prime time to call your Senators. During the vote-a-rama, the Senate is in constant debate, and members are proposing amendments to the bill. Many Senators are all ears and are eager to hear from their constituents in regards to the bill. Voting in alignment with their constituents can increase their chances of reelection. [...]
+
+EXAMPLE 12:
+***You can also send*** [***this Resistbot letter***](https://resist.bot/petitions/PPWCSD) ***opposing the bill by texting SIGN PPWCSD to 50409*** thank you, im reposting this
+Done all. Also:
+Here is a more complete roster
+
+EXAMPLE 13:
+I would kindly request that you share and sign this petition. Also, visit the website to learn how to call and get the attention of your representatives and Senators.
+
+EXAMPLE 14:
+Sign the Petition: Add your name to the official petition to show Congress that Americans care about the future of medicine. (Share this post with friends, family, classmates, and on every social platform.)
+
+EXAMPLE 15:
+**Share the petition! We are aiming for 1,000 signatures before discussing this issue with NYS congressional members.**
+
+EXAMPLE 16:
+**These are LISA MARKOWSKIs company donors** listed in order of donation amount (high to low). Contact these donors to tell Murkowski to VOTE NO. A threat to boycott their products always works best!: [Trident Seafoods](https://www.tridentseafoods.com/)| |[Van Ness Feldman](https://www.vnf.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_content=DC)| |[Lynden Inc.](https://www.lynden.com/)| |[General Communication Inc.](https://www.gci.com/)| |[KKR & CO.](https://www.kkr.com/)|
+
+EXAMPLE 17:
+That's why they are in positions of power. Exercise your power to voice your opinion. The petition will be sent to NYS Congressional members, and hopefully to many others. Every signature matters.
+
+EXAMPLE 18:
+**These are SUSAN COLLINS’s company donors** listed in order of donation amount (high to low). Contact these donors to tell Collins to VOTE NO. A threat to boycott their products always works best! |[Hammond Lumber](https://www.hammondlumber.com/)| |[L.L. Bean](https://www.llbean.com/?nav=gn-hp)| |Southwest Airlines| |Bath Iron Works / General Dynamics|
+
+EXAMPLE 19:
+Decided no: thank you email, and encourage them to do as much as possible to stop the bill including "no on corum"
+Decided yes: you will lose your next election
+Undecided: persuasion as in the template
+
+EXAMPLE 20:
+If you live in these states, your call is critical. If not, please share this with friends or family who do:
+
+EXAMPLE 21:
+**These are RON JOHNSON’s company donors** listed in order of donation amount (high to low). Contact these donors to tell Johnson’s to VOTE NO. A threat to boycott their products always works best! |[Johnsonville Sausage](https://johnsonville.com/)| |[Klondike Cheese](https://www.klondikecheese.com/)| |[RDV Corp](https://jobs.rdvcorp.com/)| |[Oral Surgery Clinic of La Crosse](https://www.facebook.com/p/Oral-Surgery-Clinic-of-La-Crosse-100066448942232/)| |[Abc Supply](https://www.abcsupply.com/)| |[Michels Corp](https://www.michels.us/)|
+
+EXAMPLE 22:
+Protect the Future of Medicine: Oppose the "One Big Beautiful Bill" I am reaching out to this community regarding a campaign platform I spearheaded. The platform is called **Doctors Not Debt.** Our mission is to advocate for the protection of the Grad PLUS program, which the One Big Beautiful Bill, currently to be voted on in the Senate this month, would remove entirely. This is a detriment to the future of medicine, as 75% of medical students rely on the Grad PLUS program to afford the cost of medical school. [...]
+
+EXAMPLE 23:
+This cannot happen. With proper advocacy and a strong backlash in the form of calls from constituents and petition signatures, the clause in the bill listing the elimination of the Grad PLUS program can be removed. With the help of passionate and outspoken individuals, the bill can be largely voted against, preventing the bill from moving forward. This can only be done with the help of the community. (I do not represent a US political party nor have their interests in mind)
+
+EXAMPLE 24:
+(Mods: This is a nonpartisan, fact-based, time-sensitive action for the future of medicine. Please pin if possible)
+
+EXAMPLE 25:
+The AAMC projects a physician shortage of roughly 86,000 by 2036, which the bill would only exacerbate. As the number of physicians declines, the quality of care and patient outcomes would very likely deteriorate due to a lack of physician representation and care in an ever-growing patient population. Areas in dire need of doctors would be hit the hardest, impacting rural areas, underserved communities, and VA hospitals. We need doctors more than ever, and restricting access on the basis of income rather than potential and talent will be detrimental in the long run.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

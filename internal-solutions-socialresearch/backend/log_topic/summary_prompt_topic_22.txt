@@ -1,0 +1,111 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: medicare, sequestration, social security, budget, benefit, trust, sequestration order
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Generally, Medicare’s benefit structure remains unchanged under a mandatory sequestration order and beneficiaries see few direct impacts. However, Medicare plans, providers, and suppliers see reductions in payments. Due to varying plan and provider payment mechanisms among the four parts of Medicare, sequestration is implemented somewhat differently across the program.
+
+EXAMPLE 2:
+Under a BCA mandatory sequestration order, Medicare benefit payments and Medicare Integrity Program spending cannot be reduced by more than 2%. Under a Statutory PAYGO sequestration order, Medicare benefit payments and Medicare Program Integrity spending cannot be reduced by more than 4%. These limits do not apply to mandatory administrative Medicare spending under either type of sequestration order. These limits also do not apply to discretionary administrative Medicare spending under an FRA sequestration order.
+
+EXAMPLE 3:
+Medicare is a federal program that pays for certain health care services of qualified beneficiaries. The program is funded using both mandatory and discretionary spending and is impacted by any sequestration order issued in accordance with the aforementioned laws. Medicare benefit payments (the majority of Medicare expenditures) are considered mandatory spending and therefore are subject to the sequestration of mandatory funds. Special sequestration rules limit the extent to which Medicare benefit spending can be reduced in a given fiscal year. [...]
+
+EXAMPLE 4:
+[Congressional Research Service - 11/14/2023- Medicare and Budget Sequestration](https://sgp.fas.org/crs/misc/R45106.pdf)
+
+EXAMPLE 5:
+Medicaid Cuts? Yes. But the GOP Is Quietly Cutting Medicare, Too.  Oh… they’re *definitely* going after Medicare. No question.
+BTW, PAYGO \[sequestration\] has been around for a very long time.  Providers with or without PAYGO budget rules get their Medicare payments rates dropped all the time - happens under every administration.  If Congress thinks it has gone too far, they just override it with legislation, postponing the inevitable.
+
+EXAMPLE 6:
+Trump tax law could cause Medicare cuts if Congress doesn't act, CBO says  They have always acted to override or delay it in the past - 2020, 2021 and 2022 - in fact we still have it occurring today when it was delayed.  So this is not new by any means - and it always comes down to how much or how little it can be negotiated down to cut the effect.  It has little effect on beneficiaries
+
+EXAMPLE 7:
+It does warrant a good look seeing the financial health of the Medicare Trust Funds - Part A or the HI Trust fund funded by payroll deductions and employer match and Part B and D - or SMI Trust Funds - funded by premiums paid by beneficiaries or paid FOR them by states (25%) and then the remainder (75%) paid by the government out of the General Fund.
+
+EXAMPLE 8:
+I am not shaking in my boots even though I am a beneficiary of Medicare.
+The Congress of 2025 is *not* the Congress of 2022, unfortunately. The pain will radiate before elections reallocate.
+Does Trump care? His medical care is covered without Medicare.
+
+EXAMPLE 9:
+• The Supplementary Medical Insurance (SMI) Trust Fund is adequately financed into the indefinite future because, unlike the other trust funds, its main financing sources—enrolled beneficiary premiums and the associated federal contributions from the Treasury—are automatically adjusted each year to cover costs for the upcoming year. Although the financing is assured, the rapidly rising SMI costs have been placing steadily increasing demands on beneficiaries and general taxpayers.
+
+EXAMPLE 10:
+If you just knew about some of the benefits that have been added thur the years without an offset to income, you would be appalled.  Like Divorced spouses benefits or divorced widows/widowers benefits.  Like getting an auxiliary benefit for your minor kids even if you decide to retire early at the age of 62 - I could go on and on with some of these outgoes to the Social Security programs.
+You get your Medicare benefits through the private insurer, not directly from the government, this is my honest opinion about it.
+
+EXAMPLE 11:
+[CMS.gov  - 2025 ANNUAL REPORT OF THE BOARDS OF TRUSTEES OF THE FEDERAL HOSPITAL INSURANCE AND FEDERAL SUPPLEMENTARY MEDICAL INSURANCE TRUST FUNDS](https://www.cms.gov/oact/tr/2025)
+
+EXAMPLE 12:
+Politics is gonna be the end of us, somehow and someway.  I have no doubt but I am old. so it will be up to the younger ones to determine the course of these programs - Medicare and Social Security.  I agree. If the US govt would remove the pay-in cap, or at least in crease it , Social Security would be available.
+Give me a break especially since I am so OLD - with a higher income cap on contributions , comes a higher amount that the employer has to match and then a higher benefit when the person uses the program for retirement including spousal benefits, survivors benefits and disability even [...]
+
+EXAMPLE 13:
+Are those who are still working and paying their payroll deductions into Medicare willing to pay MORE to finance the system for the huge number of baby boomers who are gonna be getting these HI - Part A services for the next many years (maybe 20).
+
+EXAMPLE 14:
+The Hospital Insurance (HI) Trust Fund will be able to pay 100 percent of total scheduled benefits until 2033, three years earlier than reported last year. At that point, that fund’s reserves will become depleted and continuing program income will be sufficient to pay 89 percent of total scheduled benefits.
+
+EXAMPLE 15:
+How Much Do You Know About the Medicare System ? I have been on Medicare a long time because I am older than dirt - I know it pretty well.  Even before that time, I was managing the affairs of many of my older relatives so I was seeing the cost and coverage of the Medicare system even before us Baby Boomers hit the system.
+
+EXAMPLE 16:
+WE, meaning Medicare beneficiaries, are really slurping it up - by 2030 all baby boomers will have reached 65 and eligible for Medicare - will the system make it that long?
+
+EXAMPLE 17:
+EVERY year the Social Security Trustee Report ends the same way -and I quote from all of these annual reports -
+
+EXAMPLE 18:
+⬆️ But for the SMI Trust Fund - premiums are going higher and higher for beneficiaries to accommodate the ever increasing cost of usage.
+
+EXAMPLE 19:
+So by itself, it will NOT close the shortfall - other changes also have to happen to bring in more income or reduce benefits.
+
+EXAMPLE 20:
+Thus far, I haven’t been a high health care user and I hope that can continue but cost have soared since about 2010 - the 1st year when the Social Security Trustee started warning us of the impending shortfall in both Medicare Part A (Hospital Insurance) and in the Social Security Trust Funds.
+
+EXAMPLE 21:
+And that we have - we have hit the system with a roar and we aren’t finished yet - not til about 2030 when the remaining Boomers turn 65 and.or decide to go on this Medicare program.
+
+EXAMPLE 22:
+Then what do our lawmakers do - NOTHING even after the appointment of several different Bi-partisan Commissions, all with recommendations -
+
+EXAMPLE 23:
+CONCLUSION:    Lawmakers have many options for changes that would reduce or eliminate the long-term financing shortfalls. Taking action sooner rather than later will allow consideration of a broader range of solutions and provide more time to phase in changes so that the public has adequate time to prepare.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

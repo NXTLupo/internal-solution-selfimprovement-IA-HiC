@@ -1,0 +1,19 @@
+Topic 6 - Content Sample
+Number of content items: 23
+Top words: payment, insurance, pay, visit, collections, payment plan, test
+
+Content 1 (length: 243 chars):
+I had this happen once for lab work where LabCorp made me pay out of pocket for my lab and I had to wait for them to refund me after insurance paid.
+It is getting more commen for providers to ask for payment upfront for things like deductible.
+
+Content 2 (length: 1016 chars):
+I would call billing, or whoever sent this ( which may not be billing it pay be a pre registering dept) some possibleilty 
+1. They did not get your insurance set up so the systrm/ estimate sees you as self pay.
+2. You are also schulded to have a test which is outside the copay that is pulling your deductible. 
+3. This is an ask not a demand. Meaning they prefer you pay upfront but will work with you if you can't _ won't
+4. You are acutally out of network  ( maybe recently went out or something plan specific?)
+I could see this if the office ran your insurance and it shows that you still have a high deductible and they routinely do extra testing during the initial visit (ie echocardiogram).  If they haven’t run your insurance benefits or if you know that you’re remaining deductible isn’t near that $1K, then I would ask the office to do that before your appointment to lower your payment.  If they still insist on payment of such a high amount, ask if they can bill you or establish a payment plan up front.
+
+Content 3 (length: 142 chars):
+If they are not planning on a specific procedure, then ask them why you wouldn’t just pay your regular copay and they bill insurance as usual.
+

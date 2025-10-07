@@ -1,0 +1,74 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: medicaid, magi medicaid, subsidies, expanded, qualify, retirement, aca
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+What happens if they have a ton of money sittting in an HSA which they no longer contribute due to this middle ground type retirement they have chosen - doe this even count in their ability to qualify for MAGI Medicaid ?   Of course, for a person going this route, having health coverage is important - so they could plan it for an ACA type plan but if they can look poor enough on their tax return - MAGI Medicaid is not out of the question.
+
+EXAMPLE 2:
+Why should there be an asset / resource test for those above and not for those who might qualify for  Expanded Medicaid sometimes referred to as MAGI Medicaid.
+
+EXAMPLE 3:
+I read a bunch of stories the other day about people who might be losing this type of Expanded Medicaid and for every one of them there was another way of securing the coverage.  The one with the most reason was that they were too \_\_\_\_\_\_\_\_\_\_\_ (sorry I don‘t know the word, could be many) to apply for disability  - either SSI or SSDI.
+
+EXAMPLE 4:
+Medicaid keeps getting more popular as Republicans aim to cut it by $800 billion  Healthcare layoffs on the horizon!
+Why should a person get Medicaid if they aren’t low income elderly (65+), blind, disabled, a child or a pregnant woman or a new born to such a mother?
+
+EXAMPLE 5:
+Why should the Feds reimburse the states MORE for these Expanded types, sometimes a whole lot more, than the one that are the neediest of the needy?  A bribe to the states to keep them insured.
+
+EXAMPLE 6:
+When will the US public become aware of what happens when the enhanced ACA premium subsidies expire? The enhanced premium subsidies that people who make over 400% of the poverty level qualify are expiring at the end of 2025.
+
+EXAMPLE 7:
+Why am I not hearing anything about this in the news? When will people who rely on these subsidies learn what their 2026 premiums are going to be?
+
+EXAMPLE 8:
+This November(ish) when the ACA site opens for 2026 enrollment
+Insururers have already been sending out the raised premiums but they still won't tell the members good luck getting prior authorizations.
+What are they doing to prior authorizations? 🙁
+
+EXAMPLE 9:
+My hope is that it will shock enough people that Medicare for All (or similar) will gain some momentum.
+
+EXAMPLE 10:
+[https://youtu.be/qXm5x7bmj14?si=ZLQyhK7W73fTNOD8](https://youtu.be/qXm5x7bmj14?si=ZLQyhK7W73fTNOD8)
+One of the questions I’ve been asking is that since America has a high mortality rate especially for its younger population, those that are disadvantaged, don’t have healthcare etc this is NOT going to help the American mortality rate.  There’s actually going to be less Americans because of this is that a wise move when your population is already nosediving?
+
+EXAMPLE 11:
+Then there are those who are older who for whatever reason have decided to stop work before they begin to draw their retirement from what ever source - they have planned this far in advance so that they can live off of some of their savings in the interim but they has a lot of money tucked away in retirement accounts - even some in ROTH accounts and to which they can do some drawing if need be but it would not be shown as “income”.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

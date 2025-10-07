@@ -1,0 +1,14 @@
+Topic 5 - Content Sample
+Number of content items: 25
+Top words: ai, healthcare, love, patients, help, use, clinics
+
+Content 1 (length: 225 chars):
+I need to think of a tech solution to bring wait times down and get morale back up and I’m looking to Reddit for some help. I want to help everyone; the providers, the front and back office staff, and of course, the patients.
+
+Content 2 (length: 441 chars):
+But curious if this is something that’s even relevant to begin with. Would love to get anyone’s perspective here, for the safe use of AI in healthcare.  If you’re using AI for clinical medicine, you should only do so for quickly finding evidence based information. Not as a replacement for foundational training and medical decision making.
+It is not safe to rely on without confirming the information with evidence based sources. Full stop.
+
+Content 3 (length: 537 chars):
+TLDR: I need to make my boss happy and fix patient wait times, improve staff communication + make work less stressful, and manage patient flow better during our rushes. Need to think of some kind of tech solution for this. This is an issue that stems from the fee-for-service model. Simple fix is to have fewer patients. You’d either need to charge more per patient to make up for it (not realistic because of carrier contacts) or reduce expenses to hit profitability sooner and with less revenue (develop much more efficient processes).
+

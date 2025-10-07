@@ -1,0 +1,16 @@
+Topic 7 - Content Sample
+Number of content items: 23
+Top words: rural, hospitals, trump, states, red, medicaid, republicans
+
+Content 1 (length: 320 chars):
+This is the maybe not so credible source that reported it: [GOP Faces Headwinds on Push for Second Big Tax and Spending Bill](https://finance.yahoo.com/news/gop-faces-headwinds-push-second-100000559.html) Rural health facilities will close.
+Well they did vote for this
+The patients don’t care and I am glad is happening.
+
+Content 2 (length: 289 chars):
+Republicans to start voting on cutting medicaid expansion to all 40 states by October? There were two credible sources saying Republicans are pushing a second tax bill that cuts medicaid expansion to all 40 states that expanded it, with an effort to push people towards private healthcare.
+
+Content 3 (length: 227 chars):
+MAGA's budget is apparently going to have a slush fund to bail out red state hospitals while allowing blue state hospitals to close due to devastating Medicaid cuts.  This is next level evil.
+anyone can debate the medicaid cut.
+

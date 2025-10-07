@@ -1,0 +1,13 @@
+Topic 9 - Content Sample
+Number of content items: 14
+Top words: ftc, ftc gov, agreements, federal, unitedhealth, healthcare, noncompete agreements
+
+Content 1 (length: 434 chars):
+FTC Chairman Ferguson Issues Noncompete Warning Letters to Healthcare Employers and Staffing Companies Today, Federal Trade Commission Chairman Andrew N. Ferguson sent letters to several large healthcare employers and staffing firms urging them to conduct a comprehensive review of their employment agreements—including any noncompetes or other restrictive agreements—to ensure they are appropriately tailored and comply with the law.
+
+Content 2 (length: 1051 chars):
+The FTC has authority under Section 5 the FTC Act to investigate unfair methods of competition, including noncompete agreements that are unjustified, overbroad, or otherwise unfair or anticompetitive. The letters follow a Commission [vote](https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule) last week to withdraw from its defense of the Biden-Harris administration’s nationwide noncompete ban, which the courts had enjoined on constitutional grounds. In his [statement](https://www.ftc.gov/legal-library/browse/cases-proceedings/public-statements/statement-chairman-andrew-n-ferguson-joined-commissioner-melissa-holyoak-regarding-ryan-llc-v-ftc) announcing the Commission’s withdrawal, Chairman Ferguson made clear that the FTC would stay vigilant “enforcing the antitrust laws aggressively against noncompete agreements” including by “patrolling our markets for specific anticompetitive conduct that hurts American consumers and workers, and taking bad actors to court.”
+
+Content 3 (length: 903 chars):
+The Federal Trade Commission works to [promote competition](https://www.ftc.gov/about-ftc/bureaus-offices/bureau-competition), and to protect and educate consumers. The FTC will never demand money, make threats, tell you to transfer money, or promise you a prize. You can learn more about [how competition benefits consumers](https://www.ftc.gov/system/files/attachments/competition-counts/pdf-0116_competition-counts.pdf), [file an antitrust complaint](https://www.ftc.gov/faq/competition/report-antitrust-violation), or [comment on a proposed merger](https://www.ftc.gov/enforcement/merger-review/comment-on-a-proposed-merger). For the latest news and resources, [follow the FTC on social media](https://www.ftc.gov/news-events/social-media), [subscribe to press releases](https://www.ftc.gov/news-events/stay-connected), and [read our blog](https://www.ftc.gov/news-events/blogs/competition-matters).
+

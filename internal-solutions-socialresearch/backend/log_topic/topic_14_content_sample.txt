@@ -1,0 +1,30 @@
+Topic 14 - Content Sample
+Number of content items: 25
+Top words: hospital, closed, rural, medicaid, 2015, cuts, county
+
+Content 1 (length: 174 chars):
+Rural Hospitals are closing down because rural healthcare relies heavily on government subsides to stay afloat. These communities couldn't support a CareNow or standalone ER.
+
+Content 2 (length: 2041 chars):
+* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
+* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
+* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
+* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
+* St. Joseph's Hospital (Chippewa Falls, Wisconsin) and Sacred Heart Hospital (Eau Claire, Wisconsin): Closed in March 2024 due to operational and staffing challenges.
+* Jellico Regional Hospital (Jellico, Tennessee): Closed in March 2024 due to a lack of administration and the owner's decision to pull out.
+* Select Specialty Hospital (Longview, Texas): Expected to close in June 2025 because the host hospital decided not to renew the lease.
+* New England Sinai Hospital (Stoughton, Massachusetts): Closed in April 2024 due to financial losses, with many patients on Medicare or Medicaid.
+* Mercy Hospital (Independence, Kansas): Closed in 2015.
+* Parkway Regional Hospital (Fulton, Kentucky): Closed in 2015.
+* Marlboro Park Hospital (Bennettsville, South Carolina): Closed in 2015.
+* Mercy Hospital Fort Scott (Fort Scott, Kansas): Closed in 2018, leaving the town without a hospital within 30 miles.
+* Washington County Hospital (Plymouth, North Carolina): Closed in February 2019 due to financial difficulties.
+* Oswego Community Hospital (Oswego, Kansas): Closed in February 2019, just before Washington County Hospital.
+* Fairfield Memorial Hospital (Winnsboro, South Carolina): Closed in December 2018.
+* Adventist Health Feather River Hospital (Paradise, California): Closed in November 2018 due to fire damage.
+* Latimer County General Hospital (Wilburton, Oklahoma): Officially closed in October 2018, though it had closed its doors earlier in May.
+
+Content 3 (length: 709 chars):
+[https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm\_source=chatgpt.com](https://www.kff.org/medicaid/issue-brief/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-and-enrollment-loss-across-the-states/?utm_source=chatgpt.com)
+If rural hospitals are going to be affected by this, maybe it’s time for greedy healthcare providers to lower their prices for the average citizen… that which is poor.  At some point, the greed of overcharging for everything, driving prices so high they are looked at by the top administration of the government.  Greed will always come back and bite you in the arse!
+

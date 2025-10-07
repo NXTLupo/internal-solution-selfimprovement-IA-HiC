@@ -1,0 +1,103 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: job, patients, clinical, healthcare, burnout, staff, told
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I don’t know what to do. 90% of the time it will probably be fine but there’s gonna be a time where it’s not going to be fine and there’s going to be a serious incident or something important won’t get done and it will come back on the floor staff not the management that reduced our staffing  I'm so sorry you're going through this.  This is a global/universal problem.  IMO, it's due to an unsolvable demographic reality. [...]
+
+EXAMPLE 2:
+Unsafe staffing (uk) So I work on an acute adult mental health ward and they have recently changed our staffing ratio despite us all collectively saying that even the original staffing levels were unsafe at times.
+
+EXAMPLE 3:
+The youngest baby-boomers will join the retired ranks by \~ 2030.  From then onwards, things are likely to *sloooowwwwlllyy* get better as the oldest boomers pass on.  But IMO, 2030-2040 will be the worst times for healthcare globally, both to be a healthcare worker, and to receive healthcare.
+I would accept this but we keep employing more people!!!! But they’re reducing the amount of staff if we don’t have enough patients (we’re private but bought by the NHS) but they’re reducing don’t want to fill the beds because they cost more than an nhs hospital bed). [...]
+
+EXAMPLE 4:
+Now on a perfect day 2 nurses and 1 HCA is manageable but as people who work in healthcare know they are very few and far between. If there’s no meetings, no incidents and no one on escorted leave then it’s manageable. But even if it’s like that meal times have one person on observations, one person supervising the dining room and one of the nurses doing lunchtime medication leaving no spare staff. On breaks that’s down to 2 staff on the ward. [...]
+
+EXAMPLE 5:
+Management are really unhelpful when it comes to staff voicing their concerns and kinda just go “its the way it is deal with it”
+
+EXAMPLE 6:
+Net result is that we're seeing similar "belt tightening" across the board in all healthcare systems globally.
+
+EXAMPLE 7:
+I still won’t be complaining though, I don’t like her but I would feel bad if my complaint gets her into trouble she can’t get out of. I just took me all day to get to this point lol
+I mean, you can but you don’t know what that first person was doing or how important (from a triage perspective) it was. Yes, she should’ve said “I’ll be right with you as soon as I’m done with this” but sometimes people get (or need to get) overly focused. [...]
+
+EXAMPLE 8:
+I didn't go back in because I was so upset and I feel horrible because the kid was so sweet and told the other tech to tell me I did a great job. I've already been feeling so incompetent having just started. It was hard for me to even take this job since I was lined up for a research position at this hospital that ended up falling through because of admin, so I'm feeling so discouraged. Of course I'm happy to have the job and excited to learn, but it's still bothering me a lot. How do y'all get past something like this? >the kid was so sweet and told the other tech to tell me I did a great job
+
+EXAMPLE 9:
+Should I call an office manager to complain?
+ As someone that supervises a medical front desk, absolutely!! That’s awful, that is a way places loose patients and get bad reviews. The front desk should always be welcoming and friendly. You should always feel welcomed when entering an office. If they are busy and not available to check in a patient right away they should say “hello I’ll be with you in just a moment” or something, or at least have at least a sign in sheet or a sign that explains to sign in an have a seat. [...]
+
+EXAMPLE 10:
+dealing with patients who are uncomfortable with new workers I just started as an EEG tech in peds 2 weeks ago, and I had a rough experience last week with a patient's parent who was not happy that I was new. She pretty much outright told me that I don't know what I'm doing and I'm going to mess up the test. She actually messaged the doctor that she was uncomfortable that I'm new and kept having to be corrected (considering I am training and being supervised by an experienced tech) and she wanted a "professional" next time. [...]
+
+EXAMPLE 11:
+Should I complain or leave it alone? It’s been hours and I’m still irked by my encounter with a receptionist this morning.
+
+EXAMPLE 12:
+It used to be 5+ patients allowed for 2 RMNs and 2 HCAs now they’ve updated it so it’s 9+ patients. 8 or less we drop a HCA.
+
+EXAMPLE 13:
+I showed up to my surgeons office this morning for a suture removal appointment. Upon getting to the front desk, the only receptionist at the table does not acknowledge my existence for an awkward amount of time.
+
+EXAMPLE 14:
+Then the original receptionist CONVENIENTLY finishes whatever she was doing right after her coworker said that and says “now that I’m finished with what I was doing, how can I help you?”
+
+EXAMPLE 15:
+Sometimes distractions really distract people, so they handle the task they’re doing before addressing anything new coming in.
+
+EXAMPLE 16:
+None of this justifies what you're being asked to do, but maybe it gives some solace in knowing that a) you're not alone and b) at a systemic level, there is some truth to "it stinks, and that's just way it's gonna be".
+
+EXAMPLE 17:
+The kid knows that their mom is an asshat who routinely bullies service people.  Don't let this bully get into your head.
+yep he definitely knows, he apologized for her. he's 17 and has autism that needs moderate support, but she treats him like a baby. we were talking about advocating for yourself and she literally said to him "that's why you put me in charge right?" it was just sad :/
+Any job where you have to deal with the public especially retail you’re gonna have biased morons like this particular B word was to you. [...]
+
+EXAMPLE 18:
+The passive aggressive attitude and blatant disrespect from this woman has been on my mind all day. I’m not asking anyone to roll out a red carpet for me, but the fact that this lady didn’t think it was important enough to even let me know “I’m a little busy, I’ll be right with you” or something along those lines seems so rude.
+No eye contact, no words—nothing.
+
+EXAMPLE 19:
+Another receptionist comes to the desk, I wait a couple beats and then turn to the 2nd girl to check me in. She tells me that she just sat down and her computer isn’t on…ok? Not ideal but at least she’s acknowledging me.
+
+EXAMPLE 20:
+I can see that she’s doing something on the computer, so I stay silent and wait for her to finish. She begins printing out a sheet of paper from the printer in between us—and she stares at the piece of paper coming out of the printer. Still no acknowledgment of my presence DIRECTLY in front of her.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

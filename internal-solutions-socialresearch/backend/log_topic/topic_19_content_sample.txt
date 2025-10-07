@@ -1,0 +1,13 @@
+Topic 19 - Content Sample
+Number of content items: 22
+Top words: patient, outcomes, supplies, care, pros, performance, doctors
+
+Content 1 (length: 426 chars):
+Why Patient-Reported Outcomes Are the Gold Standard for Measuring Provider Performance As healthcare shifts toward value-based care, the need for a meaningful, consistent way to measure provider performance across all specialties has never been more critical. Traditional metrics—such as readmission rates, mortality, and procedure volumes—offer important insights but often miss the most essential perspective: the patient’s.
+
+Content 2 (length: 280 chars):
+Patient-reported outcomes offer a powerful and scalable path forward. They provide a holistic, equitable, and patient-driven approach to measuring provider performance—one that transcends specialty lines and centers healthcare around its ultimate goal: better outcomes for people.
+
+Content 3 (length: 313 chars):
+Patient-reported outcomes (PROs) provide a clear, consistent, and patient-centered way to assess performance across all providers, regardless of specialty. They allow organizations to move beyond volume and process metrics to focus on what truly matters—how patients feel, function, and live after receiving care.
+

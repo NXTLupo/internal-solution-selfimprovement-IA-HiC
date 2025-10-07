@@ -1,0 +1,118 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: doctor, visit, told, pain, pcp, said, appointment
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I told her that I have a rare, time sensitive appointment, and I talked to her supervisor before due to an issue with the front desk. 
+By the time, I didn’t know what I was talking about since I was experiencing a lot of pain. She immediately agreed to move my testing to this Tuesday.  She usually does not see patients on this day.
+
+EXAMPLE 2:
+I have spoken with the office manager about my concerns. She told me that she would speak to the provider (she was big mad about the NP telling me she thinks I have cancer before even doing the biopsy, much less waiting for the results, but honestly I was glad the NP was straight with me about that). She said she would like the chance to make it right and for me to continue with their practice, but if I do, I will need to stay with the NP I saw initially who could not take one minute of her day to tell me how to take care of my wound and who lied in my patient notes. [...]
+
+EXAMPLE 3:
+I also got instructions to access the patient portal to view the notes from my visit. The notes documented the shave biopsy for the lesion and counseling me about the cyst on my back. The notes also said we talked about two other conditions she had noticed (I don't remember the names, and I can't copy and paste from my record)--some dark spots caused by sun damage and some wart-like growths that are benign and common as people age. She also said she counseled me about how I could treat the dark spots a number of ways, and that I should wear sunscreen and UPF clothing. [...]
+
+EXAMPLE 4:
+When I got home, I took the bandaid off and discovered that the skin lesion was completely removed, and she had not just taken a small sample like I had thought. I had a crater in the side of my nose where the lesion had been. I was glad the lesion was gone, but I was shocked to see a crater I wasn't expecting on my face. I was given no care instructions for the wound--not orally during my appointment or a printed document to take home. I was not told what to do if I had pain once the lidocaine wore off, and I did have pain. [...]
+
+EXAMPLE 5:
+Should I file a complaint or let it go? For context, I am 44F and I live in the United States. I saw a NP at a dermatology practice last week for a suspicious skin lesion on my nose. I suspected it was basal cell carcinoma (skin cancer). This was my first time seeing this professional, or any dermatologist. The NP walked in, introduced herself, made a quick glance at the lesion, then turned to her medical assistant and said "basal," which basically confirmed to me she thought I probably had cancer. She also agreed to look at a spot on my back, which she said was a cyst. [...]
+
+EXAMPLE 6:
+Being discharged from one provider does not affect other providers in the same health system. Most of all saying something is yucky like a yeast infection? A message you sent to your ob! And this person is a doctor?? Insane!! I have seen pictures of people’s buttholes and much worse and I work no where near that specialty. But I keep on trucking, we work in medicine. We see and hear everything, it’s part of the job. I have a male pcp and I’ve messaged him asking for diflucan for a yeast infection. He sent it to my pharmacy and said he hoped I felt better soon! Lol. [...]
+
+EXAMPLE 7:
+A healthcare professional document something that did not occur is completely inappropriate and dangerous. You reporting this through the proper channels will help ensure the problem is tracked and addressed.  NEVER feel bad for reporting something if you feel you weren't treated right if your safety was compromised.  We need to make healthcare better.
+
+EXAMPLE 8:
+What should I do now? ( any thoughts, opinions, or advices  are welcomed) I have been experiencing years of pain and ineffective treatment; I was finally directed to Dr. Nicola Longo, the clinical chair of genetics at UCLA. He said I need to have a sleep deprived EEG and a nueropsych evaluation done before meeting him. I had trouble to schedule an appointment within UCLA’s system; therefore, I switched to Cedars - Sinai. I was scheduled with this psychologist without experience. I called in everyday, and rescheduled to a different psychologist. [...]
+
+EXAMPLE 9:
+Is it enough that I reported to the office manager, or should I report this provider to a board? My complaints are: not providing care instructions for an open wound created during a visit and lying in my visit notes (my medical record) about counseling she did not provide and a discussion we never had. The above guides for making a complaint to a nursing board are good.
+
+EXAMPLE 10:
+Here's more detail:  I feel like such a loser and a weirdo even though my counselor says I didn't do anything wrong.  I have some chronic health issues, but only went to the primary for basic stuff.  I have seen this doctor five times in one year; the first time was for a new patient visit, the second was for an outer ear infection, the third time was for a sinus infection that wasn't clearing up that I developed after I had covid, and the fourth time was to check my thyroid and liver enzymes because things just felt off and those are usually the problem when I feel a certain way. [...]
+
+EXAMPLE 11:
+I wrote to cedars Sinai’s patient relations, but my language was less calculated; now, they tell me that it takes up to 30 days to process a grievance. I checked online; cedars Sinai’s webpage shows that I visited her supervisor, another doctor with 2 decades of experience, instead of her. I found she is a doctor who just obtained her formal license around a year and a half ago. Just a year and a half ago, she was a psychological associate. 
+What should I do? If you give copies of records to a doctors office, they cannot reproduce the records. [...]
+
+EXAMPLE 12:
+I don't know who to ask... Please excuse any typos.  Here's the short version:  The primary care physician I had been seeing for a year said that she has to send me a termination letter after I told her I would not be back to her office.  I am worried that I will no longer be able to use anyone in that healthcare system because of how it looks to have been fired from a doctor's office.  I really like the gynecologist there and I'm also seeing a physical therapist in the same healthcare system for overuse injuries. [...]
+
+EXAMPLE 13:
+I’m sorry this happened.
+Thank you.
+I think you received some appropriate advice, but I just want to confirm. I work in healthcare with the departments that would receive your feedback and reporting it too more than the clinic manager is ideal.  Generally the organization that the clinic is a part of will have a link on their website, it will say something about grievance, feedback, or complaint.
+
+EXAMPLE 14:
+But given what you wrote, you exhibited poor patient behavior. I agree with your providers advice (only the parts that seemed objective like reading the book and getting mental health), everything else was your interpretation or how you felt about the situation.
+
+EXAMPLE 15:
+I’ve had to personally counsel and discharge many patients for what you’ve described. They are in the right here. Your fighting and arguing with your doctor means there is no longer a therapeutic relationship.
+
+EXAMPLE 16:
+The other health system CAN in fact see your epic chart, notes, all of your patient messages, nearly everything. For you to argue this with the doctor was a bad move. So be prepared for a quick reality check for when you start seeing your new doctor.
+
+EXAMPLE 17:
+When I asked her of my raw testing data, she said she cannot release them to me, because only she is licensed to interpret it. She is a licensed psychologist. 
+The clinical genetics chair of UCLA is not licensed. Since she has a 3 weeks vacation immediately, and it takes another two to three weeks to write a report. I have to wait five to six weeks for my nueropsych report, just like every patient. This is the “due process”.
+
+EXAMPLE 18:
+However, after 2 hours of testing; she said that her clinical impression is that I have mild autism. She cannot officially diagnose it, but she thinks my symptoms can be “examples of neurodivergence”, because “autism people frequently have these problems”. 
+I wrote a 10 page narrative to bring to her in my second evaluation. I also said I met four different doctors — three internists with over two decade of experiences for each of them and two neurologists who all agreed that I definitely have an advanced issue. She said she holds her clinical impression.
+
+EXAMPLE 19:
+She also kept my 10 page personal narrative with her; after demanding these documents, she used white-outs on these documents. She reprinted the first three pages of my narrative. She claimed that her notes were not clinically salient enough.  I said it is my patients right to obtain these documents and the raw data. She said it is not my right, and giving me the raw data and the notes can cause her to lose the license. I said my notes are my personal property, she said, so is her notes, they are her personal property.
+
+EXAMPLE 20:
+I would also file a written complaint to the owner(s) of the practice, copy the Office Manager- you can both do this by email and by snail mail, with a return receipt.
+
+EXAMPLE 21:
+Regarding reporting to the BON, that's up to you, but if you feel you should, do it. They  won't just punish a nurse because of a complaint, they have a process to review these things.
+
+EXAMPLE 22:
+You can also request to correct the notes record, every practice must have a records dept or person, you may need to submit the correction to your record by fax or in person.
+
+EXAMPLE 23:
+She suggests me to visit UCLA’s nueropsych team. However, she will write that her clinical impression that I have mild autism. She cannot give me any raw data. I am free to talk to her boss about the issue. I just have to wait in line like every other patient for the full nueropsych report.
+
+EXAMPLE 24:
+This has happened to both my wife multiple times with the same provider. After reporting it both times, it never happened again.  The provider obviously needed some coaching.
+
+EXAMPLE 25:
+I would just start fresh with the new health system. Stop messaging on mychart. Stop being fixated on your problems list. Keep seeing the counselor and psychiatrist.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

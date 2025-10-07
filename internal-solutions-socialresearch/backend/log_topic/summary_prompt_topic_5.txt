@@ -1,0 +1,120 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: ai, healthcare, love, patients, help, use, clinics
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I need to think of a tech solution to bring wait times down and get morale back up and I’m looking to Reddit for some help. I want to help everyone; the providers, the front and back office staff, and of course, the patients.
+
+EXAMPLE 2:
+But curious if this is something that’s even relevant to begin with. Would love to get anyone’s perspective here, for the safe use of AI in healthcare.  If you’re using AI for clinical medicine, you should only do so for quickly finding evidence based information. Not as a replacement for foundational training and medical decision making.
+It is not safe to rely on without confirming the information with evidence based sources. Full stop.
+
+EXAMPLE 3:
+TLDR: I need to make my boss happy and fix patient wait times, improve staff communication + make work less stressful, and manage patient flow better during our rushes. Need to think of some kind of tech solution for this. This is an issue that stems from the fee-for-service model. Simple fix is to have fewer patients. You’d either need to charge more per patient to make up for it (not realistic because of carrier contacts) or reduce expenses to hit profitability sooner and with less revenue (develop much more efficient processes).
+
+EXAMPLE 4:
+This short survey isn’t just about billing—we also want to understand **how healthcare professionals feel about the way they are treated** in today’s world. Your insights will help shape solutions that truly support you.We know your time is valuable, so we’ve made sure to keep it **quick and easy**—it won’t take more than a few minutes!
+
+EXAMPLE 5:
+I haven’t been working here for long, but I think the major problems are that appointments are only done via phone and we only have one receptionist for every three practitioners, the providers don’t really track the patient order and chart between patients, the providers have designated rooms which makes some of them super busy and others not at all, and there’s not really a good protocol in place for when people call out and we can’t handle the volume.
+
+EXAMPLE 6:
+I’m exploring an idea like a ‘Vanta’ for healthcare AI, that would continually check the accuracy and safety of LLM’s.
+
+EXAMPLE 7:
+If the government and hospitals won’t fix the system, let’s take matters into our own hands. I’ve created a crowdsourced database where people can anonymously submit what they paid for medical procedures, hospital visits, and medications.
+
+EXAMPLE 8:
+Not allowing walk ins helps, so does switching to an EHR that allows patients to self schedule. Direct messaging their provider can reduce the need for scheduled visits, alleviating some in-office throughput issues.
+
+EXAMPLE 9:
+If you’ve ever been hit with an outrageous bill—or if you just want to help—please take 30 seconds to submit your costs here: Link: https://airtable.com/appkvjQ8eSvegYN5Q/pagTnq3AYdHoPqSG0/form
+
+EXAMPLE 10:
+I’m an administrator at a medical group and our patient volume has jumped 10% in the last six months. The wait times are driving our patients crazy and stressing out our staff.
+
+EXAMPLE 11:
+Your feedback could help drive meaningful change. Feel free to **comment or share** with your colleagues! 
+How Much Did You Pay for Healthcare? Let’s Bring Transparency Together.
+
+EXAMPLE 12:
+That said, 10 day primary care wait is pretty good. Average wait in my state is 28 days.
+Template scheduling (designated new/return slots) can help bring down the time to next appointment.  Check out in room scheduling is also necessary. Contacting people via phone after a visit is a huge drain on resources and time.  Cross train your rooming staff to go back into the room following the visit and scheduling the patients follow up. One receptionist is not sustainable for all of the work.
+There is no technology that will bring wait times down and boost morale. [...]
+
+EXAMPLE 13:
+Healthcare costs in the U.S. are out of control, and the worst part? No one knows what they’re actually supposed to pay. Prices vary wildly, hospitals hide costs, and people end up with surprise bills that feel impossible to fight.
+
+EXAMPLE 14:
+Thank you. Hi! For my master's thesis, I'm studying **wearable technology** (electronic devices that can be worn on the body or clothing, such as smartwatches, bands, rings, and glasses) for migraine management. I intend to investigate how wearable technology can be designed to help all patients manage this disease and minimize the significant impact it has on their lives.   
+Therefore, I'm collecting answers from **migraine sufferers** for my survey and I really appreciate your response, as it is a crucial contribution to the research. [...]
+
+EXAMPLE 15:
+We will more-aggressively moderate this kind of activity. Anything that is abuse will result in a sub ban, as well as reporting dangerous activity to the site admins. Please message the mods if you want support and advice before posting.  'Scary words are for bad actors'.  It is our interest to support legitimate activity in the healthcare community.
+
+EXAMPLE 16:
+I would say that new patient appointment wait times are about 10 days for primary care and 45 days for a specialist, existing patients are 4 days for primary care and 15 for a specialist, and wait times in-clinic are 30 min in the waiting room, 15 in the exam room, and 10 for checkout…
+
+EXAMPLE 17:
+If you’re going to have to confirm everything with your own research anyway, better just to use UpToDate from the get
+This is relevant, especially given the growing concerns about hallucinations and other LLM errors in the medical niche. In healthcare, incorrect AI results can cause not only reputational damage, but also directly impact patient safety, regulatory compliance, and physician confidence.
+
+EXAMPLE 18:
+Hallucinations are not just a modeling error, but in sensitive areas such as medicine, it is an error that can do a lot of damage. Therefore, there is a need for continuous supervision of AI results.
+
+EXAMPLE 19:
+[Ever hear about those court cases where lawyers cited fake cases that ChatGPT made up](https://www.theguardian.com/us-news/2025/may/31/utah-lawyer-chatgpt-ai-court-brief)? Imagine doing that with someone’s health and then they die. Pretty sure “ChatGPT told me to do it” wouldn’t be a great medicolegal defense
+
+EXAMPLE 20:
+One way to address this is through structured responsible AI audit. This system doesn't just check accuracy - it assesses bias, reliability, explainability, and compliance with ethical and regulatory standards such as HIPAA or the EU AI Act. In essence, responsible AI audit turns the LLM into a model you can trust.
+
+EXAMPLE 21:
+I’m pretty much open to any ideas like a scheduling AI or an internal workflow system or some kind of communication platform…not really sure where to begin and would love some ideas from people who have more experience in the field. Thanks for the help!
+
+EXAMPLE 22:
+If you want responsible AI audit to be more than just a theoretical defense, it needs to be built into the AI lifecycle - from data collection to deployment - and performed continuously, not just when the model is run. This is the way to detect degradation, detect drift, and maintain a safe LLM over time.
+
+EXAMPLE 23:
+The more data we collect, the harder it will be for the system to stay broken. Together, we can expose price disparities and help people make informed decisions.
+
+EXAMPLE 24:
+However, we want to investigate if a single stickied post (like this one) to anchor polls and surveys.  The post could be a place for those who are interested in opportunities to give back and help students, researchers, new ventures, and others.
+
+EXAMPLE 25:
+This is a test.  It might not be the right thing, and we'll stop it.  
+Please share your concerns.  
+Please share your interest.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

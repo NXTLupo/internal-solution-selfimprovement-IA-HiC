@@ -1,0 +1,119 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: temperature, doctors, pain, patients, trained, body, cold
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I realize that at hospitals, for example, worrying about each person's average temperature would be a pain, but I've been going to my clinic for 18 years. They often say I have a "raised temperature" if its in the 99-100 range.  mine varies in the 96 - 98 range at clinics, and is considered normal . . .
+Doc here. It is actually exactly because of normal / wide variations in body temperatures. Based on recordings of millions of temperature data points, about 95% fall less than 100.4 and therefore that is what is selected as abnormal.
+Thank you.
+
+EXAMPLE 2:
+Why do doctors have a standard temperature for fevers when normal temperature varies person to person? This is just something I have pondered for a while now, so thought I would ask Reddit and get it off my chest.
+
+EXAMPLE 3:
+i should note i’m talking about after imaging/tests and a full evaluation is done. of course, it’s relatively impossible to diagnose/give clear answers w/o that first.  The answer isn’t always a clear yes or no answer. If you ask a doctor why your hands are cold at night, there could be dozens of different reasons why, ranging from the AC is too cold, my house is drafty, I work in a freezer and didn’t mention that (some people do these things),  to Iron deficiency Anemia, Reynaud’s syndrome, Sickle Cell Disease, Lupus, Carpal Tunnel, thyroid problems, and even medications can cause cold hands.
+
+EXAMPLE 4:
+How many degrees above normal temperature is a fever, really? Or is it really the temperature of the body that reflects illness?
+
+EXAMPLE 5:
+I read humans have average temperatures from 97 to 99 degrees. My average regular temperature is 97.5°F.  Shouldn’t fevers be related to your base temperature and not a standard number?
+
+EXAMPLE 6:
+Has that standard for fevers changed since we realized 98.6 is no longer the average? I think 100.3 is considered a fever at my doctor's office. That's between 1.3 and 3.3 degrees above an individual's baseline and it seems a significant difference.
+
+EXAMPLE 7:
+You might notice a pattern or red flag in a case because you’ve trained for years to do that but the patient’s side, they’re trying to figure out if the pain is “normal,” if it’s something they just live with, or if they’ll just be told it’s anxiety, weight, or life stress. Sometimes they really do try to advocate, and they might be rushed during their short appointment, have no follow-up, provided results saying they’re fine or maybe some prescription that can cause some other deficiency they aren’t informed about. 
+This is so common too. I’m sad to say.
+
+EXAMPLE 8:
+As someone who’s been on the patient side in many ways, I just want to offer this: it’s incredibly common for patients not to realize when something is seriously wrong, especially if the system has already taught them not to get answers unless they’re bleeding or collapsing.
+
+EXAMPLE 9:
+I don’t know if it’s just me, but as someone who wants to be a doctor themselves, is decently knowledgeable on the human body, and likes to ask questions/advocate for myself during doctors visits, it feels like doctors often do not directly answer my questions. whenever I ask questions, like; “what is causing X symptom?” or even just something like, “why do my hands get cold at night?”, it feels like: they don’t really know.
+
+EXAMPLE 10:
+does anyone feel like doctors lowkey dont know the answers to many of their patients questions? Let me preface this by saying that my intention is not to shit on doctors. Doctors are humans, and they are educated people. I’m not here to fault doctors, but rather bring up something I feel like is missing in our healthcare system and see if anyone feels the same.
+
+EXAMPLE 11:
+Would really appreciate anyones thoughts! I’m not a physician but I work in the health and science field including with patients and in clinical research; I’m also surrounded by physicians at work and at home. I do know this is so incredibly common.
+
+EXAMPLE 12:
+I guess it’s that theres so much medical community still doesnt know about the human body? Again, I understand docs are trying their best— my intention isn’t to slam docs. But at the same time, for $100+ per visit, doc visits feel disappointing.
+
+EXAMPLE 13:
+I’m a researcher currently taking a class on clinical reasoning and ethics, and I’ve been thinking a lot about how patient behavior fits into the bigger picture of diagnostic issues.
+
+EXAMPLE 14:
+It’s a bit like expecting someone who works in hospital administration to diagnose system failures in patient care. Like they’re part of the system but they really would not know how those details fit together. Similarly, patients aren’t trained to know when “minor” fatigue is really a thyroid issue, or when “occasional” bleeding is something deeper. That’s why they go to doctors in the first place.
+
+EXAMPLE 15:
+Almost like doctors are constantly playing this game of operating without all the information. like talking to a unhelpful customer service rep who, instead of just saying “i dont really know” will tell you “well, I know that X, so you should probably do Y.” I’ve been to so many doctors and have gotten different opinions, and for something so minor (mild scoliosis + back/hip pain), you’d think Id get clearer advice. It’s like, if a group of symptoms don’t fit into being a condition/disease, then you’re just fine. [...]
+
+EXAMPLE 16:
+Thank you so much for the question, for reading and for growing your reasoning in your field!
+This is a great response. Here is another patient perspective.
+
+EXAMPLE 17:
+And adding another layer that I’ve been dismissed by my family my whole life when I tell them I’m in pain, so I second guess myself until I’m nearing the point of no return.
+
+EXAMPLE 18:
+How hard is it to convince patients to be proactive? Do diagnostic delays make it worse? Hey everyone,
+
+EXAMPLE 19:
+I feel like physicians in the US are trained to be dismissive of patients. I understand that a lot of it may be our assembly line reimbursement manner. This beats us down and we begin to delay physician visits because we assume our concerns are just going to be dismissed anyway.
+
+EXAMPLE 20:
+Some of us are *very* in tune with our bodies, know when *something* is wrong, but don't know what because we're not trained. When I had a PE on a cruise ship and was taken to the medical bay, I told the doctor that's what he needed to check for. Luckily, he wasn't American so he didn't dismiss me. That's what it was and I later found out I had a mutation that made it more likely.
+
+EXAMPLE 21:
+My son started having severe lower back pain in his early 20s despite no injury. He repeatedly went to the doctor. Because of his age, they would order PT without even doing any imaging.
+
+EXAMPLE 22:
+So basically asking a doctor a loaded question like that and then expecting them to say well it’s just XYZ is really unfair unless they’ve had a chance to do a thorough full body exam with lab work and maybe even x-rays.
+you’re completely right— i forgot to include that in my post (it’s there now). i’m talking about after a full evaluation is done (like imaging and blood tests for ex)
+😆 I think the major thing is you don't like medical bills.
+
+EXAMPLE 23:
+Many of them don’t push because they literally don’t know what to push for. And more often than not, physicians rush you!
+
+EXAMPLE 24:
+Do you find that passivity or delayed engagement from patients contributes meaningfully to missed or late diagnoses? Or is the system (short visits, poor continuity, insurance friction) usually the bigger barrier, even when patients *do* try to advocate for themselves?
+
+EXAMPLE 25:
+I'm 63, and due to my complex history, I've seen a lot of doctors. And it wasn't until this year that one had actually bothered to take  the time to dive into my history before meeting me.
+So I get kidney stones. They have an unfortunate timing to typically hit around 2:00-3:00 am. The issue is a lot of the warning symptoms match up with the pain I get for my period. Because of insurance, and the fear they will reject the ER trip if it’s not a kidney stone, I will wait until I’ve thrown up from the pain (rank it around an 8/10) before I go to the ER. [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

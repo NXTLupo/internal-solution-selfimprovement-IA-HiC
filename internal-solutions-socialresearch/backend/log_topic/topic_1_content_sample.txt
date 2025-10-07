@@ -1,0 +1,14 @@
+Topic 1 - Content Sample
+Number of content items: 25
+Top words: healthcare, insurance, care, costs, companies, private, countries
+
+Content 1 (length: 136 chars):
+Doctors do outsource this work but regardless of who does the work it costs money.
+(Presuming you mean healthcare in the United States).
+
+Content 2 (length: 191 chars):
+Americans are paying $600,000 more  for a lifetime of healthcare (PPP) than peer countries on average, yet we worse health outcomes than every single one. The impact of these costs is insane.
+
+Content 3 (length: 306 chars):
+My girlfriend has $300,000 in medical debt after what her $20,000/yr BCBS PPO insurance for her and her son covered. To be fair, the "No Surprises Act" eliminated *some* of the bullshit insurance refuses to cover, but too late to help her. Anyway you look at it though, US healthcare is insanely expensive.
+

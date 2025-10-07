@@ -1,0 +1,13 @@
+Topic 22 - Content Sample
+Number of content items: 23
+Top words: medicare, sequestration, social security, budget, benefit, trust, sequestration order
+
+Content 1 (length: 371 chars):
+Generally, Medicare’s benefit structure remains unchanged under a mandatory sequestration order and beneficiaries see few direct impacts. However, Medicare plans, providers, and suppliers see reductions in payments. Due to varying plan and provider payment mechanisms among the four parts of Medicare, sequestration is implemented somewhat differently across the program.
+
+Content 2 (length: 518 chars):
+Under a BCA mandatory sequestration order, Medicare benefit payments and Medicare Integrity Program spending cannot be reduced by more than 2%. Under a Statutory PAYGO sequestration order, Medicare benefit payments and Medicare Program Integrity spending cannot be reduced by more than 4%. These limits do not apply to mandatory administrative Medicare spending under either type of sequestration order. These limits also do not apply to discretionary administrative Medicare spending under an FRA sequestration order.
+
+Content 3 (length: 614 chars):
+Medicare is a federal program that pays for certain health care services of qualified beneficiaries. The program is funded using both mandatory and discretionary spending and is impacted by any sequestration order issued in accordance with the aforementioned laws. Medicare benefit payments (the majority of Medicare expenditures) are considered mandatory spending and therefore are subject to the sequestration of mandatory funds. Special sequestration rules limit the extent to which Medicare benefit spending can be reduced in a given fiscal year. This limit varies depending on the type of sequestration order.
+

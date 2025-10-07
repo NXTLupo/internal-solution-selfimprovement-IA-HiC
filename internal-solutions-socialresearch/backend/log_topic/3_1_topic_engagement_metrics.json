@@ -1,0 +1,107 @@
+{
+  "0": {
+    "post_count": 85,
+    "total_comments": 259,
+    "total_score": 184,
+    "avg_comments_per_post": 3.0470588235294116,
+    "avg_score_per_post": 2.164705882352941
+  },
+  "1": {
+    "post_count": 60,
+    "total_comments": 265,
+    "total_score": 1175,
+    "avg_comments_per_post": 4.416666666666667,
+    "avg_score_per_post": 19.583333333333332
+  },
+  "2": {
+    "post_count": 26,
+    "total_comments": 102,
+    "total_score": 580,
+    "avg_comments_per_post": 3.923076923076923,
+    "avg_score_per_post": 22.307692307692307
+  },
+  "3": {
+    "post_count": 26,
+    "total_comments": 113,
+    "total_score": 214,
+    "avg_comments_per_post": 4.346153846153846,
+    "avg_score_per_post": 8.23076923076923
+  },
+  "4": {
+    "post_count": 26,
+    "total_comments": 105,
+    "total_score": 144,
+    "avg_comments_per_post": 4.038461538461538,
+    "avg_score_per_post": 5.538461538461538
+  },
+  "5": {
+    "post_count": 24,
+    "total_comments": 73,
+    "total_score": 317,
+    "avg_comments_per_post": 3.0416666666666665,
+    "avg_score_per_post": 13.208333333333334
+  },
+  "6": {
+    "post_count": 21,
+    "total_comments": 89,
+    "total_score": 62,
+    "avg_comments_per_post": 4.238095238095238,
+    "avg_score_per_post": 2.9523809523809526
+  },
+  "7": {
+    "post_count": 21,
+    "total_comments": 73,
+    "total_score": 857,
+    "avg_comments_per_post": 3.4761904761904763,
+    "avg_score_per_post": 40.80952380952381
+  },
+  "8": {
+    "post_count": 20,
+    "total_comments": 54,
+    "total_score": 524,
+    "avg_comments_per_post": 2.7,
+    "avg_score_per_post": 26.2
+  },
+  "9": {
+    "post_count": 19,
+    "total_comments": 61,
+    "total_score": 608,
+    "avg_comments_per_post": 3.210526315789474,
+    "avg_score_per_post": 32.0
+  },
+  "10": {
+    "post_count": 15,
+    "total_comments": 25,
+    "total_score": 53,
+    "avg_comments_per_post": 1.6666666666666667,
+    "avg_score_per_post": 3.533333333333333
+  },
+  "11": {
+    "post_count": 15,
+    "total_comments": 67,
+    "total_score": 70,
+    "avg_comments_per_post": 4.466666666666667,
+    "avg_score_per_post": 4.666666666666667
+  },
+  "12": {
+    "post_count": 14,
+    "total_comments": 23,
+    "total_score": 94,
+    "avg_comments_per_post": 1.6428571428571428,
+    "avg_score_per_post": 6.714285714285714
+  },
+  "13": {
+    "post_count": 13,
+    "total_comments": 21,
+    "total_score": 124,
+    "avg_comments_per_post": 1.6153846153846154,
+    "avg_score_per_post": 9.538461538461538
+  },
+  "14": {
+    "post_count": 12,
+    "total_comments": 38,
+    "total_score": 265,
+    "avg_comments_per_post": 3.1666666666666665,
+    "avg_score_per_post": 22.083333333333332
+  }
+}

@@ -1,0 +1,64 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: doctors, economics, canada, work immediately, soon able, able work immediately, health workers soon
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+U.S. health workers will soon be able to work immediately in Ontario In case anyone was interested, [this](https://www.thestar.com/politics/provincial/u-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario/article_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html) is the actual link.
+
+EXAMPLE 2:
+[Non-paywalled link](https://www.removepaywall.com/search?url=https%3A%2F%2Fwww.thestar.com%2Fpolitics%2Fprovincial%2Fu-s-health-workers-will-soon-be-able-to-work-immediately-in-ontario%2Farticle_568d2658-1dca-402a-b34a-1a6bf1efb3ce.html).
+
+EXAMPLE 3:
+Who profits off Canada’s health care crisis? Nurses in Canada, like Birgit Umaigba-Omoruyi, know firsthand how a patient’s postal code can determine the quality of care they receive.
+
+EXAMPLE 4:
+Doctors have no choice but to “grab the bull by the horns” to find the sweet spot where “good compromises” between good medicine and good economics can peacefully co-exist. The Covid pandemic demonstrated to us that doctors must be at the forefront of designing and delivering care. There is nothing that is non-medical about a hospital enterprise.
+
+EXAMPLE 5:
+But the balance between economics and medicine is a gentle and delicate one. A balance that can only be maintained with alignment and mutual coordination. The risk to doctors is when “good medicine” cedes too much space to “good economics.”
+
+EXAMPLE 6:
+Over a nourishing Nigerian meal of jollof rice and fufu, Birgit sits down with Nathan Sing to unpack the root causes of Canada’s nursing crisis—from Bill 124, which capped wage increases at just 1% amid record inflation and staffing shortages, to the racial and systemic inequities nurses face on the frontlines. Drawing on her own experience from the frontlines, Birgit explains what she calls the “cappuccino effect,” breaking down how racism operates in healthcare and how cost-cutting policies have deepened the pay gap between executives and the people doing the work.
+
+EXAMPLE 7:
+There is also a growing trend towards privatization of healthcare in emerging economies. In markets like India, almost 70% of all care is in the private sector. Even in countries like China, where the state is pervasive, over the last decade, the share of private hospitals has increased from 10-12% to about 40-45%. The USA has a strong network of private hospitals. Fee-for-service payment mechanisms continue to be dominant and contribute close to 70% of the healthcare provided in the USA. In a largely private system, economics will always be front and center.
+
+EXAMPLE 8:
+Most Doctors, privately and in smaller groups, continue to rue and helplessly grumble over their almost complete loss of franchise and agency within the hospital system. Unlike in the past, when it was just the doctor and the patient in a “parent-child” relationship, healthcare systems are now incredibly complex. Hospitals are heavily indebted to banks, shareholders, PE, increasingly powerful regulators, and litigious “consumerist” patients.
+
+EXAMPLE 9:
+Are Doctors Reluctant Leaders ? Seems to me that Doctors have ceded a lot of space to management and administration for far too long. I can appreciate that clinical duties are paramount. However, several decisions that directly and indirectly impact patient care plans, safety, and performance get taken many a time without the doctors being adequately involved or designing them. It seems to me that hospital administrators prefer keeping their doctors at the periphery, especially when it comes to economics.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

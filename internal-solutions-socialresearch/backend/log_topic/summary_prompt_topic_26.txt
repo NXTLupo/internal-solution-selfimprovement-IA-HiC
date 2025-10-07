@@ -1,0 +1,58 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: connecticut, sales, connecticut history state, history state, connecticut history, weight loss, drugs
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Connecticut could make history as first state to manufacture its own GLP-1 drugs # I do hope that Connecticut is able to move this forward because if they do, it will force pharma to lower these prices as the insurance companies refuse to pay for obesity related medications that actually work! Hopefully other states will follow suit because obesity is a killer that deserves affordable treatment like every other deadly disease. [https://www.fox61.com/article/news/local/state-senator-connecticut-history-first-state-manufacturer-n-glp1-drugs/520-b4ece586-3bce-4b8b-a393-435f2c8a201e](https://www. [...]
+
+EXAMPLE 2:
+https://www.theguardian.com/society/2025/jun/17/hiv-ending-drug-lenacapavir-manufacture-cost-per-patient-gilead
+
+EXAMPLE 3:
+My buddy sent me a photo of CVS drug sales for March ‘25… I’m floored. 31 billion in ozempic sales alone… I don’t even know where to begin.  That is actually MAT—moving annual total sales. You’re looking at the last year or sales, not just one month.
+
+EXAMPLE 4:
+New HIV prevention costs over 1000 times more than it costs to produce  Can you please post the news link for this?
+
+EXAMPLE 5:
+Seriously, someone should challenge this patent.
+When the announcement first came out a few days ago, Gilead stock didn’t move because of the extreme price.  That and vaccines are falling out of favor with many.
+
+EXAMPLE 6:
+But still it’s a lot.
+You’re right, my bad. And yes it’s an unbelievable number!
+At least the Shingrix vaccine is on the list. I’m glad to see that. Shingles is awful.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.
