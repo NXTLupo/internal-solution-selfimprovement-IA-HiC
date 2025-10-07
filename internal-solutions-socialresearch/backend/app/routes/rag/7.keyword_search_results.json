@@ -1,18 +1,13 @@
 {
   "keywords": [
-    "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-    "to use 'response_format' of type 'json_object'.'",
+    "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.'",
     "'type': 'invalid_request_error'",
-    "'param': 'messages'",
-    "'code': None}}\"}"
+    "'param': None",
+    "'code': 'invalid_api_key'}}\"}"
   ],
   "keyword_post_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-      "post_ids": []
-    },
-    {
-      "keyword": "to use 'response_format' of type 'json_object'.",
+      "keyword": "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.",
       "post_ids": []
     },
     {
@@ -20,22 +15,17 @@
       "post_ids": []
     },
     {
-      "keyword": "param': 'messages",
+      "keyword": "param': None",
       "post_ids": []
     },
     {
-      "keyword": "code': None}}\"}",
+      "keyword": "code': 'invalid_api_key'}}\"}",
       "post_ids": []
     }
   ],
   "keyword_comment_matches": [
     {
-      "keyword": "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-      "comment_ids": [],
-      "post_ids": []
-    },
-    {
-      "keyword": "to use 'response_format' of type 'json_object'.",
+      "keyword": "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.",
       "comment_ids": [],
       "post_ids": []
     },
@@ -45,12 +35,12 @@
       "post_ids": []
     },
     {
-      "keyword": "param': 'messages",
+      "keyword": "param': None",
       "comment_ids": [],
       "post_ids": []
     },
     {
-      "keyword": "code': None}}\"}",
+      "keyword": "code': 'invalid_api_key'}}\"}",
       "comment_ids": [],
       "post_ids": []
     }

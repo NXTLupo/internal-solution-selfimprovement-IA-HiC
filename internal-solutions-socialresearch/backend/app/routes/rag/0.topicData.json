@@ -1,31 +1,36 @@
 {
   "positive": [
     {
-      "id": 2,
-      "one_sentence_summary": "Medical professionals discuss specialty training choices and career transitions for establishing direct primary care practices, comparing family medicine and medicine-pediatrics pathways.",
-      "short_summary": "DPC specialty selection"
+      "id": 0,
+      "one_sentence_summary": "This topic covers structured NBA game discussions and statistical data presentation in Reddit game threads and post-game analysis.",
+      "short_summary": "NBA game threads"
     },
     {
-      "id": 1,
-      "one_sentence_summary": "Discussions focus on medical practice transitions, acquisitions, and employment opportunities, particularly involving Direct Primary Care models and independent practice ownership alternatives to corporate healthcare systems.",
-      "short_summary": "Medical practice transitions"
+      "id": 3,
+      "one_sentence_summary": "Community discussions about proper tagging and formatting guidelines for sports highlight posts in online forums.",
+      "short_summary": "Highlight tagging guidelines"
     }
   ],
   "neutral": [
     {
-      "id": 0,
-      "one_sentence_summary": "Healthcare providers discuss Direct Primary Care models and alternative practice structures that eliminate insurance billing to create more autonomous, patient-focused medical practices.",
-      "short_summary": "DPC practice models"
+      "id": 1,
+      "one_sentence_summary": "Discussions focus on NBA player statistics, career records, consecutive games played streaks, and historical performance analysis across seasons and careers.",
+      "short_summary": "NBA player statistics"
     },
     {
-      "id": 3,
-      "one_sentence_summary": "Healthcare professionals discuss career opportunities, practice models, and professional pathways in addiction medicine, particularly its integration with primary care and family medicine practices.",
-      "short_summary": "Addiction medicine careers"
+      "id": 2,
+      "one_sentence_summary": "Discussions about NBA rookie development, team management strategies, and player adaptation to professional basketball environments.",
+      "short_summary": "NBA player development"
+    },
+    {
+      "id": 5,
+      "one_sentence_summary": "Basketball game highlights and performance discussions featuring veteran player gameplay and team chemistry analysis.",
+      "short_summary": "Basketball player highlights"
     },
     {
       "id": 4,
-      "one_sentence_summary": "Physicians discuss navigating non-compete restrictions while exploring alternative practice models like Direct Primary Care and weighing career transitions between different medical specialties and geographic locations.",
-      "short_summary": "Physician career transitions"
+      "one_sentence_summary": "Discussions about NBA draft strategies, player development, and how family connections and nepotism influence professional basketball roster decisions and business considerations.",
+      "short_summary": "NBA nepotism discussions"
     }
   ],
   "negative": []

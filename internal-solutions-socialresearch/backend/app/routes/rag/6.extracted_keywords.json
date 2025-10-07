@@ -1,7 +1,6 @@
 [
-  "{\"error\": \"Error code: 400 - {'error': {'message': ''messages' must contain the word 'json' in some form",
-  "to use 'response_format' of type 'json_object'.'",
+  "{\"error\": \"Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.'",
   "'type': 'invalid_request_error'",
-  "'param': 'messages'",
-  "'code': None}}\"}"
+  "'param': None",
+  "'code': 'invalid_api_key'}}\"}"
 ]
