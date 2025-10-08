@@ -1,26 +1,25 @@
 Documents for Topic 0 (showing first 3):
 
 Document 1:
-This sums up USA healthcare to me. This sums up the American 🇺🇸 healthcare existence to me.
+Another warning about One Medical tl;dr scheduling a remote visit with One Medical will be billed as an in-office visit regardless, which can cost you about $600 on a high-deductible plan. 
 
-I grew up in Canada 🇨🇦 where maybe I took the fantastic care available to me for granted as well as my standard of living.
+For some context, I’ve used One Medical for a few years now since my employer originally covered my fees, and I’ve continued with the Amazon Prime discount offered after switching jobs. I’d only really used it for conveniently finding a PCP and for ease of booking with them up until now. 
 
-I then lived in the UK 🇬🇧 for 17 years where I had GPs in my neighborhoods that acted as gateway analysts as to whether or not you needed something ‘more’. And I was very grateful for the NHS.
-
-Now I have been in the USA 🇺🇸 for 10 years. I dread even having to refill a prescription....
+However, I recentl...
 
 Document 2:
-What’s the biggest problem with healthcare in your country that nobody seems to talk about?  Yes, CEO compensation sucks, the companies are horrible when it comes to getting you care and communicating with your physicians- our system is deeply flawed
-Everything is insurance based. Every single thing we do(I work in the medical field) is determined by the insurance. Have to have this test before this other test, take these meds so you can tell us they don’t work, before you can take these other m...
+Dr Celal Candirli & Dr Serdar Bademci NO SURGERY NO REFUND £20,000 ($26,900) I want to share my experience in case it helps prevent someone else from going through the same thing.
+
+In **November 2024**, I traveled to Istanbul for a consultation with **Dr. Celal Candirli** regarding jaw surgery to correct an underbite. The appointment was arranged by Dr. Serdar Bademci.
+
+At the clinic, I met with both **Dr. Celal Candirli** and **Dr. Serdar Bademci**. We discussed the surgical plan and the pricin...
 
 Document 3:
-Private equity & healthcare There were 3 articles in just last couple of weeks in Harvard gazette on private equity/corporatization of healthcare: 
+I made an app to stay updated on healthcare news Hey all,
 
-https://hms.harvard.edu/news/deaths-rose-emergency-rooms-after-hospitals-were-acquired-private-equity-firms
+I built a small app that helps you stay updated in healthcare or any field. You just describe exactly what you want to follow, and the app uses AI to fetch new content every few hours. It can get really niche since the AI does a good job understanding your input.
 
-https://www.library.hbs.edu/working-knowledge/is-private-equitys-slash-and-burn-reputation-overblown
+For example, you can use it to follow recent AI healthcare startups, or recent vaccine research, insurance news, or anything in your field.
 
-https://news.harvard.edu/gazette/story/2025/10/corporatization-of-healthcare-gets-too-much-of-a-bad-rap/
-
-What's going on here? My understan...
+I made it because I was struggling ...
 

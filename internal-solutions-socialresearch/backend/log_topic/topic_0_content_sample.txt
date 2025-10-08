@@ -1,13 +1,18 @@
 Topic 0 - Content Sample
 Number of content items: 25
-Top words: healthcare, care, insurance, cost, private, profit, health care
+Top words: visit, dr, pricing, person, app, telehealth, dr serdar bademci
 
-Content 1 (length: 191 chars):
-Americans are paying $600,000 more  for a lifetime of healthcare (PPP) than peer countries on average, yet we worse health outcomes than every single one. The impact of these costs is insane.
+Content 1 (length: 481 chars):
+Sesame Care:  
+\-Pricing, I could be wrong, but it looks like you don't need a membership to book and each doctor lists their price: [https://sesamecare.com/service/telehealth-visit](https://sesamecare.com/service/telehealth-visit)  
+\-A bigger player and there is a bit of negative reviews outside of the system. That said the website does have a rating system (but some of those ratings look fake?) so maybe if you focus on going to a better rated provider you get a good answer.
 
-Content 2 (length: 306 chars):
-My girlfriend has $300,000 in medical debt after what her $20,000/yr BCBS PPO insurance for her and her son covered. To be fair, the "No Surprises Act" eliminated *some* of the bullshit insurance refuses to cover, but too late to help her. Anyway you look at it though, US healthcare is insanely expensive.
+Content 2 (length: 479 chars):
+Twin Ports Medicine:  
+\-Pricing: Currently $50 a [Wayback Machine Pricing](https://web.archive.org/web/20240917155037/https://www.twinportstelemedicine.com/service/telehealth). Don't know why she removed the $50 per appointment from her website. Maybe because she started with a limited set of insurers who probably are more expensive than her cash price.  
+\-https://www.twinportstelemedicine.com/  
+\-Can prescribe in MN, WI, AZ, OR, VA. Lab orders and general info nationwide
 
-Content 3 (length: 244 chars):
-What is the Truth Behind USA Healthcare and Insurance? I am really trying to find out the truth behind USA healthcare. I've never had to use it extensively, but obviously many have, and I'd love to hear your experience with financing your care.
+Content 3 (length: 195 chars):
+Master List of *Non Rigid* Telehealth & Virtual Direct Primary Care So we all know that there are quite a few low cost telehealth solutions out there for minor items like Teladoc, Virtuwell, etc.
 

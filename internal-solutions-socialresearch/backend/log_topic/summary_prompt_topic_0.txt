@@ -1,89 +1,94 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: app, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: healthcare, care, insurance, cost, private, profit, health care
+- Top keywords: visit, dr, pricing, person, app, telehealth, dr serdar bademci
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Americans are paying $600,000 more  for a lifetime of healthcare (PPP) than peer countries on average, yet we worse health outcomes than every single one. The impact of these costs is insane.
+Sesame Care:  
+\-Pricing, I could be wrong, but it looks like you don't need a membership to book and each doctor lists their price: [https://sesamecare.com/service/telehealth-visit](https://sesamecare.com/service/telehealth-visit)  
+\-A bigger player and there is a bit of negative reviews outside of the system. That said the website does have a rating system (but some of those ratings look fake?) so maybe if you focus on going to a better rated provider you get a good answer.
 
 EXAMPLE 2:
-My girlfriend has $300,000 in medical debt after what her $20,000/yr BCBS PPO insurance for her and her son covered. To be fair, the "No Surprises Act" eliminated *some* of the bullshit insurance refuses to cover, but too late to help her. Anyway you look at it though, US healthcare is insanely expensive.
+Twin Ports Medicine:  
+\-Pricing: Currently $50 a [Wayback Machine Pricing](https://web.archive.org/web/20240917155037/https://www.twinportstelemedicine.com/service/telehealth). Don't know why she removed the $50 per appointment from her website. Maybe because she started with a limited set of insurers who probably are more expensive than her cash price.  
+\-https://www.twinportstelemedicine.com/  
+\-Can prescribe in MN, WI, AZ, OR, VA. Lab orders and general info nationwide
 
 EXAMPLE 3:
-What is the Truth Behind USA Healthcare and Insurance? I am really trying to find out the truth behind USA healthcare. I've never had to use it extensively, but obviously many have, and I'd love to hear your experience with financing your care.
+Master List of *Non Rigid* Telehealth & Virtual Direct Primary Care So we all know that there are quite a few low cost telehealth solutions out there for minor items like Teladoc, Virtuwell, etc.
 
 EXAMPLE 4:
-Thanks!   The truth....hummm.. there are a lot of 'truths' out there and most of them favor the insurer doing whatever they have to to turn a profit.. You want examples of how these plans work, the reality is MOST Americans don't have a clue, and that includes me... As in these 'instruments' are engineered to be so confusing that 'normal' people can't get what they think they are buying. The other part is you talk about having the 9k out of pocket... Most of us don't have more than $1k to spare much less $9k so.. yeah that accounts for a lot of bankruptcies. [...]
+Then, in **late July**, I was contacted by **Dr. Celal Candirli**, who told me that **Dr. Serdar Bademci had taken my money — and money from other patients — and spent it abroad**. Since then, **Dr. Serdar Bademci** has not responded to any attempts at contact.
 
 EXAMPLE 5:
-Let's say a person is doing okay financially and has 100k in the bank sitting there. They have a policy of 9k OOP and want to plan for the next 10 years. If they put that 100k aside for healthcare costs, then they should be entirely covered for the 10 years (with 10k to spare). Their maximum total healthcare costs over the 10 year period would be 90k. Or, if you get hit by a bus, can you expect to pay more than the 90k over the next 10 years? Will insurance not cover this or that so that the true OOP is much higher? I can't seem to find that answer anywhere, even in research on medical bankrup [...]
+At the clinic, I met with both **Dr. Celal Candirli** and **Dr. Serdar Bademci**. We discussed the surgical plan and the pricing. After I returned home, **Dr. Serdar Bademci** contacted me via WhatsApp saying I needed to send a **25% deposit immediately** to lock in the agreed price. I transferred the payment directly to **Dr. Serdar Bademci**, and over time, I ended up sending a total of **£20,000** (approx. $26,900 / €23,000) to him.
 
 EXAMPLE 6:
-What is the bottom of the truth here? Would appreciate responses as well from healthcare workers who know the system very well, are people going broke because they can't afford out of pocket max? Or because out of pocket max is an illusion if you get really sick or injured?
+So I did a deep dive for Telehealth providers that have signs that they're more likely to be "less rigid" in their guidelines, allow you to pick/know who your provider is at booking, and who still have an option or effectively an option to pay on a per visit basis at a reasonable price (instead of the many Direct Primary Care providers that want a monthly payment to work with you). Typically a solution like this is for people with high deductibles that rarely hit them, primary priority is a good experience at a lower cost, don't want to constantly need appointments, and are okay with not submi [...]
 
 EXAMPLE 7:
-With healthcare spending [expected to increase](https://www.cms.gov/files/document/nhe-projections-forecast-summary.pdf) from an already unsustainable $15,705 in 2025, to an absolutely catastrophic $21,927 by 2032 (with no signs of slowing down), things are only going to get much worse if nothing is done.
+Telehealth NP  
+\-Pricing: $75 for main office visit if you look at their booking options though they do have specific types of appointments they charge more for: [https://www.telehealthnp.com/pricing](https://www.telehealthnp.com/pricing)  
+\-Probably one of the bigger groups that can work with almost all of the states
 
 EXAMPLE 8:
-36% of US households with insurance put off needed care  [due to the cost](https://www.commonwealthfund.org/publications/surveys/2023/oct/paying-for-it-costs-debt-americans-sicker-poorer-2023-affordability-survey); 64% of households without insurance. One in four have [trouble paying a medical bill.](https://www.kff.org/health-costs/issue-brief/data-note-americans-challenges-health-care-costs/) Of [those with insurance one in five have trouble paying a medical bill](https://www.kff. [...]
+Dr Celal Candirli & Dr Serdar Bademci NO SURGERY NO REFUND £20,000 ($26,900) I want to share my experience in case it helps prevent someone else from going through the same thing.
 
 EXAMPLE 9:
-Edited to remove table with incorrect prices. It boils down to this - exploitative capitalism.  Necessities such as healthcare and housing can be price gouged just because they can. You still need a place to live and can’t prevent sickness/accidents 100%. At its heart it’s just a poorly designed system
-America’s system is extremely planned. In 2006 the pharmaceutical lobby got Congress to pass a law that *forbade* Medicare from negotiating prices.
+Upon calling their support line to see about getting the mis-coded visit fixed, they let me know that ALL One Medical appointments, whether in-person or remote, are strictly billed as in-person.
 
 EXAMPLE 10:
-We hear all the time that even medically insured people go broke if they get really sick. It's well-documented. But why? Is that because they can't afford their out of pocket max each year? Or, are they paying thousands and thousands beyond their out of pocket max because a) some services are out of network and hence not covered, 2) insurance companies simply reject claims if they think they can get away with it, 3) patients choose for themselves services not covered by their insurance?
+I left off Direct Primary Care providers using a monthly model. Theoretically you could turn on a monthly make an appointment at many of these and then turn it off, but honestly they're usually pretty small and I suspect they'll just refuse to take you as a client after. A good place to finding doctors in that space is this tool. Also many you could probably line up a telehealth relationship while not even living in the same city or maybe even same state:  
+[https://dpcalliance.org/member-directory-map/](https://dpcalliance.org/member-directory-map/)
 
 EXAMPLE 11:
-Why MD clinics & hospitals may be selling to PEs in first place 
-https://thehill.com/opinion/healthcare/4365741-private-equity-is-buying-up-health-care-but-the-real-problem-is-why-doctors-are-selling/
+One Medical isn't alone in doing this; most concierge services charge you the same prices for in-person or virtual visits. You're paying more for convenience with concierge services.
 
 EXAMPLE 12:
-Drug companies could thereafter charge Medicare anything they want. It was a literal blank check. And it’s a major cause of why drug prices have gone uo so much in the USA in the last 20 years.
+A very well done (but now out of date) review of those providers:  
+[https://www.reddit.com/r/povertyfinance/comments/elryxp/ive\_compiled\_all\_the\_lowcost\_medical\_resources/](https://www.reddit.com/r/povertyfinance/comments/elryxp/ive_compiled_all_the_lowcost_medical_resources/) (maybe we can convince that poster or someone else to do an update)
 
 EXAMPLE 13:
-Once a price is agreed, it is added to the PBS and Medicare subsidises the cost so no Australian pays more than $31.60 per script (or $7.60 for concession card holders).
+Those services have some drawbacks. Each doctor/provider is randomly assigned (so you could end up with good or not helpful person). They're prescribing guidelines are almost always extremely conservative (rigid). They meter out help/prescriptions so you need to create appointments more frequently (instead of getting prescriptions that last 3+, 6+, etc. scripts or having a free refill solution).
 
 EXAMPLE 14:
-But as far as why healthcare is absolutely screwed here?  Too many people want to exploit the system and too few guardrails where it counts, mostly when it comes to malpractice suits and liability.  There’s too much incentive to sue for malpractice because there aren’t limits to the amount of settlements like there are in most civilized countries, leading to huge contingency fees for the lawyers.
+**Dr. Serdar Bademci** said he would start the refund process and even requested my bank details. After that, he stopped replying completely.
 
 EXAMPLE 15:
-https://www.aha.org/aha-center-health-innovation-market-scan/2024-04-02-payer-denial-tactics-how-confront-20-billion-problem
-Look up healthcare reports from consultancies, banks, law firms, and government (CMS). McKinsey and Bain regularly publish solid industry overviews and outlook reports every year. Many other professional firms do too. Those will be more topically relevant and digestible than probably any book since books will generally go deep into a very specific topic that may not even be super relevant to today
-What kind of healthcare consulting? Pharmaceuticals, government programs ( [...]
+Another warning about One Medical tl;dr scheduling a remote visit with One Medical will be billed as an in-office visit regardless, which can cost you about $600 on a high-deductible plan.
 
 EXAMPLE 16:
-Why/how PEs are harming clinics/hospitals 
-https://lowninstitute.org/the-rising-danger-of-private-equity-in-healthcare/
+Unfortunately for me, I made the same mistake I’ve seen more than a few others make on Reddit and other forums online: I setup a scheduled remote appointment (about 5 min ahead of time) rather than using their “Urgent Video Chat” option under On-Demand care. The options are presented similarly, and I really do believe they make it especially easy to make this mistake on purpose. One option cost $600, the other would be completely free despite both involving about 10 total minutes of call time with an equally certified provider.
 
 EXAMPLE 17:
-PE impacts on Clinical practices 
-https://www.healthcaredive.com/news/private-equity-healthcare-hhs-ftc-probe/709472/
+While I could maybe stomach the mistake if this remote visit was coded/billed as a remote visit, which my insurance plans covers 85% of, I was instead hit with a bill coded for an in-person visit, which conveniently costs $600 and isn’t covered at all by my insurance until I hit my deductible.
 
 EXAMPLE 18:
-https://www.pbs.org/newshour/show/how-private-equitys-increasing-role-in-health-care-is-affecting-patients
+How are they getting away with this legally? I’ve added a screenshot of the app- the difference between the Urgent video visit and the remote visit is difficult enough, but the options showing “In-Office visit” and “Remote Visit” don’t show ANY information about remote visits being billed AS In-Office Visits. It’s completely unintuitive and designed to screw over the patient.
 
 EXAMPLE 19:
-https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/health-care-access-and-quality
+However, I recently decided to try one of their virtual calls which they advertise as a covered benefit for members to see about treatment for an ear infection.
 
 EXAMPLE 20:
-For example, suppose you are insured with Blue Cross and have an out-of-pocket max of 9k per year, which means that once you pay that amount out in a single year, the insurance company should cover the rest. But, that is of COVERED services only, IN NETWORK. So, how many services are usually not covered? Are many services required often out of network? Have you heard of people (or have experienced yourself) spending far beyond the out-of-pocket max of their insurance to cover their medical care? Is that normal? Or, could one count on the 9k being the MAXIMUM charges one could theoretically inc [...]
+In **November 2024**, I traveled to Istanbul for a consultation with **Dr. Celal Candirli** regarding jaw surgery to correct an underbite. The appointment was arranged by Dr. Serdar Bademci.
 
 EXAMPLE 21:
-PE impacts on hospitals 
-https://www.healthcaredive.com/news/senators-probe-private-equity-hospital-operations/702016/
+Last note: Please don't be an a\*\* to a small company (sometimes 1 person operations) that is doing a favor to high deductible people everywhere. It's one thing to ask for some extra antibiotics, get a few sleeping pills for an upcoming flight, maybe get a GLP-1 prescription at a lower cost than going to a clinic doc, etc. and its completely a different thing to call up these services trying to score heavy quantities of controlled substances and then getting mad at them if they don't want to do that for 1 $75 appointment. This is helpful. Thank you.
 
 EXAMPLE 22:
-https://www.milbank.org/wp-content/uploads/mq/volume-66/issue-03/66-3-Hospital-Quality-Competition-and-the-Economics-of-Imperfect-Information.pdf
+I can't personally attest to any of these providers as I've only used 1 of them, but at least they seem to have the hallmarks of hitting all of the above items. These types of providers are extremely difficult to find. I also invite others to post any other websites, apps, providers in the comments or even a provider themselves that believes they fit that criteria.
 
 EXAMPLE 23:
-Are the bankruptcies due to people hitting 9k every year out of pocket and not being able to afford that? Or are they getting bills like crazy that are uncovered even though they have insurance? Which one of these is true?
+For some context, I’ve used One Medical for a few years now since my employer originally covered my fees, and I’ve continued with the Amazon Prime discount offered after switching jobs. I’d only really used it for conveniently finding a PCP and for ease of booking with them up until now.
 
 EXAMPLE 24:
-https://www.aha.org/system/files/media/file/2022/05/fact-sheet-majority-hospital-payments-dependent-on-medicare-or-medicaid-congress-continues-to-cut-hospital-reimbursements-for-medicare.pdf
+On Demand DPC:  
+\-Pricing: Currently $50. [https://ondemanddpc.com/pricing](https://ondemanddpc.com/pricing)  
+\-Serving Texas with it looks like plans to add New Mexico and Colorado soon
 
 EXAMPLE 25:
-It's one of the pillars of our public health system that ensures no Australian is excluded access to healthcare because they can't afford it.
+It’s been incredibly frustrating and upsetting. I saved for this surgery for years. To end up with no procedure, no refund, and no accountability is something I never imagined. Just wanted to share so others know to be extremely cautious The moral seems to be: don't pay in advance for a promise of future labor. This is as true for the labor of a surgeon as it is for the labor of a home renovator or any other endeavor involving ... work. Pay for the work after it is completed and satisfactory. [...]
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

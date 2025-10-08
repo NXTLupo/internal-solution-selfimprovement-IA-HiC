@@ -85,7 +85,12 @@ export const analyzeSentiment = async (
   options: AnalysisOptions,
 ): Promise<JobSubmitResponse> => {
   const endpoint = `${API_BASE_URL}/api/llm-analyzer/analyze-sentiment/${searchId}`;
-  
+
+  // Get subreddit and query from Redux store
+  const state = store.getState();
+  const subreddit = state.sentimentAnalysis.subreddit;
+  const query = state.sentimentAnalysis.applicationName || applicationName;
+
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -94,6 +99,8 @@ export const analyzeSentiment = async (
       },
       body: JSON.stringify({
         application_name: applicationName,
+        subreddit: subreddit,  // ADD subreddit from Redux
+        query: query,          // ADD query from Redux
         filter_type: options.filterType,
         keyword: options.keyword,
         merge_method: options.mergeMethod,

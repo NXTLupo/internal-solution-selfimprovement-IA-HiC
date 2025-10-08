@@ -1,100 +1,50 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: app, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: rural, hospitals, 202 224, medicaid, contact, senator, closed
+- Top keywords: medical, insurance, disability, health, provider, issues, claim
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-* Midcoast Medical Center (Trinity, Texas): Closed in April 2025 due to financial instability, including low reimbursement rates from Medicare and Medicaid.
-* Thomasville Regional Medical Center (Thomasville, Alabama): Closed in September 2024, less than five years after opening, despite having modern facilities.
-* Stilwell Hospital (Stilwell, Oklahoma): Closed its doors in June 2025 in anticipation of Medicaid cuts.
-* Heritage Valley Kennedy Hospital (Kennedy Township, Pennsylvania): Closed in June 2025 due to reduced insurance reimbursements and declining patient volume.
-* St. [...]
+As my condition rapidly deteriorated, leading to mobility challenges, I then received a diagnosis for a chronic condition, and my health is getting worse day by day, so my specialist recommended applying for **long-term disability**. He provided a comprehensive summary for the SSA and advised that my primary care provider complete the **Residual Functional Capacity (RFC) form**, given her proximity and our established patient-provider relationship.
 
 EXAMPLE 2:
-* Population density: 49 per square mile
-   * Median population density by county across entire USA: 45
-   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
-* Hospital closed in 2015 ([https://www.nytimes.com/2015/10/09/us/closing-a-hospital-and-fearing-for-the-future.html?unlocked\_article\_code=1.T08.D2aH.1fbLqKEEUFeT&smid=url-share](https://www.westkyjournal. [...]
+* I have **no income**, as my temporary disability benefits have ended.
+* My health continues to decline — I’m **bedridden**, rely on a **wheelchair for mobility**, and depend on  **a full-time caregiver**.
+* While I’m waiting for Medicaid to activate, I now have to **start over with a new primary care provider** — someone who doesn’t know my history, who I’ll need to re-explain everything to from scratch.
+* As an **unestablished patient**, I fear they **won’t be willing to complete critical SSA forms**, or that their documentation **won’t carry the same weight** as that of a provider who has  [...]
 
 EXAMPLE 3:
-* Population density: 37 per square mile
-   * Median population density by county across entire USA: 45
-   * [https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc\_us\_counties\_by\_population\_density/#lightbox](https://www.reddit.com/r/dataisbeautiful/comments/1e1hrm8/oc_us_counties_by_population_density/#lightbox)
-* Hospital closed in 2015 ([https://www.westkyjournal.com/article/2686/parkway-regional-hospital-closes](https://www.westkyjournal. [...]
+At first my primary care agreed to assist, however she **abrutply** **withdrew support without explanation after the SSA deadline,** leaving me without the necessary documentation. I tried reaching out to her and making a video appointment - **she is ignoring my messages in the app and didn't show up for the video appointment.**
 
 EXAMPLE 4:
-Trying to understand what impact of BBB will be on some small communities Having driven cross country many times, including legs off of the interstate highways through the *really* rural areas, I could not help but notice how often the difference between a town appearing to be able to thrive and a town looking fairly desolate depends is whether or not that town has either a college or a hospital. So in addition to the loss of care that many people will face with the cuts to Medicare and Medicaid, I wonder what to expect in terms of the economic impact to some of those small towns. [...]
+Warning Against One Medical Group - Abandoned Me During Active SSA Disability Claim # If you're just starting to face unexpected health issues like I did late 30's — be cautious about relying on One Medical Group. Apparently One Medical's business model is not to support us when we need them the most.
 
 EXAMPLE 5:
-Contact Your Senators Directly: The website gives you an easy way to find your Senators’ contact information and even provides a ready-to-use script, so you know exactly what to say and who to call or email.
+Can someone help explain this to me? Hey all, I’m new to the health insurance scene and know absolutely nothing…so hopefully someone can help me understand what’s going on with this. Basically, I woke up in the middle of the night to excruciating chest pain and my left arm went numb, my wife who’s an EMT told me that’s the symptoms of a heart attack and that we need to go to the ER now! So I get there, they draw blood, do an EKG and chest X-rays then i speak to the doctor. Long story short I’m fine and they find nothing of concern but don’t know for sure why this occurred. [...]
 
 EXAMPLE 6:
-* **REPUBLICAN SENATOR LISA MARKOWSKI - ALASKA**
-* PHONE NUMBER: (202) 224-6665
-* EMAIL: [https://www.murkowski.senate.gov/contact/email](https://www.murkowski.senate.gov/contact/email)
+I want to share my experience to caution others who might unexpectedly find themselves needing disability support: **One Medical may not provide the necessary assistance during critical times**.
 
 EXAMPLE 7:
-**Three Senators will be particularly important for this vote: Johnson (WI), Collins (ME) and Murkowski** **(AK). If you live in Maine, Wisconsin or Alaska, please find their contact numbers below as well as a script that you can write or leave on their voicemail.**
+I reached out to **One Medical's Medical Director,** but received no response. Follow-up calls only yielded vague assurances that the matter was "under review," with no concrete action taken for weeks.
 
 EXAMPLE 8:
-* **REPUBLICAN SENATOR RON JOHNSON - WISCONSIN**
-* PHONE: (202) 224-5323
-* EMAIL: [https://www.ronjohnson.senate.gov/email-the-senator](https://www.ronjohnson.senate.gov/email-the-senator)
+If you're living with chronic illness or navigating disability — or even if you're just ***starting*** **to face unexpected health issues** like I did **late 30's** — **be cautious about relying on One Medical**. Apparently One Medical's business model is not to support us when we need them the most. Sorry to hear about your experience. One Medical has been reported on regarding issues with patient safety and lack of adequate employee training. PBS and The Wall Street Journal both published reports on this. [...]
 
 EXAMPLE 9:
-Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to demand that the Senator vote no on the budget bill. We all know it’s awful. We know it’ll cost lives, force children to go to bed hungry, cost hundreds of thousands of jobs, increase prices on pretty much everything, and destroy our healthcare system—especially in rural areas. We also know that Republicans will pay dearly at the ballot box for passing it. I know the Senator is afraid to stand up to Trump but s/he can and s/he must—in fact s/he will be regarded as a hero for doing so. [...]
+Initially, I engaged with One Medical for routine care - not anticipating any long-term health issues, and certainly not long-term disability. At One Medical I had an established primary care provider who managed my care, including labs, and prescriptions.
 
 EXAMPLE 10:
-Hi, I'm a constituent calling from \[zip\]. My name is \_\_\_\_\_\_. I’m calling to thank the Senator for committing to opposing the awful Republican reconciliation bill. I know Democrats worked through the weekend to drag this process out and get as much bad stuff out of the bill as possible and I really appreciate it. I know you’re still working to slow it down. THANK YOU! Please keep holding Republicans’ feet to the fire. Do all you can. We’re counting on you to leave it all on the field, and we have your back in return. Thanks.
+Has anyone ever had success getting a medical bill reduced or corrected? Curious if anyone here has ever spotted errors in their medical bills - like duplicate charges, weird fees, or stuff your insurance should've covered but didn’t.
 
 EXAMPLE 11:
-The AAMC projects a physician shortage of roughly 86,000 by 2036, which the bill would only exacerbate. As the number of physicians declines, the quality of care and patient outcomes would very likely deteriorate due to a lack of physician representation and care in an ever-growing patient population. Areas in dire need of doctors would be hit the hardest, impacting rural areas, underserved communities, and VA hospitals. We need doctors more than ever, and restricting access on the basis of income rather than potential and talent will be detrimental in the long run.
+Some people use apps or AI tools to flag discrepancies, and they can be helpful for spotting obvious duplicates or out-of-range charges. That said, I’d still double-check anything flagged with a human — either the provider’s billing office or your insurer — because nuance in coding and coverage rules can make a huge difference. Even small errors can add up to hundreds or thousands of dollars, so it’s worth taking the time to review carefully.
 
 EXAMPLE 12:
-A clause in the **"One Big Beautiful Bill"** aims to eliminate the Grad PLUS loan program, a lifeline for graduate and professional students. Grad PLUS has been pivotal in making medical school tuition affordable for 75% of students. If the bill is enacted, thousands of future doctors will be priced out of pursuing medicine. The vote is THIS WEEK. Your call to an undecided Senator will truly decide the future of American healthcare for all. We are just **TWO “NO” votes away from stopping this**. Your call to an undecided Senator could be the tiebreaker vote to oppose the bill. Take ACTION!
+Just trying to wrap my head around how people deal with this stuff. It feels like there's a lot of money slipping through the cracks. I’ve seen a lot of people catch overcharges by carefully reviewing EOBs and itemized bills line by line. Duplicate charges, miscoded procedures, or services that should have bundled together are the most common errors.
 
 EXAMPLE 13:
-* **REPUBLICAN SENATOR SUSAN COLLINS - MAINE**
-* PHONE NUMBER: (202) 224-2523
-* EMAIL: [https://www.collins.senate.gov/contact/email-senator-collins](https://www.collins.senate.gov/contact/email-senator-collins)
-
-EXAMPLE 14:
-Sign the Petition: Add your name to the official petition to show Congress that Americans care about the future of medicine. (Share this post with friends, family, classmates, and on every social platform.)
-
-EXAMPLE 15:
-URGENT: Senate “Vote-a-Rama” on One Big Beautiful Bill—Just 2 More GOP “NO” Votes Can Save Medical Student Loans and the Future of Healthcare **A vote-a-rama is happening in the Senate for the One Big Beautiful Bill as you read this.** During a vote-a-rama, Senators are on the floor voting on amendment after amendment, and their offices are tracking every single call in real time. This is the moment when your call is most likely to be noticed and can directly influence how a Senator votes.
-
-EXAMPLE 16:
-BIG BEAUTIFUL BILL vote is TONIGHT! Here is how you can help stop it: ***Call your SENATORS TO OPPOSE THE BILL! VOTE TONIGHT! 202-224-3121 or look up their office numbers*** [***here***](https://www.senate.gov/senators/senators-contact.htm?Class=1)***.***
-
-EXAMPLE 17:
-The Senate is currently voting on the bill that can end Grad PLUS loans for medical students. The Grad PLUS program under the Direct PLUS program has put thousands for doctors through medical school in US. Around 70-75% of MD students rely on the program to cover the cost of attending medical school. Four out of five DO students rely on Grad PLUS to cover similar costs. The Grad PLUS loan funds the entire cost of attendance, including tuition and living expenses. Grad PLUS has made medical education a possibility for the average American. [...]
-
-EXAMPLE 18:
-If you live in these states, your call is critical. If not, please share this with friends or family who do:
-
-EXAMPLE 19:
-(Mods: This is a nonpartisan, fact-based, time-sensitive action for the future of medicine. Please pin if possible)
-
-EXAMPLE 20:
-***You can also send*** [***this Resistbot letter***](https://resist.bot/petitions/PPWCSD) ***opposing the bill by texting SIGN PPWCSD to 50409*** thank you, im reposting this
-Done all. Also:
-Here is a more complete roster
-
-EXAMPLE 21:
-All responses can be emailed to [doctorsnotdebt@gmail.com](mailto:doctorsnotdebt@gmail.com). Please include your name (first name required only), your current standing in medical education (pre-med, MD, fellow, attending, etc), and the college you are attending if applicable. All submitted responses will be a part of the Story section of the Doctors Not Debt website.
-
-EXAMPLE 22:
-**These are RON JOHNSON’s company donors** listed in order of donation amount (high to low). Contact these donors to tell Johnson’s to VOTE NO. A threat to boycott their products always works best! |[Johnsonville Sausage](https://johnsonville.com/)| |[Klondike Cheese](https://www.klondikecheese.com/)| |[RDV Corp](https://jobs.rdvcorp.com/)| |[Oral Surgery Clinic of La Crosse](https://www.facebook.com/p/Oral-Surgery-Clinic-of-La-Crosse-100066448942232/)| |[Abc Supply](https://www.abcsupply.com/)| |[Michels Corp](https://www.michels.us/)|
-
-EXAMPLE 23:
-This is not just about the future of medical doctors. This is about every patient, every family, and the future of our nation's healthcare system. This issue affects most students from any discipline pursuing higher education.
-
-EXAMPLE 24:
-**These are LISA MARKOWSKIs company donors** listed in order of donation amount (high to low). Contact these donors to tell Murkowski to VOTE NO. A threat to boycott their products always works best!: [Trident Seafoods](https://www.tridentseafoods.com/)| |[Van Ness Feldman](https://www.vnf.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb&utm_content=DC)| |[Lynden Inc.](https://www.lynden.com/)| |[General Communication Inc.](https://www.gci.com/)| |[KKR & CO.](https://www.kkr.com/)|
-
-EXAMPLE 25:
-You can take action TODAY. Voice your opinions to those you have put into positions of power. The bill is currently in the Senate for voting. This prime time to call your Senators. During the vote-a-rama, the Senate is in constant debate, and members are proposing amendments to the bill. Many Senators are all ears and are eager to hear from their constituents in regards to the bill. Voting in alignment with their constituents can increase their chances of reelection. [...]
+Also wondering: would you trust an AI or app to scan your bills and flag anything off? Or is that something you'd only trust a human with?
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

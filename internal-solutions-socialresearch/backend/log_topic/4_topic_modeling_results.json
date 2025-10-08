@@ -1,1277 +1,140 @@
 {
-  "total_topics": 30,
+  "total_topics": 3,
   "topics": [
     {
       "topic_id": 0,
-      "count": 51,
-      "name": "0_healthcare_health_care_insurance",
+      "count": 7,
+      "name": "0_visit_dr_pricing_person",
       "representation": [
         {
-          "term": "healthcare",
-          "weight": 0.018482005529063143
+          "term": "visit",
+          "weight": 0.022367352934318477
         },
         {
-          "term": "care",
-          "weight": 0.010719649025034698
+          "term": "dr",
+          "weight": 0.02135236531873422
         },
         {
-          "term": "insurance",
-          "weight": 0.01010519927069968
+          "term": "pricing",
+          "weight": 0.017247540360202887
         },
         {
-          "term": "cost",
-          "weight": 0.009375407275688617
+          "term": "person",
+          "weight": 0.015820350994845994
         },
         {
-          "term": "private",
-          "weight": 0.00864109267340494
+          "term": "app",
+          "weight": 0.0145077297810074
         },
         {
-          "term": "profit",
-          "weight": 0.007623279875199057
+          "term": "telehealth",
+          "weight": 0.014358346403072228
         },
         {
-          "term": "health care",
-          "weight": 0.006765975739642468
+          "term": "dr serdar bademci",
+          "weight": 0.014358346403072228
         },
         {
-          "term": "countries",
-          "weight": 0.006394838302173233
+          "term": "dr serdar",
+          "weight": 0.014358346403072228
+        },
+        {
+          "term": "serdar bademci",
+          "weight": 0.014358346403072228
         }
       ]
     },
     {
       "topic_id": 1,
-      "count": 45,
-      "name": "1_rural_hospitals_hospital_202",
+      "count": 5,
+      "name": "1_medical_insurance_disability_health",
       "representation": [
         {
-          "term": "rural",
-          "weight": 0.016429460867472212
+          "term": "medical",
+          "weight": 0.041148575195848795
         },
         {
-          "term": "hospitals",
-          "weight": 0.0135374775437732
+          "term": "insurance",
+          "weight": 0.031839030181577015
         },
         {
-          "term": "202 224",
-          "weight": 0.012580785163587278
+          "term": "disability",
+          "weight": 0.02388629292318885
         },
         {
-          "term": "medicaid",
-          "weight": 0.010622230698671038
+          "term": "health",
+          "weight": 0.02185376970190976
         },
         {
-          "term": "contact",
-          "weight": 0.01052971933318263
+          "term": "provider",
+          "weight": 0.020811425616969883
         },
         {
-          "term": "senator",
-          "weight": 0.009146744745732821
+          "term": "issues",
+          "weight": 0.020510372103231603
         },
         {
-          "term": "closed",
-          "weight": 0.009035114392687511
+          "term": "claim",
+          "weight": 0.019905244102657378
+        },
+        {
+          "term": "care",
+          "weight": 0.019520683952144544
+        },
+        {
+          "term": "help",
+          "weight": 0.01821147475159147
+        },
+        {
+          "term": "ssa",
+          "weight": 0.01700104098252313
         }
       ]
     },
     {
       "topic_id": 2,
-      "count": 39,
-      "name": "2_tech_school_job_cna",
+      "count": 4,
+      "name": "2_healthcare_pay_app_jpu",
       "representation": [
-        {
-          "term": "tech",
-          "weight": 0.01747855722052991
-        },
-        {
-          "term": "school",
-          "weight": 0.01626562946372178
-        },
-        {
-          "term": "job",
-          "weight": 0.013206529363705165
-        },
-        {
-          "term": "cna",
-          "weight": 0.01211401291318435
-        },
-        {
-          "term": "career",
-          "weight": 0.010217178040121634
-        },
-        {
-          "term": "years",
-          "weight": 0.009773792088314436
-        },
-        {
-          "term": "work",
-          "weight": 0.009691643519986965
-        },
         {
           "term": "healthcare",
-          "weight": 0.009658065680305798
-        },
-        {
-          "term": "nursing",
-          "weight": 0.009585158561609285
-        }
-      ]
-    },
-    {
-      "topic_id": 3,
-      "count": 37,
-      "name": "3_ai_healthcare_working_work",
-      "representation": [
-        {
-          "term": "ai",
-          "weight": 0.020295116251821666
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.01035757835453659
-        },
-        {
-          "term": "working",
-          "weight": 0.007606760050498023
-        },
-        {
-          "term": "care",
-          "weight": 0.00729836890666251
-        },
-        {
-          "term": "scheduling",
-          "weight": 0.007243639837038541
-        },
-        {
-          "term": "clinics",
-          "weight": 0.006587580109174388
-        },
-        {
-          "term": "patients",
-          "weight": 0.0064537693928535395
-        },
-        {
-          "term": "use",
-          "weight": 0.006396097490064974
-        }
-      ]
-    },
-    {
-      "topic_id": 4,
-      "count": 26,
-      "name": "4_trump_rfk_jr_rfk jr",
-      "representation": [
-        {
-          "term": "trump",
-          "weight": 0.020666001447197054
-        },
-        {
-          "term": "rfk jr",
-          "weight": 0.017835714706997182
-        },
-        {
-          "term": "maha",
-          "weight": 0.016649200316251483
-        },
-        {
-          "term": "epa",
-          "weight": 0.014791968657881065
-        },
-        {
-          "term": "epstein",
-          "weight": 0.014791968657881065
-        },
-        {
-          "term": "health",
-          "weight": 0.01007359574505081
-        },
-        {
-          "term": "gov",
-          "weight": 0.010027510233994546
-        },
-        {
-          "term": "autism",
-          "weight": 0.009621248939739304
-        }
-      ]
-    },
-    {
-      "topic_id": 5,
-      "count": 25,
-      "name": "5_mha_healthcare_degree_experience",
-      "representation": [
-        {
-          "term": "mha",
-          "weight": 0.03339700465781587
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.019826546251236976
-        },
-        {
-          "term": "degree",
-          "weight": 0.018992958673370502
-        },
-        {
-          "term": "experience",
-          "weight": 0.016543457478721373
-        },
-        {
-          "term": "mba",
-          "weight": 0.01580801321429053
-        },
-        {
-          "term": "career",
-          "weight": 0.014024040208700546
-        },
-        {
-          "term": "school",
-          "weight": 0.012556745547382632
-        },
-        {
-          "term": "healthcare administration",
-          "weight": 0.012470343888908862
-        },
-        {
-          "term": "management",
-          "weight": 0.011367649857274089
-        }
-      ]
-    },
-    {
-      "topic_id": 6,
-      "count": 23,
-      "name": "6_ftc_ftc gov_federal_agreements",
-      "representation": [
-        {
-          "term": "ftc",
-          "weight": 0.020099960794978545
-        },
-        {
-          "term": "ftc gov",
-          "weight": 0.011353959973893801
-        },
-        {
-          "term": "federal",
-          "weight": 0.011235234368367887
-        },
-        {
-          "term": "agreements",
-          "weight": 0.011200024923453606
-        },
-        {
-          "term": "unitedhealth",
-          "weight": 0.010927371847399659
-        },
-        {
-          "term": "patients",
-          "weight": 0.009297503771692662
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.00883218423284483
-        },
-        {
-          "term": "noncompete agreements",
-          "weight": 0.008667289804509476
-        },
-        {
-          "term": "news",
-          "weight": 0.008360506165377264
-        }
-      ]
-    },
-    {
-      "topic_id": 7,
-      "count": 21,
-      "name": "7_insurance_pay_plan_paid",
-      "representation": [
-        {
-          "term": "insurance",
-          "weight": 0.029733981121706353
+          "weight": 0.027658474958055835
         },
         {
           "term": "pay",
-          "weight": 0.022569740278821943
+          "weight": 0.0209949870004516
         },
         {
-          "term": "plan",
-          "weight": 0.01090050773772838
+          "term": "app",
+          "weight": 0.01692924056063143
         },
         {
-          "term": "hospital",
-          "weight": 0.010187447000527964
+          "term": "jpu",
+          "weight": 0.016670138564550456
         },
         {
-          "term": "deductible",
-          "weight": 0.009334001147817392
-        },
-        {
-          "term": "billing",
-          "weight": 0.009185244079469903
-        },
-        {
-          "term": "payment",
-          "weight": 0.008909172406707544
-        },
-        {
-          "term": "urgent",
-          "weight": 0.008430748165818937
-        },
-        {
-          "term": "car",
-          "weight": 0.008195236466854657
-        }
-      ]
-    },
-    {
-      "topic_id": 8,
-      "count": 21,
-      "name": "8_insurance_income_medicaid_health insurance",
-      "representation": [
-        {
-          "term": "insurance",
-          "weight": 0.024972561690383786
-        },
-        {
-          "term": "income",
-          "weight": 0.015179239933842001
-        },
-        {
-          "term": "medicaid",
-          "weight": 0.01462631702991436
-        },
-        {
-          "term": "health insurance",
-          "weight": 0.01334321801155081
-        },
-        {
-          "term": "job",
-          "weight": 0.011280997614857279
-        },
-        {
-          "term": "state",
-          "weight": 0.009786250396520474
-        },
-        {
-          "term": "qualify",
-          "weight": 0.00947560927618968
-        },
-        {
-          "term": "healthcare gov",
-          "weight": 0.008427223444655832
-        },
-        {
-          "term": "financial",
-          "weight": 0.008352756159389374
-        }
-      ]
-    },
-    {
-      "topic_id": 9,
-      "count": 20,
-      "name": "9_mychart_records_portal_medical",
-      "representation": [
-        {
-          "term": "mychart",
-          "weight": 0.022368324300440987
-        },
-        {
-          "term": "records",
-          "weight": 0.016522963369762163
-        },
-        {
-          "term": "portal",
-          "weight": 0.012281220531048671
+          "term": "students",
+          "weight": 0.016670138564550456
         },
         {
           "term": "medical",
-          "weight": 0.011906004381801264
-        },
-        {
-          "term": "appointment",
-          "weight": 0.010760378567263161
+          "weight": 0.01624115244731112
         },
         {
           "term": "hospital",
-          "weight": 0.010589033815144259
+          "weight": 0.015382495224271419
         },
         {
-          "term": "chart",
-          "weight": 0.01021195316990832
+          "term": "doh",
+          "weight": 0.014665481316810804
         },
         {
-          "term": "patient",
-          "weight": 0.010122251944938356
-        },
-        {
-          "term": "mom",
-          "weight": 0.010100529367708666
-        },
-        {
-          "term": "information",
-          "weight": 0.009540039462536426
-        }
-      ]
-    },
-    {
-      "topic_id": 10,
-      "count": 17,
-      "name": "10_doctor_told_appointment_pain",
-      "representation": [
-        {
-          "term": "doctor",
-          "weight": 0.014472094371258983
-        },
-        {
-          "term": "told",
-          "weight": 0.01248367937643683
-        },
-        {
-          "term": "appointment",
-          "weight": 0.012097059072228324
-        },
-        {
-          "term": "pain",
-          "weight": 0.010502730854860752
-        },
-        {
-          "term": "pcp",
-          "weight": 0.010200097796531483
-        },
-        {
-          "term": "said",
-          "weight": 0.01009482020593706
-        },
-        {
-          "term": "long",
-          "weight": 0.009002562664817889
-        },
-        {
-          "term": "feel",
-          "weight": 0.008357303104009093
-        },
-        {
-          "term": "wait",
-          "weight": 0.00818941722941551
-        },
-        {
-          "term": "office",
-          "weight": 0.008178962350079304
-        }
-      ]
-    },
-    {
-      "topic_id": 11,
-      "count": 16,
-      "name": "11_data_breach_oracle_data breach",
-      "representation": [
-        {
-          "term": "data",
-          "weight": 0.04908659103801328
-        },
-        {
-          "term": "breach",
-          "weight": 0.04587046892781625
-        },
-        {
-          "term": "oracle",
-          "weight": 0.039027943298133014
-        },
-        {
-          "term": "data breach",
-          "weight": 0.028882280869754105
-        },
-        {
-          "term": "cloud health",
-          "weight": 0.02108738167503256
-        },
-        {
-          "term": "oracle cloud",
-          "weight": 0.02108738167503256
-        },
-        {
-          "term": "oracle cloud health",
-          "weight": 0.01945508704623768
-        },
-        {
-          "term": "information",
-          "weight": 0.01908864269478788
-        }
-      ]
-    },
-    {
-      "topic_id": 12,
-      "count": 16,
-      "name": "12_collections_visit_company_payment",
-      "representation": [
-        {
-          "term": "collections",
-          "weight": 0.016328896919848956
-        },
-        {
-          "term": "visit",
-          "weight": 0.013863229395392564
-        },
-        {
-          "term": "company",
-          "weight": 0.013060022439544358
-        },
-        {
-          "term": "payment",
-          "weight": 0.012071161680895892
-        },
-        {
-          "term": "insurance",
-          "weight": 0.011622184712649227
-        },
-        {
-          "term": "test",
-          "weight": 0.011492441861984793
-        },
-        {
-          "term": "500",
-          "weight": 0.011056964303911782
-        },
-        {
-          "term": "gp",
-          "weight": 0.010569064880007662
-        },
-        {
-          "term": "dr",
-          "weight": 0.00991622594103954
-        },
-        {
-          "term": "paid",
-          "weight": 0.00978815499136473
-        }
-      ]
-    },
-    {
-      "topic_id": 13,
-      "count": 14,
-      "name": "13_2026_medicaid_coverage_proposed",
-      "representation": [
-        {
-          "term": "2026",
-          "weight": 0.02234823990455769
-        },
-        {
-          "term": "medicaid",
-          "weight": 0.020268477095557045
-        },
-        {
-          "term": "coverage",
-          "weight": 0.01752014978148231
-        },
-        {
-          "term": "proposed",
-          "weight": 0.017063714217575448
-        },
-        {
-          "term": "income",
-          "weight": 0.016843872308112795
-        },
-        {
-          "term": "apply",
-          "weight": 0.013547780747634838
-        },
-        {
-          "term": "finalized",
-          "weight": 0.013520253879918136
-        },
-        {
-          "term": "individuals",
-          "weight": 0.013408943942734617
-        },
-        {
-          "term": "aca",
-          "weight": 0.013168632072422751
-        },
-        {
-          "term": "longer",
-          "weight": 0.012843776271326284
-        }
-      ]
-    },
-    {
-      "topic_id": 14,
-      "count": 14,
-      "name": "14_trans_woman_meme_questions",
-      "representation": [
-        {
-          "term": "trans",
-          "weight": 0.03282825512315721
-        },
-        {
-          "term": "woman",
-          "weight": 0.02921337034249309
-        },
-        {
-          "term": "meme",
-          "weight": 0.026944893968825927
-        },
-        {
-          "term": "questions",
-          "weight": 0.026503402333246516
-        },
-        {
-          "term": "trans care",
-          "weight": 0.021642730120597174
-        },
-        {
-          "term": "tiktok",
-          "weight": 0.021642730120597174
-        },
-        {
-          "term": "planned parenthood",
-          "weight": 0.02083505633993
-        },
-        {
-          "term": "capable",
-          "weight": 0.020208670476619443
-        },
-        {
-          "term": "abortion",
-          "weight": 0.018263736210260204
-        }
-      ]
-    },
-    {
-      "topic_id": 15,
-      "count": 14,
-      "name": "15_trump_obamacare_republicans_aca",
-      "representation": [
-        {
-          "term": "trump",
-          "weight": 0.027032680040765224
-        },
-        {
-          "term": "obamacare",
-          "weight": 0.025278503323093268
-        },
-        {
-          "term": "republicans",
-          "weight": 0.019932967030523573
-        },
-        {
-          "term": "aca",
-          "weight": 0.018753835476273694
-        },
-        {
-          "term": "affordable care",
-          "weight": 0.018593329070771585
-        },
-        {
-          "term": "affordable care act",
-          "weight": 0.018593329070771585
-        },
-        {
-          "term": "care act",
-          "weight": 0.01834124389036393
-        },
-        {
-          "term": "democrats",
-          "weight": 0.01701065540470985
-        },
-        {
-          "term": "shutdown",
-          "weight": 0.015937139203518504
-        }
-      ]
-    },
-    {
-      "topic_id": 16,
-      "count": 13,
-      "name": "16_test_tests_doctor_visit",
-      "representation": [
-        {
-          "term": "test",
-          "weight": 0.024303809998265716
-        },
-        {
-          "term": "doctor",
-          "weight": 0.016574877314091487
-        },
-        {
-          "term": "visit",
-          "weight": 0.015831432562939594
-        },
-        {
-          "term": "screening",
-          "weight": 0.015724500326318752
-        },
-        {
-          "term": "xrays",
-          "weight": 0.013769030646495675
-        },
-        {
-          "term": "cancer",
-          "weight": 0.012684694179877063
-        },
-        {
-          "term": "pcp",
-          "weight": 0.011989588638028233
-        },
-        {
-          "term": "wellness",
-          "weight": 0.010601363274026093
+          "term": "old",
+          "weight": 0.014288690198186108
         },
         {
           "term": "care",
-          "weight": 0.010395587742487954
-        }
-      ]
-    },
-    {
-      "topic_id": 17,
-      "count": 13,
-      "name": "17_plan_plans_deductible_employer",
-      "representation": [
-        {
-          "term": "plan",
-          "weight": 0.04236890938283238
-        },
-        {
-          "term": "deductible",
-          "weight": 0.02624916384580696
-        },
-        {
-          "term": "employer",
-          "weight": 0.024366005795385243
-        },
-        {
-          "term": "cobra",
-          "weight": 0.017842732061231326
-        },
-        {
-          "term": "marketplace",
-          "weight": 0.016911942473087062
-        },
-        {
-          "term": "hsa",
-          "weight": 0.01531953517972386
-        },
-        {
-          "term": "options",
-          "weight": 0.013846634411678146
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.013308418307301692
-        },
-        {
-          "term": "marketplace plans",
-          "weight": 0.012194257771104318
-        }
-      ]
-    },
-    {
-      "topic_id": 18,
-      "count": 13,
-      "name": "18_cdc_vaccine_covid_agency",
-      "representation": [
-        {
-          "term": "cdc",
-          "weight": 0.06938712104470338
-        },
-        {
-          "term": "vaccine",
-          "weight": 0.03541976345282326
-        },
-        {
-          "term": "covid",
-          "weight": 0.027067963832249478
-        },
-        {
-          "term": "agency",
-          "weight": 0.02140890153406732
-        },
-        {
-          "term": "employees",
-          "weight": 0.020398754691861892
-        },
-        {
-          "term": "cdc director",
-          "weight": 0.01592360931756645
-        },
-        {
-          "term": "covid 19",
-          "weight": 0.014884314911628572
-        },
-        {
-          "term": "kennedy",
-          "weight": 0.014180455865016463
-        },
-        {
-          "term": "public",
-          "weight": 0.013853348847764147
-        }
-      ]
-    },
-    {
-      "topic_id": 19,
-      "count": 13,
-      "name": "19_drug_prices_trump_president",
-      "representation": [
-        {
-          "term": "drug",
-          "weight": 0.04011027600621061
-        },
-        {
-          "term": "trump",
-          "weight": 0.025874136610446713
-        },
-        {
-          "term": "president",
-          "weight": 0.02407568993935118
-        },
-        {
-          "term": "price",
-          "weight": 0.024047054120802703
-        },
-        {
-          "term": "drug prices",
-          "weight": 0.0209749223340518
-        },
-        {
-          "term": "sell",
-          "weight": 0.020338825269252184
-        },
-        {
-          "term": "sources",
-          "weight": 0.01915170291006314
-        },
-        {
-          "term": "albert",
-          "weight": 0.01883753665273671
-        },
-        {
-          "term": "connecticut",
-          "weight": 0.01883753665273671
-        }
-      ]
-    },
-    {
-      "topic_id": 20,
-      "count": 12,
-      "name": "20_pharmacy_medication_amazon_canada",
-      "representation": [
-        {
-          "term": "pharmacy",
-          "weight": 0.03189834836356354
-        },
-        {
-          "term": "medication",
-          "weight": 0.02633010822986914
-        },
-        {
-          "term": "amazon",
-          "weight": 0.02470552511585739
-        },
-        {
-          "term": "canada",
-          "weight": 0.019163508573549082
-        },
-        {
-          "term": "pillpack",
-          "weight": 0.016862242105200233
-        },
-        {
-          "term": "meds",
-          "weight": 0.014760440052347017
-        },
-        {
-          "term": "insurance",
-          "weight": 0.013772367613724931
-        },
-        {
-          "term": "use",
-          "weight": 0.01240802474100065
-        },
-        {
-          "term": "practice",
-          "weight": 0.012093231885399127
-        }
-      ]
-    },
-    {
-      "topic_id": 21,
-      "count": 11,
-      "name": "21_nurse_staff_healthcare_burnout",
-      "representation": [
-        {
-          "term": "nurse",
-          "weight": 0.016063745381937725
-        },
-        {
-          "term": "staff",
-          "weight": 0.013979630555038664
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.013276815203141872
-        },
-        {
-          "term": "burnout",
-          "weight": 0.012969533938304837
-        },
-        {
-          "term": "work",
-          "weight": 0.010220123641569366
-        },
-        {
-          "term": "patients",
-          "weight": 0.009952162710762127
-        },
-        {
-          "term": "management",
-          "weight": 0.009582185649993353
-        },
-        {
-          "term": "filipino",
-          "weight": 0.008698071013796634
-        }
-      ]
-    },
-    {
-      "topic_id": 22,
-      "count": 11,
-      "name": "22_covid_bloomberg news_bloomberg_century",
-      "representation": [
-        {
-          "term": "covid",
-          "weight": 0.02443906087012453
-        },
-        {
-          "term": "bloomberg news",
-          "weight": 0.016815624206969734
-        },
-        {
-          "term": "century",
-          "weight": 0.013857575400957903
-        },
-        {
-          "term": "taste",
-          "weight": 0.013857575400957903
-        },
-        {
-          "term": "mary roach",
-          "weight": 0.013857575400957903
-        },
-        {
-          "term": "medicine addiction",
-          "weight": 0.013857575400957903
-        },
-        {
-          "term": "body",
-          "weight": 0.013306419013211532
-        }
-      ]
-    },
-    {
-      "topic_id": 23,
-      "count": 11,
-      "name": "23_diem_work_job_tips",
-      "representation": [
-        {
-          "term": "diem",
-          "weight": 0.018800692579912286
-        },
-        {
-          "term": "work",
-          "weight": 0.01674763276563601
-        },
-        {
-          "term": "job",
-          "weight": 0.014940443182603666
-        },
-        {
-          "term": "tips",
-          "weight": 0.014714113211389972
-        },
-        {
-          "term": "use",
-          "weight": 0.014360018877084898
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.012595931034508344
-        },
-        {
-          "term": "questions",
-          "weight": 0.011506355159311903
-        },
-        {
-          "term": "start",
-          "weight": 0.010842263990434779
-        },
-        {
-          "term": "learn",
-          "weight": 0.010735182175098328
-        },
-        {
-          "term": "interview",
-          "weight": 0.010417447089129167
-        }
-      ]
-    },
-    {
-      "topic_id": 24,
-      "count": 10,
-      "name": "24_referral_lab_derm_hospital lab",
-      "representation": [
-        {
-          "term": "referral",
-          "weight": 0.022656208206245147
-        },
-        {
-          "term": "lab",
-          "weight": 0.021619921945249462
-        },
-        {
-          "term": "derm",
-          "weight": 0.016671513053468288
-        },
-        {
-          "term": "hospital lab",
-          "weight": 0.016671513053468288
-        },
-        {
-          "term": "office",
-          "weight": 0.0156410237492306
-        },
-        {
-          "term": "clinic",
-          "weight": 0.01551220895604189
-        },
-        {
-          "term": "dermatologist",
-          "weight": 0.01355302673892578
-        },
-        {
-          "term": "authorization",
-          "weight": 0.011067211640971278
-        },
-        {
-          "term": "appointment",
-          "weight": 0.010852888609244157
-        },
-        {
-          "term": "patient",
-          "weight": 0.010744047421555998
-        }
-      ]
-    },
-    {
-      "topic_id": 25,
-      "count": 9,
-      "name": "25_medicare_sequestration_medicaid_budget",
-      "representation": [
-        {
-          "term": "medicare",
-          "weight": 0.05999186698939143
-        },
-        {
-          "term": "sequestration",
-          "weight": 0.039747601314966574
-        },
-        {
-          "term": "budget",
-          "weight": 0.02654962259507384
-        },
-        {
-          "term": "sequestration order",
-          "weight": 0.02516079836137582
-        },
-        {
-          "term": "beneficiaries",
-          "weight": 0.023853894463295822
-        },
-        {
-          "term": "cuts",
-          "weight": 0.023599297409141264
-        },
-        {
-          "term": "trust",
-          "weight": 0.022955841143570223
-        },
-        {
-          "term": "spending",
-          "weight": 0.022398470290064226
-        },
-        {
-          "term": "2025",
-          "weight": 0.022183577345939315
-        }
-      ]
-    },
-    {
-      "topic_id": 26,
-      "count": 9,
-      "name": "26_insurance_pay_aca_health",
-      "representation": [
-        {
-          "term": "insurance",
-          "weight": 0.020631376267442717
-        },
-        {
-          "term": "pay",
-          "weight": 0.020507612319344507
-        },
-        {
-          "term": "aca",
-          "weight": 0.01666086599218127
-        },
-        {
-          "term": "health insurance",
-          "weight": 0.01482579779061201
-        },
-        {
-          "term": "emergency",
-          "weight": 0.013105028700052519
-        },
-        {
-          "term": "cost",
-          "weight": 0.012551042673269515
-        },
-        {
-          "term": "sharing",
-          "weight": 0.012336513199131104
-        },
-        {
-          "term": "county",
-          "weight": 0.012306868286042445
-        },
-        {
-          "term": "surgery",
-          "weight": 0.012278369999453661
-        }
-      ]
-    },
-    {
-      "topic_id": 27,
-      "count": 9,
-      "name": "27_doctors_patients_temperature_normal",
-      "representation": [
-        {
-          "term": "doctors",
-          "weight": 0.0264581097354761
-        },
-        {
-          "term": "patients",
-          "weight": 0.01665349117278034
-        },
-        {
-          "term": "temperature",
-          "weight": 0.015108962256047943
-        },
-        {
-          "term": "normal",
-          "weight": 0.014774444561808486
-        },
-        {
-          "term": "mask",
-          "weight": 0.013430188672042617
-        },
-        {
-          "term": "symptoms",
-          "weight": 0.011034412939179585
-        },
-        {
-          "term": "trained",
-          "weight": 0.010903564398835327
-        },
-        {
-          "term": "answer",
-          "weight": 0.008783010446453196
-        },
-        {
-          "term": "questions",
-          "weight": 0.008526527060992812
-        }
-      ]
-    },
-    {
-      "topic_id": 28,
-      "count": 9,
-      "name": "28_cigna_insurance_year_paycheck",
-      "representation": [
-        {
-          "term": "cigna",
-          "weight": 0.023345155257999826
-        },
-        {
-          "term": "insurance",
-          "weight": 0.022318949565274866
-        },
-        {
-          "term": "year",
-          "weight": 0.011818611607612219
-        },
-        {
-          "term": "paycheck",
-          "weight": 0.011366076329975452
-        },
-        {
-          "term": "month",
-          "weight": 0.010677667014363236
-        },
-        {
-          "term": "pocket",
-          "weight": 0.009641617611714972
-        },
-        {
-          "term": "getting",
-          "weight": 0.009126129031095172
-        },
-        {
-          "term": "ics laba",
-          "weight": 0.00900701889133586
-        }
-      ]
-    },
-    {
-      "topic_id": 29,
-      "count": 8,
-      "name": "29_sales_degree_pharm_device",
-      "representation": [
-        {
-          "term": "sales",
-          "weight": 0.03529799180701755
-        },
-        {
-          "term": "degree",
-          "weight": 0.033882118458575174
-        },
-        {
-          "term": "pharm",
-          "weight": 0.03045435524128721
-        },
-        {
-          "term": "management",
-          "weight": 0.02534887176370973
-        },
-        {
-          "term": "device sales",
-          "weight": 0.025097107240822782
-        },
-        {
-          "term": "healthcare",
-          "weight": 0.02329189953261628
-        },
-        {
-          "term": "im",
-          "weight": 0.022813774608594982
-        },
-        {
-          "term": "linkedin",
-          "weight": 0.020868827230665923
-        },
-        {
-          "term": "guidance",
-          "weight": 0.020325654414190632
+          "weight": 0.013982646776995693
         }
       ]
     }

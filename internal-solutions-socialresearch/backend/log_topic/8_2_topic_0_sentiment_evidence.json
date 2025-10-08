@@ -1,5 +1,36 @@
 {
-  "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "The app created to stay updated on healthcare news is appreciated for its ability to fetch niche content using AI, helping users stay informed without distractions.",
+      "post_refs": [
+        "1lkqakq"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "One Medical's billing practice for remote visits being coded as in-office visits, leading to unexpectedly high costs for patients.",
+      "post_refs": [
+        "1nz4jkk"
+      ]
+    },
+    {
+      "point": "A patient was defrauded by Dr. Serdar Bademci, who took a large sum of money for a surgery that was never performed and then disappeared.",
+      "post_refs": [
+        "1n3cvdf"
+      ]
+    },
+    {
+      "point": "MyChart's region-locking issue prevents users from accessing their medical records while outside the US, causing inconvenience during emergencies.",
+      "post_refs": [
+        "1is3nmu"
+      ]
+    },
+    {
+      "point": "The Medisafe app's change in subscription model limits free users to tracking only two medications, which is problematic for users needing to manage multiple medications.",
+      "post_refs": [
+        "1hfrsbw"
+      ]
+    }
+  ]
 }

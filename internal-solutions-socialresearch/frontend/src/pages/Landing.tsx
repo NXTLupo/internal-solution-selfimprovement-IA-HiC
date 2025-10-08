@@ -148,8 +148,8 @@ function Landing() {
   }, [user, fetchUserProjects]); // Keep the dependencies as is
 
   const handleToolSelect = async (tool: string) => {
-    setShowModal(false);
-    
+    // Modal removed - directly create topic modeling project
+
     if (!user) {
       console.error("No user found");
       return;
@@ -677,16 +677,16 @@ function Landing() {
                     <div className="text-gray-500 mb-8 text-lg">Create a new project to get started with your analysis</div>
                     <div className="relative inline-block group">
                       <button
-                        onClick={() => !isCreateButtonDisabled && setShowModal(true)}
+                        onClick={() => !isCreateButtonDisabled && handleToolSelect('topic')}
                         className={`px-8 py-3 rounded-full font-medium text-lg transition-colors ${
-                          isCreateButtonDisabled 
-                            ? 'bg-gray-600 text-gray-400 cursor-not-allowed' 
-                            : 'bg-blue-600 text-white hover:bg-blue-700'
+                          isCreateButtonDisabled
+                            ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                            : 'bg-purple-600 text-white hover:bg-purple-700'
                         }`}
                         disabled={isCreateButtonDisabled}
                         title={isCreateButtonDisabled ? `Maximum of 1 project can be processing simultaneously. Currently processing: ${processingProjectsCount}` : ''}
                       >
-                        + Create New Project
+                        + Create New Topic Modeling Project
                       </button>
                       {isCreateButtonDisabled && (
                         <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
@@ -708,53 +708,7 @@ function Landing() {
         </div>
       </div>
 
-      {/* Tool Selection Modal - Made larger */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 overflow-auto" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          <div className="flex items-center justify-center min-h-screen p-4">
-            <div className="bg-gray-800 rounded-lg p-8 w-[550px] shadow-xl max-w-full relative">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl text-white font-medium">Select a Tool</h3>
-                <button 
-                  onClick={() => setShowModal(false)}
-                  className="text-gray-400 hover:text-white text-xl"
-                >
-                  ✕
-                </button>
-              </div>
-              
-              <div className="space-y-8">
-                <button
-                  onClick={() => handleToolSelect('topic')}
-                  className="w-full p-6 bg-purple-700 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-start"
-                >
-                  <span className="mr-5 text-4xl mt-1">🔍</span>
-                  <div className="text-left">
-                    <div className="font-medium text-xl mb-2">Topic Modeling</div>
-                    <div className="text-base">
-                      <p className="mb-2">For researchers who want to discover what topics are being discussed.</p>
-                      <p>Identifies the main themes and subjects that users are talking about, helping you uncover trends and popular discussions.</p>
-                    </div>
-                  </div>
-                </button>
-                <button
-                  onClick={() => handleToolSelect('sentiment')}
-                  className="w-full p-6 bg-cyan-700 text-white rounded-lg hover:bg-cyan-700 transition-colors flex items-start"
-                >
-                  <span className="mr-5 text-4xl mt-1">📊</span>
-                  <div className="text-left">
-                    <div className="font-medium text-xl mb-2">Social LLM Analyzer</div>
-                    <div className="text-base">
-                      <p className="mb-2">For researchers who already know their topic of interest.</p>
-                      <p>Analyzes user sentiment (positive/negative) towards specific topics, providing traceable data to understand the nuances and emotional tone of discussions.</p>
-                    </div>
-                  </div>
-                </button>            
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Tool Selection Modal removed - only Topic Modeling available */}
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (

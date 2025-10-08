@@ -1,5 +1,48 @@
 {
-  "error": "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************QnYA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "John Patrick University is actively addressing the complaint with the New York State Department of Health and is prepared to take legal action to ensure fairness and accountability.",
+      "post_refs": [
+        "1lfhikr"
+      ]
+    },
+    {
+      "point": "The community support and shared experiences in response to the post about the US healthcare system highlight a collective awareness and desire for change.",
+      "post_refs": [
+        "1ktunx2"
+      ]
+    },
+    {
+      "point": "The grocery store employee went above and beyond to help an elderly couple navigate the new UnitedHealthcare app system, showing empathy and dedication.",
+      "post_refs": [
+        "1hssu83"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "The New York State Department of Health is accused of unfairly targeting John Patrick University by misapplying accreditation requirements.",
+      "post_refs": [
+        "1lfhikr"
+      ]
+    },
+    {
+      "point": "The US healthcare system is criticized for its high costs and confusing billing practices, particularly for uninsured individuals.",
+      "post_refs": [
+        "1ktunx2"
+      ]
+    },
+    {
+      "point": "Penn Medicine's transition has led to increased bureaucracy, longer wait times, and higher costs, frustrating patients.",
+      "post_refs": [
+        "1jebipq"
+      ]
+    },
+    {
+      "point": "UnitedHealthcare's new app requirement for using healthcare benefits cards has made the process more difficult for elderly customers, causing inconvenience and distress.",
+      "post_refs": [
+        "1hssu83"
+      ]
+    }
+  ]
 }
