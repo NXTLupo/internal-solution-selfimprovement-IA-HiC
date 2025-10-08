@@ -55,7 +55,7 @@ function Landing() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const backgroundColor = 'rgba(21,31,31,255)';
-  const [showModal, setShowModal] = useState(false);
+  // Modal removed - only topic modeling available
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [retryCountdown, setRetryCountdown] = useState<number | null>(null);
@@ -148,48 +148,32 @@ function Landing() {
   }, [user, fetchUserProjects]); // Keep the dependencies as is
 
   const handleToolSelect = async (tool: string) => {
-    // Modal removed - directly create topic modeling project
+    // Only topic modeling is available now
 
     if (!user) {
       console.error("No user found");
       return;
     }
-    
+
     try {
-      // Create a new project using the userService
-      const data = await userService.createProject(user.id, tool === 'sentiment' ? 'sentiment' : 'topic');
-      
+      // Create a new topic modeling project using the userService
+      const data = await userService.createProject(user.id, 'topic');
+
       const projectId = data.id;
-      
-      // Clear the Redux state for the appropriate project type
-      if (tool === 'topic') {
-        dispatch(clearTopicProject());
-      } else if (tool === 'sentiment') {
-        dispatch(clearAnalysisData());
-      }
-      
-      // Navigate to the appropriate page with the new project ID
-      if (tool === 'sentiment') {
-        navigate(`/sentiment-analysis/${projectId}`);
-      } else if (tool === 'topic') {
-        navigate(`/topic-modeling/${projectId}`);
-      }
+
+      // Clear the Redux state for topic modeling
+      dispatch(clearTopicProject());
+
+      // Navigate to topic modeling page with the new project ID
+      navigate(`/topic-modeling/${projectId}`);
     } catch (err: unknown) {
       console.error('Error creating project:', err);
-      
-      // Clear the Redux state for the appropriate project type
-      if (tool === 'topic') {
-        dispatch(clearTopicProject());
-      } else if (tool === 'sentiment') {
-        dispatch(clearAnalysisData());
-      }
-      
-      // Fall back to the original navigation without a project ID
-      if (tool === 'sentiment') {
-        navigate('/sentiment-analysis');
-      } else if (tool === 'topic') {
-        navigate('/topic-modeling');
-      }
+
+      // Clear the Redux state
+      dispatch(clearTopicProject());
+
+      // Fall back to navigation without a project ID
+      navigate('/topic-modeling');
     }
   };
   
@@ -416,16 +400,16 @@ function Landing() {
                 </div>
                 <div className="relative group">
                   <button
-                    onClick={() => !isCreateButtonDisabled && setShowModal(true)}
+                    onClick={() => !isCreateButtonDisabled && handleToolSelect('topic')}
                     className={`flex items-center px-8 py-3 rounded-full font-medium text-lg transition-colors ${
-                      isCreateButtonDisabled 
-                        ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
-                        : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                      isCreateButtonDisabled
+                        ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+                        : 'bg-purple-100 text-purple-800 hover:bg-purple-200'
                     }`}
                     disabled={isCreateButtonDisabled}
                   >
                     <span className="mr-2">+</span>
-                    Create new
+                    Create New Topic Modeling Project
                   </button>
                   {isCreateButtonDisabled && (
                     <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
