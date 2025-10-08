@@ -1,5 +1,0 @@
-Calculating topic similarities...
-Topic 0 top words: ['visit', 'dr', 'pricing', 'person', 'app', 'telehealth', 'dr serdar bademci', 'dr serdar', 'serdar bademci']
-Topic 1 top words: ['medical', 'insurance', 'disability', 'health', 'provider', 'issues', 'claim', 'care', 'help', 'ssa']
-Topic 2 top words: ['healthcare', 'pay', 'app', 'jpu', 'students', 'medical', 'hospital', 'doh', 'old', 'care']
-Found 3 topic similarity pairs
