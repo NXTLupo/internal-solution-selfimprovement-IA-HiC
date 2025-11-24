@@ -7,6 +7,7 @@ services:
   video-analyzer:
     environment:
       - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+${OPENAI_API_KEY}
       - USE_WHISPER_API=true
     volumes:
       - ./internal-solutions-video-analyzer/static:/app/static
@@ -14,24 +15,38 @@ services:
   social-research-backend:
     environment:
       - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+${OPENAI_API_KEY}
+      - AZURE_OPENAI_KEY=***REDACTED-OPENAI-KEY***
+${OPENAI_API_KEY}
 
   journey-mapper:
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+${ANTHROPIC_API_KEY}
+***REDACTED-ANTHROPIC-KEY***
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
 
   claude4-journey-mapper:
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+${ANTHROPIC_API_KEY}
+***REDACTED-ANTHROPIC-KEY***
       - CLAUDE4_MODEL=claude-sonnet-4-20250514
 
   presentation-generator:
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+${ANTHROPIC_API_KEY}
+***REDACTED-ANTHROPIC-KEY***
       - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+${OPENAI_API_KEY}
       - PORT=5007
 
   agent:
     environment:
       - ANTHROPIC_API_KEY=***REDACTED-ANTHROPIC-KEY***
+${ANTHROPIC_API_KEY}
+***REDACTED-ANTHROPIC-KEY***
       - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219

@@ -1,0 +1,65 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: tip, order, delivery, driver, food, dasher
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+New Tipping Update Not sure if it’s new or not but recently I noticed the app doesn’t automatically apply a tip. It was now set to “add dasher tip later”.  I order A LOT of DD and the last like five orders, I had to go back and add a tip because my default was reset. Not sure if you dashers are seeing a lot more no tippers lately, but maybe this would explain it. Noticed since 11/6.  def more no tippers lately. the other day, a customer was scrambling for cash around the house bc she said the app removed her tip when ordering (she added a tip after i told her it lets her change it) but that mi [...]
+
+EXAMPLE 2:
+Proper tip for groceries Hello. I am not a regular DoorDash customer. I appreciate that anyone is willing to deliver out here at all (rural area- not super far away, but outside of the city), and don’t want to be a cheapskate. I care about treating people fairly, but also I have no clue what’s expected in this instance. I see DoorDash offering to deliver grocery orders from Aldi. I assume you would expect a higher tip for this than for a restaurant order? Or does an Aldi employee do the work of “shopping” for the items in the order and the delivery driver just picks up the bags ready to go? Th [...]
+
+EXAMPLE 3:
+How do customers have the audacity to not tip for long distance orders I think you should tip period, but tell me why I just dropped off an order that was 25 miles away and received no tip. The customer had the audacity to tell me to cancel and let someone else pick up when I warned her about the time it would take for me to get there, because she said “I don’t want my food to be cold.”. Maybe I shouldn’t have said this but I clarified that no matter what, her food wouldn’t be hot given that the restaurant js over 20 miles away from her. [...]
+
+EXAMPLE 4:
+So when you are tipping for a grocery shop base it off how long you think it would take for you to shop a store that you've never been in or have only been in a couple times and you don't know where everything is, how many items are you getting, how heavy the items are going to be, the time of day usually Rush hour you give at least 3 minutes per mile sometimes four depending on where you live maybe more, and what type of home you live in. How much would you tip yourself?
+I tip $20 on grocery orders at that price range. My friend recently tipped $50 on a big $200 Walmart shop. [...]
+
+EXAMPLE 5:
+on average a Dasher makes $20 an hour. the base pay that doordash pays for shopping varies I've had some shops with 15 items doordash base pay was $3 but the tips made that one worth it. 
+one I did at DG last night had 33 items... doordash base was $15 it was no tip and went 9 miles I was in the store for 10 minutes At 930pm no traffic... was it worth it absolutely!!  but I've also had 11 items, for $8 going 3 miles, ended up spending 45 minutes in the store because issues with the products, having to ask employees for help, standing in line for 15 minutes then still having to bag the grocerie [...]
+
+EXAMPLE 6:
+Downvote all you want, it is what it is 
+Doordash is scummy. They tell us that our tips go to the driver but doesn't show us how much the driver makes when we have the option to tip after. Many uninformed customers don't realize how little no tip orders pay.
+
+EXAMPLE 7:
+At least on Uber after the ride, I can see how much the driver earned in my region and add tip so they get paid appropriately if Uber took too much
+If its not mandatory you can’t force it. It’s upto you to cancel or pick up her order and its her decision to tip.
+
+EXAMPLE 8:
+When I ordered DD a few weeks ago , at the checkout page - $0.00 was the selected tip amount, I had to select a tip amount as there was no default or suggested.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -10,6 +10,7 @@ export interface VideoData {
   mimeType: string;
   operationId?: string;
   status?: 'generating' | 'completed' | 'failed';
+  error?: string; // Added to store specific error messages like safety filter reasons
 }
 
 export interface Character {
@@ -36,6 +37,21 @@ export interface VideoClip {
   aspectRatio: '16:9' | '9:16';
   resolution: '720p' | '1080p';
   createdAt: Date;
+  metadata?: {  // Optional metadata for new audio features
+    audioSync?: boolean;
+    dialogueSync?: boolean;
+    musicSync?: boolean;
+    transcript?: string;
+    character?: string;
+    bpm?: number;
+    movementStyle?: string;
+    beatCount?: number;
+    audioFeatures?: {
+      duration: number;
+      beatCount: number;
+      intensity: number;
+    };
+  };
 }
 
 export interface VideoGenerationConfig {

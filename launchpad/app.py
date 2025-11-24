@@ -62,6 +62,7 @@ def get_dynamic_urls(request_is_secure=False):
     presentation_generator_url = os.environ.get('PRESENTATION_GENERATOR_URL', 'http://presentation-generator:5007')
     soundtrack_generator_url = os.environ.get('SOUNDTRACK_GENERATOR_URL', 'http://soundtrack-generator:5009')
     consistent_character_generator_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_URL', 'http://consistent-character-generator:5010')
+    research_generator_url = os.environ.get('RESEARCH_GENERATOR_URL', 'http://research-generator:5011')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
@@ -69,6 +70,7 @@ def get_dynamic_urls(request_is_secure=False):
     journey_mcp_url = os.environ.get('JOURNEY_MCP_URL', 'http://journey-mcp:8503')
     claude4_journey_mcp_url = os.environ.get('CLAUDE4_JOURNEY_MCP_URL', 'http://claude4-journey-mcp:8506')
     video_mcp_url = os.environ.get('VIDEO_MCP_URL', 'http://video-mcp:8504')
+    research_mcp_url = os.environ.get('RESEARCH_MCP_URL', 'http://research-mcp:8507')
     # Using 'agent' hostname as configured in docker-compose-agent.yml
     agent_url = os.environ.get('AGENT_URL', 'http://agent:8500')
     agent_ws_url = os.environ.get('AGENT_WS_URL', 'ws://agent:8500')
@@ -92,6 +94,7 @@ def get_dynamic_urls(request_is_secure=False):
         presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_HTTPS_URL', 'https://localhost:8452')
         soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_HTTPS_URL', 'https://localhost:8454')
         consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_HTTPS_URL', 'https://localhost:8456')
+        research_generator_client_url = os.environ.get('RESEARCH_GENERATOR_HTTPS_URL', 'https://localhost:8457')
     else:
         # HTTP URLs - use original ports
         logger.info(f"[URL DEBUG] Using HTTP URLs")
@@ -107,6 +110,7 @@ def get_dynamic_urls(request_is_secure=False):
         presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
         soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_CLIENT_URL', 'http://localhost:5009')
         consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL', 'http://localhost:5010')
+        research_generator_client_url = os.environ.get('RESEARCH_GENERATOR_CLIENT_URL', 'http://localhost:5011')
 
     urls = {
         'journey_mapper': {
@@ -157,6 +161,10 @@ def get_dynamic_urls(request_is_secure=False):
             'client_url': consistent_character_generator_client_url,
             'internal_url': consistent_character_generator_url
         },
+        'research_generator': {
+            'client_url': research_generator_client_url,
+            'internal_url': research_generator_url
+        },
         'scrapehero_amazon': {
             'client_url': os.environ.get('SCRAPEHERO_AMAZON_CLIENT_URL', 'http://localhost:5008'),
             'internal_url': os.environ.get('SCRAPEHERO_AMAZON_URL', 'http://scrapehero-amazon:5000')
@@ -171,7 +179,8 @@ def get_dynamic_urls(request_is_secure=False):
                 'social': social_mcp_url,
                 'journey': journey_mcp_url,
                 'claude4_journey': claude4_journey_mcp_url,
-                'video': video_mcp_url
+                'video': video_mcp_url,
+                'research': research_mcp_url
             },
             'agent': {
                 'internal_url': agent_url,
@@ -196,6 +205,7 @@ services_status = {
     "presentation_generator": {"status": "unknown", "last_checked": None},
     "soundtrack_generator": {"status": "unknown", "last_checked": None},
     "consistent_character_generator": {"status": "unknown", "last_checked": None},
+    "research_generator": {"status": "unknown", "last_checked": None},
 }
 
 # Add agent services if enabled
@@ -206,6 +216,7 @@ if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
         "journey_mcp": {"status": "unknown", "last_checked": None},
         "claude4_journey_mcp": {"status": "unknown", "last_checked": None},
         "video_mcp": {"status": "unknown", "last_checked": None},
+        "research_mcp": {"status": "unknown", "last_checked": None},
         "agent": {"status": "unknown", "last_checked": None}  # Changed from agent_orchestrator to agent
     })
 
@@ -214,17 +225,17 @@ def check_service(service_name):
     urls = get_dynamic_urls(request_is_secure=False)  # Always use HTTP for internal service checks
 
     # Skip checking MCP and agent services if CX agent is disabled
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp", "agent"] and \
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp", "research_mcp", "agent"] and \
        os.environ.get('ENABLE_CX_AGENT', 'false').lower() != 'true':
         return
 
     # Get base URL for the service
-    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp"]:
+    if service_name in ["reddit_mcp", "social_mcp", "journey_mcp", "claude4_journey_mcp", "video_mcp", "research_mcp"]:
         # Handle MCP servers
         if service_name == "claude4_journey_mcp":
             mcp_type = "claude4_journey"  # Special case for claude4_journey_mcp
         else:
-            mcp_type = service_name.split('_')[0]  # Extract reddit, social, journey
+            mcp_type = service_name.split('_')[0]  # Extract reddit, social, journey, research
         if 'mcp' not in urls or mcp_type not in urls['mcp']:
             logger.warning(f"URL for {service_name} not found in configuration")
             services_status[service_name] = {
@@ -319,6 +330,7 @@ def update_all_services():
     check_service("presentation_generator")
     check_service("soundtrack_generator")
     check_service("consistent_character_generator")
+    check_service("research_generator")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
@@ -327,6 +339,7 @@ def update_all_services():
         check_service("journey_mcp")
         check_service("claude4_journey_mcp")
         check_service("video_mcp")
+        check_service("research_mcp")
         check_service("agent")  # Changed from agent_orchestrator to agent
 
 # Background service checker thread
@@ -388,7 +401,8 @@ def index():
         'flux_lora_studio': services_status['flux_lora_studio']['status'],
         'presentation_generator': services_status['presentation_generator']['status'],
         'soundtrack_generator': services_status['soundtrack_generator']['status'],
-        'consistent_character_generator': services_status['consistent_character_generator']['status']
+        'consistent_character_generator': services_status['consistent_character_generator']['status'],
+        'research_generator': services_status['research_generator']['status']
     }
 
     # Determine if CX agent is enabled
@@ -409,6 +423,7 @@ def index():
                        presentation_generator_url=urls['presentation_generator']['client_url'],
                        soundtrack_generator_url=urls['soundtrack_generator']['client_url'],
                        consistent_character_generator_url=urls['consistent_character_generator']['client_url'],
+                       research_generator_url=urls['research_generator']['client_url'],
                        scrapehero_amazon_url=urls['scrapehero_amazon']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
@@ -1040,6 +1055,10 @@ def get_mcp_servers():
         "claude4_journey": {
             "url": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),
             "description": "Advanced customer journey mapping with Claude Sonnet 4"
+        },
+        "research": {
+            "url": urls.get('mcp', {}).get('research', 'http://research-mcp:8507'),
+            "description": "Research analysis and persona generation with Gemini 3 Pro"
         }
     }
     
@@ -1079,7 +1098,8 @@ def get_mcp_tools():
         "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
         "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
         "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
-        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
+        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),
+        "research": urls.get('mcp', {}).get('research', 'http://research-mcp:8507')
     }
     
     for server_name, server_url in mcp_servers.items():
@@ -1121,7 +1141,8 @@ def execute_mcp_tool(tool_name, parameters):
         "social": urls.get('mcp', {}).get('social', 'http://social-mcp:8502'),
         "journey": urls.get('mcp', {}).get('journey', 'http://journey-mcp:8503'),
         "video": urls.get('mcp', {}).get('video', 'http://video-mcp:8504'),
-        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506')
+        "claude4_journey": urls.get('mcp', {}).get('claude4_journey', 'http://claude4-journey-mcp:8506'),
+        "research": urls.get('mcp', {}).get('research', 'http://research-mcp:8507')
     }
     
     # Find which server handles this tool

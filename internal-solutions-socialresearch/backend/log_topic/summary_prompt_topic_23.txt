@@ -1,0 +1,68 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: order, doordash, phone orders, routes, apartment, night, ice cream
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Doordash Drive white label service- phone orders? Hey guys, any restauranteurs in here using Doordash Drive for their in-house deliveries? I am and we love it, but I'm trying to find a way to be able to take phone orders for it, right now we need to tell people to go to our website to place delivery orders. There has to be a way! I used to work for a Chinese restaurant and we had our own delivery staff. If it was busy, the manager would use the DoorDash tablet and request a DoorDash driver. So there appears to be a way for the restaurant to summon a DoorDash driver.
+
+EXAMPLE 2:
+Man I swear doordash customers in apartments are some of the... Dumbest people alive! They don't know how their own addresses work they don't know how to use the map pin to put it on the correct apartment that they actually live in so at night you have to hunt for their apartment because both Google and doordash's GPS can't find their place. That's also if they even bothered to put in their apartment room number. They treat tipping like it's a federal crime and they always seem to order from the furthest possible store they can even if it's a franchise like Pizza Hut and they order from the on [...]
+
+EXAMPLE 3:
+DoorDash is an hour late, no driver. Ordered through the McDonald’s app (powered by DoorDash), it says order placed and hasn’t budged. I wish I just used DoorDash app, this is definitely a huge flaw with DD if they’re accepting orders and don’t even know if they have drivers available. Very time wasting.  There's drivers available if the app lets your order, but between 1:30 and 4:30 AM is the slowest time, the concentration of drivers is significant reduced.
+
+EXAMPLE 4:
+What you need is a system that can handle phone orders and then push them into your delivery workflow seamlessly. We actually built something specifically for this at vGrubs because so many restaurants were losing orders from customers who prefer calling. It integrates with your existing delivery setup while letting your staff take orders the old fashioned way. The key is having order management that doesn't force you to choose between phone orders and efficient delivery dispatch.
+
+EXAMPLE 5:
+You might have to do something like that for phone orders.
+The phone order limitation with Drive is honestly one of the biggest pain points I hear about from restaurant owners. You're basically forcing customers through extra hoops when they just want to call and order like they always have. Most platforms weren't really built with traditional phone ordering in mind since they want that direct digital relationship.
+
+EXAMPLE 6:
+I would suggest to make sure you're leaving a reasonable tip vs distance from the restaurant so your order is desirable to take. At night when there's less dashers around, they have to drive farther distances to get to restaurants.
+
+EXAMPLE 7:
+Check it out at [vgrubs.com](http://vgrubs.com) or schedule a demo call and see how it works for you guys
+I booked a consultation but it doesn't look like the orders get fed directly into Clover to show up on our order screens in the kitchen. Is that the case?
+
+EXAMPLE 8:
+Also, don't forget to leave your outside lights on!
+anyone want to bet this was a 1 dollar tip for 6 mile order?
+
+EXAMPLE 9:
+the one or two dashers said no fucking way
+Yeah this is not a lack of drivers issue, this seems more of a decline of order by drivers for whatever reason
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

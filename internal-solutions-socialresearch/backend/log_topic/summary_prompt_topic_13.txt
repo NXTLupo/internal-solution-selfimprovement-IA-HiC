@@ -1,0 +1,96 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: instructions, door, address, park, sign, trailer, delivery
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Now I’ve delivered to this park a million times. The address is 6300. But just to be sure I’m not crazy, I pulled into the office parking lot where there’s a big pretty sign with the address very clear on it.
+
+EXAMPLE 2:
+I got an order delivering to 6000 North St. 6300 is a trailer park that I deliver to all the time. There are two single family houses with a lot of space between them to the left of the park entrance, other than that it’s wide open land. In the customer’s address they put “6000 North St. #123”. So I knew she had to be in the trailer park but put the address in wrong. I followed the GPS to the address just to be sure and surprise — it didn’t exist. It was an empty spot between 5990 and 6090. No driveway, no house, nothing.
+
+EXAMPLE 3:
+Anyway, all you can do is make it easy for those of us who give a shit. Reflective numbers. Good street signage if the park is big. The rest is on us and mapbox.
+I would create a large sign that says So-and-So Trailer Park lot #1 to #40.  Then by your driveway put a smaller sign that says #1 and by your door, a decal that says #1.  Whether or not your neighbors post up their own signs it should be evident that you're Lot #1 and not Lot #23 or whatever else.  You might even try making the sign at your driveway say "Lot #1 ⬆️  Lot #2-40 ➡️"
+
+EXAMPLE 4:
+Have you tried meeting at the door? Sure, I understand that everyone can’t always be available to do it but it’s a much quicker and easier exchange. Customers with delivery instructions like this are typically the most annoying to deal with when something goes wrong, and it usually does, when it could just be a meet at door order lol. You mentioned that DD drivers don’t have a hard job. Maybe you should consider how much easier it would be to pick the food up yourself?
+No, it's not the right door. The plaque even says the mailroom entrance is in the courtyard. That's why the plaque is there.
+
+EXAMPLE 5:
+“Ok, the address given to DoorDash is 6000 instead of 6300 which is the trailer park. So it took me to a house that doesn’t exist. I wanted to make sure I found you and got your food to you.”
+
+EXAMPLE 6:
+THERES EVEN a plaque *at eye level* posted at the doors facing the street to tell delivery drivers NOT to leave packages here and to use the other entrance in the courtyard.
+
+EXAMPLE 7:
+Is there a way to make sure my neighbors deliveries don't get delivered to my house? For context I live in a trailer park where all the tailers share a street address, but different lot numbers. The way I explain it to the dasher is that it's kinda like an apartment complex without the lobby.
+Now the main reason this keeps happening is because my trailer is the only one connected to the actual street of our address, making us lot #1. Because of this they always try to drop it off at our door and I have to go through the speech every single time. [...]
+
+EXAMPLE 8:
+Why is reading hard? I don't get it.. there's a section for delivery notes that explicitly mentioned to leave my food in the mail room entrance through the courtyard and *NOT* to be left at the door that faces the street. I even asked nicely and said please.
+
+EXAMPLE 9:
+Not to mention they literally texted me I am here and dropped off my food within the same time stamp of 7:45am as shown in the photo. I didnt even have enough time to walk through my building and down the stairs to the door they left my food at by the time they were gone. 
+Your sign literally said delivery and referenced UPS, FedEx and Amazon. Looks like despite that the driver still tried to locate the door mentioned in your notes and found it was closed. They don’t know your complex and are just trying to complete the delivery.
+
+EXAMPLE 10:
+You drive, get the food, drive some more, and drop it off... Your job isn't hard, but if it is maybe find a new one.  Not that they couldn’t have reached out to see if they could gain access- but it seems like they’re saying the door to the mail room you’re talking about was closed at the time.
+
+EXAMPLE 11:
+So WHY am I being texted if it's okay to leave my food at the ONE PLACE I specifically asked not to? You can even read the sign addressed to DELIVERY DRIVERS in the photo I was sent!
+
+EXAMPLE 12:
+Consider how much easier it is to pick it up myself? Pretty sure companies do delivery BECAUSE delivery is easier than the customer having to leave and get their own food ...
+
+EXAMPLE 13:
+Now what really pisses me off is from the time I got the messages to the time I walked downstairs was 2 minutes. Why are you going to ask me if it's okay to leave the food there, when you're just going to leave?? There was no driver waiting for a response. So you ask if it's okay without the intention of moving it if it wasn't okay??
+
+EXAMPLE 14:
+One time they didn't even get the correct city right lol. Free food that night but too bad it was McDonalds.
+I’ve had people give me the wrong address before because they forgot to change it but this is a new one for me lol. Didn’t help that my app refused to load when I tried to complete the delivery from the office parking lot. I had to restart my phone entirely. I was on a double stack too so I couldn’t even contact the customer to let them know what was happening until I was finally on my way.
+
+EXAMPLE 15:
+I love delivering to trailer parks and feel skilled at navigating them but that's my upbringing. I feel like I'm always overcoming the shortfalls of mapbox when I'm in a park. Moreso than anywhere else. And especially the small places, the app just cannot compute that there are 8 houses at that address, but for some reason it can do that for multiple buildings in an apartment complex.
+
+EXAMPLE 16:
+How does someone not know their own address? I’ll use fake addresses obviously, but this was too infuriating not to share.
+
+EXAMPLE 17:
+So whats so hard about reading? Was clearly able to read the order and accept it on their phone. Can read my name to collect my order from the store.
+
+EXAMPLE 18:
+She didn’t seem like she was intoxicated in any form and she seemed very clear and coherent when she met me at the door. I just don’t get it. How. I've only had this happen a few times and every time it was from someone ordering that didn't live there. I would call and you can hear them in the background asking their friend what the correct address was then apologizing.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

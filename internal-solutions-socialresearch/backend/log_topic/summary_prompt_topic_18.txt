@@ -1,0 +1,55 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: hours, tax, doordash, market, extra, pay, job
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Thinking of doing DoorDash for some extra help Could use some extra money with being recently married this year and the holidays coming up soon. Any advice? I’m in Orange County, California. Planning on doing this on evenings and weekends, just a few hours each day.  Good choice you would love it just don’t decline orders too much the higher your rating becomes the more priority orders you would get which is bigger pay. Make sure take photo for every drop off, because some customers lie about not receiving their orders. Uber eats is fun too you should also try that. [...]
+
+EXAMPLE 2:
+Doordash part-time and Full-time Hey all! I’m looking for a seasonal job until the season for my business starts again. For those of you who work with DoorDash, is it worth it, and do you make money? I don’t expect to make $30k a month, but I’m just trying to see if those of you who work part-time or full-time make a reasonable amount. I DoorDash during my off season as well …  I do it to keep some funds coming in for fun money and bills but mostly to keep active so I don’t become lazy over 3 months…. [...]
+
+EXAMPLE 3:
+Nothing but grateful Everyone’s been down bad. DoorDash pulled me out of it. Yeah sure these are tons of hours, but it’s also only just driving and oil changes. It’s one of the easiest jobs I’ve ever had. I was part time for about two years. And just last July, I started doing it full-time. because I was tired of working at 9 to 5 trying to save up for a truck and trailer. I don’t have any special skills in this pays me more surprisingly than the last job I had especially when tax season comes around. I almost pay nothing which can be good or bad depending on how you wanna look at it. [...]
+
+EXAMPLE 4:
+With the new no tax on tips and overtime change for the next couple years, it's a lot harder to estimate if you don't track how much of your earnings are tips. I also have no idea if stride is accounting for that in their estimate. But keep in mind that only applies to federal income tax. Social security, Medicare and state taxes are not included in the no tax on tips (a few states are trying to do it).
+I bet your car would be grateful for a day off 😆
+
+EXAMPLE 5:
+My main business is of course my main income ( I assume you as well ) and I do save for my off season, but I enjoy the freedom of dashing and keeping active…. You’re not gonna get rich , but it offers some perks and some income.
+Thank you for explaing and yes it’s same for me, I just can’t sit and don’t do anything, I love being busy and do something lol
+It kind of sucks and will make you look at humanity a bit differently. That being said it's easy work and no commitment. Money wise it isnt great but it's ok.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

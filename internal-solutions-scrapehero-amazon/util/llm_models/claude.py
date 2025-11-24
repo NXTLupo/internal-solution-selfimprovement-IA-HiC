@@ -37,7 +37,7 @@ def get_claude_completion(messages: list, temperature: float = 0.7) -> str:
         client = anthropic.Anthropic(api_key=api_key)
         
         # Get model name from environment variable or use a default
-        model_name = os.getenv("CLAUDE4_MODEL", "claude-3-sonnet-20240229") # Downgraded model for compatibility
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-3-7-sonnet-20250219")  # Updated to current Claude 3.7 Sonnet
         print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
         
         # Call Claude API
@@ -65,7 +65,7 @@ def get_claude_completion_with_json(messages: list, temperature: float = 0.7) ->
         client = anthropic.Anthropic(api_key=api_key)
         
         # Get model name from environment variable or use a default
-        model_name = os.getenv("CLAUDE4_MODEL", "claude-3-sonnet-20240229") # Downgraded model for compatibility
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-3-7-sonnet-20250219")  # Updated to current Claude 3.7 Sonnet
         print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
         
         # Call Claude API

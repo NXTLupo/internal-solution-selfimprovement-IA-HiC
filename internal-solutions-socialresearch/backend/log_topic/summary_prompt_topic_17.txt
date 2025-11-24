@@ -1,0 +1,58 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: lights, porch, house, inside, food, porch lights, order
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Porch Lights It’s dark by 6pm where I live, which is a mix of rural and suburban and I typically work between 4pm-9pm to cover the dinner rush.  The number of people who DON’T turn on their porch lights when expecting a delivery at night astounds me. I will typically send a message when I pick up the order to request that the porch lights please be turned on.  Still, 90% of the time, the lights are off.  Can anyone recommend a good tactical flashlight? Husky rechargeable, focusing flashlight 1200 lumens six modes special functions twist focusing dual powered USB lifetime warranty you will defi [...]
+
+EXAMPLE 2:
+Never go inside anybodies house, period. Way too many gd nut jobs out there.
+That's how they get ya I especially don't trust the wheelchair people, their nefew is behind the door with the needle dexter uses, you know the rest....
+
+EXAMPLE 3:
+unusual encounter okay so i ordered some food off of doordash. sidenote im a college student who lives on campus. first of all, my food was an hour late, which was frustrating but i let it go. based on how my campus is situated the driver cant come into my building and so i had to get out and walk to him, and when he gave me my food he said to give him a 5 star rating. even tho my food was late i decided to just be nice and give it, that is until i opened my food and realized he had given me the wrong order. i called him and he told me he'd come back to give the right food. [...]
+
+EXAMPLE 4:
+I was talking with my girlfriend and she thought I was “insane” for going in a strangers house. She also was saying it was weird that he offered me water. For other delivery drivers:
+What do you do when someone asks you to come inside? Is it really that odd or is my gf just paranoid?  Unless it is someone in a wheelchair or a walker I typically don’t go inside anyone’s homes or apartments. If it is after dusk I definitely don’t go inside anyone’s homes at all only during the day when they are clearly bound to a wheelchair or walker.
+Still not going inside, Ted bundy used to fake being injured. [...]
+
+EXAMPLE 5:
+Delivery drivers — what do you do when customers ask you to come inside? The other day I dropped off a grocery order through DoorDash. The instructions said “hand to customer,” so I waited at the door. The guy opened it really quickly and immediately told me to come in. I didn’t think much of it in the moment, so I stepped inside.
+
+EXAMPLE 6:
+He asked if I wanted some water, which I declined. Then I asked him to check the order because his note said “don’t dent any cans,” but there weren’t any canned items. He said, “No, I said don’t DENT any cans.” I didn’t really understand what he meant, so I just told him to have a good one and left.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

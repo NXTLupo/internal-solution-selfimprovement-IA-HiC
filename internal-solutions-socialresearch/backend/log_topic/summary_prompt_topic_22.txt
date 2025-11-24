@@ -1,0 +1,57 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: bag, handwriting, diaper, bun, op, probably, wrote
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Door washer showed up using a dirty bag Doordasher showed up and had a suspicious smile on his face as he approached. As he slowly made his way up the sidewalk I noticed his bag was covered in mysterious stains. They looked to be spots of white and yellow. Am I to assume he had perhaps jizzed on the bag? To be honest that is what it looked like to me and to be fair I still ate my food as it was in a bag so it is not like it actually touched his bag. [...]
+
+EXAMPLE 2:
+Please tell me this guy doesn’t have my food sitting on a damn diaper He also messaged me asking to give him 5 stars… I think not buddy  Have some respect, this man hustling trying to feed his kids. The diapers cleaner than your table
+Clean diaper, but still weird to photo like that. Bad form.
+Replying to the top comment cause I can’t edit the post..
+
+EXAMPLE 3:
+A dasher put a thank you note in my bag. Am I wrong for thinking this was weird? I got a delivery from McDonald's and found a thank you note in my bag along with a lollipop. The stickers holding the bag closed were peeled back so they could put it in.
+
+EXAMPLE 4:
+Am I wrong for thinking this was weird? Exactly this. As a dasher, around holidays I will sometimes tape goody bags with mints or chocolates to the bag. I'll get the little seasonal goody bags at the dollar tree along with a bag of individually wrapped mints or chocolates. I would never break a seal and put it inside. I have a roll of double stick tape in my car for this and taping recipes to shopping orders when it says to put it in the bag but it's a large item that doesn't fit in a bag. [...]
+
+EXAMPLE 5:
+I guess I was just shocked that this man couldn’t take 2 seconds to move the *pull-up* before taking a photo.
+
+EXAMPLE 6:
+And lastly, to all the “go get it yourself”-ers, some people have jobs that you can’t slip away for lunch, hence paying someone to deliver it. Shocker I know 😱
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

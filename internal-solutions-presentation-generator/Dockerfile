@@ -20,7 +20,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --timeout=600 --retries=10 -r requirements.txt || \
+    pip install --no-cache-dir --timeout=600 --retries=10 -r requirements.txt || \
+    pip install --no-cache-dir --timeout=600 --retries=10 --index-url https://pypi.org/simple -r requirements.txt
 
 # Copy application code
 COPY . .

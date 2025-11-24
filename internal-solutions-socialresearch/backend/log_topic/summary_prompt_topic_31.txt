@@ -1,0 +1,58 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: order, late, contract violation, restaurant, minutes, wait, marked
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+If a restaurant can't finish an order within 10 minutes, unassign when DoorDash gives you the opportunity, it's not worth the risk of a Contract Violation after a customer reports their order is late.
+i recently cane across this i dont get the contract violation message and what they mean, it was my last order today. I got there but i asked them where the order was they said they’ll prepare it.. but then i waited 15 minutes and contacted support they said something about violating a contract. I still went on and delivered it. [...]
+
+EXAMPLE 2:
+Has this been happening to anyone?  On the restaurants side or the dashers?
+It's not the same everywhere, but in my market orders for McDonald's and Chick-fil-A don't get sent to the kitchen until you mark that you've arrived in the app. A few others (certain taco bell locations and burger kings) won't start the order until you go inside and tell them the name on the order. Fast food places have so many no/low tip orders that take a while for a driver to show up for, they try to avoid cold food complaints by not making it until the driver is there.
+
+EXAMPLE 3:
+Sometimes it is true that the order was just received by the restaurant. It mostly happens on stack orders. Doordash will batch a newly placed order with one that's ready to go just to save themselves a buck or two.
+Places saying they just got the order? It's a common stall tactic.
+
+EXAMPLE 4:
+this update sucks if you don’t wanna hear me complain, please go along with your day, I apologize, but I need to get this out there. First of all, it’s way more difficult to find how much you are making on each individual dash, I know they say it at the end, but it was way easier /more clear before hand. Secondly, the bullshit of verifying each individual item, I am not verifying shit and that’s just another button. I have to press. Wasting more time.Overall, this is making our lives a lot harder I think. Meeeehhh. [...]
+
+EXAMPLE 5:
+I ask every single time I see something that shows as "frequently missed" and it seems to annoy the piss out of these restaurant workers.
+
+EXAMPLE 6:
+Give me tips for a new dasher I just started 3 says ago and made good amount of money, and i just want tips or recommendations for a newbie like me!
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

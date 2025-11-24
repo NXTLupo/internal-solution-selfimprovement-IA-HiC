@@ -241,14 +241,21 @@ verify_services() {
   else
     echo -e "  ❌ Launchpad (HTTP): ${RED}Not responding${NC}"
   fi
-  
+
+  # Check Social Research
+  if curl -s -f http://localhost:3000 >/dev/null 2>&1; then
+    echo -e "  ✅ Social Research Analytics: ${GREEN}Ready${NC}"
+  else
+    echo -e "  ❌ Social Research Analytics: ${YELLOW}Starting up (may take 60-90 seconds for dependencies)${NC}"
+  fi
+
   # Check LinkedIn Generator
   if curl -s -f http://localhost:5003 >/dev/null 2>&1; then
     echo -e "  ✅ LinkedIn Generator: ${GREEN}Ready${NC}"
   else
     echo -e "  ❌ LinkedIn Generator: ${RED}Not responding${NC}"
   fi
-  
+
   # Check Journey Mapper
   if curl -s -f http://localhost:8080 >/dev/null 2>&1; then
     echo -e "  ✅ Journey Mapper: ${GREEN}Ready${NC}"
@@ -279,15 +286,19 @@ verify_services() {
 # Start services using Docker
 start_services() {
   echo -e "${YELLOW}Starting all services...${NC}"
-  
+
   # Stop any existing containers and clean up
   echo -e "${YELLOW}Stopping existing containers...${NC}"
   docker compose -f docker-compose-all.yml down 2>/dev/null || true
   docker compose -f docker-compose-https.yml down 2>/dev/null || true
   docker compose down 2>/dev/null || true
-  
+
   # Clean up any orphaned containers
   docker container prune -f 2>/dev/null || true
+
+  # Rebuild Social Research frontend to ensure dependencies are fresh
+  echo -e "${YELLOW}Rebuilding Social Research frontend with fresh dependencies...${NC}"
+  docker compose -f docker-compose-all.yml build --no-cache social-research-frontend 2>/dev/null || true
   
   # Create or update the docker-compose-all.override.yml file with explicit API keys and HTTPS URLs
   cat > docker-compose-all.override.yml << EOF
@@ -375,6 +386,7 @@ echo -e "\n${GREEN}${BOLD}🚀 ALL SERVICES HAVE BEEN STARTED - HTTP & HTTPS STA
 echo ""
 echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"
+echo -e "  ${BLUE}Social Research Analytics:${NC} http://localhost:3000"
 echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} http://localhost:8080"
 echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  http://localhost:8095"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"

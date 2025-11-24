@@ -1,0 +1,55 @@
+{
+  "positive": [
+    {
+      "point": "Customers appreciate when delivery instructions are clear and detailed, as it helps ensure accurate delivery.",
+      "post_refs": [
+        "1otkagh"
+      ]
+    },
+    {
+      "point": "Some dashers feel skilled at navigating complex areas like trailer parks due to their upbringing, which can lead to successful deliveries.",
+      "post_refs": [
+        "1p0fjdt"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Many customers express frustration that delivery drivers frequently ignore or fail to follow clear delivery instructions, leading to incorrect deliveries.",
+      "post_refs": [
+        "1p1e8qw",
+        "1oz30ss",
+        "1oxclyn",
+        "1owxi2k"
+      ]
+    },
+    {
+      "point": "Language barriers and lack of training for delivery drivers are seen as contributing factors to the failure to follow instructions.",
+      "post_refs": [
+        "1p1e8qw",
+        "1oz30ss"
+      ]
+    },
+    {
+      "point": "The GPS systems used by delivery apps often mislead drivers, causing them to go to incorrect locations, especially in complex areas like trailer parks or large buildings.",
+      "post_refs": [
+        "1p0fjdt",
+        "1oxclyn",
+        "1owpohq"
+      ]
+    },
+    {
+      "point": "Customers are frustrated by the lack of accountability and responsiveness from delivery drivers when they make mistakes, such as leaving food in the wrong place without waiting for a response.",
+      "post_refs": [
+        "1owxi2k"
+      ]
+    },
+    {
+      "point": "Some customers find it annoying when they have to repeatedly explain their location to drivers due to shared addresses or complex layouts.",
+      "post_refs": [
+        "1p0fjdt",
+        "1oxa39l"
+      ]
+    }
+  ]
+}

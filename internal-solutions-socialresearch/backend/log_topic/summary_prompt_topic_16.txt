@@ -1,0 +1,61 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: drink, car, open, inside, door, say, cup
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Beware of DoorDash drivers stealing promotional items from customers. STARBUCKS RED CUP DAY Clearly, not all DoorDash drivers are thieves. It’s unfortunate that I even have to say that, since some people are taking my words out of context.
+
+EXAMPLE 2:
+I’m really upset about my recent DoorDash order. I ordered from DD to get a Starbucks delivery. I ordered a grande holiday drink specifically to get the limited red plastic holiday cup that came with it. When my order arrived, the bag was open and only my drink was inside. The dasher stole the cup. I reported it to DoorDash, but all they did was give me a $3 credit. They keep stealing my McDonald's monopoly stickers and keeping the free food for themselves 🤦
+That's some low life doordashers. [...]
+
+EXAMPLE 3:
+Story time: W Cops EDIT: Always stick up for yourself unlike the crying pansies in the comments, If the restaurant you’re going too is being an asshole about your pick up? Be an asshole back. DoorDash isn’t gonna stick up for you. Cheers
+
+EXAMPLE 4:
+So I get an order for Taco Bell. I didn’t realize they were open inside past midnight so I went to the drive thru. Now, this drive thru is very small and narrow, it would be very difficult to drive backwards out of it. There’s a car in front of me and now a car behind me. Tell the window I’m there for door dash and they say “you have to come inside” I then say “do you mind just letting it slide this once? I can’t back out and there’s a car behind me too” they then rudely say “All door dash, uber, eats, grubhub, and postmates delivery drivers must come inside” but in a very condescending tone. [...]
+
+EXAMPLE 5:
+I am one of those people who will talk to anyone and everyone, I have never been scared to talk to a stranger... That being said, I also have diarrhea of the mouth/brain sometimes.. as I was waiting outside for the order to be ready I COULD NOT help myself, I was talking to EVERYONE who walked by. As you can imagine, several of these people were other dashers/uber eats drivers who were all getting so annoyed so quickly at the delay. My brain had enough I guess, because I started shit talking everyone. The roast was on. No one was safe. [...]
+
+EXAMPLE 6:
+Order finally ready, drive was 5 minutes, family tipped me like $35 total cause they gave me cash too. I stopped dashing for the night after that.
+Happens to me (over $21 tip some times) for only 2-4 miles if it’s a big ass party or to celebrate your work office (or a pizza party for the school)
+Well, you gonna elaborate? 😂
+
+EXAMPLE 7:
+Just had the funniest dash of my life  My first order of the night comes in, its a double dash $17 for 5.3mi from a local Little Caesars who were understaffed and running a little behind last night (didn't know this til I was already there) As soon as I arrived I get a message from one of my customers telling me this place notoriously takes forever so they understand if I unassign, I told them im already here and committed to this order, 15 mins later and customer messages me again telling me they appreciate me waiting and that their autistic daughter is verry exited for the only pizza that sh [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

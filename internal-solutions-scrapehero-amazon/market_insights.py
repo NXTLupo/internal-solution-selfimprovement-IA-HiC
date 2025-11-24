@@ -431,36 +431,200 @@ def generate_competitive_analysis(products: List[Dict[str, Any]]) -> Dict[str, A
 def analyze_search_term(search_term: str, products: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
     Generate market insights for a search term and products
-    
+
     Args:
         search_term: The search term or category name
         products: List of product dictionaries
-        
+
     Returns:
         Dictionary containing market insights
     """
     # Basic analysis
     analysis = analyze_products(products)
-    
+
     # Add competitive analysis
     competitive = generate_competitive_analysis(products)
     analysis['competitive'] = competitive.get('competitive_insights', [])
     analysis['segments'] = competitive.get('segments', {})
-    
+
+    # Calculate advanced retail intelligence metrics
+    advanced_metrics = calculate_advanced_retail_metrics(products, analysis)
+    analysis['advanced_metrics'] = advanced_metrics
+
     # Add search term analysis
     analysis['search_term'] = search_term
-    
+
     # Format for UI display
     formatted = format_insights_for_display(analysis)
-    
+
     return formatted
+
+def calculate_advanced_retail_metrics(products: List[Dict[str, Any]], analysis: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Calculate advanced retail intelligence metrics for professional market research
+
+    Args:
+        products: List of product dictionaries
+        analysis: Basic analysis results
+
+    Returns:
+        Dictionary with advanced retail metrics
+    """
+    advanced_metrics = {}
+
+    # 1. HERFINDAHL-HIRSCHMAN INDEX (Market Concentration)
+    brand_metrics = analysis.get('brand_metrics', {})
+    if brand_metrics.get('top_brands'):
+        total_products = len(products)
+        hhi = 0
+        for brand, count in brand_metrics['top_brands']:
+            market_share = (count / total_products) * 100
+            hhi += market_share ** 2
+
+        advanced_metrics['herfindahl_index'] = round(hhi, 2)
+        advanced_metrics['market_concentration'] = (
+            'Highly Concentrated (Oligopoly)' if hhi > 2500 else
+            'Moderately Concentrated' if hhi > 1500 else
+            'Competitive/Fragmented'
+        )
+
+    # 2. REVIEW VELOCITY SCORE (Engagement & Momentum Indicator)
+    review_counts = []
+    for product in products:
+        try:
+            review_count = product.get('review_count', 0)
+            if isinstance(review_count, str):
+                review_count = int(review_count.replace(',', '').replace('+', ''))
+            review_counts.append(int(review_count))
+        except (ValueError, TypeError):
+            pass
+
+    if review_counts:
+        avg_reviews = sum(review_counts) / len(review_counts)
+        median_reviews = sorted(review_counts)[len(review_counts) // 2]
+        max_reviews = max(review_counts)
+
+        advanced_metrics['review_velocity'] = {
+            'average': round(avg_reviews, 1),
+            'median': median_reviews,
+            'top_product': max_reviews,
+            'engagement_level': (
+                'Very High' if avg_reviews > 1000 else
+                'High' if avg_reviews > 500 else
+                'Moderate' if avg_reviews > 100 else
+                'Low'
+            )
+        }
+
+        # Social proof strength
+        high_review_count = sum(1 for rc in review_counts if rc >= 100)
+        advanced_metrics['social_proof_strength'] = {
+            'products_with_strong_proof': high_review_count,
+            'percentage': round((high_review_count / len(products)) * 100, 1)
+        }
+
+    # 3. VALUE SCORE RANKING (Quality per Dollar)
+    value_scores = []
+    for product in products:
+        price_value = extract_price_value(product.get('price', '0'))
+        try:
+            rating = product.get('rating')
+            if price_value and rating and price_value > 0:
+                rating = float(rating) if isinstance(rating, (int, float)) else float(re.search(r'([0-9.]+)', str(rating)).group(1))
+                value_score = rating / (price_value ** 0.5)  # Diminishing returns on price
+                value_scores.append({
+                    'title': product.get('title', 'Unknown')[:50],
+                    'price': price_value,
+                    'rating': rating,
+                    'value_score': round(value_score, 3)
+                })
+        except (ValueError, AttributeError):
+            pass
+
+    if value_scores:
+        value_scores_sorted = sorted(value_scores, key=lambda x: x['value_score'], reverse=True)
+        advanced_metrics['value_leaders'] = value_scores_sorted[:5]
+
+    # 4. MARKET GAP ANALYSIS (Price Point Opportunities)
+    price_metrics = analysis.get('price_metrics', {})
+    if price_metrics and price_metrics.get('min_price') and price_metrics.get('max_price'):
+        price_range = price_metrics['max_price'] - price_metrics['min_price']
+        prices = []
+        for product in products:
+            price_value = extract_price_value(product.get('price', '0'))
+            if price_value:
+                prices.append(price_value)
+
+        if len(prices) >= 5:
+            sorted_prices = sorted(prices)
+            gaps = []
+            for i in range(len(sorted_prices) - 1):
+                gap = sorted_prices[i + 1] - sorted_prices[i]
+                if gap > price_range * 0.15:  # Significant gap (>15% of range)
+                    gaps.append({
+                        'lower_bound': sorted_prices[i],
+                        'upper_bound': sorted_prices[i + 1],
+                        'gap_size': round(gap, 2),
+                        'opportunity': f"Price gap ${sorted_prices[i]:.2f} - ${sorted_prices[i + 1]:.2f}"
+                    })
+
+            advanced_metrics['price_gaps'] = gaps[:3]  # Top 3 gaps
+
+    # 5. CATEGORY MATURITY INDICATORS
+    rating_metrics = analysis.get('rating_metrics', {})
+    if rating_metrics:
+        avg_rating = rating_metrics.get('avg_rating', 0)
+        rating_variance = 0
+        if len(products) > 1:
+            ratings = []
+            for product in products:
+                try:
+                    rating = product.get('rating')
+                    if rating:
+                        rating = float(rating) if isinstance(rating, (int, float)) else float(re.search(r'([0-9.]+)', str(rating)).group(1))
+                        ratings.append(rating)
+                except (ValueError, AttributeError):
+                    pass
+
+            if ratings:
+                mean_rating = sum(ratings) / len(ratings)
+                rating_variance = sum((r - mean_rating) ** 2 for r in ratings) / len(ratings)
+
+        advanced_metrics['category_maturity'] = {
+            'average_quality': avg_rating,
+            'quality_variance': round(rating_variance, 3),
+            'maturity_signal': (
+                'Mature (High quality, low variance)' if avg_rating > 4.3 and rating_variance < 0.5 else
+                'Growth (High quality, high variance)' if avg_rating > 4.0 and rating_variance >= 0.5 else
+                'Emerging (Moderate quality, high variance)' if rating_variance >= 0.5 else
+                'Declining (Low quality or saturation)'
+            )
+        }
+
+    # 6. PREMIUM VS VALUE POSITIONING
+    segments = analysis.get('segments', {})
+    if segments:
+        premium_data = segments.get('premium', {})
+        budget_data = segments.get('budget', {})
+        midrange_data = segments.get('mid-range', {})
+
+        advanced_metrics['segment_dynamics'] = {
+            'premium_share': premium_data.get('percentage', 0),
+            'value_share': budget_data.get('percentage', 0),
+            'midmarket_share': midrange_data.get('percentage', 0),
+            'premiumization_opportunity': premium_data.get('percentage', 0) < 30,
+            'value_competition_intensity': budget_data.get('percentage', 0) > 40
+        }
+
+    return advanced_metrics
 
 def format_insights_for_display(analysis: Dict[str, Any]) -> Dict[str, Any]:
     """Format analysis results for UI display"""
     display = {
         "metrics": [],
         "charts": {},
-        "insights": []
+        "insights": [],
+        "advanced_metrics": {}
     }
     
     # Core metrics
@@ -523,13 +687,65 @@ def format_insights_for_display(analysis: Dict[str, Any]) -> Dict[str, Any]:
     
     # All insights
     all_insights = []
-    
+
     if analysis.get('insights'):
         all_insights.extend(analysis['insights'])
-        
+
     if analysis.get('competitive'):
         all_insights.extend(analysis['competitive'])
-    
+
     display["insights"] = all_insights
-    
+
+    # Advanced metrics for professional retail intelligence
+    advanced_metrics = analysis.get('advanced_metrics', {})
+    if advanced_metrics:
+        display["advanced_metrics"] = advanced_metrics
+
+        # Add insights from advanced metrics
+        if advanced_metrics.get('herfindahl_index'):
+            display["insights"].append({
+                "type": "market_concentration",
+                "text": f"Market Concentration (HHI): {advanced_metrics['herfindahl_index']} - {advanced_metrics['market_concentration']}"
+            })
+
+        if advanced_metrics.get('review_velocity'):
+            rv = advanced_metrics['review_velocity']
+            display["insights"].append({
+                "type": "engagement",
+                "text": f"Category Engagement Level: {rv['engagement_level']} (Avg: {rv['average']} reviews/product)"
+            })
+
+        if advanced_metrics.get('social_proof_strength'):
+            sps = advanced_metrics['social_proof_strength']
+            display["insights"].append({
+                "type": "social_proof",
+                "text": f"Social Proof: {sps['percentage']}% of products have 100+ reviews, indicating strong category trust"
+            })
+
+        if advanced_metrics.get('category_maturity'):
+            cm = advanced_metrics['category_maturity']
+            display["insights"].append({
+                "type": "maturity",
+                "text": f"Category Maturity: {cm['maturity_signal']}"
+            })
+
+        if advanced_metrics.get('price_gaps') and len(advanced_metrics['price_gaps']) > 0:
+            display["insights"].append({
+                "type": "opportunity",
+                "text": f"Market Opportunity: {len(advanced_metrics['price_gaps'])} significant price gaps identified for potential market entry"
+            })
+
+        if advanced_metrics.get('segment_dynamics'):
+            sd = advanced_metrics['segment_dynamics']
+            if sd.get('premiumization_opportunity'):
+                display["insights"].append({
+                    "type": "strategy",
+                    "text": f"Premiumization Opportunity: Premium segment represents only {sd.get('premium_share', 0):.1f}% - potential to trade consumers up"
+                })
+            if sd.get('value_competition_intensity'):
+                display["insights"].append({
+                    "type": "competitive",
+                    "text": f"High Value Competition: {sd.get('value_share', 0):.1f}% of products in budget segment - intense price competition"
+                })
+
     return display

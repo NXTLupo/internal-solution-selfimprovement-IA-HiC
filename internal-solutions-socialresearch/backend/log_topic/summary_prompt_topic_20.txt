@@ -1,0 +1,126 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: pay, customers, delivery, base pay, driver, doordash, fee
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+\*DoorDash will slowly add more to the base pay as the order gets passed around. But this will result in colder, melted, soggier food for customers, and undeserved risk for the driver who finally accepts the order of poor customer ratings.
+
+EXAMPLE 2:
+\#3. DoorDash sets the price that customers must pay them (service fee +delivery fee) but leaves it up to the customer to dictate the what the driver gets paid. Requiring customers to do so, while under the false impression that they are only selecting an **extra** “tip” amount, is extremely problematic:
+
+EXAMPLE 3:
+\#1. Customer pays “delivery fee” and “service fee.” Customer has no idea that these fees are essentially platform fees paid to the middleman. A very small portion of these fees are paid to the driver (approx. $2).
+
+EXAMPLE 4:
+My formula would only work if the platform was a non-profit delivery service - so that the majority, if not all, of the delivery fee could go to the driver, while keeping customer costs reasonable. But that's a whole different conversation. I agree that drivers carry significant risk doing this job and what we are currently paid does not feel commensurate.
+
+EXAMPLE 5:
+*  It is highly probable (and understandable) if a customer who has already been charged a “delivery fee” and a “service fee” will now seek to pay as little as possible for yet another fee.
+*  Most customers are used to tipping workers who do not bear the same risk and cost as do delivery drivers. It is unlikely that they will  factor in a driver’s gas, vehicle wear and tear (which is real and significant), personal risks, road conditions/traffic etc. [...]
+
+EXAMPLE 6:
+5. "On duty" collision insurance when active. This is a big concern for me when I'm out. I've nearly been hit a few times already. This actually wouldn't be all that expensive for DoorDash as a corporation either when you cost it out per delivery. They'd likely get a bulk discount and pay pro rata for average active time.
+
+EXAMPLE 7:
+This system has resulted in misunderstanding, resentment, finger pointing, feelings of exploitation, poor delivery quality, and underpaid drivers…all the while DoorDash happily deposits the check in the bank.   I dont care either, but the problem is that too many orders are not worthy of accepting because of this system. i.e. $2 + $2 tip = $4.  Instant decline and customer is now 1. not getting their food, 2. delayed food 3. pissed off driver who took it for acceptance rate, 4. being added to a stack.
+I think the majority of the customers understand the business model. [...]
+
+EXAMPLE 8:
+Drivers taking $2 orders aren’t victims of DoorDash’s model, they’re the fuel that keeps it running. If you keep accepting garbage pay, you’re not “sending a message,” you’re telling the algorithm, “Yes, more of this please.” DoorDash loves that. It props up their margins, lets them lean harder on hidden markups, and gives them zero incentive to raise base pay.
+
+EXAMPLE 9:
+* Customers are unknowingly communicating to drivers that they do not value the time, cost, and effort involved in transporting their food.
+* Customers have no idea that offering a “payment for delivery” that does not fairly compensate a driver is putting their order at risk of:
+* never being picked up at all
+*  unnecessary delay and food quality deterioration as the order sits waiting in a bag\*
+*  being labeled a "low tip order" and stacked with another one to make it worthwhile to deliver \*\*
+* a driver who feels devalued and/or forced to take the order at a loss/cost to themselves (to pro [...]
+
+EXAMPLE 10:
+There is always gonna be that driver that accepts the offer. If not, it will be batched with a higher tipping customer or someone will accept it when doordash increases it to a $3-4 dollar offer
+I did my part for you guys tonight. On one dash session I accepted 1 of 46 orders. Some were decent too but I’m specific to staying close to my start zone and honestly sometimes it’s just fun to know I’m helping drive up the more iffy offers in theory
+
+EXAMPLE 11:
+1. Charging store more for using there platform
+2. From charging customers a up charge .
+3 and dropping drives pay to $2 per delivery.  Nothing for extreme milage or for a stacked order.
+
+EXAMPLE 12:
+I have contemplated something akin to the following: a base fare of $5 + $1 per mile from restaurant to drop off location (but tipping would be eliminated unless a customer wants to add at end for exceptional service).
+
+EXAMPLE 13:
+The answer can only be because some customers wouldn't pay it. In a sense, DoorDash is doing things this way because they require the high volume of orders to operate and fear losing the cheapskate customers. In that aspect, it's fair to say DoorDash being "exploitative" is on behalf of the consumer.
+
+EXAMPLE 14:
+The most relevant question that should be asked is "Why aren't customers charged and Dasher's paid a flat per mile rate?"
+
+EXAMPLE 15:
+So, if a customer orders from 15 miles away = $20 delivery fee. Sure, that is expensive, so if $10 is the max you want to pay...then dont order from a restaurant that is more than 5 miles away. If $6 is the max you want to pay then don't order from a restaurant more than 1 mile away. This enables customers to use food delivery services in line with their budget, while paying drivers more fairly.
+
+EXAMPLE 16:
+\#2. What DoorDash calls “tips” are in fact the payment to the driver for the actual delivery of the order from point A to point B. Calling this payment a “tip” is extremely problematic:
+
+EXAMPLE 17:
+\#4. An extra “tip” amount that fails to offer a reasonable “payment for delivery” to a driver is extremely problematic:
+
+EXAMPLE 18:
+1. I'd like to see the "fees" cleaned up, reorganized where they belong and clearly labeled. Anything that says "Delivery Fee" should be required by law to go to the Dasher.
+
+EXAMPLE 19:
+I'd like to think the majority of customers would accept some minor increases for those amendments to the price model if you were fully transparent with why it was happening and how it was being used. I expect a fair amount of them would reduce their tips slightly, but I'd be fine with that.
+I appreciate your thoughtful response and I agree 100% with your suggestion for a flat per mile rate. Doing something like this would make pricing predictable, transparent and fairer.
+
+EXAMPLE 20:
+\*\*Stacked orders introduce a higher probability of delayed food for at least one of the customers. It should be acknowledged that DoorDash also stacks “higher tipping orders” with “lower tipping orders” to ensure that the latter gets delivered.
+
+EXAMPLE 21:
+Is anyone else tired of the usual "you don't tip enough" debate? Door Dash (and all of these 3^(rd) party platforms) have designed a destructive and irresponsible delivery pricing system
+
+EXAMPLE 22:
+* Mislabeling this payment a “tip” violates how 100% of us define and understand a tip – as an **extra amount** paid *after receipt* of a satisfactory service.
+* Asking a customer, therefore, to “tip” *prior to receipt* of a service causes justifiable resentment.
+* Customers don’t realize that the “tip” **is not something extra**, it is the majority of the payment to the driver. Customers also have no idea that the amount they select for “tip” is interpreted by drivers as "the amount that the customer thinks is fair for the transport of their order."
+
+EXAMPLE 23:
+DoorDash's net income for the twelve months ending September 30, 2025, was $1.504 BILLION. 
+      For the full fiscal year 2024, the company reported its first-ever annual profit of $117 million
+
+EXAMPLE 24:
+My insurance offers a rideshare endorsement, but it only covers you if you aren't actively delivering, making it essentially pointless.
+
+EXAMPLE 25:
+And the punchline? The more you normalize bottom-barrel acceptance, the faster they replace you with bots, lockers, and autonomous fleets. Why invest in driver pay when drivers show they’ll work for scraps?
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,5 @@
+{
+  "name": "PersonaStory AI",
+  "description": "A professional market research tool that analyzes unstructured data to generate persona-driven storytelling scripts using Gemini 3 Pro.",
+  "requestFramePermissions": []
+}

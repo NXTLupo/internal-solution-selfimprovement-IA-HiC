@@ -1,0 +1,110 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: fees, prices, doordash, dd, delivery, 10, personal data
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+These prices are stright up criminal.  
+Please, remove yourselves from my state in general and never return.  
+Yall are scammers in my opinion. DoorDash is a scam to both it's customers and it's drivers.
+As someone who's been on the merchant side at multiple locations, I can absolutely promise you that it's the merchant and not DoorDash.
+No the merchant is passing along the DoorDash fees to the consumer.  It's absolutely DoorDash.
+
+EXAMPLE 2:
+DoorDash Using Personal Data for Even More Price Gauging Ever-inflating fees and higher-than-menu prices were already bad enough.  Now DoorDash is using personal data to hike prices for your favorite items, and I only learned about it because of a new New York law requiring companies to disclose if they're using personal data for pricing.
+
+EXAMPLE 3:
+Door Dash upcharges 40-60%. Ive been testing this the last two months as ive started moving away from doordash.  
+What was once a decent service for the fee is now just a fee.
+
+EXAMPLE 4:
+This was the last straw for me.  Occasional promotions and credit card benefits were enough to still make DoorDash worth it on occasion.  But farming my personal data to find ways to squeeze even more money out of me is a dealbreaker and I'll be deleting my account never to return.
+
+EXAMPLE 5:
+If you order from DD twice in the same day, it will post to your credit card as one charge for the combined amount.
+
+EXAMPLE 6:
+The disclosure in the DoorDash app now says, among other things, "This price was set by an algorithm using your personal data."  
+  
+I was curious what that meant, and so used Taco Bell as a control and compared prices for the same three items both between apps (DoorDash and Seamless at the same time) and between dates (DoorDash two weeks ago vs. DoorDash today).
+
+EXAMPLE 7:
+With any luck, pending legislation in a variety of states and studies by the FTC will result in making surveillance pricing like this illegal, as it should be. DD doesn't set the restaurant prices. They market based on your purchases however
+I could tell fees or discount/promotions were based on personal data. If DD (not the restaurant) is changing actual menu item price at account level, and people see different price from same location and time, that’s insane.
+But that's exactly what they are doing - setting higher (or in limited cases lower) menu prices. [...]
+
+EXAMPLE 8:
+Doordash updated a charge a day later to pay for Dash Pass? How tf is this even legal? Ordered Taco Bell the other day, order was $23.78. Then today the charge updated to $33.77. I was so confused, cause there is no way my order was that much. I contacted support and this is their response. They updated the charge to pay for Dash Pass. Note, this was in no way on the transaction screen at checkout, my total was only $23.78 with nothing about Dash Pass listed.  Doordash does really weird stuff with charges.
+
+EXAMPLE 9:
+Absolutely absurd that DoorDash would more than DOUBLE some menu prices because they've analyzed your individual data, order history, etc. to determine that they think you'll like it enough to pay the premium.  And then to justify the practice by offering nominal "discounts" on things you don't get as often.  Ridiculous.
+
+EXAMPLE 10:
+I looked at Tacobell today; 32 dollars for a 12 dollar munchy meal and a speciality chalupa.  
+Its 15 dollars in store.  
+Doordash claims the business sets the price and I can at this point prove thats a lie.  
+You drop your dash pass and all prices go up 2-3x within 60 days.  
+Businesses cant do that. Only DD can.
+
+EXAMPLE 11:
+As far as the Dashpass charge itself, my guess is you either signed up for it while placing the order and didn't notice, or you're already a Dashpass subscriber and your renewal charge time happened to be close to the time you placed the order.
+
+EXAMPLE 12:
+* Menu Items: 
+   * Regular Nacho Fries (frequent order)
+   * Spicy Potato Soft Taco (frequent order)
+   * Chicken Grilled Cheese Burrito (rare order)
+* Prices:
+   * Nacho Fries
+      * 10/26 DoorDash: $3.65
+      * 11/10 Seamless: $3.65
+      * 11/10 DoorDash: $4.26 (+16.7%)
+   * Spicy Potato Soft Taco
+      * 10/26 DoorDash: $1.57
+      * 11/10 Seamless: $1.57
+      * 11/10 DoorDash: $3.28 (+109%!!)
+   * Chicken Grilled Cheese Burrito
+      * 10/26 DoorDash: $9.02
+      * 11/10 Seamless: $9.14
+      * 11/10 DoorDash: $8.53 (-5.4%)
+
+EXAMPLE 13:
+McDonalds was THIRTY dollars for a combo plus delivery.  
+I can get that same combo for 12 dollars after tax in store.
+
+EXAMPLE 14:
+It always triggers my credit card's fraud detector because it also combines the tips together and it's like "Are you sure you meant to tip $20?"
+It's very common for companies to batch charges like this. When charges happen within a certain short timeframe, they'll combine them and only make one charge to the card company because it costs them less in fees. This happens pretty frequently these days. There's nothing wrong with it, they're just slightly delaying a charge instead of submitting it immediately.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,70 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: platinum, orders, rate, platinum status, acceptance rate, miles, 100
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Risk my platinum every day Platinum is always at risk some days i get nothing but orders like this and like $2 for 21 miles $4 for 12 miles it like i get acceptance rate up to 100% and then immediately after i hit 100% the next shift in the first 5 min will drop me to 85% because of crap shoot orders we should be getting payed by the mile not how much doordash wants to pull out of the pay for themselves  Remember you also have 95% completion rate to maintain platinum. If you accept it then cancel it it won’t affect your acceptance rate but rather your completion rate. [...]
+
+EXAMPLE 2:
+Started from the bottom and now we’re here ma bois!  Not when my acceptance rate doesn’t matter lol plus I have pro shopper which means I can ride on platinum status and pro shopper and still cherry. Pick the fuck out of orders without worrying about losing platinum. In my first order as a platinum was $22 for 3.4 miles let’s gooooo
+Welcome to the bottom 😂
+My area has more perks like platinum passes and priority access to dash now but it doesn't include platinum offer boost. [...]
+
+EXAMPLE 3:
+Started This Shift as Platinum... ... but it didn't end that way. 
+This is why... this order came up first at $5.50. I let the clock run out on it... because... really? 🤷‍♀️ Then this. I let the clock run again. 
+Those two passive declines cost me my Platinum status and wrecked my night.
+
+EXAMPLE 4:
+So what should be my takeaway from this? 🤔
+My performance on the metrics that matter,  demands Platinum Status, because it is... but because I don't hate myself or my car enough to take insulting orders, I find myself demoted to Silver? A rewards program should involve carrots, not sticks, and including Acceptance Rate in the requirements is a stick; a punishment.
+
+EXAMPLE 5:
+I'm a Platinum Dasher whether I'm being recognized for it, or not... but tonight, I'm not a happy one. 😡 I went home tonight after for the 2nd time got the same offer a 3rd time. Offer one for 7$ for 28 miles-45 minute trip I declined 3 times. Got a decent offer. Next off Starbucks, 3$ 15 miles - 27 minutes. It gave me the offer 3 times. I went home because every time I declined it my % kept going down. When ever I clicked support the app said "support is down right now try later" if I decline a few more I might be gold tomorrow
+That's rough, and I'm sorry you had a not-so-great night... [...]
+
+EXAMPLE 6:
+It's my humble opinion that Acceptance Rate shouldn't be considered for the Dasher Rewards program. It's no measure whatsoever of excellence or caliber, and isn't that what customers would prefer to see rewarded? As a long-time customer (and newer dasher), I couldn't care less how many or few orders a driver accepts. I care about how they handle my order and treat me.
+
+EXAMPLE 7:
+Worthy to note:
+⭐️ My Completion Rate is 💯 
+⭐️ My On-Time Rate is 💯
+🌟 My Customer Rating is 5.00⭐️⭐️⭐️⭐️⭐️
+
+EXAMPLE 8:
+An hour on the phone with support has so far yielded no real help or answers, only the promise of a review and email.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

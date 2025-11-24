@@ -1,0 +1,82 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: ratings, platinum, dash, orders, acceptance, pay, doordash
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+So we all know it’s an automatic decline. Sometimes I will be sent the same offer two and three times killing my ratings and can knock you right out of platinum status making it harder to earn, having to fight for a slot throughout the day to dash. I’m sure this isn’t in the terms either creating a grey area on how DoorDash is regulating your payout possibilities. I ended up having to use a dash pass to keep my platinum status. Bummer 
+ Working as intended....
+“Platinum” was introduced in late 2023. At the exact same time, pay to drivers was cut by (another) 50%. That’s not a coincidence. [...]
+
+EXAMPLE 2:
+The reason Im asking is that I had an amazing Dasher tonight and I gave him an additional tips because of it but Doordash only offered me to rate the store and not him which was infuriating a little because I wanted to make sure he got proper recognition. Maintaining Platinum status gives you priority on orders that tend to pay out a bit more. Not always, but enough to make consistently more than you would otherwise. A lot of people tend to maintain platinum if their markets are good for it, so it really doesn't amount to much when everybody has the same level of priority...
+
+EXAMPLE 3:
+Quick question for dashers regarding ratings? I want to know what do ratings influence specifically?  I understand its to show how good someone is at the job and it could mean that Doordash will rewards you by giving you more jobs or maybe even a bonus or something but can someone explain to me exactly what it will change?
+
+EXAMPLE 4:
+In order to maintain platinum, you have to keep up at least a 70% acceptance rating. This means you have to accept at least 7 out of 10 orders offered to you on average. And a completion rating of 95%. Which means you need to complete and not unnasign yourself with 95 out of the last 100 orders you've accepted.
+
+EXAMPLE 5:
+Customer ratings aren't really that important to most dashers. If you get below a 4.2 average, you can be deactivated from the platform and not allowed to work anymore. But in order to get that low, you'd have to be a major screw-up... Like, actively trying to mess up on a daily basis...
+>I've tested it a few times, and I'll go from making $14-$15 per hour on platinum down to $10-$11 on gold or silver.
+
+EXAMPLE 6:
+RATINGS & All! I have been dashing for a little while now. 
+Little back story just because, I started dashing when covid hit... I then returned to work as a server and also in 2021 met my husband and we have 2 beautiful children. Im a full time mom and stay at home mom but I dash in the evenings M-F. My post is because I want to start a thread on ratings and small stories with those ratings (: 
+Side note: my ratings are ALWAYS fluctuating, obviously because im a SAHM first! So please share your ratings and little stories with me and others 😀😀 it wont let me add a pic😓😓its bad anyway😂😂
+Lol no w [...]
+
+EXAMPLE 7:
+Dummy Offers..?Regulating ratings..? I’m beginning to wonder if these are just offers being thrown at you to lower your acceptance rating. It kinda upsets me too knowing DoorDash allows these types of offers.
+
+EXAMPLE 8:
+Doordash is legally not allowed to punish drivers for low acceptance ratings, so they found a loophole where everybody gets rewarded for maintaining high ratings, but then they take away that reward if they don't. Which still counts as a punishment if you ask me, but their lawyers could probably convince a judge that it's not.
+
+EXAMPLE 9:
+I've tested it a few times, and I'll go from making $14-$15 per hour on platinum down to $10-$11 on gold or silver.
+
+EXAMPLE 10:
+You should strongly consider deleting the app. In many places, average pay per mile is down 95%. As a result, most drivers end up losing money. Few turn a profit. Among the drivers that do turn a profit, a vast majority have high MPG cars, generous customers, and low acceptance rates.
+
+EXAMPLE 11:
+You’re in a 13 MPG truck, chasing “platinum” in an area filled with upside-down garbage. It may seem like you’re “making money” right now, since your paychecks (barely) cover gas. But eventually, you’ll be blindsided by major repair and/or car accident costs. At that point, you’ll be where most gig drivers end up: in a financial hole.
+
+EXAMPLE 12:
+Almost 12 mi for less than $4 equates to .33 cent a mi.  
+Average miles per gallon 13.3 
+1 gallon of 85 unleaded in my area is  $3.79 gal
+So the earnings would be like .30 cent of fuel as a profit out of the offer if I would’ve accepted it.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

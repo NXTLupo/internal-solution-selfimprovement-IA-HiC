@@ -1,0 +1,118 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: job, story, doordash, cop, ticket, offers lose, dashrebelrevoltrising
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+DoorDash is a monopolized trashheap They incentivize tips and don't pay a decent wage for drivers. They prioritize profits over people (surprise surprise) and now you can literally order ANYTHING on door dash. its sickening. PAY A DECENT WAGE SO YOU DON'T HAVE TO PUSH A TIP AGENDA TO HELP PAY YOUR DRIVERS. Too bad they don't care and have literally 0 customer service. You speak to AI before a person so they can save even more money and pay less people and profit even more. [...]
+
+EXAMPLE 2:
+Then I was coming home from an hour away and I was attempting to get in the left lane so I accelerated to get in front of the vehicle I was attempting to pass but they had begun accelerating even though they where not prior (we call these types roadway bullies) cutting off my ability to pass them, but the cop saw I was going above the speed limit to pass them and cared not for my story.
+
+EXAMPLE 3:
+Long story short, I was done dirty by the justice system and it cost me my favorite job. Bummer.
+444
+
+EXAMPLE 4:
+The last ticket it was also 3am, and I was on a wide open road with no cars in sight. I had recently got my suspension fixed at a place my close buddy worked at, he told me that the job was done prim & proper so I somewhat believed him but the drive of my car was still very off. I noticed a curve in the road so I went about 14 mph over the speed limit, specifically 14 as 15 is a big time ticket I wanted to avoid god forbid there was a cop hiding. [...]
+
+EXAMPLE 5:
+My first ticket was due to it being 3am and I took a right on a red and the sign said it wasn’t allowed, cop saw me and gave me a ticket…
+
+EXAMPLE 6:
+Mostly due to driving infractions in my state. Racked up points which Doordash said was a big no-no. Even sent them safe driving course that I took to knock Down the weight of the tickets.
+
+EXAMPLE 7:
+Edit: I know this post isnt going to get seen by anyone important. this is an UNOFFICIAL sub, after all. I don’t understand these posts. You are answering your own questions. Door dash is a money extraction scheme that’s it. They put all the liability on the driver and customer while they take the most money. They provided a service that was missing from the market and so they get to dictate the terms. I understand people are drawn to it because of the lack of requirements and the flexible work schedule but any job in the world is more secure than this.
+I don't actually work for them anymore. [...]
+
+EXAMPLE 8:
+Unfortunately I’ve been banned from my favorite job. I’m not asking for help or advice. I just want to hear what ya’ll loved about DoorDash (no complainers allowed). I truly believe it was the best job created.  Why did you get banned?
+Sorry for being cryptic, thought my rhyming scheme made it obvious.
+
+EXAMPLE 9:
+#DashRebelRevoltRising isn’t just a hashtag—it’s a declaration.  
+A spark from every tip stolen, every mile unpaid, every voice ignored.
+
+EXAMPLE 10:
+Doordash is one of the least honest, most unscrupulous corporations in the first world. Second only to Uber.
+
+EXAMPLE 11:
+Yet they spam their drivers with offers that lose money. This makes the app quite dangerous to use behind the wheel.
+
+EXAMPLE 12:
+Tell me your moment.  
+The tip that broke you. The policy that pushed you.  
+The shift that made you say “nah, not like this.”  
+Let’s thread it out. Drop your story. Amplify someone else’s.  
+Because silence doesn’t protect us—solidarity does.
+
+EXAMPLE 13:
+Yet they spam their drivers with offers that lose money. Last time I opened the app, every single offer was extremely disrespectful
+
+EXAMPLE 14:
+Wherever you are—Columbus, Austin, LA, London, Berlin—start where you stand.  
+Post your own #DashRebelRevoltRising story. Tag your city.  
+Encourage others to tell theirs. Let’s map the revolt.
+
+EXAMPLE 15:
+Introducing Our Community Guidelines: One Platform, One Set of Standards for Everyone  “One set of standards for everyone”…except Doordash. They violate every single one of their own guidelines:
+
+EXAMPLE 16:
+The **audacity** it takes for THEM to say this…
+You should definitely look for a different job. It's really not healthy to hate your work this much.
+I agree 100%....
+
+EXAMPLE 17:
+If you feel it too, pick it up. Add your story. Join the uprising.  
+It’s not charity. It’s what we’re owed—and we’re done asking.
+
+EXAMPLE 18:
+> “The platform should not be manipulated for monetary gain or to engage in other bad faith or nefarious behavior”
+
+EXAMPLE 19:
+They count on our silence. Our exhaustion. Our desperation.  
+But we’re wide awake—and we’re done playing nice.
+
+EXAMPLE 20:
+And yeah, hope’s nice.  
+But hope doesn’t change the game—action does.  
+So if you’ve been waiting for a sign, this is it.
+
+EXAMPLE 21:
+No more “just be grateful.” No more gaslighting.  
+We are the backbone. The engine. The frontline.  
+And we’re organizing on our terms.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

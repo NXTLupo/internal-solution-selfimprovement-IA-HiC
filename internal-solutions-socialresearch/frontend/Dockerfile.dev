@@ -1,22 +1,44 @@
 ARG NODE_VER=20.9.0
 FROM node:${NODE_VER}-alpine
 
-WORKDIR /app
+WORKDIR /app/frontend
 
-# Install dependencies only when needed
-COPY package.json package-lock.json* ./
-RUN npm install
+# Install build dependencies for native modules
+RUN apk add --no-cache python3 make g++ git
+
+# Copy package files first for better layer caching
+COPY package*.json ./
+
+# Clean and install dependencies with robust fallback options
+RUN npm cache clean --force && \
+    rm -rf node_modules package-lock.json && \
+    # Try standard install first
+    (npm install && echo "Standard install succeeded") || \
+    # If that fails, try with legacy peer deps
+    (npm install --legacy-peer-deps && echo "Legacy peer deps install succeeded") || \
+    # Last resort: force install
+    (npm install --force && echo "Force install succeeded")
+
+# Explicitly ensure critical packages are installed
+RUN npm install d3@^7.9.0 d3-array@^3.2.4 d3-cloud@^1.2.7 --legacy-peer-deps --force && \
+    npm install lucide-react@^0.477.0 --legacy-peer-deps --force && \
+    # Rebuild to ensure binary deps are compiled
+    npm rebuild || true && \
+    # Create a marker file to verify install completed
+    touch /app/frontend/.deps-installed
 
 # Copy the rest of the code
 COPY . .
 
-# Environment variables to improve HMR
+# Environment variables for Windows Docker compatibility
 ENV CHOKIDAR_USEPOLLING=true
 ENV WATCHPACK_POLLING=true
 ENV FAST_REFRESH=true
+# Windows-specific: Force IPv4
+ENV HOST=0.0.0.0
 
-# Expose the ports Vite uses (main port and HMR port)
-EXPOSE 3000 3001
+# Expose the port Vite uses
+EXPOSE 5173
 
-# Set Vite to listen on all interfaces for Docker networking
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
+# Use shell form for better Windows compatibility
+CMD npm run dev -- --host 0.0.0.0 --port 5173

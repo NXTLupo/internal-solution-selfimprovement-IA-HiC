@@ -60,6 +60,7 @@ services:
       - JOURNEY_MCP_URL=http://journey-mcp:8503
       - CLAUDE4_JOURNEY_MCP_URL=http://claude4-journey-mcp:8506
       - VIDEO_MCP_URL=http://video-mcp:8504
+      - RESEARCH_MCP_URL=http://research-mcp:8507
     volumes:
       - ./mcp-services/agent:/app
     working_dir: /app
@@ -75,6 +76,7 @@ services:
       - journey-mcp
       - claude4-journey-mcp
       - video-mcp
+      - research-mcp
 
   # Reddit Ripper MCP Wrapper
   reddit-mcp:
@@ -150,6 +152,24 @@ services:
     depends_on:
       - claude4-journey-mapper
 
+  # Research Generator MCP Wrapper
+  research-mcp:
+    image: python:3.10-slim
+    ports:
+      - "${RESEARCH_MCP_PORT:-8507}:8507"
+    environment:
+      - PORT=8507
+      - RESEARCH_GENERATOR_URL=http://research-generator:5011
+    volumes:
+      - ./mcp-services/research-mcp:/app
+    working_dir: /app
+    command: >-
+      bash -c "pip install --no-cache-dir --upgrade pip setuptools wheel && pip install --no-cache-dir -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 8507"
+    networks:
+      - nxt-humans-network
+    depends_on:
+      - research-generator
+
   # Video Analyzer MCP Wrapper
   video-mcp:
     image: python:3.11-slim
@@ -157,7 +177,7 @@ services:
       - "${VIDEO_MCP_PORT:-8504}:8504"
     environment:
       - PORT=8504
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - VIDEO_ANALYZER_URL=http://video-analyzer:5000
       - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
     volumes:
@@ -214,23 +234,34 @@ services:
       - nxt-humans-network
 
   social-research-frontend:
-    image: node:20-slim
+    build:
+      context: ./internal-solutions-socialresearch/frontend
+      dockerfile: Dockerfile.dev
     ports:
       - "${SOCIAL_RESEARCH_PORT:-3000}:5173"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - VITE_API_BASE_URL=http://localhost:${SOCIAL_RESEARCH_BACKEND_PORT:-8081}
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - HOST=0.0.0.0
     volumes:
-      - ./internal-solutions-socialresearch:/app
+      - ./internal-solutions-socialresearch/frontend:/app/frontend
+      - /app/frontend/node_modules  # Anonymous volume to prevent host node_modules from overriding container's
     working_dir: /app/frontend
-    command: >-
-      bash -c "npm install && npm run dev -- --host 0.0.0.0 --port=5173"
     networks:
       - nxt-humans-network
     depends_on:
       - social-research-backend
-    container_name: nxthumans_ai_cx_workbench-social-research-1
+    container_name: social-research-frontend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5173', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
 
   social-research-backend:
     build:
@@ -242,7 +273,7 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - CLAUDE_API_KEY=${ANTHROPIC_API_KEY}
       - CLAUDE4_API_KEY=${CLAUDE4_API_KEY}
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - CHATGPT5_API_KEY=${CHATGPT5_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
@@ -300,7 +331,7 @@ services:
       - "${VIDEO_ANALYZER_PORT:-5002}:5000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=***REDACTED-OPENAI-KEY***
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - USE_WHISPER_API=true
       - PORT=5000
     volumes:
@@ -474,6 +505,25 @@ services:
     networks:
       - nxt-humans-network
 
+  # Research Generator Service (PersonaStory AI)
+  research-generator:
+    build:
+      context: ./internal-solutions-research-generator
+      dockerfile: Dockerfile.dev
+    ports:
+      - "${RESEARCH_GENERATOR_PORT:-5011}:5011"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+      - PORT=5011
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./internal-solutions-research-generator:/app
+      - research-generator-data:/app/uploads
+    working_dir: /app
+    networks:
+      - nxt-humans-network
+
 networks:
   nxt-humans-network:
     driver: bridge
@@ -512,4 +562,6 @@ volumes:
   soundtrack-generator-generated:
     driver: local
   consistent-character-generator-data:
+    driver: local
+  research-generator-data:
     driver: local

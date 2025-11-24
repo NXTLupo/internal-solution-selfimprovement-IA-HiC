@@ -1,0 +1,116 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: promo, refund, doordash, png, support, order, 11
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+https://preview.redd.it/l73ozme4a71g1.png?width=1179&format=png&auto=webp&s=6f8bb807743f64e1fa3b424a29ca923d113603ad I didn’t know this existed until your post, now I’m sad if it doesn’t work right cause I’d like to get credits 😬 
+Did you place the order through DoorDash?
+
+EXAMPLE 2:
+DOORDASH customer service is the worst 😫 On 11/7 I received an email with a promo of 50% off 3 orders $15+, expiring on 11/27. I tried to place an order on 11/10 and i get a message that says "maximum limit of orders met". I haven't used this promo yet and haven't ordered since August so I contact support.
+
+EXAMPLE 3:
+Today I went to a nearby store called Beluga Fish and Chippery shop that Doordash was offering a $7 Doordash credits reward for. I made the purchase, uploaded the receipt and about 30 minutes later, I received a notification that the receipt was approved and $7 Doordash credits was awarded to my account. I checked my account there were no credits.
+
+EXAMPLE 4:
+I contacted support and they were in complete denial of this promotion. They say there's no such thing and they can't find any proof of transaction in my account. Well obviously because the app asks you to make the purchase in-person....
+
+EXAMPLE 5:
+On 11/11 I get the email offer again. So again, on 11/15 I contact CS and ask if its a valid promo. The CSR says it IS valid, that they have some kind of internal issue with the code applying. I was instructed that since my account is eligible for the discount to just go ahead and place an order, then contact CS after completion for a manual refund of the 50%. Cool, great!
+
+EXAMPLE 6:
+I know its only $15, but they made it an absolute point to make sure I didn't get it. I gave them all the pictures of the email, got confirmation from a CSR, kept screenshots of the conversation of the direction I was given, and they still wouldn't give. Lastly, they "escalated my case to a specialist team" to review the whole situation. They decided to deny my request for refund, but will work hard to make sure my next order is everything I expect.. LAUGHABLE!!
+
+EXAMPLE 7:
+I explain my situation and CSR says the promo has been deactivated and it was only valid the day I received it. I provided a screenshot of the email of promo code, rules, that its valid until 11/27, etc. Still, response is its not an active promo. Period. Ok. Fine.
+
+EXAMPLE 8:
+Doordash just screwed me over (or scammed me) I am not sure if people know this, but under the "Going Out" section of the Doordash app, the app allows you to head to selected nearby restaurants and pick up orders which you pay for at the counter. The app will then reward you with somewhere between $5 - $15 Doordash credits to your account once you upload a photo of the receipt.
+
+EXAMPLE 9:
+1-
+The merchant I purchased from is not part of the promotion (when I entered the promo at checkout it said I had met the maximum limit, not that it's not valid for this particular merchant)
+
+EXAMPLE 10:
+I place an order for $40 at a local restaurant, its delivered, all is great. I contact CS requesting the manual refund, providing the screenshots of the correspondence with the previous CSR. Pretty self explanatory and clear.
+
+EXAMPLE 11:
+I scoured through old posts and found this guy had the exact same experience: [https://www.reddit.com/r/doordash/comments/1d4jrrj/doordash\_tried\_to\_screw\_me\_out\_of\_reward\_credits/](https://www.reddit.com/r/doordash/comments/1d4jrrj/doordash_tried_to_screw_me_out_of_reward_credits/)
+
+EXAMPLE 12:
+2-
+The CSR says the promo is active from May 2025 to December 2026 (the email i got clearly states until 11/27). Huh?? We're definitely not talking about the same promo.
+
+EXAMPLE 13:
+I'm done with DD. All this effort to keep me from a little discount. I won't be using them again. I'm unsubscribing emails and uninstalling the app.
+
+EXAMPLE 14:
+***In the time it's taken me to make this post I've gotten ANOTHER email for the same promo!😂 The font is giving aim messenger 1999
+That font is your bigger issue.
+
+EXAMPLE 15:
+Yup. Wrong. They gave the complete runaround. Not only would they not honor what their own representative had quoted, they gave me a ton of reasons why they couldn't give me the refund:
+
+EXAMPLE 16:
+I called them, they escalated to their specialised team and eventually got back to me saying they can't find such promotion and denied everything.
+
+EXAMPLE 17:
+https://preview.redd.it/qpcp9le4a71g1.png?width=590&format=png&auto=webp&s=326d9b700815093cf1d75d856c462f13ec5c62ec
+
+EXAMPLE 18:
+https://preview.redd.it/fs956sz8a71g1.png?width=590&format=png&auto=webp&s=fb01d9b078c81ec7d12b4c974093b967b5167691
+
+EXAMPLE 19:
+https://preview.redd.it/b01edne4a71g1.png?width=1179&format=png&auto=webp&s=a209af528e3147f19988c2d4838b3a9fbc282ae8
+
+EXAMPLE 20:
+https://preview.redd.it/e1250me4a71g1.png?width=590&format=png&auto=webp&s=4c9f5fafd1391740a35e7ea50faba1363e59cf32
+
+EXAMPLE 21:
+https://preview.redd.it/8gt98fw6a71g1.png?width=1179&format=png&auto=webp&s=85c93da545682fd2abc23daf58d9be0c112dba7f
+
+EXAMPLE 22:
+https://preview.redd.it/ft5u4le4a71g1.png?width=1179&format=png&auto=webp&s=659b53777a97408a774b3225559e807e37c64611
+
+EXAMPLE 23:
+https://preview.redd.it/y8f6yme4a71g1.png?width=1179&format=png&auto=webp&s=ffb5ed6afa3985a70983df1040fe549e0b77d8dc
+
+EXAMPLE 24:
+https://preview.redd.it/2mk0gme4a71g1.png?width=590&format=png&auto=webp&s=a52f94654839b3b8b4bd260d7c188274d88c2d22
+
+EXAMPLE 25:
+Its only good for groceries and retail (the email says come back and order from your favorite restaurant and see what's new).
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

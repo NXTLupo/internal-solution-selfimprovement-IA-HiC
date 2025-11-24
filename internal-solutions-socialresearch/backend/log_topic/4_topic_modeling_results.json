@@ -1,0 +1,1525 @@
+{
+  "total_topics": 36,
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 98,
+      "name": "0_tip_order_tips_delivery",
+      "representation": [
+        {
+          "term": "tip",
+          "weight": 0.03105471841670157
+        },
+        {
+          "term": "order",
+          "weight": 0.012354043415323635
+        },
+        {
+          "term": "delivery",
+          "weight": 0.009353555577888242
+        },
+        {
+          "term": "driver",
+          "weight": 0.008034614614962257
+        },
+        {
+          "term": "food",
+          "weight": 0.0068724514567221695
+        },
+        {
+          "term": "dasher",
+          "weight": 0.006765723310702704
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 42,
+      "name": "1_order_food_dasher_restaurant",
+      "representation": [
+        {
+          "term": "order",
+          "weight": 0.019645869845954723
+        },
+        {
+          "term": "food",
+          "weight": 0.01908885740382856
+        },
+        {
+          "term": "dasher",
+          "weight": 0.016033550851337515
+        },
+        {
+          "term": "restaurant",
+          "weight": 0.011470225616635467
+        },
+        {
+          "term": "driver",
+          "weight": 0.01060214986382072
+        },
+        {
+          "term": "minutes",
+          "weight": 0.009917032019983403
+        },
+        {
+          "term": "report",
+          "weight": 0.006866885171401085
+        },
+        {
+          "term": "receipt",
+          "weight": 0.006700151120668025
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 40,
+      "name": "2_account_tried_app_support",
+      "representation": [
+        {
+          "term": "account",
+          "weight": 0.03209920878863683
+        },
+        {
+          "term": "tried",
+          "weight": 0.016937621229367997
+        },
+        {
+          "term": "app",
+          "weight": 0.01493942456371207
+        },
+        {
+          "term": "support",
+          "weight": 0.014749989827734428
+        },
+        {
+          "term": "email",
+          "weight": 0.01302011637054891
+        },
+        {
+          "term": "verify",
+          "weight": 0.012716754366776398
+        },
+        {
+          "term": "cancel",
+          "weight": 0.011695180919240785
+        },
+        {
+          "term": "doordash",
+          "weight": 0.011473636658585756
+        },
+        {
+          "term": "check",
+          "weight": 0.011004227217216415
+        },
+        {
+          "term": "new",
+          "weight": 0.010956098073415419
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 26,
+      "name": "3_promo_refund_doordash_png",
+      "representation": [
+        {
+          "term": "promo",
+          "weight": 0.021583209425820184
+        },
+        {
+          "term": "refund",
+          "weight": 0.02047963803521146
+        },
+        {
+          "term": "doordash",
+          "weight": 0.01851510956247556
+        },
+        {
+          "term": "png",
+          "weight": 0.016472392679145922
+        },
+        {
+          "term": "support",
+          "weight": 0.013960228635094173
+        },
+        {
+          "term": "order",
+          "weight": 0.013006828723272424
+        },
+        {
+          "term": "11",
+          "weight": 0.011270466410319525
+        },
+        {
+          "term": "email",
+          "weight": 0.010973318579682706
+        },
+        {
+          "term": "format",
+          "weight": 0.010262115345103736
+        },
+        {
+          "term": "webp",
+          "weight": 0.010262115345103736
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 24,
+      "name": "4_doordash_food_support_order",
+      "representation": [
+        {
+          "term": "doordash",
+          "weight": 0.01650517130908806
+        },
+        {
+          "term": "food",
+          "weight": 0.01367893066744285
+        },
+        {
+          "term": "support",
+          "weight": 0.011787946584674172
+        },
+        {
+          "term": "order",
+          "weight": 0.01168181236291055
+        },
+        {
+          "term": "customer",
+          "weight": 0.010755750794112635
+        },
+        {
+          "term": "refund",
+          "weight": 0.008515444644559281
+        },
+        {
+          "term": "chat",
+          "weight": 0.008316711927649779
+        },
+        {
+          "term": "wrong",
+          "weight": 0.008135457470597402
+        },
+        {
+          "term": "open",
+          "weight": 0.00786043002889405
+        },
+        {
+          "term": "fault",
+          "weight": 0.00739263282457758
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 22,
+      "name": "5_pin_order_customer_food",
+      "representation": [
+        {
+          "term": "pin",
+          "weight": 0.019211639919095348
+        },
+        {
+          "term": "order",
+          "weight": 0.01877956946275273
+        },
+        {
+          "term": "customer",
+          "weight": 0.016976462829414767
+        },
+        {
+          "term": "food",
+          "weight": 0.011917225068507085
+        },
+        {
+          "term": "minutes",
+          "weight": 0.011324951383956202
+        },
+        {
+          "term": "cancel",
+          "weight": 0.009964275630837124
+        },
+        {
+          "term": "away",
+          "weight": 0.009453439319250733
+        },
+        {
+          "term": "trying",
+          "weight": 0.008750721847220517
+        },
+        {
+          "term": "door",
+          "weight": 0.008097313845527974
+        },
+        {
+          "term": "driver",
+          "weight": 0.007816665592402301
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "count": 20,
+      "name": "6_items_missing_dasher_bag",
+      "representation": [
+        {
+          "term": "items",
+          "weight": 0.01727913363918669
+        },
+        {
+          "term": "missing",
+          "weight": 0.015144764170992187
+        },
+        {
+          "term": "dasher",
+          "weight": 0.013669303090667316
+        },
+        {
+          "term": "bag",
+          "weight": 0.013261550801988887
+        },
+        {
+          "term": "door",
+          "weight": 0.012734120253693484
+        },
+        {
+          "term": "delivered",
+          "weight": 0.011550845558584207
+        },
+        {
+          "term": "food",
+          "weight": 0.011339362803658968
+        },
+        {
+          "term": "refund",
+          "weight": 0.011222016814207023
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "count": 19,
+      "name": "7_fees_prices_fee_doordash",
+      "representation": [
+        {
+          "term": "fees",
+          "weight": 0.02982236636342796
+        },
+        {
+          "term": "prices",
+          "weight": 0.026916005044600493
+        },
+        {
+          "term": "doordash",
+          "weight": 0.019636518065131267
+        },
+        {
+          "term": "dd",
+          "weight": 0.01772918080407023
+        },
+        {
+          "term": "delivery",
+          "weight": 0.01589380897682571
+        },
+        {
+          "term": "10",
+          "weight": 0.013522190455428473
+        },
+        {
+          "term": "personal data",
+          "weight": 0.01295958066737092
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "count": 17,
+      "name": "8_order_support_tag_pay",
+      "representation": [
+        {
+          "term": "order",
+          "weight": 0.024589141444566826
+        },
+        {
+          "term": "support",
+          "weight": 0.013946740491485385
+        },
+        {
+          "term": "half pay",
+          "weight": 0.01223413041202423
+        },
+        {
+          "term": "shelf tag",
+          "weight": 0.012231244553536863
+        },
+        {
+          "term": "items",
+          "weight": 0.012116583120455326
+        },
+        {
+          "term": "dasher",
+          "weight": 0.011502329958568216
+        },
+        {
+          "term": "canceled",
+          "weight": 0.011384493810257704
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "count": 15,
+      "name": "9_items_hours_large items_home depot",
+      "representation": [
+        {
+          "term": "items",
+          "weight": 0.02691073985527311
+        },
+        {
+          "term": "hours",
+          "weight": 0.02169356436160866
+        },
+        {
+          "term": "large items",
+          "weight": 0.019758015968271165
+        },
+        {
+          "term": "home depot",
+          "weight": 0.018957444438487424
+        },
+        {
+          "term": "lol",
+          "weight": 0.018753348329380568
+        },
+        {
+          "term": "turkey",
+          "weight": 0.018336645734578105
+        },
+        {
+          "term": "10",
+          "weight": 0.017769062248881286
+        },
+        {
+          "term": "crazy",
+          "weight": 0.01714881455867684
+        },
+        {
+          "term": "miles",
+          "weight": 0.017053545547184024
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "count": 15,
+      "name": "10_ratings_platinum_dash_dashing",
+      "representation": [
+        {
+          "term": "ratings",
+          "weight": 0.028365202806304047
+        },
+        {
+          "term": "platinum",
+          "weight": 0.02600889616020492
+        },
+        {
+          "term": "dash",
+          "weight": 0.013784187088236463
+        },
+        {
+          "term": "orders",
+          "weight": 0.012440575727795954
+        },
+        {
+          "term": "acceptance",
+          "weight": 0.011385821247758526
+        },
+        {
+          "term": "pay",
+          "weight": 0.01125988406427643
+        },
+        {
+          "term": "doordash",
+          "weight": 0.00934824587547214
+        },
+        {
+          "term": "little",
+          "weight": 0.009308566619580974
+        },
+        {
+          "term": "day",
+          "weight": 0.009272279431850465
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "count": 14,
+      "name": "11_platinum_orders_rate_status",
+      "representation": [
+        {
+          "term": "platinum",
+          "weight": 0.08090995067757666
+        },
+        {
+          "term": "orders",
+          "weight": 0.03251946357623281
+        },
+        {
+          "term": "rate",
+          "weight": 0.027828923617048584
+        },
+        {
+          "term": "platinum status",
+          "weight": 0.023625235651156314
+        },
+        {
+          "term": "acceptance rate",
+          "weight": 0.017634991093393133
+        },
+        {
+          "term": "miles",
+          "weight": 0.01761790748615558
+        },
+        {
+          "term": "100",
+          "weight": 0.01650960035073648
+        },
+        {
+          "term": "silver",
+          "weight": 0.014980664233903
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "count": 13,
+      "name": "12_information_concern_email_doordash",
+      "representation": [
+        {
+          "term": "information",
+          "weight": 0.040861224070121584
+        },
+        {
+          "term": "concern",
+          "weight": 0.036874276386027215
+        },
+        {
+          "term": "email",
+          "weight": 0.03248582132361039
+        },
+        {
+          "term": "doordash",
+          "weight": 0.025959737543847762
+        },
+        {
+          "term": "privacy",
+          "weight": 0.023601810479071235
+        },
+        {
+          "term": "incident",
+          "weight": 0.022109792236784213
+        },
+        {
+          "term": "lawsuit",
+          "weight": 0.02007587773869317
+        },
+        {
+          "term": "public record",
+          "weight": 0.02007587773869317
+        },
+        {
+          "term": "breach",
+          "weight": 0.019418453742517817
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "count": 13,
+      "name": "13_instructions_door_address_park",
+      "representation": [
+        {
+          "term": "instructions",
+          "weight": 0.027098785314426645
+        },
+        {
+          "term": "door",
+          "weight": 0.02283911334549334
+        },
+        {
+          "term": "address",
+          "weight": 0.021188520173143204
+        },
+        {
+          "term": "park",
+          "weight": 0.01952522556009937
+        },
+        {
+          "term": "sign",
+          "weight": 0.017555270395584594
+        },
+        {
+          "term": "trailer",
+          "weight": 0.01586469902951848
+        },
+        {
+          "term": "delivery",
+          "weight": 0.015607221678906207
+        },
+        {
+          "term": "house",
+          "weight": 0.015577500089565417
+        },
+        {
+          "term": "read",
+          "weight": 0.014898079615059847
+        },
+        {
+          "term": "gate",
+          "weight": 0.014898079615059847
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "count": 12,
+      "name": "14_thanksgiving_dashing_day_orders",
+      "representation": [
+        {
+          "term": "thanksgiving",
+          "weight": 0.046333795492214856
+        },
+        {
+          "term": "dashing",
+          "weight": 0.028810203684613584
+        },
+        {
+          "term": "day",
+          "weight": 0.02688833843474881
+        },
+        {
+          "term": "orders",
+          "weight": 0.023674850774167252
+        },
+        {
+          "term": "friday",
+          "weight": 0.02020264599780931
+        },
+        {
+          "term": "shopping",
+          "weight": 0.015476868645679992
+        },
+        {
+          "term": "miles",
+          "weight": 0.015116599633182877
+        },
+        {
+          "term": "best",
+          "weight": 0.014337993947389821
+        },
+        {
+          "term": "week",
+          "weight": 0.013940619537398152
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "count": 12,
+      "name": "15_card_crimson_bank_money",
+      "representation": [
+        {
+          "term": "card",
+          "weight": 0.049977329399502564
+        },
+        {
+          "term": "crimson",
+          "weight": 0.030666972226271808
+        },
+        {
+          "term": "bank",
+          "weight": 0.03021466847593248
+        },
+        {
+          "term": "money",
+          "weight": 0.029817099507927516
+        },
+        {
+          "term": "doordash",
+          "weight": 0.023806495200731137
+        },
+        {
+          "term": "red card",
+          "weight": 0.022264140487381692
+        },
+        {
+          "term": "issue",
+          "weight": 0.021111496181478683
+        },
+        {
+          "term": "wallet",
+          "weight": 0.019352414215945937
+        },
+        {
+          "term": "notifications",
+          "weight": 0.019352414215945937
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "count": 12,
+      "name": "16_drink_car_open_inside",
+      "representation": [
+        {
+          "term": "drink",
+          "weight": 0.0280805838257432
+        },
+        {
+          "term": "car",
+          "weight": 0.02030882419664421
+        },
+        {
+          "term": "open",
+          "weight": 0.01183843382129452
+        },
+        {
+          "term": "inside",
+          "weight": 0.011293231390449398
+        },
+        {
+          "term": "door",
+          "weight": 0.010865381432396747
+        },
+        {
+          "term": "say",
+          "weight": 0.010562174646414861
+        },
+        {
+          "term": "cup",
+          "weight": 0.010125887055844465
+        },
+        {
+          "term": "food",
+          "weight": 0.00996849644095247
+        },
+        {
+          "term": "starbucks",
+          "weight": 0.009473698366392539
+        },
+        {
+          "term": "drive",
+          "weight": 0.009224598919823804
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "count": 12,
+      "name": "17_lights_porch_house_inside",
+      "representation": [
+        {
+          "term": "lights",
+          "weight": 0.026062759964370852
+        },
+        {
+          "term": "porch",
+          "weight": 0.024854005221196067
+        },
+        {
+          "term": "house",
+          "weight": 0.02265986302202453
+        },
+        {
+          "term": "inside",
+          "weight": 0.02137647370335064
+        },
+        {
+          "term": "food",
+          "weight": 0.01956778931001781
+        },
+        {
+          "term": "porch lights",
+          "weight": 0.019280669708449234
+        },
+        {
+          "term": "order",
+          "weight": 0.01411321205541251
+        },
+        {
+          "term": "turn porch",
+          "weight": 0.014003544348594622
+        },
+        {
+          "term": "picture",
+          "weight": 0.013014755181080806
+        },
+        {
+          "term": "thank",
+          "weight": 0.012694621207266218
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "count": 12,
+      "name": "18_hours_tax_doordash_market",
+      "representation": [
+        {
+          "term": "hours",
+          "weight": 0.02545094642424023
+        },
+        {
+          "term": "tax",
+          "weight": 0.020022905839223986
+        },
+        {
+          "term": "doordash",
+          "weight": 0.016145581520219044
+        },
+        {
+          "term": "market",
+          "weight": 0.015370934923885467
+        },
+        {
+          "term": "extra",
+          "weight": 0.01474811692777139
+        },
+        {
+          "term": "pay",
+          "weight": 0.014585413548946305
+        },
+        {
+          "term": "job",
+          "weight": 0.014468237835857193
+        },
+        {
+          "term": "income",
+          "weight": 0.01444856653981109
+        },
+        {
+          "term": "roughly",
+          "weight": 0.013319569019242337
+        },
+        {
+          "term": "week",
+          "weight": 0.013284590382697064
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "count": 10,
+      "name": "19_credits_valid_nba50_code nba50",
+      "representation": [
+        {
+          "term": "credits",
+          "weight": 0.04447910423710232
+        },
+        {
+          "term": "valid",
+          "weight": 0.03886975666686766
+        },
+        {
+          "term": "code nba50",
+          "weight": 0.031279369741604335
+        },
+        {
+          "term": "discount",
+          "weight": 0.030360593038160983
+        },
+        {
+          "term": "100",
+          "weight": 0.028140213963854945
+        },
+        {
+          "term": "pt",
+          "weight": 0.026238979312584686
+        },
+        {
+          "term": "dashpass",
+          "weight": 0.02568604503423256
+        },
+        {
+          "term": "11",
+          "weight": 0.023536808418622348
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "count": 10,
+      "name": "20_pay_customers_delivery_base",
+      "representation": [
+        {
+          "term": "pay",
+          "weight": 0.021139782337371557
+        },
+        {
+          "term": "customers",
+          "weight": 0.018808981760989323
+        },
+        {
+          "term": "delivery",
+          "weight": 0.01621293712061864
+        },
+        {
+          "term": "base pay",
+          "weight": 0.015518131120307031
+        },
+        {
+          "term": "driver",
+          "weight": 0.014541705372721776
+        },
+        {
+          "term": "doordash",
+          "weight": 0.012614631742817675
+        },
+        {
+          "term": "fee",
+          "weight": 0.011988184335052424
+        },
+        {
+          "term": "risk",
+          "weight": 0.011610485551126797
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "count": 10,
+      "name": "21_account_hacked_card_doordash",
+      "representation": [
+        {
+          "term": "account",
+          "weight": 0.050161202338548413
+        },
+        {
+          "term": "hacked",
+          "weight": 0.03133859740785928
+        },
+        {
+          "term": "card",
+          "weight": 0.031161014513312605
+        },
+        {
+          "term": "doordash",
+          "weight": 0.029584119432257642
+        },
+        {
+          "term": "gift",
+          "weight": 0.02382715703631122
+        },
+        {
+          "term": "credits",
+          "weight": 0.019947108978871593
+        },
+        {
+          "term": "gift cards",
+          "weight": 0.018703404148316026
+        },
+        {
+          "term": "number",
+          "weight": 0.015341798585896698
+        },
+        {
+          "term": "email",
+          "weight": 0.013988178915065768
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "count": 10,
+      "name": "22_bag_handwriting_diaper_bun",
+      "representation": [
+        {
+          "term": "bag",
+          "weight": 0.04722136620901338
+        },
+        {
+          "term": "handwriting",
+          "weight": 0.01653409727880967
+        },
+        {
+          "term": "diaper",
+          "weight": 0.01653409727880967
+        },
+        {
+          "term": "bun",
+          "weight": 0.01653409727880967
+        },
+        {
+          "term": "op",
+          "weight": 0.015353512699097543
+        },
+        {
+          "term": "probably",
+          "weight": 0.015283612712303501
+        },
+        {
+          "term": "wrote",
+          "weight": 0.014920305365790486
+        },
+        {
+          "term": "piece",
+          "weight": 0.014920305365790486
+        },
+        {
+          "term": "man",
+          "weight": 0.014912173977982633
+        },
+        {
+          "term": "food",
+          "weight": 0.014778470248125338
+        }
+      ]
+    },
+    {
+      "topic_id": 23,
+      "count": 9,
+      "name": "23_order_doordash_orders_phone orders",
+      "representation": [
+        {
+          "term": "order",
+          "weight": 0.020624757929503416
+        },
+        {
+          "term": "doordash",
+          "weight": 0.019730622784293238
+        },
+        {
+          "term": "phone orders",
+          "weight": 0.01752624019891784
+        },
+        {
+          "term": "routes",
+          "weight": 0.015684482356126718
+        },
+        {
+          "term": "apartment",
+          "weight": 0.015583979363904208
+        },
+        {
+          "term": "night",
+          "weight": 0.012794299655769876
+        },
+        {
+          "term": "ice cream",
+          "weight": 0.012771407145081745
+        }
+      ]
+    },
+    {
+      "topic_id": 24,
+      "count": 9,
+      "name": "24_court_post_posted_sa",
+      "representation": [
+        {
+          "term": "court",
+          "weight": 0.03397266659839025
+        },
+        {
+          "term": "post",
+          "weight": 0.026974209529768336
+        },
+        {
+          "term": "sa",
+          "weight": 0.025706223053510804
+        },
+        {
+          "term": "arrested",
+          "weight": 0.02486442235585851
+        },
+        {
+          "term": "video",
+          "weight": 0.021263668186228914
+        },
+        {
+          "term": "girl",
+          "weight": 0.020725240754647278
+        },
+        {
+          "term": "felony charges",
+          "weight": 0.02009384626801515
+        },
+        {
+          "term": "henderson",
+          "weight": 0.02009384626801515
+        }
+      ]
+    },
+    {
+      "topic_id": 25,
+      "count": 9,
+      "name": "25_hours_job_love_day",
+      "representation": [
+        {
+          "term": "hours",
+          "weight": 0.03785828280605734
+        },
+        {
+          "term": "job",
+          "weight": 0.031623434126945
+        },
+        {
+          "term": "love",
+          "weight": 0.03100564464092478
+        },
+        {
+          "term": "day",
+          "weight": 0.027224442665183167
+        },
+        {
+          "term": "150",
+          "weight": 0.026670045841350493
+        },
+        {
+          "term": "sunday",
+          "weight": 0.026028904106406466
+        },
+        {
+          "term": "bad",
+          "weight": 0.025654857788772745
+        },
+        {
+          "term": "day hours",
+          "weight": 0.02082865519657495
+        },
+        {
+          "term": "love job",
+          "weight": 0.02082865519657495
+        }
+      ]
+    },
+    {
+      "topic_id": 26,
+      "count": 8,
+      "name": "26_job_story_doordash_cop",
+      "representation": [
+        {
+          "term": "job",
+          "weight": 0.014751456152510788
+        },
+        {
+          "term": "story",
+          "weight": 0.013174793355012364
+        },
+        {
+          "term": "doordash",
+          "weight": 0.01260343863568119
+        },
+        {
+          "term": "cop",
+          "weight": 0.012440837710250958
+        },
+        {
+          "term": "ticket",
+          "weight": 0.012141762848469488
+        },
+        {
+          "term": "offers lose",
+          "weight": 0.010339836344911587
+        },
+        {
+          "term": "dashrebelrevoltrising",
+          "weight": 0.010339836344911587
+        },
+        {
+          "term": "spam drivers offers",
+          "weight": 0.010339836344911587
+        },
+        {
+          "term": "spam drivers",
+          "weight": 0.010339836344911587
+        },
+        {
+          "term": "drivers offers lose",
+          "weight": 0.010339836344911587
+        }
+      ]
+    },
+    {
+      "topic_id": 27,
+      "count": 8,
+      "name": "27_profit_mile_diesel_vehicle",
+      "representation": [
+        {
+          "term": "profit",
+          "weight": 0.013263177712949553
+        },
+        {
+          "term": "mile",
+          "weight": 0.011944429160852218
+        },
+        {
+          "term": "diesel",
+          "weight": 0.01150044692297963
+        },
+        {
+          "term": "vehicle",
+          "weight": 0.010902944523440329
+        },
+        {
+          "term": "dashing",
+          "weight": 0.010674106339410863
+        },
+        {
+          "term": "standard",
+          "weight": 0.010475499047197552
+        },
+        {
+          "term": "average",
+          "weight": 0.010438025591935013
+        },
+        {
+          "term": "irs",
+          "weight": 0.009511841444328421
+        },
+        {
+          "term": "oregon",
+          "weight": 0.009511841444328421
+        },
+        {
+          "term": "gigdelivery",
+          "weight": 0.009511841444328421
+        }
+      ]
+    },
+    {
+      "topic_id": 28,
+      "count": 8,
+      "name": "28_female_names_dasher_app",
+      "representation": [
+        {
+          "term": "female",
+          "weight": 0.02441194127354736
+        },
+        {
+          "term": "names",
+          "weight": 0.023825083850257636
+        },
+        {
+          "term": "dasher",
+          "weight": 0.021642541895727042
+        },
+        {
+          "term": "app",
+          "weight": 0.02070088885662534
+        },
+        {
+          "term": "customer",
+          "weight": 0.020092914943027135
+        },
+        {
+          "term": "dd",
+          "weight": 0.016239147717978204
+        },
+        {
+          "term": "bw3",
+          "weight": 0.0162314135757651
+        },
+        {
+          "term": "picture",
+          "weight": 0.01608230617341793
+        },
+        {
+          "term": "male",
+          "weight": 0.015573735820176168
+        },
+        {
+          "term": "edit",
+          "weight": 0.015191268367209767
+        }
+      ]
+    },
+    {
+      "topic_id": 29,
+      "count": 8,
+      "name": "29_weed_smoke_smoking_smell",
+      "representation": [
+        {
+          "term": "weed",
+          "weight": 0.05199724911006398
+        },
+        {
+          "term": "smoke",
+          "weight": 0.04087466513224102
+        },
+        {
+          "term": "smell",
+          "weight": 0.028248036474472358
+        },
+        {
+          "term": "food",
+          "weight": 0.0204008734093552
+        },
+        {
+          "term": "marijuana",
+          "weight": 0.017968904431463987
+        },
+        {
+          "term": "smoke weed",
+          "weight": 0.017968904431463987
+        },
+        {
+          "term": "absolutely",
+          "weight": 0.017776777701909465
+        },
+        {
+          "term": "unsafe",
+          "weight": 0.01738047740914466
+        },
+        {
+          "term": "driver",
+          "weight": 0.014410526072329786
+        }
+      ]
+    },
+    {
+      "topic_id": 30,
+      "count": 8,
+      "name": "30_dash pass_pass_dash_dashpass",
+      "representation": [
+        {
+          "term": "dash pass",
+          "weight": 0.04035002077336042
+        },
+        {
+          "term": "dashpass",
+          "weight": 0.029554807372721908
+        },
+        {
+          "term": "ripoff",
+          "weight": 0.021671953312637167
+        },
+        {
+          "term": "dashpass user",
+          "weight": 0.021671953312637167
+        },
+        {
+          "term": "free",
+          "weight": 0.02100728250772338
+        },
+        {
+          "term": "scam",
+          "weight": 0.01827800932494681
+        },
+        {
+          "term": "summary",
+          "weight": 0.016253964984477877
+        }
+      ]
+    },
+    {
+      "topic_id": 31,
+      "count": 7,
+      "name": "31_order_contract_late_violation",
+      "representation": [
+        {
+          "term": "order",
+          "weight": 0.03030774287293225
+        },
+        {
+          "term": "late",
+          "weight": 0.023966054691909773
+        },
+        {
+          "term": "contract violation",
+          "weight": 0.02176923098879013
+        },
+        {
+          "term": "restaurant",
+          "weight": 0.021561870126295027
+        },
+        {
+          "term": "minutes",
+          "weight": 0.018757947644411965
+        },
+        {
+          "term": "wait",
+          "weight": 0.018042819463695414
+        },
+        {
+          "term": "marked",
+          "weight": 0.014945108826531358
+        },
+        {
+          "term": "arrived",
+          "weight": 0.014382944996903044
+        }
+      ]
+    },
+    {
+      "topic_id": 32,
+      "count": 7,
+      "name": "32_rate_acceptance_100_acceptance rate",
+      "representation": [
+        {
+          "term": "100",
+          "weight": 0.04055672074378269
+        },
+        {
+          "term": "acceptance rate",
+          "weight": 0.037906140649200705
+        },
+        {
+          "term": "decline",
+          "weight": 0.03489475435886819
+        },
+        {
+          "term": "ar",
+          "weight": 0.029876586344151402
+        },
+        {
+          "term": "accept",
+          "weight": 0.0297795458533756
+        },
+        {
+          "term": "100 deliveries",
+          "weight": 0.02827687207351177
+        },
+        {
+          "term": "percent",
+          "weight": 0.027494892619948967
+        },
+        {
+          "term": "orders",
+          "weight": 0.02541821239229444
+        }
+      ]
+    },
+    {
+      "topic_id": 33,
+      "count": 7,
+      "name": "33_dash_active_says_route",
+      "representation": [
+        {
+          "term": "dash",
+          "weight": 0.055940224528769754
+        },
+        {
+          "term": "active",
+          "weight": 0.033971622653557874
+        },
+        {
+          "term": "says",
+          "weight": 0.03311354358842409
+        },
+        {
+          "term": "route",
+          "weight": 0.03270647636407095
+        },
+        {
+          "term": "end",
+          "weight": 0.02765535192401332
+        },
+        {
+          "term": "facility",
+          "weight": 0.024757862941044845
+        },
+        {
+          "term": "backwards",
+          "weight": 0.023754703502328046
+        },
+        {
+          "term": "dasher app",
+          "weight": 0.022976809140361397
+        },
+        {
+          "term": "add",
+          "weight": 0.021283165744006814
+        }
+      ]
+    },
+    {
+      "topic_id": 34,
+      "count": 7,
+      "name": "34_employees_corporate_doordash_year",
+      "representation": [
+        {
+          "term": "employees",
+          "weight": 0.03230251265640395
+        },
+        {
+          "term": "corporate",
+          "weight": 0.023310791520927972
+        },
+        {
+          "term": "doordash",
+          "weight": 0.023014974899939564
+        },
+        {
+          "term": "year",
+          "weight": 0.022989421666470368
+        },
+        {
+          "term": "drivers",
+          "weight": 0.02092011073722808
+        },
+        {
+          "term": "new",
+          "weight": 0.018314036608744873
+        },
+        {
+          "term": "coffee",
+          "weight": 0.018295315443978867
+        },
+        {
+          "term": "dashers",
+          "weight": 0.016541166705214008
+        },
+        {
+          "term": "rate",
+          "weight": 0.01601747570505074
+        },
+        {
+          "term": "giving orders",
+          "weight": 0.015524463500552758
+        }
+      ]
+    },
+    {
+      "topic_id": 35,
+      "count": 7,
+      "name": "35_location_shop_dd_shop pay",
+      "representation": [
+        {
+          "term": "location",
+          "weight": 0.03125253213760101
+        },
+        {
+          "term": "dd",
+          "weight": 0.023576437052347094
+        },
+        {
+          "term": "shop pay",
+          "weight": 0.023565208413984545
+        },
+        {
+          "term": "grocery store",
+          "weight": 0.020311236477847945
+        },
+        {
+          "term": "online",
+          "weight": 0.017815269844626443
+        },
+        {
+          "term": "merchant market",
+          "weight": 0.016607565605242482
+        },
+        {
+          "term": "shop pay orders",
+          "weight": 0.016607565605242482
+        },
+        {
+          "term": "long distance fees",
+          "weight": 0.016607565605242482
+        }
+      ]
+    }
+  ]
+}

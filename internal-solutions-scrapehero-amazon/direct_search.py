@@ -349,9 +349,34 @@ def extract_with_regex(html_content: str, max_products: int = 50) -> List[Dict[s
             if asin_block_match:
                 block_content = asin_block_match.group(1)
                 
-                # Extract title
-                title_pattern = r'<span class="a-size-[^"]*"[^>]*>([^<]+)</span>'
-                title_match = re.search(title_pattern, block_content)
+                # Extract title - use more specific patterns to avoid grabbing badges
+                # Try h2 with product title class first (most reliable)
+                title_pattern_h2 = r'<h2[^>]*class="[^"]*s-line-clamp[^"]*"[^>]*>.*?<span[^>]*>([^<]+)</span>'
+                title_match = re.search(title_pattern_h2, block_content, re.DOTALL)
+
+                if not title_match:
+                    # Try aria-label which often contains full title
+                    title_pattern_aria = r'aria-label="([^"]+)"'
+                    title_match = re.search(title_pattern_aria, block_content)
+
+                if not title_match:
+                    # Try data-image-source-density which sometimes has title nearby
+                    title_pattern_medium = r'<span class="a-size-medium[^"]*"[^>]*>([^<]+)</span>'
+                    title_match = re.search(title_pattern_medium, block_content)
+                    # Filter out common badges
+                    if title_match and any(badge in title_match.group(1).lower() for badge in ['bought in past', 'left in stock', 'prime', 'save', 'deal', 'off']):
+                        title_match = None
+
+                if not title_match:
+                    # Last resort: look for base class but filter aggressively
+                    title_pattern_generic = r'<span class="a-size-base-plus[^"]*"[^>]*>([^<]+)</span>'
+                    matches = re.findall(title_pattern_generic, block_content)
+                    # Get the longest match that doesn't look like a badge
+                    for match_text in matches:
+                        if len(match_text) > 20 and not any(badge in match_text.lower() for badge in ['bought', 'stock', 'prime', 'save', 'deal', '%', 'month', 'day', 'left']):
+                            title_match = type('obj', (object,), {'group': lambda self, x: match_text})()
+                            break
+
                 if title_match:
                     product['title'] = title_match.group(1).strip()
                 

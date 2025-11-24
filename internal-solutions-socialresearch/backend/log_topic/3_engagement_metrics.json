@@ -1,0 +1,14 @@
+{
+  "basic_metrics": {
+    "total_posts": 726,
+    "total_comments": 2327,
+    "total_score": 123199,
+    "avg_comments_per_post": 3.2052341597796143,
+    "avg_score_per_post": 169.69559228650138
+  },
+  "engagement_distribution": {
+    "high_engagement_posts": 49,
+    "medium_engagement_posts": 574,
+    "low_engagement_posts": 103
+  }
+}

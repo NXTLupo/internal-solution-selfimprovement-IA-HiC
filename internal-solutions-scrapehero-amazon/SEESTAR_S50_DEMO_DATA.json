@@ -1,0 +1,181 @@
+{
+  "search_term": "seestar s50 smart telescope",
+  "products": [
+    {
+      "title": "Seestar S50 Smart Telescope - AI-Powered Astrophotography with Auto Tracking and Live View",
+      "price": "$499.00",
+      "rating": 4.7,
+      "review_count": "234",
+      "asin": "B0CK001",
+      "brand": "ZWO",
+      "features": ["AI tracking", "4K imaging", "mobile app", "auto-focus", "light pollution filter"],
+      "trending_score": 89,
+      "sales_estimate": "500+/month"
+    },
+    {
+      "title": "Celestron StarSense Explorer DX 130AZ Smartphone App-Enabled Telescope",
+      "price": "$449.95",
+      "rating": 4.5,
+      "review_count": "1,823",
+      "asin": "B081RJ8DW1",
+      "brand": "Celestron",
+      "features": ["smartphone integration", "130mm aperture", "altazimuth mount", "starpointer"],
+      "trending_score": 75,
+      "sales_estimate": "300+/month"
+    },
+    {
+      "title": "Unistellar eVscope 2 Digital Smart Telescope - Enhanced Vision Observation",
+      "price": "$2,799.00",
+      "rating": 4.8,
+      "review_count": "89",
+      "asin": "B09PREMIUM",
+      "brand": "Unistellar",
+      "features": ["enhanced vision", "7.7MP sensor", "campaign participation", "auto field detection"],
+      "trending_score": 62,
+      "sales_estimate": "50+/month"
+    },
+    {
+      "title": "Vaonis Vespera Observation Station - Fully Automated Smart Telescope",
+      "price": "$1,499.00",
+      "rating": 4.6,
+      "review_count": "156",
+      "asin": "B0VAONIS",
+      "brand": "Vaonis",
+      "features": ["fully automated", "4MP sensor", "mosaic mode", "multi-wavelength observation"],
+      "trending_score": 71,
+      "sales_estimate": "120+/month"
+    },
+    {
+      "title": "Dwarf II Smart Digital Telescope - Portable AI-Powered Astrophotography Camera",
+      "price": "$469.00",
+      "rating": 4.4,
+      "review_count": "412",
+      "asin": "B0DWARF2",
+      "brand": "DWARF Lab",
+      "features": ["dual-camera", "gigapixel panorama", "time-lapse", "wireless", "compact design"],
+      "trending_score": 82,
+      "sales_estimate": "400+/month"
+    },
+    {
+      "title": "Celestron NexStar 6SE Computerized Telescope - GPS & WiFi Enabled",
+      "price": "$1,149.00",
+      "rating": 4.7,
+      "review_count": "943",
+      "asin": "B000GUFOBO",
+      "brand": "Celestron",
+      "features": ["computerized goto", "150mm aperture", "wifi control", "40,000 object database"],
+      "trending_score": 68,
+      "sales_estimate": "200+/month"
+    },
+    {
+      "title": "Meade Instruments ETX90 Observer - Portable Telescope with AudioStar Controller",
+      "price": "$599.95",
+      "rating": 4.3,
+      "review_count": "287",
+      "asin": "B00028M1OK",
+      "brand": "Meade",
+      "features": ["goto mount", "audiostar database", "90mm aperture", "portable design"],
+      "trending_score": 54,
+      "sales_estimate": "80+/month"
+    },
+    {
+      "title": "Celestron AstroMaster 130EQ Newtonian Telescope - Manual Equatorial Mount",
+      "price": "$329.95",
+      "rating": 4.4,
+      "review_count": "2,145",
+      "asin": "B000MLHMAS",
+      "brand": "Celestron",
+      "features": ["130mm reflector", "equatorial mount", "manual tracking", "beginner friendly"],
+      "trending_score": 71,
+      "sales_estimate": "350+/month"
+    },
+    {
+      "title": "Orion SkyQuest XT8 Classic Dobsonian Telescope",
+      "price": "$479.99",
+      "rating": 4.6,
+      "review_count": "1,234",
+      "asin": "B0000XMSNO",
+      "brand": "Orion",
+      "features": ["203mm aperture", "dobsonian mount", "parabolic mirror", "deep sky viewing"],
+      "trending_score": 66,
+      "sales_estimate": "180+/month"
+    },
+    {
+      "title": "ZWO Seestar S50 Complete Bundle - Telescope + Power Bank + Carrying Case",
+      "price": "$599.00",
+      "rating": 4.8,
+      "review_count": "67",
+      "asin": "B0BUNDLE",
+      "brand": "ZWO",
+      "features": ["complete kit", "extended battery", "protective case", "premium accessories"],
+      "trending_score": 91,
+      "sales_estimate": "200+/month"
+    },
+    {
+      "title": "Celestron Nexus 2+ WiFi Adapter - Smart Telescope Upgrade Kit",
+      "price": "$159.95",
+      "rating": 4.2,
+      "review_count": "543",
+      "asin": "B00ACCESSORY",
+      "brand": "Celestron",
+      "features": ["wifi connectivity", "smartphone control", "planetarium app", "universal compatibility"],
+      "trending_score": 58,
+      "sales_estimate": "400+/month"
+    },
+    {
+      "title": "Sky-Watcher Star Adventurer GTi - Motorized Equatorial Mount for Astrophotography",
+      "price": "$449.00",
+      "rating": 4.6,
+      "review_count": "312",
+      "asin": "B07MOUNT",
+      "brand": "Sky-Watcher",
+      "features": ["wifi control", "polar alignment", "auto-tracking", "time-lapse mode"],
+      "trending_score": 73,
+      "sales_estimate": "150+/month"
+    }
+  ],
+  "market_intelligence": {
+    "category": "Smart Telescopes & Astrophotography Equipment",
+    "total_addressable_market": "$450M+ annually",
+    "growth_rate": "18% YoY",
+    "key_trends": [
+      "AI-powered automation reducing barrier to entry",
+      "Smartphone integration becoming standard",
+      "Shift from manual to computerized tracking",
+      "Growing demand for astrophotography capabilities",
+      "Premium segment growing faster than entry-level"
+    ],
+    "competitive_dynamics": {
+      "market_leaders": ["Celestron", "ZWO/Seestar", "Unistellar"],
+      "emerging_players": ["DWARF Lab", "Vaonis"],
+      "price_segments": {
+        "entry": "$100-$400 (manual telescopes)",
+        "mid": "$400-$800 (smart/computerized)",
+        "premium": "$800-$3000+ (professional astrophotography)"
+      }
+    },
+    "seestar_s50_positioning": {
+      "price_point": "$499 (mid-range sweet spot)",
+      "key_differentiators": [
+        "Most accessible AI-powered astrophotography",
+        "No manual setup required",
+        "Live view on smartphone",
+        "Auto-tracking and stacking",
+        "Compact and portable"
+      ],
+      "target_customer": "Astronomy enthusiasts who want astrophotography without technical expertise",
+      "competitive_advantages": [
+        "Price/performance ratio superior to Unistellar",
+        "More automated than traditional telescopes",
+        "Better image quality than entry-level smart scopes",
+        "Growing brand recognition in amateur astronomy community"
+      ],
+      "weaknesses": [
+        "Smaller aperture than traditional scopes at similar price",
+        "Dependent on smartphone/tablet",
+        "Limited upgrade path",
+        "Battery life constraints"
+      ]
+    }
+  }
+}

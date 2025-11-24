@@ -3,6 +3,7 @@ uvicorn>=0.23.0
 python-multipart>=0.0.5
 aiofiles>=23.1.0
 yt-dlp>=2025.5.22
+youtube-transcript-api>=0.6.0
 pytube>=15.0.0
 pydub>=0.25.1
 openai>=1.14.0

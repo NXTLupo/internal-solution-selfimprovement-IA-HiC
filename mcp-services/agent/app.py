@@ -95,7 +95,8 @@ tool_services = {
     "journey": JOURNEY_MCP_URL,
     "video": VIDEO_MCP_URL,
     "openai_journey": OPENAI_JOURNEY_MCP_URL,
-    "claude4_journey": CLAUDE4_JOURNEY_MCP_URL
+    "claude4_journey": CLAUDE4_JOURNEY_MCP_URL,
+    "research": os.getenv("RESEARCH_MCP_URL", "http://research-mcp:8507")
 }
 
 # Cache the available tools from each service

@@ -1,0 +1,71 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: court, post, sa, arrested, video, girl, felony charges
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Last post on “DD SA girl”, aka Olivia Henderson. Original police statement obtained via a FOIA request regarding her initial call to the authorities. Check my previous post for a bit more context if needed. In short, she was arrested for two e-felony charges. One being unlawful surveillance and the other being dissemination.
+
+EXAMPLE 2:
+Olivia Henderson, AKA the “DoorDash SA” woman has been arrested on two E-felony charges. She was charged with unlawful surveillance and unlawful dissemination.  here is the link to the source from the official NY state unified court system.
+
+EXAMPLE 3:
+https://iapps.courts.state.ny.us/webcrim_attorney/Detail?which=case&docketNumber=DgpbTdSyvAvdJ/ufmmX3/w==&courtType=U&countyId=0XycWnZQoeCH7KAexJYcfQ==&docketId=KjS_PLUS_JvJIzjmSefXtms3YFA==&docketDseq=T/O1YN_PLUS_BG65HkOeqEnpAkw==&defendantName=Henderson,+Olivia&county=&court=Oswego+City+Court&recordType=U&recordNum=
+How come on her tiktok it shows she’s active?
+This!
+
+EXAMPLE 4:
+Well that's just rude lol
+Huh. I notice that she didn't say that she filmed him. Or had a video proving it. I wonder why she didn't tell police this...
+
+EXAMPLE 5:
+This document was obtained by a FOIA request, so there is no link. However, here is the video posted by a criminal defense attorney who managed to get her hands on the document. [her video](https://www.tiktok.com/t/ZTMwCRQuY/)
+
+EXAMPLE 6:
+Hopefully people will wake up now and see that she was completely in the wrong and dug her own grave.  I’m sure it’s because she pushed the door open when she saw it was ajar to begin with. I could’ve sworn that was her first version of the story when she initially posted about it.
+>check my previous post
+
+EXAMPLE 7:
+MOD POST --- make sure to read. There are some issues that have been going on in this subreddit that we need to address as a collective whole.
+
+EXAMPLE 8:
+* **Users posting self-promotional links, websites, and referral codes.** That's made up a huge majority of our removal reasons in the past month.
+* **Search the subreddit first before making a new post.** We've been seeing repeated posts from up to years ago likely for the purpose of karma farming. We remove as many posts as we can that suspect karma farming. We've had to remove a lot of the "girl getting arrested for SA" posts because they flood our feed.
+* **Spreading false information or propaganda**, which can be dangerous. [...]
+
+EXAMPLE 9:
+Do your best to continue to report spam or what looks like spam. Most of our post removals have been about staying polite (i.e, when people say "get a real job"), posting the same thing repeatedly, and going off topic (i.e., politics). Ooo. I like this MOD post!  🙏
+Thanks folks.  Keep up the hard work.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

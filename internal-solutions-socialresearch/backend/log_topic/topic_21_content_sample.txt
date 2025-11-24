@@ -1,0 +1,15 @@
+Topic 21 - Content Sample
+Number of content items: 8
+Top words: account, hacked, card, doordash, gift, credits, gift cards
+
+Content 1 (length: 573 chars):
+DoorDash eventually deactivated the hacked account. I had credits in my account which DoorDash initially agreed they’ll be able to transfer that to my new account once I create a new one with my original phone number and email. After waiting for a week and multiple phone calls to their support team, the eventually told me they could not transfer the credit, so the credits will just be clawed back to DoorDash, essentially stealing from their own customers. Support representative hung up on me when in inquired what justification they have to keep my credits that I had.
+
+Content 2 (length: 1019 chars):
+Doordash Credit Combining Limitations are Dumb Just want to say FU to whoever set the policy that accounts cannot combine Doordash credits. Wife and I are going through some really traumatic stuff, and friends have sent us doordash credits as a virtual mealtrain. I have a Dashpass on my account, and my wife loaded some gift cards onto hers without thinking. No way to get that money to my account to take advantage of my dashpass. Support can't help. Can't buy gift cards with credit. Can you add her as a family on the dashpass?  My husband has dashpass, and he gave me access to use it somehow..
+I don’t see a way.
+That's a wild expectation to think any company would move money/credits from one account to another, especially if the error was due to user mistake. Your wife voluntarily added the gift cards to her account, there's no reason to think they'd be willing to just move those credits to another account. That is wildly un-secure; imagine the scammers and hackers taking advantage of such a service, lol.
+
+Content 3 (length: 229 chars):
+P.S. To clarify, the hacker was not able to spend any of the credits in my account, I was able to notice my account was compromised before the hacker was able to complete a transaction. Once your account is deactivated it’s done.
+

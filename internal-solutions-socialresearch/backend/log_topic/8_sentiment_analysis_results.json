@@ -1,0 +1,77 @@
+[
+  {
+    "topic_id": 0,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.17717448829793606
+  },
+  {
+    "topic_id": 1,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6343498378992081
+  },
+  {
+    "topic_id": 2,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6850243221968413
+  },
+  {
+    "topic_id": 3,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6991647100448608
+  },
+  {
+    "topic_id": 4,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.7162963872154554
+  },
+  {
+    "topic_id": 5,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5927907291686896
+  },
+  {
+    "topic_id": 6,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5297870501875878
+  },
+  {
+    "topic_id": 7,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.4256646554721029
+  },
+  {
+    "topic_id": 8,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5162114693838007
+  },
+  {
+    "topic_id": 9,
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.07195985714594523
+  },
+  {
+    "topic_id": 10,
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.044877193371454877
+  },
+  {
+    "topic_id": 11,
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0035666461501802716
+  },
+  {
+    "topic_id": 12,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.3517160690747775
+  },
+  {
+    "topic_id": 13,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.567715775508147
+  },
+  {
+    "topic_id": 14,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.16542532294988632
+  }
+]

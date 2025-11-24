@@ -331,7 +331,15 @@ def crawl_category():
     try:
         # Extract sort type and trending range
         sort_by = data.get('sort', 'default')
-        trending_range = int(data.get('trending_range', 30))
+        # Handle trending_range - can be None, 'null', or a number
+        trending_range_raw = data.get('trending_range', 30)
+        if trending_range_raw is None or trending_range_raw == 'null' or trending_range_raw == '':
+            trending_range = 30  # Default value
+        else:
+            try:
+                trending_range = int(trending_range_raw)
+            except (ValueError, TypeError):
+                trending_range = 30  # Default on conversion error
         
         logger.info(f"Trying direct Amazon search for category: {search_term} with sort={sort_by}, trending_range={trending_range}")
         products = direct_amazon_search(search_term, max_attempts=5, use_fallback=False, 
@@ -447,7 +455,15 @@ def get_market_insights():
         try:
             # Extract sort type and trending range
             sort_by = data.get('sort', 'default')
-            trending_range = int(data.get('trending_range', 30))
+            # Handle trending_range - can be None, 'null', or a number
+            trending_range_raw = data.get('trending_range', 30)
+            if trending_range_raw is None or trending_range_raw == 'null' or trending_range_raw == '':
+                trending_range = 30  # Default value
+            else:
+                try:
+                    trending_range = int(trending_range_raw)
+                except (ValueError, TypeError):
+                    trending_range = 30  # Default on conversion error
             
             # Increase max_attempts for better reliability but disable fallback to mock data
             products = direct_amazon_search(search_term, max_products=limit, max_attempts=5, use_fallback=False,
@@ -570,25 +586,36 @@ def scrape_product():
             try:
                 logger.info(f"Trying direct Amazon search for: {product_term}")
                 product_data, error = get_product_direct(product_term)
-                
-                if not error and product_data:
+
+                if product_data and not error:
                     # We got product data directly, return it
+                    logger.info(f"Direct search successful, returning product data")
                     return jsonify(product_data)
-                    
+
                 logger.warning(f"Direct search failed: {error}, falling back to category search")
-                    
+
                 # Fall back to category search if direct search fails
-                products, error = get_category_products(product_term, limit=1)
-                if error or not products:
-                    return jsonify({'error': f'Could not find product: {product_term}'}), 400
-                    
-                # Use the URL of the first product
-                url = products[0].get('url')
-                if not url:
-                    return jsonify({'error': 'Found product but could not get URL'}), 400
+                products, category_error = get_category_products(product_term, limit=1)
+
+                if category_error or not products or len(products) == 0:
+                    logger.error(f"Category search also failed: {category_error}")
+                    # Return helpful message suggesting to use Category Analysis instead
+                    return jsonify({
+                        'error': f'Could not find specific product "{product_term}". Try using "Category Analysis" tab instead for broader product searches.',
+                        'suggestion': 'Use the Category Analysis tab to search for multiple products',
+                        'search_term': product_term
+                    }), 400
+
+                # Use the first product from category search
+                logger.info(f"Category search found {len(products)} products, using first one")
+                return jsonify(products[0])
+
             except Exception as e:
                 logger.error(f"All search methods failed: {str(e)}")
-                return jsonify({'error': f'Error searching for product: {str(e)}'}), 500
+                return jsonify({
+                    'error': f'Error searching for product: {str(e)}',
+                    'suggestion': 'Try using the Category Analysis tab for broader searches'
+                }), 500
     else:
         url = product_term
         

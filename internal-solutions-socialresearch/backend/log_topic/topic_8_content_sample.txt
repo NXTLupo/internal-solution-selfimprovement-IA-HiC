@@ -1,0 +1,16 @@
+Topic 8 - Content Sample
+Number of content items: 10
+Top words: order, support, half pay, shelf tag, items, dasher, canceled
+
+Content 1 (length: 266 chars):
+It was a good paying order. The store closed early. I arrive to the store. They verbally tell me we closed early. I contact support. I tell support I would like the order canceled due to store closed and to issue half pay. Agent says no problem and “canceled” order.
+
+Content 2 (length: 620 chars):
+What the agent actually did was “unassign” the order from me penalty free. So my completion rate didn’t go down BUT I didn’t get half pay. By the time I reached back out to support about the order and half pay, they informed me that “you unassigned the order, but a second dasher accepted the order and had it canceled by support. The second dasher received the half pay.”
+Oh man, that would make sense. Not sure how long they’ve been doing that(I’ve dashed for almost 5 years and this had never happened before)but it wouldn’t be the only thing DD does to be greedy. They took away earn by time in my area 2 months ago.
+
+Content 3 (length: 591 chars):
+Also, the "total items" stat is a non-issue now. It seems like if the customer mentions refund in the chat log it will exclude the item.
+Yeah the shelf tag thing is a decent system. I was at 92%, now I’m at 97%, and that’s with a few shelf tag pics excluded for some BS reason. Only thing I’d change is having the thereshold be 94% or 95% instead of 96%.
+Mine says “shelf tag not recognized” more times than not… and I try at different angles, but nothing… it can’t read it… also my refunded items are solely for unresponsive customers, why should I get penalized for that remains a mystery…
+

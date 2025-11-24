@@ -1,0 +1,13 @@
+Topic 20 - Content Sample
+Number of content items: 25
+Top words: pay, customers, delivery, base pay, driver, doordash, fee
+
+Content 1 (length: 239 chars):
+\*DoorDash will slowly add more to the base pay as the order gets passed around. But this will result in colder, melted, soggier food for customers, and undeserved risk for the driver who finally accepts the order of poor customer ratings.
+
+Content 2 (length: 305 chars):
+\#3. DoorDash sets the price that customers must pay them (service fee +delivery fee) but leaves it up to the customer to dictate the what the driver gets paid. Requiring customers to do so, while under the false impression that they are only selecting an **extra** “tip” amount, is extremely problematic:
+
+Content 3 (length: 214 chars):
+\#1. Customer pays “delivery fee” and “service fee.” Customer has no idea that these fees are essentially platform fees paid to the middleman. A very small portion of these fees are paid to the driver (approx. $2).
+

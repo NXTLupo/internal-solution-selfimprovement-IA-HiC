@@ -1,0 +1,8 @@
+Analyzing 726 documents
+Document length statistics:
+  Min length: 104 characters
+  Max length: 7811 characters
+  Average length: 832.05 characters
+Using hyperparameters for medium dataset (200-599 documents)
+Fitting BERTopic model to documents...
+Successfully fit BERTopic model and transformed documents

@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Character, Scene, ImageData, VideoClip, VideoGenerationConfig } from './types';
-import { 
-    generateCharacterImage, 
+import {
+    generateCharacterImage,
     generateObjectImage,
-    generateSceneImage, 
-    generateCharactersFromImage, 
+    generateSceneImage,
+    generateCharactersFromImage,
     generateObjectsFromImage,
-    addCharactersToDB, 
-    deleteCharacterFromDB, 
+    addCharactersToDB,
+    deleteCharacterFromDB,
     loadCharactersFromDB,
     addObjectsToDB,
     deleteObjectFromDB,
@@ -21,6 +21,10 @@ import {
 import { Gallery } from './components/Gallery';
 import { CharacterNamingModal } from './components/CharacterNamingModal';
 import { Button, PlusIcon, TrashIcon, SparklesIcon, UploadIcon, XIcon } from './components/ui';
+
+// NEW AUDIO-TO-VIDEO COMPONENT (Feature-flagged)
+import { AudioSyncVideoGenerator } from './components/AudioSyncVideoGenerator';
+
 import './styles.css';
 
 type GenerationMode = 'character' | 'object';
@@ -799,6 +803,19 @@ const App: React.FC = () => {
                                 <span>❌</span>
                                 <span>Video generation failed</span>
                               </div>
+                              {clip.videoData?.error && (
+                                <div className="text-sm mt-2 p-2 bg-red-50 text-red-700 rounded">
+                                  {clip.videoData.error.includes('Safety Filter') ? (
+                                    <>
+                                      <strong>⚠️ Content Safety Issue:</strong>
+                                      <p className="mt-1">The audio or prompt was blocked by Veo 3's safety filters.</p>
+                                      <p className="text-xs mt-1">Try using different audio or modifying your prompt.</p>
+                                    </>
+                                  ) : (
+                                    clip.videoData.error
+                                  )}
+                                </div>
+                              )}
                               <div className="text-xs opacity-60 mt-1">
                                 Try generating again or clear this entry
                               </div>
@@ -845,6 +862,28 @@ const App: React.FC = () => {
                     </div>
                   </section>
                 )}
+
+                {/* NEW AUDIO-TO-VIDEO SECTION - Feature Flagged for Progressive Rollout */}
+                {/* To enable: Set ENABLE_AUDIO_SYNC to true */}
+                {(() => {
+                  const ENABLE_AUDIO_SYNC = true; // ENABLED: Audio-to-Video features are now active!
+                  if (ENABLE_AUDIO_SYNC && scenes.length > 0) {
+                    return (
+                      <AudioSyncVideoGenerator
+                        scenes={scenes}
+                        onVideoGenerated={(newClip) => {
+                          setVideoClips(prev => [newClip, ...prev]);
+                          // Start polling if needed
+                          if (newClip.videoData?.status === 'generating' && newClip.videoData.operationId) {
+                            startVideoPolling(newClip.id, newClip.videoData.operationId);
+                          }
+                        }}
+                        isEnabled={true}
+                      />
+                    );
+                  }
+                  return null;
+                })()}
               </div>
             </div>
           </div>

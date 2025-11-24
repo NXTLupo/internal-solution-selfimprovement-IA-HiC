@@ -343,6 +343,35 @@
           </div>
         </div>
 
+        <div class="enterprise-card" data-category="analysis" data-service="research-generator">
+          <div class="card-thumbnail">
+            <img src="/static/research-generator-demo.gif" alt="PersonaStory AI Research Generator Demo" class="app-thumbnail" />
+          </div>
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-microscope"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="research-generator-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">PersonaStory AI Research Generator</h3>
+            <p class="service-description">Transform research data into compelling personas, themes, and video scripts using Gemini 3 Pro with extended thinking</p>
+            <div class="service-tags">
+              <span class="tag">Gemini 3 Pro</span>
+              <span class="tag">Research Analysis</span>
+              <span class="tag">Persona Generation</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="{{ research_generator_url }}" id="research-generator-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch Application
+            </a>
+          </div>
+        </div>
+
         <div class="enterprise-card" data-category="generation" data-service="image-captioner">
           <div class="card-thumbnail">
             <img src="/static/a11y.gif" alt="A11y Image Caption Generator Demo" class="app-thumbnail" />
@@ -718,6 +747,20 @@
 
         if (data.services && data.services.soundtrack_generator) {
           updateStatusIndicator(soundtrackGeneratorStatus, data.services.soundtrack_generator.status);
+        }
+
+        if (data.services && data.services.consistent_character_generator) {
+          const consistentCharacterStatus = document.querySelector('#consistent-character-generator-status');
+          if (consistentCharacterStatus) {
+            updateStatusIndicator(consistentCharacterStatus, data.services.consistent_character_generator.status);
+          }
+        }
+
+        if (data.services && data.services.research_generator) {
+          const researchGeneratorStatus = document.querySelector('#research-generator-status');
+          if (researchGeneratorStatus) {
+            updateStatusIndicator(researchGeneratorStatus, data.services.research_generator.status);
+          }
         }
         
         if (data.services && data.services.scrapehero_amazon) {
