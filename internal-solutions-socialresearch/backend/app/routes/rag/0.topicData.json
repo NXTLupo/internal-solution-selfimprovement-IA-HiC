@@ -1,47 +1,82 @@
 {
-  "positive": [
-    {
-      "id": 3,
-      "one_sentence_summary": "Discussions about film festival screenings and movie premieres at cinema venues, focusing on event announcements and audience engagement with independent films.",
-      "short_summary": "Film festival screenings"
-    },
-    {
-      "id": 1,
-      "one_sentence_summary": "Discussions about independent horror film production, crowdfunding campaigns, and alternative distribution strategies for low-budget genre films created by emerging filmmakers.",
-      "short_summary": "Indie horror filmmaking"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Discussions about independent filmmakers promoting their creative projects and seeking community support for their indie films across various genres.",
-      "short_summary": "Indie film promotion"
-    },
-    {
-      "id": 4,
-      "one_sentence_summary": "Discussions center around independent filmmakers and content creators seeking feedback on technical production elements like lighting and editing, along with script consultation services and film-related academic research surveys.",
-      "short_summary": "Filmmaking feedback requests"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Discussions about independent short films and adventure content featuring mysterious locations, folklore investigations, and exploration of remote natural settings.",
-      "short_summary": "Independent film productions"
-    }
-  ],
+  "positive": [],
   "neutral": [
     {
-      "id": 2,
-      "one_sentence_summary": "Discussions about AI-generated films and animated content, including reactions to artificial intelligence in cinema and debates about the artistic merit of machine-created entertainment.",
-      "short_summary": "AI-generated cinema discussions"
+      "id": 4,
+      "one_sentence_summary": "Discussions about timing issues, delays, and cancellations in food delivery and grocery shopping services, including driver problems and order fulfillment challenges.",
+      "short_summary": "Delivery order cancellations"
+    },
+    {
+      "id": 3,
+      "one_sentence_summary": "Discussions about gig economy driver frustrations with platform reward systems that tie premium status and better order access to acceptance rate requirements, creating tension between profitable decision-making and maintaining status benefits.",
+      "short_summary": "Driver status rewards"
+    },
+    {
+      "id": 12,
+      "one_sentence_summary": "Delivery drivers discuss fluctuating ratings, declining order frequency, and earnings challenges while sharing experiences about market competition and economic factors affecting their gig work.",
+      "short_summary": "Delivery driver experiences"
+    },
+    {
+      "id": 13,
+      "one_sentence_summary": "Discussions analyze the financial viability and working conditions of gig economy delivery driving, examining income potential, hidden costs, and the trade-offs between flexible work and consistent earnings.",
+      "short_summary": "Gig economy work"
+    }
+  ],
+  "negative": [
+    {
+      "id": 1,
+      "one_sentence_summary": "Discussions about operational challenges, service quality issues, and interpersonal dynamics in food delivery services involving drivers, customers, and restaurants.",
+      "short_summary": "Food delivery issues"
     },
     {
       "id": 0,
-      "one_sentence_summary": "Discussions about independent horror short film production, covering both creative promotional content and serious safety concerns in low-budget filmmaking environments.",
-      "short_summary": "Horror short film production"
+      "one_sentence_summary": "Discussions focus on tipping practices, delivery service quality, and the relationship between gratuity amounts and driver performance in food delivery platforms.",
+      "short_summary": "Delivery tipping practices"
+    },
+    {
+      "id": 2,
+      "one_sentence_summary": "Discussions focus on widespread issues with food delivery promotional codes and reward programs failing to work properly, leading to frustrating customer service disputes over refunds and credits.",
+      "short_summary": "Promotional code disputes"
     },
     {
       "id": 5,
-      "one_sentence_summary": "Discussions about independent film production and horror movie promotional announcements for upcoming theatrical and streaming releases.",
-      "short_summary": "Independent film promotion"
+      "one_sentence_summary": "Discussions about delivery service challenges focus on driver compliance with customer instructions, communication preferences during drop-off, and navigation difficulties in residential complexes.",
+      "short_summary": "Delivery instruction compliance"
+    },
+    {
+      "id": 7,
+      "one_sentence_summary": "Discussions focus on technical difficulties and frustrations with automated account verification and identity authentication systems for digital platforms.",
+      "short_summary": "Account verification issues"
+    },
+    {
+      "id": 6,
+      "one_sentence_summary": "Discussions examine food delivery platform operations, driver compensation, business practices, market dynamics, and the broader economic implications of gig economy delivery services.",
+      "short_summary": "Food delivery platforms"
+    },
+    {
+      "id": 8,
+      "one_sentence_summary": "Discussions about delivery service failures including missing packages, driver theft, undelivered orders, and customer service issues with various delivery platforms.",
+      "short_summary": "Delivery service failures"
+    },
+    {
+      "id": 9,
+      "one_sentence_summary": "Users discuss various technical problems and reliability issues with delivery service mobile applications, including mapping errors, distance calculation problems, and location tracking glitches.",
+      "short_summary": "Delivery app glitches"
+    },
+    {
+      "id": 11,
+      "one_sentence_summary": "Discussions focus on food delivery platform pricing practices, particularly concerns about algorithmic price discrimination using personal data and escalating fees that significantly increase costs beyond restaurant menu prices.",
+      "short_summary": "Delivery pricing concerns"
+    },
+    {
+      "id": 10,
+      "one_sentence_summary": "Discussions about corporate data breaches focus on consumer privacy concerns, legal implications, and varying perspectives on the sensitivity of compromised personal information.",
+      "short_summary": "Data breach privacy concerns"
+    },
+    {
+      "id": 14,
+      "one_sentence_summary": "Discussions about food delivery platform operational issues including order cancellations, payment disputes, customer support problems, and system glitches affecting drivers and customers.",
+      "short_summary": "Delivery service issues"
     }
-  ],
-  "negative": []
+  ]
 }
