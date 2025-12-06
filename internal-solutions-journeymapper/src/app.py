@@ -44,7 +44,7 @@ if not os.environ.get("ANTHROPIC_API_KEY"):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5-20251101",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -81,7 +81,7 @@ log = logging.getLogger(__name__)
 # Create the FastAPI app object
 app = FastAPI(
     title="AI Journey Mapper",
-    description="Upload data to generate interactive journey maps with Anthropic's Claude 3.7",
+    description="Upload data to generate interactive journey maps with Anthropic's Claude 4.5",
     version="1.0.0"
 )
 
@@ -98,7 +98,7 @@ try:
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5-20251101",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -127,23 +127,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Setting Claude 3.7 Sonnet as the default model
-DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
+# Setting Claude 4.5 as the default model
+DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-5-20251101")
 
 data_processor = DataProcessor()
 
 def get_available_models() -> List[str]:
     """
-    Return a list of available Claude 3.7 models
+    Return a list of available Claude models
     """
     return [
+        "claude-opus-4-5-20251101",
+        "claude-sonnet-4-5-20250929",
+        "claude-haiku-4-5-20251001", 
         "claude-3-7-sonnet-20250219",
         "claude-3-7-haiku-20250201",
-        "claude-3-7-opus-20250211",
-        "claude-3-5-sonnet-20240620",
-        "claude-3-haiku-20240307",
-        "claude-3-sonnet-20240229", 
-        "claude-3-opus-20240229"
+        "claude-3-7-opus-20250211"
     ]
 
 @app.get("/", response_class=HTMLResponse)
@@ -186,7 +185,7 @@ async def get_home():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AI Journey Mapper with Claude 3.7</title>
+  <title>AI Journey Mapper with Claude 4.5</title>
   <style>
     body {{
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -308,9 +307,9 @@ async def get_home():
 </head>
 <body>
   <div class="container">
-    <h1>AI Journey Mapper with Claude 3.7</h1>
+    <h1>AI Journey Mapper with Claude 4.5</h1>
     <div class="highlight">
-      <p>Using Anthropic's latest Claude 3.7 models for detailed journey analysis and visualization.</p>
+      <p>Using Anthropic's latest Claude 4.5 models for detailed journey analysis and visualization.</p>
     </div>
     
     <form action="/api/analyze" method="post" enctype="multipart/form-data" id="journey-form">
@@ -332,7 +331,7 @@ async def get_home():
           </select>
           <button type="button" class="refresh-button" id="refresh-models">Refresh Models</button>
         </div>
-        <div id="model-status">Using Anthropic's Claude 3.7 models</div>
+        <div id="model-status">Using Anthropic's Claude 4.5 models</div>
       </div>
       
       <div class="form-group">
@@ -441,7 +440,7 @@ async def check_api_key():
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5-20251101",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -493,7 +492,8 @@ async def analyze_files(
     title: Optional[str] = Form(None),
     description: Optional[str] = Form(None),
     journey_type: Optional[str] = Form(None),
-    llm_model: Optional[str] = Form(None)
+    llm_model: Optional[str] = Form(None),
+    content_selection: Optional[str] = Form(None)
 ):
     """
     Main endpoint for file uploads. Saves the files, processes them, then uses DynamicJourneyMapper to generate an HTML-based journey map.
@@ -539,6 +539,28 @@ async def analyze_files(
                 "description": description or "",
                 "journey_type": journey_type or ""
             }
+            
+        # Handle content selection if provided
+        if content_selection:
+            try:
+                content_settings = json.loads(content_selection)
+                processed_data["content_selection"] = content_settings # type: ignore
+                log.info(f"Content selection provided: {content_settings}")
+            except json.JSONDecodeError:
+                log.warning(f"Invalid content selection JSON: {content_selection}")
+        else:
+            # Default to show all content
+            processed_data["content_selection"] = { # type: ignore
+                "summary": True,
+                "stages": True,
+                "painPoints": True,
+                "opportunities": True,
+                "insights": True,
+                "recommendations": True,
+                "touchpoints": True,
+                "personas": True,
+                "emotions": True
+            }
         
         processed_data_path = os.path.join(journey_dir, "processed_data.json")
         with open(processed_data_path, "w") as f:
@@ -561,9 +583,9 @@ async def analyze_files(
         summary_html = ""
         if "journey_summary" in journey_map and journey_map["journey_summary"]:
             summary_html = f"""
-<div style="background-color: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #4264D0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+<div class="journey-summary" style="background-color: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #4264D0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <h2 style="color: #4264D0; margin-top: 0; font-size: 1.4rem;">Journey Analysis Summary</h2>
-    <div style="white-space: pre-line; font-size: 0.95rem; line-height: 1.6;">{journey_map["journey_summary"]}</div>
+    <div style="white-space: pre-line; font-size: 0.95rem; line-height: 1.6; color: #333333;">{journey_map["journey_summary"]}</div>
 </div>
 """
         
@@ -580,12 +602,13 @@ async def analyze_files(
             
         # Create export and editing functionality HTML
         export_script_html = f"""
-<script src="/static/journey_export.js"></script>
+<link rel="stylesheet" href="/static/hide_exports.css">
 <script>
-// Journey Map Editing Functionality
+// Journey Map Configuration - ID only, no export panel functionality
 window.journeyMapId = '{journey_id}';
 </script>
-<script src="/static/journey_editor.js"></script>
+<script src="/static/journey_editor_improved.js"></script>
+<script src="/static/journey_export_csv.js"></script>
 """
         
         # Insert model_info_html, export and editing functionality before </body>
@@ -647,8 +670,8 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 @app.get("/api/export-pdf/{journey_id}")
 async def export_pdf(journey_id: str):
     """
-    Server-side PDF export endpoint that converts an HTML journey map to PDF
-    with landscape orientation and complete journey capture
+    Server-side PDF export endpoint (kept for backward compatibility)
+    Now returns a message suggesting CSV export instead
     """
     try:
         # Check if journey map exists

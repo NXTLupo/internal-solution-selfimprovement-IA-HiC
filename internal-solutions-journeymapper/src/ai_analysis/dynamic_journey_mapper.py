@@ -15,23 +15,41 @@ from claude_api_wrapper import claude_api_call
 try:
     from src.utils.vector_store import init_vector_store
     from src.data_ingestion.data_processor import DataProcessor
+    from src.ai_analysis.content_selector import remove_section_from_html
 except ImportError:
     # Handle relative imports when running from different locations
     try:
         from utils.vector_store import init_vector_store
         from data_ingestion.data_processor import DataProcessor
+        from ai_analysis.content_selector import remove_section_from_html
     except ImportError:
         # Fallback if imports fail
         init_vector_store = None
         DataProcessor = None
+        
+        # Define remove_section_from_html inline if import fails
+        def remove_section_from_html(html_content, class_name, tag_types=["div", "section"]):
+            """Remove sections from HTML based on CSS class names"""
+            import re
+            modified_html = html_content
+            
+            # Process for each tag type
+            for tag_type in tag_types:
+                pattern = rf'<{tag_type}[^>]*class="[^"]*\b{re.escape(class_name)}\b[^"]*"[^>]*>.*?</{tag_type}>'
+                modified_html = re.sub(pattern, '', modified_html, flags=re.DOTALL)
+                
+                pattern_single = rf"<{tag_type}[^>]*class='[^']*\b{re.escape(class_name)}\b[^']*'[^>]*>.*?</{tag_type}>"
+                modified_html = re.sub(pattern_single, '', modified_html, flags=re.DOTALL)
+            
+            return modified_html
 
 def add_context_section(context_text):
     """Helper function to add context section header to avoid f-string escape issues"""
     return "ADDITIONAL CONTEXT FROM VECTOR SEARCH:\n" + context_text + "\n"
 
 # Constants for API limits - Claude models
-CLAUDE_MAX_INPUT_TOKENS = 200000  # Claude 3.7 allows up to 200K tokens input
-CLAUDE_MAX_OUTPUT_TOKENS = 64000  # Maximum for Claude 3.7 Sonnet
+CLAUDE_MAX_INPUT_TOKENS = 200000  # Claude 4.5 allows up to 200K tokens input
+CLAUDE_MAX_OUTPUT_TOKENS = 64000  # Maximum for Claude 4.5 Opus
 CLAUDE_MAX_DETAILED_ITEMS = 15    # Maximum number of detailed items to include in data
 
 class DynamicJourneyMapper:
@@ -100,7 +118,7 @@ class DynamicJourneyMapper:
             
             # Prepare the prompt for Claude
             self.logger.debug("Creating effective prompt for Claude...")
-            print("✍️ Step 4: Creating optimized prompt for Claude 3.7...")
+            print("✍️ Step 4: Creating optimized prompt for Claude 4.5...")
             prompt = self._create_prompt(title, description, journey_type, processed_data, journey_insights)
             print("   - Prompt created with advanced journey mapping instructions")
             
@@ -115,8 +133,8 @@ class DynamicJourneyMapper:
             self.logger.info("[DEBUG] Created effective prompt")
             
             # Call Claude API for first journey map
-            self.logger.debug("Calling Anthropic Claude 3.7 API...")
-            print("🤖 Step 5: Calling Anthropic Claude 3.7 API for first-pass journey map...")
+            self.logger.debug("Calling Anthropic Claude 4.5 API...")
+            print("🤖 Step 5: Calling Anthropic Claude 4.5 API for first-pass journey map...")
             print(f"   - Using model: {self.anthropic_model}")
             print("   - This may take a minute or two...")
             # Save full prompt for inspection
@@ -315,6 +333,19 @@ class DynamicJourneyMapper:
         description = "A visualization of the customer journey"
         journey_type = "general"
         
+        # Default content selection settings (show all)
+        self.content_selection = {
+            "summary": True,
+            "stages": True,
+            "painPoints": True,
+            "opportunities": True,
+            "insights": True,
+            "recommendations": True,
+            "touchpoints": True,
+            "personas": True,
+            "emotions": True
+        }
+        
         # Try to extract from metadata if available
         if isinstance(data, dict):
             metadata = data.get("metadata", {})
@@ -323,6 +354,11 @@ class DynamicJourneyMapper:
             title = context.get("title", title)
             description = context.get("description", description)
             journey_type = context.get("journey_type", journey_type)
+            
+            # Extract content selection settings if available
+            if "content_selection" in data:
+                self.content_selection.update(data["content_selection"])
+                self.logger.info(f"Using content selection from data: {self.content_selection}")
             
             # Look for journey type in metadata
             for item in [metadata, context]:
@@ -466,7 +502,7 @@ class DynamicJourneyMapper:
         return insights
 
     def _create_prompt(self, title, description, journey_type, data, insights):
-        """Create an enhanced prompt for Claude 3.7 that leverages extended thinking mode
+        """Create an enhanced prompt for Claude 4.5 that leverages extended thinking mode
         to generate more detailed and data-driven journey maps, without biasing with journey-specific elements.
         """
         # Simplify the data to reduce prompt size
@@ -484,12 +520,16 @@ ESSENTIAL REQUIREMENTS:
 2. FOLLOW ACCESSIBILITY BEST PRACTICES (WCAG AA STANDARDS) - use semantic HTML, proper ARIA attributes, sufficient color contrast (4.5:1 minimum), keyboard accessibility, etc.
 3. PROVIDE DEEP ANALYSIS - go beyond surface observations to find hidden patterns and insights
 
-*** VISUAL DESIGN REQUIREMENTS ***
-1. HEADERS MUST BE HIGH CONTRAST - Ensure all header text (h1, h2, h3, etc.) has high contrast against its background (at least 4.5:1 ratio)
-2. USE FULL VIEWPORT WIDTH - Design the journey map to expand to the full width of the viewport with proper padding
-3. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
-4. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
-5. ENSURE READABILITY - All text must be easily readable with appropriate font sizes and contrast
+*** ACCESSIBILITY AND VISUAL DESIGN REQUIREMENTS ***
+1. STRICT COLOR CONTRAST ENFORCEMENT - ALL text must have a minimum 7:1 contrast ratio against its background (exceeding WCAG AAA standards)
+2. NEVER USE SAME OR SIMILAR COLORS for text and background - ensure stark visible difference between text and its background
+3. HEADERS MUST BE ULTRA HIGH CONTRAST - All header text (h1, h2, h3, etc.) must have extremely high contrast (minimum 7:1 ratio)
+4. TEXT BACKGROUNDS MUST CONTRAST WITH TILES - When text is on a colored tile/card, ensure both the text AND its background have sufficient contrast with the tile
+5. ENFORCE TEXT VISIBILITY - All text must be easily readable against ANY background element it appears over
+6. USE FULL VIEWPORT WIDTH - Design the journey map to expand to the full width of the viewport with proper padding
+7. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
+8. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
+9. OPTIMIZE READABILITY - Use appropriate font sizes (minimum 16px for body text, 24px+ for headings)
 
 *** THINKING PROCESS ***
 First, I'll need you to:
@@ -615,6 +655,13 @@ DESIGN REQUIREMENTS:
 7. Create a system for presenting quotes that integrates well with the overall design
 8. Use appropriate typography to distinguish between your analysis and direct quotes
 
+*** CRITICAL ACCESSIBILITY AND COLOR CONTRAST REQUIREMENTS ***
+1. ABSOLUTELY NEVER use text color that is the same as or similar to its background color
+2. MANDATORY: All text must maintain a MINIMUM 7:1 contrast ratio with its background
+3. REQUIRED: Headers must use dark colors on light backgrounds or light colors on dark backgrounds (never similar shades)
+4. CRITICAL: When using colored sections/cards, ensure that ALL text has high contrast with the element it's placed on
+5. FORBIDDEN: No low-contrast text/background combinations under any circumstances
+
 REMEMBER: I NEED THE ENTIRE HTML DOCUMENT WITH ALL OPENING AND CLOSING TAGS. START WITH <!DOCTYPE html> AND END WITH </html>
 """
         
@@ -726,6 +773,10 @@ Now, create the complete HTML document with all required elements and closing ta
             return fixed_html
         
         return html_content
+    
+    def _remove_section_from_html(self, html_content, class_name, tag_types=["div", "section"]):
+        """Remove sections from HTML based on CSS class names"""
+        return remove_section_from_html(html_content, class_name, tag_types)
     
     def _fix_html(self, html_content, missing_tags):
         """Fix incomplete HTML by adding missing tags"""
@@ -1634,8 +1685,54 @@ Now, create the complete HTML document with all required elements and closing ta
     def render_journey_map_html(self, journey_map):
         """
         Return the HTML content from the journey map result with enhanced export functionality.
+        Applies content selection to show/hide selected journey map elements.
         """
         html_content = journey_map.get('interactive_html', '')
+        
+        # Apply content selection to the HTML content if available
+        if hasattr(self, 'content_selection'):
+            # Only apply if we have content selection settings
+            if not self.content_selection.get("summary", True):
+                # Remove journey summary section
+                html_content = self._remove_section_from_html(html_content, "journey-summary")
+            
+            if not self.content_selection.get("stages", True):
+                # Remove journey stages
+                html_content = self._remove_section_from_html(html_content, "journey-stage")
+            
+            if not self.content_selection.get("painPoints", True):
+                # Remove pain points
+                html_content = self._remove_section_from_html(html_content, "pain-point")
+                html_content = self._remove_section_from_html(html_content, "pain-points")
+            
+            if not self.content_selection.get("opportunities", True):
+                # Remove opportunities
+                html_content = self._remove_section_from_html(html_content, "opportunity")
+                html_content = self._remove_section_from_html(html_content, "opportunities")
+            
+            if not self.content_selection.get("insights", True):
+                # Remove insights
+                html_content = self._remove_section_from_html(html_content, "insight")
+                html_content = self._remove_section_from_html(html_content, "insights")
+            
+            if not self.content_selection.get("recommendations", True):
+                # Remove recommendations
+                html_content = self._remove_section_from_html(html_content, "recommendation")
+                html_content = self._remove_section_from_html(html_content, "recommendations")
+            
+            if not self.content_selection.get("touchpoints", True):
+                # Remove touchpoints
+                html_content = self._remove_section_from_html(html_content, "touchpoint")
+                html_content = self._remove_section_from_html(html_content, "touchpoints")
+            
+            if not self.content_selection.get("personas", True):
+                # Remove personas
+                html_content = self._remove_section_from_html(html_content, "persona")
+                html_content = self._remove_section_from_html(html_content, "user-profile")
+            
+            if not self.content_selection.get("emotions", True):
+                # Remove emotion indicators
+                html_content = self._remove_section_from_html(html_content, "emotion")
         
         # One final validation check
         self.logger.info("[DEBUG] Validating HTML content")
@@ -1675,14 +1772,13 @@ Now, create the complete HTML document with all required elements and closing ta
             # Generate a new journey ID if we can't find one
             journey_id = str(uuid.uuid4())
         
-        # Add export and editing functionality script tags
+        # Set up for journey map editing only - no export panel
+        # Using improved editor without export functionality
         export_script_html = f"""
-<script src="/static/journey_export.js"></script>
 <script>
-// Journey Map Editing Functionality
+// Journey Map Configuration - ID only, no export functionality
 window.journeyMapId = '{journey_id}';
 </script>
-<script src="/static/journey_editor.js"></script>
 """
         
         # Add print media styles if not present
@@ -1862,12 +1958,16 @@ ESSENTIAL REQUIREMENTS:
 3. CREATE INTERACTIVE ELEMENTS that are both visually appealing and fully accessible
 4. PROVIDE MAXIMUM DETAIL - your response should be comprehensive and exhaustive, with deep analysis in every section
 
-*** VISUAL DESIGN REQUIREMENTS ***
-1. HEADERS MUST BE HIGH CONTRAST - Ensure all header text (h1, h2, h3, etc.) has high contrast against its background (at least 4.5:1 ratio)
-2. USE FULL VIEWPORT WIDTH - Design the journey map to expand to the full width of the viewport with proper padding
-3. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
-4. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
-5. ENSURE READABILITY - All text must be easily readable with appropriate font sizes and contrast
+*** ACCESSIBILITY AND VISUAL DESIGN REQUIREMENTS ***
+1. STRICT COLOR CONTRAST ENFORCEMENT - ALL text must have a minimum 7:1 contrast ratio against its background (exceeding WCAG AAA standards)
+2. NEVER USE SAME OR SIMILAR COLORS for text and background - ensure stark visible difference between text and its background
+3. HEADERS MUST BE ULTRA HIGH CONTRAST - All header text (h1, h2, h3, etc.) must have extremely high contrast (minimum 7:1 ratio)
+4. TEXT BACKGROUNDS MUST CONTRAST WITH TILES - When text is on a colored tile/card, ensure both the text AND its background have sufficient contrast with the tile
+5. ENFORCE TEXT VISIBILITY - All text must be easily readable against ANY background element it appears over
+6. USE FULL VIEWPORT WIDTH - Design the journey map to expand to the full width of the viewport with proper padding
+7. RESPONSIVE LAYOUT - Create a fluid, responsive design that works well on all screen sizes
+8. MODERN AESTHETICS - Use a clean, modern design with consistent visual language
+9. OPTIMIZE READABILITY - Use appropriate font sizes (minimum 16px for body text, 24px+ for headings)
 6. UTILIZE SPACE EFFICIENTLY - Make better use of horizontal space, avoid excessive white space
 7. OPTIMIZE JOURNEY TIMELINE - Create a timeline that uses the available width effectively
 

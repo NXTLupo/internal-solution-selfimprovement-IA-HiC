@@ -229,13 +229,20 @@ body, html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Force ALL text to be white for Intelligence Augmentation theme */
-* {
+/* Intelligence Augmentation theme - white text only for specific elements */
+.intelligence-augmentation-header *,
+.enterprise-body .section-header *,
+.enterprise-body .feature-card .feature-icon {
   color: #ffffff !important;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, div, a, label {
-  color: #ffffff !important;
+/* Ensure journey summary content has appropriate text colors */
+.journey-summary h2 {
+  color: #4264D0 !important;
+}
+
+.journey-summary div {
+  color: #333333 !important;
 }
 
 .font-sans {
