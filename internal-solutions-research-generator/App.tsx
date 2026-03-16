@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import FileUpload from './components/FileUpload';
 import ResultsView from './components/ResultsView';
+import { InteractiveControls } from './components/InteractiveControls';
 import { generatePersonaStory } from './services/geminiService';
 import { AppState, FileUpload as FileType, AnalysisResult, AnalysisType } from './types';
 
@@ -35,6 +36,12 @@ const App: React.FC = () => {
   const [thinkingEvents, setThinkingEvents] = useState<ThinkingEvent[]>([]);
   const [progressStatus, setProgressStatus] = useState<string>('Initializing...');
   const [elapsedTime, setElapsedTime] = useState<number>(0);
+  
+  // Human-in-loop State
+  const [humanInLoopMode, setHumanInLoopMode] = useState<boolean>(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [checkpoints, setCheckpoints] = useState<any[]>([]);
+  const [interactiveThinkingEvents, setInteractiveThinkingEvents] = useState<any[]>([]);
   
   const logContainerRef = useRef<HTMLDivElement>(null);
   const eventsContainerRef = useRef<HTMLDivElement>(null);
@@ -165,32 +172,174 @@ const App: React.FC = () => {
     setThinkingEvents([]);
     setProgressStatus('Connecting to Gemini 3 Pro...');
 
-    try {
-      const analysis = await generatePersonaStory(
-          files, 
-          analysisType, 
-          (chunkText) => {
-             setStreamLog(chunkText);
-             // If we are receiving chunks, we are in the thinking phase
-             setProgressStatus('Extended Thinking & Methodology Analysis...');
-          },
-          (statusUpdate) => {
-              // Updates from the post-stream phases (Image generation)
-              setProgressStatus(statusUpdate);
+    if (humanInLoopMode) {
+      // Start interactive analysis session
+      console.log('Starting interactive analysis session...');
+      try {
+        const formData = new FormData();
+        
+        // Convert base64 FileUpload to actual File for backend
+        const base64Data = files[0].data;
+        console.log('Original file data length:', base64Data.length);
+        console.log('File type:', files[0].type, 'File name:', files[0].name);
+        
+        try {
+          // Decode base64 to binary data
+          const binaryString = atob(base64Data);
+          console.log('Decoded binary length:', binaryString.length);
+          
+          // Convert to Uint8Array more efficiently
+          const bytes = new Uint8Array(binaryString.length);
+          for (let i = 0; i < binaryString.length; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
           }
-      );
-      setResult(analysis);
-      setAppState(AppState.SUCCESS);
-    } catch (err: any) {
-      console.error(err);
-      setAppState(AppState.ERROR);
-      if (err.message && err.message.includes("Requested entity was not found")) {
-        setHasKey(false);
-        setErrorMsg("API Key issue detected. Please select a valid Paid API Key.");
-      } else {
-        setErrorMsg(err.message || "An unexpected error occurred during analysis.");
+          
+          // Create blob and file with proper MIME type
+          const fileBlob = new Blob([bytes], { type: files[0].type || 'text/plain' });
+          const file = new File([fileBlob], files[0].name, { 
+            type: files[0].type || 'text/plain',
+            lastModified: Date.now()
+          });
+          
+          console.log('Created file object:', {
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            blobSize: fileBlob.size
+          });
+          
+          formData.append('file', file, files[0].name);
+          console.log('FormData after append:', Array.from(formData.entries()).map(([key, value]) => [key, value instanceof File ? `File(${value.name}, ${value.size}bytes)` : value]));
+          
+        } catch (base64Error) {
+          console.error('Base64 decode error:', base64Error);
+          throw new Error('Failed to decode file data');
+        }
+        formData.append('analysisType', analysisType);
+        
+        console.log('Sending request to /api/analysis/start...');
+        const response = await fetch('/api/analysis/start', {
+          method: 'POST',
+          body: formData
+        });
+        
+        console.log('Response status:', response.status);
+        const data = await response.json();
+        console.log('Response data:', data);
+        setSessionId(data.sessionId);
+        
+        // Start monitoring session
+        console.log('Starting session monitoring for:', data.sessionId);
+        startSessionMonitoring(data.sessionId);
+      } catch (err: any) {
+        console.error('Error starting interactive session:', err);
+        setErrorMsg('Failed to start interactive analysis');
+        setAppState(AppState.ERROR);
+      }
+    } else {
+      // Standard analysis
+      try {
+        const analysis = await generatePersonaStory(
+            files, 
+            analysisType, 
+            (chunkText) => {
+               setStreamLog(chunkText);
+               // If we are receiving chunks, we are in the thinking phase
+               setProgressStatus('Extended Thinking & Methodology Analysis...');
+            },
+            (statusUpdate) => {
+                // Updates from the post-stream phases (Image generation)
+                setProgressStatus(statusUpdate);
+            }
+        );
+        setResult(analysis);
+        setAppState(AppState.SUCCESS);
+      } catch (err: any) {
+        console.error(err);
+        setAppState(AppState.ERROR);
+        if (err.message && err.message.includes("Requested entity was not found")) {
+          setHasKey(false);
+          setErrorMsg("API Key issue detected. Please select a valid Paid API Key.");
+        } else {
+          setErrorMsg(err.message || "An unexpected error occurred during analysis.");
+        }
       }
     }
+  };
+  
+  // Human-in-loop handler functions
+  const startSessionMonitoring = (sessionId: string) => {
+    let lastEventCount = 0;
+    console.log('Session monitoring started for:', sessionId);
+    
+    // Poll for session status and thinking events
+    const interval = setInterval(async () => {
+      try {
+        // Get session status
+        const statusResponse = await fetch(`/api/analysis/${sessionId}/status`);
+        const statusData = await statusResponse.json();
+        console.log('Status data:', statusData);
+        
+        setCheckpoints(statusData.checkpoints || []);
+        
+        if (statusData.status === 'completed') {
+          clearInterval(interval);
+          setAppState(AppState.SUCCESS);
+          return;
+        }
+        
+        // Get thinking events
+        const thinkingResponse = await fetch(`/api/analysis/${sessionId}/thinking`);
+        const thinkingData = await thinkingResponse.json();
+        console.log('Thinking data:', thinkingData);
+        
+        if (thinkingData.events && thinkingData.events.length > lastEventCount) {
+          console.log('New thinking events:', thinkingData.events.length - lastEventCount);
+          setInteractiveThinkingEvents(thinkingData.events);
+          lastEventCount = thinkingData.events.length;
+        }
+        
+      } catch (err) {
+        console.error('Error monitoring session:', err);
+      }
+    }, 1000);
+    
+    // Store interval for cleanup
+    sessionStorage.setItem('monitoringInterval', interval.toString());
+  };
+  
+  const handleCheckpointAction = async (checkpointId: string, action: string, feedback?: string, data?: any) => {
+    if (!sessionId) return;
+    
+    try {
+      await fetch(`/api/analysis/${sessionId}/checkpoint`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action,
+          checkpointId,
+          feedback,
+          data
+        })
+      });
+    } catch (err) {
+      console.error('Error handling checkpoint:', err);
+    }
+  };
+  
+  const handleCheckpointRollback = async (checkpointId: string) => {
+    // Implementation for rollback
+    console.log('Rollback to checkpoint:', checkpointId);
+  };
+  
+  const handleAnalysisInterrupt = () => {
+    // Implementation for interrupting analysis
+    console.log('Analysis interrupted');
+  };
+  
+  const handleAnalysisSteer = (direction: string) => {
+    // Implementation for steering analysis
+    console.log('Steering analysis:', direction);
   };
 
   const handleReset = () => {
@@ -209,6 +358,17 @@ const App: React.FC = () => {
           case 'QUESTION': return 'border-amber-500 bg-amber-500/10 text-amber-200';
           case 'HYPOTHESIS': return 'border-purple-500 bg-purple-500/10 text-purple-200';
           case 'INSIGHT': return 'border-emerald-500 bg-emerald-500/10 text-emerald-200';
+          default: return 'border-slate-500 bg-slate-800 text-slate-300';
+      }
+  };
+
+  const getThinkingEventStyle = (passType: string) => {
+      switch (passType) {
+          case 'surface': return 'border-blue-500 bg-blue-500/10 text-blue-200';
+          case 'hidden': return 'border-purple-500 bg-purple-500/10 text-purple-200';
+          case 'psychological': return 'border-pink-500 bg-pink-500/10 text-pink-200';
+          case 'cultural': return 'border-green-500 bg-green-500/10 text-green-200';
+          case 'strategic': return 'border-amber-500 bg-amber-500/10 text-amber-200';
           default: return 'border-slate-500 bg-slate-800 text-slate-300';
       }
   };
@@ -242,6 +402,27 @@ const App: React.FC = () => {
                  Select Paid API Key
                </button>
             )}
+            
+            {/* Human-in-Loop Toggle */}
+            <button
+              onClick={() => setHumanInLoopMode(!humanInLoopMode)}
+              className={`flex items-center gap-2 text-xs font-medium rounded px-3 py-1.5 transition-all ${
+                humanInLoopMode 
+                  ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500'
+                  : 'text-slate-400 border border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d={humanInLoopMode 
+                    ? "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    : "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                  } 
+                />
+              </svg>
+              <span>{humanInLoopMode ? 'Interactive Mode ON' : 'Interactive Mode'}</span>
+            </button>
+            
             <div className="text-xs font-medium text-slate-500 border border-slate-800 rounded-full px-3 py-1">
                 Gemini 3 Pro + Imagen + Veo 3.1
             </div>
@@ -274,6 +455,21 @@ const App: React.FC = () => {
                     <div className="mt-2 text-xs text-amber-400/60">
                         <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noreferrer" className="hover:underline">View Billing Documentation</a>
                     </div>
+                </div>
+              )}
+              
+              {humanInLoopMode && (
+                <div className="bg-indigo-900/20 border border-indigo-500/50 p-4 rounded-lg mb-6 max-w-2xl mx-auto">
+                  <h3 className="text-sm font-semibold text-indigo-300 mb-2 flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Interactive Mode Enabled
+                  </h3>
+                  <p className="text-xs text-indigo-200/70">
+                    You'll be able to review and guide the analysis at key checkpoints. 
+                    Watch the AI's thinking process in real-time and intervene when needed.
+                  </p>
                 </div>
               )}
             </div>
@@ -335,8 +531,22 @@ const App: React.FC = () => {
                     <div className="relative w-4 h-4">
                         <div className="absolute inset-0 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 className="text-xl font-bold text-white">Analysis in Progress</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      {humanInLoopMode ? 'Interactive Analysis' : 'Analysis in Progress'}
+                    </h3>
                  </div>
+                 
+                 {/* Interactive Mode Status */}
+                 {humanInLoopMode && (
+                   <div className="flex items-center justify-center gap-4 mt-2">
+                     {checkpoints.find(c => c.status === 'awaiting_approval') && (
+                       <div className="flex items-center gap-2 text-yellow-400">
+                         <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                         <span className="text-sm">Waiting for your review</span>
+                       </div>
+                     )}
+                   </div>
+                 )}
                  
                  {/* Progress Bar & Status */}
                  <div className="w-full max-w-lg mx-auto mt-2">
@@ -351,30 +561,84 @@ const App: React.FC = () => {
             </div>
             
             <div className="flex-grow flex flex-col md:flex-row gap-6 overflow-hidden">
-                {/* Left Column: Highlights Tiles */}
+                {/* Left Column: Thinking Events */}
                 <div className="md:w-1/3 flex flex-col h-full bg-slate-900/30 rounded-lg border border-slate-800 p-4">
                      <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
-                         <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Live Highlights</span>
-                         <span className="text-[10px] bg-slate-800 text-slate-500 px-2 py-0.5 rounded-full">{thinkingEvents.length} Events</span>
+                         <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                           {humanInLoopMode ? 'AI Thinking' : 'Live Highlights'}
+                         </span>
+                         <span className="text-[10px] bg-slate-800 text-slate-500 px-2 py-0.5 rounded-full">
+                           {humanInLoopMode ? interactiveThinkingEvents.length : thinkingEvents.length} Events
+                         </span>
                      </div>
                      <div 
                         ref={eventsContainerRef}
                         className="flex-grow overflow-y-auto space-y-3 pr-2 scroll-smooth"
                      >
-                         {thinkingEvents.length === 0 && (
-                             <div className="text-center text-xs text-slate-600 py-10 italic">
-                                 Waiting for first thinking event...
-                             </div>
+                         {/* Interactive Mode Events */}
+                         {humanInLoopMode ? (
+                           <>
+                             {interactiveThinkingEvents.length === 0 && (
+                                 <div className="text-center text-xs text-slate-600 py-10 italic">
+                                     Waiting for thinking events...
+                                 </div>
+                             )}
+                             {interactiveThinkingEvents.map((event, idx) => (
+                                 <div key={idx} className={`p-3 rounded-lg border-l-2 shadow-sm animate-fade-in ${getThinkingEventStyle(event.passType)}`}>
+                                     <div className="flex items-center justify-between mb-1">
+                                       <span className="text-[10px] font-bold uppercase opacity-70">{event.passType}</span>
+                                       <span className="text-[9px] text-slate-500">{Math.round(event.confidence * 100)}%</span>
+                                     </div>
+                                     <p className="text-xs font-medium leading-relaxed">
+                                         {event.content}
+                                     </p>
+                                 </div>
+                             ))}
+                           </>
+                         ) : (
+                           /* Standard Mode Events */
+                           <>
+                             {thinkingEvents.length === 0 && (
+                                 <div className="text-center text-xs text-slate-600 py-10 italic">
+                                     Waiting for first thinking event...
+                                 </div>
+                             )}
+                             {thinkingEvents.map((event, idx) => (
+                                 <div key={idx} className={`p-3 rounded-lg border-l-2 shadow-sm animate-fade-in ${getEventStyle(event.type)}`}>
+                                     <span className="text-[10px] font-bold uppercase block mb-1 opacity-70">{event.type}</span>
+                                     <p className="text-xs font-medium leading-relaxed">
+                                         {event.content}
+                                     </p>
+                                 </div>
+                             ))}
+                           </>
                          )}
-                         {thinkingEvents.map((event, idx) => (
-                             <div key={idx} className={`p-3 rounded-lg border-l-2 shadow-sm animate-fade-in ${getEventStyle(event.type)}`}>
-                                 <span className="text-[10px] font-bold uppercase block mb-1 opacity-70">{event.type}</span>
-                                 <p className="text-xs font-medium leading-relaxed">
-                                     {event.content}
-                                 </p>
-                             </div>
-                         ))}
                      </div>
+                     
+                     {/* Interactive Controls */}
+                     {humanInLoopMode && (
+                       <div className="mt-4 pt-4 border-t border-slate-800">
+                         {checkpoints.find(c => c.status === 'awaiting_approval') ? (
+                           <InteractiveControls
+                             checkpoint={checkpoints.find(c => c.status === 'awaiting_approval')}
+                             onApprove={(feedback) => handleCheckpointAction(
+                               checkpoints.find(c => c.status === 'awaiting_approval')?.id || '',
+                               'approve',
+                               feedback
+                             )}
+                             onRevise={(feedback) => handleCheckpointAction(
+                               checkpoints.find(c => c.status === 'awaiting_approval')?.id || '',
+                               'revise', 
+                               feedback
+                             )}
+                           />
+                         ) : (
+                           <div className="text-center text-xs text-slate-500">
+                             Analysis proceeding...
+                           </div>
+                         )}
+                       </div>
+                     )}
                 </div>
 
                 {/* Right Column: Terminal */}

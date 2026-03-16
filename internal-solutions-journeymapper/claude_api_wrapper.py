@@ -4,7 +4,7 @@ import requests
 import json
 import time
 
-def claude_api_call(prompt, model="claude-3-7-sonnet-20250219", max_tokens=64000, temperature=0.3, system="You are Claude, an AI assistant with expertise in journey mapping, data analysis, visualization, and WCAG accessibility standards. Use your expertise to create highly detailed, informative, and visually appealing journey maps that maximize content depth and maintain accessibility best practices. Generate content up to the maximum token limits."):
+def claude_api_call(prompt, model="claude-opus-4-5-20251101", max_tokens=64000, temperature=0.3, system="You are Claude, an AI assistant with expertise in journey mapping, data analysis, visualization, and WCAG accessibility standards. Use your expertise to create highly detailed, informative, and visually appealing journey maps that maximize content depth and maintain accessibility best practices. Generate content up to the maximum token limits."):
     """
     Simple wrapper for Anthropic API that doesn't use the SDK
     """

@@ -1,0 +1,911 @@
+{
+  "id": "social_data_collector",
+  "name": "Social Data Collector Agent",
+  "description": "A Copilot Studio agent that collects social media and review data from Reddit, TrustPilot, and Google Play Store. The agent guides users through source selection, configures platform-specific collection parameters (subreddits, company domains, app IDs, time filters, sort orders, comment depth, rating filters, language/country), executes HTTP-based data retrieval via PRAW, BeautifulSoup scraping, and Google Play Scraper APIs, and delivers formatted PDF reports and structured JSON datasets to SharePoint for downstream analysis.",
+  "replicates_service": "Reddit Data Collector (Port 5001)",
+  "icon": "fa-solid fa-database",
+  "estimated_build_time": "8-10 hours",
+  "complexity": "intermediate",
+  "thumbnail": "Reddit_Data_Collector.gif",
+  "prefilled": {
+    "agent_name": "Social Data Collector",
+    "agent_description": "The Social Data Collector calls the Reddit API DIRECTLY from Power Automate flows using OAuth2 client credentials. IMPORTANT: TrustPilot and Google Play Store have NO public official API -- the IA service used web scraping which is not feasible in Power Automate. This Copilot agent focuses exclusively on Reddit data collection. It collects posts and comments from subreddits and delivers structured JSON datasets and formatted summaries to SharePoint and Teams.\n\nThe agent has four topics. Data Collection Request is the primary workflow: asks the user for a subreddit name (without the r/ prefix), item count (10 to 500, default 100), time filter via choice entity backed by social_data_collector_time_filters.txt (Past Day, Past Week, Past Month, Past Year, All Time), comments per post (0 to 10, default 5), and an optional keyword filter. After parameter confirmation via Adaptive Card it calls the Collect Reddit Data flow, polls for completion via Check Collection Status, and presents results with download links to SharePoint JSON and a formatted summary card. Collection Status displays active collection progress: calls Check Collection Status and renders a progress card showing posts collected, estimated completion, and error state if any. Source Guidance helps the user choose a subreddit: asks for the research topic, suggests relevant subreddits, explains what data will be collected (post titles, body text, scores, comment counts, top comments). Export Results re-fetches completed collection data from SharePoint and presents download and analysis options.\n\nThree Agent Flows use the Reddit OAuth2 API directly. Authenticate Reddit uses Reddit client credentials: Get environment variable nxth_RedditClientId -> Get environment variable nxth_RedditClientSecret -> Get environment variable nxth_RedditUserAgent -> HTTP POST to https://www.reddit.com/api/v1/access_token with header 'Authorization: Basic {base64(concat(clientId, ':', clientSecret))}', header 'User-Agent: {userAgent}', body (application/x-www-form-urlencoded): 'grant_type=client_credentials' -> extract body()?['access_token'] -> store in variable varRedditToken -> store expiry: addSeconds(utcNow(), 86400). This step is always the FIRST action in every flow that calls Reddit. Collect Reddit Data fetches posts and comments: call Authenticate Reddit sub-flow to get varRedditToken -> HTTP GET https://oauth.reddit.com/r/{subreddit}/top.json?limit={count}&t={time_filter} with headers 'Authorization: Bearer {varRedditToken}' and 'User-Agent: {nxth_RedditUserAgent}' -> parse body()?['data']?['children'] array (each child has data.id, data.title, data.selftext, data.score, data.num_comments, data.author, data.created_utc, data.url) -> for each post where comments_per_post > 0: HTTP GET https://oauth.reddit.com/r/{subreddit}/comments/{post_id}.json with same headers -> parse body()?[1]?['data']?['children'] for top comments (data.body, data.score, data.author) -> build unified JSON dataset [{id, title, body, score, num_comments, author, created_utc, top_comments[]}] -> upload JSON to SharePoint Shared Documents/Social Data/{session_id}/reddit_{subreddit}_{timestamp}.json -> return posts_collected, sharepoint_url, status. Inputs: subreddit, count, time_filter, comments_per_post, keyword_filter. Outputs: posts_collected, sharepoint_url, status. Check Collection Status monitors a SharePoint file for completion metadata. Inputs: session_id. Outputs: status, posts_collected, sharepoint_url.\n\nTwo closed-list entities: Time Filters (day/week/month/year/all) backed by social_data_collector_time_filters.txt. Three Flow-type tools registered: Authenticate Reddit, Collect Reddit Data, Check Collection Status. Three required environment variables: nxth_RedditClientId (Secret), nxth_RedditClientSecret (Secret), nxth_RedditUserAgent (Text, non-secret). Knowledge: SharePoint Collection Templates at /sites/ResearchHub/Shared Documents/Collection Templates. Delivery: Teams Adaptive Card and Email. Key patterns: always re-authenticate at the start of each flow run (tokens last 86400 seconds), store token in flow variable not global variable (security), rate-limiting is self-imposed by using limit parameter (max 100 per request), keyword_filter applied client-side by filtering posts where title or body contains keyword.",
+    "persona_instructions": "You are the Social Data Collector agent, a specialized assistant for gathering social media and consumer review data from multiple platforms. Your role is to help researchers and analysts collect high-quality datasets for customer experience research.\n\nPersona: You are methodical, precise, and proactive about data quality. You speak in clear, professional language and always confirm parameters before executing a collection. You understand social media platform structures (subreddits, review categories, app store listings) and guide users toward well-scoped queries.\n\nChain-of-thought reasoning:\n1. When a user requests data collection, first identify the target platform (Reddit, TrustPilot, or Google Play Store).\n2. Determine the specific source identifiers: subreddit names (without the r/ prefix) for Reddit, company domain URLs for TrustPilot, or app package names (e.g., com.spotify.music) for Play Store.\n3. Gather platform-specific parameters:\n   - Reddit: time_filter (day, week, month, year, all -- default year), max posts (10-1000, default 100), comments per post (0-50, default 5), optional keyword filter.\n   - TrustPilot: max reviews (10-1000, default 100), sort order (most recent or by rating), minimum star rating (1-5, default 1).\n   - Play Store: max reviews (10-1000, default 100), language code (en, es, fr, de, it, pt, ru, ja, ko, zh, hi, ar), country code (us, gb, ca, au, de, fr, es, it, jp, kr, cn, br, mx, in), sort order (newest, by rating, most helpful).\n4. Validate that the combination of parameters is feasible and will not exceed rate limits.\n5. Present a summary of the collection plan as an Adaptive Card and ask for explicit confirmation before executing.\n6. Execute the appropriate Power Automate flow and monitor for completion.\n7. On completion, present a summary with record count, date range covered, number of output files generated, and links to download PDF reports and JSON data from SharePoint.\n\nOutput format: Always present collection summaries as structured lists with platform, source, record count, date range, and output location. Use Adaptive Cards when delivering results in Teams.\n\nOutput files: Every collection generates BOTH formatted PDF reports AND a complete JSON dataset. PDF reports are batched at 100 items per file -- large collections will produce multiple numbered PDF files (e.g., batch_1.pdf, batch_2.pdf, etc.). Each PDF includes per-item formatting with title, author, score/rating, date, body text, and top comments. The JSON file contains the complete structured dataset with all fields and metadata.\n\nConstraints:\n- Post/review count range is 10 to 1000 per collection (default 100). Warn users if they request more than 500.\n- Always warn users if a subreddit or source appears to have fewer than 50 posts (low-data scenario).\n- Do not store or display personally identifiable information from collected posts.\n- If a collection fails mid-execution, report the partial results and the failure reason.\n- Always generate both PDF reports and JSON data files. PDF is the human-readable output; JSON is the machine-readable output.\n- Rate limiting is enforced: 10-second delays between Reddit API requests, 2-second delays between TrustPilot page fetches.\n\nEnvironment: You operate within Microsoft Teams and use Power Automate flows to call external APIs. Your data storage target is SharePoint. You do not have direct internet access; all external calls go through Power Automate HTTP actions.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Data Collection Request",
+        "description": "User wants to collect social media or review data from a specific platform. Route here when the user mentions collecting, scraping, gathering, or downloading posts, reviews, or comments from Reddit, TrustPilot, or Google Play Store.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Welcome and Capability Overview",
+            "description": "Greets the user and explains available data sources and output formats:\n- Reddit: Collects posts and comments from subreddits via PRAW API. Parameters: subreddit name(s), time filter (day/week/month/year/all), post count (10-1000), comments per post (0-50), keyword filter.\n- TrustPilot: Scrapes company reviews via BeautifulSoup. Parameters: company domain URL, review count (10-1000), sort order (most recent/by rating), minimum star rating (1-5).\n- Google Play Store: Collects app reviews via Google Play Scraper. Parameters: app package name, review count (10-1000), language (12 options), country (14 options), sort order (newest/by rating/most helpful).\n\nOutput: Every collection automatically generates formatted PDF reports (batched at 100 items per file) and a complete structured JSON dataset, both saved to SharePoint."
+          },
+          {
+            "type": "Question",
+            "name": "Select Data Platform",
+            "description": "Asks the user which platform they want to collect data from. Presents choices: Reddit, TrustPilot, Google Play Store.",
+            "variable_name": "varPlatformChoice",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "reddit",
+                "displayName": "Reddit"
+              },
+              {
+                "id": "trustpilot",
+                "displayName": "TrustPilot"
+              },
+              {
+                "id": "playstore",
+                "displayName": "Google Play Store"
+              }
+            ],
+            "entity_file": "social_data_collector_platforms.txt"
+          },
+          {
+            "type": "Condition",
+            "name": "Route by Platform",
+            "description": "Branches the conversation flow based on the selected platform to gather platform-specific parameters. Reddit branch collects subreddit names, time filter, comments per post. TrustPilot branch collects company domain, sort order, minimum rating. Play Store branch collects app package name, language, country, sort order.",
+            "variable_name": "varPlatformChoice",
+            "variable_scope": "Topic",
+            "condition_expression": "varPlatformChoice == \"Reddit\" || varPlatformChoice == \"TrustPilot\" || varPlatformChoice == \"Play Store\""
+          },
+          {
+            "type": "Question",
+            "name": "Collect Source Identifiers",
+            "description": "Based on platform selection, asks for the specific data source:\n- Reddit: Subreddit name without the r/ prefix (e.g., 'technology' not 'r/technology'). Supports comma-separated list for multiple subreddits.\n- TrustPilot: Company domain URL or name (e.g., amazon.com or just 'amazon'). The service looks up the business unit ID automatically.\n- Play Store: App package name in reverse-domain format (e.g., com.spotify.music). User can find this in the Play Store URL.",
+            "variable_name": "varSourceIdentifiers",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Set Time Filter or Sort Order",
+            "description": "Platform-specific temporal/ordering parameter:\n- Reddit: Time filter selection -- Past Day, Past Week, Past Month, Past Year (default), or All Time. This controls how far back the PRAW API searches.\n- TrustPilot: Sort order -- Most Recent (default) or By Rating. Controls whether newest reviews or highest/lowest rated reviews appear first.\n- Play Store: Sort order -- Newest (default), By Rating, or Most Helpful. Controls review ordering from the Play Store API.",
+            "variable_name": "varTimeFilterOrSort",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "day",
+                "displayName": "Past Day"
+              },
+              {
+                "id": "week",
+                "displayName": "Past Week"
+              },
+              {
+                "id": "month",
+                "displayName": "Past Month"
+              },
+              {
+                "id": "year",
+                "displayName": "Past Year"
+              },
+              {
+                "id": "all",
+                "displayName": "All Time"
+              }
+            ],
+            "entity_file": "social_data_collector_time_filters.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Set Platform-Specific Parameters",
+            "description": "Collects additional platform-specific parameters:\n- Reddit: Comments per post (0-50, default 5). Enter 0 for posts only with no comments. Higher values increase collection time due to API rate limiting (10-second delays).\n- TrustPilot: Minimum star rating filter (1-5, default 1 = all reviews). Set to 4 or 5 to collect only positive reviews, or 1-2 for negative reviews.\n- Play Store: Language code (en, es, fr, de, it, pt, ru, ja, ko, zh, hi, ar) and country code (us, gb, ca, au, de, fr, es, it, jp, kr, cn, br, mx, in). These determine which localized reviews are collected.",
+            "variable_name": "varPlatformParams",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Set Collection Count",
+            "description": "Asks how many posts or reviews to collect. Valid range is 10 to 1000 (default 100). Warns the user that collections over 500 items take longer due to rate limiting and will produce multiple PDF batch files. Explains that every 100 items generates one PDF file, so a 500-item collection produces 5 PDF files plus 1 JSON file.",
+            "variable_name": "varCollectionCount",
+            "variable_scope": "Topic",
+            "entity_type": "number"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Confirm Collection Plan",
+            "description": "Displays an Adaptive Card summarizing the complete collection plan:\n- Platform and source identifier(s)\n- Time filter (Reddit) or sort order (TrustPilot/Play Store)\n- Platform-specific params (comments per post / min rating / language+country)\n- Collection count and estimated PDF batch count (count / 100, rounded up)\n- Output format: PDF reports + JSON data -> SharePoint\n- Estimated collection time based on rate limits\n\nIncludes Confirm and Edit buttons. On Edit, returns to the parameter that needs changing."
+          },
+          {
+            "type": "Action",
+            "name": "Execute Data Collection Flow",
+            "description": "Calls the appropriate Power Automate flow based on the selected platform:\n- Reddit -> 'Collect Reddit Data' flow (PRAW API with OAuth, 10s rate limit)\n- TrustPilot -> 'Collect TrustPilot Reviews' flow (BeautifulSoup scraping, 2s rate limit)\n- Play Store -> 'Collect Play Store Reviews' flow (Google Play Scraper API)\n\nPasses all confirmed parameters. The flow executes asynchronously -- collection runs in a background thread with progress callbacks. The flow generates PDF reports (batched at 100 items) and a complete JSON dataset, saving all files to SharePoint.",
+            "variable_name": "varCollectionJobId",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Collect Reddit Data"
+          },
+          {
+            "type": "Message",
+            "name": "Collection Initiated Confirmation",
+            "description": "Confirms that the data collection job has been submitted. Displays:\n- Job ID for status tracking\n- Estimated processing time (based on count and rate limits)\n- Expected output files: N PDF batch files + 1 JSON file\n- Advises user they can check status with the Collection Status topic or will be notified on completion."
+          }
+        ],
+        "trigger_phrases": "collect social data, gather posts, scrape reviews, download comments, collect Reddit data, start data collection, collect TrustPilot reviews, gather Play Store reviews, start scraping subreddit posts"
+      },
+      {
+        "name": "Source Selection",
+        "description": "User needs help choosing or configuring data sources such as subreddits, TrustPilot company pages, or Play Store apps. Route here when the user asks about available sources, wants to add or remove sources, or needs recommendations for relevant subreddits or review pages.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Source Configuration Introduction",
+            "description": "Explains the available data source types and how source identifiers work for each platform:\n- Reddit: Subreddit names without r/ prefix (e.g., 'technology', 'customerservice'). Multiple subreddits can be comma-separated.\n- TrustPilot: Company domain URL (e.g., amazon.com) or company name. The service automatically resolves business unit IDs and extracts company metadata (name, domain, rating distribution, verification status).\n- Google Play Store: App package name in reverse-domain format (e.g., com.spotify.music). The service extracts app metadata (name, developer, average rating, current version, description)."
+          },
+          {
+            "type": "Question",
+            "name": "Select Platform for Source Browsing",
+            "description": "Asks which platform the user wants to configure sources for: Reddit, TrustPilot, or Play Store.",
+            "variable_name": "varSourcePlatform",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "reddit",
+                "displayName": "Reddit"
+              },
+              {
+                "id": "trustpilot",
+                "displayName": "TrustPilot"
+              },
+              {
+                "id": "playstore",
+                "displayName": "Google Play Store"
+              }
+            ],
+            "entity_file": "social_data_collector_platforms.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Describe Research Topic",
+            "description": "Asks the user to describe their research topic or industry so the agent can recommend relevant data sources (e.g., relevant subreddits for customer experience research, competitor TrustPilot pages for brand benchmarking, or popular apps in a category for app review analysis).",
+            "variable_name": "varResearchTopic",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Lookup Recommended Sources",
+            "description": "Queries the Collection Templates knowledge source in SharePoint for pre-configured source recommendations based on the research topic and selected platform. Returns a list of suggested sources with descriptions, estimated data volumes, and activity levels.",
+            "variable_name": "varRecommendedSources",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Source Recommendations",
+            "description": "Presents recommended data sources as an Adaptive Card with checkboxes, allowing the user to select one or more sources. Each source includes its name, description, estimated post/review count, and activity level. For TrustPilot, also shows overall rating and verification status. For Play Store, shows app rating and developer name."
+          },
+          {
+            "type": "Condition",
+            "name": "Check Source Selection Valid",
+            "description": "Validates that at least one source was selected and that the combined estimated data volume does not exceed the 1000-post limit per collection request.",
+            "variable_name": "varSelectedSources",
+            "variable_scope": "Topic",
+            "condition_expression": "length(varSelectedSources) > 0 && estimatedTotal <= 1000"
+          },
+          {
+            "type": "Message",
+            "name": "Source Selection Confirmed",
+            "description": "Confirms the selected sources and offers to proceed directly to data collection with these sources or return to modify the selection. Mentions that output will include PDF reports and JSON data saved to SharePoint."
+          }
+        ],
+        "trigger_phrases": "choose data source, configure sources, select subreddit, which platform, available sources, add a source, recommend subreddits, find TrustPilot pages, suggest Play Store apps"
+      },
+      {
+        "name": "Collection Status",
+        "description": "User wants to check the progress or status of an active or recent data collection job. Route here when the user asks about collection progress, completion percentage, errors, or whether a job has finished.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Status Check Introduction",
+            "description": "Acknowledges the status check request and asks the user to identify which collection job they want to check. Explains they can provide a job ID or ask for the most recent job."
+          },
+          {
+            "type": "Question",
+            "name": "Provide Job Identifier",
+            "description": "Asks the user for their collection job ID, or offers to look up their most recent collection job. Accepts a job ID string or the keyword 'latest'.",
+            "variable_name": "varJobIdentifier",
+            "variable_scope": "Topic",
+            "entity_type": "string"
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Job Status",
+            "description": "Calls the Power Automate flow to query the collection job status by job ID. The status endpoint returns: current status (queued, running, completed, failed), progress percentage, total items expected, items collected so far, any error messages, and the list of generated files (PDF batch files + JSON data file).",
+            "variable_name": "varJobStatus",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Check Collection Job Status"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Job Completion State",
+            "description": "Evaluates the job status to determine the appropriate response:\n- Running: Show progress bar, items collected vs total, estimated time remaining.\n- Completed: Show success summary with file count (N PDF files + 1 JSON file), total records, and download links.\n- Failed: Show error details and suggest retry options.\n- Queued: Show position in queue and estimated start time.",
+            "variable_name": "varJobStatus",
+            "variable_scope": "Topic",
+            "condition_expression": "varJobStatus.status == \"completed\" || varJobStatus.status == \"failed\" || varJobStatus.status == \"running\" || varJobStatus.status == \"queued\""
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Job Status Card",
+            "description": "Displays the current job status as an Adaptive Card showing:\n- Job ID and platform\n- Source identifier(s) and collection parameters\n- Status indicator (queued/running/completed/failed) with color coding\n- Progress bar (0-100%) with items collected vs total\n- Elapsed time and estimated time remaining\n- For completed jobs: List of generated files with download buttons:\n  - PDF batch files ({job_id}_{source}_data_batch_1.pdf, _batch_2.pdf, etc.)\n  - JSON data file ({job_id}_{source}_data_complete.json)\n- For failed jobs: Error message and retry button"
+          },
+          {
+            "type": "Message",
+            "name": "Next Steps Guidance",
+            "description": "Based on the status, suggests next steps:\n- Completed: Offers to download PDF reports for human-readable review or JSON data for programmatic analysis. Offers to proceed to Export Results topic for format selection or to start analysis with the Social Research Analytics agent.\n- Running: Advises checking back in a few minutes (provides estimated completion time based on rate limits).\n- Failed: Explains the error, suggests checking source identifiers, and offers to retry with modified parameters.\n- Queued: Explains the job is waiting to start and advises checking back shortly."
+          }
+        ],
+        "trigger_phrases": "check collection status, job progress, is my collection done, collection update, how is the job going, check on my scraping job, what is the status of my data pull"
+      },
+      {
+        "name": "Export Results",
+        "description": "User wants to download, view, or share collected data results. Route here when the user asks for output files, wants to export to PDF, JSON, or CSV, needs SharePoint links, or wants to preview collected data.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Export Options Overview",
+            "description": "Explains available export formats and how they are generated:\n\n- PDF Reports (auto-generated): Formatted, human-readable PDF documents with per-item details including title, author, score/rating, date, body text, and top comments. PDFs are batched at 100 items per file -- a 500-item collection produces 5 PDF files. Each PDF includes a header with source, target, collection date, and total item count. Character encoding is cleaned to ASCII for maximum compatibility.\n\n- JSON Data (auto-generated): Complete structured dataset with all collected fields and metadata. Single file containing the full collection with source info, timestamps, and item array. Ideal for programmatic analysis, topic modeling, or import into other tools.\n\n- CSV Export (on-demand): Tabular spreadsheet format generated from the JSON data via Power Automate. Suitable for Excel analysis or database import.\n\nBoth PDF and JSON files are automatically generated when a collection completes and saved to the SharePoint ResearchHub library. CSV can be generated on request."
+          },
+          {
+            "type": "Question",
+            "name": "Select Export Format",
+            "description": "Asks the user which format(s) they want to download. Presents choices: PDF Reports (formatted, human-readable), JSON Data (structured, machine-readable), CSV Spreadsheet (tabular, for Excel), or All Formats (PDF + JSON + CSV). Also asks if they want a data preview before downloading.",
+            "variable_name": "varExportFormat",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "pdf",
+                "displayName": "PDF Reports"
+              },
+              {
+                "id": "json",
+                "displayName": "JSON Data"
+              },
+              {
+                "id": "csv",
+                "displayName": "CSV Spreadsheet"
+              },
+              {
+                "id": "all",
+                "displayName": "All Formats"
+              }
+            ],
+            "entity_file": "social_data_collector_export_formats.txt"
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Export Links",
+            "description": "Fetches the SharePoint file URLs for the completed collection job's output files. Returns:\n- PDF file URLs (may be multiple batch files): [{name, url, size, item_count}]\n- JSON file URL: {name, url, size, total_records}\n- CSV file URL (if previously generated or generating now): {name, url, size}\n- File metadata: creation date, total records, source platform, collection parameters",
+            "variable_name": "varExportLinks",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Condition",
+            "name": "Check if CSV Generation Needed",
+            "description": "If the user selected CSV or All Formats, checks whether a CSV file already exists for this collection job. If not, triggers on-demand CSV generation from the JSON data via a Power Automate Office Script or Parse JSON action.",
+            "variable_name": "varCsvNeeded",
+            "variable_scope": "Topic",
+            "condition_expression": "(varExportFormat == \"csv\" || varExportFormat == \"all\") && !varExportLinks.csv_exists"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Preview Requested",
+            "description": "Checks whether the user requested a data preview before downloading. If yes, retrieves the first 10 records from the JSON file for display in an Adaptive Card table.",
+            "variable_name": "varPreviewRequested",
+            "variable_scope": "Topic",
+            "condition_expression": "varPreviewRequested == true"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Export Results Card",
+            "description": "Presents an Adaptive Card with all available downloads organized by format:\n\nPDF Reports section:\n- Lists each PDF batch file with download button, file size, and item range (e.g., 'Batch 1: Items 1-100, 245 KB')\n- For single-batch collections, shows just one PDF link\n\nJSON Data section:\n- Download button for the complete JSON file with total record count and file size\n\nCSV Spreadsheet section (if requested):\n- Download button for the CSV file with record count\n\nOptional preview table showing first 10 records with columns: Title, Author, Score/Rating, Date.\n\nIncludes 'Share via Email' button and 'Open in SharePoint' link."
+          },
+          {
+            "type": "Message",
+            "name": "Export Complete Confirmation",
+            "description": "Confirms the export delivery and reminds the user that all files are stored in the SharePoint ResearchHub document library under /Collections/{job_id}/. File naming convention: {job_id}_{source}_data_batch_N.pdf for PDF reports and {job_id}_{source}_data_complete.json for the JSON dataset. Offers to start a new collection or proceed to analysis with the Social Research Analytics agent."
+          }
+        ],
+        "trigger_phrases": "export results, download data, get PDF report, download PDF, get JSON file, get CSV file, share results, view collected data, export to SharePoint, download all files"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Collect Reddit Data",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Collects posts and comments from specified subreddits using the Reddit PRAW API via HTTP connector with OAuth2 authentication. Enforces 10-second rate limiting between API requests. Generates formatted PDF reports batched at 100 items per file (with title, author, score, date, body text, separator lines, and top comments per post) alongside a complete structured JSON dataset. Saves all output files to SharePoint document library.",
+        "actions_description": "Initialize variables (subreddit_list, time_filter, max_posts, comments_per_post, batch_size=100) -> HTTP POST to Reddit OAuth token endpoint (client credentials grant) -> For Each subreddit in subreddit_list: HTTP GET to oauth.reddit.com/r/{subreddit}/search.json with time_filter and sort params -> Parse JSON response -> Apply to each post: Compose post object with id, title, selftext (body), score, num_comments, created_utc, author, url, permalink, subreddit -> If include_comments: For each post HTTP GET to /comments/{post_id} endpoint -> Extract top N comments (id, author, body, score, created) -> Append post with comments to results array -> Delay 10 seconds (rate limit) -> After all posts collected: Generate PDF reports (batch at 100 items using Office Script or custom connector -- each PDF includes header with source/target/date/count, per-item formatting with clean ASCII encoding, separator lines between items) -> Create JSON file with complete dataset and metadata -> Upload all files to SharePoint /Collections/{job_id}/ -> Return file URLs, post count, and file list",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "platform",
+            "type": "String",
+            "description": "Social media platform identifier: 'reddit'"
+          },
+          {
+            "name": "subreddit",
+            "type": "String",
+            "description": "Target subreddit name or comma-separated list of subreddits (without r/ prefix)"
+          },
+          {
+            "name": "search_term",
+            "type": "String",
+            "description": "Optional keyword or phrase to filter posts by"
+          },
+          {
+            "name": "time_filter",
+            "type": "String",
+            "description": "Time range filter: day, week, month, year (default), or all"
+          },
+          {
+            "name": "max_posts",
+            "type": "Number",
+            "description": "Maximum number of posts to collect (10-1000, default 100)"
+          },
+          {
+            "name": "comments_per_post",
+            "type": "Number",
+            "description": "Number of top comments to collect per post (0-50, default 5). Set to 0 for posts only."
+          },
+          {
+            "name": "include_comments",
+            "type": "Boolean",
+            "description": "Whether to include comment threads for each post (true/false)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Collection job status: completed, failed, or partial"
+          },
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Unique job identifier for status tracking and file retrieval"
+          },
+          {
+            "name": "post_count",
+            "type": "Number",
+            "description": "Total number of posts collected"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "String",
+            "description": "Comma-separated SharePoint URLs for PDF batch files ({job_id}_reddit_data_batch_1.pdf, _batch_2.pdf, etc.)"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "String",
+            "description": "SharePoint URL for the complete JSON dataset ({job_id}_reddit_data_complete.json)"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "Number",
+            "description": "Number of PDF batch files generated (post_count / 100, rounded up)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://www.reddit.com/api/v1/access_token",
+            "description": "OAuth2 token endpoint for Reddit API authentication using client credentials grant"
+          },
+          {
+            "method": "GET",
+            "url": "https://oauth.reddit.com/r/{subreddit}/search.json",
+            "description": "Reddit search API endpoint filtered by subreddit, time_filter (day/week/month/year/all), and sort order"
+          },
+          {
+            "method": "GET",
+            "url": "https://oauth.reddit.com/comments/{post_id}",
+            "description": "Reddit comments endpoint for fetching top N comments per post"
+          }
+        ]
+      },
+      {
+        "name": "Collect TrustPilot Reviews",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Collects customer reviews from TrustPilot business pages using HTTP requests with BeautifulSoup-style HTML parsing. Enforces 2-second rate limiting between page fetches. Extracts company metadata (name, domain, overall rating distribution, verification status) and per-review data (title, text, rating 1-5, date, consumer name, location, verified purchase status, company reply). Generates formatted PDF reports batched at 100 items and a complete JSON dataset. Saves all files to SharePoint.",
+        "actions_description": "Initialize variables (company_domain, max_reviews, min_rating, sort_by, batch_size=100) -> HTTP GET to TrustPilot business unit lookup endpoint to resolve company domain to business_unit_id -> Extract company metadata (name, domain, trust_score, rating_distribution, is_verified) -> Do Until reviews collected >= max_reviews OR no more pages: HTTP GET to TrustPilot reviews endpoint with pagination, sort order, and star filter params -> Parse HTML response -> Apply to each review: Compose review object with id (UUID), title (rating + title text), selftext (review body), score (helpful votes), rating (1-5 stars), created (publication date), author (reviewer name), location, verified_purchase, num_comments (1 if company replied, 0 otherwise), comments (company reply as comment if exists) -> Append to results array -> Delay 2 seconds (rate limit) -> Generate PDF reports (batch at 100 items -- each review formatted with star rating, title, body, helpful votes, date, and company reply) -> Create JSON file with complete dataset including company metadata -> Upload all files to SharePoint /Collections/{job_id}/ -> Return file URLs, review count, average rating, and file list",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "company_domain",
+            "type": "String",
+            "description": "TrustPilot company domain URL or name (e.g., amazon.com)"
+          },
+          {
+            "name": "max_reviews",
+            "type": "Number",
+            "description": "Maximum number of reviews to collect (10-1000, default 100)"
+          },
+          {
+            "name": "min_rating",
+            "type": "Number",
+            "description": "Minimum star rating filter 1-5 (default 1 = all reviews)"
+          },
+          {
+            "name": "sort_by",
+            "type": "String",
+            "description": "Sort order: 'recency' (default) or 'rating'"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Collection job status: completed, failed, or partial"
+          },
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Unique job identifier for status tracking and file retrieval"
+          },
+          {
+            "name": "review_count",
+            "type": "Number",
+            "description": "Total number of reviews collected"
+          },
+          {
+            "name": "average_rating",
+            "type": "Number",
+            "description": "Average star rating across all collected reviews"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "String",
+            "description": "Comma-separated SharePoint URLs for PDF batch files ({job_id}_trustpilot_data_batch_1.pdf, etc.)"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "String",
+            "description": "SharePoint URL for the complete JSON dataset ({job_id}_trustpilot_data_complete.json)"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "Number",
+            "description": "Number of PDF batch files generated (review_count / 100, rounded up)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/find?name={domain}",
+            "description": "Look up TrustPilot business unit ID and company metadata by domain"
+          },
+          {
+            "method": "GET",
+            "url": "https://api.trustpilot.com/v1/business-units/{id}/reviews",
+            "description": "Paginated reviews endpoint with sort order and star filter parameters"
+          }
+        ]
+      },
+      {
+        "name": "Collect Play Store Reviews",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Collects app reviews from Google Play Store using the SerpAPI Google Play Reviews endpoint with language and country localization. Extracts app metadata (name, developer, average rating, current version, description) and per-review data (review text, rating 1-5, date, thumbs-up count, app version at time of review, developer reply). Generates formatted PDF reports batched at 100 items and a complete JSON dataset. Saves all files to SharePoint.",
+        "actions_description": "Initialize variables (app_id, language, country, sort_by, max_reviews, batch_size=100) -> HTTP GET to SerpAPI with google_play_product engine to fetch app metadata (name, developer, rating, version, description) -> For each page until max_reviews reached: HTTP GET to SerpAPI with google_play_product_reviews engine, app_id, language, country, sort params -> Parse JSON response -> Apply to each review: Compose review object with id, title (rating + first 100 chars), selftext (full review text), score (thumbs_up count), rating (1-5), created (review date), author, app_version, num_comments (1 if developer replied, 0 otherwise), comments (developer reply if exists) -> Append to results array -> Generate PDF reports (batch at 100 items -- each review formatted with star rating, title, body, thumbs-up count, app version, date, and developer reply) -> Create JSON file with complete dataset including app metadata -> Upload all files to SharePoint /Collections/{job_id}/ -> Return file URLs, review count, average rating, and file list",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "app_id",
+            "type": "String",
+            "description": "Google Play Store app package name in reverse-domain format (e.g., com.spotify.music)"
+          },
+          {
+            "name": "language",
+            "type": "String",
+            "description": "Language code for reviews: en, es, fr, de, it, pt, ru, ja, ko, zh, hi, ar (default: en)"
+          },
+          {
+            "name": "country",
+            "type": "String",
+            "description": "Country code for region-specific reviews: us, gb, ca, au, de, fr, es, it, jp, kr, cn, br, mx, in (default: us)"
+          },
+          {
+            "name": "sort_by",
+            "type": "String",
+            "description": "Sort order: 'newest' (default), 'rating', or 'helpful'"
+          },
+          {
+            "name": "max_reviews",
+            "type": "Number",
+            "description": "Maximum number of reviews to collect (10-1000, default 100)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Collection job status: completed, failed, or partial"
+          },
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Unique job identifier for status tracking and file retrieval"
+          },
+          {
+            "name": "review_count",
+            "type": "Number",
+            "description": "Total number of reviews collected"
+          },
+          {
+            "name": "average_rating",
+            "type": "Number",
+            "description": "Average star rating across all collected reviews"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "String",
+            "description": "Comma-separated SharePoint URLs for PDF batch files ({job_id}_playstore_data_batch_1.pdf, etc.)"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "String",
+            "description": "SharePoint URL for the complete JSON dataset ({job_id}_playstore_data_complete.json)"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "Number",
+            "description": "Number of PDF batch files generated (review_count / 100, rounded up)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://serpapi.com/search.json?engine=google_play_product&product_id={app_id}&store=apps&gl={country}&hl={language}",
+            "description": "SerpAPI endpoint for fetching Google Play Store app metadata"
+          },
+          {
+            "method": "GET",
+            "url": "https://serpapi.com/search.json?engine=google_play_product&product_id={app_id}&store=apps&gl={country}&hl={language}&all_reviews=true&sort_by={sort}&num={count}",
+            "description": "SerpAPI endpoint for fetching Google Play Store app reviews with pagination, sorting, and localization"
+          }
+        ]
+      },
+      {
+        "name": "Check Collection Job Status",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Queries the status of a running or completed data collection job. Returns the current progress, generated file list, and any error information. Used by the Collection Status topic to provide real-time progress updates.",
+        "actions_description": "Receive job_id from agent -> HTTP GET to collection service /api/status/{job_id} endpoint -> Parse JSON response -> Extract status (queued/running/completed/failed), progress percentage, total items, collected items, error messages, and file list -> If completed: Compose file list with PDF batch files and JSON data file URLs -> Return status object with all fields",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Unique job identifier from a previous collection request"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Job status: queued, running, completed, or failed"
+          },
+          {
+            "name": "progress",
+            "type": "Number",
+            "description": "Progress percentage (0-100)"
+          },
+          {
+            "name": "total_items",
+            "type": "Number",
+            "description": "Total items expected to collect"
+          },
+          {
+            "name": "collected_items",
+            "type": "Number",
+            "description": "Items collected so far"
+          },
+          {
+            "name": "files",
+            "type": "String",
+            "description": "JSON array of generated file objects with name, url, size, and type (pdf/json)"
+          },
+          {
+            "name": "error_message",
+            "type": "String",
+            "description": "Error details if status is 'failed'"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://{collection-service}/api/status/{job_id}",
+            "description": "Collection job status endpoint returning progress, file list, and error information"
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Collection Templates",
+        "name": "Collection Templates Library",
+        "description": "Pre-configured collection templates with recommended subreddits, TrustPilot domains, and Play Store app IDs organized by industry vertical (retail, tech, finance, healthcare, automotive, travel, food/beverage)"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Collect Reddit Data",
+        "description": "Executes Reddit data collection via PRAW API with OAuth2 authentication. Collects posts and comments from specified subreddits within a time filter range. Generates PDF reports (batched at 100 items) and JSON dataset. Enforces 10-second rate limiting.",
+        "inputs": [
+          {
+            "name": "subreddits",
+            "type": "string",
+            "description": "Comma-separated subreddit names without r/ prefix"
+          },
+          {
+            "name": "query_keywords",
+            "type": "string",
+            "description": "Optional keyword filter"
+          },
+          {
+            "name": "time_filter",
+            "type": "string",
+            "description": "Time range: day, week, month, year, all"
+          },
+          {
+            "name": "max_posts",
+            "type": "number",
+            "description": "10-1000, default 100"
+          },
+          {
+            "name": "comments_per_post",
+            "type": "number",
+            "description": "0-50, default 5"
+          },
+          {
+            "name": "include_comments",
+            "type": "boolean",
+            "description": "Include comment threads (true/false)"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "post_count",
+            "type": "number"
+          },
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "string",
+            "description": "Comma-separated PDF batch file URLs"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "string"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "number"
+          },
+          {
+            "name": "date_range_actual",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Collect TrustPilot Reviews",
+        "description": "Collects customer reviews from TrustPilot business pages with pagination, sort order, and minimum rating filtering. Extracts company metadata and per-review data. Generates PDF reports (batched at 100 items) and JSON dataset. Enforces 2-second rate limiting.",
+        "inputs": [
+          {
+            "name": "company_domain",
+            "type": "string",
+            "description": "Company domain URL or name"
+          },
+          {
+            "name": "max_reviews",
+            "type": "number",
+            "description": "10-1000, default 100"
+          },
+          {
+            "name": "min_rating",
+            "type": "number",
+            "description": "Minimum star rating 1-5, default 1"
+          },
+          {
+            "name": "sort_by",
+            "type": "string",
+            "description": "Sort order: recency (default) or rating"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "review_count",
+            "type": "number"
+          },
+          {
+            "name": "average_rating",
+            "type": "number"
+          },
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "string",
+            "description": "Comma-separated PDF batch file URLs"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "string"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Collect Play Store Reviews",
+        "description": "Collects app reviews from Google Play Store via SerpAPI with language, country, and sort order parameters. Extracts app metadata and per-review data. Generates PDF reports (batched at 100 items) and JSON dataset.",
+        "inputs": [
+          {
+            "name": "app_id",
+            "type": "string",
+            "description": "App package name (e.g., com.spotify.music)"
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "description": "Language code: en, es, fr, de, it, pt, ru, ja, ko, zh, hi, ar"
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "description": "Country code: us, gb, ca, au, de, fr, es, it, jp, kr, cn, br, mx, in"
+          },
+          {
+            "name": "sort_by",
+            "type": "string",
+            "description": "Sort order: newest (default), rating, helpful"
+          },
+          {
+            "name": "max_reviews",
+            "type": "number",
+            "description": "10-1000, default 100"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "review_count",
+            "type": "number"
+          },
+          {
+            "name": "average_rating",
+            "type": "number"
+          },
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "sharepoint_pdf_urls",
+            "type": "string",
+            "description": "Comma-separated PDF batch file URLs"
+          },
+          {
+            "name": "sharepoint_json_url",
+            "type": "string"
+          },
+          {
+            "name": "pdf_file_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Check Collection Job Status",
+        "description": "Queries the status of a collection job by job ID. Returns progress, file list, and error information.",
+        "inputs": [
+          {
+            "name": "job_id",
+            "type": "string",
+            "description": "Job ID from a previous collection request"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "status",
+            "type": "string",
+            "description": "queued, running, completed, or failed"
+          },
+          {
+            "name": "progress",
+            "type": "number",
+            "description": "0-100 percentage"
+          },
+          {
+            "name": "collected_items",
+            "type": "number"
+          },
+          {
+            "name": "total_items",
+            "type": "number"
+          },
+          {
+            "name": "files",
+            "type": "string",
+            "description": "JSON array of file objects with name, url, size, type"
+          },
+          {
+            "name": "error_message",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Data Platforms",
+        "entity_file": "social_data_collector_platforms.txt",
+        "description": "Closed list entity for social media platforms (Reddit, TrustPilot, Google Play Store) with synonyms for smart matching",
+        "used_in_topics": [
+          "Data Collection Request",
+          "Source Selection"
+        ]
+      },
+      {
+        "entity_name": "Export Formats",
+        "entity_file": "social_data_collector_export_formats.txt",
+        "description": "Closed list entity for data export formats (PDF Reports, JSON Data, CSV Spreadsheet, All Formats) with synonyms for smart matching. PDF is the primary human-readable format auto-generated by the collection service.",
+        "used_in_topics": [
+          "Export Results"
+        ]
+      },
+      {
+        "entity_name": "Time Filters",
+        "entity_file": "social_data_collector_time_filters.txt",
+        "description": "Closed list entity for Reddit time filters and general temporal scope options (Past Day, Past Week, Past Month, Past Year, All Time) with synonyms. Used in the Data Collection Request topic for Reddit time_filter parameter.",
+        "used_in_topics": [
+          "Data Collection Request"
+        ]
+      }
+    ]
+  }
+}

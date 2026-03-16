@@ -1,0 +1,96 @@
+/**
+ * content_selector.css
+ * Styles for the journey map content selection interface
+ */
+
+.content-selector-container {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.content-selector-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.content-selector-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.content-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.content-option input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.content-selector-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+.content-selector-actions button {
+    background-color: rgba(66, 100, 208, 0.1);
+    color: #4264D0;
+    border: 1px solid #4264D0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.content-selector-actions button:hover {
+    background-color: rgba(66, 100, 208, 0.2);
+}
+
+@media (max-width: 768px) {
+    .content-selector-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .content-selector-column {
+        width: 100%;
+    }
+}
+
+/* Additional styles for journey map content selection */
+.content-selector-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.content-selector-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #4264D0;
+}
+
+.content-selector-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+/* Make sure checkboxes stand out against dark backgrounds */
+.content-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid rgba(66, 100, 208, 0.5);
+    background-color: white;
+}

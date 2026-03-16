@@ -244,7 +244,7 @@ const App = (props) => {
             </div>
             <div className="section-info">
               <h2 className="section-title">Key Features</h2>
-              <p className="section-description">Powered by Claude 3.7 Sonnet for intelligent journey analysis</p>
+              <p className="section-description">Powered by Claude 4.5 for intelligent journey analysis</p>
             </div>
           </div>
           
@@ -254,7 +254,7 @@ const App = (props) => {
                 <i className="fas fa-brain"></i>
               </div>
               <div className="feature-title">AI-Powered Analysis</div>
-              <div className="feature-description">Claude 3.7 intelligently analyzes your data to identify touchpoints, emotions, and journey phases</div>
+              <div className="feature-description">Claude 4.5 intelligently analyzes your data to identify touchpoints, emotions, and journey phases</div>
             </div>
             <div className="feature-card">
               <div className="feature-icon">

@@ -1,0 +1,492 @@
+{
+  "id": "video_transcription",
+  "name": "Video Transcription Agent",
+  "description": "A Copilot Studio agent that transcribes video and audio files using the OpenAI Whisper API. The agent handles file uploads, supports multiple audio formats and YouTube URLs, processes transcriptions with speaker diarization options, and delivers formatted transcripts via Teams or SharePoint.",
+  "replicates_service": "Video Transcription Service (Port 5002)",
+  "icon": "fa-solid fa-closed-captioning",
+  "estimated_build_time": "5-7 hours",
+  "complexity": "intermediate",
+  "thumbnail": "Video_Transcript_Generator.gif",
+  "prefilled": {
+    "agent_name": "Video Transcription Assistant",
+    "agent_description": "This agent transcribes video and audio content into accurate text by calling the OpenAI Whisper API DIRECTLY from Power Automate flows. It accepts file uploads from Teams (MP4, MP3, WAV, M4A, WebM, OGG, FLAC) with a maximum of 20 MB per file (Whisper API hard limit). Completed transcripts are delivered through Teams Adaptive Cards and email, with files stored in a SharePoint Transcripts Library at /sites/ResearchHub/Shared Documents/Transcripts.\n\nThe agent has three topics. The Transcription Request topic guides users through the full workflow: it presents a choice entity for input type selection (File Upload or YouTube URL), validates uploaded files against supported formats and the 20 MB size limit (warn at 15 MB), offers output format selection via a choice entity (Plain Text, SRT, or VTT) backed by video_transcription_formats.txt, provides a boolean timestamp toggle, then calls the Transcribe Audio File flow. The Format Selection topic helps users choose the optimal format: research and analysis maps to plain text, video subtitles maps to SRT, web captions maps to VTT. The Download Transcript topic retrieves completed files from SharePoint, previews the first 200 words with metadata, and offers reformatting, emailing, or starting a new transcription.\n\nTwo Power Automate Agent Flows call external APIs directly. The Transcribe Audio File flow calls the OpenAI Whisper API: Get environment variable nxth_OpenAiApiKey -> Retrieve uploaded file content from Teams attachment (base64) via SharePoint Get File Content action -> HTTP POST to https://api.openai.com/v1/audio/transcriptions with multipart/form-data body: field 'model'='whisper-1', field 'file'=<MP3 binary>, field 'response_format'='verbose_json', field 'language'='en' -> auth header: 'Authorization: Bearer {nxth_OpenAiApiKey}' -> parse response: body()?['text'] for full transcript, body()?['segments'] for timestamped segments -> format SRT/VTT if requested -> upload transcript to SharePoint -> return transcript_text, word_count, duration, detected_language. Inputs: file_content_base64, file_name, language, output_format, include_timestamps. Outputs: transcript_text, word_count, duration, status. Note: files must be audio format. For MP4/video: use a pre-processing step to describe that the user should extract audio first, or note this limitation clearly. The Transcribe YouTube Video flow calls the YouTube Captions API then Whisper as fallback: HTTP GET https://www.googleapis.com/youtube/v3/captions?part=snippet&videoId={video_id}&key={nxth_GeminiApiKey} (YouTube Data API uses the same Google API key) -> if captions available: HTTP GET caption download URL -> parse VTT/SRT text -> if no captions: skip (yt-dlp download is not feasible in Power Automate without custom connector) -> format and upload to SharePoint. Inputs: youtube_url, language, output_format. Outputs: transcript_text, status.\n\nOne closed-list entity, Transcript Formats, enumerates SRT, VTT, and Plain Text with synonyms in video_transcription_formats.txt. Two Flow-type tools registered: Transcribe Audio File and Transcribe YouTube Video. Two Power Platform environment variables required: nxth_OpenAiApiKey (Secret, the OpenAI API key) and nxth_GeminiApiKey (Secret, the Google API key, used for YouTube Data API captions lookup). Knowledge source: SharePoint Transcripts Library at /sites/ResearchHub/Shared Documents/Transcripts. Delivery channels: Teams Adaptive Card and Email. Key patterns: 20 MB file size limit enforced before API call, multipart/form-data HTTP body construction in Power Automate (use Compose actions to build boundary-separated parts), response verbose_json provides both full text and timestamped segments, Secure Inputs/Outputs ON for the HTTP action containing the API key.",
+    "persona_instructions": "You are the Video Transcription Assistant, a specialized agent for converting audio and video content into accurate text transcripts. You help researchers, content creators, and analysts get written records of multimedia content.\n\nPersona: You are efficient, detail-oriented, and helpful. You communicate clearly about processing times and file limitations. You proactively suggest the best output format based on the user's stated use case (SRT for subtitles, plain text for analysis, VTT for web embedding).\n\nChain-of-thought reasoning:\n1. When a user submits content for transcription, first determine the input type: file upload or YouTube URL.\n2. For file uploads, validate the format (MP4, MP3, WAV, M4A, WebM, OGG) and check the file size. Files over 25MB must be chunked into segments.\n3. For YouTube URLs, extract the video ID and attempt to retrieve existing captions first. If no captions exist, download the audio track for Whisper processing.\n4. Ask the user for their preferred output format: plain text, SRT (SubRip subtitle), or VTT (WebVTT caption). Default to plain text if not specified.\n5. Ask if the user wants timestamp annotations embedded in the text output (useful for research citations).\n6. Execute the transcription flow. For files over 25MB, explain that chunked processing will take longer.\n7. On completion, present a summary with duration, word count, detected language, and a preview of the first 200 words. Provide download links.\n\nOutput format: Present transcription results in a clean Adaptive Card with metadata (duration, word count, language) at the top, followed by a preview excerpt, and download buttons for each format. For long transcripts, offer to break them into sections.\n\nConstraints:\n- Maximum file size: 200MB per upload. Reject files over this limit with a clear explanation.\n- Supported formats: MP4, MP3, WAV, M4A, WebM, OGG, FLAC. Reject unsupported formats and suggest conversion.\n- Whisper API has a 25MB per-request limit; implement chunking for larger files transparently.\n- Processing time estimate: roughly 1 minute per 10 minutes of audio content.\n- Always preserve the original audio language; offer translation to English only if explicitly requested.\n- Do not store uploaded audio files longer than 24 hours; auto-delete after transcript delivery.\n\nEnvironment: You run in Microsoft Teams. File uploads come through the Teams attachment mechanism. All external API calls (Whisper, YouTube) go through Power Automate HTTP actions. Output files are stored in SharePoint.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Transcription Request",
+        "description": "User wants to transcribe a video or audio file. Route here when the user uploads a file, pastes a YouTube URL, or mentions transcribing, converting speech to text, or getting a transcript of audio/video content.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Transcription Welcome",
+            "description": "Greets the user and explains the transcription service: accepts file uploads (MP4, MP3, WAV, M4A, WebM, OGG, FLAC) and YouTube URLs. Mentions supported output formats (plain text, SRT, VTT) and file size limits (max 200MB)."
+          },
+          {
+            "type": "Question",
+            "name": "Select Input Type",
+            "description": "Asks the user whether they want to upload an audio/video file directly or provide a YouTube URL for transcription.",
+            "variable_name": "varInputType",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "file_upload",
+                "displayName": "File Upload"
+              },
+              {
+                "id": "youtube_url",
+                "displayName": "YouTube URL"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route by Input Type",
+            "description": "Branches the flow based on input type: file upload path validates format and size, YouTube URL path extracts the video ID and checks for existing captions.",
+            "variable_name": "varInputType",
+            "variable_scope": "Topic",
+            "condition_expression": "varInputType == \"File Upload\" || varInputType == \"YouTube URL\""
+          },
+          {
+            "type": "Question",
+            "name": "Collect File or URL",
+            "description": "For file upload: prompts the user to attach their audio/video file. For YouTube URL: asks the user to paste the full YouTube video URL. Validates the input format.",
+            "variable_name": "varMediaInput",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Input",
+            "description": "For file uploads, validates file format against supported types and checks file size against 200MB limit. For YouTube URLs, validates URL format and extracts video ID. Rejects invalid inputs with clear error messages.",
+            "variable_name": "varMediaInput",
+            "variable_scope": "Topic",
+            "condition_expression": "isValidFormat(varMediaInput) && fileSize <= 200MB"
+          },
+          {
+            "type": "Question",
+            "name": "Select Output Format",
+            "description": "Asks the user for their preferred transcript output format: plain text (for analysis), SRT (for subtitles), or VTT (for web captions). Defaults to plain text if the user is unsure.",
+            "variable_name": "varOutputFormat",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "plain_text",
+                "displayName": "Plain Text"
+              },
+              {
+                "id": "srt",
+                "displayName": "SRT"
+              },
+              {
+                "id": "vtt",
+                "displayName": "VTT"
+              }
+            ],
+            "entity_file": "video_transcription_formats.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Include Timestamps Option",
+            "description": "Asks whether the user wants timestamp annotations embedded in the text output. Useful for research citations and navigating long transcripts.",
+            "variable_name": "varIncludeTimestamps",
+            "variable_scope": "Topic",
+            "entity_type": "boolean"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Transcription Flow",
+            "description": "Calls the appropriate Power Automate flow (Transcribe Audio File or Transcribe YouTube Video) with validated input, output format, and timestamp preferences. For files over 25MB, automatic chunking is applied transparently.",
+            "variable_name": "varTranscriptionJobId",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Transcribe Audio File"
+          },
+          {
+            "type": "Message",
+            "name": "Processing Confirmation",
+            "description": "Confirms the transcription job is processing. Provides an estimated completion time (approximately 1 minute per 10 minutes of audio). Notes that large files requiring chunking may take longer."
+          }
+        ],
+        "trigger_phrases": "transcribe video, transcribe audio, speech to text, get transcript, convert video to text, upload for transcription"
+      },
+      {
+        "name": "Format Selection",
+        "description": "User wants to choose or change the output format of a transcription. Route here when the user mentions SRT, VTT, subtitles, captions, plain text format, or asks about available transcript formats.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Format Options Explanation",
+            "description": "Explains the three available transcript formats in detail: Plain Text (clean readable text, best for analysis and reading), SRT (SubRip subtitle format with sequence numbers and timestamps, standard for video players), and VTT (WebVTT caption format, ideal for HTML5 web embedding)."
+          },
+          {
+            "type": "Question",
+            "name": "Current Use Case",
+            "description": "Asks the user about their intended use case for the transcript to recommend the best format: research/analysis, video subtitles, web captions, or general reading.",
+            "variable_name": "varUseCase",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "research",
+                "displayName": "Research / Analysis"
+              },
+              {
+                "id": "subtitles",
+                "displayName": "Video Subtitles"
+              },
+              {
+                "id": "web",
+                "displayName": "Web Captions"
+              },
+              {
+                "id": "reading",
+                "displayName": "General Reading"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Recommend Format by Use Case",
+            "description": "Maps the user's use case to the optimal format: research/analysis maps to plain text with timestamps, video subtitles maps to SRT, web captions maps to VTT, general reading maps to plain text without timestamps.",
+            "variable_name": "varUseCase",
+            "variable_scope": "Topic",
+            "condition_expression": "varUseCase == \"research\" || varUseCase == \"subtitles\" || varUseCase == \"web\" || varUseCase == \"reading\""
+          },
+          {
+            "type": "Message",
+            "name": "Format Recommendation",
+            "description": "Presents the recommended format based on the user's use case with an explanation of why it is the best fit. Offers to proceed with the recommendation or let the user override with a different format."
+          },
+          {
+            "type": "Question",
+            "name": "Confirm Format Choice",
+            "description": "Asks the user to confirm the recommended format or select a different one. Also asks if they want the transcript in multiple formats simultaneously.",
+            "variable_name": "varConfirmedFormat",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "plain_text",
+                "displayName": "Plain Text"
+              },
+              {
+                "id": "srt",
+                "displayName": "SRT"
+              },
+              {
+                "id": "vtt",
+                "displayName": "VTT"
+              },
+              {
+                "id": "multiple",
+                "displayName": "Multiple Formats"
+              }
+            ],
+            "entity_file": "video_transcription_formats.txt"
+          }
+        ],
+        "trigger_phrases": "choose transcript format, SRT format, VTT subtitles, plain text output, transcript format options, change output format"
+      },
+      {
+        "name": "Download Transcript",
+        "description": "User wants to download, view, or share a completed transcript. Route here when the user asks for the output file, download link, wants to save to SharePoint, or requests the transcript be sent via email.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Transcript Ready Notification",
+            "description": "Informs the user that their transcript is ready. Displays metadata: audio duration, word count, detected language, and the output format generated."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Transcript Files",
+            "description": "Fetches the completed transcript files from SharePoint, including the transcript text content for preview, file download URLs, and metadata (file size, creation timestamp).",
+            "variable_name": "varTranscriptFiles",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Transcript Preview and Download Card",
+            "description": "Displays an Adaptive Card showing a preview of the first 200 words of the transcript, along with metadata (duration, word count, language). Includes download buttons for each generated format and a Share via Email button."
+          },
+          {
+            "type": "Question",
+            "name": "Additional Actions",
+            "description": "Asks if the user wants to: generate the transcript in additional formats, send it to colleagues via email, start a new transcription, or split a long transcript into sections.",
+            "variable_name": "varAdditionalAction",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "reformat",
+                "displayName": "Generate in Additional Formats"
+              },
+              {
+                "id": "email",
+                "displayName": "Send via Email"
+              },
+              {
+                "id": "new",
+                "displayName": "Start New Transcription"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route Additional Action",
+            "description": "Routes to the appropriate follow-up based on the user's choice: re-format redirects to Format Selection topic, email triggers delivery flow, new transcription redirects to Transcription Request topic.",
+            "variable_name": "varAdditionalAction",
+            "variable_scope": "Topic",
+            "condition_expression": "varAdditionalAction == \"reformat\" || varAdditionalAction == \"email\" || varAdditionalAction == \"new\""
+          },
+          {
+            "type": "Redirect",
+            "name": "Redirect to Transcription Request",
+            "description": "Redirects the user back to the Transcription Request topic if they want to process another file.",
+            "redirect_topic": "Transcription Request"
+          }
+        ],
+        "trigger_phrases": "download transcript, get transcript file, save transcript, send transcript by email, transcript download link"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Transcribe Audio File",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Processes an uploaded audio or video file through the OpenAI Whisper API. Handles file size validation, chunking for large files, API calls, and output formatting. Returns the transcript in the requested format.",
+        "actions_description": "Receive file content and metadata -> Condition: check file size > 25MB -> If yes: Split audio into 25MB chunks using audio processing action -> For each chunk: HTTP POST to OpenAI Whisper API (multipart/form-data with file, model=whisper-1, response_format) -> Concatenate chunk results with timestamp alignment -> If no: HTTP POST to OpenAI Whisper API directly -> Parse response -> Condition: output format requested -> Switch: plain text / SRT / VTT formatting -> Create output file in SharePoint -> Return transcript text, file URL, metadata (duration, word_count, language)",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "file_url",
+            "type": "String",
+            "description": "URL or SharePoint path to the audio/video file to transcribe"
+          },
+          {
+            "name": "language",
+            "type": "String",
+            "description": "Language hint for transcription accuracy (e.g., en, es, fr)"
+          },
+          {
+            "name": "output_format",
+            "type": "String",
+            "description": "Desired transcript format: plain_text, srt, or vtt"
+          },
+          {
+            "name": "include_timestamps",
+            "type": "Boolean",
+            "description": "Whether to include timestamp annotations in the output"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "transcript_text",
+            "type": "String",
+            "description": "The transcribed text content"
+          },
+          {
+            "name": "duration",
+            "type": "String",
+            "description": "Duration of the audio/video file (e.g., 00:12:34)"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Transcription job status (completed, failed, partial)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://api.openai.com/v1/audio/transcriptions",
+            "description": "OpenAI Whisper API transcription endpoint. Accepts multipart/form-data with audio file, model name, and response format parameters."
+          }
+        ]
+      },
+      {
+        "name": "Transcribe YouTube Video",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Extracts audio from a YouTube video URL and transcribes it. First attempts to retrieve existing YouTube captions; if unavailable, downloads the audio track and processes through Whisper API.",
+        "actions_description": "Parse YouTube URL to extract video_id -> HTTP GET YouTube Data API v3 captions list -> Condition: captions available? -> If yes: HTTP GET caption track in requested language -> Parse and format caption text -> If no: HTTP GET YouTube audio stream via yt-dlp cloud function -> Receive audio blob -> Process through Whisper API (same as audio file flow) -> Format output -> Save to SharePoint -> Return transcript and metadata",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "youtube_url",
+            "type": "String",
+            "description": "Full YouTube video URL to transcribe"
+          },
+          {
+            "name": "language",
+            "type": "String",
+            "description": "Preferred language for caption retrieval or transcription (e.g., en, es)"
+          },
+          {
+            "name": "output_format",
+            "type": "String",
+            "description": "Desired transcript format: plain_text, srt, or vtt"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "transcript_text",
+            "type": "String",
+            "description": "The transcribed text content"
+          },
+          {
+            "name": "duration",
+            "type": "String",
+            "description": "Duration of the video (e.g., 00:12:34)"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Transcription job status (completed, failed, partial)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://www.googleapis.com/youtube/v3/captions?part=snippet&videoId={video_id}",
+            "description": "YouTube Data API v3 endpoint to list available caption tracks for a video"
+          },
+          {
+            "method": "POST",
+            "url": "https://api.openai.com/v1/audio/transcriptions",
+            "description": "OpenAI Whisper API for transcribing downloaded YouTube audio when captions are unavailable"
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Transcripts",
+        "name": "Transcripts Library",
+        "description": "SharePoint document library where completed transcripts are stored organized by date and project, with metadata columns for duration, language, and source type"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Transcribe Audio File",
+        "description": "Transcribes an uploaded audio or video file using OpenAI Whisper API with automatic chunking for large files.",
+        "inputs": [
+          {
+            "name": "file_content",
+            "type": "string"
+          },
+          {
+            "name": "file_name",
+            "type": "string"
+          },
+          {
+            "name": "output_format",
+            "type": "string"
+          },
+          {
+            "name": "include_timestamps",
+            "type": "boolean"
+          },
+          {
+            "name": "language_hint",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "transcript_text",
+            "type": "string"
+          },
+          {
+            "name": "sharepoint_file_url",
+            "type": "string"
+          },
+          {
+            "name": "duration_seconds",
+            "type": "number"
+          },
+          {
+            "name": "word_count",
+            "type": "number"
+          },
+          {
+            "name": "detected_language",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Transcribe YouTube Video",
+        "description": "Extracts and transcribes audio from a YouTube URL, attempting caption retrieval before falling back to Whisper.",
+        "inputs": [
+          {
+            "name": "youtube_url",
+            "type": "string"
+          },
+          {
+            "name": "output_format",
+            "type": "string"
+          },
+          {
+            "name": "preferred_language",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "transcript_text",
+            "type": "string"
+          },
+          {
+            "name": "sharepoint_file_url",
+            "type": "string"
+          },
+          {
+            "name": "duration_seconds",
+            "type": "number"
+          },
+          {
+            "name": "word_count",
+            "type": "number"
+          },
+          {
+            "name": "source_type",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Transcript Formats",
+        "entity_file": "video_transcription_formats.txt",
+        "description": "Closed list entity for transcript output formats (SRT, VTT, Plain Text) with synonyms",
+        "used_in_topics": [
+          "Transcription Request",
+          "Format Selection"
+        ]
+      }
+    ]
+  }
+}

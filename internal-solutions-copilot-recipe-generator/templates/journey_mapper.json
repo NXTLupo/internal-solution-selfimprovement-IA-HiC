@@ -1,0 +1,551 @@
+{
+  "id": "journey_mapper",
+  "name": "Customer Journey Mapper Agent",
+  "description": "A Copilot Studio agent that analyzes uploaded documents (research reports, transcripts, survey data) and generates comprehensive customer journey maps using the Anthropic Claude API. The agent performs dual-pass analysis with content selection, producing structured journey stages with touchpoints, emotions, pain points, and opportunities.",
+  "replicates_service": "Journey Mapper (Port 8080)",
+  "icon": "fa-solid fa-route",
+  "estimated_build_time": "10-14 hours",
+  "complexity": "advanced",
+  "thumbnail": "journey_mapper_3_7.gif",
+  "prefilled": {
+    "agent_name": "Customer Journey Mapper",
+    "agent_description": "The Customer Journey Mapper agent performs dual-pass document analysis by calling the Anthropic Claude Opus 4.5 API DIRECTLY from Power Automate flows. Users upload research data (interview transcripts, survey reports, support ticket analyses, or research reports) and the agent transforms unstructured content into structured HTML journey maps with emotional scoring (-5 to +5), pain point identification, and improvement opportunities.\n\nThe agent has four topics. Journey Analysis Request handles the core workflow: upload a document (PDF, DOCX, or TXT up to 200,000 characters), validate suitability (minimum 500 words), define journey scope (persona, start/end points, granularity), execute Pass 1 extraction via the Extract Journey Elements flow, then review extracted elements via Adaptive Card showing stages, touchpoints, emotions, pain points, and moments of truth with Edit, Add, and Remove buttons. After approval, Pass 2 synthesis executes via the Synthesize Journey Map flow with content selection preferences to produce the complete interactive HTML journey map. Document Selection manages input documents: upload new files or browse the SharePoint CX Research Library, with content quality validation before redirecting to Journey Analysis. Content Customization provides control over output via Adaptive Card toggles for each content category (Emotional Journey, Pain Points, Touchpoints with Channels, Moments of Truth, Opportunities, Customer Quotes, Channel Swimlanes), persona scope for multi-persona documents, and granularity choice (high-level 3-5 phases, standard 5-8 stages, micro-moments 10+ steps) via choice entity backed by journey_mapper_content_types.txt. Export Journey offers four formats (Interactive HTML, CSV, Miro Board, JSON) via choice entity backed by journey_mapper_export_formats.txt.\n\nThree Agent Flows call the Anthropic Claude API directly. Extract Journey Elements (Pass 1) calls Claude Opus 4.5: Get environment variable nxth_AnthropicApiKey -> HTTP POST to https://api.anthropic.com/v1/messages with headers x-api-key: {nxth_AnthropicApiKey}, anthropic-version: 2023-06-01, Content-Type: application/json -> body: {\"model\": \"claude-opus-4-6\", \"messages\": [{\"role\": \"user\", \"content\": \"{document_content + extraction prompt}\"}], \"system\": \"{Pass1 system prompt: expert journey mapping analyst}\", \"max_tokens\": 64000, \"temperature\": 0.3} -> response text extraction: first(body('HTTP_Pass1')?['content'])?['text'] -> parse extracted JSON (stages[], touchpoints[], emotions[], pain_points[], moments_of_truth[]) -> store in Dataverse journey session -> return elements_json, stage_count, status. Inputs: document_content, persona_scope, journey_start, journey_end, granularity. Outputs: elements_json, stage_count, status. Synthesize Journey Map (Pass 2) calls Claude Opus 4.5 again: HTTP POST same URL with body containing Pass 1 elements_json + original document excerpts + synthesis prompt (generate complete interactive HTML visualization with emotional arc, color-coded stages, and annotated touchpoints) -> response is complete HTML string -> store HTML in SharePoint journey folder -> return journey_id, journey_html (truncated preview), sharepoint_url, status. Inputs: elements_json, document_content, content_selections, granularity. Outputs: journey_id, sharepoint_url, summary, status. Export Journey Map generates CSV by parsing the elements_json into rows and creates a PDF preview link from the SharePoint HTML file. Inputs: journey_id, export_format. Outputs: download_url, status.\n\nTwo entity definitions: Content Types backed by journey_mapper_content_types.txt, Export Formats backed by journey_mapper_export_formats.txt. Three registered tools: Extract Journey Elements (Flow), Synthesize Journey Map (Flow), Export Journey Map (Flow). Knowledge sources: SharePoint Journey Map Templates Library and CX Research Library. Delivery via Teams Adaptive Card and Email. Required environment variable: nxth_AnthropicApiKey (Secret). Key patterns: DUAL PASS ARCHITECTURE is mandatory (Pass 1 extracts, Pass 2 synthesizes -- never combine into one call), emotional scoring -5 to +5 scale, max_tokens 64000 for both passes, temperature 0.3 for consistency, evidence traceability to source passages, Secure Inputs/Outputs ON on both HTTP actions, handoff to Miro Board Generator agent for visual board creation.",
+    "persona_instructions": "You are the Customer Journey Mapper, an expert CX research analyst that transforms qualitative and quantitative research data into actionable customer journey maps. You help UX researchers, product managers, and CX strategists visualize the end-to-end customer experience.\n\nPersona: You are insightful, thorough, and empathetic toward both the end customer and the researcher. You think like a senior CX consultant who has mapped hundreds of journeys. You ask clarifying questions about persona scope, journey boundaries (start/end points), and desired granularity before beginning analysis. You highlight moments of truth and emotional peaks/valleys.\n\nChain-of-thought reasoning:\n1. When a user uploads a document, first identify the document type (research report, interview transcript, survey results, support tickets) and assess its suitability for journey mapping.\n2. Ask the user to define the journey scope: Which persona or customer segment? What is the journey start point and end point? What level of granularity (high-level phases or detailed micro-moments)?\n3. Determine content selection preferences: Should the map include emotional journey, pain points, touchpoints, channel indicators, opportunities, quotes, or all elements?\n4. Execute Pass 1 - Element Extraction: Send the document content to the Claude API with a structured extraction prompt that identifies all journey stages, touchpoints, customer actions, emotions, pain points, and moments of truth.\n5. Present the extracted elements to the user for review. Allow them to add, remove, or modify elements before synthesis.\n6. Execute Pass 2 - Journey Synthesis: Send the validated elements back to Claude with a synthesis prompt that organizes them into a coherent journey map with logical stage ordering, emotional arc, and opportunity identification.\n7. Format the output as structured JSON that can render as an interactive HTML journey map, export to CSV, or feed into the Miro Board Generator.\n\nOutput format: Journey maps should be presented as a structured stage-by-stage walkthrough. Each stage includes: stage name, customer goal, actions, touchpoints (with channels), emotional state (scored -5 to +5), pain points, moments of truth, and improvement opportunities. Always include an executive summary with key findings at the top.\n\nConstraints:\n- Maximum document size: 100 pages or 200,000 characters. For larger documents, ask the user to select the most relevant sections.\n- Always validate that uploaded content contains enough journey-relevant data. Warn if the document appears to be off-topic.\n- The dual-pass approach is mandatory. Never skip element extraction and go straight to synthesis.\n- Emotional scoring must be consistent across stages (use the -5 to +5 scale consistently).\n- Always attribute insights to specific evidence from the source document. Do not fabricate journey elements not supported by the data.\n- If the document contains multiple personas, ask the user to select one persona per journey map run.\n\nEnvironment: You run in Microsoft Teams. Document uploads come via Teams file attachments. Claude API calls go through Power Automate HTTP POST actions to the Anthropic messages endpoint. Output HTML and JSON are saved to SharePoint. The agent can hand off to the Miro Board Generator agent for visual board creation.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Journey Analysis Request",
+        "description": "User wants to create a customer journey map from a document or data source. Route here when the user uploads a file, mentions journey mapping, customer experience analysis, or wants to map a user journey from research data.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Journey Mapping Introduction",
+            "description": "Welcomes the user and explains the journey mapping process: a dual-pass analysis that first extracts journey elements (stages, touchpoints, emotions, pain points) from research documents, then synthesizes them into a structured journey map. Mentions supported formats: PDF, DOCX, plain text."
+          },
+          {
+            "type": "Question",
+            "name": "Upload Research Document",
+            "description": "Prompts the user to upload their research document (interview transcript, survey report, support ticket analysis, or research report). Validates the file format (PDF, DOCX, TXT) and checks size against the 100-page / 200,000-character limit.",
+            "variable_name": "varDocumentContent",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Document Suitability",
+            "description": "Checks that the uploaded document contains sufficient journey-relevant content. Warns if the document appears off-topic, too short (under 500 words), or exceeds size limits.",
+            "variable_name": "varDocumentContent",
+            "variable_scope": "Topic",
+            "condition_expression": "wordCount >= 500 && wordCount <= 200000 && isJourneyRelevant == true"
+          },
+          {
+            "type": "Question",
+            "name": "Define Journey Scope",
+            "description": "Asks the user to define the journey boundaries: which customer persona or segment, the journey start point (e.g., 'awareness', 'first contact'), and end point (e.g., 'purchase', 'renewal'). Also asks for desired granularity (high-level phases or detailed micro-moments).",
+            "variable_name": "varJourneyScope",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Pass 1 - Element Extraction",
+            "description": "Calls the Extract Journey Elements flow which sends the document content to the Anthropic Claude API with a structured extraction prompt. Extracts all journey stages, touchpoints, customer actions, emotions, pain points, and moments of truth.",
+            "variable_name": "varExtractedElements",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Extract Journey Elements"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Element Review Card",
+            "description": "Presents the extracted journey elements for user review as an Adaptive Card: lists discovered stages with touchpoint counts, identified emotions, pain points, and moments of truth. Includes Edit, Add, and Remove buttons for each element category."
+          },
+          {
+            "type": "Question",
+            "name": "Approve or Modify Elements",
+            "description": "Asks the user to approve the extracted elements as-is, or provide modifications (add missing elements, remove irrelevant ones, or adjust element descriptions) before proceeding to synthesis.",
+            "variable_name": "varElementApproval",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "approve",
+                "displayName": "Approve As-Is"
+              },
+              {
+                "id": "modify",
+                "displayName": "Modify Elements"
+              }
+            ]
+          },
+          {
+            "type": "Action",
+            "name": "Execute Pass 2 - Journey Synthesis",
+            "description": "Calls the Synthesize Journey Map flow with the approved elements and content selection preferences. Uses Claude API with extended thinking to organize elements into a coherent journey map with emotional arc, channel mapping, and opportunities.",
+            "variable_name": "varJourneyMap",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Synthesize Journey Map"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Journey Map Preview",
+            "description": "Displays a preview of the synthesized journey map as an Adaptive Card: executive summary, stage-by-stage overview with emotional scores (-5 to +5), key pain points highlighted, and top improvement opportunities. Includes buttons for HTML view, CSV export, and Miro board generation."
+          }
+        ],
+        "trigger_phrases": "create journey map, map customer journey, analyze customer experience, journey mapping, upload for journey analysis"
+      },
+      {
+        "name": "Document Selection",
+        "description": "User needs to select, upload, or manage input documents for journey analysis. Route here when the user wants to upload a new document, switch between documents, combine multiple documents, or asks about supported file formats.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Document Management Overview",
+            "description": "Explains supported document types and formats: PDF research reports, DOCX interview transcripts, TXT survey data exports. Notes the 100-page / 200,000-character limit per document and the option to combine multiple shorter documents."
+          },
+          {
+            "type": "Question",
+            "name": "Select Document Action",
+            "description": "Asks the user what they want to do: upload a new document, select from previously uploaded documents in SharePoint, combine multiple documents for a single analysis, or check if a specific file format is supported.",
+            "variable_name": "varDocumentAction",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "upload",
+                "displayName": "Upload New Document"
+              },
+              {
+                "id": "browse",
+                "displayName": "Browse SharePoint"
+              },
+              {
+                "id": "combine",
+                "displayName": "Combine Multiple Documents"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route Document Action",
+            "description": "Routes to the appropriate sub-flow based on the user's choice: new upload triggers file attachment prompt, SharePoint browse lists recent documents, combine triggers multi-document selection.",
+            "variable_name": "varDocumentAction",
+            "variable_scope": "Topic",
+            "condition_expression": "varDocumentAction == \"upload\" || varDocumentAction == \"browse\" || varDocumentAction == \"combine\""
+          },
+          {
+            "type": "Action",
+            "name": "Process Document Upload",
+            "description": "For new uploads: receives the file attachment, validates format and size, extracts text content, and stores it in SharePoint. For SharePoint browse: queries the CX Research Library for recent documents. For combine: merges selected documents into a single analysis corpus.",
+            "variable_name": "varProcessedDocument",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Document Content",
+            "description": "Validates that the processed document(s) contain enough journey-relevant content for meaningful analysis. Checks word count, content type classification, and warns about multi-persona documents requiring scope selection.",
+            "variable_name": "varProcessedDocument",
+            "variable_scope": "Topic",
+            "condition_expression": "varProcessedDocument.wordCount >= 500 && varProcessedDocument.isValid == true"
+          },
+          {
+            "type": "Message",
+            "name": "Document Ready Confirmation",
+            "description": "Confirms the document is ready for analysis. Displays document metadata: file name, format, word count, estimated page count, and content type classification. Offers to proceed directly to Journey Analysis Request."
+          },
+          {
+            "type": "Redirect",
+            "name": "Proceed to Journey Analysis",
+            "description": "Redirects to the Journey Analysis Request topic with the processed document content pre-loaded, skipping the upload step.",
+            "redirect_topic": "Journey Analysis Request"
+          }
+        ],
+        "trigger_phrases": "upload document, select input file, change document, supported file formats, manage documents"
+      },
+      {
+        "name": "Content Customization",
+        "description": "User wants to customize which elements appear in the journey map output. Route here when the user mentions selecting content types (emotions, pain points, touchpoints, quotes), adjusting granularity, choosing a persona, or modifying the journey scope and boundaries.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Content Options Introduction",
+            "description": "Explains the customizable elements available for the journey map output: emotional journey (mood scores per stage), pain points, touchpoints with channel indicators, moments of truth, improvement opportunities, direct customer quotes, and channel swimlanes."
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Content Selection Checklist",
+            "description": "Displays an Adaptive Card with toggles for each content category: Emotional Journey (on/off), Pain Points (on/off), Touchpoints with Channels (on/off), Moments of Truth (on/off), Opportunities (on/off), Customer Quotes (on/off), Channel Swimlanes (on/off). Pre-selects all by default."
+          },
+          {
+            "type": "Question",
+            "name": "Set Persona Scope",
+            "description": "If the source document contains data about multiple customer personas or segments, asks the user to select which persona the journey map should focus on. Presents discovered personas from the extraction pass.",
+            "variable_name": "varPersonaScope",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Set Granularity Level",
+            "description": "Asks the user to choose the journey map granularity: high-level (3-5 broad phases), standard (5-8 detailed stages), or micro-moment (10+ granular touchpoint-level steps).",
+            "variable_name": "varGranularity",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "high_level",
+                "displayName": "High-Level (3-5 phases)"
+              },
+              {
+                "id": "standard",
+                "displayName": "Standard (5-8 stages)"
+              },
+              {
+                "id": "micro",
+                "displayName": "Micro-Moments (10+ steps)"
+              }
+            ],
+            "entity_file": "journey_mapper_content_types.txt"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Content Selections",
+            "description": "Ensures at least one content category is selected and that the chosen granularity level is appropriate for the document size (micro-moments require longer documents).",
+            "variable_name": "varContentSelections",
+            "variable_scope": "Topic",
+            "condition_expression": "selectedCount >= 1 && (varGranularity != \"micro\" || wordCount >= 5000)"
+          },
+          {
+            "type": "Message",
+            "name": "Customization Confirmed",
+            "description": "Confirms the content customization settings: selected content categories, persona scope, and granularity level. These settings will be applied during the journey synthesis pass."
+          }
+        ],
+        "trigger_phrases": "customize journey map, select content types, adjust granularity, choose persona, modify journey scope"
+      },
+      {
+        "name": "Export Journey",
+        "description": "User wants to export, download, or share a completed journey map. Route here when the user asks for HTML export, CSV download, Miro board generation, PDF output, or wants to share the journey map with colleagues.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Export Options Overview",
+            "description": "Lists available export formats: Interactive HTML (web-viewable journey visualization), CSV (spreadsheet with stages, touchpoints, and scores), Miro Board (visual whiteboard via Miro API), and JSON (structured data for programmatic use). Notes that HTML and CSV are auto-generated; Miro requires separate board creation."
+          },
+          {
+            "type": "Question",
+            "name": "Select Export Format",
+            "description": "Asks the user which export format(s) they want. Supports selecting multiple formats simultaneously. Also asks if they want to share the export with team members via email.",
+            "variable_name": "varExportFormats",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "html",
+                "displayName": "Interactive HTML"
+              },
+              {
+                "id": "csv",
+                "displayName": "CSV Spreadsheet"
+              },
+              {
+                "id": "miro",
+                "displayName": "Miro Board"
+              },
+              {
+                "id": "json",
+                "displayName": "JSON Data"
+              }
+            ],
+            "entity_file": "journey_mapper_export_formats.txt"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Miro Board Requested",
+            "description": "If Miro board export was selected, checks whether the Miro API connection is configured and valid. If not, provides instructions for setting up the Miro access token.",
+            "variable_name": "varExportFormats",
+            "variable_scope": "Topic",
+            "condition_expression": "contains(varExportFormats, \"miro\")"
+          },
+          {
+            "type": "Action",
+            "name": "Generate Export Files",
+            "description": "Generates the requested export files from the journey map data. Creates HTML from the journey JSON template, generates CSV with stage rows and element columns, and optionally initiates Miro board creation via the Miro Board Generator agent.",
+            "variable_name": "varExportFiles",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Synthesize Journey Map"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Export Downloads Card",
+            "description": "Displays an Adaptive Card with download buttons for each generated export file. Shows file metadata (format, size, stage count). Includes a 'Share via Email' action and a direct Miro board URL if applicable."
+          },
+          {
+            "type": "Redirect",
+            "name": "Handoff to Miro Board Generator",
+            "description": "If Miro board was requested, redirects to the Miro Board Generator agent with the journey map JSON pre-loaded for visual board creation.",
+            "redirect_topic": "Board Generation Request"
+          }
+        ],
+        "trigger_phrases": "export journey map, download journey HTML, export journey to CSV, generate Miro board, share journey map"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Extract Journey Elements",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Pass 1 of the dual-pass journey analysis. Sends the document content to the Anthropic Claude API with a structured extraction prompt. The LLM identifies and extracts all journey-relevant elements: stages, touchpoints, customer actions, emotions, pain points, moments of truth, and supporting quotes.",
+        "actions_description": "Receive document_content, persona_scope, journey_start, journey_end -> Compose extraction prompt with system instructions for structured JSON output -> HTTP POST to https://api.anthropic.com/v1/messages with model=claude-3-7-sonnet-20250219, max_tokens=8192, system prompt for CX extraction, user message with document content -> Parse JSON response -> Extract content[0].text -> Parse inner JSON for stages array, touchpoints array, emotions array, pain_points array -> Validate extracted element counts -> Return structured extraction result",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "document_content",
+            "type": "String",
+            "description": "Full text content of the research document to analyze"
+          },
+          {
+            "name": "analysis_type",
+            "type": "String",
+            "description": "Type of journey analysis: full, touchpoints_only, or emotions_only"
+          },
+          {
+            "name": "persona_scope",
+            "type": "String",
+            "description": "Target customer persona or segment to focus the journey extraction on"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "journey_html",
+            "type": "String",
+            "description": "HTML representation of the extracted journey elements"
+          },
+          {
+            "name": "summary",
+            "type": "String",
+            "description": "Executive summary of extracted journey elements"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Extraction job status (completed, failed)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://api.anthropic.com/v1/messages",
+            "description": "Anthropic Messages API endpoint. Requires x-api-key header, anthropic-version: 2023-06-01, and JSON body with model, messages, max_tokens, and system prompt."
+          }
+        ]
+      },
+      {
+        "name": "Synthesize Journey Map",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Pass 2 of the dual-pass journey analysis. Takes the validated extracted elements and synthesizes them into a coherent, ordered journey map with emotional arc, channel mapping, and opportunity identification.",
+        "actions_description": "Receive extracted_elements JSON, content_selection_preferences -> Compose synthesis prompt instructing the LLM to organize elements into stages, assign emotional scores, identify the critical path, and generate opportunities -> HTTP POST to https://api.anthropic.com/v1/messages with model=claude-3-7-sonnet-20250219, max_tokens=16384 -> Parse response -> Extract journey_map JSON -> Generate HTML rendering from journey JSON template -> Save HTML to SharePoint -> Generate CSV export -> Save CSV to SharePoint -> Return journey_map JSON, html_url, csv_url",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "extracted_elements",
+            "type": "String",
+            "description": "JSON string of validated extracted journey elements from Pass 1"
+          },
+          {
+            "name": "content_selections",
+            "type": "String",
+            "description": "JSON string of content selection preferences (emotions, pain_points, touchpoints, etc.)"
+          },
+          {
+            "name": "granularity",
+            "type": "String",
+            "description": "Journey map granularity level: high_level, standard, or micro_moment"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "journey_html",
+            "type": "String",
+            "description": "Interactive HTML rendering of the synthesized journey map"
+          },
+          {
+            "name": "summary",
+            "type": "String",
+            "description": "Executive summary with key findings and recommendations"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Synthesis job status (completed, failed)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://api.anthropic.com/v1/messages",
+            "description": "Anthropic Messages API for journey synthesis pass. Uses extended thinking for complex multi-stage journey organization."
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Journey Templates",
+        "name": "Journey Map Templates",
+        "description": "Library of journey map templates organized by industry (retail, healthcare, finance, SaaS) with pre-defined stage structures and common touchpoint taxonomies"
+      },
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/CX Research",
+        "name": "CX Research Library",
+        "description": "Repository of past research reports, interview transcripts, and survey data that can be used as input for journey mapping"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Extract Journey Elements",
+        "description": "Pass 1: Extracts journey stages, touchpoints, emotions, pain points, and moments of truth from a research document using Claude API.",
+        "inputs": [
+          {
+            "name": "document_content",
+            "type": "string"
+          },
+          {
+            "name": "persona_scope",
+            "type": "string"
+          },
+          {
+            "name": "journey_start",
+            "type": "string"
+          },
+          {
+            "name": "journey_end",
+            "type": "string"
+          },
+          {
+            "name": "document_type",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "extracted_elements",
+            "type": "object"
+          },
+          {
+            "name": "stage_count",
+            "type": "number"
+          },
+          {
+            "name": "touchpoint_count",
+            "type": "number"
+          },
+          {
+            "name": "pain_point_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Synthesize Journey Map",
+        "description": "Pass 2: Synthesizes extracted elements into a structured journey map with emotional arc, channel mapping, and improvement opportunities.",
+        "inputs": [
+          {
+            "name": "extracted_elements",
+            "type": "object"
+          },
+          {
+            "name": "content_selections",
+            "type": "object"
+          },
+          {
+            "name": "granularity",
+            "type": "string"
+          },
+          {
+            "name": "output_format",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "journey_map",
+            "type": "object"
+          },
+          {
+            "name": "html_url",
+            "type": "string"
+          },
+          {
+            "name": "csv_url",
+            "type": "string"
+          },
+          {
+            "name": "stage_count",
+            "type": "number"
+          },
+          {
+            "name": "executive_summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Prompt",
+        "name": "Journey Element Extraction Prompt",
+        "description": "System prompt template for Pass 1 extraction. Instructs the LLM to identify and extract structured journey elements from unstructured research text.",
+        "inputs": [
+          {
+            "name": "document_text",
+            "type": "string"
+          },
+          {
+            "name": "persona",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "structured_elements_json",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Content Types",
+        "entity_file": "journey_mapper_content_types.txt",
+        "description": "Closed list entity for journey map content categories (Emotions, Pain Points, Touchpoints, etc.) with synonyms",
+        "used_in_topics": [
+          "Content Customization"
+        ]
+      },
+      {
+        "entity_name": "Export Formats",
+        "entity_file": "journey_mapper_export_formats.txt",
+        "description": "Closed list entity for journey export formats (HTML, CSV, Miro Board, PDF) with synonyms",
+        "used_in_topics": [
+          "Export Journey"
+        ]
+      }
+    ]
+  }
+}

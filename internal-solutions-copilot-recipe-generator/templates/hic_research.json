@@ -1,0 +1,934 @@
+{
+  "id": "hic_research",
+  "name": "Humans-in-Control Research Agent",
+  "description": "A Copilot Studio agent that runs a multi-checkpoint research pipeline with human intervention gates at each stage. The agent orchestrates a structured analysis workflow where researchers can review, revise, weight, and approve AI-generated findings at key checkpoints before the pipeline advances, ensuring human oversight of the entire research synthesis process.",
+  "replicates_service": "Humans-in-Control Research (Port 5011)",
+  "icon": "fa-solid fa-clipboard-check",
+  "estimated_build_time": "12-16 hours",
+  "complexity": "advanced",
+  "thumbnail": "research-generator-demo.gif",
+  "prefilled": {
+    "agent_name": "Humans-in-Control Research Analyst",
+    "agent_description": "Orchestrates a multi-checkpoint research analysis pipeline with human intervention gates by calling the Google Gemini API DIRECTLY from Power Automate flows. Uses gemini-3-pro-preview for extended thinking analysis, gemini-3-pro-image-preview for persona portrait generation, and veo-3.1-generate-preview for video storyboard clips. The pipeline progresses through five stages: Data Ingestion, Theme Discovery, Persona Extraction, Insight Synthesis, and Output Generation. Each stage terminates at a numbered checkpoint where the researcher must explicitly approve, revise, or rollback before advancing. All session state is stored in Dataverse.\n\nFive topics govern the conversation. Research Setup collects the research question (Global.varResearchQuestion), accepts source documents (PDF/DOCX/TXT, max 500,000 characters total), configures analysis depth via choice entity backed by hic_research_depth_levels.txt (Quick/Standard/Deep) and analysis lens via choice entity (General Ethnography, Whitespace Opportunity, Behavioral Psychology, Customer Journey). It calls the Ingest Research Documents flow, validates quality (min 500 words), and presents Checkpoint 1 as Adaptive Card showing doc count, word count, and coverage assessment with Approve/Add More/Cancel actions; on approval, sets Global.varPipelineStatus='checkpoint_1_approved' and calls Run Theme Discovery. Checkpoint Review is the universal handler for checkpoints 2-5: displays findings from Dataverse as Adaptive Card with numbered items, evidence counts, confidence scores, and representative quotes, offers Approve (advance to next stage), Revise (prompts for modifications then re-runs current flow), or Rollback (resets Dataverse session to prior checkpoint state). Theme Weighting presents checkpoint 2 themes: weight sliders (0.1-3.0), merge/split/add/remove actions, min 5 max 30 themes validation. Persona Verification presents checkpoint 3 personas: flags >60% similarity overlap, supports edit/merge/split/remove, enforces 3-8 distinct personas. Output Selection presents checkpoint 5 via choice entity backed by hic_research_output_formats.txt, generates final output and portrait images, uploads to SharePoint, presents Approve/Modify/Change Format with full audit trail.\n\nFive Power Automate flows call Gemini directly. Ingest Research Documents: Get environment variable nxth_GeminiApiKey -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-preview:generateContent?key={nxth_GeminiApiKey} with body: {\"contents\": [{\"role\": \"user\", \"parts\": [{\"text\": \"{document_quality_assessment_prompt + document_content}\"}]}], \"generationConfig\": {\"responseMimeType\": \"application/json\", \"temperature\": 0.1}} -> parse quality metrics (word_count, coverage_score, document_type) -> create Dataverse session record (session_id, status, document_content, research_question) -> return session_id, quality_metrics, status. Run Theme Discovery: HTTP POST to same Gemini URL with thinkingConfig: {\"thinkingBudget\": 16384} and theme extraction prompt with document chunks -> parse themes JSON [{theme_name, description, evidence_count, confidence_score, representative_quotes[]}] -> store themes in Dataverse session -> update status='checkpoint_2_pending' -> return themes_json. Run Persona Extraction: HTTP POST Gemini with persona synthesis prompt using approved themes as context -> parse personas JSON [{name, behavioral_patterns[], motivations[], friction_points[], distinctiveness_score}] -> store in Dataverse -> update status='checkpoint_3_pending' -> return personas_json. Run Insight Synthesis: HTTP POST Gemini with insight cross-reference prompt combining personas + themes -> parse insights [{insight, evidence_strength, business_impact, supporting_personas[], supporting_themes[]}] -> store in Dataverse -> update status='checkpoint_4_pending' -> return insights_json. Generate Research Output: HTTP POST Gemini for full report text -> for each persona: HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent?key={nxth_GeminiApiKey} with portrait generation prompt -> extract base64 image -> upload portrait to SharePoint -> assemble final report with persona portraits -> upload to SharePoint -> return report_url, portrait_urls[], status.\n\nTwo entity definitions: Research Depth Levels (hic_research_depth_levels.txt), Output Formats (hic_research_output_formats.txt). Five Flow-type tools registered. Dataverse table 'Research Sessions' stores: session_id, status (ingesting/checkpoint_N_pending/checkpoint_N_approved/completed), research_question, document_content, themes_json, personas_json, insights_json, report_url, created_at. One required environment variable: nxth_GeminiApiKey (Secret). Knowledge: SharePoint Research Projects Library. Delivery: Teams Adaptive Card and Email. Key patterns: NEVER advance past a checkpoint without explicit human approval; Dataverse session enables resumability after conversation interruption; thinkingBudget: 16384 tokens for all analysis calls; temperature: 0.1 for consistency; Global variables: varResearchQuestion, varSessionId, varPipelineStatus, varAnalysisLens.",
+    "persona_instructions": "You are the Humans-in-Control Research Analyst, a specialized agent that orchestrates structured research analysis while ensuring human oversight at every critical decision point. You embody the principle that AI should augment human researchers, not replace their judgment.\n\nPersona: You are rigorous, transparent, and deferential to the human researcher's expertise. You present your analysis clearly but always frame AI-generated findings as suggestions that require human validation. You explain your reasoning process in detail so the researcher can evaluate the quality of the analysis. You never proceed past a checkpoint without explicit human approval.\n\nChain-of-thought reasoning:\n1. Research Setup: When a user initiates a research project, collect the research question, source documents (uploaded files or SharePoint links), analysis parameters (breadth vs. depth preference, theme count range), and output format preferences. Create a session with a unique ID to track the pipeline state.\n2. Stage 1 - Data Ingestion: Process all input documents, extract text content, and generate a data quality summary (document count, total word count, content coverage assessment). Present this as Checkpoint 1 for the researcher to verify data completeness.\n3. Stage 2 - Theme Discovery: Run thematic analysis using the Gemini API to identify recurring themes, patterns, and categories across the corpus. Present discovered themes with supporting evidence counts and confidence scores as Checkpoint 2. The researcher can: approve themes as-is, merge similar themes, split broad themes, remove irrelevant themes, add missing themes manually, or adjust theme weights to control downstream emphasis.\n4. Stage 3 - Persona Extraction: Based on approved themes, extract distinct user personas or archetypes from the data with behavioral patterns, motivations, and friction points. Present extracted personas as Checkpoint 3 for the researcher to verify accuracy, adjust persona attributes, merge or split personas, or add contextual knowledge the AI may have missed.\n5. Stage 4 - Insight Synthesis: Cross-reference themes with personas to generate actionable insights, ranked by evidence strength and business impact. Present the insight matrix as Checkpoint 4 for the researcher to reprioritize, add strategic context, or request deeper analysis on specific insights.\n6. Stage 5 - Output Generation: Generate the final research deliverable in the requested format (structured report, executive summary, or presentation outline). Allow a final review before delivery.\n7. At any checkpoint, support rollback to a previous stage if the researcher discovers issues that require re-analysis with different parameters.\n\nOutput format: Each checkpoint presents findings in a structured review format with numbered items, evidence counts, confidence scores, and clear approve/revise/rollback action buttons. The final output adapts to the requested format. Always show the thinking process and reasoning chain for transparency.\n\nConstraints:\n- NEVER advance past a checkpoint without explicit human approval. If the user's message is ambiguous, ask for explicit confirmation.\n- Maintain full session state across the pipeline. Each checkpoint must be resumable even after conversation interruption.\n- Maximum input corpus: 500,000 characters across all documents. For larger corpora, recommend splitting into focused analysis batches.\n- Theme discovery should identify 5-30 themes depending on corpus size and user preference. Warn if fewer than 5 meaningful themes are found.\n- Persona extraction should yield 3-8 distinct personas. Flag if personas overlap significantly (>60% attribute similarity).\n- All findings must include evidence traceability: citation of specific source documents and passages.\n- Show real-time thinking/reasoning when performing analysis to maintain researcher trust and enable early course correction.\n\nEnvironment: You run in Microsoft Teams. LLM analysis calls use the Gemini API via Power Automate HTTP actions. Session state is stored in Dataverse. Source documents are accessed from SharePoint. Checkpoints use Teams Adaptive Cards with action buttons for approve, revise, and rollback operations.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Research Setup",
+        "description": "User wants to start a new research analysis project or configure analysis parameters. Route here when the user mentions starting research, uploading documents for analysis, setting up a new project, defining a research question, or configuring analysis parameters like theme count or depth preference.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Research Pipeline Introduction",
+            "description": "Welcomes the user and explains the 5-stage research pipeline with human-in-the-loop checkpoints: (1) Data Ingestion, (2) Theme Discovery, (3) Persona Extraction, (4) Insight Synthesis, (5) Output Generation. Emphasizes that every stage requires explicit human approval before advancing."
+          },
+          {
+            "type": "Question",
+            "name": "Define Research Question",
+            "description": "Asks the user to define their primary research question or objective. This frames the entire analysis pipeline and guides the LLM's analytical focus throughout all stages.",
+            "variable_name": "varResearchQuestion",
+            "variable_scope": "Global"
+          },
+          {
+            "type": "Question",
+            "name": "Upload Source Documents",
+            "description": "Prompts the user to upload their research documents (PDF, DOCX, TXT) or provide SharePoint URLs to existing documents. Accepts multiple files. Notes the 500,000-character limit across all documents combined.",
+            "variable_name": "varDocumentUrls",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Configure Analysis Parameters",
+            "description": "Asks the user to set analysis preferences: analysis depth (broad overview vs. deep dive), theme count range (min 5 to max 30), and output format preference (structured report, executive summary, or presentation outline).",
+            "variable_name": "varAnalysisPreferences",
+            "variable_scope": "Global",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "quick",
+                "displayName": "Quick Analysis"
+              },
+              {
+                "id": "standard",
+                "displayName": "Standard Analysis"
+              },
+              {
+                "id": "deep",
+                "displayName": "Deep Analysis"
+              }
+            ],
+            "entity_file": "hic_research_depth_levels.txt"
+          },
+          {
+            "type": "Action",
+            "name": "Create Research Session",
+            "description": "Calls the Ingest Research Documents flow to process all uploaded documents, extract text content, compute quality metrics, and create a new research session in Dataverse with a unique session ID.",
+            "variable_name": "varSessionId",
+            "variable_scope": "Global",
+            "action_type": "Call a flow",
+            "flow_name": "Ingest Research Documents"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Data Quality",
+            "description": "Checks the data quality summary returned by the ingestion flow. Verifies sufficient content volume (minimum 500 words), document count, and content coverage. Warns if documents appear off-topic or too sparse.",
+            "variable_name": "varSessionId",
+            "variable_scope": "Global",
+            "condition_expression": "qualitySummary.totalWords >= 500 && qualitySummary.documentCount >= 1"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Checkpoint 1 - Data Quality Review",
+            "description": "Presents Checkpoint 1 as an Adaptive Card: data quality summary showing document count, total word count, average document length, content coverage assessment, and content type classifications. Includes Approve, Add More Documents, and Cancel Project buttons."
+          },
+          {
+            "type": "Question",
+            "name": "Checkpoint 1 Decision",
+            "description": "Asks the researcher to approve the data quality and proceed to Theme Discovery, add more documents to strengthen the corpus, or cancel the project if the data is insufficient.",
+            "variable_name": "varCheckpoint1Decision",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "approve",
+                "displayName": "Approve and Proceed"
+              },
+              {
+                "id": "add_more",
+                "displayName": "Add More Documents"
+              },
+              {
+                "id": "cancel",
+                "displayName": "Cancel Project"
+              }
+            ]
+          }
+        ],
+        "trigger_phrases": "start new research, begin research analysis, configure analysis, upload documents for research, set up research project"
+      },
+      {
+        "name": "Checkpoint Review",
+        "description": "User is reviewing findings at a pipeline checkpoint and wants to approve, revise, or provide feedback on AI-generated results. Route here when the user says approve, looks good, proceed, reject, revise, change, modify, or provides specific feedback on themes, personas, or insights presented at a checkpoint.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Checkpoint Status Summary",
+            "description": "Identifies the current checkpoint in the pipeline and summarizes what has been completed so far. Shows the pipeline progress indicator (stage 1/5, 2/5, etc.) and the current findings awaiting review."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Current Checkpoint Data",
+            "description": "Fetches the current checkpoint's findings from the Dataverse session: discovered themes (checkpoint 2), extracted personas (checkpoint 3), or synthesized insights (checkpoint 4) along with evidence counts and confidence scores.",
+            "variable_name": "varCheckpointData",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Checkpoint Findings Card",
+            "description": "Displays the current checkpoint's findings as a detailed Adaptive Card with numbered items, evidence counts, confidence scores, and representative quotes. Includes three action buttons: Approve (proceed to next stage), Revise (provide modifications), and Rollback (return to a previous stage)."
+          },
+          {
+            "type": "Question",
+            "name": "Checkpoint Decision",
+            "description": "Asks the researcher for their explicit decision: Approve (all findings accepted, proceed), Revise (provide specific modifications before proceeding), or Rollback (discard current findings and return to a previous checkpoint).",
+            "variable_name": "varCheckpointDecision",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "approve",
+                "displayName": "Approve"
+              },
+              {
+                "id": "revise",
+                "displayName": "Revise"
+              },
+              {
+                "id": "rollback",
+                "displayName": "Rollback"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route Checkpoint Decision",
+            "description": "Routes based on the researcher's decision: Approve triggers the next pipeline stage, Revise prompts for specific modification instructions, Rollback calls the Rollback to Checkpoint flow.",
+            "variable_name": "varCheckpointDecision",
+            "variable_scope": "Topic",
+            "condition_expression": "varCheckpointDecision == \"approve\" || varCheckpointDecision == \"revise\" || varCheckpointDecision == \"rollback\""
+          },
+          {
+            "type": "Action",
+            "name": "Advance Pipeline or Rollback",
+            "description": "Based on the decision: if approved, calls the next stage flow (Theme Discovery, Extract Personas, Synthesize Insights, or Generate Output). If rollback, calls the Rollback to Checkpoint flow to restore a prior state.",
+            "variable_name": "varPipelineStatus",
+            "variable_scope": "Global",
+            "action_type": "Call a flow",
+            "flow_name": "Run Theme Discovery"
+          },
+          {
+            "type": "Message",
+            "name": "Pipeline Advancement Confirmation",
+            "description": "Confirms the pipeline has advanced to the next stage (or rolled back). Shows the updated pipeline progress indicator and what the next stage will produce. For rollback, lists preserved and cleared artifacts."
+          }
+        ],
+        "trigger_phrases": "review checkpoint, approve findings, provide feedback on results, proceed with analysis, checkpoint review"
+      },
+      {
+        "name": "Theme Weighting",
+        "description": "User wants to adjust the relative importance or weighting of discovered themes to influence downstream analysis. Route here when the user mentions weighting, prioritizing, emphasizing, or de-emphasizing specific themes, or wants to merge, split, add, or remove themes from the analysis.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Theme Weighting Explanation",
+            "description": "Explains how theme weights influence downstream analysis: higher-weighted themes receive more emphasis in persona extraction and insight synthesis. Default weight is 1.0; range is 0.1 (minimal emphasis) to 3.0 (maximum emphasis). Themes can also be merged, split, or removed."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Discovered Themes",
+            "description": "Fetches the current list of discovered themes from the Dataverse session with their labels, descriptions, evidence counts, confidence scores, and current weights.",
+            "variable_name": "varThemesList",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Theme Weighting Dashboard",
+            "description": "Displays all discovered themes as an Adaptive Card with adjustable weight sliders (0.1-3.0) for each theme. Shows theme name, description, evidence count, and confidence score. Includes action buttons for Merge Themes, Split Theme, Add New Theme, and Remove Theme."
+          },
+          {
+            "type": "Question",
+            "name": "Specify Weight Adjustments",
+            "description": "Asks the researcher to specify their weight adjustments: which themes to emphasize (increase weight), de-emphasize (decrease weight), merge (combine two similar themes), split (break a broad theme into sub-themes), add (manually define a missing theme), or remove (exclude an irrelevant theme).",
+            "variable_name": "varWeightAdjustments",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Apply Theme Modifications",
+            "description": "Updates the theme weights and modifications in the Dataverse session. For merges, combines evidence from both themes under a new label. For splits, redistributes evidence across sub-themes. Recalculates normalized weights.",
+            "variable_name": "varUpdatedThemes",
+            "variable_scope": "Topic",
+            "action_type": "Set variable value"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Theme Count",
+            "description": "Ensures the modified theme list still contains between 5 and 30 themes (the valid range for meaningful analysis). Warns if fewer than 5 themes remain after removals.",
+            "variable_name": "varUpdatedThemes",
+            "variable_scope": "Topic",
+            "condition_expression": "themeCount >= 5 && themeCount <= 30"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Updated Themes Confirmation",
+            "description": "Displays the updated theme list with new weights applied, merged/split themes highlighted, and the normalized weight distribution. Asks the researcher to confirm the modifications before proceeding to persona extraction."
+          }
+        ],
+        "trigger_phrases": "adjust theme weights, prioritize themes, weight theme importance, emphasize a theme, change theme priority"
+      },
+      {
+        "name": "Persona Verification",
+        "description": "User wants to review, verify, or modify extracted personas and their attributes. Route here when the user discusses personas, archetypes, user segments, persona accuracy, behavioral patterns, or wants to adjust persona definitions.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Persona Verification Introduction",
+            "description": "Explains the persona verification process: the AI has extracted distinct user personas from the data based on approved themes. Each persona includes behavioral patterns, motivations, friction points, and associated themes. The researcher should verify accuracy and completeness."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Extracted Personas",
+            "description": "Fetches the extracted personas from the Dataverse session with their full attribute profiles: name, description, behavioral patterns, motivations, friction points, associated themes, evidence count, and distinctiveness scores.",
+            "variable_name": "varPersonasList",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Persona Review Dashboard",
+            "description": "Displays each extracted persona as an expandable section in an Adaptive Card: persona name and avatar, behavioral summary, motivations list, friction points, theme associations, evidence count, and distinctiveness score. Flags personas with high overlap (>60% attribute similarity). Includes Edit, Merge, Split, and Remove buttons per persona."
+          },
+          {
+            "type": "Question",
+            "name": "Provide Persona Feedback",
+            "description": "Asks the researcher to review each persona and provide feedback: approve as-is, modify attributes (edit name, adjust behaviors, add contextual knowledge the AI missed), merge overlapping personas, split a broad persona into distinct segments, or remove an inaccurate persona.",
+            "variable_name": "varPersonaFeedback",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Apply Persona Modifications",
+            "description": "Updates the persona definitions in the Dataverse session based on the researcher's feedback. For merges, combines attributes and evidence. For splits, creates distinct persona profiles. Recalculates distinctiveness scores.",
+            "variable_name": "varVerifiedPersonas",
+            "variable_scope": "Global",
+            "action_type": "Set variable value"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Persona Count",
+            "description": "Ensures the verified persona count is between 3 and 8 distinct personas. Warns if personas are too few (insufficient segmentation) or too many (over-fragmentation).",
+            "variable_name": "varVerifiedPersonas",
+            "variable_scope": "Global",
+            "condition_expression": "personaCount >= 3 && personaCount <= 8"
+          },
+          {
+            "type": "Message",
+            "name": "Personas Verified Confirmation",
+            "description": "Confirms the verified persona set with updated attributes. Shows the final persona count, average distinctiveness score, and theme coverage. Notes that these verified personas will now be used for insight synthesis in the next pipeline stage."
+          }
+        ],
+        "trigger_phrases": "verify personas, review persona accuracy, check personas, modify persona definition, persona attributes"
+      },
+      {
+        "name": "Output Selection",
+        "description": "User wants to choose the final output format, generate the deliverable, or export research results. Route here when the user mentions final report, executive summary, presentation, export, download, or asks about available output formats for the completed research.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Output Options Overview",
+            "description": "Explains the three available output formats: Structured Report (comprehensive multi-section document with all themes, personas, and insights), Executive Summary (2-page condensed overview focusing on top insights and recommendations), and Presentation Outline (slide-by-slide structure with key talking points per slide)."
+          },
+          {
+            "type": "Question",
+            "name": "Select Output Format",
+            "description": "Asks the researcher to choose their preferred output format. Notes that the structured report provides the most comprehensive coverage while the executive summary is best for stakeholder briefings.",
+            "variable_name": "varOutputFormat",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "structured_report",
+                "displayName": "Full Report"
+              },
+              {
+                "id": "executive_summary",
+                "displayName": "Executive Summary"
+              },
+              {
+                "id": "presentation",
+                "displayName": "Presentation Outline"
+              },
+              {
+                "id": "pdf",
+                "displayName": "PDF Report"
+              }
+            ],
+            "entity_file": "hic_research_output_formats.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Customize Output Preferences",
+            "description": "Asks for output customization: which insights to prioritize in the output, whether to include full evidence citations or summarized references, the target audience (technical team, executives, clients), and any specific sections to emphasize or omit.",
+            "variable_name": "varOutputPreferences",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Generate Research Output",
+            "description": "Calls the Generate Research Output flow with the session ID, selected format, output preferences, and all approved analysis artifacts (themes, personas, insights). Uses Gemini API with extended output for comprehensive generation.",
+            "variable_name": "varOutputResult",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Generate Research Output"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Output Preview and Download Card",
+            "description": "Displays a preview of the generated output: executive summary excerpt, section outline, page count, and key statistics. Includes Download (DOCX/PDF), Save to SharePoint, Share via Email, and Edit/Regenerate buttons."
+          },
+          {
+            "type": "Question",
+            "name": "Final Review Decision",
+            "description": "Asks the researcher for final approval of the generated output: approve and deliver, request modifications (adjust emphasis, add sections, change tone), or regenerate in a different format.",
+            "variable_name": "varFinalDecision",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "approve",
+                "displayName": "Approve and Deliver"
+              },
+              {
+                "id": "modify",
+                "displayName": "Request Modifications"
+              },
+              {
+                "id": "change_format",
+                "displayName": "Change Format"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route Final Decision",
+            "description": "Routes based on the researcher's final decision: approve triggers SharePoint save and delivery, modify triggers re-generation with adjusted parameters, format change redirects back to format selection.",
+            "variable_name": "varFinalDecision",
+            "variable_scope": "Topic",
+            "condition_expression": "varFinalDecision == \"approve\" || varFinalDecision == \"modify\" || varFinalDecision == \"change_format\""
+          },
+          {
+            "type": "Message",
+            "name": "Research Project Complete",
+            "description": "Confirms the research project is complete. Provides the final output file URL in SharePoint, a session summary (total documents analyzed, themes discovered, personas extracted, insights generated), and the complete pipeline audit trail showing all checkpoint decisions made during the analysis."
+          }
+        ],
+        "trigger_phrases": "choose output format, generate final report, export research results, download deliverable, select output type"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Ingest Research Documents",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Processes uploaded documents and SharePoint files, extracts text content, generates a data quality summary, and creates a new research session in Dataverse. Returns ingestion results for Checkpoint 1 review.",
+        "actions_description": "Receive document_urls array and research_question -> Create new session record in Dataverse with unique session_id, status='ingesting', timestamp -> For each document URL: Get file content from SharePoint -> Detect file type (PDF, DOCX, TXT) -> Extract text using appropriate parser -> Compute word count and content quality metrics -> Store extracted text in Dataverse session -> Compose data quality summary (total docs, total words, average doc length, content coverage estimate) -> Update session status='checkpoint_1_pending' -> Return session_id, quality_summary, document_list",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "research_query",
+            "type": "String",
+            "description": "Primary research question or objective that frames the analysis"
+          },
+          {
+            "name": "research_depth",
+            "type": "String",
+            "description": "Analysis depth preference: broad_overview or deep_dive"
+          },
+          {
+            "name": "output_format",
+            "type": "String",
+            "description": "Desired output format: structured_report, executive_summary, or presentation_outline"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "report_url",
+            "type": "String",
+            "description": "SharePoint URL to the generated research report"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Pipeline status (ingesting, checkpoint_pending, completed, failed)"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "String",
+            "description": "Current checkpoint identifier for the research session"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-preview:generateContent?key={nxth_GeminiApiKey}",
+            "description": "Google Gemini 3 Pro Preview API with extended thinking for document quality assessment, theme discovery, persona extraction, and insight synthesis. API key passed as URL query parameter."
+          }
+        ]
+      },
+      {
+        "name": "Run Theme Discovery",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Executes thematic analysis on the ingested corpus using the Gemini API. Sends document chunks with structured analysis prompts to identify recurring themes, patterns, and categories. Returns discovered themes for Checkpoint 2 review.",
+        "actions_description": "Receive session_id, min_themes, max_themes, analysis_depth -> Retrieve session documents from Dataverse -> Chunk documents into analysis segments (max 30000 chars per chunk) -> For each chunk: HTTP POST to Gemini API with theme extraction system prompt and chunk content -> Aggregate chunk-level themes -> HTTP POST to Gemini API with theme consolidation prompt combining all chunk themes -> Parse consolidated themes JSON (theme_name, description, evidence_count, confidence_score, representative_quotes) -> Store themes in Dataverse session -> Update session status='checkpoint_2_pending' -> Return themes array with evidence and confidence scores",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "session_id",
+            "type": "String",
+            "description": "Research session identifier from the ingestion stage"
+          },
+          {
+            "name": "min_themes",
+            "type": "Number",
+            "description": "Minimum number of themes to discover (default 5)"
+          },
+          {
+            "name": "max_themes",
+            "type": "Number",
+            "description": "Maximum number of themes to discover (default 30)"
+          },
+          {
+            "name": "analysis_depth",
+            "type": "String",
+            "description": "Analysis depth: broad_overview or deep_dive"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "theme_count",
+            "type": "Number",
+            "description": "Number of themes discovered"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Theme discovery status (completed, failed)"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "String",
+            "description": "Checkpoint 2 identifier for theme review"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+            "description": "Gemini API for thematic analysis with structured extraction prompts"
+          }
+        ]
+      },
+      {
+        "name": "Extract Personas",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Extracts distinct user personas from the corpus based on approved themes. Uses the Gemini API to identify behavioral patterns, motivations, and friction points that differentiate persona archetypes. Returns extracted personas for Checkpoint 3 review.",
+        "actions_description": "Receive session_id, approved_themes array with weights -> Retrieve session documents from Dataverse -> Compose persona extraction prompt with approved themes as analytical lens -> HTTP POST to Gemini API with persona extraction system prompt, theme context, and document content -> Parse personas JSON (persona_name, description, behavioral_patterns, motivations, friction_points, associated_themes, evidence_count) -> Compute persona distinctiveness scores (overlap check between personas) -> Store personas in Dataverse session -> Update session status='checkpoint_3_pending' -> Return personas array with distinctiveness metrics",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "session_id",
+            "type": "String",
+            "description": "Research session identifier"
+          },
+          {
+            "name": "approved_themes",
+            "type": "String",
+            "description": "JSON string of approved themes with weights from Checkpoint 2"
+          },
+          {
+            "name": "max_personas",
+            "type": "Number",
+            "description": "Maximum number of personas to extract (default 8)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "persona_count",
+            "type": "Number",
+            "description": "Number of personas extracted"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Persona extraction status (completed, failed)"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "String",
+            "description": "Checkpoint 3 identifier for persona review"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+            "description": "Gemini API for persona extraction with theme-guided analysis"
+          }
+        ]
+      },
+      {
+        "name": "Synthesize Insights",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Cross-references approved themes with verified personas to generate actionable insights ranked by evidence strength and potential business impact. Returns the insight matrix for Checkpoint 4 review.",
+        "actions_description": "Receive session_id, approved_themes, verified_personas -> Retrieve session documents and prior analysis from Dataverse -> Compose insight synthesis prompt with themes-persona cross-reference matrix -> HTTP POST to Gemini API with synthesis system prompt and full analysis context -> Parse insights JSON (insight_title, description, evidence_strength, business_impact_estimate, related_themes, related_personas, supporting_quotes, recommended_actions) -> Rank insights by composite score (evidence_strength * impact_estimate) -> Store insights in Dataverse session -> Update session status='checkpoint_4_pending' -> Return ranked insights array",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "session_id",
+            "type": "String",
+            "description": "Research session identifier"
+          },
+          {
+            "name": "approved_themes",
+            "type": "String",
+            "description": "JSON string of approved and weighted themes"
+          },
+          {
+            "name": "verified_personas",
+            "type": "String",
+            "description": "JSON string of verified persona definitions"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "insight_count",
+            "type": "Number",
+            "description": "Number of insights synthesized"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Insight synthesis status (completed, failed)"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "String",
+            "description": "Checkpoint 4 identifier for insight review"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+            "description": "Gemini API for cross-referential insight synthesis with extended output"
+          }
+        ]
+      },
+      {
+        "name": "Generate Research Output",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Generates the final research deliverable in the requested format using all approved analysis artifacts (themes, personas, insights). Supports structured report, executive summary, and presentation outline formats.",
+        "actions_description": "Receive session_id, output_format, approved_insights -> Retrieve full session state from Dataverse (documents, themes, personas, insights) -> Switch on output_format -> Case 'report': Compose full report generation prompt with all analysis sections -> HTTP POST to Gemini API with extended max_output_tokens -> Parse report markdown -> Convert to DOCX using document generation action -> Case 'executive_summary': Compose concise summary prompt focusing on top insights -> Generate 2-page summary -> Case 'presentation': Compose slide outline prompt with key talking points per slide -> Generate slide deck outline -> Upload output file to SharePoint -> Update session status='completed' -> Return output_file_url, format, page_count",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "session_id",
+            "type": "String",
+            "description": "Research session identifier"
+          },
+          {
+            "name": "output_format",
+            "type": "String",
+            "description": "Output format: structured_report, executive_summary, or presentation_outline"
+          },
+          {
+            "name": "approved_insights",
+            "type": "String",
+            "description": "JSON string of approved and prioritized insights from Checkpoint 4"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "report_url",
+            "type": "String",
+            "description": "SharePoint URL to the generated research deliverable"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Output generation status (completed, failed)"
+          },
+          {
+            "name": "page_count",
+            "type": "Number",
+            "description": "Number of pages in the generated output"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+            "description": "Gemini API for final research output generation with format-specific prompting"
+          }
+        ]
+      },
+      {
+        "name": "Rollback to Checkpoint",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Rolls back the research session to a previous checkpoint, discarding analysis artifacts generated after that point. Allows the researcher to re-run analysis with different parameters.",
+        "actions_description": "Receive session_id, target_checkpoint (1-4) -> Retrieve current session state from Dataverse -> Condition: validate target_checkpoint is earlier than current checkpoint -> Delete analysis artifacts after target checkpoint (e.g., rolling back to checkpoint 2 deletes personas and insights) -> Update session status to target checkpoint's pending state -> Return rollback confirmation with preserved artifacts list and cleared artifacts list",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "session_id",
+            "type": "String",
+            "description": "Research session identifier to roll back"
+          },
+          {
+            "name": "target_checkpoint",
+            "type": "Number",
+            "description": "Checkpoint number to roll back to (1-4)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Rollback status (completed, failed, invalid_checkpoint)"
+          },
+          {
+            "name": "checkpoint_id",
+            "type": "String",
+            "description": "Restored checkpoint identifier"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": []
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Research Projects",
+        "name": "Research Projects Library",
+        "description": "SharePoint library for storing research session inputs, intermediate artifacts, and final deliverables organized by project and date"
+      },
+      {
+        "source_type": "Dataverse",
+        "path_or_url": "research_sessions",
+        "name": "Research Sessions Table",
+        "description": "Dataverse table storing research session state including session_id, status, checkpoint data, themes, personas, insights, and timestamps for pipeline state management and resumability"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Ingest Research Documents",
+        "description": "Processes uploaded documents, extracts text, computes quality metrics, and creates a research session for Checkpoint 1.",
+        "inputs": [
+          {
+            "name": "document_urls",
+            "type": "object"
+          },
+          {
+            "name": "research_question",
+            "type": "string"
+          },
+          {
+            "name": "analysis_preferences",
+            "type": "object"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "quality_summary",
+            "type": "object"
+          },
+          {
+            "name": "document_count",
+            "type": "number"
+          },
+          {
+            "name": "total_word_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Run Theme Discovery",
+        "description": "Executes thematic analysis on ingested corpus using Gemini API with chunked processing and theme consolidation for Checkpoint 2.",
+        "inputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "min_themes",
+            "type": "number"
+          },
+          {
+            "name": "max_themes",
+            "type": "number"
+          },
+          {
+            "name": "analysis_depth",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "themes",
+            "type": "object"
+          },
+          {
+            "name": "theme_count",
+            "type": "number"
+          },
+          {
+            "name": "average_confidence",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Extract Personas",
+        "description": "Extracts user personas guided by approved themes using Gemini API for Checkpoint 3 review.",
+        "inputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "approved_themes",
+            "type": "object"
+          },
+          {
+            "name": "max_personas",
+            "type": "number"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "personas",
+            "type": "object"
+          },
+          {
+            "name": "persona_count",
+            "type": "number"
+          },
+          {
+            "name": "distinctiveness_scores",
+            "type": "object"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Synthesize Insights",
+        "description": "Cross-references themes and personas to generate ranked actionable insights for Checkpoint 4 review.",
+        "inputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "approved_themes",
+            "type": "object"
+          },
+          {
+            "name": "verified_personas",
+            "type": "object"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "insights",
+            "type": "object"
+          },
+          {
+            "name": "insight_count",
+            "type": "number"
+          },
+          {
+            "name": "top_insight_summary",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Generate Research Output",
+        "description": "Generates the final research deliverable in the requested format (report, executive summary, or presentation outline).",
+        "inputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "output_format",
+            "type": "string"
+          },
+          {
+            "name": "approved_insights",
+            "type": "object"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output_file_url",
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "type": "string"
+          },
+          {
+            "name": "page_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Rollback to Checkpoint",
+        "description": "Rolls back the research session to a previous checkpoint, discarding subsequent artifacts and allowing re-analysis.",
+        "inputs": [
+          {
+            "name": "session_id",
+            "type": "string"
+          },
+          {
+            "name": "target_checkpoint",
+            "type": "number"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "preserved_artifacts",
+            "type": "object"
+          },
+          {
+            "name": "cleared_artifacts",
+            "type": "object"
+          },
+          {
+            "name": "new_status",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Research Depth Levels",
+        "entity_file": "hic_research_depth_levels.txt",
+        "description": "Closed list entity for analysis depth (Quick, Standard, Deep) with synonyms",
+        "used_in_topics": [
+          "Research Setup"
+        ]
+      },
+      {
+        "entity_name": "Output Formats",
+        "entity_file": "hic_research_output_formats.txt",
+        "description": "Closed list entity for research output formats (Executive Summary, Full Report, Presentation, PDF) with synonyms",
+        "used_in_topics": [
+          "Output Selection"
+        ]
+      }
+    ]
+  }
+}

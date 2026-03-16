@@ -1,0 +1,561 @@
+{
+  "id": "character_generator",
+  "name": "Consistent Character Generator Agent",
+  "description": "A Copilot Studio agent that generates visually consistent character portraits using Google gemini-3-pro-image-preview (NOT Imagen -- this model supports up to 14 reference images including up to 5 human images for character consistency) and creates animated video clips using veo-3.1-fast-generate-preview. The agent maintains character identity across scenes and poses for persona-driven visual narratives stored in SharePoint.",
+  "replicates_service": "Character Generator (Port 5010)",
+  "icon": "fa-solid fa-user-pen",
+  "estimated_build_time": "8-12 hours",
+  "complexity": "advanced",
+  "thumbnail": "character-generator-demo.gif",
+  "prefilled": {
+    "agent_name": "Consistent Character Creator",
+    "agent_description": "This agent generates visually consistent character portraits using Google gemini-3-pro-image-preview (Nano Banana Pro Preview) and animated video clips using veo-3.1-fast-generate-preview, calling both APIs DIRECTLY from Power Automate flows. CRITICAL MODEL NOTE: This agent uses gemini-3-pro-image-preview for ALL image generation -- NOT Imagen 3, NOT gemini-2.0-flash. This model supports up to 14 reference images in a single request (up to 5 images of humans for character consistency), making it ideal for maintaining character identity across scenes.\n\nFour topics structure the agent. Character Creation collects a character name and physical attributes (age, gender, ethnicity, hair color/style, clothing, distinguishing features), then prompts for art style via choice entity backed by character_generator_styles.txt (Portrait, Full Body, or Scene Composition) and aspect ratio (1:1 Square, 16:9 Landscape, 9:16 Vertical). Calls Generate Character Portrait flow to produce 1-2 variations, displays them as Adaptive Card gallery for selection, saves chosen portrait and attributes metadata to SharePoint Character Library. Scene Composition places an existing character into new contexts: users select character from library (loads reference portrait), describe scene context (setting, pose, lighting, props), agent calls Generate Character Portrait flow with the reference portrait as inlineData in the request parts, generating a consistency-conditioned scene image. Warns when extreme pose changes may reduce consistency. Video Generation creates short animated clips: users select character, describe action/setting/camera movement, set duration (2-8 seconds) and aspect ratio. Calls Generate Character Video flow which initiates async veo-3.1-fast-generate-preview operation. Character Library browses saved characters from SharePoint gallery view with thumbnails, names, creation dates, asset counts, and redirect actions.\n\nTwo Agent Flows call Gemini APIs directly. Generate Character Portrait: Get environment variable nxth_GeminiApiKey -> Build request parts array in Power Automate (use Apply to Each if reference images exist to add inlineData objects, then add text prompt part last) -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent?key={nxth_GeminiApiKey} with body: {\"contents\": [{\"role\": \"user\", \"parts\": [{\"inlineData\": {\"data\": \"{base64_ref_image}\", \"mimeType\": \"image/jpeg\"}}, {\"text\": \"{detailed_character_prompt}\"}]}], \"generationConfig\": {\"responseModalities\": [\"TEXT\", \"IMAGE\"]}} (omit inlineData part for first-generation with no reference) -> extract image: body()?['candidates']?[0]?['content']?['parts']?[1]?['inlineData']?['data'] (base64 PNG) -> convert base64 to binary -> upload to SharePoint /Character Library/{character_name}/ -> return sharepoint_url, status. Inputs: character_description, style, aspect_ratio, reference_image_base64 (optional), reference_image_mimetype (optional). Outputs: image_url, status. Generate Character Video: HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/veo-3.1-fast-generate-preview:predictLongRunning?key={nxth_GeminiApiKey} with body: {\"instances\": [{\"prompt\": \"{video_prompt}\", \"image\": {\"bytesBase64Encoded\": \"{character_portrait_base64}\", \"mimeType\": \"image/jpeg\"}}], \"parameters\": {\"aspectRatio\": \"{aspect_ratio}\", \"sampleCount\": 1}} -> extract body()?['name'] (operation name) -> Do Until loop: Delay 10 seconds -> HTTP GET https://generativelanguage.googleapis.com/v1beta/{operation_name}?key={nxth_GeminiApiKey} -> check body()?['done'] == true, max 60 iterations -> extract video URI: body()?['response']?['generateVideoResponse']?['generatedSamples']?[0]?['video']?['uri'] -> append ?key={nxth_GeminiApiKey} to URI for download -> HTTP GET video URL -> upload MP4 to SharePoint -> return video_url, status. CONSTRAINT: 9:16 aspect ratio only supports 720p (not 1080p). Inputs: character_image_base64, animation_prompt, duration, aspect_ratio. Outputs: video_url, status.\n\nTwo entity definitions: Character Styles (character_generator_styles.txt), Video Styles (character_generator_video_styles.txt). Three tools: Generate Character Portrait (Flow), Generate Character Video (Flow), SharePoint Character Library (Connector). One required environment variable: nxth_GeminiApiKey (Secret). Knowledge: SharePoint Character Library at /sites/ResearchHub/Shared Documents/Character Library. Delivery: Teams Adaptive Card and Email. Key patterns: reference images as inlineData (base64) in request parts array; order matters -- reference images BEFORE text prompt; extract character portrait from SharePoint before scene calls; 9:16 portrait video uses 720p only; video generation takes 2-10 minutes; Secure Inputs/Outputs ON for all HTTP actions.",
+    "persona_instructions": "You are the Consistent Character Creator, a creative AI assistant that helps researchers and content creators build visually consistent character assets for persona-driven narratives. You specialize in generating character portraits that maintain identity consistency and creating short video clips of those characters.\n\nPersona: You are creative, attentive to visual detail, and enthusiastic about character design. You speak with the precision of an art director, using specific visual vocabulary (composition, lighting, color palette, framing). You help users refine their character descriptions to get the best results from the generative AI models.\n\nChain-of-thought reasoning:\n1. When a user wants to create a new character, gather the character specification: name, approximate age range, gender presentation, ethnicity/skin tone, hair description (color, style, length), clothing style, and any distinguishing features.\n2. Compose a detailed Imagen 3 prompt that includes all physical attributes, lighting and style preferences (photorealistic, illustration, watercolor), and background context. Include negative prompts to avoid common artifacts.\n3. Generate 3-4 portrait variations using the Gemini Imagen 3 API. Present them as an Adaptive Card gallery for the user to select their preferred version.\n4. Once a base character is selected, store the character reference data (selected image, prompt, and attributes) in the character library for consistency in future generations.\n5. For scene composition, use the reference character image as conditioning input alongside a scene description prompt to maintain identity while placing the character in new contexts.\n6. For video generation, compose a Veo 3.1 prompt that describes the character's action and scene. Video generation takes 2-3 minutes; inform the user and poll for completion.\n7. Return all generated assets with download links and add them to the character's asset library.\n\nOutput format: Present generated images as Teams Adaptive Card image galleries with selection buttons. Include the prompt used, generation parameters, and a character consistency score (based on prompt adherence). Video results should include a playback-ready link, duration, and thumbnail.\n\nConstraints:\n- Imagen 3 generates images at 1024x1024 by default. Offer aspect ratio options (1:1, 16:9, 9:16) based on use case.\n- Veo 3.1 video generation takes 2-3 minutes per clip. Always set user expectations about wait times.\n- Maximum video duration is 8 seconds per clip. For longer sequences, suggest generating multiple clips.\n- Character consistency degrades with extreme pose or style changes. Warn users when a requested scene diverges significantly from the reference.\n- All generated content must comply with Google's usage policies. Do not generate content depicting real public figures, minors in inappropriate contexts, or violent/harmful scenarios.\n- Store character references in SharePoint for persistence across sessions. IndexedDB is used in the original web app but is not available in Teams.\n\nEnvironment: You run in Microsoft Teams. Image and video generation use the Google Gemini API (Imagen 3 for images, Veo 3.1 for video) via Power Automate HTTP actions. Generated assets are stored in SharePoint. The Gemini API key is stored as a Power Automate environment variable.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Character Creation",
+        "description": "User wants to create a new character or generate character portraits. Route here when the user mentions creating a character, generating a portrait, designing a persona avatar, or building a new character for their story or research.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Character Creation Welcome",
+            "description": "Introduces the character creation process: the agent will gather physical attributes, art style preferences, and generate 3-4 portrait variations using Gemini Imagen 3 for the user to choose from. Mentions that selected characters are saved to the library for consistent reuse."
+          },
+          {
+            "type": "Question",
+            "name": "Provide Character Name",
+            "description": "Asks the user for the character's name. This will be used to label the character in the library and reference it in future scene compositions.",
+            "variable_name": "varCharacterName",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Describe Physical Attributes",
+            "description": "Asks the user to describe the character's physical appearance: approximate age range, gender presentation, ethnicity/skin tone, hair description (color, style, length), clothing style, and any distinguishing features (glasses, scars, accessories).",
+            "variable_name": "varCharacterAttributes",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Select Art Style",
+            "description": "Asks the user for their preferred art style: photorealistic, digital illustration, watercolor, anime/manga, comic book, or minimalist flat design. Also asks about lighting preference (natural, studio, dramatic) and background context.",
+            "variable_name": "varArtStyle",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "portrait",
+                "displayName": "Portrait"
+              },
+              {
+                "id": "full_body",
+                "displayName": "Full Body"
+              },
+              {
+                "id": "scene",
+                "displayName": "Scene Composition"
+              }
+            ],
+            "entity_file": "character_generator_styles.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Select Aspect Ratio",
+            "description": "Asks the user for the image aspect ratio: 1:1 (square portrait, default), 16:9 (landscape, good for scenes), or 9:16 (vertical, good for full-body poses).",
+            "variable_name": "varAspectRatio",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "1_1",
+                "displayName": "1:1 Square"
+              },
+              {
+                "id": "16_9",
+                "displayName": "16:9 Landscape"
+              },
+              {
+                "id": "9_16",
+                "displayName": "9:16 Vertical"
+              }
+            ]
+          },
+          {
+            "type": "Action",
+            "name": "Generate Portrait Variations",
+            "description": "Calls the Generate Character Portrait flow with the character attributes, art style, and aspect ratio. Generates 3-4 portrait variations using Gemini Imagen 3 API. Uploads results to the SharePoint Character Library.",
+            "variable_name": "varPortraitResults",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Generate Character Portrait"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Portrait Selection Gallery",
+            "description": "Displays the generated portrait variations as an Adaptive Card image gallery. Each variation shows the image with a selection button. Includes the prompt used and a character consistency note. User selects their preferred variation."
+          },
+          {
+            "type": "Question",
+            "name": "Select Preferred Portrait",
+            "description": "Asks the user to select their preferred portrait variation (1-4) or request regeneration with modified attributes if none are satisfactory.",
+            "variable_name": "varSelectedPortrait",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Save Character to Library",
+            "description": "Saves the selected portrait, character attributes, and generation prompt to the SharePoint Character Library for future reference. Creates a character metadata record for consistency in future scene compositions.",
+            "variable_name": "varCharacterId",
+            "variable_scope": "Global",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Message",
+            "name": "Character Created Confirmation",
+            "description": "Confirms the character has been created and saved to the library. Shows the character name, selected portrait, and library ID. Offers next steps: create a scene, generate a video, or create another character."
+          }
+        ],
+        "trigger_phrases": "create character, generate portrait, design persona avatar, build new character, character portrait"
+      },
+      {
+        "name": "Scene Composition",
+        "description": "User wants to place an existing character into a new scene or context while maintaining visual consistency. Route here when the user mentions creating a scene, placing a character somewhere, generating a character in a specific setting, or composing a multi-character image.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Scene Composition Introduction",
+            "description": "Explains the scene composition process: uses the character's reference portrait as conditioning input to maintain visual identity while placing the character in a new context. Warns that extreme pose or style changes may reduce consistency."
+          },
+          {
+            "type": "Question",
+            "name": "Select Character for Scene",
+            "description": "Asks the user to select a character from their library for the scene composition. Presents a list of saved characters with thumbnail previews and names.",
+            "variable_name": "varSceneCharacterId",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Describe Scene Context",
+            "description": "Asks the user to describe the scene: setting/background (office, park, cafe), character pose or action (sitting, presenting, walking), lighting conditions, and any props or additional elements.",
+            "variable_name": "varSceneDescription",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Scene Consistency Risk",
+            "description": "Evaluates whether the requested scene diverges significantly from the character's reference (extreme angle, drastically different clothing, conflicting art style). Warns the user if consistency may be lower.",
+            "variable_name": "varSceneDescription",
+            "variable_scope": "Topic",
+            "condition_expression": "consistencyRisk == \"low\" || consistencyRisk == \"medium\" || consistencyRisk == \"high\""
+          },
+          {
+            "type": "Action",
+            "name": "Generate Scene Image",
+            "description": "Calls the Generate Character Portrait flow with the reference image URL as conditioning input and the scene description as the prompt. Uses Imagen 3's reference image capability to maintain character identity.",
+            "variable_name": "varSceneResult",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Generate Character Portrait"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Scene Result Gallery",
+            "description": "Displays the generated scene image(s) alongside the original character reference for visual comparison. Shows a character consistency assessment and the prompt used. Includes buttons to accept, regenerate, or adjust the scene description."
+          },
+          {
+            "type": "Action",
+            "name": "Save Scene to Character Assets",
+            "description": "Saves the accepted scene image to the character's asset folder in the SharePoint Character Library, maintaining an organized collection of all generated assets per character.",
+            "variable_name": "varSceneAssetUrl",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          }
+        ],
+        "trigger_phrases": "create scene, place character in setting, generate scene composition, compose multi-character image, character in context"
+      },
+      {
+        "name": "Video Generation",
+        "description": "User wants to generate a short animated video clip of a character. Route here when the user mentions video, animation, motion, Veo, or wants to see a character in action or moving.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Video Generation Overview",
+            "description": "Explains the video generation capability using Veo 3.1: generates short animated clips (up to 8 seconds) of characters in motion. Processing typically takes 2-3 minutes. Uses the character reference image for visual consistency."
+          },
+          {
+            "type": "Question",
+            "name": "Select Character for Video",
+            "description": "Asks the user to select a character from their library to animate. Shows character thumbnails and names for easy selection.",
+            "variable_name": "varVideoCharacterId",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Describe Video Scene and Action",
+            "description": "Asks the user to describe what the character should be doing in the video: the action (walking, talking, gesturing), the setting, camera movement preferences, and any specific expressions or emotions to convey.",
+            "variable_name": "varVideoSceneDescription",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Set Video Parameters",
+            "description": "Asks for video generation parameters: duration (2-8 seconds, default 4), aspect ratio (16:9 landscape, 9:16 portrait, 1:1 square), and quality preference (standard or high).",
+            "variable_name": "varVideoParams",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "realistic",
+                "displayName": "Realistic"
+              },
+              {
+                "id": "cinematic",
+                "displayName": "Cinematic"
+              },
+              {
+                "id": "animated",
+                "displayName": "Animated"
+              }
+            ],
+            "entity_file": "character_generator_video_styles.txt"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Video Generation",
+            "description": "Calls the Generate Character Video flow with the character reference image, scene description, duration, and aspect ratio. Initiates the async Veo 3.1 generation and begins polling for completion.",
+            "variable_name": "varVideoJobId",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Generate Character Video"
+          },
+          {
+            "type": "Message",
+            "name": "Video Processing Status",
+            "description": "Informs the user that video generation is in progress and typically takes 2-3 minutes. Provides the job ID and advises the user they will be notified when the video is ready."
+          },
+          {
+            "type": "Condition",
+            "name": "Check Video Completion",
+            "description": "Polls the Veo 3.1 operation status until the video generation completes or times out (max 5 minutes). Routes to success or error handling.",
+            "variable_name": "varVideoJobId",
+            "variable_scope": "Topic",
+            "condition_expression": "varVideoStatus == \"completed\" || varVideoStatus == \"failed\""
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Video Result Card",
+            "description": "Displays the completed video with a playback-ready link, thumbnail preview, duration, and file size. Includes download, share, and 'Generate Another Clip' buttons. Also shows the prompt used for reproducibility."
+          }
+        ],
+        "trigger_phrases": "generate character video, create animation, animate character, Veo video clip, character in motion"
+      },
+      {
+        "name": "Character Library",
+        "description": "User wants to browse, manage, or retrieve previously created characters. Route here when the user asks about their characters, wants to see the library, delete a character, or reuse a previously created character.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Character Library Introduction",
+            "description": "Explains the character library: a persistent collection of all created characters stored in SharePoint with their reference portraits, attribute metadata, and generated assets. Characters can be reused across scenes and videos for visual consistency."
+          },
+          {
+            "type": "Action",
+            "name": "Fetch Character Library",
+            "description": "Queries the SharePoint Character Library to retrieve all saved characters for the current user. Returns character names, thumbnail URLs, creation dates, and asset counts.",
+            "variable_name": "varCharacterLibrary",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Character Library Gallery",
+            "description": "Displays all characters as an Adaptive Card gallery grid. Each character shows: name, thumbnail portrait, creation date, number of generated assets (images + videos), and action buttons for View Details, Use in Scene, Generate Video, and Delete."
+          },
+          {
+            "type": "Question",
+            "name": "Select Library Action",
+            "description": "Asks the user what they want to do: view a character's full details and asset history, use a character in a new scene, generate a video of a character, delete a character, or create a new character.",
+            "variable_name": "varLibraryAction",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "scene",
+                "displayName": "Use in Scene"
+              },
+              {
+                "id": "video",
+                "displayName": "Generate Video"
+              },
+              {
+                "id": "delete",
+                "displayName": "Delete Character"
+              },
+              {
+                "id": "create",
+                "displayName": "Create New Character"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Route Library Action",
+            "description": "Routes to the appropriate topic based on the user's selection: scene composition, video generation, character deletion confirmation, or new character creation.",
+            "variable_name": "varLibraryAction",
+            "variable_scope": "Topic",
+            "condition_expression": "varLibraryAction == \"scene\" || varLibraryAction == \"video\" || varLibraryAction == \"delete\" || varLibraryAction == \"create\""
+          },
+          {
+            "type": "Redirect",
+            "name": "Redirect to Selected Action",
+            "description": "Redirects to the appropriate topic based on the user's choice: Scene Composition, Video Generation, or Character Creation.",
+            "redirect_topic": "Character Creation"
+          }
+        ],
+        "trigger_phrases": "view my characters, character library, browse characters, reuse a character, manage character collection"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Generate Character Portrait",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Generates character portrait images using the Google Gemini Imagen 3 API. Composes a detailed prompt from character attributes, calls the image generation endpoint, and returns multiple variations for user selection.",
+        "actions_description": "Get nxth_GeminiApiKey from environment -> Compose detailed gemini-3-pro-image-preview prompt with physical attributes, art style, lighting, composition -> If reference_image_base64 provided: build parts array [{inlineData: {data: base64, mimeType: mimeType}}, {text: prompt}] else parts array [{text: prompt}] -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent?key={nxth_GeminiApiKey} with body {contents: [{role: user, parts: partsArray}], generationConfig: {responseModalities: [TEXT, IMAGE]}} -> Extract base64 image: body()?['candidates']?[0]?['content']?['parts']?[1]?['inlineData']?['data'] -> base64ToBinary() -> Upload to SharePoint /Character Library/{character_name}/ -> Return SharePoint URL, image base64 for future reference use, status",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "character_description",
+            "type": "String",
+            "description": "Detailed physical description of the character including age, gender, ethnicity, hair, clothing, and distinguishing features"
+          },
+          {
+            "name": "style",
+            "type": "String",
+            "description": "Art style for the portrait: photorealistic, digital_illustration, watercolor, anime, comic_book, or minimalist"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "image_url",
+            "type": "String",
+            "description": "SharePoint URL to the generated character portrait image"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Generation status (completed, failed)"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent?key={nxth_GeminiApiKey}",
+            "description": "Google gemini-3-pro-image-preview image generation endpoint. API key as URL query param. Accepts contents array with optional inlineData reference images (base64) plus text prompt. responseModalities must include IMAGE. Supports up to 14 reference images for character consistency."
+          }
+        ]
+      },
+      {
+        "name": "Generate Character Video",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Generates a short video clip of a character using the Google Veo 3.1 API. Uses the character reference image and a scene description to produce a consistent animated clip. Video generation is asynchronous and typically takes 2-3 minutes.",
+        "actions_description": "Receive character_reference_image_url, scene_description, duration_seconds, aspect_ratio -> Compose Veo 3.1 prompt combining character description with scene action -> HTTP POST to https://generativelanguage.googleapis.com/v1beta/models/veo-3.1-generate-preview:predictLongRunning with prompt and referenceImage -> Extract operation_name from response -> Do Until operation complete (max 5 minutes): Delay 20 seconds -> HTTP GET operation status endpoint -> Check done flag -> Extract video URI from completed result -> Download video blob -> Upload to SharePoint -> Return video URL, duration, thumbnail URL",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "character_image_url",
+            "type": "String",
+            "description": "SharePoint URL to the character reference image for visual consistency"
+          },
+          {
+            "name": "animation_prompt",
+            "type": "String",
+            "description": "Description of the character action, scene setting, and camera movement for the video"
+          },
+          {
+            "name": "duration",
+            "type": "Number",
+            "description": "Video clip duration in seconds (2-8, default 4)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "video_url",
+            "type": "String",
+            "description": "SharePoint URL to the generated video clip"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Video generation status (completed, failed, timeout)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/veo-3.1-fast-generate-preview:predictLongRunning?key={nxth_GeminiApiKey}",
+            "description": "Google Veo 3.1 Fast video generation endpoint (predictLongRunning). API key as URL query param. Body: {instances: [{prompt, image: {bytesBase64Encoded, mimeType}}], parameters: {aspectRatio, sampleCount: 1}}. Returns operation name for polling. 9:16 portrait only supports 720p."
+          },
+          {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/{operation_name}?key={nxth_GeminiApiKey}",
+            "description": "Polls the status of an async Veo video generation operation until done=true. Extract video URI from response.generateVideoResponse.generatedSamples[0].video.uri then append ?key={nxth_GeminiApiKey} to download."
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Character Library",
+        "name": "Character Library",
+        "description": "SharePoint document library storing character reference images, attribute metadata, and generated assets organized by character name and project"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Generate Character Portrait",
+        "description": "Generates 1-4 character portrait variations using Gemini Imagen 3 with detailed prompt composition from character attributes.",
+        "inputs": [
+          {
+            "name": "character_name",
+            "type": "string"
+          },
+          {
+            "name": "character_attributes",
+            "type": "object"
+          },
+          {
+            "name": "art_style",
+            "type": "string"
+          },
+          {
+            "name": "aspect_ratio",
+            "type": "string"
+          },
+          {
+            "name": "variation_count",
+            "type": "number"
+          },
+          {
+            "name": "reference_image_url",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "image_urls",
+            "type": "object"
+          },
+          {
+            "name": "prompt_used",
+            "type": "string"
+          },
+          {
+            "name": "generation_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Generate Character Video",
+        "description": "Generates a short video clip of a character using Veo 3.1 with reference image conditioning for visual consistency.",
+        "inputs": [
+          {
+            "name": "character_reference_url",
+            "type": "string"
+          },
+          {
+            "name": "scene_description",
+            "type": "string"
+          },
+          {
+            "name": "duration_seconds",
+            "type": "number"
+          },
+          {
+            "name": "aspect_ratio",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "video_url",
+            "type": "string"
+          },
+          {
+            "name": "thumbnail_url",
+            "type": "string"
+          },
+          {
+            "name": "duration_seconds",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Connector",
+        "name": "SharePoint Character Library",
+        "description": "SharePoint connector for storing and retrieving character reference images and metadata from the Character Library document library.",
+        "inputs": [
+          {
+            "name": "character_name",
+            "type": "string"
+          },
+          {
+            "name": "operation",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "character_data",
+            "type": "object"
+          },
+          {
+            "name": "image_urls",
+            "type": "object"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Character Styles",
+        "entity_file": "character_generator_styles.txt",
+        "description": "Closed list entity for character image composition styles (Portrait, Full Body, Scene) with synonyms",
+        "used_in_topics": [
+          "Character Creation"
+        ]
+      },
+      {
+        "entity_name": "Video Styles",
+        "entity_file": "character_generator_video_styles.txt",
+        "description": "Closed list entity for video animation styles (Realistic, Cinematic, Animated) with synonyms",
+        "used_in_topics": [
+          "Video Generation"
+        ]
+      }
+    ]
+  }
+}

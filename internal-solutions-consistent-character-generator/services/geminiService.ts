@@ -316,7 +316,7 @@ const enforceAspectRatio = async (imageData: ImageData, ratio: string): Promise<
 
 // --- Core AI Generation Services ---
 
-// Enhanced prompt building system based on Google Gemini 2.5 Flash best practices
+// Enhanced prompt building system based on Google Gemini 3 Pro Image best practices
 const buildEnhancedCharacterPrompt = (description: string): string => {
   const hasConfidence = description.toLowerCase().includes('confident');
   const hasElegance = description.toLowerCase().includes('elegant') || description.toLowerCase().includes('graceful');
@@ -344,7 +344,7 @@ export const generateCharacterImage = async (description: string): Promise<Image
   const prompt = buildEnhancedCharacterPrompt(description);
 
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-image-preview',
+    model: 'gemini-3-pro-image-preview',
     contents: {
       parts: [{ text: prompt }],
     },
@@ -360,7 +360,7 @@ export const generateObjectImage = async (description: string): Promise<ImageDat
     const prompt = `Generate a highly realistic photographic image of an object based on this description: "${description}". The object must be isolated on a clean, neutral, light-gray studio background. The image should be photorealistic and detailed.`;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image-preview',
+        model: 'gemini-3-pro-image-preview',
         contents: { parts: [{ text: prompt }] },
         config: { responseModalities: [Modality.IMAGE, Modality.TEXT] },
     });
@@ -387,7 +387,7 @@ export const generateCharactersFromImage = async (image: ImageData, hint: string
     `;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image-preview',
+        model: 'gemini-3-pro-image-preview',
         contents: {
             parts: [
                 { inlineData: { data: image.base64, mimeType: image.mimeType } },
@@ -421,7 +421,7 @@ export const generateObjectsFromImage = async (image: ImageData, hint: string): 
     `;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image-preview',
+        model: 'gemini-3-pro-image-preview',
         contents: {
             parts: [
                 { inlineData: { data: image.base64, mimeType: image.mimeType } },
@@ -828,7 +828,7 @@ const buildEnvironmentalNarrative = (description: string): string => {
   return `${baseNarrative} This environment feels authentic and lived-in, with realistic details that support the narrative rather than generic placeholder elements. Every surface, object, and spatial relationship should suggest genuine use and natural placement.`;
 };
 
-// ✅ ENHANCED: Improved camera angle guidance following Gemini 2.5 Flash best practices
+// ✅ ENHANCED: Improved camera angle guidance following Gemini 3 Pro Image best practices
 const determineCameraAngle = (description: string, aspectRatio: string): string => {
   const aspectInstructions: Record<string, string> = {
     '16:9': 'CINEMATIC CAMERA WORK: Use professional wide-screen cinematography with 24-35mm equivalent lens for expansive environmental storytelling. Position camera at natural eye level with slight adjustments for narrative impact. Create depth through layered composition that guides the eye across the wide frame, utilizing the panoramic view to establish context and relationships between subjects and environment.',
@@ -933,7 +933,7 @@ export const generateSceneImage = async (
       }
     }
     
-    // ✅ CRITICAL FIX: Add reference image with correct aspect ratio (workaround for Gemini 2.5 Flash limitations)
+    // ✅ CRITICAL FIX: Add reference image with correct aspect ratio (Gemini 3 Pro Image supports up to 14 reference inputs)
     const aspectReferenceImage = createAspectRatioReference(aspectRatio);
     const aspectRatioPrompt = getSimpleAspectRatioPrompt(aspectRatio);
 
@@ -974,7 +974,7 @@ Create a professional photograph with realistic details, natural lighting, and a
 
 FINAL REMINDER: Generate this as ${aspectRatio === '16:9' ? 'landscape (wide)' : aspectRatio === '9:16' ? 'portrait (tall)' : 'square'} format only.`;
 
-    // ✅ CRITICAL: Build parts array with aspect ratio reference LAST (Gemini 2.5 Flash adopts aspect ratio of last image)
+    // ✅ CRITICAL: Build parts array with aspect ratio reference LAST (Gemini 3 Pro Image uses enhanced compositional reasoning)
     const parts: Part[] = [];
 
     // Add entity reference images first
@@ -998,7 +998,7 @@ FINAL REMINDER: Generate this as ${aspectRatio === '16:9' ? 'landscape (wide)' :
     parts.push({ text: prompt });
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image-preview',
+      model: 'gemini-3-pro-image-preview',
       contents: [
         {
           role: 'user',

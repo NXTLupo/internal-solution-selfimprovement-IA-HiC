@@ -23,9 +23,21 @@ class JourneyContentSelector {
     init() {
         // If the document is not fully loaded, wait for it
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.setupSelector());
+            document.addEventListener('DOMContentLoaded', () => this.waitForReactRender());
         } else {
+            this.waitForReactRender();
+        }
+    }
+    
+    waitForReactRender() {
+        // For React apps, we need to wait for the component to render
+        // Look for either the journey-form ID or the enterprise-form class
+        if (document.getElementById('journey-form') || document.querySelector('form.enterprise-form')) {
             this.setupSelector();
+        } else {
+            // Wait and try again - React might still be rendering
+            console.log('Waiting for React to render form...');
+            setTimeout(() => this.waitForReactRender(), 500);
         }
     }
     
@@ -38,11 +50,23 @@ class JourneyContentSelector {
     }
     
     addSelectorToForm() {
-        const journeyForm = document.getElementById('journey-form');
-        if (!journeyForm) return;
+        // Try multiple ways to find the form
+        const journeyForm = document.getElementById('journey-form') || document.querySelector('form.enterprise-form');
+        if (!journeyForm) {
+            console.log('Journey form not found, waiting for React to render...');
+            // Wait a bit and try again - React might not have rendered yet
+            setTimeout(() => this.setupSelector(), 1000);
+            return;
+        }
+        
+        // If selector already exists, don't add it again
+        if (journeyForm.querySelector('.content-selector-container')) {
+            return;
+        }
         
         // Find the submit button to insert our selector before it
-        const submitButton = journeyForm.querySelector('.submit-button') || 
+        const submitButton = journeyForm.querySelector('.form-actions') || 
+                            journeyForm.querySelector('.enterprise-btn-primary') || 
                             journeyForm.querySelector('button[type="submit"]');
         
         if (!submitButton) return;
@@ -51,7 +75,13 @@ class JourneyContentSelector {
         const selectorContainer = document.createElement('div');
         selectorContainer.className = 'form-group content-selector-container';
         selectorContainer.innerHTML = `
-            <label>Content to Include in Journey Map</label>
+            <div class="content-selector-header">
+                <i class="fas fa-layer-group" style="color: #4264D0;"></i>
+                <div>
+                    <div class="content-selector-title">Journey Map Content Options</div>
+                    <div class="content-selector-description">Select which elements to include in your journey map output</div>
+                </div>
+            </div>
             <div class="content-selector-options">
                 <div class="content-selector-column">
                     <div class="content-option">
@@ -208,19 +238,38 @@ class JourneyContentSelector {
     }
     
     handleFormSubmission() {
-        const journeyForm = document.getElementById('journey-form');
+        const journeyForm = document.getElementById('journey-form') || document.querySelector('form.enterprise-form');
         if (!journeyForm) return;
         
+        // Check if form already has our event listener to avoid duplicates
+        if (journeyForm.getAttribute('data-content-selector-initialized')) return;
+        
+        journeyForm.setAttribute('data-content-selector-initialized', 'true');
+        
+        // Store original submit handler
+        const originalSubmitHandler = journeyForm.onsubmit;
+        
         journeyForm.addEventListener('submit', (event) => {
+            console.log('Form submission intercepted by content selector');
+            
             // Update the selected content types
             this.updateSelectedContent();
             
-            // Add a hidden input with JSON of the selected content types
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'content_selection';
-            hiddenInput.value = JSON.stringify(this.selectedContentTypes);
-            journeyForm.appendChild(hiddenInput);
+            // Check if we already added the input to avoid duplicates
+            let existingInput = journeyForm.querySelector('input[name="content_selection"]');
+            
+            if (existingInput) {
+                existingInput.value = JSON.stringify(this.selectedContentTypes);
+            } else {
+                // Add a hidden input with JSON of the selected content types
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'content_selection';
+                hiddenInput.value = JSON.stringify(this.selectedContentTypes);
+                journeyForm.appendChild(hiddenInput);
+            }
+            
+            console.log('Added content selection:', this.selectedContentTypes);
         });
     }
 }

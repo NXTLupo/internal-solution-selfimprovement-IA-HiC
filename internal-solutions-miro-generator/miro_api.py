@@ -542,7 +542,7 @@ Ensure ZERO data loss - every piece of meaningful content must be categorized an
 
         try:
             response = self.client.messages.create(
-                model="claude-3-5-sonnet-20241022",
+                model="claude-opus-4-5-20251101",
                 max_tokens=4000,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}]

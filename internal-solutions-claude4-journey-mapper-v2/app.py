@@ -44,7 +44,7 @@ if not os.environ.get("ANTHROPIC_API_KEY"):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -81,7 +81,7 @@ log = logging.getLogger(__name__)
 # Create the FastAPI app object
 app = FastAPI(
     title="AI Journey Mapper",
-    description="Upload data to generate interactive journey maps with Anthropic's Claude 3.7",
+    description="Upload data to generate interactive journey maps with Anthropic's Claude 4.5 models",
     version="1.0.0"
 )
 
@@ -98,7 +98,7 @@ try:
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },
@@ -127,23 +127,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Setting Claude 3.7 Sonnet as the default model
-DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-3-7-sonnet-20250219")
+# Setting Claude 4.5 models as the default
+DEFAULT_ANTHROPIC_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-opus-4-5")
 
 data_processor = DataProcessor()
 
 def get_available_models() -> List[str]:
     """
-    Return a list of available Claude 3.7 models
+    Return a list of available Claude models
     """
     return [
-        "claude-3-7-sonnet-20250219",
+        "claude-opus-4-5",
+        "claude-sonnet-4-5-20250929",
+        "claude-haiku-4-5-20251001",
         "claude-3-7-haiku-20250201",
         "claude-3-7-opus-20250211",
-        "claude-3-5-sonnet-20240620",
-        "claude-3-haiku-20240307",
-        "claude-3-sonnet-20240229", 
-        "claude-3-opus-20240229"
+        "claude-3-5-sonnet-20240620"
     ]
 
 @app.get("/", response_class=HTMLResponse)
@@ -441,7 +440,7 @@ async def check_api_key():
                 "Content-Type": "application/json"
             },
             json={
-                "model": "claude-3-7-sonnet-20250219",
+                "model": "claude-opus-4-5",
                 "messages": [{"role": "user", "content": "Hello"}],
                 "max_tokens": 10
             },

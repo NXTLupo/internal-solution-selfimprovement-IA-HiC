@@ -7,7 +7,7 @@ nltk~=3.8.1
 numpy>=1.24,<2.0
 pandas>=1.5.3
 scikit-learn~=1.2.2
-git+https://github.com/scikit-learn-contrib/hdbscan.git#egg=hdbscan
+hdbscan==0.8.38.post1
 openai~=1.76.2
 transformers~=4.34.0
 gunicorn~=21.2.0

@@ -24,6 +24,7 @@ import shutil
 import requests
 import base64
 from openai import OpenAI
+from youtube_transcript_api import YouTubeTranscriptApi
 
 # Pydantic model for YouTube URL
 class YouTubeAnalysisRequest(BaseModel):
@@ -299,32 +300,6 @@ async def process_video(job_id: str, file_path: str):
         # Clean up temp directory if it exists
         if temp_dir and os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
-        
-        active_jobs[job_id]["progress"] = 95
-        
-        # Clean up temp files but keep the transcript
-        if temp_dir and os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
-        
-        # Update job status
-        active_jobs[job_id]["status"] = "completed"
-        active_jobs[job_id]["end_time"] = datetime.now().isoformat()
-        active_jobs[job_id]["transcript_path"] = transcript_path
-        active_jobs[job_id]["progress"] = 100
-        
-        logger.info(f"Video processing completed for job {job_id}")
-    
-    except Exception as e:
-        logger.error(f"Error processing video: {str(e)}")
-        
-        # Update job status to failed
-        if job_id in active_jobs:
-            active_jobs[job_id]["status"] = "failed"
-            active_jobs[job_id]["error"] = str(e)
-            
-        # Clean up temp directory if it exists
-        if temp_dir and os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
 
 class WhisperResponse:
     """Mock Whisper API response for when the API is not available"""
@@ -374,6 +349,16 @@ async def process_youtube_video(job_id: str, youtube_url: str):
     try:
         logger.info(f"Starting YouTube video analysis for job {job_id}")
         
+        # Extract video ID from URL
+        video_id = None
+        if "youtube.com/watch?v=" in youtube_url:
+            video_id = youtube_url.split("youtube.com/watch?v=")[1].split("&")[0]
+        elif "youtu.be/" in youtube_url:
+            video_id = youtube_url.split("youtu.be/")[1].split("?")[0]
+        
+        if not video_id:
+            raise Exception("Could not extract video ID from URL")
+        
         # Create a temporary directory for processing files
         temp_dir = tempfile.mkdtemp(dir=TEMP_DIR)
         active_jobs[job_id]["progress"] = 5
@@ -395,6 +380,53 @@ async def process_youtube_video(job_id: str, youtube_url: str):
         active_jobs[job_id]["video_channel"] = video_info.get('uploader', 'Unknown Channel')
         active_jobs[job_id]["video_duration"] = video_info.get('duration', 0)
         active_jobs[job_id]["progress"] = 15
+        
+        # Try to get YouTube transcript first
+        transcript_path = os.path.join(TRANSCRIPT_DIR, f"{job_id}_transcript.txt")
+        try:
+            logger.info(f"Attempting to fetch YouTube transcript for video ID: {video_id}")
+            transcript_api = YouTubeTranscriptApi()
+            transcript_list = transcript_api.fetch(video_id)
+            
+            # Format and save the transcript
+            with open(transcript_path, "w") as f:
+                f.write(f"YouTube Video: {youtube_url}\n")
+                f.write(f"Title: {active_jobs[job_id]['video_title']}\n")
+                f.write(f"Channel: {active_jobs[job_id]['video_channel']}\n")
+                f.write(f"Duration: {active_jobs[job_id]['video_duration']} seconds\n\n")
+                f.write("==== YOUTUBE TRANSCRIPT (AUTO-GENERATED) ====\n\n")
+                
+                # Write full transcript
+                full_text = " ".join([entry.text for entry in transcript_list])
+                f.write(full_text + "\n\n")
+                
+                # Write transcript with timestamps
+                f.write("==== TRANSCRIPT WITH TIMESTAMPS ====\n\n")
+                for entry in transcript_list:
+                    start_time = format_timestamp(entry.start)
+                    duration = getattr(entry, 'duration', 0)
+                    end_time = format_timestamp(entry.start + duration)
+                    text = entry.text.replace('\n', ' ').strip()
+                    f.write(f"[{start_time} - {end_time}] {text}\n")
+            
+            logger.info("Successfully fetched YouTube transcript")
+            active_jobs[job_id]["progress"] = 90
+            
+            # Clean up temp directory
+            if temp_dir and os.path.exists(temp_dir):
+                shutil.rmtree(temp_dir)
+            
+            # Update job status
+            active_jobs[job_id]["status"] = "completed"
+            active_jobs[job_id]["end_time"] = datetime.now().isoformat()
+            active_jobs[job_id]["transcript_path"] = transcript_path
+            active_jobs[job_id]["progress"] = 100
+            
+            logger.info(f"YouTube video analysis completed for job {job_id}")
+            return  # Exit early if transcript was successful
+            
+        except Exception as transcript_error:
+            logger.warning(f"Could not fetch YouTube transcript: {str(transcript_error)}. Attempting to download and transcribe...")
         
         # Set up yt-dlp options for audio download
         # Using mp3 since it's more compatible with Whisper API
@@ -529,32 +561,6 @@ async def process_youtube_video(job_id: str, youtube_url: str):
         # Clean up temp directory if it exists
         if temp_dir and os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
-        
-        active_jobs[job_id]["progress"] = 95
-        
-        # Clean up temp files but keep the transcript
-        if temp_dir and os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
-        
-        # Update job status
-        active_jobs[job_id]["status"] = "completed"
-        active_jobs[job_id]["end_time"] = datetime.now().isoformat()
-        active_jobs[job_id]["transcript_path"] = transcript_path
-        active_jobs[job_id]["progress"] = 100
-        
-        logger.info(f"YouTube video analysis completed for job {job_id}")
-    
-    except Exception as e:
-        logger.error(f"Error processing YouTube video: {str(e)}")
-        
-        # Update job status to failed
-        if job_id in active_jobs:
-            active_jobs[job_id]["status"] = "failed"
-            active_jobs[job_id]["error"] = str(e)
-        
-        # Clean up temp directory if it exists
-        if temp_dir and os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
 
 @app.get("/jobs")
 async def get_jobs():
@@ -587,6 +593,13 @@ async def get_transcript(job_id: str):
         return JSONResponse(
             status_code=400,
             content={"message": f"Transcript not available, job status: {job['status']}"}
+        )
+    
+    # Check if transcript_path exists in the job dictionary
+    if "transcript_path" not in job:
+        return JSONResponse(
+            status_code=500,
+            content={"message": "Transcript path not found in job data"}
         )
     
     try:

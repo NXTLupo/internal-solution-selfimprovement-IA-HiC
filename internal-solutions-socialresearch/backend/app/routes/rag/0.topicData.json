@@ -2,81 +2,81 @@
   "positive": [],
   "neutral": [
     {
-      "id": 4,
-      "one_sentence_summary": "Discussions about timing issues, delays, and cancellations in food delivery and grocery shopping services, including driver problems and order fulfillment challenges.",
-      "short_summary": "Delivery order cancellations"
+      "id": 0,
+      "one_sentence_summary": "Discussions focus on skincare routine development and optimization, particularly regarding the proper integration of retinol and other active ingredients into daily regimens.",
+      "short_summary": "Skincare routine optimization"
     },
     {
-      "id": 3,
-      "one_sentence_summary": "Discussions about gig economy driver frustrations with platform reward systems that tie premium status and better order access to acceptance rate requirements, creating tension between profitable decision-making and maintaining status benefits.",
-      "short_summary": "Driver status rewards"
+      "id": 2,
+      "one_sentence_summary": "Discussions focus on selecting sunscreen products that provide effective sun protection while meeting specific texture, finish, and skin compatibility preferences for daily use.",
+      "short_summary": "Sunscreen product selection"
+    },
+    {
+      "id": 1,
+      "one_sentence_summary": "Discussions about finding suitable facial cleansers and moisturizers for different skin types, particularly focusing on barrier repair and managing oily or problematic skin conditions.",
+      "short_summary": "Skincare product recommendations"
+    },
+    {
+      "id": 5,
+      "one_sentence_summary": "Consumer discussions questioning the value and authenticity of organic and clean beauty marketing claims while seeking legitimate product alternatives and authentic sustainability practices.",
+      "short_summary": "Clean beauty skepticism"
+    },
+    {
+      "id": 6,
+      "one_sentence_summary": "Skincare product evaluation discussions where users compare treatments, seek alternatives, and share experiences with various beauty products focusing on effectiveness and results.",
+      "short_summary": "Skincare product comparisons"
+    },
+    {
+      "id": 7,
+      "one_sentence_summary": "Discussions focus on dermatological laser treatments and professional interventions for various skin conditions including acne, scarring, and pigmentation issues.",
+      "short_summary": "Laser dermatological treatments"
+    },
+    {
+      "id": 11,
+      "one_sentence_summary": "Discussions focus on persistent skin texture concerns and the ongoing struggle to find effective skincare routines to address stubborn textural irregularities and pore visibility.",
+      "short_summary": "Persistent skin texture issues"
     },
     {
       "id": 12,
-      "one_sentence_summary": "Delivery drivers discuss fluctuating ratings, declining order frequency, and earnings challenges while sharing experiences about market competition and economic factors affecting their gig work.",
-      "short_summary": "Delivery driver experiences"
+      "one_sentence_summary": "Discussions focus on developing personalized skincare routines and sharing product recommendations to address various skin types, concerns, and conditions through proper cleansing, moisturizing, and treatment strategies.",
+      "short_summary": "Skincare routine advice"
     },
     {
       "id": 13,
-      "one_sentence_summary": "Discussions analyze the financial viability and working conditions of gig economy delivery driving, examining income potential, hidden costs, and the trade-offs between flexible work and consistent earnings.",
-      "short_summary": "Gig economy work"
+      "one_sentence_summary": "Discussions focus on skincare routines and treatments for managing pore-related concerns, oil control, and common skin issues like sebaceous filaments and blackheads.",
+      "short_summary": "Pore and oil skincare"
+    },
+    {
+      "id": 14,
+      "one_sentence_summary": "Discussions about facial cleansing routines and sunscreen removal methods, particularly focusing on preventing acne and clogged pores while maintaining effective skin care practices.",
+      "short_summary": "Cleansing and sunscreen removal"
     }
   ],
   "negative": [
     {
-      "id": 1,
-      "one_sentence_summary": "Discussions about operational challenges, service quality issues, and interpersonal dynamics in food delivery services involving drivers, customers, and restaurants.",
-      "short_summary": "Food delivery issues"
+      "id": 3,
+      "one_sentence_summary": "Discussions focus on facial acne breakouts, their potential causes, and treatment approaches for various types of blemishes across different areas of the face.",
+      "short_summary": "Facial acne discussions"
     },
     {
-      "id": 0,
-      "one_sentence_summary": "Discussions focus on tipping practices, delivery service quality, and the relationship between gratuity amounts and driver performance in food delivery platforms.",
-      "short_summary": "Delivery tipping practices"
-    },
-    {
-      "id": 2,
-      "one_sentence_summary": "Discussions focus on widespread issues with food delivery promotional codes and reward programs failing to work properly, leading to frustrating customer service disputes over refunds and credits.",
-      "short_summary": "Promotional code disputes"
-    },
-    {
-      "id": 5,
-      "one_sentence_summary": "Discussions about delivery service challenges focus on driver compliance with customer instructions, communication preferences during drop-off, and navigation difficulties in residential complexes.",
-      "short_summary": "Delivery instruction compliance"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Discussions focus on technical difficulties and frustrations with automated account verification and identity authentication systems for digital platforms.",
-      "short_summary": "Account verification issues"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Discussions examine food delivery platform operations, driver compensation, business practices, market dynamics, and the broader economic implications of gig economy delivery services.",
-      "short_summary": "Food delivery platforms"
+      "id": 4,
+      "one_sentence_summary": "Discussions focus on managing compromised skin barriers and irritation caused by retinoid treatments, with users seeking solutions for burning sensations and increased sensitivity.",
+      "short_summary": "Damaged skin barriers"
     },
     {
       "id": 8,
-      "one_sentence_summary": "Discussions about delivery service failures including missing packages, driver theft, undelivered orders, and customer service issues with various delivery platforms.",
-      "short_summary": "Delivery service failures"
+      "one_sentence_summary": "Discussions focus on early facial aging concerns and anti-aging skincare routines among young adults experiencing fine lines, smile lines, and dark circles around the eyes.",
+      "short_summary": "Early aging skincare concerns"
     },
     {
       "id": 9,
-      "one_sentence_summary": "Users discuss various technical problems and reliability issues with delivery service mobile applications, including mapping errors, distance calculation problems, and location tracking glitches.",
-      "short_summary": "Delivery app glitches"
-    },
-    {
-      "id": 11,
-      "one_sentence_summary": "Discussions focus on food delivery platform pricing practices, particularly concerns about algorithmic price discrimination using personal data and escalating fees that significantly increase costs beyond restaurant menu prices.",
-      "short_summary": "Delivery pricing concerns"
+      "one_sentence_summary": "Discussions focus on acne treatment experiences, particularly the challenges of distinguishing between normal skin purging and treatment failure when starting new skincare regimens.",
+      "short_summary": "Acne treatment purging"
     },
     {
       "id": 10,
-      "one_sentence_summary": "Discussions about corporate data breaches focus on consumer privacy concerns, legal implications, and varying perspectives on the sensitivity of compromised personal information.",
-      "short_summary": "Data breach privacy concerns"
-    },
-    {
-      "id": 14,
-      "one_sentence_summary": "Discussions about food delivery platform operational issues including order cancellations, payment disputes, customer support problems, and system glitches affecting drivers and customers.",
-      "short_summary": "Delivery service issues"
+      "one_sentence_summary": "Discussions focus on comprehensive acne treatment experiences, skincare routine optimization, and the challenges of managing persistent skin conditions through various medical and over-the-counter approaches.",
+      "short_summary": "Persistent acne treatment"
     }
   ]
 }

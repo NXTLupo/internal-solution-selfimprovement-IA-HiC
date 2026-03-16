@@ -186,6 +186,7 @@ async def get_home():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI Journey Mapper with Claude 4.5</title>
+  <link rel="stylesheet" href="/static/content_selector.css">
   <style>
     body {{
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -494,7 +495,7 @@ async def analyze_files(
     journey_type: Optional[str] = Form(None),
     llm_model: Optional[str] = Form(None),
     content_selection: Optional[str] = Form(None)
-):
+) -> JSONResponse:
     """
     Main endpoint for file uploads. Saves the files, processes them, then uses DynamicJourneyMapper to generate an HTML-based journey map.
     """

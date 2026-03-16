@@ -11,11 +11,12 @@ interface ImageCardProps {
   item: GalleryItem;
   isSelected: boolean;
   isDownloadable?: boolean;
+  hideTitle?: boolean;
   onSelect?: () => void;
   onDelete?: () => void;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ item, isSelected, isDownloadable, onSelect, onDelete }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ item, isSelected, isDownloadable, hideTitle, onSelect, onDelete }) => {
   const cardClasses = ['gallery-card'];
   if (onSelect) {
     cardClasses.push('interactive');
@@ -78,9 +79,11 @@ const ImageCard: React.FC<ImageCardProps> = ({ item, isSelected, isDownloadable,
         </div>
       )}
 
-      <div className="gallery-titlebar">
-        <p title={item.title}>{item.title || 'Untitled'}</p>
-      </div>
+      {!hideTitle && (
+        <div className="gallery-titlebar">
+          <p title={item.title}>{item.title || 'Untitled'}</p>
+        </div>
+      )}
     </div>
   );
 };
@@ -92,6 +95,7 @@ interface GalleryProps {
   onItemSelect?: (id: string) => void;
   onItemDelete?: (id: string) => void;
   isDownloadable?: boolean;
+  hideTitle?: boolean;
   emptyStateMessage: string;
 }
 
@@ -102,6 +106,7 @@ export const Gallery: React.FC<GalleryProps> = ({
   onItemSelect,
   onItemDelete,
   isDownloadable,
+  hideTitle,
   emptyStateMessage,
 }) => {
   return (
@@ -117,6 +122,7 @@ export const Gallery: React.FC<GalleryProps> = ({
               onSelect={onItemSelect ? () => onItemSelect(item.id) : undefined}
               onDelete={onItemDelete ? () => onItemDelete(item.id) : undefined}
               isDownloadable={isDownloadable}
+              hideTitle={hideTitle}
             />
           ))}
         </div>

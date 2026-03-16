@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Selector Test</title>
+    <link rel="stylesheet" href="content_selector.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            color: #4264D0;
+            margin-bottom: 20px;
+        }
+
+        .test-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #4264D0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #3450A0;
+        }
+
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #e3f8e3;
+            border: 1px solid #a7d8a7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Journey Map Content Selection Test</h1>
+
+    <form id="journey-form" class="test-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Journey Map Title">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Journey map description..."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn">Generate Journey Map</button>
+        </div>
+    </form>
+
+    <div class="status">
+        <h3>Form Submission Status</h3>
+        <div id="status-message">
+            No form submitted yet. After submission, the selected content options will appear here.
+        </div>
+    </div>
+
+    <script src="content_selector.js"></script>
+    <script>
+        // Handle form submission to show selected content
+        document.getElementById('journey-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the selected content types from the form
+            const contentSelection = document.querySelector('input[name="content_selection"]');
+            
+            if (contentSelection) {
+                const selectedContent = JSON.parse(contentSelection.value);
+                
+                // Display the selected content types
+                let statusHTML = '<h3>Selected Content Types:</h3><ul>';
+                
+                for (const [type, selected] of Object.entries(selectedContent)) {
+                    statusHTML += `<li>${type}: ${selected ? '✅ Included' : '❌ Excluded'}</li>`;
+                }
+                
+                statusHTML += '</ul>';
+                
+                document.getElementById('status-message').innerHTML = statusHTML;
+            } else {
+                document.getElementById('status-message').textContent = 'No content selection found in the form!';
+            }
+        });
+    </script>
+</body>
+</html>

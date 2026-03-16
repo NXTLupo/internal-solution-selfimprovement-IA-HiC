@@ -2,14 +2,14 @@ import os
 import anthropic
 
 """
-Python equivalent of the curl command for Claude 3.7:
+Python equivalent of the curl command for Claude 4.5:
 
 curl https://api.anthropic.com/v1/messages \
     --header "x-api-key: $ANTHROPIC_API_KEY" \
     --header "anthropic-version: 2023-06-01" \
     --header "content-type: application/json" \
     --data '{
-   "model": "claude-3-7-sonnet-20250219",
+   "model": "claude-opus-4-5-20251101",
    "max_tokens": 1024,
    "messages": [
        {"role": "user", "content": "Hello, world"}
@@ -24,9 +24,9 @@ API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 client = anthropic.Anthropic(api_key=API_KEY)
 
 try:
-    # Send request to Claude 3.7
+    # Send request to Claude 4.5
     response = client.messages.create(
-        model="claude-3-7-sonnet-20250219",  # Claude 3.7 Sonnet model
+        model="claude-opus-4-5-20251101",  # Claude 4.5 Opus model
         max_tokens=1024,                     # Maximum tokens in response
         messages=[                           # Message content
             {"role": "user", "content": "Hello, world"}
@@ -34,7 +34,7 @@ try:
     )
     
     # Print the response content
-    print("\nResponse from Claude 3.7:")
+    print("\nResponse from Claude 4.5:")
     print(response.content[0].text)
     
 except Exception as e:

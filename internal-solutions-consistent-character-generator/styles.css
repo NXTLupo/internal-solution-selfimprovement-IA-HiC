@@ -617,6 +617,7 @@ a:hover {
   right: 0.6rem;
   display: flex;
   gap: 0.5rem;
+  z-index: 2;
 }
 
 .gallery-chip {

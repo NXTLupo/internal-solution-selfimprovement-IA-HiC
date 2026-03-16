@@ -30,6 +30,11 @@
   --category-generation-light: #8B5CF6;
   --category-generation-bg: rgba(124, 58, 237, 0.1);
   --category-generation-border: rgba(124, 58, 237, 0.3);
+
+  --category-automation: #F59E0B;
+  --category-automation-light: #FBBF24;
+  --category-automation-bg: rgba(245, 158, 11, 0.1);
+  --category-automation-border: rgba(245, 158, 11, 0.3);
   
   /* Enterprise Grays */
   --enterprise-gray-50: #F8FAFC;
@@ -164,6 +169,10 @@
   background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
 }
 
+.apps-section[data-category="automation"] {
+  background: radial-gradient(circle at 30% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+}
+
 /* Section Header */
 .section-header {
   display: flex;
@@ -222,6 +231,13 @@
   border: 1px solid var(--category-generation-border);
   color: var(--category-generation-light);
   box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+
+.apps-section[data-category="automation"] .section-icon {
+  background: linear-gradient(135deg, var(--category-automation-bg), rgba(245, 158, 11, 0.2));
+  border: 1px solid var(--category-automation-border);
+  color: var(--category-automation-light);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
 }
 
 .section-info {
@@ -290,6 +306,10 @@
   background: linear-gradient(90deg, var(--category-generation), var(--category-generation-light));
 }
 
+.enterprise-card[data-category="automation"]::before {
+  background: linear-gradient(90deg, var(--category-automation), var(--category-automation-light));
+}
+
 .enterprise-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
@@ -314,6 +334,11 @@
 .enterprise-card[data-category="generation"]:hover {
   border-color: var(--category-generation-border);
   box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+}
+
+.enterprise-card[data-category="automation"]:hover {
+  border-color: var(--category-automation-border);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
 }
 
 /* Card Header */
@@ -391,6 +416,13 @@
   color: var(--category-generation);
   border: 1px solid var(--category-generation-border);
   box-shadow: 0 2px 10px rgba(124, 58, 237, 0.25);
+}
+
+.enterprise-card[data-category="automation"] .service-icon {
+  background: linear-gradient(135deg, var(--category-automation-bg), rgba(245, 158, 11, 0.18));
+  color: var(--category-automation);
+  border: 1px solid var(--category-automation-border);
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.25);
 }
 
 .enterprise-card:hover .service-icon {
@@ -484,6 +516,12 @@
   color: var(--category-generation-light) !important;
 }
 
+.enterprise-card[data-category="automation"] .tag:first-child {
+  background: var(--category-automation-bg);
+  border-color: var(--category-automation-border);
+  color: var(--category-automation-light) !important;
+}
+
 /* Card Footer */
 .card-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -547,6 +585,19 @@
   box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
   transform: translateY(-3px);
   border-color: var(--category-generation);
+}
+
+.enterprise-card[data-category="automation"] .enterprise-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.8) 0%, rgba(251, 191, 36, 0.9) 100%);
+  border: 1px solid var(--category-automation-border);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.enterprise-card[data-category="automation"] .enterprise-btn:hover {
+  background: linear-gradient(135deg, var(--category-automation) 0%, var(--category-automation-light) 100%);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+  transform: translateY(-3px);
+  border-color: var(--category-automation);
 }
 
 .enterprise-btn:hover {

@@ -1,0 +1,85 @@
+/**
+ * hide_exports.css
+ * Nuclear approach to eliminate ALL export functionality except CSV
+ */
+
+/* Nuke EVERYTHING export-related except CSV exports */
+div[class*="export"],
+div[id*="export"],
+[class*="export"],
+[id*="export"],
+.export-panel,
+#export-panel,
+[id^="export-panel"],
+[id*="export-panel"],
+[class^="export-panel"],
+[class*="export-panel"],
+.export-controls,
+#export-controls,
+[class*="export-controls"],
+[id*="export-controls"],
+button[class*="export"],
+button[id*="export"],
+a[class*="export"],
+a[id*="export"],
+div.export-panel,
+.export-btn,
+#export-pdf, 
+#export-print, 
+#export-png,
+button[id^="export-pdf"],
+button[id^="export-print"],
+button[id^="export-png"],
+button[id*="export-pdf"],
+button[id*="export-print"],
+button[id*="export-png"],
+button[class*="export-pdf"],
+button[class*="export-print"],
+button[class*="export-png"],
+button:has(> svg[viewBox*="24"] + *:contains("PDF")),
+button:has(> svg[viewBox*="24"] + *:contains("Print")),
+button:has(> svg[viewBox*="24"] + *:contains("Image")),
+button:has(svg + span:contains("PDF")),
+button:has(svg + span:contains("Print")),
+button:has(svg + span:contains("Image")),
+button.export-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    z-index: -9999 !important;
+    transform: scale(0) !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+}
+
+/* CSS hack to find and hide elements with "export" in their attributes or inner text */
+[onclick*="export"],
+[data-action*="export"],
+[aria-label*="export"] {
+    display: none !important;
+}
+
+/* Only show CSV export button */
+#export-csv-btn,
+.journey-csv-btn,
+#standalone-export-csv-btn,
+[id*="csv"],
+[class*="csv"],
+button[id*="csv"],
+button[class*="csv"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+}

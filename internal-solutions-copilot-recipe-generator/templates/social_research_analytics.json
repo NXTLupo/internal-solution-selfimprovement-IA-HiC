@@ -1,0 +1,768 @@
+{
+  "id": "social_research_analytics",
+  "name": "Social Research Analytics Agent",
+  "description": "A Copilot Studio agent that performs topic modeling with BERTopic/HDBSCAN clustering and VADER sentiment analysis on collected social data. Uses Agent Flows with HTTP connectors to call the Social Research Analytics REST API for topic modeling, sentiment analysis, and semantic search. Includes an advanced MCP server alternative for teams with an existing MCP deployment.",
+  "replicates_service": "Social Research Analytics (Port 8081)",
+  "icon": "fa-solid fa-chart-bar",
+  "estimated_build_time": "10-14 hours",
+  "complexity": "advanced",
+  "thumbnail": "Social_Research.gif",
+  "prefilled": {
+    "agent_name": "Social Research Analyst",
+    "agent_description": "This agent performs social media analytics by calling the Anthropic Claude API DIRECTLY from Power Automate flows. IMPORTANT ARCHITECTURE NOTE: The IA service backend uses Python ML libraries (BERTopic, HDBSCAN, RoBERTa, VADER, pgvector) that cannot be replicated in Power Automate. This Copilot recipe uses Claude API for intelligent topic extraction and sentiment analysis -- achieving equivalent business outcomes through a different technical approach that works within Power Automate constraints.\n\nThe agent exposes four topics. Topic Analysis Request accepts a SharePoint URL pointing to a JSON dataset collected by the Social Data Collector agent (array of posts with text, score, author, created_utc fields), validates the dataset (minimum 50 posts, maximum 500 recommended per batch to stay within Claude context limits), configures analysis depth via choice entity backed by social_research_analysis_types.txt (Quick/Standard/Deep), then calls Run Topic Analysis to discover themes. After completion, displays total topics found, top 5 topics by post count, representative keywords, and coherence assessment. Sentiment Analysis can run on the full dataset or specific topics, calling Run Sentiment Analysis which uses Claude to classify posts as positive/neutral/negative with compound scoring and extract representative quotes for each sentiment class. Semantic Search accepts a natural language query and calls Run Semantic Search which sends the query + dataset to Claude for relevance-ranked retrieval. Results Review lists completed analyses from Dataverse, enables drill-down, side-by-side comparison, SharePoint export, and executive summary generation.\n\nThree primary Agent Flows call Claude API directly. Run Topic Analysis: Get nxth_AnthropicApiKey -> Load posts JSON from SharePoint -> Chunk posts into batches of max 50 posts each (Apply to Each) -> For each chunk: HTTP POST to https://api.anthropic.com/v1/messages with headers x-api-key: {nxth_AnthropicApiKey}, anthropic-version: 2023-06-01, body: {model: claude-sonnet-4-6, messages: [{role: user, content: {chunk_posts_json + topic_extraction_prompt: identify recurring themes, label each theme 2-3 words, list representative keywords, count supporting posts, provide confidence 0-1}}], system: You are a social research analyst. Extract topics from posts into structured JSON., max_tokens: 8000, temperature: 0.2} -> Collect all chunk topics -> Second Claude call: consolidation prompt merging chunk topics into final topic list (5-20 topics) -> Parse final topics JSON [{topic_id, topic_name, keywords[], post_count, confidence, representative_quotes[]}] -> Store in Dataverse analysis session -> Return topics_json, analysis_id. Inputs: sharepoint_posts_url, depth. Outputs: topics_json, analysis_id, status. Run Sentiment Analysis: Get nxth_AnthropicApiKey -> Load posts and topics from Dataverse session -> For each topic or full dataset: HTTP POST to Claude API with sentiment prompt (classify each post as positive/neutral/negative, assign compound score -1 to +1, extract 2-3 representative quotes per sentiment class) -> Parse sentiment JSON {positive_pct, neutral_pct, negative_pct, compound_avg, representative_quotes: {positive[], neutral[], negative[]}} -> Store in Dataverse -> Return sentiment_json. Run Semantic Search: HTTP POST to Claude API with search prompt (rank these posts by relevance to the query, return top 20 with relevance score 0-1 and excerpt) -> Return ranked_posts_json.\n\nOne entity: Analysis Types (social_research_analysis_types.txt). Four Flow-type tools registered. Dataverse table 'Social Analyses' stores: analysis_id, status, posts_url, topics_json, sentiment_json, created_at. One required environment variable: nxth_AnthropicApiKey (Secret). Knowledge sources: SharePoint Analysis Guides at /sites/ResearchHub/Shared Documents/Analysis Guides. Delivery: Teams Adaptive Card and Email. Key patterns: batch posts into 50-post chunks for Claude (context limit management), two-pass topic analysis (chunk extraction then consolidation), temperature 0.2 for consistent classification, PT120S HTTP timeout, Secure Inputs/Outputs ON, store analysis_id in Global.varAnalysisId for cross-topic access.",
+    "persona_instructions": "You are the Social Research Analyst, an advanced analytics agent specializing in natural language processing of social media data. You help researchers discover themes, measure sentiment, and extract insights from large collections of user-generated content.\n\nPersona: You are analytical, methodical, and data-driven. You explain statistical concepts in accessible terms without oversimplifying. You proactively highlight unexpected findings, outlier topics, and sentiment shifts. You always ground claims in the data and cite specific post counts and confidence scores.\n\nChain-of-thought reasoning:\n1. When a user requests analysis, first verify that a dataset exists in the system. Check for available datasets by source and date range.\n2. For topic modeling requests: call social_topic_model with the dataset ID, specifying min_topic_size (default 10), n_topics (auto or user-specified), and the summarization model. CRITICAL: Always override the default deepseek-r1 model with a functional model like claude-3-7-sonnet-20250219 or gpt-4o, as deepseek-r1 is non-functional and will cause topic summarization to fail silently.\n3. Poll social_get_topic_status periodically until processing completes. Topic modeling on 1000+ posts typically takes 2-5 minutes.\n4. Retrieve results with social_get_topic_results and present: number of topics found, top 5 topics by document count, representative keywords per topic, and topic coherence scores.\n5. For sentiment analysis: call social_sentiment_analysis with the dataset ID. VADER produces compound scores from -1 (most negative) to +1 (most positive).\n6. Cross-reference topics with sentiment to identify which themes drive positive vs. negative discourse.\n7. For semantic search: use social_search with a natural language query to find relevant posts using pgvector cosine similarity.\n\nOutput format: Present results using structured data tables. Topic lists should include rank, topic label, document count, percentage share, top keywords, and average sentiment. Always include a high-level executive summary before detailed breakdowns. Sentiment results should show distribution (positive/neutral/negative percentages) with representative quotes.\n\nConstraints:\n- CRITICAL: Never use the default deepseek-r1 model for topic summarization. Always specify model=claude-3-7-sonnet-20250219 or model=gpt-4o.\n- Minimum dataset size for meaningful topic modeling is 50 posts. Warn users if their dataset is smaller.\n- Maximum recommended dataset size per analysis run is 10,000 posts for performance.\n- Always report confidence intervals and sample sizes alongside percentages.\n- Semantic search results should include similarity scores and full post context.\n- Do not make causal claims from correlational data. Use language like 'associated with' rather than 'caused by'.\n\nEnvironment: You connect to the social-mcp service (JSON-RPC 2.0) via MCP tool integration. The backend uses PostgreSQL with pgvector extension for embeddings storage (tested to 1.5M+ embeddings). BERTopic runs with HDBSCAN clustering. VADER handles sentiment scoring.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Topic Analysis Request",
+        "description": "User wants to run topic modeling or discover themes in their social data. Route here when the user mentions topic modeling, theme discovery, clustering, BERTopic, finding topics, or analyzing what people are talking about in a dataset.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Topic Analysis Introduction",
+            "description": "Explains the topic modeling capability: uses BERTopic with HDBSCAN clustering to discover latent themes in social media data. Mentions that analysis typically takes 2-5 minutes for 1000+ posts and requires a minimum of 50 posts for meaningful results."
+          },
+          {
+            "type": "Question",
+            "name": "Select Dataset",
+            "description": "Asks the user to identify which collected dataset to analyze. Lists available datasets by source platform, collection date, and post count. Accepts a dataset ID or lets the user browse recent collections.",
+            "variable_name": "varDatasetId",
+            "variable_scope": "Topic",
+            "entity_type": "string"
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Dataset Size",
+            "description": "Checks that the selected dataset meets the minimum 50-post threshold for meaningful topic modeling and does not exceed the 10,000-post performance recommendation.",
+            "variable_name": "varDatasetId",
+            "variable_scope": "Topic",
+            "condition_expression": "datasetPostCount >= 50 && datasetPostCount <= 10000"
+          },
+          {
+            "type": "Question",
+            "name": "Configure Analysis Parameters",
+            "description": "Asks the user for optional tuning parameters: minimum topic size (default 10), number of topics (auto-detect or user-specified), and the LLM model for topic summarization. Warns that the default deepseek-r1 model is non-functional and recommends claude-3-7-sonnet or gpt-4o.",
+            "variable_name": "varAnalysisParams",
+            "variable_scope": "Topic",
+            "entity_type": "string"
+          },
+          {
+            "type": "Action",
+            "name": "Set Summarization Model Override",
+            "description": "Overrides the default summarization model from deepseek-r1 to the user's selected model (default: claude-3-7-sonnet-20250219). This is a critical step to prevent silent topic summarization failures.",
+            "variable_name": "varSummarizationModel",
+            "variable_scope": "Topic",
+            "action_type": "Set variable value"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Topic Modeling",
+            "description": "Calls the social_topic_model MCP tool with the dataset ID, min_topic_size, n_topics, and the overridden summarization model. Returns a job ID for status polling.",
+            "variable_name": "varTopicJobId",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Monitor Analysis Status"
+          },
+          {
+            "type": "Message",
+            "name": "Analysis Started Confirmation",
+            "description": "Confirms the topic modeling job has been submitted with the job ID. Provides an estimated processing time based on dataset size. Offers to notify the user upon completion or let them check status manually."
+          },
+          {
+            "type": "Action",
+            "name": "Poll Topic Analysis Status",
+            "description": "Polls the social_get_topic_status MCP tool every 15 seconds until the job completes or fails. Tracks progress percentage and current phase (embedding, clustering, summarizing).",
+            "variable_name": "varTopicStatus",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Monitor Analysis Status"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Topic Results Summary",
+            "description": "Presents completed topic modeling results as an Adaptive Card: total topics found, top 5 topics by document count with keywords and labels, topic coherence score, outlier count, and percentage distribution. Includes buttons to drill into individual topics or run sentiment analysis."
+          }
+        ],
+        "trigger_phrases": "run topic modeling, discover themes, find topics in data, cluster social data, BERTopic analysis, what are people talking about"
+      },
+      {
+        "name": "Sentiment Analysis",
+        "description": "User wants to measure sentiment or emotional tone in their data. Route here when the user mentions sentiment, positive/negative analysis, opinion mining, emotional tone, VADER, or how people feel about a topic.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Sentiment Analysis Overview",
+            "description": "Explains the VADER sentiment analysis capability: produces compound scores from -1 (most negative) to +1 (most positive) for each post. Can be run on the full dataset or scoped to specific topics from a prior topic modeling run."
+          },
+          {
+            "type": "Question",
+            "name": "Select Analysis Scope",
+            "description": "Asks whether the user wants to analyze sentiment across the entire dataset or scope it to specific topics from a completed topic modeling run. If scoped, asks which topic IDs to include.",
+            "variable_name": "varSentimentScope",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "full_dataset",
+                "displayName": "Full Dataset"
+              },
+              {
+                "id": "topic_scoped",
+                "displayName": "Topic-Scoped"
+              }
+            ],
+            "entity_file": "social_research_analysis_types.txt"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Topic Model Dependency",
+            "description": "If the user wants topic-scoped sentiment, verifies that a completed topic modeling job exists for this dataset. If not, redirects to run topic modeling first.",
+            "variable_name": "varSentimentScope",
+            "variable_scope": "Topic",
+            "condition_expression": "varSentimentScope == \"full_dataset\" || hasCompletedTopicModel == true"
+          },
+          {
+            "type": "Question",
+            "name": "Select Target Topics",
+            "description": "If topic-scoped analysis was chosen, presents the list of discovered topics and asks the user to select which ones to analyze. Supports 'all topics' or specific topic IDs.",
+            "variable_name": "varTargetTopicIds",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Sentiment Analysis",
+            "description": "Calls the social_sentiment_analysis MCP tool with the dataset ID and optional topic model job ID and target topic IDs. Initiates the VADER sentiment scoring pipeline.",
+            "variable_name": "varSentimentJobId",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Monitor Analysis Status"
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Sentiment Results",
+            "description": "Calls social_get_sentiment_results to fetch completed sentiment analysis including overall distribution, per-topic breakdowns, and representative positive/negative documents.",
+            "variable_name": "varSentimentResults",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Monitor Analysis Status"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Sentiment Dashboard",
+            "description": "Presents sentiment results as an Adaptive Card dashboard: overall positive/neutral/negative distribution percentages, per-topic sentiment breakdowns with color-coded indicators, representative quotes for each sentiment category, and compound score statistics."
+          }
+        ],
+        "trigger_phrases": "analyze sentiment, measure sentiment, positive negative analysis, opinion mining, emotional tone analysis, how do people feel"
+      },
+      {
+        "name": "Semantic Search",
+        "description": "User wants to search for specific content within collected data using natural language queries. Route here when the user wants to find posts about a specific subject, search by meaning, or look for similar content using semantic or vector search.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Semantic Search Introduction",
+            "description": "Explains the pgvector-powered semantic search capability: searches by meaning rather than exact keyword match using cosine similarity on post embeddings. Tested on datasets up to 1.5M+ embeddings."
+          },
+          {
+            "type": "Question",
+            "name": "Enter Search Query",
+            "description": "Asks the user to describe what they are looking for in natural language. The query will be embedded and compared against all post embeddings in the selected dataset using cosine similarity.",
+            "variable_name": "varSearchQuery",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Question",
+            "name": "Set Search Parameters",
+            "description": "Asks for optional search filters: maximum number of results (default 20), minimum similarity threshold (default 0.7), and which dataset to search within.",
+            "variable_name": "varSearchParams",
+            "variable_scope": "Topic",
+            "entity_type": "number"
+          },
+          {
+            "type": "Action",
+            "name": "Execute Semantic Search",
+            "description": "Calls the social_search MCP tool with the natural language query, dataset ID, max results, and minimum similarity score. Returns ranked posts with cosine similarity scores.",
+            "variable_name": "varSearchResults",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Display Search Results",
+            "description": "Presents search results as an Adaptive Card with ranked posts. Each result shows: similarity score, post title, body excerpt, source platform, date, and engagement metrics (score, comments). Includes pagination for browsing additional results."
+          },
+          {
+            "type": "Message",
+            "name": "Search Follow-Up Options",
+            "description": "Offers follow-up actions: refine the search query, run topic analysis on the matched posts, view full post details, or export the search results to CSV."
+          }
+        ],
+        "trigger_phrases": "search posts, find content by meaning, semantic search, find similar content, search within collected data"
+      },
+      {
+        "name": "Results Review",
+        "description": "User wants to view, drill into, or export previously generated analysis results. Route here when the user asks to see results, review a specific topic, export findings, compare topics, or get a summary of completed analysis.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Available Results Summary",
+            "description": "Lists all completed analysis jobs for the user's datasets: topic modeling runs with topic counts, sentiment analyses with distribution summaries, and their completion timestamps."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Analysis Results",
+            "description": "Fetches the detailed results from the most recent or user-specified analysis job using social_get_topic_results or social_get_sentiment_results MCP tools.",
+            "variable_name": "varAnalysisResults",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Result Type",
+            "description": "Determines the type of results being reviewed (topic modeling vs. sentiment vs. combined) to select the appropriate display format.",
+            "variable_name": "varAnalysisResults",
+            "variable_scope": "Topic",
+            "condition_expression": "varAnalysisResults.type == \"topic\" || varAnalysisResults.type == \"sentiment\" || varAnalysisResults.type == \"combined\""
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Detailed Results Dashboard",
+            "description": "Displays a comprehensive results dashboard as an Adaptive Card. For topics: full topic list with labels, keyword clouds, document counts, and representative quotes. For sentiment: distribution charts and evidence. Includes drill-down buttons for each topic."
+          },
+          {
+            "type": "Question",
+            "name": "Select Export or Drill-Down",
+            "description": "Asks the user whether they want to: drill into a specific topic for detailed view, compare two topics side-by-side, export all results to SharePoint, or generate an executive summary.",
+            "variable_name": "varResultAction",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "drill_down",
+                "displayName": "Drill Into Topic"
+              },
+              {
+                "id": "compare",
+                "displayName": "Compare Topics"
+              },
+              {
+                "id": "export",
+                "displayName": "Export to SharePoint"
+              },
+              {
+                "id": "summary",
+                "displayName": "Generate Executive Summary"
+              }
+            ]
+          },
+          {
+            "type": "Action",
+            "name": "Export Results to SharePoint",
+            "description": "Generates a comprehensive results export (JSON and CSV) and saves it to the SharePoint Analysis Results library. Includes all topics, sentiment distributions, and representative documents.",
+            "variable_name": "varExportUrl",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          }
+        ],
+        "trigger_phrases": "view analysis results, review completed analysis, export findings, compare topics, results summary"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Run Topic Modeling",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Starts a BERTopic topic modeling job on a social media dataset by calling the analytics REST API via HTTP POST. Returns a job ID for status polling. CRITICAL: Always override the summarization model parameter from the default deepseek-r1 to a functional model like claude-3-7-sonnet or gpt-4o.",
+        "actions_description": "Receive dataset_id, min_topic_size, n_topics, summarization_model -> Get Analytics API URL from environment variable -> HTTP POST to /api/topic-model/start with JSON body { dataset_id, min_topic_size, n_topics, summarization_model } -> Set timeout PT120S -> Parse JSON response -> Extract job_id and estimated_duration -> Respond to agent with job_id and status",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "dataset_id",
+            "type": "String",
+            "description": "Dataset ID or SharePoint path for the social data to analyze"
+          },
+          {
+            "name": "num_topics",
+            "type": "Number",
+            "description": "Number of topics for topic modeling (0 for auto-detect)"
+          },
+          {
+            "name": "summarization_model",
+            "type": "String",
+            "description": "LLM model for topic summarization (use claude-3-7-sonnet, NOT deepseek-r1)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Unique identifier for the topic modeling job"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Job status (started, running, completed, failed)"
+          },
+          {
+            "name": "estimated_duration",
+            "type": "String",
+            "description": "Estimated processing time in human-readable format"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://social-analytics-api.azurewebsites.net/api/topic-model/start",
+            "description": "Starts a BERTopic topic modeling job. Request body: { dataset_id, min_topic_size, n_topics, summarization_model }"
+          }
+        ]
+      },
+      {
+        "name": "Check Analysis Status",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Polls the analytics REST API for topic modeling or sentiment analysis job status. Returns progress percentage, current phase, and completion status.",
+        "actions_description": "Receive job_id and job_type -> Get Analytics API URL from environment variable -> HTTP GET to /api/topic-model/status/{job_id} or /api/sentiment/status/{job_id} -> Parse JSON response -> Extract status, progress_percent, current_phase -> Respond to agent with status details",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Job ID to check status for"
+          },
+          {
+            "name": "job_type",
+            "type": "String",
+            "description": "Type of job: topic_modeling or sentiment"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Current job status (running, completed, failed)"
+          },
+          {
+            "name": "progress_percent",
+            "type": "String",
+            "description": "Progress percentage as text (e.g., 45)"
+          },
+          {
+            "name": "current_phase",
+            "type": "String",
+            "description": "Current processing phase (embedding, clustering, summarizing)"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://social-analytics-api.azurewebsites.net/api/topic-model/status/{job_id}",
+            "description": "Returns job status with progress percentage, current phase, and estimated remaining time"
+          }
+        ]
+      },
+      {
+        "name": "Get Topic Results",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Retrieves completed topic modeling results from the analytics REST API including topic list with labels, keyword lists, document counts, representative documents, and coherence scores.",
+        "actions_description": "Receive job_id -> Get Analytics API URL from environment variable -> HTTP GET to /api/topic-model/results/{job_id}?include_docs=true -> Parse JSON response -> Extract topics array, total_topics, total_documents, outlier_count, coherence_score -> Format as summary text (stringify for 1 MB limit) -> Respond to agent with results_summary",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Completed topic modeling job ID"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "results_summary",
+            "type": "String",
+            "description": "JSON string of topic results (topics, counts, keywords, coherence)"
+          },
+          {
+            "name": "total_topics",
+            "type": "Number",
+            "description": "Total number of topics discovered"
+          },
+          {
+            "name": "total_documents",
+            "type": "Number",
+            "description": "Total number of documents analyzed"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://social-analytics-api.azurewebsites.net/api/topic-model/results/{job_id}",
+            "description": "Returns full topic modeling results with labels, keywords, document counts, and representative docs"
+          }
+        ]
+      },
+      {
+        "name": "Run Sentiment Analysis",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Starts a VADER sentiment analysis job on a dataset via the analytics REST API. Can be scoped to specific topics from a prior topic modeling run.",
+        "actions_description": "Receive dataset_id, topic_model_job_id (optional), target_topic_ids (optional) -> Get Analytics API URL from environment variable -> HTTP POST to /api/sentiment/start with JSON body -> Parse JSON response -> Extract job_id and status -> Respond to agent",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "dataset_id",
+            "type": "String",
+            "description": "Dataset ID to analyze"
+          },
+          {
+            "name": "topic_model_job_id",
+            "type": "String",
+            "description": "Optional: job ID from prior topic modeling to scope sentiment by topic"
+          },
+          {
+            "name": "target_topic_ids",
+            "type": "String",
+            "description": "Optional: comma-separated topic IDs to limit analysis scope"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Sentiment analysis job ID"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Job status (started, running, completed, failed)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://social-analytics-api.azurewebsites.net/api/sentiment/start",
+            "description": "Starts VADER sentiment analysis. Body: { dataset_id, topic_model_job_id?, target_topic_ids? }"
+          }
+        ]
+      },
+      {
+        "name": "Get Sentiment Results",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Retrieves completed sentiment analysis results including overall distribution, per-topic breakdowns, and representative positive/negative documents.",
+        "actions_description": "Receive job_id -> Get Analytics API URL from environment variable -> HTTP GET to /api/sentiment/results/{job_id} -> Parse JSON response -> Extract overall_sentiment, per_topic data, counts -> Format as summary text -> Respond to agent with results_summary",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "job_id",
+            "type": "String",
+            "description": "Completed sentiment analysis job ID"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "results_summary",
+            "type": "String",
+            "description": "JSON string of sentiment results (distributions, per-topic breakdowns, representative docs)"
+          },
+          {
+            "name": "positive_count",
+            "type": "Number",
+            "description": "Number of positive-sentiment documents"
+          },
+          {
+            "name": "negative_count",
+            "type": "Number",
+            "description": "Number of negative-sentiment documents"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://social-analytics-api.azurewebsites.net/api/sentiment/results/{job_id}",
+            "description": "Returns completed sentiment analysis with overall distribution and per-topic breakdowns"
+          }
+        ]
+      },
+      {
+        "name": "Semantic Search",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Executes a semantic search over collected social data using pgvector cosine similarity. Accepts a natural language query and returns the most similar posts with relevance scores.",
+        "actions_description": "Receive search_query, dataset_id, max_results -> Get Analytics API URL from environment variable -> HTTP POST to /api/pgvector/search with JSON body { query: search_query, dataset_id, max_results, min_similarity: 0.7 } -> Parse JSON response -> Extract results array and total_matches -> Format top results as readable text -> Respond to agent with search_results",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "search_query",
+            "type": "String",
+            "description": "Natural language search query"
+          },
+          {
+            "name": "dataset_id",
+            "type": "String",
+            "description": "Dataset ID to search within"
+          },
+          {
+            "name": "max_results",
+            "type": "Number",
+            "description": "Maximum number of results to return (default 20)"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "search_results",
+            "type": "String",
+            "description": "JSON string of ranked search results with similarity scores and post content"
+          },
+          {
+            "name": "total_matches",
+            "type": "Number",
+            "description": "Total number of matching documents"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://social-analytics-api.azurewebsites.net/api/pgvector/search",
+            "description": "Semantic search via pgvector cosine similarity. Body: { query, dataset_id, max_results, min_similarity }"
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "SharePoint",
+        "path_or_url": "/sites/ResearchHub/Shared Documents/Analysis Guides",
+        "name": "Analysis Methodology Guides",
+        "description": "Documentation on BERTopic parameters, HDBSCAN tuning, VADER scoring interpretation, and best practices for social media text analysis"
+      },
+      {
+        "source_type": "Website URL",
+        "path_or_url": "https://maartengr.github.io/BERTopic/",
+        "name": "BERTopic Documentation",
+        "description": "Official BERTopic documentation for reference on topic modeling parameters, visualization options, and algorithm details"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Run Topic Modeling",
+        "description": "Agent Flow that starts BERTopic topic modeling via HTTP POST to the analytics API. Returns a job ID for status polling.",
+        "inputs": [
+          {
+            "name": "dataset_id",
+            "type": "string"
+          },
+          {
+            "name": "num_topics",
+            "type": "number"
+          },
+          {
+            "name": "summarization_model",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "estimated_duration",
+            "type": "string"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Check Analysis Status",
+        "description": "Agent Flow that polls the analytics API for job status. Returns progress and current phase.",
+        "inputs": [
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "job_type",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "progress_percent",
+            "type": "string"
+          },
+          {
+            "name": "current_phase",
+            "type": "string"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Get Topic Results",
+        "description": "Agent Flow that retrieves completed topic modeling results via HTTP GET from the analytics API.",
+        "inputs": [
+          {
+            "name": "job_id",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "results_summary",
+            "type": "string"
+          },
+          {
+            "name": "total_topics",
+            "type": "number"
+          },
+          {
+            "name": "total_documents",
+            "type": "number"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Run Sentiment Analysis",
+        "description": "Agent Flow that starts VADER sentiment analysis via HTTP POST to the analytics API.",
+        "inputs": [
+          {
+            "name": "dataset_id",
+            "type": "string"
+          },
+          {
+            "name": "topic_model_job_id",
+            "type": "string"
+          },
+          {
+            "name": "target_topic_ids",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "job_id",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Get Sentiment Results",
+        "description": "Agent Flow that retrieves completed sentiment analysis results via HTTP GET from the analytics API.",
+        "inputs": [
+          {
+            "name": "job_id",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "results_summary",
+            "type": "string"
+          },
+          {
+            "name": "positive_count",
+            "type": "number"
+          },
+          {
+            "name": "negative_count",
+            "type": "number"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Semantic Search",
+        "description": "Agent Flow that executes pgvector semantic search via HTTP POST to the analytics API.",
+        "inputs": [
+          {
+            "name": "search_query",
+            "type": "string"
+          },
+          {
+            "name": "dataset_id",
+            "type": "string"
+          },
+          {
+            "name": "max_results",
+            "type": "number"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "search_results",
+            "type": "string"
+          },
+          {
+            "name": "total_matches",
+            "type": "number"
+          }
+        ],
+        "mcp_server_url": "",
+        "mcp_server_description": "",
+        "mcp_is_advanced_alternative": false
+      },
+      {
+        "tool_type": "MCP",
+        "name": "Social Analytics MCP Server",
+        "description": "ADVANCED ALTERNATIVE: Instead of 6 separate Agent Flows with HTTP connectors, teams with an existing MCP server deployment can connect a single Social Analytics MCP server that exposes all 6 tools (topic_model, get_topic_status, get_topic_results, sentiment_analysis, get_sentiment_results, search) via dynamic tool discovery. The MCP server wraps the same REST API backend but provides a unified connection point.",
+        "inputs": [],
+        "outputs": [],
+        "mcp_server_url": "https://social-analytics-mcp.azurewebsites.net/mcp",
+        "mcp_server_description": "Social Analytics MCP server providing BERTopic topic modeling, VADER sentiment analysis, and pgvector semantic search tools. Wraps the Social Research Analytics backend API. Requires Azure deployment with PostgreSQL + pgvector.",
+        "mcp_is_advanced_alternative": true
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Analysis Types",
+        "entity_file": "social_research_analysis_types.txt",
+        "description": "Closed list entity for analysis types (Topic Modeling, Sentiment Analysis, Semantic Search) with synonyms",
+        "used_in_topics": [
+          "Sentiment Analysis"
+        ]
+      }
+    ]
+  }
+}

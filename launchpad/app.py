@@ -51,24 +51,18 @@ if ANTHROPIC_API_KEY:
 def get_dynamic_urls(request_is_secure=False):
     # Internal URLs for service checks (container to container)
     journey_mapper_url = os.environ.get('JOURNEY_MAPPER_URL', 'http://journey-mapper:8000')
-    claude4_journey_mapper_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_URL', 'http://claude4-journey-mapper:8095')
     reddit_ripper_url = os.environ.get('REDDIT_RIPPER_URL', 'http://reddit-ripper:5000')
     social_research_url = os.environ.get('SOCIAL_RESEARCH_URL', 'http://social-research-frontend:3000')
     video_analyzer_url = os.environ.get('VIDEO_ANALYZER_URL', 'http://video-analyzer:5000')
-    linkedin_generator_url = os.environ.get('LINKEDIN_GENERATOR_URL', 'http://linkedin-generator:5000')
     miro_generator_url = os.environ.get('MIRO_GENERATOR_URL', 'http://miro-generator:5000')
-    image_captioner_url = os.environ.get('IMAGE_CAPTIONER_URL', 'http://image-captioner:5005')
-    flux_lora_studio_url = os.environ.get('FLUX_LORA_STUDIO_URL', 'http://flux-lora-studio:5006')
-    presentation_generator_url = os.environ.get('PRESENTATION_GENERATOR_URL', 'http://presentation-generator:5007')
-    soundtrack_generator_url = os.environ.get('SOUNDTRACK_GENERATOR_URL', 'http://soundtrack-generator:5009')
     consistent_character_generator_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_URL', 'http://consistent-character-generator:5010')
     research_generator_url = os.environ.get('RESEARCH_GENERATOR_URL', 'http://research-generator:5011')
+    copilot_recipe_generator_url = os.environ.get('COPILOT_RECIPE_GENERATOR_URL', 'http://copilot-recipe-generator:5013')
 
     # CX Agent and MCP servers (optional)
     reddit_mcp_url = os.environ.get('REDDIT_MCP_URL', 'http://reddit-mcp:8501')
     social_mcp_url = os.environ.get('SOCIAL_MCP_URL', 'http://social-mcp:8502')
     journey_mcp_url = os.environ.get('JOURNEY_MCP_URL', 'http://journey-mcp:8503')
-    claude4_journey_mcp_url = os.environ.get('CLAUDE4_JOURNEY_MCP_URL', 'http://claude4-journey-mcp:8506')
     video_mcp_url = os.environ.get('VIDEO_MCP_URL', 'http://video-mcp:8504')
     research_mcp_url = os.environ.get('RESEARCH_MCP_URL', 'http://research-mcp:8507')
     # Using 'agent' hostname as configured in docker-compose-agent.yml
@@ -83,43 +77,29 @@ def get_dynamic_urls(request_is_secure=False):
         # HTTPS URLs - use HTTPS proxy ports
         logger.info(f"[URL DEBUG] Using HTTPS URLs")
         journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_HTTPS_URL', 'https://localhost:8444')
-        claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_HTTPS_URL', 'https://localhost:8445')
         reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_HTTPS_URL', 'https://localhost:8446')
         social_research_client_url = os.environ.get('SOCIAL_RESEARCH_HTTPS_URL', 'https://localhost:8447')
         video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_HTTPS_URL', 'https://localhost:8448')
-        linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_HTTPS_URL', 'https://localhost:8449')
         miro_generator_client_url = os.environ.get('MIRO_GENERATOR_HTTPS_URL', 'https://localhost:8450')
-        image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_HTTPS_URL', 'https://localhost:8451')
-        flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_HTTPS_URL', 'https://localhost:8453')
-        presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_HTTPS_URL', 'https://localhost:8452')
-        soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_HTTPS_URL', 'https://localhost:8454')
         consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_HTTPS_URL', 'https://localhost:8456')
         research_generator_client_url = os.environ.get('RESEARCH_GENERATOR_HTTPS_URL', 'https://localhost:8457')
+        copilot_recipe_generator_client_url = os.environ.get('COPILOT_RECIPE_GENERATOR_HTTPS_URL', 'https://localhost:8458')
     else:
         # HTTP URLs - use original ports
         logger.info(f"[URL DEBUG] Using HTTP URLs")
         journey_mapper_client_url = os.environ.get('JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8080')
-        claude4_journey_mapper_client_url = os.environ.get('CLAUDE4_JOURNEY_MAPPER_CLIENT_URL', 'http://localhost:8095')
         reddit_ripper_client_url = os.environ.get('REDDIT_RIPPER_CLIENT_URL', 'http://localhost:5001')
         social_research_client_url = os.environ.get('SOCIAL_RESEARCH_CLIENT_URL', 'http://localhost:3000')
         video_analyzer_client_url = os.environ.get('VIDEO_ANALYZER_CLIENT_URL', 'http://localhost:5002')
-        linkedin_generator_client_url = os.environ.get('LINKEDIN_GENERATOR_CLIENT_URL', 'http://localhost:5003')
         miro_generator_client_url = os.environ.get('MIRO_GENERATOR_CLIENT_URL', 'http://localhost:5004')
-        image_captioner_client_url = os.environ.get('IMAGE_CAPTIONER_CLIENT_URL', 'http://localhost:5005')
-        flux_lora_studio_client_url = os.environ.get('FLUX_LORA_STUDIO_CLIENT_URL', 'http://localhost:5006')
-        presentation_generator_client_url = os.environ.get('PRESENTATION_GENERATOR_CLIENT_URL', 'http://localhost:5007')
-        soundtrack_generator_client_url = os.environ.get('SOUNDTRACK_GENERATOR_CLIENT_URL', 'http://localhost:5009')
         consistent_character_generator_client_url = os.environ.get('CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL', 'http://localhost:5010')
         research_generator_client_url = os.environ.get('RESEARCH_GENERATOR_CLIENT_URL', 'http://localhost:5011')
+        copilot_recipe_generator_client_url = os.environ.get('COPILOT_RECIPE_GENERATOR_CLIENT_URL', 'http://localhost:5013')
 
     urls = {
         'journey_mapper': {
             'client_url': journey_mapper_client_url,
             'internal_url': journey_mapper_url
-        },
-        'claude4_journey_mapper': {
-            'client_url': claude4_journey_mapper_client_url,
-            'internal_url': claude4_journey_mapper_url
         },
         'reddit_ripper': {
             'client_url': reddit_ripper_client_url,
@@ -133,29 +113,9 @@ def get_dynamic_urls(request_is_secure=False):
             'client_url': video_analyzer_client_url,
             'internal_url': video_analyzer_url
         },
-        'linkedin_generator': {
-            'client_url': linkedin_generator_client_url,
-            'internal_url': linkedin_generator_url
-        },
         'miro_generator': {
             'client_url': miro_generator_client_url,
             'internal_url': miro_generator_url
-        },
-        'image_captioner': {
-            'client_url': image_captioner_client_url,
-            'internal_url': image_captioner_url
-        },
-        'flux_lora_studio': {
-            'client_url': flux_lora_studio_client_url,
-            'internal_url': flux_lora_studio_url
-        },
-        'presentation_generator': {
-            'client_url': presentation_generator_client_url,
-            'internal_url': presentation_generator_url
-        },
-        'soundtrack_generator': {
-            'client_url': soundtrack_generator_client_url,
-            'internal_url': soundtrack_generator_url
         },
         'consistent_character_generator': {
             'client_url': consistent_character_generator_client_url,
@@ -165,9 +125,9 @@ def get_dynamic_urls(request_is_secure=False):
             'client_url': research_generator_client_url,
             'internal_url': research_generator_url
         },
-        'scrapehero_amazon': {
-            'client_url': os.environ.get('SCRAPEHERO_AMAZON_CLIENT_URL', 'http://localhost:5008'),
-            'internal_url': os.environ.get('SCRAPEHERO_AMAZON_URL', 'http://scrapehero-amazon:5000')
+        'copilot_recipe_generator': {
+            'client_url': copilot_recipe_generator_client_url,
+            'internal_url': copilot_recipe_generator_url
         },
     }
 
@@ -178,7 +138,6 @@ def get_dynamic_urls(request_is_secure=False):
                 'reddit': reddit_mcp_url,
                 'social': social_mcp_url,
                 'journey': journey_mcp_url,
-                'claude4_journey': claude4_journey_mcp_url,
                 'video': video_mcp_url,
                 'research': research_mcp_url
             },
@@ -194,18 +153,13 @@ def get_dynamic_urls(request_is_secure=False):
 # Service status cache
 services_status = {
     "journey_mapper": {"status": "unknown", "last_checked": None},
-    "claude4_journey_mapper": {"status": "unknown", "last_checked": None},
     "reddit_ripper": {"status": "unknown", "last_checked": None},
     "social_research": {"status": "unknown", "last_checked": None},
     "video_analyzer": {"status": "unknown", "last_checked": None},
-    "linkedin_generator": {"status": "unknown", "last_checked": None},
     "miro_generator": {"status": "unknown", "last_checked": None},
-    "image_captioner": {"status": "unknown", "last_checked": None},
-    "flux_lora_studio": {"status": "unknown", "last_checked": None},
-    "presentation_generator": {"status": "unknown", "last_checked": None},
-    "soundtrack_generator": {"status": "unknown", "last_checked": None},
     "consistent_character_generator": {"status": "unknown", "last_checked": None},
     "research_generator": {"status": "unknown", "last_checked": None},
+    "copilot_recipe_generator": {"status": "unknown", "last_checked": None},
 }
 
 # Add agent services if enabled
@@ -319,18 +273,13 @@ def check_service(service_name):
 def update_all_services():
     """Update status of all services"""
     check_service("journey_mapper")
-    check_service("claude4_journey_mapper")
     check_service("reddit_ripper")
     check_service("social_research")
     check_service("video_analyzer")
-    check_service("linkedin_generator")
     check_service("miro_generator")
-    check_service("image_captioner")
-    check_service("flux_lora_studio")
-    check_service("presentation_generator")
-    check_service("soundtrack_generator")
     check_service("consistent_character_generator")
     check_service("research_generator")
+    check_service("copilot_recipe_generator")
 
     # Check agent services if enabled
     if os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'true':
@@ -391,18 +340,14 @@ def index():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
-        'claude4_journey_mapper': services_status['claude4_journey_mapper']['status'],
+        # 'claude4_journey_mapper' removed
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
         'video_analyzer': services_status['video_analyzer']['status'],
-        'linkedin_generator': services_status['linkedin_generator']['status'],
         'miro_generator': services_status['miro_generator']['status'],
-        'image_captioner': services_status['image_captioner']['status'],
-        'flux_lora_studio': services_status['flux_lora_studio']['status'],
-        'presentation_generator': services_status['presentation_generator']['status'],
-        'soundtrack_generator': services_status['soundtrack_generator']['status'],
         'consistent_character_generator': services_status['consistent_character_generator']['status'],
-        'research_generator': services_status['research_generator']['status']
+        'research_generator': services_status['research_generator']['status'],
+        'copilot_recipe_generator': services_status['copilot_recipe_generator']['status']
     }
 
     # Determine if CX agent is enabled
@@ -412,19 +357,13 @@ def index():
     import time
     return render_template('index.html',
                        journey_mapper_url=urls['journey_mapper']['client_url'],
-                       claude4_journey_mapper_url=urls['claude4_journey_mapper']['client_url'],
                        reddit_ripper_url=urls['reddit_ripper']['client_url'],
                        social_research_url=urls['social_research']['client_url'],
                        video_analyzer_url=urls['video_analyzer']['client_url'],
-                       linkedin_generator_url=urls['linkedin_generator']['client_url'],
                        miro_generator_url=urls['miro_generator']['client_url'],
-                       image_captioner_url=urls['image_captioner']['client_url'],
-                       flux_lora_studio_url=urls['flux_lora_studio']['client_url'],
-                       presentation_generator_url=urls['presentation_generator']['client_url'],
-                       soundtrack_generator_url=urls['soundtrack_generator']['client_url'],
                        consistent_character_generator_url=urls['consistent_character_generator']['client_url'],
                        research_generator_url=urls['research_generator']['client_url'],
-                       scrapehero_amazon_url=urls['scrapehero_amazon']['client_url'],
+                       copilot_recipe_generator_url=urls['copilot_recipe_generator']['client_url'],
                        service_statuses=service_statuses,
                        enable_agent=cx_agent_enabled,
                        timestamp=int(time.time()))
@@ -454,16 +393,11 @@ def status_page():
     # Get current service statuses
     service_statuses = {
         'journey_mapper': services_status['journey_mapper']['status'],
-        'claude4_journey_mapper': services_status['claude4_journey_mapper']['status'],
+        # 'claude4_journey_mapper' removed
         'reddit_ripper': services_status['reddit_ripper']['status'],
         'social_research': services_status['social_research']['status'],
         'video_analyzer': services_status['video_analyzer']['status'],
-        'linkedin_generator': services_status['linkedin_generator']['status'],
-        'miro_generator': services_status['miro_generator']['status'],
-        'image_captioner': services_status['image_captioner']['status'],
-        'flux_lora_studio': services_status['flux_lora_studio']['status'],
-        'presentation_generator': services_status['presentation_generator']['status'],
-        'soundtrack_generator': services_status['soundtrack_generator']['status']
+        'miro_generator': services_status['miro_generator']['status']
     }
 
     # Determine if CX agent is enabled for template

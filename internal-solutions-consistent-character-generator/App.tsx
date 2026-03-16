@@ -723,6 +723,7 @@ const App: React.FC = () => {
                     title: s.description
                   }))}
                   isDownloadable={true}
+                  hideTitle={true}
                   emptyStateMessage="Your generated scenes will appear here."
                 />
 

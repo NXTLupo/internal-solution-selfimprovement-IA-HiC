@@ -1,0 +1,429 @@
+{
+  "id": "miro_board_generator",
+  "name": "Miro Board Generator Agent",
+  "description": "A Copilot Studio agent that converts customer journey maps into visual Miro boards using the Miro REST API v2. The agent creates structured boards with color-coded stages, sticky notes for touchpoints and pain points, connectors between journey elements, and properly positioned visual elements that form a complete journey map visualization.",
+  "replicates_service": "Miro Board Generator (Port 5004)",
+  "icon": "fa-solid fa-chalkboard",
+  "estimated_build_time": "6-8 hours",
+  "complexity": "intermediate",
+  "thumbnail": "miro_board_generator.gif",
+  "prefilled": {
+    "agent_name": "Miro Journey Board Creator",
+    "agent_description": "Converts customer journey maps into visual Miro boards by FIRST calling the Anthropic Claude API to analyze and structure the journey HTML, THEN calling the Miro REST API v2 to create the board with color-coded stages, sticky notes for touchpoints and pain points, and connectors between journey elements. Both APIs are called DIRECTLY from Power Automate flows.\n\nThe agent handles three topics. Board Generation Request checks for existing journey HTML from the Journey Mapper agent (via Global.varJourneyHtml or SharePoint URL), asks the user for a board name, validates the Miro API connection via Test Miro Connection, then calls Create Miro Journey Board which performs the two-phase API sequence: (1) Claude analyzes journey HTML into structured JSON phases, (2) Miro API creates board elements. Displays result card with Miro viewLink URL and element counts. Template Selection lets users choose layout (Horizontal/Vertical/Swimlane) backed by miro_board_layouts.txt and color theme (Default CX Palette, Brand Colors, High Contrast). Colors validated against Miro's 16 supported sticky note colors: gray, light_yellow, yellow, orange, light_green, green, dark_green, cyan, light_pink, pink, violet, red, light_blue, blue, dark_blue, black. Board Status retrieves board details via Miro API and shows element counts vs 200-element limit.\n\nThree Agent Flows call APIs directly. Analyze Journey with Claude: Get nxth_AnthropicApiKey -> HTTP POST to https://api.anthropic.com/v1/messages with headers x-api-key: {nxth_AnthropicApiKey}, anthropic-version: 2023-06-01, body: {model: claude-sonnet-4-6, messages: [{role: user, content: {journey_html + structure extraction prompt}}], system: You are a UX expert. Extract journey phases into structured JSON., max_tokens: 8000, temperature: 0.1} -> extract first(body()?['content'])?['text'] -> parse JSON: {journey_title, phases: [{phase_name, touchpoints[], emotions[], pain_points[], opportunities[]}], key_insights: {total_touchpoints, total_pain_points, top_recommendations[]}} -> return phases_json, journey_title. Inputs: journey_html. Outputs: phases_json, journey_title. Create Miro Journey Board: Get nxth_MiroAccessToken -> Call Analyze Journey with Claude sub-flow -> HTTP POST to https://api.miro.com/v2/boards with Authorization: Bearer {nxth_MiroAccessToken}, body: {name: board_name, description: Analyzed by Claude} -> extract board_id and viewLink from body()?['id'] and body()?['viewLink'] -> For each phase in phases_json: HTTP POST to https://api.miro.com/v2/boards/{board_id}/shapes (phase header rectangle, fillColor: #1E3A8A) -> For each touchpoint: HTTP POST to https://api.miro.com/v2/boards/{board_id}/sticky_notes (fillColor: yellow) -> For each pain_point: sticky_note fillColor: red -> For each opportunity: sticky_note fillColor: light_green -> For each emotion: sticky_note fillColor: light_pink -> After all phases: For each adjacent phase pair: HTTP POST to https://api.miro.com/v2/boards/{board_id}/connectors -> Return board_url (viewLink), element_count, status. Positioning: phases at x = phase_index * 1000, elements within phase stacked at y increments of 250. Test Miro Connection: HTTP GET https://api.miro.com/v2/boards with Authorization: Bearer token -> 200 = connected, 401 = invalid token (generate new at miro.com/app/settings/user-profile/apps), 403 = missing boards:write scope. Outputs: connected, status.\n\nOne entity: Board Layouts (miro_board_layouts.txt). Three Flow-type tools registered. Two required environment variables: nxth_MiroAccessToken (Secret), nxth_AnthropicApiKey (Secret). Knowledge source: Miro REST API v2 Reference at https://developers.miro.com/reference. Delivery: Teams Adaptive Card and Email. Key patterns: Claude analysis ALWAYS runs before Miro board creation; 200-element board limit (count all shapes + sticky_notes + connectors + texts); sticky note text max 1000 chars (truncate with ellipsis); Miro coordinate system uses x/y integers; board viewLink returned in creation response; Secure Inputs/Outputs ON for both HTTP actions.",
+    "persona_instructions": "You are the Miro Journey Board Creator, a visualization specialist that transforms structured journey data into professional, visually appealing Miro boards. You help CX teams create shareable, collaborative journey map visualizations.\n\nPersona: You are creative yet systematic. You understand visual hierarchy, information design, and collaborative whiteboarding best practices. You suggest layout improvements and color-coding schemes that enhance readability. You are familiar with Miro's element types and positioning coordinate system.\n\nChain-of-thought reasoning:\n1. When a user requests a Miro board, first check if they have a completed journey map from the Journey Mapper agent or a manually provided journey JSON structure.\n2. If no journey data exists, guide the user to either run the Journey Mapper first or provide journey data in the expected format (stages array with touchpoints, emotions, pain points).\n3. Ask about layout preferences: linear horizontal (default), linear vertical, or swimlane (grouped by channel). Ask about color theme: default CX palette, brand colors, or accessibility-optimized high contrast.\n4. Validate the Miro API connection by testing the access token. If the token is invalid or lacks required scopes, provide clear instructions for generating a new token at https://miro.com/app/settings/user-profile/apps.\n5. Execute the board creation flow: create the board, then populate it stage by stage. Each stage gets a frame container, sticky notes for each element type, shape nodes for emotional scores, and connectors linking sequential stages.\n6. Position elements using the Miro coordinate system: stages flow left-to-right with 400px spacing, elements within stages stack vertically with 80px spacing.\n7. Return the board URL to the user and offer to add additional elements or adjust the layout.\n\nOutput format: Present the board creation result as an Adaptive Card with the board title, direct Miro URL, element counts (stages, sticky notes, connectors), and a thumbnail preview if available. Include quick-action buttons for opening the board and sharing it.\n\nConstraints:\n- Miro API token must have boards:read and boards:write scopes. Test connection before creating boards.\n- Maximum 200 elements per board to maintain performance. For large journey maps, suggest splitting into multiple boards.\n- Sticky note text is limited to 1000 characters. Truncate long descriptions with an ellipsis and a note about truncation.\n- Position calculations must avoid overlapping elements. Use consistent spacing (400px horizontal between stages, 80px vertical between elements within a stage).\n- Color codes must be valid Miro sticky note colors: gray, light_yellow, yellow, orange, light_green, green, dark_green, cyan, light_pink, pink, violet, red, light_blue, blue, dark_blue, black.\n- Always include a title frame at the top of the board with the journey map name, persona, and creation date.\n\nEnvironment: You run in Microsoft Teams and call the Miro REST API v2 via Power Automate HTTP actions. The Miro access token is stored as a Power Automate connection or environment variable. Board URLs are shareable links that open directly in Miro.",
+    "orchestration_model": "GPT-5 Chat GA",
+    "auth_mode": "Authenticate with Microsoft",
+    "disable_general_knowledge": true,
+    "topics": [
+      {
+        "name": "Board Generation Request",
+        "description": "User wants to create a Miro board from a journey map or structured data. Route here when the user mentions creating a Miro board, visualizing a journey, converting journey data to a whiteboard, or generating a visual board from their analysis results.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Board Generation Welcome",
+            "description": "Explains the Miro board generation capability: converts structured journey map data into visual Miro boards with color-coded stage frames, sticky notes for touchpoints and pain points, shape nodes for emotional states, and connector lines showing journey flow."
+          },
+          {
+            "type": "Condition",
+            "name": "Check Journey Data Available",
+            "description": "Checks whether the user has a completed journey map from the Journey Mapper agent or needs to provide journey data manually. Routes to data input if no existing journey map is found.",
+            "variable_name": "varJourneyDataExists",
+            "variable_scope": "Topic",
+            "condition_expression": "varJourneyDataExists == true"
+          },
+          {
+            "type": "Question",
+            "name": "Select Journey Data Source",
+            "description": "If no pre-existing journey map is found, asks the user to either: provide a journey map JSON structure, paste a SharePoint URL to a previously generated journey, or go to the Journey Mapper agent first to create one.",
+            "variable_name": "varJourneyDataSource",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "journey_mapper",
+                "displayName": "From Journey Mapper Agent"
+              },
+              {
+                "id": "sharepoint",
+                "displayName": "SharePoint URL"
+              },
+              {
+                "id": "manual",
+                "displayName": "Provide JSON Manually"
+              }
+            ]
+          },
+          {
+            "type": "Question",
+            "name": "Set Board Name",
+            "description": "Asks the user to provide a name for the new Miro board. Suggests a default name based on the journey map title and current date (e.g., 'Customer Onboarding Journey - Feb 2026').",
+            "variable_name": "varBoardName",
+            "variable_scope": "Topic"
+          },
+          {
+            "type": "Action",
+            "name": "Validate Miro API Connection",
+            "description": "Calls the Test Miro Connection flow to verify the Miro API access token is valid and has the required boards:read and boards:write scopes. Returns connection status and available board count.",
+            "variable_name": "varMiroConnectionStatus",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Test Miro Connection"
+          },
+          {
+            "type": "Condition",
+            "name": "Check API Connection Valid",
+            "description": "Verifies the Miro API connection test succeeded. If authentication fails (401), provides instructions for generating a new token. If permission error (403), lists required scopes.",
+            "variable_name": "varMiroConnectionStatus",
+            "variable_scope": "Topic",
+            "condition_expression": "varMiroConnectionStatus.connected == true"
+          },
+          {
+            "type": "Action",
+            "name": "Create Miro Journey Board",
+            "description": "Calls the Create Miro Journey Board flow with the journey map JSON, board name, selected layout type, and color theme. Creates the board and populates it with all journey elements stage by stage.",
+            "variable_name": "varBoardResult",
+            "variable_scope": "Topic",
+            "action_type": "Call a flow",
+            "flow_name": "Create Miro Journey Board"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Board Creation Result Card",
+            "description": "Displays the completed board as an Adaptive Card: board title, direct Miro URL (clickable), element counts (stages, sticky notes, connectors, frames), and creation timestamp. Includes 'Open in Miro' and 'Share Board' action buttons."
+          }
+        ],
+        "trigger_phrases": "create Miro board, generate board, visualize journey, convert to whiteboard, make a Miro board"
+      },
+      {
+        "name": "Template Selection",
+        "description": "User wants to choose or customize the visual layout and styling of the Miro board. Route here when the user mentions templates, layout options (horizontal, vertical, swimlane), color themes, or visual customization of the board appearance.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Layout Options Overview",
+            "description": "Explains the three available layout templates: Linear Horizontal (stages flow left-to-right, default), Linear Vertical (stages flow top-to-bottom), and Swimlane (stages grouped by channel with horizontal lanes). Includes a brief description of when each layout works best."
+          },
+          {
+            "type": "Question",
+            "name": "Select Layout Type",
+            "description": "Asks the user to choose their preferred layout type: horizontal (best for timeline-based journeys), vertical (best for process-focused views), or swimlane (best for multi-channel journeys).",
+            "variable_name": "varLayoutType",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "horizontal",
+                "displayName": "Horizontal"
+              },
+              {
+                "id": "vertical",
+                "displayName": "Vertical"
+              },
+              {
+                "id": "swimlane",
+                "displayName": "Swimlane"
+              }
+            ],
+            "entity_file": "miro_board_layouts.txt"
+          },
+          {
+            "type": "Question",
+            "name": "Select Color Theme",
+            "description": "Asks the user to choose a color theme: Default CX Palette (blue/green/yellow stages), Brand Colors (user specifies primary/secondary), or High Contrast (accessibility-optimized black/white with accent colors).",
+            "variable_name": "varColorTheme",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "default",
+                "displayName": "Default CX Palette"
+              },
+              {
+                "id": "brand",
+                "displayName": "Brand Colors"
+              },
+              {
+                "id": "high_contrast",
+                "displayName": "High Contrast"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "name": "Validate Color Compatibility",
+            "description": "If custom brand colors are specified, validates they map to Miro's supported sticky note colors (gray, light_yellow, yellow, orange, light_green, green, dark_green, cyan, light_pink, pink, violet, red, light_blue, blue, dark_blue, black).",
+            "variable_name": "varColorTheme",
+            "variable_scope": "Topic",
+            "condition_expression": "varColorTheme == \"default\" || varColorTheme == \"high_contrast\" || isValidMiroColor(varColorTheme.primary)"
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Template Preview Card",
+            "description": "Displays a preview summary of the selected template configuration: layout type diagram, color coding legend (element type to color mapping), spacing parameters (400px horizontal, 80px vertical), and estimated board dimensions based on the journey stage count."
+          },
+          {
+            "type": "Message",
+            "name": "Template Selection Confirmed",
+            "description": "Confirms the selected layout and color theme. These settings will be applied when the board is generated. Offers to proceed to board generation or modify the selections."
+          }
+        ],
+        "trigger_phrases": "choose board template, customize layout, change color theme, board style options, visual customization"
+      },
+      {
+        "name": "Board Status",
+        "description": "User wants to check the progress of board generation or view details of a completed board. Route here when the user asks about board creation status, wants the board URL, asks how many elements were created, or wants to verify the board was generated correctly.",
+        "nodes": [
+          {
+            "type": "Message",
+            "name": "Board Status Check",
+            "description": "Acknowledges the status inquiry and identifies the board being referenced (most recent or user-specified board name/ID)."
+          },
+          {
+            "type": "Action",
+            "name": "Retrieve Board Details",
+            "description": "Queries the Miro API to retrieve the current board status, element counts, last modified timestamp, and sharing settings. For boards still being populated, returns progress information.",
+            "variable_name": "varBoardDetails",
+            "variable_scope": "Topic",
+            "action_type": "HTTP request"
+          },
+          {
+            "type": "Condition",
+            "name": "Check Board Generation State",
+            "description": "Evaluates whether the board is still being generated (in progress), has completed successfully, or encountered an error during element creation.",
+            "variable_name": "varBoardDetails",
+            "variable_scope": "Topic",
+            "condition_expression": "varBoardDetails.status == \"completed\" || varBoardDetails.status == \"in_progress\" || varBoardDetails.status == \"error\""
+          },
+          {
+            "type": "Adaptive Card",
+            "name": "Board Details Card",
+            "description": "Displays comprehensive board details as an Adaptive Card: board name, Miro URL, creation date, element breakdown (frames, sticky notes, shapes, connectors), total element count against the 200-element limit, and sharing status."
+          },
+          {
+            "type": "Question",
+            "name": "Board Follow-Up Action",
+            "description": "Asks the user what they want to do next: open the board in Miro, share it with team members, add additional elements, regenerate with different settings, or create a new board from different journey data.",
+            "variable_name": "varBoardAction",
+            "variable_scope": "Topic",
+            "entity_type": "choice",
+            "choices": [
+              {
+                "id": "open",
+                "displayName": "Open in Miro"
+              },
+              {
+                "id": "share",
+                "displayName": "Share with Team"
+              },
+              {
+                "id": "add_elements",
+                "displayName": "Add Elements"
+              },
+              {
+                "id": "regenerate",
+                "displayName": "Regenerate Board"
+              },
+              {
+                "id": "new_board",
+                "displayName": "Create New Board"
+              }
+            ]
+          },
+          {
+            "type": "Redirect",
+            "name": "Redirect to Board Generation",
+            "description": "If the user wants to create a new board or regenerate, redirects back to the Board Generation Request topic.",
+            "redirect_topic": "Board Generation Request"
+          }
+        ],
+        "trigger_phrases": "check board status, board creation progress, get board URL, is the board ready, view generated board"
+      }
+    ],
+    "flows": [
+      {
+        "name": "Create Miro Journey Board",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Creates a new Miro board and populates it with journey map elements. Handles board creation, stage frame placement, sticky note creation for each journey element type, emotional state shapes, and connector lines between stages.",
+        "actions_description": "Receive journey_map JSON, layout_type, color_theme -> HTTP POST to Miro API /v2/boards to create new board -> Store board_id -> For each stage in journey: HTTP POST /v2/boards/{board_id}/frames to create stage container at calculated (x,y) position -> For each touchpoint: HTTP POST /v2/boards/{board_id}/sticky_notes with color coding by element type -> For each pain_point: HTTP POST sticky_note (red) -> For each opportunity: HTTP POST sticky_note (green) -> For each emotion: HTTP POST /v2/boards/{board_id}/shapes with score visualization -> Between stages: HTTP POST /v2/boards/{board_id}/connectors linking stage frames -> Create title frame at top -> Return board_url, element_counts",
+        "flow_type": "Agent Flow",
+        "call_method": "Both",
+        "input_params": [
+          {
+            "name": "journey_html",
+            "type": "String",
+            "description": "Journey map HTML or JSON content to convert into a Miro board"
+          },
+          {
+            "name": "board_name",
+            "type": "String",
+            "description": "Name for the new Miro board"
+          },
+          {
+            "name": "layout_type",
+            "type": "String",
+            "description": "Board layout style: horizontal, vertical, or swimlane"
+          },
+          {
+            "name": "color_theme",
+            "type": "String",
+            "description": "Color theme for the board: default, brand, or high_contrast"
+          }
+        ],
+        "output_params": [
+          {
+            "name": "board_url",
+            "type": "String",
+            "description": "Direct URL to the created Miro board"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Board creation status (completed, failed)"
+          }
+        ],
+        "use_async_pattern": true,
+        "http_endpoints": [
+          {
+            "method": "POST",
+            "url": "https://api.miro.com/v2/boards",
+            "description": "Creates a new Miro board. Requires Authorization: Bearer {token} header. Body includes name, description, and sharing policy."
+          },
+          {
+            "method": "POST",
+            "url": "https://api.miro.com/v2/boards/{board_id}/sticky_notes",
+            "description": "Creates a sticky note on a board. Body includes data.content, style.fillColor, position.x, position.y, and geometry.width."
+          },
+          {
+            "method": "POST",
+            "url": "https://api.miro.com/v2/boards/{board_id}/frames",
+            "description": "Creates a frame container on a board. Used to group stage elements together with a title and defined area."
+          },
+          {
+            "method": "POST",
+            "url": "https://api.miro.com/v2/boards/{board_id}/connectors",
+            "description": "Creates a connector line between two board items. Used to show journey flow between stages."
+          }
+        ]
+      },
+      {
+        "name": "Test Miro Connection",
+        "trigger_type": "When an agent calls the flow",
+        "description": "Validates the Miro API access token by making a lightweight API call to list boards. Returns connection status and available board count.",
+        "actions_description": "HTTP GET to https://api.miro.com/v2/boards with Authorization header -> Condition: status code 200? -> If yes: parse response, extract board count, return success -> If 401: return authentication failure with instructions to generate new token -> If 403: return permission error with required scopes list",
+        "flow_type": "Agent Flow",
+        "call_method": "Topic-level tool",
+        "input_params": [],
+        "output_params": [
+          {
+            "name": "connected",
+            "type": "Boolean",
+            "description": "Whether the Miro API connection is valid"
+          },
+          {
+            "name": "status",
+            "type": "String",
+            "description": "Connection test result (success, auth_failed, permission_error)"
+          }
+        ],
+        "use_async_pattern": false,
+        "http_endpoints": [
+          {
+            "method": "GET",
+            "url": "https://api.miro.com/v2/boards",
+            "description": "Lists boards accessible to the authenticated user. Used for connection validation."
+          }
+        ]
+      }
+    ],
+    "knowledge_sources": [
+      {
+        "source_type": "Website URL",
+        "path_or_url": "https://developers.miro.com/reference/api-reference",
+        "name": "Miro REST API v2 Reference",
+        "description": "Official Miro API documentation covering board creation, item types (sticky notes, shapes, frames, connectors), positioning, and authentication"
+      }
+    ],
+    "delivery_channels": [
+      "Teams Adaptive Card",
+      "Email"
+    ],
+    "tools": [
+      {
+        "tool_type": "Flow",
+        "name": "Create Miro Journey Board",
+        "description": "Creates a new Miro board populated with journey map stages, touchpoints, pain points, opportunities, emotional indicators, and flow connectors.",
+        "inputs": [
+          {
+            "name": "journey_map_json",
+            "type": "object"
+          },
+          {
+            "name": "board_name",
+            "type": "string"
+          },
+          {
+            "name": "layout_type",
+            "type": "string"
+          },
+          {
+            "name": "color_theme",
+            "type": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "board_url",
+            "type": "string"
+          },
+          {
+            "name": "board_id",
+            "type": "string"
+          },
+          {
+            "name": "stage_count",
+            "type": "number"
+          },
+          {
+            "name": "element_count",
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "tool_type": "Flow",
+        "name": "Test Miro Connection",
+        "description": "Validates the Miro API access token and returns connection status with available board count.",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "connected",
+            "type": "boolean"
+          },
+          {
+            "name": "board_count",
+            "type": "number"
+          },
+          {
+            "name": "error_message",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "entity_definitions": [
+      {
+        "entity_name": "Board Layouts",
+        "entity_file": "miro_board_layouts.txt",
+        "description": "Closed list entity for Miro board layout types (Horizontal, Vertical, Swimlane) with synonyms",
+        "used_in_topics": [
+          "Template Selection"
+        ]
+      }
+    ]
+  }
+}
