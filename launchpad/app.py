@@ -851,11 +851,6 @@ def create_mcp_conversation():
     if 'agent' not in urls:
         return jsonify({"error": "Agent service not configured"}), 500
     
-    # Check if agent service is running
-    agent_status = services_status.get('agent', {}).get('status', 'unknown')
-    if agent_status != 'running':
-        return jsonify({"error": f"Agent service is not running. Status: {agent_status}"}), 503
-    
     try:
         # Proxy the request to the agent service
         target_url = f"{urls['agent']['internal_url']}/api/chat/conversation"
@@ -882,11 +877,9 @@ def send_mcp_message():
     urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
     if 'agent' not in urls:
         return jsonify({"error": "Agent service not configured"}), 500
-    
-    # Check if agent service is running
-    agent_status = services_status.get('agent', {}).get('status', 'unknown')
-    if agent_status != 'running':
-        return jsonify({"error": f"Agent service is not running. Status: {agent_status}"}), 503
+
+    # Note: removed blocking status check — let the request attempt reach the backend
+    # and return a proper error if it's down, rather than blocking on stale status cache
     
     try:
         # Debug: Log what we're receiving from the browser
@@ -928,8 +921,8 @@ def send_mcp_message():
         message_content = request.form.get('message', '').lower()
         is_video_request = 'youtube.com' in message_content or 'transcribe' in message_content
         
-        # Use appropriate timeout based on request type
-        timeout = 300 if is_video_request else 60  # 5 minutes for video, 1 minute for others
+        # Use appropriate timeout — NXT Intelligence Agent uses multi-turn Opus which needs time
+        timeout = 300  # 5 minutes for all requests (Opus multi-turn can take 2-3 min)
         
         # Properly reconstruct files for forwarding
         files_to_forward = {}

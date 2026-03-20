@@ -58,7 +58,7 @@ class ChatbotWidget {
           <div class="chat-header-icon">
             <i class="fa-solid fa-robot"></i>
           </div>
-          <div class="chat-header-title">NXT Humans Assistant</div>
+          <div class="chat-header-title">NXT Intelligence Agent</div>
         </div>
         <div class="chat-header-actions">
           <button class="chat-header-button minimize-button" aria-label="Minimize chat">
@@ -74,7 +74,7 @@ class ChatbotWidget {
         <div class="chat-actions">
           <label class="chat-action-button file-upload-label" aria-label="Upload file">
             <i class="fa-solid fa-paperclip"></i>
-            <input type="file" class="file-input" accept=".pdf,.csv,.txt,.json">
+            <input type="file" class="file-input" accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx">
           </label>
         </div>
         <div class="chat-input">
@@ -182,6 +182,104 @@ class ChatbotWidget {
   }
   
   /**
+   * Suggested prompt sets that rotate every 12 seconds
+   */
+  _promptSets = [
+    [
+      "Analyze customer interview transcripts and find the top friction points",
+      "Create a competitive landscape analysis for our market segment",
+      "Build a 30/60/90 day plan for improving enterprise conversion",
+    ],
+    [
+      "Diagnose root cause of checkout latency from error logs",
+      "Review this API schema and suggest v2 migration strategy",
+      "Generate a rollback plan for our database migration",
+    ],
+    [
+      "Fetch our Figma design system and prototype the dashboard header",
+      "Design an accessible onboarding flow for enterprise users",
+      "Audit this page for WCAG 2.1 AA compliance",
+    ],
+    [
+      "Design 3 A/B test experiments for the pricing page",
+      "Build a MEDDPICC scorecard for our top pipeline deals",
+      "Create SEO content briefs for high-intent keyword gaps",
+    ],
+    [
+      "Take screenshots of every page in our staging checkout flow",
+      "Navigate to competitor pricing and extract their plan table",
+      "Browse our docs site and identify broken links",
+    ],
+    [
+      "Upload a CSV of support tickets -- cluster by theme and severity",
+      "Analyze this product screenshot and suggest UX improvements",
+      "Upload our quarterly report PDF -- extract key metrics",
+    ],
+  ];
+  _promptSetIndex = 0;
+  _promptRotationTimer = null;
+
+  showSuggestedPrompts() {
+    // Create prompt container if it doesn't exist
+    let container = this.chatBody.querySelector('.suggested-prompts-widget');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'suggested-prompts-widget';
+      container.style.cssText = 'padding:8px 12px;';
+      const label = document.createElement('div');
+      label.style.cssText = 'font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#acacac;margin-bottom:6px;';
+      label.textContent = 'Try a prompt';
+      container.appendChild(label);
+      const chips = document.createElement('div');
+      chips.className = 'prompt-chips-area';
+      chips.style.cssText = 'display:flex;flex-direction:column;gap:6px;transition:opacity 0.3s ease;';
+      container.appendChild(chips);
+      this.chatBody.appendChild(container);
+    }
+
+    const chips = container.querySelector('.prompt-chips-area');
+    const set = this._promptSets[this._promptSetIndex % this._promptSets.length];
+    chips.innerHTML = '';
+    set.forEach(text => {
+      const chip = document.createElement('button');
+      chip.style.cssText = 'font-family:inherit;font-size:11px;font-weight:400;color:#525252;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;padding:7px 10px;cursor:pointer;text-align:left;line-height:1.3;transition:border-color 0.15s;';
+      chip.textContent = text;
+      chip.addEventListener('mouseenter', () => { chip.style.borderColor = '#115054'; chip.style.color = '#115054'; });
+      chip.addEventListener('mouseleave', () => { chip.style.borderColor = '#e5e5e5'; chip.style.color = '#525252'; });
+      chip.addEventListener('click', () => {
+        this.chatInput.value = text;
+        this.chatInput.focus();
+        this.sendButton.disabled = false;
+        this.hideSuggestedPrompts();
+      });
+      chips.appendChild(chip);
+    });
+
+    // Start rotation
+    if (this._promptRotationTimer) clearInterval(this._promptRotationTimer);
+    this._promptRotationTimer = setInterval(() => {
+      this._promptSetIndex++;
+      const chipsEl = this.chatBody.querySelector('.prompt-chips-area');
+      if (chipsEl) {
+        chipsEl.style.opacity = '0';
+        setTimeout(() => {
+          this.showSuggestedPrompts();
+          const refreshed = this.chatBody.querySelector('.prompt-chips-area');
+          if (refreshed) refreshed.style.opacity = '1';
+        }, 300);
+      }
+    }, 12000);
+
+    this.scrollToBottom();
+  }
+
+  hideSuggestedPrompts() {
+    if (this._promptRotationTimer) { clearInterval(this._promptRotationTimer); this._promptRotationTimer = null; }
+    const container = this.chatBody.querySelector('.suggested-prompts-widget');
+    if (container) container.remove();
+  }
+
+  /**
    * Resize the input textarea based on content
    */
   resizeInput() {
@@ -211,7 +309,9 @@ class ChatbotWidget {
       console.log(`Conversation created with ID: ${this.conversationId}`);
       
       // Add welcome message
-      this.addMessage('assistant', 'Hello! I\'m your NXT Humans CX Workbench Assistant. I can help you with:\n\n• Reddit data collection and analysis\n• Social research with topic modeling and sentiment analysis\n• Customer journey mapping (Claude 3.7 or OpenAI o3)\n• Video transcription and analysis\n\nHow can I assist you today?');
+      this.addMessage('assistant', 'I\'m the NXT Intelligence Agent -- your multi-model AI assistant powered by Claude Opus, GPT-5, and Gemini Pro.\n\nI can help you with:\n\n-- Research synthesis and customer signal mining\n-- Strategic analysis with KPI-tied recommendations\n-- UX design prototyping from Figma components\n-- Engineering diagnosis and patch planning\n-- Growth experiments and SEO analysis\n-- Revenue intelligence and deal strategy\n-- Computer use (screenshots, browser automation)\n\nUpload documents, images, CSVs, or PDFs for analysis. What would you like to work on?');
+      // Show rotating suggested prompts
+      this.showSuggestedPrompts();
       
       // Initialize WebSocket is not needed for MCP chatbot - we use direct API calls
     } catch (error) {
@@ -236,29 +336,34 @@ class ChatbotWidget {
   async sendMessage() {
     const message = this.chatInput.value.trim();
     if (!message) return;
-    
+
     console.log(`Sending message: "${message}"`);
-    
+
+    // Hide suggested prompts on first message
+    this.hideSuggestedPrompts();
+
     // Add user message to chat
     this.addMessage('user', message);
-    
+
     // Clear input
     this.chatInput.value = '';
     this.chatInput.style.height = 'auto';
     this.sendButton.disabled = true;
     
-    // Show typing indicator
+    // Show typing indicator with progressive status updates
     this.showTypingIndicator();
-      
-    // Add timeout message for video operations
-    if (message.toLowerCase().includes('video') || message.toLowerCase().includes('transcrib')) {
-      setTimeout(() => {
-        if (this.isTyping) {
-          this.addTimeoutMessage();
-        }
-      }, 30000); // Show timeout message after 30 seconds
-    }
-    
+    this._inferenceStart = Date.now();
+
+    // Progressive status updates during inference
+    this._statusTimers = [
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Analyzing your request...'); }, 3000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Selecting tools and model...'); }, 7000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Executing tools...'); }, 15000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Processing results...'); }, 30000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Still working -- complex multi-tool operation...'); }, 60000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Almost there -- assembling final response...'); }, 120000),
+    ];
+
     // Scroll to bottom
     this.scrollToBottom();
     
@@ -310,18 +415,41 @@ class ChatbotWidget {
       }
       
       const data = await response.json();
-      
+
+      // Clear status timers
+      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
+
+      // Calculate elapsed time
+      const elapsed = ((Date.now() - this._inferenceStart) / 1000).toFixed(1);
+
       // Hide typing indicator and add response
       this.hideTypingIndicator();
+
+      // Show tool usage summary if available
+      const toolCalls = data.tool_calls || [];
+      if (toolCalls.length > 0) {
+        const toolNames = toolCalls.map(tc => tc.name).filter(Boolean);
+        const uniqueTools = [...new Set(toolNames)];
+        const turns = data.turns || 1;
+        this.addSystemMessage(
+          `Tools used: ${uniqueTools.join(', ')} | ${turns} turn${turns > 1 ? 's' : ''} | ${elapsed}s`
+        );
+      }
+
       this.addMessage('assistant', data.reply || data.response || 'No response received');
       this.scrollToBottom();
-      
+
     } catch (error) {
       console.error('Error sending message:', error);
+      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
       this.hideTypingIndicator();
-      this.addErrorMessage('Failed to send message. Please try again.');
+      if (error.message && error.message.includes('timeout')) {
+        this.addErrorMessage('Request timed out. The agent may still be processing -- try again in a moment.');
+      } else {
+        this.addErrorMessage('Failed to send message. Please try again.');
+      }
     }
-    
+
     // Re-enable send button
     this.sendButton.disabled = !this.chatInput.value.trim();
   }
@@ -341,11 +469,11 @@ class ChatbotWidget {
     }
     
     // Check file type
-    const acceptedTypes = ['.pdf', '.csv', '.txt', '.json'];
+    const acceptedTypes = ['.pdf', '.csv', '.txt', '.json', '.md', '.xml', '.html', '.xlsx', '.docx', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'];
     const fileExt = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
     if (!acceptedTypes.includes(fileExt)) {
       console.log('Invalid file type:', fileExt);
-      this.addErrorMessage(`Invalid file type. Please upload PDF, CSV, TXT, or JSON files.`);
+      this.addErrorMessage(`Invalid file type. Please upload images, PDFs, CSVs, or documents.`);
       return;
     }
     
@@ -540,20 +668,29 @@ class ChatbotWidget {
   showTypingIndicator() {
     console.log('Showing typing indicator');
     if (this.isTyping) return;
-    
+
     const typingDiv = document.createElement('div');
     typingDiv.className = 'typing-indicator';
     typingDiv.innerHTML = `
-      <span></span>
-      <span></span>
-      <span></span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span></span><span></span><span></span>
+        <span class="typing-status" style="font-size:11px;color:#acacac;font-style:italic;margin-left:4px;">Thinking...</span>
+      </div>
     `;
     typingDiv.id = 'typing-indicator';
     this.chatBody.appendChild(typingDiv);
     this.isTyping = true;
     this.scrollToBottom();
   }
-  
+
+  updateTypingStatus(status) {
+    const el = document.querySelector('#typing-indicator .typing-status');
+    if (el) {
+      el.textContent = status;
+      this.scrollToBottom();
+    }
+  }
+
   /**
    * Hide typing indicator
    */
@@ -564,6 +701,17 @@ class ChatbotWidget {
       typingIndicator.remove();
     }
     this.isTyping = false;
+  }
+
+  /**
+   * Add a system/info message (tool usage, timing)
+   */
+  addSystemMessage(text) {
+    const div = document.createElement('div');
+    div.style.cssText = 'font-size:10px;color:#acacac;text-align:center;padding:4px 12px;font-family:monospace;letter-spacing:0.02em;';
+    div.textContent = text;
+    this.chatBody.appendChild(div);
+    this.scrollToBottom();
   }
   
   /**

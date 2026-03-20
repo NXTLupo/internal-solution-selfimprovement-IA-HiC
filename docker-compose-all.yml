@@ -20,9 +20,9 @@ services:
       - COPILOT_RECIPE_GENERATOR_CLIENT_URL=http://localhost:${COPILOT_RECIPE_GENERATOR_PORT:-5013}
       - PORT=8000
       - ENABLE_CX_AGENT=true
-      - AGENT_URL=http://agent:8500
-      - AGENT_WS_URL=ws://agent:8500
-      - AGENT_CLIENT_URL=http://localhost:${AGENT_ORCHESTRATOR_PORT:-8500}
+      - AGENT_URL=http://nxt-agency-backend:8000
+      - AGENT_WS_URL=ws://nxt-agency-backend:8000
+      - AGENT_CLIENT_URL=http://localhost:${NXT_AGENCY_BACKEND_PORT:-8201}
       - REDDIT_MCP_URL=http://reddit-mcp:8501
       - SOCIAL_MCP_URL=http://social-mcp:8502
       - JOURNEY_MCP_URL=http://journey-mcp:8503
@@ -425,6 +425,12 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY:-dev-secret-key}
       - ENVIRONMENT=${ENVIRONMENT:-development}
       - DEBUG=${DEBUG:-true}
+      # CX Workbench MCP service URLs (for CX tools integration)
+      - JOURNEY_MCP_URL=http://journey-mcp:8503/mcp
+      - REDDIT_MCP_URL=http://reddit-mcp:8501/mcp
+      - SOCIAL_MCP_URL=http://social-mcp:8502/mcp
+      - VIDEO_MCP_URL=http://video-mcp:8504/mcp
+      - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
     volumes:
       - ../NXT-Agency/agent-prompts:/app/agent-prompts:ro
     networks:

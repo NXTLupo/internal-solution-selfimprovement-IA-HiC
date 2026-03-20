@@ -3,578 +3,629 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXT Humans MCP Assistant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>NXT Humans | Intelligence Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #121B26 0%, #1e2a3a 100%);
-            color: #ffffff;
+            font-family: 'Archivo', sans-serif;
+            background: #ffffff;
+            color: #141414;
             height: 100vh;
             overflow: hidden;
+            font-weight: 300;
         }
-        
+
         .chat-container {
             display: flex;
             flex-direction: column;
             height: 100vh;
-            max-width: 1200px;
+            max-width: 920px;
             margin: 0 auto;
-            background: rgba(18, 27, 38, 0.95);
-            backdrop-filter: blur(10px);
         }
-        
+
+        /* --- Header --- */
         .chat-header {
-            background: linear-gradient(90deg, #caca20 0%, #115054 100%);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(1, 196, 200, 0.3);
+            padding: 24px 24px 16px;
+            border-bottom: 1px solid #e5e5e5;
         }
-        
         .chat-header h1 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 200;
+            color: #115054;
+            letter-spacing: -0.5px;
         }
-        
         .chat-header p {
-            opacity: 0.9;
-            font-size: 14px;
-        }
-        
-        .server-status {
-            padding: 15px 20px;
-            background: rgba(74, 81, 101, 0.2);
-            border-bottom: 1px solid rgba(1, 196, 200, 0.2);
-        }
-        
-        .server-status h3 {
-            margin-bottom: 10px;
-            color: #caca20;
-            font-size: 16px;
-        }
-        
-        .servers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
-        
-        .server-item {
-            padding: 8px 12px;
-            border-radius: 6px;
-            background: rgba(18, 27, 38, 0.5);
-            border: 1px solid rgba(1, 196, 200, 0.3);
             font-size: 12px;
+            font-weight: 300;
+            color: #acacac;
+            margin-top: 4px;
         }
-        
-        .server-item.online {
-            border-color: #28a745;
-            background: rgba(40, 167, 69, 0.1);
-        }
-        
-        .server-item.offline {
-            border-color: #dc3545;
-            background: rgba(220, 53, 69, 0.1);
-        }
-        
-        .server-item.error {
-            border-color: #ffc107;
-            background: rgba(255, 193, 7, 0.1);
-        }
-        
-        .server-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        
-        .server-description {
-            opacity: 0.8;
-            font-size: 11px;
-        }
-        
+
+        /* --- Messages --- */
         .chat-messages {
             flex: 1;
-            padding: 20px;
             overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            padding: 24px;
         }
-        
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 2px; }
+
         .message {
             display: flex;
-            max-width: 80%;
-            animation: slideIn 0.3s ease-out;
+            gap: 12px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            animation: fadeUp 0.3s ease-out;
         }
-        
-        .message.user {
-            align-self: flex-end;
-            flex-direction: row-reverse;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        .message.assistant {
-            align-self: flex-start;
-        }
-        
+
         .message-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 10px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             flex-shrink: 0;
         }
-        
         .message.user .message-avatar {
-            background: linear-gradient(135deg, #caca20, #115054);
+            background: #f5f5f5;
+            color: #525252;
+            border: 1px solid #e5e5e5;
         }
-        
         .message.assistant .message-avatar {
-            background: linear-gradient(135deg, #5A6275, #4A5165);
+            background: #115054;
+            color: #caca20;
         }
-        
+
         .message-content {
-            padding: 12px 16px;
-            border-radius: 18px;
+            flex: 1;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.7;
+            color: #141414;
             white-space: pre-wrap;
-            word-wrap: break-word;
+            word-break: break-word;
+            min-width: 0;
         }
-        
-        .message.user .message-content {
-            background: linear-gradient(135deg, #caca20, #115054);
-            color: white;
+        .message-content strong { font-weight: 600; }
+        .message-content code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 2px;
+            border: 1px solid #e5e5e5;
         }
-        
-        .message.assistant .message-content {
-            background: rgba(74, 81, 101, 0.3);
-            border: 1px solid rgba(1, 196, 200, 0.2);
+        .message-content pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #e5e5e5;
+            overflow-x: auto;
+            margin: 8px 0;
         }
-        
-        .message.error .message-content {
-            background: rgba(220, 53, 69, 0.2);
-            border: 1px solid #dc3545;
-            color: #ff6b6b;
+
+        /* --- Suggested prompts --- */
+        .suggested-prompts {
+            padding: 0 24px 16px;
         }
-        
+        .suggested-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #acacac;
+            margin-bottom: 8px;
+        }
+        .prompt-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .prompt-chip {
+            font-family: 'Archivo', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #525252;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 2px;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            line-height: 1.4;
+        }
+        .prompt-chip:hover {
+            border-color: #115054;
+            color: #115054;
+            background: #ffffff;
+        }
+        .prompt-chip:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Typing indicator --- */
         .typing-indicator {
             display: flex;
-            align-items: center;
-            max-width: 80%;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: flex-start;
         }
-        
         .typing-dots {
             display: flex;
             gap: 4px;
-            padding: 12px 16px;
-            background: rgba(74, 81, 101, 0.3);
-            border-radius: 18px;
-            margin-left: 46px;
+            padding: 12px 0;
         }
-        
         .typing-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
+            background: #acacac;
             border-radius: 50%;
-            background: #caca20;
-            animation: typing 1.4s infinite ease-in-out;
+            animation: typingPulse 1.2s ease-in-out infinite;
         }
-        
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
+        .typing-dot:nth-child(2) { animation-delay: 0.15s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes typingPulse {
+            0%, 60%, 100% { opacity: 0.3; }
+            30% { opacity: 1; }
         }
-        
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        .chat-input-container {
-            padding: 20px;
-            background: rgba(18, 27, 38, 0.8);
-            border-top: 1px solid rgba(1, 196, 200, 0.2);
-        }
-        
-        .chat-input-form {
+
+        /* --- File attachment indicator --- */
+        .file-preview {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            border-radius: 2px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #525252;
+        }
+        .file-preview .remove-file {
+            margin-left: auto;
+            cursor: pointer;
+            color: #acacac;
+            font-size: 14px;
+        }
+        .file-preview .remove-file:hover { color: #141414; }
+
+        /* --- Input area --- */
+        .chat-input-area {
+            padding: 16px 24px 24px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
             align-items: flex-end;
         }
-        
         .chat-input {
             flex: 1;
-            padding: 12px 16px;
-            border: 2px solid rgba(1, 196, 200, 0.3);
-            border-radius: 25px;
-            background: rgba(74, 81, 101, 0.2);
-            color: white;
+            font-family: 'Archivo', sans-serif;
             font-size: 14px;
+            font-weight: 300;
+            color: #141414;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 2px;
+            padding: 12px 14px;
             resize: none;
+            outline: none;
             min-height: 44px;
             max-height: 120px;
-            transition: border-color 0.3s ease;
+            line-height: 1.5;
         }
-        
-        .chat-input:focus {
-            outline: none;
-            border-color: #caca20;
-            box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.1);
-        }
-        
-        .chat-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .send-button {
+        .chat-input:focus { border-color: #115054; }
+        .chat-input::placeholder { color: #acacac; font-weight: 300; }
+        .chat-input:disabled { opacity: 0.5; }
+
+        .btn-icon {
             width: 44px;
             height: 44px;
-            border: none;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #caca20, #115054);
-            color: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 2px;
+            background: #fafafa;
+            color: #525252;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.15s ease;
             flex-shrink: 0;
         }
-        
-        .send-button:hover:not(:disabled) {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(1, 196, 200, 0.4);
+        .btn-icon:hover { border-color: #115054; color: #115054; }
+        .btn-icon:disabled { opacity: 0.3; cursor: default; }
+
+        .btn-send {
+            background: #caca20;
+            border-color: #caca20;
+            color: #115054;
+            font-weight: 700;
         }
-        
-        .send-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .btn-send:hover { background: #b8b81c; border-color: #b8b81c; }
+
+        .input-hint {
+            font-size: 11px;
+            color: #acacac;
+            margin-top: 6px;
+            text-align: center;
         }
-        
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-                opacity: 0.4;
-            }
-            30% {
-                transform: translateY(-10px);
-                opacity: 1;
-            }
-        }
-        
+
+        /* Error */
         .error-message {
-            background: rgba(220, 53, 69, 0.1);
-            border: 1px solid #dc3545;
-            color: #ff6b6b;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin: 10px 20px;
-            font-size: 14px;
+            background: #fff5f5;
+            border: 1px solid #ffcccc;
+            color: #cc0000;
+            padding: 10px 14px;
+            border-radius: 2px;
+            margin-bottom: 16px;
+            font-size: 13px;
         }
-        
-        /* Scrollbar styling */
-        .chat-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .chat-messages::-webkit-scrollbar-track {
-            background: rgba(74, 81, 101, 0.2);
-        }
-        
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: rgba(1, 196, 200, 0.5);
-            border-radius: 3px;
-        }
-        
-        .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: rgba(1, 196, 200, 0.7);
-        }
+
+        /* Hidden file input */
+        #file-input { display: none; }
+
+        /* SVG icons inline */
+        .icon-svg { width: 18px; height: 18px; }
     </style>
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h1><i class="fa-solid fa-robot"></i> NXT Humans MCP Assistant</h1>
-            <p>Powered by Model Context Protocol - Customer Experience Analysis Tools</p>
+            <h1>NXT Intelligence Agent</h1>
+            <p>Multi-model AI with research, strategy, design, engineering, and computer use tools</p>
         </div>
-        
-        <div class="server-status">
-            <h3><i class="fa-solid fa-server"></i> MCP Server Status</h3>
-            <div class="servers-grid" id="servers-grid">
-                <div class="server-item">Loading server status...</div>
-            </div>
-        </div>
-        
+
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant">
-                <div class="message-avatar">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div class="message-content">
-                    Welcome to the NXT Humans Customer Experience Workbench! 🚀
-                    
-I'm your AI assistant powered by the Model Context Protocol (MCP). I can help you with:
+                <div class="message-avatar">NX</div>
+                <div class="message-content">I'm the NXT Intelligence Agent -- your multi-model AI assistant powered by Claude Opus, GPT-5, and Gemini Pro.
 
-• 📊 **Reddit Data Analysis** - Collect and analyze Reddit discussions
-• 🔍 **Social Research** - Topic modeling and sentiment analysis  
-• 🗺️ **Journey Mapping** - Create customer journey maps with different AI models
-• 🎥 **Video Transcription** - Process video content from files or YouTube URLs
+I can help you with research synthesis, strategic analysis, UX design, engineering diagnosis, growth experiments, and revenue intelligence. I can also use computer tools to interact with web applications, take screenshots, and automate browser tasks.
 
-How can I help you analyze customer experiences today?
-                </div>
+Upload documents, images, CSVs, or PDFs for analysis. What would you like to work on?</div>
             </div>
         </div>
-        
-        <div class="chat-input-container">
-            <form class="chat-input-form" id="chat-form">
-                <textarea 
-                    class="chat-input" 
-                    id="chat-input" 
-                    placeholder="Ask me to analyze Reddit sentiment, create a journey map, transcribe a video..."
-                    rows="1"
-                ></textarea>
-                <button type="submit" class="send-button" id="send-button">
-                    <i class="fa-solid fa-paper-plane"></i>
+
+        <div class="suggested-prompts" id="suggested-prompts">
+            <div class="suggested-label">Try a prompt</div>
+            <div class="prompt-chips" id="prompt-chips"></div>
+        </div>
+
+        <div class="chat-input-area">
+            <div id="file-preview-area"></div>
+            <div class="input-row">
+                <button class="btn-icon" id="attach-btn" title="Attach file (images, PDFs, CSVs, documents)">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
                 </button>
-            </form>
+                <textarea class="chat-input" id="chat-input" placeholder="Ask me anything..." rows="1"></textarea>
+                <button class="btn-icon btn-send" id="send-btn" title="Send message">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+            <div class="input-hint">Enter to send -- Shift+Enter for new line -- Attach images, PDFs, or documents for analysis</div>
+            <input type="file" id="file-input" accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx">
         </div>
     </div>
 
     <script>
-        class MCPChatbot {
-            constructor() {
-                this.conversationId = null;
-                this.chatMessages = document.getElementById('chat-messages');
-                this.chatInput = document.getElementById('chat-input');
-                this.sendButton = document.getElementById('send-button');
-                this.chatForm = document.getElementById('chat-form');
-                this.serversGrid = document.getElementById('servers-grid');
-                
-                this.init();
-            }
-            
-            async init() {
-                // Check server status
-                await this.checkServerStatus();
-                
-                // Create conversation
-                await this.createConversation();
-                
-                // Setup event listeners
-                this.setupEventListeners();
-                
-                // Auto-resize textarea
-                this.setupTextareaResize();
-            }
-            
-            async checkServerStatus() {
-                try {
-                    const response = await fetch('/api/mcp/servers');
-                    const data = await response.json();
-                    
-                    this.serversGrid.innerHTML = '';
-                    
-                    Object.entries(data.servers).forEach(([name, server]) => {
-                        const serverItem = document.createElement('div');
-                        serverItem.className = `server-item ${server.status}`;
-                        serverItem.innerHTML = `
-                            <div class="server-name">
-                                <i class="fa-solid fa-circle" style="color: ${this.getStatusColor(server.status)}"></i>
-                                ${name.toUpperCase()}
-                            </div>
-                            <div class="server-description">${server.description}</div>
-                        `;
-                        this.serversGrid.appendChild(serverItem);
-                    });
-                } catch (error) {
-                    console.error('Error checking server status:', error);
-                    this.serversGrid.innerHTML = '<div class="server-item error">Failed to load server status</div>';
-                }
-            }
-            
-            getStatusColor(status) {
-                switch (status) {
-                    case 'online': return '#28a745';
-                    case 'offline': return '#dc3545';
-                    case 'error': return '#ffc107';
-                    default: return '#6c757d';
-                }
-            }
-            
-            async createConversation() {
-                try {
-                    const response = await fetch('/api/mcp/conversation', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    });
-                    
-                    const data = await response.json();
-                    this.conversationId = data.conversation_id;
-                    console.log('Conversation created:', this.conversationId);
-                } catch (error) {
-                    console.error('Error creating conversation:', error);
-                    this.addErrorMessage('Failed to initialize conversation. Please refresh the page.');
-                }
-            }
-            
-            setupEventListeners() {
-                this.chatForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.sendMessage();
-                });
-                
-                this.chatInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                        e.preventDefault();
-                        this.sendMessage();
-                    }
-                });
-            }
-            
-            setupTextareaResize() {
-                this.chatInput.addEventListener('input', () => {
-                    this.chatInput.style.height = 'auto';
-                    this.chatInput.style.height = Math.min(this.chatInput.scrollHeight, 120) + 'px';
-                });
-            }
-            
-            async sendMessage() {
-                const message = this.chatInput.value.trim();
-                if (!message || !this.conversationId) return;
-                
-                // Add user message to chat
-                this.addMessage('user', message);
-                this.chatInput.value = '';
-                this.chatInput.style.height = 'auto';
-                
-                // Show typing indicator
-                this.showTypingIndicator();
-                
-                // Disable input
-                this.setInputState(false);
-                
-                try {
-                    const response = await fetch('/api/mcp/message', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            conversation_id: this.conversationId,
-                            message: message
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (response.ok) {
-                        this.addMessage('assistant', data.response);
-                    } else {
-                        this.addErrorMessage(data.error || 'An error occurred');
-                    }
-                } catch (error) {
-                    console.error('Error sending message:', error);
-                    this.addErrorMessage('Failed to send message. Please try again.');
-                } finally {
-                    this.hideTypingIndicator();
-                    this.setInputState(true);
-                    this.chatInput.focus();
-                }
-            }
-            
-            addMessage(role, content) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${role}`;
-                
-                const avatar = document.createElement('div');
-                avatar.className = 'message-avatar';
-                avatar.innerHTML = role === 'user' 
-                    ? '<i class="fa-solid fa-user"></i>' 
-                    : '<i class="fa-solid fa-robot"></i>';
-                
-                const messageContent = document.createElement('div');
-                messageContent.className = 'message-content';
-                messageContent.textContent = content;
-                
-                messageDiv.appendChild(avatar);
-                messageDiv.appendChild(messageContent);
-                
-                this.chatMessages.appendChild(messageDiv);
-                this.scrollToBottom();
-            }
-            
-            addErrorMessage(message) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.innerHTML = `<i class="fa-solid fa-exclamation-triangle"></i> ${message}`;
-                this.chatMessages.appendChild(errorDiv);
-                this.scrollToBottom();
-            }
-            
-            showTypingIndicator() {
-                const typingDiv = document.createElement('div');
-                typingDiv.className = 'typing-indicator';
-                typingDiv.id = 'typing-indicator';
-                typingDiv.innerHTML = `
-                    <div class="typing-dots">
-                        <div class="typing-dot"></div>
-                        <div class="typing-dot"></div>
-                        <div class="typing-dot"></div>
-                    </div>
-                `;
-                this.chatMessages.appendChild(typingDiv);
-                this.scrollToBottom();
-            }
-            
-            hideTypingIndicator() {
-                const typingIndicator = document.getElementById('typing-indicator');
-                if (typingIndicator) {
-                    typingIndicator.remove();
-                }
-            }
-            
-            setInputState(enabled) {
-                this.chatInput.disabled = !enabled;
-                this.sendButton.disabled = !enabled;
-                this.chatForm.classList.toggle('loading', !enabled);
-            }
-            
-            scrollToBottom() {
-                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    const PROMPT_SETS = [
+        // Set 1: Research & Strategy
+        [
+            "Analyze our customer interview transcripts and identify the top 5 friction points in onboarding",
+            "Build a competitive landscape analysis for AI-powered CX platforms",
+            "Create a 30/60/90 day strategic plan for improving our enterprise conversion rate",
+        ],
+        // Set 2: Engineering & Diagnosis
+        [
+            "Diagnose the root cause of checkout latency spikes from these error logs",
+            "Review this API schema and suggest breaking change mitigations for v2 migration",
+            "Generate a rollback plan for our database migration with test coverage requirements",
+        ],
+        // Set 3: UX & Design
+        [
+            "Fetch our Figma design system and build a prototype of the new dashboard header",
+            "Design an accessible onboarding flow for enterprise users with screen reader support",
+            "Audit this screenshot for WCAG 2.1 AA compliance and generate a fix list",
+        ],
+        // Set 4: Growth & Revenue
+        [
+            "Analyze our GA4 funnel data and design 3 A/B test experiments for the pricing page",
+            "Build a MEDDPICC scorecard for our top 5 enterprise pipeline deals",
+            "Create SEO content briefs for our top 10 high-intent keyword gaps",
+        ],
+        // Set 5: Computer Use & Automation
+        [
+            "Open our staging site and take screenshots of every page in the checkout flow",
+            "Navigate to our competitor's pricing page and extract their plan comparison table",
+            "Browse our documentation site and identify any broken links or missing pages",
+        ],
+        // Set 6: Multi-modal Analysis
+        [
+            "I'll upload a CSV of support tickets -- cluster them by theme and severity with confidence scores",
+            "Analyze this product screenshot and suggest 5 UX improvements with implementation specs",
+            "I'll upload our quarterly report PDF -- extract the key metrics and build a KPI dashboard brief",
+        ],
+        // Set 7: Orchestration & Multi-Agent
+        [
+            "Create an engagement plan to improve our demo-to-close conversion rate across all channels",
+            "Run a full verification check on this engineering patch before we merge to production",
+            "Decompose this client brief into a task graph with model routing and approval gates",
+        ],
+    ];
+
+    class NXTChatbot {
+        constructor() {
+            this.conversationId = null;
+            this.pendingFile = null;
+            this.currentPromptSet = 0;
+
+            this.messages = document.getElementById('chat-messages');
+            this.input = document.getElementById('chat-input');
+            this.sendBtn = document.getElementById('send-btn');
+            this.attachBtn = document.getElementById('attach-btn');
+            this.fileInput = document.getElementById('file-input');
+            this.promptChips = document.getElementById('prompt-chips');
+            this.filePreviewArea = document.getElementById('file-preview-area');
+            this.suggestedArea = document.getElementById('suggested-prompts');
+
+            this.init();
+        }
+
+        async init() {
+            await this.createConversation();
+            this.bindEvents();
+            this.showPrompts();
+            this.startPromptRotation();
+        }
+
+        async createConversation() {
+            try {
+                const res = await fetch('/api/mcp/conversation', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+                const data = await res.json();
+                this.conversationId = data.conversation_id;
+            } catch (e) {
+                console.error('Failed to create conversation:', e);
+                this.addError('Failed to connect to the Intelligence Agent. Please refresh.');
             }
         }
-        
-        // Initialize chatbot when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new MCPChatbot();
-        });
+
+        bindEvents() {
+            this.sendBtn.addEventListener('click', () => this.send());
+            this.input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.send(); }
+            });
+            this.input.addEventListener('input', () => {
+                this.input.style.height = 'auto';
+                this.input.style.height = Math.min(this.input.scrollHeight, 120) + 'px';
+            });
+            this.attachBtn.addEventListener('click', () => this.fileInput.click());
+            this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+        }
+
+        // --- Suggested prompts with rotation ---
+        showPrompts() {
+            const set = PROMPT_SETS[this.currentPromptSet % PROMPT_SETS.length];
+            this.promptChips.innerHTML = '';
+            set.forEach(text => {
+                const chip = document.createElement('button');
+                chip.className = 'prompt-chip';
+                chip.textContent = text;
+                chip.addEventListener('click', () => {
+                    this.input.value = text;
+                    this.input.focus();
+                });
+                this.promptChips.appendChild(chip);
+            });
+        }
+
+        startPromptRotation() {
+            setInterval(() => {
+                this.currentPromptSet++;
+                // Only rotate if user hasn't started chatting (messages area has only the welcome)
+                if (this.messages.children.length <= 1) {
+                    this.promptChips.style.opacity = '0';
+                    setTimeout(() => {
+                        this.showPrompts();
+                        this.promptChips.style.opacity = '1';
+                    }, 300);
+                }
+            }, 12000);
+            // Add CSS transition
+            this.promptChips.style.transition = 'opacity 0.3s ease';
+        }
+
+        // --- File handling ---
+        handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            this.pendingFile = file;
+            this.showFilePreview(file);
+            this.fileInput.value = ''; // Reset for re-select
+        }
+
+        showFilePreview(file) {
+            const sizeKB = (file.size / 1024).toFixed(1);
+            this.filePreviewArea.innerHTML = `
+                <div class="file-preview">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>${file.name} (${sizeKB} KB)</span>
+                    <span class="remove-file" title="Remove file">&times;</span>
+                </div>
+            `;
+            this.filePreviewArea.querySelector('.remove-file').addEventListener('click', () => {
+                this.pendingFile = null;
+                this.filePreviewArea.innerHTML = '';
+            });
+        }
+
+        // --- Send message ---
+        async send() {
+            const text = this.input.value.trim();
+            if (!text && !this.pendingFile) return;
+            if (!this.conversationId) return;
+
+            // Hide suggested prompts after first message
+            this.suggestedArea.style.display = 'none';
+
+            // Show user message
+            const displayText = this.pendingFile
+                ? `${text || 'Analyze this file'}\n[Attached: ${this.pendingFile.name}]`
+                : text;
+            this.addMessage('user', displayText);
+
+            this.input.value = '';
+            this.input.style.height = 'auto';
+            this.setLoading(true);
+            this.showTyping();
+            const startTime = Date.now();
+
+            // Progressive status updates
+            const statusTimers = [
+                setTimeout(() => this.updateTypingStatus('Analyzing your request...'), 3000),
+                setTimeout(() => this.updateTypingStatus('Selecting tools and model...'), 7000),
+                setTimeout(() => this.updateTypingStatus('Executing tools...'), 15000),
+                setTimeout(() => this.updateTypingStatus('Processing results...'), 30000),
+                setTimeout(() => this.updateTypingStatus('Still working -- complex multi-tool operation...'), 60000),
+                setTimeout(() => this.updateTypingStatus('Almost there -- assembling final response...'), 120000),
+            ];
+
+            try {
+                const formData = new FormData();
+                formData.append('conversation_id', this.conversationId);
+                formData.append('message', text || (this.pendingFile ? `Analyze this file: ${this.pendingFile.name}` : ''));
+                if (this.pendingFile) {
+                    formData.append('file', this.pendingFile);
+                }
+
+                const res = await fetch('/api/mcp/message', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                statusTimers.forEach(t => clearTimeout(t));
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+                const data = await res.json();
+
+                if (res.ok) {
+                    // Show tool usage summary
+                    const toolCalls = data.tool_calls || [];
+                    if (toolCalls.length > 0) {
+                        const tools = [...new Set(toolCalls.map(tc => tc.name).filter(Boolean))];
+                        const turns = data.turns || 1;
+                        this.addSystemInfo(`Tools: ${tools.join(', ')} | ${turns} turn${turns>1?'s':''} | ${elapsed}s`);
+                    }
+                    this.addMessage('assistant', data.response || data.reply || 'No response received.');
+                } else {
+                    this.addError(data.error || 'An error occurred.');
+                }
+            } catch (e) {
+                statusTimers.forEach(t => clearTimeout(t));
+                console.error('Send error:', e);
+                this.addError('Failed to reach the Intelligence Agent. Please try again.');
+            } finally {
+                this.pendingFile = null;
+                this.filePreviewArea.innerHTML = '';
+                this.hideTyping();
+                this.setLoading(false);
+                this.input.focus();
+            }
+        }
+
+        // --- UI helpers ---
+        addMessage(role, content) {
+            const div = document.createElement('div');
+            div.className = `message ${role}`;
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = role === 'user' ? 'You' : 'NX';
+            const body = document.createElement('div');
+            body.className = 'message-content';
+            // Simple markdown-like rendering
+            body.innerHTML = this.renderContent(content);
+            div.appendChild(avatar);
+            div.appendChild(body);
+            this.messages.appendChild(div);
+            this.scroll();
+        }
+
+        renderContent(text) {
+            if (!text) return '';
+            // Escape HTML
+            let s = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            // Code blocks
+            s = s.replace(/```([\s\S]*?)```/g, '<pre>$1</pre>');
+            // Inline code
+            s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+            // Bold
+            s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            // Line breaks
+            s = s.replace(/\n/g, '<br>');
+            return s;
+        }
+
+        addError(msg) {
+            const div = document.createElement('div');
+            div.className = 'error-message';
+            div.textContent = msg;
+            this.messages.appendChild(div);
+            this.scroll();
+        }
+
+        addSystemInfo(text) {
+            const div = document.createElement('div');
+            div.style.cssText = 'font-size:11px;color:#acacac;text-align:center;padding:4px 24px;font-family:"JetBrains Mono",monospace;letter-spacing:0.02em;';
+            div.textContent = text;
+            this.messages.appendChild(div);
+            this.scroll();
+        }
+
+        updateTypingStatus(status) {
+            const el = document.querySelector('#typing .typing-status');
+            if (el) { el.textContent = status; this.scroll(); }
+        }
+
+        showTyping() {
+            const div = document.createElement('div');
+            div.className = 'typing-indicator';
+            div.id = 'typing';
+            div.innerHTML = '<div class="message-avatar" style="background:#115054;color:#caca20;border-radius:4px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">NX</div><div style="display:flex;align-items:center;gap:8px;"><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div><span class="typing-status" style="font-size:11px;color:#acacac;font-style:italic;">Thinking...</span></div>';
+            this.messages.appendChild(div);
+            this.scroll();
+        }
+
+        hideTyping() {
+            const el = document.getElementById('typing');
+            if (el) el.remove();
+        }
+
+        setLoading(on) {
+            this.input.disabled = on;
+            this.sendBtn.disabled = on;
+            this.attachBtn.disabled = on;
+        }
+
+        scroll() {
+            this.messages.scrollTop = this.messages.scrollHeight;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => new NXTChatbot());
     </script>
 </body>
 </html>
