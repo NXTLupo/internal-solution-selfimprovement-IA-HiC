@@ -294,11 +294,19 @@
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant">
                 <div class="message-avatar">NX</div>
-                <div class="message-content">I'm the NXT Intelligence Agent -- your multi-model AI assistant powered by Claude Opus, GPT-5, and Gemini Pro.
+                <div class="message-content">I'm the NXT Intelligence Agent. Tell me what you need and I'll handle it.
 
-I can help you with research synthesis, strategic analysis, UX design, engineering diagnosis, growth experiments, and revenue intelligence. I can also use computer tools to interact with web applications, take screenshots, and automate browser tasks.
+I can operate all Intelligence Augmentation apps for you:
 
-Upload documents, images, CSVs, or PDFs for analysis. What would you like to work on?</div>
+-- Journey Mapper -- turn transcripts, surveys, or support data into journey maps
+-- Social Data Collector -- collect Reddit posts, TrustPilot reviews, or Play Store reviews
+-- Video Transcriber -- transcribe YouTube videos or uploaded audio/video
+-- Social Research -- run sentiment analysis and topic modeling on Reddit data
+-- Character Generator -- create consistent characters, scenes, and video clips
+-- Copilot Recipe Builder -- generate Copilot Studio agent build recipes
+-- Miro Board Generator -- convert journey maps into Miro or Figma boards
+
+Just tell me what you need and I'll ask for the details. You can also upload files at any point.</div>
             </div>
         </div>
 
@@ -325,47 +333,30 @@ Upload documents, images, CSVs, or PDFs for analysis. What would you like to wor
 
     <script>
     const PROMPT_SETS = [
-        // Set 1: Research & Strategy
         [
-            "Analyze our customer interview transcripts and identify the top 5 friction points in onboarding",
-            "Build a competitive landscape analysis for AI-powered CX platforms",
-            "Create a 30/60/90 day strategic plan for improving our enterprise conversion rate",
+            "I need a customer journey map from some interview transcripts",
+            "I want to collect Reddit posts about a product for analysis",
+            "I need a video transcribed from YouTube",
         ],
-        // Set 2: Engineering & Diagnosis
         [
-            "Diagnose the root cause of checkout latency spikes from these error logs",
-            "Review this API schema and suggest breaking change mitigations for v2 migration",
-            "Generate a rollback plan for our database migration with test coverage requirements",
+            "I want to run sentiment analysis on a subreddit",
+            "I need to create consistent characters and a video clip",
+            "I want to build a Copilot Studio agent recipe",
         ],
-        // Set 3: UX & Design
         [
-            "Fetch our Figma design system and build a prototype of the new dashboard header",
-            "Design an accessible onboarding flow for enterprise users with screen reader support",
-            "Audit this screenshot for WCAG 2.1 AA compliance and generate a fix list",
+            "I have a PDF of customer support tickets I need analyzed",
+            "I want to convert a journey map into a Miro board",
+            "I need to research what people are saying about a brand on Reddit",
         ],
-        // Set 4: Growth & Revenue
         [
-            "Analyze our GA4 funnel data and design 3 A/B test experiments for the pricing page",
-            "Build a MEDDPICC scorecard for our top 5 enterprise pipeline deals",
-            "Create SEO content briefs for our top 10 high-intent keyword gaps",
+            "I want to create a scene with consistent characters for a campaign",
+            "I have call transcripts I need turned into a journey map",
+            "I need TrustPilot reviews collected for a competitor",
         ],
-        // Set 5: Computer Use & Automation
         [
-            "Open our staging site and take screenshots of every page in the checkout flow",
-            "Navigate to our competitor's pricing page and extract their plan comparison table",
-            "Browse our documentation site and identify any broken links or missing pages",
-        ],
-        // Set 6: Multi-modal Analysis
-        [
-            "I'll upload a CSV of support tickets -- cluster them by theme and severity with confidence scores",
-            "Analyze this product screenshot and suggest 5 UX improvements with implementation specs",
-            "I'll upload our quarterly report PDF -- extract the key metrics and build a KPI dashboard brief",
-        ],
-        // Set 7: Orchestration & Multi-Agent
-        [
-            "Create an engagement plan to improve our demo-to-close conversion rate across all channels",
-            "Run a full verification check on this engineering patch before we merge to production",
-            "Decompose this client brief into a task graph with model routing and approval gates",
+            "I want to analyze Reddit sentiment about our new feature launch",
+            "I need a video transcription with timestamps from a customer call",
+            "I want to generate a visual journey map from survey responses",
         ],
     ];
 
@@ -497,12 +488,14 @@ Upload documents, images, CSVs, or PDFs for analysis. What would you like to wor
 
             // Progressive status updates
             const statusTimers = [
-                setTimeout(() => this.updateTypingStatus('Analyzing your request...'), 3000),
-                setTimeout(() => this.updateTypingStatus('Selecting tools and model...'), 7000),
-                setTimeout(() => this.updateTypingStatus('Executing tools...'), 15000),
-                setTimeout(() => this.updateTypingStatus('Processing results...'), 30000),
-                setTimeout(() => this.updateTypingStatus('Still working -- complex multi-tool operation...'), 60000),
-                setTimeout(() => this.updateTypingStatus('Almost there -- assembling final response...'), 120000),
+                setTimeout(() => this.updateTypingStatus('Routing to tools... (3s)'), 3000),
+                setTimeout(() => this.updateTypingStatus('Executing tool calls... (8s)'), 8000),
+                setTimeout(() => this.updateTypingStatus('Waiting for service response... (15s)'), 15000),
+                setTimeout(() => this.updateTypingStatus('Processing results... (25s)'), 25000),
+                setTimeout(() => this.updateTypingStatus('Multi-turn tool execution... (40s)'), 40000),
+                setTimeout(() => this.updateTypingStatus('Still working... (60s)'), 60000),
+                setTimeout(() => this.updateTypingStatus('Complex operation in progress... (90s)'), 90000),
+                setTimeout(() => this.updateTypingStatus('Almost there... (2m)'), 120000),
             ];
 
             try {

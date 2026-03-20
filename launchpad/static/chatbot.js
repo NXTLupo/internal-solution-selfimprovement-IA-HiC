@@ -186,34 +186,29 @@ class ChatbotWidget {
    */
   _promptSets = [
     [
-      "Analyze customer interview transcripts and find the top friction points",
-      "Create a competitive landscape analysis for our market segment",
-      "Build a 30/60/90 day plan for improving enterprise conversion",
+      "I need a customer journey map from some interview transcripts",
+      "I want to collect Reddit posts about a product for analysis",
+      "I need a video transcribed from YouTube",
     ],
     [
-      "Diagnose root cause of checkout latency from error logs",
-      "Review this API schema and suggest v2 migration strategy",
-      "Generate a rollback plan for our database migration",
+      "I want to run sentiment analysis on a subreddit",
+      "I need to create consistent characters and a video clip",
+      "I want to build a Copilot Studio agent recipe",
     ],
     [
-      "Fetch our Figma design system and prototype the dashboard header",
-      "Design an accessible onboarding flow for enterprise users",
-      "Audit this page for WCAG 2.1 AA compliance",
+      "I have a PDF of customer support tickets I need analyzed",
+      "I want to convert a journey map into a Miro board",
+      "I need to research what people are saying about a brand on Reddit",
     ],
     [
-      "Design 3 A/B test experiments for the pricing page",
-      "Build a MEDDPICC scorecard for our top pipeline deals",
-      "Create SEO content briefs for high-intent keyword gaps",
+      "I want to create a scene with consistent characters for a campaign",
+      "I have call transcripts I need turned into a journey map",
+      "I need TrustPilot reviews collected for a competitor",
     ],
     [
-      "Take screenshots of every page in our staging checkout flow",
-      "Navigate to competitor pricing and extract their plan table",
-      "Browse our docs site and identify broken links",
-    ],
-    [
-      "Upload a CSV of support tickets -- cluster by theme and severity",
-      "Analyze this product screenshot and suggest UX improvements",
-      "Upload our quarterly report PDF -- extract key metrics",
+      "I want to analyze Reddit sentiment about our new feature launch",
+      "I need a video transcription with timestamps from a customer call",
+      "I want to generate a visual journey map from survey responses",
     ],
   ];
   _promptSetIndex = 0;
@@ -309,7 +304,7 @@ class ChatbotWidget {
       console.log(`Conversation created with ID: ${this.conversationId}`);
       
       // Add welcome message
-      this.addMessage('assistant', 'I\'m the NXT Intelligence Agent -- your multi-model AI assistant powered by Claude Opus, GPT-5, and Gemini Pro.\n\nI can help you with:\n\n-- Research synthesis and customer signal mining\n-- Strategic analysis with KPI-tied recommendations\n-- UX design prototyping from Figma components\n-- Engineering diagnosis and patch planning\n-- Growth experiments and SEO analysis\n-- Revenue intelligence and deal strategy\n-- Computer use (screenshots, browser automation)\n\nUpload documents, images, CSVs, or PDFs for analysis. What would you like to work on?');
+      this.addMessage('assistant', 'I\'m the NXT Intelligence Agent. Tell me what you need and I\'ll handle it.\n\nI can operate all Intelligence Augmentation apps for you:\n\n-- Journey Mapper -- turn transcripts, surveys, or support data into journey maps\n-- Social Data Collector -- collect Reddit posts, TrustPilot reviews, or Play Store reviews\n-- Video Transcriber -- transcribe YouTube videos or uploaded audio/video\n-- Social Research -- run sentiment analysis and topic modeling on Reddit data\n-- Character Generator -- create consistent characters, scenes, and video clips\n-- Copilot Recipe Builder -- generate Copilot Studio agent build recipes\n-- Miro Board Generator -- convert journey maps into Miro or Figma boards\n\nJust tell me what you need and I\'ll ask for the details. You can also upload files at any point.');
       // Show rotating suggested prompts
       this.showSuggestedPrompts();
       
@@ -354,14 +349,16 @@ class ChatbotWidget {
     this.showTypingIndicator();
     this._inferenceStart = Date.now();
 
-    // Progressive status updates during inference
+    // Progressive status updates with elapsed time
     this._statusTimers = [
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Analyzing your request...'); }, 3000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Selecting tools and model...'); }, 7000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Executing tools...'); }, 15000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Processing results...'); }, 30000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Still working -- complex multi-tool operation...'); }, 60000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Almost there -- assembling final response...'); }, 120000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Routing to tools... (3s)'); }, 3000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Executing tool calls... (8s)'); }, 8000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Waiting for service response... (15s)'); }, 15000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Processing results... (25s)'); }, 25000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Multi-turn tool execution... (40s)'); }, 40000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Still working... (60s)'); }, 60000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Complex operation in progress... (90s)'); }, 90000),
+      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Almost there... (2m)'); }, 120000),
     ];
 
     // Scroll to bottom

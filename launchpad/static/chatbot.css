@@ -22,8 +22,8 @@
   --chat-border-radius: 4px;
   --chat-header-height: 60px;
   --chat-footer-height: 70px;
-  --chat-window-width: 380px;
-  --chat-window-height: 600px;
+  --chat-window-width: 440px;
+  --chat-window-height: 650px;
   --chat-transition: all 0.15s ease;
 }
 
