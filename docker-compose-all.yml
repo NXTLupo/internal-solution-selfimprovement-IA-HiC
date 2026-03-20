@@ -414,6 +414,7 @@ services:
     container_name: nxt-agency-backend
     ports:
       - "${NXT_AGENCY_BACKEND_PORT:-8201}:8000"
+      - "${NXT_AGENCY_NOVNC_PORT:-6080}:6080"
     environment:
       - DATABASE_URL=postgresql+asyncpg://postgres:postgres@nxt-agency-db:5432/ai_assistant
       - OPENAI_API_KEY=${OPENAI_API_KEY}

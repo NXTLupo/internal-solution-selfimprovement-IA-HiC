@@ -391,6 +391,10 @@ class ChatbotWidget {
     if (type === 'tool_start') {
       this.updateTypingStatus(data.description || `Using ${data.tool}...`);
       this.addSystemMessage(`> ${data.description || data.tool}`);
+      // Show live browser panel when computer use starts
+      if (data.tool === 'computer') {
+        this.showBrowserPanel();
+      }
     }
     else if (type === 'screenshot') {
       // Show the screenshot inline in the chat
@@ -414,7 +418,8 @@ class ChatbotWidget {
       this.updateTypingStatus(data.message || 'Working...');
     }
     else if (type === 'message_complete') {
-      // Final response
+      // Final response — hide browser panel if open
+      this.hideBrowserPanel();
       this.hideTypingIndicator();
       if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
 
@@ -467,6 +472,69 @@ class ChatbotWidget {
 
     this.chatBody.appendChild(container);
     this.scrollToBottom();
+  }
+
+  /**
+   * Show live browser viewport panel via noVNC
+   */
+  showBrowserPanel() {
+    if (document.getElementById('nxt-browser-panel')) return; // Already showing
+
+    const panel = document.createElement('div');
+    panel.id = 'nxt-browser-panel';
+    panel.style.cssText = `
+      position: fixed;
+      bottom: 80px;
+      right: 470px;
+      width: 680px;
+      height: 460px;
+      background: #141414;
+      border: 1px solid #115054;
+      border-radius: 4px;
+      z-index: 10001;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    `;
+
+    const header = document.createElement('div');
+    header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#115054;color:#ffffff;font-family:Archivo,sans-serif;font-size:12px;font-weight:500;';
+    header.innerHTML = `
+      <span style="display:flex;align-items:center;gap:6px;">
+        <span style="width:8px;height:8px;background:#0CCE6B;border-radius:50%;animation:pulse 2s infinite;"></span>
+        LIVE BROWSER -- Agent Computer Use
+      </span>
+      <button id="nxt-browser-close" style="background:none;border:none;color:#ffffff;cursor:pointer;font-size:16px;padding:0 4px;">&times;</button>
+    `;
+    panel.appendChild(header);
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `http://${window.location.hostname}:6080/vnc.html?autoconnect=true&resize=scale&view_only=true`;
+    iframe.style.cssText = 'width:100%;height:calc(100% - 36px);border:none;background:#000;';
+    iframe.allow = 'clipboard-read; clipboard-write';
+    panel.appendChild(iframe);
+
+    document.body.appendChild(panel);
+
+    // Close button
+    document.getElementById('nxt-browser-close').addEventListener('click', () => this.hideBrowserPanel());
+
+    // Add pulse animation if not already added
+    if (!document.getElementById('nxt-pulse-style')) {
+      const style = document.createElement('style');
+      style.id = 'nxt-pulse-style';
+      style.textContent = '@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }';
+      document.head.appendChild(style);
+    }
+
+    this.addSystemMessage('> Live browser viewport opened -- watch the agent operate your apps');
+  }
+
+  /**
+   * Hide the live browser panel
+   */
+  hideBrowserPanel() {
+    const panel = document.getElementById('nxt-browser-panel');
+    if (panel) panel.remove();
   }
 
   /**
