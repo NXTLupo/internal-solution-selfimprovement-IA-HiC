@@ -16,6 +16,11 @@ class ChatbotWidget {
     this.isTyping = false;
     this.baseUrl = window.location.origin;
     this.fileUpload = null;
+    this.ws = null;
+    this.wsConnected = false;
+    this._firstMessageReceived = false;
+    this._accumulatedText = '';
+    this._inferenceStart = null;
     
     // Initialization
     this.init();
@@ -302,20 +307,19 @@ class ChatbotWidget {
       const data = await response.json();
       this.conversationId = data.conversation_id;
       console.log(`Conversation created with ID: ${this.conversationId}`);
-      
+
       // Add welcome message
       this.addMessage('assistant', 'I\'m the NXT Intelligence Agent. Tell me what you need and I\'ll handle it.\n\nI can operate all Intelligence Augmentation apps for you:\n\n-- Journey Mapper -- turn transcripts, surveys, or support data into journey maps\n-- Social Data Collector -- collect Reddit posts, TrustPilot reviews, or Play Store reviews\n-- Video Transcriber -- transcribe YouTube videos or uploaded audio/video\n-- Social Research -- run sentiment analysis and topic modeling on Reddit data\n-- Character Generator -- create consistent characters, scenes, and video clips\n-- Copilot Recipe Builder -- generate Copilot Studio agent build recipes\n-- Miro Board Generator -- convert journey maps into Miro or Figma boards\n\nJust tell me what you need and I\'ll ask for the details. You can also upload files at any point.');
       // Show rotating suggested prompts
       this.showSuggestedPrompts();
-      
-      // Initialize WebSocket is not needed for MCP chatbot - we use direct API calls
+
+      // Connect WebSocket for streaming with live screenshots
+      this.connectWebSocket();
     } catch (error) {
       console.error('Error creating conversation:', error);
       this.addErrorMessage('Failed to start conversation. Please try again later.');
     }
   }
-  
-  // WebSocket-related methods removed - now using MCP API directly
   
   /**
    * Add timeout handling for long-running operations
@@ -324,7 +328,147 @@ class ChatbotWidget {
     this.addMessage('system', 'This operation is taking longer than usual. Please wait while we process your request...');
   }
 
-  
+  /**
+   * Connect WebSocket for real-time streaming with live screenshots
+   */
+  connectWebSocket() {
+    if (this.ws && this.ws.readyState === WebSocket.OPEN) return;
+
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${wsProtocol}//${window.location.host}/ws-proxy/${this.conversationId}`;
+
+    console.log('Connecting WebSocket:', wsUrl);
+    this.ws = new WebSocket(wsUrl);
+
+    this.ws.onopen = () => {
+      console.log('WebSocket connected');
+      this.wsConnected = true;
+    };
+
+    this.ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        this.handleWsEvent(data);
+      } catch (e) {
+        console.error('WebSocket message parse error:', e);
+      }
+    };
+
+    this.ws.onclose = () => {
+      console.log('WebSocket closed');
+      this.wsConnected = false;
+      // Reconnect after 3 seconds if we still have a conversation
+      if (this.conversationId) {
+        setTimeout(() => this.connectWebSocket(), 3000);
+      }
+    };
+
+    this.ws.onerror = (err) => {
+      console.error('WebSocket error:', err);
+    };
+
+    // Keepalive ping every 15 seconds
+    if (this._pingInterval) clearInterval(this._pingInterval);
+    this._pingInterval = setInterval(() => {
+      if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+        this.ws.send(JSON.stringify({ type: 'ping' }));
+      }
+    }, 15000);
+  }
+
+  /**
+   * Handle incoming WebSocket events from the streaming agent
+   */
+  handleWsEvent(data) {
+    const type = data.type;
+
+    if (type === 'message' && !this._firstMessageReceived) {
+      // Welcome message from server -- skip since we show our own
+      this._firstMessageReceived = true;
+      return;
+    }
+
+    if (type === 'tool_start') {
+      this.updateTypingStatus(data.description || `Using ${data.tool}...`);
+      this.addSystemMessage(`> ${data.description || data.tool}`);
+    }
+    else if (type === 'screenshot') {
+      // Show the screenshot inline in the chat
+      this.hideTypingIndicator();
+      this.addScreenshot(data.image, data.url || '');
+      this.showTypingIndicator();
+      this.updateTypingStatus('Analyzing screenshot...');
+    }
+    else if (type === 'tool_result') {
+      this.updateTypingStatus(`${data.tool} completed`);
+    }
+    else if (type === 'tool_error') {
+      this.addSystemMessage(`Tool error (${data.tool}): ${data.error}`);
+    }
+    else if (type === 'text_delta') {
+      // Accumulate text deltas for the final message
+      if (!this._accumulatedText) this._accumulatedText = '';
+      this._accumulatedText += data.content;
+    }
+    else if (type === 'status') {
+      this.updateTypingStatus(data.message || 'Working...');
+    }
+    else if (type === 'message_complete') {
+      // Final response
+      this.hideTypingIndicator();
+      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
+
+      const elapsed = this._inferenceStart ? ((Date.now() - this._inferenceStart) / 1000).toFixed(1) : '?';
+      const tools = data.tools_used || [];
+      if (tools.length > 0) {
+        this.addSystemMessage(`Tools: ${tools.join(', ')} | ${data.turns || '?'} turns | ${elapsed}s`);
+      }
+
+      if (this._accumulatedText) {
+        this.addMessage('assistant', this._accumulatedText);
+      }
+      this._accumulatedText = '';
+      this.sendButton.disabled = !this.chatInput.value.trim();
+      this._inferenceStart = null;
+    }
+    else if (type === 'error') {
+      this.hideTypingIndicator();
+      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
+      this.addErrorMessage(data.content || 'An error occurred');
+      this.sendButton.disabled = false;
+      this._inferenceStart = null;
+    }
+    else if (type === 'pong') {
+      // Keepalive response, ignore
+    }
+  }
+
+  /**
+   * Add a browser screenshot inline in the chat
+   * @param {string} base64Data - Base64-encoded PNG image data
+   * @param {string} url - The URL the screenshot was taken from
+   */
+  addScreenshot(base64Data, url) {
+    const container = document.createElement('div');
+    container.style.cssText = 'margin:8px 0;padding:8px;background:#f5f5f5;border:1px solid #e5e5e5;border-radius:4px;';
+
+    if (url) {
+      const urlLabel = document.createElement('div');
+      urlLabel.style.cssText = 'font-size:10px;color:#acacac;font-family:monospace;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      urlLabel.textContent = url;
+      container.appendChild(urlLabel);
+    }
+
+    const img = document.createElement('img');
+    img.src = `data:image/png;base64,${base64Data}`;
+    img.style.cssText = 'width:100%;border-radius:2px;border:1px solid #e5e5e5;';
+    img.alt = 'Browser screenshot';
+    container.appendChild(img);
+
+    this.chatBody.appendChild(container);
+    this.scrollToBottom();
+  }
+
   /**
    * Send a message to the assistant
    */
@@ -344,111 +488,111 @@ class ChatbotWidget {
     this.chatInput.value = '';
     this.chatInput.style.height = 'auto';
     this.sendButton.disabled = true;
-    
-    // Show typing indicator with progressive status updates
+
+    // Show typing indicator
     this.showTypingIndicator();
     this._inferenceStart = Date.now();
-
-    // Progressive status updates with elapsed time
-    this._statusTimers = [
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Routing to tools... (3s)'); }, 3000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Executing tool calls... (8s)'); }, 8000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Waiting for service response... (15s)'); }, 15000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Processing results... (25s)'); }, 25000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Multi-turn tool execution... (40s)'); }, 40000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Still working... (60s)'); }, 60000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Complex operation in progress... (90s)'); }, 90000),
-      setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Almost there... (2m)'); }, 120000),
-    ];
+    this._accumulatedText = '';
 
     // Scroll to bottom
     this.scrollToBottom();
-    
-    try {
-      // Prepare form data for the API call
-      const formData = new FormData();
-      formData.append('conversation_id', this.conversationId);
-      formData.append('message', message);
-      
-      // Add file if one is pending
+
+    // If WebSocket is connected, use it (streaming with live screenshots)
+    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+      console.log('Sending via WebSocket (streaming mode)');
+
+      // If there is a pending file, send as file message with base64
       if (this.fileUpload) {
-        console.log('Adding original file to message:', this.fileUpload.name);
-        console.log('File object details:', {
-          name: this.fileUpload.name,
-          type: this.fileUpload.type,
-          size: this.fileUpload.size,
-          lastModified: this.fileUpload.lastModified
-        });
-        
-        // Use the original File object directly
-        formData.append('file', this.fileUpload);
-        
-        // Debug: Try to inspect what we're actually sending
-        console.log('DEBUG: FormData contents being sent:');
-        for (let [key, value] of formData.entries()) {
-          if (key === 'file') {
-            console.log(`  ${key}:`, {
-              name: value.name,
-              type: value.type,
-              size: value.size,
-              constructor: value.constructor.name
-            });
-          } else {
-            console.log(`  ${key}: ${value}`);
-          }
-        }
-        
-        this.fileUpload = null; // Clear the pending file
-      }
-      
-      // Send to MCP API
-      const response = await fetch(`${this.baseUrl}/api/mcp/message`, {
-        method: 'POST',
-        body: formData
-      });
-      
-      if (!response.ok) {
-        throw new Error(`Failed to send message: ${response.status} ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-
-      // Clear status timers
-      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
-
-      // Calculate elapsed time
-      const elapsed = ((Date.now() - this._inferenceStart) / 1000).toFixed(1);
-
-      // Hide typing indicator and add response
-      this.hideTypingIndicator();
-
-      // Show tool usage summary if available
-      const toolCalls = data.tool_calls || [];
-      if (toolCalls.length > 0) {
-        const toolNames = toolCalls.map(tc => tc.name).filter(Boolean);
-        const uniqueTools = [...new Set(toolNames)];
-        const turns = data.turns || 1;
-        this.addSystemMessage(
-          `Tools used: ${uniqueTools.join(', ')} | ${turns} turn${turns > 1 ? 's' : ''} | ${elapsed}s`
-        );
-      }
-
-      this.addMessage('assistant', data.reply || data.response || 'No response received');
-      this.scrollToBottom();
-
-    } catch (error) {
-      console.error('Error sending message:', error);
-      if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
-      this.hideTypingIndicator();
-      if (error.message && error.message.includes('timeout')) {
-        this.addErrorMessage('Request timed out. The agent may still be processing -- try again in a moment.');
+        const pendingFile = this.fileUpload;
+        this.fileUpload = null;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64 = reader.result.split(',')[1]; // Remove data:... prefix
+          this.ws.send(JSON.stringify({
+            type: 'file',
+            content: message,
+            file: {
+              data: base64,
+              name: pendingFile.name,
+            }
+          }));
+        };
+        reader.onerror = () => {
+          this.addErrorMessage('Failed to read file for upload.');
+          this.sendButton.disabled = false;
+        };
+        reader.readAsDataURL(pendingFile);
       } else {
-        this.addErrorMessage('Failed to send message. Please try again.');
+        this.ws.send(JSON.stringify({ type: 'message', content: message }));
       }
-    }
+    } else {
+      // Fallback to HTTP if WebSocket not connected
+      console.log('Sending via HTTP fallback (no WebSocket)');
 
-    // Re-enable send button
-    this.sendButton.disabled = !this.chatInput.value.trim();
+      // Progressive status updates for HTTP path
+      this._statusTimers = [
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Routing to tools... (3s)'); }, 3000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Executing tool calls... (8s)'); }, 8000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Waiting for service response... (15s)'); }, 15000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Processing results... (25s)'); }, 25000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Multi-turn tool execution... (40s)'); }, 40000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Still working... (60s)'); }, 60000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Complex operation in progress... (90s)'); }, 90000),
+        setTimeout(() => { if (this.isTyping) this.updateTypingStatus('Almost there... (2m)'); }, 120000),
+      ];
+
+      try {
+        const formData = new FormData();
+        formData.append('conversation_id', this.conversationId);
+        formData.append('message', message);
+
+        if (this.fileUpload) {
+          formData.append('file', this.fileUpload);
+          this.fileUpload = null;
+        }
+
+        const response = await fetch(`${this.baseUrl}/api/mcp/message`, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to send message: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
+        const elapsed = ((Date.now() - this._inferenceStart) / 1000).toFixed(1);
+
+        this.hideTypingIndicator();
+
+        const toolCalls = data.tool_calls || [];
+        if (toolCalls.length > 0) {
+          const toolNames = toolCalls.map(tc => tc.name).filter(Boolean);
+          const uniqueTools = [...new Set(toolNames)];
+          const turns = data.turns || 1;
+          this.addSystemMessage(
+            `Tools used: ${uniqueTools.join(', ')} | ${turns} turn${turns > 1 ? 's' : ''} | ${elapsed}s`
+          );
+        }
+
+        this.addMessage('assistant', data.reply || data.response || 'No response received');
+        this.scrollToBottom();
+
+      } catch (error) {
+        console.error('Error sending message:', error);
+        if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
+        this.hideTypingIndicator();
+        if (error.message && error.message.includes('timeout')) {
+          this.addErrorMessage('Request timed out. The agent may still be processing -- try again in a moment.');
+        } else {
+          this.addErrorMessage('Failed to send message. Please try again.');
+        }
+      }
+
+      this.sendButton.disabled = !this.chatInput.value.trim();
+    }
   }
   
   /**
