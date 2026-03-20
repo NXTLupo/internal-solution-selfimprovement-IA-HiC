@@ -1,52 +1,60 @@
-/* NXT Humans Brand Stylesheet */
+/* NXT Humans 2026 Design System — Brand Stylesheet
+ * Aligned with: D:\NXT-Agency\frontend\design-system\index.html
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700;800&display=swap');
 
 :root {
-  /* Primary Colors */
-  --cyan-primary: rgba(1, 196, 200, 1);
-  --cyan-primary-80: rgba(1, 196, 200, 0.8);
-  --cyan-primary-60: rgba(1, 196, 200, 0.6);
-  --cyan-primary-40: rgba(1, 196, 200, 0.4);
-  --cyan-primary-20: rgba(1, 196, 200, 0.2);
-  --cyan-primary-10: rgba(1, 196, 200, 0.1);
-  --cyan-primary-hover: rgba(0, 216, 220, 1);
-  --cyan-vibrant: #00E5E8;
-  
+  /* Brand Colors */
+  --cyan-primary: #caca20;
+  --cyan-primary-80: rgba(202, 202, 32, 0.8);
+  --cyan-primary-60: rgba(202, 202, 32, 0.6);
+  --cyan-primary-40: rgba(202, 202, 32, 0.4);
+  --cyan-primary-20: rgba(202, 202, 32, 0.2);
+  --cyan-primary-10: rgba(202, 202, 32, 0.1);
+  --cyan-primary-hover: #d8d830;
+  --cyan-vibrant: #caca20;
+
+  /* Teal brand accent */
+  --nxt-teal: #115054;
+  --nxt-teal-40: rgba(17, 80, 84, 0.4);
+
   /* Accent Colors */
-  --accent-blue: #298DFF;
-  --accent-purple: #9C6AFF;
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
   --success-green: #0CCE6B;
-  --warning-yellow: #FFD02F;
+  --warning-yellow: #caca20;
   --error-red: #FF5A5A;
-  
-  /* Dark Background */
-  --dark-bg: #121B26;
-  --dark-bg-gradient-1: #121B26;
-  --dark-bg-gradient-2: #1E293B;
-  
-  /* Secondary Colors */
-  --light-grey: #5A6275;
-  --medium-grey: #4A5165;
-  
+
+  /* Background — NXT 2026 White Theme (no dark backgrounds) */
+  --dark-bg: #ffffff;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
+
+  /* Neutral Scale */
+  --light-grey: #acacac;
+  --medium-grey: #e5e5e5;
+
   /* Text Colors */
-  --text-dark: #333333;
-  --text-light: #FFFFFF;
-  --text-grey: #666666;
-  
-  /* UI Elements */
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 12px 28px rgba(0, 0, 0, 0.15);
-  --glass-background: rgba(255, 255, 255, 0.9);
-  --glass-blur: blur(10px);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.5);
-  --border-color: #DEE2E6;
-  
+  --text-dark: #141414;
+  --text-light: #141414;
+  --text-grey: #acacac;
+
+  /* UI Elements — NXT 2026: 2px radius, no shadows, frosted glass */
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 4px;
+  --box-shadow: none;
+  --box-shadow-lg: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --glass-background: rgba(17, 80, 84, 0.4);
+  --glass-blur: blur(32px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.08);
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
@@ -54,52 +62,39 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
-  
-  /* Transitions & Animation */
-  --transition-speed: 0.3s;
+
+  /* Transitions */
+  --transition-speed: 0.15s;
   --transition: all var(--transition-speed) ease;
-  --animation-fast: 0.2s;
+  --animation-fast: 0.15s;
   --animation-medium: 0.3s;
   --animation-slow: 0.5s;
 }
 
-/* Base Styles */
+/* Base Styles — White Daytime Theme */
 body {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  color: var(--text-dark);
-  background-color: #F8F9FA;
+  font-family: 'Archivo', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #141414;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Typography */
+/* Typography — NXT 2026: ultralight headings */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  font-weight: 600;
+  font-weight: 200;
   line-height: 1.2;
-  color: var(--text-dark);
+  color: #141414;
 }
 
-h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1rem;
-  font-weight: 600;
-}
+h1 { font-size: 72px; line-height: 80px; }
+h2 { font-size: 52px; line-height: 56px; }
+h3 { font-size: 44px; line-height: 60px; }
+h4 { font-size: 21px; font-weight: 500; line-height: 40px; }
 
 p {
   margin-top: 0;
@@ -123,11 +118,10 @@ small {
 /* Layout */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 24px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .row {
@@ -143,14 +137,14 @@ small {
 
 /* Header */
 .nxt-header {
-  background-color: var(--dark-bg);
+  background-color: #ffffff;
   padding: 1rem 0;
-  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .nxt-header-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -162,94 +156,100 @@ small {
 .nxt-logo img {
   height: 40px;
   margin-right: 36px;
+  filter: invert(1);
 }
 
 .nxt-logo-text {
-  color: #FFFFFF;
+  color: #141414;
 }
 
-/* Ensure all header text is white */
 .nxt-header * {
-  color: #FFFFFF;
+  color: #141414;
 }
 
-/* Buttons */
+/* Buttons — NXT 2026 */
 .nxt-btn {
-  display: inline-block;
-  font-weight: 600;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: var(--border-radius-sm);
-  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 16px 24px;
   border: none;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
+  transition: var(--transition);
+  height: 48px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
 }
 
 .nxt-btn-primary {
   background-color: var(--cyan-primary);
-  color: var(--text-light);
+  color: var(--nxt-teal);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .nxt-btn-primary:hover {
-  background-color: var(--cyan-primary-80);
-  color: var(--text-light);
+  filter: brightness(1.1);
+  color: var(--nxt-teal);
 }
 
 .nxt-btn-secondary {
-  background-color: transparent;
-  border: 1px solid var(--cyan-primary);
-  color: var(--cyan-primary);
+  background-color: #f5f5f5;
+  color: #525252;
+  border: 1px solid #e5e5e5;
 }
 
 .nxt-btn-secondary:hover {
-  background-color: var(--cyan-primary-10);
-  color: var(--cyan-primary);
+  background-color: #eeeeee;
 }
 
 .nxt-btn-lg {
-  padding: var(--spacing-md) var(--spacing-xl);
-  font-size: 1.1rem;
+  padding: 20px 32px;
+  height: 56px;
 }
 
 .nxt-btn-sm {
-  padding: var(--spacing-xs) var(--spacing-md);
-  font-size: 0.875rem;
+  padding: 12px 16px;
+  height: 40px;
 }
 
 .nxt-btn-block {
-  display: block;
+  display: flex;
   width: 100%;
 }
 
-/* Cards */
+/* Cards — NXT 2026 White Theme */
 .nxt-card {
-  background-color: white;
+  background-color: #ffffff;
   border-radius: var(--border-radius-md);
-  box-shadow: var(--box-shadow);
+  border: 1px solid #e5e5e5;
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
   transition: var(--transition);
 }
 
 .nxt-card:hover {
-  box-shadow: var(--box-shadow-lg);
-  transform: translateY(-2px);
+  border-color: #d4d4d4;
 }
 
 .nxt-card-title {
   margin-top: 0;
   margin-bottom: var(--spacing-md);
+  color: #141414;
 }
 
 .nxt-card-body {
-  color: var(--text-dark);
+  color: #525252;
 }
 
-/* Form Elements */
+/* Form Elements — NXT 2026 White Theme */
 .nxt-form-group {
   margin-bottom: var(--spacing-lg);
 }
@@ -257,46 +257,52 @@ small {
 .nxt-form-label {
   display: block;
   margin-bottom: var(--spacing-xs);
-  font-weight: 600;
-  color: var(--text-dark);
+  font-weight: 300;
+  font-size: 14px;
+  color: #141414;
 }
 
 .nxt-form-control {
   display: block;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: 1rem;
+  height: 56px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 1.5;
-  color: var(--text-dark);
-  background-color: white;
-  background-clip: padding-box;
-  border: 1px solid var(--border-color);
+  color: #141414;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
   border-radius: var(--border-radius-sm);
-  transition: var(--transition);
+  transition: border-color 150ms ease;
 }
 
 .nxt-form-control:focus {
   border-color: var(--cyan-primary);
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--cyan-primary-20);
+}
+
+.nxt-form-control::placeholder {
+  color: #acacac;
 }
 
 .nxt-form-select {
   display: block;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--text-dark);
-  background-color: white;
-  border: 1px solid var(--border-color);
+  height: 56px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #141414;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
   border-radius: var(--border-radius-sm);
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23666' d='M0 0h8L4 6z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23525252' d='M0 0h8L4 6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right var(--spacing-md) center;
+  background-position: right 16px center;
   background-size: 8px 6px;
-  padding-right: var(--spacing-xl);
+  padding-right: 40px;
 }
 
 /* Spacing Utilities */
@@ -306,28 +312,24 @@ small {
 .mt-3 { margin-top: var(--spacing-md); }
 .mt-4 { margin-top: var(--spacing-lg); }
 .mt-5 { margin-top: var(--spacing-xl); }
-
 .mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: var(--spacing-xs); }
 .mb-2 { margin-bottom: var(--spacing-sm); }
 .mb-3 { margin-bottom: var(--spacing-md); }
 .mb-4 { margin-bottom: var(--spacing-lg); }
 .mb-5 { margin-bottom: var(--spacing-xl); }
-
 .ml-0 { margin-left: 0; }
 .ml-1 { margin-left: var(--spacing-xs); }
 .ml-2 { margin-left: var(--spacing-sm); }
 .ml-3 { margin-left: var(--spacing-md); }
 .ml-4 { margin-left: var(--spacing-lg); }
 .ml-5 { margin-left: var(--spacing-xl); }
-
 .mr-0 { margin-right: 0; }
 .mr-1 { margin-right: var(--spacing-xs); }
 .mr-2 { margin-right: var(--spacing-sm); }
 .mr-3 { margin-right: var(--spacing-md); }
 .mr-4 { margin-right: var(--spacing-lg); }
 .mr-5 { margin-right: var(--spacing-xl); }
-
 .p-0 { padding: 0; }
 .p-1 { padding: var(--spacing-xs); }
 .p-2 { padding: var(--spacing-sm); }
@@ -339,54 +341,52 @@ small {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-
 .text-primary { color: var(--cyan-primary); }
 .text-dark { color: var(--text-dark); }
 .text-light { color: var(--text-light); }
 .text-grey { color: var(--text-grey); }
-
 .bg-primary { background-color: var(--cyan-primary); }
 .bg-dark { background-color: var(--dark-bg); }
 .bg-light { background-color: white; }
 .bg-grey { background-color: var(--light-grey); }
 
-/* Footer */
+/* Footer — White Theme */
 .nxt-footer {
-  background-color: var(--dark-bg);
-  color: var(--text-light);
-  padding: var(--spacing-xl) 0;
+  background-color: #fafafa;
+  color: #525252;
+  padding: var(--spacing-lg) 0;
   margin-top: var(--spacing-xxl);
+  border-top: 1px solid #e5e5e5;
 }
 
 .nxt-footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .nxt-footer-text {
   color: var(--text-grey);
-  font-size: 0.875rem;
+  font-size: 12px;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar — White Theme */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  background: #fafafa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(90, 98, 117, 0.5);
-  border-radius: 4px;
+  background: #d4d4d4;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(90, 98, 117, 0.7);
+  background: #acacac;
 }
 
 /* Loading Animation */
@@ -394,7 +394,7 @@ small {
   display: inline-block;
   width: 24px;
   height: 24px;
-  border: 2px solid rgba(1, 196, 200, 0.2);
+  border: 2px solid rgba(202, 202, 32, 0.2);
   border-radius: 50%;
   border-top-color: var(--cyan-primary);
   animation: nxt-spin 1s ease-in-out infinite;
@@ -409,17 +409,17 @@ small {
   .nxt-header-content {
     flex-direction: column;
   }
-  
   .nxt-logo {
     margin-bottom: var(--spacing-md);
   }
-  
   .row {
     flex-direction: column;
   }
-  
   .col {
     width: 100%;
     margin-bottom: var(--spacing-md);
   }
+  h1 { font-size: 44px; line-height: 52px; }
+  h2 { font-size: 36px; line-height: 40px; }
+  h3 { font-size: 28px; line-height: 36px; }
 }

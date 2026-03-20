@@ -291,19 +291,19 @@ export const WordCloud = ({ words, width = chartConfig.wordCloud.defaultWidth, h
       <div className="flex justify-end gap-2 mb-4">
         <button 
           onClick={() => setFilter('all')} 
-          className={`px-3 py-1 rounded-md text-sm ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+          className={`px-3 py-1 rounded-md text-sm ${filter === 'all' ? 'bg-[#115054] text-white' : 'bg-[#f5f5f5] text-[#525252] hover:bg-[#e5e5e5]'}`}
         >
           All
         </button>
         <button 
           onClick={() => setFilter('positive')} 
-          className={`px-3 py-1 rounded-md text-sm ${filter === 'positive' ? 'bg-green-600 text-white' : 'bg-gray-700 text-green-400 hover:bg-gray-600'}`}
+          className={`px-3 py-1 rounded-md text-sm ${filter === 'positive' ? 'bg-green-600 text-white' : 'bg-[#f5f5f5] text-green-600 hover:bg-[#e5e5e5]'}`}
         >
           Positive
         </button>
         <button 
           onClick={() => setFilter('negative')} 
-          className={`px-3 py-1 rounded-md text-sm ${filter === 'negative' ? 'bg-red-600 text-white' : 'bg-gray-700 text-red-400 hover:bg-gray-600'}`}
+          className={`px-3 py-1 rounded-md text-sm ${filter === 'negative' ? 'bg-red-600 text-white' : 'bg-[#f5f5f5] text-red-600 hover:bg-[#e5e5e5]'}`}
         >
           Negative
         </button>
@@ -313,13 +313,13 @@ export const WordCloud = ({ words, width = chartConfig.wordCloud.defaultWidth, h
         <svg ref={svgRef} className="w-full h-full" />
         
         {filteredWords.length === 0 && (
-          <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+          <div className="absolute inset-0 flex items-center justify-center text-[#525252]">
             No words found with the selected filter
           </div>
         )}
       </div>
       
-      <div className="mt-2 text-xs text-gray-500 text-center">
+      <div className="mt-2 text-xs text-[#acacac] text-center">
         Hover over words to see details. Size indicates frequency.
       </div>
     </div>
@@ -595,7 +595,7 @@ export const VisualizationTab = ({ analysisData, filteredData }: VisualizationTa
         filteredData={filteredData}
       />
       
-      <div className="bg-gray-800/50 rounded-xl p-6">
+      <div className="bg-[#fafafa] rounded-xl p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-bold text-blue-400">Interactive Word Cloud</h3>
           <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
@@ -611,7 +611,7 @@ export const VisualizationTab = ({ analysisData, filteredData }: VisualizationTa
         </div>
       </div>
 
-      <div className="bg-gray-800/50 rounded-xl p-6">
+      <div className="bg-[#fafafa] rounded-xl p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-bold text-blue-400">Sentiment Distribution by Category</h3>
           <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">
@@ -621,7 +621,7 @@ export const VisualizationTab = ({ analysisData, filteredData }: VisualizationTa
         <StackedBarChart data={analysisData} />
       </div>
 
-      <div className="bg-gray-800/50 rounded-xl p-6">
+      <div className="bg-[#fafafa] rounded-xl p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-xl font-bold text-blue-400">Category Comparison</h3>
           <div className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">

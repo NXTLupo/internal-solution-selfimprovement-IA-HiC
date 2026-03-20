@@ -179,7 +179,7 @@ function SubredditDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white p-3 px-6">
+      <div className="min-h-screen bg-white text-[#141414] p-3 px-6">
         <div className="flex items-center">
           <img 
             src="/nxt-humans-logo.png" 
@@ -194,7 +194,7 @@ function SubredditDetail() {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleBackNavigation}
-                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center text-[#525252] hover:text-[#141414] transition-colors"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -204,15 +204,15 @@ function SubredditDetail() {
               </div>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 opacity-50">
-                  <span className="text-xs text-gray-400">Comments</span>
-                  <div className="relative w-8 h-4 rounded-full bg-gray-600">
+                  <span className="text-xs text-[#525252]">Comments</span>
+                  <div className="relative w-8 h-4 rounded-full bg-[#f5f5f5]">
                     <div className="absolute top-0.5 left-0.5 w-3 h-3 rounded-full bg-white shadow"></div>
                   </div>
                 </div>
                 
                 <button
                   disabled
-                  className="px-4 py-2 bg-gray-600 text-gray-400 rounded text-sm flex items-center opacity-50 cursor-not-allowed"
+                  className="px-4 py-2 bg-[#f5f5f5] text-[#525252] rounded text-sm flex items-center opacity-50 cursor-not-allowed"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -225,44 +225,44 @@ function SubredditDetail() {
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 animate-pulse">
-              <div className="h-8 bg-gray-700 rounded w-48 mb-4"></div>
+            <div className="bg-white rounded-lg p-6 border border-[#e5e5e5] animate-pulse">
+              <div className="h-8 bg-[#fafafa] rounded w-48 mb-4"></div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-gray-700 rounded-lg p-4">
-                  <div className="h-8 bg-gray-600 rounded w-16 mb-2"></div>
-                  <div className="h-4 bg-gray-600 rounded w-24"></div>
+                <div className="bg-[#fafafa] rounded-lg p-4">
+                  <div className="h-8 bg-[#f5f5f5] rounded w-16 mb-2"></div>
+                  <div className="h-4 bg-[#f5f5f5] rounded w-24"></div>
                 </div>
-                <div className="bg-gray-700 rounded-lg p-4">
-                  <div className="h-8 bg-gray-600 rounded w-16 mb-2"></div>
-                  <div className="h-4 bg-gray-600 rounded w-24"></div>
+                <div className="bg-[#fafafa] rounded-lg p-4">
+                  <div className="h-8 bg-[#f5f5f5] rounded w-16 mb-2"></div>
+                  <div className="h-4 bg-[#f5f5f5] rounded w-24"></div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Loading PostFilter Component */}
-          <div className="bg-gray-800 rounded-lg p-4 border border-gray-700 mb-6 animate-pulse">
+          <div className="bg-white rounded-lg p-4 border border-[#e5e5e5] mb-6 animate-pulse">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
-                <div className="h-4 bg-gray-700 rounded w-16 mb-2"></div>
-                <div className="h-10 bg-gray-700 rounded"></div>
+                <div className="h-4 bg-[#fafafa] rounded w-16 mb-2"></div>
+                <div className="h-10 bg-[#fafafa] rounded"></div>
               </div>
               <div>
-                <div className="h-4 bg-gray-700 rounded w-12 mb-2"></div>
-                <div className="h-10 bg-gray-700 rounded"></div>
+                <div className="h-4 bg-[#fafafa] rounded w-12 mb-2"></div>
+                <div className="h-10 bg-[#fafafa] rounded"></div>
               </div>
               <div>
-                <div className="h-4 bg-gray-700 rounded w-20 mb-2"></div>
+                <div className="h-4 bg-[#fafafa] rounded w-20 mb-2"></div>
                 <div className="flex gap-2">
-                  <div className="h-10 bg-gray-700 rounded flex-1"></div>
-                  <div className="h-10 bg-gray-700 rounded flex-1"></div>
+                  <div className="h-10 bg-[#fafafa] rounded flex-1"></div>
+                  <div className="h-10 bg-[#fafafa] rounded flex-1"></div>
                 </div>
               </div>
               <div>
-                <div className="h-4 bg-gray-700 rounded w-20 mb-2"></div>
+                <div className="h-4 bg-[#fafafa] rounded w-20 mb-2"></div>
                 <div className="flex gap-2">
-                  <div className="h-10 bg-gray-700 rounded flex-1"></div>
-                  <div className="h-10 bg-gray-700 rounded flex-1"></div>
+                  <div className="h-10 bg-[#fafafa] rounded flex-1"></div>
+                  <div className="h-10 bg-[#fafafa] rounded flex-1"></div>
                 </div>
               </div>
             </div>
@@ -271,40 +271,40 @@ function SubredditDetail() {
           {/* Loading Posts */}
           <div className="space-y-6 mt-6">
             {[1, 2, 3].map((index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-6 border border-gray-700 animate-pulse">
+              <div key={index} className="bg-white rounded-lg p-6 border border-[#e5e5e5] animate-pulse">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
-                    <div className="h-6 bg-gray-700 rounded w-3/4 mb-2"></div>
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
-                      <div className="h-4 bg-gray-700 rounded w-20"></div>
-                      <div className="h-4 bg-gray-700 rounded w-16"></div>
-                      <div className="h-4 bg-gray-700 rounded w-24"></div>
+                    <div className="h-6 bg-[#fafafa] rounded w-3/4 mb-2"></div>
+                    <div className="flex items-center gap-4 text-sm text-[#525252]">
+                      <div className="h-4 bg-[#fafafa] rounded w-20"></div>
+                      <div className="h-4 bg-[#fafafa] rounded w-16"></div>
+                      <div className="h-4 bg-[#fafafa] rounded w-24"></div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="h-8 bg-gray-700 rounded w-12"></div>
-                    <div className="h-8 bg-gray-700 rounded w-12"></div>
+                    <div className="h-8 bg-[#fafafa] rounded w-12"></div>
+                    <div className="h-8 bg-[#fafafa] rounded w-12"></div>
                   </div>
                 </div>
                 
                 <div className="mb-4">
-                  <div className="h-4 bg-gray-700 rounded w-full mb-2"></div>
-                  <div className="h-4 bg-gray-700 rounded w-4/5 mb-2"></div>
-                  <div className="h-4 bg-gray-700 rounded w-3/5"></div>
+                  <div className="h-4 bg-[#fafafa] rounded w-full mb-2"></div>
+                  <div className="h-4 bg-[#fafafa] rounded w-4/5 mb-2"></div>
+                  <div className="h-4 bg-[#fafafa] rounded w-3/5"></div>
                 </div>
 
-                <div className="border-t border-gray-700 pt-4">
-                  <div className="h-4 bg-gray-700 rounded w-32 mb-3"></div>
+                <div className="border-t border-[#e5e5e5] pt-4">
+                  <div className="h-4 bg-[#fafafa] rounded w-32 mb-3"></div>
                   <div className="space-y-3">
-                    <div className="bg-gray-700 rounded-lg p-3">
-                      <div className="h-4 bg-gray-600 rounded w-24 mb-2"></div>
-                      <div className="h-3 bg-gray-600 rounded w-full mb-1"></div>
-                      <div className="h-3 bg-gray-600 rounded w-3/4"></div>
+                    <div className="bg-[#fafafa] rounded-lg p-3">
+                      <div className="h-4 bg-[#f5f5f5] rounded w-24 mb-2"></div>
+                      <div className="h-3 bg-[#f5f5f5] rounded w-full mb-1"></div>
+                      <div className="h-3 bg-[#f5f5f5] rounded w-3/4"></div>
                     </div>
-                    <div className="bg-gray-700 rounded-lg p-3">
-                      <div className="h-4 bg-gray-600 rounded w-28 mb-2"></div>
-                      <div className="h-3 bg-gray-600 rounded w-full mb-1"></div>
-                      <div className="h-3 bg-gray-600 rounded w-2/3"></div>
+                    <div className="bg-[#fafafa] rounded-lg p-3">
+                      <div className="h-4 bg-[#f5f5f5] rounded w-28 mb-2"></div>
+                      <div className="h-3 bg-[#f5f5f5] rounded w-full mb-1"></div>
+                      <div className="h-3 bg-[#f5f5f5] rounded w-2/3"></div>
                     </div>
                   </div>
                 </div>
@@ -318,11 +318,11 @@ function SubredditDetail() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white p-6">
+      <div className="min-h-screen bg-white text-[#141414] p-6">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-red-900/20 border border-red-700 rounded-lg p-6">
+          <div className="bg-red-50 border border-red-300 rounded-lg p-6">
             <div className="flex items-center justify-between">
-              <div className="text-red-400">{error}</div>
+              <div className="text-red-600">{error}</div>
               <button
                 onClick={refetch}
                 className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
@@ -338,10 +338,10 @@ function SubredditDetail() {
 
   if (!subredditDetail) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white p-6">
+      <div className="min-h-screen bg-white text-[#141414] p-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center py-12">
-            <div className="text-gray-400">No data found for this subreddit.</div>
+            <div className="text-[#525252]">No data found for this subreddit.</div>
           </div>
         </div>
       </div>
@@ -349,7 +349,7 @@ function SubredditDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-3 px-6">
+    <div className="min-h-screen bg-white text-[#141414] p-3 px-6">
       <div className="flex items-center">
         <img 
           src="/nxt-humans-logo.png" 
@@ -364,7 +364,7 @@ function SubredditDetail() {
             <div className="flex items-center gap-4">
               <button
                 onClick={handleBackNavigation}
-                className="flex items-center text-gray-400 hover:text-white transition-colors"
+                className="flex items-center text-[#525252] hover:text-[#141414] transition-colors"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -374,13 +374,13 @@ function SubredditDetail() {
             </div>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400">Comments</span>
+                <span className="text-xs text-[#525252]">Comments</span>
                 <div 
                   className="flex items-center cursor-pointer group" 
                   onClick={toggleAllComments}
                 >
                   <div className={`relative w-8 h-4 rounded-full transition-colors duration-300 ${
-                    showAllComments ? 'bg-blue-500' : 'bg-gray-600'
+                    showAllComments ? 'bg-[#115054]' : 'bg-[#f5f5f5]'
                   }`}>
                     <div className={`absolute top-0.5 left-0.5 w-3 h-3 rounded-full bg-white shadow transition-transform duration-300 transform ${
                       showAllComments ? 'translate-x-4' : ''
@@ -393,7 +393,7 @@ function SubredditDetail() {
               <div className="relative" ref={exportDropdownRef}>
                 <button
                   onClick={() => setShowExportDropdown(!showExportDropdown)}
-                  className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors text-sm flex items-center"
+                  className="px-4 py-2 bg-[#f5f5f5] text-[#141414] rounded hover:bg-[#f5f5f5] transition-colors text-sm flex items-center"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -405,11 +405,11 @@ function SubredditDetail() {
                 </button>
 
                 {showExportDropdown && (
-                  <div className="absolute right-1 mt-2 w-48 bg-gray-800 border border-gray-600 rounded-lg shadow-lg z-50">
+                  <div className="absolute right-1 mt-2 w-48 bg-white border border-[#e5e5e5] rounded-lg  z-50">
                     <div className="py-1">
                       <button
                         onClick={() => handleExportOption('txt')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -418,7 +418,7 @@ function SubredditDetail() {
                       </button>
                       <button
                         onClick={() => handleExportOption('pdf')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -427,7 +427,7 @@ function SubredditDetail() {
                       </button>
                       <button
                         onClick={() => handleExportOption('json')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707L16.414 6.293A1 1 0 0015.586 6H7a2 2 0 00-2 2v11a2 2 0 002 2z" />
@@ -436,7 +436,7 @@ function SubredditDetail() {
                       </button>
                       <button
                         onClick={() => handleExportOption('xml')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -446,7 +446,7 @@ function SubredditDetail() {
                       <div className="relative group">
                         <button
                           onClick={() => handleExportOption('csv')}
-                          className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                          className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -454,19 +454,19 @@ function SubredditDetail() {
                           Export as CSV
                         </button>
                         {/* Tooltip */}
-                        <div className="absolute left-full top-0 ml-2 px-3 py-2 bg-gray-700 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                        <div className="absolute left-full top-0 ml-2 px-3 py-2 bg-[#fafafa] text-[#141414] text-xs rounded-lg  opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                           <div className="flex flex-col">
                             <div className="font-medium mb-1">CSV Export Info:</div>
                             <div>• Comments are flattened into single field</div>
                             <div>• Contact dev if you need more data structure</div>
                           </div>
                           {/* Tooltip arrow */}
-                          <div className="absolute right-full top-3 border-4 border-transparent border-r-gray-700"></div>
+                          <div className="absolute right-full top-3 border-4 border-transparent border-r-[#e5e5e5]"></div>
                         </div>
                       </div>
                       <button
                         onClick={() => handleExportOption('md')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -481,17 +481,17 @@ function SubredditDetail() {
             </div>
           </div>
 
-          <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-            <h1 className="text-3xl font-bold mb-4 text-blue-400">r/{subredditDetail.subreddit}</h1>
+          <div className="bg-white rounded-lg p-6 border border-[#e5e5e5]">
+            <h1 className="text-3xl font-bold mb-4 text-[#115054]">r/{subredditDetail.subreddit}</h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-gray-700 rounded-lg p-4">
-                <div className="text-2xl font-bold text-white">{formatNumber(subredditDetail.totalPosts)}</div>
-                <div className="text-gray-400 text-sm">Total Posts</div>
+              <div className="bg-[#fafafa] rounded-lg p-4">
+                <div className="text-2xl font-bold text-[#141414]">{formatNumber(subredditDetail.totalPosts)}</div>
+                <div className="text-[#525252] text-sm">Total Posts</div>
               </div>
-              <div className="bg-gray-700 rounded-lg p-4">
-                <div className="text-2xl font-bold text-white">{formatNumber(subredditDetail.totalComments)}</div>
-                <div className="text-gray-400 text-sm">Total Comments</div>
+              <div className="bg-[#fafafa] rounded-lg p-4">
+                <div className="text-2xl font-bold text-[#141414]">{formatNumber(subredditDetail.totalComments)}</div>
+                <div className="text-[#525252] text-sm">Total Comments</div>
               </div>
             </div>
           </div>
@@ -506,8 +506,8 @@ function SubredditDetail() {
         {/* Posts */}
         <div className="space-y-6 mt-6">
           {sortedPosts.length === 0 ? (
-            <div className="bg-gray-800 rounded-lg p-8 border border-gray-700 text-center">
-              <div className="text-gray-400">
+            <div className="bg-white rounded-lg p-8 border border-[#e5e5e5] text-center">
+              <div className="text-[#525252]">
                 {filterData.searchTerm || 
                  filterData.sortBy !== 'newest' || filterData.minUpvotes > 0 || filterData.maxUpvotes < 10000 ||
                  filterData.minComments > 0 || filterData.maxComments < 1000

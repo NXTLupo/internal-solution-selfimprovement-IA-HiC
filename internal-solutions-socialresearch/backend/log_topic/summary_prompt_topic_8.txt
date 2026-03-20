@@ -1,0 +1,61 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: team, tech, clap, credit, big, shot, nba
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Steph's face sums it up again Instead of a random player going nova, we let a team going "big achievement since" stat 🥲 I gotta give the guys credit for playing very hard against a very good Knicks team though
+They did put up a good fight 🔆
+yeah i give the team a lot of credit
+
+EXAMPLE 2:
+Imagine scoring your first-ever NBA points and the ref immediately hits you with a tech.😂  Set the tone for his career
+Why did he get a technical? I don't see anything worthy of a tech here.
+Weenie refs can't handle the big bad swear words
+
+EXAMPLE 3:
+Steph curry ranks #2 for impact on teammate shot quality  I saw a metric today, the East is realizing that Kuminga has the worst hands in the NBA....  The top 5 in Turnovers Per 100 Touches  
+  
+1. Shaedon Sharpe 5.39  
+2. Jaylen Brown 5.18  
+3. Jonathan Kuminga 5.16  
+4. Devin Booker 5.12  
+5. Cole Anthony 5.06
+Thank you warriors clap clap clapclapclap
+Fucking imbecile Nico Harrison
+
+EXAMPLE 4:
+and podz should be crucified for the shot he took after everyone else on the team stepped up, some of them playing hurt, to try to win
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,36 @@
+{
+  "positive": [
+    {
+      "point": "Steph Curry ranks #2 for impact on teammate shot quality, indicating his significant positive influence on the game.",
+      "post_refs": [
+        "1rw8p2x"
+      ]
+    },
+    {
+      "point": "The team played very hard against a very good Knicks team, showing commendable effort and resilience.",
+      "post_refs": [
+        "1ruyflu"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "A player received a technical foul immediately after scoring their first-ever NBA points, which seemed unwarranted.",
+      "post_refs": [
+        "1ry0uej"
+      ]
+    },
+    {
+      "point": "Jonathan Kuminga is noted for having the worst hands in the NBA, contributing to high turnovers.",
+      "post_refs": [
+        "1rw8p2x"
+      ]
+    },
+    {
+      "point": "Podz took a poor shot after other team members, some playing hurt, stepped up to try to win, leading to frustration.",
+      "post_refs": [
+        "1ruyflu"
+      ]
+    }
+  ]
+}

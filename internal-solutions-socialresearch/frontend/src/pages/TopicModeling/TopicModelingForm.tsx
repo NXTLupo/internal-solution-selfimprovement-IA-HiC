@@ -84,35 +84,35 @@ export const TopicModelingForm = ({
   return (
     <div className="flex flex-col gap-3">
       
-      <div className="p-1 rounded-xl mb-3 shadow-xl border border-gray-700" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+      <div className="p-1 rounded-xl mb-3 border border-[#e5e5e5]" style={{ backgroundColor: '#ffffff' }}>
         {error && (
-          <div className="mb-2 p-4 bg-red-900/50 text-red-200 rounded-lg border border-red-700 flex justify-between items-center">
+          <div className="mb-2 p-4 bg-red-50 text-red-700 rounded-lg border border-red-300 flex justify-between items-center">
             <span>{error}</span>
-            <button 
+            <button
               onClick={onClearError}
-              className="ml-4 text-red-200 hover:text-red-100"
+              className="ml-4 text-red-700 hover:text-red-900"
             >
               ✕
             </button>
           </div>
         )}
         
-        <h3 className="font-semibold text-blue-400 text-lg text-center">Searching Options</h3>
+        <h3 className="font-semibold text-[#115054] text-lg text-center">Searching Options</h3>
         <form autoComplete="off">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
           
           <div className="flex flex-col">
-            <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+            <label htmlFor="subreddit" className="mb-2 font-medium text-[#525252] flex items-center gap-2">
               Subreddit:
               <Tooltip
                 content={
-                  <div className="text-xs text-gray-300">
+                  <div className="text-xs text-[#525252]">
                     Choose active subreddits with sufficient posts
                   </div>
                 }
               >
                 <svg 
-                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -136,36 +136,36 @@ export const TopicModelingForm = ({
                 handleSubredditChange(newValue);
               }}
               placeholder="Enter subreddit name"
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input"
+              style={{ backgroundColor: '#ffffff' }}
               autoComplete="off"
               spellCheck="true"
             />
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="keyword" className="mb-2 font-medium text-gray-300">Keyword(optional):</label>
+            <label htmlFor="keyword" className="mb-2 font-medium text-[#525252]">Keyword(optional):</label>
                           <input
                 id="keyword"
                 type="text"
                 value={formData.keyword || ''}
                 onChange={(e) => setFormData({...formData, keyword: e.target.value})}
                 placeholder="Search for posts containing"
-                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input"
+                style={{ backgroundColor: '#ffffff' }}
                 autoComplete="off"
                 spellCheck="true"
               />
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="sort" className="mb-2 font-medium text-gray-300">Sort By:</label>
+            <label htmlFor="sort" className="mb-2 font-medium text-[#525252]">Sort By:</label>
             <select
               id="sort"
               value={formData.sort || 'relevance'}
               onChange={(e) => setFormData({ ...formData, sort: e.target.value as SortOption })}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+              style={{ backgroundColor: '#ffffff' }}
             >
               <option value="relevance">Relevance</option>
               <option value="hot">Hot</option>
@@ -175,11 +175,11 @@ export const TopicModelingForm = ({
           
           {/* Date range selection fields */}
           <div className="flex flex-col">
-            <label htmlFor="startDate" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+            <label htmlFor="startDate" className="mb-2 font-medium text-[#525252] flex items-center gap-2">
               Start Date:
               <Tooltip
                 content={
-                  <div className="text-xs text-gray-300">
+                  <div className="text-xs text-[#525252]">
                     <div className="font-semibold mb-1">UTC Date Range</div>
                     <div>Reddit API uses UTC time for filtering.</div>
                     <div>Leave empty to search from the beginning.</div>
@@ -187,7 +187,7 @@ export const TopicModelingForm = ({
                 }
               >
                 <svg 
-                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -211,18 +211,18 @@ export const TopicModelingForm = ({
                 // Also update Redux state
                 dispatch(setStartDate(newValue || undefined));
               }}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 dark-theme-input"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] dark-theme-input"
+              style={{ backgroundColor: '#ffffff' }}
               autoComplete="off"
             />
           </div>
           
           <div className="flex flex-col">
-            <label htmlFor="endDate" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
+            <label htmlFor="endDate" className="mb-2 font-medium text-[#525252] flex items-center gap-2">
               End Date:
               <Tooltip
                 content={
-                  <div className="text-xs text-gray-300">
+                  <div className="text-xs text-[#525252]">
                     <div className="font-semibold mb-1">UTC Date Range</div>
                     <div>Reddit API uses UTC time for filtering.</div>
                     <div>Defaults to current UTC date.</div>
@@ -230,7 +230,7 @@ export const TopicModelingForm = ({
                 }
               >
                 <svg 
-                  className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                  className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -254,8 +254,8 @@ export const TopicModelingForm = ({
                 // Also update Redux state
                 dispatch(setEndDate(newValue || undefined));
               }}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 dark-theme-input"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] dark-theme-input"
+              style={{ backgroundColor: '#ffffff' }}
               autoComplete="off"
             />
           </div>

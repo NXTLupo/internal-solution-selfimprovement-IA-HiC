@@ -81,15 +81,15 @@ function PostCard({ post, showComments = false }: PostCardProps) {
   const totalComments = countTotalComments(post.comments || []);
 
   return (
-    <div ref={postRef} className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+    <div ref={postRef} className="bg-white rounded-lg border border-[#e5e5e5] overflow-hidden">
       {/* Post Header */}
       <div className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <h2 className="text-xl font-semibold text-white mb-2 leading-tight">
+            <h2 className="text-xl font-semibold text-[#141414] mb-2 leading-tight">
               {post.title}
             </h2>
-            <div className="flex items-center gap-4 text-sm text-gray-400">
+            <div className="flex items-center gap-4 text-sm text-[#525252]">
               <span>u/{post.author || 'Unknown'}</span>
               <span>•</span>
               <span>{formatTimeAgo(post.created_utc)}</span>
@@ -97,13 +97,13 @@ function PostCard({ post, showComments = false }: PostCardProps) {
           </div>
           
           <div className="flex items-center gap-4 ml-4">
-            <div className="flex items-center text-sm text-gray-400">
+            <div className="flex items-center text-sm text-[#525252]">
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
               </svg>
               {formatNumber(post.score)}
             </div>
-            <div className="flex items-center text-sm text-gray-400">
+            <div className="flex items-center text-sm text-[#525252]">
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.003 8.003 0 01-7.799-6.778c0-.001 0-.001 0-.002L4 12h.01c0-4.418 3.582-8 8-8s8 3.582 8 8z" />
               </svg>
@@ -117,7 +117,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
           <div className="mb-4">
             <div 
               ref={contentRef}
-              className={`text-gray-300 leading-relaxed ${
+              className={`text-[#525252] leading-relaxed ${
                 !isExpanded 
                   ? 'line-clamp-6 overflow-hidden' 
                   : ''
@@ -134,7 +134,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
             {showExpandButton && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-blue-400 hover:text-blue-300 text-sm mt-2 transition-colors"
+                className="text-[#115054] hover:text-[#115054] text-sm mt-2 transition-colors"
               >
                 {isExpanded ? 'Show less' : 'Show more'}
               </button>
@@ -143,10 +143,10 @@ function PostCard({ post, showComments = false }: PostCardProps) {
         )}
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-4 pt-4 border-t border-gray-700">
+        <div className="flex items-center gap-4 pt-4 border-t border-[#e5e5e5]">
           <button
             onClick={() => setShowCommentsState(!showCommentsState)}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+            className="flex items-center gap-2 text-[#525252] hover:text-[#141414] transition-colors text-sm"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.003 8.003 0 01-7.799-6.778c0-.001 0-.001 0-.002L4 12h.01c0-4.418 3.582 8-8s8 3.582 8 8z" />
@@ -159,7 +159,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
               href={`https://reddit.com${post.permalink}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              className="flex items-center gap-2 text-[#525252] hover:text-[#141414] transition-colors text-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -172,11 +172,11 @@ function PostCard({ post, showComments = false }: PostCardProps) {
 
       {/* Comments Section */}
       {showCommentsState && (
-        <div className="border-t border-gray-700 bg-gray-850">
+        <div className="border-t border-[#e5e5e5] bg-[#fafafa]">
           <div className="p-6">
             {post.comments && post.comments.length > 0 ? (
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-white mb-4">
+                <h3 className="text-lg font-medium text-[#141414] mb-4">
                   Comments ({totalComments})
                 </h3>
                 {post.comments.map((comment) => (
@@ -184,7 +184,7 @@ function PostCard({ post, showComments = false }: PostCardProps) {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-400">
+              <div className="text-center py-8 text-[#525252]">
                 No comments found for this post.
               </div>
             )}

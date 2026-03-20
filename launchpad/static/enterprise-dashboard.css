@@ -2,40 +2,40 @@
 
 /* Enterprise Variables */
 :root {
-  /* Enterprise Color Palette */
-  --enterprise-primary: #01C4C8;
-  --enterprise-primary-light: #33D1D4;
-  --enterprise-primary-dark: #00A1A5;
-  --enterprise-secondary: #298DFF;
-  --enterprise-accent: #9C6AFF;
+  /* Enterprise Color Palette — 2026 */
+  --enterprise-primary: #caca20;
+  --enterprise-primary-light: #d8d830;
+  --enterprise-primary-dark: #b8b81a;
+  --enterprise-secondary: #115054;
+  --enterprise-accent: #115054;
+
+  /* Category-Specific Colors — 2026 teal/lime unified */
+  --category-collection: #115054;
+  --category-collection-light: #1a6b70;
+  --category-collection-bg: rgba(17, 80, 84, 0.1);
+  --category-collection-border: rgba(17, 80, 84, 0.3);
+
+  --category-analysis: #caca20;
+  --category-analysis-light: #d8d830;
+  --category-analysis-bg: rgba(202, 202, 32, 0.1);
+  --category-analysis-border: rgba(202, 202, 32, 0.3);
+
+  --category-generation: #115054;
+  --category-generation-light: #1a6b70;
+  --category-generation-bg: rgba(17, 80, 84, 0.1);
+  --category-generation-border: rgba(17, 80, 84, 0.3);
   
-  /* Category-Specific Colors */
-  --category-collection: #2563EB;
-  --category-collection-light: #3B82F6;
-  --category-collection-bg: rgba(37, 99, 235, 0.1);
-  --category-collection-border: rgba(37, 99, 235, 0.3);
-  
-  --category-analysis: #01C4C8;
-  --category-analysis-light: #33D1D4;
-  --category-analysis-bg: rgba(1, 196, 200, 0.1);
-  --category-analysis-border: rgba(1, 196, 200, 0.3);
-  
-  --category-generation: #7C3AED;
-  --category-generation-light: #8B5CF6;
-  --category-generation-bg: rgba(124, 58, 237, 0.1);
-  --category-generation-border: rgba(124, 58, 237, 0.3);
-  
-  /* Enterprise Grays */
-  --enterprise-gray-50: #F8FAFC;
-  --enterprise-gray-100: #F1F5F9;
-  --enterprise-gray-200: #E2E8F0;
-  --enterprise-gray-300: #CBD5E1;
-  --enterprise-gray-400: #94A3B8;
-  --enterprise-gray-500: #64748B;
-  --enterprise-gray-600: #475569;
-  --enterprise-gray-700: #334155;
-  --enterprise-gray-800: #1E293B;
-  --enterprise-gray-900: #0F172A;
+  /* Enterprise Grays — 2026 Neutral Scale */
+  --enterprise-gray-50: #fafafa;
+  --enterprise-gray-100: #eaeaea;
+  --enterprise-gray-200: #d9d9d9;
+  --enterprise-gray-300: #acacac;
+  --enterprise-gray-400: #525252;
+  --enterprise-gray-500: #3a3a3a;
+  --enterprise-gray-600: #242424;
+  --enterprise-gray-700: #1a1a1a;
+  --enterprise-gray-800: #141414;
+  --enterprise-gray-900: #0a0a0a;
   
   /* Enterprise Spacing */
   --enterprise-space-1: 0.25rem;
@@ -51,17 +51,17 @@
   --enterprise-space-20: 5rem;
   --enterprise-space-24: 6rem;
   
-  /* Enterprise Borders */
-  --enterprise-radius: 0.5rem;
-  --enterprise-radius-lg: 0.75rem;
-  --enterprise-radius-xl: 1rem;
-  
-  /* Enterprise Shadows */
-  --enterprise-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --enterprise-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --enterprise-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --enterprise-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --enterprise-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  /* Enterprise Borders — 2026: minimal radius */
+  --enterprise-radius: 2px;
+  --enterprise-radius-lg: 4px;
+  --enterprise-radius-xl: 4px;
+
+  /* Enterprise Shadows — 2026: no shadows, use borders */
+  --enterprise-shadow-sm: none;
+  --enterprise-shadow: none;
+  --enterprise-shadow-md: none;
+  --enterprise-shadow-lg: none;
+  --enterprise-shadow-xl: none;
   
   /* Enterprise Typography */
   --enterprise-font-size-xs: 0.75rem;
@@ -172,50 +172,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: var(--enterprise-radius-xl);
-  font-size: var(--enterprise-font-size-xl);
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  font-size: 20px;
   flex-shrink: 0;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .apps-section .section-header .section-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
 .section-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Ensure ALL section icons are white */
+/* Flat teal icons in section headers */
 .section-icon i,
 .section-icon .fas,
 .section-icon .fab,
 .section-icon .far,
 .section-header .section-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Category-specific section icons */
+/* Category section icons — flat NXT 2026 */
 .apps-section[data-category="collection"] .section-icon {
-  background: linear-gradient(135deg, var(--category-collection-bg), rgba(37, 99, 235, 0.2));
-  border: 1px solid var(--category-collection-border);
-  color: var(--category-collection-light);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .apps-section[data-category="analysis"] .section-icon {
-  background: linear-gradient(135deg, var(--category-analysis-bg), rgba(1, 196, 200, 0.2));
-  border: 1px solid var(--category-analysis-border);
-  color: var(--category-analysis-light);
-  box-shadow: 0 4px 20px rgba(1, 196, 200, 0.3);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .apps-section[data-category="generation"] .section-icon {
-  background: linear-gradient(135deg, var(--category-generation-bg), rgba(124, 58, 237, 0.2));
-  border: 1px solid var(--category-generation-border);
-  color: var(--category-generation-light);
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .section-info {
@@ -322,74 +318,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--enterprise-radius-lg);
-  font-size: var(--enterprise-font-size-lg);
-  transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  font-size: 18px;
+  transition: all 150ms ease;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .enterprise-card .card-header .service-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
 .service-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Ensure ALL service icons are white */
+/* Flat teal icons in service cards */
 .service-icon i,
 .service-icon .fas,
 .service-icon .fab,
 .service-icon .far,
 .card-header .service-icon i,
 .enterprise-card .service-icon i {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Specific icon fixes for missing white icons */
+/* Specific icon fixes */
 .fa-chart-network,
 .fa-sparkles,
 .fa-file-chart-pie,
 .fas.fa-chart-network,
 .fas.fa-sparkles,
 .fas.fa-file-chart-pie {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Universal icon color override for all FontAwesome icons in sections and cards */
+/* Universal icon color override — flat teal */
 .section-icon [class*="fa-"],
 .service-icon [class*="fa-"],
 .section-header [class*="fa-"],
 .card-header [class*="fa-"] {
-  color: #ffffff !important;
+  color: #115054 !important;
 }
 
-/* Category-specific service icons */
+/* Category service icons — flat NXT 2026 */
 .enterprise-card[data-category="collection"] .service-icon {
-  background: linear-gradient(135deg, var(--category-collection-bg), rgba(37, 99, 235, 0.18));
-  color: var(--category-collection);
-  border: 1px solid var(--category-collection-border);
-  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .enterprise-card[data-category="analysis"] .service-icon {
-  background: linear-gradient(135deg, var(--category-analysis-bg), rgba(1, 196, 200, 0.18));
-  color: var(--category-analysis);
-  border: 1px solid var(--category-analysis-border);
-  box-shadow: 0 2px 10px rgba(1, 196, 200, 0.25);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .enterprise-card[data-category="generation"] .service-icon {
-  background: linear-gradient(135deg, var(--category-generation-bg), rgba(124, 58, 237, 0.18));
-  color: var(--category-generation);
-  border: 1px solid var(--category-generation-border);
-  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.25);
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
 }
 
 .enterprise-card:hover .service-icon {
-  transform: scale(1.1);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
 }
 
 .service-status {
@@ -643,16 +634,7 @@
   }
 }
 
-/* Category pulse effect on scroll */
-@keyframes categoryPulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1); }
-  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
-
-.enterprise-card:hover .service-icon {
-  animation: categoryPulse 2s infinite;
-}
+/* Category hover — no pulse animation (flat NXT 2026) */
 
 /* Enterprise Actions Section */
 .enterprise-actions {

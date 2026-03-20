@@ -42,7 +42,7 @@ SOCIAL_MCP_URL = os.environ.get("SOCIAL_MCP_URL", "http://social-mcp:8502")
 JOURNEY_MCP_URL = os.environ.get("JOURNEY_MCP_URL", "http://journey-mcp:8503")
 VIDEO_MCP_URL = os.environ.get("VIDEO_MCP_URL", "http://video-mcp:8504")
 OPENAI_JOURNEY_MCP_URL = os.environ.get("OPENAI_JOURNEY_MCP_URL", "http://openai-journey-mcp:8505")
-CLAUDE4_JOURNEY_MCP_URL = os.environ.get("CLAUDE4_JOURNEY_MCP_URL", "http://claude4-journey-mcp:8506")
+# Claude4 Journey Mapper removed
 
 # Initialize Anthropic client
 anthropic_client = AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
@@ -95,7 +95,6 @@ tool_services = {
     "journey": JOURNEY_MCP_URL,
     "video": VIDEO_MCP_URL,
     "openai_journey": OPENAI_JOURNEY_MCP_URL,
-    "claude4_journey": CLAUDE4_JOURNEY_MCP_URL,
     "research": os.getenv("RESEARCH_MCP_URL", "http://research-mcp:8507")
 }
 
@@ -262,10 +261,9 @@ Your primary tools are:
 
 1. Reddit Data Collector (reddit_*) - Scrapes and analyzes posts from Reddit
 2. Social Research Tool (social_*) - Performs topic modeling and sentiment analysis on social data  
-3. Journey Mapper (journey_*) - Creates customer journey maps using Claude 3.7 Sonnet
+3. Journey Mapper (journey_*) - Creates customer journey maps using Claude Opus 4.5
 4. OpenAI Journey Mapper (openai_journey_*) - Advanced journey mapping using OpenAI o3 reasoning models
-5. Claude 4 Journey Mapper (claude4_journey_*) - Most advanced journey mapping using Claude 4
-6. Video Transcriptor (video_*) - Transcribes and analyzes video content from URLs or uploads
+5. Video Transcriptor (video_*) - Transcribes and analyzes video content from URLs or uploads
 
 Here are all the available tools you can use:
 
@@ -304,10 +302,9 @@ IMPORTANT USAGE GUIDELINES:
    - Use `journey_upload_file` to process uploads
    - Use `journey_generate_map` to create journey maps
    - Provide visualization links from `journey_get_results`
-   - You have THREE journey mappers available:
-     * `journey_*` - Claude 3.7 Sonnet (fast, reliable)
+   - You have TWO journey mappers available:
+     * `journey_*` - Claude Opus 4.5 (most advanced)
      * `openai_journey_*` - OpenAI o3 (advanced reasoning)
-     * `claude4_journey_*` - Claude 4 (most advanced)
 
 4. For Video Transcription:
    - Use `video_transcribe_youtube` with URL parameter for YouTube videos
@@ -368,12 +365,12 @@ For video transcription:
    ```
 
 For journey mapping (choose the appropriate mapper based on complexity):
-1. For Claude 4 journey mapping from uploaded file:
+1. For Claude Opus 4.5 journey mapping from uploaded file:
    ```json
    {{
      "tool_calls": [
        {{
-         "name": "claude4_journey_upload_file",
+         "name": "journey_upload_file",
          "parameters": {{
            "file": "file_id_from_upload"
          }}

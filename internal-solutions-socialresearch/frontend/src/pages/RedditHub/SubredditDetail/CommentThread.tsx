@@ -60,13 +60,13 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
 
   return (
     <div className={`${indentClass} ${depth > 0 ? 'mt-3' : ''}`}>
-      <div className="bg-gray-700 rounded-lg p-4">
+      <div className="bg-[#fafafa] rounded-lg p-4">
         {/* Comment Header */}
         <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-3 text-sm text-[#525252]">
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-[#525252] hover:text-[#141414] transition-colors"
             >
               <svg 
                 className={`w-3 h-3 transition-transform ${isCollapsed ? 'rotate-0' : 'rotate-90'}`} 
@@ -87,7 +87,7 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
               {formatNumber(comment.score)}
             </div>
             {totalReplies > 0 && (
-              <span className="text-xs bg-gray-600 px-2 py-1 rounded">
+              <span className="text-xs bg-[#f5f5f5] px-2 py-1 rounded">
                 {totalReplies} {totalReplies === 1 ? 'reply' : 'replies'}
               </span>
             )}
@@ -97,13 +97,13 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
         {/* Comment Content */}
         {!isCollapsed && comment.body && (
           <div className="mb-3">
-            <div className="text-gray-300 text-sm leading-relaxed">
+            <div className="text-[#525252] text-sm leading-relaxed">
               {isExpanded ? comment.body : truncateContent(comment.body)}
             </div>
             {comment.body.length > 200 && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-blue-400 hover:text-blue-300 text-xs mt-1 transition-colors"
+                className="text-[#115054] hover:text-[#115054] text-xs mt-1 transition-colors"
               >
                 {isExpanded ? 'Show less' : 'Show more'}
               </button>
@@ -113,7 +113,7 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
 
         {/* Collapsed indicator */}
         {isCollapsed && totalReplies > 0 && (
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-[#acacac]">
             [{totalReplies + 1} comment{totalReplies > 0 ? 's' : ''} collapsed]
           </div>
         )}
@@ -135,7 +135,7 @@ function CommentThread({ comment, depth = 0 }: CommentThreadProps) {
       {/* Max depth indicator */}
       {!isCollapsed && !shouldShowReplies && comment.replies && comment.replies.length > 0 && (
         <div className="mt-3 ml-4">
-          <div className="text-xs text-gray-500 bg-gray-800 rounded px-3 py-2 border border-gray-600">
+          <div className="text-xs text-[#acacac] bg-white rounded px-3 py-2 border border-[#e5e5e5]">
             <svg className="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>

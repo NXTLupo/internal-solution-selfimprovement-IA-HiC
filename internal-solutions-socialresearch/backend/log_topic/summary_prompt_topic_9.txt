@@ -1,0 +1,54 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: santos, gui, best, elite, better, second, half
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Big 3 🔥🔥🔥  Santos with the pivotal steal and steps up huge in the second half. 
+Santos the new Draymond.
+We finally won a game
+
+EXAMPLE 2:
+Gui Santos’s takeaway from this narrow loss down half the team: “We gotta keep batting. We gotta keep trying to win games when we don't have other guys, because we know when they get back we're gonna be good.”  I really do like Gui I actually think he might have the highest upside of any of our younger players to be honest.
+He’s surprisingly an incredibly smart player especially for his age, ironically reminds me a lot of Jimmy Butler. He could legit be another Jimmy in the league at this pace. [...]
+
+EXAMPLE 3:
+GP2 has been playing the second best stretch of his career Obviously after injuries started adding up, Gui/Mo/Podz and all the other role players have stepped up but one of them that doesn’t get talked about is Gary. His energy is there every night, elite crash rate, moving a lot better than he did earlier this season and even last season. 22’ GP2 back? Maybe the best of his career. He's not quite as insanely athletic - but his shooting is better as is his passing and playmaking. He's a more rounded player - and real valuable.
+He's probably better offensively then he was in the title run.
+
+EXAMPLE 4:
+He's someway off being the same defensive force though.   He was arguably the best guard defender in the league at that point. 
+He’s been making a lot of the right cuts
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

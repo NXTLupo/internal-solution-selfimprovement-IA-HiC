@@ -1,0 +1,2448 @@
+# Microsoft Copilot Studio and Power Platform: The 2025–2026 Landscape
+
+Microsoft's Power Platform underwent a structural transformation in 2025–2026. Copilot Studio evolved from a chatbot builder into a full AI agent orchestration platform. Generative orchestration became the default paradigm, agent flows introduced Copilot Credit–based billing, multi-agent collaboration matured, and Teams integration deepened.
+
+Simultaneously:
+
+- **Power Apps** adopted an agent-first architecture with generative pages and MCP server support.
+- **Power Automate** remained the deterministic execution backbone connecting agents to enterprise systems.
+
+This document covers major capabilities, limits, architectural patterns, and integration models as of February 2026.
+
+---
+
+# Generative Orchestration: LLM-Driven Planning Replaces Trigger Phrases
+
+Generative orchestration became GA for English agents in March 2025 and is now the default for new agents.
+
+## Core Architectural Shift
+
+Classic trigger-phrase matching is replaced with:
+
+- An LLM-driven planning layer
+- Intent interpretation
+- Automatic topic/tool selection
+- Multi-step execution with guardrails
+
+Instead of defining “User says X,” makers now define **topic descriptions**. The orchestrator uses:
+
+- Topic name
+- Topic description
+- Input/output parameter names and descriptions
+- Conversation context
+
+…to determine routing.
+
+When migrating classic agents, descriptions are auto-generated from trigger phrases, though manual refinement is recommended.
+
+## Capabilities
+
+- Multi-intent handling in a single turn
+- Sequential chaining of topics and tools
+- Custom agent instructions influencing planning
+- Activity map for inspecting execution during testing
+- Model selection:
+  - GPT-4.1 (default as of Oct 2025)
+  - GPT-5 Chat GA (Nov 2025, EU/US)
+  - GPT-5 Reasoning (preview)
+  - Experimental models
+
+## Key Limitations
+
+- No Conversational Boosting system topic
+- No custom entities (closed lists, regex) as tool inputs
+- No “Multiple Topics Matched” disambiguation topic
+- Limited conversation history window
+- Maximum 128 tools per agent (25–30 recommended)
+
+---
+
+# Tools Framework: Unified Agent Extensibility
+
+Introduced at Build 2025, **Tools** unify extensibility under one model.
+
+## Six Tool Types
+
+1. Connector (prebuilt or custom)
+2. Agent flow
+3. Prompt (single-turn model-based)
+4. REST API
+5. MCP (Model Context Protocol, preview)
+6. Computer use (GUI automation, preview)
+
+## Power Automate as Tool Requirements
+
+Flow must:
+
+- Use trigger: **“When an agent calls the flow”**
+- Use response: **“Respond to the agent”**
+- Have asynchronous response disabled
+- Respond within 100 seconds
+
+Actions after “Respond to agent” may run up to 30 days asynchronously.
+
+## Tool Completion Modes
+
+After execution, tools can:
+
+- **Don’t respond (default)** — Agent incorporates output
+- **Write response with generative AI**
+- **Send specific response** (templated + Power Fx)
+- **Send Adaptive Card**
+
+## Tool Configuration Options
+
+- Authentication:
+  - End user credentials
+  - Maker credentials
+- “Ask before running” confirmation
+- AI-driven input filling (default: dynamic extraction from context)
+
+---
+
+# Agent Flows: Deterministic Automation in Copilot Studio
+
+GA March 31, 2025.
+
+Agent flows replicate ~98% of cloud flow functionality but are:
+
+- Billed under **Copilot Credits**
+- Single-maker only
+- Not shareable or co-owned
+
+## Differences vs. Cloud Flows
+
+| Feature | Agent Flow |
+|----------|------------|
+| Licensing | Copilot Credits |
+| AI Actions | Native LLM + Prompt Builder |
+| Human-in-the-loop | Advanced approvals, RFI |
+| Sharing | Not supported |
+
+## Express Mode (Preview)
+
+Optimizes for 2-minute window.
+
+Constraints:
+
+- No Delay
+- No Webhooks
+- No HTTP actions
+- Max 100 actions per run
+- 1,024-character variable limit
+- Must complete in 2 minutes
+
+## Conversion
+
+Cloud flow → Agent flow:
+
+- One-way
+- Must be in solution
+- Requires Copilot Studio capacity
+- Post-conversion billed via Copilot Credits
+
+---
+
+# Action Nodes and Latency Messaging
+
+When adding tools to topics, an **Action node** is created.
+
+Capabilities:
+
+- Map topic variables to flow inputs
+- Capture outputs
+- Send latency message during execution
+  - Example: “Let me check that for you.”
+- Configure repeat delay
+- Set minimum wait time
+- Support SSML (voice channels)
+
+Hard limit: **100-second synchronous timeout**
+
+Recommendations:
+
+- Use HTTP Request nodes for simple lookups
+- Move long-running tasks after “Respond to agent”
+
+---
+
+# Adaptive Cards (Up to v1.6) + Power Fx
+
+Supported schema: **Adaptive Card v1.6 (channel-dependent)**
+
+Channel Support:
+
+- Web Chat: v1.6 (no Action.Execute)
+- Teams: v1.6
+- Dynamics 365 Omnichannel: v1.5
+
+## Power Fx Integration
+
+Switch from JSON to Formula mode for:
+
+- Dynamic variable insertion
+- Conditional logic
+- Formatting
+- Show/hide logic
+
+Limitations:
+
+- No `choices.data` in Formula mode
+- System variables must be mapped to custom variables first
+
+Regex functions (IsMatch, Match, MatchAll) added mid-2025.
+
+Interactive cards:
+
+- Must use Adaptive Card node
+- Require submit button
+- Unique IDs per card
+- Power Automate does not support card templating
+
+---
+
+# Multi-Agent Orchestration
+
+Announced Build 2025 (Preview).
+
+## Patterns
+
+### 1. Child Agents
+
+- Embedded inside parent
+- Share environment
+- Lightweight modularization
+
+### 2. Connected Agents
+
+- Independent ownership
+- Independent orchestration
+- Separate authentication
+
+Supported sources:
+
+- Copilot Studio agents
+- Microsoft Foundry agents
+- Fabric Data agents
+- Microsoft 365 Agents SDK
+- A2A protocol agents (preview)
+
+## MCP Integration
+
+Public preview since Sept 2025.
+
+Connect via host URL → enables external tool discovery and real-time actions.
+
+---
+
+# Authentication Modes
+
+Three modes:
+
+## 1. No Authentication
+- Public link access
+
+## 2. Authenticate with Microsoft
+- Teams only
+- Automatic Entra ID
+- Access to:
+  - User.PrincipalName
+  - User.DisplayName
+  - User.Email
+  - User.Id
+
+## 3. Manual OAuth2
+- Teams + other channels
+- Entra ID or any OAuth2 provider
+- Access to:
+  - User.AccessToken
+  - User.IsLoggedIn
+
+New (Nov 2025 Preview): Automatic Entra Agent Identity creation.
+
+---
+
+# Proactive Messaging (Teams Only)
+
+Implemented via Power Automate:
+
+- Teams action: “Post message in chat or channel”
+- “Post as” = Copilot Studio (Preview)
+
+Supports:
+
+- Text
+- Adaptive Cards
+- Interactive cards
+
+## Constraints
+
+- Teams only
+- Personal 1:1 chat only
+- Agent must be installed
+- Not logged in transcripts
+- Preview status
+
+## Enterprise Pattern
+
+- Flow Bot → Channel announcements
+- Copilot Studio Bot → Personal follow-up
+
+---
+
+# Delay and Wait Workarounds
+
+No native delay node.
+
+## Patterns
+
+- Agent flow with Delay action
+- Chain 90-second delay flows sequentially (community pattern)
+- Long operations placed after “Respond to agent” (up to 30 days)
+
+LLM-only delay attempts are unreliable.
+
+---
+
+# Power Automate HTTP & API Integration
+
+## HTTP Timeout
+
+- 120 seconds synchronous
+- Asynchronous polling extends to 30 days
+
+## Expression Assistant (GA Dec 2025)
+
+Natural language → Power Fx or WDL expressions.
+
+## SharePoint Enhancements
+
+- Modern approval integration
+- Desktop connector support
+
+## Teams Connector Limits
+
+- 25 requests per 300 seconds (channel posting)
+- No private channel Adaptive Cards
+- Branding limitations
+
+---
+
+# External AI API Integration
+
+Primary method: Premium HTTP action.
+
+### Authentication Patterns
+
+- OpenAI: `Authorization: Bearer`
+- Anthropic: `x-api-key`
+- Azure OpenAI: `api-key`
+
+### Structured JSON Output
+
+Three approaches:
+
+1. OpenAI `response_format: json_object`
+2. AI Builder structured JSON
+3. Explicit prompt schema
+
+### Error Handling
+
+- Try–Catch–Finally via Scope
+- Auto retries for 408, 429, 5xx
+- Custom backoff for rate limits
+
+## REST API Tools (Preview)
+
+Upload OpenAPI v2 spec → orchestrator auto-invokes endpoints.
+
+---
+
+# Power Apps: Generative & Agent-First
+
+## Generative Pages (GA Nov 2025)
+
+- Natural language → React pages
+- Dataverse connected
+- Solution-aware
+- Virtual entity support
+
+## Plan Designer (GA 2025)
+
+Generates:
+
+- Dataverse tables
+- Canvas apps
+- Model-driven apps
+- Flows
+- Agents
+
+From natural language description.
+
+## MCP Server (Preview Feb 2026)
+
+Enables AI agents to automate app tasks with human oversight.
+
+## Deprecations
+
+- Copilot control removed Feb 2, 2026
+- Classic model-driven UI retired April 2026
+- AI Builder seeded credits removed Nov 2026
+
+---
+
+# Teams Deployment & Bot Tradeoffs
+
+| Capability | Flow Bot | Copilot Studio Bot |
+|------------|----------|-------------------|
+| Channels | ✅ | ❌ |
+| Personal Chat | ✅ | ✅ |
+| Branding | ❌ | ✅ |
+| Adaptive Cards | ❌ | ✅ |
+| Conversational | ❌ | ✅ |
+| Requires Installation | ❌ | ✅ |
+| Logged Proactive | ✅ | ❌ |
+
+Recommended enterprise pattern: Hybrid deployment.
+
+---
+
+# Copilot Credits Economy
+
+Effective Sept 1, 2025.
+
+## Pricing
+
+- $200/month → 25,000 credits
+- $0.01 per credit (PAYG)
+
+Microsoft 365 Copilot users:
+
+- Internal interactions zero-rated
+- Autonomous triggers always consume credits (25 per trigger)
+
+## Credit Consumption
+
+| Action | Credits |
+|--------|---------|
+| Classic answer | 1 |
+| Generative answer | 2 |
+| Agent action | 5 |
+| Tenant graph grounding | 10 |
+| Agent flow (per 100 actions) | 13 |
+| Premium/reasoning AI tools (per 10 responses) | 100 |
+
+## Rate Limits
+
+- 1–10 packs: 50 RPM / 1,000 RPH
+- 51–150 packs: 100 RPM / 2,000 RPH
+- Enforcement at 125% prepaid
+
+## Session Limits
+
+- 30-minute inactivity timeout
+- 60-minute max duration
+- 100-turn cap
+
+## Structural Limits
+
+- 8,000-character instruction field
+- 1,000 topics per agent
+- 500 knowledge objects (max 5 types)
+
+---
+
+# Conclusion
+
+The 2025–2026 Power Platform evolution marks a structural shift from chatbot construction to autonomous agent orchestration.
+
+Key architectural realities:
+
+- Generative orchestration replaces brittle trigger logic.
+- GPT-5 Chat enables semantic routing and planning.
+- Tools unify six extensibility models.
+- Agent flows collapse licensing friction.
+- 100-second synchronous timeout and 128-tool cap define architecture boundaries.
+- Teams deployment requires hybrid bot strategy.
+- Copilot Credits make licensing inseparable from system design.
+
+The platform is no longer a conversational wrapper around flows—it is an agent runtime with deterministic automation beneath it.
+
+## "FEW SHOT" EXAMPLE RECIPE - LEVEL OF DETAIL 
+# Industry Research Agent (Aria) — Complete Build Recipe v2.0
+
+**Version:** 2.0  
+**Date:** February 19, 2026  
+**Objective:** Build an autonomous Industry Research Agent in Microsoft Copilot Studio that ingests PDFs from SharePoint, analyzes them with user-selected AI models (Claude, GPT, or Gemini), generates professional infographics via Gemini 3 Pro image generation, and delivers polished reports via email, Teams Adaptive Cards, and SharePoint.  
+**Estimated Build Time:** 8–12 hours  
+**Agent Persona:** Deterministic, jargon-free senior industry analyst that never fabricates information.
+
+---
+
+## Architecture Overview
+
+The system operates as a **two-flow asynchronous pipeline** triggered from a Copilot Studio agent:
+
+```
+USER (Teams) → Copilot Studio Agent → Flow A (Multi-Model Reasoning Engine)
+                                            │
+                                            ├── Responds immediately to agent (async pattern)
+                                            ├── Gets PDF(s) from SharePoint /Research Documents/
+                                            ├── Calls selected AI model (Claude/GPT/Gemini)
+                                            ├── Generates structured JSON analysis
+                                            └── Saves JSON to /JSON Output/ ──triggers──→ Flow B
+                                                                                            │
+Flow B (Research Report Orchestrator) ←─────────────────────────────────────────────────────┘
+    │
+    ├── Reads JSON analysis
+    ├── Calls Gemini 3 Pro for infographic generation
+    ├── Saves infographics to /Infographics/
+    ├── Generates HTML report
+    ├── Saves to /Final Reports/
+    ├── Emails report to requestor
+    └── Posts Teams Adaptive Card with download links
+```
+
+**Three interaction modes converge on the same pipeline:**
+1. **Conversational (Teams):** User asks a question → agent orchestrates analysis → reports delivered
+2. **Document Upload (SharePoint trigger):** New PDF in /Research Documents/ → auto-analysis → reports delivered
+3. **Email Request (Outlook trigger):** Email with [Research] subject → agent processes → reports delivered
+
+---
+
+## Prerequisites Checklist
+
+| Requirement | Details | Status |
+|---|---|---|
+| Copilot Studio license | With Copilot Credits (agent flows: 13 credits/100 actions; agent action: 5 credits) | ☐ |
+| SharePoint site | https://nxthumans.sharepoint.com/sites/Research with Shared Documents library | ☐ |
+| Anthropic API key | Stored as environment variable `lupo_AnthropicAPIKey` | ☐ |
+| OpenAI API key | Stored as environment variable `lupo_OpenAIAPIKey` | ☐ |
+| Google Gemini API key | Stored as environment variable `lupo_GeminiAPIKey` (covers both text + image generation) | ☐ |
+| Teams admin access | For publishing the agent to Teams | ☐ |
+| Microsoft 365 Copilot license (optional) | Zero-rates internal agent interactions; autonomous triggers always cost 25 credits | ☐ |
+| Word desktop app | Required for creating the report template (Word Online doesn't support content controls) | ☐ |
+
+## What You're Building
+
+| Component | Type | Approx. Actions |
+|---|---|---|
+| Industry Research Analyst | NEW Copilot Studio agent | 5 topics, 4+ tools, 2+ knowledge sources |
+| Multi-Model Reasoning Engine (Flow A) | Cloud flow (Skills trigger) | ~25 actions |
+| Research Report Orchestrator (Flow B) | Automated cloud flow (SharePoint trigger) | ~20 actions |
+| Infographic Generator | Sub-flow or inline in Flow B | ~8 actions |
+
+**TOTAL NEW ACTIONS:** ~53 across 2-3 flows
+
+---
+
+# PHASE 1 — SHAREPOINT FOLDER STRUCTURE
+
+---
+
+## STEP 1 — Create the SharePoint Folder Structure
+
+**Platform:** SharePoint  
+**Component:** https://nxthumans.sharepoint.com/sites/Research  
+**Location:** /Shared Documents/ (root level)  
+**Action Type:** Manual — SharePoint browser UI
+
+### Instructions
+
+1. Navigate to:
+   ```
+   https://nxthumans.sharepoint.com/sites/Research/Shared%20Documents
+   ```
+
+2. Create each of the following folders by clicking **+ New** → **Folder** for each one. If a folder already exists, skip it.
+
+| Folder Name | Path | Purpose |
+|---|---|---|
+| `Research Documents` | /Shared Documents/Research Documents/ | Source PDFs uploaded by users for analysis |
+| `JSON Output` | /Shared Documents/JSON Output/ | Structured JSON analysis files from Flow A |
+| `Infographics` | /Shared Documents/Infographics/ | Generated infographic PNGs from Gemini |
+| `Final Reports` | /Shared Documents/Final Reports/ | Completed HTML/PDF reports |
+| `Templates` | /Shared Documents/Templates/ | Report templates (Word, HTML) |
+| `Drafts for Review` | /Shared Documents/Drafts for Review/ | Draft infographics and reports pending human approval |
+
+### Verification
+
+Navigate into each folder to confirm it exists. **6 folders total** (some may already exist from prior work).
+
+**⚠️ WATCH OUT:** SharePoint encodes spaces as `%20` in URLs. Use plain names with spaces in the UI — encoding happens automatically.
+
+---
+
+## STEP 2 — Upload the Report Template
+
+**Platform:** SharePoint  
+**Component:** /Shared Documents/Templates/  
+**Action Type:** Manual — Create and upload file
+
+### Instructions
+
+This step creates the branded HTML report template that Flow B uses to generate final reports. We use HTML rather than Word templates because HTML is easier to populate programmatically in Power Automate and renders natively in email.
+
+1. Create a local file named `report-template.html` with the following content:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{REPORT_TITLE}}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;600&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 300;
+    color: #333333;
+    line-height: 1.6;
+    background: #FFFFFF;
+  }
+  
+  .cover {
+    background: #0D0D0D;
+    color: #FFFFFF;
+    padding: 80px 60px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .cover h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  
+  .cover .subtitle {
+    font-weight: 200;
+    font-size: 16px;
+    color: #B8B800;
+    margin-bottom: 4px;
+  }
+  
+  .cover .date {
+    font-weight: 200;
+    font-size: 14px;
+    color: #D9D9D9;
+  }
+  
+  .cover .divider {
+    width: 80px;
+    height: 3px;
+    background: #B8B800;
+    margin: 20px 0;
+  }
+  
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 60px;
+  }
+  
+  .section {
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+  }
+  
+  .section h2 {
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0D0D0D;
+    border-left: 4px solid #B8B800;
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .section p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .citation {
+    font-size: 11px;
+    color: #4A4A4A;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  
+  .callout {
+    background: #F5F5F5;
+    border-left: 4px solid #B8B800;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  
+  .callout .number {
+    font-weight: 600;
+    font-size: 32px;
+    color: #0D0D0D;
+  }
+  
+  .infographic-container {
+    width: 100%;
+    margin: 24px 0;
+    text-align: center;
+  }
+  
+  .infographic-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .infographic-caption {
+    font-size: 11px;
+    color: #4A4A4A;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  
+  .metadata {
+    background: #F5F5F5;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #4A4A4A;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #4A4A4A;
+    border-top: 1px solid #D9D9D9;
+    margin-top: 40px;
+  }
+  
+  .footer .brand {
+    color: #B8B800;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="divider"></div>
+  <h1>{{REPORT_TITLE}}</h1>
+  <div class="subtitle">{{REPORT_SUBTITLE}}</div>
+  <div class="date">Generated {{REPORT_DATE}} · Model: {{MODEL_USED}} · Sources: {{DOCUMENT_COUNT}}</div>
+</div>
+
+<div class="content">
+  {{SECTIONS}}
+</div>
+
+<div class="metadata">
+  <strong>Report Metadata</strong><br>
+  Model: {{MODEL_USED}} · Processing Time: {{PROCESSING_TIME}} · Documents Analyzed: {{DOCUMENT_COUNT}}<br>
+  Generated by NXT Humans Industry Research Agent
+</div>
+
+<div class="footer">
+  <span class="brand">NXT Humans</span> · Industry Research · Confidential
+</div>
+
+</body>
+</html>
+```
+
+2. Upload `report-template.html` to `/Shared Documents/Templates/` in SharePoint.
+
+**Note:** The `{{PLACEHOLDERS}}` are replaced by Flow B at runtime using string replacement expressions.
+
+---
+
+# PHASE 2 — CREATE AND CONFIGURE THE AGENT
+
+---
+
+## STEP 3 — Create a Blank Agent in Copilot Studio
+
+**Platform:** Copilot Studio  
+**Component:** NEW AGENT — Industry Research Analyst  
+**Location:** https://copilotstudio.microsoft.com  
+**Action Type:** Manual — Copilot Studio UI
+
+### Instructions
+
+1. Navigate to `https://copilotstudio.microsoft.com` and sign in with your work account.
+
+2. In the left sidebar, click **Agents** ⚠️ VERIFY — may be labeled "Copilots" or appear on "Home."
+
+3. Click **Create blank agent** ⚠️ VERIFY button label. To change the primary language, solution, or schema name, click the **down arrow** next to the button and select **Advanced create → Confirm and create**.
+
+4. The **Overview page** opens with sections for Details, Instructions, Knowledge, Tools, Suggested Prompts, and Channels.
+
+**⚠️ WATCH OUT:** If Copilot Studio offers a "Create from template" option, skip it. Create from blank.
+
+---
+
+## STEP 4 — Set Agent Name, Description, and Icon
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Overview page → Details section  
+**Action Type:** Manual — edit details
+
+### Instructions
+
+1. On the Overview page, click the **Edit** (pencil) icon in the **Details** section.
+
+2. Set the following:
+
+| Field | Value |
+|---|---|
+| **Name** | `Industry Research Analyst` (max 42 characters) |
+| **Description** | `Autonomous industry research agent that analyzes uploaded documents, generates structured reports with infographics, and delivers findings via email and Teams. Supports multi-model reasoning with Claude, GPT, and Gemini.` (max 1,024 characters) |
+
+3. Click the agent icon in the top bar → **Change icon** → upload a **192 × 192 px PNG** (max 72 KB) representing the analyst persona.
+
+4. Save.
+
+---
+
+## STEP 5 — Enable Generative Orchestration
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Overview page → Details section → Orchestration toggle  
+**Action Type:** Manual — toggle setting
+
+### Instructions
+
+1. Still in the **Details** section of the Overview page, locate the **Orchestration** toggle.
+
+2. Set **"Use generative AI to determine how best to respond to users and events"** to **Yes**.
+
+3. New agents default to this, but **verify it is on**. Generative orchestration allows the agent to dynamically select topics, tools, and knowledge sources using an LLM planner rather than rigid trigger-phrase matching — essential for handling multi-intent research queries.
+
+**⚠️ CRITICAL:** With generative orchestration ON:
+- Topics use **descriptions** (not trigger phrases) for routing
+- The orchestrator can chain multiple topics and tools in a single turn
+- Maximum **128 tools** per agent (25-30 recommended for optimal performance)
+- No support for custom entities (closed lists, regex) as tool input parameters
+- No disambiguation via "Multiple Topics Matched" system topic
+
+---
+
+## STEP 6 — Write Agent Instructions
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Overview page → Instructions section  
+**Action Type:** Manual — paste text (max 8,000 characters)
+
+### Instructions
+
+1. On the Overview page, click **Edit** in the **Instructions** section.
+
+2. Paste the following instruction block (approximately 3,800 characters):
+
+```
+[PERSONA]
+You are a senior industry research analyst at NXT Humans. Your tone is professional, concise, and jargon-free. You deliver deterministic, evidence-based analyses — never speculate, never hallucinate, never fabricate data. When uncertain, state so explicitly.
+
+[CHAIN-OF-THOUGHT]
+For every research request, reason step-by-step:
+1. Identify the industry, sector, and geographic scope.
+2. Retrieve relevant documents from the Research Documents library.
+3. Extract key data points: market size, growth rates, competitive landscape, regulatory factors, and technology trends.
+4. Synthesize findings into a structured report with sections: Executive Summary, Market Overview, Competitive Analysis, Trends & Drivers, Risk Factors, Outlook.
+5. Include precise citations (document name, author, date, page/section) for every claim.
+
+[OUTPUT FORMAT]
+Return a structured JSON object with keys: title, date, sections (array of {heading, content, citations}), metadata (model_used, processing_time, document_count). The downstream pipeline will convert this to a branded HTML report with infographics.
+
+[MODEL SELECTION]
+When the user starts a session, present the model selection card. Default is Claude 4.5 Sonnet. Available models: Claude 4.5 Sonnet (Anthropic), GPT-5.2 (OpenAI), Gemini 3 Pro (Google), Auto-Route (system selects optimal model). Store the user's choice in Global.modelChoice and use it for all reasoning calls during the session.
+
+[DOCUMENT HANDLING]
+When the user asks to analyze specific documents:
+1. List available PDFs in /Shared Documents/Research Documents/ using the File Listing tool.
+2. Present the list and let the user select which documents to analyze.
+3. Pass selected document identifiers to the Multi-Model Reasoning Engine.
+4. The engine will retrieve, encode, and analyze the PDFs.
+
+[CONSTRAINTS]
+- Only answer questions related to industry research and market analysis.
+- Cite every factual claim with its source document, author, and date.
+- If no relevant knowledge source is found, respond: "I could not find sufficient data to answer this question. Please upload relevant documents to the Research Documents library."
+- Never provide financial advice, investment recommendations, or legal opinions.
+- Never fabricate citations or data points.
+
+[ENVIRONMENT - NXT HUMANS]
+SharePoint Site: https://nxthumans.sharepoint.com/sites/Research
+PDF Source: /Shared Documents/Research Documents/
+JSON Output: /Shared Documents/JSON Output/
+Infographics: /Shared Documents/Infographics/
+Final Reports: /Shared Documents/Final Reports/
+Templates: /Shared Documents/Templates/
+Drafts: /Shared Documents/Drafts for Review/
+
+AI Models:
+- Claude 4.5 Sonnet: claude-sonnet-4-5-20250929 (API key: lupo_AnthropicAPIKey)
+- GPT-5.2: gpt-5.2 (API key: lupo_OpenAIAPIKey)
+- Gemini 3 Pro: gemini-3-pro-image-preview (API key: lupo_GeminiAPIKey)
+
+Brand Colors: Primary Dark #0D0D0D, Accent Chartreuse #B8B800, Accent Cyan #00B7C3
+File Naming: YYYYMMDD_HHmmss_analysis.json
+
+[DELIVERY]
+After analysis completes, the pipeline delivers results through three channels simultaneously:
+1. Teams Adaptive Card with download links (posted to the requesting user)
+2. Email with report summary and PDF/HTML attachment (sent to requesting user's email)
+3. SharePoint file saves (JSON to /JSON Output/, infographics to /Infographics/, reports to /Final Reports/)
+```
+
+3. Click **Save**.
+
+---
+
+## STEP 7 — Disable General Knowledge
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Settings → Generative AI  
+**Action Type:** Manual — toggle setting
+
+### Instructions
+
+1. Click the **Settings** gear icon at the top of the page.
+
+2. Navigate to **Generative AI** ⚠️ VERIFY exact section name.
+
+3. Toggle **"Allow the AI to use its own general knowledge"** to **Off**.
+
+4. This forces the agent to answer exclusively from your curated SharePoint knowledge sources, preventing hallucination. The agent will only use information from uploaded research documents.
+
+5. Save.
+
+---
+
+## STEP 8 — Select the Agent Model
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Settings → AI capabilities ⚠️ VERIFY  
+**Action Type:** Manual — select model
+
+### Instructions
+
+1. In Settings, navigate to the AI model selection section ⚠️ VERIFY — may be "AI capabilities", "Generative AI", or "Model."
+
+2. Select **GPT-5 Chat GA** from the dropdown ⚠️ VERIFY exact label. This is the orchestration model that routes user intent to topics and tools — it is NOT the model used for research analysis (that's handled by Flow A).
+
+3. Available options should include: GPT-4.1 GA, GPT-5 Chat GA, GPT-5 Reasoning (preview).
+
+4. Save.
+
+**⚠️ NOTE:** The orchestration model (GPT-5 Chat) handles routing and planning. The actual research analysis model is selected by the user (Claude/GPT/Gemini) and executed in Flow A via HTTP.
+
+---
+
+## STEP 9 — Configure Authentication
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Settings → Security → Authentication  
+**Action Type:** Manual — select auth mode
+
+### Instructions
+
+1. Navigate to **Settings → Security → Authentication** ⚠️ VERIFY exact nav path.
+
+2. Select **Authenticate with Microsoft**.
+
+3. This enables:
+   - Automatic Entra ID authentication on the Teams channel
+   - No manual OAuth setup required
+   - System variables available:
+     - `System.User.PrincipalName` (email/UPN) — **used for email delivery addressing**
+     - `System.User.DisplayName` — used in report metadata
+     - `System.User.Email` ⚠️ VERIFY if separate from PrincipalName
+     - `System.User.Id` — used for Teams card delivery
+
+4. Save.
+
+**⚠️ CRITICAL for email delivery:** The `System.User.PrincipalName` is how the system knows where to email the completed report. This variable is only populated when auth is enabled and the user is on the Teams channel. The test pane does NOT populate this — test email delivery only after publishing to Teams.
+
+---
+
+## STEP 10 — Add Knowledge Sources
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Knowledge section (Overview page or dedicated tab)  
+**Action Type:** Manual — add knowledge sources
+
+### Instructions
+
+1. Navigate to the **Knowledge** section ⚠️ VERIFY location.
+
+2. Click **+ Add knowledge** ⚠️ VERIFY button label.
+
+3. Add each source:
+
+**Source 1 — Research Documents Library**
+
+| Field ⚠️ VERIFY | Value |
+|---|---|
+| Type | SharePoint |
+| Site | https://nxthumans.sharepoint.com/sites/Research |
+| Path | /Shared Documents/Research Documents/ |
+| Name | `Research Documents Library` |
+| Description | `Contains industry reports, market analyses, competitive intelligence documents, financial filings, and analyst notes in PDF, Word, Excel, and PowerPoint formats.` |
+
+**Source 2 — Microsoft Learn (Copilot Studio)** (optional, for self-troubleshooting)
+
+| Field ⚠️ VERIFY | Value |
+|---|---|
+| Type | Website URL |
+| URL | https://learn.microsoft.com/en-us/microsoft-copilot-studio/ |
+| Name | `Microsoft Learn — Copilot Studio` |
+
+**⚠️ IMPORTANT:** SharePoint knowledge respects the signed-in user's permissions via Entra ID. Files up to **512 MB** are supported with an M365 Copilot license; **7 MB** without. Knowledge does **not auto-sync** — the SharePoint trigger in Phase 7 handles new uploads.
+
+**⚠️ KNOWLEDGE LIMITS:** 500 knowledge objects across up to 5 source types. If sharing an environment with the Copilot Builder agent, verify combined limits.
+
+---
+
+## STEP 11 — Configure System Topics
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Topics tab → System subtab  
+**Action Type:** Manual — edit system topics
+
+### Instructions
+
+1. Click the **Topics** tab at the top → select the **System** subtab.
+
+2. Configure each system topic by clicking its name:
+
+**Conversation Start:**
+Edit the greeting message:
+```
+Welcome. I am your Industry Research Analyst. Upload documents to the Research Documents library or ask me to analyze an industry topic.
+
+To begin, please select your preferred reasoning model.
+```
+Add a redirect node to the **Model Selection** topic (created in Step 23).
+
+**Fallback:**
+Edit the message:
+```
+I didn't understand that request. Please rephrase your question about industry research, or type 'help' for available commands.
+```
+Set redirect to **Escalate** after 2 failed attempts.
+
+**Escalate:**
+Edit message:
+```
+I'm connecting you with a human analyst. Please hold.
+```
+Configure handoff if your organization uses Dynamics 365 Omnichannel.
+
+**On Error:**
+Keep default error display (error code, conversation ID, timestamp) for troubleshooting.
+
+**End of Conversation:**
+Enable the satisfaction survey toggle to collect user feedback on report quality.
+
+**⚠️ NOTE:** System topics cannot be deleted but can be disabled via toggle if not needed.
+
+---
+
+# PHASE 3 — BUILD FLOW A: MULTI-MODEL REASONING ENGINE
+
+This is the core analysis flow. It receives a research request from the agent, retrieves PDFs from SharePoint, sends them to the user's selected AI model, generates structured JSON analysis, and saves the output to trigger Flow B.
+
+---
+
+## STEP 12 — Create Flow A in Power Automate
+
+**Platform:** Power Automate  
+**Component:** NEW FLOW — Multi-Model Reasoning Engine  
+**Location:** https://make.powerautomate.com → Solutions → your solution  
+**Action Type:** Create new cloud flow (Instant)
+
+### Instructions
+
+1. Navigate to `https://make.powerautomate.com`.
+
+2. Go to **Solutions** → select your solution → **New** → **Cloud flow** → **Instant** ⚠️ VERIFY exact navigation.
+
+3. Select trigger: **"When an agent calls the flow"** ⚠️ VERIFY exact trigger name (may be "Run a flow from Copilot").
+
+4. Name the flow: `Multi-Model Reasoning Engine`
+
+### ⚠️ CRITICAL — Express Mode
+
+If this flow is created as an agent flow inside Copilot Studio (rather than a cloud flow in Power Automate), **Express Mode will be ON by default**. Express Mode **blocks HTTP actions**. Since this flow makes HTTP calls to AI APIs, you **MUST** either:
+- Create it as a **cloud flow** in Power Automate (recommended — no Express Mode)
+- Or disable Express Mode if created as an agent flow
+
+### Configure Trigger Inputs
+
+Add these input parameters to the trigger:
+
+| Input Name | Type | Description |
+|---|---|---|
+| `userMessage` | Text | The user's natural language research request |
+| `modelChoice` | Text | Selected model: claude-sonnet-4-5, gpt-5.2, gemini-3-pro, or auto |
+| `selectedFiles` | Text | Comma-separated list of file names to analyze (or "all" for entire folder) |
+| `requestorEmail` | Text | User's email for report delivery (from System.User.PrincipalName) |
+
+---
+
+## STEP 13 — Build Flow A Action Stack (Actions 1–6: Setup)
+
+### Action 1 — Respond to Agent (Async Pattern — FIRST ACTION)
+
+**Position:** Directly below the trigger — THIS MUST BE THE FIRST ACTION  
+**Action Type:** Respond to the agent ⚠️ VERIFY exact action name  
+**Action Name:** `Respond to Agent`
+
+| Output Name | Type | Value |
+|---|---|---|
+| `status` | Text | `Processing your research request. You'll receive the completed report via Teams and email when ready.` |
+
+**⚠️ CRITICAL — THE ASYNC RESPOND PATTERN:**
+This action fires immediately, returning control to the Copilot Studio agent within seconds. **All subsequent actions in the flow continue running asynchronously** for up to **30 days**. This is how you avoid the 100-second synchronous timeout limitation.
+
+The agent will display the status message to the user immediately, and the rest of the pipeline runs in the background.
+
+---
+
+### Action 2 — Initialize Variable: varAnthropicKey
+
+**Position:** Directly below Respond to Agent  
+**Action Type:** Initialize variable  
+**Action Name:** `Init varAnthropicKey`
+
+| Field | Value |
+|---|---|
+| Name | `varAnthropicKey` |
+| Type | String |
+| Value | *(Use environment variable reference or paste key directly — see note below)* |
+
+**⚠️ API Key Options:**
+- **Preferred:** Reference environment variable `lupo_AnthropicAPIKey` using the expression: `@{parameters('lupo_AnthropicAPIKey')}`  ⚠️ VERIFY — environment variable syntax depends on how it's configured in your solution
+- **Fallback:** Paste the API key directly (less secure, functional for dev)
+
+---
+
+### Action 3 — Initialize Variable: varOpenAIKey
+
+**Position:** Directly below Init varAnthropicKey  
+**Action Type:** Initialize variable  
+**Action Name:** `Init varOpenAIKey`
+
+| Field | Value |
+|---|---|
+| Name | `varOpenAIKey` |
+| Type | String |
+| Value | Reference `lupo_OpenAIAPIKey` or paste directly |
+
+---
+
+### Action 4 — Initialize Variable: varGeminiKey
+
+**Position:** Directly below Init varOpenAIKey  
+**Action Type:** Initialize variable  
+**Action Name:** `Init varGeminiKey`
+
+| Field | Value |
+|---|---|
+| Name | `varGeminiKey` |
+| Type | String |
+| Value | Reference `lupo_GeminiAPIKey` or paste directly |
+
+---
+
+### Action 5 — Initialize Variable: varAnalysisResult
+
+**Position:** Directly below Init varGeminiKey  
+**Action Type:** Initialize variable  
+**Action Name:** `Init varAnalysisResult`
+
+| Field | Value |
+|---|---|
+| Name | `varAnalysisResult` |
+| Type | String |
+| Value | *(leave empty)* |
+
+This variable will hold the unified AI model response regardless of which model was called.
+
+---
+
+### Action 6 — Initialize Variable: varModelUsed
+
+**Position:** Directly below Init varAnalysisResult  
+**Action Type:** Initialize variable  
+**Action Name:** `Init varModelUsed`
+
+| Field | Value |
+|---|---|
+| Name | `varModelUsed` |
+| Type | String |
+| Value | *(leave empty)* |
+
+**⚠️ REMINDER:** All Initialize Variable actions MUST be at the top level of the flow — never inside conditions, loops, or branches.
+
+---
+
+## STEP 14 — Build Flow A Action Stack (Actions 7–10: PDF Retrieval)
+
+### Action 7 — List Files in Research Documents
+
+**Position:** Directly below Init varModelUsed  
+**Action Type:** List files in folder (SharePoint) ⚠️ VERIFY — may be "Get files (properties only)"  
+**Action Name:** `List Research Documents`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path ⚠️ VERIFY | `/Shared Documents/Research Documents` |
+
+**Output:** An array of file objects. Each has properties: `{Name}`, `{Path}`, `{Id}`, `{FilenameWithExtension}`, `{Link}`.
+
+---
+
+### Action 8 — Filter Selected Files
+
+**Position:** Directly below List Research Documents  
+**Action Type:** Filter array (Data Operations)  
+**Action Name:** `Filter Selected Files`
+
+| Field | Value |
+|---|---|
+| From | `@{body('List_Research_Documents')}` (output of Action 7) |
+| Condition | If `selectedFiles` equals "all": no filter needed. Otherwise: `@contains(triggerBody()?['text_2'], item()?['Name'])` |
+
+**⚠️ WATCH OUT:** The filter expression depends on how file names are passed. If `selectedFiles` is "all", use a Condition node to skip filtering. If it's a comma-separated list, use:
+```
+@contains(triggerBody()?['text_2'], item()?['{FilenameWithExtension}'])
+```
+⚠️ VERIFY the exact property name for filename in the dynamic content panel.
+
+---
+
+### Action 9 — Apply to Each (Get File Contents)
+
+**Position:** Directly below Filter Selected Files  
+**Action Type:** Apply to each  
+**Action Name:** `Process Each Document`
+
+**Select an output from previous steps:** `@{body('Filter_Selected_Files')}` (or the full list if processing all)
+
+Inside the loop:
+
+#### Action 9a — Get File Content
+
+**Action Type:** Get file content (SharePoint)  
+**Action Name:** `Get PDF Content`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| File Identifier | `@{items('Process_Each_Document')?['Id']}` — use the Id property, NOT the path |
+
+#### Action 9b — Encode to Base64
+
+**Action Type:** Compose  
+**Action Name:** `Encode PDF Base64`
+
+| Field | Value |
+|---|---|
+| Inputs | `@{base64(body('Get_PDF_Content'))}` |
+
+**⚠️ NOTE:** This base64-encodes the PDF content for inclusion in AI API calls. Claude's API accepts base64-encoded PDFs directly in the `source` field of document content blocks.
+
+#### Action 9c — Append to Array (Accumulate Documents)
+
+**Action Type:** Append to string variable  
+**Action Name:** `Accumulate Document Data`
+
+For Claude API format, append each document as a JSON content block:
+```
+@{concat('{"type":"document","source":{"type":"base64","media_type":"application/pdf","data":"', outputs('Encode_PDF_Base64'), '"}},', '')}
+```
+
+**⚠️ ALTERNATIVE APPROACH:** If processing a single document, skip the loop entirely and use a single Get file content → base64 encode chain. The loop is only needed for multi-document analysis.
+
+---
+
+### Action 10 — Build System Prompt
+
+**Position:** Directly below the Apply to Each loop (outside the loop)  
+**Action Type:** Compose  
+**Action Name:** `Build System Prompt`
+
+| Field | Value |
+|---|---|
+| Inputs | Paste the full system prompt below |
+
+```
+You are a senior industry research analyst. Analyze the provided document(s) thoroughly and return a structured JSON response.
+
+RESPONSE FORMAT (strict JSON):
+{
+  "title": "Report title based on document content",
+  "date": "YYYY-MM-DD",
+  "executive_summary": "2-3 paragraph high-level summary",
+  "sections": [
+    {
+      "heading": "Section Name",
+      "content": "Detailed analysis text with specific data points",
+      "citations": [
+        {
+          "source": "Document name",
+          "author": "Author if available",
+          "date": "Publication date if available",
+          "page": "Page or section reference"
+        }
+      ]
+    }
+  ],
+  "key_metrics": [
+    {
+      "label": "Metric name",
+      "value": "Numeric value with unit",
+      "context": "Brief explanation"
+    }
+  ],
+  "metadata": {
+    "model_used": "Model identifier",
+    "document_count": 1,
+    "processing_date": "YYYY-MM-DD"
+  }
+}
+
+RULES:
+- Every factual claim MUST include a citation to the source document.
+- Use exact numbers from the documents — never approximate or fabricate.
+- If information is unclear or ambiguous in the source, state so explicitly.
+- Structure sections as: Executive Summary, Market Overview, Competitive Analysis, Trends & Drivers, Risk Factors, Outlook.
+- Return ONLY valid JSON — no markdown fences, no preamble, no explanation outside the JSON.
+```
+
+---
+
+## STEP 15 — Build Flow A Action Stack (Actions 11–16: Model Router)
+
+### Action 11 — Switch on Model Choice
+
+**Position:** Directly below Build System Prompt  
+**Action Type:** Switch (Control)  
+**Action Name:** `Route to Selected Model`
+
+**On:** `@{triggerBody()?['text_1']}` — the `modelChoice` input parameter
+
+---
+
+### Case: `claude-sonnet-4-5` (DEFAULT)
+
+#### Action 12a — Build Claude Request Body
+
+**Action Type:** Compose  
+**Action Name:** `Build Claude Request`
+
+| Field | Value |
+|---|---|
+| Inputs | See JSON below |
+
+```json
+{
+  "model": "claude-sonnet-4-5-20250929",
+  "max_tokens": 8192,
+  "temperature": 0.2,
+  "system": "@{outputs('Build_System_Prompt')}",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        @{variables('varAccumulatedDocs')}
+        {"type": "text", "text": "@{triggerBody()?['text']}"}
+      ]
+    }
+  ]
+}
+```
+
+**⚠️ NOTE:** The `content` array includes both the base64-encoded PDF document blocks AND the user's text message. Claude's API natively accepts PDFs as document-type content blocks.
+
+#### Action 12b — Call Claude API
+
+**Action Type:** HTTP (premium)  
+**Action Name:** `HTTP Claude`
+
+| Field | Value |
+|---|---|
+| Method | `POST` |
+| URI | `https://api.anthropic.com/v1/messages` |
+| Headers — Content-Type | `application/json` |
+| Headers — x-api-key | `@{variables('varAnthropicKey')}` |
+| Headers — anthropic-version | `2023-06-01` |
+| Body | `@{outputs('Build_Claude_Request')}` |
+
+**CRITICAL Settings (⋯ menu → Settings):**
+
+| Setting | Value |
+|---|---|
+| **Timeout** | `PT120S` — **THIS IS THE MAXIMUM** for synchronous HTTP. The older PT230S is superseded. |
+| **Retry Policy** | `Exponential` — handles rate limits (HTTP 429) gracefully with automatic backoff |
+
+#### Action 12c — Extract Claude Response
+
+**Action Type:** Set variable  
+**Action Name:** `Set varAnalysisResult (Claude)`
+
+| Field | Value |
+|---|---|
+| Name | `varAnalysisResult` |
+| Value | `@{body('HTTP_Claude')?['content'][0]?['text']}` |
+
+#### Action 12d — Set Model Used
+
+**Action Type:** Set variable  
+**Action Name:** `Set varModelUsed (Claude)`
+
+| Field | Value |
+|---|---|
+| Name | `varModelUsed` |
+| Value | `Claude 4.5 Sonnet` |
+
+---
+
+### Case: `gpt-5.2`
+
+#### Action 13a — Build GPT Request Body
+
+**Action Type:** Compose  
+**Action Name:** `Build GPT Request`
+
+```json
+{
+  "model": "gpt-5.2",
+  "max_tokens": 8192,
+  "temperature": 0.2,
+  "response_format": {"type": "json_object"},
+  "messages": [
+    {"role": "system", "content": "@{outputs('Build_System_Prompt')}"},
+    {"role": "user", "content": "@{triggerBody()?['text']}"}
+  ]
+}
+```
+
+**⚠️ NOTE:** GPT doesn't natively accept PDF content blocks like Claude. For PDF analysis with GPT, you need to either: (a) extract text from the PDF first using a separate action, or (b) use Azure OpenAI with document processing. For simplicity, this case sends the user's text query only. For full PDF support with GPT, add a text extraction step using AI Builder or a PDF parsing action.
+
+#### Action 13b — Call GPT API
+
+**Action Type:** HTTP  
+**Action Name:** `HTTP GPT`
+
+| Field | Value |
+|---|---|
+| Method | `POST` |
+| URI | `https://api.openai.com/v1/chat/completions` |
+| Headers — Content-Type | `application/json` |
+| Headers — Authorization | `Bearer @{variables('varOpenAIKey')}` |
+| Body | `@{outputs('Build_GPT_Request')}` |
+
+Settings: Timeout `PT120S`, Retry `Exponential`.
+
+#### Action 13c — Extract GPT Response
+
+**Action Type:** Set variable  
+**Action Name:** `Set varAnalysisResult (GPT)`
+
+| Field | Value |
+|---|---|
+| Name | `varAnalysisResult` |
+| Value | `@{first(body('HTTP_GPT')?['choices'])?['message']?['content']}` |
+
+#### Action 13d — Set Model Used (GPT)
+
+Set `varModelUsed` to `GPT-5.2`.
+
+---
+
+### Case: `gemini-3-pro`
+
+#### Action 14a — Build Gemini Request Body
+
+**Action Type:** Compose  
+**Action Name:** `Build Gemini Request`
+
+```json
+{
+  "system_instruction": {
+    "parts": [{"text": "@{outputs('Build_System_Prompt')}"}]
+  },
+  "contents": [
+    {
+      "role": "user",
+      "parts": [{"text": "@{triggerBody()?['text']}"}]
+    }
+  ],
+  "generationConfig": {
+    "temperature": 0.2,
+    "maxOutputTokens": 8192,
+    "responseMimeType": "application/json"
+  }
+}
+```
+
+#### Action 14b — Call Gemini API
+
+**Action Type:** HTTP  
+**Action Name:** `HTTP Gemini`
+
+| Field | Value |
+|---|---|
+| Method | `POST` |
+| URI | `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent?key=@{variables('varGeminiKey')}` |
+| Headers — Content-Type | `application/json` |
+| Body | `@{outputs('Build_Gemini_Request')}` |
+
+Settings: Timeout `PT120S`, Retry `Exponential`.
+
+**⚠️ NOTE:** Gemini API key goes in the URL as a query parameter, NOT in headers.
+
+#### Action 14c — Extract Gemini Response
+
+Set `varAnalysisResult` to:
+```
+@{body('HTTP_Gemini')?['candidates']?[0]?['content']?['parts']?[0]?['text']}
+```
+
+#### Action 14d — Set Model Used (Gemini)
+
+Set `varModelUsed` to `Gemini 3 Pro`.
+
+---
+
+### End of Switch — Actions Continue Below
+
+---
+
+## STEP 16 — Build Flow A Action Stack (Actions 17–22: Save and Trigger Flow B)
+
+### Action 17 — Generate Timestamp
+
+**Position:** After the Switch block (all cases rejoin here)  
+**Action Type:** Compose  
+**Action Name:** `Generate Timestamp`
+
+| Field | Value |
+|---|---|
+| Inputs | `@{formatDateTime(utcNow(), 'yyyyMMdd_HHmmss')}` |
+
+---
+
+### Action 18 — Save Analysis JSON to SharePoint
+
+**Position:** Directly below Generate Timestamp  
+**Action Type:** Create file (SharePoint)  
+**Action Name:** `Save Analysis JSON`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path | `/Shared Documents/JSON Output` |
+| File Name | `@{outputs('Generate_Timestamp')}_analysis.json` |
+| File Content | `@{variables('varAnalysisResult')}` |
+
+**⚠️ CRITICAL:** This file creation in `/JSON Output/` is what **triggers Flow B** (the Research Report Orchestrator). Flow B is configured with a SharePoint "When a file is created" trigger watching this folder.
+
+---
+
+### Action 19 — Save Requestor Email Marker
+
+**Position:** Directly below Save Analysis JSON  
+**Action Type:** Create file (SharePoint)  
+**Action Name:** `Save Requestor Marker`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path | `/Shared Documents/JSON Output` |
+| File Name | `@{outputs('Generate_Timestamp')}_requestor.txt` |
+| File Content | `@{triggerBody()?['text_3']}` (the requestorEmail input) |
+
+**⚠️ WHY:** Flow B needs to know who requested the report so it can email the result. Since Flow B is triggered by a SharePoint file creation (not by the agent), it doesn't have access to the user context. This companion file passes the requestor's email address.
+
+---
+
+### Action 20 — Save Model Used Marker
+
+**Position:** Directly below Save Requestor Marker  
+**Action Type:** Create file (SharePoint)  
+**Action Name:** `Save Model Marker`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path | `/Shared Documents/JSON Output` |
+| File Name | `@{outputs('Generate_Timestamp')}_model.txt` |
+| File Content | `@{variables('varModelUsed')}` |
+
+---
+
+### Save Flow A
+
+Click **Save**. The flow is complete.
+
+**Flow A Summary — Complete Action Stack:**
+
+| # | Action | Type |
+|---|---|---|
+| 1 | Respond to Agent | Respond to agent (ASYNC — fires immediately) |
+| 2 | Init varAnthropicKey | Initialize variable |
+| 3 | Init varOpenAIKey | Initialize variable |
+| 4 | Init varGeminiKey | Initialize variable |
+| 5 | Init varAnalysisResult | Initialize variable |
+| 6 | Init varModelUsed | Initialize variable |
+| 7 | List Research Documents | SharePoint — List files |
+| 8 | Filter Selected Files | Data Operations — Filter array |
+| 9 | Process Each Document | Apply to each (Get content → base64) |
+| 10 | Build System Prompt | Compose |
+| 11 | Route to Selected Model | Switch |
+| 12a-d | Claude case | Compose → HTTP → Set var × 2 |
+| 13a-d | GPT case | Compose → HTTP → Set var × 2 |
+| 14a-d | Gemini case | Compose → HTTP → Set var × 2 |
+| 17 | Generate Timestamp | Compose |
+| 18 | Save Analysis JSON | SharePoint — Create file (TRIGGERS FLOW B) |
+| 19 | Save Requestor Marker | SharePoint — Create file |
+| 20 | Save Model Marker | SharePoint — Create file |
+
+---
+
+# PHASE 4 — BUILD FLOW B: RESEARCH REPORT ORCHESTRATOR
+
+This flow is triggered automatically when Flow A saves a JSON file to `/JSON Output/`. It reads the analysis, generates infographics, builds the HTML report, and delivers via email + Teams.
+
+---
+
+## STEP 17 — Create Flow B in Power Automate
+
+**Platform:** Power Automate  
+**Component:** NEW FLOW — Research Report Orchestrator  
+**Action Type:** Automated cloud flow
+
+### Instructions
+
+1. In Power Automate, create a new **Automated cloud flow**.
+
+2. Select trigger: **"When a file is created (properties only)"** (SharePoint connector).
+
+3. Name: `Research Report Orchestrator`
+
+### Configure Trigger
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Library Name | `Shared Documents` ⚠️ VERIFY |
+| Folder | `/Shared Documents/JSON Output` ⚠️ VERIFY — may need just `JSON Output` |
+
+**⚠️ WATCH OUT:** Sub-folder changes don't trigger parent folder triggers. Make sure the folder path points exactly to `/JSON Output/`.
+
+### Add a Condition — Only Process Analysis Files
+
+**Position:** Directly below the trigger  
+**Action Type:** Condition  
+**Action Name:** `Is Analysis JSON`
+
+| Condition | Value |
+|---|---|
+| `@{endsWith(triggerOutputs()?['body/{FilenameWithExtension}'], '_analysis.json')}` | is equal to | `true` |
+
+This prevents the flow from triggering on the `_requestor.txt` and `_model.txt` companion files.
+
+**If Yes:** Continue with the rest of the flow.  
+**If No:** Terminate (status: Cancelled, message: "Not an analysis file — skipping.")
+
+---
+
+## STEP 18 — Build Flow B Action Stack (Inside the "Yes" Branch)
+
+### Action 1 — Get Analysis JSON Content
+
+**Action Type:** Get file content (SharePoint)  
+**Action Name:** `Get Analysis JSON`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| File Identifier | `@{triggerOutputs()?['body/{Identifier}']}` ⚠️ VERIFY — use the file Id from the trigger, NOT the path |
+
+---
+
+### Action 2 — Extract Timestamp Prefix
+
+**Action Type:** Compose  
+**Action Name:** `Extract Timestamp`
+
+| Field | Value |
+|---|---|
+| Inputs | `@{first(split(triggerOutputs()?['body/{FilenameWithExtension}'], '_analysis'))}` |
+
+This extracts the `YYYYMMDD_HHmmss` prefix from the filename (e.g., `20260219_143022` from `20260219_143022_analysis.json`) for finding companion files.
+
+---
+
+### Action 3 — Get Requestor Email
+
+**Action Type:** Get file content (SharePoint)  
+**Action Name:** `Get Requestor Email`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| File Identifier | Look up the file `/Shared Documents/JSON Output/@{outputs('Extract_Timestamp')}_requestor.txt` |
+
+**⚠️ WATCH OUT:** You may need to use "Get files (properties only)" to find the file by name first, then get its content by Id. Or construct the path directly if your SharePoint connector accepts paths.
+
+**Extract email:** `@{body('Get_Requestor_Email')}` — for .txt files, the body returns the string content directly.
+
+---
+
+### Action 4 — Get Model Used
+
+**Action Type:** Get file content (SharePoint)  
+**Action Name:** `Get Model Used`
+
+Same pattern as Action 3, but for `_model.txt`.
+
+---
+
+### Action 5 — Parse Analysis JSON
+
+**Action Type:** Parse JSON (Data Operations)  
+**Action Name:** `Parse Analysis`
+
+| Field | Value |
+|---|---|
+| Content | `@{body('Get_Analysis_JSON')}` |
+| Schema | Use a **permissive schema** with `"additionalProperties": true` |
+
+**⚠️ CRITICAL:** Use `additionalProperties: true` to handle inconsistent output structures from different AI models. Here's the recommended schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "title": {"type": "string"},
+    "date": {"type": "string"},
+    "executive_summary": {"type": "string"},
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "heading": {"type": "string"},
+          "content": {"type": "string"},
+          "citations": {"type": "array"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "key_metrics": {"type": "array"},
+    "metadata": {"type": "object", "additionalProperties": true}
+  },
+  "additionalProperties": true
+}
+```
+
+---
+
+### Action 6 — Initialize Variable: varGeminiKey (for infographic generation)
+
+**Action Type:** Initialize variable  
+**Action Name:** `Init varGeminiKey`
+
+| Field | Value |
+|---|---|
+| Name | `varGeminiKey` |
+| Type | String |
+| Value | Reference `lupo_GeminiAPIKey` or paste directly |
+
+---
+
+### Action 7 — Build Infographic Prompt
+
+**Action Type:** Compose  
+**Action Name:** `Build Infographic Prompt`
+
+| Field | Value |
+|---|---|
+| Inputs | See prompt below |
+
+```
+Generate a professional infographic with the following specifications:
+
+STYLE: Ultra-modern, minimalistic, flat design aligned with the NXT Humans brand. No gradients, no 3D effects, no shadows, no decorative borders, no clip art, no stock imagery. Use only geometric shapes, clean lines, and this exact palette:
+- Primary background: Darkest Gray (#0D0D0D)
+- Text and structural elements: White (#FFFFFF)
+- Accent color for highlights, labels, and callouts: Bright Green/Chartreuse (#B8B800)
+- Secondary neutral tones: Med Gray (#4A4A4A), Light Gray (#D9D9D9)
+- NO teal, NO cyan, NO blue — the accent is always chartreuse/bright green
+
+Typography: Ultra-condensed sans-serif for headlines (similar to Agency FB — tall, narrow, high-impact, all-caps), clean geometric sans-serif (similar to Archivo Extra Light) for body text and labels.
+
+FORMAT: Horizontal layout, 1920x1080px, suitable for embedding in a professional PDF report.
+
+CONTENT TO VISUALIZE:
+Title: @{body('Parse_Analysis')?['title']}
+Executive Summary: @{body('Parse_Analysis')?['executive_summary']}
+Key Metrics: @{string(body('Parse_Analysis')?['key_metrics'])}
+
+RULES:
+- Every data point must come directly from the content above — never fabricate.
+- Use precise numbers and labels.
+- Include source attribution at the bottom.
+- No decorative illustrations or filler graphics.
+```
+
+---
+
+### Action 8 — Call Gemini for Infographic
+
+**Action Type:** HTTP  
+**Action Name:** `HTTP Gemini Infographic`
+
+| Field | Value |
+|---|---|
+| Method | `POST` |
+| URI | `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro:generateContent?key=@{variables('varGeminiKey')}` |
+| Headers — Content-Type | `application/json` |
+| Body | See below |
+
+```json
+{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {"text": "@{outputs('Build_Infographic_Prompt')}"}
+      ]
+    }
+  ],
+  "generationConfig": {
+    "responseModalities": ["IMAGE", "TEXT"],
+    "temperature": 0.2
+  }
+}
+```
+
+Settings: Timeout `PT120S`, Retry `Exponential`.
+
+---
+
+### Action 9 — Extract Infographic Base64
+
+**Action Type:** Compose  
+**Action Name:** `Extract Infographic Base64`
+
+| Field | Value |
+|---|---|
+| Inputs | `@{first(filter(body('HTTP_Gemini_Infographic')?['candidates']?[0]?['content']?['parts'], item()?['inlineData'] ne null))?['inlineData']?['data']}` |
+
+---
+
+### Action 10 — Save Infographic to SharePoint
+
+**Action Type:** Create file (SharePoint)  
+**Action Name:** `Save Infographic`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path | `/Shared Documents/Infographics` |
+| File Name | `@{body('Parse_Analysis')?['title']}_@{outputs('Extract_Timestamp')}_infographic.png` |
+| File Content | `@{base64ToBinary(outputs('Extract_Infographic_Base64'))}` |
+
+---
+
+### Action 11 — Build HTML Report Sections
+
+**Action Type:** Apply to each  
+**Action Name:** `Build Report Sections`
+
+**Select:** `@{body('Parse_Analysis')?['sections']}`
+
+Inside the loop, use a **Compose** action to build HTML for each section:
+
+```html
+<div class="section">
+  <h2>@{items('Build_Report_Sections')?['heading']}</h2>
+  <p>@{items('Build_Report_Sections')?['content']}</p>
+  <div class="citation">@{string(items('Build_Report_Sections')?['citations'])}</div>
+</div>
+```
+
+Use **Append to string variable** to accumulate all section HTML into a variable `varSectionsHTML` (initialized before the loop).
+
+---
+
+### Action 12 — Get Report Template
+
+**Action Type:** Get file content (SharePoint)  
+**Action Name:** `Get Report Template`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| File Identifier | Path to `/Shared Documents/Templates/report-template.html` |
+
+---
+
+### Action 13 — Populate Report Template
+
+**Action Type:** Compose  
+**Action Name:** `Populate Report`
+
+Replace all `{{PLACEHOLDERS}}` in the template with actual values:
+
+```
+@{replace(
+  replace(
+    replace(
+      replace(
+        replace(
+          replace(
+            body('Get_Report_Template'),
+            '{{REPORT_TITLE}}', body('Parse_Analysis')?['title']
+          ),
+          '{{REPORT_SUBTITLE}}', 'Industry Research Analysis'
+        ),
+        '{{REPORT_DATE}}', formatDateTime(utcNow(), 'MMMM dd, yyyy')
+      ),
+      '{{MODEL_USED}}', body('Get_Model_Used')
+    ),
+    '{{DOCUMENT_COUNT}}', string(body('Parse_Analysis')?['metadata']?['document_count'])
+  ),
+  '{{SECTIONS}}', variables('varSectionsHTML')
+)}
+```
+
+**⚠️ NOTE:** Nested `replace()` calls can get unwieldy. If this hits expression length limits, break it into multiple Compose actions, each doing 1-2 replacements and feeding into the next.
+
+---
+
+### Action 14 — Save HTML Report to SharePoint
+
+**Action Type:** Create file (SharePoint)  
+**Action Name:** `Save HTML Report`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Folder Path | `/Shared Documents/Final Reports` |
+| File Name | `@{body('Parse_Analysis')?['title']}_@{outputs('Extract_Timestamp')}_report.html` |
+| File Content | `@{outputs('Populate_Report')}` |
+
+---
+
+### Action 15 — Create Sharing Link for Report
+
+**Action Type:** Create sharing link (SharePoint)  
+**Action Name:** `Create Report Link`
+
+| Field | Value |
+|---|---|
+| Site Address | `https://nxthumans.sharepoint.com/sites/Research` |
+| Library Name | `Shared Documents` ⚠️ VERIFY |
+| Item Id | `@{outputs('Save_HTML_Report')?['body/Id']}` ⚠️ VERIFY token path |
+| Link Type | `Organization` ⚠️ VERIFY |
+| Link Scope | `Organization` ⚠️ VERIFY |
+
+---
+
+### Action 16 — Send Email Report
+
+**Action Type:** Send an email (V2) (Office 365 Outlook)  
+**Action Name:** `Email Report to Requestor`
+
+| Field | Value |
+|---|---|
+| To | `@{body('Get_Requestor_Email')}` — the requestor's email from the companion file |
+| Subject | `Industry Research Report: @{body('Parse_Analysis')?['title']}` |
+| Body (HTML) | See below |
+| Importance | Normal |
+
+**Email Body HTML:**
+```html
+<div style="font-family: Archivo, Arial, sans-serif; max-width: 600px;">
+  <div style="background: #0D0D0D; color: #FFFFFF; padding: 30px;">
+    <h1 style="font-size: 24px; text-transform: uppercase; letter-spacing: 1px; margin: 0;">
+      @{body('Parse_Analysis')?['title']}
+    </h1>
+    <div style="width: 60px; height: 2px; background: #B8B800; margin: 12px 0;"></div>
+    <p style="font-size: 12px; color: #D9D9D9; margin: 0;">
+      Generated @{formatDateTime(utcNow(), 'MMMM dd, yyyy')} · @{body('Get_Model_Used')}
+    </p>
+  </div>
+  <div style="padding: 24px;">
+    <h2 style="font-size: 16px; color: #0D0D0D;">Executive Summary</h2>
+    <p style="font-size: 14px; line-height: 1.5; color: #333;">
+      @{body('Parse_Analysis')?['executive_summary']}
+    </p>
+    <div style="margin-top: 24px;">
+      <a href="@{outputs('Create_Report_Link')?['body/link/webUrl']}" 
+         style="background: #B8B800; color: #0D0D0D; padding: 12px 24px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 13px;">
+        Open Full Report
+      </a>
+    </div>
+  </div>
+  <div style="padding: 16px 24px; font-size: 11px; color: #4A4A4A; border-top: 1px solid #D9D9D9;">
+    NXT Humans · Industry Research · Confidential
+  </div>
+</div>
+```
+
+---
+
+### Action 17 — Post Teams Adaptive Card
+
+**Action Type:** Post adaptive card in a chat or channel (Teams connector)  
+**Action Name:** `Post Report Card to Teams`
+
+| Field | Value |
+|---|---|
+| Post as | `Flow bot` ⚠️ NOTE: messages appear as "[Username] via Workflows" — no pure app identity available |
+| Post in | `Chat with Flow bot` |
+| Recipient | `@{body('Get_Requestor_Email')}` — the requestor's email |
+
+**Adaptive Card JSON:**
+```json
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "body": [
+    {
+      "type": "Container",
+      "style": "emphasis",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "RESEARCH REPORT READY",
+          "weight": "Bolder",
+          "size": "Large",
+          "color": "Light"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "@{body('Parse_Analysis')?['title']}",
+      "wrap": true,
+      "weight": "Bolder",
+      "size": "Medium"
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {"title": "Generated", "value": "@{formatDateTime(utcNow(), 'MMM dd, yyyy HH:mm')}"},
+        {"title": "Model", "value": "@{body('Get_Model_Used')}"},
+        {"title": "Sources", "value": "@{body('Parse_Analysis')?['metadata']?['document_count']} documents analyzed"}
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "@{take(body('Parse_Analysis')?['executive_summary'], 200)}...",
+      "wrap": true,
+      "size": "Small"
+    },
+    {
+      "type": "TextBlock",
+      "text": "NXT Humans · Industry Research",
+      "size": "Small",
+      "isSubtle": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "OPEN FULL REPORT",
+      "url": "@{outputs('Create_Report_Link')?['body/link/webUrl']}"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "VIEW IN SHAREPOINT",
+      "url": "https://nxthumans.sharepoint.com/sites/Research/Shared%20Documents/Final%20Reports"
+    }
+  ]
+}
+```
+
+**⚠️ ADAPTIVE CARD NOTES:**
+- Use schema version **1.2** for maximum Teams compatibility (not higher)
+- Avoid Power Fx expressions in card JSON for Teams
+- Teams Adaptive Cards support up to v1.6 but 1.2 is safest
+- **Do NOT use Action.Execute** — use Action.OpenUrl instead (Bot Framework Web Chat lacks Action.Execute support)
+- Rate limit: ~25 requests per 300 seconds for channel posting
+
+---
+
+### Save Flow B
+
+Click **Save**.
+
+---
+
+# PHASE 5 — REGISTER FLOWS AS TOOLS & CREATE TOPICS
+
+---
+
+## STEP 19 — Register Flow A as a Tool
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Tools page  
+**Action Type:** Add tool
+
+### Instructions
+
+1. Navigate to the **Tools** page ⚠️ VERIFY sidebar location.
+
+2. Click **+ Add a tool** → select **Flow** ⚠️ VERIFY.
+
+3. Select **Multi-Model Reasoning Engine** from the list.
+
+4. Configure:
+
+| Field | Value |
+|---|---|
+| **Name** | `Multi-Model Reasoning Engine` |
+| **Description** | `Sends the user's research query and selected documents to the chosen AI model (Claude, GPT, Gemini, or auto-routed) for comprehensive industry analysis. Returns a structured JSON report saved to SharePoint. The pipeline then generates infographics and delivers the final report via email and Teams.` |
+
+5. Map inputs:
+
+| Input | Description | Fill Behavior |
+|---|---|---|
+| `userMessage` | "The user's research request" | Dynamically fill with AI |
+| `modelChoice` | "The user's selected AI model" | Dynamically fill with AI (from Global.modelChoice) |
+| `selectedFiles` | "Comma-separated file names to analyze, or 'all'" | Dynamically fill with AI |
+| `requestorEmail` | "The requesting user's email address" | Dynamically fill with AI (from System.User.PrincipalName) |
+
+6. Under **"After running"**: Select **"Don't respond"** — since the flow uses the async respond pattern, it returns immediately with a status message that the agent will relay.
+
+---
+
+## STEP 20 — Create the Model Selection Topic
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Topics tab  
+**Action Type:** New topic from blank
+
+### Create the Topic
+
+1. **+ Add a topic** → **From blank**
+2. Set:
+
+| Field | Value |
+|---|---|
+| **Topic name** | `Model Selection` |
+| **Description** | `Presents model selection card at session start and stores the user's choice. User wants to select or change their AI reasoning model.` |
+
+### Node Stack
+
+**Node 1 — Trigger** (auto-created, orchestrator-driven)
+
+**Node 2 — Message (Adaptive Card)**
+
+Add an **Ask with Adaptive Card** node ⚠️ VERIFY node type. Paste this JSON:
+
+```json
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Select your reasoning model",
+      "weight": "Bolder",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Claude 4.5 Sonnet is the default. Choose an alternative if preferred.",
+      "wrap": true,
+      "size": "Small"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "modelChoice",
+      "label": "AI Model",
+      "style": "expanded",
+      "isRequired": true,
+      "value": "claude-sonnet-4-5",
+      "choices": [
+        {"title": "Claude 4.5 Sonnet (Default — Anthropic)", "value": "claude-sonnet-4-5"},
+        {"title": "GPT-5.2 (OpenAI)", "value": "gpt-5.2"},
+        {"title": "Gemini 3 Pro (Google)", "value": "gemini-3-pro"},
+        {"title": "Auto-Route (system selects)", "value": "auto"}
+      ]
+    }
+  ],
+  "actions": [
+    {"type": "Action.Submit", "title": "Confirm"}
+  ]
+}
+```
+
+The node auto-creates an output variable `modelChoice`. Click the variable → **Set as Global Variable** so it persists across all topics during the session.
+
+**Node 3 — Message (Confirmation)**
+
+```
+Model set to {Global.modelChoice}. Send me your research question or tell me which documents to analyze.
+```
+
+---
+
+## STEP 21 — Create the Research Request Topic
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Topics tab  
+**Action Type:** New topic from blank
+
+### Create the Topic
+
+| Field | Value |
+|---|---|
+| **Topic name** | `Research Request` |
+| **Description** | `The user wants to analyze documents, research an industry topic, generate a report, or investigate a market. They may ask to analyze specific PDFs, compare industries, examine trends, or produce a comprehensive research report. This is the primary analysis workflow.` |
+
+### Node Stack
+
+**Node 1 — Trigger** (orchestrator-driven)
+
+**Node 2 — Message**
+
+```
+I'll process your research request using {Global.modelChoice}. Let me start the analysis pipeline...
+```
+
+⚠️ VERIFY variable reference syntax.
+
+**Node 3 — Action (Call Multi-Model Reasoning Engine)**
+
+1. Click **+** → **Call an action** → select **Multi-Model Reasoning Engine**.
+2. Input mapping:
+
+| Flow Input | Map to |
+|---|---|
+| `userMessage` | `System.Activity.Text` (user's last message) |
+| `modelChoice` | `Global.modelChoice` |
+| `selectedFiles` | Set value → `"all"` (default; enhanced in Phase 2 with file picker) |
+| `requestorEmail` | `System.User.PrincipalName` |
+
+3. Properties (⋯ menu):
+   - **Send a message:** `Analyzing your documents now. You'll receive the completed report via Teams and email in a few minutes...`
+
+**Node 4 — Message**
+
+```
+✅ Your research request has been submitted to the analysis pipeline.
+
+📊 Model: {Global.modelChoice}
+📬 Results will be delivered to your email and posted here in Teams.
+
+The analysis typically takes 2-5 minutes depending on document size and complexity.
+```
+
+---
+
+## STEP 22 — Create the Troubleshoot Topic
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Topics tab  
+
+| Field | Value |
+|---|---|
+| **Topic name** | `Troubleshoot` |
+| **Description** | `The user is experiencing an error, problem, or unexpected behavior with the agent, flows, or report pipeline. They may paste error messages, describe failures, or ask for help debugging.` |
+
+### Node Stack
+
+**Node 1 — Trigger**
+
+**Node 2 — Message**
+
+```
+I see you're encountering an issue. Please share:
+1. The exact error message (if any)
+2. What you were trying to do when it occurred
+3. Which step in the process failed
+
+I'll help you troubleshoot.
+```
+
+**Node 3 — Question**
+
+Question text: `What error message or issue are you seeing?`
+Save to: `Topic.errorDetails`
+
+**Node 4 — Message (Diagnostic Response)**
+
+```
+Based on your description, here are some common fixes:
+
+• **"No results found" from knowledge:** Verify SharePoint permissions for the signed-in user. Ensure documents are in /Research Documents/.
+• **Flow timeout errors:** AI API calls have a 120-second limit. Try reducing document size or using a faster model.
+• **Missing email delivery:** Confirm your authentication is set to "Authenticate with Microsoft" and you're using Teams (not the test pane).
+• **Infographic generation failed:** Check Gemini API quota at aistudio.google.com. Free tier has daily limits.
+
+If none of these match, please share the exact error and I'll investigate further.
+```
+
+---
+
+## STEP 23 — Wire Conversation Start to Model Selection
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Topics → System → Conversation Start  
+
+### Instructions
+
+1. Open the **Conversation Start** system topic.
+2. After the greeting message (from Step 11), add a **Topic redirect** node → select **Model Selection**.
+3. This ensures every new conversation starts with model selection.
+
+---
+
+# PHASE 6 — PUBLISH AND TEST
+
+---
+
+## STEP 24 — Test in Copilot Studio
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+**Location:** Test pane (right side)  
+
+### Test Plan
+
+| Test # | Input | Expected Result |
+|---|---|---|
+| 1 | *(Open chat)* | Greeting message → Model Selection card appears |
+| 2 | *(Select Claude 4.5 Sonnet, submit)* | Confirmation: "Model set to claude-sonnet-4-5" |
+| 3 | `Analyze the latest industry reports in the Research Documents folder` | → Research Request topic → Flow A triggered → Status message returned |
+| 4 | `I'm getting an error when the flow runs` | → Troubleshoot topic → Diagnostic response |
+| 5 | `Change my model to GPT-5.2` | → Model Selection topic → Updated model |
+
+**⚠️ TEST PANE LIMITATIONS:**
+- Authentication variables (System.User.PrincipalName) are EMPTY
+- Email delivery won't work (no requestor email)
+- Adaptive Cards render in test pane but NOT on the canvas
+- Use the **Activity Map** to inspect orchestrator plan execution
+
+---
+
+## STEP 25 — Publish to Teams
+
+**Platform:** Copilot Studio  
+**Component:** Industry Research Analyst  
+
+### Instructions
+
+1. Click **Publish** → **Publish** again to create a new version.
+2. Navigate to **Channels** → select **Microsoft Teams**.
+3. Click **Add channel** ⚠️ VERIFY button label.
+4. Optionally check **"Make agent available in Microsoft 365 Copilot"**.
+5. Click **"See agent in Teams"** → Teams opens → click **Add** to install.
+
+### End-to-End Test in Teams
+
+| Test | Procedure | Expected Result |
+|---|---|---|
+| **Conversational** | Select Claude → ask "Analyze the European EV battery market" | Full pipeline executes: JSON saved → Flow B triggers → infographic generated → HTML report saved → email received → Teams card posted |
+| **Model Switch** | Change to GPT-5.2 → repeat similar query | Report metadata shows GPT-5.2 |
+| **Email Delivery** | Check inbox after pipeline completes | Branded email with executive summary + "Open Full Report" link |
+| **SharePoint Saves** | Navigate to /JSON Output/, /Infographics/, /Final Reports/ | All three files present |
+
+---
+
+# POST-BUILD CHECKLIST
+
+| # | Item | Status |
+|---|---|---|
+| 1 | SharePoint folders created (6 folders) | ☐ |
+| 2 | HTML report template uploaded to /Templates/ | ☐ |
+| 3 | Agent created with correct name and description | ☐ |
+| 4 | Generative orchestration enabled | ☐ |
+| 5 | Instructions pasted (~3,800 chars) | ☐ |
+| 6 | General knowledge disabled | ☐ |
+| 7 | Model set to GPT-5 Chat GA (orchestration) | ☐ |
+| 8 | Auth set to Authenticate with Microsoft | ☐ |
+| 9 | Knowledge sources added (Research Documents + optional Learn) | ☐ |
+| 10 | System topics configured (Conversation Start redirects to Model Selection) | ☐ |
+| 11 | Flow A built — Multi-Model Reasoning Engine (~20 actions) | ☐ |
+| 12 | Flow A uses async respond pattern (Respond to Agent is FIRST action) | ☐ |
+| 13 | Flow A HTTP actions set to PT120S timeout | ☐ |
+| 14 | Express Mode disabled on Flow A (if agent flow) | ☐ |
+| 15 | Flow B built — Research Report Orchestrator (~17 actions) | ☐ |
+| 16 | Flow B trigger watches /JSON Output/ for _analysis.json files only | ☐ |
+| 17 | Infographic generation via Gemini 3 Pro working | ☐ |
+| 18 | HTML report template populated correctly | ☐ |
+| 19 | Email delivery sends to requestor's address | ☐ |
+| 20 | Teams Adaptive Card posts with report links | ☐ |
+| 21 | Flow A registered as tool in Copilot Studio | ☐ |
+| 22 | Model Selection topic created with global variable | ☐ |
+| 23 | Research Request topic created | ☐ |
+| 24 | Troubleshoot topic created | ☐ |
+| 25 | All tests pass in test pane (basic routing) | ☐ |
+| 26 | Published to Teams | ☐ |
+| 27 | End-to-end test passes in Teams (full pipeline) | ☐ |
+
+---
+
+# CORRECTIONS FROM PLATFORM LANDSCAPE ANALYSIS
+
+| Item | Existing Recipe Value | Corrected Value | Reason |
+|---|---|---|---|
+| HTTP Timeout | PT230S / not specified | **PT120S** | Synchronous HTTP max is 120s; PT230S superseded |
+| Express Mode | Not mentioned | **Must disable for flows with HTTP actions** | Express Mode on by default, blocks HTTP |
+| Adaptive Card version | 1.4 (model selection) / 1.2 (delivery) | **Use 1.2 for Teams delivery cards** | 1.2 has broadest Teams compatibility |
+| Infographic generator | "Napkin AI" / inconsistent naming | **Gemini 3 Pro native image generation** | Single API, single key, no separate service |
+| Flow A response pattern | Not clearly specified | **Async Respond Pattern — FIRST action** | Avoids 100-second synchronous timeout |
+| Requestor email passing | Not specified in existing recipe | **Companion _requestor.txt file pattern** | Flow B (SharePoint trigger) has no user context |
+| Teams card posting | "Copilot Studio Bot" | **Flow Bot** for programmatic posting | Copilot Studio Bot limited to personal 1:1 |
+| Knowledge sync | Implied auto-sync | **No auto-sync** — SharePoint trigger handles new uploads | Must be explicit about this limitation |
+| Agent flow billing | Not mentioned | **13 credits per 100 actions** | Cost awareness for multi-action flows |
+
+---
+
+# FUTURE ENHANCEMENTS (Phase 2+)
+
+- **File Picker Adaptive Card:** Replace "all" default with an interactive card listing available PDFs for user selection
+- **Human Review Gate:** Add approval workflow in Flow B before final delivery (reviewer approves/revises/rejects via Teams card)
+- **Word Template → PDF:** Add Word Online template population + PDF conversion for richer formatting
+- **SharePoint Event Trigger:** Auto-analyze new PDFs uploaded to /Research Documents/ without user interaction
+- **Email Trigger:** Process emails with [Research] subject line and attachments
+- **Multi-document chunking:** Split large PDFs for models with context window limits
+- **Azure AI Search + Foundry IQ:** Advanced RAG for larger document collections
+- **Auto-Route model selection:** Azure Model Router for automatic model selection across 18+ models

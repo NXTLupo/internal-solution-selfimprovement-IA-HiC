@@ -1,0 +1,788 @@
+/* ═══════════════════════════════════════════════════════════════
+   NXT Humans 2026 Design System — Unified Stark White Theme
+   Intelligence Augmentation Suite
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700;800&display=swap');
+
+/* ─── Design Tokens ─── */
+:root {
+  /* Brand */
+  --nxt-lime: #caca20;
+  --nxt-lime-hover: #d8d830;
+  --nxt-teal: #115054;
+  --nxt-orange: #fd8e2e;
+
+  /* Surfaces — Stark White */
+  --surface-primary: #ffffff;
+  --surface-secondary: #fafafa;
+  --surface-tertiary: #f5f5f5;
+
+  /* Text */
+  --text-primary: #141414;
+  --text-secondary: #525252;
+  --text-muted: #acacac;
+
+  /* Borders */
+  --border-subtle: #e5e5e5;
+  --border-medium: #d4d4d4;
+
+  /* Category Accents */
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
+  --success: #0CCE6B;
+  --error: #FF5A5A;
+
+  /* Radius — Minimal */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Shadows — None */
+  --shadow: none;
+
+  /* Spacing (8px grid) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Motion */
+  --ease: 0.15s ease;
+
+  /* Typography */
+  --font-sans: 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* ─── Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--surface-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography — Ultralight Headings ─── */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 200;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 72px; line-height: 80px; }
+h2 { font-size: 52px; line-height: 56px; }
+h3 { font-size: 44px; line-height: 60px; }
+h4 { font-size: 21px; font-weight: 500; line-height: 40px; }
+
+p { margin-top: 0; margin-bottom: var(--space-4); }
+
+a {
+  color: var(--nxt-lime);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+a:hover { color: var(--nxt-lime-hover); }
+
+small { font-size: 0.875rem; }
+
+/* ─── Layout ─── */
+.nxt-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Intelligence Augmentation Header ─── */
+.ia-header {
+  background: var(--nxt-teal);
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.ia-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(253, 142, 46, 0.08) 30%, rgba(253, 142, 46, 0.15) 60%, rgba(253, 142, 46, 0.2) 100%);
+  transform: skewX(-20deg) translateX(20%);
+  z-index: 1;
+}
+
+.ia-header__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ia-header__content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.ia-header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ia-header__logo img {
+  width: 280px;
+  height: auto;
+  filter: invert(1);
+  object-fit: contain;
+}
+
+.ia-header__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ia-header__introducing {
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.ia-header__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ia-header__line1,
+.ia-header__line2 {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.ia-header__line1 {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  margin-bottom: -0.3rem;
+}
+
+.ia-header__line2 {
+  color: var(--nxt-orange);
+  -webkit-text-fill-color: var(--nxt-orange);
+}
+
+/* ─── White Navigation Bar ─── */
+.nxt-nav {
+  background: var(--surface-primary);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 99;
+}
+
+.nxt-nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nxt-nav__logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nxt-nav__logo-text {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.nxt-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nxt-nav__link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.nxt-nav__link:hover {
+  color: var(--nxt-teal);
+}
+
+.nxt-nav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all var(--ease);
+}
+
+.nxt-nav__back:hover {
+  color: var(--nxt-teal);
+  background: var(--surface-secondary);
+}
+
+/* ─── Hero Section ─── */
+.nxt-hero {
+  background: var(--surface-secondary);
+  padding: var(--space-16) 0;
+  text-align: center;
+}
+
+.nxt-hero__title {
+  font-size: 52px;
+  font-weight: 200;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.nxt-hero__subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 26px;
+}
+
+/* ─── Cards ─── */
+.nxt-card {
+  background: var(--surface-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  transition: all var(--ease);
+}
+
+.nxt-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.nxt-card__title {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.nxt-card__body {
+  color: var(--text-secondary);
+}
+
+/* Enterprise Card (Launchpad pattern) */
+.nxt-ecard {
+  background: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  transition: all var(--ease);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.nxt-ecard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--nxt-lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nxt-ecard:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.nxt-ecard:hover::before {
+  transform: scaleX(1);
+}
+
+.nxt-ecard[data-category="collection"]::before { background: var(--accent-blue); }
+.nxt-ecard[data-category="analysis"]::before { background: var(--nxt-lime); }
+.nxt-ecard[data-category="generation"]::before { background: var(--accent-purple); }
+.nxt-ecard[data-category="automation"]::before { background: var(--nxt-orange); }
+
+/* ─── Buttons ─── */
+.nxt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 16px 24px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--ease);
+  text-decoration: none;
+}
+
+.nxt-btn--primary {
+  background: var(--nxt-lime);
+  color: var(--nxt-teal);
+}
+
+.nxt-btn--primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  color: var(--nxt-teal);
+}
+
+.nxt-btn--secondary {
+  background: var(--surface-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.nxt-btn--secondary:hover {
+  background: #eeeeee;
+}
+
+.nxt-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+.nxt-btn--lg {
+  padding: 20px 32px;
+  height: 56px;
+}
+
+.nxt-btn--sm {
+  padding: 12px 16px;
+  height: 40px;
+  font-size: 11px;
+}
+
+/* ─── Forms ─── */
+.nxt-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.nxt-input,
+.nxt-select,
+.nxt-textarea {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--ease);
+}
+
+.nxt-textarea {
+  height: auto;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.nxt-input:focus,
+.nxt-select:focus,
+.nxt-textarea:focus {
+  border-color: var(--nxt-lime);
+  outline: 0;
+}
+
+.nxt-input::placeholder,
+.nxt-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.nxt-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23525252' d='M0 0h8L4 6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 8px 6px;
+  padding-right: 40px;
+}
+
+.nxt-form-group {
+  margin-bottom: var(--space-6);
+}
+
+/* ─── Grid ─── */
+.nxt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-8);
+}
+
+/* ─── Section Headers ─── */
+.nxt-section {
+  padding: var(--space-12) 0;
+}
+
+.nxt-section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.nxt-section__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--surface-primary);
+  background: var(--nxt-teal);
+}
+
+.nxt-section__title {
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.nxt-section__description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+}
+
+/* ─── Status Indicators ─── */
+.nxt-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-medium);
+}
+
+.nxt-status--healthy {
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(12, 206, 107, 0.4);
+  animation: nxt-pulse 2s infinite;
+}
+
+.nxt-status--offline { background: var(--error); }
+.nxt-status--unknown { background: var(--border-medium); }
+
+@keyframes nxt-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ─── Tags ─── */
+.nxt-tag {
+  display: inline-flex;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  background: var(--surface-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ─── Progress ─── */
+.nxt-progress {
+  width: 100%;
+  background: var(--surface-tertiary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.nxt-progress__bar {
+  height: 24px;
+  background: var(--nxt-lime);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nxt-teal);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: width 0.3s ease;
+}
+
+/* ─── Tabs ─── */
+.nxt-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-6);
+}
+
+.nxt-tab {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  position: relative;
+  transition: all var(--ease);
+}
+
+.nxt-tab:hover {
+  color: var(--nxt-teal);
+  background: var(--surface-secondary);
+}
+
+.nxt-tab--active {
+  color: var(--nxt-teal);
+}
+
+.nxt-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--nxt-lime);
+}
+
+/* ─── Footer ─── */
+.nxt-footer {
+  padding: 24px 0;
+  background: var(--surface-secondary);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  margin-top: var(--space-12);
+}
+
+.nxt-footer__text {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+/* ─── Loader ─── */
+.nxt-loader {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(202, 202, 32, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--nxt-lime);
+  animation: nxt-spin 1s ease-in-out infinite;
+  margin-left: 0.5rem;
+}
+
+@keyframes nxt-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── File Upload ─── */
+.nxt-dropzone {
+  border: 2px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--ease);
+  background: var(--surface-primary);
+}
+
+.nxt-dropzone:hover {
+  border-color: var(--nxt-lime);
+  background: rgba(202, 202, 32, 0.04);
+  transform: translateY(-2px);
+}
+
+.nxt-dropzone__icon {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.nxt-dropzone__text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.nxt-dropzone__subtext {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Utilities ─── */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.gap-4 { gap: var(--space-4); }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .ia-header { height: 180px; }
+  .ia-header__logo img { width: 180px; }
+  .ia-header__introducing { font-size: 1.2rem; }
+  .ia-header__line1,
+  .ia-header__line2 { font-size: 2.8rem; letter-spacing: -1px; }
+  .ia-header__content { gap: 2rem; }
+  .nxt-grid { grid-template-columns: 1fr; }
+  .nxt-hero__title { font-size: 36px; line-height: 40px; }
+  h1 { font-size: 44px; line-height: 52px; }
+  h2 { font-size: 36px; line-height: 40px; }
+}
+
+@media (max-width: 480px) {
+  .ia-header { height: 140px; }
+  .ia-header__logo img { width: 140px; }
+  .ia-header__introducing { font-size: 1rem; }
+  .ia-header__line1,
+  .ia-header__line2 { font-size: 2rem; }
+  .ia-header__content { gap: 1.5rem; }
+  .nxt-nav__links { gap: 12px; }
+}
+
+/* ─── React SPA Override Layer ───
+   For Tailwind/React apps that render dark-by-default,
+   force stark white theme at the HTML level.
+   Include this AFTER framework styles in index.html <style>. */
+.nxt-spa-override [class*="bg-gray-9"],
+.nxt-spa-override [class*="bg-gray-8"],
+.nxt-spa-override [class*="bg-slate"],
+.nxt-spa-override [class*="bg-zinc"],
+.nxt-spa-override [class*="bg-neutral-8"],
+.nxt-spa-override [class*="bg-neutral-9"],
+.nxt-spa-override [class*="bg-black"] {
+  background-color: var(--surface-primary) !important;
+}
+
+.nxt-spa-override [class*="bg-gray-7"],
+.nxt-spa-override [class*="bg-gray-6"] {
+  background-color: var(--surface-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.nxt-spa-override [class*="text-white"],
+.nxt-spa-override [class*="text-gray-1"],
+.nxt-spa-override [class*="text-gray-2"] {
+  color: var(--text-primary) !important;
+}
+
+.nxt-spa-override [class*="text-gray-4"],
+.nxt-spa-override [class*="text-gray-5"] {
+  color: var(--text-secondary) !important;
+}
+
+.nxt-spa-override [class*="border-gray"],
+.nxt-spa-override [class*="border-slate"] {
+  border-color: var(--border-subtle) !important;
+}
+
+.nxt-spa-override input,
+.nxt-spa-override select,
+.nxt-spa-override textarea {
+  background-color: var(--surface-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.nxt-spa-override input:focus,
+.nxt-spa-override select:focus,
+.nxt-spa-override textarea:focus {
+  border-color: var(--nxt-lime) !important;
+}
+
+.nxt-spa-override .shadow,
+.nxt-spa-override .shadow-sm,
+.nxt-spa-override .shadow-md,
+.nxt-spa-override .shadow-lg,
+.nxt-spa-override .shadow-xl {
+  box-shadow: none !important;
+}

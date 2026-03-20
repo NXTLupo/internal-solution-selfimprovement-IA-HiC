@@ -783,7 +783,7 @@ const App: React.FC = () => {
                           {clip.videoData?.status === 'generating' && (
                             <div className="video-status">
                               <div className="flex items-center gap-2">
-                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-nxt-teal"></div>
                                 <span>Generating video...</span>
                                 <span className="text-xs opacity-60">
                                   (Started {new Date(clip.createdAt).toLocaleTimeString()})
@@ -791,7 +791,7 @@ const App: React.FC = () => {
                               </div>
                               {/* Show warning if it's been stuck for more than 5 minutes */}
                               {(new Date().getTime() - new Date(clip.createdAt).getTime()) > 300000 && (
-                                <div className="text-yellow-500 text-sm mt-2">
+                                <div className="text-nxt-orange text-sm mt-2">
                                   ⚠️ This video seems stuck. Consider clearing it.
                                 </div>
                               )}
@@ -799,13 +799,13 @@ const App: React.FC = () => {
                           )}
 
                           {clip.videoData?.status === 'failed' && (
-                            <div className="video-status text-red-500">
+                            <div className="video-status text-red-600">
                               <div className="flex items-center gap-2">
                                 <span>❌</span>
                                 <span>Video generation failed</span>
                               </div>
                               {clip.videoData?.error && (
-                                <div className="text-sm mt-2 p-2 bg-red-50 text-red-700 rounded">
+                                <div className="text-sm mt-2 p-2 bg-red-50 text-red-700 rounded border border-red-200">
                                   {clip.videoData.error.includes('Safety Filter') ? (
                                     <>
                                       <strong>⚠️ Content Safety Issue:</strong>

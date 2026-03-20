@@ -92,8 +92,8 @@ const ThemeMindmap = ({
   const getSentimentTabStyle = (sentiment: string) => {
     return `px-3 py-2 text-sm font-medium flex items-center ${
       selectedSentiment === sentiment
-        ? 'text-white border-b-2 border-blue-500'
-        : 'text-gray-400 hover:text-white hover:border-b-2 hover:border-gray-600'
+        ? 'text-[#141414] border-b-2 border-blue-500'
+        : 'text-[#525252] hover:text-[#141414] hover:border-b-2 hover:border-[#e5e5e5]'
     }`;
   };
 
@@ -403,7 +403,7 @@ const ThemeMindmap = ({
   }, [filteredTopics, dimensions, topicSimilarities, similarityThreshold, linkThicknessMultiplier, handleAction]);
 
   return (
-    <div className="text-white bg-gray-800 p-4 rounded-lg border border-gray-800">
+    <div className="text-[#141414] bg-[#fafafa] p-4 rounded-lg border border-gray-800">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold flex items-center">
           <Network className="h-5 w-5 mr-2 text-blue-400" />
@@ -413,20 +413,20 @@ const ThemeMindmap = ({
         <div className="flex items-center gap-2">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-gray-400" />
+              <Search className="h-4 w-4 text-[#525252]" />
             </div>
             <input
               type="text"
               placeholder="Search themes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-gray-800 border border-gray-700 text-white rounded-md py-1 pl-9 pr-3 w-48 focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm"
+              className="bg-[#fafafa] border border-[#e5e5e5] text-[#141414] rounded-md py-1 pl-9 pr-3 w-48 focus:outline-none focus:ring-1 focus:ring-[#115054] text-sm"
             />
           </div>
           
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="bg-gray-800 border border-gray-700 text-white rounded-md py-1 px-3 flex items-center hover:bg-gray-700 transition-colors text-sm"
+            className="bg-[#fafafa] border border-[#e5e5e5] text-[#141414] rounded-md py-1 px-3 flex items-center hover:bg-[#f5f5f5] transition-colors text-sm"
           >
             <Filter className="h-4 w-4 mr-1" />
             Filters
@@ -441,34 +441,34 @@ const ThemeMindmap = ({
       
       {/* Theme Statistics */}
       <div className="grid grid-cols-5 gap-2 mb-4">
-        <div className="bg-gray-800 p-2 rounded-lg text-center border border-gray-700">
-          <div className="text-2xl font-bold text-white">{themeStats.total}</div>
-          <div className="text-xs text-gray-400">Total Themes</div>
+        <div className="bg-[#fafafa] p-2 rounded-lg text-center border border-[#e5e5e5]">
+          <div className="text-2xl font-bold text-[#141414]">{themeStats.total}</div>
+          <div className="text-xs text-[#525252]">Total Themes</div>
         </div>
-        <div className="bg-gray-800 p-2 rounded-lg text-center border-l-4 border border-gray-700 border-l-green-500">
-          <div className="text-2xl font-bold text-white">{themeStats.positive}</div>
-          <div className="text-xs text-gray-400">Positive</div>
+        <div className="bg-[#fafafa] p-2 rounded-lg text-center border-l-4 border border-[#e5e5e5] border-l-green-500">
+          <div className="text-2xl font-bold text-[#141414]">{themeStats.positive}</div>
+          <div className="text-xs text-[#525252]">Positive</div>
         </div>
-        <div className="bg-gray-800 p-2 rounded-lg text-center border-l-4 border border-gray-700 border-l-blue-500">
-          <div className="text-2xl font-bold text-white">{themeStats.neutral}</div>
-          <div className="text-xs text-gray-400">Neutral</div>
+        <div className="bg-[#fafafa] p-2 rounded-lg text-center border-l-4 border border-[#e5e5e5] border-l-blue-500">
+          <div className="text-2xl font-bold text-[#141414]">{themeStats.neutral}</div>
+          <div className="text-xs text-[#525252]">Neutral</div>
         </div>
-        <div className="bg-gray-800 p-2 rounded-lg text-center border-l-4 border border-gray-700 border-l-red-500">
-          <div className="text-2xl font-bold text-white">{themeStats.negative}</div>
-          <div className="text-xs text-gray-400">Negative</div>
+        <div className="bg-[#fafafa] p-2 rounded-lg text-center border-l-4 border border-[#e5e5e5] border-l-red-500">
+          <div className="text-2xl font-bold text-[#141414]">{themeStats.negative}</div>
+          <div className="text-xs text-[#525252]">Negative</div>
         </div>
-        <div className="bg-gray-800 p-2 rounded-lg text-center border border-gray-700">
-          <div className="text-2xl font-bold text-white">{themeStats.filtered}</div>
-          <div className="text-xs text-gray-400">Filtered</div>
+        <div className="bg-[#fafafa] p-2 rounded-lg text-center border border-[#e5e5e5]">
+          <div className="text-2xl font-bold text-[#141414]">{themeStats.filtered}</div>
+          <div className="text-xs text-[#525252]">Filtered</div>
         </div>
       </div>
       
       {/* Filter Panel */}
       {showFilters && (
-        <div className="bg-gray-800 p-2 rounded-lg border border-gray-700 mb-2 animate-slideUp">
+        <div className="bg-[#fafafa] p-2 rounded-lg border border-[#e5e5e5] mb-2 animate-slideUp">
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block text-gray-300 mb-1 text-xs">Minimum Mentions</label>
+              <label className="block text-[#525252] mb-1 text-xs">Minimum Mentions</label>
               <div className="flex items-center">
                 <input
                   type="range"
@@ -478,12 +478,12 @@ const ThemeMindmap = ({
                   onChange={(e) => setMinMentions(parseInt(e.target.value))}
                   className="w-full mr-1"
                 />
-                <span className="text-gray-300 text-xs min-w-[1.5rem] text-right">{minMentions}</span>
+                <span className="text-[#525252] text-xs min-w-[1.5rem] text-right">{minMentions}</span>
               </div>
             </div>
             
             <div>
-              <label className="block text-gray-300 mb-1 text-xs">Similarity Threshold</label>
+              <label className="block text-[#525252] mb-1 text-xs">Similarity Threshold</label>
               <div className="flex items-center">
                 <input
                   type="range"
@@ -494,12 +494,12 @@ const ThemeMindmap = ({
                   onChange={(e) => setSimilarityThreshold(parseFloat(e.target.value))}
                   className="w-full mr-1"
                 />
-                <span className="text-gray-300 text-xs min-w-[1.5rem] text-right">{similarityThreshold.toFixed(2)}</span>
+                <span className="text-[#525252] text-xs min-w-[1.5rem] text-right">{similarityThreshold.toFixed(2)}</span>
               </div>
             </div>
             
             <div>
-              <label className="block text-gray-300 mb-1 text-xs">Link Thickness</label>
+              <label className="block text-[#525252] mb-1 text-xs">Link Thickness</label>
               <div className="flex items-center">
                 <input
                   type="range"
@@ -510,7 +510,7 @@ const ThemeMindmap = ({
                   onChange={(e) => setLinkThicknessMultiplier(parseInt(e.target.value))}
                   className="w-full mr-1"
                 />
-                <span className="text-gray-300 text-xs min-w-[1.5rem] text-right">{linkThicknessMultiplier}×</span>
+                <span className="text-[#525252] text-xs min-w-[1.5rem] text-right">{linkThicknessMultiplier}×</span>
               </div>
             </div>
           </div>
@@ -524,7 +524,7 @@ const ThemeMindmap = ({
                 setSimilarityThreshold(0.25);
                 setLinkThicknessMultiplier(5);
               }}
-              className="px-2 py-0.5 bg-gray-700 text-gray-300 rounded-md text-xs hover:bg-gray-600 transition-colors"
+              className="px-2 py-0.5 bg-[#f5f5f5] text-[#525252] rounded-md text-xs hover:bg-[#e5e5e5] transition-colors"
             >
               Reset Filters
             </button>
@@ -534,14 +534,14 @@ const ThemeMindmap = ({
       
       <div className="mb-3">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-md font-semibold text-white flex items-center">
+          <h3 className="text-md font-semibold text-[#141414] flex items-center">
             <Network className="w-4 h-4 mr-2 text-blue-400" />
             Visualization
           </h3>
           
           <div className="flex items-center gap-1 text-xs">
-            <Info className="w-3 h-3 text-gray-400" />
-            <span className="text-gray-400">
+            <Info className="w-3 h-3 text-[#525252]" />
+            <span className="text-[#525252]">
               Related themes are connected. Click on a theme for details.
             </span>
           </div>
@@ -583,36 +583,36 @@ const ThemeMindmap = ({
         <div className="flex flex-wrap gap-2 text-xs mb-2">
           <div className="flex items-center">
             <div className="w-3 h-3 rounded-full bg-green-500 mr-1"></div>
-            <span className="text-gray-300">Positive themes</span>
+            <span className="text-[#525252]">Positive themes</span>
           </div>
           <div className="flex items-center ml-2">
             <div className="w-3 h-3 rounded-full bg-blue-500 mr-1"></div>
-            <span className="text-gray-300">Neutral themes</span>
+            <span className="text-[#525252]">Neutral themes</span>
           </div>
           <div className="flex items-center ml-2">
             <div className="w-3 h-3 rounded-full bg-red-500 mr-1"></div>
-            <span className="text-gray-300">Negative themes</span>
+            <span className="text-[#525252]">Negative themes</span>
           </div>
           <div className="flex items-center ml-2">
             <div className="w-2 h-2 border border-gray-400 mr-1"></div>
-            <span className="text-gray-300">Node size = Mention count</span>
+            <span className="text-[#525252]">Node size = Mention count</span>
           </div>
           <div className="flex items-center ml-2">
             <div className="h-3 w-6 bg-amber-500 mr-1" style={{ height: "7px", backgroundColor: "#f59e0b" }}></div>
-            <span className="text-gray-300">Strong connection (0.7-1.0)</span>
+            <span className="text-[#525252]">Strong connection (0.7-1.0)</span>
           </div>
           <div className="flex items-center ml-2">
             <div className="h-3 w-6 bg-blue-400 mr-1" style={{ height: "7px" }}></div>
-            <span className="text-gray-300">Medium connection (0.5-0.7)</span>
+            <span className="text-[#525252]">Medium connection (0.5-0.7)</span>
           </div>
           <div className="flex items-center ml-2"> 
             <div className="h-3 w-6 bg-gray-500 mr-1" style={{ height: "7px" }}></div>
-            <span className="text-gray-300">Weak connection (0.2-0.5)</span>
+            <span className="text-[#525252]">Weak connection (0.2-0.5)</span>
           </div>
         </div>
                 
         {/* D3 Visualization */}
-        <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700">
+        <div className="bg-[#fafafa] rounded-lg overflow-hidden border border-[#e5e5e5]">
           {filteredTopics.length > 0 ? (
             <svg 
               ref={svgRef} 
@@ -620,7 +620,7 @@ const ThemeMindmap = ({
               style={{ minHeight: '400px', background: '#111827' }}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center py-12 text-gray-400">
+            <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
               <Network className="w-12 h-12 mb-4 opacity-50" />
               <p className="text-lg">No themes to display for selected sentiment</p>
               <p className="text-sm mt-2">Try selecting a different sentiment filter</p>

@@ -1,0 +1,38 @@
+{
+  "1rxfuz3": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.6435263752937317
+  },
+  "1rxj1z4": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.7914583086967468
+  },
+  "1rwfn2u": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.9520283341407776
+  },
+  "1rvyjlb": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rvoixy": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.4846569895744324
+  },
+  "1rvmnlv": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.5051363706588745
+  },
+  "1rvoqsb": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.4743470847606659
+  },
+  "1rvgbib": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.9234980344772339
+  },
+  "1ruz7hd": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.46227893233299255
+  }
+}

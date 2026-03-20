@@ -1,0 +1,63 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: steph, year, kuminga, jimmy, kp, playing, healthy
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+In case it wasnt obvious to some, there was no saving the season when Jimmy went down, that was it, any slim chance of winning Steph another ring was done (this year). Plus, they likely knew Steph's knee was starting to really flair up. They also knew they were making the play-in no matter what they do with the state of tanking where it is.
+
+EXAMPLE 2:
+It’s a conspiracy that’s just crazy enough to give me hope.  It is a possibility. However I don’t think we can make it far without Jimmy tbh.
+Yeah, we can’t win without Jimmy.   But in theory we’ll see how a mostly healthy team minus Jimmy would look.  Last year Podz and Moody were scheduled for surgery, Jimmy had a busted tailbone, and Draymond was on fumes even before Curry went down
+That and 2022 had a plug and play Steph Jr.
+
+EXAMPLE 3:
+The KP Trade & Next Year Sorry team, I know this has been done to death a bit but I do hope the more a certain type of Warriors fans watch him play, the more they accept why the FO did the swap for KP.
+
+EXAMPLE 4:
+So they made a play for next year. KP is going to be around the league a while longer. He's too good a fit for the modern game while healthy, even if only 20 games a year. The trade lets them work directly with a guy who is a perfect fit, let our medical team show off and get first dibs at doing what we've arguably been the best in the league at for a while - sign long injured players at low rates for their talent to rehab value and output. Worst case we free up the same salary we would have with Kuminga, best case, we get another OPJ / Melton value rehaber for the next year or so. [...]
+
+EXAMPLE 5:
+Young players are finally getting the playing time on a team with nothing to play. Playing time that JK and MM needed but didn’t get.
+
+EXAMPLE 6:
+Warriors won the KP-Kuminga Trade? It does seem like it so far, especially since Kuminga has become the Kuminga we know (strong first few games, then struggles the next getting lost in the offensive schemes etc).  Maybe Kerr really was right in his assessment of Kuminga.  Both sides benefited imo. We traded two dudes who were barely playing for another guy who's barely playing. The Hawks are having their honeymoon with Kuminga and we're having ours with Porzingis. [...]
+
+EXAMPLE 7:
+Old players are resting. Win two games and you’re in the playoffs. The other 15 left really don’t matter anymore.
+
+EXAMPLE 8:
+What if….. the team knows they can’t get out of the play-in tournament so they’re not tanking just resting.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

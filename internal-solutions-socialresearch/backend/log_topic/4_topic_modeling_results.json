@@ -1,0 +1,545 @@
+{
+  "total_topics": 12,
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 11,
+      "name": "0_steph_year_kuminga_jimmy",
+      "representation": [
+        {
+          "term": "steph",
+          "weight": 0.02322201563247092
+        },
+        {
+          "term": "year",
+          "weight": 0.02281838155508312
+        },
+        {
+          "term": "kuminga",
+          "weight": 0.02262759727308669
+        },
+        {
+          "term": "jimmy",
+          "weight": 0.02040543213339387
+        },
+        {
+          "term": "kp",
+          "weight": 0.018264791132610387
+        },
+        {
+          "term": "playing",
+          "weight": 0.017946297894656855
+        },
+        {
+          "term": "healthy",
+          "weight": 0.016541688713448632
+        },
+        {
+          "term": "team",
+          "weight": 0.015621869640011362
+        },
+        {
+          "term": "trade",
+          "weight": 0.015576921679423478
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 9,
+      "name": "1_buddy_jimmy_warriors_injury",
+      "representation": [
+        {
+          "term": "buddy",
+          "weight": 0.03603678572345676
+        },
+        {
+          "term": "jimmy",
+          "weight": 0.03047506929487302
+        },
+        {
+          "term": "warriors",
+          "weight": 0.027516940680801454
+        },
+        {
+          "term": "injury",
+          "weight": 0.019121071142527993
+        },
+        {
+          "term": "love",
+          "weight": 0.017567752882920517
+        },
+        {
+          "term": "weeks",
+          "weight": 0.016339616595867298
+        },
+        {
+          "term": "locker",
+          "weight": 0.016339616595867298
+        },
+        {
+          "term": "prp injection",
+          "weight": 0.016339616595867298
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 8,
+      "name": "2_post_reddit_game_warriors",
+      "representation": [
+        {
+          "term": "post",
+          "weight": 0.045121168094448334
+        },
+        {
+          "term": "reddit",
+          "weight": 0.03990542761291376
+        },
+        {
+          "term": "game",
+          "weight": 0.03980437960115933
+        },
+        {
+          "term": "warriors",
+          "weight": 0.034118039658136576
+        },
+        {
+          "term": "old",
+          "weight": 0.028589031814186695
+        },
+        {
+          "term": "click view post",
+          "weight": 0.023040047538912208
+        },
+        {
+          "term": "view post",
+          "weight": 0.023040047538912208
+        },
+        {
+          "term": "contains",
+          "weight": 0.023040047538912208
+        },
+        {
+          "term": "supported",
+          "weight": 0.023040047538912208
+        },
+        {
+          "term": "click view",
+          "weight": 0.023040047538912208
+        }
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 7,
+      "name": "3_kerr_coach_movie_goat",
+      "representation": [
+        {
+          "term": "kerr",
+          "weight": 0.032800533273864646
+        },
+        {
+          "term": "coach",
+          "weight": 0.02932509227842502
+        },
+        {
+          "term": "movie",
+          "weight": 0.02614023742182394
+        },
+        {
+          "term": "goat",
+          "weight": 0.02181721752041576
+        },
+        {
+          "term": "congrats",
+          "weight": 0.017239045032337058
+        },
+        {
+          "term": "steve",
+          "weight": 0.01705458580781969
+        },
+        {
+          "term": "right",
+          "weight": 0.013582489582010098
+        },
+        {
+          "term": "steve kerr",
+          "weight": 0.013032126846438452
+        },
+        {
+          "term": "steph",
+          "weight": 0.013010009981249765
+        },
+        {
+          "term": "antagonist",
+          "weight": 0.012316910253645267
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 6,
+      "name": "4_podz_players_rebounds_hair",
+      "representation": [
+        {
+          "term": "podz",
+          "weight": 0.05772751638212077
+        },
+        {
+          "term": "players",
+          "weight": 0.0198358851646483
+        },
+        {
+          "term": "rebounds",
+          "weight": 0.018728131978651887
+        },
+        {
+          "term": "hair",
+          "weight": 0.018728131978651887
+        },
+        {
+          "term": "ego",
+          "weight": 0.017776320919873637
+        },
+        {
+          "term": "guard",
+          "weight": 0.017038918877614145
+        },
+        {
+          "term": "hate",
+          "weight": 0.016437133415711357
+        },
+        {
+          "term": "say",
+          "weight": 0.016437133415711357
+        },
+        {
+          "term": "minutes",
+          "weight": 0.015101847370284666
+        },
+        {
+          "term": "point",
+          "weight": 0.01475572788477509
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 5,
+      "name": "5_games_team_season_steph",
+      "representation": [
+        {
+          "term": "games",
+          "weight": 0.02617667759246696
+        },
+        {
+          "term": "team",
+          "weight": 0.02407158691424111
+        },
+        {
+          "term": "season",
+          "weight": 0.023008243480202424
+        },
+        {
+          "term": "steph",
+          "weight": 0.019267541955926958
+        },
+        {
+          "term": "podz",
+          "weight": 0.018516605318647007
+        },
+        {
+          "term": "gui",
+          "weight": 0.018013610115638654
+        },
+        {
+          "term": "guys",
+          "weight": 0.017085245742031713
+        },
+        {
+          "term": "losses",
+          "weight": 0.014476477084996709
+        },
+        {
+          "term": "numbers",
+          "weight": 0.014476477084996709
+        },
+        {
+          "term": "shot",
+          "weight": 0.013724806939781654
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "count": 4,
+      "name": "6_richard_kerr_podz_pass",
+      "representation": [
+        {
+          "term": "richard",
+          "weight": 0.04756291839938683
+        },
+        {
+          "term": "kerr",
+          "weight": 0.03366835007348708
+        },
+        {
+          "term": "podz",
+          "weight": 0.03208437800504576
+        },
+        {
+          "term": "pass",
+          "weight": 0.02866731964454954
+        },
+        {
+          "term": "draymond",
+          "weight": 0.02717881051393533
+        },
+        {
+          "term": "accountability",
+          "weight": 0.025278779038449405
+        },
+        {
+          "term": "turnover",
+          "weight": 0.023994047519650064
+        },
+        {
+          "term": "guy",
+          "weight": 0.01991692418527938
+        },
+        {
+          "term": "instead opposite",
+          "weight": 0.018061119519919292
+        },
+        {
+          "term": "wrong",
+          "weight": 0.018061119519919292
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "count": 4,
+      "name": "7_stream_coach_kerr_warriors",
+      "representation": [
+        {
+          "term": "stream",
+          "weight": 0.028025762744053863
+        },
+        {
+          "term": "coach",
+          "weight": 0.02245738916872361
+        },
+        {
+          "term": "warriors",
+          "weight": 0.020750479857653555
+        },
+        {
+          "term": "said",
+          "weight": 0.01900476973414641
+        },
+        {
+          "term": "steve kerr",
+          "weight": 0.018629532147695624
+        },
+        {
+          "term": "learned",
+          "weight": 0.018482517133030223
+        },
+        {
+          "term": "matters",
+          "weight": 0.018482517133030223
+        },
+        {
+          "term": "gambling",
+          "weight": 0.018482517133030223
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "count": 3,
+      "name": "8_team_tech_clap_credit",
+      "representation": [
+        {
+          "term": "team",
+          "weight": 0.042588192232888115
+        },
+        {
+          "term": "tech",
+          "weight": 0.04195447555147919
+        },
+        {
+          "term": "clap",
+          "weight": 0.04195447555147919
+        },
+        {
+          "term": "credit",
+          "weight": 0.039146998094265396
+        },
+        {
+          "term": "big",
+          "weight": 0.03715744858945808
+        },
+        {
+          "term": "shot",
+          "weight": 0.0315670559614978
+        },
+        {
+          "term": "nba",
+          "weight": 0.03084357009248126
+        },
+        {
+          "term": "kuminga",
+          "weight": 0.03084357009248126
+        },
+        {
+          "term": "playing",
+          "weight": 0.028539598735252917
+        },
+        {
+          "term": "set tone",
+          "weight": 0.02337986767999083
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "count": 3,
+      "name": "9_santos_gui_best_elite",
+      "representation": [
+        {
+          "term": "santos",
+          "weight": 0.04122980965107599
+        },
+        {
+          "term": "gui",
+          "weight": 0.03551254565654478
+        },
+        {
+          "term": "best",
+          "weight": 0.033682341605719666
+        },
+        {
+          "term": "elite",
+          "weight": 0.03356358044118335
+        },
+        {
+          "term": "better",
+          "weight": 0.03133363873691887
+        },
+        {
+          "term": "second",
+          "weight": 0.03131759847541232
+        },
+        {
+          "term": "half",
+          "weight": 0.029725958871566472
+        },
+        {
+          "term": "gp2",
+          "weight": 0.027486539767383994
+        },
+        {
+          "term": "career",
+          "weight": 0.026636717836393948
+        },
+        {
+          "term": "gotta",
+          "weight": 0.026636717836393948
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "count": 3,
+      "name": "10_kristaps_porzingis_melton_offer",
+      "representation": [
+        {
+          "term": "kristaps",
+          "weight": 0.0603378186136689
+        },
+        {
+          "term": "porzingis",
+          "weight": 0.056407167182951884
+        },
+        {
+          "term": "melton",
+          "weight": 0.05013535857394557
+        },
+        {
+          "term": "offer",
+          "weight": 0.04738387826990591
+        },
+        {
+          "term": "question",
+          "weight": 0.044213080200582094
+        },
+        {
+          "term": "kristaps porzingis",
+          "weight": 0.044213080200582094
+        },
+        {
+          "term": "able",
+          "weight": 0.041966059583387956
+        },
+        {
+          "term": "point",
+          "weight": 0.03483509092797884
+        },
+        {
+          "term": "kp",
+          "weight": 0.03280499740680611
+        },
+        {
+          "term": "year",
+          "weight": 0.030737702212435495
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "count": 3,
+      "name": "11_night_team_close_vs",
+      "representation": [
+        {
+          "term": "night",
+          "weight": 0.03331295844203825
+        },
+        {
+          "term": "team",
+          "weight": 0.029371167057164214
+        },
+        {
+          "term": "close",
+          "weight": 0.027555225347993737
+        },
+        {
+          "term": "vs",
+          "weight": 0.02679459283317367
+        },
+        {
+          "term": "game",
+          "weight": 0.02424864504438442
+        },
+        {
+          "term": "guys",
+          "weight": 0.02322920110739287
+        },
+        {
+          "term": "total team",
+          "weight": 0.023147296855988514
+        },
+        {
+          "term": "wolves",
+          "weight": 0.023147296855988514
+        },
+        {
+          "term": "bucket",
+          "weight": 0.021598343776146427
+        }
+      ]
+    }
+  ]
+}

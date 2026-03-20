@@ -407,15 +407,15 @@ export const SummaryVisualization = ({ analysisData, filteredData }: SummaryVisu
   return (
     <div className="space-y-6" ref={containerRef}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gray-800/50 rounded-xl p-6">
-          <h3 className="text-lg font-bold text-blue-400 mb-4 text-center">Sentiment Distribution</h3>
+        <div className="bg-[#fafafa] rounded-xl p-6">
+          <h3 className="text-lg font-bold text-[#115054] mb-4 text-center">Sentiment Distribution</h3>
           <div className="flex justify-center">
             <svg ref={sentimentDonutRef} />
           </div>
         </div>
         
-        <div className="bg-gray-800/50 rounded-xl p-6 md:col-span-2">
-          <h3 className="text-lg font-bold text-blue-400 mb-4 text-center">Top Categories Comparison</h3>
+        <div className="bg-[#fafafa] rounded-xl p-6 md:col-span-2">
+          <h3 className="text-lg font-bold text-[#115054] mb-4 text-center">Top Categories Comparison</h3>
           <div className="overflow-x-auto">
             <svg ref={categoryChartRef} className="min-w-[500px]" />
           </div>

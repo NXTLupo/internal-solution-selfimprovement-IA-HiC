@@ -1,0 +1,42 @@
+{
+  "positive": [
+    {
+      "point": "Kristaps Porzingis had an impressive performance with 30 points, 5 rebounds, 4 assists, and 3 blocks, showing aggression and contributing significantly to the team's efforts.",
+      "post_refs": [
+        "1rvudrn"
+      ]
+    },
+    {
+      "point": "Despite being shorthanded with a significant portion of the team salary out injured, the team played competitively against the Knicks, showcasing the potential of less experienced players.",
+      "post_refs": [
+        "1rvrk8z"
+      ]
+    },
+    {
+      "point": "The team demonstrated resilience and heart by fighting back in the fourth quarter against a more talented Knicks team, providing valuable experience for young players.",
+      "post_refs": [
+        "1rvn7qc"
+      ]
+    },
+    {
+      "point": "The team's performance against the Wolves was commendable, with a significant comeback making it a winnable game, highlighting the competitive spirit of the young squad.",
+      "post_refs": [
+        "1rvn7qc"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "The team faced a close loss against the Knicks, which was disappointing given the circumstances of playing with a significantly reduced roster.",
+      "post_refs": [
+        "1rvrk8z"
+      ]
+    },
+    {
+      "point": "The absence of key players due to injuries, with 187 million out of 204 million total team salary unavailable, highlighted the team's vulnerability and the need for improvement among less experienced players.",
+      "post_refs": [
+        "1rvrk8z"
+      ]
+    }
+  ]
+}

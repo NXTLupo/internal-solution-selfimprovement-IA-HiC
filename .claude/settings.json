@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//d/NXT-HUMANS_AI_CX_WORKBENCH/**)",
+      "Bash(for line_num in 644 685 737 778 819 871 912 964 1005 1046 1087 1128 1169 1210 1251 1292 1344 1385 1426 1467)",
+      "Bash(do echo:*)",
+      "Bash(sed -n \"$line_nump\" example_report_w_research.html)",
+      "Read(//<!-- SCREEN/{screen=$0} /finding-badge-sm/{gsub\\(/.*>/, \"\"\"\"\"\"\"\", $0\\); gsub\\(/<.*/**)",
+      "Read(//c/Users/JonathanLupo/.claude/projects/d--NXT-HUMANS-AI-CX-WORKBENCH/**)",
+      "Bash(find d:/NXT-HUMANS_AI_CX_WORKBENCH -type f -name *.py -o -name *.md -o -name *.txt -o -name *.json)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(find /d/NXT-HUMANS_AI_CX_WORKBENCH -iname *agency* -type f)",
+      "Bash(poetry lock:*)",
+      "Bash(pip show:*)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(find /d -type d -name NXT-Agency* -o -name agency*)",
+      "Bash(cp \"D:/NXT-Agency/frontend/images/new_logo.png\" \"D:/NXT-Agency/agency-agents-launchpad/dist/nxt-humans-logo.png\")",
+      "Bash(cp \"D:/NXT-Agency/frontend/images/new_logo.png\" \"D:/NXT-Agency/agency-agents-launchpad/public/nxt-humans-logo.png\")",
+      "Bash(find D:/NXT-Agency/agency-agents-launchpad/src -type f \\\\\\(-name *.tsx -o -name *.jsx -o -name *.ts -o -name *.css \\\\\\))",
+      "Bash(powershell.exe -Command \"Start-Process ''C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe''\")",
+      "Bash(powershell.exe -Command \"Get-NetTCPConnection -LocalPort 8201 -ErrorAction SilentlyContinue\")"
+    ]
+  }
+}

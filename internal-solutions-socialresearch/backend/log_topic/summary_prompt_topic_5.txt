@@ -1,0 +1,102 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: games, team, season, steph, podz, gui, guys
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Now if you like those numbers and hate Podz, well... his numbers are EXTREMELY similar other than FT% where he had 66.7% but doubled Gui's attempts. He had 2 less TOs than Gui too.
+
+EXAMPLE 2:
+In the end, we can actually look forward to a future season where we can potentially have KP, Steph, Buttler, Podz and Gui and a buuunch of other very serviceable guys!
+
+EXAMPLE 3:
+I'm not a firm believer on looking strictly at stats as there's a lot in the game that doesn't/can't get track but these are Gui's numbers over the last 5 games:
+
+EXAMPLE 4:
+Also what's with the Podz hate? I get he's had a few bad turnovers and he could be doing better but you all need to chill. He's clearly been given the freedom to do his shit and learn from it. You all blamed Kerr when he didn't give JK the minutes but now are complaining that Podz is getting them?  The games have been fun. Having no expectations really does help because the close losses don’t sting as much so it’s fun just watching them play hard.
+
+EXAMPLE 5:
+It's too easy to put blame on Podz or Dray for the losses but these guys were never meant to be leading a team (despite what Green might think lol). Podz makes some incredibly silly plays but the reason I think we all get frustrated with him is that we can see the potential is there because he also makes some really nice plays... his numbers show that.
+
+EXAMPLE 6:
+These last few non-steph games. I'm wierdly enjoying them. I can't be the only one. I get that we've lost a few games which a lot of us feel we should have won but i genuinely think this team is really balling out. I never thought I'd enjoy watching games without Steph and Jimmy but Kerr and this team has really made these games competitive and enjoyable. Especially Gui, Will and Podz - they could be legit bench players come play in time. Melton too. I'm thoroughly enjoying these games.
+
+EXAMPLE 7:
+Edit: Also Steph, Podz/Moody, Jimmy, Santos and KP is one hell of a starting 5. I’d LOVE to see that next year. Dray and GP II off the bench as a defensive specialists. Seth as a 3 point specialist. Horford and Post as 2 additional stretch 5s. Great backup guards in Melton, Cryer and Richard’s. That’s a solid team. Plus Leons has been getting some good experience lately due to our lack of depth at forward.
+
+EXAMPLE 8:
+I’m hoping this ends up turning into valuable experience for our guys and once both Steph and Jimmy are back next season they can make another run at a championship.
+
+EXAMPLE 9:
+That said they better beat the Wizards tomorrow 😡
+I was expecting all of them to be blowouts but we are getting good games and our players are developing? I mean those Gui inside finishes today. Damn, he could really open up so much space for Steph and our 3pt shooting
+On March 11th when it was announced that Steph would be re-evaluated in another 10 days... That's when I threw in the towel and gave up on this season.
+
+EXAMPLE 10:
+Glass Half Full I know this was just the Wizards but I liked what I saw. In fact, I've been liking what I've been seeing over the last few games win or loss.
+
+EXAMPLE 11:
+Thanks QP! When you know you're not going to get yanked 3 minutes into the quarter. It’s a young team Kerr put out there and has been putting out there , everyone has to give them the time to make mistakes and learn…
+Been saying this for a couple of years. The win now mentality only works if a team can play as a team. Switching line ups every game trying to capture lightening in a bottle without the roster of savvy vets we had in the teens is just keeping our wheels spinning in the mud. We need traction. [...]
+
+EXAMPLE 12:
+Say what you will but Kerr is not giving him this much play time or freedom if we had our starters and we might have never seen Gui's transformation this season. A guy who is now being tipped to be a starter even when our best players are back to fitness! Not saying he'll be an All Star calibre player but then again, I wouldn't have considered his ceiling to be more than an emergency role player at the beginning of the season. His numbers keep climbing so at the moment,  it's easy to see where he can improve but also hard to really pinpoint a ceiling.
+
+EXAMPLE 13:
+You guys do you! Considering that our seeding won’t change much without a crazy win streak anyway, I’ve been feeling good about the team as well. And if Steph can get in the mix at least a few games before the play in so the team can find that new rhythm (yet again) I’m excited to see what we can do. 
+We should be in 8th seed, we can't take chances in one off game 
+100% agree with you. Despite the losses, there have been some really strong moments from guys like Santos, Podz, Moody, Melton, Horford, Post, Richard’s etc. [...]
+
+EXAMPLE 14:
+GP2 is also showing some really good signs of steady improvement. And maybe to a different degree, Pat has also surprised me with how he's played throughout the season.
+
+EXAMPLE 15:
+Ever since that, losses where the young guys ball out and show promise have been enjoyable and not filled with dread. Highly recommend.
+
+EXAMPLE 16:
+The team is short handed and short on talent, no arguing that. But the hustle is all there and you can't question it. Or maybe *you* can but I can't.
+
+EXAMPLE 17:
+So basically... TL;DR: We can look at this season as lots of opportunities to develop our players and evolve the team as a whole without sacrificing salary cap or we can cry our hearts out because it's one more season we didn't win the tittle even if none of it was truly preventable.
+
+EXAMPLE 18:
+You'd think a team that watched pretty much all of its stars get hurt in the same season and has lost as many games as they have and in the fashion it all happened, would have quit by now. But instead, every game whether they're down by 10 or 15 going into the 4th they still battle. Sure, they also go into the 4th in the lead and waste what looked like winnable games against better teams... but like I said, we're short handed AF and they somehow play like they really believe they should be winning. As a fan, I can't ask for me.
+
+EXAMPLE 19:
+I don't want to be the guy lamenting the losses of our stars whilst pointing fingers at the ones trying to keep the boat afloat. I'd rather look at the incredible silver linings these tough times have provided.
+
+EXAMPLE 20:
+None of that happens if those guys don't get their minutes to work on their craft and display what they can do.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

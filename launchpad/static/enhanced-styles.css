@@ -1,38 +1,38 @@
 /* Enhanced styling for NXT Humans Workbench */
 
-/* Custom font import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Custom font import — NXT Humans 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=Inter:wght@400;700;800&display=swap');
 
-/* Modern custom properties */
+/* Modern custom properties — 2026 Design System */
 :root {
   /* Extended color palette */
-  --cyan-primary-hover: #00AFB3;
-  --cyan-primary-active: #00989C;
-  --cyan-vibrant: #04E9EE;
-  --dark-bg-gradient-1: #121B26;
-  --dark-bg-gradient-2: #192638;
-  --accent-purple: #9C6AFF;
-  --accent-blue: #298DFF;
-  --accent-green: #00D0A6;
+  --cyan-primary-hover: #d8d830;
+  --cyan-primary-active: #b8b81a;
+  --cyan-vibrant: #caca20;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
+  --accent-purple: #115054;
+  --accent-blue: #115054;
+  --accent-green: #0CCE6B;
   --success-green: #0CCE6B;
-  --warning-yellow: #FFD02F;
+  --warning-yellow: #caca20;
   --error-red: #FF5A5A;
-  
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 5px 10px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.07), 0 10px 10px rgba(0, 0, 0, 0.04);
-  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(1, 196, 200, 0.3);
-  
-  /* Glass effect */
-  --glass-background: rgba(255, 255, 255, 0.95);
-  --glass-background-dark: rgba(18, 27, 38, 0.8);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
-  --glass-border-dark: 1px solid rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(10px);
-  
+
+  /* Shadows — 2026: no shadows, use borders */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-inner: none;
+  --shadow-focus: 0 0 0 2px rgba(202, 202, 32, 0.3);
+
+  /* Glass effect — 2026 frosted panels */
+  --glass-background: rgba(255, 255, 255, 0.04);
+  --glass-background-dark: rgba(20, 20, 20, 0.8);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-border-dark: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(24px);
+
   /* Animation speeds */
   --animation-slow: 700ms;
   --animation-medium: 400ms;
@@ -41,14 +41,16 @@
 
 /* Modern base styles */
 body {
-  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Archivo', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
-  background-color: #f9fafb;
-  background-image: 
-    radial-gradient(circle at 10% 0%, rgba(1, 196, 200, 0.03) 0%, transparent 25%),
-    radial-gradient(circle at 90% 90%, rgba(1, 196, 200, 0.03) 0%, transparent 25%);
+  background-color: #141414;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(17, 80, 84, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 90% 90%, rgba(202, 202, 32, 0.03) 0%, transparent 25%);
   background-attachment: fixed;
+  color: #ffffff;
 }
 
 /* Enhanced header */

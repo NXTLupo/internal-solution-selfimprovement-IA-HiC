@@ -1,82 +1,83 @@
 {
-  "positive": [],
+  "positive": [
+    {
+      "id": 12,
+      "one_sentence_summary": "Discussions center around finding replacement products and alternatives when preferred skincare items become discontinued or unavailable.",
+      "short_summary": "Product replacement requests"
+    }
+  ],
   "neutral": [
     {
-      "id": 0,
-      "one_sentence_summary": "Discussions focus on skincare routine development and optimization, particularly regarding the proper integration of retinol and other active ingredients into daily regimens.",
-      "short_summary": "Skincare routine optimization"
-    },
-    {
       "id": 2,
-      "one_sentence_summary": "Discussions focus on selecting sunscreen products that provide effective sun protection while meeting specific texture, finish, and skin compatibility preferences for daily use.",
-      "short_summary": "Sunscreen product selection"
+      "one_sentence_summary": "Discussions focus on skincare routines and treatment options for addressing post-acne dark spots, hyperpigmentation, and scarring through various topical treatments and preventive measures.",
+      "short_summary": "Post-acne dark spots"
     },
     {
       "id": 1,
-      "one_sentence_summary": "Discussions about finding suitable facial cleansers and moisturizers for different skin types, particularly focusing on barrier repair and managing oily or problematic skin conditions.",
+      "one_sentence_summary": "Discussions focus on evaluating and selecting sunscreen products based on protection effectiveness, cosmetic properties, skin compatibility, and daily wearability preferences.",
+      "short_summary": "Sunscreen product evaluation"
+    },
+    {
+      "id": 4,
+      "one_sentence_summary": "Discussions focus on skincare product selection challenges, ingredient sensitivities, and finding effective yet affordable cleansers and moisturizers for various skin types and conditions.",
       "short_summary": "Skincare product recommendations"
     },
     {
       "id": 5,
-      "one_sentence_summary": "Consumer discussions questioning the value and authenticity of organic and clean beauty marketing claims while seeking legitimate product alternatives and authentic sustainability practices.",
-      "short_summary": "Clean beauty skepticism"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Skincare product evaluation discussions where users compare treatments, seek alternatives, and share experiences with various beauty products focusing on effectiveness and results.",
-      "short_summary": "Skincare product comparisons"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Discussions focus on dermatological laser treatments and professional interventions for various skin conditions including acne, scarring, and pigmentation issues.",
-      "short_summary": "Laser dermatological treatments"
-    },
-    {
-      "id": 11,
-      "one_sentence_summary": "Discussions focus on persistent skin texture concerns and the ongoing struggle to find effective skincare routines to address stubborn textural irregularities and pore visibility.",
-      "short_summary": "Persistent skin texture issues"
-    },
-    {
-      "id": 12,
-      "one_sentence_summary": "Discussions focus on developing personalized skincare routines and sharing product recommendations to address various skin types, concerns, and conditions through proper cleansing, moisturizing, and treatment strategies.",
+      "one_sentence_summary": "Discussions focused on skincare routine development and acne treatment, where individuals seek advice on product selection, ingredient usage, and professional consultation for various skin concerns.",
       "short_summary": "Skincare routine advice"
     },
     {
-      "id": 13,
-      "one_sentence_summary": "Discussions focus on skincare routines and treatments for managing pore-related concerns, oil control, and common skin issues like sebaceous filaments and blackheads.",
-      "short_summary": "Pore and oil skincare"
+      "id": 7,
+      "one_sentence_summary": "Discussions focus on skincare routine optimization, particularly the proper integration, sequencing, and application timing of active ingredients like retinoids and acids while maintaining skin barrier health.",
+      "short_summary": "Skincare routine optimization"
+    },
+    {
+      "id": 6,
+      "one_sentence_summary": "Discussions focus on understanding and managing pore-related skin concerns, particularly sebaceous filaments and oil control, through various cleansing methods and chemical treatments.",
+      "short_summary": "Pore management skincare"
+    },
+    {
+      "id": 8,
+      "one_sentence_summary": "Discussions focus on laser treatments and professional dermatological procedures for treating persistent acne and acne scarring when conventional methods have failed.",
+      "short_summary": "Laser acne treatment"
+    },
+    {
+      "id": 9,
+      "one_sentence_summary": "Discussions focus on establishing effective facial skincare routines to address various skin concerns including oily, sensitive, and dry skin conditions while seeking simple, budget-friendly product recommendations.",
+      "short_summary": "Skincare routine advice"
+    },
+    {
+      "id": 11,
+      "one_sentence_summary": "Discussions focus on facial cleansing routines and product selection challenges, particularly regarding effective removal of sunscreen and makeup while avoiding skin irritation and breakouts.",
+      "short_summary": "Facial cleansing routines"
+    },
+    {
+      "id": 10,
+      "one_sentence_summary": "Discussions focus on developing comprehensive skincare routines with emphasis on barrier repair, moisturization, and product recommendations for various skin types and concerns.",
+      "short_summary": "Skincare routine advice"
     },
     {
       "id": 14,
-      "one_sentence_summary": "Discussions about facial cleansing routines and sunscreen removal methods, particularly focusing on preventing acne and clogged pores while maintaining effective skin care practices.",
-      "short_summary": "Cleansing and sunscreen removal"
+      "one_sentence_summary": "Discussions focus on building and optimizing daily skincare routines with proper sequencing of active ingredients, serums, and protective products to address various skin concerns while maintaining skin barrier health.",
+      "short_summary": "Skincare routine optimization"
     }
   ],
   "negative": [
     {
+      "id": 0,
+      "one_sentence_summary": "Discussions focus on diagnosing and treating various facial skin concerns through routine adjustments, emphasizing the identification of over-exfoliation and barrier damage as common underlying causes of persistent skin issues.",
+      "short_summary": "Skincare troubleshooting discussions"
+    },
+    {
       "id": 3,
-      "one_sentence_summary": "Discussions focus on facial acne breakouts, their potential causes, and treatment approaches for various types of blemishes across different areas of the face.",
-      "short_summary": "Facial acne discussions"
+      "one_sentence_summary": "Discussions focus on comprehensive acne treatment experiences where individuals share their extensive trials with various skincare products, routines, and approaches while seeking solutions for persistent skin concerns.",
+      "short_summary": "Acne treatment experiences"
     },
     {
-      "id": 4,
-      "one_sentence_summary": "Discussions focus on managing compromised skin barriers and irritation caused by retinoid treatments, with users seeking solutions for burning sensations and increased sensitivity.",
-      "short_summary": "Damaged skin barriers"
-    },
-    {
-      "id": 8,
-      "one_sentence_summary": "Discussions focus on early facial aging concerns and anti-aging skincare routines among young adults experiencing fine lines, smile lines, and dark circles around the eyes.",
-      "short_summary": "Early aging skincare concerns"
-    },
-    {
-      "id": 9,
-      "one_sentence_summary": "Discussions focus on acne treatment experiences, particularly the challenges of distinguishing between normal skin purging and treatment failure when starting new skincare regimens.",
-      "short_summary": "Acne treatment purging"
-    },
-    {
-      "id": 10,
-      "one_sentence_summary": "Discussions focus on comprehensive acne treatment experiences, skincare routine optimization, and the challenges of managing persistent skin conditions through various medical and over-the-counter approaches.",
-      "short_summary": "Persistent acne treatment"
+      "id": 13,
+      "one_sentence_summary": "Discussions focus on identifying and treating various skin lesions including pimples, cysts, and raised bumps that cause discomfort or concern.",
+      "short_summary": "Skin lesion treatment"
     }
   ]
 }

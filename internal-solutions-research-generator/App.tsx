@@ -354,22 +354,22 @@ const App: React.FC = () => {
 
   const getEventStyle = (type: string) => {
       switch (type) {
-          case 'PHASE': return 'border-indigo-500 bg-indigo-500/10 text-indigo-200';
-          case 'QUESTION': return 'border-amber-500 bg-amber-500/10 text-amber-200';
-          case 'HYPOTHESIS': return 'border-purple-500 bg-purple-500/10 text-purple-200';
-          case 'INSIGHT': return 'border-emerald-500 bg-emerald-500/10 text-emerald-200';
-          default: return 'border-slate-500 bg-slate-800 text-slate-300';
+          case 'PHASE': return 'border-[#115054] bg-[#115054]/10 text-[#115054]';
+          case 'QUESTION': return 'border-[#fd8e2e] bg-[#fd8e2e]/10 text-[#fd8e2e]';
+          case 'HYPOTHESIS': return 'border-purple-500 bg-purple-500/10 text-purple-700';
+          case 'INSIGHT': return 'border-emerald-500 bg-emerald-500/10 text-emerald-700';
+          default: return 'border-[#e5e5e5] bg-[#fafafa] text-[#525252]';
       }
   };
 
   const getThinkingEventStyle = (passType: string) => {
       switch (passType) {
-          case 'surface': return 'border-blue-500 bg-blue-500/10 text-blue-200';
-          case 'hidden': return 'border-purple-500 bg-purple-500/10 text-purple-200';
-          case 'psychological': return 'border-pink-500 bg-pink-500/10 text-pink-200';
-          case 'cultural': return 'border-green-500 bg-green-500/10 text-green-200';
-          case 'strategic': return 'border-amber-500 bg-amber-500/10 text-amber-200';
-          default: return 'border-slate-500 bg-slate-800 text-slate-300';
+          case 'surface': return 'border-blue-500 bg-blue-500/10 text-blue-700';
+          case 'hidden': return 'border-purple-500 bg-purple-500/10 text-purple-700';
+          case 'psychological': return 'border-pink-500 bg-pink-500/10 text-pink-700';
+          case 'cultural': return 'border-green-500 bg-green-500/10 text-green-700';
+          case 'strategic': return 'border-[#fd8e2e] bg-[#fd8e2e]/10 text-[#fd8e2e]';
+          default: return 'border-[#e5e5e5] bg-[#fafafa] text-[#525252]';
       }
   };
 
@@ -380,50 +380,44 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black text-slate-200 selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-white text-[#141414] selection:bg-[#caca20] selection:text-[#115054]">
       
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="border-b border-[#e5e5e5] bg-white sticky top-0 z-50">
+        <div className="max-w-[1440px] mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-indigo-600 p-2 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-            </div>
-            <h1 className="text-xl font-bold tracking-tight text-white">PersonaStory AI</h1>
           </div>
           <div className="flex items-center gap-4">
             {!hasKey && (
-                 <button 
+                 <button
                  onClick={handleSelectKey}
-                 className="text-xs font-medium text-amber-400 border border-amber-400/30 bg-amber-400/10 rounded px-3 py-1 hover:bg-amber-400/20 transition-colors"
+                 className="text-xs font-medium text-[#fd8e2e] border border-[#fd8e2e]/30 bg-[#fd8e2e]/10 rounded px-3 py-1 hover:bg-[#fd8e2e]/20 transition-colors"
                >
                  Select Paid API Key
                </button>
             )}
-            
+
             {/* Human-in-Loop Toggle */}
             <button
               onClick={() => setHumanInLoopMode(!humanInLoopMode)}
               className={`flex items-center gap-2 text-xs font-medium rounded px-3 py-1.5 transition-all ${
-                humanInLoopMode 
-                  ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500'
-                  : 'text-slate-400 border border-slate-700 hover:border-slate-600'
+                humanInLoopMode
+                  ? 'bg-[#caca20]/20 text-[#115054] border border-[#caca20]'
+                  : 'text-[#525252] border border-[#e5e5e5] hover:border-[#d4d4d4]'
               }`}
             >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d={humanInLoopMode 
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d={humanInLoopMode
                     ? "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     : "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  } 
+                  }
                 />
               </svg>
               <span>{humanInLoopMode ? 'Interactive Mode ON' : 'Interactive Mode'}</span>
             </button>
-            
-            <div className="text-xs font-medium text-slate-500 border border-slate-800 rounded-full px-3 py-1">
+
+            <div className="text-xs font-medium text-[#acacac] border border-[#e5e5e5] rounded-full px-3 py-1">
                 Gemini 3 Pro + Imagen + Veo 3.1
             </div>
           </div>
@@ -431,42 +425,42 @@ const App: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 py-12">
+      <main className="max-w-[1440px] mx-auto px-6 py-12">
         {appState === AppState.IDLE && (
           <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in-up">
             <div className="text-center max-w-2xl mb-8">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300 mb-6 pb-2">
+              <h2 className="text-4xl md:text-5xl font-extralight text-[#141414] mb-6 pb-2">
                 Turn Research into Stories
               </h2>
-              <p className="text-lg text-slate-400 mb-6">
+              <p className="text-lg text-[#525252] mb-6">
                 Upload your raw market research. 
                 We use <strong>Gemini 3 Pro</strong> extended thinking to extract deep nuances and <strong>Imagen</strong> to visualize every moment.
               </p>
               
               {!hasKey && (
-                <div className="bg-amber-900/20 border border-amber-900/50 p-4 rounded-lg mb-8 max-w-md mx-auto">
-                    <p className="text-sm text-amber-200 mb-3">To use high-fidelity image generation, please select a paid API key.</p>
-                    <button 
+                <div className="bg-[#fd8e2e]/10 border border-[#fd8e2e]/30 p-4 rounded-lg mb-8 max-w-md mx-auto">
+                    <p className="text-sm text-[#141414] mb-3">To use high-fidelity image generation, please select a paid API key.</p>
+                    <button
                         onClick={handleSelectKey}
-                        className="text-sm bg-amber-600 hover:bg-amber-500 text-white font-medium py-2 px-4 rounded transition-colors"
+                        className="text-sm bg-[#fd8e2e] hover:brightness-110 text-white font-medium py-2 px-4 rounded transition-colors"
                     >
                         Select API Key
                     </button>
-                    <div className="mt-2 text-xs text-amber-400/60">
+                    <div className="mt-2 text-xs text-[#fd8e2e]/60">
                         <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noreferrer" className="hover:underline">View Billing Documentation</a>
                     </div>
                 </div>
               )}
               
               {humanInLoopMode && (
-                <div className="bg-indigo-900/20 border border-indigo-500/50 p-4 rounded-lg mb-6 max-w-2xl mx-auto">
-                  <h3 className="text-sm font-semibold text-indigo-300 mb-2 flex items-center gap-2">
+                <div className="bg-[#caca20]/10 border border-[#caca20]/50 p-4 rounded-lg mb-6 max-w-2xl mx-auto">
+                  <h3 className="text-sm font-semibold text-[#115054] mb-2 flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Interactive Mode Enabled
                   </h3>
-                  <p className="text-xs text-indigo-200/70">
+                  <p className="text-xs text-[#525252]">
                     You'll be able to review and guide the analysis at key checkpoints. 
                     Watch the AI's thinking process in real-time and intervene when needed.
                   </p>
@@ -475,9 +469,9 @@ const App: React.FC = () => {
             </div>
 
             {/* Analysis Type Selector */}
-            <div className="w-full max-w-2xl mb-8 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
-                <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-full max-w-2xl mb-8 bg-white p-6 rounded-xl border border-[#e5e5e5]">
+                <h3 className="text-sm font-semibold text-[#525252] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#115054]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                     </svg>
                     Select Research Lens
@@ -485,28 +479,28 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <button 
                         onClick={() => setAnalysisType('GENERAL_ETHNOGRAPHY')}
-                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'GENERAL_ETHNOGRAPHY' ? 'bg-indigo-600/20 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500'}`}
+                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'GENERAL_ETHNOGRAPHY' ? 'bg-[#caca20]/20 border-[#caca20] text-[#115054]' : 'bg-[#fafafa] border-[#e5e5e5] text-[#525252] hover:border-[#d4d4d4]'}`}
                     >
                         <div className="font-medium">General Ethnography</div>
                         <div className="text-xs opacity-70">Broad cultural context & rituals</div>
                     </button>
                     <button 
                         onClick={() => setAnalysisType('WHITESPACE_OPPORTUNITY')}
-                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'WHITESPACE_OPPORTUNITY' ? 'bg-indigo-600/20 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500'}`}
+                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'WHITESPACE_OPPORTUNITY' ? 'bg-[#caca20]/20 border-[#caca20] text-[#115054]' : 'bg-[#fafafa] border-[#e5e5e5] text-[#525252] hover:border-[#d4d4d4]'}`}
                     >
                         <div className="font-medium">Whitespace Analysis</div>
                         <div className="text-xs opacity-70">Gaps, unmet needs & Blue Oceans</div>
                     </button>
                     <button 
                         onClick={() => setAnalysisType('BEHAVIORAL_PSYCHOLOGY')}
-                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'BEHAVIORAL_PSYCHOLOGY' ? 'bg-indigo-600/20 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500'}`}
+                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'BEHAVIORAL_PSYCHOLOGY' ? 'bg-[#caca20]/20 border-[#caca20] text-[#115054]' : 'bg-[#fafafa] border-[#e5e5e5] text-[#525252] hover:border-[#d4d4d4]'}`}
                     >
                         <div className="font-medium">Behavioral Psychology</div>
                         <div className="text-xs opacity-70">Habits, triggers & cognitive biases</div>
                     </button>
                     <button 
                         onClick={() => setAnalysisType('CUSTOMER_JOURNEY')}
-                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'CUSTOMER_JOURNEY' ? 'bg-indigo-600/20 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500'}`}
+                        className={`p-3 rounded-lg border text-left transition-all ${analysisType === 'CUSTOMER_JOURNEY' ? 'bg-[#caca20]/20 border-[#caca20] text-[#115054]' : 'bg-[#fafafa] border-[#e5e5e5] text-[#525252] hover:border-[#d4d4d4]'}`}
                     >
                         <div className="font-medium">Customer Journey</div>
                         <div className="text-xs opacity-70">End-to-end friction & flow</div>
@@ -529,9 +523,9 @@ const App: React.FC = () => {
             <div className="mb-4 text-center">
                  <div className="inline-flex items-center gap-2 mb-2">
                     <div className="relative w-4 h-4">
-                        <div className="absolute inset-0 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin"></div>
+                        <div className="absolute inset-0 rounded-full border-2 border-[#caca20] border-t-transparent animate-spin"></div>
                     </div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold text-[#141414]">
                       {humanInLoopMode ? 'Interactive Analysis' : 'Analysis in Progress'}
                     </h3>
                  </div>
@@ -550,24 +544,24 @@ const App: React.FC = () => {
                  
                  {/* Progress Bar & Status */}
                  <div className="w-full max-w-lg mx-auto mt-2">
-                     <div className="flex justify-between text-xs text-slate-400 mb-1">
+                     <div className="flex justify-between text-xs text-[#525252] mb-1">
                          <span>{progressStatus}</span>
-                         <span className="font-mono text-indigo-400">{formatTime(elapsedTime)}</span>
+                         <span className="font-mono text-[#115054]">{formatTime(elapsedTime)}</span>
                      </div>
-                     <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                         <div className="h-full bg-indigo-500 rounded-full animate-progress-indeterminate"></div>
+                     <div className="w-full h-1.5 bg-[#e5e5e5] rounded-full overflow-hidden">
+                         <div className="h-full bg-[#caca20] rounded-full animate-progress-indeterminate"></div>
                      </div>
                  </div>
             </div>
             
             <div className="flex-grow flex flex-col md:flex-row gap-6 overflow-hidden">
                 {/* Left Column: Thinking Events */}
-                <div className="md:w-1/3 flex flex-col h-full bg-slate-900/30 rounded-lg border border-slate-800 p-4">
-                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
-                         <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <div className="md:w-1/3 flex flex-col h-full bg-white rounded-lg border border-[#e5e5e5] p-4">
+                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#e5e5e5]">
+                         <span className="text-xs font-bold uppercase tracking-wider text-[#525252]">
                            {humanInLoopMode ? 'AI Thinking' : 'Live Highlights'}
                          </span>
-                         <span className="text-[10px] bg-slate-800 text-slate-500 px-2 py-0.5 rounded-full">
+                         <span className="text-[10px] bg-[#fafafa] text-[#acacac] px-2 py-0.5 rounded-full">
                            {humanInLoopMode ? interactiveThinkingEvents.length : thinkingEvents.length} Events
                          </span>
                      </div>
@@ -579,7 +573,7 @@ const App: React.FC = () => {
                          {humanInLoopMode ? (
                            <>
                              {interactiveThinkingEvents.length === 0 && (
-                                 <div className="text-center text-xs text-slate-600 py-10 italic">
+                                 <div className="text-center text-xs text-[#acacac] py-10 italic">
                                      Waiting for thinking events...
                                  </div>
                              )}
@@ -587,7 +581,7 @@ const App: React.FC = () => {
                                  <div key={idx} className={`p-3 rounded-lg border-l-2 shadow-sm animate-fade-in ${getThinkingEventStyle(event.passType)}`}>
                                      <div className="flex items-center justify-between mb-1">
                                        <span className="text-[10px] font-bold uppercase opacity-70">{event.passType}</span>
-                                       <span className="text-[9px] text-slate-500">{Math.round(event.confidence * 100)}%</span>
+                                       <span className="text-[9px] text-[#acacac]">{Math.round(event.confidence * 100)}%</span>
                                      </div>
                                      <p className="text-xs font-medium leading-relaxed">
                                          {event.content}
@@ -599,7 +593,7 @@ const App: React.FC = () => {
                            /* Standard Mode Events */
                            <>
                              {thinkingEvents.length === 0 && (
-                                 <div className="text-center text-xs text-slate-600 py-10 italic">
+                                 <div className="text-center text-xs text-[#acacac] py-10 italic">
                                      Waiting for first thinking event...
                                  </div>
                              )}
@@ -617,7 +611,7 @@ const App: React.FC = () => {
                      
                      {/* Interactive Controls */}
                      {humanInLoopMode && (
-                       <div className="mt-4 pt-4 border-t border-slate-800">
+                       <div className="mt-4 pt-4 border-t border-[#e5e5e5]">
                          {checkpoints.find(c => c.status === 'awaiting_approval') ? (
                            <InteractiveControls
                              checkpoint={checkpoints.find(c => c.status === 'awaiting_approval')}
@@ -633,7 +627,7 @@ const App: React.FC = () => {
                              )}
                            />
                          ) : (
-                           <div className="text-center text-xs text-slate-500">
+                           <div className="text-center text-xs text-[#acacac]">
                              Analysis proceeding...
                            </div>
                          )}
@@ -642,13 +636,13 @@ const App: React.FC = () => {
                 </div>
 
                 {/* Right Column: Terminal */}
-                <div className="md:w-2/3 flex flex-col h-full bg-slate-950 rounded-lg border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm relative">
-                    <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between shrink-0">
+                <div className="md:w-2/3 flex flex-col h-full bg-[#141414] rounded-lg border border-[#e5e5e5] shadow-2xl overflow-hidden font-mono text-sm relative">
+                    <div className="bg-[#1a1a1a] px-4 py-2 border-b border-[#333] flex items-center justify-between shrink-0">
                         <span className="text-xs font-bold text-emerald-500 uppercase flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                             Raw Reasoning Stream
                         </span>
-                        <span className="text-xs text-slate-600">Gemini-3-Pro-Preview</span>
+                        <span className="text-xs text-[#666]">Gemini-3-Pro-Preview</span>
                     </div>
                     <div 
                         ref={logContainerRef}
@@ -674,18 +668,18 @@ const App: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Analysis Failed</h3>
-            <p className="text-red-300 mb-8 max-w-lg">{errorMsg}</p>
+            <h3 className="text-2xl font-bold text-[#141414] mb-2">Analysis Failed</h3>
+            <p className="text-red-600 mb-8 max-w-lg">{errorMsg}</p>
             <div className="flex gap-4">
                 <button 
                   onClick={handleSelectKey}
-                  className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                  className="px-6 py-3 bg-[#f5f5f5] hover:bg-[#e5e5e5] text-[#141414] rounded-lg font-medium transition-colors"
                 >
                   Check API Key
                 </button>
                 <button 
                   onClick={handleReset}
-                  className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors"
+                  className="px-6 py-3 bg-[#caca20] hover:brightness-110 text-[#115054] rounded-lg font-medium transition-colors"
                 >
                   Try Again
                 </button>
@@ -710,13 +704,13 @@ const App: React.FC = () => {
 
 const FeatureItem: React.FC<{icon: string, title: string, desc: string}> = ({ icon, title, desc }) => (
     <div className="flex flex-col items-center text-center p-4">
-        <div className="bg-slate-800 p-3 rounded-full mb-3 text-indigo-400">
+        <div className="bg-[#fafafa] p-3 rounded-full mb-3 text-[#115054]">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
             </svg>
         </div>
-        <h4 className="text-white font-medium mb-1">{title}</h4>
-        <p className="text-sm text-slate-400">{desc}</p>
+        <h4 className="text-[#141414] font-medium mb-1">{title}</h4>
+        <p className="text-sm text-[#525252]">{desc}</p>
     </div>
 );
 

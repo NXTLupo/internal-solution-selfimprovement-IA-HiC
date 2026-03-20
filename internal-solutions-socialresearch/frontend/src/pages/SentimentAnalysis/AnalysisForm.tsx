@@ -118,36 +118,36 @@ export const AnalysisForm = ({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="p-1 rounded-xl shadow-xl border border-gray-700 px-4" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+      <div className="p-1 rounded-xl  border border-[#e5e5e5] px-4" style={{ backgroundColor: '#ffffff' }}>
         {error && (
-          <div className="mb-2 p-4 bg-red-900/50 text-red-200 rounded-lg border border-red-700 flex justify-between items-center">
+          <div className="mb-2 p-4 bg-red-50 text-red-700 rounded-lg border border-red-300 flex justify-between items-center">
             <span>{error}</span>
-            <button 
+            <button
               onClick={onClearError}
-              className="ml-4 text-red-200 hover:text-red-100"
+              className="ml-4 text-red-700 hover:text-red-900"
             >
               ✕
             </button>
           </div>
         )}
-        <h3 className="font-semibold text-blue-400 text-lg text-center">
+        <h3 className="font-semibold text-[#115054] text-lg text-center">
           {projectId ? 'Project Settings' : 'Search Options'}
         </h3>
         <form autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
             
             <div className="flex flex-col">
-              <label htmlFor="subreddit" className="mb-2 font-medium text-gray-300 flex items-center gap-1">
+              <label htmlFor="subreddit" className="mb-2 font-medium text-[#525252] flex items-center gap-1">
                 Subreddit: <span className="text-red-800">*</span>
                 <Tooltip
                   content={
-                    <div className="text-xs text-gray-300">
+                    <div className="text-xs text-[#525252]">
                       Choose active subreddits with sufficient posts
                     </div>
                   }
                 >
                   <svg 
-                    className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                    className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
@@ -180,8 +180,8 @@ export const AnalysisForm = ({
                   }
                 }}
                 placeholder="Enter subreddit name"
-                className={`p-2 border ${subredditError ? 'border-red-500' : 'border-gray-700'} rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input`}
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className={`p-2 border ${subredditError ? 'border-red-500' : 'border-[#e5e5e5]'} rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input`}
+                style={{ backgroundColor: '#ffffff' }}
                 autoComplete="off"
                 spellCheck="true"
                 required
@@ -191,17 +191,17 @@ export const AnalysisForm = ({
               )}
             </div>
             <div className="flex flex-col">
-              <label htmlFor="appName" className="mb-2 font-medium text-gray-300 flex items-center gap-1">
+              <label htmlFor="appName" className="mb-2 font-medium text-[#525252] flex items-center gap-1">
                 Topic: <span className="text-red-800">*</span>
                 <Tooltip
                   content={
-                    <div className="text-xs text-gray-300">
+                    <div className="text-xs text-[#525252]">
                       This works exactly the same as searching in a subreddit. It's recommended to go to{" "}
                       <a 
                         href="https://www.reddit.com" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 underline"
+                        className="text-[#115054] hover:text-blue-300 underline"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Reddit
@@ -211,7 +211,7 @@ export const AnalysisForm = ({
                   }
                 >
                   <svg 
-                    className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                    className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"
@@ -244,8 +244,8 @@ export const AnalysisForm = ({
                   }
                 }}
                 placeholder="Enter topic"
-                className={`p-2 border ${topicError ? 'border-red-500' : 'border-gray-700'} rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input`}
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className={`p-2 border ${topicError ? 'border-red-500' : 'border-[#e5e5e5]'} rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input`}
+                style={{ backgroundColor: '#ffffff' }}
                 autoComplete="off"
                 spellCheck="true"
                 required
@@ -255,8 +255,8 @@ export const AnalysisForm = ({
               )}
             </div>
             <div className="flex flex-col">
-              <label htmlFor="postLimit" className="mb-2 font-medium text-gray-300">
-                Number of Posts: <span className="text-sm text-gray-500">(1-900)</span>
+              <label htmlFor="postLimit" className="mb-2 font-medium text-[#525252]">
+                Number of Posts: <span className="text-sm text-[#acacac]">(1-900)</span>
               </label>
               <input
                 id="postLimit"
@@ -277,19 +277,19 @@ export const AnalysisForm = ({
                   }
                 }}
                 placeholder="50"
-                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input"
+                style={{ backgroundColor: '#ffffff' }}
                 autoComplete="off"
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="sort" className="mb-2 font-medium text-gray-300">Sort By:</label>
+              <label htmlFor="sort" className="mb-2 font-medium text-[#525252]">Sort By:</label>
               <select
                 id="sort"
                 value={formData.sort}
                 onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, sort: e.target.value as AnalysisFormData['sort'] }))}
-                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+                style={{ backgroundColor: '#ffffff' }}
               >
                 <option value="relevance">Relevance</option>
                 <option value="hot">Hot</option>
@@ -299,13 +299,13 @@ export const AnalysisForm = ({
               </select>
             </div>
             <div className="flex flex-col">
-              <label htmlFor="timeFilter" className="mb-2 font-medium text-gray-300">Time Period:</label>
+              <label htmlFor="timeFilter" className="mb-2 font-medium text-[#525252]">Time Period:</label>
               <select
                 id="timeFilter"
                 value={formData.timeFilter}
                 onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, timeFilter: e.target.value as AnalysisFormData['timeFilter'] }))}
-                className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-                style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+                style={{ backgroundColor: '#ffffff' }}
               >
                 <option value="hour">Past Hour</option>
                 <option value="day">Past Day</option>
@@ -323,13 +323,13 @@ export const AnalysisForm = ({
           <button 
             type="button"
             onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
-            className={`w-full flex justify-between items-center p-2.5 ${showAdvancedSettings ? 'rounded-t-lg border-b-0' : 'rounded-lg'} border border-gray-700 bg-gray-800/50 hover:bg-gray-700/60 focus:outline-none transition-colors`}
+            className={`w-full flex justify-between items-center p-2.5 ${showAdvancedSettings ? 'rounded-t-lg border-b-0' : 'rounded-lg'} border border-[#e5e5e5] bg-[#fafafa] hover:bg-[#f5f5f5] focus:outline-none transition-colors`}
             aria-expanded={showAdvancedSettings}
             aria-controls="advanced-settings-panel"
           >
-            <span className="font-semibold text-blue-400 flex items-center gap-2">
+            <span className="font-semibold text-[#115054] flex items-center gap-2">
               <svg 
-                className="w-5 h-5 text-blue-400" 
+                className="w-5 h-5 text-[#115054]" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -350,7 +350,7 @@ export const AnalysisForm = ({
               Advanced Settings
             </span>
             <svg 
-              className={`w-5 h-5 text-blue-400 transform transition-transform duration-200 ${showAdvancedSettings ? 'rotate-180' : ''}`}
+              className={`w-5 h-5 text-[#115054] transform transition-transform duration-200 ${showAdvancedSettings ? 'rotate-180' : ''}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -362,11 +362,11 @@ export const AnalysisForm = ({
           {showAdvancedSettings && (
             <div 
               id="advanced-settings-panel" 
-              className="p-4 border border-t-0 border-gray-700 rounded-b-lg bg-gray-800/50 transition-all duration-300 ease-in-out"
+              className="p-4 border border-t-0 border-[#e5e5e5] rounded-b-lg bg-[#fafafa] transition-all duration-300 ease-in-out"
             >
               <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
                 <div className="flex flex-col">
-                  <label htmlFor="filterType" className="mb-2 font-medium text-gray-300">Filter Type:</label>
+                  <label htmlFor="filterType" className="mb-2 font-medium text-[#525252]">Filter Type:</label>
                   <select
                     id="filterType"
                     value={formData.filterType}
@@ -375,8 +375,8 @@ export const AnalysisForm = ({
                       filterType: e.target.value as AnalysisFormData['filterType'],
                       keyword: e.target.value !== 'absa' ? '' : prev.keyword
                     }))}
-                    className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+                    style={{ backgroundColor: '#ffffff' }}
                   >
                     <option value="cluster">Cluster (default)</option>
                     <option value="absa">Aspect-Based Sentiment Analysis</option>
@@ -385,7 +385,7 @@ export const AnalysisForm = ({
 
                 {formData.filterType === 'absa' && (
                   <div className="flex flex-col">
-                    <label htmlFor="keyword" className="mb-2 font-medium text-gray-300 group relative">
+                    <label htmlFor="keyword" className="mb-2 font-medium text-[#525252] group relative">
                       Filter Keyword: <span className="text-red-800">*</span>
                     </label>
                     <input
@@ -394,8 +394,8 @@ export const AnalysisForm = ({
                       value={formData.keyword}
                       onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, keyword: e.target.value }))}
                       placeholder="Enter a specific aspect (e.g., battery, sleep tracking)"
-                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 dark-theme-input"
-                      style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                      className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] dark-theme-input"
+                      style={{ backgroundColor: '#ffffff' }}
                       required
                       autoComplete="off"
                       spellCheck="true"
@@ -404,18 +404,18 @@ export const AnalysisForm = ({
                 )}
 
                 <div className="flex flex-col">
-                  <label htmlFor="chunkSize" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
-                    Chunk Size: <span className="text-sm text-gray-500">(in thousands)</span>
+                  <label htmlFor="chunkSize" className="mb-2 font-medium text-[#525252] flex items-center gap-2">
+                    Chunk Size: <span className="text-sm text-[#acacac]">(in thousands)</span>
                     <Tooltip
                       content={
-                        <div className="text-xs text-gray-300">
+                        <div className="text-xs text-[#525252]">
                           Smaller chunks improve analysis precision but increase token usage and cost.
                           Larger chunks process faster but may miss nuanced details.
                         </div>
                       }
                     >
                       <svg 
-                        className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                        className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                         fill="none" 
                         viewBox="0 0 24 24" 
                         stroke="currentColor"
@@ -431,8 +431,8 @@ export const AnalysisForm = ({
                   </label>
                   <select
                     id="chunkSize"
-                    className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 w-full"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] w-full"
+                    style={{ backgroundColor: '#ffffff' }}
                     value={formData.chunkSize / 1000}
                     onChange={(e) => {
                       const value = parseInt(e.target.value);
@@ -451,13 +451,13 @@ export const AnalysisForm = ({
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="analysisModel" className="mb-2 font-medium text-gray-300">Analysis Model:</label>
+                  <label htmlFor="analysisModel" className="mb-2 font-medium text-[#525252]">Analysis Model:</label>
                   <select
                     id="analysisModel"
                     value={formData.analysisModel}
                     onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, analysisModel: e.target.value as AnalysisFormData['analysisModel'] }))}
-                    className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+                    style={{ backgroundColor: '#ffffff' }}
                   >
                     <option value="deepseek-r1">DeepSeek-R1</option>
                     <option value="openai-4">OpenAI-4o(default)</option>
@@ -465,31 +465,31 @@ export const AnalysisForm = ({
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="mergeMethod" className="mb-2 font-medium text-gray-300">Merge Method:</label>
+                  <label htmlFor="mergeMethod" className="mb-2 font-medium text-[#525252]">Merge Method:</label>
                   <select
                     id="mergeMethod"
                     value={formData.mergeMethod}
                     onChange={(e) => setFormData((prev: AnalysisFormData) => ({ ...prev, mergeMethod: e.target.value as AnalysisFormData['mergeMethod'] }))}
-                    className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+                    style={{ backgroundColor: '#ffffff' }}
                   >
                     <option value="openai-4">OpenAI-4o (default)</option>
                   </select>
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="maxWorkers" className="mb-2 font-medium text-gray-300 flex items-center gap-2">
-                    Number of threads: <span className="text-sm text-gray-500">(1-8)</span>
+                  <label htmlFor="maxWorkers" className="mb-2 font-medium text-[#525252] flex items-center gap-2">
+                    Number of threads: <span className="text-sm text-[#acacac]">(1-8)</span>
                     <Tooltip
                       content={
-                        <div className="text-xs text-gray-300">
+                        <div className="text-xs text-[#525252]">
                           Higher thread count accelerates processing but may encounter LLM rate limits. 
                           Start with 3-5 threads for optimal balance.
                         </div>
                       }
                     >
                       <svg 
-                        className="w-4 h-4 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                        className="w-4 h-4 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                         fill="none" 
                         viewBox="0 0 24 24" 
                         stroke="currentColor"
@@ -513,8 +513,8 @@ export const AnalysisForm = ({
                         setTempWorkers(validValue.toString());
                         setFormData((prev: AnalysisFormData) => ({ ...prev, maxWorkers: validValue }));
                       }}
-                      className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 w-full dark-theme-input"
-                      style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                      className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] w-full dark-theme-input"
+                      style={{ backgroundColor: '#ffffff' }}
                       placeholder="3"
                       autoComplete="off"
                     />

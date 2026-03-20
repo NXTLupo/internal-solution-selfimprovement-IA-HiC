@@ -356,7 +356,7 @@ function SentimentAnalysis() {
     handleAnalyze(formData, projectId);
   };
 
-  const backgroundColor = 'rgba(16,18,20,255)';
+  const backgroundColor = '#ffffff';
 
   // Prepare analysis data for the AnalysisResults component
   let analysisToDisplay: ExtendedAnalysisData | null = null;
@@ -392,21 +392,21 @@ function SentimentAnalysis() {
           }}>
             <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
           </div>
-          <div className="text-white font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
+          <div className="text-[#141414] font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
         </div>
         <div className="flex-grow flex items-center justify-center">
-          <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-md w-full border border-gray-700">
+          <div className="bg-white  rounded-lg p-8 max-w-md w-full border border-[#e5e5e5]">
             <div className="flex items-center mb-6">
               <div className="bg-red-500 p-3 rounded-full mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#141414]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-white">Project Not Found</h2>
+              <h2 className="text-2xl font-bold text-[#141414]">Project Not Found</h2>
             </div>
-            <p className="text-gray-300 mb-6">The project you're looking for doesn't exist or may have been deleted.</p>
+            <p className="text-[#525252] mb-6">The project you're looking for doesn't exist or may have been deleted.</p>
             <button 
-              className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              className="w-full py-3 bg-[#caca20] text-[#141414] rounded-lg hover:brightness-110 transition-colors font-medium"
               onClick={() => {
                 dispatch(resetFormValues());
                 navigate('/');
@@ -431,10 +431,10 @@ function SentimentAnalysis() {
           }}>
             <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
           </div>
-          <div className="text-white font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
+          <div className="text-[#141414] font-bold text-2xl mx-auto">Reddit Sentiment Analysis</div>
         </div>
         <div className="flex-grow flex items-center justify-center">
-          <div className="text-white text-xl">Loading project data...</div>
+          <div className="text-[#141414] text-xl">Loading project data...</div>
         </div>
       </div>
     );
@@ -450,7 +450,7 @@ function SentimentAnalysis() {
           <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
         </div>
         
-        <div className="text-white font-bold text-2xl mx-auto">
+        <div className="text-[#141414] font-bold text-2xl mx-auto">
           {projectId ? (formData.subreddit || 'New Project') + (formData.applicationName ? ' - ' + formData.applicationName : '') : 'Reddit Sentiment Analysis'}
         </div>
         
@@ -458,7 +458,7 @@ function SentimentAnalysis() {
           <button 
             onClick={handleSubmit} 
             disabled={loading}
-            className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg hover:shadow-blue-500/20 h-[42px] w-32"
+            className="p-2 bg-[#caca20] text-[#141414] rounded-lg hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed transition-colors   h-[42px] w-32"
           >
             {loading ? 'Analyzing...' : 'Analyze'}
           </button>
@@ -474,7 +474,7 @@ function SentimentAnalysis() {
                   formData.applicationName
                 );
               }}
-               className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-lg hover:shadow-green-500/20 h-[42px]"
+               className="p-2 bg-[#115054] text-[#141414] rounded-lg hover:brightness-110 transition-colors   h-[42px]"
             >
               Export to Markdown
             </button>

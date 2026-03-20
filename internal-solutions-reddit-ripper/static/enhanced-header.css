@@ -2,11 +2,11 @@
 
 :root {
   /* Add gradient variables for the header */
-  --cyan-vibrant: rgba(1, 196, 200, 1);
-  --accent-blue: rgba(41, 141, 255, 1);
-  --accent-purple: rgba(156, 106, 255, 1);
-  --dark-bg-gradient-1: rgba(18, 27, 38, 1);
-  --dark-bg-gradient-2: rgba(24, 36, 51, 1);
+  --cyan-vibrant: #caca20;
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
   
   /* Animation durations */
   --animation-fast: 0.15s;
@@ -14,21 +14,22 @@
   --animation-slow: 0.5s;
   
   /* Glass effect variables */
-  --glass-background: rgba(255, 255, 255, 0.95);
-  --glass-blur: blur(10px);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-background: rgba(17, 80, 84, 0.06);
+  --glass-blur: blur(32px);
+  --glass-border: 1px solid #e5e5e5;
   
   /* Shadow variables */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
-  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.16);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
 }
 
 /* Enhanced Header Styling */
 .nxt-header {
-  background: linear-gradient(135deg, var(--dark-bg-gradient-1) 0%, var(--dark-bg-gradient-2) 100%);
-  box-shadow: var(--shadow-md);
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: none;
   position: relative;
   overflow: hidden;
   z-index: 100;
@@ -41,9 +42,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(1, 196, 200, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(156, 106, 255, 0.08) 0%, transparent 50%);
+  background: #ffffff;
   z-index: -1;
 }
 
@@ -53,14 +52,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    var(--cyan-vibrant) 20%,
-    var(--accent-blue) 50%,
-    var(--accent-purple) 80%,
-    transparent 100%
-  );
+  height: 1px;
+  background: #e5e5e5;
   z-index: 1;
 }
 
@@ -74,7 +67,7 @@
 }
 
 .nxt-logo-text {
-  color: white;
+  color: #141414;
 }
 
 .nxt-logo-text h1 {
@@ -83,15 +76,17 @@
   margin: 0;
   line-height: 1.2;
   font-size: 1.5rem;
-  color: white;
+  color: #141414;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--cyan-vibrant), var(--accent-blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #141414 !important;
+  background-clip: unset !important;
+  color: #141414 !important;
+  display: inline-block;
+  font-weight: 300;
   padding-right: 0.2em;
 }
 

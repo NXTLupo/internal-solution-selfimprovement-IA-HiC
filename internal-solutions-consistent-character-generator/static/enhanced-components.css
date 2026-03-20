@@ -1,0 +1,215 @@
+/* NXT Humans 2026 Design System — Enhanced Components */
+
+:root {
+  --cyan-primary: #caca20;
+  --cyan-vibrant: #d8d830;
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
+  --success-green: #0CCE6B;
+  --warning-yellow: #caca20;
+  --error-red: #FF5A5A;
+
+  --dark-bg: #ffffff;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
+
+  --glass-background: rgba(17, 80, 84, 0.06);
+  --glass-blur: blur(32px);
+  --glass-border: 1px solid #e5e5e5;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+
+  --animation-fast: 0.15s;
+  --animation-medium: 0.3s;
+  --animation-slow: 0.5s;
+}
+
+/* Hero Section — White Theme */
+.hero-container {
+  background: #fafafa;
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(202, 202, 32, 0.1);
+  border: 1px solid rgba(202, 202, 32, 0.3);
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin: 8px auto;
+}
+
+.hero-badge span {
+  color: #caca20;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 52px;
+  font-weight: 200;
+  line-height: 56px;
+  margin-bottom: 16px;
+  color: #141414;
+  -webkit-text-fill-color: #141414;
+}
+
+.hero-subtitle {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #525252;
+  line-height: 26px;
+}
+
+.hero-cta {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.hero-cta .nxt-btn {
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: 48px;
+}
+
+/* Section Title — White Theme */
+.section-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 44px;
+  font-weight: 200;
+  line-height: 60px;
+  color: #141414;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+  position: relative;
+}
+
+.section-title::after {
+  display: none;
+}
+
+/* Card Grid */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin: 32px 0;
+  padding: 0;
+  max-width: 100%;
+  background: none;
+  border-radius: 0;
+}
+
+/* App Cards — NXT 2026 White Theme */
+.app-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  transition: all 150ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card:hover {
+  border-color: #d4d4d4;
+  transform: translateY(-2px);
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  background: rgba(202, 202, 32, 0.06);
+  border: 1px solid rgba(202, 202, 32, 0.2);
+}
+
+.app-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #141414;
+  line-height: 1.4;
+}
+
+.app-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #525252;
+  flex-grow: 1;
+  margin-bottom: 16px;
+  line-height: 24px;
+}
+
+.app-cta {
+  margin-top: auto;
+}
+
+/* Tags — White Theme */
+.tag {
+  background: #fafafa;
+  color: #525252;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid #e5e5e5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; line-height: 40px; }
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .app-card { padding: 24px; }
+}

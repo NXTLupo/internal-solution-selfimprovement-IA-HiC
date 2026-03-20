@@ -1,17 +1,18 @@
 :root {
-  --primary-purple: #7C3AED;
-  --primary-cyan: #01C4C8;
-  --accent-magenta: #EC4899;
-  --accent-blue: #38BDF8;
-  --dark-950: #050A10;
-  --dark-900: #0B111A;
-  --dark-850: #101926;
-  --glass-overlay: rgba(10, 20, 32, 0.85);
-  --glass-border: rgba(1, 196, 200, 0.22);
-  --glass-highlight: rgba(124, 58, 237, 0.18);
-  --text-primary: #F8FBFF;
-  --text-muted: rgba(236, 244, 255, 0.65);
-  --focus-ring: rgba(1, 196, 200, 0.35);
+  --primary-teal: #115054;
+  --primary-lime: #caca20;
+  --accent-orange: #fd8e2e;
+  --accent-teal-light: #1a7a80;
+  --light-50: #ffffff;
+  --light-100: #fafafa;
+  --light-200: #f5f5f5;
+  --glass-overlay: rgba(255, 255, 255, 0.92);
+  --glass-border: #e5e5e5;
+  --glass-highlight: rgba(17, 80, 84, 0.08);
+  --text-primary: #141414;
+  --text-muted: #525252;
+  --text-subtle: #acacac;
+  --focus-ring: rgba(17, 80, 84, 0.25);
 }
 
 * {
@@ -19,10 +20,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.25), transparent 45%),
-              radial-gradient(circle at bottom right, rgba(1, 196, 200, 0.25), transparent 42%),
-              #020509;
+  font-family: 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
   color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
@@ -35,7 +34,7 @@ a {
 }
 
 a:hover {
-  color: var(--primary-cyan);
+  color: var(--primary-teal);
 }
 
 .ia-app-shell {
@@ -48,8 +47,8 @@ a:hover {
 
 .intelligence-augmentation-header {
   position: relative;
-  background: linear-gradient(135deg, rgba(8, 14, 22, 0.92) 0%, rgba(4, 8, 14, 0.6) 100%);
-  border-bottom: 1px solid rgba(1, 196, 200, 0.25);
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
   padding: 4rem 0 3.5rem;
   overflow: hidden;
 }
@@ -58,7 +57,7 @@ a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(124, 58, 237, 0.2) 0%, rgba(1, 196, 200, 0.2) 45%, transparent 72%);
+  background: linear-gradient(120deg, rgba(17, 80, 84, 0.03) 0%, rgba(202, 202, 32, 0.03) 45%, transparent 72%);
   pointer-events: none;
 }
 
@@ -92,7 +91,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.25rem;
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-subtle);
 }
 
 .ia-main-text {
@@ -103,24 +102,26 @@ a:hover {
 
 .ia-intelligence {
   font-size: clamp(2.6rem, 5vw, 3.8rem);
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: -0.04em;
+  color: var(--text-primary);
 }
 
 .ia-augmentation {
   font-size: clamp(3.1rem, 6vw, 4.4rem);
-  font-weight: 700;
+  font-weight: 200;
   line-height: 0.95;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95) 0%, rgba(1, 196, 200, 0.95) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-teal);
+  -webkit-text-fill-color: var(--primary-teal);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
 .ia-description {
   font-size: 1.05rem;
   max-width: 640px;
-  color: rgba(240, 246, 255, 0.75);
+  color: var(--text-muted);
 }
 
 .ia-badges {
@@ -132,18 +133,20 @@ a:hover {
 
 .badge {
   padding: 0.4rem 1rem;
-  border-radius: 999px;
-  background: rgba(1, 196, 200, 0.18);
-  border: 1px solid rgba(1, 196, 200, 0.35);
-  color: var(--text-primary);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  border-radius: 2px;
+  background: rgba(17, 80, 84, 0.08);
+  border: 1px solid rgba(17, 80, 84, 0.2);
+  color: var(--primary-teal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .badge-secondary {
-  background: rgba(124, 58, 237, 0.18);
-  border-color: rgba(124, 58, 237, 0.35);
+  background: rgba(202, 202, 32, 0.1);
+  border-color: rgba(202, 202, 32, 0.3);
+  color: #8a8a10;
 }
 
 .ia-main {
@@ -185,23 +188,15 @@ a:hover {
 
 .glass-panel {
   position: relative;
-  background: linear-gradient(135deg, rgba(10, 20, 32, 0.88) 0%, rgba(6, 14, 24, 0.92) 100%);
-  border: 1px solid var(--glass-border);
-  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
   padding: 2rem;
-  box-shadow: 0 24px 60px rgba(2, 4, 12, 0.6);
-  backdrop-filter: blur(18px);
   overflow: hidden;
 }
 
 .glass-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.2), transparent 55%),
-              radial-gradient(circle at bottom left, rgba(1, 196, 200, 0.17), transparent 52%);
-  opacity: 0.6;
-  pointer-events: none;
+  display: none;
 }
 
 .glass-panel > * {
@@ -227,20 +222,20 @@ a:hover {
 .section-step-badge {
   width: 46px;
   height: 46px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(1, 196, 200, 0.9));
+  border-radius: 4px;
+  background: var(--primary-teal);
   display: grid;
   place-items: center;
   font-size: 1.3rem;
   font-weight: 600;
   color: #fff;
-  box-shadow: 0 12px 30px rgba(1, 196, 200, 0.3);
 }
 
 .section-title {
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .section-subtitle {
@@ -251,9 +246,9 @@ a:hover {
 .mode-toggle {
   display: inline-flex;
   padding: 0.35rem;
-  border-radius: 14px;
-  background: rgba(12, 20, 32, 0.65);
-  border: 1px solid rgba(1, 196, 200, 0.25);
+  border-radius: 4px;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
   gap: 0.35rem;
 }
 
@@ -261,19 +256,20 @@ a:hover {
   border: none;
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   padding: 0.55rem 1.1rem;
-  border-radius: 10px;
-  transition: all 0.25s ease;
+  border-radius: 2px;
+  transition: all 0.15s ease;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .mode-toggle button.active,
 .mode-toggle button:focus {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(1, 196, 200, 0.95));
-  color: white;
-  box-shadow: 0 12px 30px rgba(1, 196, 200, 0.35);
+  background: #caca20;
+  color: #115054;
   outline: none;
 }
 
@@ -282,9 +278,9 @@ a:hover {
   flex-direction: column;
   gap: 0.65rem;
   padding: 1rem 1.15rem;
-  background: rgba(5, 12, 20, 0.72);
-  border: 1px solid rgba(1, 196, 200, 0.15);
-  border-radius: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
 }
 
 .entity-input-stack {
@@ -311,35 +307,34 @@ a:hover {
 .ia-select,
 .ia-textarea {
   width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(1, 196, 200, 0.22);
-  background: rgba(6, 14, 24, 0.88);
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  background: #ffffff;
   color: var(--text-primary);
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  color-scheme: dark;
+  transition: border-color 0.15s ease;
+  color-scheme: light;
 }
 
 .ia-input:hover,
 .ia-select:hover,
 .ia-textarea:hover {
-  border-color: rgba(1, 196, 200, 0.35);
+  border-color: #d4d4d4;
 }
 
 .ia-input:focus,
 .ia-select:focus,
 .ia-textarea:focus {
   outline: none;
-  border-color: rgba(1, 196, 200, 0.8);
-  box-shadow: 0 0 0 3px var(--focus-ring);
+  border-color: #115054;
 }
 
 .form-label {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(236, 244, 255, 0.55);
+  color: var(--text-subtle);
   margin-bottom: 0.45rem;
 }
 
@@ -353,12 +348,12 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(10, 24, 36, 0.8);
-  border-radius: 14px;
+  background: #fafafa;
+  border-radius: 4px;
   padding: 0.6rem 0.75rem;
   font-size: 0.85rem;
   color: var(--text-muted);
-  border: 1px solid rgba(1, 196, 200, 0.15);
+  border: 1px solid #e5e5e5;
 }
 
 .file-name {
@@ -372,24 +367,24 @@ a:hover {
 .file-pill img {
   width: 42px;
   height: 42px;
-  border-radius: 10px;
+  border-radius: 4px;
   object-fit: cover;
-  border: 1px solid rgba(1, 196, 200, 0.25);
+  border: 1px solid #e5e5e5;
 }
 
 .file-remove {
   border: none;
   background: transparent;
-  color: rgba(249, 250, 252, 0.6);
+  color: var(--text-subtle);
   padding: 0.2rem;
-  border-radius: 8px;
+  border-radius: 2px;
   cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
 .file-remove:hover {
-  color: white;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .icon-button {
@@ -398,27 +393,27 @@ a:hover {
   justify-content: center;
   width: 38px;
   height: 38px;
-  border-radius: 12px;
-  border: 1px solid rgba(1, 196, 200, 0.22);
-  background: rgba(6, 12, 22, 0.85);
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  background: #ffffff;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .icon-button:hover {
-  color: #fff;
-  border-color: rgba(1, 196, 200, 0.45);
-  background: rgba(6, 12, 22, 0.95);
+  color: var(--text-primary);
+  border-color: #d4d4d4;
+  background: #fafafa;
 }
 
 .icon-button.danger:hover {
-  border-color: rgba(239, 68, 68, 0.65);
-  color: #FCA5A5;
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #dc2626;
 }
 
 .icon-button.danger {
-  border-color: rgba(239, 68, 68, 0.45);
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .ia-button {
@@ -427,50 +422,48 @@ a:hover {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.7rem 1.4rem;
-  border-radius: 14px;
+  border-radius: 2px;
   border: 1px solid transparent;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(1, 196, 200, 0.95));
-  color: white;
-  box-shadow: 0 18px 45px rgba(1, 196, 200, 0.25);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #caca20;
+  color: #115054;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: filter 0.15s ease;
 }
 
 .ia-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 55px rgba(1, 196, 200, 0.32);
+  filter: brightness(1.1);
 }
 
 .ia-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+  filter: none;
 }
 
 .ia-button--ghost {
-  background: rgba(6, 14, 24, 0.7);
-  border: 1px dashed rgba(1, 196, 200, 0.4);
-  color: var(--text-primary);
-  box-shadow: none;
+  background: #ffffff;
+  border: 1px dashed #d4d4d4;
+  color: var(--text-muted);
 }
 
 .ia-button--ghost:hover {
-  background: rgba(6, 14, 24, 0.9);
-  border-color: rgba(1, 196, 200, 0.6);
+  background: #fafafa;
+  border-color: #acacac;
 }
 
 .ia-button--subtle {
-  background: rgba(12, 20, 30, 0.85);
-  border: 1px solid rgba(124, 58, 237, 0.3);
-  box-shadow: none;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  color: var(--text-muted);
 }
 
 .ia-button--danger {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.92), rgba(249, 115, 22, 0.92));
-  box-shadow: 0 16px 40px rgba(239, 68, 68, 0.35);
+  background: #ef4444;
+  color: white;
 }
 
 .ia-button--full {
@@ -486,7 +479,7 @@ a:hover {
   width: 1.1rem;
   height: 1.1rem;
   animation: spin 0.85s linear infinite;
-  color: white;
+  color: #115054;
 }
 
 .toggle-group {
@@ -496,35 +489,36 @@ a:hover {
 }
 
 .toggle-button {
-  border: 1px solid rgba(1, 196, 200, 0.22);
-  background: rgba(8, 15, 24, 0.75);
+  border: 1px solid #e5e5e5;
+  background: #ffffff;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   padding: 0.55rem 1.2rem;
-  border-radius: 12px;
+  border-radius: 2px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .toggle-button:hover {
-  border-color: rgba(1, 196, 200, 0.4);
+  border-color: #d4d4d4;
   color: var(--text-primary);
 }
 
 .toggle-button.is-active {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(1, 196, 200, 0.95));
+  background: #caca20;
   border-color: transparent;
-  color: #fff;
-  box-shadow: 0 16px 38px rgba(1, 196, 200, 0.35);
+  color: #115054;
 }
 
 .ia-error {
-  background: rgba(153, 27, 27, 0.45);
-  border: 1px solid rgba(248, 113, 113, 0.65);
-  color: #FEE2E2;
+  background: rgba(254, 226, 226, 0.8);
+  border: 1px solid rgba(248, 113, 113, 0.5);
+  color: #991b1b;
   padding: 1rem 1.3rem;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
+  border-radius: 4px;
 }
 
 .gallery-container {
@@ -535,8 +529,9 @@ a:hover {
 
 .gallery-title {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .gallery-grid {
@@ -547,12 +542,12 @@ a:hover {
 
 .gallery-card {
   position: relative;
-  border: 1px solid rgba(1, 196, 200, 0.18);
-  border-radius: 18px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
   overflow: hidden;
-  background: rgba(8, 16, 26, 0.8);
+  background: #ffffff;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: border-color 0.15s ease;
   min-height: 180px;
   display: flex;
   align-items: stretch;
@@ -564,33 +559,31 @@ a:hover {
 
 .gallery-card.interactive:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.35);
+  border-color: #115054;
 }
 
 .gallery-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(1, 196, 200, 0.45);
-  box-shadow: 0 20px 48px rgba(1, 196, 200, 0.28);
+  border-color: #d4d4d4;
 }
 
 .gallery-card.selected {
-  border-color: rgba(124, 58, 237, 0.85);
-  box-shadow: 0 24px 60px rgba(124, 58, 237, 0.35);
+  border-color: #115054;
+  border-width: 2px;
 }
 
 .gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #040a12;
+  background: #fafafa;
 }
 
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(2, 5, 10, 0) 55%, rgba(2, 5, 10, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.9) 100%);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.15s ease;
 }
 
 .gallery-card:hover .gallery-overlay,
@@ -609,6 +602,7 @@ a:hover {
   justify-content: space-between;
   gap: 0.75rem;
   font-size: 0.92rem;
+  color: var(--text-primary);
 }
 
 .gallery-actions {
@@ -626,19 +620,20 @@ a:hover {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 12px;
-  background: rgba(8, 14, 24, 0.82);
-  border: 1px solid rgba(1, 196, 200, 0.4);
-  color: white;
-  transition: transform 0.2s ease;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e5e5e5;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease;
 }
 
 .gallery-chip.download {
-  border-color: rgba(124, 58, 237, 0.45);
+  border-color: rgba(17, 80, 84, 0.3);
+  color: #115054;
 }
 
 .gallery-card:hover .gallery-chip {
-  transform: translateY(-2px);
+  border-color: #d4d4d4;
 }
 
 .selection-indicator {
@@ -647,21 +642,21 @@ a:hover {
   left: 0.7rem;
   width: 38px;
   height: 38px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.92), rgba(1, 196, 200, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  background: var(--primary-teal);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   display: grid;
   place-items: center;
-  box-shadow: 0 16px 42px rgba(124, 58, 237, 0.35);
+  color: #fff;
 }
 
 .gallery-empty {
   text-align: center;
   padding: 3rem 1rem;
-  color: var(--text-muted);
-  border: 1px dashed rgba(1, 196, 200, 0.25);
-  border-radius: 16px;
-  background: rgba(5, 12, 20, 0.5);
+  color: var(--text-subtle);
+  border: 1px dashed #d4d4d4;
+  border-radius: 4px;
+  background: #fafafa;
 }
 
 .scene-panel.is-disabled {
@@ -670,9 +665,9 @@ a:hover {
 }
 
 .video-card {
-  background: rgba(8, 16, 26, 0.85);
-  border: 1px solid rgba(1, 196, 200, 0.2);
-  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -681,9 +676,9 @@ a:hover {
 
 .video-frame {
   width: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(1, 196, 200, 0.2);
-  background: #000;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  background: #fafafa;
 }
 
 .video-meta {
@@ -696,10 +691,11 @@ a:hover {
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+  background: #fafafa;
+  border-radius: 4px;
   margin: 0.5rem 0;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .video-status > div {
@@ -722,7 +718,7 @@ a:hover {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(2, 5, 10, 0.78);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
@@ -732,20 +728,20 @@ a:hover {
 }
 
 .modal-card {
-  background: linear-gradient(160deg, rgba(8, 16, 26, 0.92), rgba(4, 12, 22, 0.96));
-  border: 1px solid rgba(1, 196, 200, 0.25);
-  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
   width: min(640px, 100%);
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
 
 .modal-title {
   font-size: 1.7rem;
-  font-weight: 600;
+  font-weight: 200;
+  color: var(--text-primary);
 }
 
 .modal-description {
@@ -764,18 +760,18 @@ a:hover {
 .modal-entity {
   display: flex;
   gap: 1rem;
-  background: rgba(6, 14, 24, 0.85);
-  border: 1px solid rgba(1, 196, 200, 0.18);
-  border-radius: 18px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
   padding: 0.9rem;
 }
 
 .modal-entity img {
   width: 88px;
   height: 88px;
-  border-radius: 14px;
+  border-radius: 4px;
   object-fit: cover;
-  border: 1px solid rgba(1, 196, 200, 0.3);
+  border: 1px solid #e5e5e5;
 }
 
 .modal-entity-content {
@@ -788,7 +784,7 @@ a:hover {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  border-top: 1px solid rgba(1, 196, 200, 0.2);
+  border-top: 1px solid #e5e5e5;
   margin-top: 1.5rem;
   padding-top: 1.2rem;
 }
@@ -803,8 +799,13 @@ a:hover {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(236, 244, 255, 0.55);
+  color: var(--text-subtle);
   margin-bottom: 0.4rem;
+}
+
+/* NXT 2026: All headings use font-weight 200 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
 }
 
 @media (max-width: 900px) {

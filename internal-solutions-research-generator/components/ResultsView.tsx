@@ -20,27 +20,27 @@ const EvidenceModal: React.FC<{
     
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in" onClick={onClose}>
-            <div className="bg-slate-900 border border-slate-700 rounded-xl max-w-2xl w-full shadow-2xl overflow-hidden transform transition-all" onClick={e => e.stopPropagation()}>
-                <div className="p-6 border-b border-slate-800 flex justify-between items-center">
-                    <h3 className="text-xl font-bold text-white">{title}</h3>
-                    <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors">
+            <div className="bg-white border border-[#e5e5e5] rounded-xl max-w-2xl w-full shadow-2xl overflow-hidden transform transition-all" onClick={e => e.stopPropagation()}>
+                <div className="p-6 border-b border-[#e5e5e5] flex justify-between items-center">
+                    <h3 className="text-xl font-bold text-[#141414]">{title}</h3>
+                    <button onClick={onClose} className="text-[#525252] hover:text-[#141414] transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
                 <div className="p-6">
-                    <p className="text-slate-300 mb-6 text-lg leading-relaxed">{content}</p>
-                    
-                    <div className="bg-slate-800/50 p-4 rounded-lg border-l-4 border-indigo-500">
-                        <p className="text-xs text-indigo-400 uppercase font-bold mb-2">Verbatim Evidence from Research</p>
-                        <p className="text-slate-200 italic font-serif text-lg">"{quote}"</p>
+                    <p className="text-[#525252] mb-6 text-lg leading-relaxed">{content}</p>
+
+                    <div className="bg-[#fafafa] p-4 rounded-lg border-l-4 border-[#caca20]">
+                        <p className="text-xs text-[#115054] uppercase font-bold mb-2">Verbatim Evidence from Research</p>
+                        <p className="text-[#141414] italic font-serif text-lg">"{quote}"</p>
                     </div>
                 </div>
-                <div className="p-4 bg-slate-950 border-t border-slate-800 text-right">
-                    <button 
+                <div className="p-4 bg-[#fafafa] border-t border-[#e5e5e5] text-right">
+                    <button
                         onClick={onClose}
-                        className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors"
+                        className="px-4 py-2 bg-[#f5f5f5] hover:bg-[#e5e5e5] text-[#141414] rounded-lg text-sm font-medium transition-colors"
                     >
                         Close
                     </button>
@@ -322,20 +322,20 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-white mb-2">Research Analysis</h2>
-          <p className="text-slate-400">
+          <h2 className="text-3xl font-bold text-[#141414] mb-2">Research Analysis</h2>
+          <p className="text-[#525252]">
             {result.themes.length} Key themes identified • {result.personas.length} Personas • {scriptScenes.length} Script Scenes
           </p>
         </div>
         <div className="flex gap-3">
             <button 
                 onClick={onReset}
-                className="px-4 py-2 text-sm font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-[#525252] bg-[#fafafa] hover:bg-[#f5f5f5] rounded-lg border border-[#e5e5e5] transition-colors"
             >
                 Start New Analysis
             </button>
             <button 
-                className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow-lg shadow-indigo-500/20 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-[#115054] bg-[#caca20] hover:brightness-110 rounded-lg shadow-lg shadow-[#caca20]/20 transition-colors"
                 onClick={() => {
                    const exportData = { ...result, videoScript: scriptScenes, slides: slides };
                    const text = JSON.stringify(exportData, null, 2);
@@ -353,36 +353,36 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
       </div>
 
       {/* AI Methodology Section */}
-      <div className="mb-8 border border-slate-700 rounded-lg bg-slate-900/50 overflow-hidden">
-        <button 
+      <div className="mb-8 border border-[#e5e5e5] rounded-lg bg-white overflow-hidden">
+        <button
             onClick={() => setShowMethodology(!showMethodology)}
-            className="w-full flex items-center justify-between p-4 bg-slate-800/50 hover:bg-slate-800 transition-colors text-left"
+            className="w-full flex items-center justify-between p-4 bg-[#fafafa] hover:bg-[#f5f5f5] transition-colors text-left"
         >
             <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#115054]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
-                <span className="font-semibold text-slate-200">AI Reasoning & Methodology Log</span>
+                <span className="font-semibold text-[#141414]">AI Reasoning & Methodology Log</span>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 text-slate-400 transition-transform ${showMethodology ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 text-[#525252] transition-transform ${showMethodology ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
         </button>
         {showMethodology && (
-            <div className="p-6 text-sm text-slate-300 leading-relaxed border-t border-slate-700 bg-slate-900/80 font-mono">
-                <h4 className="text-indigo-400 font-bold uppercase tracking-wider text-xs mb-2">Chain of Thought Summary</h4>
+            <div className="p-6 text-sm text-[#525252] leading-relaxed border-t border-[#e5e5e5] bg-[#fafafa] font-mono">
+                <h4 className="text-[#115054] font-bold uppercase tracking-wider text-xs mb-2">Chain of Thought Summary</h4>
                 <p className="whitespace-pre-wrap">{result.methodology}</p>
             </div>
         )}
       </div>
 
-      <div className="flex gap-4 mb-6 border-b border-slate-700">
+      <div className="flex gap-4 mb-6 border-b border-[#e5e5e5]">
         <button
           onClick={() => setActiveTab('personas')}
           className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
             activeTab === 'personas' 
-              ? 'text-indigo-400 border-b-2 border-indigo-400' 
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'text-[#115054] border-b-2 border-[#115054]'
+              : 'text-[#525252] hover:text-[#141414]'
           }`}
         >
           Personas & Themes
@@ -391,8 +391,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
           onClick={() => setActiveTab('script')}
           className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
             activeTab === 'script' 
-              ? 'text-indigo-400 border-b-2 border-indigo-400' 
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'text-[#115054] border-b-2 border-[#115054]'
+              : 'text-[#525252] hover:text-[#141414]'
           }`}
         >
           Video Script (Storyboard)
@@ -401,8 +401,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
           onClick={() => setActiveTab('deck')}
           className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
             activeTab === 'deck' 
-              ? 'text-indigo-400 border-b-2 border-indigo-400' 
-              : 'text-slate-400 hover:text-slate-200'
+              ? 'text-[#115054] border-b-2 border-[#115054]'
+              : 'text-[#525252] hover:text-[#141414]'
           }`}
         >
           Strategy Deck
@@ -412,9 +412,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
       {activeTab === 'personas' && (
         <div className="space-y-8 animate-fade-in">
           {/* Themes Section */}
-          <section className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-indigo-500 rounded-full"></span>
+          <section className="bg-[#fafafa] rounded-xl p-6 border border-[#e5e5e5]">
+            <h3 className="text-lg font-semibold text-[#141414] mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-[#caca20] rounded-full"></span>
               Key Market Themes
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -422,10 +422,10 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
                 <button 
                     key={idx} 
                     onClick={() => openEvidence("Theme Detail", theme.description, theme.quote)}
-                    className="text-left px-4 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg border border-slate-600 hover:border-indigo-400 transition-all group flex flex-col gap-2"
+                    className="text-left px-4 py-3 bg-white hover:bg-[#fafafa] text-[#141414] rounded-lg border border-[#e5e5e5] hover:border-[#caca20] transition-all group flex flex-col gap-2"
                 >
-                  <span className="font-medium text-white group-hover:text-indigo-300">{theme.name}</span>
-                  <span className="text-xs text-slate-400 line-clamp-2">{theme.description}</span>
+                  <span className="font-medium text-[#141414] group-hover:text-[#115054]">{theme.name}</span>
+                  <span className="text-xs text-[#525252] line-clamp-2">{theme.description}</span>
                 </button>
               ))}
             </div>
@@ -443,12 +443,12 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
       {activeTab === 'script' && (
         <div className="space-y-6 animate-fade-in">
           {/* Script Header */}
-          <div className="bg-slate-900 sticky top-4 z-10 p-4 rounded-xl border border-slate-700 flex justify-between items-center shadow-2xl">
+          <div className="bg-white sticky top-4 z-10 p-4 rounded-xl border border-[#e5e5e5] flex justify-between items-center shadow-2xl">
             <div>
-                <h3 className="text-lg font-semibold text-white">Generated Video Script</h3>
-                <p className="text-sm text-slate-400">Total Duration: ~{(scriptScenes.reduce((acc, s) => acc + s.durationSeconds, 0) / 60).toFixed(1)} mins</p>
+                <h3 className="text-lg font-semibold text-[#141414]">Generated Video Script</h3>
+                <p className="text-sm text-[#525252]">Total Duration: ~{(scriptScenes.reduce((acc, s) => acc + s.durationSeconds, 0) / 60).toFixed(1)} mins</p>
             </div>
-            <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold flex items-center gap-2">
+            <div className="text-xs text-[#acacac] uppercase tracking-wider font-semibold flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500"></span>
                 Veo 3.1 Ready
             </div>
@@ -469,8 +469,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
 
       {activeTab === 'deck' && (
           <div className="space-y-6 pb-10 animate-fade-in">
-             <div className="flex justify-between items-center bg-slate-900 p-4 rounded-xl border border-slate-700 sticky top-4 z-20 shadow-xl">
-                 <h3 className="text-lg font-bold text-white font-['Poppins']">Strategy Deck</h3>
+             <div className="flex justify-between items-center bg-white p-4 rounded-xl border border-[#e5e5e5] sticky top-4 z-20 shadow-xl">
+                 <h3 className="text-lg font-bold text-[#141414] font-['Poppins']">Strategy Deck</h3>
                  <button 
                     onClick={handleDownloadPPT}
                     className="flex items-center gap-2 px-4 py-2 bg-[#EA00FF] hover:bg-[#C500D1] text-white rounded font-['Poppins'] font-semibold transition-colors text-sm"
@@ -483,7 +483,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
              </div>
             
             {/* Title Slide Visualization */}
-            <div className="bg-black p-12 rounded-none shadow-xl max-w-5xl mx-auto text-white aspect-[16/9] flex flex-col items-center justify-center relative border border-slate-800">
+            <div className="bg-black p-12 rounded-none shadow-xl max-w-5xl mx-auto text-white aspect-[16/9] flex flex-col items-center justify-center relative border border-[#e5e5e5]">
                 <h1 className="text-6xl font-bold font-['Poppins'] tracking-tight mb-4">STRATEGIC ANALYSIS</h1>
                 <div className="text-7xl font-bold font-['Poppins']">
                     NXT HUMANS<span className="text-[#EA00FF]">.</span>
@@ -579,7 +579,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset }) => {
                     </div>
                 ))
             ) : (
-                <div className="text-center p-12 text-slate-500">
+                <div className="text-center p-12 text-[#acacac]">
                     No slides generated for this analysis.
                 </div>
             )}
@@ -594,25 +594,25 @@ const PersonaCard: React.FC<{
     index: number;
     onEvidenceClick: (t: string, c: string, q: string) => void;
 }> = ({ persona, index, onEvidenceClick }) => (
-  <div className="bg-slate-800 rounded-xl p-6 border border-slate-700 shadow-lg hover:border-indigo-500/50 transition-colors">
+  <div className="bg-white rounded-xl p-6 border border-[#e5e5e5] shadow-lg hover:border-[#caca20]/50 transition-colors">
     <div className="flex flex-col md:flex-row gap-8">
         {/* Left Column: Image & Bio */}
         <div className="md:w-1/3 flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="w-48 h-48 mb-4 rounded-xl overflow-hidden bg-slate-700 shadow-inner border border-slate-600">
+            <div className="w-48 h-48 mb-4 rounded-xl overflow-hidden bg-[#f5f5f5] shadow-inner border border-[#e5e5e5]">
                 {persona.imageUrl ? (
                     <img src={persona.imageUrl} alt={persona.name} className="w-full h-full object-cover" />
                 ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-500">No Image</div>
+                    <div className="w-full h-full flex items-center justify-center text-[#acacac]">No Image</div>
                 )}
             </div>
-            <h4 className="text-2xl font-bold text-white">{persona.name}</h4>
-            <p className="text-indigo-400 font-medium mb-1">{persona.role}</p>
-            <p className="text-xs text-slate-400 mb-4">{persona.demographics}</p>
+            <h4 className="text-2xl font-bold text-[#141414]">{persona.name}</h4>
+            <p className="text-[#115054] font-medium mb-1">{persona.role}</p>
+            <p className="text-xs text-[#525252] mb-4">{persona.demographics}</p>
             
-            <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            <p className="text-sm text-[#525252] leading-relaxed mb-4">
                 {persona.bio}
             </p>
-             <blockquote className="text-sm italic text-slate-200 border-l-4 border-indigo-500 pl-4 py-1 bg-slate-900/30 rounded-r w-full">
+             <blockquote className="text-sm italic text-[#141414] border-l-4 border-[#caca20] pl-4 py-1 bg-[#fafafa] rounded-r w-full">
                 "{persona.quote}"
             </blockquote>
         </div>
@@ -621,26 +621,26 @@ const PersonaCard: React.FC<{
         <div className="md:w-2/3 space-y-6">
             
             {/* Strategic Snapshot (5 W's) */}
-            <div className="bg-slate-900/50 rounded-lg border border-slate-600 p-4">
-                <h5 className="text-xs font-bold uppercase tracking-widest text-indigo-300 mb-3 border-b border-slate-700 pb-2">
+            <div className="bg-[#fafafa] rounded-lg border border-[#e5e5e5] p-4">
+                <h5 className="text-xs font-bold uppercase tracking-widest text-[#115054] mb-3 border-b border-[#e5e5e5] pb-2">
                     Strategic Snapshot (The 5 W's)
                 </h5>
                 <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                        <span className="text-[10px] font-bold text-slate-500 uppercase block">Who</span>
-                        <p className="text-sm text-slate-200">{persona.fiveWs.who}</p>
+                        <span className="text-[10px] font-bold text-[#acacac] uppercase block">Who</span>
+                        <p className="text-sm text-[#141414]">{persona.fiveWs.who}</p>
                     </div>
                     <div className="space-y-1">
-                         <span className="text-[10px] font-bold text-slate-500 uppercase block">What</span>
-                         <p className="text-sm text-slate-200">{persona.fiveWs.what}</p>
+                         <span className="text-[10px] font-bold text-[#acacac] uppercase block">What</span>
+                         <p className="text-sm text-[#141414]">{persona.fiveWs.what}</p>
                     </div>
                     <div className="space-y-1">
-                         <span className="text-[10px] font-bold text-slate-500 uppercase block">When/Where</span>
-                         <p className="text-sm text-slate-200">{persona.fiveWs.whenWhere}</p>
+                         <span className="text-[10px] font-bold text-[#acacac] uppercase block">When/Where</span>
+                         <p className="text-sm text-[#141414]">{persona.fiveWs.whenWhere}</p>
                     </div>
                     <div className="space-y-1">
-                         <span className="text-[10px] font-bold text-slate-500 uppercase block">Why</span>
-                         <p className="text-sm text-slate-200">{persona.fiveWs.why}</p>
+                         <span className="text-[10px] font-bold text-[#acacac] uppercase block">Why</span>
+                         <p className="text-sm text-[#141414]">{persona.fiveWs.why}</p>
                     </div>
                 </div>
             </div>
@@ -650,7 +650,7 @@ const PersonaCard: React.FC<{
                 <Section title="Motivations" items={persona.motivations} color="text-emerald-400" onEvidenceClick={onEvidenceClick} />
                 <Section title="Tasks (Jobs to be done)" items={persona.tasks} color="text-blue-400" onEvidenceClick={onEvidenceClick} />
                 <Section title="Pain Points" items={persona.painPoints} color="text-red-400" onEvidenceClick={onEvidenceClick} />
-                <Section title="Opportunities" items={persona.opportunities} color="text-amber-400" onEvidenceClick={onEvidenceClick} />
+                <Section title="Opportunities" items={persona.opportunities} color="text-[#fd8e2e]" onEvidenceClick={onEvidenceClick} />
             </div>
         </div>
     </div>
@@ -669,12 +669,12 @@ const Section: React.FC<{
       {items.map((item, i) => (
         <li 
             key={i} 
-            className="text-sm text-slate-300 flex items-start gap-2 group cursor-pointer p-1.5 rounded hover:bg-slate-700/50 transition-colors"
+            className="text-sm text-[#525252] flex items-start gap-2 group cursor-pointer p-1.5 rounded hover:bg-[#f5f5f5] transition-colors"
             onClick={() => onEvidenceClick(title, item.label, item.quote)}
         >
-          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-500 shrink-0 group-hover:bg-white transition-colors"></span>
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#acacac] shrink-0 group-hover:bg-[#141414] transition-colors"></span>
           <span>{item.label}</span>
-          <span className="ml-auto opacity-0 group-hover:opacity-100 text-indigo-400">
+          <span className="ml-auto opacity-0 group-hover:opacity-100 text-[#115054]">
              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
              </svg>
@@ -693,10 +693,10 @@ const ScriptSceneItem: React.FC<{
     const [showQuote, setShowQuote] = useState(false);
 
     return (
-  <div className="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:bg-slate-800/80 transition-colors flex flex-col md:flex-row gap-6">
+  <div className="bg-white p-6 rounded-xl border border-[#e5e5e5] hover:bg-[#fafafa] transition-colors flex flex-col md:flex-row gap-6">
     {/* Scene Visual */}
     <div className="md:w-1/3 shrink-0 flex flex-col gap-2">
-        <div className="aspect-video w-full bg-slate-900 rounded-lg overflow-hidden border border-slate-600 relative group">
+        <div className="aspect-video w-full bg-[#fafafa] rounded-lg overflow-hidden border border-[#e5e5e5] relative group">
              {/* Render Video if available, else Image */}
              {scene.videoUrl ? (
                 <div className="relative w-full h-full group">
@@ -711,7 +711,7 @@ const ScriptSceneItem: React.FC<{
                     <a 
                         href={scene.videoUrl} 
                         download={`scene-${scene.sceneNumber}.mp4`}
-                        className="absolute bottom-10 right-2 p-2 bg-black/60 hover:bg-indigo-600 text-white rounded-full backdrop-blur-md transition-colors z-20 opacity-0 group-hover:opacity-100"
+                        className="absolute bottom-10 right-2 p-2 bg-black/60 hover:bg-[#115054] text-white rounded-full backdrop-blur-md transition-colors z-20 opacity-0 group-hover:opacity-100"
                         title="Download Video"
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -723,13 +723,13 @@ const ScriptSceneItem: React.FC<{
              ) : scene.imageUrl ? (
                 <img src={scene.imageUrl} alt={`Scene ${scene.sceneNumber}`} className="w-full h-full object-cover" />
             ) : (
-                <div className="w-full h-full flex items-center justify-center text-slate-600">Generating Visual...</div>
+                <div className="w-full h-full flex items-center justify-center text-[#acacac]">Generating Visual...</div>
             )}
 
             <button
                 onClick={onRegenerateImage}
                 disabled={scene.imageStatus === 'generating'}
-                className="absolute top-2 right-2 p-1.5 bg-black/60 hover:bg-indigo-600 text-white rounded-full backdrop-blur-md transition-colors z-20 opacity-0 group-hover:opacity-100 focus:opacity-100"
+                className="absolute top-2 right-2 p-1.5 bg-black/60 hover:bg-[#115054] text-white rounded-full backdrop-blur-md transition-colors z-20 opacity-0 group-hover:opacity-100 focus:opacity-100"
                 title="Regenerate Image"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${scene.imageStatus === 'generating' ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -743,8 +743,8 @@ const ScriptSceneItem: React.FC<{
 
             {(scene.videoStatus === 'generating' || scene.imageStatus === 'generating') && (
                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center z-20 backdrop-blur-sm">
-                    <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mb-2"></div>
-                    <span className="text-xs text-indigo-300 font-medium text-center px-4">
+                    <div className="w-8 h-8 border-2 border-[#caca20] border-t-transparent rounded-full animate-spin mb-2"></div>
+                    <span className="text-xs text-[#115054] font-medium text-center px-4">
                         {scene.videoStatus === 'generating' ? 'Analyzing Scene Logic & Generating Video...' : 'Regenerating Image...'}
                     </span>
                  </div>
@@ -756,7 +756,7 @@ const ScriptSceneItem: React.FC<{
                 onClick={onGenerateVideo}
                 disabled={scene.videoStatus === 'generating' || scene.imageStatus === 'generating' || !scene.imageUrl}
                 className={`w-full py-2 px-3 rounded text-xs font-semibold uppercase tracking-wide transition-all flex items-center justify-center gap-2
-                    ${scene.videoStatus === 'error' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-slate-700 text-slate-300 border border-slate-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-500'}
+                    ${scene.videoStatus === 'error' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-[#f5f5f5] text-[#525252] border border-[#e5e5e5] hover:bg-[#115054] hover:text-white hover:border-[#115054]'}
                     ${(scene.videoStatus === 'generating' || scene.imageStatus === 'generating' || !scene.imageUrl) ? 'opacity-50 cursor-not-allowed' : ''}
                 `}
             >
@@ -777,7 +777,7 @@ const ScriptSceneItem: React.FC<{
     <div className="md:w-2/3 space-y-4">
         <div className="flex gap-2 mb-2">
             {scene.tags.map((tag, i) => (
-                <span key={i} className="text-[10px] uppercase tracking-wider text-slate-500 border border-slate-700 px-1.5 py-0.5 rounded">
+                <span key={i} className="text-[10px] uppercase tracking-wider text-[#acacac] border border-[#e5e5e5] px-1.5 py-0.5 rounded">
                     {tag}
                 </span>
             ))}
@@ -785,18 +785,18 @@ const ScriptSceneItem: React.FC<{
 
         <div className="grid gap-4">
             <div>
-                 <h6 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-2">
+                 <h6 className="text-xs font-semibold text-[#525252] uppercase tracking-wider mb-1 flex items-center gap-2">
                     Visual Description
                 </h6>
-                <p className="text-slate-300 text-sm">
+                <p className="text-[#525252] text-sm">
                     {scene.visualDescription}
                 </p>
             </div>
             <div>
-                 <h6 className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1 flex items-center gap-2">
+                 <h6 className="text-xs font-semibold text-[#115054] uppercase tracking-wider mb-1 flex items-center gap-2">
                     Narration (Research Analysis)
                 </h6>
-                <p className="text-white text-lg font-serif leading-relaxed">
+                <p className="text-[#141414] text-lg font-serif leading-relaxed">
                     "{scene.audioNarration}"
                 </p>
             </div>
@@ -805,7 +805,7 @@ const ScriptSceneItem: React.FC<{
              <div>
                 <button 
                     onClick={() => setShowQuote(!showQuote)}
-                    className="text-xs text-slate-500 hover:text-indigo-400 flex items-center gap-1 transition-colors"
+                    className="text-xs text-[#acacac] hover:text-[#115054] flex items-center gap-1 transition-colors"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -813,7 +813,7 @@ const ScriptSceneItem: React.FC<{
                     {showQuote ? 'Hide Evidence Source' : 'Show Evidence Source (Transparency)'}
                 </button>
                 {showQuote && (
-                    <div className="mt-2 p-3 bg-slate-900/50 border-l-2 border-slate-600 rounded-r text-sm text-slate-400 italic font-mono animate-fade-in">
+                    <div className="mt-2 p-3 bg-[#fafafa] border-l-2 border-[#e5e5e5] rounded-r text-sm text-[#525252] italic font-mono animate-fade-in">
                         "{scene.quote}"
                     </div>
                 )}

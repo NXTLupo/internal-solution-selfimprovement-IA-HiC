@@ -268,8 +268,8 @@ export const AnalysisTab = ({
     <div className="space-y-6">
       {/* Only show DateRangePicker if showDatePicker is true (which will be false when called from AnalysisResults) */}
       {showDatePicker && (
-        <div className="mb-2 p-4 bg-gray-800 rounded-xl shadow-lg">
-          <h3 className="font-bold text-gray-300 mb-2">Filter by Date</h3>
+        <div className="mb-2 p-4 bg-white rounded-xl ">
+          <h3 className="font-bold text-[#525252] mb-2">Filter by Date</h3>
           <DateRangePicker 
             onChange={onDateRangeChange} 
             maxDate={getLatestDate(analysis)}
@@ -302,7 +302,7 @@ export const AnalysisTab = ({
             <div key={sentiment} className={`${isFullScreen ? 'h-[calc(100vh-250px)] overflow-auto scrollbar-custom pr-4' : ''}`}>
               <div className="flex items-center justify-between mb-4">
                 <div className={`flex items-center gap-3 ${
-                  isFullScreen ? (sentiment === 'positive' ? 'text-green-400' : 'text-red-400') : 'text-blue-400'
+                  isFullScreen ? (sentiment === 'positive' ? 'text-green-600' : 'text-red-600') : 'text-[#115054]'
                 }`}>
                   {isFullScreen && (
                     <div className={`w-1.5 h-8 rounded-full ${sentiment === 'positive' ? 'bg-green-400' : 'bg-red-400'}`}></div>
@@ -317,13 +317,13 @@ export const AnalysisTab = ({
                   className="flex items-center cursor-pointer group" 
                   onClick={() => toggleExpandAll(sentiment)}
                 >
-                  <span className="text-xs mr-2 text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="text-xs mr-2 text-[#525252] group-hover:text-[#525252] transition-colors">
                     {expandAll[sentiment] ? 'Collapse All' : 'Expand All'}
                   </span>
                   <div className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${
                     expandAll[sentiment] 
                       ? (sentiment === 'positive' ? 'bg-green-600' : 'bg-red-600') 
-                      : 'bg-gray-700'
+                      : 'bg-[#f5f5f5]'
                   }`}>
                     <div className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-gray-300 opacity-80 shadow transition-transform duration-300 transform ${
                       expandAll[sentiment] ? 'translate-x-5' : ''
@@ -347,10 +347,10 @@ export const AnalysisTab = ({
                       <div 
                         key={idx} 
                         id={categoryId} // Add the ID here
-                        className={`rounded-lg border border-gray-700 mb-4 ${
-                          isFullScreen ? 'transition-all hover:border-gray-600' : ''
+                        className={`rounded-lg border border-[#e5e5e5] mb-4 ${
+                          isFullScreen ? 'transition-all hover:border-[#e5e5e5]' : ''
                         } ${sentiment === 'positive' ? 'hover:border-green-700' : 'hover:border-red-700'}`} 
-                        style={{ backgroundColor: 'rgba(55,56,59,255)' }}
+                        style={{ backgroundColor: '#fafafa' }}
                       >
                         {/* Category Header - Always visible */}
                         <div 
@@ -359,7 +359,7 @@ export const AnalysisTab = ({
                         >
                           <div className="flex items-center justify-between">
                             <h4 className={`text-base font-semibold ${
-                              sentiment === 'positive' ? 'text-green-400' : 'text-red-400'
+                              sentiment === 'positive' ? 'text-green-600' : 'text-red-600'
                             } flex items-center`}>
                               {category.category}
                               <span className="ml-2 text-xs">
@@ -373,7 +373,7 @@ export const AnalysisTab = ({
                                 }
                               </span>
                             </h4>
-                            <span className="text-xs px-3 py-1 rounded-full bg-gray-700 text-gray-300">
+                            <span className="text-xs px-3 py-1 rounded-full bg-[#f5f5f5] text-[#525252]">
                               {totalMentions} mentions
                             </span>
                           </div>
@@ -387,14 +387,14 @@ export const AnalysisTab = ({
                                 .map((point: Point, pointIdx: number) => (
                                   <li key={pointIdx} className="flex items-start group">
                                     <div className="flex-1">
-                                      <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
+                                      <span className="text-sm text-[#525252] group-hover:text-[#141414] transition-colors">
                                         {point.point}
                                       </span>
                                     </div>
                                     <span className={`ml-3 px-2 py-0.5 text-xs rounded-full flex-shrink-0 ${
                                       sentiment === 'positive' 
-                                        ? 'bg-green-900/50 text-green-400' 
-                                        : 'bg-red-900/50 text-red-400'
+                                        ? 'bg-green-100 text-green-600' 
+                                        : 'bg-red-100 text-red-600'
                                     }`}>
                                       {point.frequency}×
                                     </span>
@@ -402,7 +402,7 @@ export const AnalysisTab = ({
                                 ))}
                               
                               {category.points.length > 4 && (
-                                <li className="text-xs text-gray-400 italic">
+                                <li className="text-xs text-[#525252] italic">
                                   + {category.points.length - 4} more points...
                                 </li>
                               )}
@@ -412,23 +412,23 @@ export const AnalysisTab = ({
                         
                         {/* Expanded Details */}
                         {isExpanded && (
-                          <div className="p-6 pt-0 border-t border-gray-700">
+                          <div className="p-6 pt-0 border-t border-[#e5e5e5]">
                             <div className="space-y-4">
                               {category.points
                                 .sort((a: Point, b: Point) => b.frequency - a.frequency)
                                 .map((point: Point, pointIdx: number) => (
-                                  <div key={pointIdx} className={`pl-4 border-l-2 border-gray-700 ${
+                                  <div key={pointIdx} className={`pl-4 border-l-2 border-[#e5e5e5] ${
                                     isFullScreen ? 'hover:border-blue-400 transition-colors' : ''
                                   }`}>
                                     <div className="flex items-start gap-2">
                                       <div className="flex-1">
                                         <div className="flex items-center gap-2">
-                                          <p className="text-sm text-gray-300">{point.point}</p>
-                                          <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
+                                          <p className="text-sm text-[#525252]">{point.point}</p>
+                                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#115054]/10 text-[#115054]">
                                             {point.frequency}×
                                           </span>
                                         </div>
-                                        <div className="mt-2 bg-gray-800/50 rounded-lg p-3">
+                                        <div className="mt-2 bg-[#fafafa] rounded-lg p-3">
                                           {Object.entries(point.evidence).map(([postId, quotes]) => {
                                             const formattedPostId = `results`;  // Since the data structure has changed
                                             const posts = analysis?.formatted_data?.[formattedPostId] || [];
@@ -442,7 +442,7 @@ export const AnalysisTab = ({
                                             return (
                                               <div key={postId} className="mb-2 last:mb-0">
                                                 <div className="flex items-center gap-1">
-                                                  <p className="text-xs text-gray-400 mb-1">
+                                                  <p className="text-xs text-[#525252] mb-1">
                                                     Source: {postId}
                                                     {post && (
                                                       <span className="ml-2 opacity-50" style={{ fontSize: '10px', lineHeight: '1' }}>
@@ -454,12 +454,12 @@ export const AnalysisTab = ({
                                                     <div className="group relative inline-block">
                                                       <Tooltip
                                                         content={
-                                                          <div className="text-xs text-gray-300 max-w-lg max-h-[200px] overflow-y-auto scrollbar-custom">
-                                                            <p className="font-semibold text-blue-400 mb-2">Post Content:</p>
+                                                          <div className="text-xs text-[#525252] max-w-lg max-h-[200px] overflow-y-auto scrollbar-custom">
+                                                            <p className="font-semibold text-[#115054] mb-2">Post Content:</p>
                                                             {post && (
                                                               <>
                                                                 {/* Main post content box */}
-                                                                <div className="bg-gray-900/90 p-3 rounded mb-3">
+                                                                <div className="bg-[#f5f5f5] p-3 rounded mb-3">
                                                                   <div 
                                                                     className="whitespace-pre-wrap"
                                                                     dangerouslySetInnerHTML={{
@@ -475,8 +475,8 @@ export const AnalysisTab = ({
                                                                 {/* Comments section box - only show if there are comments */}
                                                                 {post.comments && post.comments.length > 0 && (
                                                                   <div className="mt-2">
-                                                                    <p className="font-semibold text-blue-400 mb-2">Comments:</p>
-                                                                    <div className="bg-gray-900/90 p-3 rounded">
+                                                                    <p className="font-semibold text-[#115054] mb-2">Comments:</p>
+                                                                    <div className="bg-[#f5f5f5] p-3 rounded">
                                                                       <div className="whitespace-pre-wrap">
                                                                         {post.comments.map((comment: Comment, commentIndex: number) => (
                                                                           <div key={commentIndex} className="mb-3 last:mb-0">
@@ -498,7 +498,7 @@ export const AnalysisTab = ({
                                                                                 {comment.replies.map((reply: Reply, replyIndex: number) => (
                                                                                   <div 
                                                                                     key={replyIndex}
-                                                                                    className="border-l-2 border-gray-600 pl-3 py-1 mb-2 last:mb-0"
+                                                                                    className="border-l-2 border-[#e5e5e5] pl-3 py-1 mb-2 last:mb-0"
                                                                                     dangerouslySetInnerHTML={{
                                                                                       __html: highlightTextWithContext(
                                                                                         reply.body,
@@ -524,7 +524,7 @@ export const AnalysisTab = ({
                                                       >
                                                         <div className="inline-block">
                                                           <svg 
-                                                            className="w-3 h-3 text-gray-400 cursor-help hover:text-blue-400 transition-colors" 
+                                                            className="w-3 h-3 text-[#525252] cursor-help hover:text-[#115054] transition-colors" 
                                                             fill="none" 
                                                             viewBox="0 0 24 24" 
                                                             stroke="currentColor"
@@ -544,7 +544,7 @@ export const AnalysisTab = ({
                                                 <ul className="list-disc list-inside">
                                                   {quotesArray.map((quote: string, quoteIdx: number) => {
                                                     return (
-                                                      <li key={quoteIdx} className="text-xs text-gray-300 ml-2">
+                                                      <li key={quoteIdx} className="text-xs text-[#525252] ml-2">
                                                         <span dangerouslySetInnerHTML={{
                                                           __html: highlightTextWithContext(
                                                             quote,

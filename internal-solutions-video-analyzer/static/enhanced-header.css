@@ -1,11 +1,12 @@
-/* Enhanced header styles for NXT Humans Video Analyzer */
+/* Enhanced header styles for NXT Humans Video Analyzer — NXT 2026 White Theme */
 
 .nxt-header {
-  background: linear-gradient(90deg, #01C4C8, #1DB954);
-  color: white;
+  background: #ffffff;
+  color: #141414;
   padding: 20px 0;
   margin-bottom: 30px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .nxt-header-content {
@@ -17,14 +18,15 @@
 .nxt-logo-text h1 {
   margin: 0;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 200;
   letter-spacing: -0.5px;
+  color: #141414;
 }
 
 .nxt-logo-text p {
   margin: 10px 0 0;
   font-size: 1.1rem;
-  opacity: 0.9;
+  color: #525252;
 }
 
 .nxt-nav {
@@ -34,14 +36,14 @@
 
 .nxt-nav-item {
   margin-left: 20px;
-  color: white;
+  color: #525252;
   text-decoration: none;
   font-weight: 500;
-  transition: opacity 0.3s;
+  transition: color 0.15s ease;
 }
 
 .nxt-nav-item:hover {
-  opacity: 0.8;
+  color: #115054;
 }
 
 .nxt-nav-item i {
@@ -49,10 +51,11 @@
 }
 
 .nxt-footer {
-  background-color: #282c34;
-  color: #f8f8f2;
+  background-color: #fafafa;
+  color: #525252;
   padding: 20px 0;
   margin-top: 50px;
+  border-top: 1px solid #e5e5e5;
 }
 
 .nxt-footer-content {
@@ -64,7 +67,7 @@
 .nxt-footer-text p {
   margin: 0;
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: #acacac;
 }
 
 /* Responsive adjustments */
@@ -73,15 +76,15 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .nxt-logo-text h1 {
     font-size: 2rem;
   }
-  
+
   .nxt-nav {
     margin-top: 15px;
   }
-  
+
   .nxt-footer-content {
     flex-direction: column;
     text-align: center;

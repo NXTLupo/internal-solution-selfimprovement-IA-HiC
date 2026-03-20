@@ -324,23 +324,17 @@ services:
   journey-mapper:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+      - ANTHROPIC_MODEL=claude-opus-4-5-20251101
 
   claude4-journey-mapper:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - CLAUDE4_MODEL=claude-sonnet-4-20250514
 
-  presentation-generator:
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - PORT=5007
-
   agent:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+      - ANTHROPIC_MODEL=claude-opus-4-5-20251101
 EOF
 
   # Start all services without explicit list to avoid Docker Compose concurrency bug
@@ -387,7 +381,7 @@ echo ""
 echo -e "${GREEN}${BOLD}🌐 HTTP URLS (Original):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                http://localhost:8000"
 echo -e "  ${BLUE}Social Research Analytics:${NC} http://localhost:3000"
-echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} http://localhost:8080"
+echo -e "  ${BLUE}Journey Mapper (Claude Opus 4.5):${NC} http://localhost:8080"
 echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  http://localhost:8095"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            http://localhost:5001"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       http://localhost:5002"
@@ -400,7 +394,7 @@ echo -e "  ${BLUE}Soundtrack Generator:${NC}      http://localhost:5009"
 echo ""
 echo -e "${GREEN}${BOLD}🔒 HTTPS URLS (Secure):${NC}"
 echo -e "  ${BLUE}Launchpad:${NC}                https://localhost:8443"
-echo -e "  ${BLUE}Journey Mapper (Claude 3.7):${NC} https://localhost:8444"
+echo -e "  ${BLUE}Journey Mapper (Claude Opus 4.5):${NC} https://localhost:8444"
 echo -e "  ${BLUE}Journey Mapper (Claude 4):${NC}  https://localhost:8445"
 echo -e "  ${BLUE}Reddit Ripper:${NC}            https://localhost:8446"
 echo -e "  ${BLUE}Video Transcriptor:${NC}       https://localhost:8448"

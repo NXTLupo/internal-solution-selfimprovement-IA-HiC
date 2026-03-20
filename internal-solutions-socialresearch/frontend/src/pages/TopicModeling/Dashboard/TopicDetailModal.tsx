@@ -218,9 +218,9 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
   
   const getSourceSentimentColor = (sentiment: string) => {
     switch (sentiment) {
-      case 'positive': return 'border-green-500 bg-green-900/20';
-      case 'negative': return 'border-red-500 bg-red-900/20';
-      default: return 'border-blue-500 bg-blue-900/20';
+      case 'positive': return 'border-green-500 bg-green-50';
+      case 'negative': return 'border-red-500 bg-red-50';
+      default: return 'border-blue-500 bg-blue-50';
     }
   };
   
@@ -386,7 +386,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
   
   const modalContent = (
     <div 
-      className={`fixed inset-0 z-[9999] overflow-auto duration-200 text-white`}
+      className={`fixed inset-0 z-[9999] overflow-auto duration-200 text-[#141414]`}
       onClick={handleBackdropClick}
       style={{ 
         display: isVisible ? 'block' : 'none',
@@ -405,22 +405,22 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
       
       <div className="flex items-center justify-center min-h-screen p-4">
         <div 
-          className="rounded-lg bg-gray-900 w-full max-w-6xl shadow-2xl border border-gray-700 flex flex-col transition-transform duration-200"
+          className="rounded-lg bg-white w-full max-w-6xl shadow-2xl border border-[#e5e5e5] flex flex-col transition-transform duration-200"
           onClick={e => e.stopPropagation()}
           style={{ maxHeight: '90vh' }}
         >
 
-          <div className="flex-none flex justify-between items-center p-6 border-b border-gray-700">
+          <div className="flex-none flex justify-between items-center p-6 border-b border-[#e5e5e5]">
             <div>
-              <h3 className="text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-2xl font-bold text-[#141414] tracking-tight">
                 {topic.short_summary || topic.topic || "Topic Details"}
               </h3>
-              <p className="text-sm text-gray-400 mt-1">
-                <span className="font-medium">{topic.count}</span> mentions • 
+              <p className="text-sm text-[#525252] mt-1">
+                <span className="font-medium">{topic.count}</span> mentions -
                 <span className={`${
-                  topic.sentiment === 'positive' ? 'text-green-400' : 
-                  topic.sentiment === 'negative' ? 'text-red-400' : 
-                  'text-blue-400'
+                  topic.sentiment === 'positive' ? 'text-green-600' :
+                  topic.sentiment === 'negative' ? 'text-red-600' :
+                  'text-[#115054]'
                 } ml-1`}>{topic.sentiment} sentiment</span>
               </p>
             </div>
@@ -429,9 +429,9 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                 onClick={createSentimentProject}
                 disabled={isCreatingProject}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-md ${
-                  isCreatingProject 
-                    ? 'bg-gray-700 text-gray-300 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-purple-600 to-indigo-500 hover:from-purple-500 hover:to-indigo-400 text-white hover:shadow-lg'
+                  isCreatingProject
+                    ? 'bg-[#f5f5f5] text-[#acacac] cursor-not-allowed'
+                    : 'bg-[#caca20] text-[#115054] hover:brightness-110 hover:shadow-lg'
                 }`}
               >
                 {isCreatingProject ? (
@@ -443,7 +443,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
               </button>
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-white hover:bg-gray-800 p-2 rounded-full transition-colors"
+                className="text-[#525252] hover:text-[#141414] hover:bg-[#f5f5f5] p-2 rounded-full transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -451,13 +451,13 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
           </div>
           
           {/* Tabs - Fixed below header */}
-          <div className="flex-none border-b border-gray-700">
+          <div className="flex-none border-b border-[#e5e5e5]">
             <div className="flex px-2">
               <button
                 className={`px-6 py-4 flex items-center text-sm font-medium transition-colors ${
                   activeTab === 'summary'
-                    ? 'text-blue-400 border-b-2 border-blue-400 font-semibold'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                    ? 'text-[#115054] border-b-2 border-blue-400 font-semibold'
+                    : 'text-[#525252] hover:text-[#141414] hover:bg-[#f5f5f5]'
                 }`}
                 onClick={() => handleTabChange('summary')}
               >
@@ -467,8 +467,8 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
               <button
                 className={`px-6 py-4 flex items-center text-sm font-medium transition-colors ${
                   activeTab === 'sources'
-                    ? 'text-blue-400 border-b-2 border-blue-400 font-semibold'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                    ? 'text-[#115054] border-b-2 border-blue-400 font-semibold'
+                    : 'text-[#525252] hover:text-[#141414] hover:bg-[#f5f5f5]'
                 }`}
                 onClick={() => handleTabChange('sources')}
               >
@@ -483,9 +483,9 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
             {activeTab === 'summary' && (
               <div className="p-6 space-y-8">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Topic Summary</h4>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <p className="text-gray-100 text-lg leading-relaxed">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#525252] mb-3">Topic Summary</h4>
+                  <div className="bg-[#fafafa] border border-[#e5e5e5] rounded-lg p-6">
+                    <p className="text-[#141414] text-lg leading-relaxed">
                       {typeof topic.summary === 'object' && topic.summary.summary 
                         ? topic.summary.summary 
                         : typeof topic.summary === 'string' 
@@ -496,7 +496,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                 </div>
                 
                 <div>
-                  <h4 className="font-medium mb-3 text-gray-300">Sentiment Distribution</h4>
+                  <h4 className="font-medium mb-3 text-[#525252]">Sentiment Distribution</h4>
                   {topic.post_sentiments ? (
                     (() => {
                       // Calculate sentiment distribution from actual post sentiments
@@ -517,7 +517,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                       const total = Object.values(distribution).reduce((sum, val) => sum + val, 0);
                       
                       if (total === 0) {
-                        return <p className="text-gray-400 text-sm">No sentiment data available</p>;
+                        return <p className="text-[#525252] text-sm">No sentiment data available</p>;
                       }
                       
                       // Calculate percentages
@@ -544,7 +544,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                           </div>
                           
                           {/* Labels */}
-                          <div className="flex justify-between text-xs text-gray-400">
+                          <div className="flex justify-between text-xs text-[#525252]">
                             <div className="flex items-center">
                               <div className="bg-green-500 w-2 h-2 rounded-full mr-1" />
                               <span>Positive: {distribution.positive} ({positivePercentage.toFixed(0)}%)</span>
@@ -562,12 +562,12 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                       );
                     })()
                   ) : (
-                    <p className="text-gray-400 text-sm">No sentiment data available</p>
+                    <p className="text-[#525252] text-sm">No sentiment data available</p>
                   )}
                 </div>
                 
                 <div>
-                  <h4 className="font-medium mb-3 text-gray-300 ">Keywords & Related Terms</h4>
+                  <h4 className="font-medium mb-3 text-[#525252] ">Keywords & Related Terms</h4>
                   <div className="space-y-2">
                     {/* Related Terms */}
                     {topic.related_terms && topic.related_terms.length > 0 && (
@@ -576,7 +576,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                           {topic.related_terms.map((term, index) => (
                             <span 
                               key={index}
-                              className="bg-gray-600 text-white px-2 py-1 rounded-lg text-sm"
+                              className="bg-[#e5e5e5] text-[#141414] px-2 py-1 rounded-lg text-sm"
                             >
                               {term}
                             </span>
@@ -588,19 +588,19 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                 </div>
                 
                 <div>
-                  <h4 className="font-medium mb-3 text-gray-300">Key Sentiment Points</h4>
+                  <h4 className="font-medium mb-3 text-[#525252]">Key Sentiment Points</h4>
                   
                   {/* Display sentiment evidence */}
                   {topic.sentiment_evidence ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Positive Evidence */}
-                      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                        <h5 className="flex items-center justify-between text-green-400 font-medium mb-3">
+                      <div className="bg-[#fafafa] border border-[#e5e5e5] rounded-lg p-4">
+                        <h5 className="flex items-center justify-between text-green-600 font-medium mb-3">
                           <span className="flex items-center">
                             <ThumbsUp className="h-4 w-4 mr-2" />
                             Positive Insights
                           </span>
-                          <span className="text-xs text-gray-400 italic">Click on post IDs to view sources</span>
+                          <span className="text-xs text-[#525252] italic">Click on post IDs to view sources</span>
                         </h5>
                         
                         {topic.sentiment_evidence.positive && topic.sentiment_evidence.positive.length > 0 ? (
@@ -608,13 +608,13 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             {topic.sentiment_evidence.positive.map((evidence: SentimentEvidencePoint, idx: number) => (
                               <li 
                                 key={idx} 
-                                className="pb-3 border-b border-gray-700 last:border-b-0 last:pb-0 hover:bg-gray-700/30 rounded-lg transition-colors"
+                                className="pb-3 border-b border-[#e5e5e5] last:border-b-0 last:pb-0 hover:bg-[#f5f5f5] rounded-lg transition-colors"
                               >
                                 <div 
                                   className="p-2"
                                 >
                                   <div className="flex items-start mb-2">
-                                    <span className="text-white flex-1">{evidence.point}</span>
+                                    <span className="text-[#141414] flex-1">{evidence.point}</span>
                                   </div>
                                   {evidence.post_refs && evidence.post_refs.length > 0 && (
                                     <div className="flex flex-wrap gap-2 mt-1">
@@ -625,7 +625,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                                         return (
                                           <span 
                                             key={refIdx} 
-                                            className="text-xs bg-green-900/30 text-green-300 px-2 py-1 rounded cursor-pointer hover:bg-green-700 hover:text-white hover:shadow-md transition-colors font-medium flex items-center"
+                                            className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded cursor-pointer hover:bg-green-200 hover:text-green-800 hover:shadow-md transition-colors font-medium flex items-center"
                                             onClick={(e) => {
                                               e.stopPropagation(); // Prevent the parent's onClick from firing
                                               navigateToPostByRef(ref);
@@ -647,18 +647,18 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             ))}
                           </ul>
                         ) : (
-                          <p className="text-gray-400 text-sm">No positive evidence available</p>
+                          <p className="text-[#525252] text-sm">No positive evidence available</p>
                         )}
                       </div>
                       
                       {/* Negative Evidence */}
-                      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                        <h5 className="flex items-center justify-between text-red-400 font-medium mb-3">
+                      <div className="bg-[#fafafa] border border-[#e5e5e5] rounded-lg p-4">
+                        <h5 className="flex items-center justify-between text-red-600 font-medium mb-3">
                           <span className="flex items-center">
                             <ThumbsDown className="h-4 w-4 mr-2" />
                             Negative Insights
                           </span>
-                          <span className="text-xs text-gray-400 italic">Click on post IDs to view sources</span>
+                          <span className="text-xs text-[#525252] italic">Click on post IDs to view sources</span>
                         </h5>
                         
                         {topic.sentiment_evidence.negative && topic.sentiment_evidence.negative.length > 0 ? (
@@ -666,13 +666,13 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             {topic.sentiment_evidence.negative.map((evidence: SentimentEvidencePoint, idx: number) => (
                               <li 
                                 key={idx} 
-                                className="pb-3 border-b border-gray-700 last:border-b-0 last:pb-0 hover:bg-gray-700/30 rounded-lg transition-colors"
+                                className="pb-3 border-b border-[#e5e5e5] last:border-b-0 last:pb-0 hover:bg-[#f5f5f5] rounded-lg transition-colors"
                               >
                                 <div 
                                   className="p-2"
                                 >
                                   <div className="flex items-start mb-2">
-                                    <span className="text-white flex-1">{evidence.point}</span>
+                                    <span className="text-[#141414] flex-1">{evidence.point}</span>
                                   </div>
                                   {evidence.post_refs && evidence.post_refs.length > 0 && (
                                     <div className="flex flex-wrap gap-2 mt-1">
@@ -683,7 +683,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                                         return (
                                           <span 
                                             key={refIdx} 
-                                            className="text-xs bg-red-900/30 text-red-300 px-2 py-1 rounded cursor-pointer hover:bg-red-700 hover:text-white hover:shadow-md transition-colors font-medium flex items-center"
+                                            className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded cursor-pointer hover:bg-red-200 hover:text-red-800 hover:shadow-md transition-colors font-medium flex items-center"
                                             onClick={(e) => {
                                               e.stopPropagation(); // Prevent the parent's onClick from firing
                                               navigateToPostByRef(ref);
@@ -705,12 +705,12 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             ))}
                           </ul>
                         ) : (
-                          <p className="text-gray-400 text-sm">No negative evidence available</p>
+                          <p className="text-[#525252] text-sm">No negative evidence available</p>
                         )}
                       </div>
                     </div>
                   ) : (
-                    <div className="bg-gray-800 p-4 rounded-lg text-center text-gray-400">
+                    <div className="bg-[#fafafa] p-4 rounded-lg text-center text-[#525252]">
                       No sentiment evidence available for this topic
                     </div>
                   )}
@@ -723,7 +723,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                 {isLoadingPosts ? (
                   <div className="flex flex-col items-center justify-center py-12">
                     <Loader className="h-8 w-8 text-blue-500 animate-spin mb-4" />
-                    <p className="text-gray-400">Loading post data...</p>
+                    <p className="text-[#525252]">Loading post data...</p>
                   </div>
                 ) : posts.length > 0 ? (
                   <>
@@ -736,8 +736,8 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                           key={index}
                           className={`${
                             activeSource === index
-                              ? `bg-gray-700 text-white`
-                              : `bg-gray-800 text-gray-400 hover:bg-gray-700/70 hover:text-white`
+                              ? `bg-[#115054] text-white`
+                              : `bg-[#fafafa] text-[#525252] hover:bg-[#f5f5f5] hover:text-[#141414]`
                           } px-3 py-2 rounded-lg text-sm whitespace-nowrap ${
                             justNavigatedTo === index ? 'ring-2 ring-blue-500 ring-opacity-75 animate-pulse' : ''
                           }`}
@@ -751,7 +751,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                     {posts[activeSource] && (
                       <div className="space-y-4">
                         
-                        <div className="flex justify-between text-sm text-gray-400">
+                        <div className="flex justify-between text-sm text-[#525252]">
                           <div className="flex items-center">
                             <div 
                               className={`${
@@ -760,7 +760,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                                   : getSentimentColor(posts[activeSource].sentiment || 'neutral')
                               } w-3 h-3 rounded-full mr-2`}
                             />
-                            <span className="text-gray-300">
+                            <span className="text-[#525252]">
                               {topic.post_sentiments && topic.post_sentiments[posts[activeSource].id]
                                 ? (topic.post_sentiments[posts[activeSource].id].sentiment_category.charAt(0).toUpperCase() + 
                                    topic.post_sentiments[posts[activeSource].id].sentiment_category.slice(1))
@@ -810,7 +810,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                           {posts[activeSource].title && (
                             <div className="flex justify-between items-start mb-2">
                               <h4 
-                                className="text-lg font-medium text-white"
+                                className="text-lg font-medium text-[#141414]"
                                 dangerouslySetInnerHTML={{
                                   __html: highlightText(posts[activeSource].title)
                                 }}
@@ -818,7 +818,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             </div>
                           )}
                           <p 
-                            className="text-gray-200 whitespace-pre-line"
+                            className="text-[#141414] whitespace-pre-line"
                             dangerouslySetInnerHTML={{
                               __html: highlightText(posts[activeSource].text || posts[activeSource].body || '')
                             }}
@@ -827,8 +827,8 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                         
                         {/* Comments for the active source */}
                         {posts[activeSource].comments && posts[activeSource].comments.length > 0 ? (
-                          <div className="bg-gray-800 p-4 rounded-lg mt-4">
-                            <h4 className="flex items-center text-sm uppercase tracking-wider text-gray-400 mb-3">
+                          <div className="bg-[#fafafa] p-4 rounded-lg mt-4">
+                            <h4 className="flex items-center text-sm uppercase tracking-wider text-[#525252] mb-3">
                               <MessageCircle className="h-4 w-4 mr-2" />
                               Comments ({posts[activeSource].comments.length})
                             </h4>
@@ -837,28 +837,28 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                               {posts[activeSource].comments.map((comment: NonNullable<Source['comments']>[number], commentIndex: number) => (
                                 <div 
                                   key={commentIndex} 
-                                  className="p-3 bg-gray-700/50 rounded-lg border border-gray-600"
+                                  className="p-3 bg-[#f5f5f5]/50 rounded-lg border border-gray-600"
                                 >
                                   <div className="flex justify-between mb-2 text-sm">
                                     <div className="flex items-center">
                                       <User className="h-4 w-4 mr-1 text-gray-500" />
-                                      <span className="text-gray-300">
+                                      <span className="text-[#525252]">
                                         {comment.author || '[deleted]'}
                                       </span>
                                     </div>
                                     
                                     <div className="flex items-center gap-3">
-                                      <span className="flex items-center text-gray-400">
+                                      <span className="flex items-center text-[#525252]">
                                         <Calendar className="h-3 w-3 mr-1" />
                                         {formatDate(comment.created_utc || 0)}
                                       </span>
                                       
                                       <span className={`flex items-center ${
                                         comment.score > 0 
-                                          ? 'text-green-400' 
+                                          ? 'text-green-600' 
                                           : comment.score < 0 
-                                            ? 'text-red-400' 
-                                            : 'text-gray-400'
+                                            ? 'text-red-600' 
+                                            : 'text-[#525252]'
                                       }`}>
                                         {comment.score > 0 ? (
                                           <ThumbsUp className="h-3 w-3 mr-1" />
@@ -871,7 +871,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                                   </div>
                                   
                                   <p 
-                                    className="text-gray-200 text-sm"
+                                    className="text-[#141414] text-sm"
                                     dangerouslySetInnerHTML={{
                                       __html: highlightText(comment.body)
                                     }}
@@ -881,7 +881,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                             </div>
                           </div>
                         ) : (
-                          <div className="bg-gray-800 p-4 rounded-lg text-center text-gray-400">
+                          <div className="bg-[#fafafa] p-4 rounded-lg text-center text-[#525252]">
                             No comments available for this source
                           </div>
                         )}
@@ -889,8 +889,8 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                     )}
                   </>
                 ) : (
-                  <div className="bg-gray-800 p-8 rounded-lg text-center">
-                    <p className="text-gray-400">No source content available for this topic.</p>
+                  <div className="bg-[#fafafa] p-8 rounded-lg text-center">
+                    <p className="text-[#525252]">No source content available for this topic.</p>
                     {topic.post_ids && topic.post_ids.length > 0 && (
                       <button
                         onClick={() => {
@@ -923,14 +923,14 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
           </div>
           
           {/* Footer with navigation controls - Fixed position */}
-          <div className="flex-none border-t border-gray-700 p-4">
+          <div className="flex-none border-t border-[#e5e5e5] p-4">
             {activeTab === 'sources' && posts.length > 0 && (
               <div className="flex justify-between items-center">
                 <button
                   className={`flex items-center px-3 py-2 rounded-lg text-sm ${
                     activeSource > 0 
-                      ? 'bg-gray-700 text-white hover:bg-gray-600 cursor-pointer' 
-                      : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                      ? 'bg-[#115054] text-white hover:bg-[#e5e5e5] cursor-pointer' 
+                      : 'bg-[#fafafa] text-gray-500 cursor-not-allowed'
                   }`}
                   onClick={() => activeSource > 0 && setActiveSource(activeSource - 1)}
                   disabled={activeSource === 0}
@@ -939,15 +939,15 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
                   Previous
                 </button>
                 
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-[#525252]">
                   {activeSource + 1} of {posts.length}
                 </span>
                 
                 <button
                   className={`flex items-center px-3 py-2 rounded-lg text-sm ${
                     activeSource < posts.length - 1
-                      ? 'bg-gray-700 text-white hover:bg-gray-600 cursor-pointer' 
-                      : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                      ? 'bg-[#115054] text-white hover:bg-[#e5e5e5] cursor-pointer' 
+                      : 'bg-[#fafafa] text-gray-500 cursor-not-allowed'
                   }`}
                   onClick={() => 
                     activeSource < posts.length - 1 && 
@@ -964,7 +964,7 @@ const TopicDetailModal: React.FC<TopicDetailModalProps> = ({ topic, onClose }) =
             <div className={`flex ${activeTab === 'sources' && posts.length > 0 ? 'justify-end mt-4' : 'justify-end'}`}>
               <button
                 onClick={handleClose}
-                className="px-6 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
+                className="px-6 py-2.5 bg-[#f5f5f5] hover:bg-[#115054] text-[#141414] hover:text-white rounded-lg text-sm font-medium transition-colors cursor-pointer"
               >
                 Close
               </button>

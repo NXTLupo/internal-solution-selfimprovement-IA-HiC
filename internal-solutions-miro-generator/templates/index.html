@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXT Miro Board Generator</title>
+    <title>NXT Humans | Miro Board Generator</title>
     <link rel="stylesheet" href="/static/nxt-header.css">
     <link rel="stylesheet" href="/static/nxt-humans-styles.css">
     <link rel="stylesheet" href="/static/enhanced-components.css">
-    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+    <!-- <link rel="stylesheet" href="/static/app-header-thumbnails.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Favicon declarations in proper order -->
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
@@ -15,27 +15,27 @@
     <link rel="icon" type="image/svg+xml" href="/static/miro-favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/miro-favicon.svg">
     <style>
-        /* Enterprise Variables */
+        /* Enterprise Variables - NXT 2026 White Daytime Theme */
         :root {
             /* Enterprise Color Palette */
-            --enterprise-primary: #7C3AED;
-            --enterprise-primary-light: #8B5CF6;
-            --enterprise-primary-dark: #6D28D9;
-            --enterprise-secondary: #298DFF;
-            --enterprise-accent: #9C6AFF;
-            
-            /* Enterprise Grays */
-            --enterprise-gray-50: #F8FAFC;
-            --enterprise-gray-100: #F1F5F9;
-            --enterprise-gray-200: #E2E8F0;
-            --enterprise-gray-300: #CBD5E1;
-            --enterprise-gray-400: #94A3B8;
-            --enterprise-gray-500: #64748B;
-            --enterprise-gray-600: #475569;
-            --enterprise-gray-700: #334155;
-            --enterprise-gray-800: #1E293B;
-            --enterprise-gray-900: #0F172A;
-            
+            --enterprise-primary: #caca20;
+            --enterprise-primary-light: #d8d830;
+            --enterprise-primary-dark: #b5b51c;
+            --enterprise-secondary: #115054;
+            --enterprise-accent: #fd8e2e;
+
+            /* Enterprise Grays - NXT 2026 White Theme */
+            --enterprise-gray-50: #fafafa;
+            --enterprise-gray-100: #f5f5f5;
+            --enterprise-gray-200: #e5e5e5;
+            --enterprise-gray-300: #d4d4d4;
+            --enterprise-gray-400: #acacac;
+            --enterprise-gray-500: #737373;
+            --enterprise-gray-600: #525252;
+            --enterprise-gray-700: #404040;
+            --enterprise-gray-800: #262626;
+            --enterprise-gray-900: #141414;
+
             /* Enterprise Spacing */
             --enterprise-space-1: 0.25rem;
             --enterprise-space-2: 0.5rem;
@@ -49,19 +49,19 @@
             --enterprise-space-16: 4rem;
             --enterprise-space-20: 5rem;
             --enterprise-space-24: 6rem;
-            
+
             /* Enterprise Borders */
-            --enterprise-radius: 0.5rem;
-            --enterprise-radius-lg: 0.75rem;
-            --enterprise-radius-xl: 1rem;
-            
-            /* Enterprise Shadows */
-            --enterprise-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --enterprise-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --enterprise-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --enterprise-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --enterprise-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            
+            --enterprise-radius: 2px;
+            --enterprise-radius-lg: 4px;
+            --enterprise-radius-xl: 4px;
+
+            /* Enterprise Shadows - None */
+            --enterprise-shadow-sm: none;
+            --enterprise-shadow: none;
+            --enterprise-shadow-md: none;
+            --enterprise-shadow-lg: none;
+            --enterprise-shadow-xl: none;
+
             /* Enterprise Typography */
             --enterprise-font-size-xs: 0.75rem;
             --enterprise-font-size-sm: 0.875rem;
@@ -75,14 +75,14 @@
 
         /* Enterprise Container */
         .enterprise-container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 0 var(--enterprise-space-6);
         }
 
         /* Enterprise Hero Section */
         .enterprise-hero {
-            background: rgba(0, 0, 0, 0.3);
+            background: #fafafa;
             padding: var(--enterprise-space-16) 0 var(--enterprise-space-20);
             position: relative;
             overflow: hidden;
@@ -95,8 +95,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(1, 196, 200, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(41, 141, 255, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 20%, rgba(202, 202, 32, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(17, 80, 84, 0.06) 0%, transparent 50%);
             z-index: 1;
         }
 
@@ -112,21 +112,20 @@
             display: inline-flex;
             align-items: center;
             gap: var(--enterprise-space-2);
-            background: rgba(1, 196, 200, 0.1);
-            border: 1px solid rgba(1, 196, 200, 0.3);
+            background: rgba(202, 202, 32, 0.08);
+            border: 1px solid rgba(202, 202, 32, 0.3);
             padding: var(--enterprise-space-3) var(--enterprise-space-6);
-            border-radius: 2rem;
+            border-radius: 2px;
             margin-bottom: var(--enterprise-space-6);
-            backdrop-filter: blur(10px);
         }
 
         .enterprise-hero .hero-badge i {
-            color: rgba(124, 58, 237, 0.8);
+            color: #caca20;
             font-size: var(--enterprise-font-size-sm);
         }
 
         .enterprise-hero .hero-badge span {
-            color: white;
+            color: #141414;
             font-weight: 600;
             font-size: var(--enterprise-font-size-sm);
             letter-spacing: 0.5px;
@@ -134,9 +133,9 @@
 
         .enterprise-hero .hero-title {
             font-size: var(--enterprise-font-size-4xl);
-            font-weight: 700;
+            font-weight: 200;
             margin-bottom: var(--enterprise-space-6);
-            color: white;
+            color: #141414;
             line-height: 1.1;
             letter-spacing: -0.025em;
         }
@@ -144,7 +143,7 @@
         .enterprise-hero .hero-subtitle {
             font-size: var(--enterprise-font-size-xl);
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.8);
+            color: #525252;
             line-height: 1.6;
             margin-bottom: var(--enterprise-space-12);
             max-width: 700px;
@@ -154,17 +153,16 @@
 
         /* Enterprise Card */
         .enterprise-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--enterprise-radius-xl);
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
             padding: var(--enterprise-space-8);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: none;
             margin-bottom: var(--enterprise-space-8);
-            color: #ffffff;
+            color: #141414;
         }
 
         .enterprise-card::before {
@@ -174,7 +172,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.8), rgba(139, 92, 246, 0.9));
+            background: linear-gradient(90deg, #caca20, #d8d830);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.3s ease;
@@ -182,8 +180,8 @@
 
         .enterprise-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: none;
+            border-color: #caca20;
         }
 
         .enterprise-card:hover::before {
@@ -197,7 +195,7 @@
             gap: var(--enterprise-space-6);
             margin-bottom: var(--enterprise-space-8);
             padding-bottom: var(--enterprise-space-6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #e5e5e5;
         }
 
         .section-icon {
@@ -206,12 +204,12 @@
             justify-content: center;
             width: 4rem;
             height: 4rem;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(139, 92, 246, 0.9) 100%);
-            border-radius: var(--enterprise-radius-xl);
-            color: white;
+            background: #caca20;
+            border-radius: 4px;
+            color: #115054;
             font-size: var(--enterprise-font-size-xl);
             flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: none;
         }
 
         .section-info {
@@ -220,59 +218,58 @@
 
         .section-title {
             font-size: var(--enterprise-font-size-2xl);
-            font-weight: 700;
-            color: #ffffff;
+            font-weight: 200;
+            color: #141414;
             margin-bottom: var(--enterprise-space-2);
             line-height: 1.2;
         }
 
         .section-description {
             font-size: var(--enterprise-font-size-lg);
-            color: rgba(255, 255, 255, 0.8);
+            color: #525252;
             line-height: 1.6;
             max-width: 600px;
         }
 
         /* File Upload Area */
         .file-upload-area {
-            border: 2px dashed rgba(124, 58, 237, 0.6);
+            border: 2px dashed #caca20;
             border-radius: var(--enterprise-radius);
             padding: var(--enterprise-space-12);
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            background: #fafafa;
         }
 
         .file-upload-area:hover {
-            background: rgba(124, 58, 237, 0.1);
-            border-color: rgba(124, 58, 237, 0.8);
+            background: rgba(202, 202, 32, 0.06);
+            border-color: #b5b51c;
             transform: translateY(-2px);
         }
 
         .file-upload-area.dragover {
-            background: rgba(124, 58, 237, 0.15);
-            border-color: rgba(124, 58, 237, 1);
+            background: rgba(202, 202, 32, 0.1);
+            border-color: #b5b51c;
             transform: scale(1.02);
         }
 
         .upload-icon {
             font-size: 3rem;
-            color: rgba(124, 58, 237, 0.8);
+            color: #caca20;
             margin-bottom: var(--enterprise-space-4);
         }
 
         .upload-text {
             font-size: var(--enterprise-font-size-lg);
-            color: var(--enterprise-gray-700);
+            color: #525252;
             margin-bottom: var(--enterprise-space-2);
             font-weight: 500;
         }
 
         .upload-hint {
             font-size: var(--enterprise-font-size-sm);
-            color: var(--enterprise-gray-500);
+            color: #acacac;
             margin-bottom: var(--enterprise-space-6);
         }
 
@@ -281,43 +278,47 @@
             display: inline-flex;
             align-items: center;
             gap: var(--enterprise-space-3);
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(139, 92, 246, 0.9) 100%);
-            color: white;
+            background: #caca20;
+            color: #115054;
             padding: var(--enterprise-space-4) var(--enterprise-space-6);
             border-radius: var(--enterprise-radius);
-            font-size: var(--enterprise-font-size-sm);
-            font-weight: 600;
+            font-family: 'Archivo', 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             text-decoration: none;
             transition: all 0.2s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            box-shadow: none;
         }
 
         .enterprise-btn:hover {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
+            background: #d8d830;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
-            color: white;
+            box-shadow: none;
+            color: #115054;
             text-decoration: none;
         }
 
         .enterprise-btn:disabled {
-            background: var(--enterprise-gray-400);
+            background: #e5e5e5;
+            color: #acacac;
             cursor: not-allowed;
             transform: none;
         }
 
         .enterprise-btn-secondary {
-            background: white;
-            color: var(--enterprise-gray-700);
-            border: 2px solid var(--enterprise-gray-300);
+            background: #ffffff;
+            color: #141414;
+            border: 2px solid #e5e5e5;
         }
 
         .enterprise-btn-secondary:hover {
-            background: var(--enterprise-gray-50);
-            border-color: var(--enterprise-gray-400);
-            color: var(--enterprise-gray-800);
+            background: #fafafa;
+            border-color: #caca20;
+            color: #141414;
             text-decoration: none;
         }
 
@@ -331,21 +332,20 @@
 
         /* Feature Cards */
         .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border-radius: var(--enterprise-radius-lg);
+            background: #ffffff;
+            border-radius: 4px;
             padding: var(--enterprise-space-6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #e5e5e5;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            color: #ffffff;
+            box-shadow: none;
+            color: #141414;
         }
 
         .feature-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: none;
+            border-color: #caca20;
         }
 
         .feature-icon {
@@ -355,14 +355,14 @@
 
         .feature-title {
             font-size: var(--enterprise-font-size-lg);
-            font-weight: 600;
+            font-weight: 200;
             margin-bottom: var(--enterprise-space-2);
-            color: #ffffff;
+            color: #141414;
         }
 
         .feature-description {
             font-size: var(--enterprise-font-size-sm);
-            color: rgba(255, 255, 255, 0.8);
+            color: #525252;
             line-height: 1.6;
         }
 
@@ -374,7 +374,7 @@
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: var(--enterprise-gray-200);
+            background: #e5e5e5;
             border-radius: var(--enterprise-radius);
             overflow: hidden;
             margin-bottom: var(--enterprise-space-4);
@@ -382,14 +382,14 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.8), rgba(139, 92, 246, 0.9));
+            background: #caca20;
             width: 0%;
             transition: width 0.3s ease;
         }
 
         .log-output {
-            background: var(--enterprise-gray-900);
-            color: var(--enterprise-gray-50);
+            background: #fafafa;
+            color: #141414;
             padding: var(--enterprise-space-4);
             border-radius: var(--enterprise-radius);
             font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
@@ -398,7 +398,7 @@
             overflow-y: auto;
             white-space: pre-wrap;
             display: none;
-            border: 1px solid var(--enterprise-gray-700);
+            border: 1px solid #e5e5e5;
         }
 
         /* Results Section */
@@ -412,17 +412,16 @@
             justify-content: space-between;
             align-items: center;
             padding: var(--enterprise-space-4) var(--enterprise-space-6);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: #fafafa;
             border-radius: var(--enterprise-radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #e5e5e5;
             margin-bottom: var(--enterprise-space-3);
             transition: all 0.2s ease;
         }
 
         .file-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(124, 58, 237, 0.3);
+            background: #f5f5f5;
+            border-color: #caca20;
         }
 
         .file-info {
@@ -431,13 +430,13 @@
 
         .file-name {
             font-weight: 600;
-            color: #ffffff;
+            color: #141414;
             font-size: var(--enterprise-font-size-base);
         }
 
         .file-size {
             font-size: var(--enterprise-font-size-sm);
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
         }
 
         /* Alert Styles */
@@ -452,13 +451,13 @@
         .alert-success {
             background: #D1FAE5;
             color: #065F46;
-            border-color: #6EE7B7;
+            border-color: #0CCE6B;
         }
 
         .alert-error {
             background: #FEE2E2;
             color: #991B1B;
-            border-color: #F87171;
+            border-color: #FF5A5A;
         }
 
         /* Status Indicators */
@@ -471,8 +470,7 @@
         }
 
         .status-ready {
-            background: #10B981;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            background: #0CCE6B;
         }
 
         .status-processing {
@@ -481,8 +479,7 @@
         }
 
         .status-error {
-            background: #EF4444;
-            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+            background: #FF5A5A;
         }
 
         @keyframes pulse {
@@ -500,47 +497,65 @@
             .enterprise-container {
                 padding: 0 var(--enterprise-space-4);
             }
-            
+
             .enterprise-hero {
                 padding: var(--enterprise-space-12) 0;
             }
-            
+
             .enterprise-hero .hero-title {
                 font-size: var(--enterprise-font-size-3xl);
             }
-            
+
             .enterprise-hero .hero-subtitle {
                 font-size: var(--enterprise-font-size-lg);
             }
-            
+
             .section-header {
                 flex-direction: column;
                 gap: var(--enterprise-space-4);
                 text-align: center;
             }
-            
+
             .enterprise-grid {
                 grid-template-columns: 1fr;
                 gap: var(--enterprise-space-6);
             }
-            
+
             .enterprise-card {
                 padding: var(--enterprise-space-6);
             }
+
+            .ia-logo-image {
+                width: 180px;
+            }
         }
-        
-        /* Intelligence Augmentation Body */
-        body {
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
-            color: #ffffff;
+
+        @media (max-width: 480px) {
+            .ia-logo-image {
+                width: 140px;
+            }
+        }
+
+        /* Intelligence Augmentation Body — NXT 2026 Nuclear Override */
+        body, html {
+            font-family: 'Archivo', 'Inter', sans-serif !important;
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            color: #141414 !important;
             min-height: 100vh;
             margin: 0;
             padding: 0;
         }
-        
+        /* Kill any dark backgrounds from cached/legacy CSS */
+        *, *::before, *::after {
+            --dark-bg: #ffffff;
+            --dark-bg-gradient-1: #ffffff;
+            --dark-bg-gradient-2: #fafafa;
+        }
+
         /* Intelligence Augmentation Header - Matching Launchpad Design */
         .intelligence-augmentation-header {
-            background: #000000;
+            background: #115054;
             height: 240px;
             display: flex;
             align-items: center;
@@ -558,7 +573,7 @@
             right: 0;
             width: 40%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 0%, rgba(124, 58, 237, 0.15) 30%, rgba(124, 58, 237, 0.25) 60%, rgba(139, 92, 246, 0.3) 100%);
+            background: linear-gradient(45deg, transparent 0%, rgba(253, 142, 46, 0.08) 30%, rgba(253, 142, 46, 0.15) 60%, rgba(253, 142, 46, 0.2) 100%);
             transform: skewX(-20deg) translateX(20%);
             z-index: 1;
         }
@@ -591,8 +606,8 @@
 
         .ia-logo-image {
             height: 60px;
-            width: auto;
-            filter: brightness(1.1);
+            width: 280px;
+            filter: invert(1);
         }
 
         .ia-text-section {
@@ -631,37 +646,42 @@
         }
 
         .ia-augmentation {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(139, 92, 246, 1) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
+            color: #fd8e2e;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: #fd8e2e;
+            background-clip: unset;
         }
-        
-        /* Specific white text for dark theme elements */
+
+        /* Text colors for white theme */
         .enterprise-card .section-title,
         .enterprise-card .section-description,
         .feature-title,
         .feature-description,
         .file-name {
-            color: #ffffff;
+            color: #141414;
         }
-        
+
+        .enterprise-card .section-description,
+        .feature-description {
+            color: #525252;
+        }
+
         .file-size {
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
         }
-        
+
         .upload-text, .upload-hint {
-            color: rgba(255, 255, 255, 0.8);
+            color: #525252;
         }
     </style>
 </head>
 <body>
-    <header class="intelligence-augmentation-header">
-        <div class="ia-container has-thumbnail">
+    <header role="banner" class="intelligence-augmentation-header">
+        <div class="ia-container">
             <div class="ia-content">
                 <div class="ia-logo-section">
-                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT Humans Logo" aria-label="NXT Humans Logo" class="ia-logo-image">
                 </div>
                 <div class="ia-text-section">
                     <div class="ia-introducing">Intelligence Augmentation</div>
@@ -671,15 +691,18 @@
                     </div>
                 </div>
             </div>
-            <div class="ia-thumbnail-section">
-                <img src="/static/miro_board_generator.gif" alt="Miro Board Generator Demo" class="ia-app-thumbnail" />
-                <div class="ia-thumbnail-label">Board Generation Demo</div>
-            </div>
         </div>
     </header>
 
+    <nav role="navigation" aria-label="Service navigation" style="background:#ffffff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;">
+      <a href="http://localhost:8000" style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#525252;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;" aria-label="Back to Launchpad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Launchpad
+      </a>
+      <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-transform:uppercase;letter-spacing:0.05em;">Miro Board Generator</span>
+    </nav>
 
-    <div class="enterprise-container">
+    <div class="enterprise-container" role="main">
         <!-- Upload Section - Now First -->
         <div class="enterprise-card">
             <div class="section-header">
@@ -719,7 +742,7 @@
                                 <i class="fas fa-magic"></i>
                                 Generate Miro Board
                             </button>
-                            <button class="enterprise-btn" onclick="generateBoard('figma')" id="generate-figma-btn" disabled style="background: linear-gradient(135deg, rgba(156, 106, 255, 0.8) 0%, rgba(123, 97, 255, 0.9) 100%);">
+                            <button class="enterprise-btn" onclick="generateBoard('figma')" id="generate-figma-btn" disabled style="background: #caca20; color: #115054;">
                                 <i class="fab fa-figma"></i>
                                 Generate Figma Plugin
                             </button>
@@ -1166,7 +1189,10 @@
         }
     </script>
     
-    <!-- App GIF Controls -->
-    <script src="/static/app-gif-controls.js"></script>
+    <!-- App GIF Controls removed (NXT 2026 design system cleanup) -->
+
+    <footer role="contentinfo" style="padding:24px 0;background:#fafafa;border-top:1px solid #e5e5e5;text-align:center;margin-top:3rem;">
+      <p style="color:#acacac;font-size:12px;font-family:'Archivo',sans-serif;font-weight:300;margin:0;">2026 NXT Humans. All rights reserved.</p>
+    </footer>
 </body>
 </html>

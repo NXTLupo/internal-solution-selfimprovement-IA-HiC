@@ -185,9 +185,9 @@ export const AISummaryBox = ({
   };
 
   return (
-    <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+    <div className="bg-[#fafafa] rounded-xl p-6 border border-[#e5e5e5]">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold text-blue-400 flex items-center">
+        <h3 className="text-xl font-bold text-[#115054] flex items-center">
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -197,7 +197,7 @@ export const AISummaryBox = ({
         
         <div className="flex items-center space-x-2">
           <select
-            className="bg-gray-700 text-gray-200 text-sm rounded px-2 py-1 border border-gray-600 focus:outline-none"
+            className="bg-[#f5f5f5] text-[#141414] text-sm rounded px-2 py-1 border border-[#e5e5e5] focus:outline-none"
             value={llmProvider}
             onChange={(e) => setLlmProvider(e.target.value as 'openai' | 'claude' | 'gemini')}
             title="Select AI model"
@@ -213,8 +213,8 @@ export const AISummaryBox = ({
               disabled={loading}
               className={`flex items-center px-3 py-1 rounded text-sm ${
                 loading 
-                  ? 'bg-gray-700 text-gray-400 cursor-not-allowed' 
-                  : 'bg-blue-600 text-white hover:bg-blue-700 transition-colors'
+                  ? 'bg-[#f5f5f5] text-[#525252] cursor-not-allowed' 
+                  : 'bg-[#caca20] text-[#115054] hover:brightness-110 transition-colors'
               }`}
             >
               <svg 
@@ -238,65 +238,65 @@ export const AISummaryBox = ({
       
       {loading ? (
         <div className="animate-pulse space-y-3">
-          <div className="h-4 bg-gray-700 rounded w-3/4"></div>
-          <div className="h-4 bg-gray-700 rounded"></div>
-          <div className="h-4 bg-gray-700 rounded w-5/6"></div>
-          <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-3/4"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-5/6"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-2/3"></div>
           <div className="mt-2"></div>
-          <div className="h-4 bg-gray-700 rounded w-1/2"></div>
-          <div className="h-4 bg-gray-700 rounded w-3/4"></div>
-          <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-1/2"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-3/4"></div>
+          <div className="h-4 bg-[#f5f5f5] rounded w-2/3"></div>
         </div>
       ) : error ? (
-        <div className="text-red-400">
+        <div className="text-red-600">
           {error}
         </div>
       ) : isPlaceholder ? (
-        <div className="text-yellow-400">
+        <div className="text-yellow-600">
           Waiting for AI summary data... (Placeholder)
         </div>
       ) : !aiSummary ? (
         <div className="space-y-2">
-          <div className="text-yellow-400">
+          <div className="text-yellow-600">
             Waiting for AI summary data...
           </div>
         </div>
       ) : (
         <div className="space-y-4">
-          <p className="text-gray-300">
+          <p className="text-[#525252]">
             {aiSummary.summary || "No summary available"}
           </p>
           
           <div className="mt-2 space-y-2">
-            <h4 className="text-sm font-semibold text-gray-400">Key Insights:</h4>
+            <h4 className="text-sm font-semibold text-[#525252]">Key Insights:</h4>
             <ul className="list-disc list-inside space-y-1">
-              <li className="text-gray-300 text-sm">
-                <span className="text-green-400 font-medium">Top positive</span>: {aiSummary.topPositive || "No positive insights found"}
+              <li className="text-[#525252] text-sm">
+                <span className="text-green-600 font-medium">Top positive</span>: {aiSummary.topPositive || "No positive insights found"}
               </li>
-              <li className="text-gray-300 text-sm">
-                <span className="text-red-400 font-medium">Main concerns</span>: {aiSummary.topNegative || "No concerns found"}
+              <li className="text-[#525252] text-sm">
+                <span className="text-red-600 font-medium">Main concerns</span>: {aiSummary.topNegative || "No concerns found"}
               </li>
             </ul>
           </div>
           
           <div className="mt-2 space-y-2">
-            <h4 className="text-sm font-semibold text-gray-400">Recommendations:</h4>
+            <h4 className="text-sm font-semibold text-[#525252]">Recommendations:</h4>
             <ul className="list-disc list-inside space-y-1">
               {aiSummary.recommendations && Array.isArray(aiSummary.recommendations) ? (
                 aiSummary.recommendations.map((recommendation: string, index: number) => (
-                  <li key={index} className="text-gray-300 text-sm">
+                  <li key={index} className="text-[#525252] text-sm">
                     {recommendation}
                   </li>
                 ))
               ) : (
-                <li className="text-gray-300 text-sm">No recommendations available</li>
+                <li className="text-[#525252] text-sm">No recommendations available</li>
               )}
             </ul>
           </div>
         </div>
       )}
       
-      <div className="mt-4 text-xs text-gray-500 flex items-center">
+      <div className="mt-4 text-xs text-[#acacac] flex items-center">
         <svg className="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13 16H12V12H11M12 8H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         </svg>

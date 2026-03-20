@@ -1,192 +1,215 @@
-/* Enhanced Component Styles for Video Transcriber */
+/* NXT Humans 2026 Design System — Enhanced Components */
 
-/* Card enhancements */
-.card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(70, 70, 70, 0.4);
-    backdrop-filter: blur(10px);
+:root {
+  --cyan-primary: #caca20;
+  --cyan-vibrant: #d8d830;
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
+  --success-green: #0CCE6B;
+  --warning-yellow: #caca20;
+  --error-red: #FF5A5A;
+
+  --dark-bg: #ffffff;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
+
+  --glass-background: rgba(17, 80, 84, 0.06);
+  --glass-blur: blur(32px);
+  --glass-border: 1px solid #e5e5e5;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+
+  --animation-fast: 0.15s;
+  --animation-medium: 0.3s;
+  --animation-slow: 0.5s;
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
-    opacity: 0.7;
-    transition: height 0.3s ease;
+/* Hero Section — White Theme */
+.hero-container {
+  background: #fafafa;
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.card:hover::before {
-    height: 5px;
-    opacity: 1;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
-/* Button enhancements */
-.btn {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+.hero-badge {
+  display: inline-block;
+  background: rgba(202, 202, 32, 0.1);
+  border: 1px solid rgba(202, 202, 32, 0.3);
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin: 8px auto;
 }
 
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    z-index: -1;
+.hero-badge span {
+  color: #caca20;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.btn:hover::after {
-    left: 0;
+.hero-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 52px;
+  font-weight: 200;
+  line-height: 56px;
+  margin-bottom: 16px;
+  color: #141414;
+  -webkit-text-fill-color: #141414;
 }
 
-/* Tab navigation enhancements */
-.tab-navigation {
-    display: flex;
-    border-bottom: 1px solid rgba(70, 70, 70, 0.5);
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
+.hero-subtitle {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #525252;
+  line-height: 26px;
 }
 
-.tab-navigation::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(70, 70, 70, 0.5);
+.hero-cta {
+  margin-top: 24px;
+  text-align: center;
 }
 
-.tab-btn {
-    position: relative;
-    z-index: 2;
+.hero-cta .nxt-btn {
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: 48px;
 }
 
-/* Progress bar animations */
-.progress {
-    background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
-    background-size: 200% 100%;
-    animation: progressShine 2s linear infinite;
+/* Section Title — White Theme */
+.section-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 44px;
+  font-weight: 200;
+  line-height: 60px;
+  color: #141414;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+  position: relative;
 }
 
-@keyframes progressShine {
-    0% {
-        background-position: 100% 0;
-    }
-    100% {
-        background-position: 0 0;
-    }
+.section-title::after {
+  display: none;
 }
 
-/* Job item enhancements */
-.job-item {
-    position: relative;
-    overflow: hidden;
+/* Card Grid */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin: 32px 0;
+  padding: 0;
+  max-width: 100%;
+  background: none;
+  border-radius: 0;
 }
 
-.job-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 3px;
-    background: transparent;
-    transition: all 0.3s ease;
+/* App Cards — NXT 2026 White Theme */
+.app-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  transition: all 150ms ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.job-item.status-completed::after {
-    background: linear-gradient(180deg, #28a745 0%, rgba(40, 167, 69, 0.5) 100%);
+.app-card:hover {
+  border-color: #d4d4d4;
+  transform: translateY(-2px);
 }
 
-.job-item.status-processing::after {
-    background: linear-gradient(180deg, #FFC107 0%, rgba(255, 193, 7, 0.5) 100%);
+.app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  background: rgba(202, 202, 32, 0.06);
+  border: 1px solid rgba(202, 202, 32, 0.2);
 }
 
-.job-item.status-failed::after {
-    background: linear-gradient(180deg, #dc3545 0%, rgba(220, 53, 69, 0.5) 100%);
+.app-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #141414;
+  line-height: 1.4;
 }
 
-/* Transcript container enhancements */
-.transcript-container {
-    position: relative;
-    border: 1px solid rgba(70, 70, 70, 0.4);
-    transition: all 0.3s ease;
+.app-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #525252;
+  flex-grow: 1;
+  margin-bottom: 16px;
+  line-height: 24px;
 }
 
-.transcript-container:focus {
-    border-color: #01C4C8;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(1, 196, 200, 0.2);
+.app-cta {
+  margin-top: auto;
 }
 
-/* Download button animations */
-.download-json i {
-    transition: transform 0.3s ease;
+/* Tags — White Theme */
+.tag {
+  background: #fafafa;
+  color: #525252;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid #e5e5e5;
 }
 
-.download-json:hover i {
-    animation: bounceDown 0.6s ease;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes bounceDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(3px);
-    }
+.app-card {
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* Form control enhancements */
-.form-control {
-    transition: all 0.3s ease;
-    border: 1px solid rgba(70, 70, 70, 0.5);
-}
-
-.form-control:focus {
-    border-color: #01C4C8;
-    box-shadow: 0 0 0 3px rgba(1, 196, 200, 0.15);
-    background-color: rgba(40, 45, 50, 1);
-}
-
-/* NXT header enhancements */
-.nxt-logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.nxt-logo-image {
-    height: 40px;
-    margin-right: 15px;
-    transition: transform 0.3s ease;
-}
-
-.nxt-logo-container:hover .nxt-logo-image {
-    transform: scale(1.05);
-}
-
-.nxt-logo-text h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.text-gradient {
-    background: linear-gradient(90deg, #01C4C8, #00E5E8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title { font-size: 36px; line-height: 40px; }
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .app-card { padding: 24px; }
 }

@@ -13,36 +13,27 @@
     <link rel="stylesheet" href="/static/enhanced-styles.css">
     <link rel="stylesheet" href="/static/enhanced-components.css">
     <link rel="stylesheet" href="/static/nxt-header.css">
-    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+    <!-- <link rel="stylesheet" href="/static/app-header-thumbnails.css"> -->
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Archivo', 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
-            color: #FFFFFF;
+            background: #ffffff;
+            color: #141414;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Force ALL text to be white */
-        * {
-            color: #ffffff !important;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, span, div, a, label {
-            color: #ffffff !important;
-        }
-        
         .container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         /* Intelligence Augmentation Header */
         .intelligence-augmentation-header {
-            background: #000000;
+            background: #115054;
             height: 240px;
             display: flex;
             align-items: center;
@@ -51,7 +42,7 @@
             position: relative;
             z-index: 100;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 0;
         }
 
         .intelligence-augmentation-header::before {
@@ -61,14 +52,14 @@
             right: 0;
             width: 40%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 0%, rgba(37, 99, 235, 0.15) 30%, rgba(37, 99, 235, 0.25) 60%, rgba(59, 130, 246, 0.3) 100%);
+            background: linear-gradient(45deg, transparent 0%, rgba(253, 142, 46, 0.1) 30%, rgba(253, 142, 46, 0.2) 60%, rgba(253, 142, 46, 0.25) 100%);
             transform: skewX(-20deg) translateX(20%);
             z-index: 1;
         }
 
         .ia-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 0 2rem;
             height: 100%;
@@ -95,10 +86,10 @@
         }
 
         .ia-logo-image {
-            width: 140px;
+            width: 280px;
             height: auto;
             opacity: 1;
-            filter: brightness(1.1);
+            filter: invert(1);
             object-fit: contain;
         }
 
@@ -110,11 +101,11 @@
 
         .ia-introducing {
             font-size: 1.6rem;
-            font-weight: 300;
+            font-weight: 200;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0.4rem;
             letter-spacing: 0.5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Archivo', 'Inter', sans-serif;
         }
 
         .ia-main-text {
@@ -126,308 +117,291 @@
         .ia-intelligence,
         .ia-augmentation {
             font-size: 4rem;
-            font-weight: 700;
+            font-weight: 200;
             line-height: 0.9;
             letter-spacing: -1.5px;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Archivo', 'Inter', sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        .ia-augmentation {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(59, 130, 246, 1) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-        }
-
         .ia-intelligence {
+            color: #ffffff;
+            -webkit-text-fill-color: #ffffff;
             margin-bottom: -0.3rem;
         }
-        
+
+        .ia-augmentation {
+            color: #fd8e2e;
+            -webkit-text-fill-color: #fd8e2e;
+        }
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
-        
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
+            .ia-logo-image {
+                width: 180px;
+            }
         }
-        
+
+        @media (max-width: 480px) {
+            .ia-logo-image {
+                width: 140px;
+            }
+        }
+
         .card {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: #ffffff;
+            border-radius: 4px;
             padding: 25px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #e5e5e5;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
+
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
-            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            border-color: #caca20;
         }
-        
+
         .card h2 {
             margin-top: 0;
-            color: #FFFFFF;
+            color: #141414;
             font-size: 1.5rem;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(70, 70, 70, 0.5);
+            font-weight: 200;
+            border-bottom: 2px solid #e5e5e5;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
-        
+
         .upload-form {
             margin-bottom: 20px;
         }
-        
+
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            color: #141414;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 10px;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 4px;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 2px;
             font-size: 1rem;
-            color: #FFFFFF;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            color: #141414;
+            transition: border-color 0.2s ease;
         }
-        
+
         .form-control:focus {
-            border-color: rgba(37, 99, 235, 0.5);
+            border-color: #caca20;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 0 20px;
+            border-radius: 2px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
+            font-family: 'Archivo', 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            height: 48px;
             transition: all 0.2s ease;
             outline: none;
             border: none;
-            color: white;
+            background: #caca20;
+            color: #115054;
         }
-        
-        .btn {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
-            color: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        
+
         .btn:hover {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 1) 0%, rgba(59, 130, 246, 1) 100%);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
-            transform: translateY(-3px);
-            border-color: rgba(37, 99, 235, 0.5);
+            filter: brightness(1.1);
+            transform: translateY(-2px);
         }
-        
+
         .btn-secondary {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-            color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: #fafafa;
+            color: #141414;
+            border: 1px solid #e5e5e5;
         }
-        
+
         .btn-secondary:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
+            background: #f0f0f0;
+            border-color: #caca20;
+            transform: translateY(-2px);
         }
-        
+
         .progress-container {
             margin: 20px 0;
             display: none;
         }
-        
+
         .progress-bar {
             height: 10px;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+            background: #fafafa;
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid #e5e5e5;
         }
-        
+
         .progress {
             height: 100%;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
+            background: #caca20;
             width: 0%;
             transition: width 0.3s ease;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
         }
-        
+
         .progress-text {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
         }
-        
+
         .job-list {
             max-height: 400px;
             overflow-y: auto;
         }
-        
+
         .job-item {
             padding: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
-            border-radius: 8px;
+            border-bottom: 1px solid #e5e5e5;
+            background: #fafafa;
+            border-radius: 4px;
             margin-bottom: 10px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, background 0.2s ease;
+            border: 1px solid #e5e5e5;
         }
-        
+
         .job-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
-            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            background: #ffffff;
+            border-color: #caca20;
         }
-        
+
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-        
+
         .job-title {
             font-weight: 600;
             font-size: 1.1rem;
+            color: #141414;
         }
-        
+
         .job-status {
             padding: 4px 8px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
         }
-        
+
         .status-processing {
-            background-color: rgba(255, 193, 7, 0.2);
-            color: #FFC107;
+            background-color: rgba(255, 193, 7, 0.15);
+            color: #b8860b;
             border: 1px solid rgba(255, 193, 7, 0.4);
         }
-        
+
         .status-completed {
-            background-color: rgba(40, 167, 69, 0.2);
-            color: #28a745;
+            background-color: rgba(40, 167, 69, 0.15);
+            color: #1e7e34;
             border: 1px solid rgba(40, 167, 69, 0.4);
         }
-        
+
         .status-failed {
-            background-color: rgba(220, 53, 69, 0.2);
-            color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.15);
+            color: #c82333;
             border: 1px solid rgba(220, 53, 69, 0.4);
         }
-        
+
         .job-details {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
             margin-bottom: 10px;
         }
-        
+
         .job-actions {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin-top: 12px;
         }
-        
+
         .job-actions .btn {
             flex: 1;
             min-width: 140px;
-            font-size: 0.9rem;
-            padding: 8px 10px;
+            font-size: 11px;
+            padding: 0 10px;
         }
-        
+
         .transcript-container {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
-            border-radius: 8px;
+            background: #fafafa;
+            border-radius: 4px;
             padding: 15px;
             margin-top: 10px;
             font-family: monospace;
             white-space: pre-wrap;
             display: none;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e5e5e5;
+            color: #525252;
             max-height: 400px;
             overflow-y: auto;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
         }
-        
+
         .back-to-launchpad {
             display: inline-block;
             margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
             text-decoration: none;
             padding: 8px 15px;
             border-radius: 4px;
             transition: all 0.2s ease;
         }
-        
+
         .back-to-launchpad:hover {
-            color: #60a5fa;
-            background-color: rgba(37, 99, 235, 0.1);
+            color: #115054;
+            background-color: #fafafa;
             transform: translateY(-2px);
         }
-        
+
         .back-to-launchpad i {
             margin-right: 5px;
         }
-        
+
         .tooltip {
             position: relative;
             display: inline-block;
         }
-        
+
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 200px;
-            background-color: #555;
-            color: #fff;
+            background-color: #141414;
+            color: #ffffff;
             text-align: center;
-            border-radius: 6px;
+            border-radius: 4px;
             padding: 5px;
             position: absolute;
             z-index: 1;
@@ -437,19 +411,19 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
+
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
-        
+
         /* Tab styles */
         .tab-navigation {
             display: flex;
-            border-bottom: 1px solid rgba(70, 70, 70, 0.5);
+            border-bottom: 1px solid #e5e5e5;
             margin-bottom: 20px;
         }
-        
+
         .tab-btn {
             background: none;
             border: none;
@@ -457,21 +431,21 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.6);
+            color: #acacac;
             position: relative;
             transition: all 0.3s ease;
         }
-        
+
         .tab-btn:hover {
-            color: #60a5fa;
-            background-color: rgba(37, 99, 235, 0.05);
+            color: #115054;
+            background-color: #fafafa;
         }
-        
+
         .tab-btn.active {
-            color: #60a5fa;
-            background-color: rgba(37, 99, 235, 0.1);
+            color: #115054;
+            background-color: #fafafa;
         }
-        
+
         .tab-btn.active::after {
             content: '';
             position: absolute;
@@ -479,59 +453,70 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
+            background: #caca20;
         }
-        
+
         .tab-content {
             display: none;
             padding-top: 10px;
         }
-        
+
         .tab-content.active {
             display: block;
         }
-        
+
         /* Download button styles */
         #transcriptActions {
             margin-bottom: 15px;
         }
-        
+
         #downloadJsonBtn {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.9) 100%);
-            color: white;
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            border-radius: 4px;
-            padding: 8px 15px;
-            font-size: 14px;
+            background: #caca20;
+            color: #115054;
+            border: none;
+            border-radius: 2px;
+            padding: 0 15px;
+            font-family: 'Archivo', 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            height: 48px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
-        
+
         #downloadJsonBtn:hover {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 1) 0%, rgba(59, 130, 246, 1) 100%);
+            filter: brightness(1.1);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.6);
-            border-color: rgba(37, 99, 235, 0.5);
         }
-        
+
         #downloadJsonBtn i {
             font-size: 16px;
+        }
+
+        /* NXT 2026 Design System — !important overrides */
+        :root {
+            --dark-bg: #ffffff !important;
+            --dark-bg-gradient-1: #ffffff !important;
+            --dark-bg-gradient-2: #fafafa !important;
+        }
+
+        .card h2 {
+            font-weight: 200;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="intelligence-augmentation-header">
-        <div class="ia-container has-thumbnail">
+    <header class="intelligence-augmentation-header" role="banner">
+        <div class="ia-container">
             <div class="ia-content">
                 <div class="ia-logo-section">
-                    <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image" onerror="this.onerror=null; this.src='http://localhost:8000/static/nxt-humans-logo.png'">
+                    <img src="/static/nxt-humans-logo.png" alt="NXT Humans Logo" aria-label="NXT Humans Logo" class="ia-logo-image" onerror="this.onerror=null; this.src='http://localhost:8000/static/nxt-humans-logo.png'">
                 </div>
                 <div class="ia-text-section">
                     <div class="ia-introducing">Intelligence Augmentation</div>
@@ -541,22 +526,18 @@
                     </div>
                 </div>
             </div>
-            <div class="ia-thumbnail-section">
-                <img src="/static/Video_Transcript_Generator.gif?v=2"
-                     alt="Video Transcription Service Demo"
-                     class="ia-app-thumbnail"
-                     crossorigin="anonymous"
-                     onerror="fallbackGif(this)" />
-                <div class="ia-thumbnail-label">Transcription Demo</div>
-            </div>
         </div>
     </header>
-    
-    <div class="container">
-        <a href="http://localhost:8000" class="back-to-launchpad">
-            <i class="fas fa-arrow-left"></i> Back to Launchpad
-        </a>
-        
+
+    <nav role="navigation" aria-label="Service navigation" style="background:#ffffff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;">
+      <a href="http://localhost:8000" style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#525252;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;" aria-label="Back to Launchpad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Launchpad
+      </a>
+      <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-transform:uppercase;letter-spacing:0.05em;">Video Transcriber</span>
+    </nav>
+
+    <div class="container" role="main">
         <div class="main-content">
             <div class="upload-section">
                 <div class="card">
@@ -1011,31 +992,10 @@
         });
     </script>
     
-    <footer class="nxt-footer">
-        <div class="container">
-            <div class="nxt-footer-content">
-                <div class="nxt-footer-text">
-                    <p>&copy; 2025 NXT Humans. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
+    <footer role="contentinfo" style="padding:24px 0;background:#fafafa;border-top:1px solid #e5e5e5;text-align:center;margin-top:3rem;">
+      <p style="color:#acacac;font-size:12px;font-family:'Archivo',sans-serif;font-weight:300;margin:0;">2026 NXT Humans. All rights reserved.</p>
     </footer>
     
-    <!-- App GIF Controls -->
-    <script src="/static/app-gif-controls.js"></script>
-    <script>
-      // Progressive fallback for GIF thumbnail
-      function fallbackGif(img) {
-        const sources = [
-          '/static/Video_Transcript_Generator.gif',
-          '/static/launchpad/Video_Transcript_Generator.gif',
-          'http://localhost:8000/static/Video_Transcript_Generator.gif'
-        ];
-        const tried = parseInt(img.dataset.errIdx || '0', 10);
-        if (tried >= sources.length - 1) return;
-        img.dataset.errIdx = String(tried + 1);
-        img.src = sources[tried + 1];
-      }
-    </script>
+    <!-- App GIF Controls removed (NXT 2026 design system cleanup) -->
 </body>
 </html>

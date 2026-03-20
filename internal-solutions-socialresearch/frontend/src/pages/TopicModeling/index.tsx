@@ -330,34 +330,34 @@ function TopicModeling() {
     };
   }, [showExportDropdown]);
 
-  const backgroundColor = 'rgba(14,27,39,255)';
+  const backgroundColor = '#ffffff';
 
   // Render project not found message if needed
   if (projectNotFound) {
     return (
       <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
-        <div className="w-full py-3 px-6 flex items-center border-b border-gray-700" style={{ backgroundColor }}>
+        <div className="w-full py-3 px-6 flex items-center border-b border-[#e5e5e5]" style={{ backgroundColor }}>
           <div className="flex items-center cursor-pointer" onClick={() => {
             dispatch(resetSubreddit());
             navigate('/');
           }}>
             <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
           </div>
-          <div className="text-purple-400 font-bold text-xl mx-auto">Reddit Topic Modeling</div>
+          <div className="text-[#115054] font-bold text-xl mx-auto">Reddit Topic Modeling</div>
         </div>
         <div className="flex-grow flex items-center justify-center">
-          <div className="bg-gray-800 shadow-lg rounded-lg p-8 max-w-md w-full border border-gray-700">
+          <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full border border-[#e5e5e5]">
             <div className="flex items-center mb-6">
               <div className="bg-red-500 p-3 rounded-full mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-bold text-white">Project Not Found</h2>
+              <h2 className="text-2xl font-bold text-[#141414]">Project Not Found</h2>
             </div>
-            <p className="text-gray-300 mb-6">The project you're looking for doesn't exist or may have been deleted.</p>
-            <button 
-              className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+            <p className="text-[#525252] mb-6">The project you're looking for doesn't exist or may have been deleted.</p>
+            <button
+              className="w-full py-3 bg-[#caca20] text-[#115054] rounded-lg hover:brightness-110 transition-colors font-medium"
               onClick={() => {
                 dispatch(resetSubreddit());
                 navigate('/');
@@ -375,17 +375,17 @@ function TopicModeling() {
   if (userLoading && projectId) {
     return (
       <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
-        <div className="w-full py-3 px-6 flex items-center border-b border-gray-700" style={{ backgroundColor }}>
+        <div className="w-full py-3 px-6 flex items-center border-b border-[#e5e5e5]" style={{ backgroundColor }}>
           <div className="flex items-center cursor-pointer" onClick={() => {
             dispatch(resetSubreddit());
             navigate('/');
           }}>
             <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
           </div>
-          <div className="text-purple-400 font-bold text-xl mx-auto">Reddit Topic Modeling</div>
+          <div className="text-[#115054] font-bold text-xl mx-auto">Reddit Topic Modeling</div>
         </div>
         <div className="flex-grow flex items-center justify-center">
-          <div className="text-white text-xl">Loading project data...</div>
+          <div className="text-[#141414] text-xl">Loading project data...</div>
         </div>
       </div>
     );
@@ -394,7 +394,7 @@ function TopicModeling() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor }}>
       {/* Header */}
-      <div className="w-full py-3 px-6 flex items-center border-b border-gray-700" style={{ backgroundColor }}>
+      <div className="w-full py-3 px-6 flex items-center border-b border-[#e5e5e5]" style={{ backgroundColor }}>
         <div className="flex items-center cursor-pointer" onClick={() => {
           dispatch(resetSubreddit());
           navigate('/');
@@ -402,14 +402,14 @@ function TopicModeling() {
           <img src="/nxt-humans-logo.png" alt="NXT Humans Logo" className="h-12" />
         </div>
         
-        <div className="text-purple-400 font-bold text-xl mx-auto">Reddit Topic Modeling</div>
+        <div className="text-[#115054] font-bold text-xl mx-auto">Reddit Topic Modeling</div>
         
         <div className="flex items-center gap-4">
           {!topicData && (
             <button 
               onClick={handleSubmit} 
               disabled={topicLoading || !formData.subreddit}
-              className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg hover:shadow-blue-500/20 h-[42px] w-32"
+              className="p-2 bg-[#caca20] text-[#115054] rounded-lg hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed transition-colors h-[42px] w-32"
             >
               {topicLoading ? 'Analyzing...' : 'Analyze'}
             </button>
@@ -437,7 +437,7 @@ function TopicModeling() {
               <div className="relative export-dropdown">
                 <button
                   onClick={() => setShowExportDropdown(!showExportDropdown)}
-                  className="p-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-lg hover:shadow-gray-500/20 h-[42px] flex items-center justify-center"
+                  className="p-2 bg-[#f5f5f5] text-[#141414] rounded-lg hover:bg-[#e5e5e5] transition-colors h-[42px] flex items-center justify-center"
                   title="Export topic modeling results"
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -446,11 +446,11 @@ function TopicModeling() {
                 </button>
 
                 {showExportDropdown && (
-                  <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-600 rounded-lg shadow-lg z-50">
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-[#e5e5e5] rounded-lg shadow-lg z-50">
                     <div className="py-1">
                       <button
                         onClick={() => handleExport('txt')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -459,7 +459,7 @@ function TopicModeling() {
                       </button>
                       <button
                         onClick={() => handleExport('json')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707L16.414 6.293A1 1 0 0015.586 6H7a2 2 0 00-2 2v11a2 2 0 002 2z" />
@@ -468,7 +468,7 @@ function TopicModeling() {
                       </button>
                       <button
                         onClick={() => handleExport('xml')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -477,7 +477,7 @@ function TopicModeling() {
                       </button>
                       <button
                         onClick={() => handleExport('markdown')}
-                        className="w-full px-4 py-2 text-left text-sm text-white hover:bg-gray-700 flex items-center"
+                        className="w-full px-4 py-2 text-left text-sm text-[#141414] hover:bg-[#f5f5f5] flex items-center"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

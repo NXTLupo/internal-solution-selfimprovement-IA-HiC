@@ -21,11 +21,11 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {
       case 'positive':
-        return 'border-green-500 bg-gradient-to-r from-green-900/20 to-green-700/10';
+        return 'border-green-500 bg-gradient-to-r from-green-50 to-green-100';
       case 'negative':
-        return 'border-red-500 bg-gradient-to-r from-red-900/50 to-red-700/30';
+        return 'border-red-500 bg-gradient-to-r from-red-50 to-red-100';
       default:
-        return 'border-blue-500 bg-gradient-to-r from-blue-900/20 to-blue-700/10';
+        return 'border-blue-500 bg-gradient-to-r from-blue-50 to-blue-100';
     }
   };
 
@@ -34,21 +34,21 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
     switch (sentiment) {
       case 'positive':
         return (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-900/40 text-green-400">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
             <ThumbsUp className="w-3 h-3 mr-1" />
             Positive
           </span>
         );
       case 'negative':
         return (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-900/40 text-red-400">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
             <ThumbsDown className="w-3 h-3 mr-1" />
             Negative
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-400">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-[#115054]">
             <Tag className="w-3 h-3 mr-1" />
             Neutral
           </span>
@@ -62,28 +62,28 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
       onClick={() => onClick(topic)}
     >
       <div className={` inset-0 rounded-lg${
-        topic.sentiment === 'negative' ? 'bg-gradient-to-r from-red-900/50 to-red-700/30' : ''
+        topic.sentiment === 'negative' ? 'bg-gradient-to-r from-red-50 to-red-100' : ''
       }`}></div>
       
       <div className="relative">
         <div className="text-sm mb-3">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="font-semibold text-white">{topic.short_summary}</h3>
+            <h3 className="font-semibold text-[#141414]">{topic.short_summary}</h3>
             {getSentimentBadge(topic.sentiment)}
           </div>
           <div className="flex items-center mt-1">
-            <MessageSquare className="w-4 h-4 mr-1 text-gray-400" />
-            <span className="text-gray-400">{topic.count} mentions</span>
+            <MessageSquare className="w-4 h-4 mr-1 text-[#525252]" />
+            <span className="text-[#525252]">{topic.count} mentions</span>
             
-            <span className="mx-2 text-gray-400">•</span>
+            <span className="mx-2 text-[#525252]">•</span>
             
-            <span className="font-medium text-gray-300">
+            <span className="font-medium text-[#525252]">
               Score: {topic.score.toFixed(2)}
             </span>
           </div>
           
           {topic.one_sentence_summary || topic.short_summary || topic.topic && (
-            <div className="mt-2 text-gray-300">
+            <div className="mt-2 text-[#525252]">
               {topic.one_sentence_summary || topic.short_summary || topic.topic}
             </div>
           )}
@@ -98,14 +98,14 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
             {(topic.relatedTerms || topic.related_terms || []).slice(0, 3).map((term, i) => (
               <span 
                 key={i} 
-                className="inline-block px-2 py-1 text-xs rounded-md bg-gray-800 text-gray-300"
+                className="inline-block px-2 py-1 text-xs rounded-md bg-[#f5f5f5] text-[#525252]"
               >
                 {term}
               </span>
             ))}
             {((topic.relatedTerms && topic.relatedTerms.length > 3) || 
               (topic.related_terms && topic.related_terms.length > 3)) && (
-              <span className="inline-block px-2 py-1 text-xs rounded-md bg-gray-800 text-gray-300">
+              <span className="inline-block px-2 py-1 text-xs rounded-md bg-[#f5f5f5] text-[#525252]">
                 +{Math.max(
                   (topic.relatedTerms ? topic.relatedTerms.length : 0), 
                   (topic.related_terms ? topic.related_terms.length : 0)
@@ -138,8 +138,8 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
 
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
-        <TrendingUp className="w-5 h-5 mr-2 text-blue-400" />
+      <h2 className="text-xl font-semibold text-[#141414] mb-4 flex items-center">
+        <TrendingUp className="w-5 h-5 mr-2 text-[#115054]" />
         Topic Analysis
       </h2>
       
@@ -148,8 +148,8 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
         <div>
           <div className="flex items-center mb-3">
             <ThumbsUp className="w-4 h-4 text-green-500 mr-2" />
-            <h3 className="text-lg font-medium text-green-400">Positive Topics</h3>
-            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-green-900/40 text-green-400">
+            <h3 className="text-lg font-medium text-green-600">Positive Topics</h3>
+            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-600">
               {groupedTopics.positive.length}
             </span>
           </div>
@@ -159,7 +159,7 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
               <TopicCard key={`positive-${index}`} topic={topic} onClick={handleTopicSelect} />
             ))}
             {groupedTopics.positive.length === 0 && (
-              <div className="text-center py-6 bg-gray-800/50 rounded-lg border border-gray-700 text-gray-400">
+              <div className="text-center py-6 bg-[#fafafa] rounded-lg border border-[#e5e5e5] text-[#525252]">
                 No positive topics found
               </div>
             )}
@@ -170,8 +170,8 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
         <div>
           <div className="flex items-center mb-3">
             <Tag className="w-4 h-4 text-blue-500 mr-2" />
-            <h3 className="text-lg font-medium text-blue-400">Neutral Topics</h3>
-            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-900/40 text-blue-400">
+            <h3 className="text-lg font-medium text-[#115054]">Neutral Topics</h3>
+            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-blue-100 text-[#115054]">
               {groupedTopics.neutral.length}
             </span>
           </div>
@@ -181,7 +181,7 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
               <TopicCard key={`neutral-${index}`} topic={topic} onClick={handleTopicSelect} />
             ))}
             {groupedTopics.neutral.length === 0 && (
-              <div className="text-center py-6 bg-gray-800/50 rounded-lg border border-gray-700 text-gray-400">
+              <div className="text-center py-6 bg-[#fafafa] rounded-lg border border-[#e5e5e5] text-[#525252]">
                 No neutral topics found
               </div>
             )}
@@ -192,8 +192,8 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
         <div>
           <div className="flex items-center mb-3">
             <ThumbsDown className="w-4 h-4 text-red-500 mr-2" />
-            <h3 className="text-lg font-medium text-red-400">Negative Topics</h3>
-            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-red-900/40 text-red-400">
+            <h3 className="text-lg font-medium text-red-600">Negative Topics</h3>
+            <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-red-100 text-red-600">
               {groupedTopics.negative.length}
             </span>
           </div>
@@ -203,7 +203,7 @@ const TopicCardsGrid: React.FC<TopicCardsGridProps> = ({ topics = [] }) => {
               <TopicCard key={`negative-${index}`} topic={topic} onClick={handleTopicSelect} />
             ))}
             {groupedTopics.negative.length === 0 && (
-              <div className="text-center py-6 bg-gray-800/50 rounded-lg border border-gray-700 text-gray-400">
+              <div className="text-center py-6 bg-[#fafafa] rounded-lg border border-[#e5e5e5] text-[#525252]">
                 No negative topics found
               </div>
             )}

@@ -24,7 +24,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
 
   if (!checkpoint) {
     return (
-      <div className="text-center text-xs text-slate-500 py-4">
+      <div className="text-center text-xs text-[#acacac] py-4">
         Analysis proceeding...
       </div>
     );
@@ -48,7 +48,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
       {/* Checkpoint Info */}
       <div className="text-center">
         <h4 className="text-sm font-medium text-yellow-400 mb-1">{checkpoint.name}</h4>
-        <p className="text-xs text-slate-400">{checkpoint.description}</p>
+        <p className="text-xs text-[#525252]">{checkpoint.description}</p>
       </div>
 
       {/* Quick Actions */}
@@ -62,7 +62,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
           </button>
           <button
             onClick={() => setShowRevision(true)}
-            className="flex-1 px-3 py-2 text-xs bg-amber-600/20 text-amber-400 border border-amber-500/50 rounded-md hover:bg-amber-600/30 transition-colors"
+            className="flex-1 px-3 py-2 text-xs bg-[#fd8e2e]/20 text-[#fd8e2e] border border-[#fd8e2e]/50 rounded-md hover:bg-[#fd8e2e]/30 transition-colors"
           >
             ✎ Revise
           </button>
@@ -74,7 +74,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="What should the AI focus on or change?"
-            className="w-full px-3 py-2 text-xs bg-slate-800 border border-slate-700 rounded-md text-slate-300 placeholder-slate-500 resize-none"
+            className="w-full px-3 py-2 text-xs bg-[#fafafa] border border-[#e5e5e5] rounded-md text-[#525252] placeholder-[#acacac] resize-none"
             rows={3}
             autoFocus
           />
@@ -82,7 +82,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
             <button
               onClick={handleRevise}
               disabled={!feedback.trim()}
-              className="flex-1 px-3 py-2 text-xs bg-amber-600/20 text-amber-400 border border-amber-500/50 rounded-md hover:bg-amber-600/30 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-3 py-2 text-xs bg-[#fd8e2e]/20 text-[#fd8e2e] border border-[#fd8e2e]/50 rounded-md hover:bg-[#fd8e2e]/30 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Send Instructions
             </button>
@@ -91,7 +91,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
                 setShowRevision(false);
                 setFeedback('');
               }}
-              className="px-3 py-2 text-xs bg-slate-700 text-slate-400 border border-slate-600 rounded-md hover:bg-slate-600 transition-colors"
+              className="px-3 py-2 text-xs bg-[#f5f5f5] text-[#525252] border border-[#e5e5e5] rounded-md hover:bg-[#e5e5e5] transition-colors"
             >
               Cancel
             </button>
@@ -104,7 +104,7 @@ export const InteractiveControls: React.FC<InteractiveControlsProps> = ({
         <div className="text-center">
           <button
             onClick={handleApprove}
-            className="text-[10px] text-slate-500 hover:text-slate-400 transition-colors"
+            className="text-[10px] text-[#acacac] hover:text-[#525252] transition-colors"
           >
             Continue without feedback →
           </button>

@@ -82,9 +82,9 @@ export const PostFilter = ({
   return (
     <div className="flex flex-col gap-3">
       <style>{numberInputStyles}</style>
-      <div className="p-4 rounded-xl shadow-xl border border-gray-700" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+      <div className="p-4 rounded-xl  border border-[#e5e5e5]" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-semibold text-blue-400 text-lg flex items-center gap-2">
+          <h3 className="font-semibold text-[#115054] text-lg flex items-center gap-2">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
             </svg>
@@ -94,7 +94,7 @@ export const PostFilter = ({
             {hasActiveFilters() && (
               <button
                 onClick={resetFilters}
-                className="px-3 py-1 text-xs bg-gray-600 text-white rounded hover:bg-gray-500 transition-colors"
+                className="px-3 py-1 text-xs bg-[#f5f5f5] text-[#141414] rounded hover:bg-[#e5e5e5] transition-colors"
               >
                 Reset Filters
               </button>
@@ -105,7 +105,7 @@ export const PostFilter = ({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
           {/* Search Term */}
           <div className="flex flex-col">
-            <label htmlFor="searchTerm" className="mb-2 font-medium text-gray-300">
+            <label htmlFor="searchTerm" className="mb-2 font-medium text-[#525252]">
               Search Posts:
             </label>
             <input
@@ -114,21 +114,21 @@ export const PostFilter = ({
               value={filterData.searchTerm}
               onChange={(e) => updateFilter({ searchTerm: e.target.value })}
               placeholder="Search by title, content, or author..."
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac]"
+              style={{ backgroundColor: '#ffffff' }}
               autoComplete="off"
             />
           </div>
 
           {/* Sort By */}
           <div className="flex flex-col">
-            <label htmlFor="sortBy" className="mb-2 font-medium text-gray-300">Sort By:</label>
+            <label htmlFor="sortBy" className="mb-2 font-medium text-[#525252]">Sort By:</label>
             <select
               id="sortBy"
               value={filterData.sortBy}
               onChange={(e) => updateFilter({ sortBy: e.target.value as PostFilterData['sortBy'] })}
-              className="p-2 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
-              style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+              className="p-2 border border-[#e5e5e5] rounded-lg focus:border-[#115054] focus:outline-none text-[#141414]"
+              style={{ backgroundColor: '#ffffff' }}
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
@@ -139,12 +139,12 @@ export const PostFilter = ({
 
           {/* Upvotes Range */}
           <div className="flex flex-col">
-            <label className="mb-2 font-medium text-gray-300">
+            <label className="mb-2 font-medium text-[#525252]">
               Upvotes Range:
             </label>
               <div className="flex items-center gap-2 w-full">
                 <div className="flex items-center gap-1">
-                  <span className="text-xs text-gray-400">From</span>
+                  <span className="text-xs text-[#525252]">From</span>
                   <input
                     type="number"
                     value={tempMinUpvotes}
@@ -155,17 +155,17 @@ export const PostFilter = ({
                       updateFilter({ minUpvotes: validValue });
                     }}
                     placeholder="0"
-                    className="w-16 p-1 text-sm border border-gray-600 rounded focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 text-center"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="w-16 p-1 text-sm border border-[#e5e5e5] rounded focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] text-center"
+                    style={{ backgroundColor: '#ffffff' }}
                   />
                 </div>
                 
-                <svg className="w-3 h-3 text-gray-500 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 text-[#acacac] mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
                 
                 <div className="flex items-center gap-1">
-                  <span className="text-xs text-gray-400">To</span>
+                  <span className="text-xs text-[#525252]">To</span>
                   <input
                     type="number"
                     value={tempMaxUpvotes}
@@ -176,8 +176,8 @@ export const PostFilter = ({
                       updateFilter({ maxUpvotes: validValue });
                     }}
                     placeholder="10000"
-                    className="w-16 p-1 text-sm border border-gray-600 rounded focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 text-center"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="w-16 p-1 text-sm border border-[#e5e5e5] rounded focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] text-center"
+                    style={{ backgroundColor: '#ffffff' }}
                   />
                 </div>
               </div>
@@ -185,12 +185,12 @@ export const PostFilter = ({
 
           {/* Comments Range */}
           <div className="flex flex-col">
-            <label className="mb-2 font-medium text-gray-300">
+            <label className="mb-2 font-medium text-[#525252]">
               Comments Range:
             </label>
               <div className="flex items-center gap-2 w-full">
                 <div className="flex items-center gap-1">
-                  <span className="text-xs text-gray-400">From</span>
+                  <span className="text-xs text-[#525252]">From</span>
                   <input
                     type="number"
                     value={tempMinComments}
@@ -201,17 +201,17 @@ export const PostFilter = ({
                       updateFilter({ minComments: validValue });
                     }}
                     placeholder="0"
-                    className="w-16 p-1 text-sm border border-gray-600 rounded focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 text-center"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="w-16 p-1 text-sm border border-[#e5e5e5] rounded focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] text-center"
+                    style={{ backgroundColor: '#ffffff' }}
                   />
                 </div>
                 
-                <svg className="w-3 h-3 text-gray-500 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 text-[#acacac] mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
                 
                 <div className="flex items-center gap-1">
-                  <span className="text-xs text-gray-400">To</span>
+                  <span className="text-xs text-[#525252]">To</span>
                   <input
                     type="number"
                     value={tempMaxComments}
@@ -222,8 +222,8 @@ export const PostFilter = ({
                       updateFilter({ maxComments: validValue });
                     }}
                     placeholder="1000"
-                    className="w-16 p-1 text-sm border border-gray-600 rounded focus:border-blue-500 focus:outline-none text-gray-100 placeholder-gray-500 text-center"
-                    style={{ backgroundColor: 'rgba(34,38,43,255)' }}
+                    className="w-16 p-1 text-sm border border-[#e5e5e5] rounded focus:border-[#115054] focus:outline-none text-[#141414] placeholder-[#acacac] text-center"
+                    style={{ backgroundColor: '#ffffff' }}
                   />
                 </div>
               </div>

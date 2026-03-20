@@ -1,0 +1,71 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: kerr, coach, movie, goat, congrats, steve, right
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+[Basketnews] Golden State Warriors head coach Steve Kerr has added another honor to his remarkable résumé - this time off the court. The documentary short "All the Empty Rooms," produced by Kerr, has won the Oscar for Best Documentary Short.  Congrats coach! 
+We as fans could certainly have worse people as a coach but we’re blessed and lucky to have someone rooted in decency who’s brought us so much joy over the years. 
+10 rings and an Oscar.  
+and some of you "fans" want him fired\~
+
+EXAMPLE 2:
+600th career win earns Coach Kerr the game ball! 👏  💙🏀💛 Congrats to him!!! Sucks that so many other fan bases appreciate him more than DubNation...I read/hear it all the time when analysts of other teams comment about how their coaches were "out-coached" by Kerr!!! And complement our beautiful ball movement, and the GSW system of play!!!💙🏀💛
+Yup, after the Rockets game the entire sub wanted to fire Ime and talked about Kerr coaching circles around him. I wish people would respect Steve more, he transformed our offense for the better back in 2015.
+this is a good start！
+
+EXAMPLE 3:
+I watched GOAT the movie. So I watched GOAT (the movie by our very own G.O.A.T. Steph Curry) over the weekend and it was amazing! I am impressed how Steph incorporated different things from the NBA into the animation to name a few: (just a few spoilers, I apologize to anyone who hasn't seen the movie yet)
+
+EXAMPLE 4:
+Overrall, it a really good movie, waaaay better than the remake of Space Jam! This might be a stretch, but I noticed the teams slogan was roots run deep and they focused on that as the owner decided the team was being moved which reminds of the A’s rooted in Oakland slogan they flipped on when they left. Definitely probably me being delusional though 
+not a stretch at all, I noticed it too and the home city being named "Vineland" leads me to believe he wanted to reference Oakland and the roots of the mighty oak tree
+Nice, I loved it too. [...]
+
+EXAMPLE 5:
+4. The main character asking the owner of the team to make some moves by bringing in someone to help her win a chip. I personally think that is Steph telling GSW owners to make the right moves for one final run at the tittle before he retires!
+
+EXAMPLE 6:
+1. His step back 3s, being one of the shortest players in the league but uses his shooting abilities to make a statement
+
+EXAMPLE 7:
+3. The antagonist doing the Lebron's crowning celebration where he places his hands on his head to symbolize placing a crown upon himself
+
+EXAMPLE 8:
+Am going to stop right there but I'd like to hear from those who have seen the movie, what other references they sported.
+
+EXAMPLE 9:
+5. The one that made me laugh the most is the antagonist (who happened to be the protagonists sworn enemy) looks and behaved like Dillon Brooks.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

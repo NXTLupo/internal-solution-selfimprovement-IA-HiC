@@ -349,13 +349,13 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
   // };
 
   return (
-    <div className="flex items-center gap-4 p-3 bg-[#1F2937] rounded-lg border border-gray-700">
+    <div className="flex items-center gap-4 p-3 bg-[#fafafa] rounded-lg border border-[#e5e5e5]">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-400">From:</span>
+        <span className="text-sm text-[#525252]">From:</span>
         <select
           value={fromYear || ''}
           onChange={(e) => handleChange('fromYear', e.target.value || null)}
-          className="bg-gray-800 text-gray-300 border border-gray-700 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="bg-white text-[#141414] border border-[#e5e5e5] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#115054]"
         >
           <option value="">Year</option>
           {years.map(year => (
@@ -366,7 +366,7 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
           value={fromMonth || ''}
           onChange={(e) => handleChange('fromMonth', e.target.value || null)}
           disabled={!fromYear}
-          className="bg-gray-800 text-gray-300 border border-gray-700 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
+          className="bg-white text-[#141414] border border-[#e5e5e5] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#115054] disabled:opacity-50"
         >
           <option value="">Month</option>
           {months.map(month => (
@@ -382,11 +382,11 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
       </div>
 
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-400">To:</span>
+        <span className="text-sm text-[#525252]">To:</span>
         <select
           value={toYear || ''}
           onChange={(e) => handleChange('toYear', e.target.value || null)}
-          className="bg-gray-800 text-gray-300 border border-gray-700 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="bg-white text-[#141414] border border-[#e5e5e5] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#115054]"
         >
           <option value="">Year</option>
           {years.map(year => (
@@ -397,7 +397,7 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
           value={toMonth || ''}
           onChange={(e) => handleChange('toMonth', e.target.value || null)}
           disabled={!toYear}
-          className="bg-gray-800 text-gray-300 border border-gray-700 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
+          className="bg-white text-[#141414] border border-[#e5e5e5] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#115054] disabled:opacity-50"
         >
           <option value="">Month</option>
           {months.map(month => (
@@ -433,7 +433,7 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange, maxD
               dispatch(setDateFilteredData(data));
             }
           }}
-          className="text-xs text-gray-400 hover:text-gray-200 transition-colors"
+          className="text-xs text-[#525252] hover:text-[#141414] transition-colors"
         >
           Clear
         </button>

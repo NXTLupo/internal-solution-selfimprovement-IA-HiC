@@ -7,17 +7,62 @@
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" href="/static/nxt-humans-styles.css">
     <link rel="stylesheet" href="/static/nxt-header.css">
-    <link rel="stylesheet" href="/static/app-header-thumbnails.css">
+    <!-- app-header-thumbnails removed: NXT 2026 design system -->
     <!-- Favicon declarations in proper order -->
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/svg+xml" href="/static/route-favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/route-favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      /* === NXT 2026 White Theme — Force Override for React Bundle === */
+      html, body, #root, .enterprise-body, [style*="background"] {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #141414 !important;
+        font-family: 'Archivo', 'Inter', sans-serif !important;
+      }
+      *, *::before, *::after {
+        --dark-bg: #ffffff;
+        --dark-bg-gradient-1: #ffffff;
+        --dark-bg-gradient-2: #fafafa;
+      }
+      /* Override any dark inline backgrounds from React */
+      div[style*="background-color: rgb(0"], div[style*="background-color: rgb(20"],
+      div[style*="background-color: rgb(26"], div[style*="background-color: rgb(31"],
+      div[style*="background-color: rgb(34"], div[style*="background-color: rgb(17"],
+      div[style*="background: rgb(0"], div[style*="background: rgb(20"],
+      div[style*="background: rgb(26"], div[style*="background: rgb(34"],
+      div[style*="background-color: #0"], div[style*="background-color: #1"],
+      div[style*="background-color: #2"], div[style*="background: #0"],
+      div[style*="background: #1"], div[style*="background: #2"],
+      div[style*="background: linear-gradient"] {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+      }
+      /* Force white on any remaining dark containers */
+      [class*="bg-gray-9"], [class*="bg-gray-8"], [class*="bg-slate"],
+      [class*="bg-zinc"], [class*="bg-neutral-8"], [class*="bg-neutral-9"] {
+        background-color: #ffffff !important;
+      }
+      [class*="bg-gray-7"], [class*="bg-gray-6"] {
+        background-color: #fafafa !important;
+      }
+      /* Fix text over white backgrounds */
+      [class*="text-white"], [style*="color: rgb(255, 255, 255)"],
+      [style*="color: white"], [style*="color:#fff"],
+      [style*="color: #fff"], [style*="color: #FFF"] {
+        color: #141414 !important;
+      }
+      /* Override shadows */
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow {
+        box-shadow: none !important;
+      }
+    </style>
 </head>
 <body>
     <header class="intelligence-augmentation-header">
-        <div class="ia-container has-thumbnail">
+        <div class="ia-container">
             <div class="ia-content">
                 <div class="ia-logo-section">
                     <img src="/static/nxt-humans-logo.png" alt="NXT HUMANS Logo" class="ia-logo-image">
@@ -30,18 +75,13 @@
                     </div>
                 </div>
             </div>
-            <div class="ia-thumbnail-section">
-                <img src="/static/journey_mapper_4.gif" alt="Journey Mapper Claude 4 Demo" class="ia-app-thumbnail" />
-                <div class="ia-thumbnail-label">Claude 4 Demo</div>
-            </div>
         </div>
     </header>
 
     <div id="root"></div>
     <script src="/static/js/main.js"></script>
     
-    <!-- App GIF Controls -->
-    <script src="/static/app-gif-controls.js"></script>
+    <!-- GIF controls removed: NXT 2026 design system -->
 </body>
 </html>
 

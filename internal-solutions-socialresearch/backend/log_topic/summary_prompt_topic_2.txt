@@ -1,0 +1,52 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: post, reddit, game, warriors, old, click view post, view post
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Post Game Thread - NBA: The Celtics defeat the Warriors on Mar 18, 2026, the final score is 120-99. This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxmxb6) Hello 10th seed my old friend!
+*old* friend?
+god i miss Steph and Jimmy
+
+EXAMPLE 2:
+Game Thread: Boston Celtics vs Golden State Warriors Live Score | NBA | Mar 18, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxhri6) I swear Pat and Podz can never have a good game at the same time 😭
+The new Steph/Klay. Stg those two traded hot shooting nights.
+Damn a 9th seed getting blown out by an actual contender cmon guys lol
+
+EXAMPLE 3:
+Game Thread: Washington Wizards vs Golden State Warriors Live Score | NBA | Mar 16, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rvnrkl) This game is devolving into some globetrotter shit
+Wizards already have the same jerseys as the globetrotters :D
+KP is very good at basketball.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

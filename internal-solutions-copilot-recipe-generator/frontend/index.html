@@ -4,11 +4,99 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Copilot Studio Recipe Generator | NXT Humans</title>
+    <title>NXT Humans | Copilot Studio Recipe Generator</title>
+    <meta name="description" content="Generate Copilot Studio agent recipes with AI">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* NXT 2026 Stark White Override */
+      body, html, #root, #app, main {
+        background: #ffffff !important;
+        color: #141414 !important;
+        font-family: 'Archivo', 'Inter', sans-serif !important;
+      }
+      /* Override dark backgrounds */
+      [class*="bg-gray-9"], [class*="bg-gray-8"], [class*="bg-slate"],
+      [class*="bg-zinc"], [class*="bg-neutral-8"], [class*="bg-neutral-9"],
+      [style*="background-color: rgb(0"], [style*="background-color: rgb(10"],
+      [style*="background-color: rgb(17"], [style*="background-color: rgb(24"],
+      [style*="background-color: rgb(31"], [style*="background: rgb(0"],
+      div[class*="dark"], section[class*="dark"] {
+        background-color: #ffffff !important;
+      }
+      /* Cards and containers */
+      [class*="bg-gray-7"], [class*="bg-gray-800"], [class*="rounded-lg"][class*="bg-"],
+      [class*="rounded-xl"][class*="bg-"] {
+        background-color: #fafafa !important;
+        border: 1px solid #e5e5e5 !important;
+        color: #141414 !important;
+      }
+      /* Text */
+      h1, h2, h3, h4, h5, h6, p, span, div, a, label, li {
+        color: inherit;
+      }
+      [class*="text-white"], [class*="text-gray-1"], [class*="text-gray-2"],
+      [class*="text-gray-100"], [class*="text-gray-200"], [class*="text-gray-300"] {
+        color: #141414 !important;
+      }
+      [class*="text-gray-4"], [class*="text-gray-5"] {
+        color: #525252 !important;
+      }
+      /* Buttons */
+      button[class*="bg-orange"], [class*="bg-amber"], [class*="bg-yellow"] {
+        background-color: #caca20 !important;
+        color: #115054 !important;
+      }
+      /* Orange accent text */
+      [class*="text-orange"], [class*="text-amber"] {
+        color: #fd8e2e !important;
+      }
+      /* Inputs */
+      input, select, textarea {
+        background-color: #ffffff !important;
+        color: #141414 !important;
+        border-color: #e5e5e5 !important;
+      }
+      /* Header/nav bar (scoped to React root to preserve IA header) */
+      #root nav, #root header {
+        background-color: #ffffff !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        color: #141414 !important;
+      }
+      /* Borders */
+      [class*="border-gray-6"], [class*="border-gray-7"], [class*="border-slate"] {
+        border-color: #e5e5e5 !important;
+      }
+      /* Hide app-internal header (redundant with IA header above) */
+      .app-header { display: none !important; }
+    </style>
   </head>
   <body>
+    <!-- NXT 2026 Intelligence Augmentation Header -->
+    <header role="banner" class="ia-header" style="background:#115054;height:200px;display:flex;align-items:center;justify-content:center;width:100%;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(45deg,transparent 0%,rgba(253,142,46,0.08) 30%,rgba(253,142,46,0.15) 60%,rgba(253,142,46,0.2) 100%);transform:skewX(-20deg) translateX(20%);z-index:1;"></div>
+      <div style="max-width:1440px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;gap:3rem;position:relative;z-index:2;">
+        <img src="/nxt-humans-logo.png?v=2" alt="NXT Humans Logo" style="width:220px;height:auto;filter:invert(1);object-fit:contain;" onerror="this.style.display='none'">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;">
+          <span style="font-family:'Archivo',sans-serif;font-size:1.3rem;font-weight:200;color:rgba(255,255,255,0.9);letter-spacing:0.5px;">Intelligence Augmentation</span>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#ffffff;">Copilot Studio</span>
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#fd8e2e;">Recipe Generator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav role="navigation" aria-label="Service navigation" style="background:#ffffff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;">
+      <a href="http://localhost:8000" style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#525252;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;" aria-label="Back to Launchpad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Launchpad
+      </a>
+      <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-transform:uppercase;letter-spacing:0.05em;">Recipe Generator</span>
+    </nav>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <footer role="contentinfo" style="padding:24px 0;background:#fafafa;border-top:1px solid #e5e5e5;text-align:center;">
+      <p style="color:#acacac;font-size:12px;font-family:'Archivo',sans-serif;font-weight:300;margin:0;">2026 NXT Humans. All rights reserved.</p>
+    </footer>
   </body>
 </html>

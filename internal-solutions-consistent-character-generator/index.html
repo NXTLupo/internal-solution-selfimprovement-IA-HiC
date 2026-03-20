@@ -6,12 +6,66 @@
     <link rel="icon" type="image/svg+xml" href="/static/character-favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consistent Persona Generator | NXT Humans AI CX Workbench</title>
+    <title>NXT Humans | Consistent Persona Generator</title>
     <meta name="description" content="Design persistent characters, objects, and cinematic scenes with the NXT Humans Content Generation toolkit." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { 'sans': ['Archivo', 'Inter', 'sans-serif'] },
+            colors: {
+              'nxt-teal': '#115054',
+              'nxt-lime': '#caca20',
+              'nxt-orange': '#fd8e2e',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* === NXT 2026 Stark White Theme Override === */
+      html, body, #root {
+        background: #ffffff !important;
+        color: #141414 !important;
+        font-family: 'Archivo', 'Inter', sans-serif !important;
+      }
+      [class*="bg-gray-9"], [class*="bg-gray-8"], [class*="bg-slate-9"], [class*="bg-slate-8"],
+      [class*="bg-zinc"], [class*="bg-neutral-8"], [class*="bg-neutral-9"],
+      [class*="bg-black"], [class*="bg-\[#0"], [class*="bg-\[#1"], [class*="bg-\[#2"] {
+        background-color: #ffffff !important;
+      }
+      [class*="bg-gray-7"], [class*="bg-gray-6"], [class*="bg-slate-7"], [class*="bg-slate-6"] {
+        background-color: #fafafa !important;
+        border: 1px solid #e5e5e5 !important;
+      }
+      [class*="text-white"] { color: #141414 !important; }
+      [class*="text-gray-1"], [class*="text-gray-2"] { color: #141414 !important; }
+      [class*="text-gray-3"], [class*="text-gray-4"] { color: #525252 !important; }
+      [class*="border-gray-7"], [class*="border-gray-6"] { border-color: #e5e5e5 !important; }
+      [class*="bg-blue-5"], [class*="bg-blue-6"], [class*="bg-indigo-5"], [class*="bg-indigo-6"],
+      [class*="bg-purple-5"], [class*="bg-purple-6"] {
+        background-color: #caca20 !important; color: #115054 !important;
+      }
+      input, select, textarea {
+        background-color: #ffffff !important; color: #141414 !important; border-color: #e5e5e5 !important;
+      }
+      input:focus, select:focus, textarea:focus {
+        border-color: #caca20 !important; box-shadow: none !important;
+      }
+      .shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl { box-shadow: none !important; }
+      h1, h2, h3 { font-weight: 200 !important; color: #141414 !important; }
+      [class*="text-cyan"] { color: #115054 !important; }
+      [class*="bg-cyan"] { background-color: #caca20 !important; color: #115054 !important; }
+      [class*="ring-blue"], [class*="ring-indigo"], [class*="ring-purple"] {
+        --tw-ring-color: rgba(17, 80, 84, 0.5) !important;
+      }
+      /* Hide app-internal hero header (redundant with IA header above) */
+      .intelligence-augmentation-header { display: none !important; }
+    </style>
   <script type="importmap">
 {
   "imports": {
@@ -24,7 +78,31 @@
 </script>
 </head>
   <body>
+    <!-- NXT 2026 Intelligence Augmentation Header -->
+    <header role="banner" class="ia-header" style="background:#115054;height:200px;display:flex;align-items:center;justify-content:center;width:100%;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(45deg,transparent 0%,rgba(253,142,46,0.08) 30%,rgba(253,142,46,0.15) 60%,rgba(253,142,46,0.2) 100%);transform:skewX(-20deg) translateX(20%);z-index:1;"></div>
+      <div style="max-width:1440px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;gap:3rem;position:relative;z-index:2;">
+        <img src="/static/nxt-humans-logo.png" alt="NXT Humans Logo" style="width:220px;height:auto;filter:invert(1);object-fit:contain;" onerror="this.style.display='none'">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;">
+          <span style="font-family:'Archivo',sans-serif;font-size:1.3rem;font-weight:200;color:rgba(255,255,255,0.9);letter-spacing:0.5px;">Intelligence Augmentation</span>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#ffffff;">Consistent</span>
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#fd8e2e;">Persona Generator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav role="navigation" aria-label="Service navigation" style="background:#ffffff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;">
+      <a href="http://localhost:8000" style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#525252;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;" aria-label="Back to Launchpad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Launchpad
+      </a>
+      <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-transform:uppercase;letter-spacing:0.05em;">Persona Generator</span>
+    </nav>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <footer role="contentinfo" style="padding:24px 0;background:#fafafa;border-top:1px solid #e5e5e5;text-align:center;">
+      <p style="color:#acacac;font-size:12px;font-family:'Archivo',sans-serif;font-weight:300;margin:0;">2026 NXT Humans. All rights reserved.</p>
+    </footer>
   </body>
 </html>

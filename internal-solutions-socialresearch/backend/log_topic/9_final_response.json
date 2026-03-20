@@ -1,0 +1,2098 @@
+{
+  "total_documents": 66,
+  "total_topics": 12,
+  "topics": {
+    "positive": {
+      "count": 5,
+      "topics": [
+        {
+          "id": 0,
+          "count": 11,
+          "score": 0.3557587130503221,
+          "engagement": {
+            "post_count": 11,
+            "total_comments": 89,
+            "total_score": 4810,
+            "avg_comments_per_post": 8.090909090909092,
+            "avg_score_per_post": 437.27272727272725
+          },
+          "terms": [
+            {
+              "term": "steph",
+              "weight": 0.02322201563247092
+            },
+            {
+              "term": "year",
+              "weight": 0.02281838155508312
+            },
+            {
+              "term": "kuminga",
+              "weight": 0.02262759727308669
+            },
+            {
+              "term": "jimmy",
+              "weight": 0.02040543213339387
+            },
+            {
+              "term": "kp",
+              "weight": 0.018264791132610387
+            },
+            {
+              "term": "playing",
+              "weight": 0.017946297894656855
+            },
+            {
+              "term": "healthy",
+              "weight": 0.016541688713448632
+            },
+            {
+              "term": "team",
+              "weight": 0.015621869640011362
+            },
+            {
+              "term": "trade",
+              "weight": 0.015576921679423478
+            }
+          ],
+          "post_ids": [
+            "1rxoxdb",
+            "1rxfrjn",
+            "1rxs98l",
+            "1rwhgxq",
+            "1rwiycn",
+            "1rvsdb1",
+            "1rw5l50",
+            "1rvuu4g",
+            "1rves2r",
+            "1rvunpf",
+            "1ruxxz4"
+          ],
+          "post_sentiments": {
+            "1rxoxdb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6268399357795715
+            },
+            "1rxfrjn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7439054250717163
+            },
+            "1rxs98l": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4910828769207001
+            },
+            "1rwhgxq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5460385084152222
+            },
+            "1rwiycn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7901895642280579
+            },
+            "1rvsdb1": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.780167281627655
+            },
+            "1rw5l50": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7041668891906738
+            },
+            "1rvuu4g": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.589015781879425
+            },
+            "1rves2r": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8563693761825562
+            },
+            "1rvunpf": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5270609259605408
+            },
+            "1ruxxz4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Klay Thompson is still playing well and contributing good minutes in Dallas despite the team tanking.",
+                "post_refs": [
+                  "1rxs98l"
+                ]
+              },
+              {
+                "point": "Kevin Durant's time with the Warriors is remembered positively, and he is welcome back anytime.",
+                "post_refs": [
+                  "1rwhgxq"
+                ]
+              },
+              {
+                "point": "Steph Curry and Gary Payton II display great charisma and have a fun dynamic, with GP2 being particularly charismatic.",
+                "post_refs": [
+                  "1rves2r"
+                ]
+              },
+              {
+                "point": "The KP trade is seen as a strategic move for the future, with potential for KP to fit well in the modern game and benefit from the Warriors' medical team.",
+                "post_refs": [
+                  "1rvunpf"
+                ]
+              },
+              {
+                "point": "The idea of resting older players and giving young players more playing time is seen as a hopeful strategy for future success.",
+                "post_refs": [
+                  "1ruxxz4"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Jordan Poole's career trajectory has declined since his trade, and his defensive efforts were criticized.",
+                "post_refs": [
+                  "1rxfrjn"
+                ]
+              },
+              {
+                "point": "Kevin Durant is perceived to have self-sabotaged his career by leaving the Warriors, missing out on potential championships.",
+                "post_refs": [
+                  "1rwhgxq"
+                ]
+              },
+              {
+                "point": "The Warriors' performance post-KP trade has been poor, with a record of 3-8, indicating struggles despite the trade.",
+                "post_refs": [
+                  "1rvuu4g"
+                ]
+              },
+              {
+                "point": "The team is unlikely to succeed without Jimmy, highlighting concerns about the team's dependency on him.",
+                "post_refs": [
+                  "1ruxxz4"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball team strategy and roster management decisions during a challenging season, focusing on how player injuries, trades, and performance evaluations impact playoff prospects and future planning. The conversations center around strategic decisions made by team management when key players are injured or underperforming, including whether to rest veteran players, give increased playing time to younger players, or make trades to improve team composition. Participants analyze the effectiveness of recent roster moves, debate the value of player development versus immediate competitive success, and discuss how teams balance current season goals with long-term strategic planning. The discussions reveal fan perspectives on coaching decisions, player utilization, and front office moves, particularly regarding how teams handle situations where playoff success appears unlikely and whether to prioritize player health and development over short-term results.",
+          "short_summary": "Team strategy discussions",
+          "one_sentence_summary": "Discussions about professional basketball team strategy regarding player management, roster decisions, and balancing current season goals with future planning amid injuries and performance challenges."
+        },
+        {
+          "id": 3,
+          "count": 7,
+          "score": 0.6670116867337909,
+          "engagement": {
+            "post_count": 7,
+            "total_comments": 35,
+            "total_score": 2107,
+            "avg_comments_per_post": 5.0,
+            "avg_score_per_post": 301.0
+          },
+          "terms": [
+            {
+              "term": "kerr",
+              "weight": 0.032800533273864646
+            },
+            {
+              "term": "coach",
+              "weight": 0.02932509227842502
+            },
+            {
+              "term": "movie",
+              "weight": 0.02614023742182394
+            },
+            {
+              "term": "goat",
+              "weight": 0.02181721752041576
+            },
+            {
+              "term": "congrats",
+              "weight": 0.017239045032337058
+            },
+            {
+              "term": "steve",
+              "weight": 0.01705458580781969
+            },
+            {
+              "term": "right",
+              "weight": 0.013582489582010098
+            },
+            {
+              "term": "steve kerr",
+              "weight": 0.013032126846438452
+            },
+            {
+              "term": "steph",
+              "weight": 0.013010009981249765
+            },
+            {
+              "term": "antagonist",
+              "weight": 0.012316910253645267
+            }
+          ],
+          "post_ids": [
+            "1rxn8r7",
+            "1rw2ovb",
+            "1rvukdm",
+            "1rvt2n9",
+            "1rvvqep",
+            "1rvuprt",
+            "1rv9ux0"
+          ],
+          "post_sentiments": {
+            "1rxn8r7": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rw2ovb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5115057229995728
+            },
+            "1rvukdm": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9051850438117981
+            },
+            "1rvt2n9": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9751361608505249
+            },
+            "1rvvqep": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4788409173488617
+            },
+            "1rvuprt": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8923744857311249
+            },
+            "1rv9ux0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9060394763946533
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Steve Kerr's 600th career win and recognition as one of the fastest coaches to reach this milestone, alongside legendary coaches like Phil Jackson, Pat Riley, and Gregg Popovich.",
+                "post_refs": [
+                  "1rvukdm",
+                  "1rvvqep"
+                ]
+              },
+              {
+                "point": "Steve Kerr's contribution to the Golden State Warriors' success, including 104 postseason wins, 4 championship rings, and an Olympic gold medal.",
+                "post_refs": [
+                  "1rvt2n9"
+                ]
+              },
+              {
+                "point": "The positive reception of the movie 'GOAT' by Steph Curry, highlighting its creative incorporation of NBA elements and references to real-life players and events.",
+                "post_refs": [
+                  "1rvuprt"
+                ]
+              },
+              {
+                "point": "Steve Kerr's documentary short 'All the Empty Rooms' winning an Oscar for Best Documentary Short, adding to his impressive achievements.",
+                "post_refs": [
+                  "1rv9ux0"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Frustration with some fans wanting to fire Steve Kerr despite his significant contributions and success with the team.",
+                "post_refs": [
+                  "1rvukdm",
+                  "1rvvqep",
+                  "1rv9ux0"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about coaching achievements and entertainment productions within professional sports contexts, focusing on recognition and appreciation for leadership figures who have achieved success both in their primary coaching roles and in creative endeavors. The conversations center around celebrating milestone accomplishments, defending respected coaches against criticism, and analyzing entertainment content produced by sports figures. Participants express admiration for multi-talented individuals who excel across different domains, while also engaging in detailed analysis of creative works that incorporate sports themes and references. The discussions reflect broader themes of leadership appreciation, cross-industry success, and fan loyalty, with specific examples including Steve Kerr's Oscar win for documentary production alongside his coaching achievements, and analysis of animated films that incorporate basketball elements and real-world sports references.",
+          "short_summary": "Coaching achievements recognition",
+          "one_sentence_summary": "Discussions celebrating coaching achievements and entertainment productions by sports figures, focusing on recognition of multi-talented leaders and analysis of sports-themed creative content."
+        },
+        {
+          "id": 9,
+          "count": 3,
+          "score": 0.9084707697232565,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 21,
+            "total_score": 908,
+            "avg_comments_per_post": 7.0,
+            "avg_score_per_post": 302.6666666666667
+          },
+          "terms": [
+            {
+              "term": "santos",
+              "weight": 0.04122980965107599
+            },
+            {
+              "term": "gui",
+              "weight": 0.03551254565654478
+            },
+            {
+              "term": "best",
+              "weight": 0.033682341605719666
+            },
+            {
+              "term": "elite",
+              "weight": 0.03356358044118335
+            },
+            {
+              "term": "better",
+              "weight": 0.03133363873691887
+            },
+            {
+              "term": "second",
+              "weight": 0.03131759847541232
+            },
+            {
+              "term": "half",
+              "weight": 0.029725958871566472
+            },
+            {
+              "term": "gp2",
+              "weight": 0.027486539767383994
+            },
+            {
+              "term": "career",
+              "weight": 0.026636717836393948
+            },
+            {
+              "term": "gotta",
+              "weight": 0.026636717836393948
+            }
+          ],
+          "post_ids": [
+            "1rxq20l",
+            "1rvt3qy",
+            "1rv14u0"
+          ],
+          "post_sentiments": {
+            "1rxq20l": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8749827146530151
+            },
+            "1rvt3qy": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.917083740234375
+            },
+            "1rv14u0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9333458542823792
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Gary Payton II (GP2) is playing the second-best stretch of his career, with improved shooting, passing, and playmaking, making him a more rounded and valuable player offensively.",
+                "post_refs": [
+                  "1rxq20l"
+                ]
+              },
+              {
+                "point": "Gui Santos is seen as having the highest upside among younger players, with elite court awareness and a playing style reminiscent of Jimmy Butler.",
+                "post_refs": [
+                  "1rv14u0"
+                ]
+              },
+              {
+                "point": "Santos made a pivotal steal and stepped up significantly in the second half, contributing to a game win.",
+                "post_refs": [
+                  "1rvt3qy"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Gary Payton II is not the same defensive force he once was, having been considered one of the best guard defenders in the league.",
+                "post_refs": [
+                  "1rxq20l"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about basketball player performance evaluation and development, focusing on how role players and bench contributors step up during challenging periods when key team members are unavailable. The conversations center around assessing player improvements, particularly in second-half performances and clutch situations, with emphasis on comparing current abilities to past elite performances. These discussions highlight the evaluation of defensive capabilities, offensive development, and overall player potential, often drawing comparisons to established star players to contextualize development trajectories. Examples include analysis of players like Gui Santos stepping up in crucial moments and Gary Payton II's evolving skill set compared to his championship-winning form.",
+          "short_summary": "Player performance evaluation",
+          "one_sentence_summary": "Basketball discussions evaluating role player development and performance improvements during team adversity, with focus on defensive abilities and clutch contributions."
+        },
+        {
+          "id": 10,
+          "count": 3,
+          "score": 0.4324875275293986,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 10,
+            "total_score": 277,
+            "avg_comments_per_post": 3.3333333333333335,
+            "avg_score_per_post": 92.33333333333333
+          },
+          "terms": [
+            {
+              "term": "kristaps",
+              "weight": 0.0603378186136689
+            },
+            {
+              "term": "porzingis",
+              "weight": 0.056407167182951884
+            },
+            {
+              "term": "melton",
+              "weight": 0.05013535857394557
+            },
+            {
+              "term": "offer",
+              "weight": 0.04738387826990591
+            },
+            {
+              "term": "question",
+              "weight": 0.044213080200582094
+            },
+            {
+              "term": "kristaps porzingis",
+              "weight": 0.044213080200582094
+            },
+            {
+              "term": "able",
+              "weight": 0.041966059583387956
+            },
+            {
+              "term": "point",
+              "weight": 0.03483509092797884
+            },
+            {
+              "term": "kp",
+              "weight": 0.03280499740680611
+            },
+            {
+              "term": "year",
+              "weight": 0.030737702212435495
+            }
+          ],
+          "post_ids": [
+            "1rwv5ui",
+            "1rwv94a",
+            "1rwj1u5"
+          ],
+          "post_sentiments": {
+            "1rwv5ui": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5925737023353577
+            },
+            "1rwv94a": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7048888802528381
+            },
+            "1rwj1u5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Kristaps Porzingis is seen as a brilliant player and a valuable addition to the team, especially when paired with Steph Curry.",
+                "post_refs": [
+                  "1rwv5ui"
+                ]
+              },
+              {
+                "point": "De'Anthony Melton appreciates playing with Kristaps Porzingis, highlighting him as a 'matchup nightmare' and expressing a desire to prioritize him in the offseason.",
+                "post_refs": [
+                  "1rwv94a"
+                ]
+              },
+              {
+                "point": "Kristaps Porzingis is considered a nice piece for the team, adding more firepower and being a player that others are willing to lead.",
+                "post_refs": [
+                  "1rwv94a"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Concerns about Kristaps Porzingis' ability to play regularly due to an unknown illness, questioning his future with the team.",
+                "post_refs": [
+                  "1rwj1u5"
+                ]
+              },
+              {
+                "point": "Doubts about the team's ability to afford Kristaps Porzingis next year if he can play regularly.",
+                "post_refs": [
+                  "1rwj1u5"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball team roster management and player acquisition strategies, focusing on evaluating traded or newly acquired players' fit within existing team systems and future contract considerations. These conversations center on assessing how new additions impact team chemistry, offensive and defensive schemes, and the financial implications of retaining multiple players during upcoming free agency periods. The discussions reveal concerns about balancing talent acquisition with salary cap constraints, particularly when dealing with players who have injury histories or uncertain health status. Fans and analysts debate the strategic value of keeping certain players versus letting them go, weighing factors like performance potential, injury risk, and affordability. The conversations illustrate the complex decision-making process teams face when integrating new talent, as exemplified by discussions around players like Kristaps Porzingis and De'Anthony Melton, where questions arise about long-term roster construction and resource allocation.",
+          "short_summary": "Basketball roster management",
+          "one_sentence_summary": "Discussions about professional basketball roster management decisions involving player trades, contract negotiations, and evaluating how new acquisitions fit within existing team structures and salary cap constraints."
+        },
+        {
+          "id": 11,
+          "count": 3,
+          "score": 0.5021135608355204,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 19,
+            "total_score": 1137,
+            "avg_comments_per_post": 6.333333333333333,
+            "avg_score_per_post": 379.0
+          },
+          "terms": [
+            {
+              "term": "night",
+              "weight": 0.03331295844203825
+            },
+            {
+              "term": "team",
+              "weight": 0.029371167057164214
+            },
+            {
+              "term": "close",
+              "weight": 0.027555225347993737
+            },
+            {
+              "term": "vs",
+              "weight": 0.02679459283317367
+            },
+            {
+              "term": "game",
+              "weight": 0.02424864504438442
+            },
+            {
+              "term": "guys",
+              "weight": 0.02322920110739287
+            },
+            {
+              "term": "total team",
+              "weight": 0.023147296855988514
+            },
+            {
+              "term": "wolves",
+              "weight": 0.023147296855988514
+            },
+            {
+              "term": "bucket",
+              "weight": 0.021598343776146427
+            }
+          ],
+          "post_ids": [
+            "1rvudrn",
+            "1rvrk8z",
+            "1rvn7qc"
+          ],
+          "post_sentiments": {
+            "1rvudrn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5487180948257446
+            },
+            "1rvrk8z": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rvn7qc": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9576225876808167
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Kristaps Porzingis had an impressive performance with 30 points, 5 rebounds, 4 assists, and 3 blocks, showing aggression and contributing significantly to the team's efforts.",
+                "post_refs": [
+                  "1rvudrn"
+                ]
+              },
+              {
+                "point": "Despite being shorthanded with a significant portion of the team salary out injured, the team played competitively against the Knicks, showcasing the potential of less experienced players.",
+                "post_refs": [
+                  "1rvrk8z"
+                ]
+              },
+              {
+                "point": "The team demonstrated resilience and heart by fighting back in the fourth quarter against a more talented Knicks team, providing valuable experience for young players.",
+                "post_refs": [
+                  "1rvn7qc"
+                ]
+              },
+              {
+                "point": "The team's performance against the Wolves was commendable, with a significant comeback making it a winnable game, highlighting the competitive spirit of the young squad.",
+                "post_refs": [
+                  "1rvn7qc"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "The team faced a close loss against the Knicks, which was disappointing given the circumstances of playing with a significantly reduced roster.",
+                "post_refs": [
+                  "1rvrk8z"
+                ]
+              },
+              {
+                "point": "The absence of key players due to injuries, with 187 million out of 204 million total team salary unavailable, highlighted the team's vulnerability and the need for improvement among less experienced players.",
+                "post_refs": [
+                  "1rvrk8z"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball team performance and player evaluation during games, particularly focusing on how teams compete against opponents despite significant roster limitations. The conversations center around analyzing individual player statistics, team effort levels, and competitive outcomes when teams face challenges such as injuries or limited personnel. Fans and observers discuss how players perform under difficult circumstances, evaluate team resilience during close games, and assess the financial implications of roster construction. The discussions often involve comparing team salaries, analyzing player contributions during specific matchups, and recognizing effort and competitiveness even when teams are significantly undermanned. Examples include praise for players like Kristaps Porzingis achieving strong statistical performances, teams fighting hard against more talented opponents like the Knicks, and situations where injured players represent the majority of a team's salary cap while remaining players continue to compete.",
+          "short_summary": "Basketball team performance",
+          "one_sentence_summary": "Basketball fans discussing team performance, player statistics, and competitive effort during games, particularly when teams face roster challenges or play against stronger opponents."
+        }
+      ]
+    },
+    "negative": {
+      "count": 4,
+      "topics": [
+        {
+          "id": 2,
+          "count": 8,
+          "score": -0.29093262553215027,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 55,
+            "total_score": 1009,
+            "avg_comments_per_post": 6.875,
+            "avg_score_per_post": 126.125
+          },
+          "terms": [
+            {
+              "term": "post",
+              "weight": 0.045121168094448334
+            },
+            {
+              "term": "reddit",
+              "weight": 0.03990542761291376
+            },
+            {
+              "term": "game",
+              "weight": 0.03980437960115933
+            },
+            {
+              "term": "warriors",
+              "weight": 0.034118039658136576
+            },
+            {
+              "term": "old",
+              "weight": 0.028589031814186695
+            },
+            {
+              "term": "click view post",
+              "weight": 0.023040047538912208
+            },
+            {
+              "term": "view post",
+              "weight": 0.023040047538912208
+            },
+            {
+              "term": "contains",
+              "weight": 0.023040047538912208
+            },
+            {
+              "term": "supported",
+              "weight": 0.023040047538912208
+            },
+            {
+              "term": "click view",
+              "weight": 0.023040047538912208
+            }
+          ],
+          "post_ids": [
+            "1rxmxb6",
+            "1rxj5uq",
+            "1rx8dtn",
+            "1rxhri6",
+            "1rvt0dp",
+            "1rwg11x",
+            "1rvnrkl",
+            "1ruxpqd"
+          ],
+          "post_sentiments": {
+            "1rxmxb6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5360299348831177
+            },
+            "1rxj5uq": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rx8dtn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5921551585197449
+            },
+            "1rxhri6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6803365349769592
+            },
+            "1rvt0dp": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rwg11x": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rvnrkl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5189393758773804
+            },
+            "1ruxpqd": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Porzingis is seen as a perfect fit with Jimmy, and a healthy KP is considered lethal due to his scoring, defending, and ability to get to the line.",
+                "post_refs": [
+                  "1rvt0dp"
+                ]
+              },
+              {
+                "point": "There is excitement about the potential of Steph returning for a crucial game against the Clippers, with hopes for a memorable game.",
+                "post_refs": [
+                  "1rwg11x"
+                ]
+              },
+              {
+                "point": "The Warriors have a strong closing lineup with Pingus, Melton, Butler, Curry, Gui/Dray, and Horford.",
+                "post_refs": [
+                  "1rvt0dp"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Frustration over the Warriors being a 9th seed and getting blown out by a contender like the Celtics.",
+                "post_refs": [
+                  "1rxhri6"
+                ]
+              },
+              {
+                "point": "Concerns about the Warriors' inconsistency, playing well against good teams but losing to tanking teams.",
+                "post_refs": [
+                  "1ruxpqd"
+                ]
+              },
+              {
+                "point": "Disappointment over the Warriors' current standing and the risk of ending up as the 10th seed.",
+                "post_refs": [
+                  "1rxmxb6",
+                  "1rwg11x"
+                ]
+              },
+              {
+                "point": "Nostalgia and regret over past injuries to key players like Curry, Bogut, and Iggy, which affected the Warriors' performance in the playoffs.",
+                "post_refs": [
+                  "1rx8dtn"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses live game discussions and post-game reactions for professional basketball games, specifically focusing on real-time commentary and analysis during NBA matchups. The discussions center around game threads where fans engage in ongoing dialogue about team performance, player statistics, and game outcomes. These conversations include both live game threads that track scores and provide play-by-play commentary, as well as post-game threads that analyze final results and team standings. The content reflects typical sports forum engagement patterns where participants discuss team dynamics, player comparisons, and season performance trends. Examples include discussions about games between teams like the Celtics and Warriors, where fans comment on player performances, team rankings, and nostalgic references to past players, illustrating the broader pattern of sports community engagement and real-time game analysis.",
+          "short_summary": "NBA game discussions",
+          "one_sentence_summary": "Live basketball game discussions and post-game analysis threads where fans provide real-time commentary on team performance and game outcomes."
+        },
+        {
+          "id": 6,
+          "count": 4,
+          "score": -0.45316631346940994,
+          "engagement": {
+            "post_count": 4,
+            "total_comments": 36,
+            "total_score": 1353,
+            "avg_comments_per_post": 9.0,
+            "avg_score_per_post": 338.25
+          },
+          "terms": [
+            {
+              "term": "richard",
+              "weight": 0.04756291839938683
+            },
+            {
+              "term": "kerr",
+              "weight": 0.03366835007348708
+            },
+            {
+              "term": "podz",
+              "weight": 0.03208437800504576
+            },
+            {
+              "term": "pass",
+              "weight": 0.02866731964454954
+            },
+            {
+              "term": "draymond",
+              "weight": 0.02717881051393533
+            },
+            {
+              "term": "accountability",
+              "weight": 0.025278779038449405
+            },
+            {
+              "term": "turnover",
+              "weight": 0.023994047519650064
+            },
+            {
+              "term": "guy",
+              "weight": 0.01991692418527938
+            },
+            {
+              "term": "instead opposite",
+              "weight": 0.018061119519919292
+            },
+            {
+              "term": "wrong",
+              "weight": 0.018061119519919292
+            }
+          ],
+          "post_ids": [
+            "1rx08eb",
+            "1rvtytl",
+            "1rv0vh0",
+            "1rv00sn"
+          ],
+          "post_sentiments": {
+            "1rx08eb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7153471112251282
+            },
+            "1rvtytl": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4414994418621063
+            },
+            "1rv0vh0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9441062808036804
+            },
+            "1rv00sn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5947113037109375
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Steve Kerr took accountability for wrongly blaming Will Richard for a turnover, showing leadership and responsibility.",
+                "post_refs": [
+                  "1rx08eb",
+                  "1rv0vh0"
+                ]
+              },
+              {
+                "point": "Will Richard is seen as a valuable role player on a cost-effective contract, exceeding expectations as a rookie.",
+                "post_refs": [
+                  "1rvtytl"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "There is frustration over perceived inconsistency in how Steve Kerr criticizes players, with Will Richard receiving more criticism than Podziemski and Draymond for similar mistakes.",
+                "post_refs": [
+                  "1rv00sn"
+                ]
+              },
+              {
+                "point": "The community is described as insufferable and filled with emotionally unstable individuals who lack knowledge of the game.",
+                "post_refs": [
+                  "1rv0vh0"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about coaching accountability and consistency in player treatment focus on how coaches handle mistakes and assign blame during games. The conversations center on instances where coaches publicly criticize players for turnovers and errors, particularly examining whether all players receive equal treatment regardless of their status or experience level. Key themes include the importance of coaches taking responsibility when they misattribute blame, the impact of inconsistent disciplinary approaches on team dynamics, and concerns about how younger or less established players may be held to different standards than veteran players. The discussions highlight broader questions about leadership accountability, fair treatment across roster hierarchies, and the balance between teaching moments and public criticism in competitive sports environments.",
+          "short_summary": "Coaching accountability consistency",
+          "one_sentence_summary": "Discussions about coaching accountability and consistency in how coaches assign blame and treat different players when mistakes occur during games."
+        },
+        {
+          "id": 8,
+          "count": 3,
+          "score": -0.30102596680323285,
+          "engagement": {
+            "post_count": 3,
+            "total_comments": 17,
+            "total_score": 524,
+            "avg_comments_per_post": 5.666666666666667,
+            "avg_score_per_post": 174.66666666666666
+          },
+          "terms": [
+            {
+              "term": "team",
+              "weight": 0.042588192232888115
+            },
+            {
+              "term": "tech",
+              "weight": 0.04195447555147919
+            },
+            {
+              "term": "clap",
+              "weight": 0.04195447555147919
+            },
+            {
+              "term": "credit",
+              "weight": 0.039146998094265396
+            },
+            {
+              "term": "big",
+              "weight": 0.03715744858945808
+            },
+            {
+              "term": "shot",
+              "weight": 0.0315670559614978
+            },
+            {
+              "term": "nba",
+              "weight": 0.03084357009248126
+            },
+            {
+              "term": "kuminga",
+              "weight": 0.03084357009248126
+            },
+            {
+              "term": "playing",
+              "weight": 0.028539598735252917
+            },
+            {
+              "term": "set tone",
+              "weight": 0.02337986767999083
+            }
+          ],
+          "post_ids": [
+            "1ry0uej",
+            "1rw8p2x",
+            "1ruyflu"
+          ],
+          "post_sentiments": {
+            "1ry0uej": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9233709573745728
+            },
+            "1rw8p2x": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7223256826400757
+            },
+            "1ruyflu": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.74261873960495
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Steph Curry ranks #2 for impact on teammate shot quality, indicating his significant positive influence on the game.",
+                "post_refs": [
+                  "1rw8p2x"
+                ]
+              },
+              {
+                "point": "The team played very hard against a very good Knicks team, showing commendable effort and resilience.",
+                "post_refs": [
+                  "1ruyflu"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "A player received a technical foul immediately after scoring their first-ever NBA points, which seemed unwarranted.",
+                "post_refs": [
+                  "1ry0uej"
+                ]
+              },
+              {
+                "point": "Jonathan Kuminga is noted for having the worst hands in the NBA, contributing to high turnovers.",
+                "post_refs": [
+                  "1rw8p2x"
+                ]
+              },
+              {
+                "point": "Podz took a poor shot after other team members, some playing hurt, stepped up to try to win, leading to frustration.",
+                "post_refs": [
+                  "1ruyflu"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball team performance evaluation and player assessment, focusing on how fans analyze and critique team efforts, individual player contributions, and game outcomes. These conversations typically involve giving credit to teams for competitive performances against strong opponents, evaluating player statistics and impact metrics, discussing referee decisions and technical fouls, and critiquing specific player choices during crucial moments. The discussions demonstrate fan engagement with both positive recognition of team effort and critical analysis of player performance, often incorporating statistical analysis and comparative rankings to support their evaluations of how players and teams perform in high-stakes situations.",
+          "short_summary": "Basketball team evaluation",
+          "one_sentence_summary": "Fan discussions evaluating professional basketball team performance, player contributions, and game analysis through both praise and criticism."
+        },
+        {
+          "id": 7,
+          "count": 4,
+          "score": -0.5875789001584053,
+          "engagement": {
+            "post_count": 4,
+            "total_comments": 31,
+            "total_score": 514,
+            "avg_comments_per_post": 7.75,
+            "avg_score_per_post": 128.5
+          },
+          "terms": [
+            {
+              "term": "stream",
+              "weight": 0.028025762744053863
+            },
+            {
+              "term": "coach",
+              "weight": 0.02245738916872361
+            },
+            {
+              "term": "warriors",
+              "weight": 0.020750479857653555
+            },
+            {
+              "term": "said",
+              "weight": 0.01900476973414641
+            },
+            {
+              "term": "steve kerr",
+              "weight": 0.018629532147695624
+            },
+            {
+              "term": "learned",
+              "weight": 0.018482517133030223
+            },
+            {
+              "term": "matters",
+              "weight": 0.018482517133030223
+            },
+            {
+              "term": "gambling",
+              "weight": 0.018482517133030223
+            }
+          ],
+          "post_ids": [
+            "1rwv7iv",
+            "1rw78ol",
+            "1rv3ix1",
+            "1rvqg4d"
+          ],
+          "post_sentiments": {
+            "1rwv7iv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8165383338928223
+            },
+            "1rw78ol": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.35801786184310913
+            },
+            "1rv3ix1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44202789664268494
+            },
+            "1rvqg4d": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7337315082550049
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Steve Kerr's competitive spirit and dedication to the game, emphasizing the importance of competition and making the playoffs.",
+                "post_refs": [
+                  "1rwv7iv"
+                ]
+              },
+              {
+                "point": "Steve Kerr's personal growth in handling losses better and learning to forgive himself, which contributes to his coaching effectiveness.",
+                "post_refs": [
+                  "1rw78ol"
+                ]
+              },
+              {
+                "point": "Enjoyment of watching games on Peacock without gambling advertisements, providing a refreshing viewing experience.",
+                "post_refs": [
+                  "1rv3ix1"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Frustration with the prevalence of gambling advertisements and live betting references during sports broadcasts.",
+                "post_refs": [
+                  "1rv3ix1"
+                ]
+              },
+              {
+                "point": "Issues with streaming services like SlingTV, including game blackouts and errors, leading to dissatisfaction.",
+                "post_refs": [
+                  "1rvqg4d"
+                ]
+              },
+              {
+                "point": "Concerns about the future of the Warriors and uncertainty regarding Steve Kerr's tenure as head coach.",
+                "post_refs": [
+                  "1rw78ol"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball coaching philosophy and game viewing experiences, focusing on how coaches handle pressure, self-reflection, and personal growth in high-stakes competitive environments. The conversations explore themes of leadership resilience, with coaches learning to manage stress, forgive mistakes, and maintain competitive drive despite setbacks. Additionally, the topic encompasses fan experiences with game streaming services and broadcast quality, including frustrations with blackouts, technical issues, and the increasing presence of gambling content in sports media coverage.",
+          "short_summary": "Coaching and streaming",
+          "one_sentence_summary": "Discussions about coaching psychology and fan viewing experiences in professional basketball, covering leadership stress management and streaming service challenges."
+        }
+      ]
+    },
+    "neutral": {
+      "count": 3,
+      "topics": [
+        {
+          "id": 1,
+          "count": 9,
+          "score": 0.09805109765794542,
+          "engagement": {
+            "post_count": 9,
+            "total_comments": 45,
+            "total_score": 1912,
+            "avg_comments_per_post": 5.0,
+            "avg_score_per_post": 212.44444444444446
+          },
+          "terms": [
+            {
+              "term": "buddy",
+              "weight": 0.03603678572345676
+            },
+            {
+              "term": "jimmy",
+              "weight": 0.03047506929487302
+            },
+            {
+              "term": "warriors",
+              "weight": 0.027516940680801454
+            },
+            {
+              "term": "injury",
+              "weight": 0.019121071142527993
+            },
+            {
+              "term": "love",
+              "weight": 0.017567752882920517
+            },
+            {
+              "term": "weeks",
+              "weight": 0.016339616595867298
+            },
+            {
+              "term": "locker",
+              "weight": 0.016339616595867298
+            },
+            {
+              "term": "prp injection",
+              "weight": 0.016339616595867298
+            }
+          ],
+          "post_ids": [
+            "1rxfuz3",
+            "1rxj1z4",
+            "1rwfn2u",
+            "1rvyjlb",
+            "1rvoixy",
+            "1rvmnlv",
+            "1rvoqsb",
+            "1rvgbib",
+            "1ruz7hd"
+          ],
+          "post_sentiments": {
+            "1rxfuz3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6435263752937317
+            },
+            "1rxj1z4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7914583086967468
+            },
+            "1rwfn2u": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9520283341407776
+            },
+            "1rvyjlb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rvoixy": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4846569895744324
+            },
+            "1rvmnlv": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5051363706588745
+            },
+            "1rvoqsb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4743470847606659
+            },
+            "1rvgbib": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9234980344772339
+            },
+            "1ruz7hd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.46227893233299255
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Cautious optimism about Steph Curry's return in March after a strong on-court workout and no swelling issues.",
+                "post_refs": [
+                  "1rxfuz3"
+                ]
+              },
+              {
+                "point": "Jimmy Butler's positive impact on the Warriors' locker room and team spirit is appreciated and missed.",
+                "post_refs": [
+                  "1rwfn2u",
+                  "1rvyjlb",
+                  "1rvoixy"
+                ]
+              },
+              {
+                "point": "Jimmy Butler's dedication to being with the team, even traveling to DC to be around his teammates.",
+                "post_refs": [
+                  "1rvoixy"
+                ]
+              },
+              {
+                "point": "Fans' excitement about the potential for a high-scoring game against the Wizards.",
+                "post_refs": [
+                  "1rvoqsb"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Concerns about the Warriors' injury reports and the impact on team performance.",
+                "post_refs": [
+                  "1rxj1z4",
+                  "1rvoqsb"
+                ]
+              },
+              {
+                "point": "Frustration with Jimmy Butler's absence from games and events, raising questions about his commitment.",
+                "post_refs": [
+                  "1ruz7hd"
+                ]
+              },
+              {
+                "point": "Fans experiencing despair after a Warriors loss, highlighting the emotional impact of the team's performance.",
+                "post_refs": [
+                  "1rvgbib"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about professional basketball player injuries and recovery processes, focusing on team dynamics and player availability during rehabilitation periods. The conversations center around injury management protocols, rehabilitation timelines, and the expectations surrounding injured players' presence at team facilities and games. Key themes include the impact of player absences on team chemistry and locker room atmosphere, with teammates and fans expressing how certain players' energy and presence are missed during their recovery. The discussions also cover medical aspects of injury recovery, including treatment methods like PRP injections, rehabilitation milestones such as running and cutting movements, and the gradual progression back to full activity. There's particular attention to whether injured players should attend games or team events during their recovery, with comparisons to how other players have handled similar situations. The conversations reflect broader concerns about balancing proper injury recovery with maintaining team connection and fan engagement, illustrating how player injuries affect not just individual performance but entire team ecosystems.",
+          "short_summary": "Player injury recovery",
+          "one_sentence_summary": "Discussions about professional basketball player injuries, recovery processes, and the impact of player absences on team dynamics and locker room atmosphere."
+        },
+        {
+          "id": 4,
+          "count": 6,
+          "score": 0.1479489877820015,
+          "engagement": {
+            "post_count": 6,
+            "total_comments": 49,
+            "total_score": 1076,
+            "avg_comments_per_post": 8.166666666666666,
+            "avg_score_per_post": 179.33333333333334
+          },
+          "terms": [
+            {
+              "term": "podz",
+              "weight": 0.05772751638212077
+            },
+            {
+              "term": "players",
+              "weight": 0.0198358851646483
+            },
+            {
+              "term": "rebounds",
+              "weight": 0.018728131978651887
+            },
+            {
+              "term": "hair",
+              "weight": 0.018728131978651887
+            },
+            {
+              "term": "ego",
+              "weight": 0.017776320919873637
+            },
+            {
+              "term": "guard",
+              "weight": 0.017038918877614145
+            },
+            {
+              "term": "hate",
+              "weight": 0.016437133415711357
+            },
+            {
+              "term": "say",
+              "weight": 0.016437133415711357
+            },
+            {
+              "term": "minutes",
+              "weight": 0.015101847370284666
+            },
+            {
+              "term": "point",
+              "weight": 0.01475572788477509
+            }
+          ],
+          "post_ids": [
+            "1rwpzt8",
+            "1rwrk5f",
+            "1rwgj8o",
+            "1rwb0kh",
+            "1rvndff",
+            "1rvphwt"
+          ],
+          "post_sentiments": {
+            "1rwpzt8": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rwrk5f": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.0
+            },
+            "1rwgj8o": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5208914875984192
+            },
+            "1rwb0kh": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.043728575110435486
+            },
+            "1rvndff": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8854377269744873
+            },
+            "1rvphwt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.562363862991333
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Podz is one of the best rebounding guards in the league, ranking in the top 5, and is an efficient scorer with a high usage low turnover profile. He is also a good defender and is paid less than $4M a year.",
+                "post_refs": [
+                  "1rwb0kh"
+                ]
+              },
+              {
+                "point": "Podz has stepped up massively since Steph went down, averaging 18.2 points, 7.7 rebounds, 4.4 assists, and 1.1 steals on 56% true shooting percentage over the last 10 games, which are fringe all-star numbers.",
+                "post_refs": [
+                  "1rvphwt"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Podz's ego and play have driven enough of his teammates to snap at him during games more than any other player on the team, and he gets more playing time at the expense of other young players.",
+                "post_refs": [
+                  "1rwb0kh"
+                ]
+              },
+              {
+                "point": "There is frustration that Podz is getting 35 minutes per game, which is seen as a longer leash than other younger players, leading to complaints about his playing time.",
+                "post_refs": [
+                  "1rwb0kh"
+                ]
+              },
+              {
+                "point": "Podz's ego is somewhat deserved, and there is a perception that the hate on him is disproportionate to his actual performance compared to other players.",
+                "post_refs": [
+                  "1rvphwt"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about polarizing young basketball players who generate mixed reactions from fans regarding their performance, attitude, and playing time allocation. These conversations typically center on debates about player development, with fans split between those who criticize certain behavioral traits like perceived ego or on-court mistakes, and those who defend the players by highlighting positive statistics and contributions. The discussions often involve analysis of specific performance metrics such as rebounding ability, scoring efficiency, and playing minutes, while also addressing concerns about team dynamics and relationships with teammates. Commentary frequently includes both serious basketball analysis and humorous observations, with fans debating whether criticism is justified or disproportionate. The topic exemplifies how young players can become lightning rods for broader team performance frustrations, with Podz serving as a primary example of a guard whose rebounding skills and recent improved play have shifted some fan opinions despite ongoing concerns about attitude and team chemistry.",
+          "short_summary": "Polarizing player debates",
+          "one_sentence_summary": "Fan debates about polarizing young basketball players focusing on their performance metrics, perceived attitude issues, and whether criticism or praise is warranted based on their contributions and team dynamics."
+        },
+        {
+          "id": 5,
+          "count": 5,
+          "score": 0.0320399006207784,
+          "engagement": {
+            "post_count": 5,
+            "total_comments": 36,
+            "total_score": 793,
+            "avg_comments_per_post": 7.2,
+            "avg_score_per_post": 158.6
+          },
+          "terms": [
+            {
+              "term": "games",
+              "weight": 0.02617667759246696
+            },
+            {
+              "term": "team",
+              "weight": 0.02407158691424111
+            },
+            {
+              "term": "season",
+              "weight": 0.023008243480202424
+            },
+            {
+              "term": "steph",
+              "weight": 0.019267541955926958
+            },
+            {
+              "term": "podz",
+              "weight": 0.018516605318647007
+            },
+            {
+              "term": "gui",
+              "weight": 0.018013610115638654
+            },
+            {
+              "term": "guys",
+              "weight": 0.017085245742031713
+            },
+            {
+              "term": "losses",
+              "weight": 0.014476477084996709
+            },
+            {
+              "term": "numbers",
+              "weight": 0.014476477084996709
+            },
+            {
+              "term": "shot",
+              "weight": 0.013724806939781654
+            }
+          ],
+          "post_ids": [
+            "1rwh2va",
+            "1ruyai4",
+            "1rv0yx0",
+            "1ruxw6h",
+            "1ruu6ry"
+          ],
+          "post_sentiments": {
+            "1rwh2va": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.12916956345240274
+            },
+            "1ruyai4": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5346555113792419
+            },
+            "1rv0yx0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5109972357749939
+            },
+            "1ruxw6h": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6096379160881042
+            },
+            "1ruu6ry": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.602266252040863
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Despite being short-handed and lacking talent, the team shows great hustle and determination, continuing to battle in games even when down by significant margins.",
+                "post_refs": [
+                  "1rwh2va"
+                ]
+              },
+              {
+                "point": "The struggles have allowed for the emergence of players like Gui Santos, who is now being considered for a starting role even when the main players return.",
+                "post_refs": [
+                  "1rwh2va"
+                ]
+              },
+              {
+                "point": "The young team is being given time to make mistakes and learn, which is crucial for building chemistry and improving results.",
+                "post_refs": [
+                  "1ruyai4"
+                ]
+              },
+              {
+                "point": "The games without Steph Curry have been surprisingly enjoyable and competitive, with young players like Gui, Will, and Podz showing potential as legit bench players.",
+                "post_refs": [
+                  "1ruxw6h"
+                ]
+              },
+              {
+                "point": "The freedom given to Podz to make mistakes and learn is seen as a positive development for his growth.",
+                "post_refs": [
+                  "1ruxw6h"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "The team is missing a significant amount of talent and financial investment in players due to injuries.",
+                "post_refs": [
+                  "1ruu6ry"
+                ]
+              },
+              {
+                "point": "There is frustration with the inconsistency in lineups and the lack of traction due to the absence of a roster filled with experienced veterans.",
+                "post_refs": [
+                  "1ruyai4"
+                ]
+              },
+              {
+                "point": "Podz's decision-making, particularly taking a 3-point shot with 17 seconds left on the shot clock, is questioned, as it is not considered a good shot for anyone other than Steph Curry.",
+                "post_refs": [
+                  "1rv0yx0"
+                ]
+              },
+              {
+                "point": "There is skepticism about the front office's strategy with the second timeline, as it is not seen as something worthwhile.",
+                "post_refs": [
+                  "1ruu6ry"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about sports team performance and player development during challenging seasons, particularly focusing on how teams adapt when key players are injured or unavailable. The conversations center around evaluating young or bench players who receive increased playing time and opportunities to develop their skills during difficult periods. Fans express mixed emotions about team struggles while finding optimism in player growth and competitive effort despite losses. The discussions emphasize the value of using rebuilding or injury-plagued seasons as development opportunities for emerging talent, with debates about coaching decisions, player statistics, and long-term team building strategies. Specific examples include analysis of players like Steph, Podz, and Gui, with fans discussing how increased minutes for developing players during star player absences can benefit future team composition and depth.",
+          "short_summary": "Team rebuilding discussions",
+          "one_sentence_summary": "Sports fans discuss team performance and player development during challenging seasons marked by key player injuries and increased opportunities for bench players to gain experience."
+        }
+      ]
+    }
+  },
+  "topic_similarities": [
+    {
+      "source": 0,
+      "target": 1,
+      "weight": 0.5936127257347107,
+      "overlapping_words": [
+        "jimmy"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "weight": 0.16894273459911346,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "weight": 0.45774518966674804,
+      "overlapping_words": [
+        "steph"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "weight": 0.33368802070617676,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "weight": 0.6785125339031219,
+      "overlapping_words": [
+        "steph",
+        "team"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "weight": 0.31750214099884033,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "weight": 0.18489819765090942,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "weight": 0.6961835503578186,
+      "overlapping_words": [
+        "team",
+        "kuminga",
+        "playing"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "weight": 0.18602821230888367,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "weight": 0.8324918055534363,
+      "overlapping_words": [
+        "year",
+        "kp"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "weight": 0.4870855462551117,
+      "overlapping_words": [
+        "team"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.2749200117588043,
+      "overlapping_words": [
+        "warriors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "weight": 0.2925569713115692,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "weight": 0.39667975902557373,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "weight": 0.4058445394039154,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "weight": 0.3348323702812195,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "weight": 0.4222444248199463,
+      "overlapping_words": [
+        "warriors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "weight": 0.31724610924720764,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "weight": 0.16357988119125366,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "weight": 0.2686738967895508,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "weight": 0.41667434573173523,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "weight": 0.16723689436912537,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "weight": 0.15658895671367645,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "weight": 0.2810817360877991,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "weight": 0.14563801884651184,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "weight": 0.3462464165687561,
+      "overlapping_words": [
+        "warriors"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "weight": 0.18367114663124084,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "weight": 0.08129101991653442,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "weight": 0.10478803515434265,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "weight": 0.2667266082763672,
+      "overlapping_words": [
+        "game"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "weight": 0.40443745255470276,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "weight": 0.45728381991386413,
+      "overlapping_words": [
+        "steph"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "weight": 0.6471351933479309,
+      "overlapping_words": [
+        "kerr"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "weight": 0.7476646208763122,
+      "overlapping_words": [
+        "coach",
+        "steve kerr"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "weight": 0.39941224455833435,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "weight": 0.14645874500274658,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 10,
+      "weight": 0.2626681625843048,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "weight": 0.252157986164093,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 0.6618822765350342,
+      "overlapping_words": [
+        "podz"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "weight": 0.6733298850059509,
+      "overlapping_words": [
+        "podz"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "weight": 0.3156702518463135,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "weight": 0.4646182358264923,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 9,
+      "weight": 0.23895864188671112,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "weight": 0.4523136270046234,
+      "overlapping_words": [
+        "point"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 11,
+      "weight": 0.4864361584186554,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "weight": 0.5564325106143951,
+      "overlapping_words": [
+        "podz"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "weight": 0.3773651123046875,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "weight": 0.6346619629859924,
+      "overlapping_words": [
+        "team",
+        "shot"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "weight": 0.4349200975894928,
+      "overlapping_words": [
+        "gui"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "weight": 0.3030276894569397,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 11,
+      "weight": 0.7297667467594147,
+      "overlapping_words": [
+        "team",
+        "guys"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "weight": 0.4411204159259796,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "weight": 0.3462720513343811,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "weight": 0.12805373966693878,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "weight": 0.3069104552268982,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "weight": 0.27819302678108215,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "weight": 0.22552382946014404,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "weight": 0.09848390519618988,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "weight": 0.20054052770137787,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "weight": 0.22911417484283447,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "weight": 0.18175923824310303,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "weight": 0.2664138972759247,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "weight": 0.584433491230011,
+      "overlapping_words": [
+        "team"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "weight": 0.12609082460403442,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 11,
+      "weight": 0.19784273207187653,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "weight": 0.3341672122478485,
+      "overlapping_words": [],
+      "overlap_count": 0
+    }
+  ],
+  "topic_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ]
+}

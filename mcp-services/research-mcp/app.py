@@ -1,6 +1,6 @@
 """
-MCP Wrapper for Research Generator Service
-Provides JSON-RPC 2.0 interface for the PersonaStory AI Research Generator
+MCP Wrapper for HiC Research Service
+Provides JSON-RPC 2.0 interface for the Humans-in-Control Research System
 """
 
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 # Service URL (internal Docker network)
+# HiC Research is a frontend app served on port 5011
 RESEARCH_GENERATOR_URL = os.getenv("RESEARCH_GENERATOR_URL", "http://research-generator:5011")
 PORT = int(os.getenv("PORT", "8507"))
 
@@ -27,29 +28,27 @@ PORT = int(os.getenv("PORT", "8507"))
 RESEARCH_TOOLS = [
     {
         "name": "analyze_research_data",
-        "description": "Analyze research data to generate personas, themes, video scripts, and strategy decks using Gemini 3 Pro with extended thinking",
+        "description": "Analyze research data using Humans-in-Control multi-stage pipeline with human checkpoints. Generates personas, themes, and strategy decks with full transparency.",
         "inputSchema": {
             "type": "object",
             "properties": {
                 "file_content": {
                     "type": "string",
-                    "description": "Base64 encoded research data file content (CSV, TXT, or other text formats)"
+                    "description": "Base64 encoded research data file content (PDF, CSV, TXT, or other text formats)"
                 },
                 "file_name": {
                     "type": "string",
-                    "description": "Original file name with extension (e.g., 'research_data.csv')"
+                    "description": "Original file name with extension (e.g., 'research_data.pdf')"
                 },
-                "analysis_type": {
+                "research_goal": {
                     "type": "string",
-                    "enum": ["GENERAL_ETHNOGRAPHY", "WHITESPACE_OPPORTUNITY", "BEHAVIORAL_PSYCHOLOGY", "CUSTOMER_JOURNEY"],
-                    "description": "Type of research analysis lens to apply",
-                    "default": "GENERAL_ETHNOGRAPHY"
+                    "description": "The primary research objective or question to answer",
+                    "default": "Understand customer experience and pain points"
                 },
-                "output_format": {
+                "analysis_approach": {
                     "type": "string",
-                    "enum": ["PERSONAS", "THEMES", "VIDEO_SCRIPT", "STRATEGY_DECK", "FULL_ANALYSIS"],
-                    "description": "Desired output format for the analysis",
-                    "default": "FULL_ANALYSIS"
+                    "description": "Specific methodology or framework to apply",
+                    "default": "Standard ethnographic analysis"
                 }
             },
             "required": ["file_content", "file_name"]

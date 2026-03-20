@@ -1,0 +1,69 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: podz, players, rebounds, hair, ego, guard, hate
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+PODZ needs a haircut, maybe he will get better I've said this once and I'll say it again, podz needs a wigga haircut. Get a buzzcut and you'll get better 10x. Example of players who are better with shorter hair: Braun, DiVincenzo, Pritchard. This is proven by fact through the studies of eugenics conducted for years showing males with shorter hair to excel in basketball several magnitudes higher than their long hair compadres Damn I wouldn’t have recognized him
+This is the great example 
+I want more dumbass posts like this tbh and less of the doomer shit lmao
+
+EXAMPLE 2:
+The ego on Podz is crazy. All his mistakes and still gets a ton of minutes and doesn’t get yelled at.
+
+EXAMPLE 3:
+We owe Podz an apology Podz has stepped up massively since Steph went down. Y'all love to hate on him because of his ego, which is somewhat deserved, but he's been lights out since Steph went down.
+
+EXAMPLE 4:
+Why the hate? No, he'll never be Steph - but he's getting more rebounds than most of our bigs - so he had a point when he told them to rebound the fuckin ball.
+I feel like we need a daily reminder that people aren’t mad about Podz getting playing time. They are mad that Podz was getting 35 minutes per game at the expense of the other young players, and having a longer leash than the other younger players. Neither side of this argument is having an argument in good faith. [...]
+
+EXAMPLE 5:
+Did anyone catch Omer and Porzingas frustrated at Podz? With the rebound where Podz basically put it in our own basket for the wizards and heard on the mic “What are you doing” from Omer
+
+EXAMPLE 6:
+In his last 10 he's averaging 18.2 points, 7.7 rebounds, 4.4 assists, 1.1 steals on 56% TS. These are fringe all star numbers. Anyone who's hating on a mid-first round pick putting up those numbers is wilding Yall say this every week
+Mostly because the hate on Podz is nonstop in thread after thread, and disproportionate to his actual performance vs. our other players
+At this point they're Podz fans and not Warriors fans. We're losing games and they celebrating that Podz scored 20.
+
+EXAMPLE 7:
+He is one of the best rebounding guards in the league - as  in top 5, he's an efficient scorer, has a high usage low turnover profile and is a good defender - and we pay him less than $4M a year.
+
+EXAMPLE 8:
+EDIT: my point wasn’t that he isn’t a good player and his box scores aren’t great. It’s that out of all the young players, his ego and play has driven enough of his teammates to snap at him during games more than any other player on the team. A mistake, yes, a really valuable player, yes.
+
+EXAMPLE 9:
+[https://xcancel.com/BrickCenter\_/status/2033709833816551503](https://xcancel.com/BrickCenter_/status/2033709833816551503)
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

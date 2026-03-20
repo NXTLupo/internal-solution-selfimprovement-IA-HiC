@@ -88,8 +88,8 @@ export const Tooltip = ({ children, content, className = '', score }: TooltipPro
           ref={tooltipRef}
           className={`
             fixed w-auto min-w-[200px] max-w-[600px] p-3 
-            bg-gray-800 border border-gray-700 rounded-lg 
-            shadow-xl z-[9999]
+            bg-white border border-[#e5e5e5] rounded-[4px]
+            z-[9999]
             transition-opacity duration-300 ease-in-out
             ${className}
           `}
@@ -105,7 +105,7 @@ export const Tooltip = ({ children, content, className = '', score }: TooltipPro
         >
           {score !== undefined && (
             <div 
-              className="absolute mr-1 mt-1 -top-0 -right-0 bg-blue-500 text-white text-xs font-bold rounded-full px-2 py-1 flex items-center gap-0.5 justify-center shadow-lg border-2 border-gray-800 "
+              className="absolute mr-1 mt-1 -top-0 -right-0 bg-[#115054] text-white text-xs font-bold rounded-full px-2 py-1 flex items-center gap-0.5 justify-center border-2 border-white"
             >
               <svg 
                 className="w-3 h-3" 

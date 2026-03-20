@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" fill="#121B26" rx="6"/>
-  <!-- Music note and sound waves -->
-  <circle cx="22" cy="22" r="3" fill="#01C4C8"/>
-  <rect x="20" y="8" width="2" height="14" fill="#01C4C8"/>
-  <path d="M22 8c0 0 4-2 6 0v4c-2-2-6 0-6 0" fill="#01C4C8"/>
-  <!-- Sound waves -->
-  <path d="M6 12c2 0 2 8 0 8M10 10c3 0 3 12 0 12M14 14c1.5 0 1.5 4 0 4" stroke="#01C4C8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-</svg>

@@ -370,7 +370,7 @@ const SyntheticCustomerPrompt = () => {
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+    <div className="bg-[#fafafa] rounded-lg p-6 border border-[#e5e5e5]">
       {/* Post Detail Modal */}
       {selectedPostId && postTopic && (
         <TopicDetailModal
@@ -381,21 +381,21 @@ const SyntheticCustomerPrompt = () => {
       
       <div className="flex items-center mb-4">
         <MessageSquare className="text-blue-400 w-5 h-5 mr-2" />
-        <h3 className="text-lg font-medium text-white">Ask about the Reddit data</h3>
+        <h3 className="text-lg font-medium text-[#141414]">Ask about the Reddit data</h3>
       </div>
       
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-[#525252]">
           Ask the AI any question about the Reddit data for <span className="font-bold text-base">r/{subreddit}</span>. 
           The AI will analyze the retrieved posts to provide insights.
         </div>
         
         <div className="flex items-center space-x-2">
-          <label className="text-sm text-gray-400">Model:</label>
+          <label className="text-sm text-[#525252]">Model:</label>
           <select
             value={selectedModel}
             onChange={(e) => setSelectedModel(e.target.value)}
-            className="bg-gray-700 text-white border border-gray-600 rounded p-1 text-sm"
+            className="bg-[#f5f5f5] text-[#141414] border border-[#e5e5e5] rounded p-1 text-sm"
             disabled={isLoading}
           >
             {availableLLMModels.map((model) => (
@@ -416,7 +416,7 @@ const SyntheticCustomerPrompt = () => {
               className={`p-3 rounded-lg mb-2 ${
                 message.role === 'user'
                   ? 'bg-blue-600 text-white ml-10'
-                  : 'bg-gray-700 text-gray-200 mr-10'
+                  : 'bg-[#f5f5f5] text-[#141414] mr-10'
               }`}
             >
               <div className="text-sm">
@@ -438,7 +438,7 @@ const SyntheticCustomerPrompt = () => {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             placeholder="Ask about Reddit users' feedback, problems, favorite features..."
-            className="flex-1 p-3 bg-gray-700 border border-gray-600 rounded-l-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 p-3 bg-white border border-[#e5e5e5] rounded-l-md text-[#141414] placeholder-[#acacac] focus:outline-none focus:ring-2 focus:ring-[#115054]"
             disabled={isLoading}
           />
           <button
@@ -446,7 +446,7 @@ const SyntheticCustomerPrompt = () => {
             disabled={isLoading || !prompt.trim()}
             className={`p-3 rounded-r-md flex items-center justify-center w-12 h-12 ${
               isLoading || !prompt.trim()
-                ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                ? 'bg-[#e5e5e5] text-[#525252] cursor-not-allowed'
                 : 'bg-blue-600 text-white hover:bg-blue-700'
             }`}
           >
@@ -457,16 +457,16 @@ const SyntheticCustomerPrompt = () => {
       
       {/* Error Message */}
       {error && (
-        <div className="mt-4 p-3 bg-red-900/30 border border-red-700 rounded-md text-red-200 text-sm">
+        <div className="mt-4 p-3 bg-red-50 border border-red-300 rounded-md text-red-700 text-sm">
           {error}
         </div>
       )}
       
       {/* Empty State */}
       {!localChatHistory.length && !isLoading && !error && (
-        <div className="mt-6 text-center py-6 border border-dashed border-gray-700 rounded-lg">
+        <div className="mt-6 text-center py-6 border border-dashed border-[#e5e5e5] rounded-lg">
           <MessageSquare className="w-10 h-10 text-gray-600 mx-auto mb-2" />
-          <p className="text-gray-400">
+          <p className="text-[#525252]">
             Ask questions like "What problems are users experiencing?" or<br />
             "What features do users like the most?"
           </p>

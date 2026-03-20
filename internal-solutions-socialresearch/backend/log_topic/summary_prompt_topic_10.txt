@@ -1,0 +1,54 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: kristaps, porzingis, melton, offer, question, kristaps porzingis, able
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Steve Kerr on Porzingis' future in Golden State. "The whole point in trading for [Kristaps Porzingis]...see what we can do with him and pair him with Steph...but he's our our guy and we get to show him what we have to offer."  Now we just need to find a way to get Jrue Holiday and our Celtics core will be complete. 
+If healthy he's a brilliant player.
+The question is what can we offer him and still be able to keep Melton?
+
+EXAMPLE 2:
+De'Anthony Melton on playing with Kristaps Porzingis. "KP's such a matchup nightmare...I just try to keep him rolling honestly." 😨  Look at Melton man so inspirational 🥹
+He should be our priority in the offseason. Get him the bag before any of our FA. 
+Ask Podz the same question: Yeah, when KP got traded to my team I knew he’d be a nice piece for me. The more fire power around me the better, I’ll lead him as long as he’s ready to follow.
+
+EXAMPLE 3:
+Warriors @ Wizards breakdown: How Kristaps Porziņģis Reshapes the Warriors’ Offense & Defense  Shoulda let him go for 84
+lol is he staying or do we even want him next year if he has an unknown illness and can’t play.
+
+EXAMPLE 4:
+What’s the point until he can play on a regular basis.  And if he can, would we even be able to afford him next year?
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

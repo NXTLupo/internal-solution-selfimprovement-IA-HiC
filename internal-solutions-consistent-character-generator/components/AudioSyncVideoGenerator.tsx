@@ -43,7 +43,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({ audioFeatures, curren
 
     // Draw waveform
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = '#4f46e5';
+    ctx.strokeStyle = '#115054';
     ctx.lineWidth = 2;
     ctx.beginPath();
 
@@ -63,7 +63,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({ audioFeatures, curren
     ctx.stroke();
 
     // Draw beats
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#fd8e2e';
     audioFeatures.beatTimings.forEach(beat => {
       const x = (beat / (audioFeatures.duration * 1000)) * canvas.width;
       ctx.fillRect(x - 1, 0, 2, canvas.height);
@@ -71,7 +71,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({ audioFeatures, curren
 
     // Draw current position
     if (currentTime > 0) {
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = '#caca20';
       ctx.lineWidth = 3;
       const x = (currentTime / (audioFeatures.duration * 1000)) * canvas.width;
       ctx.beginPath();
@@ -87,7 +87,7 @@ const AudioVisualizer: React.FC<AudioVisualizerProps> = ({ audioFeatures, curren
         ref={canvasRef}
         width={600}
         height={100}
-        className="w-full h-24 bg-gray-50 rounded-lg"
+        className="w-full h-24 bg-[#f5f5f5] rounded-lg"
       />
     </div>
   );
@@ -257,7 +257,7 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
       <div className="section-header">
         <span className="section-step-badge">🎵</span>
         <h2 className="section-title">Audio-Driven Animation (Veo 3.1 Preview)</h2>
-        <span className="text-xs bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-2 py-1 rounded ml-2">BETA</span>
+        <span className="text-xs bg-[#caca20] text-[#115054] font-bold uppercase px-2 py-1 rounded ml-2 tracking-wider">BETA</span>
       </div>
 
       <div className="panel-stack">
@@ -283,7 +283,7 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
         {/* Audio Visualizer */}
         {audioFeatures && (
           <div className="audio-visualizer-section">
-            <h3 className="text-sm font-medium mb-2">Audio Analysis</h3>
+            <h3 className="text-sm font-medium mb-2 text-[#141414]">Audio Analysis</h3>
             <AudioVisualizer
               audioFeatures={audioFeatures}
               currentTime={currentPlaybackTime}
@@ -342,7 +342,7 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
                   key={scene.id}
                   onClick={() => handleSceneToggle(scene.id)}
                   className={`gallery-item cursor-pointer ${
-                    selectedSceneIds.includes(scene.id) ? 'ring-2 ring-indigo-500' : ''
+                    selectedSceneIds.includes(scene.id) ? 'ring-2 ring-[#115054]' : ''
                   }`}
                   style={{ padding: '4px' }}
                 >
@@ -388,14 +388,14 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
         {breakpoints.length > 0 && (
           <div className="breakpoints-preview">
             <label className="form-label">Detected Scene Breakpoints</label>
-            <div className="bg-gray-50 p-2 rounded max-h-24 overflow-y-auto">
+            <div className="bg-[#fafafa] p-2 rounded max-h-24 overflow-y-auto">
               {breakpoints.slice(0, 5).map((bp, index) => (
-                <div key={index} className="text-xs py-1 border-b border-gray-200">
+                <div key={index} className="text-xs py-1 border-b border-[#e5e5e5] text-[#525252]">
                   {(bp.timestamp / 1000).toFixed(1)}s - {bp.sceneType} ({bp.suggestedAction})
                 </div>
               ))}
               {breakpoints.length > 5 && (
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-[#acacac]">
                   ...and {breakpoints.length - 5} more
                 </div>
               )}
@@ -417,13 +417,13 @@ export const AudioSyncVideoGenerator: React.FC<AudioSyncVideoGeneratorProps> = (
         {/* Progress Bar */}
         {(isAnalyzing || isGenerating) && (
           <div className="progress-section">
-            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden mt-4">
+            <div className="w-full h-2 bg-[#e5e5e5] rounded-full overflow-hidden mt-4">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300"
+                className="h-full bg-[#caca20] transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="text-xs text-gray-600 mt-1">
+            <span className="text-xs text-[#525252] mt-1">
               {isAnalyzing ? 'Analyzing audio...' : 'Generating video...'}
             </span>
           </div>

@@ -9,29 +9,29 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.5);
+  background: #d4d4d4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.7);
+  background: #a3a3a3;
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.1);
+  scrollbar-color: #d4d4d4 #f5f5f5;
 }
 
 /* custom scrollbars for original and formatted data*/
 .scrollbar-custom {
   scrollbar-width: thin;
-  scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.1);
+  scrollbar-color: #d4d4d4 #f5f5f5;
 }
 
 .scrollbar-custom::-webkit-scrollbar {
@@ -40,17 +40,17 @@
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
   border-radius: 4px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.5);
+  background: #d4d4d4;
   border-radius: 4px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.7);
+  background: #a3a3a3;
 }
 
 /* Fix spelling check underline color */
@@ -58,8 +58,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px rgba(34, 38, 43, 255) inset !important;
-  -webkit-text-fill-color: #f3f4f6 !important;
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #141414 !important;
 }
 
 /* Style for spelling check underlines */
@@ -105,27 +105,27 @@ input[type="text"] {
   }
 }
 
-/* Custom class for form inputs with dark theme spelling errors */
+/* Custom class for form inputs with light theme spelling errors */
 .dark-theme-input {
   /* Override default browser spellcheck styling */
-  caret-color: #f3f4f6;
+  caret-color: #141414;
 }
 
 /* Target the actual red wavy underline for misspelled words */
 .dark-theme-input:not(:placeholder-shown) {
-  background-color: rgba(34, 38, 43, 255) !important;
+  background-color: #ffffff !important;
 }
 
 /* Ensure text remains visible during autofill */
 .dark-theme-input:-webkit-autofill {
-  -webkit-text-fill-color: #f3f4f6;
-  box-shadow: 0 0 0px 1000px rgba(34, 38, 43, 255) inset;
+  -webkit-text-fill-color: #141414;
+  box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Force dark background for spell-checked inputs */
+/* Force light background for spell-checked inputs */
 .dark-theme-input:focus {
-  background-color: rgba(34, 38, 43, 255) !important;
+  background-color: #ffffff !important;
 }
 
 /* Improve visibility of spell check underlines */
@@ -138,7 +138,7 @@ input[type="text"] {
 /* Override browser's default styling for misspelled words */
 @media all {
   .dark-theme-input::selection {
-    background-color: rgba(59, 130, 246, 0.5) !important;
-    color: #f3f4f6 !important;
+    background-color: rgba(17, 80, 84, 0.3) !important;
+    color: #141414 !important;
   }
 }

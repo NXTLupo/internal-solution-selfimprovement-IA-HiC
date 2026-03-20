@@ -1,0 +1,14 @@
+Calculating topic similarities...
+Topic 0 top words: ['steph', 'year', 'kuminga', 'jimmy', 'kp', 'playing', 'healthy', 'team', 'trade']
+Topic 1 top words: ['buddy', 'jimmy', 'warriors', 'injury', 'love', 'weeks', 'locker', 'prp injection']
+Topic 2 top words: ['post', 'reddit', 'game', 'warriors', 'old', 'click view post', 'view post', 'contains', 'supported', 'click view']
+Topic 3 top words: ['kerr', 'coach', 'movie', 'goat', 'congrats', 'steve', 'right', 'steve kerr', 'steph', 'antagonist']
+Topic 4 top words: ['podz', 'players', 'rebounds', 'hair', 'ego', 'guard', 'hate', 'say', 'minutes', 'point']
+Topic 5 top words: ['games', 'team', 'season', 'steph', 'podz', 'gui', 'guys', 'losses', 'numbers', 'shot']
+Topic 6 top words: ['richard', 'kerr', 'podz', 'pass', 'draymond', 'accountability', 'turnover', 'guy', 'instead opposite', 'wrong']
+Topic 7 top words: ['stream', 'coach', 'warriors', 'said', 'steve kerr', 'learned', 'matters', 'gambling']
+Topic 8 top words: ['team', 'tech', 'clap', 'credit', 'big', 'shot', 'nba', 'kuminga', 'playing', 'set tone']
+Topic 9 top words: ['santos', 'gui', 'best', 'elite', 'better', 'second', 'half', 'gp2', 'career', 'gotta']
+Topic 10 top words: ['kristaps', 'porzingis', 'melton', 'offer', 'question', 'kristaps porzingis', 'able', 'point', 'kp', 'year']
+Topic 11 top words: ['night', 'team', 'close', 'vs', 'game', 'guys', 'total team', 'wolves', 'bucket']
+Found 66 topic similarity pairs

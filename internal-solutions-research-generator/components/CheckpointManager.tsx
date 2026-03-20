@@ -30,12 +30,12 @@ const STAGE_ICONS = {
 };
 
 const STATUS_COLORS = {
-  pending: 'bg-slate-800 text-slate-500',
+  pending: 'bg-[#fafafa] text-[#acacac]',
   active: 'bg-blue-600/20 text-blue-400 animate-pulse',
   awaiting_approval: 'bg-yellow-600/20 text-yellow-400',
   approved: 'bg-green-600/20 text-green-400',
   revised: 'bg-orange-600/20 text-orange-400',
-  skipped: 'bg-slate-800 text-slate-600'
+  skipped: 'bg-[#fafafa] text-[#acacac]'
 };
 
 export const CheckpointManager: React.FC<CheckpointManagerProps> = ({
@@ -110,16 +110,16 @@ export const CheckpointManager: React.FC<CheckpointManagerProps> = ({
   const currentCheckpoint = checkpoints.find(c => c.status === 'awaiting_approval');
 
   return (
-    <div className="bg-slate-900/50 rounded-lg border border-slate-800">
-      <div className="p-4 border-b border-slate-800">
-        <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-          <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className="bg-white rounded-lg border border-[#e5e5e5]">
+      <div className="p-4 border-b border-[#e5e5e5]">
+        <h3 className="text-lg font-semibold text-[#141414] flex items-center gap-2">
+          <svg className="w-5 h-5 text-[#115054]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           Analysis Checkpoints
         </h3>
         {isProcessing && (
-          <p className="text-sm text-slate-400 mt-1">
+          <p className="text-sm text-[#525252] mt-1">
             Analysis in progress - you can intervene at any checkpoint
           </p>
         )}
@@ -128,9 +128,9 @@ export const CheckpointManager: React.FC<CheckpointManagerProps> = ({
       <div className="p-4">
         {/* Progress Bar */}
         <div className="relative mb-6">
-          <div className="absolute top-5 left-0 right-0 h-1 bg-slate-800">
+          <div className="absolute top-5 left-0 right-0 h-1 bg-[#e5e5e5]">
             <div 
-              className="h-full bg-indigo-500 transition-all duration-500"
+              className="h-full bg-[#caca20] transition-all duration-500"
               style={{
                 width: `${(checkpoints.filter(c => 
                   ['approved', 'revised', 'skipped'].includes(c.status)
@@ -171,7 +171,7 @@ export const CheckpointManager: React.FC<CheckpointManagerProps> = ({
                   {getStatusIcon(currentCheckpoint.status)}
                   {currentCheckpoint.name}
                 </h4>
-                <p className="text-sm text-slate-400 mt-1">
+                <p className="text-sm text-[#525252] mt-1">
                   {currentCheckpoint.description}
                 </p>
               </div>
@@ -246,7 +246,7 @@ export const CheckpointManager: React.FC<CheckpointManagerProps> = ({
                         {getStatusIcon(checkpoint.status)}
                         {checkpoint.name}
                       </h4>
-                      <p className="text-sm text-slate-400 mt-1">
+                      <p className="text-sm text-[#525252] mt-1">
                         {checkpoint.description}
                       </p>
                     </div>

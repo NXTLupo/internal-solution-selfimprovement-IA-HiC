@@ -28,11 +28,11 @@ const PASS_ICONS = {
 };
 
 const PASS_COLORS = {
-  surface: 'bg-blue-900/20 border-blue-500/50',
-  hidden: 'bg-purple-900/20 border-purple-500/50',
-  psychological: 'bg-pink-900/20 border-pink-500/50',
-  cultural: 'bg-green-900/20 border-green-500/50',
-  strategic: 'bg-amber-900/20 border-amber-500/50'
+  surface: 'bg-blue-50 border-blue-300',
+  hidden: 'bg-purple-50 border-purple-300',
+  psychological: 'bg-pink-50 border-pink-300',
+  cultural: 'bg-green-50 border-green-300',
+  strategic: 'bg-[#fd8e2e]/10 border-[#fd8e2e]/50'
 };
 
 export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({ 
@@ -77,14 +77,14 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-full bg-slate-900/50 rounded-lg border border-slate-800">
+    <div className="flex flex-col h-full bg-white rounded-lg border border-[#e5e5e5]">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-slate-800">
+      <div className="flex items-center justify-between p-4 border-b border-[#e5e5e5]">
         <div className="flex items-center gap-2">
-          <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-[#115054]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
           </svg>
-          <h3 className="text-lg font-semibold text-white">AI Thinking Process</h3>
+          <h3 className="text-lg font-semibold text-[#141414]">AI Thinking Process</h3>
           {isActive && (
             <span className="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded-full animate-pulse">
               Active
@@ -96,7 +96,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="px-3 py-1 text-sm border border-slate-700 bg-slate-800 text-slate-300 rounded-md"
+            className="px-3 py-1 text-sm border border-[#e5e5e5] bg-[#fafafa] text-[#525252] rounded-md"
           >
             <option value="all">All Passes</option>
             <option value="surface">Surface</option>
@@ -109,7 +109,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
           <button
             onClick={() => setAutoScroll(!autoScroll)}
             className={`px-3 py-1 text-sm rounded-md ${
-              autoScroll ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500' : 'bg-slate-800 text-slate-400 border border-slate-700'
+              autoScroll ? 'bg-[#caca20]/20 text-[#115054] border border-[#caca20]' : 'bg-[#fafafa] text-[#525252] border border-[#e5e5e5]'
             }`}
           >
             Auto-scroll
@@ -132,7 +132,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
         className="flex-1 overflow-y-auto p-4 space-y-3"
       >
         {filteredStream.length === 0 ? (
-          <div className="text-center text-slate-500 py-8">
+          <div className="text-center text-[#acacac] py-8">
             <svg className="w-12 h-12 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
@@ -163,17 +163,17 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-lg">{PASS_ICONS[event.passType]}</span>
-                    <span className="font-medium capitalize text-slate-200">{event.passType} Pass</span>
-                    <span className="text-xs text-slate-500">#{event.passNumber}</span>
+                    <span className="font-medium capitalize text-[#141414]">{event.passType} Pass</span>
+                    <span className="text-xs text-[#acacac]">#{event.passNumber}</span>
                     <span className={`text-xs ${getConfidenceColor(event.confidence)}`}>
                       {Math.round(event.confidence * 100)}% confident
                     </span>
-                    <span className="text-xs text-slate-500 ml-auto">
+                    <span className="text-xs text-[#acacac] ml-auto">
                       {formatTimestamp(event.timestamp)}
                     </span>
                   </div>
                   
-                  <div className="text-sm text-slate-300 line-clamp-2">
+                  <div className="text-sm text-[#525252] line-clamp-2">
                     {event.content}
                   </div>
                   
@@ -182,7 +182,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
                       <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-[#525252]">
                         {event.connections.length} connections
                       </span>
                     </div>
@@ -191,11 +191,11 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
               </div>
               
               {expandedPasses.has(event.id) && (
-                <div className="px-3 pb-3 border-t border-slate-800 bg-slate-950/50">
+                <div className="px-3 pb-3 border-t border-[#e5e5e5] bg-[#fafafa]/50">
                   <div className="pt-3 space-y-3">
                     <div>
-                      <h4 className="text-sm font-medium mb-1 text-slate-300">Full Thinking:</h4>
-                      <p className="text-sm text-slate-400 whitespace-pre-wrap">
+                      <h4 className="text-sm font-medium mb-1 text-[#525252]">Full Thinking:</h4>
+                      <p className="text-sm text-[#525252] whitespace-pre-wrap">
                         {event.content}
                       </p>
                     </div>
@@ -252,7 +252,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
                       <div className="flex gap-2 pt-2 border-t">
                         <button
                           onClick={() => onSteer('deeper')}
-                          className="px-3 py-1 text-xs bg-indigo-100 text-indigo-700 rounded hover:bg-indigo-200"
+                          className="px-3 py-1 text-xs bg-[#caca20]/20 text-[#115054] rounded hover:bg-[#caca20]/30"
                         >
                           Go Deeper
                         </button>
@@ -264,7 +264,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
                         </button>
                         <button
                           onClick={() => onSteer('refocus')}
-                          className="px-3 py-1 text-xs bg-amber-100 text-amber-700 rounded hover:bg-amber-200"
+                          className="px-3 py-1 text-xs bg-[#fd8e2e]/20 text-[#fd8e2e] rounded hover:bg-[#fd8e2e]/30"
                         >
                           Refocus
                         </button>
@@ -279,7 +279,7 @@ export const ThinkingViewer: React.FC<ThinkingViewerProps> = ({
       </div>
 
       {/* Status Bar */}
-      <div className="p-3 border-t border-slate-800 bg-slate-950/50 text-xs text-slate-400">
+      <div className="p-3 border-t border-[#e5e5e5] bg-[#fafafa]/50 text-xs text-[#525252]">
         <div className="flex justify-between">
           <span>{filteredStream.length} thinking events</span>
           <span>

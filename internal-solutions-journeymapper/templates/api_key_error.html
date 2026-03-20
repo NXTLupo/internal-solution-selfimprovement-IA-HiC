@@ -4,83 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Key Error - AI Journey Mapper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: 'Archivo', 'Inter', sans-serif;
+      font-weight: 300;
       line-height: 1.6;
-      color: #333;
+      color: #141414;
+      background: #ffffff;
       max-width: 800px;
       margin: 50px auto;
       padding: 20px;
     }
     h1 {
-      color: #e53935;
+      color: #FF5A5A;
       margin-bottom: 20px;
+      font-weight: 200;
+      font-size: 44px;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 21px;
+      color: #141414;
+    }
+    h3 {
+      font-weight: 500;
+      font-size: 16px;
+      color: #141414;
     }
     .error-box {
-      background-color: #ffebee;
-      border-left: 4px solid #e53935;
+      background-color: rgba(255, 90, 90, 0.06);
+      border-left: 3px solid #FF5A5A;
       padding: 20px;
       border-radius: 4px;
       margin-bottom: 30px;
+    }
+    .error-box p {
+      color: #525252;
     }
     .instructions {
-      background-color: #f5f5f5;
+      background-color: #fafafa;
       padding: 20px;
       border-radius: 4px;
       margin-bottom: 30px;
+      border: 1px solid #e5e5e5;
+    }
+    .instructions p, .instructions li {
+      color: #525252;
     }
     code {
-      background-color: #eee;
-      padding: 2px 4px;
-      border-radius: 3px;
-      font-family: 'Courier New', Courier, monospace;
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 14px;
+      color: #141414;
     }
     pre {
-      background-color: #f8f8f8;
-      padding: 15px;
-      border-radius: 5px;
+      background-color: #fafafa;
+      padding: 16px;
+      border-radius: 4px;
       overflow-x: auto;
-      border: 1px solid #ddd;
+      border: 1px solid #e5e5e5;
+      font-size: 14px;
+    }
+    a {
+      color: #115054;
     }
     .button {
-      background-color: #4264D0;
-      color: white;
+      background-color: #caca20;
+      color: #115054;
       border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 4px;
+      padding: 16px 24px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
       margin-top: 10px;
+      height: 48px;
     }
     .button:hover {
-      background-color: #3450A0;
+      filter: brightness(1.1);
     }
   </style>
 </head>
 <body>
   <h1>API Key Error</h1>
-  
+
   <div class="error-box">
     <h2>Invalid or Missing Anthropic API Key</h2>
     <p>The AI Journey Mapper application requires a valid Anthropic API key to function.</p>
     <p>The current API key is either missing, expired, or invalid.</p>
   </div>
-  
+
   <div class="instructions">
     <h2>How to Fix This Issue</h2>
     <p>To use this application, you need to provide a valid Anthropic API key. Here's how:</p>
-    
+
     <h3>Option 1: Set the API key through the command line</h3>
     <p>Run the application with your API key as an argument:</p>
     <pre>./start_with_api_key.sh your-api-key-here</pre>
-    
+
     <h3>Option 2: Set the API key in your environment</h3>
     <p>Add the following line to your shell profile (<code>.bashrc</code>, <code>.zshrc</code>, etc.):</p>
     <pre>export ANTHROPIC_API_KEY="your-api-key-here"</pre>
-    
+
     <h3>How to Get an Anthropic API Key</h3>
     <ol>
       <li>Visit <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a></li>
@@ -88,10 +121,10 @@
       <li>Navigate to the API Keys section</li>
       <li>Create a new API key</li>
     </ol>
-    
+
     <p>API keys start with <code>sk-ant-</code> and should be kept secret and secure.</p>
   </div>
-  
+
   <a href="/" class="button">Try Again</a>
 </body>
 </html>

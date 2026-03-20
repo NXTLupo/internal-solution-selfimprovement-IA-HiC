@@ -1,0 +1,56 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: richard, kerr, podz, pass, draymond, accountability, turnover
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Funny how kerr was screaming at will Richard for the bad pass turnover, when he's silent for the ones that bp and draymond do Podz and draymond waaay stupider plays yet zero complains to them, but when will Richard does it, it's like a cardinal sin for him Yeah honestly I didn’t get that. Podz got some bullet pass turnovers but we heard nothing, and Draymond has his moments for sure. I think Will hustled just fine and it ended up being unfortunate. [...]
+
+EXAMPLE 2:
+[Steve Kerr] "I blamed the wrong guy on that one...It was really Brandin [Podziemski]'s fault on the pass...I actually showed it to the guys yesterday before the Washington game...and I said, 'What kind of idiot coach would blame this guy for the turnover?'"  W accountability. Onto Boston. 
+he took accountability that same night btw 
+W kerr, L Podz didn't take accountability and let his boy will get roasted by Kerr.
+
+EXAMPLE 3:
+Steve Kerr on yelling at Will Richard after his turnover on the fastbreak: “I was upset with him, but I kind of regret losing my composure a little bit there.” Said he initially thought Richard was trying to get fancy with it. Also mentioned it was a bad pass from Podziemski.  Kerr is saying he was wrong here and all anyone can do is btch about him and Podz. He made a mistake and owned up. What do you people want?
+Kuminga to coach Moses Moody, LJ Cryer, and Lamelo Ball to a 3peat
+This place is ridiculously insufferable. It’s like the asylums inmates are running the show.
+
+EXAMPLE 4:
+Richard is still in “young player status” where you should need time to adjust and room to make mistakes and a long leash so you don’t play afraid to mess up and end up on the bench, but instead the opposite happens where young players are treated like experienced vets that have already had years to work all those kinks out.
+
+EXAMPLE 5:
+Tagging all the idiots with RES over the past 3-4 months and most of these threads are filled with the same crazies.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

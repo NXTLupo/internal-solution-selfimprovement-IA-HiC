@@ -1,0 +1,86 @@
+{
+  "0": {
+    "post_count": 11,
+    "total_comments": 89,
+    "total_score": 4810,
+    "avg_comments_per_post": 8.090909090909092,
+    "avg_score_per_post": 437.27272727272725
+  },
+  "1": {
+    "post_count": 9,
+    "total_comments": 45,
+    "total_score": 1912,
+    "avg_comments_per_post": 5.0,
+    "avg_score_per_post": 212.44444444444446
+  },
+  "2": {
+    "post_count": 8,
+    "total_comments": 55,
+    "total_score": 1009,
+    "avg_comments_per_post": 6.875,
+    "avg_score_per_post": 126.125
+  },
+  "3": {
+    "post_count": 7,
+    "total_comments": 35,
+    "total_score": 2107,
+    "avg_comments_per_post": 5.0,
+    "avg_score_per_post": 301.0
+  },
+  "4": {
+    "post_count": 6,
+    "total_comments": 49,
+    "total_score": 1076,
+    "avg_comments_per_post": 8.166666666666666,
+    "avg_score_per_post": 179.33333333333334
+  },
+  "5": {
+    "post_count": 5,
+    "total_comments": 36,
+    "total_score": 793,
+    "avg_comments_per_post": 7.2,
+    "avg_score_per_post": 158.6
+  },
+  "6": {
+    "post_count": 4,
+    "total_comments": 36,
+    "total_score": 1353,
+    "avg_comments_per_post": 9.0,
+    "avg_score_per_post": 338.25
+  },
+  "7": {
+    "post_count": 4,
+    "total_comments": 31,
+    "total_score": 514,
+    "avg_comments_per_post": 7.75,
+    "avg_score_per_post": 128.5
+  },
+  "8": {
+    "post_count": 3,
+    "total_comments": 17,
+    "total_score": 524,
+    "avg_comments_per_post": 5.666666666666667,
+    "avg_score_per_post": 174.66666666666666
+  },
+  "9": {
+    "post_count": 3,
+    "total_comments": 21,
+    "total_score": 908,
+    "avg_comments_per_post": 7.0,
+    "avg_score_per_post": 302.6666666666667
+  },
+  "10": {
+    "post_count": 3,
+    "total_comments": 10,
+    "total_score": 277,
+    "avg_comments_per_post": 3.3333333333333335,
+    "avg_score_per_post": 92.33333333333333
+  },
+  "11": {
+    "post_count": 3,
+    "total_comments": 19,
+    "total_score": 1137,
+    "avg_comments_per_post": 6.333333333333333,
+    "avg_score_per_post": 379.0
+  }
+}

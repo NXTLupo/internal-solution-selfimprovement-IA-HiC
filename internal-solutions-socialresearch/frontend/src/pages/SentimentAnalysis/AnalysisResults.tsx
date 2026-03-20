@@ -204,16 +204,16 @@ export const AnalysisResults = ({
       return (
         <div className="w-full max-w-lg mx-auto">
           <div className="flex items-center justify-center mb-3">
-            <div className="text-red-400 font-medium flex items-center">
+            <div className="text-red-600 font-medium flex items-center">
               <XCircle className="w-5 h-5 mr-2" />
               Sentiment analysis job was cancelled
             </div>
           </div>
-          
-          <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+
+          <div className="space-y-2 mt-4 bg-[#fafafa] p-4 rounded-lg border border-[#e5e5e5]">
             <div className="text-center">
-              <p className="text-gray-300 mb-2">The sentiment analysis process was cancelled.</p>
-              <p className="text-gray-400 text-sm">You can start a new analysis at any time.</p>
+              <p className="text-[#525252] mb-2">The sentiment analysis process was cancelled.</p>
+              <p className="text-[#525252] text-sm">You can start a new analysis at any time.</p>
             </div>
           </div>
         </div>
@@ -223,15 +223,15 @@ export const AnalysisResults = ({
     return (
       <div className="w-full max-w-lg mx-auto">
         <div className="flex items-center justify-between mb-3">
-          <div className="text-blue-400 font-medium flex items-center">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500 mr-2"></div>
+          <div className="text-[#115054] font-medium flex items-center">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#115054] mr-2"></div>
             Sentiment analysis in progress...
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <button
               onClick={handleCancelJob}
-              className="flex items-center text-red-400 hover:text-red-300 transition-colors text-sm"
+              className="flex items-center text-red-600 hover:text-red-700 transition-colors text-sm"
               title="Cancel all jobs for this project"
             >
               <XCircle className="w-4 h-4 mr-1" />
@@ -240,19 +240,19 @@ export const AnalysisResults = ({
           </div>
         </div>
           
-        <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+        <div className="space-y-2 mt-4 bg-[#fafafa] p-4 rounded-lg border border-[#e5e5e5]">
           {LLM_ANALYZER_STAGES.map((stage, index) => {
             // Determine the status of this stage
             const isCompleted = currentStageIndex > index;
             const isCurrent = currentStageIndex === index;
             const isPending = currentStageIndex < index;
-            
+
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`flex items-center p-2 rounded-md transition-colors ${
-                  isCurrent ? 'bg-blue-900 bg-opacity-40' : 
-                  isCompleted ? 'bg-gray-900 bg-opacity-30' : ''
+                  isCurrent ? 'bg-blue-50' :
+                  isCompleted ? 'bg-[#f5f5f5]' : ''
                 }`}
               >
                 <div className="mr-3">
@@ -260,31 +260,31 @@ export const AnalysisResults = ({
                     <CheckCircle2 className="h-5 w-5 text-green-500" />
                   )}
                   {isCurrent && (
-                    <Clock className="h-5 w-5 text-blue-400 animate-pulse" />
+                    <Clock className="h-5 w-5 text-[#115054] animate-pulse" />
                   )}
                   {isPending && (
-                    <Circle className="h-5 w-5 text-gray-500" />
+                    <Circle className="h-5 w-5 text-[#acacac]" />
                   )}
                 </div>
                 <div className="flex-1">
                   <div className={`text-sm font-medium ${
-                    isCurrent ? 'text-blue-300' : 
-                    isCompleted ? 'text-green-300' : 
-                    'text-gray-400'
+                    isCurrent ? 'text-[#115054]' :
+                    isCompleted ? 'text-green-600' :
+                    'text-[#525252]'
                   }`}>
                     {stage.message}
                   </div>
                 </div>
-                <div className="text-xs text-gray-500 ml-2">
+                <div className="text-xs text-[#acacac] ml-2">
                   {stage.timeEstimate}
                 </div>
               </div>
             );
           })}
         </div>
-        
+
         {jobMessage && jobMessage !== LLM_ANALYZER_STAGES[currentStageIndex]?.message && (
-          <div className="mt-3 text-sm text-gray-400">
+          <div className="mt-3 text-sm text-[#525252]">
             <span className="font-medium">Current operation:</span> {jobMessage}
           </div>
         )}
@@ -508,7 +508,7 @@ export const AnalysisResults = ({
   // Loading and error state displays
   if (loading) {
     return (
-      <div className="p-6 rounded-xl shadow-xl border border-gray-700 min-h-screen" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+      <div className="p-6 rounded-xl border border-[#e5e5e5] min-h-screen" style={{ backgroundColor: '#ffffff' }}>
         {isPolling ? (
           <div className="space-y-4">
             {/* Show progress checklist if jobProgress is available */}
@@ -520,17 +520,17 @@ export const AnalysisResults = ({
               <div>
                 <div className="flex items-center space-x-3">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
-                  <p className="text-blue-400 font-medium">Analysis job in progress...</p>
+                  <p className="text-[#115054] font-medium">Analysis job in progress...</p>
                 </div>
-                <p className="text-gray-300">
+                <p className="text-[#525252]">
                   {streamedJson || 'Your analysis is being processed. This may take several minutes for large datasets.'}
                 </p>
               </div>
             )}
             <div className="flex justify-center">
               <div className="flex flex-col max-w-2xl w-full px-4">
-            <div className="mt-4 bg-gray-800 rounded-lg p-4 text-sm text-gray-400">
-              <p className="mb-2 text-gray-300 font-medium">Why is this taking time?</p>
+            <div className="mt-4 bg-[#fafafa] rounded-lg p-4 text-sm text-[#525252]">
+              <p className="mb-2 text-[#525252] font-medium">Why is this taking time?</p>
               <p>
                 Sentiment analysis involves multiple complex steps including data collection, 
                 AI processing, and result merging. You can continue using other parts of the 
@@ -558,7 +558,7 @@ export const AnalysisResults = ({
             </div>
           </div>
         ) : (
-          <p className="text-gray-300">
+          <p className="text-[#525252]">
             {isThinking ? 'Analyzing sentiment...' : 
              streamedJson?.includes('Processed chunk') ? 
                streamedJson : 'Processing...'}
@@ -571,7 +571,7 @@ export const AnalysisResults = ({
   // Function to render analysis summary (condensed version of analysis tab)
   const renderAnalysisSummary = () => {
     if (!analysisData) {
-      return <p className="text-gray-300">No sentiment analysis results available yet. Click "Analyze" to begin.</p>;
+      return <p className="text-[#525252]">No sentiment analysis results available yet. Click "Analyze" to begin.</p>;
     }
 
     // Get filtered data based on date range
@@ -579,7 +579,7 @@ export const AnalysisResults = ({
     
     // Return early if no filtered data is available
     if (!filteredData) {
-      return <p className="text-gray-300">No data available for the selected date range.</p>;
+      return <p className="text-[#525252]">No data available for the selected date range.</p>;
     }
 
     // Create a copy of the data to avoid modifying the original
@@ -613,11 +613,11 @@ export const AnalysisResults = ({
         
         {/* Sentiment Overview Section - Contains both positive and negative feedback */}
         <div className="md:col-span-2">
-          <div className="p-4 rounded-lg border border-gray-700 bg-[rgba(45,46,49,255)] mb-6">
-            <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+          <div className="p-4 rounded-lg border border-[#e5e5e5] bg-white mb-6">
+            <h2 className="text-xl font-bold text-[#115054] mb-4 flex items-center">
               <span className="mr-2">🔍</span> Sentiment Analysis
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-[#525252] mb-4">
               Below is a summary of the sentiment analysis results, organized by category.
               Each point shows its frequency in the analyzed data. Click on any category to see detailed analysis.
             </p>
@@ -626,24 +626,23 @@ export const AnalysisResults = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Positive Categories */}
               <div>
-                <h3 className="text-lg font-bold text-green-400 mb-4 flex items-center">
+                <h3 className="text-lg font-bold text-green-600 mb-4 flex items-center">
                   <span className="mr-2">✓</span> Positive Feedback
                 </h3>
                 <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-custom">
                   {positiveCategories.map((category, index) => (
-                    <div 
-                      key={`pos-${index}`} 
-                      className="p-4 rounded-lg border border-gray-700 hover:border-green-700 transition-colors cursor-pointer" 
-                      style={{ backgroundColor: 'rgba(55,56,59,255)' }}
+                    <div
+                      key={`pos-${index}`}
+                      className="p-4 rounded-lg border border-[#e5e5e5] hover:border-green-500 transition-colors cursor-pointer bg-[#fafafa]"
                       onClick={() => handleCategoryClick('positive', index)}
                     >
-                      <h4 className="text-lg font-medium text-green-400 mb-3 border-b border-gray-700 pb-2 flex items-center justify-between">
+                      <h4 className="text-lg font-medium text-green-600 mb-3 border-b border-[#e5e5e5] pb-2 flex items-center justify-between">
                         {category.category}
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          className="h-4 w-4 text-green-400" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-green-600"
+                          fill="none"
+                          viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -653,9 +652,9 @@ export const AnalysisResults = ({
                         {category.points.map((point: Point, pointIndex: number) => (
                           <li key={`pos-${index}-${pointIndex}`} className="flex items-start group">
                             <div className="flex-1">
-                              <span className="text-gray-300 group-hover:text-white transition-colors">{point.point}</span>
+                              <span className="text-[#525252] group-hover:text-[#141414] transition-colors">{point.point}</span>
                             </div>
-                            <span className="ml-3 px-2 py-0.5 bg-green-900/50 text-green-400 text-xs rounded-full flex-shrink-0">
+                            <span className="ml-3 px-2 py-0.5 bg-green-100 text-green-600 text-xs rounded-full flex-shrink-0">
                               {point.frequency}
                             </span>
                           </li>
@@ -668,24 +667,23 @@ export const AnalysisResults = ({
 
               {/* Negative Categories */}
               <div>
-                <h3 className="text-lg font-bold text-red-400 mb-4 flex items-center">
+                <h3 className="text-lg font-bold text-red-600 mb-4 flex items-center">
                   <span className="mr-2">⚠</span> Negative Feedback
                 </h3>
                 <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 scrollbar-custom">
                   {negativeCategories.map((category, index) => (
-                    <div 
-                      key={`neg-${index}`} 
-                      className="p-4 rounded-lg border border-gray-700 hover:border-red-700 transition-colors cursor-pointer" 
-                      style={{ backgroundColor: 'rgba(55,56,59,255)' }}
+                    <div
+                      key={`neg-${index}`}
+                      className="p-4 rounded-lg border border-[#e5e5e5] hover:border-red-500 transition-colors cursor-pointer bg-[#fafafa]"
                       onClick={() => handleCategoryClick('negative', index)}
                     >
-                      <h4 className="text-lg font-medium text-red-400 mb-3 border-b border-gray-700 pb-2 flex items-center justify-between">
+                      <h4 className="text-lg font-medium text-red-600 mb-3 border-b border-[#e5e5e5] pb-2 flex items-center justify-between">
                         {category.category}
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          className="h-4 w-4 text-red-400" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 text-red-600"
+                          fill="none"
+                          viewBox="0 0 24 24"
                           stroke="currentColor"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -695,9 +693,9 @@ export const AnalysisResults = ({
                         {category.points.map((point: Point, pointIndex: number) => (
                           <li key={`neg-${index}-${pointIndex}`} className="flex items-start group">
                             <div className="flex-1">
-                              <span className="text-gray-300 group-hover:text-white transition-colors">{point.point}</span>
+                              <span className="text-[#525252] group-hover:text-[#141414] transition-colors">{point.point}</span>
                             </div>
-                            <span className="ml-3 px-2 py-0.5 bg-red-900/50 text-red-400 text-xs rounded-full flex-shrink-0">
+                            <span className="ml-3 px-2 py-0.5 bg-red-100 text-red-600 text-xs rounded-full flex-shrink-0">
                               {point.frequency}
                             </span>
                           </li>
@@ -723,9 +721,9 @@ export const AnalysisResults = ({
   };
 
   return (
-    <div className="p-6 rounded-xl shadow-xl border border-gray-700 min-h-screen scrollbar-custom" style={{ backgroundColor: 'rgba(34,38,43,255)' }}>
+    <div className="p-6 rounded-xl shadow-xl border border-[#e5e5e5] min-h-screen scrollbar-custom" style={{ backgroundColor: '#ffffff' }}>
       {/* Tab Navigation with Date Picker */}
-      <div className="flex justify-between mb-6 border-b border-gray-700 pb-2">
+      <div className="flex justify-between mb-6 border-b border-[#e5e5e5] pb-2">
         <div className="flex overflow-x-auto scrollbar-custom">
           {[
             { id: 'formatted', label: 'Original Data' },
@@ -738,8 +736,8 @@ export const AnalysisResults = ({
               onClick={() => setActiveTab(tab.id as 'formatted' | 'summary' | 'analysis' | 'visualization')}
               className={`px-4 py-2 mr-2 rounded-t-lg transition-colors ${
                 activeTab === tab.id 
-                  ? 'bg-blue-600 text-white' 
-                  : 'text-blue-400 hover:bg-[rgba(65,66,69,255)]'
+                  ? 'bg-[#115054] text-white'
+                  : 'text-[#115054] hover:bg-[#f5f5f5]'
               }`}
             >
               {tab.label}
@@ -756,7 +754,7 @@ export const AnalysisResults = ({
               maxDate={getLatestDate(analysis)}
             />
             {/* Display Filtered Post Count - styled to match date picker */}
-            <span className="flex items-center text-sm text-gray-300 bg-gray-800 border border-gray-700 px-4 py-2 rounded ml-3 whitespace-nowrap">
+            <span className="flex items-center text-sm text-[#525252] bg-[#fafafa] border border-[#e5e5e5] px-4 py-2 rounded ml-3 whitespace-nowrap">
               Displaying <span className="font-medium ml-1 mr-1">{filteredPostCount}</span> posts
             </span>
           </div>
@@ -780,13 +778,13 @@ export const AnalysisResults = ({
                   const filteredPosts = posts.filter(post => isWithinDateRange(post.created_utc));
                   
                   return filteredPosts.map((post) => (
-                    <div key={post.id} className="p-6 rounded-lg border border-gray-700" style={{ backgroundColor: 'rgba(55,56,59,255)' }}>
+                    <div key={post.id} className="p-6 rounded-lg border border-[#e5e5e5]" style={{ backgroundColor: '#fafafa' }}>
                       <h3 className="text-sm font-semibold text-blue-400 mb-2">Post {post.id}</h3>
                       
                       {/* Post Header */}
                       <div className="mb-4">
-                        <h4 className="text-lg font-medium text-white">{post.title}</h4>
-                        <div className="flex gap-3 text-xs text-gray-400 mt-1">
+                        <h4 className="text-lg font-medium text-[#141414]">{post.title}</h4>
+                        <div className="flex gap-3 text-xs text-[#525252] mt-1">
                           <span>Score: {post.score}</span>
                           <span>Posted: {post.created_utc}</span>
                         </div>
@@ -794,24 +792,24 @@ export const AnalysisResults = ({
 
                       {/* Post Content */}
                       {post.selftext && (
-                        <p className="text-gray-300 mb-4">{post.selftext}</p>
+                        <p className="text-[#525252] mb-4">{post.selftext}</p>
                       )}
 
                       {/* Comments Section */}
-                      <div className="space-y-4 mt-4 border-t border-gray-700 pt-4">
+                      <div className="space-y-4 mt-4 border-t border-[#e5e5e5] pt-4">
                         {post.comments?.map((comment: Comment, index: number) => (
-                          <div key={index} className="pl-4 border-l-2 border-gray-700">
-                            <div className="text-gray-300">{comment.body}</div>
-                            <div className="flex gap-3 text-xs text-gray-400 mt-1">
+                          <div key={index} className="pl-4 border-l-2 border-[#e5e5e5]">
+                            <div className="text-[#525252]">{comment.body}</div>
+                            <div className="flex gap-3 text-xs text-[#525252] mt-1">
                               <span>Score: {comment.score}</span>
                               <span>Posted: {comment.created_utc}</span>
                             </div>
                             
                             {/* Nested Replies */}
                             {comment.replies?.map((reply: Comment, replyIndex: number) => (
-                              <div key={replyIndex} className="ml-4 mt-2 pl-4 border-l-2 border-gray-700">
-                                <div className="text-gray-300">{reply.body}</div>
-                                <div className="flex gap-3 text-xs text-gray-400 mt-1">
+                              <div key={replyIndex} className="ml-4 mt-2 pl-4 border-l-2 border-[#e5e5e5]">
+                                <div className="text-[#525252]">{reply.body}</div>
+                                <div className="flex gap-3 text-xs text-[#525252] mt-1">
                                   <span>Score: {reply.score}</span>
                                   <span>Posted: {reply.created_utc}</span>
                                 </div>
@@ -825,7 +823,7 @@ export const AnalysisResults = ({
                 })}
             </div>
           ) : (
-            <p className="text-gray-300">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
+            <p className="text-[#525252]">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
           )
         )}
 
@@ -853,7 +851,7 @@ export const AnalysisResults = ({
               onToggleExpandAll={handleToggleExpandAll}
             />
           ) : (
-            <p className="text-gray-300">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
+            <p className="text-[#525252]">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
           )
         )}
 
@@ -865,7 +863,7 @@ export const AnalysisResults = ({
               filteredData={getFilteredAnalysisData()}
             />
           ) : (
-            <p className="text-gray-300">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
+            <p className="text-[#525252]">No sentiment analysis results available yet. Click "Analyze" to begin.</p>
           )
         )}
       </div>

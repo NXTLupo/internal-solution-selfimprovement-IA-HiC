@@ -1,0 +1,52 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: buddy, jimmy, warriors, injury, love, weeks, locker
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Jimmy Butler is reunited with the Warriors in DC 🥹 “I finally got to fly. So I was like, I gotta go be around my guys. I don’t give a damn where it’s at. If I could be there, I wanted to be here. So I’m glad that I’m in the District of Columbia.”  Jimmy about Buddy: “Yeah, man. It’s a little more quiet around here without Buddy. We still talk, as we always will, but his energy is definitely missed.” 🥺
+He wanted to go on the trip to see Buddy but didn’t want to make it too obvious so he joined them earlier. [...]
+
+EXAMPLE 2:
+Should Jimmy be at games? At least home games?  I’m not sure what the norm is.  I believe Klay went to games. Did Tatum?  I know he’s in a boot but it seems like he’s not interested and is being seen at other events. If they DO make a playoff series, would you expect him to be around? I think out for the season players get a pass. Most of the time they’re not even in the area anymore.
+Also with this type of injury if you want to get back to 100% you're supposed to limit use for a while, and if you've ever seen the warriors full facility it's a hell of a long walk just to the locker room from t [...]
+
+EXAMPLE 3:
+Shams: ‘Cautious Optimism’ Steph Curry Will Return In March “I’m told he had a strong on-court workout Tuesday afternoon in Boston,” Charania told ESPN’s Malika Andrews. “Starting to run, cut, move, take some slight contact, like the Stephen Curry that we know. The most important part though is that he’s not experiencing the swelling that he’s had over the last several weeks or a month ago, when he needed to get a PRP injection, from my understanding, due to those knee issues.” PRP injection is interesting. Sounds like he wasn’t making much progress at all in the first 3-4 weeks of his injury. [...]
+
+EXAMPLE 4:
+Just spraining my MCL I couldn't fully extend my leg and walk easily for 24 hours, my doctor told me to start by limiting walking to 5 minutes for the first week and we went from there. I can imagine after an actual tear the plan is even more strict.
+He’s been at Indian Wells, where the level of tennis has been insane. I’ve also preferred watching it to watching the Warriors these last two weeks!
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

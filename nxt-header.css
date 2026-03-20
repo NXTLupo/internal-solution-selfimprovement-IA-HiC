@@ -1,109 +1,267 @@
-/* NXT HUMANS Standardized Header - v3.0 */
+/* NXT Humans 2026 Design System — Header & IA Banner */
 
-.nxt-header {
-  background-color: #1A1A1A;
-  height: 120px;
+/* Intelligence Augmentation Header — Teal */
+.intelligence-augmentation-header {
+  background: #115054;
+  height: 240px;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  justify-content: center;
   width: 100%;
   position: relative;
   z-index: 100;
-  border-bottom: 2px solid rgba(1, 196, 200, 0.3);
+  overflow: hidden;
+}
+
+/* Orange accent slash — NXT approach color for Intelligence Augmentation */
+.intelligence-augmentation-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(253, 142, 46, 0.08) 30%, rgba(253, 142, 46, 0.15) 60%, rgba(253, 142, 46, 0.2) 100%);
+  transform: skewX(-20deg) translateX(20%);
+  z-index: 1;
+}
+
+.ia-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ia-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.ia-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ia-logo-image {
+  width: 280px;
+  height: auto;
+  opacity: 1;
+  filter: invert(1);
+  object-fit: contain;
+}
+
+.ia-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ia-introducing {
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+  font-family: 'Archivo', 'Inter', sans-serif;
+}
+
+.ia-main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ia-intelligence {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  font-family: 'Archivo', 'Inter', sans-serif;
+  margin: 0;
+  padding: 2px 0;
+  margin-bottom: -0.3rem;
+}
+
+.ia-augmentation {
+  font-size: 4rem;
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #fd8e2e;
+  -webkit-text-fill-color: #fd8e2e;
+  font-family: 'Archivo', 'Inter', sans-serif;
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* NXT Header Bar — White Theme */
+.nxt-header {
+  background-color: #ffffff;
+  border-radius: 4px;
+  height: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .nxt-header .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .nxt-header-content {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   width: 100%;
 }
 
 .nxt-logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  position: static;
+  z-index: 10;
 }
 
 .nxt-logo-image {
-  height: 48px;
+  height: 40px;
+  width: auto;
   margin-right: 1rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s ease;
+  filter: none;
+  transition: opacity 150ms ease;
+  object-fit: contain;
 }
 
 .nxt-logo-text {
   display: inline-block;
   text-align: left;
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #525252;
 }
 
-.nxt-logo-text h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+.nxt-app-title {
+  text-align: center;
+}
+
+.nxt-app-title h1 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0;
   margin: 0;
   padding: 0;
-  color: #FFFFFF;
-  line-height: 1.2;
+  color: #141414;
+  line-height: 1.4;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #01C4C8 0%, #00E5E8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #141414 !important;
+  background-clip: unset !important;
+  color: #141414 !important;
   display: inline-block;
-  font-weight: 700;
+  font-weight: 300;
 }
 
-/* Footer styling */
+/* Footer — White Theme */
 .nxt-footer {
-  padding: 2rem 0;
-  background-color: rgba(26, 26, 26, 0.8);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  background-color: #fafafa;
+  border-top: 1px solid #e5e5e5;
   text-align: center;
   margin-top: 2rem;
 }
 
 .nxt-footer-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 24px;
 }
 
 .nxt-footer-text {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.875rem;
+  color: #acacac;
+  font-size: 12px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 300;
 }
 
-/* Responsive adjustments */
+/* Page Base — White Theme */
+body {
+  background: #ffffff;
+  color: #141414;
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+  .intelligence-augmentation-header {
+    height: 180px;
+    padding: 1rem 0;
+  }
+
+  .ia-container { padding: 0 16px; }
+  .ia-content { gap: 2rem; }
+  .ia-logo-image { width: 180px; }
+  .ia-introducing { font-size: 1.2rem; }
+
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2.8rem;
+    line-height: 1.0;
+    letter-spacing: -1px;
+  }
+
   .nxt-header {
     height: auto;
-    padding: 1.5rem 0;
+    padding: 16px;
   }
-  
-  .nxt-logo-container {
+
+  .nxt-header-content {
     flex-direction: column;
+    gap: 1rem;
   }
-  
-  .nxt-logo-image {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .nxt-logo-text h1 {
-    font-size: 1.8rem;
-    text-align: center;
+}
+
+@media (max-width: 480px) {
+  .intelligence-augmentation-header { height: 140px; }
+  .ia-content { gap: 1.5rem; }
+  .ia-logo-image { width: 140px; }
+  .ia-introducing { font-size: 1rem; }
+
+  .ia-intelligence,
+  .ia-augmentation {
+    font-size: 2rem;
+    line-height: 1.0;
   }
 }

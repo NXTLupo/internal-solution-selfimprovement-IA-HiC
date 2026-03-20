@@ -211,16 +211,16 @@ export const TopicModelingResults = ({
       return (
         <div className="w-full max-w-lg mx-auto">
           <div className="flex items-center justify-center mb-3">
-            <div className="text-red-400 font-medium flex items-center">
+            <div className="text-red-600 font-medium flex items-center">
               <XCircle className="w-5 h-5 mr-2" />
               Topic modeling job was cancelled
             </div>
           </div>
-          
-          <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+
+          <div className="space-y-2 mt-4 bg-[#fafafa] p-4 rounded-lg border border-[#e5e5e5]">
             <div className="text-center">
-              <p className="text-gray-300 mb-2">The topic modeling process was cancelled.</p>
-              <p className="text-gray-400 text-sm">You can start a new analysis at any time.</p>
+              <p className="text-[#525252] mb-2">The topic modeling process was cancelled.</p>
+              <p className="text-[#525252] text-sm">You can start a new analysis at any time.</p>
             </div>
           </div>
         </div>
@@ -230,15 +230,15 @@ export const TopicModelingResults = ({
     return (
       <div className="w-full max-w-lg mx-auto">
         <div className="flex items-center justify-between mb-3">
-          <div className="text-blue-400 font-medium flex items-center">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500 mr-2"></div>
+          <div className="text-[#115054] font-medium flex items-center">
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#115054] mr-2"></div>
             Topic modeling in progress...
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <button
               onClick={handleCancelJob}
-              className="flex items-center text-red-400 hover:text-red-300 transition-colors text-sm"
+              className="flex items-center text-red-600 hover:text-red-700 transition-colors text-sm"
               title="Cancel all jobs for this project"
             >
               <XCircle className="w-4 h-4 mr-1" />
@@ -247,19 +247,19 @@ export const TopicModelingResults = ({
           </div>
         </div>
           
-        <div className="space-y-2 mt-4 bg-gray-900 bg-opacity-40 p-4 rounded-lg">
+        <div className="space-y-2 mt-4 bg-[#fafafa] p-4 rounded-lg border border-[#e5e5e5]">
           {TOPIC_MODELING_STAGES.map((stage, index) => {
             // Determine the status of this stage
             const isCompleted = currentStageIndex > index;
             const isCurrent = currentStageIndex === index;
             const isPending = currentStageIndex < index;
-            
+
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`flex items-center p-2 rounded-md transition-colors ${
-                  isCurrent ? 'bg-blue-900 bg-opacity-40' : 
-                  isCompleted ? 'bg-gray-900 bg-opacity-30' : ''
+                  isCurrent ? 'bg-blue-50' :
+                  isCompleted ? 'bg-[#f5f5f5]' : ''
                 }`}
               >
                 <div className="mr-3">
@@ -267,31 +267,31 @@ export const TopicModelingResults = ({
                     <CheckCircle2 className="h-5 w-5 text-green-500" />
                   )}
                   {isCurrent && (
-                    <Clock className="h-5 w-5 text-blue-400 animate-pulse" />
+                    <Clock className="h-5 w-5 text-[#115054] animate-pulse" />
                   )}
                   {isPending && (
-                    <Circle className="h-5 w-5 text-gray-500" />
+                    <Circle className="h-5 w-5 text-[#acacac]" />
                   )}
                 </div>
                 <div className="flex-1">
                   <div className={`text-sm font-medium ${
-                    isCurrent ? 'text-blue-300' : 
-                    isCompleted ? 'text-green-300' : 
-                    'text-gray-400'
+                    isCurrent ? 'text-[#115054]' :
+                    isCompleted ? 'text-green-600' :
+                    'text-[#525252]'
                   }`}>
                     {stage.message}
                   </div>
                 </div>
-                <div className="text-xs text-gray-500 ml-2">
+                <div className="text-xs text-[#acacac] ml-2">
                   {stage.timeEstimate}
                 </div>
               </div>
             );
           })}
         </div>
-        
+
         {jobMessage && jobMessage !== TOPIC_MODELING_STAGES[currentStageIndex]?.message && (
-          <div className="mt-3 text-sm text-gray-400">
+          <div className="mt-3 text-sm text-[#525252]">
             <span className="font-medium">Current operation:</span> {jobMessage}
           </div>
         )}
@@ -300,7 +300,7 @@ export const TopicModelingResults = ({
   };
 
   return (
-    <div className="text-white rounded-lg overflow-hidden">
+    <div className="text-[#141414] rounded-lg overflow-hidden">
       {/* Render the TopicDetailModal at the top level */}
       {selectedTopic && (
         <TopicDetailModal 
@@ -311,8 +311,8 @@ export const TopicModelingResults = ({
       
       {/* Display keyword if present */}
       {topicData?.keyword && (
-        <div className="bg-gray-800 p-3 mb-3 rounded-lg border border-gray-700">
-          <span className="text-gray-400">Results filtered by keyword: </span>
+        <div className="bg-[#fafafa] p-3 mb-3 rounded-lg border border-[#e5e5e5]">
+          <span className="text-[#525252]">Results filtered by keyword: </span>
           <span className="text-blue-400 font-semibold">{topicData.keyword}</span>
         </div>
       )}
@@ -325,7 +325,7 @@ export const TopicModelingResults = ({
               className={`px-4 py-3 flex items-center text-sm font-medium ${
                 activeView === 'prompt'
                   ? 'text-blue-400 border-blue-400'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-[#525252] hover:text-[#141414]'
               }`}
               onClick={() => handleTabChange('prompt')}
             >
@@ -336,7 +336,7 @@ export const TopicModelingResults = ({
               className={`px-4 py-3 flex items-center text-sm font-medium ${
                 activeView === 'topics'
                   ? 'text-blue-400 border-blue-400'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-[#525252] hover:text-[#141414]'
               }`}
               onClick={() => handleTabChange('topics')}
             >
@@ -347,7 +347,7 @@ export const TopicModelingResults = ({
               className={`px-4 py-3 flex items-center text-sm font-medium ${
                 activeView === 'mindmaps'
                   ? 'text-blue-400 border-blue-400'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-[#525252] hover:text-[#141414]'
               }`}
               onClick={() => handleTabChange('mindmaps')}
             >
@@ -359,11 +359,11 @@ export const TopicModelingResults = ({
           {/* Only show subreddit info if there are results */}
           {(!topicData || !topicData.topics) ? null : (
             loading ? (
-              <div className="flex items-center space-x-4 px-4 text-sm text-slate-300">
-                <div className="animate-pulse h-4 w-24 bg-slate-600 rounded"></div>
+              <div className="flex items-center space-x-4 px-4 text-sm text-[#525252]">
+                <div className="animate-pulse h-4 w-24 bg-[#e5e5e5] rounded"></div>
               </div>
             ) : (
-              <div className="flex items-center space-x-4 px-4 text-sm text-slate-300">
+              <div className="flex items-center space-x-4 px-4 text-sm text-[#525252]">
                 {effectiveSubreddit && effectiveSubreddit.trim() !== '' && (
                   <div className="flex items-center">
                     <span className="font-medium mr-2">Subreddit:</span>
@@ -389,7 +389,7 @@ export const TopicModelingResults = ({
             ) : (
               <div>
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-blue-500 mx-auto mb-4"></div>
-                <p className="text-gray-300">Analyzing topics...</p>
+                <p className="text-[#525252]">Analyzing topics...</p>
               </div>
             )}
             <div className="mt-4 flex flex-col lg:flex-row gap-4 max-w-4xl mx-auto">
@@ -409,8 +409,8 @@ export const TopicModelingResults = ({
                   </div>
                 </div>
               </div>
-              <div className="flex-1 bg-gray-800 rounded-lg p-4 text-sm text-gray-400">
-                <p className="mb-2 text-gray-300 font-medium">Why is this taking time?</p>
+              <div className="flex-1 bg-[#fafafa] rounded-lg p-4 text-sm text-[#525252]">
+                <p className="mb-2 text-[#525252] font-medium">Why is this taking time?</p>
                 <p>
                   Topic modeling involves multiple complex steps including data collection, 
                   topic extraction, sentiment analysis, evidence point extraction through LLM. The most 
@@ -437,7 +437,7 @@ export const TopicModelingResults = ({
               <div>
                 {effectiveSubreddit && effectiveSubreddit.trim() !== '' ? (
                   <div>
-                    <p className="text-gray-300 mb-4">No topic modeling results available yet for r/{effectiveSubreddit}.</p>
+                    <p className="text-[#525252] mb-4">No topic modeling results available yet for r/{effectiveSubreddit}.</p>
                     {onAnalyze && (
                       <button 
                         onClick={onAnalyze}
@@ -448,7 +448,7 @@ export const TopicModelingResults = ({
                     )}
                   </div>
                 ) : (
-                  <p className="text-gray-300 mb-4">No topic modeling results available yet. Enter a subreddit name and click "Analyze" to begin.</p>
+                  <p className="text-[#525252] mb-4">No topic modeling results available yet. Enter a subreddit name and click "Analyze" to begin.</p>
                 )}
               </div>
             </div>
@@ -457,34 +457,34 @@ export const TopicModelingResults = ({
           <div>
             {/* Low post count warning */}
             {topicData && topicData.total_documents && topicData.total_documents < 150 && (
-              <div className="mb-6 bg-yellow-900 bg-opacity-30 border border-yellow-700 rounded-lg p-4">
+              <div className="mb-6 bg-yellow-50 border border-yellow-300 rounded-lg p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <svg className="w-5 h-5 text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-yellow-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-yellow-300 font-medium mb-2">Limited Data Warning</p>
-                    <p className="text-yellow-200 mb-3">
+                    <p className="text-yellow-700 font-medium mb-2">Limited Data Warning</p>
+                    <p className="text-yellow-700 mb-3">
                       Only {topicData.total_documents} posts were analyzed. For better topic modeling results, consider:
                     </p>
-                    <ul className="text-yellow-200 text-sm space-y-1 mb-3">
-                      <li>• <strong>Expanding the date range</strong> to include more historical posts</li>
-                      <li>• <strong>Checking activity levels</strong> - some subreddits have seasonal posting patterns</li>
-                      <li>• <strong>Verifying subreddit activity</strong> by visiting{' '}
-                        <a 
+                    <ul className="text-yellow-700 text-sm space-y-1 mb-3">
+                      <li>- <strong>Expanding the date range</strong> to include more historical posts</li>
+                      <li>- <strong>Checking activity levels</strong> - some subreddits have seasonal posting patterns</li>
+                      <li>- <strong>Verifying subreddit activity</strong> by visiting{' '}
+                        <a
                           href={`https://reddit.com/r/${effectiveSubreddit}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-yellow-100 underline hover:text-white"
+                          className="text-[#115054] underline hover:text-[#141414]"
                         >
                           r/{effectiveSubreddit}
                         </a>{' '}
                         to see recent post frequency
                       </li>
                     </ul>
-                    <p className="text-yellow-200 text-sm">
+                    <p className="text-yellow-700 text-sm">
                       <strong>Recommendation:</strong> Aim for at least 150 posts for more reliable topic insights, and remember the more posts, the better the results!
                     </p>
                   </div>
@@ -494,7 +494,7 @@ export const TopicModelingResults = ({
             
             {/* Content for each tab */}
             {activeView === 'prompt' && (
-              <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+              <div className="bg-[#fafafa] rounded-lg p-6 border border-[#e5e5e5]">
                 <SyntheticCustomerPrompt />
               </div>
             )}

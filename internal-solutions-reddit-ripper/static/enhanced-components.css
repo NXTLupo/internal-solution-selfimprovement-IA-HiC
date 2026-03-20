@@ -1,291 +1,215 @@
-/* Enhanced component styling for NXT Humans Workbench */
+/* NXT Humans 2026 Design System — Enhanced Components */
 
 :root {
-  /* Add necessary variables if not yet defined */
-  --cyan-vibrant: rgba(1, 196, 200, 1);
-  --accent-blue: rgba(41, 141, 255, 1);
-  --accent-purple: rgba(156, 106, 255, 1);
+  --cyan-primary: #caca20;
+  --cyan-vibrant: #d8d830;
+  --accent-blue: #00b1eb;
+  --accent-purple: #5a07bf;
   --success-green: #0CCE6B;
+  --warning-yellow: #caca20;
   --error-red: #FF5A5A;
-  --warning-yellow: #FFD02F;
-  
-  /* Animation durations */
+
+  --dark-bg: #ffffff;
+  --dark-bg-gradient-1: #ffffff;
+  --dark-bg-gradient-2: #fafafa;
+
+  --glass-background: rgba(17, 80, 84, 0.06);
+  --glass-blur: blur(32px);
+  --glass-border: 1px solid #e5e5e5;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+
   --animation-fast: 0.15s;
   --animation-medium: 0.3s;
   --animation-slow: 0.5s;
-  
-  /* Shadow variables */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
-  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.16);
-  
-  /* Glass effect variables */
-  --glass-background: rgba(255, 255, 255, 0.95);
-  --glass-blur: blur(10px);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Enhanced Card Styling */
-.nxt-card {
-  position: relative;
-  background: var(--glass-background);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: 16px;
-  border: var(--glass-border);
-  padding: var(--spacing-xl);
-  transition: transform var(--animation-medium) cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow var(--animation-medium) ease;
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-
-.nxt-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--cyan-primary), var(--accent-blue));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--animation-medium) ease;
-}
-
-.nxt-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-}
-
-.nxt-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Enhanced Button Styling */
-.nxt-btn {
+/* Hero Section — White Theme */
+.hero-container {
+  background: #fafafa;
+  padding: 64px 0;
   position: relative;
   overflow: hidden;
-  transition: all var(--animation-medium) cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: var(--shadow-sm);
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
 }
 
-.nxt-btn-primary {
-  background: linear-gradient(135deg, var(--cyan-primary), var(--accent-blue));
-  box-shadow: var(--shadow-md), 0 5px 15px rgba(1, 196, 200, 0.2);
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
-.nxt-btn-primary:hover {
+.hero-badge {
+  display: inline-block;
+  background: rgba(202, 202, 32, 0.1);
+  border: 1px solid rgba(202, 202, 32, 0.3);
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin: 8px auto;
+}
+
+.hero-badge span {
+  color: #caca20;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 52px;
+  font-weight: 200;
+  line-height: 56px;
+  margin-bottom: 16px;
+  color: #141414;
+  -webkit-text-fill-color: #141414;
+}
+
+.hero-subtitle {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #525252;
+  line-height: 26px;
+}
+
+.hero-cta {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.hero-cta .nxt-btn {
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: 48px;
+}
+
+/* Section Title — White Theme */
+.section-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 44px;
+  font-weight: 200;
+  line-height: 60px;
+  color: #141414;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+  position: relative;
+}
+
+.section-title::after {
+  display: none;
+}
+
+/* Card Grid */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin: 32px 0;
+  padding: 0;
+  max-width: 100%;
+  background: none;
+  border-radius: 0;
+}
+
+/* App Cards — NXT 2026 White Theme */
+.app-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+  transition: all 150ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card:hover {
+  border-color: #d4d4d4;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 8px 25px rgba(1, 196, 200, 0.3);
 }
 
-.nxt-btn-primary:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-sm);
-}
-
-.nxt-btn-secondary {
-  background: white;
-  border: 1px solid rgba(1, 196, 200, 0.3);
-  color: var(--cyan-primary);
-}
-
-.nxt-btn-secondary:hover {
-  background: rgba(1, 196, 200, 0.05);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Enhanced Progress Bar */
-.progress-container {
-  width: 100%;
-  background-color: rgba(241, 241, 241, 0.5);
-  border-radius: 8px;
-  margin: var(--spacing-md) 0;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.progress-bar {
-  height: 24px;
-  background: linear-gradient(90deg, var(--cyan-primary), var(--accent-blue));
-  border-radius: 8px;
-  width: 0%;
-  transition: width 0.5s cubic-bezier(0.44, 0.95, 0.57, 0.97);
+.app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 600;
-  box-shadow: 0 1px 3px rgba(1, 196, 200, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  font-size: 20px;
+  background: rgba(202, 202, 32, 0.06);
+  border: 1px solid rgba(202, 202, 32, 0.2);
 }
 
-/* Enhanced Time Filter Options */
-.time-filter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-.time-filter-option {
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  padding: var(--spacing-sm);
-  text-align: center;
-  cursor: pointer;
-  transition: all var(--animation-medium) ease;
+.app-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 21px;
   font-weight: 500;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 8px;
+  color: #141414;
+  line-height: 1.4;
 }
 
-.time-filter-option::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(1, 196, 200, 0.05), rgba(41, 141, 255, 0.05));
-  opacity: 0;
-  transition: opacity var(--animation-medium) ease;
-  z-index: -1;
+.app-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #525252;
+  flex-grow: 1;
+  margin-bottom: 16px;
+  line-height: 24px;
 }
 
-.time-filter-option:hover {
-  border-color: var(--cyan-primary);
-  transform: translateY(-2px);
+.app-cta {
+  margin-top: auto;
 }
 
-.time-filter-option:hover::before {
-  opacity: 1;
+/* Tags — White Theme */
+.tag {
+  background: #fafafa;
+  color: #525252;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid #e5e5e5;
 }
 
-.time-filter-option.active {
-  background: linear-gradient(135deg, var(--cyan-primary), var(--accent-blue));
-  color: white;
-  border-color: transparent;
-  box-shadow: var(--shadow-md);
-}
-
-.time-filter-option.active::before {
-  opacity: 0;
-}
-
-/* Enhanced Download List */
-.download-list {
-  margin-top: var(--spacing-lg);
-}
-
-.download-item {
-  display: flex;
-  align-items: center;
-  padding: var(--spacing-md);
-  background-color: white;
-  border-radius: 10px;
-  margin-bottom: var(--spacing-sm);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--animation-medium) ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.download-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(1, 196, 200, 0.2);
-}
-
-.download-icon {
-  margin-right: var(--spacing-md);
-  font-size: 1.5rem;
-  color: var(--cyan-primary);
-  transition: transform var(--animation-medium) ease;
-}
-
-.download-item:hover .download-icon {
-  transform: scale(1.1);
-}
-
-.download-name {
-  flex: 1;
-  font-weight: 500;
-}
-
-/* Enhanced Error Message */
-#error-message {
-  color: var(--error-red);
-  font-weight: 600;
-  padding: var(--spacing-md);
-  background-color: rgba(255, 90, 90, 0.1);
-  border-radius: 8px;
-  margin-bottom: var(--spacing-md);
-  display: none;
-  border-left: 4px solid var(--error-red);
-  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-}
-
-@keyframes shake {
-  10%, 90% { transform: translateX(-1px); }
-  20%, 80% { transform: translateX(2px); }
-  30%, 50%, 70% { transform: translateX(-3px); }
-  40%, 60% { transform: translateX(3px); }
-}
-
-/* Animation Classes */
-.fade-in {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.scale-in {
-  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.pulse {
-  animation: pulse 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes scaleIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+.app-card {
+  animation: fadeIn 0.5s ease-out;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  .nxt-card {
-    padding: var(--spacing-md);
+  .hero-title { font-size: 36px; line-height: 40px; }
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  
-  .time-filter-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .download-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .download-icon {
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .download-name {
-    margin-bottom: var(--spacing-sm);
-  }
+  .app-card { padding: 24px; }
 }

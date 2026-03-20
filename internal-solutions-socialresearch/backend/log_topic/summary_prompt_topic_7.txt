@@ -1,0 +1,75 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: stream, coach, warriors, said, steve kerr, learned, matters
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Warriors' Steve Kerr opens up on his driving force with future unclear  > Warriors head coach Steve Kerr said he’s brooding less about his mistakes and losses, but assistant coach Bruce Fraser said not to believe it.
+
+EXAMPLE 2:
+> Steve Kerr says he’s coping with losing better than he coped with it a few years ago, when he stayed up past 4 a.m. routinely if he felt like his coaching cost the Golden State Warriors.
+
+EXAMPLE 3:
+> Whether Kerr’s attempts at forgiving himself for a costly decision are feeble or not, the competitive fire that forged nine NBA titles — five as a player, four as the Warriors coach — keeps burning. It’s burned through 32 wins this season and 30 losses for the fading Warriors, for whom he’s contracted to coach the rest of this season — and not a day longer.
+sucks i feel like its coming to an end. we have a weird roster. its basically like just next year. maybe he comes back for a year. [...]
+
+EXAMPLE 4:
+> “He’s up till 4 a.m., still,” said Kerr’s college teammate, confidant and friend of more than 40 years and his assistant beside him the past 12. “The reason he’s really good at this is because it matters. Every game matters. Every play matters. … I can’t answer for him, but it’s probably gotten worse.”
+
+EXAMPLE 5:
+> “I’ve learned how to forgive myself and I’ve learned that I need to treat myself the same way I treat my players. If they make a mistake, it’s because mistakes are part of life. … You have to forgive yourself to learn and to grow and to be healthy to move forward. So I’ve done a better job with that.”
+
+EXAMPLE 6:
+what service do y'all stream games on? I tried paying for SlingTV last week. But of the 3 Warriors game since then, 2 were blacked out and 1 was erroring for some reason.
+
+EXAMPLE 7:
+The best thing about watching the Dubs vs Knick on Peacock was zero gambling. No gambling commercials and no analysts selling gambling bargains. It was refreshing. lol what? They practically have pickem built into the interface on peacock 
+Im really sick of this kind of thing and honestly having a hard time wrapping me head around the fact that 4 espn talking heads will come on, make their (bold) predictions and then remind you that 1 5 dollar bet on a ridiculous prop can win you 100
+
+EXAMPLE 8:
+> “I’ve really learned to enjoy it more and I’ve stopped beating myself up,” he said last month in an interview with the Chronicle. “I used to stay up all night if I thought I made a decision that backfired. I wouldn’t sleep. I’d be up till 4 o’clock in the morning, sleep two, three hours. Now get up and go back to work.
+
+EXAMPLE 9:
+its like conflict of interest is not even a thing anymore
+Yup. They were giving live player props all game and giving parlay suggestions.
+
+EXAMPLE 10:
+thanks! Ahem I stream on websites that operate on the Internet
+Anything similar to stream east? Supra stream is down and looking for a new stream to do my privateering 
+any site reccs? i used to use front row sports a while ago, but doesn't seem to work well any more
+
+EXAMPLE 11:
+Wondering what services others use (ideally cheaper the better!) or if I'm better off just going to a bar to watch games
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

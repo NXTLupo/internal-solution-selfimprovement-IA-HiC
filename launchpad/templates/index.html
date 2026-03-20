@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NXT Humans | AI CX Workbench</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/nxt-humans-styles.css?v={{ timestamp }}">
-  
-  
-  
   <link rel="stylesheet" href="/static/unified-styles.css?v={{ timestamp }}">
   <link rel="stylesheet" href="/static/app-thumbnails.css?v={{ timestamp }}">
   <!-- Favicon declarations in proper order -->
@@ -17,10 +17,21 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/static/nxt-humans-logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <meta name="description" content="NXT Humans AI CX Workbench - Comprehensive customer experience research platform">
-  <meta name="theme-color" content="#01C4C8">
+  <meta name="theme-color" content="#115054">
   <link rel="stylesheet" href="/static/chatbot.css">
 </head>
 <body data-enable-agent="true">
+  <!-- NXT 2026 Navigation Bar — White Theme, no logo (logo is in IA header) -->
+  <nav style="background:#ffffff;padding:16px 24px;display:flex;align-items:center;justify-content:flex-end;position:relative;z-index:100;border-bottom:1px solid #e5e5e5;">
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="#collection" style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">Collection</a>
+      <a href="#analysis" style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">Analysis</a>
+      <a href="#automation" style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">Automation</a>
+      <a href="#generation" style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">Generation</a>
+    </div>
+  </nav>
+
+  <!-- Intelligence Augmentation Hero -->
   <header class="intelligence-augmentation-header">
     <div class="ia-container">
       <div class="ia-content">
@@ -37,7 +48,7 @@
       </div>
     </div>
   </header>
-  
+
   <div class="enterprise-hero">
     <div class="enterprise-container">
       <div class="hero-content">
@@ -49,7 +60,7 @@
   
   <div class="enterprise-container">
     <!-- Data Collection Section -->
-    <div class="apps-section" data-category="collection">
+    <div class="apps-section" data-category="collection" id="collection">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-database"></i>
@@ -61,9 +72,6 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="collection" data-service="reddit-ripper">
-          <div class="card-thumbnail">
-            <img src="/static/Reddit_Data_Collector.gif" alt="Social Data Collector Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-comments"></i>
@@ -87,11 +95,8 @@
             </a>
           </div>
         </div>
-        
+
         <div class="enterprise-card" data-category="collection" data-service="video-analyzer">
-          <div class="card-thumbnail">
-            <img src="/static/Video_Transcript_Generator.gif" alt="Video Transcription Service Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-microphone"></i>
@@ -115,12 +120,11 @@
             </a>
           </div>
         </div>
-        
       </div>
     </div>
 
     <!-- Analysis Section -->
-    <div class="apps-section" data-category="analysis">
+    <div class="apps-section" data-category="analysis" id="analysis">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-route"></i>
@@ -132,9 +136,6 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="analysis" data-service="social-research">
-          <div class="card-thumbnail">
-            <img src="/static/Social_Research.gif" alt="Social Research Analytics Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-chart-bar"></i>
@@ -159,11 +160,8 @@
             </a>
           </div>
         </div>
-        
+
         <div class="enterprise-card" data-category="analysis" data-service="journey-mapper">
-          <div class="card-thumbnail">
-            <img src="/static/journey_mapper_3_7.gif" alt="Journey Mapper Claude Opus 4.5 Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-route"></i>
@@ -187,27 +185,22 @@
             </a>
           </div>
         </div>
-
-        <!-- Claude 4 Journey Mapper removed -->
       </div>
     </div>
 
     <!-- Automation Section -->
-    <div class="apps-section" data-category="automation">
+    <div class="apps-section" data-category="automation" id="automation">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-robot"></i>
         </div>
         <div class="section-info">
           <h2 class="section-title">Automation</h2>
-          <p class="section-description">Build and deploy AI agents for Microsoft Copilot Studio</p>
+          <p class="section-description">Build and deploy AI agents for Microsoft Copilot Studio and Claude Code</p>
         </div>
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="automation" data-service="copilot-recipe-generator">
-          <div class="card-thumbnail">
-            <img src="/static/Social_Research.gif" alt="Copilot Recipe Generator Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-robot"></i>
@@ -232,11 +225,37 @@
             </a>
           </div>
         </div>
+
+        <div class="enterprise-card" data-category="automation" data-service="nxt-agency">
+          <div class="card-header">
+            <div class="service-icon">
+              <i class="fas fa-users-cog"></i>
+            </div>
+            <div class="service-status">
+              <div class="status-indicator status-unknown" id="nxt-agency-status"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="service-title">NXT Agency</h3>
+            <p class="service-description">172 AI specialist agents for Claude Code — engineering, design, marketing, sales, product, testing, and more. Browse agents, copy activation prompts, and deploy specialists instantly.</p>
+            <div class="service-tags">
+              <span class="tag">Claude Code</span>
+              <span class="tag">172 Agents</span>
+              <span class="tag">14 Categories</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="http://localhost:5050" id="nxt-agency-url" target="_blank" class="enterprise-btn">
+              <i class="fas fa-external-link-alt"></i>
+              Launch NXT Agency
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Content Generation Section -->
-    <div class="apps-section" data-category="generation">
+    <div class="apps-section" data-category="generation" id="generation">
       <div class="section-header">
         <div class="section-icon">
           <i class="fas fa-magic"></i>
@@ -248,9 +267,6 @@
       </div>
       <div class="enterprise-grid">
         <div class="enterprise-card" data-category="generation" data-service="miro-generator">
-          <div class="card-thumbnail">
-            <img src="/static/miro_board_generator.gif" alt="Miro Board Generator Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-th"></i>
@@ -277,9 +293,6 @@
         </div>
 
         <div class="enterprise-card" data-category="generation" data-service="consistent-character-generator">
-          <div class="card-thumbnail">
-            <img src="/static/character-generator-demo.gif" alt="Consistent Character Generator Demo" class="app-thumbnail" />
-          </div>
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-user-friends"></i>
@@ -304,10 +317,7 @@
           </div>
         </div>
 
-        <div class="enterprise-card" data-category="analysis" data-service="research-generator">
-          <div class="card-thumbnail">
-            <img src="/static/research-generator-demo.gif" alt="HiC Research System Demo" class="app-thumbnail" />
-          </div>
+        <div class="enterprise-card" data-category="generation" data-service="research-generator">
           <div class="card-header">
             <div class="service-icon">
               <i class="fas fa-hand-paper"></i>
@@ -332,16 +342,15 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-  
+
   <footer class="nxt-footer">
     <div class="container">
       <div class="nxt-footer-content">
         <div class="nxt-footer-text">
-          <p>&copy; 2025 NXT Humans. All rights reserved.</p>
+          <p>&copy; 2026 NXT Humans. All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -356,6 +365,7 @@
     const consistentCharacterGeneratorStatus = document.getElementById('consistent-character-generator-status');
     const miroGeneratorStatus = document.getElementById('miro-generator-status');
     const copilotRecipeGeneratorStatus = document.getElementById('copilot-recipe-generator-status');
+    const nxtAgencyStatus = document.getElementById('nxt-agency-status');
     const launchAllBtn = document.getElementById('launch-all-btn');
     const exploreBtn = document.getElementById('explore-btn');
     
@@ -549,6 +559,16 @@
           }
         }
 
+        // NXT Agency - client-side status check (standalone Vite app, not a Docker service)
+        if (nxtAgencyStatus) {
+          try {
+            const nxtResp = await fetch('http://localhost:5050', { mode: 'no-cors', signal: AbortSignal.timeout(3000) });
+            updateStatusIndicator(nxtAgencyStatus, 'running');
+          } catch (e) {
+            updateStatusIndicator(nxtAgencyStatus, 'offline');
+          }
+        }
+
       } catch (error) {
         console.error('Error fetching service status:', error);
       }
@@ -660,357 +680,22 @@
   <!-- Chatbot script -->
   <script src="/static/chatbot.js?v={{ timestamp }}"></script>
   
-  <!-- Compact Modern Design -->
+  <!-- NXT Humans 2026 Design System Overrides -->
   <style>
-    /* Hero Compact */
-    .hero-container {
-      min-height: 180px;
-      padding: 1rem 0;
-      background: linear-gradient(135deg, #121B26 0%, #1E293B 100%) !important;
-    }
-    
-    .hero-container::before,
-    .hero-container::after {
-      display: none !important;
-    }
-    
-    .hero-content {
-      max-width: 600px;
-      text-align: center;
-    }
-    
-    .hero-subtitle {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-    
-    .hero-badge {
-      margin-bottom: 0.5rem;
-    }
-    
-    .hero-cta {
-      margin-top: 1rem;
-    }
-    
-    /* Apps Sections */
-    .apps-section {
-      padding: 1.5rem 0;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Category headers: larger, WHITE text, left-aligned, flat (no shading) */
-    .section-title {
-      font-size: 2.5rem !important;
-      font-weight: 700 !important;
-      margin-bottom: 1.5rem !important;
-      color: #ffffff !important;
-      text-align: left !important;
-      text-shadow: none !important;
-      background: none !important;
-      background-image: none !important;
-      -webkit-background-clip: unset !important;
-      background-clip: unset !important;
-      -webkit-text-fill-color: #ffffff !important;
-    }
-    
-    /* Section header alignment */
-    .section-header {
-      text-align: left !important;
-    }
-    
-    .section-info {
-      text-align: left !important;
-    }
-    
-    .section-description {
-      text-align: left !important;
-    }
-    
-    /* Force ALL icons to be white - CATEGORY HEADER ICONS and SERVICE ICONS */
-    .section-icon i,
-    .service-icon i,
-    .section-header .section-icon i,
-    .apps-section .section-icon i,
-    .fa-download,
-    .fa-chart-network,
-    .fa-sparkles, 
-    .fa-file-chart-pie,
-    .fa-clapperboard,
-    .fas.fa-download,
-    .fas.fa-chart-network,
-    .fas.fa-sparkles,
-    .fas.fa-file-chart-pie,
-    .fas.fa-clapperboard {
-      color: #ffffff !important;
-    }
-    
-    .collection-title {
-      color: var(--accent-blue);
-    }
-    
-    .analysis-title {
-      color: var(--cyan-primary);
-    }
-    
-    .generation-title {
-      color: var(--accent-purple);
-    }
-    
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    .app-card {
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      position: relative;
-      transition: all 0.3s ease;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .app-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    }
-    
-    .app-card.collection {
-      border-left: 4px solid var(--accent-blue);
-    }
-    
-    .app-card.analysis {
-      border-left: 4px solid var(--cyan-primary);
-    }
-    
-    .app-card.generation {
-      border-left: 4px solid var(--accent-purple);
-    }
-    
-    .app-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      transition: all 0.3s ease;
-    }
-    
-    .app-icon i {
-      display: block;
-      line-height: 1;
-    }
-    
-    .app-icon {
-      background: transparent !important;
-      border: none !important;
-      font-size: 2rem !important;
-    }
-    
-    .app-card:hover .app-icon {
-      transform: scale(1.1);
-    }
-    
-    .app-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-      line-height: 1.3;
-    }
-    
-    .app-description {
-      font-size: 0.85rem;
-      color: var(--text-grey);
-      flex-grow: 1;
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-    
-    .app-cta {
-      margin-top: auto;
-    }
-    
-    .nxt-btn-sm {
-      padding: 0.375rem 0.75rem;
-      font-size: 0.8rem;
-      border-radius: 6px;
-      width: auto;
-      min-width: 100px;
-      max-width: 120px;
-      margin: 0 auto;
-      display: block;
-    }
-    
-    /* Status Indicators */
-    .status-indicator {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ddd;
-    }
-    
+    /* Status indicator positioning within enterprise cards */
     .status-running {
-      background: var(--success-green);
-      box-shadow: 0 0 0 3px rgba(12, 206, 107, 0.2);
+      background: #0CCE6B;
     }
-    
     .status-offline {
-      background: var(--error-red);
-      box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.2);
+      background: #FF5A5A;
     }
-    
-    /* Actions Section */
-    .actions-section {
-      padding: 1.5rem 0;
-    }
-    
-    .actions-grid {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .action-btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 0.875rem;
-    }
-    
-    .action-btn.primary {
-      background: var(--cyan-primary);
-      color: white;
-    }
-    
-    .action-btn.primary:hover {
-      background: var(--cyan-primary-hover);
-      transform: translateY(-1px);
-    }
-    
-    .action-btn.secondary {
-      background: #f8f9fa;
-      color: var(--text-dark);
-      border: 1px solid #e9ecef;
-    }
-    
-    .action-btn.secondary:hover {
-      background: #e9ecef;
-    }
-    
-    /* Info Section */
-    .info-section {
-      padding: 1.5rem 0 3rem;
-    }
-    
-    .info-grid {
-      display: flex;
-      justify-content: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .info-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.25rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-    }
-    
-    .info-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
-    }
-    
-    
-    /* URLs Compact */
-    .urls-compact {
-      font-size: 0.875rem;
-    }
-    
-    .url-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.375rem 0;
-      border-bottom: 1px solid #f1f3f4;
-    }
-    
-    .url-item:last-child {
-      border-bottom: none;
-    }
-    
-    .url-label {
-      font-weight: 500;
-      color: var(--text-dark);
-      min-width: 120px;
-    }
-    
-    .url-value {
-      flex-grow: 1;
-      text-align: center;
-      color: var(--text-grey);
-      font-family: monospace;
-      font-size: 0.8rem;
-    }
-    
+
+    /* Port badge */
     .port-badge {
-      font-family: monospace;
-      font-size: 0.75rem;
-      color: var(--cyan-primary);
-      font-weight: 600;
-    }
-    
-    /* Footer Compact */
-    .nxt-footer {
-      background: #f8f9fa;
-      padding: 1rem 0;
-      border-top: 1px solid #e9ecef;
-    }
-    
-    .nxt-footer-content {
-      text-align: center;
-    }
-    
-    .nxt-footer-text p {
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--text-grey);
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .apps-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
-      .info-grid {
-        max-width: 100%;
-      }
+      font-family: 'Archivo', monospace;
+      font-size: 12px;
+      color: #caca20;
+      font-weight: 700;
     }
   </style>
   
