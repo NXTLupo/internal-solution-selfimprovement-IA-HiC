@@ -66,13 +66,21 @@ export interface ScriptScene {
   personaRef?: string; // Name of the persona if this scene features them
 }
 
-export type SlideLayout = 
-  | 'TITLE_SLIDE' 
-  | 'SECTION_HEADER' 
-  | 'CONTENT_SPLIT_RIGHT' // Image on Right, Text on Left
-  | 'CONTENT_SPLIT_LEFT'  // Image on Left, Text on Right
-  | 'FULL_BLEED_IMAGE'    // Image covers slide, text overlay
-  | 'TYPOGRAPHY_QUOTE';   // Focus on big text
+export type SlideLayout =
+  | 'TITLE_SLIDE'
+  | 'SECTION_HEADER'
+  | 'KEY_STATISTIC'        // Single powerful number, full-width
+  | 'EVIDENCE_WALL'        // 3-4 findings side by side with sources
+  | 'QUOTE_FEATURE'        // Full-width quote with attribution
+  | 'PERSONA_SPOTLIGHT'    // Persona card with key tension
+  | 'DATA_INSIGHT'         // Data + interpretation + "so what"
+  | 'COMPARISON'           // Before/after or current/desired
+  | 'RECOMMENDATION'       // Action + impact + evidence
+  | 'CLOSING_CTA'          // Call to action with next steps
+  | 'CONTENT_SPLIT_RIGHT'  // Image on Right, Text on Left
+  | 'CONTENT_SPLIT_LEFT'   // Image on Left, Text on Right
+  | 'FULL_BLEED_IMAGE'     // Image covers slide, text overlay
+  | 'TYPOGRAPHY_QUOTE';    // Focus on big text
 
 export interface SlideStyle {
     backgroundColor: string;

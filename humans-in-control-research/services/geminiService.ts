@@ -624,9 +624,42 @@ Output JSON.`;
     }
 
     async generateDeckStructure(feedback: string | undefined, recommendations: StrategicRecommendation[] | undefined, onStream: (t: string) => void): Promise<StepResult_Structure> {
-        const prompt = `STEP: STRUCTURE. Plan slide sequence. 
-        REQUIRED: Use one of these layouts for each slide: TITLE_SLIDE, SECTION_HEADER, CONTENT_SPLIT_RIGHT, CONTENT_SPLIT_LEFT, FULL_BLEED_IMAGE, TYPOGRAPHY_QUOTE.
-        Output JSON.`;
+        const prompt = `STEP: DECK STRUCTURE. You are a McKinsey-trained presentation strategist.
+
+NARRATIVE FRAMEWORK (Situation-Complication-Resolution):
+Plan a 10-14 slide executive research presentation following this arc:
+
+1. HOOK (1 slide, KEY_STATISTIC): The single most surprising finding. One large number or statement that stops the audience.
+2. SITUATION (2-3 slides): What's happening in the landscape. Use EVIDENCE_WALL and DATA_INSIGHT layouts. Cite [CHUNK_XXX] sources.
+3. COMPLICATION (2-3 slides): Why this matters. Use PERSONA_SPOTLIGHT and QUOTE_FEATURE layouts. Show real stakeholder perspectives.
+4. RESOLUTION (3-4 slides): What to do. Use RECOMMENDATION layouts. Each must reference evidence. Quantify impact where possible.
+5. CLOSE (1 slide, CLOSING_CTA): Single call-to-action with specific next steps.
+
+AVAILABLE LAYOUTS:
+- TITLE_SLIDE: Opening title with subtitle
+- KEY_STATISTIC: Single powerful number, full-width (used for hook)
+- EVIDENCE_WALL: 3-4 findings side by side with source badges
+- QUOTE_FEATURE: Full-width quote with attribution and context
+- PERSONA_SPOTLIGHT: Persona card with their key tension and photo
+- DATA_INSIGHT: Chart/data interpretation with "so what" framing
+- COMPARISON: Before/after or current/desired state
+- RECOMMENDATION: Action + evidence + expected impact
+- SECTION_HEADER: Section divider
+- CONTENT_SPLIT_RIGHT: Text left, image right
+- CONTENT_SPLIT_LEFT: Image left, text right
+- CLOSING_CTA: Call to action with next steps
+
+REQUIREMENTS:
+- At least 1 KEY_STATISTIC slide
+- At least 1 QUOTE_FEATURE slide with a direct quote from the corpus
+- At least 1 PERSONA_SPOTLIGHT slide
+- At least 2 RECOMMENDATION slides
+- The storyArc must describe the narrative tension: what's at stake, why now, what happens if we don't act
+- Each slide rationale must explain WHY this slide appears at this point in the story
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+${recommendations ? 'AVAILABLE RECOMMENDATIONS: ' + JSON.stringify(recommendations.map(r => r.title)) : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -638,7 +671,7 @@ Output JSON.`;
                         type: Type.OBJECT, 
                         properties: { 
                             slideNumber: { type: Type.INTEGER }, 
-                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE'] }, 
+                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'KEY_STATISTIC', 'EVIDENCE_WALL', 'QUOTE_FEATURE', 'PERSONA_SPOTLIGHT', 'DATA_INSIGHT', 'COMPARISON', 'RECOMMENDATION', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE', 'CLOSING_CTA'] }, 
                             title: { type: Type.STRING }, 
                             rationale: { type: Type.STRING } 
                         },
@@ -654,9 +687,26 @@ Output JSON.`;
     }
 
     async generateNarrative(structure: StepResult_Structure, recommendations: StrategicRecommendation[] | undefined, feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Narrative> {
-        const prompt = `STEP: NARRATIVE. Write slide content and script.
-        REQUIRED: Ensure layout matches one of: TITLE_SLIDE, SECTION_HEADER, CONTENT_SPLIT_RIGHT, CONTENT_SPLIT_LEFT, FULL_BLEED_IMAGE, TYPOGRAPHY_QUOTE.
-        Output JSON.`;
+        const prompt = `STEP: NARRATIVE. Write compelling slide content for each slide in the approved structure.
+
+FOR EACH SLIDE, provide:
+- title: punchy, action-oriented (not generic)
+- content: 2-4 bullet points. Each bullet MUST contain a specific data point, quote, or finding with [CHUNK_XXX] citation
+- narrative: the presenter's speaking script for this slide (2-3 sentences, conversational but authoritative)
+- visualPrompt: detailed prompt for generating a supporting image (professional, editorial photography style)
+- quote: a direct quote from the corpus that supports this slide's key message
+- speakerNotes: additional context, transition to next slide, audience engagement prompt
+
+SLIDE-TYPE-SPECIFIC RULES:
+- KEY_STATISTIC: content[0] = the single number. content[1] = context sentence with source. visualPrompt = abstract data visualization.
+- QUOTE_FEATURE: quote = verbatim from corpus. content[0] = speaker context. content[1] = why this matters.
+- PERSONA_SPOTLIGHT: content = persona's key tension, motivations, pain points. quote = persona's synthetic voice.
+- EVIDENCE_WALL: content = 3-4 distinct findings, each from a different source, each with [CHUNK_XXX] citation.
+- RECOMMENDATION: content[0] = the action. content[1] = expected impact (quantified). content[2] = evidence base.
+- CLOSING_CTA: content = 3 specific next steps with owners and timelines.
+
+${feedback ? 'FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -668,12 +718,13 @@ Output JSON.`;
                         type: Type.OBJECT, 
                         properties: { 
                             slideNumber: { type: Type.INTEGER }, 
-                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE'] }, 
+                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'KEY_STATISTIC', 'EVIDENCE_WALL', 'QUOTE_FEATURE', 'PERSONA_SPOTLIGHT', 'DATA_INSIGHT', 'COMPARISON', 'RECOMMENDATION', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE', 'CLOSING_CTA'] }, 
                             title: { type: Type.STRING }, 
                             content: { type: Type.ARRAY, items: { type: Type.STRING } }, 
                             narrative: { type: Type.STRING }, 
-                            visualPrompt: { type: Type.STRING }, 
-                            quote: { type: Type.STRING } 
+                            visualPrompt: { type: Type.STRING },
+                            quote: { type: Type.STRING },
+                            speakerNotes: { type: Type.STRING }
                         },
                         required: ["slideNumber", "layout", "title", "content", "narrative", "visualPrompt"]
                     } 

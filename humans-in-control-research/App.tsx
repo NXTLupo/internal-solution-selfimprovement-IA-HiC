@@ -6,6 +6,7 @@ import ResultsView from './components/ResultsView';
 import AnalysisCheckpoint from './components/AnalysisCheckpoint';
 import HeuristicBriefIntake from './components/HeuristicBriefIntake';
 import HeuristicReportView from './components/HeuristicReportView';
+import LiveSourceFeed from './components/LiveSourceFeed';
 import { GenAISession } from './services/geminiService';
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
 import { DEFAULT_MODELS } from './services/aiRouter';
@@ -173,14 +174,16 @@ const MethodologyModal = ({ outputId, onClose }: { outputId: OutputOption, onClo
 };
 
 // --- LIVE RESEARCH BOARD COMPONENT ---
-const LiveResearchBoard = ({ 
+const LiveResearchBoard = ({
     ingestion, themes, personas, journeyMap, prd, roadmap, techArch, recommendations, structure,
     events, currentStatus,
-    onEdit
-}: { 
+    onEdit,
+    isCollectingData, collectionPhase, liveSourceResults, liveRefinedQueries,
+}: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
-    onEdit: (stage: AnalysisStage) => void
+    onEdit: (stage: AnalysisStage) => void,
+    isCollectingData?: boolean, collectionPhase?: string, liveSourceResults?: any[], liveRefinedQueries?: Record<string, string>,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
 
@@ -418,8 +421,22 @@ const LiveResearchBoard = ({
                 </div>
             </div>
 
-            {/* RIGHT: Thinking Stream (Integrated) */}
-            <div className="w-96 flex-shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded flex flex-col overflow-hidden shadow-none h-full">
+            {/* RIGHT: Live Source Feed OR Thinking Stream */}
+            <div className="w-[420px] flex-shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded flex flex-col overflow-hidden shadow-none h-full">
+                {/* Show Live Source Feed during data collection */}
+                {(isCollectingData || (collectionPhase && collectionPhase !== 'complete' && liveSourceResults.length > 0)) ? (
+                    <LiveSourceFeed
+                        sources={liveSourceResults}
+                        refinedQueries={liveRefinedQueries}
+                        totalCollected={liveSourceResults.reduce((s, r) => s + (r.items?.length || 0), 0)}
+                        totalSources={liveSourceResults.length}
+                        successfulSources={liveSourceResults.filter(r => r.status === 'complete').length}
+                        isCollecting={isCollectingData}
+                        phase={collectionPhase}
+                    />
+                ) : (
+                <>
+                {/* Standard Reasoning Stream */}
                 <div className="p-4 border-b border-[var(--border-primary)] bg-[var(--bg-tertiary)]">
                     <div className="flex items-center gap-2">
                         <div className={`w-2 h-2 rounded-full ${currentStatus.includes('...') ? 'bg-[var(--nxt-lime)] animate-pulse' : 'bg-green-500'}`}></div>
@@ -450,6 +467,8 @@ const LiveResearchBoard = ({
                     </AnimatePresence>
                     <div ref={streamEndRef} className="h-4"></div>
                 </div>
+                </>
+                )}
             </div>
         </div>
     );
@@ -506,6 +525,9 @@ const App = () => {
     const [videoUrls, setVideoUrls] = useState('');
     const [isCollectingData, setIsCollectingData] = useState(false);
     const [dataSourceStatus, setDataSourceStatus] = useState<string>('');
+    const [collectionPhase, setCollectionPhase] = useState<string>('');
+    const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
+    const [liveRefinedQueries, setLiveRefinedQueries] = useState<Record<string, string>>({});
 
     const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
@@ -897,10 +919,17 @@ const App = () => {
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
                 const { refineSearchQueries } = await import('./services/researchFabricOrchestrator');
+                setCollectionPhase('refining');
                 setDataSourceStatus('AI refining search queries per source...');
                 setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[QUERY REFINEMENT] Generating targeted queries for ${sourceIds.length} sources...` }]);
 
                 // Map source IDs to actual source names and query categories
+                const tierMap: Record<string, number> = {
+                    'higher_ed_dive': 2, 'inside_higher_ed': 2, 'edsurge': 2, 'hechinger': 2, 'the_conversation_edu': 2,
+                    'gdelt': 2, 'openalex': 1, 'semantic_scholar': 1, 'crossref': 1, 'college_scorecard': 1, 'eric': 1,
+                    'worldbank': 1, 'fred': 1, 'usaspending': 1, 'federal_register': 1, 'sec_edgar': 1, 'data_gov': 1,
+                    'hackernews': 3, 'youtube': 3,
+                };
                 const sourceDisplayNames: Record<string, string> = {
                     'higher_ed_dive': 'Higher Ed Dive (RSS)', 'inside_higher_ed': 'Inside Higher Ed (RSS)', 'edsurge': 'EdSurge (RSS)',
                     'hechinger': 'Hechinger Report (RSS)', 'the_conversation_edu': 'The Conversation (RSS)',
@@ -926,21 +955,29 @@ const App = () => {
                     content: `[SOURCES] ${sourceIds.length} data sources selected:\n${sourceIds.map(id => `  - ${sourceDisplayNames[id] || id}`).join('\n')}`
                 }]);
 
+                // Initialize live source feed with all sources in "pending" state
+                setLiveSourceResults(sourceIds.map(sid => ({
+                    source: sourceDisplayNames[sid] || sid,
+                    sourceId: sid,
+                    credibilityTier: tierMap[sid] || 3,
+                    items: [],
+                    total: 0,
+                    status: 'pending',
+                })));
+
                 const uniqueCategories = [...new Set(sourceIds.map(id => queryCategoryMap[id] || id))];
                 let refinedQueries: Record<string, string> = {};
                 try {
                     refinedQueries = await refineSearchQueries(researchGoal, selectedLens, uniqueCategories);
+                    setLiveRefinedQueries(refinedQueries);
+                    setCollectionPhase('collecting');
                     setThinkingEvents(prev => [...prev, {
                         type: 'PHASE',
-                        content: `[QUERY STRATEGY] AI generated ${Object.keys(refinedQueries).length} targeted search queries:`
-                    },
-                    ...Object.entries(refinedQueries).map(([cat, query]) => ({
-                        type: 'INSIGHT',
-                        content: `[${cat}] -> "${query}"`
-                    }))]);
+                        content: `[QUERY STRATEGY] AI generated ${Object.keys(refinedQueries).length} targeted search queries`
+                    }]);
                 } catch (e) {
                     console.warn('Query refinement failed, using goal directly');
-                    setThinkingEvents(prev => [...prev, { type: 'CORRECTION', content: '[QUERY REFINEMENT] Failed -- using research goal as fallback query' }]);
+                    setCollectionPhase('collecting');
                 }
 
                 // STEP 2: Search each source with its refined query via proxy
@@ -949,18 +986,38 @@ const App = () => {
                     setDataSourceStatus(`Searching ${sourceIds.length} sources with targeted queries...`);
                     setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[SEARCHING] Querying ${sourceIds.length} data sources in parallel...` }]);
 
-                    // Search sources individually with their refined queries
+                    // Search sources individually — update live feed as each completes
                     const searchPromises = sourceIds.map(async (sid) => {
                         const category = queryCategoryMap[sid] || sid;
                         const displayName = sourceDisplayNames[sid] || sid;
                         const query = refinedQueries[category] || researchGoal;
+                        const tier = tierMap[sid] || 3;
+
+                        // Set this source to "loading"
+                        setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'loading', query } : s));
+
                         try {
                             const resp = await fetch(`http://localhost:5012/api/search/${sid}?q=${encodeURIComponent(query)}&limit=15`, { signal: AbortSignal.timeout(35000) });
-                            if (!resp.ok) return { source: displayName, sourceId: sid, items: [], total: 0, query };
+                            if (!resp.ok) {
+                                setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
+                                return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
+                            }
                             const data = await resp.json();
-                            return { ...data, source: displayName, sourceId: sid, query };
+                            const result = { ...data, source: displayName, sourceId: sid, credibilityTier: tier, query };
+
+                            // Update live feed with results
+                            setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? {
+                                ...s,
+                                items: result.items || [],
+                                total: result.total || 0,
+                                status: (result.items?.length || 0) > 0 ? 'complete' : 'empty',
+                                query,
+                            } : s));
+
+                            return result;
                         } catch {
-                            return { source: displayName, sourceId: sid, items: [], total: 0, query };
+                            setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
+                            return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
                         }
                     });
 
@@ -985,8 +1042,10 @@ const App = () => {
                             ...sourceEvents,
                             { type: 'PHASE', content: `[RESULTS] ${totalProxyItems} items collected from ${successCount} of ${sourceIds.length} sources (${failedSources.length} returned empty)` },
                         ]);
+                        setCollectionPhase('filtering');
                     } catch (e: any) {
                         setThinkingEvents(prev => [...prev, { type: 'CORRECTION', content: `[WARNING] Some sources failed: ${e.message}` }]);
+                        setCollectionPhase('filtering');
                     }
                 }
 
@@ -1062,6 +1121,7 @@ const App = () => {
                 setDataSourceStatus(`Collection partially failed: ${e.message}`);
             } finally {
                 setIsCollectingData(false);
+                setCollectionPhase('complete');
             }
         }
 
@@ -1566,7 +1626,7 @@ const App = () => {
                   {/* ANALYZING STATE */}
                   {appState === AppState.ANALYZING && (
                       <div className="flex-1 p-8 bg-[var(--bg-primary)] h-full overflow-hidden flex flex-col">
-                           <LiveResearchBoard 
+                           <LiveResearchBoard
                                ingestion={ingestionResult}
                                themes={themesResult}
                                personas={personasResult}
@@ -1578,6 +1638,10 @@ const App = () => {
                                structure={structureResult}
                                events={thinkingEvents}
                                currentStatus={statusMessage}
+                               isCollectingData={isCollectingData}
+                               collectionPhase={collectionPhase}
+                               liveSourceResults={liveSourceResults}
+                               liveRefinedQueries={liveRefinedQueries}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
