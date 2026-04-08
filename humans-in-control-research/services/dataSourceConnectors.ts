@@ -68,6 +68,9 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'AI Policy': 'news',
     'AI Communities': 'social',
     'AI Code': 'social',
+    'AI Conferences': 'academic',
+    'AI Communities': 'social',
+    'AI Code': 'social',
 };
 
 // --- GENERIC PROXY CONNECTOR FACTORY ---
@@ -207,17 +210,87 @@ export const stackOverflowAiConnector = createProxyConnector('stackoverflow_ai',
 
 // --- AI Code ---
 export const githubReposConnector = createProxyConnector('github_repos', 'GitHub Repos', 'AI Code', 'GitHub trending AI repositories');
+export const githubCodeConnector = createProxyConnector('github_trending', 'GitHub Code Search', 'AI Code', 'Search AI code across GitHub');
+
+// --- MORE AI News ---
+export const engadgetAiConnector = createProxyConnector('engadget_ai', 'Engadget AI', 'AI News', 'Consumer tech AI coverage');
+export const conversationAiConnector = createProxyConnector('the_conversation_ai', 'The Conversation AI', 'AI News', 'Academic commentary on AI');
+export const analyticsVidhyaConnector = createProxyConnector('analytics_vidhya', 'Analytics Vidhya', 'AI News', 'Data science community');
+export const towardsAiConnector = createProxyConnector('towards_ai', 'Towards AI', 'AI News', 'AI community publication');
+export const alignmentForumConnector = createProxyConnector('ai_alignment_forum', 'AI Alignment Forum', 'AI News', 'AI safety discourse');
+export const importAiConnector = createProxyConnector('import_ai', 'Import AI', 'AI News', 'Jack Clark AI newsletter');
+export const mlMasteryConnector = createProxyConnector('ml_mastery', 'ML Mastery', 'AI News', 'ML tutorials and guides');
+export const guardianAiConnector = createProxyConnector('the_guardian_ai', 'The Guardian AI', 'AI News', 'Public-interest AI reporting');
+export const zdnetAiConnector = createProxyConnector('zdnet_ai', 'ZDNet AI', 'AI News', 'Enterprise AI coverage');
+export const registerMlConnector = createProxyConnector('the_register_ml', 'The Register ML', 'AI News', 'Infrastructure AI coverage');
+
+// --- MORE AI Lab Blogs ---
+export const appleMlConnector = createProxyConnector('apple_ml', 'Apple ML Research', 'AI Lab Blogs', 'Apple machine learning research');
+export const amazonScienceConnector = createProxyConnector('amazon_science', 'Amazon Science', 'AI Lab Blogs', 'Amazon research publications');
+export const awsMlConnector = createProxyConnector('aws_ml_blog', 'AWS ML Blog', 'AI Lab Blogs', 'AWS machine learning blog');
+export const ibmResearchConnector = createProxyConnector('ibm_research', 'IBM Research', 'AI Lab Blogs', 'IBM research publications');
+export const salesforceAiConnector = createProxyConnector('salesforce_ai', 'Salesforce AI', 'AI Lab Blogs', 'Salesforce AI research');
+export const cohereBlogConnector = createProxyConnector('cohere_blog', 'Cohere Blog', 'AI Lab Blogs', 'Cohere model and product posts');
+export const allenAiConnector = createProxyConnector('allen_ai', 'Allen AI', 'AI Lab Blogs', 'Allen Institute for AI');
+export const stanfordHaiBlogConnector = createProxyConnector('stanford_hai_blog', 'Stanford HAI Blog', 'AI Lab Blogs', 'Stanford HAI news');
+export const databricksAiConnector = createProxyConnector('databricks_ai', 'Databricks AI', 'AI Lab Blogs', 'Databricks AI posts');
+export const stabilityAiConnector = createProxyConnector('stability_ai', 'Stability AI', 'AI Lab Blogs', 'Stability AI releases');
+export const mistralAiConnector = createProxyConnector('mistral_ai', 'Mistral AI', 'AI Lab Blogs', 'Mistral model releases');
+
+// --- MORE AI Research ---
+export const arxivCsCvConnector = createProxyConnector('arxiv_cs_cv', 'arXiv CS.CV', 'AI Research', 'Computer vision preprints');
+export const arxivCsRoConnector = createProxyConnector('arxiv_cs_ro', 'arXiv CS.RO', 'AI Research', 'Robotics preprints');
+export const arxivStatMlConnector = createProxyConnector('arxiv_stat_ml', 'arXiv stat.ML', 'AI Research', 'Statistical ML preprints');
+export const arxivCsIrConnector = createProxyConnector('arxiv_cs_ir', 'arXiv CS.IR', 'AI Research', 'Information retrieval preprints');
+export const arxivCsHcConnector = createProxyConnector('arxiv_cs_hc', 'arXiv CS.HC', 'AI Research', 'Human-computer interaction preprints');
+export const dataciteConnector = createProxyConnector('datacite', 'DataCite', 'AI Research', 'Dataset DOI registry');
+export const zenodoConnector = createProxyConnector('zenodo', 'Zenodo', 'AI Research', 'Research outputs and DOIs');
+
+// --- MORE AI Models & Datasets ---
+export const openMlConnector = createProxyConnector('openml', 'OpenML', 'AI Models & Datasets', 'ML datasets and tasks');
+export const kaggleConnector = createProxyConnector('kaggle_datasets', 'Kaggle Datasets', 'AI Models & Datasets', 'Kaggle dataset registry');
+export const papersWithCodeConnector = createProxyConnector('paperswithcode', 'Papers With Code', 'AI Models & Datasets', 'Papers with code and benchmarks');
+
+// --- MORE AI Policy ---
+export const oecdAiConnector = createProxyConnector('oecd_ai', 'OECD AI Policy', 'AI Policy', 'OECD AI policy observatory');
+export const effAiConnector = createProxyConnector('eff_ai', 'EFF AI & Rights', 'AI Policy', 'Electronic Frontier Foundation AI');
+export const adaLovelaceConnector = createProxyConnector('ada_lovelace', 'Ada Lovelace Institute', 'AI Policy', 'AI ethics research');
+export const aiNowConnector = createProxyConnector('ai_now_institute', 'AI Now Institute', 'AI Policy', 'AI policy research');
+export const csetConnector = createProxyConnector('cset_georgetown', 'Georgetown CSET', 'AI Policy', 'Tech policy research');
+export const partnershipAiConnector = createProxyConnector('partnership_on_ai', 'Partnership on AI', 'AI Policy', 'AI governance organization');
+export const nistAiConnector = createProxyConnector('nist_ai', 'NIST AI Standards', 'AI Policy', 'US AI standards body');
+
+// --- MORE AI Communities ---
+export const redditMlConnector = createProxyConnector('reddit_ml', 'Reddit r/MachineLearning', 'AI Communities', 'ML community discussion');
+export const redditAiConnector = createProxyConnector('reddit_ai', 'Reddit r/artificial', 'AI Communities', 'AI community discussion');
+export const redditLlmConnector = createProxyConnector('reddit_llm', 'Reddit r/LocalLLaMA', 'AI Communities', 'Local LLM community');
+
+// --- MORE Open Data ---
+export const dataGovAuConnector = createProxyConnector('data_gov_au', 'Data.gov.au', 'Open Data Portals', 'Australian open data');
+export const dataGovCaConnector = createProxyConnector('data_gov_ca', 'Open Canada', 'Open Data Portals', 'Canadian open data');
+export const euDataConnector = createProxyConnector('eu_data_portal', 'EU Open Data', 'Open Data Portals', 'European Union data');
+export const laOpenDataConnector = createProxyConnector('la_open_data', 'LA Open Data', 'Open Data Portals', 'Los Angeles city data');
+export const sfOpenDataConnector = createProxyConnector('sf_open_data', 'SF Open Data', 'Open Data Portals', 'San Francisco city data');
+export const texasDataConnector = createProxyConnector('texas_open_data', 'Texas Open Data', 'Open Data Portals', 'Texas state data');
+
+// --- AI Conferences ---
+export const neuripsConnector = createProxyConnector('neurips_proc', 'NeurIPS Proceedings', 'AI Conferences', 'Neural information processing');
+export const aclAnthologyConnector = createProxyConnector('acl_anthology', 'ACL Anthology', 'AI Conferences', 'NLP conference papers');
+
+// --- More Video ---
+export const youtubeAiConnector = createProxyConnector('youtube_ai', 'YouTube AI Content', 'Video', 'AI video content');
 
 // ============================================================
-// REGISTRY
+// REGISTRY — ALL 119 CONNECTORS
 // ============================================================
 
 export const ALL_CONNECTORS: DataSourceConnector[] = [
-    // News
+    // News & Higher-Ed
     gdeltConnector, higherEdDiveConnector, insideHigherEdConnector, edSurgeConnector,
     hechingerConnector, campusTechConnector, theConversationConnector, openCampusConnector,
     // Academic
     openAlexConnector, semanticScholarConnector, crossrefConnector, doajConnector, europePmcConnector, coreConnector,
+    dataciteConnector, zenodoConnector,
     // Education
     collegeScorecardConnector, ericConnector,
     // Economic
@@ -225,30 +298,40 @@ export const ALL_CONNECTORS: DataSourceConnector[] = [
     // Government
     usaSpendingConnector, federalRegisterConnector, congressConnector, secEdgarConnector,
     // Open Data
-    dataGovConnector, dataGovUkConnector, nycOpenDataConnector,
+    dataGovConnector, dataGovUkConnector, nycOpenDataConnector, dataGovAuConnector, dataGovCaConnector,
+    euDataConnector, laOpenDataConnector, sfOpenDataConnector, texasDataConnector,
     // Social/Tech
     hackerNewsConnector,
     // Video
-    youtubeSearchConnector,
+    youtubeSearchConnector, youtubeAiConnector,
     // Web
     jinaReaderConnector,
-    // AI News
+    // AI News (21)
     mitTechReviewAiConnector, ieeeSpectrumAiConnector, ventureBeatAiConnector, techCrunchAiConnector,
     arsTechnicaAiConnector, wiredAiConnector, theVergeAiConnector, syncedReviewConnector,
-    markTechPostConnector, kdNuggetsConnector, theGradientConnector,
-    // AI Lab Blogs
+    markTechPostConnector, kdNuggetsConnector, theGradientConnector, engadgetAiConnector,
+    conversationAiConnector, analyticsVidhyaConnector, towardsAiConnector, alignmentForumConnector,
+    importAiConnector, mlMasteryConnector, guardianAiConnector, zdnetAiConnector, registerMlConnector,
+    // AI Lab Blogs (20)
     openAiBlogConnector, googleAiBlogConnector, deepMindBlogConnector, metaAiBlogConnector,
-    microsoftResearchConnector, nvidiaDevBlogConnector, huggingFaceBlogConnector, anthropicBlogConnector, bairBlogConnector,
-    // AI Research
-    arxivCsAiConnector, arxivCsLgConnector, arxivCsClConnector, openReviewConnector, dblpConnector,
-    // AI Models & Datasets
-    hfModelsConnector, hfDatasetsConnector,
-    // AI Policy
-    brookingsAiConnector, stanfordHaiConnector,
-    // AI Communities
-    stackOverflowAiConnector,
-    // AI Code
-    githubReposConnector,
+    microsoftResearchConnector, nvidiaDevBlogConnector, huggingFaceBlogConnector, anthropicBlogConnector,
+    bairBlogConnector, appleMlConnector, amazonScienceConnector, awsMlConnector, ibmResearchConnector,
+    salesforceAiConnector, cohereBlogConnector, allenAiConnector, stanfordHaiBlogConnector,
+    databricksAiConnector, stabilityAiConnector, mistralAiConnector,
+    // AI Research (10)
+    arxivCsAiConnector, arxivCsLgConnector, arxivCsClConnector, arxivCsCvConnector, arxivCsRoConnector,
+    arxivStatMlConnector, arxivCsIrConnector, arxivCsHcConnector, openReviewConnector, dblpConnector,
+    // AI Models & Datasets (5)
+    hfModelsConnector, hfDatasetsConnector, openMlConnector, kaggleConnector, papersWithCodeConnector,
+    // AI Policy (8)
+    brookingsAiConnector, stanfordHaiConnector, oecdAiConnector, effAiConnector, adaLovelaceConnector,
+    aiNowConnector, csetConnector, partnershipAiConnector, nistAiConnector,
+    // AI Communities (4)
+    stackOverflowAiConnector, redditMlConnector, redditAiConnector, redditLlmConnector,
+    // AI Code (2)
+    githubReposConnector, githubCodeConnector,
+    // AI Conferences (2)
+    neuripsConnector, aclAnthologyConnector,
 ];
 
 export const CONNECTORS_BY_CATEGORY: Record<string, DataSourceConnector[]> = {};

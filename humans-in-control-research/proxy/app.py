@@ -197,12 +197,12 @@ SOURCES = {
     "deepmind_blog": {"name": "DeepMind Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://deepmind.google/blog/rss.xml"},
     "meta_ai_blog": {"name": "Meta AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://ai.meta.com/blog/rss/"},
     "microsoft_research": {"name": "Microsoft Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.microsoft.com/en-us/research/feed/"},
-    "nvidia_developer": {"name": "NVIDIA Developer", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://developer.nvidia.com/blog/feed/"},
+    "nvidia_dev_blog": {"name": "NVIDIA Developer", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://developer.nvidia.com/blog/feed/"},
     "huggingface_blog": {"name": "Hugging Face Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://huggingface.co/blog/feed.xml"},
     "anthropic_blog": {"name": "Anthropic Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.anthropic.com/feed.xml"},
     "stability_ai": {"name": "Stability AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://stability.ai/news/rss.xml"},
     "mistral_ai": {"name": "Mistral AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://mistral.ai/feed.xml"},
-    "bair_berkeley": {"name": "BAIR (Berkeley)", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://bair.berkeley.edu/blog/feed.xml"},
+    "bair_blog": {"name": "BAIR (Berkeley)", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://bair.berkeley.edu/blog/feed.xml"},
 
     # --- AI RESEARCH REPOS (RSS + REST) — Tier 1 ---
     "arxiv_cs_ai": {"name": "arXiv CS.AI", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.AI"},
@@ -218,11 +218,11 @@ SOURCES = {
         "results_path": "result.hits.hit", "total_path": "result.hits.@total"},
 
     # --- AI MODELS & DATASETS (REST) — Tier 1 ---
-    "huggingface_models": {"name": "Hugging Face Models", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+    "hf_models": {"name": "Hugging Face Models", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
         "base_url": "https://huggingface.co/api/models",
         "params": {"sort": "downloads", "direction": "-1"}, "query_param": "search", "limit_param": "limit", "default_limit": 15,
         "results_path": None, "total_path": None},
-    "huggingface_datasets": {"name": "Hugging Face Datasets", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+    "hf_datasets": {"name": "Hugging Face Datasets", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
         "base_url": "https://huggingface.co/api/datasets",
         "params": {"sort": "downloads", "direction": "-1"}, "query_param": "search", "limit_param": "limit", "default_limit": 15,
         "results_path": None, "total_path": None},
@@ -243,6 +243,129 @@ SOURCES = {
         "base_url": "https://api.github.com/search/repositories",
         "params": {"sort": "stars", "order": "desc"}, "query_param": "q", "limit_param": "per_page", "default_limit": 15,
         "results_path": "items", "total_path": "total_count"},
+
+    # ================================================================
+    # REMAINING AI SOURCES — Completing the 200-source registry
+    # ================================================================
+
+    # --- MORE AI NEWS (RSS) — Tier 2 ---
+    "engadget_ai": {"name": "Engadget AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.engadget.com/rss.xml"},
+    "the_conversation_ai": {"name": "The Conversation AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://theconversation.com/us/topics/artificial-intelligence-13/articles.atom"},
+    "analytics_vidhya": {"name": "Analytics Vidhya", "category": "AI News", "type": "rss", "tier": 3, "url": "https://www.analyticsvidhya.com/feed/"},
+    "towards_ai": {"name": "Towards AI", "category": "AI News", "type": "rss", "tier": 3, "url": "https://pub.towardsai.net/feed"},
+    "ai_alignment_forum": {"name": "AI Alignment Forum", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.alignmentforum.org/feed.xml"},
+    "import_ai": {"name": "Import AI (Jack Clark)", "category": "AI News", "type": "rss", "tier": 2, "url": "https://importai.substack.com/feed"},
+    "ml_mastery": {"name": "Machine Learning Mastery", "category": "AI News", "type": "rss", "tier": 3, "url": "https://machinelearningmastery.com/feed/"},
+
+    # --- MORE AI LAB BLOGS (RSS) — Tier 1 ---
+    "apple_ml": {"name": "Apple ML Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://machinelearning.apple.com/rss.xml"},
+    "amazon_science": {"name": "Amazon Science", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.amazon.science/index.rss"},
+    "aws_ml_blog": {"name": "AWS ML Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
+    "ibm_research": {"name": "IBM Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://research.ibm.com/blog/rss"},
+    "salesforce_ai": {"name": "Salesforce AI Research", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://blog.salesforceairesearch.com/rss/"},
+    "cohere_blog": {"name": "Cohere Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://cohere.com/blog/rss.xml"},
+    "allen_ai": {"name": "Allen AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://allenai.org/blog/feed"},
+    "stanford_hai_blog": {"name": "Stanford HAI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://hai.stanford.edu/news/rss.xml"},
+    "databricks_ai": {"name": "Databricks AI", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://www.databricks.com/feed"},
+
+    # --- MORE AI RESEARCH (RSS) — Tier 1 ---
+    "arxiv_cs_cv": {"name": "arXiv CS.CV (Vision)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.CV"},
+    "arxiv_cs_ro": {"name": "arXiv CS.RO (Robotics)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.RO"},
+    "arxiv_stat_ml": {"name": "arXiv stat.ML", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/stat.ML"},
+    "arxiv_cs_ir": {"name": "arXiv CS.IR (Info Retrieval)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.IR"},
+    "arxiv_cs_hc": {"name": "arXiv CS.HC (Human-Computer)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.HC"},
+
+    # --- MORE SCHOLARLY APIs (REST) — Tier 1 ---
+    "datacite": {"name": "DataCite (Dataset DOIs)", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://api.datacite.org/dois",
+        "params": {"resource-type-id": "dataset"},
+        "query_param": "query", "limit_param": "page[size]", "default_limit": 15,
+        "results_path": "data", "total_path": "meta.total"},
+    "zenodo": {"name": "Zenodo", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://zenodo.org/api/records",
+        "params": {"type": "publication"},
+        "query_param": "q", "limit_param": "size", "default_limit": 15,
+        "results_path": "hits.hits", "total_path": "hits.total"},
+
+    # --- AI POLICY & ETHICS (RSS) — Tier 1 ---
+    "oecd_ai": {"name": "OECD AI Policy", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.oecd-ilibrary.org/rss/science-and-technology.rss"},
+    "eff_ai": {"name": "EFF AI & Rights", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.eff.org/rss/updates.xml"},
+    "ada_lovelace": {"name": "Ada Lovelace Institute", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.adalovelaceinstitute.org/feed/"},
+    "ai_now_institute": {"name": "AI Now Institute", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://ainowinstitute.org/feed"},
+    "cset_georgetown": {"name": "Georgetown CSET", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://cset.georgetown.edu/feed/"},
+    "partnership_on_ai": {"name": "Partnership on AI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://partnershiponai.org/feed/"},
+
+    # --- OPEN DATA PORTALS (CKAN/Socrata) — Tier 1 ---
+    "data_gov_au": {"name": "Data.gov.au", "category": "Open Data Portals", "type": "ckan", "tier": 1,
+        "base_url": "https://data.gov.au/api/3/action/package_search"},
+    "data_gov_ca": {"name": "Open Canada", "category": "Open Data Portals", "type": "ckan", "tier": 1,
+        "base_url": "https://open.canada.ca/data/api/3/action/package_search"},
+    "eu_data_portal": {"name": "EU Open Data", "category": "Open Data Portals", "type": "ckan", "tier": 1,
+        "base_url": "https://data.europa.eu/api/hub/search/datasets"},
+    "la_open_data": {"name": "LA Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.lacity.org", "default_dataset": None},
+    "sf_open_data": {"name": "SF Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.sfgov.org", "default_dataset": None},
+    "texas_open_data": {"name": "Texas Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.texas.gov", "default_dataset": None},
+
+    # --- AI CODE REPOS (REST via GitHub) — Tier 2 ---
+    "github_trending": {"name": "GitHub Code Search", "category": "AI Code", "type": "rest", "tier": 2,
+        "base_url": "https://api.github.com/search/code",
+        "params": {"sort": "indexed", "order": "desc"}, "query_param": "q", "limit_param": "per_page", "default_limit": 10,
+        "results_path": "items", "total_path": "total_count"},
+
+    # --- AI COMMUNITIES (REST) — Tier 3 ---
+    "reddit_ml": {"name": "Reddit r/MachineLearning", "category": "AI Communities", "type": "rest", "tier": 3,
+        "base_url": "https://www.reddit.com/r/MachineLearning/search.json",
+        "params": {"restrict_sr": "1", "sort": "relevance", "t": "month"},
+        "query_param": "q", "limit_param": "limit", "default_limit": 15,
+        "results_path": "data.children", "total_path": None},
+    "reddit_ai": {"name": "Reddit r/artificial", "category": "AI Communities", "type": "rest", "tier": 3,
+        "base_url": "https://www.reddit.com/r/artificial/search.json",
+        "params": {"restrict_sr": "1", "sort": "relevance", "t": "month"},
+        "query_param": "q", "limit_param": "limit", "default_limit": 15,
+        "results_path": "data.children", "total_path": None},
+    "reddit_llm": {"name": "Reddit r/LocalLLaMA", "category": "AI Communities", "type": "rest", "tier": 3,
+        "base_url": "https://www.reddit.com/r/LocalLLaMA/search.json",
+        "params": {"restrict_sr": "1", "sort": "relevance", "t": "month"},
+        "query_param": "q", "limit_param": "limit", "default_limit": 15,
+        "results_path": "data.children", "total_path": None},
+
+    # --- MORE ECONOMIC & STATISTICAL (REST) — Tier 1 ---
+    "imf_data": {"name": "IMF Data", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://dataservices.imf.org/REST/SDMX_JSON.svc/Dataflow",
+        "params": {}, "query_param": None, "limit_param": None, "default_limit": 50,
+        "results_path": None, "total_path": None},
+    "oecd_data": {"name": "OECD Data", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://stats.oecd.org/SDMX-JSON/data",
+        "params": {}, "query_param": None, "limit_param": None, "default_limit": 20,
+        "results_path": None, "total_path": None},
+
+    # --- GOVERNMENT & REGULATORY (REST) — Tier 1 ---
+    "nist_ai": {"name": "NIST AI Standards", "category": "Government Data", "type": "rss", "tier": 1, "url": "https://www.nist.gov/artificial-intelligence/rss.xml"},
+
+    # --- VIDEO CHANNELS (Invidious) — Tier 3 ---
+    # These use the same invidious connector but with channel-specific searches
+    "youtube_ai": {"name": "YouTube AI Content", "category": "Video", "type": "invidious", "tier": 3},
+
+    # --- DATASETS & BENCHMARKS (REST) — Tier 1 ---
+    "openml": {"name": "OpenML", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+        "base_url": "https://www.openml.org/api/v1/json/data/list",
+        "params": {}, "query_param": "data_name", "limit_param": "limit", "default_limit": 15,
+        "results_path": "data.dataset", "total_path": None},
+    "kaggle_datasets": {"name": "Kaggle Datasets", "category": "AI Models & Datasets", "type": "rest", "tier": 2,
+        "base_url": "https://www.kaggle.com/api/v1/datasets/list",
+        "params": {"sortBy": "hottest"}, "query_param": "search", "limit_param": "pageSize", "default_limit": 15,
+        "results_path": None, "total_path": None},
+    "paperswithcode": {"name": "Papers With Code", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+        "base_url": "https://paperswithcode.com/api/v1/papers/",
+        "params": {"ordering": "-paper_date"}, "query_param": "q", "limit_param": "items_per_page", "default_limit": 15,
+        "results_path": "results", "total_path": "count"},
+
+    # --- CONFERENCE PROCEEDINGS (Web/RSS where available) — Tier 1 ---
+    "neurips_proc": {"name": "NeurIPS Proceedings", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://proceedings.neurips.cc/rss"},
+    "acl_anthology": {"name": "ACL Anthology", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://aclanthology.org/feed.xml"},
 }
 
 # ================================================================
@@ -347,13 +470,25 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
 
                 # Normalize items
                 items = []
+                def to_str(val, fallback=""):
+                    """Safely convert any value to string (handles dicts, lists, None)."""
+                    if val is None: return fallback
+                    if isinstance(val, str): return val
+                    if isinstance(val, dict): return val.get("en") or val.get("text") or str(next(iter(val.values()), fallback))
+                    if isinstance(val, list): return ", ".join(str(v) for v in val[:5])
+                    return str(val)
+
                 for item in (items_raw if isinstance(items_raw, list) else [items_raw])[:limit]:
                     if isinstance(item, dict):
+                        # Handle Reddit's nested {data: {title: ...}} structure
+                        if "data" in item and isinstance(item["data"], dict) and "title" in item["data"]:
+                            item = item["data"]
+                        raw_title = item.get("title") or item.get("name") or item.get("modelId") or item.get("id") or item.get("school.name")
                         items.append({
-                            "title": item.get("title") or item.get("name") or item.get("school.name") or str(item)[:100],
-                            "content": item.get("abstract") or item.get("description") or item.get("snippet") or json.dumps(item)[:500],
-                            "url": item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or "",
-                            "date": item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or "",
+                            "title": to_str(raw_title, str(item)[:100]),
+                            "content": to_str(item.get("abstract") or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
+                            "url": to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink")),
+                            "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
                         })
                     else:
                         items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": ""})

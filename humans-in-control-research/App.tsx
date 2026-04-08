@@ -254,6 +254,13 @@ const LiveResearchBoard = ({
                         </motion.div>
                     )}
 
+                    {/* KNOWLEDGE GRAPH — immediately after sources for maximum visibility */}
+                    {knowledgeGraph && knowledgeGraph.nodes.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded shadow-sm md:col-span-2 relative overflow-hidden">
+                            <ResearchKnowledgeGraph graph={knowledgeGraph} height={420} />
+                        </motion.div>
+                    )}
+
                     {/* INGESTION TILE */}
                     {ingestion && (
                         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-sm group hover:border-[var(--nxt-teal)] transition-colors relative overflow-hidden">
@@ -450,13 +457,6 @@ const LiveResearchBoard = ({
                                  ))}
                             </div>
                             <button onClick={() => onEdit(AnalysisStage.DECK_STRUCTURE)} className="w-full py-2 text-xs font-bold bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] rounded text-[var(--text-secondary)] transition-colors">Edit Outline</button>
-                        </motion.div>
-                    )}
-
-                    {/* KNOWLEDGE GRAPH TILE */}
-                    {knowledgeGraph && knowledgeGraph.nodes.length > 0 && (
-                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded shadow-sm md:col-span-2 relative overflow-hidden">
-                            <ResearchKnowledgeGraph graph={knowledgeGraph} height={420} />
                         </motion.div>
                     )}
 
