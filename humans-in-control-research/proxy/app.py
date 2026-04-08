@@ -835,16 +835,39 @@ async def extract_content(url: str = Query(...)):
     # Fall back to Jina Reader for web pages
     try:
         async with httpx.AsyncClient() as client:
+            # Try JSON mode first
             resp = await fetch_with_retry(client, f"https://r.jina.ai/{url}",
-                headers={"Accept": "application/json", "X-With-Links": "true"})
-            data = resp.json() if resp.status_code == 200 else {}
-            content = data.get("content") or data.get("text") or ""
+                headers={"Accept": "application/json", "X-With-Links": "true", "X-Return-Format": "text"})
+
+            content = ""
+            title = url[:60]
+
+            if resp.status_code == 200:
+                try:
+                    data = resp.json()
+                    # Jina wraps response in data.content or just content
+                    if isinstance(data, dict):
+                        content = data.get("data", {}).get("content") or data.get("content") or data.get("text") or ""
+                        title = data.get("data", {}).get("title") or data.get("title") or title
+                except Exception:
+                    # If JSON parse fails, the response is likely plain text/markdown
+                    content = resp.text
+
+                # If JSON gave nothing, try plain text mode
+                if not content or len(content) < 50:
+                    resp2 = await fetch_with_retry(client, f"https://r.jina.ai/{url}",
+                        headers={"Accept": "text/plain"})
+                    if resp2.status_code == 200 and len(resp2.text) > len(content):
+                        content = resp2.text
+
+            logger.info(f"Jina Reader: url={url[:50]}, chars={len(content)}")
             return {
-                "url": url, "method": "jina", "title": data.get("title", url[:60]),
+                "url": url, "method": "jina", "title": title,
                 "content": content[:10000],
                 "characters": len(content),
             }
     except Exception as e:
+        logger.warning(f"Jina Reader failed for {url[:50]}: {e}")
         return {"url": url, "method": "failed", "title": "", "content": "", "error": str(e)[:200]}
 
 

@@ -1174,43 +1174,64 @@ const App = () => {
                     setDataSourceStatus(`Searching ${sourceIds.length} sources with targeted queries...`);
                     setThinkingEvents(prev => [...prev, { type: 'PHASE', content: `[SEARCHING] Querying ${sourceIds.length} data sources in parallel...` }]);
 
-                    // Search sources individually — update live feed as each completes
-                    const searchPromises = sourceIds.map(async (sid) => {
-                        const category = queryCategoryMap[sid] || sid;
-                        const displayName = sourceDisplayNames[sid] || sid;
-                        const query = refinedQueries[category] || researchGoal;
-                        const tier = tierMap[sid] || 3;
+                    // Search sources in BATCHES of 12 with retry — prevents 161 simultaneous requests
+                    const BATCH_SIZE = 12;
+                    const MAX_RETRIES = 2;
 
-                        // Set this source to "loading"
-                        setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'loading', query } : s));
-
-                        try {
-                            const resp = await fetch(`http://localhost:5012/api/search/${sid}?q=${encodeURIComponent(query)}&limit=15`, { signal: AbortSignal.timeout(35000) });
-                            if (!resp.ok) {
-                                setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
-                                return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
+                    async function fetchWithRetry(url: string, retries: number = MAX_RETRIES): Promise<Response> {
+                        for (let attempt = 0; attempt <= retries; attempt++) {
+                            try {
+                                const resp = await fetch(url, { signal: AbortSignal.timeout(40000) });
+                                return resp;
+                            } catch (err: any) {
+                                if (attempt < retries && (err.message?.includes('NETWORK') || err.message?.includes('fetch') || err.name === 'AbortError')) {
+                                    await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+                                    continue;
+                                }
+                                throw err;
                             }
-                            const data = await resp.json();
-                            const result = { ...data, source: displayName, sourceId: sid, credibilityTier: tier, query };
-
-                            // Update live feed with results
-                            setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? {
-                                ...s,
-                                items: result.items || [],
-                                total: result.total || 0,
-                                status: (result.items?.length || 0) > 0 ? 'complete' : 'empty',
-                                query,
-                            } : s));
-
-                            return result;
-                        } catch {
-                            setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
-                            return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
                         }
-                    });
+                        throw new Error('Max retries exceeded');
+                    }
+
+                    // Process in batches
+                    for (let batchStart = 0; batchStart < sourceIds.length; batchStart += BATCH_SIZE) {
+                        const batch = sourceIds.slice(batchStart, batchStart + BATCH_SIZE);
+                        setDataSourceStatus(`Searching batch ${Math.floor(batchStart / BATCH_SIZE) + 1}/${Math.ceil(sourceIds.length / BATCH_SIZE)} (${batch.length} sources)...`);
+
+                        // Mark batch as loading
+                        setLiveSourceResults(prev => prev.map(s => batch.includes(s.sourceId) ? { ...s, status: 'loading' } : s));
+
+                        const batchResults = await Promise.allSettled(
+                            batch.map(async (sid) => {
+                                const category = queryCategoryMap[sid] || sid;
+                                const displayName = sourceDisplayNames[sid] || sid;
+                                const query = refinedQueries[category] || researchGoal;
+                                const tier = tierMap[sid] || 3;
+
+                                try {
+                                    const resp = await fetchWithRetry(`http://localhost:5012/api/search/${sid}?q=${encodeURIComponent(query)}&limit=15`);
+                                    if (!resp.ok) {
+                                        setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
+                                        return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
+                                    }
+                                    const data = await resp.json();
+                                    const result = { ...data, source: displayName, sourceId: sid, credibilityTier: tier, query };
+                                    setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? {
+                                        ...s, items: result.items || [], total: result.total || 0,
+                                        status: (result.items?.length || 0) > 0 ? 'complete' : 'empty', query,
+                                    } : s));
+                                    return result;
+                                } catch {
+                                    setLiveSourceResults(prev => prev.map(s => s.sourceId === sid ? { ...s, status: 'error', query } : s));
+                                    return { source: displayName, sourceId: sid, credibilityTier: tier, items: [], total: 0, query };
+                                }
+                            })
+                        );
+                        proxyResults.push(...batchResults.map(r => r.status === 'fulfilled' ? r.value : { items: [], total: 0 }));
+                    }
 
                     try {
-                        proxyResults = await Promise.all(searchPromises);
                         const totalProxyItems = proxyResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0);
                         const successCount = proxyResults.filter((r: any) => r.items?.length > 0).length;
                         const failedSources = proxyResults.filter((r: any) => !r.items || r.items.length === 0);
