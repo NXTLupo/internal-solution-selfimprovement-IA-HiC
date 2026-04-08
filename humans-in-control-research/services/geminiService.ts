@@ -1,0 +1,852 @@
+
+import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
+import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations } from "../types";
+import { tryRepairJson } from './aiRouter';
+import { getActiveConstraints } from './promptImprovementEngine';
+
+// --- CONSTANTS ---
+const DEFAULT_STYLE: SlideStyle = {
+    backgroundColor: '#ffffff',
+    headerColor: '#115054',
+    textColor: '#141414',
+    accentColor: '#caca20'
+};
+
+// --- RETRY LOGIC ---
+const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function withRetry<T>(
+    operation: () => Promise<T>, 
+    retries = 3, 
+    baseDelay = 2000, 
+    operationName = "Gemini API Call"
+): Promise<T> {
+    let lastError: any;
+    
+    for (let i = 0; i < retries; i++) {
+        try {
+            return await operation();
+        } catch (error: any) {
+            lastError = error;
+            const isTransient = 
+                error.status === 503 || 
+                error.code === 503 || 
+                error.message?.includes('503') || 
+                error.message?.includes('overloaded') ||
+                error.status === 429 ||
+                error.code === 429 ||
+                error.message?.includes('429') ||
+                error.message?.includes('Quota') ||
+                error.status === 500 ||
+                error.code === 500 ||
+                error.message?.includes('Internal Server Error');
+            
+            if (isTransient && i < retries - 1) {
+                const delay = baseDelay * Math.pow(2, i);
+                console.warn(`${operationName} failed with ${error.status || error.code || 'error'}. Retrying in ${delay}ms... (Attempt ${i + 1}/${retries})`);
+                await wait(delay);
+                continue;
+            }
+            break;
+        }
+    }
+    throw lastError;
+}
+
+// --- IMAGE GENERATION HELPERS ---
+
+export const generateImage = async (prompt: string, aspectRatio: string = "16:9", refImageBase64?: string): Promise<string | undefined> => {
+  try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    
+    let styleDirectives = "";
+    let negativeConstraints = "";
+
+    // Specific Prompt Strategy based on Aspect Ratio context
+    if (aspectRatio === "1:1" || aspectRatio === "3:4") {
+        // PERSONA / PORTRAIT / SPLIT SLIDE MODE
+        styleDirectives = "Style: Cinematic 4K Photorealism. Professional editorial photography (85mm lens, f/1.8, soft natural lighting). Subject is authentic and diverse, situated in a real-world professional or lifestyle context. Subtle, modern data overlays (glassmorphism UI, white text, minimalist charts) are integrated into the environment (AR style), indicating connectivity or insights.";
+        negativeConstraints = "Do not include: illustration, vector art, cartoon, drawing, painting, flat design, neon overload, cyberpunk, gritty, distorted faces, low resolution, blurry, gibberish text.";
+    } else {
+        // SCENE / SLIDE MODE (16:9) - MIXED REALITY STYLE
+        styleDirectives = "Style: Professional Cinematic Reality with Integrated Data. High-resolution 4K photography of real-world business, urban, or home environments. Overlay of clean, crisp, modern User Interface (UI) elements floating in 3D space. Data visualization is minimalist, legible, and professional (Apple-style design language). 'Future of Work' aesthetic.";
+        negativeConstraints = "Do not include: illustration, vector art, cartoon, drawing, painting, messy scribbles, low quality, pixelated, surrealism, sci-fi fantasy, neon glow, unreadable text, clutter.";
+    }
+
+    // Force strict adherence to the subject matter
+    const finalPrompt = `Depict specifically: ${prompt}. Ensure all visual elements are extremely related to this description. ${styleDirectives} ${negativeConstraints}`; 
+
+    const parts: any[] = [{ text: finalPrompt }];
+    if (refImageBase64) {
+        const cleanBase64 = refImageBase64.includes('base64,') 
+            ? refImageBase64.split('base64,')[1] 
+            : refImageBase64;
+            
+        parts.unshift({
+            inlineData: {
+                mimeType: 'image/png',
+                data: cleanBase64
+            }
+        });
+        parts[parts.length-1].text += " Maintain strict character consistency with the reference image.";
+    }
+
+    const response = await withRetry<GenerateContentResponse>(() => ai.models.generateContent({
+      model: 'gemini-2.5-flash-image', // Switched to stable model
+      contents: {
+        parts: parts
+      },
+      config: {
+        imageConfig: {
+          aspectRatio: aspectRatio as any,
+          // imageSize removed as it is not supported by 2.5-flash-image
+        }
+      }
+    }), 3, 2000, "Image Generation");
+
+    for (const part of response.candidates?.[0]?.content?.parts || []) {
+      if (part.inlineData) {
+        const mimeType = part.inlineData.mimeType || 'image/jpeg';
+        return `data:${mimeType};base64,${part.inlineData.data}`;
+      }
+    }
+  } catch (error) {
+    console.warn("Image generation failed for prompt:", prompt, error);
+    return undefined;
+  }
+  return undefined;
+};
+
+// --- VIDEO GENERATION (VEO 3) ---
+export const generateSceneVideo = async (prompt: string, imageBase64?: string): Promise<string | undefined> => {
+    try {
+        const cleanBase64 = imageBase64?.includes('base64,') ? imageBase64.split('base64,')[1] : imageBase64;
+        
+        // Updated Video Prompt for Professional AR Style
+        const styleSuffix = ". Cinematic video footage (4K). Realistic motion. Professional color grading. Integrated clean infographic overlays (charts, text bubbles) tracking with the scene. Modern documentary style. No misspellings.";
+        const fullPrompt = `Animate strictly based on this description: ${prompt}. Ensure visual relevance. ${styleSuffix}`;
+        
+        // Define call function to wrap the API logic for retries/key switching
+        const callVeo = async (apiKey: string | undefined) => {
+             const ai = new GoogleGenAI({ apiKey: apiKey || process.env.API_KEY });
+             if (cleanBase64) {
+                 return await ai.models.generateVideos({
+                    model: 'veo-3.1-fast-generate-preview',
+                    prompt: fullPrompt,
+                    image: {
+                        imageBytes: cleanBase64,
+                        mimeType: 'image/png', 
+                    },
+                    config: {
+                        numberOfVideos: 1,
+                        resolution: '720p',
+                        aspectRatio: '16:9'
+                    }
+                });
+            } else {
+                 return await ai.models.generateVideos({
+                    model: 'veo-3.1-fast-generate-preview',
+                    prompt: fullPrompt,
+                    config: {
+                        numberOfVideos: 1,
+                        resolution: '720p',
+                        aspectRatio: '16:9'
+                    }
+                });
+            }
+        };
+
+        let operation;
+
+        try {
+             // Attempt 1: Try with existing key, retry only on transient errors
+             operation = await withRetry(() => callVeo(process.env.API_KEY), 3, 5000, "Veo Video Generation");
+        } catch (e: any) {
+            // Handle 403 Permission Denied - requires new Paid API Key
+            if (e.status === 403 || e.toString().includes('PERMISSION_DENIED') || e.message?.includes('403')) {
+                console.warn("Veo Permission Denied. Requesting new API key...");
+                if ((window as any).aistudio) {
+                    await (window as any).aistudio.openSelectKey();
+                    // Retry with fresh key from environment
+                    operation = await callVeo(process.env.API_KEY);
+                } else {
+                    throw e;
+                }
+            } else {
+                throw e;
+            }
+        }
+
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        let retries = 0;
+        while (!operation.done && retries < 30) {
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            operation = await ai.operations.getVideosOperation({operation: operation});
+            retries++;
+        }
+
+        const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
+        if (downloadLink) {
+             const response = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+             const blob = await response.blob();
+             return URL.createObjectURL(blob);
+        }
+    } catch (e) {
+        console.error("Veo generation failed", e);
+    }
+    return undefined;
+};
+
+// --- CONTENT REWRITE HELPER ---
+export const rewriteSlideContent = async (slide: Slide, theme: Theme, layout: SlideLayout): Promise<Partial<Slide>> => {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const prompt = `
+        REWRITE TASK:
+        Take the following slide content and rewrite it to focus heavily on the Theme: "${theme.name} - ${theme.description}".
+        Target Layout: ${layout}
+        
+        Instructions:
+        1. Rewrite the Title to be punchy and theme-aligned.
+        2. Rewrite the Content (Bullet points) to use the language of the theme. STRICT LIMIT: Maximum 3 bullet points.
+        3. Rewrite the Visual Prompt to describe a photorealistic image that visualizes this theme professionally. Use 4K photography terms.
+        4. Rewrite the Narrative (Voiceover) to explain this slide through the lens of the theme.
+        
+        Output JSON only.
+    `;
+    
+    const schema: Schema = {
+        type: Type.OBJECT,
+        properties: {
+            title: { type: Type.STRING },
+            content: { type: Type.ARRAY, items: { type: Type.STRING } },
+            narrative: { type: Type.STRING },
+            visualPrompt: { type: Type.STRING }
+        },
+        required: ["title", "content", "narrative", "visualPrompt"]
+    };
+
+    const response = await withRetry<GenerateContentResponse>(() => ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+        config: {
+            responseMimeType: "application/json",
+            responseSchema: schema
+        }
+    }), 3, 2000, "Slide Rewrite");
+    
+    try {
+        if (response.text) {
+            return JSON.parse(tryRepairJson(response.text));
+        }
+    } catch (e) {
+        console.error("Failed to parse rewrite response", e);
+    }
+    return {};
+};
+
+export class GenAISession {
+    private chatSession: Chat;
+    private ai: GoogleGenAI;
+    private goal: string;
+    private approach: string;
+    private selectedOutputs: OutputOption[];
+
+    constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '') {
+        if (!process.env.API_KEY) throw new Error("API Key Missing");
+        this.goal = goal;
+        this.approach = approach || "Standard Ethnographic Analysis";
+        this.selectedOutputs = selectedOutputs;
+        this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
+        let roleDefinition = "an elite Chief Experience Officer (CXO) and Expert Ethnographer";
+        let specificFocus = "";
+
+        if (selectedOutputs.includes('JOURNEY_MAP')) {
+            roleDefinition = "a Senior Service Designer and Customer Experience Architect";
+            specificFocus += " Pay close attention to systems, backstage processes, and the holistic service blueprint.";
+        }
+        if (selectedOutputs.includes('TECH_ARCH')) {
+            roleDefinition = "an Enterprise Solutions Architect";
+            specificFocus += " Identify data flows and technical constraints.";
+        }
+        if (selectedOutputs.includes('PRD')) {
+            roleDefinition = "a Senior Product Manager";
+            specificFocus += " Focus on feature definition and success metrics.";
+        }
+
+        const systemInstruction = `
+            You are ${roleDefinition} powered by advanced AI.
+
+            CORE OBJECTIVE: Collaborate with the user to analyze research data.
+            RESEARCH GOAL: "${this.goal}"
+            ANALYSIS APPROACH: "${this.approach}"
+            ${specificFocus}
+            ${lensPromptSegment}
+
+            STRICT CONSTRAINTS TO PREVENT JSON ERRORS:
+            - BE EXTREMELY CONCISE. Long responses cause parsing errors.
+            - "summary" and "description" fields must not exceed 60 words.
+            - Bullet points must not exceed 20 words each.
+            - Bio fields must not exceed 80 words.
+            - ALWAYS output valid JSON inside markdown code blocks.
+
+            CRITICAL TRANSPARENCY AND CITATION RULES:
+            - Streaming Reasoning: For every step, output a "methodology" string inside the JSON object.
+            - Include [PHASE], [QUESTION], [HYPOTHESIS], [INSIGHT] tags in the methodology.
+            - CITATION REQUIREMENT: Every factual claim MUST cite its source using [CHUNK_XXX] format.
+            - The research corpus contains items tagged as [CHUNK_001], [CHUNK_002], etc.
+            - When generating themes: include "citations": ["CHUNK_001", "CHUNK_005"] in each theme object.
+            - When generating persona pain points: cite the specific chunk that evidences each pain point.
+            - When generating recommendations: cite the chunks that support each recommendation.
+            - If a claim cannot be traced to a specific chunk, prefix it with "[No direct source]".
+            - Prioritize claims from Tier 1 sources (peer-reviewed, government) over Tier 3 (community).
+        ${getActiveConstraints()}`;
+
+        this.chatSession = this.ai.chats.create({
+            model: 'gemini-2.5-flash',
+            config: {
+                systemInstruction: systemInstruction,
+                temperature: 0.1, // Low temperature for higher structural stability
+            }
+        });
+    }
+
+    async updateContext(contextLabel: string, data: any): Promise<void> {
+        const prompt = `SYSTEM UPDATE: The user has MANUALLY EDITED the ${contextLabel}. Use the following JSON as ground truth for future steps: \n\n ${JSON.stringify(data)}`;
+        await withRetry(() => this.chatSession.sendMessage({ message: prompt }), 3, 1000, "Context Update");
+    }
+
+    async restore(
+        ingestion: StepResult_Ingestion | null,
+        themes: StepResult_Themes | null,
+        personas: StepResult_Personas | null,
+        structure: StepResult_Structure | null
+    ): Promise<void> {
+        const contextPayload = {
+            instruction: "SYSTEM RESTORE: Resuming session. Use this established data.",
+            researchContext: ingestion ? { summary: ingestion.summary } : "Pending",
+            establishedThemes: themes ? themes.themes : "Pending",
+            establishedPersonas: personas ? personas.personas : "Pending",
+            establishedStructure: structure ? structure.slides : "Pending"
+        };
+        
+        try {
+            const schema: Schema = { type: Type.OBJECT, properties: { status: { type: Type.STRING } } };
+            await this.chatSession.sendMessage({
+                message: [{ text: JSON.stringify(contextPayload) }],
+                config: { responseMimeType: "application/json", responseSchema: schema }
+            });
+        } catch (e) {
+            console.warn("Session restore warning:", e);
+        }
+    }
+
+    async ingestContext(files: FileUpload[], onStream: (t: string) => void): Promise<StepResult_Ingestion> {
+        const fileParts: any[] = [];
+        files.forEach((file, index) => {
+            fileParts.push({ text: `--- FILE ${index + 1}: "${file.name}" ---` });
+            const mimeType = file.type.toLowerCase();
+            const extension = file.name.split('.').pop()?.toLowerCase();
+            const isSupportedInline = mimeType === 'application/pdf' || mimeType.startsWith('image/') || mimeType.startsWith('audio/') || mimeType.startsWith('video/');
+            const isTextBased = (mimeType.startsWith('text/') || mimeType === 'application/json' || mimeType === 'application/csv' || ['txt', 'md', 'json', 'csv'].includes(extension || '')) && !['doc', 'docx', 'pdf', 'bin', 'zip', 'exe'].includes(extension || '');
+
+            if (isTextBased) { 
+                try {
+                    fileParts.push({ text: atob(file.data) });
+                } catch (e) {
+                    fileParts.push({ text: `[Error: Content omitted]` });
+                }
+            } else if (isSupportedInline) {
+                fileParts.push({ inlineData: { mimeType: file.type, data: file.data } });
+            } else {
+                fileParts.push({ text: `[Unsupported file type: ${file.name}]` });
+            }
+        });
+
+        const prompt = `STEP 1: INGESTION. Summarize the research context. Identify stakeholders. Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                summary: { type: Type.STRING },
+                dataTypesIdentified: { type: Type.ARRAY, items: { type: Type.STRING } },
+                keyStakeholders: { type: Type.ARRAY, items: { type: Type.STRING } },
+                documents: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { fileName: { type: Type.STRING }, author: { type: Type.STRING }, publicationDate: { type: Type.STRING } } } },
+                confidenceScore: { type: Type.NUMBER },
+                reasoning: { type: Type.STRING }
+            },
+            required: ["methodology", "summary", "dataTypesIdentified", "keyStakeholders", "documents", "confidenceScore"]
+        };
+
+        const result = await this.executeStep<StepResult_Ingestion>(prompt, schema, fileParts, onStream);
+        // Ensure arrays exist to prevent runtime errors
+        if (!result.dataTypesIdentified) result.dataTypesIdentified = [];
+        if (!result.keyStakeholders) result.keyStakeholders = [];
+        if (!result.documents) result.documents = [];
+        return result;
+    }
+
+    async generateThemes(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Themes> {
+        const prompt = `STEP 2: THEMES. Identify 5-8 core research themes from the corpus data.
+
+CRITICAL CITATION REQUIREMENTS:
+- Each theme MUST include citations array with at least 1 source
+- For each citation:
+  - "sourceFile" = the CHUNK ID (e.g. "CHUNK_001") from the corpus
+  - "text" = a DIRECT QUOTE from that chunk (verbatim, 10-30 words)
+  - "url" = the URL from that chunk (look for the "URL:" line after the chunk header). If no URL exists, use empty string.
+  - "sourceName" = the source name (e.g. "Higher Ed Dive", "OpenAlex", "Crossref"). Extract from the SOURCE header.
+  - "author" = author if known, otherwise empty string
+  - "publicationDate" = date if available (from the "Date:" line), otherwise empty string
+- The "quote" field = the BEST direct quote that exemplifies this theme
+- "isCrossDocument" = true if supported by chunks from 2+ different sources
+- If the corpus contains [CHUNK_XXX] IDs, you MUST use them in citations
+- Every claim in the description must be traceable to a cited chunk
+- ALWAYS extract the URL from the corpus chunk -- it appears right after "URL:" in the chunk metadata
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                themes: {
+                    type: Type.ARRAY,
+                    items: {
+                        type: Type.OBJECT,
+                        properties: {
+                            name: { type: Type.STRING },
+                            description: { type: Type.STRING },
+                            quote: { type: Type.STRING },
+                            citations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                                sourceFile: { type: Type.STRING },
+                                text: { type: Type.STRING },
+                                url: { type: Type.STRING },
+                                sourceName: { type: Type.STRING },
+                                author: { type: Type.STRING },
+                                publicationDate: { type: Type.STRING }
+                            }, required: ["sourceFile", "text"] } },
+                            isCrossDocument: { type: Type.BOOLEAN },
+                            status: { type: Type.STRING }
+                        },
+                        required: ["name", "description", "quote", "citations", "isCrossDocument"]
+                    }
+                }
+            },
+            required: ["methodology", "themes"]
+        };
+        const result = await this.executeStep<StepResult_Themes>(prompt, schema, [], onStream);
+        if (!result.themes) result.themes = [];
+        return result;
+    }
+
+    async generatePersonas(themesInput: any | undefined, feedback: string | undefined, onStream: (t: string) => void, onStatus: (s: string) => void): Promise<StepResult_Personas> {
+        const prompt = `STEP 3: PERSONA ARCHETYPES. You are an expert ethnographic researcher performing archetype analysis.
+
+METHODOLOGY: Analyze ALL themes, ALL cited evidence, and ALL source material to identify EVERY DISTINCT stakeholder archetype present in the data. Do not settle for 1-2 generic personas. Look for:
+- Different ROLES (executive, practitioner, beneficiary, policymaker, donor, student, alumni)
+- Different PERSPECTIVES (optimist vs skeptic, innovator vs traditionalist)
+- Different CONTEXTS (large vs small institution, public vs private, domestic vs international)
+- Different SEGMENTS (individual donor, corporate partner, foundation, government funder)
+
+REQUIREMENTS:
+- Generate 4-6 distinct personas (MINIMUM 4). Each must represent a genuinely different archetype.
+- Each persona MUST be grounded in specific evidence from the corpus
+- "quote" = a first-person synthetic voice quote (what this person would say), 15-25 words
+- "bio" = 2-3 sentences with [CHUNK_XXX] citations referencing specific corpus evidence
+- Each motivation must have a "quote" with a DIRECT QUOTE from corpus + chunk reference
+- Each pain point must have a "quote" with a DIRECT QUOTE from corpus + chunk reference
+- Each opportunity must have a "quote" with evidence from corpus
+- "fiveWs" must be filled: who (their world/network), what (tension they face), whenWhere (context), why (deeper motivation)
+- 3-5 motivations, 3-5 tasks, 3-5 pain points, 2-4 opportunities PER persona
+- Each persona should connect to DIFFERENT themes -- not all personas about the same theme
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                personas: {
+                    type: Type.ARRAY,
+                    items: {
+                        type: Type.OBJECT,
+                        properties: {
+                            name: { type: Type.STRING },
+                            role: { type: Type.STRING },
+                            demographics: { type: Type.STRING },
+                            quote: { type: Type.STRING },
+                            bio: { type: Type.STRING },
+                            fiveWs: { type: Type.OBJECT, properties: { who: {type:Type.STRING}, what: {type:Type.STRING}, whenWhere: {type:Type.STRING}, why: {type:Type.STRING} } },
+                            motivations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: { type: Type.STRING }, quote: { type: Type.STRING }, citation: { type: Type.OBJECT, properties: { sourceFile: {type:Type.STRING}, text: {type:Type.STRING}, url: {type:Type.STRING}, sourceName: {type:Type.STRING} } } } } },
+                            tasks: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: { type: Type.STRING }, quote: { type: Type.STRING } } } },
+                            painPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: { type: Type.STRING }, quote: { type: Type.STRING }, citation: { type: Type.OBJECT, properties: { sourceFile: {type:Type.STRING}, text: {type:Type.STRING}, url: {type:Type.STRING}, sourceName: {type:Type.STRING} } } } } },
+                            opportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: { type: Type.STRING }, quote: { type: Type.STRING }, citation: { type: Type.OBJECT, properties: { sourceFile: {type:Type.STRING}, text: {type:Type.STRING}, url: {type:Type.STRING}, sourceName: {type:Type.STRING} } } } } },
+                        },
+                        required: ["name", "role", "demographics", "quote", "bio", "fiveWs", "motivations", "painPoints", "opportunities"]
+                    }
+                }
+            },
+            required: ["methodology", "personas"]
+        };
+
+        const result = await this.executeStep<StepResult_Personas>(prompt, schema, [], onStream);
+        
+        // Ensure array safety before iteration
+        if (!result.personas) result.personas = [];
+        
+        onStatus("Visualizing Personas...");
+        // Sequential generation to avoid quota limits
+        const personasWithImages = [];
+        for (const p of result.personas) {
+             onStatus(`Visualizing ${p.name}...`);
+             const url = await generateImage(`Portrait of ${p.name}, ${p.role}. ${p.bio || ''}`, "1:1");
+             personasWithImages.push({ ...p, imageUrl: url });
+        }
+        return { ...result, personas: personasWithImages };
+    }
+
+    async generateRecommendations(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Recommendations> {
+        const prompt = `STEP: RECOMMENDATIONS. Synthesize the research into 3-5 high-impact strategic opportunities.
+        Requirements:
+        - Title: Punchy and active.
+        - Description: A full paragraph (40-60 words) justifying the recommendation. MUST cite sources using [CHUNK_XXX] format. Every claim needs evidence.
+        - Action Items: Concrete next steps (3-4 items).
+        - Each recommendation description MUST reference at least one [CHUNK_XXX] source from the corpus.
+        ${feedback ? 'IMPORTANT FEEDBACK: ' + feedback : ''}
+        Output JSON.`;
+        
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                recommendations: { 
+                    type: Type.ARRAY, 
+                    items: { 
+                        type: Type.OBJECT, 
+                        properties: { 
+                            title: { type: Type.STRING }, 
+                            description: { type: Type.STRING }, 
+                            impactLevel: { type: Type.STRING }, 
+                            actionItems: { type: Type.ARRAY, items: { type: Type.STRING } } 
+                        },
+                        required: ["title", "description", "impactLevel", "actionItems"]
+                    } 
+                }
+            },
+            required: ["methodology", "recommendations"]
+        };
+        const result = await this.executeStep<StepResult_Recommendations>(prompt, schema, [], onStream);
+        if (!result.recommendations) result.recommendations = [];
+        // Ensure actionItems exist
+        result.recommendations.forEach(r => {
+            if (!r.actionItems) r.actionItems = [];
+        });
+        return result;
+    }
+
+    async generateJourneyMap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_JourneyMap> {
+        const prompt = `STEP: JOURNEY MAP. Map the user experience phases. Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                stages: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { phase: { type: Type.STRING }, customerAction: { type: Type.STRING }, touchpoint: { type: Type.STRING }, frontstageAction: { type: Type.STRING }, backstageAction: { type: Type.STRING }, emotion: { type: Type.STRING }, physicalEvidence: { type: Type.STRING } } } }
+            },
+            required: ["methodology", "stages"]
+        };
+        const result = await this.executeStep<StepResult_JourneyMap>(prompt, schema, [], onStream);
+        if (!result.stages) result.stages = [];
+        
+        if (result.stages.length > 0) {
+            result.diagramUrl = await generateImage(`High-Fidelity 3D Isometric Service Blueprint Visualization. Glassmorphism data nodes, clean professional white background, corporate color palette (Deep Blue/Teal). Not flat.`, "16:9");
+        }
+        return result;
+    }
+
+    async generatePRD(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_PRD> {
+        const prompt = `STEP: PRD. Define product requirements based on the Personas and Themes.
+        Requirements:
+        - Title: Specific product name or release title.
+        - Purpose: Clear objective.
+        - Features: 3-5 core features prioritized using MoSCoW.
+        - Feature Descriptions: Must be detailed (30-50 words) explaining functionality and value.
+        ${feedback ? 'IMPORTANT FEEDBACK: ' + feedback : ''}
+        Output JSON.`;
+
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["name", "priority", "description"] } } } }
+            },
+            required: ["methodology", "prd"]
+        };
+        const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream);
+        if (!result.prd) result.prd = { title: "Untitled", purposeAndObjectives: "", features: [] } as any;
+        if (!result.prd.features) result.prd.features = [];
+        return result;
+    }
+
+    async generateRoadmap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Roadmap> {
+        const prompt = `STEP: ROADMAP. Plan horizons (Now, Next, Later). Create a strategic vision and specific initiatives. For each initiative, provide a clear 'description' of what it entails. Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["initiative", "horizon", "description"] } } } }
+            },
+            required: ["methodology", "roadmap"]
+        };
+        const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream);
+        if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
+        if (!result.roadmap.items) result.roadmap.items = [];
+        return result;
+    }
+
+    async generateTechArchitecture(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_TechArch> {
+        const prompt = `STEP: TECH ARCH. Design system nodes and flows. Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                architecture: { type: Type.OBJECT, properties: { overview: { type: Type.STRING }, nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { id: { type: Type.STRING }, label: { type: Type.STRING }, type: { type: Type.STRING } } } }, flows: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { fromId: { type: Type.STRING }, toId: { type: Type.STRING }, action: { type: Type.STRING } } } } } }
+            },
+            required: ["methodology", "architecture"]
+        };
+        const result = await this.executeStep<StepResult_TechArch>(prompt, schema, [], onStream);
+        if (!result.architecture) result.architecture = { overview: "", nodes: [], flows: [] } as any;
+        if (!result.architecture.nodes) result.architecture.nodes = [];
+        if (result.architecture) {
+            result.architecture.diagramUrl = await generateImage(`High-Fidelity 3D Isometric Technical System Architecture. Clean floating nodes, data stream connections, white background, professional cloud infrastructure look.`, "16:9");
+        }
+        return result;
+    }
+
+    async generateDeckStructure(feedback: string | undefined, recommendations: StrategicRecommendation[] | undefined, onStream: (t: string) => void): Promise<StepResult_Structure> {
+        const prompt = `STEP: STRUCTURE. Plan slide sequence. 
+        REQUIRED: Use one of these layouts for each slide: TITLE_SLIDE, SECTION_HEADER, CONTENT_SPLIT_RIGHT, CONTENT_SPLIT_LEFT, FULL_BLEED_IMAGE, TYPOGRAPHY_QUOTE.
+        Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                storyArc: { type: Type.STRING },
+                slides: { 
+                    type: Type.ARRAY, 
+                    items: { 
+                        type: Type.OBJECT, 
+                        properties: { 
+                            slideNumber: { type: Type.INTEGER }, 
+                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE'] }, 
+                            title: { type: Type.STRING }, 
+                            rationale: { type: Type.STRING } 
+                        },
+                        required: ["slideNumber", "layout", "title", "rationale"]
+                    } 
+                }
+            },
+            required: ["methodology", "storyArc", "slides"]
+        };
+        const result = await this.executeStep<StepResult_Structure>(prompt, schema, [], onStream);
+        if (!result.slides) result.slides = [];
+        return result;
+    }
+
+    async generateNarrative(structure: StepResult_Structure, recommendations: StrategicRecommendation[] | undefined, feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Narrative> {
+        const prompt = `STEP: NARRATIVE. Write slide content and script.
+        REQUIRED: Ensure layout matches one of: TITLE_SLIDE, SECTION_HEADER, CONTENT_SPLIT_RIGHT, CONTENT_SPLIT_LEFT, FULL_BLEED_IMAGE, TYPOGRAPHY_QUOTE.
+        Output JSON.`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                videoScript: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sceneNumber: { type: Type.INTEGER }, visualDescription: { type: Type.STRING }, audioNarration: { type: Type.STRING }, quote: { type: Type.STRING }, visualPrompt: { type: Type.STRING } } } },
+                slides: { 
+                    type: Type.ARRAY, 
+                    items: { 
+                        type: Type.OBJECT, 
+                        properties: { 
+                            slideNumber: { type: Type.INTEGER }, 
+                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE'] }, 
+                            title: { type: Type.STRING }, 
+                            content: { type: Type.ARRAY, items: { type: Type.STRING } }, 
+                            narrative: { type: Type.STRING }, 
+                            visualPrompt: { type: Type.STRING }, 
+                            quote: { type: Type.STRING } 
+                        },
+                        required: ["slideNumber", "layout", "title", "content", "narrative", "visualPrompt"]
+                    } 
+                }
+            },
+            required: ["methodology", "videoScript", "slides"]
+        };
+        const result = await this.executeStep<StepResult_Narrative>(prompt, schema, [], onStream);
+        if (!result.videoScript) result.videoScript = [];
+        if (!result.slides) result.slides = [];
+        
+        const slidesWithStyle = (result.slides).map(slide => ({ ...slide, style: { ...DEFAULT_STYLE } }));
+        return { ...result, slides: slidesWithStyle };
+    }
+
+    // --- NEW OUTPUT GENERATORS (Sprint 4) ---
+
+    async generateGapAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
+        const prompt = `STEP: GAP ANALYSIS. Based on the research data, identify gaps between current state and desired state.
+        Requirements:
+        - Assess 5-8 capabilities with current maturity (1-5 scale) and target maturity.
+        - Each gap must have severity (critical/high/medium/low), impact description, and effort estimate.
+        - Provide 3-5 prioritized actions and 2-3 quick wins (high impact, low effort).
+        - Include a risk register with 3-5 risks.
+        ${feedback ? 'FEEDBACK: ' + feedback : ''}
+        Output JSON with: methodology, analysis (object with assessmentScope, currentState[], desiredState[], gaps[], prioritizedActions[], quickWins[], riskRegister[]).`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                analysis: { type: Type.OBJECT, properties: {
+                    assessmentScope: { type: Type.STRING },
+                    currentState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, maturity: { type: Type.NUMBER }, evidence: { type: Type.STRING } } } },
+                    desiredState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, targetMaturity: { type: Type.NUMBER }, rationale: { type: Type.STRING } } } },
+                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } } } },
+                    prioritizedActions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, priority: { type: Type.STRING }, timeline: { type: Type.STRING } } } },
+                    quickWins: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } } } },
+                    riskRegister: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { risk: { type: Type.STRING }, likelihood: { type: Type.STRING }, impact: { type: Type.STRING }, mitigation: { type: Type.STRING } } } },
+                } }
+            },
+            required: ["methodology", "analysis"]
+        };
+        return this.executeStep<any>(prompt, schema, [], onStream);
+    }
+
+    async generateTechAudit(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
+        const prompt = `STEP: TECHNOLOGY ECOSYSTEM AUDIT. Based on the research data, inventory all systems, map integrations, and score capability maturity.
+        Requirements:
+        - Inventory 5-10 systems with name, vendor, category, users, department, status.
+        - Map 3-7 integrations between systems with health status.
+        - Score 5-8 capabilities on current maturity (1-5) and target maturity.
+        - Identify 2-4 consolidation opportunities.
+        - Provide 3-5 recommendations.
+        ${feedback ? 'FEEDBACK: ' + feedback : ''}
+        Output JSON with: methodology, audit (object with systemsInventory[], integrationMap[], capabilityMatrix[], consolidationOpportunities[], recommendations[]).`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                audit: { type: Type.OBJECT, properties: {
+                    systemsInventory: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, vendor: { type: Type.STRING }, category: { type: Type.STRING }, users: { type: Type.STRING }, department: { type: Type.STRING }, status: { type: Type.STRING } } } },
+                    integrationMap: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { source: { type: Type.STRING }, target: { type: Type.STRING }, method: { type: Type.STRING }, health: { type: Type.STRING }, dataFlow: { type: Type.STRING } } } },
+                    capabilityMatrix: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER } } } },
+                    consolidationOpportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, description: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } } } },
+                    recommendations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, description: { type: Type.STRING }, impactLevel: { type: Type.STRING }, actionItems: { type: Type.ARRAY, items: { type: Type.STRING } } } } },
+                } }
+            },
+            required: ["methodology", "audit"]
+        };
+        return this.executeStep<any>(prompt, schema, [], onStream);
+    }
+
+    async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
+        const prompt = `STEP: COMPETITIVE ANALYSIS. Based on the research data, benchmark against peers and identify competitive gaps.
+        Requirements:
+        - Identify 3-5 peer organizations/competitors with strengths, weaknesses, differentiators.
+        - Define 4-6 benchmark dimensions with descriptions.
+        - Score each peer on each dimension (1-5 maturity).
+        - Summarize gaps with our score vs best-in-class and recommended actions.
+        ${feedback ? 'FEEDBACK: ' + feedback : ''}
+        Output JSON with: methodology, analysis (object with industryContext, peers[], benchmarkDimensions[], maturityMatrix[], gapSummary[]).`;
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                analysis: { type: Type.OBJECT, properties: {
+                    industryContext: { type: Type.STRING },
+                    peers: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, position: { type: Type.STRING }, strengths: { type: Type.ARRAY, items: { type: Type.STRING } }, weaknesses: { type: Type.ARRAY, items: { type: Type.STRING } }, differentiators: { type: Type.ARRAY, items: { type: Type.STRING } } } } },
+                    benchmarkDimensions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { dimension: { type: Type.STRING }, weight: { type: Type.NUMBER }, description: { type: Type.STRING } } } },
+                    maturityMatrix: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { peer: { type: Type.STRING }, scores: { type: Type.OBJECT, properties: {} } } } },
+                    gapSummary: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { dimension: { type: Type.STRING }, ourScore: { type: Type.NUMBER }, bestInClass: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, action: { type: Type.STRING } } } },
+                } }
+            },
+            required: ["methodology", "analysis"]
+        };
+        return this.executeStep<any>(prompt, schema, [], onStream);
+    }
+
+    async visualizeNarrative(narrativeData: StepResult_Narrative, personas: Persona[], recommendations: StrategicRecommendation[], outputs: OutputOption[], onStatus: (s: string) => void, onStream?: (t: string) => void): Promise<StepResult_Final> {
+        const scriptWithImages: ScriptScene[] = [];
+        const personaMap = new Map<string, string>();
+        personas.forEach(p => { if (p.imageUrl) personaMap.set(p.name, p.imageUrl); });
+
+        if (outputs.includes('VIDEO_SCRIPT')) {
+            onStatus("Visualizing Storyboard...");
+            // SAFEGUARD: Ensure videoScript array exists
+            const scripts = narrativeData.videoScript || [];
+            for (let i = 0; i < scripts.length; i++) {
+                const scene = scripts[i];
+                onStatus(`Visualizing Scene ${i+1}/${scripts.length}...`);
+                let refImage = scene.personaRef && personaMap.has(scene.personaRef) ? personaMap.get(scene.personaRef) : undefined;
+                const url = await generateImage(scene.visualPrompt || scene.visualDescription, "16:9", refImage);
+                scriptWithImages.push({ ...scene, imageUrl: url, videoStatus: 'idle', imageStatus: 'idle' });
+            }
+        }
+
+        let slidesWithImages: Slide[] = [];
+        if (outputs.includes('STRATEGY_DECK')) {
+            onStatus("Visualizing Strategy Deck (Sequential Generation)...");
+            // Sequential generation to prevent Quota Exceeded errors
+            const slides = narrativeData.slides || [];
+            for (let i = 0; i < slides.length; i++) {
+                 const slide = slides[i];
+                 onStatus(`Visualizing Slide ${i+1}/${slides.length}...`);
+                 const aspectRatio = (slide.layout.includes('SPLIT')) ? "1:1" : "16:9";
+                 const url = await generateImage(slide.visualPrompt, aspectRatio);
+                 slidesWithImages.push({ ...slide, imageUrl: url, imageStatus: 'idle' });
+            }
+        }
+
+        return { methodology: narrativeData.methodology, videoScript: scriptWithImages, slides: slidesWithImages, recommendations: recommendations };
+    }
+
+    private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void): Promise<T> {
+        const result = await withRetry<any>(() => this.chatSession.sendMessageStream({
+            message: [...parts, { text: prompt }],
+            config: {
+                responseMimeType: "application/json",
+                responseSchema: schema
+            }
+        }), 3, 2000, "GenAI Step Execution");
+
+        let fullText = "";
+        const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
+
+        try {
+            for await (const chunk of stream) {
+                const text = chunk.text;
+                if (text) {
+                    fullText += text;
+                    onStream(fullText);
+                }
+            }
+        } catch (streamError) {
+            console.warn("Stream interrupted, attempting to repair JSON", streamError);
+            if (!fullText) throw streamError;
+        }
+        
+        const cleanedText = tryRepairJson(fullText);
+
+        if (!cleanedText) {
+            throw new Error("Empty response from model after repair attempt");
+        }
+
+        try {
+            const parsed = JSON.parse(cleanedText) as T;
+            if (!parsed || typeof parsed !== 'object') {
+                throw new Error("Response was not a valid object");
+            }
+            return parsed;
+        } catch (e) {
+            console.error("Critical JSON Parse Error", e, "Raw:", cleanedText.substring(0, 100) + "...");
+            throw new Error(`Failed to parse Gemini response: ${e instanceof Error ? e.message : 'Unknown Error'}`);
+        }
+    }
+}

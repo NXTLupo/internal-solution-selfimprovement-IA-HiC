@@ -12,8 +12,6 @@
     <!-- Favicon declarations in proper order -->
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/svg+xml" href="/static/miro-favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/miro-favicon.svg">
     <style>
         /* Enterprise Variables - NXT 2026 White Daytime Theme */
         :root {
@@ -1171,7 +1169,7 @@
             alert.textContent = message;
             
             // Insert after header
-            const container = document.querySelector('.container');
+            const container = document.querySelector('.container') || document.body;
             container.insertBefore(alert, container.firstChild);
             
             // Auto-remove after 5 seconds

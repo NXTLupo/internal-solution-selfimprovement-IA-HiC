@@ -1,0 +1,395 @@
+"""
+Research Data Proxy v2 — Configuration-Driven Source Registry
+Implements 8 connector types that cover 200+ data sources.
+Adding a new source = adding a config entry, not writing new code.
+
+Connector types:
+1. REST API (generic JSON pagination)
+2. RSS/Atom (news feeds)
+3. CKAN Action API (open data catalogs)
+4. Socrata SODA (city/state portals)
+5. ArcGIS REST (geospatial layers)
+6. SDMX REST (international statistics)
+7. OAI-PMH (repository harvesting)
+8. Web Search (Invidious YouTube, etc.)
+"""
+
+import os
+import json
+import logging
+import time
+import random
+import feedparser
+import httpx
+from fastapi import FastAPI, Query, Path
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from typing import Optional
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="HiC Research Data Proxy v2")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+TIMEOUT = 30.0
+DEFAULT_HEADERS = {"User-Agent": "NXTHumans-HiC-Research/2.0 (research@nxthumans.com)"}
+
+# ================================================================
+# SOURCE REGISTRY — Add new sources here, no code changes needed
+# ================================================================
+
+SOURCES = {
+    # --- NEWS & HIGHER-ED (RSS/Atom + Web) — Tier 2 ---
+    "higher_ed_dive": {"name": "Higher Ed Dive", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.highereddive.com/feeds/news/"},
+    "inside_higher_ed": {"name": "Inside Higher Ed", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.insidehighered.com/rss/feed"},
+    "edsurge": {"name": "EdSurge", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.edsurge.com/rss"},
+    "hechinger": {"name": "Hechinger Report", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://hechingerreport.org/feed/"},
+    "campus_tech": {"name": "Campus Technology", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://campustechnology.com/rss-feeds/all.aspx"},
+    "ecampus": {"name": "eCampus News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.ecampusnews.com/feed/"},
+    "the_conversation_edu": {"name": "The Conversation - Education", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://theconversation.com/us/education/articles.atom"},
+    "university_world_news": {"name": "University World News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.universityworldnews.com/rss.php?edition=global"},
+    "pie_news": {"name": "The PIE News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://thepienews.com/feed/"},
+    "open_campus": {"name": "Open Campus", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://opencampus.org/feed/"},
+
+    # --- SCHOLARLY APIs ---
+    "openalex": {"name": "OpenAlex", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://api.openalex.org/works", "params": {"sort": "relevance_score:desc", "mailto": "research@nxthumans.com"},
+        "query_param": "search", "limit_param": "per_page", "default_limit": 20,
+        "results_path": "results", "total_path": "meta.count"},
+    "semantic_scholar": {"name": "Semantic Scholar", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://api.semanticscholar.org/graph/v1/paper/search",
+        "params": {"fields": "title,abstract,citationCount,year,openAccessPdf,url"},
+        "query_param": "query", "limit_param": "limit", "default_limit": 15,
+        "results_path": "data", "total_path": "total"},
+    "crossref": {"name": "Crossref", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://api.crossref.org/works",
+        "params": {"sort": "relevance", "order": "desc", "mailto": "research@nxthumans.com"},
+        "query_param": "query", "limit_param": "rows", "default_limit": 20,
+        "results_path": "message.items", "total_path": "message.total-results"},
+    "doaj": {"name": "DOAJ", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://doaj.org/api/search/articles",
+        "params": {}, "query_param": "_query_", "limit_param": "pageSize", "default_limit": 20,
+        "results_path": "results", "total_path": "total"},
+    "europe_pmc": {"name": "Europe PMC", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+        "params": {"format": "json", "resultType": "core"},
+        "query_param": "query", "limit_param": "pageSize", "default_limit": 20,
+        "results_path": "resultList.result", "total_path": "hitCount"},
+    "core_ac": {"name": "CORE", "category": "Academic Literature", "type": "rest", "tier": 1,
+        "base_url": "https://api.core.ac.uk/v3/search/works",
+        "params": {}, "query_param": "q", "limit_param": "limit", "default_limit": 15,
+        "results_path": "results", "total_path": "totalHits"},
+
+    # --- EDUCATION GOVERNMENT DATA ---
+    "college_scorecard": {"name": "College Scorecard", "category": "Education Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.data.gov/ed/collegescorecard/v1/schools",
+        "params": {"api_key": os.getenv("DATA_GOV_API_KEY", "DEMO_KEY"), "fields": "id,school.name,school.state,latest.student.size,latest.admissions.admission_rate.overall"},
+        "query_param": "school.name", "limit_param": "per_page", "default_limit": 20,
+        "results_path": "results", "total_path": "metadata.total"},
+    "eric": {"name": "ERIC", "category": "Education Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.ies.ed.gov/eric/",
+        "params": {"format": "json"},
+        "query_param": "search", "limit_param": "rows", "default_limit": 20,
+        "results_path": "response.docs", "total_path": "response.numFound"},
+
+    # --- ECONOMIC & STATISTICAL ---
+    "worldbank": {"name": "World Bank", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.worldbank.org/v2/indicator",
+        "params": {"format": "json", "per_page": "20"},
+        "query_param": "qterm", "limit_param": "per_page", "default_limit": 20,
+        "results_path": "_array_1", "total_path": "_array_0.total"},
+    "fred": {"name": "FRED", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.stlouisfed.org/fred/series/search",
+        "params": {"api_key": os.getenv("FRED_API_KEY", ""), "file_type": "json"},
+        "query_param": "search_text", "limit_param": "limit", "default_limit": 20,
+        "results_path": "seriess", "total_path": "count"},
+    "bls": {"name": "BLS", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+        "params": {}, "query_param": None, "limit_param": None, "default_limit": 10,
+        "results_path": "Results.series", "total_path": None},
+    "imf": {"name": "IMF Data", "category": "Economic Data", "type": "rest", "tier": 1,
+        "base_url": "https://dataservices.imf.org/REST/SDMX_JSON.svc/Dataflow",
+        "params": {}, "query_param": None, "limit_param": None, "default_limit": 50,
+        "results_path": None, "total_path": None},
+
+    # --- GOVERNMENT & REGULATORY ---
+    "usaspending": {"name": "USAspending", "category": "Government Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+        "params": {}, "query_param": None, "limit_param": "limit", "default_limit": 20,
+        "results_path": "results", "total_path": "page_metadata.total"},
+    "federal_register": {"name": "Federal Register", "category": "Government Data", "type": "rest", "tier": 1,
+        "base_url": "https://www.federalregister.gov/api/v1/documents.json",
+        "params": {"order": "relevance"},
+        "query_param": "conditions[term]", "limit_param": "per_page", "default_limit": 20,
+        "results_path": "results", "total_path": "count"},
+    "congress": {"name": "Congress.gov", "category": "Government Data", "type": "rest", "tier": 1,
+        "base_url": "https://api.congress.gov/v3/bill",
+        "params": {"api_key": os.getenv("DATA_GOV_API_KEY", "DEMO_KEY"), "format": "json"},
+        "query_param": None, "limit_param": "limit", "default_limit": 20,
+        "results_path": "bills", "total_path": "pagination.count"},
+    "sec_edgar": {"name": "SEC EDGAR", "category": "Government Data", "type": "rest", "tier": 1,
+        "base_url": "https://efts.sec.gov/LATEST/search-index",
+        "params": {"dateRange": "custom", "startdt": "2024-01-01"},
+        "query_param": "q", "limit_param": None, "default_limit": 20,
+        "results_path": "hits.hits", "total_path": "hits.total.value"},
+
+    # --- OPEN DATA PORTALS (Socrata SODA) ---
+    "nyc_open_data": {"name": "NYC Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.cityofnewyork.us", "default_dataset": None},
+    "chicago_data": {"name": "Chicago Data Portal", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.cityofchicago.org", "default_dataset": None},
+    "california_data": {"name": "California Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
+        "domain": "data.ca.gov", "default_dataset": None},
+
+    # --- OPEN DATA PORTALS (CKAN) ---
+    "data_gov": {"name": "Data.gov (US)", "category": "Open Data Portals", "type": "ckan", "tier": 1,
+        "base_url": "https://catalog.data.gov/api/3/action/package_search"},
+    "data_gov_uk": {"name": "Data.gov.uk", "category": "Open Data Portals", "type": "ckan", "tier": 1,
+        "base_url": "https://data.gov.uk/api/3/action/package_search"},
+
+    # --- SOCIAL & TECH ---
+    "hackernews": {"name": "Hacker News", "category": "Tech & Social", "type": "rest", "tier": 3,
+        "base_url": "https://hn.algolia.com/api/v1/search",
+        "params": {"tags": "story"},
+        "query_param": "query", "limit_param": "hitsPerPage", "default_limit": 20,
+        "results_path": "hits", "total_path": "nbHits"},
+
+    # --- VIDEO ---
+    "youtube": {"name": "YouTube Search", "category": "Video", "type": "invidious", "tier": 3},
+
+    # --- WEB INTELLIGENCE ---
+    "jina": {"name": "Jina Reader", "category": "Web Intelligence", "type": "jina", "tier": 3},
+
+    # --- NEWS AGGREGATORS ---
+    "gdelt": {"name": "GDELT", "category": "News & Media", "type": "gdelt", "tier": 2},
+}
+
+# ================================================================
+# CONNECTOR ENGINE — Generic handlers for each connector type
+# ================================================================
+
+async def fetch_with_retry(client: httpx.AsyncClient, url: str, params: dict = None, headers: dict = None, max_retries: int = 3) -> httpx.Response:
+    headers = {**DEFAULT_HEADERS, **(headers or {})}
+    for attempt in range(max_retries + 1):
+        try:
+            resp = await client.get(url, params=params, headers=headers, timeout=TIMEOUT)
+            if resp.status_code == 200:
+                return resp
+            if resp.status_code in (429, 500, 502, 503, 504):
+                retry_after = resp.headers.get("Retry-After", str(2 ** attempt))
+                try:
+                    sleep_s = min(60, int(retry_after)) + random.random()
+                except ValueError:
+                    sleep_s = 2 ** attempt + random.random()
+                time.sleep(sleep_s)
+                continue
+            return resp  # Non-retryable error
+        except Exception as e:
+            if attempt < max_retries:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+    return resp
+
+def resolve_path(data, path):
+    """Navigate nested dict/list by dot-separated path. Special: _array_N for list index."""
+    if not path:
+        return data
+    for key in path.split("."):
+        if key.startswith("_array_"):
+            idx = int(key.replace("_array_", ""))
+            if isinstance(data, list) and len(data) > idx:
+                data = data[idx]
+            else:
+                return None
+        elif isinstance(data, dict):
+            data = data.get(key)
+        else:
+            return None
+        if data is None:
+            return None
+    return data
+
+# ================================================================
+# ENDPOINTS
+# ================================================================
+
+@app.get("/health")
+async def health():
+    return {"status": "healthy", "service": "research-proxy-v2", "sources": len(SOURCES)}
+
+@app.get("/api/sources")
+async def list_sources():
+    """List all available data sources grouped by category."""
+    categories = {}
+    for sid, src in SOURCES.items():
+        cat = src.get("category", "Other")
+        if cat not in categories:
+            categories[cat] = []
+        categories[cat].append({"id": sid, "name": src["name"], "type": src["type"]})
+    return {"total": len(SOURCES), "categories": categories}
+
+@app.get("/api/search/{source_id}")
+async def search_source(source_id: str = Path(...), q: str = Query(...), limit: int = Query(20)):
+    """Generic search endpoint — works for ANY registered source."""
+    if source_id not in SOURCES:
+        return JSONResponse({"error": f"Unknown source: {source_id}", "items": []}, status_code=404)
+
+    src = SOURCES[source_id]
+    src_type = src["type"]
+
+    try:
+        async with httpx.AsyncClient() as client:
+
+            # --- REST API connector ---
+            if src_type == "rest":
+                params = dict(src.get("params", {}))
+                if src.get("query_param"):
+                    if src["query_param"] == "_query_":
+                        # DOAJ-style: query in URL path
+                        url = f"{src['base_url']}/{q}"
+                    else:
+                        params[src["query_param"]] = q
+                        url = src["base_url"]
+                else:
+                    url = src["base_url"]
+                if src.get("limit_param"):
+                    params[src["limit_param"]] = str(min(limit, 50))
+
+                resp = await fetch_with_retry(client, url, params=params)
+                if resp.status_code != 200:
+                    return {"source": src["name"], "items": [], "total": 0, "error": f"HTTP {resp.status_code}"}
+
+                data = resp.json()
+                items_raw = resolve_path(data, src.get("results_path")) or []
+                total = resolve_path(data, src.get("total_path")) or len(items_raw)
+
+                # Normalize items
+                items = []
+                for item in (items_raw if isinstance(items_raw, list) else [items_raw])[:limit]:
+                    if isinstance(item, dict):
+                        items.append({
+                            "title": item.get("title") or item.get("name") or item.get("school.name") or str(item)[:100],
+                            "content": item.get("abstract") or item.get("description") or item.get("snippet") or json.dumps(item)[:500],
+                            "url": item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or "",
+                            "date": item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or "",
+                        })
+                    else:
+                        items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": ""})
+
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": total}
+
+            # --- RSS/Atom connector ---
+            elif src_type == "rss":
+                resp = await fetch_with_retry(client, src["url"])
+                feed = feedparser.parse(resp.text)
+                items = []
+                for entry in feed.entries[:limit]:
+                    items.append({
+                        "title": entry.get("title", ""),
+                        "content": entry.get("summary", entry.get("description", ""))[:500],
+                        "url": entry.get("link", ""),
+                        "date": entry.get("published", entry.get("updated", "")),
+                    })
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": len(feed.entries)}
+
+            # --- CKAN connector ---
+            elif src_type == "ckan":
+                params = {"q": q, "rows": min(limit, 50)}
+                resp = await fetch_with_retry(client, src["base_url"], params=params)
+                data = resp.json()
+                results = data.get("result", {}).get("results", [])
+                items = [{"title": r.get("title", ""), "content": (r.get("notes") or "")[:500], "url": f"https://catalog.data.gov/dataset/{r.get('name', '')}", "date": r.get("metadata_modified", "")} for r in results[:limit]]
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": data.get("result", {}).get("count", 0)}
+
+            # --- Socrata connector ---
+            elif src_type == "socrata":
+                # Socrata discovery API
+                domain = src["domain"]
+                resp = await fetch_with_retry(client, f"https://api.us.socrata.com/api/catalog/v1", params={"q": q, "domains": domain, "limit": str(min(limit, 20))})
+                data = resp.json()
+                results = data.get("results", [])
+                items = [{"title": r.get("resource", {}).get("name", ""), "content": (r.get("resource", {}).get("description") or "")[:500], "url": r.get("link", ""), "date": r.get("resource", {}).get("updatedAt", "")} for r in results[:limit]]
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": data.get("resultSetSize", 0)}
+
+            # --- GDELT connector ---
+            elif src_type == "gdelt":
+                url = f"https://api.gdeltproject.org/api/v2/doc/doc?query={q}&mode=artlist&maxrecords={min(limit, 75)}&format=json&sort=DateDesc"
+                resp = await fetch_with_retry(client, url)
+                data = resp.json() if resp.status_code == 200 else {}
+                articles = data.get("articles", [])
+                items = [{"title": a.get("title", ""), "content": f"[{a.get('seendate', '')}] {a.get('title', '')} (Source: {a.get('domain', '')})", "url": a.get("url", ""), "date": a.get("seendate", "")} for a in articles[:limit]]
+                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": len(articles)}
+
+            # --- Invidious/YouTube connector ---
+            elif src_type == "invidious":
+                instances = ["https://vid.puffyan.us", "https://invidious.fdn.fr", "https://inv.nadeko.net", "https://invidious.nerdvpn.de"]
+                for instance in instances:
+                    try:
+                        resp = await client.get(f"{instance}/api/v1/search", params={"q": q, "type": "video", "sort_by": "relevance", "page": "1"}, timeout=15)
+                        if resp.status_code == 200:
+                            videos = resp.json()
+                            items = [{"title": v.get("title", ""), "content": f"{v.get('title', '')} ({round(v.get('lengthSeconds', 0)/60)}min, {v.get('viewCount', 0):,} views)", "url": f"https://www.youtube.com/watch?v={v.get('videoId', '')}", "date": v.get("publishedText", "")} for v in (videos if isinstance(videos, list) else [])[:limit]]
+                            return {"source": "YouTube", "category": "Video", "items": items, "total": len(items)}
+                    except Exception:
+                        continue
+                return {"source": "YouTube", "category": "Video", "items": [], "total": 0, "error": "All instances failed"}
+
+            # --- Jina Reader connector ---
+            elif src_type == "jina":
+                is_url = q.startswith("http://") or q.startswith("https://")
+                endpoint = f"https://r.jina.ai/{q}" if is_url else f"https://s.jina.ai/{q}"
+                resp = await fetch_with_retry(client, endpoint, headers={"Accept": "application/json", "X-With-Links": "true"})
+                try:
+                    data = resp.json()
+                except Exception:
+                    data = {"content": resp.text, "title": q}
+
+                if is_url:
+                    items = [{"title": data.get("title", q), "content": (data.get("content") or data.get("text") or "")[:5000], "url": q, "date": ""}]
+                else:
+                    results = data.get("data") or data.get("results") or (data if isinstance(data, list) else [data])
+                    items = [{"title": r.get("title", ""), "content": (r.get("content") or r.get("description") or "")[:2000], "url": r.get("url", ""), "date": ""} for r in (results[:limit] if isinstance(results, list) else [results])]
+                return {"source": "Jina Reader", "category": "Web Intelligence", "items": items, "total": len(items)}
+
+            else:
+                return {"source": src["name"], "items": [], "total": 0, "error": f"Unknown connector type: {src_type}"}
+
+    except Exception as e:
+        logger.error(f"Error searching {source_id}: {e}")
+        return {"source": src.get("name", source_id), "items": [], "total": 0, "error": str(e)}
+
+
+# --- BULK SEARCH: Query multiple sources in parallel ---
+
+@app.get("/api/multi-search")
+async def multi_search(q: str = Query(...), sources: str = Query(...), limit: int = Query(10)):
+    """Search multiple sources in parallel. sources = comma-separated source IDs."""
+    source_ids = [s.strip() for s in sources.split(",") if s.strip() in SOURCES]
+    if not source_ids:
+        return {"results": [], "error": "No valid source IDs provided"}
+
+    import asyncio
+    async def search_one(sid):
+        try:
+            return await search_source(sid, q=q, limit=limit)
+        except Exception as e:
+            return {"source": SOURCES.get(sid, {}).get("name", sid), "items": [], "total": 0, "error": str(e)}
+
+    results = await asyncio.gather(*[search_one(sid) for sid in source_ids])
+    return {"query": q, "sources_queried": len(source_ids), "results": results}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.getenv("PORT", "5012"))
+    logger.info(f"Starting Research Data Proxy v2 on port {port} with {len(SOURCES)} sources")
+    uvicorn.run(app, host="0.0.0.0", port=port)

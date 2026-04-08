@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humans in Control Research | NXT Humans Intelligence Augmentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              nxt: {
+                lime: '#caca20',
+                teal: '#115054',
+                orange: '#fd8e2e',
+                bg: 'var(--bg-primary)',
+                card: 'var(--card-bg)',
+              }
+            },
+            fontFamily: {
+              sans: ['Archivo', 'Inter', 'Segoe UI', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            },
+            borderRadius: {
+              'sm': '2px',
+              'DEFAULT': '4px',
+              'md': '4px',
+              'lg': '4px',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      :root {
+        /* NXT Humans Intelligence Augmentation Brand */
+        --nxt-lime: #caca20;
+        --nxt-lime-hover: #d8d830;
+        --nxt-lime-10: rgba(202, 202, 32, 0.1);
+        --nxt-lime-20: rgba(202, 202, 32, 0.2);
+        --nxt-teal: #115054;
+        --nxt-teal-40: rgba(17, 80, 84, 0.4);
+        --nxt-orange: #fd8e2e;
+        --accent-blue: #00b1eb;
+        --accent-purple: #5a07bf;
+        --success-green: #0CCE6B;
+        --error-red: #FF5A5A;
+
+        /* Surfaces */
+        --bg-primary: #ffffff;
+        --bg-secondary: #fafafa;
+        --bg-tertiary: #f5f5f5;
+        --text-primary: #141414;
+        --text-secondary: #525252;
+        --text-tertiary: #acacac;
+        --border-primary: #e5e5e5;
+        --border-secondary: #f0f0f0;
+        --card-bg: #ffffff;
+        --modal-bg: #ffffff;
+        --input-bg: #ffffff;
+      }
+
+      body {
+        font-family: 'Archivo', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 300;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: var(--bg-primary); }
+      ::-webkit-scrollbar-thumb { background: var(--nxt-lime); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--nxt-lime-hover); }
+
+      /* Utility Classes */
+      .accent-text { color: var(--nxt-lime); }
+      .accent-teal { color: var(--nxt-teal); }
+      .accent-orange { color: var(--nxt-orange); }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-primary);
+        border-radius: 4px;
+      }
+      .card:hover {
+        border-color: #d4d4d4;
+        transform: translateY(-2px);
+        transition: all 0.15s ease;
+      }
+
+      .btn-primary {
+        background: var(--nxt-lime);
+        color: var(--nxt-teal);
+        font-family: 'Archivo', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        padding: 12px 24px;
+        transition: all 0.15s ease;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: #f5f5f5;
+        color: #525252;
+        font-family: 'Archivo', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        padding: 12px 24px;
+        border: 1px solid #e5e5e5;
+        transition: all 0.15s ease;
+        cursor: pointer;
+      }
+      .btn-secondary:hover {
+        background: #eeeeee;
+      }
+
+      .tag {
+        background: #fafafa;
+        color: #525252;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 4px 12px;
+        border: 1px solid #e5e5e5;
+        border-radius: 2px;
+      }
+
+      /* Animations */
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.0?external=react,react-dom",
+    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm",
+    "jspdf": "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm",
+    "pptxgenjs": "https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/+esm"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -131,6 +131,7 @@ services:
     environment:
       - PORT=8507
       - RESEARCH_GENERATOR_URL=http://research-generator:5011
+      - RESEARCH_GENERATOR_CLIENT_URL=http://localhost:${RESEARCH_GENERATOR_PORT:-5011}
     volumes:
       - ./mcp-services/research-mcp:/app
     working_dir: /app
@@ -356,23 +357,40 @@ services:
     networks:
       - nxt-humans-network
 
-  # HiC Research Service (Humans-in-Control Research)
+  # Humans-in-Control Research (React SPA with Gemini AI)
   research-generator:
     build:
-      context: ../internal-solutions-HiC-research
+      context: ./humans-in-control-research
       dockerfile: Dockerfile
+      args:
+        - GEMINI_API_KEY=${GEMINI_API_KEY}
+        - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
     ports:
       - "${RESEARCH_GENERATOR_PORT:-5011}:5011"
     environment:
       - NODE_ENV=production
-      - PORT=5011
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - VITE_GEMINI_API_KEY=${GEMINI_API_KEY}
-    volumes:
-      - research-generator-data:/app/uploads
     networks:
       - nxt-humans-network
     container_name: hic-research
+    depends_on:
+      - research-proxy
+
+  # Research Data Proxy (solves CORS for external data APIs)
+  research-proxy:
+    image: python:3.11-slim
+    ports:
+      - "${RESEARCH_PROXY_PORT:-5012}:5012"
+    environment:
+      - PORT=5012
+    volumes:
+      - ./humans-in-control-research/proxy:/app
+    working_dir: /app
+    command: >-
+      bash -c "pip install --no-cache-dir -r requirements.txt && python app.py"
+    networks:
+      - nxt-humans-network
+    container_name: research-proxy
 
   # ============================================
   # NXT Agency - AI Agent Catalog + Backend
@@ -432,8 +450,13 @@ services:
       - SOCIAL_MCP_URL=http://social-mcp:8502/mcp
       - VIDEO_MCP_URL=http://video-mcp:8504/mcp
       - JOURNEY_MAPPER_CLIENT_URL=http://localhost:${JOURNEY_MAPPER_PORT:-8080}
+      - REDDIT_RIPPER_CLIENT_URL=http://localhost:${REDDIT_RIPPER_PORT:-5001}
+      - VIDEO_ANALYZER_CLIENT_URL=http://localhost:${VIDEO_ANALYZER_PORT:-5002}
+      - COPILOT_RECIPE_GENERATOR_CLIENT_URL=http://localhost:${COPILOT_RECIPE_GENERATOR_PORT:-5013}
+      - CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL=http://localhost:${CONSISTENT_CHARACTER_GENERATOR_PORT:-5010}
     volumes:
       - ../NXT-Agency/agent-prompts:/app/agent-prompts:ro
+      - ../NXT-Agency/backend/app:/app/app
     networks:
       - nxt-humans-network
     depends_on:
@@ -455,8 +478,6 @@ volumes:
   miro-generator-output:
     driver: local
   consistent-character-generator-data:
-    driver: local
-  research-generator-data:
     driver: local
   nxt-agency-db-data:
     driver: local

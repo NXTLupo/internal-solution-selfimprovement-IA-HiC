@@ -18,6 +18,9 @@ Browser → Launchpad:8000 → Agent:8500 → MCP Wrappers (8501-8507) → Core 
 - **MCP Wrappers** (`mcp-services/*/app.py`): Lightweight JSON-RPC 2.0 proxies that expose core services as tools for the agent.
 - **Core Services** (`internal-solutions-*/`): Independent apps (FastAPI, Flask, or Node/Vite) each with their own Dockerfile.
 
+### NXT Agency (External Repo)
+Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). Integrated via `docker-compose-all.yml`. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
+
 ### Critical Files (modify with caution)
 - `mcp-services/agent/app.py` — AI orchestrator; `tool_services` dict (~line 92) maps service names to MCP URLs
 - `launchpad/app.py` — WebSocket proxy hub (~1,370 lines)
@@ -117,9 +120,12 @@ docker compose -f docker-compose-all.yml exec launchpad curl -s http://localhost
 | Video Analyzer | 5002 | video-analyzer | FastAPI, Whisper API, FFmpeg |
 | Miro Generator | 5004 | miro-generator | TypeScript CLI, Jest |
 | Character Generator | 5010 | consistent-character-generator | Gemini (Imagen 3, Veo 3.1), IndexedDB |
-| Research Generator | 5011 | hic-research | Vite + Flask, Gemini, human-in-loop |
+| Research Generator | 5011 | hic-research | React 19, Vite, Gemini AI, human-in-loop |
 | Copilot Recipe Generator | 5013 | copilot-recipe-generator | FastAPI + Vite React frontend, Claude Opus 4.6 |
 | Journey Mapper | 8080 | journey-mapper | FastAPI, Claude Opus 4.5 |
+| NXT Agency Launchpad | 5050 | nxt-agency-launchpad | Nginx serving pre-built Vite dist |
+| NXT Agency Backend | 8201 | nxt-agency-backend | FastAPI, computer use, noVNC (6080) |
+| NXT Agency DB | — | nxt-agency-db | PostgreSQL 15 (ai_assistant) |
 
 ## Key Implementation Patterns
 
@@ -161,9 +167,17 @@ for attempt in range(max_retries):
             raise
 ```
 
+### External Repo Dependencies
+One service builds from a sibling directory outside this repo:
+- **NXT Agency**: `../NXT-Agency/` — FastAPI backend + Vite frontend
+
+Changes to this service require working in its respective repo. Only `docker-compose-all.yml` references it.
+
+The Research Generator was moved into this repo at `humans-in-control-research/` — a React 19 SPA (Vite + Gemini AI) with no backend. All AI calls happen client-side.
+
 ### Dockerfile Patterns
 - **Layer caching**: Copy `requirements.txt`/`package.json` before source code
-- **Multi-stage builds**: Research Generator and Social Research Frontend use Node builder → Python/serve runtime
+- **Multi-stage builds**: Research Generator (Node builder → serve runtime) and Social Research Frontend (Node builder → serve runtime)
 - **Volume mounts in dev**: Docker Compose mounts source directories for live editing (e.g., `./launchpad:/app`)
 - **CPU-only PyTorch**: Social Research Backend uses `--index-url https://download.pytorch.org/whl/cpu` to avoid CUDA bloat
 
@@ -197,6 +211,8 @@ docker compose -f docker-compose-all.yml restart agent
 - `hic-research` (container name for research-generator)
 
 **`openai_journey` in agent tool_services**: The agent references `OPENAI_JOURNEY_MCP_URL` but no matching `openai-journey-mcp` service exists in `docker-compose-all.yml`. This will silently fail tool discovery at startup — expected behavior until that service is added.
+
+**NXT Agency DB Issues**: Separate PostgreSQL instance (`nxt-agency-db`, database `ai_assistant`). Not shared with Social Research DB.
 
 **API Keys**: Verify they're reaching containers: `docker compose -f docker-compose-all.yml exec agent env | grep API_KEY`
 

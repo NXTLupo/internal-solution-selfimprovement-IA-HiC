@@ -466,34 +466,15 @@ Your analysis must include:
 - Professional structure suitable for Miro boards
 - Executive-ready presentation format
 
-Use <thinking> tags for extended analysis and reasoning."""
+Return ONLY the JSON object - no explanatory text, no markdown, no code fences."""
 
-        user_prompt = f"""Analyze this customer journey map HTML file and create a professional UX structure:
+        user_prompt = f"""Analyze this customer journey map HTML file and create a professional UX structure.
 
 <html_content>
 {html_content}
 </html_content>
 
-<thinking>
-I need to carefully analyze this journey map to:
-1. Identify the actual customer journey phases (not just HTML sections)
-2. Extract ALL content with zero data loss
-3. Categorize content by UX methodology (touchpoints, emotions, pain points, opportunities, insights)
-4. Organize into a logical left-to-right flow
-5. Create professional swim lanes for Miro
-6. Ensure executive-ready presentation quality
-7. Create concise 1-2 word phase names with detailed descriptions
-
-Let me examine the content structure and identify:
-- Journey phases (Discovery, Research, Purchase, Experience, Loyalty)
-- Customer touchpoints and actions
-- Emotional states and feelings
-- Pain points and friction
-- Opportunities and recommendations
-- Supporting insights and data
-</thinking>
-
-Please provide a JSON structure with:
+Return a JSON object with this exact structure:
 {{
   "journey_title": "Clear, executive-friendly title",
   "journey_phases": [
@@ -543,21 +524,77 @@ Ensure ZERO data loss - every piece of meaningful content must be categorized an
         try:
             response = self.client.messages.create(
                 model="claude-opus-4-5-20251101",
-                max_tokens=4000,
+                max_tokens=16000,
                 system=system_prompt,
                 messages=[{"role": "user", "content": user_prompt}]
             )
             
             # Extract JSON from Claude's response
             response_text = response.content[0].text
-            
-            # Find JSON in the response
-            json_start = response_text.find('{')
-            json_end = response_text.rfind('}') + 1
-            
-            if json_start != -1 and json_end != -1:
-                json_str = response_text[json_start:json_end]
-                analysis = json.loads(json_str)
+            logger.info(f"Claude response length: {len(response_text)} chars, first 200: {response_text[:200]}")
+
+            # Strip markdown code fences and thinking tags before extraction
+            cleaned = re.sub(r'<thinking>.*?</thinking>', '', response_text, flags=re.DOTALL)
+            cleaned = re.sub(r'```(?:json)?\s*', '', cleaned)
+            cleaned = re.sub(r'```', '', cleaned)
+            cleaned = cleaned.strip()
+
+            # Try direct parse first (Claude may return pure JSON)
+            analysis = None
+            try:
+                analysis = json.loads(cleaned)
+            except json.JSONDecodeError:
+                pass
+
+            # Fallback: find top-level JSON object using brace-depth tracking
+            if analysis is None:
+                json_str = None
+                depth = 0
+                start_idx = None
+                in_string = False
+                escape_next = False
+                for i, ch in enumerate(cleaned):
+                    if escape_next:
+                        escape_next = False
+                        continue
+                    if ch == '\\' and in_string:
+                        escape_next = True
+                        continue
+                    if ch == '"' and not escape_next:
+                        in_string = not in_string
+                        continue
+                    if in_string:
+                        continue
+                    if ch == '{':
+                        if depth == 0:
+                            start_idx = i
+                        depth += 1
+                    elif ch == '}':
+                        depth -= 1
+                        if depth == 0 and start_idx is not None:
+                            candidate = cleaned[start_idx:i + 1]
+                            try:
+                                json.loads(candidate)
+                                json_str = candidate
+                                break
+                            except json.JSONDecodeError:
+                                start_idx = None
+                                continue
+
+                if json_str is not None:
+                    analysis = json.loads(json_str)
+
+            # Last resort: regex extract between first { and last }
+            if analysis is None:
+                json_start = cleaned.find('{')
+                json_end = cleaned.rfind('}')
+                if json_start != -1 and json_end > json_start:
+                    try:
+                        analysis = json.loads(cleaned[json_start:json_end + 1])
+                    except json.JSONDecodeError:
+                        logger.error(f"All JSON extraction strategies failed. Cleaned response (first 500): {cleaned[:500]}")
+
+            if analysis is not None:
                 
                 logger.info(f"Claude analyzed journey map: {analysis.get('journey_title', 'Unknown')}")
                 logger.info(f"Identified {len(analysis.get('journey_phases', []))} journey phases")
