@@ -999,35 +999,53 @@ const App = () => {
                     'data_gov_au', 'data_gov_ca', 'eu_data_portal', 'la_open_data', 'sf_open_data', 'texas_open_data'
                 );
                 if (enableSocialTrends) sourceIds.push('hackernews');
-                if (enableYouTube) sourceIds.push('youtube', 'youtube_ai');
                 if (enableAINews) sourceIds.push(
-                    // AI News (21)
+                    // AI News RSS (21)
                     'mit_tech_review_ai', 'ieee_spectrum_ai', 'venturebeat_ai', 'techcrunch_ai',
                     'ars_technica_ai', 'wired_ai', 'the_verge_ai', 'synced_review', 'marktechpost',
                     'kdnuggets', 'the_gradient', 'engadget_ai', 'the_conversation_ai', 'analytics_vidhya',
                     'towards_ai', 'ai_alignment_forum', 'import_ai', 'ml_mastery', 'the_guardian_ai',
                     'zdnet_ai', 'the_register_ml',
-                    // AI Lab Blogs (20)
+                    // AI News Web-only (4)
+                    'oreilly_radar', 'deeplearning_ai_batch', 'distill_pub', 'arxiv_sanity',
+                    // AI Lab Blogs RSS (20)
                     'openai_blog', 'google_ai_blog', 'deepmind_blog', 'meta_ai_blog', 'microsoft_research',
                     'nvidia_dev_blog', 'huggingface_blog', 'anthropic_blog', 'bair_blog', 'apple_ml',
                     'amazon_science', 'aws_ml_blog', 'ibm_research', 'salesforce_ai', 'cohere_blog',
-                    'allen_ai', 'stanford_hai_blog', 'databricks_ai', 'stability_ai', 'mistral_ai'
+                    'allen_ai', 'stanford_hai_blog', 'databricks_ai', 'stability_ai', 'mistral_ai',
+                    // AI Lab Research Web-only (7)
+                    'openai_research', 'anthropic_research', 'google_research', 'nvidia_research',
+                    'adobe_research', 'qualcomm_ai', 'intel_ai'
                 );
                 if (enableAIResearch) sourceIds.push(
-                    // AI Research (10)
+                    // AI Research arXiv API (8)
                     'arxiv_cs_ai', 'arxiv_cs_lg', 'arxiv_cs_cl', 'arxiv_cs_cv', 'arxiv_cs_ro',
-                    'arxiv_stat_ml', 'arxiv_cs_ir', 'arxiv_cs_hc', 'openreview', 'dblp',
-                    // AI Models & Datasets (5)
+                    'arxiv_stat_ml', 'arxiv_cs_ir', 'arxiv_cs_hc',
+                    // AI Research REST (2)
+                    'openreview', 'dblp',
+                    // AI Models & Datasets REST (5) + Web-only (8)
                     'hf_models', 'hf_datasets', 'openml', 'kaggle_datasets', 'paperswithcode',
-                    // AI Policy (8)
+                    'papers_with_code_sota', 'hf_leaderboard', 'lmarena', 'mlperf',
+                    'helm_stanford', 'tf_datasets', 'pytorch_hub', 'ollama_library',
+                    // AI Policy RSS (8) + Web-only (2)
                     'brookings_ai', 'stanford_hai', 'oecd_ai', 'eff_ai', 'ada_lovelace',
                     'ai_now_institute', 'cset_georgetown', 'partnership_on_ai', 'nist_ai',
-                    // AI Communities (4)
+                    'unesco_ai', 'nist_ai_web',
+                    // AI Communities REST (4) + Web-only (3)
                     'stackoverflow_ai', 'reddit_ml', 'reddit_ai', 'reddit_llm',
-                    // AI Code (2)
+                    'hf_forums', 'pytorch_forums', 'tf_forum',
+                    // AI Code REST (2) + Web-only (3)
                     'github_repos', 'github_trending',
-                    // AI Conferences (2)
-                    'neurips_proc', 'acl_anthology'
+                    'github_trending_ai', 'langchain_docs', 'llamaindex_docs',
+                    // AI Conferences RSS (2) + Web-only (10)
+                    'neurips_proc', 'acl_anthology',
+                    'neurips_conf', 'icml_conf', 'iclr_conf', 'aaai_conf', 'ijcai_conf',
+                    'cvpr_conf', 'acl_conf', 'emnlp_conf', 'kdd_conf', 'pmlr_proc'
+                );
+                if (enableYouTube) sourceIds.push(
+                    'youtube', 'youtube_ai',
+                    'yt_two_minute_papers', 'yt_yannic_kilcher', 'yt_lex_fridman',
+                    'yt_ai_explained', 'yt_sentdex'
                 );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source

@@ -281,7 +281,69 @@ export const aclAnthologyConnector = createProxyConnector('acl_anthology', 'ACL 
 export const youtubeAiConnector = createProxyConnector('youtube_ai', 'YouTube AI Content', 'Video', 'AI video content');
 
 // ============================================================
-// REGISTRY — ALL 119 CONNECTORS
+// WEB-ONLY SOURCES (via Jina site-scoped search)
+// ============================================================
+
+// AI News (Web-only)
+const oreillyRadarConnector = createProxyConnector('oreilly_radar', "O'Reilly Radar", 'AI News', 'Industry AI essays');
+const dlAiBatchConnector = createProxyConnector('deeplearning_ai_batch', 'DeepLearning.AI Batch', 'AI News', 'Weekly AI roundup');
+const distillPubConnector = createProxyConnector('distill_pub', 'Distill.pub', 'AI News', 'ML explainers');
+const arxivSanityConnector = createProxyConnector('arxiv_sanity', 'arXiv Sanity', 'AI News', 'Paper discovery');
+
+// Conferences (Web-only)
+const neuripsConfConnector = createProxyConnector('neurips_conf', 'NeurIPS', 'AI Conferences', 'ML conference');
+const icmlConfConnector = createProxyConnector('icml_conf', 'ICML', 'AI Conferences', 'ML conference');
+const iclrConfConnector = createProxyConnector('iclr_conf', 'ICLR', 'AI Conferences', 'Deep learning conference');
+const aaaiConfConnector = createProxyConnector('aaai_conf', 'AAAI', 'AI Conferences', 'AI conference');
+const ijcaiConfConnector = createProxyConnector('ijcai_conf', 'IJCAI', 'AI Conferences', 'AI conference');
+const cvprConfConnector = createProxyConnector('cvpr_conf', 'CVPR', 'AI Conferences', 'Vision conference');
+const aclConfConnector = createProxyConnector('acl_conf', 'ACL', 'AI Conferences', 'NLP conference');
+const emnlpConfConnector = createProxyConnector('emnlp_conf', 'EMNLP', 'AI Conferences', 'NLP conference');
+const kddConfConnector = createProxyConnector('kdd_conf', 'KDD', 'AI Conferences', 'Data mining');
+const pmlrConnector = createProxyConnector('pmlr_proc', 'PMLR', 'AI Conferences', 'ML proceedings');
+
+// Benchmarks & Leaderboards (Web-only)
+const pwcSotaConnector = createProxyConnector('papers_with_code_sota', 'PwC SOTA', 'AI Models & Datasets', 'State-of-the-art tracking');
+const hfLeaderboardConnector = createProxyConnector('hf_leaderboard', 'HF LLM Leaderboard', 'AI Models & Datasets', 'Model rankings');
+const lmarenaConnector = createProxyConnector('lmarena', 'LMSys Arena', 'AI Models & Datasets', 'Model comparisons');
+const mlperfConnector = createProxyConnector('mlperf', 'MLPerf', 'AI Models & Datasets', 'Performance benchmarks');
+const helmConnector = createProxyConnector('helm_stanford', 'HELM Stanford', 'AI Models & Datasets', 'Eval framework');
+const tfDatasetsConnector = createProxyConnector('tf_datasets', 'TF Datasets', 'AI Models & Datasets', 'Dataset catalog');
+const pytorchHubConnector = createProxyConnector('pytorch_hub', 'PyTorch Hub', 'AI Models & Datasets', 'Model recipes');
+const ollamaLibConnector = createProxyConnector('ollama_library', 'Ollama Library', 'AI Models & Datasets', 'Local model registry');
+
+// Lab Research Pages (Web-only)
+const openaiResearchConnector = createProxyConnector('openai_research', 'OpenAI Research', 'AI Lab Blogs', 'Research posts');
+const anthropicResearchConnector = createProxyConnector('anthropic_research', 'Anthropic Research', 'AI Lab Blogs', 'Research posts');
+const googleResearchConnector = createProxyConnector('google_research', 'Google Research', 'AI Lab Blogs', 'Research releases');
+const nvidiaResearchConnector = createProxyConnector('nvidia_research', 'NVIDIA Research', 'AI Lab Blogs', 'Papers and code');
+const adobeResearchConnector = createProxyConnector('adobe_research', 'Adobe Research', 'AI Lab Blogs', 'Papers/projects');
+const qualcommAiConnector = createProxyConnector('qualcomm_ai', 'Qualcomm AI', 'AI Lab Blogs', 'Applied AI');
+const intelAiConnector = createProxyConnector('intel_ai', 'Intel AI', 'AI Lab Blogs', 'AI programs');
+
+// Policy (Web-only)
+const unescoAiConnector = createProxyConnector('unesco_ai', 'UNESCO AI', 'AI Policy', 'Ethics/policy');
+const nistAiWebConnector = createProxyConnector('nist_ai_web', 'NIST AI Framework', 'AI Policy', 'US AI standards');
+
+// Communities (Web-only)
+const hfForumsConnector = createProxyConnector('hf_forums', 'HF Forums', 'AI Communities', 'Community support');
+const pytorchForumsConnector = createProxyConnector('pytorch_forums', 'PyTorch Forums', 'AI Communities', 'Framework Q&A');
+const tfForumConnector = createProxyConnector('tf_forum', 'TF Forum', 'AI Communities', 'Framework Q&A');
+
+// Code (Web-only)
+const githubTrendingAiConnector = createProxyConnector('github_trending_ai', 'GitHub Trending AI', 'AI Code', 'Trending repos');
+const langchainDocsConnector = createProxyConnector('langchain_docs', 'LangChain Docs', 'AI Code', 'Agent/RAG framework');
+const llamaindexDocsConnector = createProxyConnector('llamaindex_docs', 'LlamaIndex Docs', 'AI Code', 'RAG framework');
+
+// Video Channels (Web-only)
+const ytTwoMinPapersConnector = createProxyConnector('yt_two_minute_papers', 'Two Minute Papers', 'Video', 'Paper summaries');
+const ytYannicConnector = createProxyConnector('yt_yannic_kilcher', 'Yannic Kilcher', 'Video', 'Paper deep-dives');
+const ytLexFridmanConnector = createProxyConnector('yt_lex_fridman', 'Lex Fridman', 'Video', 'AI interviews');
+const ytAiExplainedConnector = createProxyConnector('yt_ai_explained', 'AI Explained', 'Video', 'AI explainers');
+const ytSentdexConnector = createProxyConnector('yt_sentdex', 'Sentdex', 'Video', 'Python ML tutorials');
+
+// ============================================================
+// REGISTRY — ALL CONNECTORS
 // ============================================================
 
 export const ALL_CONNECTORS: DataSourceConnector[] = [
@@ -330,8 +392,26 @@ export const ALL_CONNECTORS: DataSourceConnector[] = [
     stackOverflowAiConnector, redditMlConnector, redditAiConnector, redditLlmConnector,
     // AI Code (2)
     githubReposConnector, githubCodeConnector,
-    // AI Conferences (2)
+    // AI Conferences (RSS + Web)
     neuripsConnector, aclAnthologyConnector,
+    neuripsConfConnector, icmlConfConnector, iclrConfConnector, aaaiConfConnector, ijcaiConfConnector,
+    cvprConfConnector, aclConfConnector, emnlpConfConnector, kddConfConnector, pmlrConnector,
+    // Web-only AI News
+    oreillyRadarConnector, dlAiBatchConnector, distillPubConnector, arxivSanityConnector,
+    // Web-only Benchmarks & Leaderboards
+    pwcSotaConnector, hfLeaderboardConnector, lmarenaConnector, mlperfConnector,
+    helmConnector, tfDatasetsConnector, pytorchHubConnector, ollamaLibConnector,
+    // Web-only Lab Research
+    openaiResearchConnector, anthropicResearchConnector, googleResearchConnector,
+    nvidiaResearchConnector, adobeResearchConnector, qualcommAiConnector, intelAiConnector,
+    // Web-only Policy
+    unescoAiConnector, nistAiWebConnector,
+    // Web-only Communities
+    hfForumsConnector, pytorchForumsConnector, tfForumConnector,
+    // Web-only Code
+    githubTrendingAiConnector, langchainDocsConnector, llamaindexDocsConnector,
+    // Web-only Video
+    ytTwoMinPapersConnector, ytYannicConnector, ytLexFridmanConnector, ytAiExplainedConnector, ytSentdexConnector,
 ];
 
 export const CONNECTORS_BY_CATEGORY: Record<string, DataSourceConnector[]> = {};

@@ -588,7 +588,33 @@ Output JSON.`;
     }
 
     async generateJourneyMap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_JourneyMap> {
-        const prompt = `STEP: JOURNEY MAP. Map the user experience phases. Output JSON.`;
+        const prompt = `STEP: SERVICE BLUEPRINT & JOURNEY MAP. You are a senior service designer creating a comprehensive service blueprint.
+
+METHODOLOGY: Map the COMPLETE end-to-end experience identified in the research. Use the themes and persona pain points to identify every critical moment.
+
+STAGE IDENTIFICATION:
+- Identify 5-8 chronological stages covering the FULL lifecycle (awareness through advocacy/retention)
+- Each stage name should be specific to the research context (NOT generic "Discovery, Consideration, Purchase")
+- If the research covers a service process, map frontstage AND backstage operations
+
+FOR EACH STAGE, provide ALL of these fields (none should be empty):
+- phase: Specific stage name describing what happens (e.g., "Initial Needs Assessment & Program Search")
+- customerAction: What the user/stakeholder DOES at this stage (2-3 specific actions from evidence)
+- touchpoint: The specific channel, device, or interaction point (e.g., "university website portal", "mobile app", "in-person advising session")
+- frontstageAction: What the organization's visible staff/systems DO (specific, not generic)
+- backstageAction: What happens behind the scenes (data processing, internal handoffs, system integrations)
+- supportProcesses: Infrastructure, third-party services, or systems that enable this stage
+- physicalEvidence: What the user sees, holds, or receives (confirmation emails, dashboards, reports)
+- emotion: One of: "Delighted", "Positive", "Neutral", "Negative", "Frustrated" — based on pain points found in research
+- painPoint: The specific friction or problem at this stage, cited from research evidence [CHUNK_XXX]
+
+EVIDENCE GROUNDING:
+- EVERY painPoint must reference a [CHUNK_XXX] from the corpus
+- customerAction should reflect REAL behaviors found in the data, not assumed ones
+- emotion should be JUSTIFIED by evidence (if users report frustration, mark Frustrated)
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -607,14 +633,39 @@ Output JSON.`;
     }
 
     async generatePRD(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_PRD> {
-        const prompt = `STEP: PRD. Define product requirements based on the Personas and Themes.
-        Requirements:
-        - Title: Specific product name or release title.
-        - Purpose: Clear objective.
-        - Features: 3-5 core features prioritized using MoSCoW.
-        - Feature Descriptions: Must be detailed (30-50 words) explaining functionality and value.
-        ${feedback ? 'IMPORTANT FEEDBACK: ' + feedback : ''}
-        Output JSON.`;
+        const prompt = `STEP: PRODUCT REQUIREMENTS DOCUMENT. You are a senior product manager translating research insights into actionable requirements.
+
+METHODOLOGY: Map EVERY persona pain point and strategic recommendation to a concrete product feature. The PRD is the bridge between "what we learned" and "what we build."
+
+TITLE: Create a specific, descriptive product/initiative name that reflects the research domain (NOT a generic version number or hash).
+
+PURPOSE & OBJECTIVES: 3-5 sentences explaining:
+- WHAT problem this product solves (cite specific themes from the research)
+- WHO benefits (reference specific personas)
+- HOW success will be measured (quantifiable metrics)
+
+SUCCESS METRICS: 3-5 measurable KPIs tied to research findings (e.g., "Reduce prospect identification time by 40% — addresses [CHUNK_XXX] finding")
+
+FEATURES (MoSCoW Prioritization):
+- Generate features for EVERY major pain point identified across all personas
+- Must-have: Features that directly address critical/high-severity problems from the research
+- Should-have: Features addressing medium-severity issues
+- Could-have: Enhancement opportunities identified in the data
+- Won't-have (this release): Features explicitly deferred with rationale
+
+FOR EACH FEATURE:
+- name: Specific capability (NOT "Analytics Dashboard" — say "Real-Time Donor Engagement Scoring Dashboard")
+- priority: Must-have / Should-have / Could-have / Won't-have
+- description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Must cite [CHUNK_XXX].
+- acceptanceCriteria: 2-3 testable conditions for "done"
+
+ANTI-PATTERNS:
+- Generic product names with version hashes
+- Features not traceable to research evidence
+- Missing acceptance criteria
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
 
         const schema: Schema = {
             type: Type.OBJECT,
@@ -631,7 +682,32 @@ Output JSON.`;
     }
 
     async generateRoadmap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Roadmap> {
-        const prompt = `STEP: ROADMAP. Plan horizons (Now, Next, Later). Create a strategic vision and specific initiatives. For each initiative, provide a clear 'description' of what it entails. Output JSON.`;
+        const prompt = `STEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
+
+VISION: 2-3 sentences describing the desired future state, grounded in research themes. What does success look like in 12-18 months?
+
+HORIZON FRAMEWORK:
+- NOW (0-3 months): Quick wins and critical fixes identified in the research. These address the most urgent pain points.
+- NEXT (3-9 months): Strategic initiatives that require planning and resources. Build on NOW foundations.
+- LATER (9-18 months): Transformative changes that require organizational readiness.
+
+FOR EACH INITIATIVE:
+- initiative: Specific, action-oriented name (NOT "Improve processes" — say "Deploy AI-powered donor matching to replace manual prospect research")
+- horizon: "Now" | "Next" | "Later"
+- owner: The role/team responsible (e.g., "VP of Advancement", "IT Department", "Student Services Director")
+- description: 30-50 words explaining WHAT, WHY (cite evidence [CHUNK_XXX]), and expected IMPACT
+- dependencies: What must happen first (reference other initiatives by name)
+- successMetric: How to measure completion/impact
+
+REQUIREMENTS:
+- Generate initiatives for EVERY strategic recommendation from previous steps
+- Each initiative must trace to a specific theme or recommendation
+- NOW horizon must include at least 2 quick wins from the research
+- Balance across personas — don't over-index on one stakeholder group
+- Include at least 1 initiative per persona archetype identified
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -647,7 +723,39 @@ Output JSON.`;
     }
 
     async generateTechArchitecture(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_TechArch> {
-        const prompt = `STEP: TECH ARCH. Design system nodes and flows. Output JSON.`;
+        const prompt = `STEP: TECHNOLOGY ARCHITECTURE. You are a solutions architect designing a system based on research findings.
+
+METHODOLOGY: Extract ALL technology components, systems, platforms, and integrations mentioned in the research data. Map how they connect.
+
+OVERVIEW: 3-5 sentences describing the technology landscape identified in the research. What systems exist? What's missing? Where are the integration gaps?
+
+NODE TYPES (use these categories):
+- "User": End-user touchpoints (web portals, mobile apps, kiosks)
+- "Application": Software systems (CRM, LMS, ERP, custom apps)
+- "Database": Data stores (data warehouse, lakes, operational DBs)
+- "Integration": Middleware, APIs, ETL pipelines
+- "External": Third-party services, cloud platforms, vendor systems
+- "AI/ML": AI models, ML pipelines, analytics engines
+
+FOR EACH NODE:
+- id: unique identifier (e.g., "crm_1", "portal_web")
+- label: Specific system name from the research (e.g., "Salesforce CRM", "Student Portal")
+- type: One of the types above
+- description: What it does and current state (from evidence)
+
+FOR EACH FLOW:
+- fromId/toId: Node IDs showing data/process flow
+- action: What moves between them (e.g., "Student enrollment data sync", "API call for donor records")
+- status: "active" | "planned" | "broken" (from research evidence)
+
+REQUIREMENTS:
+- Include ALL systems and tools mentioned in the corpus
+- Identify integration gaps (nodes that SHOULD connect but don't)
+- Flag legacy systems identified as problematic in the research
+- Minimum 6 nodes and 5 flows
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -785,14 +893,30 @@ Output JSON.`;
     // --- NEW OUTPUT GENERATORS (Sprint 4) ---
 
     async generateGapAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: GAP ANALYSIS. Based on the research data, identify gaps between current state and desired state.
-        Requirements:
-        - Assess ALL capabilities identified in the data with current maturity (1-5 scale) and target maturity.
-        - Each gap must have severity (critical/high/medium/low), impact description, and effort estimate.
-        - Provide 3-5 prioritized actions and 2-3 quick wins (high impact, low effort).
-        - Include a risk register with ALL identified risks.
-        ${feedback ? 'FEEDBACK: ' + feedback : ''}
-        Output JSON with: methodology, analysis (object with assessmentScope, currentState[], desiredState[], gaps[], prioritizedActions[], quickWins[], riskRegister[]).`;
+        const prompt = `STEP: GAP ANALYSIS. You are a management consultant performing a rigorous current-state vs desired-state analysis.
+
+ASSESSMENT SCOPE: Define what domain this gap analysis covers based on the research themes.
+
+CURRENT STATE: For EVERY capability area identified in the research:
+- capability: Specific name (e.g., "Donor data integration across systems", "AI-powered student advising")
+- maturity: Score 1-5 based on EVIDENCE from corpus (1=ad hoc, 2=developing, 3=defined, 4=managed, 5=optimized)
+- evidence: Quote the specific [CHUNK_XXX] that justifies this score
+
+DESIRED STATE: For each capability:
+- targetMaturity: Where it SHOULD be based on best practices and research recommendations
+- rationale: WHY this target, citing evidence
+
+GAPS: For each capability where current < target:
+- severity: "critical" (gap >= 3), "high" (gap = 2), "medium" (gap = 1), "low" (enhancement)
+- impact: What happens if this gap persists (cite evidence [CHUNK_XXX])
+- effort: "low" (< 3 months), "medium" (3-9 months), "high" (9+ months)
+
+PRIORITIZED ACTIONS: Rank by severity x impact / effort. Each action must reference a specific gap.
+QUICK WINS: Gaps where effort="low" AND impact is significant. Minimum 2.
+RISK REGISTER: What could go wrong if gaps are NOT addressed. Include likelihood, impact, and mitigation.
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -813,15 +937,34 @@ Output JSON.`;
     }
 
     async generateTechAudit(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: TECHNOLOGY ECOSYSTEM AUDIT. Based on the research data, inventory all systems, map integrations, and score capability maturity.
-        Requirements:
-        - Inventory ALL systems mentioned in the data with name, vendor, category, users, department, status.
-        - Map ALL integrations between systems with health status.
-        - Score ALL identified capabilities on current maturity (1-5) and target maturity.
-        - Identify 2-4 consolidation opportunities.
-        - Provide 3-5 recommendations.
-        ${feedback ? 'FEEDBACK: ' + feedback : ''}
-        Output JSON with: methodology, audit (object with systemsInventory[], integrationMap[], capabilityMatrix[], consolidationOpportunities[], recommendations[]).`;
+        const prompt = `STEP: TECHNOLOGY ECOSYSTEM AUDIT. You are a technology analyst performing a comprehensive systems inventory.
+
+METHODOLOGY: Scan ALL corpus chunks for mentions of software, platforms, tools, databases, APIs, vendors, and technology processes.
+
+SYSTEMS INVENTORY: For EVERY technology system identified:
+- name: Exact system name from the data (e.g., "Slate CRM", "Banner ERP", "Canvas LMS")
+- vendor: Company/provider
+- category: "CRM" | "ERP" | "LMS" | "Analytics" | "Communication" | "Database" | "Custom" | "Cloud" | other
+- users: Who uses it (from evidence)
+- department: Which department owns it
+- status: "active" | "legacy" | "deprecated" | "planned" — based on corpus evidence [CHUNK_XXX]
+
+INTEGRATION MAP: For EVERY connection between systems:
+- source/target: System names
+- method: "API" | "file transfer" | "manual" | "middleware" | "none (siloed)"
+- health: "healthy" | "degraded" | "broken" — from evidence
+- dataFlow: What data moves between them
+
+CAPABILITY MATRIX: Score organizational capabilities (from themes) on maturity 1-5.
+
+CONSOLIDATION OPPORTUNITIES: Where multiple systems serve the same function. Cite evidence.
+
+RECOMMENDATIONS: Technology-specific actions with [CHUNK_XXX] citations.
+
+IMPORTANT: Only include systems that have EVIDENCE in the corpus. Do not hallucinate vendor names.
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -840,14 +983,34 @@ Output JSON.`;
     }
 
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: COMPETITIVE ANALYSIS. Based on the research data, benchmark against peers and identify competitive gaps.
-        Requirements:
-        - Identify ALL peer organizations/competitors mentioned or implied in the data with strengths, weaknesses, differentiators.
-        - Define 4-6 benchmark dimensions with descriptions.
-        - Score each peer on each dimension (1-5 maturity).
-        - Summarize gaps with our score vs best-in-class and recommended actions.
-        ${feedback ? 'FEEDBACK: ' + feedback : ''}
-        Output JSON with: methodology, analysis (object with industryContext, peers[], benchmarkDimensions[], maturityMatrix[], gapSummary[]).`;
+        const prompt = `STEP: COMPETITIVE & PEER ANALYSIS. You are a market analyst performing evidence-based competitive benchmarking.
+
+INDUSTRY CONTEXT: 3-5 sentences describing the competitive landscape identified in the research. What trends are reshaping the market?
+
+PEER IDENTIFICATION: Identify ONLY organizations/competitors that are EXPLICITLY mentioned in the corpus data.
+- Do NOT fabricate peer organizations. Every peer must be traceable to a [CHUNK_XXX] reference.
+- For each peer: name, market position (brief), strengths (2-4, from evidence), weaknesses (1-3, from evidence), differentiators (1-3)
+
+BENCHMARK DIMENSIONS: Define 4-6 dimensions that are RELEVANT to the research themes:
+- dimension: Specific capability area (e.g., "AI-Powered Personalization", "Data Integration Maturity")
+- weight: 0-1 importance score based on theme priority
+- description: What excellence looks like in this dimension
+
+MATURITY MATRIX: Score EACH peer on EACH dimension (1-5 scale) with evidence justification.
+
+GAP SUMMARY: For each dimension:
+- ourScore: Based on current state evidence from corpus
+- bestInClass: Highest peer score
+- gap: Difference
+- action: Specific recommendation to close the gap, with [CHUNK_XXX] evidence
+
+ANTI-PATTERNS:
+- Inventing competitors not mentioned in the data
+- Scoring without evidence justification
+- Generic dimensions not tied to research themes
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {

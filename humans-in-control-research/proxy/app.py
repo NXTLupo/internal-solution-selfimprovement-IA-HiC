@@ -387,6 +387,69 @@ SOURCES = {
     # --- CONFERENCE PROCEEDINGS (Web/RSS where available) — Tier 1 ---
     "neurips_proc": {"name": "NeurIPS Proceedings", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://proceedings.neurips.cc/rss"},
     "acl_anthology": {"name": "ACL Anthology", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://aclanthology.org/feed.xml"},
+
+    # ================================================================
+    # WEB-ONLY SOURCES — Site-scoped Jina search (no API/RSS available)
+    # These use Jina's search API with site: scoping for targeted results
+    # ================================================================
+
+    # --- AI News (Web-only) ---
+    "oreilly_radar": {"name": "O'Reilly Radar", "category": "AI News", "type": "web_search", "tier": 2, "domain": "oreilly.com/radar"},
+    "deeplearning_ai_batch": {"name": "DeepLearning.AI Batch", "category": "AI News", "type": "web_search", "tier": 2, "domain": "deeplearning.ai/the-batch"},
+    "distill_pub": {"name": "Distill.pub", "category": "AI News", "type": "web_search", "tier": 1, "domain": "distill.pub"},
+    "arxiv_sanity": {"name": "arXiv Sanity", "category": "AI News", "type": "web_search", "tier": 2, "domain": "arxiv-sanity-lite.com"},
+
+    # --- Conference Proceedings (Web-only) ---
+    "neurips_conf": {"name": "NeurIPS Conference", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "neurips.cc"},
+    "icml_conf": {"name": "ICML Conference", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "icml.cc"},
+    "iclr_conf": {"name": "ICLR Conference", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "iclr.cc"},
+    "aaai_conf": {"name": "AAAI Conference", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "aaai.org"},
+    "ijcai_conf": {"name": "IJCAI Conference", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "ijcai.org"},
+    "cvpr_conf": {"name": "CVPR (Vision)", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "openaccess.thecvf.com"},
+    "acl_conf": {"name": "ACL (NLP)", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "aclweb.org"},
+    "emnlp_conf": {"name": "EMNLP (NLP)", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "emnlp.org"},
+    "kdd_conf": {"name": "KDD (Data Mining)", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "kdd.org"},
+    "pmlr_proc": {"name": "PMLR Proceedings", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "proceedings.mlr.press"},
+
+    # --- Datasets & Benchmarks (Web-only) ---
+    "papers_with_code_sota": {"name": "Papers With Code SOTA", "category": "AI Models & Datasets", "type": "web_search", "tier": 1, "domain": "paperswithcode.com/sota"},
+    "hf_leaderboard": {"name": "HF Open LLM Leaderboard", "category": "AI Models & Datasets", "type": "web_search", "tier": 1, "domain": "huggingface.co/spaces/open-llm-leaderboard"},
+    "lmarena": {"name": "LMSys Chatbot Arena", "category": "AI Models & Datasets", "type": "web_search", "tier": 2, "domain": "lmarena.ai"},
+    "mlperf": {"name": "MLPerf Benchmarks", "category": "AI Models & Datasets", "type": "web_search", "tier": 1, "domain": "mlperf.org"},
+    "helm_stanford": {"name": "HELM (Stanford)", "category": "AI Models & Datasets", "type": "web_search", "tier": 1, "domain": "crfm.stanford.edu/helm"},
+    "tf_datasets": {"name": "TensorFlow Datasets", "category": "AI Models & Datasets", "type": "web_search", "tier": 2, "domain": "tensorflow.org/datasets"},
+    "pytorch_hub": {"name": "PyTorch Hub", "category": "AI Models & Datasets", "type": "web_search", "tier": 2, "domain": "pytorch.org/hub"},
+    "ollama_library": {"name": "Ollama Library", "category": "AI Models & Datasets", "type": "web_search", "tier": 2, "domain": "ollama.com/library"},
+
+    # --- Official Lab Pages (Web-only — no RSS) ---
+    "openai_research": {"name": "OpenAI Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "openai.com/research"},
+    "anthropic_research": {"name": "Anthropic Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "anthropic.com/research"},
+    "google_research": {"name": "Google Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "research.google/blog"},
+    "nvidia_research": {"name": "NVIDIA Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "research.nvidia.com"},
+    "adobe_research": {"name": "Adobe Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "research.adobe.com"},
+    "qualcomm_ai": {"name": "Qualcomm AI", "category": "AI Lab Blogs", "type": "web_search", "tier": 2, "domain": "qualcomm.com/research/artificial-intelligence"},
+    "intel_ai": {"name": "Intel AI", "category": "AI Lab Blogs", "type": "web_search", "tier": 2, "domain": "intel.com/content/www/us/en/artificial-intelligence"},
+
+    # --- AI Policy (Web-only) ---
+    "unesco_ai": {"name": "UNESCO AI", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "unesco.org/en/artificial-intelligence"},
+    "nist_ai_web": {"name": "NIST AI Framework", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "nist.gov/artificial-intelligence"},
+
+    # --- Open Source Communities (Web-only) ---
+    "hf_forums": {"name": "Hugging Face Forums", "category": "AI Communities", "type": "web_search", "tier": 3, "domain": "discuss.huggingface.co"},
+    "pytorch_forums": {"name": "PyTorch Forums", "category": "AI Communities", "type": "web_search", "tier": 3, "domain": "discuss.pytorch.org"},
+    "tf_forum": {"name": "TensorFlow Forum", "category": "AI Communities", "type": "web_search", "tier": 3, "domain": "discuss.tensorflow.org"},
+
+    # --- Code Repos (Web-only) ---
+    "github_trending_ai": {"name": "GitHub Trending AI", "category": "AI Code", "type": "web_search", "tier": 2, "domain": "github.com/trending"},
+    "langchain_docs": {"name": "LangChain Docs", "category": "AI Code", "type": "web_search", "tier": 2, "domain": "python.langchain.com"},
+    "llamaindex_docs": {"name": "LlamaIndex Docs", "category": "AI Code", "type": "web_search", "tier": 2, "domain": "docs.llamaindex.ai"},
+
+    # --- Video Channels (Web-only) ---
+    "yt_two_minute_papers": {"name": "Two Minute Papers", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@TwoMinutePapers"},
+    "yt_yannic_kilcher": {"name": "Yannic Kilcher", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@YannicKilcher"},
+    "yt_lex_fridman": {"name": "Lex Fridman Podcast", "category": "Video", "type": "web_search", "tier": 2, "domain": "youtube.com/@lexfridman"},
+    "yt_ai_explained": {"name": "AI Explained", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@aiexplained-official"},
+    "yt_sentdex": {"name": "Sentdex", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@sentdex"},
 }
 
 # ================================================================
@@ -642,6 +705,21 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                     results = data.get("data") or data.get("results") or (data if isinstance(data, list) else [data])
                     items = [{"title": r.get("title", ""), "content": (r.get("content") or r.get("description") or "")[:2000], "url": r.get("url", ""), "date": ""} for r in (results[:limit] if isinstance(results, list) else [results])]
                 return {"source": "Jina Reader", "category": "Web Intelligence", "items": items, "total": len(items)}
+
+            # --- Web Search connector (site-scoped Jina search for web-only sources) ---
+            elif src_type == "web_search":
+                site_domain = src.get("domain", "")
+                search_query = f"site:{site_domain} {q}" if site_domain else q
+                endpoint = f"https://s.jina.ai/{search_query}"
+                try:
+                    resp = await fetch_with_retry(client, endpoint, headers={"Accept": "application/json", "X-With-Links": "true"})
+                    data = resp.json() if resp.status_code == 200 else {}
+                    results = data.get("data") or data.get("results") or (data if isinstance(data, list) else [])
+                    items = [{"title": to_str(r.get("title", "")), "content": to_str(r.get("content") or r.get("description") or "", "")[:1000], "url": r.get("url", ""), "date": ""} for r in (results[:limit] if isinstance(results, list) else [results]) if isinstance(r, dict)]
+                except Exception as e:
+                    items = []
+                    logger.warning(f"Web search for {src['name']} failed: {e}")
+                return {"source": src["name"], "category": src.get("category", "Web"), "credibilityTier": src.get("tier", 3), "items": items, "total": len(items)}
 
             else:
                 return {"source": src["name"], "items": [], "total": 0, "error": f"Unknown connector type: {src_type}"}
