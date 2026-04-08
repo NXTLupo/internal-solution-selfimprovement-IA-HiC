@@ -224,6 +224,7 @@ export enum AppState {
 
 export enum AnalysisStage {
   IDLE = 'IDLE',
+  DATA_REVIEW = 'DATA_REVIEW', // Step 0.5: Review collected data before ingestion
   INGESTION = 'INGESTION', // Step 1: Context check
   THEMES = 'THEMES',       // Step 2: Theme verification
   PERSONAS = 'PERSONAS',   // Step 3: Persona verification

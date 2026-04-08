@@ -11,7 +11,7 @@
  * 5. AI-powered subreddit discovery for social listening
  */
 
-import { estimateCost, ResearchMode } from './deepResearchService';
+import { estimateCost, ResearchMode, executeResearch } from './deepResearchService';
 import { ALL_CONNECTORS, DataSourceConnector, DataSourceResult, DataSourceQuery, DataSourceItem } from './dataSourceConnectors';
 import { collectSocialData, SocialCollectionConfig, SocialDataSummary } from './cxIntegrationService';
 import { AnalyticalLens } from '../types';
@@ -447,38 +447,31 @@ export async function executePlan(
                 let items: DataSourceItem[] = [];
 
                 if (source.type === 'deep_research') {
-                    // AI Deep Research via Gemini Grounding (browser-safe)
-                    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-                    const ai = new GoogleGenAI({ apiKey });
-                    onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: 'Running AI-grounded web research...' });
+                    // AI Deep Research via deepResearchService (routes to Gemini/Claude/OpenAI)
+                    onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: `Running ${source.config.mode} AI research...` });
 
-                    const response = await ai.models.generateContent({
-                        model: 'gemini-2.5-flash',
-                        contents: `Research the following topic thoroughly. Provide a detailed, factual summary with specific data points, statistics, and named sources. Be comprehensive.\n\nTOPIC: ${source.query}`,
-                        config: {
-                            tools: [{ googleSearch: {} }],
-                        },
+                    const researchResult = await executeResearch({
+                        mode: source.config.mode || 'focused',
+                        query: source.query,
+                    }, (p) => {
+                        onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: p.message });
                     });
-
-                    const text = response.text || '';
-                    const gm = response.candidates?.[0]?.groundingMetadata;
-                    const sourceUrls = (gm?.groundingChunks || []).filter((c: any) => c.web).map((c: any) => c.web);
 
                     items = [{
                         id: `research_${source.id}`,
-                        title: `AI Grounded Research: ${source.query.substring(0, 80)}`,
-                        content: text,
+                        title: `AI Research (${researchResult.provider}): ${source.query.substring(0, 60)}`,
+                        content: researchResult.content,
                         sourceType: 'web',
-                        sourceName: 'Gemini (Google Search Grounding)',
+                        sourceName: `${researchResult.provider} (${source.config.mode} research)`,
                     }];
-                    for (const src of sourceUrls) {
+                    for (const src of researchResult.sources) {
                         items.push({
                             id: `research_src_${items.length}`,
-                            title: src.title || src.uri,
-                            content: src.title || '',
-                            url: src.uri,
+                            title: src.title || src.url,
+                            content: src.citedText || src.snippet || src.title || '',
+                            url: src.url,
                             sourceType: 'web',
-                            sourceName: 'Google Search',
+                            sourceName: researchResult.provider,
                         });
                     }
 

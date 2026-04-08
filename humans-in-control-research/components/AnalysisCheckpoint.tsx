@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { AnalysisStage, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_JourneyMap, StepResult_TechArch, StepResult_PRD, StepResult_Roadmap, StepResult_Recommendations, Slide, Theme, Persona, ScriptScene, ServiceBlueprintStage, PRDFeature, RoadmapItem, StrategicRecommendation } from '../types';
-import { logEdit } from '../services/promptImprovementEngine';
+import { logEdit as logEditToEngine } from '../services/promptImprovementEngine';
 
 interface Props {
   stage: AnalysisStage;
@@ -184,6 +184,8 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       if (!editLog.includes(desc)) {
           setEditLog(prev => [...prev, desc]);
       }
+      // Also log to prompt improvement engine for cross-session learning
+      logEditToEngine(stage, desc, '', desc);
   };
 
   // --- EDITOR FUNCTIONS ---
@@ -394,17 +396,63 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           interventionSummary = "Approved without changes.";
       }
 
-      // Log edits to prompt improvement engine
-      if (hasEdits && editLog.length > 0) {
-          for (const edit of editLog) {
-              logEdit(stage, edit, '', edit); // field-level logging
-          }
-      }
+      // Edits already logged to prompt improvement engine per-edit via logEdit()
 
       onApprove(feedback, modifiedData, interventionSummary);
   };
 
   // --- RENDERERS ---
+
+  // --- DATA REVIEW CHECKPOINT ---
+  const renderDataReview = () => {
+      if (!data || !Array.isArray(data)) return <LoadingView log={currentLog} elapsed={elapsed} />;
+      const items = data as any[];
+      const tierCounts = { 1: 0, 2: 0, 3: 0 };
+      items.forEach((item: any) => { const t = item.credibilityTier || 3; tierCounts[t as 1|2|3] = (tierCounts[t as 1|2|3] || 0) + 1; });
+      const sources = [...new Set(items.map((i: any) => i.sourceName || 'Unknown'))];
+
+      return (
+          <div className="space-y-4 max-h-[65vh] overflow-y-auto">
+              {/* Summary stats */}
+              <div className="grid grid-cols-4 gap-3">
+                  <div className="bg-[var(--bg-secondary)] p-3 rounded border text-center">
+                      <div className="text-2xl font-extralight text-[var(--nxt-teal)]">{items.length}</div>
+                      <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Total Items</div>
+                  </div>
+                  <div className="bg-[var(--bg-secondary)] p-3 rounded border text-center">
+                      <div className="text-2xl font-extralight text-[var(--nxt-teal)]">{sources.length}</div>
+                      <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Sources</div>
+                  </div>
+                  <div className="bg-[var(--bg-secondary)] p-3 rounded border text-center">
+                      <div className="text-2xl font-extralight" style={{color: '#115054'}}>{tierCounts[1]}</div>
+                      <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Tier 1</div>
+                  </div>
+                  <div className="bg-[var(--bg-secondary)] p-3 rounded border text-center">
+                      <div className="text-2xl font-extralight" style={{color: '#fd8e2e'}}>{tierCounts[2]}</div>
+                      <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Tier 2</div>
+                  </div>
+              </div>
+
+              {/* Item list */}
+              <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)]">Collected Evidence ({items.length} items)</div>
+              <div className="space-y-1">
+                  {items.slice(0, 50).map((item: any, i: number) => (
+                      <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)] text-[11px]">
+                          <span className={`text-[7px] font-bold uppercase px-1 py-0.5 rounded-sm flex-shrink-0 ${
+                              item.credibilityTier === 1 ? 'bg-[var(--nxt-teal)] text-white' :
+                              item.credibilityTier === 2 ? 'bg-[var(--nxt-orange)] text-white' :
+                              'bg-gray-200 text-gray-500'
+                          }`}>T{item.credibilityTier || '?'}</span>
+                          <span className="font-bold text-[var(--text-primary)] flex-1 truncate">{item.title}</span>
+                          <span className="text-[9px] text-[var(--text-tertiary)] flex-shrink-0">{item.sourceName?.substring(0, 20)}</span>
+                          {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[8px] text-[var(--nxt-teal)] underline flex-shrink-0">Link</a>}
+                      </div>
+                  ))}
+                  {items.length > 50 && <div className="text-center text-[10px] text-[var(--text-tertiary)]">...and {items.length - 50} more items</div>}
+              </div>
+          </div>
+      );
+  };
 
   const renderIngestion = () => {
       const d = data as StepResult_Ingestion;
@@ -1125,6 +1173,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
             )}
         </div>
         <div className="p-6 overflow-hidden flex-1 flex flex-col bg-[var(--bg-primary)]">
+            {stage === AnalysisStage.DATA_REVIEW && renderDataReview()}
             {stage === AnalysisStage.INGESTION && renderIngestion()}
             {stage === AnalysisStage.THEMES && renderThemes()}
             {stage === AnalysisStage.PERSONAS && renderPersonas()}

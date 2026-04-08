@@ -50,7 +50,7 @@ CONSTRAINTS:
 - Every finding MUST reference at least one screenshot by number (1-indexed).
 - Severity scores: exactly 0, 1, 2, 3, or 4. No decimals.
 - Confidence: exactly HIGH (clearly visible), MEDIUM (inferred from partial evidence), or LOW (requires live testing).
-- Maximum 5 findings per dimension. Skip dimensions with 0 findings.
+- Report ALL findings per dimension — do not cap at an arbitrary number. Skip dimensions with 0 findings.
 - Each finding title: 5-10 words.
 - Each finding description: 1-2 sentences, under 40 words.
 - Each finding recommendation: 1 sentence, under 25 words.

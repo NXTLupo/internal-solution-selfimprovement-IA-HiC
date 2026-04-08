@@ -387,7 +387,7 @@ export class GenAISession {
     }
 
     async generateThemes(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Themes> {
-        const prompt = `STEP 2: THEMES. Identify 5-8 core research themes from the corpus data.
+        const prompt = `STEP 2: THEMES. Identify ALL significant research themes present in the corpus data. Do not limit yourself to a fixed number — let the data drive how many themes emerge. Typical research corpora yield 5-12 themes, but more or fewer is fine if the evidence supports it.
 
 CRITICAL CITATION REQUIREMENTS:
 - Each theme MUST include citations array with at least 1 source
@@ -450,7 +450,7 @@ METHODOLOGY: Analyze ALL themes, ALL cited evidence, and ALL source material to 
 - Different SEGMENTS (individual donor, corporate partner, foundation, government funder)
 
 REQUIREMENTS:
-- Generate 4-6 distinct personas (MINIMUM 4). Each must represent a genuinely different archetype.
+- Generate as many distinct persona archetypes as the data supports. Every distinct stakeholder perspective, role, or segment evidenced in the research should get its own persona. Typical corpora yield 4-8 personas, but generate more if the data supports more.
 - Each persona MUST be grounded in specific evidence from the corpus
 - "quote" = a first-person synthetic voice quote (what this person would say), 15-25 words
 - "bio" = 2-3 sentences with [CHUNK_XXX] citations referencing specific corpus evidence
@@ -458,7 +458,7 @@ REQUIREMENTS:
 - Each pain point must have a "quote" with a DIRECT QUOTE from corpus + chunk reference
 - Each opportunity must have a "quote" with evidence from corpus
 - "fiveWs" must be filled: who (their world/network), what (tension they face), whenWhere (context), why (deeper motivation)
-- 3-5 motivations, 3-5 tasks, 3-5 pain points, 2-4 opportunities PER persona
+- Include ALL evidenced motivations, tasks, pain points, and opportunities per persona — do not cap at an arbitrary number. Let the research evidence determine the count.
 - Each persona should connect to DIFFERENT themes -- not all personas about the same theme
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
@@ -515,7 +515,7 @@ METHODOLOGY:
 3. Do NOT generate generic platitudes. Each recommendation must solve a SPECIFIC problem identified in the data.
 
 REQUIREMENTS:
-- Generate 5-8 recommendations (one per major problem identified)
+- Generate ONE recommendation per major problem/challenge/pain point identified in the research. Do not cap at an arbitrary number. If the research reveals 12 problems, generate 12 recommendations.
 - Title: Active verb + specific outcome (NOT "Enhance X" or "Leverage Y" -- be precise about WHAT changes)
 - Description: 50-80 words. Must:
   a) NAME the specific problem being solved (cite the theme or pain point)
@@ -649,7 +649,7 @@ Output JSON.`;
         const prompt = `STEP: DECK STRUCTURE. You are a McKinsey-trained presentation strategist.
 
 NARRATIVE FRAMEWORK (Situation-Complication-Resolution):
-Plan a 10-14 slide executive research presentation following this arc:
+Plan an executive research presentation with as many slides as the narrative requires. Let the volume and richness of the research evidence determine the slide count — do not artificially constrain to a fixed number. Follow this arc:
 
 1. HOOK (1 slide, KEY_STATISTIC): The single most surprising finding. One large number or statement that stops the audience.
 2. SITUATION (2-3 slides): What's happening in the landscape. Use EVIDENCE_WALL and DATA_INSIGHT layouts. Cite [CHUNK_XXX] sources.
@@ -767,10 +767,10 @@ Output JSON.`;
     async generateGapAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
         const prompt = `STEP: GAP ANALYSIS. Based on the research data, identify gaps between current state and desired state.
         Requirements:
-        - Assess 5-8 capabilities with current maturity (1-5 scale) and target maturity.
+        - Assess ALL capabilities identified in the data with current maturity (1-5 scale) and target maturity.
         - Each gap must have severity (critical/high/medium/low), impact description, and effort estimate.
         - Provide 3-5 prioritized actions and 2-3 quick wins (high impact, low effort).
-        - Include a risk register with 3-5 risks.
+        - Include a risk register with ALL identified risks.
         ${feedback ? 'FEEDBACK: ' + feedback : ''}
         Output JSON with: methodology, analysis (object with assessmentScope, currentState[], desiredState[], gaps[], prioritizedActions[], quickWins[], riskRegister[]).`;
         const schema: Schema = {
@@ -795,9 +795,9 @@ Output JSON.`;
     async generateTechAudit(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
         const prompt = `STEP: TECHNOLOGY ECOSYSTEM AUDIT. Based on the research data, inventory all systems, map integrations, and score capability maturity.
         Requirements:
-        - Inventory 5-10 systems with name, vendor, category, users, department, status.
-        - Map 3-7 integrations between systems with health status.
-        - Score 5-8 capabilities on current maturity (1-5) and target maturity.
+        - Inventory ALL systems mentioned in the data with name, vendor, category, users, department, status.
+        - Map ALL integrations between systems with health status.
+        - Score ALL identified capabilities on current maturity (1-5) and target maturity.
         - Identify 2-4 consolidation opportunities.
         - Provide 3-5 recommendations.
         ${feedback ? 'FEEDBACK: ' + feedback : ''}
@@ -822,7 +822,7 @@ Output JSON.`;
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
         const prompt = `STEP: COMPETITIVE ANALYSIS. Based on the research data, benchmark against peers and identify competitive gaps.
         Requirements:
-        - Identify 3-5 peer organizations/competitors with strengths, weaknesses, differentiators.
+        - Identify ALL peer organizations/competitors mentioned or implied in the data with strengths, weaknesses, differentiators.
         - Define 4-6 benchmark dimensions with descriptions.
         - Score each peer on each dimension (1-5 maturity).
         - Summarize gaps with our score vs best-in-class and recommended actions.
