@@ -619,7 +619,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                stages: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { phase: { type: Type.STRING }, customerAction: { type: Type.STRING }, touchpoint: { type: Type.STRING }, frontstageAction: { type: Type.STRING }, backstageAction: { type: Type.STRING }, emotion: { type: Type.STRING }, physicalEvidence: { type: Type.STRING } } } }
+                stages: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { phase: { type: Type.STRING }, customerAction: { type: Type.STRING }, touchpoint: { type: Type.STRING }, frontstageAction: { type: Type.STRING }, backstageAction: { type: Type.STRING }, supportProcesses: { type: Type.STRING }, physicalEvidence: { type: Type.STRING }, emotion: { type: Type.STRING }, painPoint: { type: Type.STRING } }, required: ["phase", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint"] } }
             },
             required: ["methodology", "stages"]
         };
@@ -671,7 +671,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["name", "priority", "description"] } } } }
+                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, successMetrics: { type: Type.ARRAY, items: { type: Type.STRING } }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING }, acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } } }, required: ["name", "priority", "description"] } } }, required: ["title", "purposeAndObjectives", "successMetrics", "features"] }
             },
             required: ["methodology", "prd"]
         };
@@ -712,7 +712,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["initiative", "horizon", "description"] } } } }
+                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING }, dependencies: { type: Type.STRING }, successMetric: { type: Type.STRING } }, required: ["initiative", "horizon", "owner", "description"] } } }, required: ["vision", "items"] }
             },
             required: ["methodology", "roadmap"]
         };
@@ -760,7 +760,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                architecture: { type: Type.OBJECT, properties: { overview: { type: Type.STRING }, nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { id: { type: Type.STRING }, label: { type: Type.STRING }, type: { type: Type.STRING } } } }, flows: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { fromId: { type: Type.STRING }, toId: { type: Type.STRING }, action: { type: Type.STRING } } } } } }
+                architecture: { type: Type.OBJECT, properties: { overview: { type: Type.STRING }, nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { id: { type: Type.STRING }, label: { type: Type.STRING }, type: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["id", "label", "type"] } }, flows: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { fromId: { type: Type.STRING }, toId: { type: Type.STRING }, action: { type: Type.STRING }, status: { type: Type.STRING } }, required: ["fromId", "toId", "action"] } } }, required: ["overview", "nodes", "flows"] }
             },
             required: ["methodology", "architecture"]
         };
