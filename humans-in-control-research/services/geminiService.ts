@@ -507,14 +507,36 @@ Output JSON.`;
     }
 
     async generateRecommendations(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Recommendations> {
-        const prompt = `STEP: RECOMMENDATIONS. Synthesize the research into 3-5 high-impact strategic opportunities.
-        Requirements:
-        - Title: Punchy and active.
-        - Description: A full paragraph (40-60 words) justifying the recommendation. MUST cite sources using [CHUNK_XXX] format. Every claim needs evidence.
-        - Action Items: Concrete next steps (3-4 items).
-        - Each recommendation description MUST reference at least one [CHUNK_XXX] source from the corpus.
-        ${feedback ? 'IMPORTANT FEEDBACK: ' + feedback : ''}
-        Output JSON.`;
+        const prompt = `STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
+
+METHODOLOGY:
+1. First, review ALL themes and ALL persona pain points identified in previous steps
+2. For EACH major problem/challenge/pain point found in the research, generate a targeted strategic recommendation
+3. Do NOT generate generic platitudes. Each recommendation must solve a SPECIFIC problem identified in the data.
+
+REQUIREMENTS:
+- Generate 5-8 recommendations (one per major problem identified)
+- Title: Active verb + specific outcome (NOT "Enhance X" or "Leverage Y" -- be precise about WHAT changes)
+- Description: 50-80 words. Must:
+  a) NAME the specific problem being solved (cite the theme or pain point)
+  b) CITE the evidence that proves this is a problem [CHUNK_XXX]
+  c) DESCRIBE the specific solution approach
+  d) QUANTIFY expected impact where possible (%, $, timeframe)
+- Impact Level: HIGH = urgent + high ROI, MEDIUM = important but longer timeline, LOW = nice-to-have
+- Action Items: 4-5 concrete, specific, assignable next steps. Each starts with a verb. Include WHO should do it.
+- Every recommendation must map to at least one theme or persona pain point
+
+ANTI-PATTERNS (do NOT do these):
+- "Proactively engage stakeholders" -- too vague
+- "Leverage AI for operational efficiency" -- generic consultant-speak
+- "Foster inclusive environments" -- no specificity on HOW
+
+GOOD EXAMPLES:
+- "Deploy predictive donor scoring to replace manual prospect identification -- research shows gift officers spend 40% of time on low-potential prospects [CHUNK_012]"
+- "Consolidate 15 departmental email tools into unified CRM to eliminate the 'invisible constituent' problem identified across 4 sources [CHUNK_003, CHUNK_017]"
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
         
         const schema: Schema = {
             type: Type.OBJECT,

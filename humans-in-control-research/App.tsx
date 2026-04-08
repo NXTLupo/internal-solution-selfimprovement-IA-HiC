@@ -218,7 +218,38 @@ const LiveResearchBoard = ({
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                    
+
+                    {/* SOURCES COLLECTED TILE */}
+                    {liveSourceResults && liveSourceResults.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-5 shadow-sm md:col-span-2">
+                            <div className="flex justify-between items-start mb-3">
+                                <div>
+                                    <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--nxt-teal)]">Intelligence Sources</h3>
+                                    <div className="text-[10px] text-[var(--text-tertiary)]">{liveSourceResults.filter(s => s.status === 'complete').length} of {liveSourceResults.length} sources returned data</div>
+                                </div>
+                                <span className="text-lg font-extralight text-[var(--nxt-teal)]">{liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0)} items</span>
+                            </div>
+                            <div className="flex flex-wrap gap-1.5">
+                                {liveSourceResults.map((src: any, i: number) => (
+                                    <div key={i} className={`flex items-center gap-1.5 px-2 py-1 rounded text-[10px] border ${
+                                        src.status === 'complete' ? 'bg-[var(--bg-secondary)] border-[var(--border-primary)]' :
+                                        src.status === 'empty' ? 'bg-gray-50 border-gray-200 opacity-40' :
+                                        'bg-red-50 border-red-200 opacity-40'
+                                    }`}>
+                                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                                            src.status === 'complete' ? 'bg-[#0CCE6B]' : src.status === 'empty' ? 'bg-gray-300' : 'bg-[#FF5A5A]'
+                                        }`}></div>
+                                        <span className="font-bold truncate max-w-[120px]">{src.source?.replace(/ \(.*\)/, '')}</span>
+                                        {src.items?.length > 0 && <span className="text-[var(--nxt-teal)] font-bold">{src.items.length}</span>}
+                                        <span className={`text-[7px] font-bold uppercase ${
+                                            src.credibilityTier === 1 ? 'text-[var(--nxt-teal)]' : src.credibilityTier === 2 ? 'text-[var(--nxt-orange)]' : 'text-gray-400'
+                                        }`}>T{src.credibilityTier || '?'}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+
                     {/* INGESTION TILE */}
                     {ingestion && (
                         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-sm group hover:border-[var(--nxt-teal)] transition-colors relative overflow-hidden">
@@ -423,8 +454,8 @@ const LiveResearchBoard = ({
 
             {/* RIGHT: Live Source Feed OR Thinking Stream */}
             <div className="w-[420px] flex-shrink-0 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded flex flex-col overflow-hidden shadow-none h-full">
-                {/* Show Live Source Feed during data collection */}
-                {(isCollectingData || (collectionPhase && collectionPhase !== 'complete' && liveSourceResults.length > 0)) ? (
+                {/* Show Live Source Feed during collection OR when sources were collected and no ingestion yet */}
+                {(isCollectingData || (liveSourceResults && liveSourceResults.length > 0 && !ingestion)) ? (
                     <LiveSourceFeed
                         sources={liveSourceResults}
                         refinedQueries={liveRefinedQueries}
