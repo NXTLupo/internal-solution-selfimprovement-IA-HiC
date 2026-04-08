@@ -387,22 +387,42 @@ export class GenAISession {
     }
 
     async generateThemes(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Themes> {
-        const prompt = `STEP 2: THEMES. Identify ALL significant research themes present in the corpus data. Do not limit yourself to a fixed number — let the data drive how many themes emerge. Typical research corpora yield 5-12 themes, but more or fewer is fine if the evidence supports it.
+        const prompt = `STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
-CRITICAL CITATION REQUIREMENTS:
-- Each theme MUST include citations array with at least 1 source
-- For each citation:
-  - "sourceFile" = the CHUNK ID (e.g. "CHUNK_001") from the corpus
-  - "text" = a DIRECT QUOTE from that chunk (verbatim, 10-30 words)
-  - "url" = the URL from that chunk (look for the "URL:" line after the chunk header). If no URL exists, use empty string.
-  - "sourceName" = the source name (e.g. "Higher Ed Dive", "OpenAlex", "Crossref"). Extract from the SOURCE header.
-  - "author" = author if known, otherwise empty string
-  - "publicationDate" = date if available (from the "Date:" line), otherwise empty string
-- The "quote" field = the BEST direct quote that exemplifies this theme
-- "isCrossDocument" = true if supported by chunks from 2+ different sources
-- If the corpus contains [CHUNK_XXX] IDs, you MUST use them in citations
-- Every claim in the description must be traceable to a cited chunk
-- ALWAYS extract the URL from the corpus chunk -- it appears right after "URL:" in the chunk metadata
+METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses simultaneously. Every lens MUST produce at least 1 theme if ANY evidence exists:
+
+1. POLICY & REGULATORY: Government actions, legislation, compliance requirements, regulatory shifts
+2. TECHNOLOGY & INNOVATION: Tools, platforms, AI adoption, digital transformation, emerging tech
+3. FINANCIAL & ECONOMIC: Funding, budgets, revenue models, costs, economic trends, ROI
+4. STAKEHOLDER & HUMAN: People impacts, workforce, demographics, equity, culture, sentiment
+5. STRATEGIC & COMPETITIVE: Market position, competition, partnerships, differentiation, growth
+6. OPERATIONAL & PROCESS: Workflows, efficiency, service delivery, infrastructure, best practices
+
+EXTRACTION RULES:
+- Analyze EVERY chunk in the corpus. Do not stop after finding the first theme.
+- Each chunk may support MULTIPLE themes. A single source can contribute to 3-5 themes.
+- Name themes specifically (BAD: "Technology". GOOD: "AI-Powered Donor Matching Platforms Reshape Fundraising")
+- Description: 3-5 sentences with specific data points, statistics, names, dates from the evidence
+- Minimum: Generate at least 5 themes. If the corpus has 20+ chunks, generate 8-15 themes.
+- Maximum: No cap. If the evidence supports 20 themes, generate 20.
+- Mark each theme as "priority" (strong evidence), "emerging" (moderate), or "weak" (limited evidence)
+
+CITATION REQUIREMENTS (non-negotiable):
+- Each theme MUST cite 2+ chunks. Single-source themes must be marked status: "weak"
+- "sourceFile" = CHUNK ID (e.g. "CHUNK_001") from corpus
+- "text" = VERBATIM quote from that chunk (10-30 words, copy-pasted exactly)
+- "url" = URL from the chunk metadata (appears after "URL:" in chunk header)
+- "sourceName" = source name from the SOURCE header (e.g. "Higher Ed Dive", "OpenAlex")
+- "author" = author if present, empty string otherwise
+- "publicationDate" = date from "Date:" line, empty string otherwise
+- "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
+- "isCrossDocument" = true if evidence spans 2+ different source names
+
+ANTI-PATTERNS (these will be rejected):
+- Generating only 1-2 themes from a corpus with 10+ chunks
+- Generic theme names without specificity
+- Descriptions that don't cite specific evidence
+- Missing URLs when the chunk clearly has one
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;

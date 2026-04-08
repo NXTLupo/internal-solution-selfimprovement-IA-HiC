@@ -55,7 +55,7 @@ SOURCES = {
     "campus_tech": {"name": "Campus Technology", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://campustechnology.com/rss-feeds/all.aspx"},
     "ecampus": {"name": "eCampus News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.ecampusnews.com/feed/"},
     "the_conversation_edu": {"name": "The Conversation - Education", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://theconversation.com/us/education/articles.atom"},
-    "university_world_news": {"name": "University World News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.universityworldnews.com/rss.php?edition=global"},
+    "university_world_news": {"name": "University World News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.universityworldnews.com/rss/UWN.xml"},
     "pie_news": {"name": "The PIE News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://thepienews.com/feed/"},
     "open_campus": {"name": "Open Campus", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://opencampus.org/feed/"},
 
@@ -205,9 +205,23 @@ SOURCES = {
     "bair_blog": {"name": "BAIR (Berkeley)", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://bair.berkeley.edu/blog/feed.xml"},
 
     # --- AI RESEARCH REPOS (RSS + REST) — Tier 1 ---
-    "arxiv_cs_ai": {"name": "arXiv CS.AI", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.AI"},
-    "arxiv_cs_lg": {"name": "arXiv CS.LG", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.LG"},
-    "arxiv_cs_cl": {"name": "arXiv CS.CL", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.CL"},
+    # arXiv: Use the Atom search API (not RSS daily feeds which list ALL papers)
+    "arxiv_cs_ai": {"name": "arXiv CS.AI", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query",
+        "params": {"sortBy": "relevance", "sortOrder": "descending", "max_results": "15"},
+        "query_param": "search_query", "limit_param": "max_results", "default_limit": 15,
+        "results_path": None, "total_path": None,
+        "note": "Returns Atom XML - handled by special case"},
+    "arxiv_cs_lg": {"name": "arXiv CS.LG", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query",
+        "params": {"sortBy": "relevance", "sortOrder": "descending", "max_results": "15"},
+        "query_param": "search_query", "limit_param": "max_results", "default_limit": 15,
+        "results_path": None, "total_path": None},
+    "arxiv_cs_cl": {"name": "arXiv CS.CL", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query",
+        "params": {"sortBy": "relevance", "sortOrder": "descending", "max_results": "15"},
+        "query_param": "search_query", "limit_param": "max_results", "default_limit": 15,
+        "results_path": None, "total_path": None},
     "openreview": {"name": "OpenReview", "category": "AI Research", "type": "rest", "tier": 1,
         "base_url": "https://api.openreview.net/notes/search",
         "params": {}, "query_param": "term", "limit_param": "limit", "default_limit": 15,
@@ -269,11 +283,16 @@ SOURCES = {
     "databricks_ai": {"name": "Databricks AI", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://www.databricks.com/feed"},
 
     # --- MORE AI RESEARCH (RSS) — Tier 1 ---
-    "arxiv_cs_cv": {"name": "arXiv CS.CV (Vision)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.CV"},
-    "arxiv_cs_ro": {"name": "arXiv CS.RO (Robotics)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.RO"},
-    "arxiv_stat_ml": {"name": "arXiv stat.ML", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/stat.ML"},
-    "arxiv_cs_ir": {"name": "arXiv CS.IR (Info Retrieval)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.IR"},
-    "arxiv_cs_hc": {"name": "arXiv CS.HC (Human-Computer)", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.HC"},
+    "arxiv_cs_cv": {"name": "arXiv CS.CV (Vision)", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query", "params": {}, "query_param": "search_query", "limit_param": "max_results", "default_limit": 15, "results_path": None, "total_path": None},
+    "arxiv_cs_ro": {"name": "arXiv CS.RO (Robotics)", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query", "params": {}, "query_param": "search_query", "limit_param": "max_results", "default_limit": 15, "results_path": None, "total_path": None},
+    "arxiv_stat_ml": {"name": "arXiv stat.ML", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query", "params": {}, "query_param": "search_query", "limit_param": "max_results", "default_limit": 15, "results_path": None, "total_path": None},
+    "arxiv_cs_ir": {"name": "arXiv CS.IR (Info Retrieval)", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query", "params": {}, "query_param": "search_query", "limit_param": "max_results", "default_limit": 15, "results_path": None, "total_path": None},
+    "arxiv_cs_hc": {"name": "arXiv CS.HC (Human-Computer)", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://export.arxiv.org/api/query", "params": {}, "query_param": "search_query", "limit_param": "max_results", "default_limit": 15, "results_path": None, "total_path": None},
 
     # --- MORE SCHOLARLY APIs (REST) — Tier 1 ---
     "datacite": {"name": "DataCite (Dataset DOIs)", "category": "Academic Literature", "type": "rest", "tier": 1,
@@ -297,11 +316,13 @@ SOURCES = {
 
     # --- OPEN DATA PORTALS (CKAN/Socrata) — Tier 1 ---
     "data_gov_au": {"name": "Data.gov.au", "category": "Open Data Portals", "type": "ckan", "tier": 1,
-        "base_url": "https://data.gov.au/api/3/action/package_search"},
+        "base_url": "https://data.gov.au/data/api/3/action/package_search"},
     "data_gov_ca": {"name": "Open Canada", "category": "Open Data Portals", "type": "ckan", "tier": 1,
         "base_url": "https://open.canada.ca/data/api/3/action/package_search"},
-    "eu_data_portal": {"name": "EU Open Data", "category": "Open Data Portals", "type": "ckan", "tier": 1,
-        "base_url": "https://data.europa.eu/api/hub/search/datasets"},
+    "eu_data_portal": {"name": "EU Open Data", "category": "Open Data Portals", "type": "rest", "tier": 1,
+        "base_url": "https://data.europa.eu/api/hub/search/datasets",
+        "params": {"limit": "15"}, "query_param": "q", "limit_param": "limit", "default_limit": 15,
+        "results_path": "result.results", "total_path": "result.count"},
     "la_open_data": {"name": "LA Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
         "domain": "data.lacity.org", "default_dataset": None},
     "sf_open_data": {"name": "SF Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
@@ -343,7 +364,7 @@ SOURCES = {
         "results_path": None, "total_path": None},
 
     # --- GOVERNMENT & REGULATORY (REST) — Tier 1 ---
-    "nist_ai": {"name": "NIST AI Standards", "category": "Government Data", "type": "rss", "tier": 1, "url": "https://www.nist.gov/artificial-intelligence/rss.xml"},
+    "nist_ai": {"name": "NIST AI Standards", "category": "Government Data", "type": "rss", "tier": 1, "url": "https://www.nist.gov/news-events/news/rss.xml"},
 
     # --- VIDEO CHANNELS (Invidious) — Tier 3 ---
     # These use the same invidious connector but with channel-specific searches
@@ -444,6 +465,25 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
 
     try:
         async with httpx.AsyncClient() as client:
+
+            # --- arXiv API connector (returns Atom XML, not JSON) ---
+            if src_type == "rest" and "arxiv.org" in src.get("base_url", ""):
+                cat_prefix = source_id.replace("arxiv_", "").replace("_", ".") if source_id.startswith("arxiv_") else ""
+                search_q = f"cat:{cat_prefix} AND all:{q}" if cat_prefix else f"all:{q}"
+                params = {"search_query": search_q, "sortBy": "relevance", "sortOrder": "descending", "max_results": str(min(limit, 20))}
+                resp = await fetch_with_retry(client, "https://export.arxiv.org/api/query", params=params)
+                if resp.status_code != 200:
+                    return {"source": src["name"], "category": src["category"], "credibilityTier": 1, "items": [], "total": 0, "error": f"HTTP {resp.status_code}"}
+                feed = feedparser.parse(resp.text)
+                items = []
+                for entry in feed.entries[:limit]:
+                    items.append({
+                        "title": entry.get("title", "").replace("\n", " "),
+                        "content": (entry.get("summary", ""))[:500].replace("\n", " "),
+                        "url": entry.get("link", ""),
+                        "date": entry.get("published", ""),
+                    })
+                return {"source": src["name"], "category": src["category"], "credibilityTier": 1, "items": items, "total": len(items)}
 
             # --- REST API connector ---
             if src_type == "rest":
@@ -615,17 +655,21 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
 
 @app.get("/api/multi-search")
 async def multi_search(q: str = Query(...), sources: str = Query(...), limit: int = Query(10)):
-    """Search multiple sources in parallel. sources = comma-separated source IDs."""
+    """Search multiple sources with controlled concurrency to avoid rate limits."""
     source_ids = [s.strip() for s in sources.split(",") if s.strip() in SOURCES]
     if not source_ids:
         return {"results": [], "error": "No valid source IDs provided"}
 
     import asyncio
+    # Limit concurrent requests to avoid hammering APIs with rate limits
+    semaphore = asyncio.Semaphore(8)
+
     async def search_one(sid):
-        try:
-            return await search_source(sid, q=q, limit=limit)
-        except Exception as e:
-            return {"source": SOURCES.get(sid, {}).get("name", sid), "items": [], "total": 0, "error": str(e)}
+        async with semaphore:
+            try:
+                return await search_source(sid, q=q, limit=limit)
+            except Exception as e:
+                return {"source": SOURCES.get(sid, {}).get("name", sid), "items": [], "total": 0, "error": str(e)}
 
     results = await asyncio.gather(*[search_one(sid) for sid in source_ids])
     return {"query": q, "sources_queried": len(source_ids), "results": results}

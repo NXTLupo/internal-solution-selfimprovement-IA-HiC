@@ -980,17 +980,55 @@ const App = () => {
 
                 // Build list of source IDs to query based on enabled toggles
                 const sourceIds: string[] = [];
-                if (enableHigherEdNews) sourceIds.push('higher_ed_dive', 'inside_higher_ed', 'edsurge', 'hechinger', 'the_conversation_edu');
+                if (enableHigherEdNews) sourceIds.push(
+                    'higher_ed_dive', 'inside_higher_ed', 'edsurge', 'hechinger', 'the_conversation_edu',
+                    'campus_tech', 'ecampus', 'university_world_news', 'pie_news', 'open_campus'
+                );
                 if (enableNews) sourceIds.push('gdelt');
-                if (enableAcademic) sourceIds.push('openalex', 'semantic_scholar', 'crossref');
+                if (enableAcademic) sourceIds.push(
+                    'openalex', 'semantic_scholar', 'crossref', 'doaj', 'europe_pmc', 'core_ac',
+                    'datacite', 'zenodo'
+                );
                 if (enableEducationData) sourceIds.push('college_scorecard', 'eric');
-                if (enableEconomic) sourceIds.push('worldbank', 'fred');
-                if (enableGovernment) sourceIds.push('usaspending', 'federal_register', 'sec_edgar');
-                if (enableOpenData) sourceIds.push('data_gov');
+                if (enableEconomic) sourceIds.push('worldbank', 'fred', 'bls', 'imf_data', 'oecd_data');
+                if (enableGovernment) sourceIds.push(
+                    'usaspending', 'federal_register', 'sec_edgar', 'congress_gov', 'nist_ai'
+                );
+                if (enableOpenData) sourceIds.push(
+                    'data_gov', 'data_gov_uk', 'nyc_open_data', 'california_data', 'chicago_data',
+                    'data_gov_au', 'data_gov_ca', 'eu_data_portal', 'la_open_data', 'sf_open_data', 'texas_open_data'
+                );
                 if (enableSocialTrends) sourceIds.push('hackernews');
-                if (enableYouTube) sourceIds.push('youtube');
-                if (enableAINews) sourceIds.push('mit_tech_review_ai', 'ieee_spectrum_ai', 'venturebeat_ai', 'techcrunch_ai', 'ars_technica_ai', 'wired_ai', 'the_verge_ai', 'synced_review', 'marktechpost', 'kdnuggets', 'the_gradient', 'openai_blog', 'google_ai_blog', 'deepmind_blog', 'meta_ai_blog', 'microsoft_research', 'nvidia_dev_blog', 'huggingface_blog', 'anthropic_blog', 'bair_blog');
-                if (enableAIResearch) sourceIds.push('arxiv_cs_ai', 'arxiv_cs_lg', 'arxiv_cs_cl', 'openreview', 'dblp', 'hf_models', 'hf_datasets', 'brookings_ai', 'stanford_hai', 'stackoverflow_ai', 'github_repos');
+                if (enableYouTube) sourceIds.push('youtube', 'youtube_ai');
+                if (enableAINews) sourceIds.push(
+                    // AI News (21)
+                    'mit_tech_review_ai', 'ieee_spectrum_ai', 'venturebeat_ai', 'techcrunch_ai',
+                    'ars_technica_ai', 'wired_ai', 'the_verge_ai', 'synced_review', 'marktechpost',
+                    'kdnuggets', 'the_gradient', 'engadget_ai', 'the_conversation_ai', 'analytics_vidhya',
+                    'towards_ai', 'ai_alignment_forum', 'import_ai', 'ml_mastery', 'the_guardian_ai',
+                    'zdnet_ai', 'the_register_ml',
+                    // AI Lab Blogs (20)
+                    'openai_blog', 'google_ai_blog', 'deepmind_blog', 'meta_ai_blog', 'microsoft_research',
+                    'nvidia_dev_blog', 'huggingface_blog', 'anthropic_blog', 'bair_blog', 'apple_ml',
+                    'amazon_science', 'aws_ml_blog', 'ibm_research', 'salesforce_ai', 'cohere_blog',
+                    'allen_ai', 'stanford_hai_blog', 'databricks_ai', 'stability_ai', 'mistral_ai'
+                );
+                if (enableAIResearch) sourceIds.push(
+                    // AI Research (10)
+                    'arxiv_cs_ai', 'arxiv_cs_lg', 'arxiv_cs_cl', 'arxiv_cs_cv', 'arxiv_cs_ro',
+                    'arxiv_stat_ml', 'arxiv_cs_ir', 'arxiv_cs_hc', 'openreview', 'dblp',
+                    // AI Models & Datasets (5)
+                    'hf_models', 'hf_datasets', 'openml', 'kaggle_datasets', 'paperswithcode',
+                    // AI Policy (8)
+                    'brookings_ai', 'stanford_hai', 'oecd_ai', 'eff_ai', 'ada_lovelace',
+                    'ai_now_institute', 'cset_georgetown', 'partnership_on_ai', 'nist_ai',
+                    // AI Communities (4)
+                    'stackoverflow_ai', 'reddit_ml', 'reddit_ai', 'reddit_llm',
+                    // AI Code (2)
+                    'github_repos', 'github_trending',
+                    // AI Conferences (2)
+                    'neurips_proc', 'acl_anthology'
+                );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
                 const { refineSearchQueries } = await import('./services/researchFabricOrchestrator');
