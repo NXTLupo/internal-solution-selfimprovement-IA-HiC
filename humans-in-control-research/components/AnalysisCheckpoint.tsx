@@ -1032,41 +1032,75 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
   const renderArch = () => {
       if (!editedArch) return <div className="p-4 text-center text-gray-500">No Architecture data available.</div>;
+      const arch = editedArch.architecture;
+      const nodeTypeColors: Record<string, string> = {
+          'User': 'bg-blue-50 border-blue-200 text-blue-700',
+          'Application': 'bg-emerald-50 border-emerald-200 text-emerald-700',
+          'Database': 'bg-amber-50 border-amber-200 text-amber-700',
+          'Integration': 'bg-purple-50 border-purple-200 text-purple-700',
+          'External': 'bg-gray-50 border-gray-200 text-gray-600',
+          'AI/ML': 'bg-teal-50 border-teal-200 text-teal-700',
+          'Cloud': 'bg-indigo-50 border-indigo-200 text-indigo-700',
+      };
       return (
-          <div className="max-h-[60vh] overflow-y-auto pr-2 space-y-6">
+          <div className="max-h-[65vh] overflow-y-auto pr-2 space-y-4">
+              {/* Overview */}
+              {arch.overview && (
+                  <div className="bg-[var(--bg-secondary)] p-3 rounded border text-[12px] text-[var(--text-secondary)] leading-relaxed">{arch.overview}</div>
+              )}
+
+              {/* Nodes */}
               <div>
-                  <h4 className="font-bold text-xs uppercase text-[var(--text-tertiary)] mb-3">System Nodes</h4>
-                  <div className="space-y-2">
-                      {editedArch.architecture.nodes.map((node, idx) => (
-                          <div key={idx} className="flex gap-2 items-center bg-[var(--card-bg)] p-2 rounded border border-[var(--border-secondary)]">
-                               <select 
-                                  value={node.type}
-                                  onChange={(e) => {
-                                      const newNodes = editedArch.architecture.nodes.map((n, i) => i === idx ? {...n, type: e.target.value as any} : n);
-                                      setEditedArch({...editedArch, architecture: {...editedArch.architecture, nodes: newNodes}});
-                                      logEdit(`Updated Node ${idx} Type`);
-                                  }}
-                                  className="text-[10px] bg-[var(--bg-tertiary)] p-1 rounded w-20"
-                               >
-                                  <option value="User">User</option>
-                                  <option value="System">System</option>
-                                  <option value="Database">Database</option>
-                                  <option value="External API">API</option>
-                                  <option value="Security">Security</option>
-                               </select>
-                               <input 
-                                  value={node.label}
-                                  onChange={(e) => {
-                                      const newNodes = editedArch.architecture.nodes.map((n, i) => i === idx ? {...n, label: e.target.value} : n);
-                                      setEditedArch({...editedArch, architecture: {...editedArch.architecture, nodes: newNodes}});
-                                      logEdit(`Updated Node ${idx} Label`);
-                                  }}
-                                  className="font-bold text-sm bg-transparent outline-none flex-1 border-b border-transparent focus:border-indigo-500"
-                               />
-                          </div>
-                      ))}
+                  <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-2">System Nodes ({arch.nodes?.length || 0})</div>
+                  <div className="grid grid-cols-2 gap-2">
+                      {(arch.nodes || []).map((node: any, idx: number) => {
+                          const colorClass = nodeTypeColors[node.type] || 'bg-gray-50 border-gray-200 text-gray-600';
+                          return (
+                              <div key={idx} className={`p-3 rounded border ${colorClass}`}>
+                                  <div className="flex justify-between items-start">
+                                      <input value={node.label || ''} onChange={(e) => {
+                                          const nn = (arch.nodes || []).map((n: any, i: number) => i === idx ? {...n, label: e.target.value} : n);
+                                          setEditedArch({...editedArch, architecture: {...arch, nodes: nn}});
+                                      }} className="font-bold text-xs bg-transparent outline-none flex-1" />
+                                      <select value={node.type || 'Application'} onChange={(e) => {
+                                          const nn = (arch.nodes || []).map((n: any, i: number) => i === idx ? {...n, type: e.target.value} : n);
+                                          setEditedArch({...editedArch, architecture: {...arch, nodes: nn}});
+                                      }} className="text-[8px] font-bold uppercase bg-white/50 rounded px-1 py-0.5 border ml-1">
+                                          <option value="User">User</option><option value="Application">App</option>
+                                          <option value="Database">DB</option><option value="Integration">Integration</option>
+                                          <option value="External">External</option><option value="AI/ML">AI/ML</option>
+                                          <option value="Cloud">Cloud</option>
+                                      </select>
+                                  </div>
+                                  {node.description && <div className="text-[10px] mt-1 opacity-80">{node.description}</div>}
+                              </div>
+                          );
+                      })}
                   </div>
               </div>
+
+              {/* Flows */}
+              {(arch.flows || []).length > 0 && (
+                  <div>
+                      <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-2">Data Flows ({arch.flows.length})</div>
+                      <div className="space-y-1.5">
+                          {arch.flows.map((flow: any, idx: number) => {
+                              const fromNode = (arch.nodes || []).find((n: any) => n.id === flow.fromId);
+                              const toNode = (arch.nodes || []).find((n: any) => n.id === flow.toId);
+                              const statusColor = flow.status === 'active' ? 'text-[#0CCE6B]' : flow.status === 'broken' ? 'text-[#FF5A5A]' : flow.status === 'planned' ? 'text-[var(--nxt-lime)]' : 'text-[var(--text-tertiary)]';
+                              return (
+                                  <div key={idx} className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                                      <span className="font-bold text-[var(--nxt-teal)] min-w-[80px] truncate">{fromNode?.label || flow.fromId}</span>
+                                      <span className="text-[var(--text-tertiary)]">{"-->"}</span>
+                                      <span className="font-bold text-[var(--nxt-teal)] min-w-[80px] truncate">{toNode?.label || flow.toId}</span>
+                                      <span className="text-[var(--text-secondary)] flex-1 truncate">{flow.action}</span>
+                                      {flow.status && <span className={`text-[8px] font-bold uppercase ${statusColor}`}>{flow.status}</span>}
+                                  </div>
+                              );
+                          })}
+                      </div>
+                  </div>
+              )}
           </div>
       );
   };
