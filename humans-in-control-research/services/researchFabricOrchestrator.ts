@@ -607,6 +607,71 @@ const filterRelevantItems = filterAndScoreItems;
  * Applies relevance filtering to remove off-topic items.
  * Preserves source attribution for citation tracking.
  */
+/**
+ * Content Enrichment: Fetch full text from top-scored items via Jina Reader.
+ * Academic APIs only return titles/abstracts. This downloads the actual content
+ * from the URL (landing page, open access PDF, blog post) to get the real evidence.
+ */
+async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): Promise<DataSourceItem[]> {
+    // Only enrich items that have URLs and short content (likely just abstracts)
+    const needsEnrichment = items.filter(item =>
+        item.url &&
+        item.url.startsWith('http') &&
+        (item.content?.length || 0) < 300 &&  // Short content = likely just abstract/title
+        (item as any).relevanceScore >= 60     // Only enrich relevant items
+    );
+
+    if (needsEnrichment.length === 0) return items;
+
+    // Take top N by relevance score
+    const toEnrich = needsEnrichment
+        .sort((a, b) => ((b as any).relevanceScore || 0) - ((a as any).relevanceScore || 0))
+        .slice(0, maxItems);
+
+    console.log(`Content enrichment: Fetching full text for ${toEnrich.length} top-scored items via Jina Reader`);
+
+    const PROXY = 'http://localhost:5012';
+    const enriched = new Map<string, string>();
+
+    // Fetch in small batches (3 concurrent) to avoid overwhelming Jina
+    for (let i = 0; i < toEnrich.length; i += 3) {
+        const batch = toEnrich.slice(i, i + 3);
+        const results = await Promise.allSettled(
+            batch.map(async (item) => {
+                try {
+                    const resp = await fetch(`${PROXY}/api/search/jina?q=${encodeURIComponent(item.url!)}&limit=1`, {
+                        signal: AbortSignal.timeout(20000)
+                    });
+                    if (!resp.ok) return null;
+                    const data = await resp.json();
+                    const fullContent = data.items?.[0]?.content;
+                    if (fullContent && fullContent.length > (item.content?.length || 0)) {
+                        return { id: item.id, content: fullContent.substring(0, 3000) };  // Cap at 3KB per item
+                    }
+                    return null;
+                } catch { return null; }
+            })
+        );
+
+        for (const r of results) {
+            if (r.status === 'fulfilled' && r.value) {
+                enriched.set(r.value.id, r.value.content);
+            }
+        }
+    }
+
+    console.log(`Content enrichment: ${enriched.size}/${toEnrich.length} items enriched with full text`);
+
+    // Replace short content with full content for enriched items
+    return items.map(item => {
+        const fullContent = enriched.get(item.id);
+        if (fullContent) {
+            return { ...item, content: fullContent, enriched: true } as any;
+        }
+        return item;
+    });
+}
+
 export async function mergeResultsToCorpus(executionResult: ResearchExecutionResult, researchGoal?: string): Promise<string> {
     const sections: string[] = [];
 
@@ -621,9 +686,12 @@ export async function mergeResultsToCorpus(executionResult: ResearchExecutionRes
     }
 
     // Run AI relevance SCORING on ALL items at once
-    const scoredItems = researchGoal && allItems.length > 5
+    let scoredItems = researchGoal && allItems.length > 5
         ? await filterAndScoreItems(allItems, researchGoal)
         : allItems.map(item => ({ ...item, relevanceScore: 70 }));
+
+    // CONTENT ENRICHMENT: Fetch full text for top-scored items with short content
+    scoredItems = await enrichTopItems(scoredItems);
 
     // Build STRUCTURED corpus with chunk IDs for citation tracking
     const tierLabels: Record<number, string> = { 1: 'Tier 1: Peer-Reviewed/Government', 2: 'Tier 2: Established News', 3: 'Tier 3: Community' };
@@ -650,7 +718,8 @@ export async function mergeResultsToCorpus(executionResult: ResearchExecutionRes
             const score = (item as any).relevanceScore || '?';
             const freshness = item.date ? `Freshness: ${computeFreshnessFromDate(item.date)}` : 'Undated';
 
-            sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness} | Tier ${tier}`);
+            const enrichedTag = (item as any).enriched ? ' | FULL TEXT EXTRACTED' : '';
+            sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness} | Tier ${tier}${enrichedTag}`);
             sections.push(`Title: ${item.title}`);
             if (item.url) sections.push(`URL: ${item.url}`);
             if (item.date) sections.push(`Date: ${item.date}`);

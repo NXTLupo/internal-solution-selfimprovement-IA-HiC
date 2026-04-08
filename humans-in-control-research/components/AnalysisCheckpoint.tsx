@@ -460,15 +460,44 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
       // Parse source breakdown from documents metadata
       const docs = d.documents || [];
-      const sourceGroups: Record<string, { count: number; names: string[] }> = {};
+      const sourceGroups: Record<string, { count: number; names: string[]; tier?: number; icon?: string }> = {};
       for (const doc of docs) {
           const name = doc.fileName || 'Unknown';
-          // Group by source type (extract from filename pattern like "intelligence_sources_*.txt" or actual filenames)
-          const isIntelligence = name.includes('intelligence_sources');
-          const group = isIntelligence ? 'Intelligence Data Sources' : 'Uploaded Documents';
-          if (!sourceGroups[group]) sourceGroups[group] = { count: 0, names: [] };
+          // Categorize by source type
+          let group = 'Uploaded Documents';
+          let icon = 'fa-file';
+          let tier = 3;
+          if (name.includes('intelligence_sources')) {
+              group = 'Intelligence Corpus (All Sources Merged)';
+              icon = 'fa-brain';
+              tier = 1;
+          } else if (name.toLowerCase().includes('gemini') || name.toLowerCase().includes('ai research')) {
+              group = 'AI Deep Research (Gemini Grounding)';
+              icon = 'fa-satellite-dish';
+              tier = 1;
+          } else if (name.includes('.pdf') || name.includes('.docx') || name.includes('.xlsx') || name.includes('.csv')) {
+              group = 'Uploaded Documents';
+              icon = 'fa-file-alt';
+          }
+          if (!sourceGroups[group]) sourceGroups[group] = { count: 0, names: [], tier, icon };
           sourceGroups[group].count++;
           if (sourceGroups[group].names.length < 5) sourceGroups[group].names.push(name);
+      }
+
+      // Parse intelligence sources breakdown from the corpus text (if available)
+      const corpusDoc = docs.find((doc: any) => (doc.fileName || '').includes('intelligence_sources'));
+      if (corpusDoc) {
+          const corpusText = typeof d.summary === 'string' ? d.summary : '';
+          // Count CHUNK references to estimate total evidence items
+          const chunkMatches = (d as any).reasoning?.match(/CHUNK_\d+/g) || [];
+          if (chunkMatches.length > 0) {
+              sourceGroups['Evidence Chunks in Corpus'] = {
+                  count: new Set(chunkMatches).size,
+                  names: [`${new Set(chunkMatches).size} unique chunks referenced in analysis`],
+                  tier: 1,
+                  icon: 'fa-link',
+              };
+          }
       }
 
       const confidenceColor = d.confidenceScore >= 0.7 ? '#0CCE6B' : d.confidenceScore >= 0.4 ? '#fd8e2e' : '#FF5A5A';
@@ -511,8 +540,14 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                           {Object.entries(sourceGroups).map(([group, info]) => (
                               <div key={group} className="bg-[var(--bg-secondary)] p-3 rounded border border-[var(--border-primary)]">
                                   <div className="flex justify-between items-center">
-                                      <span className="text-xs font-bold text-[var(--text-primary)]">{group}</span>
-                                      <span className="text-[10px] font-bold bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-2 py-0.5 rounded-sm">{info.count} files</span>
+                                      <div className="flex items-center gap-2">
+                                          <i className={`fas ${(info as any).icon || 'fa-file'} text-[var(--nxt-teal)] text-xs`}></i>
+                                          <span className="text-xs font-bold text-[var(--text-primary)]">{group}</span>
+                                      </div>
+                                      <div className="flex items-center gap-2">
+                                          {(info as any).tier && <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-sm ${(info as any).tier === 1 ? 'bg-[var(--nxt-teal)] text-white' : (info as any).tier === 2 ? 'bg-[var(--nxt-orange)] text-white' : 'bg-gray-200 text-gray-600'}`}>Tier {(info as any).tier}</span>}
+                                          <span className="text-[10px] font-bold bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-2 py-0.5 rounded-sm">{info.count} {info.count === 1 ? 'file' : 'files'}</span>
+                                      </div>
                                   </div>
                                   <div className="mt-1 text-[11px] text-[var(--text-tertiary)]">
                                       {info.names.map((n, i) => <div key={i} className="truncate">{n}</div>)}
