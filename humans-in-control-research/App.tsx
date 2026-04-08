@@ -1095,13 +1095,39 @@ const App = () => {
                 // Execute orchestrator plan (for deep research, CX mesh, web URLs, video transcripts)
                 const enabledPlanSources = plan.sources.filter(s => s.enabled);
                 if (enabledPlanSources.length > 0) {
-                    setDataSourceStatus(`Also running ${enabledPlanSources.length} additional sources (deep research, CX mesh)...`);
+                    setDataSourceStatus(`Running ${enabledPlanSources.length} additional AI-powered sources...`);
+
+                    // Add orchestrator sources to the live feed
+                    const orchestratorCards = enabledPlanSources.map(s => ({
+                        source: s.name,
+                        sourceId: `orch_${s.id}`,
+                        credibilityTier: s.type === 'deep_research' ? 1 : 2,
+                        items: [],
+                        total: 0,
+                        status: 'loading' as const,
+                        query: s.query,
+                    }));
+                    setLiveSourceResults(prev => [...prev, ...orchestratorCards]);
                 }
 
                 const executionResult = await executePlan(plan, (progress) => {
                     setDataSourceStatus(`${progress.sourceName}: ${progress.message}`);
+
+                    // Update the live feed card for this orchestrator source
+                    setLiveSourceResults(prev => prev.map(s => {
+                        if (s.source === progress.sourceName) {
+                            return {
+                                ...s,
+                                status: progress.status === 'completed' ? 'complete' : progress.status === 'failed' ? 'error' : 'loading',
+                                items: progress.itemsCollected > 0 ? Array(progress.itemsCollected).fill({ title: 'AI Research Result', content: progress.message }) : s.items,
+                                total: progress.itemsCollected,
+                            };
+                        }
+                        return s;
+                    }));
+
                     if (progress.status === 'completed') {
-                        setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[SOURCE] ${progress.sourceName}: ${progress.itemsCollected} items collected` }]);
+                        setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[AI RESEARCH] ${progress.sourceName}: ${progress.itemsCollected} items collected` }]);
                     }
                 });
 
