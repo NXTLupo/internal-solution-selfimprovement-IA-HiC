@@ -631,7 +631,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
     console.log(`Content enrichment: Fetching full text for ${toEnrich.length} top-scored items via Jina Reader`);
 
     const PROXY = 'http://localhost:5012';
-    const enriched = new Map<string, string>();
+    const enriched = new Map<string, { content: string; method: string }>();
 
     // Fetch in small batches (3 concurrent) to avoid overwhelming Jina
     for (let i = 0; i < toEnrich.length; i += 3) {
@@ -639,14 +639,17 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
         const results = await Promise.allSettled(
             batch.map(async (item) => {
                 try {
-                    const resp = await fetch(`${PROXY}/api/search/jina?q=${encodeURIComponent(item.url!)}&limit=1`, {
-                        signal: AbortSignal.timeout(20000)
+                    // Smart extraction: tries PDF download first, then Jina web extraction
+                    const resp = await fetch(`${PROXY}/api/extract-content?url=${encodeURIComponent(item.url!)}`, {
+                        signal: AbortSignal.timeout(30000)
                     });
                     if (!resp.ok) return null;
                     const data = await resp.json();
-                    const fullContent = data.items?.[0]?.content;
+                    const fullContent = data.content;
+                    const method = data.method; // 'pdf' or 'jina'
                     if (fullContent && fullContent.length > (item.content?.length || 0)) {
-                        return { id: item.id, content: fullContent.substring(0, 3000) };  // Cap at 3KB per item
+                        console.log(`  Enriched "${item.title?.substring(0,40)}" via ${method} (${fullContent.length} chars)`);
+                        return { id: item.id, content: fullContent.substring(0, 5000), method };  // Cap at 5KB per item
                     }
                     return null;
                 } catch { return null; }
@@ -655,7 +658,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
 
         for (const r of results) {
             if (r.status === 'fulfilled' && r.value) {
-                enriched.set(r.value.id, r.value.content);
+                enriched.set(r.value.id, { content: r.value.content, method: r.value.method || 'web' });
             }
         }
     }
@@ -664,9 +667,9 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
 
     // Replace short content with full content for enriched items
     return items.map(item => {
-        const fullContent = enriched.get(item.id);
-        if (fullContent) {
-            return { ...item, content: fullContent, enriched: true } as any;
+        const enrichment = enriched.get(item.id);
+        if (enrichment) {
+            return { ...item, content: (enrichment as any).content || enrichment, enriched: true, extractionMethod: (enrichment as any).method || 'web' } as any;
         }
         return item;
     });
@@ -718,7 +721,7 @@ export async function mergeResultsToCorpus(executionResult: ResearchExecutionRes
             const score = (item as any).relevanceScore || '?';
             const freshness = item.date ? `Freshness: ${computeFreshnessFromDate(item.date)}` : 'Undated';
 
-            const enrichedTag = (item as any).enriched ? ' | FULL TEXT EXTRACTED' : '';
+            const enrichedTag = (item as any).enriched ? ` | FULL TEXT EXTRACTED (${(item as any).extractionMethod || 'web'})` : '';
             sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness} | Tier ${tier}${enrichedTag}`);
             sections.push(`Title: ${item.title}`);
             if (item.url) sections.push(`URL: ${item.url}`);

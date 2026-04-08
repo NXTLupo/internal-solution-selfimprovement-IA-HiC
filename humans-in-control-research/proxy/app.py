@@ -753,6 +753,101 @@ async def multi_search(q: str = Query(...), sources: str = Query(...), limit: in
     return {"query": q, "sources_queried": len(source_ids), "results": results}
 
 
+# ================================================================
+# PDF EXTRACTION ENDPOINT — Download and parse actual PDFs
+# ================================================================
+
+@app.get("/api/extract-pdf")
+async def extract_pdf_endpoint(url: str = Query(...), max_pages: int = Query(30)):
+    return await _extract_pdf_impl(url, max_pages)
+
+async def _extract_pdf_impl(url: str, max_pages: int = 30):
+    """Download a PDF from URL, extract text content. Returns structured text."""
+    import io
+    try:
+        async with httpx.AsyncClient(follow_redirects=True) as client:
+            # Follow DOI redirects to actual PDF
+            resp = await client.get(url, headers={**DEFAULT_HEADERS, "Accept": "application/pdf,*/*"}, timeout=45.0)
+
+            content_type = resp.headers.get("content-type", "")
+            raw = bytes(resp.content)  # Ensure we have bytes
+            is_pdf = "pdf" in content_type or url.endswith(".pdf") or (len(raw) > 5 and raw[0:5] == b"%PDF-")
+            logger.info(f"PDF check: url={url[:60]}, content_type={content_type}, size={len(raw)}, is_pdf={is_pdf}")
+
+            if not is_pdf:
+                # Try to find PDF link on the landing page
+                html = resp.text[:5000]
+                import re
+                pdf_links = re.findall(r'href=["\']([^"\']*\.pdf[^"\']*)["\']', html, re.IGNORECASE)
+                if pdf_links:
+                    pdf_url = pdf_links[0]
+                    if not pdf_url.startswith("http"):
+                        from urllib.parse import urljoin
+                        pdf_url = urljoin(url, pdf_url)
+                    resp = await client.get(pdf_url, headers=DEFAULT_HEADERS, timeout=45.0)
+                    raw = bytes(resp.content)
+                    is_pdf = len(raw) > 5 and raw[0:5] == b"%PDF-"
+
+            if not is_pdf:
+                return {"url": url, "extracted": False, "error": "Not a PDF or PDF not freely accessible", "text": ""}
+
+            # Parse PDF with PyPDF2
+            try:
+                from PyPDF2 import PdfReader
+                reader = PdfReader(io.BytesIO(raw))
+                num_pages = len(reader.pages)
+                pages = []
+                for i in range(min(num_pages, max_pages)):
+                    text = reader.pages[i].extract_text()
+                    if text and text.strip():
+                        pages.append(f"[Page {i+1}]\n{text.strip()}")
+
+                full_text = "\n\n".join(pages)
+                return {
+                    "url": url,
+                    "extracted": True,
+                    "pages": len(pages),
+                    "totalPages": len(reader.pages),
+                    "characters": len(full_text),
+                    "text": full_text[:50000],  # Cap at 50KB
+                }
+            except ImportError:
+                return {"url": url, "extracted": False, "error": "PyPDF2 not installed", "text": ""}
+
+    except Exception as e:
+        logger.error(f"PDF extraction failed for {url}: {e}")
+        return {"url": url, "extracted": False, "error": str(e)[:200], "text": ""}
+
+
+@app.get("/api/extract-content")
+async def extract_content(url: str = Query(...)):
+    """Smart content extraction: tries PDF first, falls back to Jina web extraction."""
+    # Try PDF extraction first
+    pdf_result = await _extract_pdf_impl(url)
+    if pdf_result.get("extracted") and pdf_result.get("text"):
+        return {
+            "url": url, "method": "pdf", "title": f"PDF from {url[:60]}",
+            "content": pdf_result["text"],
+            "pages": pdf_result.get("pages", 0),
+            "characters": pdf_result.get("characters", 0),
+        }
+
+    # Fall back to Jina Reader for web pages
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await fetch_with_retry(client, f"https://r.jina.ai/{url}",
+                headers={"Accept": "application/json", "X-With-Links": "true"})
+            data = resp.json() if resp.status_code == 200 else {}
+            content = data.get("content") or data.get("text") or ""
+            return {
+                "url": url, "method": "jina", "title": data.get("title", url[:60]),
+                "content": content[:10000],
+                "characters": len(content),
+            }
+    except Exception as e:
+        return {"url": url, "method": "failed", "title": "", "content": "", "error": str(e)[:200]}
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))
