@@ -381,20 +381,18 @@ export async function executeResearch(
 }
 
 function getDefaultProvider(mode: ResearchMode): string {
-    // Route to the best provider for each mode
-    switch (mode) {
-        case 'quick': return 'gemini';      // Fastest, cheapest grounding
-        case 'focused': return 'claude';    // Best iterative reasoning with web search
-        case 'deep': return 'gemini';       // Only provider with autonomous deep research agent
-    }
+    // Browser SPA: Gemini is the only provider that works without CORS issues.
+    // Claude and OpenAI APIs block browser-origin requests.
+    // When a backend proxy is available, this can be updated to route to Claude/OpenAI.
+    return 'gemini';
 }
 
 function getFallbackProvider(failed: string): string | null {
-    const available: string[] = [];
-    if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) available.push('gemini');
-    if ((process.env as any).ANTHROPIC_API_KEY) available.push('claude');
-    if ((process.env as any).OPENAI_API_KEY) available.push('openai');
-    return available.find(p => p !== failed) || null;
+    // Browser SPA: only Gemini works (Claude/OpenAI blocked by CORS)
+    if (failed !== 'gemini' && ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY)) {
+        return 'gemini';
+    }
+    return null; // No fallback available
 }
 
 /**
