@@ -49,8 +49,8 @@ DEFAULT_HEADERS = {"User-Agent": "NXTHumans-HiC-Research/2.0 (research@nxthumans
 SOURCES = {
     # --- NEWS & HIGHER-ED (RSS/Atom + Web) — Tier 2 ---
     "higher_ed_dive": {"name": "Higher Ed Dive", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.highereddive.com/feeds/news/"},
-    "inside_higher_ed": {"name": "Inside Higher Ed", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.insidehighered.com/rss/feed"},
-    "edsurge": {"name": "EdSurge", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.edsurge.com/rss"},
+    "inside_higher_ed": {"name": "Inside Higher Ed", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.insidehighered.com/feed"},
+    "edsurge": {"name": "EdSurge", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.edsurge.com/feed"},
     "hechinger": {"name": "Hechinger Report", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://hechingerreport.org/feed/"},
     "campus_tech": {"name": "Campus Technology", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://campustechnology.com/rss-feeds/all.aspx"},
     "ecampus": {"name": "eCampus News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.ecampusnews.com/feed/"},
@@ -287,19 +287,54 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
 
                 return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": total}
 
-            # --- RSS/Atom connector ---
+            # --- RSS/Atom connector (with keyword filtering) ---
             elif src_type == "rss":
-                resp = await fetch_with_retry(client, src["url"])
+                try:
+                    resp = await fetch_with_retry(client, src["url"])
+                except Exception as e:
+                    logger.warning(f"RSS feed {src['name']} failed: {e}")
+                    return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": [], "total": 0, "error": f"Feed unavailable: {str(e)[:100]}"}
                 feed = feedparser.parse(resp.text)
-                items = []
-                for entry in feed.entries[:limit]:
-                    items.append({
-                        "title": entry.get("title", ""),
-                        "content": entry.get("summary", entry.get("description", ""))[:500],
+                if not feed.entries:
+                    return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": [], "total": 0, "note": "Feed returned 0 entries (may be temporarily unavailable)"}
+
+                # Extract keywords from query for filtering
+                stop_words = {'the','a','an','is','are','was','were','be','been','have','has','had',
+                              'do','does','did','will','would','could','should','to','of','in','for',
+                              'on','with','at','by','from','as','and','but','or','not','this','that',
+                              'it','its','their','they','them','what','which','who','how','when','where',
+                              'about','into','through','during','before','after','between','2025','2026'}
+                keywords = [w.lower() for w in q.split() if len(w) > 2 and w.lower() not in stop_words]
+
+                all_items = []
+                for entry in feed.entries:
+                    title = entry.get("title", "")
+                    content = entry.get("summary", entry.get("description", ""))[:500]
+                    text = f"{title} {content}".lower()
+
+                    # Score by keyword matches
+                    matches = sum(1 for kw in keywords if kw in text)
+                    all_items.append({
+                        "title": title,
+                        "content": content,
                         "url": entry.get("link", ""),
                         "date": entry.get("published", entry.get("updated", "")),
+                        "_matches": matches,
                     })
-                return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": len(feed.entries)}
+
+                # Sort by relevance (keyword matches), take top items
+                all_items.sort(key=lambda x: x["_matches"], reverse=True)
+                # Keep items with at least 1 keyword match, or top items if none match
+                relevant = [i for i in all_items if i["_matches"] > 0]
+                if not relevant:
+                    relevant = all_items[:limit]  # fallback: return latest if nothing matches
+                items = [{k: v for k, v in i.items() if k != "_matches"} for i in relevant[:limit]]
+
+                return {
+                    "source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3),
+                    "items": items, "total": len(feed.entries),
+                    "filtered": len(relevant), "note": f"{len(relevant)} of {len(feed.entries)} articles matched keywords"
+                }
 
             # --- CKAN connector ---
             elif src_type == "ckan":

@@ -12,34 +12,69 @@ interface Props {
   currentLog?: string;
 }
 
-// Internal Loading Component for Initial States
-const LoadingView = ({ log, elapsed }: { log?: string, elapsed: number }) => (
-    <div className="flex flex-col items-center justify-center h-full p-12 space-y-8 animate-fade-in w-full">
-        <div className="relative">
-            <div className="w-20 h-20 border-4 border-[var(--border-secondary)] rounded-full"></div>
-            <div className="absolute top-0 left-0 w-20 h-20 border-4 border-[var(--nxt-teal)] border-t-transparent rounded-full animate-spin"></div>
-            <div className="absolute inset-0 flex items-center justify-center font-mono text-lg font-bold text-[var(--nxt-teal)]">
-                {elapsed}s
+// Internal Loading Component — shows collection summary while processing
+const LoadingView = ({ log, elapsed }: { log?: string, elapsed: number }) => {
+    // Parse collection stats from log if available
+    const logText = log || '';
+    const itemMatch = logText.match(/(\d+)\s*items?\s*from\s*(\d+)/);
+    const sizeMatch = logText.match(/\((\d+)KB\)/);
+    const items = itemMatch ? parseInt(itemMatch[1]) : 0;
+    const sources = itemMatch ? parseInt(itemMatch[2]) : 0;
+    const sizeKB = sizeMatch ? parseInt(sizeMatch[1]) : 0;
+
+    return (
+    <div className="flex flex-col h-full animate-fade-in w-full">
+        {/* Processing header */}
+        <div className="flex items-center gap-4 p-4 bg-[var(--nxt-teal)] text-white">
+            <div className="relative flex-shrink-0">
+                <div className="w-12 h-12 border-3 border-white/30 rounded-full"></div>
+                <div className="absolute top-0 left-0 w-12 h-12 border-3 border-[var(--nxt-lime)] border-t-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-0 flex items-center justify-center font-mono text-sm font-bold">{elapsed}s</div>
+            </div>
+            <div>
+                <h3 className="text-sm font-bold uppercase tracking-widest">Processing Research Corpus</h3>
+                <p className="text-[10px] text-white/70">AI is performing deep reasoning and context extraction</p>
             </div>
         </div>
-        <div className="text-center space-y-3">
-            <h3 className="text-2xl font-bold">Analyzing Research Data...</h3>
-            <p className="text-[var(--text-secondary)] text-sm max-w-md mx-auto leading-relaxed">
-                AI is performing deep reasoning on your documents. <br/>
-                <span className="opacity-70">This ensures high-fidelity context extraction.</span>
-            </p>
-        </div>
-        <div className="bg-[var(--bg-tertiary)] p-4 rounded max-w-lg w-full border border-[var(--border-secondary)] shadow-inner">
-             <div className="flex items-center gap-2 mb-2 border-b border-[var(--border-secondary)] pb-2">
-                 <div className="w-2 h-2 rounded-full bg-[var(--nxt-lime)] animate-pulse"></div>
-                 <div className="text-[10px] uppercase font-bold text-[var(--text-tertiary)]">Live Reasoning Trace</div>
-             </div>
-             <div className="font-mono text-xs text-[var(--text-primary)] min-h-[3rem] flex items-center justify-center text-center opacity-80 break-words line-clamp-3">
-                 {log ? log.replace(/\[.*?\]/g, '').trim() : "Initializing reasoning engine..."}
-             </div>
+
+        {/* Collection summary (if data was collected) */}
+        {items > 0 && (
+            <div className="p-4 border-b border-[var(--border-primary)]">
+                <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-3">Corpus Being Analyzed</div>
+                <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-[var(--bg-secondary)] p-3 rounded border border-[var(--border-primary)] text-center">
+                        <div className="text-xl font-extralight text-[var(--nxt-teal)]">{items}</div>
+                        <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Items</div>
+                    </div>
+                    <div className="bg-[var(--bg-secondary)] p-3 rounded border border-[var(--border-primary)] text-center">
+                        <div className="text-xl font-extralight text-[var(--nxt-teal)]">{sources}</div>
+                        <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Sources</div>
+                    </div>
+                    <div className="bg-[var(--bg-secondary)] p-3 rounded border border-[var(--border-primary)] text-center">
+                        <div className="text-xl font-extralight text-[var(--text-primary)]">{sizeKB}KB</div>
+                        <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Corpus Size</div>
+                    </div>
+                </div>
+            </div>
+        )}
+
+        {/* Live reasoning trace */}
+        <div className="flex-1 p-4">
+            <div className="bg-[var(--bg-secondary)] p-4 rounded border border-[var(--border-primary)] h-full flex flex-col">
+                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-[var(--border-primary)]">
+                    <div className="w-2 h-2 rounded-full bg-[var(--nxt-lime)] animate-pulse"></div>
+                    <div className="text-[9px] uppercase font-bold tracking-widest text-[var(--text-tertiary)]">Live AI Reasoning</div>
+                </div>
+                <div className="flex-1 flex items-center justify-center">
+                    <div className="font-mono text-xs text-[var(--text-secondary)] text-center leading-relaxed max-w-md">
+                        {logText ? logText.replace(/\[.*?\]/g, '').trim() : "Initializing reasoning engine..."}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-);
+    );
+};
 
 const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onApprove, onClose, currentLog }) => {
   const [feedback, setFeedback] = useState('');
