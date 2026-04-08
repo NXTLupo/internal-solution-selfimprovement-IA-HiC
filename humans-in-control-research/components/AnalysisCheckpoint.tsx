@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { AnalysisStage, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_JourneyMap, StepResult_TechArch, StepResult_PRD, StepResult_Roadmap, StepResult_Recommendations, Slide, Theme, Persona, ScriptScene, ServiceBlueprintStage, PRDFeature, RoadmapItem, StrategicRecommendation } from '../types';
+import { AnalysisStage, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_JourneyMap, StepResult_TechArch, StepResult_PRD, StepResult_Roadmap, StepResult_Recommendations, Slide, Theme, Persona, ScriptScene, ServiceBlueprintStage, PRDFeature, RoadmapItem, StrategicRecommendation, computeFreshnessScore } from '../types';
 import { logEdit as logEditToEngine } from '../services/promptImprovementEngine';
 
 interface Props {
@@ -612,8 +612,13 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                           {cit.sourceName && <span className="font-bold text-[var(--text-secondary)]">{cit.sourceName}</span>}
                                           {/* Author */}
                                           {cit.author && cit.author !== 'null' && cit.author !== '' && <span className="text-[var(--text-tertiary)]">by {cit.author}</span>}
-                                          {/* Date */}
-                                          {cit.publicationDate && cit.publicationDate !== 'null' && cit.publicationDate !== '' && <span className="text-[var(--text-tertiary)]">{cit.publicationDate}</span>}
+                                          {/* Date + Freshness */}
+                                          {cit.publicationDate && cit.publicationDate !== 'null' && cit.publicationDate !== '' && (
+                                              <span className="text-[var(--text-tertiary)]">
+                                                  {cit.publicationDate}
+                                                  {(() => { const fs = computeFreshnessScore(cit.publicationDate); return fs > 0 ? ` (${fs >= 85 ? 'Fresh' : fs >= 50 ? 'Recent' : 'Older'})` : ''; })()}
+                                              </span>
+                                          )}
                                           {/* Clickable URL */}
                                           {cit.url && cit.url !== '' && cit.url !== 'null' && (
                                               <a href={cit.url} target="_blank" rel="noopener noreferrer"
@@ -1068,6 +1073,170 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       );
   };
 
+  // --- GAP ANALYSIS CHECKPOINT ---
+  const renderGapAnalysis = () => {
+      const d = data as any;
+      if (!d?.analysis) return <LoadingView log={currentLog} elapsed={elapsed} />;
+      const a = d.analysis;
+      return (
+          <div className="space-y-4 max-h-[65vh] overflow-y-auto">
+              <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Assessment Scope</div>
+              <div className="bg-[var(--bg-secondary)] p-3 rounded border text-[13px] text-[var(--text-secondary)]">{a.assessmentScope}</div>
+
+              <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Capability Gaps ({a.gaps?.length || 0})</div>
+              <div className="space-y-2">
+                  {(a.gaps || []).map((gap: any, i: number) => (
+                      <div key={i} className="bg-[var(--bg-secondary)] p-3 rounded border border-[var(--border-primary)]">
+                          <div className="flex justify-between items-center mb-1">
+                              <span className="text-xs font-bold">{gap.capability}</span>
+                              <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-sm ${gap.severity === 'critical' ? 'bg-[#FF5A5A] text-white' : gap.severity === 'high' ? 'bg-[var(--nxt-orange)] text-white' : 'bg-gray-200'}`}>{gap.severity}</span>
+                          </div>
+                          <div className="flex gap-4 text-[10px] text-[var(--text-tertiary)]">
+                              <span>Current: {gap.currentMaturity}/5</span>
+                              <span>Target: {gap.targetMaturity}/5</span>
+                              <span>Gap: {gap.gap}</span>
+                              <span>Effort: {gap.effort}</span>
+                          </div>
+                          <p className="text-[11px] text-[var(--text-secondary)] mt-1">{gap.impact}</p>
+                      </div>
+                  ))}
+              </div>
+
+              {a.quickWins?.length > 0 && (
+                  <>
+                      <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#0CCE6B] mb-2">Quick Wins ({a.quickWins.length})</div>
+                      {a.quickWins.map((qw: any, i: number) => (
+                          <div key={i} className="bg-green-50 p-2 rounded border border-green-200 text-[11px]">
+                              <span className="font-bold">{qw.action}</span> <span className="text-[var(--text-tertiary)]">| Impact: {qw.impact} | Effort: {qw.effort}</span>
+                          </div>
+                      ))}
+                  </>
+              )}
+
+              {a.prioritizedActions?.length > 0 && (
+                  <>
+                      <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Prioritized Actions ({a.prioritizedActions.length})</div>
+                      {a.prioritizedActions.map((action: any, i: number) => (
+                          <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                              <span className="text-[8px] font-bold uppercase bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-1.5 py-0.5 rounded-sm flex-shrink-0">{action.priority}</span>
+                              <span className="font-bold flex-1">{action.action}</span>
+                              {action.timeline && <span className="text-[var(--text-tertiary)] flex-shrink-0">{action.timeline}</span>}
+                          </div>
+                      ))}
+                  </>
+              )}
+          </div>
+      );
+  };
+
+  // --- TECH AUDIT CHECKPOINT ---
+  const renderTechAudit = () => {
+      const d = data as any;
+      if (!d?.audit) return <LoadingView log={currentLog} elapsed={elapsed} />;
+      const a = d.audit;
+      return (
+          <div className="space-y-4 max-h-[65vh] overflow-y-auto">
+              <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Systems Inventory ({a.systemsInventory?.length || 0})</div>
+              <div className="space-y-1">
+                  {(a.systemsInventory || []).map((sys: any, i: number) => (
+                      <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                          <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-sm flex-shrink-0 ${sys.status === 'active' ? 'bg-[#0CCE6B] text-white' : sys.status === 'legacy' ? 'bg-[var(--nxt-orange)] text-white' : sys.status === 'deprecated' ? 'bg-[#FF5A5A] text-white' : 'bg-gray-200'}`}>{sys.status}</span>
+                          <span className="font-bold flex-1 truncate">{sys.name}</span>
+                          <span className="text-[var(--text-tertiary)] flex-shrink-0">{sys.vendor}</span>
+                          <span className="text-[var(--text-tertiary)] flex-shrink-0">{sys.department}</span>
+                      </div>
+                  ))}
+              </div>
+
+              {a.integrationMap?.length > 0 && (
+                  <>
+                      <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Integration Map ({a.integrationMap.length})</div>
+                      {a.integrationMap.map((link: any, i: number) => (
+                          <div key={i} className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                              <span className="font-bold">{link.source}</span>
+                              <span className="text-[var(--text-tertiary)]">{"→"}</span>
+                              <span className="font-bold">{link.target}</span>
+                              <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-sm ml-auto ${link.health === 'healthy' ? 'bg-[#0CCE6B] text-white' : link.health === 'degraded' ? 'bg-[var(--nxt-orange)] text-white' : 'bg-[#FF5A5A] text-white'}`}>{link.health}</span>
+                          </div>
+                      ))}
+                  </>
+              )}
+
+              {a.capabilityMatrix?.length > 0 && (
+                  <>
+                      <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Capability Maturity</div>
+                      {a.capabilityMatrix.map((cap: any, i: number) => (
+                          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                              <span className="flex-1 font-bold truncate">{cap.capability}</span>
+                              <div className="flex gap-1 flex-shrink-0">
+                                  {[1,2,3,4,5].map(n => (
+                                      <div key={n} className={`w-4 h-4 rounded-sm text-[8px] flex items-center justify-center font-bold ${n <= cap.currentMaturity ? 'bg-[var(--nxt-teal)] text-white' : n <= cap.targetMaturity ? 'bg-[var(--nxt-lime-20)] text-[var(--nxt-teal)]' : 'bg-gray-100'}`}>{n}</div>
+                                  ))}
+                              </div>
+                              <span className="text-[9px] text-[var(--text-tertiary)] flex-shrink-0">Gap: {cap.gap}</span>
+                          </div>
+                      ))}
+                  </>
+              )}
+          </div>
+      );
+  };
+
+  // --- COMPETITIVE ANALYSIS CHECKPOINT ---
+  const renderCompetitiveAnalysis = () => {
+      const d = data as any;
+      if (!d?.analysis) return <LoadingView log={currentLog} elapsed={elapsed} />;
+      const a = d.analysis;
+      return (
+          <div className="space-y-4 max-h-[65vh] overflow-y-auto">
+              <div className="bg-[var(--bg-secondary)] p-3 rounded border text-[13px] text-[var(--text-secondary)]">{a.industryContext}</div>
+
+              <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Peer Organizations ({a.peers?.length || 0})</div>
+              <div className="space-y-2">
+                  {(a.peers || []).map((peer: any, i: number) => (
+                      <div key={i} className="bg-[var(--bg-secondary)] p-3 rounded border">
+                          <div className="flex justify-between items-center mb-2">
+                              <span className="text-sm font-bold">{peer.name}</span>
+                              <span className="text-[10px] text-[var(--text-tertiary)]">{peer.position}</span>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2 text-[10px]">
+                              <div>
+                                  <div className="text-[8px] font-bold uppercase text-[#0CCE6B] mb-1">Strengths</div>
+                                  {(peer.strengths || []).map((s: string, j: number) => <div key={j} className="text-[var(--text-secondary)]">+ {s}</div>)}
+                              </div>
+                              <div>
+                                  <div className="text-[8px] font-bold uppercase text-[#FF5A5A] mb-1">Weaknesses</div>
+                                  {(peer.weaknesses || []).map((w: string, j: number) => <div key={j} className="text-[var(--text-secondary)]">- {w}</div>)}
+                              </div>
+                          </div>
+                          {peer.differentiators?.length > 0 && (
+                              <div className="mt-2 flex flex-wrap gap-1">
+                                  {peer.differentiators.map((d: string, j: number) => (
+                                      <span key={j} className="text-[9px] bg-[var(--nxt-lime-10)] text-[var(--nxt-teal)] px-1.5 py-0.5 rounded-sm border border-[var(--nxt-lime-20)]">{d}</span>
+                                  ))}
+                              </div>
+                          )}
+                      </div>
+                  ))}
+              </div>
+
+              {a.gapSummary?.length > 0 && (
+                  <>
+                      <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--nxt-teal)] mb-2">Competitive Gaps</div>
+                      {a.gapSummary.map((gap: any, i: number) => (
+                          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-[var(--bg-secondary)] rounded border text-[11px]">
+                              <span className="font-bold flex-1">{gap.dimension}</span>
+                              <span className="text-[var(--nxt-teal)] font-bold">Us: {gap.ourScore}</span>
+                              <span className="text-[var(--nxt-orange)] font-bold">Best: {gap.bestInClass}</span>
+                              <span className={`font-bold ${gap.gap > 1 ? 'text-[#FF5A5A]' : 'text-[#0CCE6B]'}`}>Gap: {gap.gap}</span>
+                          </div>
+                      ))}
+                  </>
+              )}
+          </div>
+      );
+  };
+
   const renderRecommendations = () => {
       if (!editedRecs) return <div className="p-4 text-center text-gray-500">No Recommendations data available.</div>;
       return (
@@ -1182,6 +1351,9 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
             {stage === AnalysisStage.PRD && renderPRD()}
             {stage === AnalysisStage.ROADMAP && renderRoadmap()}
             {stage === AnalysisStage.RECOMMENDATIONS && renderRecommendations()}
+            {stage === AnalysisStage.GAP_ANALYSIS && renderGapAnalysis()}
+            {stage === AnalysisStage.TECH_AUDIT_STAGE && renderTechAudit()}
+            {stage === AnalysisStage.COMPETITIVE_ANALYSIS && renderCompetitiveAnalysis()}
             {stage === AnalysisStage.NARRATIVE && renderNarrative()}
             {stage === AnalysisStage.DECK_STRUCTURE && renderStructure()}
             {stage === AnalysisStage.FINAL && renderFinal()}
