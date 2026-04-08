@@ -6,6 +6,69 @@ export interface FileUpload {
   data: string; // Base64
 }
 
+// ================================================================
+// FORMAL EVIDENCE & AUDIT SCHEMAS (per research runtime spec)
+// ================================================================
+
+/** Evidence span — atomic unit of cited evidence */
+export interface EvidenceSpan {
+    source_id: string;
+    source_type: 'web' | 'pdf' | 'doc' | 'transcript' | 'dataset' | 'notebook' | 'video' | 'interview';
+    locator: {
+        url?: string;
+        page?: number | null;
+        section?: string | null;
+        timestamp?: string | null;
+        char_start?: number | null;
+        char_end?: number | null;
+    };
+    quote: string;
+    claim_support: 'supports' | 'contradicts' | 'neutral';
+    confidence: 'high' | 'medium' | 'low';
+}
+
+/** Research output envelope — unified output for all methods */
+export interface ResearchOutput {
+    method: string;
+    question: string;
+    observations: string[];         // What we SAW (grounded in data)
+    inferences: string[];           // What it MEANS (interpretive)
+    recommendations: string[];      // What to DO (action)
+    evidence: EvidenceSpan[];
+    uncertainties: string[];        // What we DON'T know
+    conflicts: string[];            // Where sources DISAGREE
+    next_questions: string[];       // What to investigate NEXT
+}
+
+/** Run metadata — tracks execution details for reproducibility */
+export interface RunMetadata {
+    runId: string;
+    startedAt: string;              // ISO timestamp
+    completedAt?: string;
+    method: string;
+    analyticalLens: string;
+    stages: RunStageMetadata[];
+    totalCost?: number;
+    providerBreakdown?: Record<string, { calls: number; tokens: number; cost: number }>;
+}
+
+export interface RunStageMetadata {
+    stageId: string;
+    stageName: string;
+    provider: string;
+    model: string;
+    startedAt: string;
+    completedAt: string;
+    durationMs: number;
+    inputTokens: number;
+    outputTokens: number;
+    status: 'completed' | 'failed' | 'skipped';
+    error?: string;
+}
+
+/** Research method selection */
+export type ResearchMethodId = 'general_synthesis' | 'jtbd' | 'design_thinking' | 'contextual_inquiry' | 'service_blueprint' | 'nps_diagnostic' | 'karpathy_second_brain';
+
 export interface Citation {
   sourceFile: string;
   text: string; // The quote

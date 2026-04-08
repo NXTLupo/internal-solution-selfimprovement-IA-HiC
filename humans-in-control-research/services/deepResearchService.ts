@@ -202,13 +202,16 @@ async function claudeWebSearch(config: ResearchConfig): Promise<ResearchResult> 
         };
     }
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    // Route through proxy to bypass CORS in browser
+    const proxyUrl = typeof window !== 'undefined' ? 'http://localhost:5012/api/ai/anthropic' : 'https://api.anthropic.com/v1/messages';
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (proxyUrl.includes('anthropic.com')) {
+        headers['x-api-key'] = apiKey;
+        headers['anthropic-version'] = '2023-06-01';
+    }
+    const response = await fetch(proxyUrl, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': apiKey,
-            'anthropic-version': '2023-06-01',
-        },
+        headers,
         body: JSON.stringify(body),
     });
 
@@ -274,12 +277,15 @@ async function openaiWebSearch(config: ResearchConfig): Promise<ResearchResult> 
         tool.user_location = { type: 'approximate', country: config.searchRegion };
     }
 
-    const response = await fetch('https://api.openai.com/v1/responses', {
+    // Route through proxy to bypass CORS in browser
+    const proxyUrl = typeof window !== 'undefined' ? 'http://localhost:5012/api/ai/openai' : 'https://api.openai.com/v1/responses';
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (proxyUrl.includes('openai.com')) {
+        headers['Authorization'] = `Bearer ${apiKey}`;
+    }
+    const response = await fetch(proxyUrl, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-        },
+        headers,
         body: JSON.stringify({
             model: 'gpt-5.4-mini',
             tools: [tool],
@@ -381,18 +387,22 @@ export async function executeResearch(
 }
 
 function getDefaultProvider(mode: ResearchMode): string {
-    // Browser SPA: Gemini is the only provider that works without CORS issues.
-    // Claude and OpenAI APIs block browser-origin requests.
-    // When a backend proxy is available, this can be updated to route to Claude/OpenAI.
+    // With AI proxy routes, all providers now work from browser.
+    // Route to the best provider per mode:
+    // - quick: Gemini (fastest grounded search)
+    // - focused: Claude (best document analysis + web search)
+    // - deep: Gemini (Interactions API for autonomous research)
+    if (mode === 'focused') return 'claude';
     return 'gemini';
 }
 
 function getFallbackProvider(failed: string): string | null {
-    // Browser SPA: only Gemini works (Claude/OpenAI blocked by CORS)
-    if (failed !== 'gemini' && ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY)) {
-        return 'gemini';
-    }
-    return null; // No fallback available
+    // With proxy, all providers available. Cascade: gemini -> claude -> openai
+    const cascade = ['gemini', 'claude', 'openai'];
+    const idx = cascade.indexOf(failed);
+    if (idx >= 0 && idx < cascade.length - 1) return cascade[idx + 1];
+    if (failed !== 'gemini') return 'gemini';
+    return null;
 }
 
 /**

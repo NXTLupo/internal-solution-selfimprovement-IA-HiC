@@ -35,12 +35,17 @@ interface OpenAIResponse {
 }
 
 // --- CONSTANTS ---
-const API_URL = 'https://api.openai.com/v1/chat/completions';
+// Route through local proxy to bypass CORS (keys stay server-side)
+const PROXY_URL = 'http://localhost:5012/api/ai/openai';
+const DIRECT_URL = 'https://api.openai.com/v1/chat/completions';
+
+function getApiUrl(): string {
+    return typeof window !== 'undefined' ? PROXY_URL : DIRECT_URL;
+}
 
 function getApiKey(): string {
     const key = (process.env as any).OPENAI_API_KEY;
-    if (!key) throw new Error('OPENAI_API_KEY is not configured');
-    return key;
+    return key || '';  // Proxy adds key server-side
 }
 
 // --- RETRY LOGIC ---
@@ -75,12 +80,18 @@ async function withRetry<T>(
 
 // --- CORE API CALL ---
 async function callOpenAI(request: OpenAIRequest): Promise<OpenAIResponse> {
-    const response = await fetch(API_URL, {
+    const url = getApiUrl();
+    const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+    };
+    if (url === DIRECT_URL) {
+        headers['Authorization'] = `Bearer ${getApiKey()}`;
+    } else {
+        headers['x-openai-endpoint'] = 'chat';  // Tell proxy to use chat completions
+    }
+    const response = await fetch(url, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${getApiKey()}`,
-        },
+        headers,
         body: JSON.stringify(request),
     });
 

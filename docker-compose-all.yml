@@ -383,6 +383,9 @@ services:
       - "${RESEARCH_PROXY_PORT:-5012}:5012"
     environment:
       - PORT=5012
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./humans-in-control-research/proxy:/app
     working_dir: /app

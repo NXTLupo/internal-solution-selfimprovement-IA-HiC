@@ -848,6 +848,76 @@ async def extract_content(url: str = Query(...)):
         return {"url": url, "method": "failed", "title": "", "content": "", "error": str(e)[:200]}
 
 
+# ================================================================
+# AI PROVIDER PROXY — Routes AI calls server-side to bypass CORS
+# Keys stay on the server, never reach the browser.
+# ================================================================
+
+from fastapi import Request
+
+@app.post("/api/ai/anthropic")
+async def proxy_anthropic(request: Request):
+    """Proxy requests to Anthropic Claude API. Adds API key server-side."""
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "ANTHROPIC_API_KEY not configured"}, status_code=500)
+
+    body = await request.json()
+    headers = {
+        "Content-Type": "application/json",
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+    }
+    # Forward anthropic-beta header if present
+    beta = request.headers.get("anthropic-beta")
+    if beta:
+        headers["anthropic-beta"] = beta
+
+    async with httpx.AsyncClient() as client:
+        resp = await client.post(
+            "https://api.anthropic.com/v1/messages",
+            json=body,
+            headers=headers,
+            timeout=300.0,  # Long timeout for thinking/research tasks
+        )
+        return JSONResponse(resp.json(), status_code=resp.status_code)
+
+
+@app.post("/api/ai/openai")
+async def proxy_openai(request: Request):
+    """Proxy requests to OpenAI API. Adds API key server-side."""
+    api_key = os.getenv("OPENAI_API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "OPENAI_API_KEY not configured"}, status_code=500)
+
+    body = await request.json()
+    # Determine endpoint: responses API vs chat completions
+    endpoint = request.headers.get("x-openai-endpoint", "responses")
+    if endpoint == "chat":
+        url = "https://api.openai.com/v1/chat/completions"
+    else:
+        url = "https://api.openai.com/v1/responses"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+
+    async with httpx.AsyncClient() as client:
+        resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+        return JSONResponse(resp.json(), status_code=resp.status_code)
+
+
+@app.get("/api/ai/status")
+async def ai_provider_status():
+    """Check which AI providers have API keys configured."""
+    return {
+        "anthropic": bool(os.getenv("ANTHROPIC_API_KEY")),
+        "openai": bool(os.getenv("OPENAI_API_KEY")),
+        "gemini": bool(os.getenv("GEMINI_API_KEY") or os.getenv("API_KEY")),
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))

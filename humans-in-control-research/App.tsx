@@ -12,7 +12,8 @@ import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
 import { DEFAULT_MODELS } from './services/aiRouter';
-import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, AnalyticalLens, ANALYTICAL_LENS_LABELS } from './types';
+import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, AnalyticalLens, ANALYTICAL_LENS_LABELS, ResearchMethodId } from './types';
+import { RESEARCH_METHODS } from './services/methods/MethodExecutor';
 import type { ModelPreferences } from './services/aiRouter';
 import { LENS_CONFIGS, getLensPromptSegment } from './services/analyticalLensService';
 
@@ -547,6 +548,7 @@ const App = () => {
     const [techAuditResult, setTechAuditResult] = useState<any>(null);
     const [competitiveResult, setCompetitiveResult] = useState<any>(null);
     const [selectedLens, setSelectedLens] = useState<AnalyticalLens>('general_cx');
+    const [selectedMethod, setSelectedMethod] = useState<ResearchMethodId>('general_synthesis');
 
     // --- DATA SOURCING STATE ---
     const [enableDeepResearch, setEnableDeepResearch] = useState(false);
@@ -1655,6 +1657,32 @@ const App = () => {
                                          />
                                      </div>
                                      
+                                     {/* Research Method Selector */}
+                                     <div className="mb-8">
+                                         <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Research Method</label>
+                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                                             {RESEARCH_METHODS.map(method => (
+                                                 <button
+                                                     key={method.id}
+                                                     onClick={() => setSelectedMethod(method.id as ResearchMethodId)}
+                                                     className={`p-3 rounded border text-left transition-all ${selectedMethod === method.id ? 'bg-[var(--nxt-teal)] border-[var(--nxt-teal)] text-white' : 'bg-[var(--bg-secondary)] border-[var(--border-primary)] text-[var(--text-secondary)] hover:border-[var(--nxt-teal)]'}`}
+                                                 >
+                                                     <div className="flex items-center gap-2 mb-1">
+                                                         <i className={`fas ${method.icon} text-xs ${selectedMethod === method.id ? 'text-[var(--nxt-lime)]' : 'text-[var(--text-tertiary)]'}`}></i>
+                                                         <span className="text-[11px] font-bold uppercase tracking-wide">{method.name}</span>
+                                                     </div>
+                                                     <div className={`text-[9px] leading-tight ${selectedMethod === method.id ? 'text-white/70' : 'text-[var(--text-tertiary)]'}`}>{method.description.substring(0, 80)}...</div>
+                                                 </button>
+                                             ))}
+                                         </div>
+                                         {selectedMethod !== 'general_synthesis' && (
+                                             <div className="mt-2 text-xs text-white bg-[var(--nxt-teal)] px-3 py-2 rounded">
+                                                 <i className={`fas ${RESEARCH_METHODS.find(m => m.id === selectedMethod)?.icon} mr-2`}></i>
+                                                 <strong>{RESEARCH_METHODS.find(m => m.id === selectedMethod)?.name}</strong>: {RESEARCH_METHODS.find(m => m.id === selectedMethod)?.description}
+                                             </div>
+                                         )}
+                                     </div>
+
                                      {/* Analytical Lens Selector */}
                                      <div className="mb-8">
                                          <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Analytical Lens</label>

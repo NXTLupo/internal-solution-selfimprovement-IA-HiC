@@ -35,13 +35,19 @@ interface AnthropicResponse {
 }
 
 // --- CONSTANTS ---
-const API_URL = 'https://api.anthropic.com/v1/messages';
+// Route through local proxy to bypass CORS (keys stay server-side)
+const PROXY_URL = 'http://localhost:5012/api/ai/anthropic';
+const DIRECT_URL = 'https://api.anthropic.com/v1/messages';
 const API_VERSION = '2023-06-01';
+
+function getApiUrl(): string {
+    // In browser: use proxy. In Node/server: use direct.
+    return typeof window !== 'undefined' ? PROXY_URL : DIRECT_URL;
+}
 
 function getApiKey(): string {
     const key = (process.env as any).ANTHROPIC_API_KEY;
-    if (!key) throw new Error('ANTHROPIC_API_KEY is not configured');
-    return key;
+    return key || '';  // Proxy adds key server-side, so empty is OK from browser
 }
 
 // --- RETRY LOGIC ---
@@ -76,13 +82,18 @@ async function withRetry<T>(
 
 // --- CORE API CALL ---
 async function callAnthropic(request: AnthropicRequest): Promise<AnthropicResponse> {
-    const response = await fetch(API_URL, {
+    const url = getApiUrl();
+    const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+    };
+    // Only add auth headers when calling direct API (not proxy)
+    if (url === DIRECT_URL) {
+        headers['x-api-key'] = getApiKey();
+        headers['anthropic-version'] = API_VERSION;
+    }
+    const response = await fetch(url, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': getApiKey(),
-            'anthropic-version': API_VERSION,
-        },
+        headers,
         body: JSON.stringify(request),
     });
 
