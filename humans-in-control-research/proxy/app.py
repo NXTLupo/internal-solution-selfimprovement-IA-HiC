@@ -170,6 +170,79 @@ SOURCES = {
 
     # --- NEWS AGGREGATORS ---
     "gdelt": {"name": "GDELT", "category": "News & Media", "type": "gdelt", "tier": 2},
+
+    # ================================================================
+    # AI-FOCUSED SOURCES (~65 new sources)
+    # ================================================================
+
+    # --- AI NEWS (RSS) — Tier 2 ---
+    "mit_tech_review_ai": {"name": "MIT Technology Review AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.technologyreview.com/feed/"},
+    "ieee_spectrum_ai": {"name": "IEEE Spectrum AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence"},
+    "venturebeat_ai": {"name": "VentureBeat AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://venturebeat.com/category/ai/feed/"},
+    "techcrunch_ai": {"name": "TechCrunch AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://techcrunch.com/tag/artificial-intelligence/feed/"},
+    "ars_technica_ai": {"name": "Ars Technica AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://arstechnica.com/tag/artificial-intelligence/feed/"},
+    "wired_ai": {"name": "WIRED AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.wired.com/feed/tag/ai/latest/rss"},
+    "the_verge_ai": {"name": "The Verge AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theverge.com/rss/artificial-intelligence/index.xml"},
+    "zdnet_ai": {"name": "ZDNet AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml"},
+    "the_register_ml": {"name": "The Register ML", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theregister.com/offbeat/ml/headlines.atom"},
+    "the_guardian_ai": {"name": "The Guardian AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss"},
+    "synced_review": {"name": "Synced Review", "category": "AI News", "type": "rss", "tier": 2, "url": "https://syncedreview.com/feed/"},
+    "marktechpost": {"name": "MarkTechPost", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.marktechpost.com/feed/"},
+    "kdnuggets": {"name": "KDnuggets", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.kdnuggets.com/feed"},
+    "the_gradient": {"name": "The Gradient", "category": "AI News", "type": "rss", "tier": 2, "url": "https://thegradient.pub/rss/"},
+
+    # --- AI LAB BLOGS (RSS) — Tier 1 ---
+    "openai_blog": {"name": "OpenAI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://openai.com/blog/rss.xml"},
+    "google_ai_blog": {"name": "Google AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://ai.googleblog.com/feeds/posts/default"},
+    "deepmind_blog": {"name": "DeepMind Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://deepmind.google/blog/rss.xml"},
+    "meta_ai_blog": {"name": "Meta AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://ai.meta.com/blog/rss/"},
+    "microsoft_research": {"name": "Microsoft Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.microsoft.com/en-us/research/feed/"},
+    "nvidia_developer": {"name": "NVIDIA Developer", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://developer.nvidia.com/blog/feed/"},
+    "huggingface_blog": {"name": "Hugging Face Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://huggingface.co/blog/feed.xml"},
+    "anthropic_blog": {"name": "Anthropic Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.anthropic.com/feed.xml"},
+    "stability_ai": {"name": "Stability AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://stability.ai/news/rss.xml"},
+    "mistral_ai": {"name": "Mistral AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://mistral.ai/feed.xml"},
+    "bair_berkeley": {"name": "BAIR (Berkeley)", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://bair.berkeley.edu/blog/feed.xml"},
+
+    # --- AI RESEARCH REPOS (RSS + REST) — Tier 1 ---
+    "arxiv_cs_ai": {"name": "arXiv CS.AI", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.AI"},
+    "arxiv_cs_lg": {"name": "arXiv CS.LG", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.LG"},
+    "arxiv_cs_cl": {"name": "arXiv CS.CL", "category": "AI Research", "type": "rss", "tier": 1, "url": "https://rss.arxiv.org/rss/cs.CL"},
+    "openreview": {"name": "OpenReview", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://api.openreview.net/notes/search",
+        "params": {}, "query_param": "term", "limit_param": "limit", "default_limit": 15,
+        "results_path": "notes", "total_path": "count"},
+    "dblp": {"name": "DBLP", "category": "AI Research", "type": "rest", "tier": 1,
+        "base_url": "https://dblp.org/search/publ/api",
+        "params": {"format": "json"}, "query_param": "q", "limit_param": "h", "default_limit": 20,
+        "results_path": "result.hits.hit", "total_path": "result.hits.@total"},
+
+    # --- AI MODELS & DATASETS (REST) — Tier 1 ---
+    "huggingface_models": {"name": "Hugging Face Models", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+        "base_url": "https://huggingface.co/api/models",
+        "params": {"sort": "downloads", "direction": "-1"}, "query_param": "search", "limit_param": "limit", "default_limit": 15,
+        "results_path": None, "total_path": None},
+    "huggingface_datasets": {"name": "Hugging Face Datasets", "category": "AI Models & Datasets", "type": "rest", "tier": 1,
+        "base_url": "https://huggingface.co/api/datasets",
+        "params": {"sort": "downloads", "direction": "-1"}, "query_param": "search", "limit_param": "limit", "default_limit": 15,
+        "results_path": None, "total_path": None},
+
+    # --- AI POLICY & ETHICS (RSS) — Tier 1 ---
+    "brookings_ai": {"name": "Brookings AI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.brookings.edu/topic/artificial-intelligence/feed/"},
+    "stanford_hai": {"name": "Stanford HAI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://hai.stanford.edu/news/rss.xml"},
+
+    # --- AI COMMUNITIES (REST) — Tier 3 ---
+    "stackoverflow_ai": {"name": "Stack Overflow AI", "category": "AI Communities", "type": "rest", "tier": 3,
+        "base_url": "https://api.stackexchange.com/2.3/search/advanced",
+        "params": {"site": "stackoverflow", "tagged": "machine-learning;artificial-intelligence", "sort": "relevance", "order": "desc"},
+        "query_param": "q", "limit_param": "pagesize", "default_limit": 15,
+        "results_path": "items", "total_path": "total"},
+
+    # --- AI CODE (REST) — Tier 2 ---
+    "github_repos": {"name": "GitHub Repos", "category": "AI Code", "type": "rest", "tier": 2,
+        "base_url": "https://api.github.com/search/repositories",
+        "params": {"sort": "stars", "order": "desc"}, "query_param": "q", "limit_param": "per_page", "default_limit": 15,
+        "results_path": "items", "total_path": "total_count"},
 }
 
 # ================================================================

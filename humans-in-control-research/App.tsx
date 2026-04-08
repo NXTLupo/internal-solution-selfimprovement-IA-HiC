@@ -7,7 +7,9 @@ import AnalysisCheckpoint from './components/AnalysisCheckpoint';
 import HeuristicBriefIntake from './components/HeuristicBriefIntake';
 import HeuristicReportView from './components/HeuristicReportView';
 import LiveSourceFeed from './components/LiveSourceFeed';
+import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
 import { GenAISession } from './services/geminiService';
+import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
 import { DEFAULT_MODELS } from './services/aiRouter';
 import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, AnalyticalLens, ANALYTICAL_LENS_LABELS } from './types';
@@ -179,11 +181,13 @@ const LiveResearchBoard = ({
     events, currentStatus,
     onEdit,
     isCollectingData, collectionPhase, liveSourceResults, liveRefinedQueries,
+    knowledgeGraph,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
     onEdit: (stage: AnalysisStage) => void,
     isCollectingData?: boolean, collectionPhase?: string, liveSourceResults?: any[], liveRefinedQueries?: Record<string, string>,
+    knowledgeGraph?: KGType,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
 
@@ -449,6 +453,13 @@ const LiveResearchBoard = ({
                         </motion.div>
                     )}
 
+                    {/* KNOWLEDGE GRAPH TILE */}
+                    {knowledgeGraph && knowledgeGraph.nodes.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded shadow-sm md:col-span-2 relative overflow-hidden">
+                            <ResearchKnowledgeGraph graph={knowledgeGraph} height={420} />
+                        </motion.div>
+                    )}
+
                 </div>
             </div>
 
@@ -549,6 +560,8 @@ const App = () => {
     const [enableEducationData, setEnableEducationData] = useState(false);
     const [enableGovernment, setEnableGovernment] = useState(false);
     const [enableOpenData, setEnableOpenData] = useState(false);
+    const [enableAINews, setEnableAINews] = useState(false);
+    const [enableAIResearch, setEnableAIResearch] = useState(false);
     const [enableCxMesh, setEnableCxMesh] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
@@ -559,10 +572,39 @@ const App = () => {
     const [collectionPhase, setCollectionPhase] = useState<string>('');
     const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
     const [liveRefinedQueries, setLiveRefinedQueries] = useState<Record<string, string>>({});
+    const [knowledgeGraph, setKnowledgeGraph] = useState<KGType>({ nodes: [], edges: [] });
+    const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
+
+    // Build initial knowledge graph when data collection completes
+    useEffect(() => {
+        if (collectionPhase === 'complete' && liveSourceResults.length > 0 && knowledgeGraph.nodes.length === 0) {
+            const sourceGraph = buildSourceGraph(liveSourceResults);
+            setKnowledgeGraph(sourceGraph);
+        }
+    }, [collectionPhase, liveSourceResults]);
+
+    // Expand knowledge graph as pipeline progresses
+    useEffect(() => {
+        if (themesResult?.themes && knowledgeGraph.nodes.length > 0) {
+            setKnowledgeGraph(prev => addThemesToGraph(prev, themesResult.themes));
+        }
+    }, [themesResult]);
+
+    useEffect(() => {
+        if (personasResult?.personas && knowledgeGraph.nodes.length > 0) {
+            setKnowledgeGraph(prev => addPersonasToGraph(prev, personasResult.personas));
+        }
+    }, [personasResult]);
+
+    useEffect(() => {
+        if (recsResult?.recommendations && knowledgeGraph.nodes.length > 0) {
+            setKnowledgeGraph(prev => addRecommendationsToGraph(prev, recsResult.recommendations));
+        }
+    }, [recsResult]);
 
     // --- HEURISTIC MODE STATE ---
     type AppMode = 'research' | 'heuristic';
@@ -947,6 +989,8 @@ const App = () => {
                 if (enableOpenData) sourceIds.push('data_gov');
                 if (enableSocialTrends) sourceIds.push('hackernews');
                 if (enableYouTube) sourceIds.push('youtube');
+                if (enableAINews) sourceIds.push('mit_tech_review_ai', 'ieee_spectrum_ai', 'venturebeat_ai', 'techcrunch_ai', 'ars_technica_ai', 'wired_ai', 'the_verge_ai', 'synced_review', 'marktechpost', 'kdnuggets', 'the_gradient', 'openai_blog', 'google_ai_blog', 'deepmind_blog', 'meta_ai_blog', 'microsoft_research', 'nvidia_dev_blog', 'huggingface_blog', 'anthropic_blog', 'bair_blog');
+                if (enableAIResearch) sourceIds.push('arxiv_cs_ai', 'arxiv_cs_lg', 'arxiv_cs_cl', 'openreview', 'dblp', 'hf_models', 'hf_datasets', 'brookings_ai', 'stanford_hai', 'stackoverflow_ai', 'github_repos');
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
                 const { refineSearchQueries } = await import('./services/researchFabricOrchestrator');
@@ -960,6 +1004,21 @@ const App = () => {
                     'gdelt': 2, 'openalex': 1, 'semantic_scholar': 1, 'crossref': 1, 'college_scorecard': 1, 'eric': 1,
                     'worldbank': 1, 'fred': 1, 'usaspending': 1, 'federal_register': 1, 'sec_edgar': 1, 'data_gov': 1,
                     'hackernews': 3, 'youtube': 3,
+                    // AI News
+                    'mit_tech_review_ai': 1, 'ieee_spectrum_ai': 1, 'venturebeat_ai': 2, 'techcrunch_ai': 2,
+                    'ars_technica_ai': 2, 'wired_ai': 2, 'the_verge_ai': 2, 'synced_review': 2,
+                    'marktechpost': 2, 'kdnuggets': 2, 'the_gradient': 2,
+                    // AI Lab Blogs
+                    'openai_blog': 1, 'google_ai_blog': 1, 'deepmind_blog': 1, 'meta_ai_blog': 1,
+                    'microsoft_research': 1, 'nvidia_dev_blog': 1, 'huggingface_blog': 2, 'anthropic_blog': 1, 'bair_blog': 1,
+                    // AI Research
+                    'arxiv_cs_ai': 1, 'arxiv_cs_lg': 1, 'arxiv_cs_cl': 1, 'openreview': 1, 'dblp': 1,
+                    // AI Models & Datasets
+                    'hf_models': 2, 'hf_datasets': 2,
+                    // AI Policy
+                    'brookings_ai': 1, 'stanford_hai': 1,
+                    // AI Communities & Code
+                    'stackoverflow_ai': 3, 'github_repos': 2,
                 };
                 const sourceDisplayNames: Record<string, string> = {
                     'higher_ed_dive': 'Higher Ed Dive (RSS)', 'inside_higher_ed': 'Inside Higher Ed (RSS)', 'edsurge': 'EdSurge (RSS)',
@@ -969,6 +1028,26 @@ const App = () => {
                     'worldbank': 'World Bank (16K indicators)', 'fred': 'FRED (800K time series)', 'usaspending': 'USAspending.gov',
                     'federal_register': 'Federal Register', 'sec_edgar': 'SEC EDGAR', 'data_gov': 'Data.gov (CKAN)',
                     'hackernews': 'Hacker News (Algolia)', 'youtube': 'YouTube (Invidious)',
+                    // AI News
+                    'mit_tech_review_ai': 'MIT Tech Review AI', 'ieee_spectrum_ai': 'IEEE Spectrum AI',
+                    'venturebeat_ai': 'VentureBeat AI', 'techcrunch_ai': 'TechCrunch AI',
+                    'ars_technica_ai': 'Ars Technica AI', 'wired_ai': 'WIRED AI',
+                    'the_verge_ai': 'The Verge AI', 'synced_review': 'Synced Review',
+                    'marktechpost': 'MarkTechPost', 'kdnuggets': 'KDnuggets', 'the_gradient': 'The Gradient',
+                    // AI Lab Blogs
+                    'openai_blog': 'OpenAI Blog', 'google_ai_blog': 'Google AI Blog',
+                    'deepmind_blog': 'DeepMind Blog', 'meta_ai_blog': 'Meta AI Blog',
+                    'microsoft_research': 'Microsoft Research', 'nvidia_dev_blog': 'NVIDIA Developer',
+                    'huggingface_blog': 'Hugging Face Blog', 'anthropic_blog': 'Anthropic Blog', 'bair_blog': 'BAIR (Berkeley)',
+                    // AI Research
+                    'arxiv_cs_ai': 'arXiv CS.AI', 'arxiv_cs_lg': 'arXiv CS.LG', 'arxiv_cs_cl': 'arXiv CS.CL',
+                    'openreview': 'OpenReview', 'dblp': 'DBLP',
+                    // AI Models & Datasets
+                    'hf_models': 'Hugging Face Models', 'hf_datasets': 'Hugging Face Datasets',
+                    // AI Policy
+                    'brookings_ai': 'Brookings AI', 'stanford_hai': 'Stanford HAI',
+                    // AI Communities & Code
+                    'stackoverflow_ai': 'Stack Overflow AI', 'github_repos': 'GitHub Repos',
                 };
                 const queryCategoryMap: Record<string, string> = {
                     'higher_ed_dive': 'Higher Ed News', 'inside_higher_ed': 'Higher Ed News', 'edsurge': 'EdTech News',
@@ -978,6 +1057,26 @@ const App = () => {
                     'worldbank': 'Economic Indicators', 'fred': 'Economic Data', 'usaspending': 'Federal Spending',
                     'federal_register': 'Federal Regulations', 'sec_edgar': 'Company Filings', 'data_gov': 'Open Data',
                     'hackernews': 'Tech Discussion', 'youtube': 'Video Content',
+                    // AI News
+                    'mit_tech_review_ai': 'AI News', 'ieee_spectrum_ai': 'AI News',
+                    'venturebeat_ai': 'AI News', 'techcrunch_ai': 'AI News',
+                    'ars_technica_ai': 'AI News', 'wired_ai': 'AI News',
+                    'the_verge_ai': 'AI News', 'synced_review': 'AI News',
+                    'marktechpost': 'AI News', 'kdnuggets': 'AI News', 'the_gradient': 'AI News',
+                    // AI Lab Blogs
+                    'openai_blog': 'AI Lab Research', 'google_ai_blog': 'AI Lab Research',
+                    'deepmind_blog': 'AI Lab Research', 'meta_ai_blog': 'AI Lab Research',
+                    'microsoft_research': 'AI Lab Research', 'nvidia_dev_blog': 'AI Lab Research',
+                    'huggingface_blog': 'AI Lab Research', 'anthropic_blog': 'AI Lab Research', 'bair_blog': 'AI Lab Research',
+                    // AI Research
+                    'arxiv_cs_ai': 'AI Papers', 'arxiv_cs_lg': 'ML Papers', 'arxiv_cs_cl': 'NLP Papers',
+                    'openreview': 'AI Peer Review', 'dblp': 'CS Bibliography',
+                    // AI Models & Datasets
+                    'hf_models': 'AI Models', 'hf_datasets': 'AI Datasets',
+                    // AI Policy
+                    'brookings_ai': 'AI Policy', 'stanford_hai': 'AI Policy',
+                    // AI Communities & Code
+                    'stackoverflow_ai': 'AI Q&A', 'github_repos': 'AI Code',
                 };
 
                 // Log which actual sources will be queried
@@ -1130,6 +1229,26 @@ const App = () => {
                         setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[AI RESEARCH] ${progress.sourceName}: ${progress.itemsCollected} items collected` }]);
                     }
                 });
+
+                // Update live source cards with actual orchestrator results
+                for (const srcResult of executionResult.sources) {
+                    setLiveSourceResults(prev => prev.map(s => {
+                        if (s.source === srcResult.name || s.sourceId === `orch_${srcResult.sourceId}`) {
+                            return {
+                                ...s,
+                                status: srcResult.status === 'completed' ? 'complete' : srcResult.status === 'failed' ? 'error' : s.status,
+                                items: srcResult.items?.map((item: any) => ({
+                                    title: item.title || 'Research Finding',
+                                    content: item.content?.substring(0, 200) || '',
+                                    url: item.url,
+                                    sourceName: item.sourceName,
+                                })) || [],
+                                total: srcResult.items?.length || 0,
+                            };
+                        }
+                        return s;
+                    }));
+                }
 
                 // Merge orchestrator results into corpus
                 setDataSourceStatus('AI filtering results for relevance...');
@@ -1573,6 +1692,8 @@ const App = () => {
                                                  { label: 'Tech & Social', sublabel: 'Hacker News discussions', state: enableSocialTrends, setter: setEnableSocialTrends, icon: 'fa-hashtag' },
                                                  { label: 'YouTube Videos', sublabel: 'Video search via proxy', state: enableYouTube, setter: setEnableYouTube, icon: 'fa-play-circle' },
                                                  { label: 'Social Listening', sublabel: 'Reddit / TrustPilot / Play Store', state: enableCxMesh, setter: setEnableCxMesh, icon: 'fa-comments' },
+                                                 { label: 'AI News & Labs', sublabel: '20 sources: MIT, IEEE, OpenAI, DeepMind...', state: enableAINews, setter: setEnableAINews, icon: 'fa-robot' },
+                                                 { label: 'AI Research & Code', sublabel: 'arXiv, HuggingFace, GitHub, Policy...', state: enableAIResearch, setter: setEnableAIResearch, icon: 'fa-brain' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>
@@ -1629,6 +1750,8 @@ const App = () => {
                                                      enableSocialTrends && 'tech/social trends',
                                                      enableYouTube && 'YouTube videos',
                                                      enableCxMesh && 'social listening',
+                                                     enableAINews && 'AI news & lab blogs',
+                                                     enableAIResearch && 'AI research & code',
                                                      webUrls.trim() && 'web pages',
                                                      videoUrls.trim() && 'video transcripts',
                                                  ].filter(Boolean).join(', ')} will be collected and merged with your uploaded documents before analysis.
@@ -1699,6 +1822,7 @@ const App = () => {
                                collectionPhase={collectionPhase}
                                liveSourceResults={liveSourceResults}
                                liveRefinedQueries={liveRefinedQueries}
+                               knowledgeGraph={knowledgeGraph}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
@@ -1732,6 +1856,9 @@ const App = () => {
                                                activeStage === AnalysisStage.RECOMMENDATIONS ? recsResult :
                                                activeStage === AnalysisStage.DECK_STRUCTURE ? structureResult :
                                                activeStage === AnalysisStage.NARRATIVE ? narrativeResult :
+                                               activeStage === AnalysisStage.GAP_ANALYSIS ? gapResult :
+                                               activeStage === AnalysisStage.TECH_AUDIT ? techAuditResult :
+                                               activeStage === AnalysisStage.COMPETITIVE_ANALYSIS ? competitiveResult :
                                                null
                                            }
                                            isProcessing={statusMessage.includes('...')}
