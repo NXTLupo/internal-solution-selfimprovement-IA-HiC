@@ -1205,6 +1205,97 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
         );
   };
 
+  const [archView, setArchView] = useState<'diagram' | 'detail'>('diagram');
+
+  const renderArchDiagram = (arch: any) => {
+      const nodeFills: Record<string, string> = { 'User': '#dbeafe', 'Application': '#d1fae5', 'Database': '#fef3c7', 'Integration': '#ede9fe', 'External': '#f3f4f6', 'AI/ML': '#ccfbf1', 'Cloud': '#e0e7ff' };
+      const nodeStrokes: Record<string, string> = { 'User': '#3b82f6', 'Application': '#10b981', 'Database': '#f59e0b', 'Integration': '#8b5cf6', 'External': '#6b7280', 'AI/ML': '#14b8a6', 'Cloud': '#6366f1' };
+      const statusColors: Record<string, string> = { 'active': '#0CCE6B', 'broken': '#FF5A5A', 'planned': '#caca20' };
+      const nodes = arch.nodes || [];
+      const flows = arch.flows || [];
+
+      // Layout: group by type into layers
+      const typeOrder = ['User', 'Application', 'AI/ML', 'Integration', 'Database', 'External', 'Cloud'];
+      const grouped: Record<string, any[]> = {};
+      nodes.forEach((n: any) => { const t = n.type || 'External'; if (!grouped[t]) grouped[t] = []; grouped[t].push(n); });
+      const layers = typeOrder.filter(t => grouped[t]);
+
+      // Assign positions
+      const nodePos: Record<string, { x: number; y: number }> = {};
+      const W = 800, layerH = 70, nodeW = 130, nodeH = 40;
+      layers.forEach((layer, li) => {
+          const layerNodes = grouped[layer];
+          const startX = (W - layerNodes.length * (nodeW + 20)) / 2;
+          layerNodes.forEach((n: any, ni: number) => {
+              nodePos[n.id] = { x: startX + ni * (nodeW + 20) + nodeW / 2, y: 40 + li * layerH + nodeH / 2 };
+          });
+      });
+      const svgH = 40 + layers.length * layerH + 20;
+
+      return (
+          <div className="overflow-x-auto">
+              <svg width={W} height={svgH} viewBox={`0 0 ${W} ${svgH}`} className="mx-auto">
+                  <defs>
+                      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#115054" /></marker>
+                      <marker id="arrowred" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#FF5A5A" /></marker>
+                  </defs>
+
+                  {/* Layer labels */}
+                  {layers.map((layer, li) => (
+                      <text key={li} x="8" y={40 + li * layerH + nodeH / 2 + 3} fontSize="8" fontWeight="bold" fill={nodeStrokes[layer] || '#6b7280'} textAnchor="start">{layer}</text>
+                  ))}
+
+                  {/* Flows (arrows) */}
+                  {flows.map((flow: any, fi: number) => {
+                      const from = nodePos[flow.fromId];
+                      const to = nodePos[flow.toId];
+                      if (!from || !to) return null;
+                      const color = statusColors[flow.status] || '#115054';
+                      const dash = flow.status === 'planned' ? '4,3' : flow.status === 'broken' ? '2,2' : 'none';
+                      // Offset to avoid overlapping
+                      const mx = (from.x + to.x) / 2;
+                      const my = (from.y + to.y) / 2 - 8;
+                      return (
+                          <g key={`f${fi}`}>
+                              <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke={color} strokeWidth="1.5" strokeDasharray={dash} markerEnd={flow.status === 'broken' ? 'url(#arrowred)' : 'url(#arrowhead)'} opacity="0.7" />
+                              {flow.action && <text x={mx} y={my} fontSize="6" fill="#525252" textAnchor="middle">{(flow.action || '').substring(0, 30)}</text>}
+                          </g>
+                      );
+                  })}
+
+                  {/* Nodes */}
+                  {nodes.map((node: any, ni: number) => {
+                      const pos = nodePos[node.id];
+                      if (!pos) return null;
+                      const fill = nodeFills[node.type] || '#f3f4f6';
+                      const stroke = nodeStrokes[node.type] || '#6b7280';
+                      return (
+                          <g key={`n${ni}`}>
+                              <rect x={pos.x - nodeW / 2} y={pos.y - nodeH / 2} width={nodeW} height={nodeH} rx="6" fill={fill} stroke={stroke} strokeWidth="1.5" />
+                              <text x={pos.x} y={pos.y - 2} fontSize="8" fontWeight="bold" fill="#141414" textAnchor="middle">{(node.label || '').substring(0, 20)}</text>
+                              <text x={pos.x} y={pos.y + 10} fontSize="6" fill={stroke} textAnchor="middle" fontWeight="bold">{node.type}</text>
+                          </g>
+                      );
+                  })}
+              </svg>
+
+              {/* Legend */}
+              <div className="flex items-center gap-3 mt-2 px-2 justify-center">
+                  {Object.entries(nodeStrokes).map(([type, color]) => (
+                      <div key={type} className="flex items-center gap-1">
+                          <div className="w-3 h-2 rounded-sm" style={{ backgroundColor: nodeFills[type], border: `1px solid ${color}` }}></div>
+                          <span className="text-[7px] font-bold uppercase" style={{ color }}>{type}</span>
+                      </div>
+                  ))}
+                  <div className="w-px h-3 bg-gray-200 mx-1"></div>
+                  <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-[#0CCE6B]"></div><span className="text-[7px] text-[#0CCE6B] font-bold">Active</span></div>
+                  <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-dashed border-[#caca20]"></div><span className="text-[7px] text-[#caca20] font-bold">Planned</span></div>
+                  <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-dotted border-[#FF5A5A]"></div><span className="text-[7px] text-[#FF5A5A] font-bold">Broken</span></div>
+              </div>
+          </div>
+      );
+  };
+
   const renderArch = () => {
       if (!editedArch) return <div className="p-4 text-center text-gray-500">No Architecture data available.</div>;
       const arch = editedArch.architecture;
@@ -1219,11 +1310,22 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       };
       return (
           <div className="max-h-[65vh] overflow-y-auto pr-2 space-y-4">
+              {/* VIEW TOGGLE */}
+              <div className="flex gap-1">
+                  <button onClick={() => setArchView('diagram')} className={`px-3 py-1 rounded text-[9px] font-bold uppercase tracking-wide border ${archView === 'diagram' ? 'bg-[var(--nxt-teal)] text-white border-[var(--nxt-teal)]' : 'bg-white text-[var(--text-tertiary)] border-[var(--border-primary)]'}`}>Diagram View</button>
+                  <button onClick={() => setArchView('detail')} className={`px-3 py-1 rounded text-[9px] font-bold uppercase tracking-wide border ${archView === 'detail' ? 'bg-[var(--nxt-teal)] text-white border-[var(--nxt-teal)]' : 'bg-white text-[var(--text-tertiary)] border-[var(--border-primary)]'}`}>Detail View</button>
+              </div>
+
               {/* Overview */}
               {arch.overview && (
                   <div className="bg-[var(--bg-secondary)] p-3 rounded border text-[12px] text-[var(--text-secondary)] leading-relaxed">{arch.overview}</div>
               )}
 
+              {/* DIAGRAM VIEW */}
+              {archView === 'diagram' && renderArchDiagram(arch)}
+
+              {/* DETAIL VIEW */}
+              {archView === 'detail' && <>
               {/* Nodes */}
               <div>
                   <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-2">System Nodes ({arch.nodes?.length || 0})</div>
@@ -1276,6 +1378,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                       </div>
                   </div>
               )}
+              </>}
           </div>
       );
   };
