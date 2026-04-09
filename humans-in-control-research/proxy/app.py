@@ -945,44 +945,57 @@ async def ai_provider_status():
 # CX MESH PROXY — Routes calls to Reddit Ripper (5001) to bypass CORS
 # ================================================================
 
-REDDIT_RIPPER_URL = os.getenv("REDDIT_RIPPER_URL", "http://reddit-ripper:5001")
+REDDIT_RIPPER_URL = os.getenv("REDDIT_RIPPER_URL", "http://reddit-ripper:5000")
 
 @app.post("/api/cx/collect")
 async def proxy_cx_collect(request: Request):
     """Proxy collection requests to Reddit Ripper service."""
-    body = await request.json()
-    async with httpx.AsyncClient() as client:
-        resp = await client.post(f"{REDDIT_RIPPER_URL}/api/collect", json=body, timeout=30.0)
-        return JSONResponse(resp.json(), status_code=resp.status_code)
+    try:
+        body = await request.json()
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(f"{REDDIT_RIPPER_URL}/api/collect", json=body, timeout=30.0)
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except Exception as e:
+        logger.error(f"CX collect proxy failed: {e}")
+        return JSONResponse({"error": f"Reddit Ripper unavailable: {str(e)[:100]}", "job_id": None}, status_code=503)
 
 @app.get("/api/cx/status/{job_id}")
 async def proxy_cx_status(job_id: str):
     """Proxy job status checks to Reddit Ripper service."""
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/status/{job_id}", timeout=15.0)
-        return JSONResponse(resp.json(), status_code=resp.status_code)
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(f"{REDDIT_RIPPER_URL}/api/status/{job_id}", timeout=15.0)
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except Exception as e:
+        return JSONResponse({"error": str(e)[:100], "status": "error"}, status_code=503)
 
 @app.get("/api/cx/results/{job_id}")
 async def proxy_cx_results(job_id: str):
     """Proxy results retrieval from Reddit Ripper service."""
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/results/{job_id}", timeout=30.0)
-        return JSONResponse(resp.json(), status_code=resp.status_code)
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(f"{REDDIT_RIPPER_URL}/api/results/{job_id}", timeout=30.0)
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except Exception as e:
+        return JSONResponse({"error": str(e)[:100]}, status_code=503)
 
 @app.get("/api/cx/download/{job_id}/{filename}")
 async def proxy_cx_download(job_id: str, filename: str):
     """Proxy file downloads from Reddit Ripper service."""
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/download/{job_id}/{filename}", timeout=30.0)
-        return JSONResponse(resp.json() if 'json' in resp.headers.get('content-type', '') else {"data": resp.text}, status_code=resp.status_code)
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(f"{REDDIT_RIPPER_URL}/api/download/{job_id}/{filename}", timeout=30.0)
+            return JSONResponse(resp.json() if 'json' in resp.headers.get('content-type', '') else {"data": resp.text}, status_code=resp.status_code)
+    except Exception as e:
+        return JSONResponse({"error": str(e)[:100]}, status_code=503)
 
 @app.get("/api/cx/health")
 async def cx_health():
     """Check Reddit Ripper health."""
     try:
         async with httpx.AsyncClient() as client:
-            resp = await client.get(f"{REDDIT_RIPPER_URL}/health", timeout=5.0)
-            return {"available": resp.ok, "url": REDDIT_RIPPER_URL}
+            resp = await client.get(f"{REDDIT_RIPPER_URL}/", timeout=5.0)
+            return {"available": resp.status_code == 200, "url": REDDIT_RIPPER_URL}
     except Exception:
         return {"available": False, "url": REDDIT_RIPPER_URL}
 
