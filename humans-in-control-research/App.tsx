@@ -994,7 +994,7 @@ const App = () => {
                 if (enableEducationData) sourceIds.push('college_scorecard', 'eric');
                 if (enableEconomic) sourceIds.push('worldbank', 'fred', 'bls', 'imf_data', 'oecd_data');
                 if (enableGovernment) sourceIds.push(
-                    'usaspending', 'federal_register', 'sec_edgar', 'congress_gov', 'nist_ai'
+                    'usaspending', 'federal_register', 'sec_edgar', 'congress', 'nist_ai'
                 );
                 if (enableOpenData) sourceIds.push(
                     'data_gov', 'data_gov_uk', 'nyc_open_data', 'california_data', 'chicago_data',
@@ -1962,7 +1962,7 @@ const App = () => {
                                                activeStage === AnalysisStage.DECK_STRUCTURE ? structureResult :
                                                activeStage === AnalysisStage.NARRATIVE ? narrativeResult :
                                                activeStage === AnalysisStage.GAP_ANALYSIS ? gapResult :
-                                               activeStage === AnalysisStage.TECH_AUDIT ? techAuditResult :
+                                               activeStage === AnalysisStage.TECH_AUDIT_STAGE ? techAuditResult :
                                                activeStage === AnalysisStage.COMPETITIVE_ANALYSIS ? competitiveResult :
                                                null
                                            }
