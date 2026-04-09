@@ -9,8 +9,11 @@
  * Human checkpoints are enforced before and after every data pull.
  */
 
-// --- SERVICE URLS (Docker internal network or localhost) ---
-const REDDIT_RIPPER_URL = 'http://localhost:5001';
+// --- SERVICE URLS ---
+// Route through research proxy (port 5012) to bypass CORS
+const CX_PROXY_URL = 'http://localhost:5012/api/cx';
+// Direct URLs for server-side only
+const REDDIT_RIPPER_URL = typeof window !== 'undefined' ? CX_PROXY_URL : 'http://localhost:5001';
 const SOCIAL_RESEARCH_URL = 'http://localhost:8081';
 const JOURNEY_MAPPER_URL = 'http://localhost:8080';
 
@@ -74,7 +77,7 @@ async function safeFetch(url: string, options?: RequestInit): Promise<Response> 
 
 export async function checkServiceHealth(): Promise<ServiceStatus[]> {
     const checks = [
-        { name: 'Reddit Ripper', url: REDDIT_RIPPER_URL },
+        { name: 'Reddit Ripper', url: CX_PROXY_URL },
         { name: 'Social Research', url: SOCIAL_RESEARCH_URL },
         { name: 'Journey Mapper', url: JOURNEY_MAPPER_URL },
     ];
@@ -113,7 +116,7 @@ export async function startCollection(config: SocialCollectionConfig): Promise<s
         body.review_count = config.count;
     }
 
-    const resp = await safeFetch(`${REDDIT_RIPPER_URL}/api/collect`, {
+    const resp = await safeFetch(`${REDDIT_RIPPER_URL}/collect`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -133,7 +136,7 @@ export async function pollCollectionJob(jobId: string, onProgress?: (job: Collec
     const maxAttempts = 120; // 10 minutes at 5s intervals
 
     while (attempts < maxAttempts) {
-        const resp = await safeFetch(`${REDDIT_RIPPER_URL}/api/status/${jobId}`);
+        const resp = await safeFetch(`${REDDIT_RIPPER_URL}/status/${jobId}`);
         if (!resp.ok) throw new Error(`Status check failed: ${resp.status}`);
 
         const job: CollectionJob = await resp.json();
@@ -155,7 +158,7 @@ export async function pollCollectionJob(jobId: string, onProgress?: (job: Collec
  * Download collected data as JSON.
  */
 export async function downloadCollectionData(jobId: string, filename: string): Promise<any> {
-    const resp = await safeFetch(`${REDDIT_RIPPER_URL}/api/download/${jobId}/${filename}`);
+    const resp = await safeFetch(`${REDDIT_RIPPER_URL}/download/${jobId}/${filename}`);
     if (!resp.ok) throw new Error(`Download failed: ${resp.status}`);
     return resp.json();
 }

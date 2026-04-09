@@ -941,6 +941,52 @@ async def ai_provider_status():
     }
 
 
+# ================================================================
+# CX MESH PROXY — Routes calls to Reddit Ripper (5001) to bypass CORS
+# ================================================================
+
+REDDIT_RIPPER_URL = os.getenv("REDDIT_RIPPER_URL", "http://reddit-ripper:5001")
+
+@app.post("/api/cx/collect")
+async def proxy_cx_collect(request: Request):
+    """Proxy collection requests to Reddit Ripper service."""
+    body = await request.json()
+    async with httpx.AsyncClient() as client:
+        resp = await client.post(f"{REDDIT_RIPPER_URL}/api/collect", json=body, timeout=30.0)
+        return JSONResponse(resp.json(), status_code=resp.status_code)
+
+@app.get("/api/cx/status/{job_id}")
+async def proxy_cx_status(job_id: str):
+    """Proxy job status checks to Reddit Ripper service."""
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/status/{job_id}", timeout=15.0)
+        return JSONResponse(resp.json(), status_code=resp.status_code)
+
+@app.get("/api/cx/results/{job_id}")
+async def proxy_cx_results(job_id: str):
+    """Proxy results retrieval from Reddit Ripper service."""
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/results/{job_id}", timeout=30.0)
+        return JSONResponse(resp.json(), status_code=resp.status_code)
+
+@app.get("/api/cx/download/{job_id}/{filename}")
+async def proxy_cx_download(job_id: str, filename: str):
+    """Proxy file downloads from Reddit Ripper service."""
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(f"{REDDIT_RIPPER_URL}/api/download/{job_id}/{filename}", timeout=30.0)
+        return JSONResponse(resp.json() if 'json' in resp.headers.get('content-type', '') else {"data": resp.text}, status_code=resp.status_code)
+
+@app.get("/api/cx/health")
+async def cx_health():
+    """Check Reddit Ripper health."""
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(f"{REDDIT_RIPPER_URL}/health", timeout=5.0)
+            return {"available": resp.ok, "url": REDDIT_RIPPER_URL}
+    except Exception:
+        return {"available": False, "url": REDDIT_RIPPER_URL}
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))
