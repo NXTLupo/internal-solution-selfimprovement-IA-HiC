@@ -1,4 +1,4 @@
-
+import './tailwind.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
