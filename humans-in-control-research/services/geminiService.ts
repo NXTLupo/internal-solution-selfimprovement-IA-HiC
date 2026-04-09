@@ -55,26 +55,25 @@ async function withRetry<T>(
 
 // --- IMAGE GENERATION HELPERS ---
 
+// Global visualization style — set by App.tsx when user selects a style
+let _activeVisStyleId: string = 'photorealistic';
+export function setActiveVisualizationStyle(styleId: string) { _activeVisStyleId = styleId; }
+export function getActiveVisualizationStyle(): string { return _activeVisStyleId; }
+
 export const generateImage = async (prompt: string, aspectRatio: string = "16:9", refImageBase64?: string): Promise<string | undefined> => {
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-    
-    let styleDirectives = "";
-    let negativeConstraints = "";
 
-    // Specific Prompt Strategy based on Aspect Ratio context
-    if (aspectRatio === "1:1" || aspectRatio === "3:4") {
-        // PERSONA / PORTRAIT / SPLIT SLIDE MODE
-        styleDirectives = "Style: Cinematic 4K Photorealism. Professional editorial photography (85mm lens, f/1.8, soft natural lighting). Subject is authentic and diverse, situated in a real-world professional or lifestyle context. Subtle, modern data overlays (glassmorphism UI, white text, minimalist charts) are integrated into the environment (AR style), indicating connectivity or insights.";
-        negativeConstraints = "Do not include: illustration, vector art, cartoon, drawing, painting, flat design, neon overload, cyberpunk, gritty, distorted faces, low resolution, blurry, gibberish text.";
-    } else {
-        // SCENE / SLIDE MODE (16:9) - MIXED REALITY STYLE
-        styleDirectives = "Style: Professional Cinematic Reality with Integrated Data. High-resolution 4K photography of real-world business, urban, or home environments. Overlay of clean, crisp, modern User Interface (UI) elements floating in 3D space. Data visualization is minimalist, legible, and professional (Apple-style design language). 'Future of Work' aesthetic.";
-        negativeConstraints = "Do not include: illustration, vector art, cartoon, drawing, painting, messy scribbles, low quality, pixelated, surrealism, sci-fi fantasy, neon glow, unreadable text, clutter.";
-    }
+    // Import style system
+    const { getStyleById } = await import('./visualizationStyles');
+    const style = getStyleById(_activeVisStyleId);
 
-    // Force strict adherence to the subject matter
-    const finalPrompt = `Depict specifically: ${prompt}. Ensure all visual elements are extremely related to this description. ${styleDirectives} ${negativeConstraints}`; 
+    // Determine context from aspect ratio
+    const context = (aspectRatio === "1:1" || aspectRatio === "3:4") ? 'portrait' : 'scene';
+    const styleBase = style.promptBase[context];
+    const negativeConstraints = style.negativeConstraints;
+
+    const finalPrompt = `${styleBase}. Depict specifically: ${prompt}. Ensure all visual elements relate to this description. ${negativeConstraints}`; 
 
     const parts: any[] = [{ text: finalPrompt }];
     if (refImageBase64) {

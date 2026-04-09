@@ -13,6 +13,7 @@ import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendati
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
 import { DEFAULT_MODELS } from './services/aiRouter';
 import { AppState, FileUpload as FileType, AnalysisResult, AnalysisStage, SavedProject, OutputOption, UXBrief, HeuristicReport, AnalyticalLens, ANALYTICAL_LENS_LABELS, ResearchMethodId } from './types';
+import { VISUALIZATION_STYLES, DEFAULT_STYLE_ID } from './services/visualizationStyles';
 import { RESEARCH_METHODS } from './services/methods/MethodExecutor';
 import type { ModelPreferences } from './services/aiRouter';
 import { LENS_CONFIGS, getLensPromptSegment } from './services/analyticalLensService';
@@ -548,6 +549,7 @@ const App = () => {
     const [techAuditResult, setTechAuditResult] = useState<any>(null);
     const [competitiveResult, setCompetitiveResult] = useState<any>(null);
     const [selectedLens, setSelectedLens] = useState<AnalyticalLens>('general_cx');
+    const [selectedVisStyle, setSelectedVisStyle] = useState(DEFAULT_STYLE_ID);
     const [selectedMethod, setSelectedMethod] = useState<ResearchMethodId>('general_synthesis');
 
     // --- DATA SOURCING STATE ---
@@ -1403,8 +1405,11 @@ const App = () => {
             }
         }
 
-        // --- PHASE 1: Create session with analytical lens injected ---
+        // --- PHASE 1: Create session with analytical lens + visualization style ---
         const lensSegment = getLensPromptSegment(selectedLens);
+        // Set active visualization style for all image generation
+        const { setActiveVisualizationStyle } = await import('./services/geminiService');
+        setActiveVisualizationStyle(selectedVisStyle);
         sessionRef.current = new GenAISession(researchGoal, analysisApproach, selectedOutputs, lensSegment);
 
         try {
@@ -1746,6 +1751,27 @@ const App = () => {
                                                  Lens active: Personas and journey stages will be customized for {ANALYTICAL_LENS_LABELS[selectedLens].toLowerCase()} research.
                                              </div>
                                          )}
+                                     </div>
+
+                                     {/* Visualization Style Selector */}
+                                     <div className="mb-8">
+                                         <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Visualization Style</label>
+                                         <div className="grid grid-cols-5 gap-2">
+                                             {VISUALIZATION_STYLES.map(style => (
+                                                 <button
+                                                     key={style.id}
+                                                     onClick={() => setSelectedVisStyle(style.id)}
+                                                     className={`py-2 px-2 rounded border text-left transition-all ${selectedVisStyle === style.id ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)] text-[var(--nxt-teal)] ring-1 ring-[var(--nxt-lime)]' : 'bg-[var(--bg-secondary)] border-[var(--border-primary)] text-[var(--text-tertiary)] hover:border-[var(--nxt-lime-20)]'}`}
+                                                 >
+                                                     <div className="text-[9px] font-bold uppercase tracking-wide">{style.shortLabel}</div>
+                                                     <div className="text-[7px] mt-0.5 opacity-70 leading-tight">{style.archetype !== 'Default' ? `Type ${style.archetype}` : 'Default'}</div>
+                                                 </button>
+                                             ))}
+                                         </div>
+                                         <div className="mt-2 text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-secondary)] px-3 py-2 rounded border border-[var(--border-primary)]">
+                                             <span className="font-bold text-[var(--nxt-teal)]">{VISUALIZATION_STYLES.find(s => s.id === selectedVisStyle)?.name}:</span>{' '}
+                                             {VISUALIZATION_STYLES.find(s => s.id === selectedVisStyle)?.description}
+                                         </div>
                                      </div>
 
                                      <div className="grid md:grid-cols-2 gap-8 mb-8">
