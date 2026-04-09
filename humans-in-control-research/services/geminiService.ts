@@ -919,27 +919,40 @@ Output JSON.`;
     // --- NEW OUTPUT GENERATORS (Sprint 4) ---
 
     async generateGapAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: GAP ANALYSIS. You are a management consultant performing a rigorous current-state vs desired-state analysis.
+        const prompt = `STEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
 
-ASSESSMENT SCOPE: Define what domain this gap analysis covers based on the research themes.
+CAPABILITY EXTRACTION METHOD — follow these steps to DERIVE gaps from the research:
 
-CURRENT STATE: For EVERY capability area identified in the research:
-- capability: Specific name (e.g., "Donor data integration across systems", "AI-powered student advising")
-- maturity: Score 1-5 based on EVIDENCE from corpus (1=ad hoc, 2=developing, 3=defined, 4=managed, 5=optimized)
-- evidence: Quote the specific [CHUNK_XXX] that justifies this score
+STEP A: Extract capability areas from the THEMES identified in Step 2. Every theme implies a capability area.
+  Example: Theme "AI-Powered Donor Matching" → Capability: "AI/ML donor prospect scoring and matching"
+  Example: Theme "Data Integration Challenges" → Capability: "Cross-system data integration and governance"
 
-DESIRED STATE: For each capability:
-- targetMaturity: Where it SHOULD be based on best practices and research recommendations
-- rationale: WHY this target, citing evidence
+STEP B: For each capability, determine CURRENT maturity from the EVIDENCE:
+  - Look for pain points, complaints, workarounds mentioned in the corpus
+  - If a corpus chunk says "staff manually entering data across 5 systems" → current maturity = 1 (ad hoc)
+  - If "recently implemented a CRM but adoption is low" → current maturity = 2 (developing)
+  - Score: 1=ad hoc/manual, 2=developing/piloting, 3=defined/documented, 4=managed/measured, 5=optimized/automated
+  - evidence: MUST cite specific [CHUNK_XXX] that justifies this maturity score
 
-GAPS: For each capability where current < target:
-- severity: "critical" (gap >= 3), "high" (gap = 2), "medium" (gap = 1), "low" (enhancement)
-- impact: What happens if this gap persists (cite evidence [CHUNK_XXX])
-- effort: "low" (< 3 months), "medium" (3-9 months), "high" (9+ months)
+STEP C: Determine TARGET maturity from recommendations and best practices in the corpus:
+  - What do leading organizations do? What does the research recommend?
+  - targetMaturity: 4 or 5 for critical capabilities, 3 for supporting ones
 
-PRIORITIZED ACTIONS: Rank by severity x impact / effort. Each action must reference a specific gap.
-QUICK WINS: Gaps where effort="low" AND impact is significant. Minimum 2.
-RISK REGISTER: What could go wrong if gaps are NOT addressed. Include likelihood, impact, and mitigation.
+STEP D: Calculate GAPS (target - current). EVERY capability where current < target produces a gap.
+
+REQUIREMENTS:
+- Generate AT LEAST 6 capability gaps. If you found 8 themes, you should have 8+ gaps.
+- assessmentScope: 2-3 sentences defining the analysis domain
+- Each gap MUST have: capability, currentMaturity, targetMaturity, gap (number), severity, impact (with [CHUNK_XXX]), effort
+- severity: "critical" if gap >= 3 or if the impact is existential; "high" if gap = 2; "medium" if gap = 1
+- prioritizedActions: AT LEAST 4 actions, each referencing a specific gap by name
+- quickWins: AT LEAST 2 items where effort is low but impact is high
+- riskRegister: AT LEAST 3 risks with likelihood, impact, mitigation
+
+ANTI-PATTERNS:
+- Returning 0 gaps (impossible — every corpus has capability gaps)
+- Gaps without [CHUNK_XXX] evidence citations
+- Generic capability names ("improve technology") — be specific
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -949,13 +962,13 @@ Output JSON.`;
                 methodology: { type: Type.STRING },
                 analysis: { type: Type.OBJECT, properties: {
                     assessmentScope: { type: Type.STRING },
-                    currentState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, maturity: { type: Type.NUMBER }, evidence: { type: Type.STRING } } } },
-                    desiredState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, targetMaturity: { type: Type.NUMBER }, rationale: { type: Type.STRING } } } },
-                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } } } },
-                    prioritizedActions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, priority: { type: Type.STRING }, timeline: { type: Type.STRING } } } },
-                    quickWins: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } } } },
-                    riskRegister: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { risk: { type: Type.STRING }, likelihood: { type: Type.STRING }, impact: { type: Type.STRING }, mitigation: { type: Type.STRING } } } },
-                } }
+                    currentState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, maturity: { type: Type.NUMBER }, evidence: { type: Type.STRING } }, required: ["capability", "maturity", "evidence"] } },
+                    desiredState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, targetMaturity: { type: Type.NUMBER }, rationale: { type: Type.STRING } }, required: ["capability", "targetMaturity", "rationale"] } },
+                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } }, required: ["capability", "currentMaturity", "targetMaturity", "gap", "severity", "impact", "effort"] } },
+                    prioritizedActions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, priority: { type: Type.STRING }, timeline: { type: Type.STRING }, gapReference: { type: Type.STRING } }, required: ["action", "priority", "timeline"] } },
+                    quickWins: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } }, required: ["action", "impact", "effort"] } },
+                    riskRegister: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { risk: { type: Type.STRING }, likelihood: { type: Type.STRING }, impact: { type: Type.STRING }, mitigation: { type: Type.STRING } }, required: ["risk", "likelihood", "impact", "mitigation"] } },
+                }, required: ["assessmentScope", "currentState", "desiredState", "gaps", "prioritizedActions", "quickWins", "riskRegister"] }
             },
             required: ["methodology", "analysis"]
         };
@@ -1009,31 +1022,52 @@ Output JSON.`;
     }
 
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: COMPETITIVE & PEER ANALYSIS. You are a market analyst performing evidence-based competitive benchmarking.
+        const prompt = `STEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
 
-INDUSTRY CONTEXT: 3-5 sentences describing the competitive landscape identified in the research. What trends are reshaping the market?
+TWO ANALYSIS MODES — use BOTH:
 
-PEER IDENTIFICATION: Identify ONLY organizations/competitors that are EXPLICITLY mentioned in the corpus data.
-- Do NOT fabricate peer organizations. Every peer must be traceable to a [CHUNK_XXX] reference.
-- For each peer: name, market position (brief), strengths (2-4, from evidence), weaknesses (1-3, from evidence), differentiators (1-3)
+MODE 1: NAMED ENTITIES — Extract every organization, vendor, platform, institution, or product mentioned BY NAME in the corpus.
+  - Search ALL chunks for proper nouns: company names, university names, software products, vendors, government agencies
+  - Example: If corpus mentions "Salesforce", "Blackbaud", "Stanford", "MIT" — these are peers/players
+  - For each named entity found: name, role in the ecosystem, strengths (from evidence), weaknesses (from evidence)
+  - MUST cite [CHUNK_XXX] for every claim about a named entity
 
-BENCHMARK DIMENSIONS: Define 4-6 dimensions that are RELEVANT to the research themes:
-- dimension: Specific capability area (e.g., "AI-Powered Personalization", "Data Integration Maturity")
-- weight: 0-1 importance score based on theme priority
-- description: What excellence looks like in this dimension
+MODE 2: ARCHETYPE ANALYSIS — When the corpus discusses TYPES of organizations rather than specific names:
+  - Extract organizational archetypes (e.g., "Large R1 Universities", "Small Liberal Arts Colleges", "Community Colleges", "Tech-Forward Institutions")
+  - For each archetype: typical characteristics, strategic position, advantages, challenges
+  - These supplement the named entities to create a complete competitive landscape
 
-MATURITY MATRIX: Score EACH peer on EACH dimension (1-5 scale) with evidence justification.
+INDUSTRY CONTEXT: 4-6 sentences describing the competitive/strategic landscape. What forces are reshaping this space? What's at stake?
 
-GAP SUMMARY: For each dimension:
-- ourScore: Based on current state evidence from corpus
-- bestInClass: Highest peer score
-- gap: Difference
-- action: Specific recommendation to close the gap, with [CHUNK_XXX] evidence
+PEERS (combine Mode 1 + Mode 2): Generate AT LEAST 4 peer profiles. If the corpus names 6+ organizations, include them all.
+- name: Exact name from corpus OR archetype name
+- position: 1-2 sentence market position description
+- strengths: 2-4 evidence-backed strengths with [CHUNK_XXX]
+- weaknesses: 1-3 evidence-backed weaknesses with [CHUNK_XXX]
+- differentiators: 1-3 unique capabilities or positions
+- isArchetype: true if this is an archetype, false if named entity
 
-ANTI-PATTERNS:
-- Inventing competitors not mentioned in the data
-- Scoring without evidence justification
-- Generic dimensions not tied to research themes
+BENCHMARK DIMENSIONS: 5-7 strategic dimensions derived from the research themes.
+  - dimension: Specific capability (NOT generic like "Technology" — say "AI-Powered Donor Engagement Maturity")
+  - weight: 0.0-1.0 importance based on research priority
+  - description: What "best in class" looks like for this dimension
+  - evidenceBasis: Which [CHUNK_XXX] references inform this dimension
+
+MATURITY MATRIX: Score EVERY peer on EVERY dimension (1-5 scale).
+  - Each score MUST have a brief justification (1 sentence)
+
+GAP SUMMARY: For EVERY dimension:
+  - ourScore: Inferred from the research subject's current state (from themes + pain points)
+  - bestInClass: Highest peer score and WHO achieves it
+  - gap: Numerical difference
+  - urgency: "immediate" | "near-term" | "long-term"
+  - action: Specific action to close the gap with [CHUNK_XXX] evidence
+
+ANTI-PATTERNS (will be rejected):
+- Returning 0 peers (impossible — every corpus references organizations or organizational types)
+- Generic industry context without evidence citations
+- Maturity scores without justification
+- Missing gap actions
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -1043,11 +1077,34 @@ Output JSON.`;
                 methodology: { type: Type.STRING },
                 analysis: { type: Type.OBJECT, properties: {
                     industryContext: { type: Type.STRING },
-                    peers: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, position: { type: Type.STRING }, strengths: { type: Type.ARRAY, items: { type: Type.STRING } }, weaknesses: { type: Type.ARRAY, items: { type: Type.STRING } }, differentiators: { type: Type.ARRAY, items: { type: Type.STRING } } } } },
-                    benchmarkDimensions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { dimension: { type: Type.STRING }, weight: { type: Type.NUMBER }, description: { type: Type.STRING } } } },
-                    maturityMatrix: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { peer: { type: Type.STRING }, scores: { type: Type.OBJECT, properties: {} } } } },
-                    gapSummary: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { dimension: { type: Type.STRING }, ourScore: { type: Type.NUMBER }, bestInClass: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, action: { type: Type.STRING } } } },
-                } }
+                    peers: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                        name: { type: Type.STRING },
+                        position: { type: Type.STRING },
+                        strengths: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        weaknesses: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        differentiators: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        isArchetype: { type: Type.BOOLEAN }
+                    }, required: ["name", "position", "strengths", "weaknesses", "differentiators"] } },
+                    benchmarkDimensions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                        dimension: { type: Type.STRING },
+                        weight: { type: Type.NUMBER },
+                        description: { type: Type.STRING },
+                        evidenceBasis: { type: Type.STRING }
+                    }, required: ["dimension", "weight", "description"] } },
+                    maturityMatrix: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                        peer: { type: Type.STRING },
+                        scores: { type: Type.OBJECT, properties: {} }
+                    }, required: ["peer", "scores"] } },
+                    gapSummary: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                        dimension: { type: Type.STRING },
+                        ourScore: { type: Type.NUMBER },
+                        bestInClass: { type: Type.NUMBER },
+                        bestInClassName: { type: Type.STRING },
+                        gap: { type: Type.NUMBER },
+                        urgency: { type: Type.STRING },
+                        action: { type: Type.STRING }
+                    }, required: ["dimension", "ourScore", "bestInClass", "gap", "action"] } },
+                }, required: ["industryContext", "peers", "benchmarkDimensions", "maturityMatrix", "gapSummary"] }
             },
             required: ["methodology", "analysis"]
         };
