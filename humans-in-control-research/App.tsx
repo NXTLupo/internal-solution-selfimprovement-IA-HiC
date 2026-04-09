@@ -1258,6 +1258,29 @@ const App = () => {
                     }
                 }
 
+                // AI SUBREDDIT DISCOVERY — when Social Listening enabled but no subreddits specified
+                let discoveredSubreddits: string[] = [];
+                if (enableCxMesh && !subredditTargets.trim()) {
+                    setDataSourceStatus('AI discovering relevant Reddit communities...');
+                    try {
+                        const { discoverSubreddits } = await import('./services/researchFabricOrchestrator');
+                        const suggestions = await discoverSubreddits(researchGoal);
+                        discoveredSubreddits = suggestions.map(s => s.name).slice(0, 6);
+                        if (discoveredSubreddits.length > 0) {
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[SOCIAL LISTENING] AI discovered ${discoveredSubreddits.length} relevant subreddits: r/${discoveredSubreddits.join(', r/')}`
+                            }]);
+                        }
+                    } catch (e) {
+                        console.warn('Subreddit discovery failed:', e);
+                    }
+                }
+
+                const cxSubreddits = subredditTargets.trim()
+                    ? subredditTargets.split(',').map(s => s.trim()).filter(Boolean)
+                    : discoveredSubreddits;
+
                 // Also run orchestrator for deep research + CX mesh (if enabled)
                 const plan = await generateResearchPlan(researchGoal, selectedLens, {
                     deepResearch: enableDeepResearch ? { mode: deepResearchMode } : undefined,
@@ -1265,7 +1288,7 @@ const App = () => {
                     videoTranscripts: videoUrls.trim() ? videoUrls.trim().split('\n').filter(u => u.trim()) : undefined,
                     webIntelligence: webUrls.trim() ? { urls: webUrls.trim().split('\n').filter(u => u.trim()) } : undefined,
                     cxMesh: enableCxMesh ? {
-                        subreddits: subredditTargets.trim() ? subredditTargets.split(',').map(s => s.trim()).filter(Boolean) : undefined,
+                        subreddits: cxSubreddits.length > 0 ? cxSubreddits : undefined,
                         trustpilot: trustpilotTargets.trim() ? trustpilotTargets.split(',').map(s => s.trim()).filter(Boolean) : undefined,
                     } : undefined,
                 });
