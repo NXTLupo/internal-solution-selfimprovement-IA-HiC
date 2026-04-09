@@ -588,30 +588,40 @@ Output JSON.`;
     }
 
     async generateJourneyMap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_JourneyMap> {
-        const prompt = `STEP: SERVICE BLUEPRINT & JOURNEY MAP. You are a senior service designer creating a comprehensive service blueprint.
+        const prompt = `STEP: PERSONA-DRIVEN SERVICE BLUEPRINT. You are a senior service designer creating an evidence-based, persona-aware service blueprint.
 
-METHODOLOGY: Map the COMPLETE end-to-end experience identified in the research. Use the themes and persona pain points to identify every critical moment.
+CRITICAL: This blueprint must map how EACH PERSONA (identified in Step 3) experiences the service differently. A university president navigates the journey differently than a frontline fundraiser or a donor.
+
+METHODOLOGY:
+1. Review ALL personas from Step 3 — their roles, pain points, motivations, and tasks
+2. Map 5-8 chronological STAGES of the service lifecycle
+3. For EACH stage, document how EACH actor (persona) experiences that stage differently
 
 STAGE IDENTIFICATION:
-- Identify 5-8 chronological stages covering the FULL lifecycle (awareness through advocacy/retention)
-- Each stage name should be specific to the research context (NOT generic "Discovery, Consideration, Purchase")
-- If the research covers a service process, map frontstage AND backstage operations
+- 5-8 stages covering the FULL lifecycle specific to the research context
+- Name stages specifically (BAD: "Discovery". GOOD: "Donor Prospect Identification & Initial Outreach")
 
-FOR EACH STAGE, provide ALL of these fields (none should be empty):
-- phase: Specific stage name describing what happens (e.g., "Initial Needs Assessment & Program Search")
-- customerAction: What the user/stakeholder DOES at this stage (2-3 specific actions from evidence)
-- touchpoint: The specific channel, device, or interaction point (e.g., "university website portal", "mobile app", "in-person advising session")
-- frontstageAction: What the organization's visible staff/systems DO (specific, not generic)
-- backstageAction: What happens behind the scenes (data processing, internal handoffs, system integrations)
-- supportProcesses: Infrastructure, third-party services, or systems that enable this stage
-- physicalEvidence: What the user sees, holds, or receives (confirmation emails, dashboards, reports)
-- emotion: One of: "Delighted", "Positive", "Neutral", "Negative", "Frustrated" — based on pain points found in research
-- painPoint: The specific friction or problem at this stage, cited from research evidence [CHUNK_XXX]
+FOR EACH STAGE, provide ALL of these fields:
+- phase: Specific stage name
+- actors: Array of persona names involved in this stage (from Step 3 personas). EVERY stage must have at least 1 actor.
+- actorNeeds: What each actor needs at this stage (mapped to specific persona pain points)
+- actorBehaviors: What each actor actually DOES (from research evidence, not assumptions)
+- customerAction: The primary customer/stakeholder action (2-3 sentences with evidence)
+- touchpoint: Specific channels (e.g., "CRM dashboard", "donor portal", "face-to-face meeting", "AI recommendation engine")
+- frontstageAction: What the organization visibly does (staff actions, system responses)
+- backstageAction: Hidden operations (data processing, AI scoring, internal handoffs)
+- supportProcesses: Infrastructure and systems enabling this stage
+- physicalEvidence: What actors see, hold, or receive (emails, reports, dashboards, proposals)
+- emotion: "Delighted" | "Positive" | "Neutral" | "Negative" | "Frustrated" — justified by evidence
+- painPoint: Specific friction with [CHUNK_XXX] citation. What breaks, fails, or frustrates?
+- opportunityForImprovement: What could be done better (linked to recommendations from Step 5)
+- valueProposition: What value is delivered or promised to the actor at this stage
+- momentOfTruth: Is this a critical make-or-break moment? (true/false) — moments where the experience succeeds or fails
 
 EVIDENCE GROUNDING:
-- EVERY painPoint must reference a [CHUNK_XXX] from the corpus
-- customerAction should reflect REAL behaviors found in the data, not assumed ones
-- emotion should be JUSTIFIED by evidence (if users report frustration, mark Frustrated)
+- EVERY painPoint, actorBehaviors, and emotion must cite [CHUNK_XXX]
+- actors must reference persona names from Step 3
+- opportunityForImprovement should reference recommendations from Step 5
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -619,7 +629,23 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                stages: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { phase: { type: Type.STRING }, customerAction: { type: Type.STRING }, touchpoint: { type: Type.STRING }, frontstageAction: { type: Type.STRING }, backstageAction: { type: Type.STRING }, supportProcesses: { type: Type.STRING }, physicalEvidence: { type: Type.STRING }, emotion: { type: Type.STRING }, painPoint: { type: Type.STRING } }, required: ["phase", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint"] } }
+                stages: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                    phase: { type: Type.STRING },
+                    actors: { type: Type.ARRAY, items: { type: Type.STRING } },
+                    actorNeeds: { type: Type.STRING },
+                    actorBehaviors: { type: Type.STRING },
+                    customerAction: { type: Type.STRING },
+                    touchpoint: { type: Type.STRING },
+                    frontstageAction: { type: Type.STRING },
+                    backstageAction: { type: Type.STRING },
+                    supportProcesses: { type: Type.STRING },
+                    physicalEvidence: { type: Type.STRING },
+                    emotion: { type: Type.STRING },
+                    painPoint: { type: Type.STRING },
+                    opportunityForImprovement: { type: Type.STRING },
+                    valueProposition: { type: Type.STRING },
+                    momentOfTruth: { type: Type.BOOLEAN }
+                }, required: ["phase", "actors", "actorNeeds", "actorBehaviors", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint", "opportunityForImprovement", "valueProposition", "momentOfTruth"] } }
             },
             required: ["methodology", "stages"]
         };

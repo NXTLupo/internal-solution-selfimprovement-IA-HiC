@@ -935,27 +935,29 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   const renderJourney = () => {
         if (!editedJourney) return <div className="p-4 text-center text-gray-500">No Journey Map data available.</div>;
         const emotionColors: Record<string, string> = { 'Delighted': '#0CCE6B', 'Positive': '#00b1eb', 'Neutral': '#acacac', 'Negative': '#fd8e2e', 'Frustrated': '#FF5A5A' };
+        const emotionHeight: Record<string, number> = { 'Delighted': 48, 'Positive': 36, 'Neutral': 24, 'Negative': 14, 'Frustrated': 6 };
         return (
-            <div className="max-h-[65vh] overflow-y-auto pr-2">
-                {/* Emotion curve visualization */}
-                <div className="flex items-end gap-1 mb-4 h-12 px-2">
-                    {editedJourney.stages.map((stage: any, idx: number) => {
-                        const emotionHeight: Record<string, number> = { 'Delighted': 48, 'Positive': 36, 'Neutral': 24, 'Negative': 14, 'Frustrated': 6 };
-                        return (
-                            <div key={idx} className="flex-1 flex flex-col items-center gap-1">
-                                <div className="rounded-sm w-full transition-all" style={{ height: emotionHeight[stage.emotion] || 24, backgroundColor: emotionColors[stage.emotion] || '#acacac' }}></div>
-                                <span className="text-[7px] font-bold uppercase text-[var(--text-tertiary)] truncate w-full text-center">{(stage.phase || '').substring(0, 15)}</span>
-                            </div>
-                        );
-                    })}
+            <div className="max-h-[70vh] overflow-y-auto pr-2">
+                {/* Emotion curve + stage labels */}
+                <div className="flex items-end gap-1 mb-4 h-14 px-2">
+                    {editedJourney.stages.map((stage: any, idx: number) => (
+                        <div key={idx} className="flex-1 flex flex-col items-center gap-1">
+                            {stage.momentOfTruth && <span className="text-[7px] font-bold text-[#FF5A5A]">MOT</span>}
+                            <div className="rounded-sm w-full transition-all" style={{ height: emotionHeight[stage.emotion] || 24, backgroundColor: emotionColors[stage.emotion] || '#acacac' }}></div>
+                            <span className="text-[6px] font-bold uppercase text-[var(--text-tertiary)] truncate w-full text-center">{(stage.phase || '').substring(0, 18)}</span>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="space-y-4">
                      {editedJourney.stages.map((stage: any, idx: number) => (
-                         <div key={idx} className="bg-[var(--card-bg)] rounded border border-[var(--border-primary)] overflow-hidden">
-                             {/* Stage header with emotion */}
+                         <div key={idx} className={`bg-[var(--card-bg)] rounded border overflow-hidden ${stage.momentOfTruth ? 'border-[#FF5A5A] ring-1 ring-[#FF5A5A]/20' : 'border-[var(--border-primary)]'}`}>
+                             {/* Stage header */}
                              <div className="flex justify-between items-center px-4 py-2 border-b border-[var(--border-secondary)]" style={{ borderLeftWidth: 4, borderLeftColor: emotionColors[stage.emotion] || '#acacac' }}>
-                                 <h4 className="text-xs font-bold text-[var(--nxt-teal)] uppercase">Stage {idx+1}: {stage.phase}</h4>
+                                 <div className="flex items-center gap-2">
+                                     <h4 className="text-xs font-bold text-[var(--nxt-teal)] uppercase">Stage {idx+1}: {stage.phase}</h4>
+                                     {stage.momentOfTruth && <span className="text-[7px] font-bold bg-[#FF5A5A] text-white px-1.5 py-0.5 rounded-sm uppercase">Moment of Truth</span>}
+                                 </div>
                                  <select value={stage.emotion} onChange={(e) => updateJourneyStage(idx, 'emotion', e.target.value)}
                                     className="text-[10px] font-bold bg-[var(--bg-tertiary)] rounded px-2 py-1 border border-[var(--border-primary)]">
                                     <option value="Delighted">Delighted</option><option value="Positive">Positive</option>
@@ -965,21 +967,56 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                              </div>
 
                              <div className="p-4 space-y-3">
-                                 {/* Customer & Touchpoint row */}
+                                 {/* ACTORS (Personas) — the key innovation */}
+                                 {stage.actors && stage.actors.length > 0 && (
+                                     <div>
+                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Actors (Personas)</label>
+                                         <div className="flex flex-wrap gap-1.5">
+                                             {stage.actors.map((actor: string, ai: number) => (
+                                                 <span key={ai} className="text-[10px] font-bold bg-[var(--nxt-lime-10)] text-[var(--nxt-teal)] border border-[var(--nxt-lime-20)] px-2 py-0.5 rounded-sm">{actor}</span>
+                                             ))}
+                                         </div>
+                                     </div>
+                                 )}
+
+                                 {/* Actor Needs & Behaviors */}
+                                 <div className="grid grid-cols-2 gap-3">
+                                     <div>
+                                         <label className="text-[8px] font-bold text-purple-600 uppercase tracking-widest block mb-1">Actor Needs</label>
+                                         <textarea value={stage.actorNeeds || ''} onChange={(e) => updateJourneyStage(idx, 'actorNeeds' as any, e.target.value)}
+                                            className="w-full bg-purple-50 text-xs p-2 rounded resize-none h-12 outline-none border border-purple-100" />
+                                     </div>
+                                     <div>
+                                         <label className="text-[8px] font-bold text-indigo-600 uppercase tracking-widest block mb-1">Actor Behaviors</label>
+                                         <textarea value={stage.actorBehaviors || ''} onChange={(e) => updateJourneyStage(idx, 'actorBehaviors' as any, e.target.value)}
+                                            className="w-full bg-indigo-50 text-xs p-2 rounded resize-none h-12 outline-none border border-indigo-100" />
+                                     </div>
+                                 </div>
+
+                                 {/* Customer Action & Touchpoint */}
                                  <div className="grid grid-cols-2 gap-3">
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Customer Action</label>
                                          <textarea value={stage.customerAction || ''} onChange={(e) => updateJourneyStage(idx, 'customerAction', e.target.value)}
-                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded resize-none h-14 outline-none focus:ring-1 focus:ring-[var(--nxt-teal)]" />
+                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded resize-none h-12 outline-none" />
                                      </div>
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Touchpoint</label>
                                          <textarea value={stage.touchpoint || ''} onChange={(e) => updateJourneyStage(idx, 'touchpoint', e.target.value)}
-                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded resize-none h-14 outline-none focus:ring-1 focus:ring-[var(--nxt-teal)]" />
+                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded resize-none h-12 outline-none" />
                                      </div>
                                  </div>
 
-                                 {/* Line of visibility */}
+                                 {/* Value Proposition */}
+                                 {stage.valueProposition && (
+                                     <div className="bg-emerald-50 p-2 rounded border border-emerald-100">
+                                         <label className="text-[8px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Value Delivered</label>
+                                         <textarea value={stage.valueProposition || ''} onChange={(e) => updateJourneyStage(idx, 'valueProposition' as any, e.target.value)}
+                                            className="w-full bg-transparent text-xs text-emerald-800 resize-none h-8 outline-none" />
+                                     </div>
+                                 )}
+
+                                 {/* Line of Visibility */}
                                  <div className="flex items-center gap-2 py-1">
                                      <div className="flex-1 border-t-2 border-dashed border-[var(--nxt-lime)]"></div>
                                      <span className="text-[7px] font-bold uppercase tracking-widest text-[var(--nxt-lime)]">Line of Visibility</span>
@@ -991,16 +1028,16 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      <div>
                                          <label className="text-[8px] font-bold text-[#00b1eb] uppercase tracking-widest block mb-1">Frontstage (Visible)</label>
                                          <textarea value={stage.frontstageAction || ''} onChange={(e) => updateJourneyStage(idx, 'frontstageAction', e.target.value)}
-                                            className="w-full bg-blue-50 text-xs p-2 rounded resize-none h-14 outline-none border border-blue-100" />
+                                            className="w-full bg-blue-50 text-xs p-2 rounded resize-none h-12 outline-none border border-blue-100" />
                                      </div>
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Backstage (Hidden)</label>
                                          <textarea value={stage.backstageAction || ''} onChange={(e) => updateJourneyStage(idx, 'backstageAction', e.target.value)}
-                                            className="w-full bg-teal-50 text-xs p-2 rounded resize-none h-14 outline-none border border-teal-100" />
+                                            className="w-full bg-teal-50 text-xs p-2 rounded resize-none h-12 outline-none border border-teal-100" />
                                      </div>
                                  </div>
 
-                                 {/* Support & Evidence */}
+                                 {/* Support & Physical Evidence */}
                                  <div className="grid grid-cols-2 gap-3">
                                      <div>
                                          <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Support Processes</label>
@@ -1014,12 +1051,21 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                      </div>
                                  </div>
 
-                                 {/* Pain point */}
-                                 {(stage.painPoint || stage.emotion === 'Negative' || stage.emotion === 'Frustrated') && (
+                                 {/* Pain Point */}
+                                 {stage.painPoint && (
                                      <div className="bg-red-50 p-3 rounded border border-red-100">
                                          <label className="text-[8px] font-bold text-[#FF5A5A] uppercase tracking-widest block mb-1">Pain Point</label>
                                          <textarea value={stage.painPoint || ''} onChange={(e) => updateJourneyStage(idx, 'painPoint' as any, e.target.value)}
                                             className="w-full bg-transparent text-xs text-red-800 resize-none h-10 outline-none" />
+                                     </div>
+                                 )}
+
+                                 {/* Opportunity */}
+                                 {stage.opportunityForImprovement && (
+                                     <div className="bg-[var(--nxt-lime-10)] p-3 rounded border border-[var(--nxt-lime-20)]">
+                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Opportunity for Improvement</label>
+                                         <textarea value={stage.opportunityForImprovement || ''} onChange={(e) => updateJourneyStage(idx, 'opportunityForImprovement' as any, e.target.value)}
+                                            className="w-full bg-transparent text-xs text-[var(--nxt-teal)] resize-none h-10 outline-none" />
                                      </div>
                                  )}
                              </div>
