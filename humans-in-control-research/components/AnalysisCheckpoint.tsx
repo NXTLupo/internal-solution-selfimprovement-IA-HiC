@@ -932,12 +932,140 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       );
   };
 
+  const [journeyView, setJourneyView] = useState<'visual' | 'detail'>('visual');
+
+  const renderJourneyVisual = (stages: any[]) => {
+      const emotionColors: Record<string, string> = { 'Delighted': '#0CCE6B', 'Positive': '#00b1eb', 'Neutral': '#acacac', 'Negative': '#fd8e2e', 'Frustrated': '#FF5A5A' };
+      const emotionY: Record<string, number> = { 'Delighted': 10, 'Positive': 30, 'Neutral': 50, 'Negative': 70, 'Frustrated': 90 };
+      const allActors = [...new Set(stages.flatMap((s: any) => s.actors || []))];
+      const actorColors = ['#115054', '#fd8e2e', '#00b1eb', '#caca20', '#0CCE6B', '#9333ea', '#FF5A5A', '#525252'];
+
+      return (
+          <div className="overflow-x-auto pb-2">
+              {/* EMOTION CURVE — SVG sparkline across stages */}
+              <div className="mb-1 px-12 relative">
+                  <div className="text-[7px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] mb-1">Emotional Journey</div>
+                  <svg width="100%" height="60" viewBox={`0 0 ${stages.length * 120} 60`} className="overflow-visible">
+                      {/* Grid lines */}
+                      <line x1="0" y1="30" x2={stages.length * 120} y2="30" stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4,4" />
+                      {/* Emotion path */}
+                      <polyline fill="none" stroke="#115054" strokeWidth="2.5" strokeLinejoin="round"
+                          points={stages.map((s: any, i: number) => `${i * 120 + 60},${emotionY[s.emotion] || 50}`).join(' ')} />
+                      {/* Emotion dots */}
+                      {stages.map((s: any, i: number) => (
+                          <g key={i}>
+                              <circle cx={i * 120 + 60} cy={emotionY[s.emotion] || 50} r="6" fill={emotionColors[s.emotion] || '#acacac'} stroke="white" strokeWidth="2" />
+                              {s.momentOfTruth && <text x={i * 120 + 60} y={emotionY[s.emotion] - 12} textAnchor="middle" fontSize="7" fontWeight="bold" fill="#FF5A5A">MOT</text>}
+                          </g>
+                      ))}
+                      {/* Y-axis labels */}
+                      <text x="-5" y="13" fontSize="6" fill="#acacac" textAnchor="end">Delighted</text>
+                      <text x="-5" y="53" fontSize="6" fill="#acacac" textAnchor="end">Neutral</text>
+                      <text x="-5" y="93" fontSize="6" fill="#acacac" textAnchor="end">Frustrated</text>
+                  </svg>
+              </div>
+
+              {/* SWIMLANE GRID — Stages as columns, swim lanes as rows */}
+              <div className="relative" style={{ minWidth: stages.length * 160 }}>
+                  {/* Column headers (stages) */}
+                  <div className="flex border-b-2 border-[var(--nxt-teal)]">
+                      <div className="w-24 flex-shrink-0"></div>
+                      {stages.map((s: any, i: number) => (
+                          <div key={i} className={`flex-1 min-w-[140px] text-center px-1 py-2 ${s.momentOfTruth ? 'bg-red-50' : ''}`} style={{ borderBottom: `3px solid ${emotionColors[s.emotion] || '#acacac'}` }}>
+                              <div className="text-[8px] font-bold uppercase text-[var(--nxt-teal)] leading-tight">{s.phase}</div>
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* TOUCHPOINTS LANE */}
+                  <div className="flex border-b border-[var(--border-primary)]">
+                      <div className="w-24 flex-shrink-0 bg-[var(--bg-secondary)] flex items-center px-2"><span className="text-[7px] font-bold uppercase text-[var(--text-tertiary)]">Touchpoints</span></div>
+                      {stages.map((s: any, i: number) => (
+                          <div key={i} className="flex-1 min-w-[140px] p-2 border-r border-[var(--border-primary)]">
+                              <div className="text-[9px] text-[var(--text-secondary)] leading-snug">{s.touchpoint}</div>
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* ACTOR LANES — one row per persona */}
+                  {allActors.map((actor: string, ai: number) => (
+                      <div key={ai} className="flex border-b border-[var(--border-primary)]">
+                          <div className="w-24 flex-shrink-0 bg-[var(--bg-secondary)] flex items-center px-2 border-r border-[var(--border-primary)]">
+                              <span className="text-[8px] font-bold truncate" style={{ color: actorColors[ai % actorColors.length] }}>{actor}</span>
+                          </div>
+                          {stages.map((s: any, si: number) => {
+                              const isInvolved = (s.actors || []).includes(actor);
+                              return (
+                                  <div key={si} className={`flex-1 min-w-[140px] p-1.5 border-r border-[var(--border-primary)] ${isInvolved ? '' : 'opacity-20'}`}>
+                                      {isInvolved && (
+                                          <div className="text-[8px] leading-snug space-y-1">
+                                              <div className="font-bold" style={{ color: actorColors[ai % actorColors.length] }}>{(s.actorBehaviors || '').split('.').find((b: string) => b.includes(actor))?.trim() || s.customerAction?.substring(0, 60)}</div>
+                                          </div>
+                                      )}
+                                  </div>
+                              );
+                          })}
+                      </div>
+                  ))}
+
+                  {/* FRONTSTAGE LANE */}
+                  <div className="flex border-b border-[var(--border-primary)]">
+                      <div className="w-24 flex-shrink-0 bg-blue-50 flex items-center px-2 border-r border-blue-100"><span className="text-[7px] font-bold uppercase text-blue-600">Frontstage</span></div>
+                      {stages.map((s: any, i: number) => (
+                          <div key={i} className="flex-1 min-w-[140px] p-1.5 border-r border-blue-50 bg-blue-50/30">
+                              <div className="text-[8px] text-blue-700 leading-snug">{(s.frontstageAction || '').substring(0, 80)}</div>
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* LINE OF VISIBILITY */}
+                  <div className="flex items-center border-b-2 border-dashed border-[var(--nxt-lime)]">
+                      <div className="w-24 flex-shrink-0 flex items-center justify-center py-0.5"><span className="text-[6px] font-bold uppercase text-[var(--nxt-lime)] tracking-widest">Visibility</span></div>
+                      {stages.map((_: any, i: number) => <div key={i} className="flex-1 min-w-[140px]"></div>)}
+                  </div>
+
+                  {/* BACKSTAGE LANE */}
+                  <div className="flex border-b border-[var(--border-primary)]">
+                      <div className="w-24 flex-shrink-0 bg-teal-50 flex items-center px-2 border-r border-teal-100"><span className="text-[7px] font-bold uppercase text-teal-700">Backstage</span></div>
+                      {stages.map((s: any, i: number) => (
+                          <div key={i} className="flex-1 min-w-[140px] p-1.5 border-r border-teal-50 bg-teal-50/30">
+                              <div className="text-[8px] text-teal-700 leading-snug">{(s.backstageAction || '').substring(0, 80)}</div>
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* PAIN POINTS LANE */}
+                  <div className="flex">
+                      <div className="w-24 flex-shrink-0 bg-red-50 flex items-center px-2 border-r border-red-100"><span className="text-[7px] font-bold uppercase text-[#FF5A5A]">Pain Points</span></div>
+                      {stages.map((s: any, i: number) => (
+                          <div key={i} className="flex-1 min-w-[140px] p-1.5 border-r border-red-50 bg-red-50/30">
+                              {s.painPoint && <div className="text-[8px] text-red-700 leading-snug">{(s.painPoint || '').substring(0, 80)}</div>}
+                          </div>
+                      ))}
+                  </div>
+              </div>
+          </div>
+      );
+  };
+
   const renderJourney = () => {
         if (!editedJourney) return <div className="p-4 text-center text-gray-500">No Journey Map data available.</div>;
         const emotionColors: Record<string, string> = { 'Delighted': '#0CCE6B', 'Positive': '#00b1eb', 'Neutral': '#acacac', 'Negative': '#fd8e2e', 'Frustrated': '#FF5A5A' };
         const emotionHeight: Record<string, number> = { 'Delighted': 48, 'Positive': 36, 'Neutral': 24, 'Negative': 14, 'Frustrated': 6 };
+
         return (
             <div className="max-h-[70vh] overflow-y-auto pr-2">
+                {/* VIEW TOGGLE */}
+                <div className="flex gap-1 mb-3">
+                    <button onClick={() => setJourneyView('visual')} className={`px-3 py-1 rounded text-[9px] font-bold uppercase tracking-wide border ${journeyView === 'visual' ? 'bg-[var(--nxt-teal)] text-white border-[var(--nxt-teal)]' : 'bg-white text-[var(--text-tertiary)] border-[var(--border-primary)]'}`}>Swimlane View</button>
+                    <button onClick={() => setJourneyView('detail')} className={`px-3 py-1 rounded text-[9px] font-bold uppercase tracking-wide border ${journeyView === 'detail' ? 'bg-[var(--nxt-teal)] text-white border-[var(--nxt-teal)]' : 'bg-white text-[var(--text-tertiary)] border-[var(--border-primary)]'}`}>Detail View</button>
+                </div>
+
+                {/* VISUAL SWIMLANE VIEW */}
+                {journeyView === 'visual' && renderJourneyVisual(editedJourney.stages)}
+
+                {/* DETAIL VIEW — the existing card-based editor */}
+                {journeyView === 'detail' && <>
                 {/* Emotion curve + stage labels */}
                 <div className="flex items-end gap-1 mb-4 h-14 px-2">
                     {editedJourney.stages.map((stage: any, idx: number) => (
@@ -1072,6 +1200,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                          </div>
                      ))}
                 </div>
+                </>}
             </div>
         );
   };
