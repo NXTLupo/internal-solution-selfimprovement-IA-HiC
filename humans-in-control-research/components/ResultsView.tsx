@@ -843,24 +843,109 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   {activeTab === 'personas' && (
                       <div className="space-y-8">
                           <h2 className="text-3xl font-black mb-8 border-b pb-4">Archetypes & Personas</h2>
-                          <div className="grid grid-cols-1 gap-12">
-                              {(personasData || []).map((p, i) => (
+                          <div className="grid grid-cols-1 gap-16">
+                              {(personasData || []).map((p: any, i: number) => (
                                   <div key={i} className="persona-card bg-[var(--card-bg)] border border-[var(--border-primary)] rounded overflow-hidden shadow-sm">
+                                      {/* HEADER: Image + Identity + Quote */}
                                       <div className="grid md:grid-cols-3">
-                                          <div className="relative aspect-square md:aspect-auto bg-[var(--bg-tertiary)]">
-                                              {p.imageUrl ? <img src={p.imageUrl} alt={p.name} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center">Visual...</div>}
+                                          <div className="relative aspect-square md:aspect-auto bg-[var(--bg-tertiary)] min-h-[280px]">
+                                              {p.imageUrl ? <img src={p.imageUrl} alt={p.name} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[var(--text-tertiary)]">Generating...</div>}
                                               <button onClick={() => handleRegeneratePersonaImage(i)} className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded hover:bg-black/70">Regen</button>
                                           </div>
-                                          <div className="md:col-span-2 p-6 flex flex-col gap-6">
+                                          <div className="md:col-span-2 p-6 flex flex-col gap-4">
                                               <div>
                                                   <input value={p.name} onChange={e => updatePersonaField(i, 'name', e.target.value)} className="text-3xl font-bold bg-transparent outline-none w-full" />
-                                                  <input value={p.role} onChange={e => updatePersonaField(i, 'role', e.target.value)} className="text-indigo-600 font-bold bg-transparent outline-none w-full" />
+                                                  <input value={p.role} onChange={e => updatePersonaField(i, 'role', e.target.value)} className="text-[var(--nxt-teal)] font-bold bg-transparent outline-none w-full text-lg" />
+                                                  {p.demographics && <div className="text-sm text-[var(--text-tertiary)] mt-1">{p.demographics}</div>}
                                               </div>
-                                              <div className="bg-[var(--bg-tertiary)] p-4 rounded border">
-                                                  <textarea value={p.quote} onChange={e => updatePersonaField(i, 'quote', e.target.value)} className="w-full bg-transparent text-lg italic outline-none" rows={2} />
-                                                  <textarea value={p.bio} onChange={e => updatePersonaField(i, 'bio', e.target.value)} className="w-full bg-transparent text-sm outline-none" rows={3} />
+                                              <div className="bg-[var(--bg-tertiary)] p-4 rounded border-l-4 border-[var(--nxt-lime)]">
+                                                  <textarea value={p.quote} onChange={e => updatePersonaField(i, 'quote', e.target.value)} className="w-full bg-transparent text-lg italic outline-none text-[var(--text-primary)]" rows={2} />
                                               </div>
+                                              <textarea value={p.bio} onChange={e => updatePersonaField(i, 'bio', e.target.value)} className="w-full bg-transparent text-sm outline-none text-[var(--text-secondary)] leading-relaxed" rows={3} />
                                           </div>
+                                      </div>
+
+                                      {/* FIVE Ws — Strategic Analysis */}
+                                      {p.fiveWs && (
+                                          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-6 py-4 bg-[var(--bg-secondary)] border-t border-b border-[var(--border-primary)]">
+                                              {[
+                                                  { label: 'Who (Their World)', value: p.fiveWs.who, color: '#115054' },
+                                                  { label: 'What (Core Tension)', value: p.fiveWs.what, color: '#fd8e2e' },
+                                                  { label: 'When/Where (Context)', value: p.fiveWs.whenWhere, color: '#00b1eb' },
+                                                  { label: 'Why (Deep Motivation)', value: p.fiveWs.why, color: '#caca20' },
+                                              ].map((w, wi) => (
+                                                  <div key={wi} className="text-xs" style={{ borderLeft: `3px solid ${w.color}`, paddingLeft: '8px' }}>
+                                                      <div className="text-[8px] font-bold uppercase tracking-widest mb-1" style={{ color: w.color }}>{w.label}</div>
+                                                      <div className="text-[var(--text-secondary)] leading-snug">{w.value || '—'}</div>
+                                                  </div>
+                                              ))}
+                                          </div>
+                                      )}
+
+                                      {/* MOTIVATIONS + PAIN POINTS + TASKS + OPPORTUNITIES */}
+                                      <div className="grid md:grid-cols-2 gap-0">
+                                          {/* Motivations */}
+                                          {p.motivations && p.motivations.length > 0 && (
+                                              <div className="p-5 border-r border-b border-[var(--border-primary)]">
+                                                  <div className="text-[9px] font-bold uppercase tracking-widest text-[#0CCE6B] mb-3">Motivations ({p.motivations.length})</div>
+                                                  <div className="space-y-2">
+                                                      {p.motivations.map((m: any, mi: number) => (
+                                                          <div key={mi} className="text-xs">
+                                                              <div className="font-bold text-[var(--text-primary)]">{m.label}</div>
+                                                              {m.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{m.quote}"</div>}
+                                                              {m.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{m.citation.sourceFile} - {m.citation.sourceName}</div>}
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+
+                                          {/* Pain Points */}
+                                          {p.painPoints && p.painPoints.length > 0 && (
+                                              <div className="p-5 border-b border-[var(--border-primary)]">
+                                                  <div className="text-[9px] font-bold uppercase tracking-widest text-[#FF5A5A] mb-3">Pain Points ({p.painPoints.length})</div>
+                                                  <div className="space-y-2">
+                                                      {p.painPoints.map((pp: any, pi: number) => (
+                                                          <div key={pi} className="text-xs">
+                                                              <div className="font-bold text-[var(--text-primary)]">{pp.label}</div>
+                                                              {pp.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{pp.quote}"</div>}
+                                                              {pp.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{pp.citation.sourceFile} - {pp.citation.sourceName}</div>}
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+
+                                          {/* Tasks */}
+                                          {p.tasks && p.tasks.length > 0 && (
+                                              <div className="p-5 border-r border-[var(--border-primary)]">
+                                                  <div className="text-[9px] font-bold uppercase tracking-widest text-[#00b1eb] mb-3">Key Tasks ({p.tasks.length})</div>
+                                                  <div className="space-y-1.5">
+                                                      {p.tasks.map((t: any, ti: number) => (
+                                                          <div key={ti} className="text-xs flex items-start gap-2">
+                                                              <span className="text-[#00b1eb] mt-0.5">-</span>
+                                                              <span>{t.label}{t.quote ? `: "${t.quote}"` : ''}</span>
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+
+                                          {/* Opportunities */}
+                                          {p.opportunities && p.opportunities.length > 0 && (
+                                              <div className="p-5">
+                                                  <div className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-3">Opportunities ({p.opportunities.length})</div>
+                                                  <div className="space-y-2">
+                                                      {p.opportunities.map((o: any, oi: number) => (
+                                                          <div key={oi} className="text-xs">
+                                                              <div className="font-bold text-[var(--text-primary)]">{o.label}</div>
+                                                              {o.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{o.quote}"</div>}
+                                                              {o.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{o.citation.sourceFile} - {o.citation.sourceName}</div>}
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
                                       </div>
                                   </div>
                               ))}
@@ -1039,32 +1124,65 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   {activeTab === 'strategy' && (
                       <div className="space-y-8">
                            <h2 className="text-3xl font-black mb-8 border-b pb-4">Strategic Recommendations</h2>
-                           {(result.recommendations || []).map((rec, i) => (
+                           {(result.recommendations || []).map((rec: any, i: number) => {
+                               const impactColors: Record<string, string> = { 'HIGH': 'bg-red-100 text-red-700', 'MEDIUM': 'bg-amber-100 text-amber-700', 'LOW': 'bg-blue-100 text-blue-700' };
+                               return (
                                <div key={i} className="bg-[var(--card-bg)] p-6 rounded border border-[var(--border-primary)] shadow-sm">
-                                   <div className="flex justify-between items-start mb-4">
-                                       <h3 className="text-xl font-bold">{rec.title}</h3>
-                                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700">{rec.impactLevel}</span>
+                                   <div className="flex justify-between items-start mb-3">
+                                       <h3 className="text-xl font-bold flex-1">{rec.title}</h3>
+                                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${impactColors[rec.impactLevel?.toUpperCase()] || 'bg-gray-100 text-gray-700'}`}>{rec.impactLevel}</span>
                                    </div>
-                                   <p className="text-[var(--text-secondary)] mb-4">{rec.description}</p>
+                                   <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">{rec.description}</p>
+                                   {rec.actionItems && rec.actionItems.length > 0 && (
+                                       <div className="border-t border-[var(--border-primary)] pt-3">
+                                           <div className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-2">Action Items</div>
+                                           <div className="space-y-1.5">
+                                               {rec.actionItems.map((item: string, ai: number) => (
+                                                   <div key={ai} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                                                       <span className="text-[var(--nxt-teal)] font-bold mt-0.5 text-xs">{ai + 1}.</span>
+                                                       <span>{item}</span>
+                                                   </div>
+                                               ))}
+                                           </div>
+                                       </div>
+                                   )}
                                </div>
-                           ))}
+                               );
+                           })}
                       </div>
                   )}
                   {activeTab === 'script' && (
                       <div className="space-y-12">
                           <h2 className="text-3xl font-black mb-8 border-b pb-4">Video Storyboard</h2>
-                          {scriptScenes.map((scene, i) => (
-                              <div key={i} className="flex flex-col md:flex-row gap-8 items-start group">
-                                  <div className="w-full md:w-5/12 aspect-video bg-black rounded overflow-hidden relative shadow-none">
-                                      {scene.videoUrl ? <video src={scene.videoUrl} controls className="w-full h-full object-cover" /> : scene.imageUrl ? <img src={scene.imageUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-500">Visual</div>}
-                                      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                          <button onClick={() => handleRegenerateImage(i)} className="bg-white/20 text-white px-3 py-1.5 rounded text-xs">⟳ Frame</button>
-                                          <button onClick={() => handleGenerateVideo(i)} className="bg-[var(--nxt-lime)] text-white px-3 py-1.5 rounded text-xs">▶ Animate</button>
+                          {scriptScenes.map((scene: any, i: number) => (
+                              <div key={i} className="flex flex-col md:flex-row gap-6 items-start group">
+                                  {/* Scene number + visual */}
+                                  <div className="w-full md:w-5/12 relative">
+                                      <div className="absolute top-2 left-2 z-10 bg-[var(--nxt-teal)] text-white text-xs font-bold px-2 py-1 rounded-sm">Scene {i + 1}</div>
+                                      <div className="aspect-video bg-black rounded overflow-hidden relative shadow-sm">
+                                          {scene.videoUrl ? <video src={scene.videoUrl} controls className="w-full h-full object-cover" /> : scene.imageUrl ? <img src={scene.imageUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-500">Visual</div>}
+                                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                              <button onClick={() => handleRegenerateImage(i)} className="bg-white/20 text-white px-3 py-1.5 rounded text-xs">Regen Frame</button>
+                                              <button onClick={() => handleGenerateVideo(i)} className="bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-3 py-1.5 rounded text-xs font-bold">Animate</button>
+                                          </div>
                                       </div>
                                   </div>
-                                  <div className="flex-1 space-y-4 pt-2 w-full">
-                                      <textarea value={scene.visualPrompt || scene.visualDescription} onChange={(e) => updateScriptScene(i, 'visualPrompt', e.target.value)} className="w-full bg-[var(--bg-tertiary)] text-sm p-3 rounded-lg h-24 outline-none" />
-                                      <textarea value={scene.audioNarration} onChange={(e) => updateScriptScene(i, 'audioNarration', e.target.value)} className="w-full bg-white text-lg italic p-3 rounded-lg h-28 outline-none" />
+                                  {/* Scene content */}
+                                  <div className="flex-1 space-y-3 pt-1 w-full">
+                                      <div>
+                                          <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] block mb-1">Visual Direction</label>
+                                          <textarea value={scene.visualPrompt || scene.visualDescription} onChange={(e) => updateScriptScene(i, 'visualPrompt', e.target.value)} className="w-full bg-[var(--bg-tertiary)] text-xs p-3 rounded h-16 outline-none border border-[var(--border-primary)]" />
+                                      </div>
+                                      {scene.quote && (
+                                          <div className="bg-[var(--bg-tertiary)] p-3 rounded border-l-4 border-[var(--nxt-lime)]">
+                                              <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] block mb-1">Evidence Quote</label>
+                                              <div className="text-sm italic text-[var(--text-secondary)]">"{scene.quote}"</div>
+                                          </div>
+                                      )}
+                                      <div>
+                                          <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] block mb-1">Narration</label>
+                                          <textarea value={scene.audioNarration} onChange={(e) => updateScriptScene(i, 'audioNarration', e.target.value)} className="w-full bg-white text-sm p-3 rounded h-20 outline-none border border-[var(--border-primary)]" />
+                                      </div>
                                   </div>
                               </div>
                           ))}
