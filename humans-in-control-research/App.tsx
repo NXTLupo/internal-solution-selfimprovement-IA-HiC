@@ -1755,7 +1755,31 @@ const App = () => {
                                                    })}
                                               </div>
                                           </div>
-                                          <FileUpload onFilesSelected={setFiles} isLoading={false} />
+                                          <FileUpload onFilesSelected={(newFiles) => setFiles(prev => [...prev, ...newFiles])} isLoading={false} />
+                                          {/* Show uploaded files */}
+                                          {files.length > 0 && (
+                                              <div className="mt-2 p-3 bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)]">
+                                                  <div className="flex justify-between items-center mb-2">
+                                                      <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)]">{files.length} file{files.length !== 1 ? 's' : ''} uploaded</span>
+                                                      <button onClick={() => setFiles([])} className="text-[9px] text-red-400 hover:text-red-600">Clear all</button>
+                                                  </div>
+                                                  <div className="flex flex-wrap gap-1.5">
+                                                      {files.map((f, i) => (
+                                                          <div key={i} className="flex items-center gap-1.5 bg-white border border-[var(--border-primary)] rounded px-2 py-1 text-[10px]">
+                                                              <i className={`fas ${f.name.endsWith('.pdf') ? 'fa-file-pdf text-red-400' : f.name.endsWith('.json') ? 'fa-file-code text-blue-400' : 'fa-file-alt text-gray-400'}`}></i>
+                                                              <span className="truncate max-w-[150px]">{f.name}</span>
+                                                              <span className="text-[var(--text-tertiary)]">({Math.round(f.size / 1024)}KB)</span>
+                                                              <button onClick={() => setFiles(prev => prev.filter((_, j) => j !== i))} className="text-gray-300 hover:text-red-500 ml-1">x</button>
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                                  {hasDataSources && (
+                                                      <div className="mt-2 text-[10px] text-[var(--nxt-teal)] bg-[var(--nxt-lime-10)] px-2 py-1 rounded">
+                                                          These files will be COMBINED with intelligence data sources below into a unified research corpus.
+                                                      </div>
+                                                  )}
+                                              </div>
+                                          )}
                                      </div>
 
                                      {/* === DATA SOURCING PANEL === */}
