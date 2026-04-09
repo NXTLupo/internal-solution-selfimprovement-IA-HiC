@@ -863,23 +863,33 @@ Output JSON.`;
     }
 
     async generateNarrative(structure: StepResult_Structure, recommendations: StrategicRecommendation[] | undefined, feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Narrative> {
-        const prompt = `STEP: NARRATIVE. Write compelling slide content for each slide in the approved structure.
+        const prompt = `STEP: NARRATIVE CONTENT. You are a McKinsey-trained deck writer creating an executive research presentation.
 
-FOR EACH SLIDE, provide:
-- title: punchy, action-oriented (not generic)
-- content: 2-4 bullet points. Each bullet MUST contain a specific data point, quote, or finding with [CHUNK_XXX] citation
-- narrative: the presenter's speaking script for this slide (2-3 sentences, conversational but authoritative)
-- visualPrompt: detailed prompt for generating a supporting image (professional, editorial photography style)
-- quote: a direct quote from the corpus that supports this slide's key message
-- speakerNotes: additional context, transition to next slide, audience engagement prompt
+STORYTELLING RULES — non-negotiable:
+- NEVER use self-referential filler: "Good morning", "Today we'll discuss", "Let's explore", "In this presentation"
+- NEVER use hedge words: "It seems", "Perhaps", "It's possible that"
+- LEAD with the insight, not the setup. First sentence = the finding or the provocation.
+- Every slide must make the audience FEEL something: urgency, surprise, opportunity, concern
+- Use specific numbers, names, and dates from the corpus — not generalities
+- The narrative arc is: LANDSCAPE → TRENDS → INSIGHTS → CHALLENGES → PERSONAS → NEEDS → PAIN POINTS → SOLUTIONS → FUTURE VISION
+
+FOR EACH SLIDE:
+- title: Punchy, insight-driven (BAD: "Market Overview". GOOD: "63% of Donors Now Discover via AI — Search Is Dead")
+- content: 2-4 bullets. Each bullet = specific data point + [CHUNK_XXX] citation. No filler.
+- narrative: 2-3 sentences the PRESENTER says. Must add CONTEXT the slide doesn't show. No "As you can see..." or "This slide shows..."
+  GOOD: "This number stunned us. When we dug into the data, we found that the shift happened in just 18 months — and most advancement offices haven't adapted."
+  BAD: "Good morning everyone. Today I'd like to walk you through our findings on fundraising trends."
+- visualPrompt: Describe a photograph or data visualization that SUPPORTS the insight (not decorates it)
+- quote: A direct quote from the corpus, verbatim, that stops the audience
+- speakerNotes: Deeper context, potential audience objections, and transition to next slide
 
 SLIDE-TYPE-SPECIFIC RULES:
-- KEY_STATISTIC: content[0] = the single number. content[1] = context sentence with source. visualPrompt = abstract data visualization.
-- QUOTE_FEATURE: quote = verbatim from corpus. content[0] = speaker context. content[1] = why this matters.
-- PERSONA_SPOTLIGHT: content = persona's key tension, motivations, pain points. quote = persona's synthetic voice.
-- EVIDENCE_WALL: content = 3-4 distinct findings, each from a different source, each with [CHUNK_XXX] citation.
-- RECOMMENDATION: content[0] = the action. content[1] = expected impact (quantified). content[2] = evidence base.
-- CLOSING_CTA: content = 3 specific next steps with owners and timelines.
+- KEY_STATISTIC: content[0] = the single shocking number. content[1] = why it matters with source. The title IS the statistic.
+- EVIDENCE_WALL: 3-4 findings from DIFFERENT sources, side by side, showing convergence or contradiction.
+- QUOTE_FEATURE: A stakeholder quote so vivid the audience remembers it. The quote alone tells the story.
+- PERSONA_SPOTLIGHT: Open with the persona's core tension. Make the audience EMPATHIZE before recommending.
+- RECOMMENDATION: content[0] = specific action (verb + outcome). content[1] = quantified impact. content[2] = evidence justifying the investment.
+- CLOSING_CTA: 3 next steps with WHO does WHAT by WHEN. No vague "consider exploring..."
 
 ${feedback ? 'FEEDBACK: ' + feedback : ''}
 Output JSON.`;

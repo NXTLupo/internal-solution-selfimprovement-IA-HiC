@@ -739,75 +739,123 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
   const renderStructure = () => {
       if (!editedStructure) return <div className="text-gray-500 text-center p-8">No structure data available to edit.</div>;
-      
+
+      const layoutMeta: Record<string, { icon: string; color: string; label: string; section: string }> = {
+          'TITLE_SLIDE': { icon: 'fa-flag', color: '#115054', label: 'Title', section: 'OPENING' },
+          'KEY_STATISTIC': { icon: 'fa-bolt', color: '#FF5A5A', label: 'Hook Statistic', section: 'HOOK' },
+          'EVIDENCE_WALL': { icon: 'fa-th-large', color: '#00b1eb', label: 'Evidence Wall', section: 'SITUATION' },
+          'QUOTE_FEATURE': { icon: 'fa-quote-left', color: '#9333ea', label: 'Quote Feature', section: 'COMPLICATION' },
+          'PERSONA_SPOTLIGHT': { icon: 'fa-user-circle', color: '#fd8e2e', label: 'Persona Spotlight', section: 'COMPLICATION' },
+          'DATA_INSIGHT': { icon: 'fa-chart-bar', color: '#0CCE6B', label: 'Data Insight', section: 'SITUATION' },
+          'COMPARISON': { icon: 'fa-columns', color: '#caca20', label: 'Comparison', section: 'COMPLICATION' },
+          'RECOMMENDATION': { icon: 'fa-lightbulb', color: '#0CCE6B', label: 'Recommendation', section: 'RESOLUTION' },
+          'SECTION_HEADER': { icon: 'fa-minus', color: '#acacac', label: 'Section Break', section: '' },
+          'CONTENT_SPLIT_RIGHT': { icon: 'fa-columns', color: '#525252', label: 'Content + Image', section: '' },
+          'CONTENT_SPLIT_LEFT': { icon: 'fa-columns', color: '#525252', label: 'Image + Content', section: '' },
+          'CLOSING_CTA': { icon: 'fa-arrow-right', color: '#115054', label: 'Call to Action', section: 'CLOSE' },
+          'FULL_BLEED_IMAGE': { icon: 'fa-image', color: '#525252', label: 'Full Image', section: '' },
+          'TYPOGRAPHY_QUOTE': { icon: 'fa-font', color: '#9333ea', label: 'Typography', section: '' },
+      };
+
+      // Group slides by narrative section
+      const sections: { name: string; color: string; slides: { slide: any; idx: number }[] }[] = [];
+      const sectionOrder = ['OPENING', 'HOOK', 'SITUATION', 'COMPLICATION', 'RESOLUTION', 'CLOSE', ''];
+      const sectionColors: Record<string, string> = { 'OPENING': '#115054', 'HOOK': '#FF5A5A', 'SITUATION': '#00b1eb', 'COMPLICATION': '#fd8e2e', 'RESOLUTION': '#0CCE6B', 'CLOSE': '#115054' };
+      const grouped: Record<string, { slide: any; idx: number }[]> = {};
+      (editedStructure.slides || []).forEach((slide: any, idx: number) => {
+          const meta = layoutMeta[slide.layout] || layoutMeta['CONTENT_SPLIT_RIGHT'];
+          const sec = meta.section || '';
+          if (!grouped[sec]) grouped[sec] = [];
+          grouped[sec].push({ slide, idx });
+      });
+      sectionOrder.forEach(sec => { if (grouped[sec]) sections.push({ name: sec || 'OTHER', color: sectionColors[sec] || '#acacac', slides: grouped[sec] }); });
+
       return (
-          <div className="max-h-[60vh] overflow-y-auto pr-2 space-y-6">
-              <div className="bg-[var(--bg-tertiary)] p-4 rounded border border-[var(--border-primary)]">
-                  <h4 className="font-bold text-xs uppercase text-[var(--text-tertiary)] mb-2">Narrative Arc</h4>
-                  <textarea 
-                      value={editedStructure.storyArc} 
-                      onChange={e => {
-                          setEditedStructure({...editedStructure, storyArc: e.target.value});
-                          logEdit("Updated Story Arc");
-                      }}
-                      className="w-full bg-transparent text-sm resize-none outline-none h-20 placeholder-gray-400"
-                      placeholder="Describe the overall flow..."
-                  />
+          <div className="max-h-[65vh] overflow-y-auto pr-2 space-y-4">
+              {/* Narrative Arc */}
+              <div className="bg-[var(--nxt-teal)] text-white p-4 rounded">
+                  <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-lime)] mb-1">Narrative Arc (Situation - Complication - Resolution)</div>
+                  <textarea value={editedStructure.storyArc} onChange={e => { setEditedStructure({...editedStructure, storyArc: e.target.value}); logEdit("Updated Story Arc"); }}
+                      className="w-full bg-transparent text-sm resize-none outline-none h-16 text-white/90 placeholder-white/40" placeholder="The strategic tension..." />
               </div>
 
-              <div className="space-y-3">
-                  <div className="flex justify-between items-center px-1">
-                       <h4 className="font-bold text-xs uppercase text-[var(--text-tertiary)]">Slides Sequence</h4>
-                       <button onClick={addSlide} className="text-xs text-indigo-600 font-bold hover:underline bg-[var(--bg-tertiary)] px-2 py-1 rounded">+ Add Slide</button>
-                  </div>
-                  
-                  {(editedStructure.slides || []).map((slide, i) => (
-                      <div key={i} className="bg-[var(--card-bg)] p-3 rounded-lg border border-[var(--border-primary)] relative group hover:border-[var(--nxt-lime)] transition-colors flex gap-3">
-                          <div className="flex flex-col gap-1 mt-1">
-                              <button onClick={() => moveSlide(i, 'up')} disabled={i === 0} className="text-[var(--text-tertiary)] hover:text-indigo-600 disabled:opacity-30 leading-none">▲</button>
-                              <div className="bg-[var(--bg-tertiary)] w-6 h-6 flex items-center justify-center rounded text-xs font-black text-[var(--text-secondary)]">{i + 1}</div>
-                              <button onClick={() => moveSlide(i, 'down')} disabled={i === editedStructure.slides.length - 1} className="text-[var(--text-tertiary)] hover:text-indigo-600 disabled:opacity-30 leading-none">▼</button>
+              {/* Visual slide sequence — mini storyboard */}
+              <div className="flex gap-1 overflow-x-auto pb-2">
+                  {(editedStructure.slides || []).map((slide: any, i: number) => {
+                      const meta = layoutMeta[slide.layout] || { icon: 'fa-file', color: '#acacac', label: slide.layout, section: '' };
+                      return (
+                          <div key={i} className="flex-shrink-0 w-20 h-14 rounded border flex flex-col items-center justify-center cursor-pointer hover:ring-2 hover:ring-[var(--nxt-lime)] transition-all" style={{ borderColor: meta.color, backgroundColor: `${meta.color}10` }}>
+                              <i className={`fas ${meta.icon} text-xs`} style={{ color: meta.color }}></i>
+                              <span className="text-[6px] font-bold uppercase text-center mt-0.5 leading-tight px-1 truncate w-full" style={{ color: meta.color }}>{meta.label}</span>
+                              <span className="text-[6px] text-[var(--text-tertiary)]">{i + 1}</span>
                           </div>
+                      );
+                  })}
+              </div>
 
-                          <div className="flex-1 space-y-2">
-                              <div className="flex justify-between items-start">
-                                  <input 
-                                      value={slide.title} 
-                                      onChange={e => updateSlideStructure(i, 'title', e.target.value)} 
-                                      className="font-bold text-sm bg-transparent outline-none w-full border-b border-transparent focus:border-indigo-500 transition-colors" 
-                                      placeholder="Slide Title"
-                                  />
-                                  <button onClick={() => deleteSlide(i)} className="text-xs text-[var(--text-tertiary)] hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity ml-2">Delete</button>
-                              </div>
-                              
-                              <div className="grid grid-cols-2 gap-4">
-                                  <div>
-                                      <select 
-                                          value={slide.layout} 
-                                          onChange={e => updateSlideStructure(i, 'layout', e.target.value)} 
-                                          className="w-full text-[10px] bg-[var(--bg-tertiary)] rounded p-1 border border-[var(--border-secondary)] outline-none text-[var(--text-secondary)]"
-                                      >
-                                          <option value="TITLE_SLIDE">Title Slide</option>
-                                          <option value="SECTION_HEADER">Section Header</option>
-                                          <option value="CONTENT_SPLIT_RIGHT">Split Right (Image R)</option>
-                                          <option value="CONTENT_SPLIT_LEFT">Split Left (Image L)</option>
-                                          <option value="FULL_BLEED_IMAGE">Full Bleed</option>
-                                          <option value="TYPOGRAPHY_QUOTE">Quote / Big Type</option>
-                                      </select>
-                                  </div>
-                                  <div>
-                                      <input 
-                                          value={slide.rationale || ''} 
-                                          onChange={e => updateSlideStructure(i, 'rationale', e.target.value)} 
-                                          className="w-full text-[10px] bg-[var(--bg-tertiary)] rounded p-1 border border-[var(--border-secondary)] outline-none text-[var(--text-secondary)]"
-                                          placeholder="Why this slide?"
-                                      />
-                                  </div>
-                              </div>
+              {/* Slides grouped by narrative section */}
+              <div className="flex justify-between items-center px-1">
+                  <h4 className="font-bold text-xs uppercase text-[var(--text-tertiary)]">Slides ({editedStructure.slides?.length || 0})</h4>
+                  <button onClick={addSlide} className="text-xs text-[var(--nxt-teal)] font-bold bg-[var(--bg-tertiary)] px-2 py-1 rounded">+ Add Slide</button>
+              </div>
+
+              {sections.map((section) => (
+                  <div key={section.name}>
+                      {section.name && section.name !== 'OTHER' && (
+                          <div className="flex items-center gap-2 mb-1">
+                              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: section.color }}></div>
+                              <span className="text-[8px] font-bold uppercase tracking-widest" style={{ color: section.color }}>{section.name}</span>
+                              <div className="flex-1 border-t" style={{ borderColor: section.color + '30' }}></div>
                           </div>
+                      )}
+                      <div className="space-y-2 mb-3">
+                          {section.slides.map(({ slide, idx: i }) => {
+                              const meta = layoutMeta[slide.layout] || { icon: 'fa-file', color: '#acacac', label: slide.layout, section: '' };
+                              return (
+                                  <div key={i} className="bg-[var(--card-bg)] p-3 rounded border relative group hover:border-[var(--nxt-lime)] transition-colors flex gap-3" style={{ borderLeftWidth: 3, borderLeftColor: meta.color }}>
+                                      <div className="flex flex-col gap-1 mt-1 items-center">
+                                          <button onClick={() => moveSlide(i, 'up')} disabled={i === 0} className="text-[var(--text-tertiary)] hover:text-[var(--nxt-teal)] disabled:opacity-20 text-xs">▲</button>
+                                          <div className="w-7 h-7 flex items-center justify-center rounded" style={{ backgroundColor: meta.color + '15' }}>
+                                              <i className={`fas ${meta.icon} text-xs`} style={{ color: meta.color }}></i>
+                                          </div>
+                                          <span className="text-[8px] font-bold text-[var(--text-tertiary)]">{i + 1}</span>
+                                          <button onClick={() => moveSlide(i, 'down')} disabled={i === (editedStructure.slides?.length || 0) - 1} className="text-[var(--text-tertiary)] hover:text-[var(--nxt-teal)] disabled:opacity-20 text-xs">▼</button>
+                                      </div>
+
+                                      <div className="flex-1 space-y-2">
+                                          <div className="flex justify-between items-start">
+                                              <input value={slide.title} onChange={e => updateSlideStructure(i, 'title', e.target.value)}
+                                                  className="font-bold text-sm bg-transparent outline-none w-full" placeholder="Slide Title" />
+                                              <button onClick={() => deleteSlide(i)} className="text-[var(--text-tertiary)] hover:text-red-500 opacity-0 group-hover:opacity-100 text-xs ml-2">Delete</button>
+                                          </div>
+
+                                          <div className="grid grid-cols-2 gap-3">
+                                              <select value={slide.layout} onChange={e => updateSlideStructure(i, 'layout', e.target.value)}
+                                                  className="text-[9px] bg-[var(--bg-tertiary)] rounded p-1.5 border border-[var(--border-secondary)] outline-none font-bold" style={{ color: meta.color }}>
+                                                  <option value="TITLE_SLIDE">Title Slide</option>
+                                                  <option value="KEY_STATISTIC">Hook: Key Statistic</option>
+                                                  <option value="EVIDENCE_WALL">Situation: Evidence Wall</option>
+                                                  <option value="DATA_INSIGHT">Situation: Data Insight</option>
+                                                  <option value="QUOTE_FEATURE">Complication: Quote Feature</option>
+                                                  <option value="PERSONA_SPOTLIGHT">Complication: Persona Spotlight</option>
+                                                  <option value="COMPARISON">Complication: Before/After</option>
+                                                  <option value="RECOMMENDATION">Resolution: Recommendation</option>
+                                                  <option value="SECTION_HEADER">Section Divider</option>
+                                                  <option value="CONTENT_SPLIT_RIGHT">Content + Image (R)</option>
+                                                  <option value="CONTENT_SPLIT_LEFT">Image (L) + Content</option>
+                                                  <option value="CLOSING_CTA">Close: Call to Action</option>
+                                                  <option value="FULL_BLEED_IMAGE">Full Bleed Image</option>
+                                                  <option value="TYPOGRAPHY_QUOTE">Typography Quote</option>
+                                              </select>
+                                              <div className="text-[9px] text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] p-1.5 rounded border border-[var(--border-secondary)] italic">{slide.rationale || 'No rationale'}</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              );
+                          })}
                       </div>
-                  ))}
-              </div>
+                  </div>
+              ))}
           </div>
       );
   };
