@@ -1063,75 +1063,177 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                           </div>
                       </div>
                   )}
-                  {activeTab === 'journey' && journeyData && (
-                      <div className="space-y-8">
-                          <div className="flex justify-between items-center mb-4 border-b pb-4">
-                              <h2 className="text-3xl font-black">Service Blueprint</h2>
-                              <button onClick={() => handleRegenerateDiagram('journey')} className="bg-[var(--bg-tertiary)] border border-[var(--border-primary)] px-4 py-2 rounded text-sm font-bold shadow-sm hover:bg-[var(--bg-secondary)]">
-                                  {diagramStatus.journey === 'generating' ? 'Generating...' : 'Regenerate Diagram'}
-                              </button>
+                  {activeTab === 'journey' && journeyData && (() => {
+                      const emotionColors: Record<string, string> = { 'Delighted': '#0CCE6B', 'Positive': '#00b1eb', 'Neutral': '#acacac', 'Negative': '#fd8e2e', 'Frustrated': '#FF5A5A' };
+                      const emotionYMap: Record<string, number> = { 'Delighted': 20, 'Positive': 40, 'Neutral': 60, 'Negative': 80, 'Frustrated': 95 };
+                      const getEmotionY = (e: string) => emotionYMap[e] ?? emotionYMap[e?.charAt(0)?.toUpperCase() + e?.slice(1)] ?? 60;
+                      const getEmotionColor = (e: string) => emotionColors[e] ?? emotionColors[e?.charAt(0)?.toUpperCase() + e?.slice(1)] ?? '#acacac';
+                      const colW = 180;
+                      const svgW = journeyData.length * colW + 120;
+                      const allActors = [...new Set(journeyData.flatMap((s: any) => s.actors || []))];
+                      const actorColors = ['#115054', '#fd8e2e', '#00b1eb', '#caca20', '#0CCE6B', '#9333ea'];
+
+                      return (
+                      <div className="space-y-6">
+                          <h2 className="text-3xl font-black border-b pb-4">Service Blueprint</h2>
+
+                          {/* === SVG SERVICE BLUEPRINT VISUALIZATION === */}
+                          <div className="diagram-container overflow-x-auto border border-[var(--border-primary)] rounded bg-white p-4">
+                              <svg width={svgW} height={380} viewBox={`0 0 ${svgW} 380`} className="font-sans">
+                                  {/* Column headers — stage names */}
+                                  {journeyData.map((s: any, i: number) => (
+                                      <g key={`h${i}`}>
+                                          <rect x={100 + i * colW} y={0} width={colW - 4} height={28} rx={4} fill={s.momentOfTruth ? '#FF5A5A' : '#115054'} />
+                                          <text x={100 + i * colW + (colW - 4) / 2} y={18} textAnchor="middle" fontSize="8" fontWeight="bold" fill="white">{(s.phase || '').substring(0, 22)}</text>
+                                          {s.momentOfTruth && <text x={100 + i * colW + colW - 10} y={12} fontSize="6" fill="#fff" fontWeight="bold">MOT</text>}
+                                      </g>
+                                  ))}
+
+                                  {/* EMOTION CURVE */}
+                                  <text x={10} y={55} fontSize="7" fontWeight="bold" fill="#115054">EMOTION</text>
+                                  <rect x={95} y={35} width={journeyData.length * colW + 5} height={80} rx={4} fill="#fafafa" stroke="#e5e5e5" />
+                                  <line x1={100} y1={75} x2={95 + journeyData.length * colW} y2={75} stroke="#e5e5e5" strokeDasharray="3,3" />
+                                  <polyline fill="none" stroke="#115054" strokeWidth="2.5" strokeLinejoin="round"
+                                      points={journeyData.map((s: any, i: number) => `${100 + i * colW + (colW - 4) / 2},${35 + getEmotionY(s.emotion) * 0.8}`).join(' ')} />
+                                  {journeyData.map((s: any, i: number) => (
+                                      <circle key={`ec${i}`} cx={100 + i * colW + (colW - 4) / 2} cy={35 + getEmotionY(s.emotion) * 0.8} r={5} fill={getEmotionColor(s.emotion)} stroke="white" strokeWidth="2" />
+                                  ))}
+
+                                  {/* TOUCHPOINTS ROW */}
+                                  <text x={10} y={135} fontSize="7" fontWeight="bold" fill="#525252">TOUCHPOINTS</text>
+                                  {journeyData.map((s: any, i: number) => (
+                                      <foreignObject key={`tp${i}`} x={100 + i * colW} y={120} width={colW - 8} height={30}>
+                                          <div style={{ fontSize: '7px', color: '#525252', lineHeight: '1.2', overflow: 'hidden' }}>{(s.touchpoint || '').substring(0, 50)}</div>
+                                      </foreignObject>
+                                  ))}
+
+                                  {/* ACTOR LANES */}
+                                  {allActors.map((actor: string, ai: number) => {
+                                      const y = 158 + ai * 22;
+                                      return (
+                                          <g key={`a${ai}`}>
+                                              <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill={actorColors[ai % actorColors.length]}>{(actor as string).substring(0, 15)}</text>
+                                              {journeyData.map((s: any, si: number) => {
+                                                  const involved = (s.actors || []).includes(actor);
+                                                  return involved ? (
+                                                      <rect key={`ar${si}`} x={100 + si * colW + 2} y={y} width={colW - 12} height={16} rx={3}
+                                                          fill={actorColors[ai % actorColors.length] + '20'} stroke={actorColors[ai % actorColors.length]} strokeWidth="1" />
+                                                  ) : null;
+                                              })}
+                                          </g>
+                                      );
+                                  })}
+
+                                  {/* FRONTSTAGE LANE */}
+                                  {(() => { const y = 160 + allActors.length * 22; return (
+                                      <g>
+                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#00b1eb">FRONTSTAGE</text>
+                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#eff6ff" stroke="#bfdbfe" />
+                                          {journeyData.map((s: any, i: number) => (
+                                              <foreignObject key={`fs${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
+                                                  <div style={{ fontSize: '7px', color: '#1e40af', lineHeight: '1.2', overflow: 'hidden' }}>{(s.frontstageAction || '').substring(0, 60)}</div>
+                                              </foreignObject>
+                                          ))}
+                                      </g>
+                                  ); })()}
+
+                                  {/* LINE OF VISIBILITY */}
+                                  {(() => { const y = 200 + allActors.length * 22; return (
+                                      <g>
+                                          <line x1={0} y1={y} x2={svgW} y2={y} stroke="#caca20" strokeWidth="2" strokeDasharray="8,4" />
+                                          <text x={svgW / 2} y={y - 3} textAnchor="middle" fontSize="6" fontWeight="bold" fill="#caca20">LINE OF VISIBILITY</text>
+                                      </g>
+                                  ); })()}
+
+                                  {/* BACKSTAGE LANE */}
+                                  {(() => { const y = 208 + allActors.length * 22; return (
+                                      <g>
+                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#115054">BACKSTAGE</text>
+                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#f0fdfa" stroke="#99f6e4" />
+                                          {journeyData.map((s: any, i: number) => (
+                                              <foreignObject key={`bs${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
+                                                  <div style={{ fontSize: '7px', color: '#134e4a', lineHeight: '1.2', overflow: 'hidden' }}>{(s.backstageAction || '').substring(0, 60)}</div>
+                                              </foreignObject>
+                                          ))}
+                                      </g>
+                                  ); })()}
+
+                                  {/* PAIN POINTS LANE */}
+                                  {(() => { const y = 250 + allActors.length * 22; return (
+                                      <g>
+                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#FF5A5A">PAIN POINTS</text>
+                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#fef2f2" stroke="#fecaca" />
+                                          {journeyData.map((s: any, i: number) => (
+                                              <foreignObject key={`pp${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
+                                                  <div style={{ fontSize: '7px', color: '#991b1b', lineHeight: '1.2', overflow: 'hidden' }}>{(s.painPoint || '').substring(0, 60)}</div>
+                                              </foreignObject>
+                                          ))}
+                                      </g>
+                                  ); })()}
+
+                                  {/* SUPPORT PROCESSES LANE */}
+                                  {(() => { const y = 292 + allActors.length * 22; return (
+                                      <g>
+                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#6b7280">SUPPORT</text>
+                                          {journeyData.map((s: any, i: number) => (
+                                              <foreignObject key={`sp${i}`} x={100 + i * colW} y={y} width={colW - 8} height={25}>
+                                                  <div style={{ fontSize: '6px', color: '#6b7280', lineHeight: '1.2', overflow: 'hidden' }}>{(s.supportProcesses || '').substring(0, 50)}</div>
+                                              </foreignObject>
+                                          ))}
+                                      </g>
+                                  ); })()}
+
+                                  {/* Legend */}
+                                  <g transform={`translate(10, ${330 + allActors.length * 22})`}>
+                                      {[{ label: 'Delighted', color: '#0CCE6B' }, { label: 'Positive', color: '#00b1eb' }, { label: 'Neutral', color: '#acacac' }, { label: 'Negative', color: '#fd8e2e' }, { label: 'Frustrated', color: '#FF5A5A' }].map((e, i) => (
+                                          <g key={i} transform={`translate(${i * 80}, 0)`}>
+                                              <circle cx={5} cy={5} r={4} fill={e.color} />
+                                              <text x={14} y={8} fontSize="7" fill="#525252">{e.label}</text>
+                                          </g>
+                                      ))}
+                                      <rect x={420} y={0} width={12} height={3} fill="#caca20" />
+                                      <text x={436} y={7} fontSize="7" fill="#525252">Line of Visibility</text>
+                                  </g>
+                              </svg>
                           </div>
-                          
-                          {journeyDiagramUrl && (
-                              <div className="diagram-container relative w-full aspect-[16/9] bg-[var(--bg-tertiary)] rounded overflow-hidden border border-[var(--border-primary)] mb-8 shadow-sm">
-                                  <img src={journeyDiagramUrl} className="w-full h-full object-cover" alt="Service Blueprint Diagram" />
-                              </div>
-                          )}
-                          
+
+                          {/* === DETAIL CARDS (editable) === */}
+                          <h3 className="text-xl font-bold border-b pb-2">Stage Details</h3>
                           <div className="details-container overflow-x-auto pb-4">
                               <div className="inline-flex gap-4 min-w-full">
-                                  {journeyData.map((stage, idx) => (
-                                      <div key={idx} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-5 shadow-sm min-w-[300px] flex-1 flex flex-col">
-                                          <div className="mb-4 pb-3 border-b border-[var(--border-secondary)]">
-                                              <input value={stage.phase} onChange={(e) => updateJourneyStage(idx, 'phase', e.target.value)} className="font-black text-xl bg-transparent outline-none w-full text-[var(--nxt-teal)]" />
-                                          </div>
-                                          
-                                          <div className="space-y-4 flex-1">
-                                              <div>
-                                                  <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Customer Action</label>
-                                                  <textarea value={stage.customerAction} onChange={(e) => updateJourneyStage(idx, 'customerAction', e.target.value)} className="w-full bg-transparent text-sm font-medium outline-none resize-none h-12" />
-                                              </div>
-                                              
+                                  {journeyData.map((stage: any, idx: number) => (
+                                      <div key={idx} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-4 shadow-sm min-w-[280px] flex-1 flex flex-col" style={{ borderTopWidth: 3, borderTopColor: getEmotionColor(stage.emotion) }}>
+                                          <input value={stage.phase} onChange={(e) => updateJourneyStage(idx, 'phase', e.target.value)} className="font-bold text-sm bg-transparent outline-none w-full text-[var(--nxt-teal)] mb-2" />
+
+                                          {/* Actors */}
+                                          {stage.actors && <div className="flex flex-wrap gap-1 mb-2">{stage.actors.map((a: string, ai: number) => <span key={ai} className="text-[8px] bg-[var(--nxt-lime-10)] text-[var(--nxt-teal)] px-1.5 py-0.5 rounded-sm border border-[var(--nxt-lime-20)] font-bold">{a}</span>)}</div>}
+
+                                          <div className="space-y-2 flex-1 text-xs">
+                                              <div><label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase">Customer Action</label>
+                                                  <textarea value={stage.customerAction} onChange={(e) => updateJourneyStage(idx, 'customerAction', e.target.value)} className="w-full bg-[var(--bg-tertiary)] p-1.5 rounded resize-none h-10 outline-none text-[11px]" /></div>
                                               <div className="grid grid-cols-2 gap-2">
-                                                  <div className="bg-[var(--bg-tertiary)] p-2 rounded">
-                                                      <label className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase block">Touchpoint</label>
-                                                      <input value={stage.touchpoint} onChange={(e) => updateJourneyStage(idx, 'touchpoint', e.target.value)} className="w-full bg-transparent text-xs outline-none" />
-                                                  </div>
-                                                  <div className="bg-[var(--bg-tertiary)] p-2 rounded">
-                                                      <label className="text-[10px] font-bold text-[var(--text-tertiary)] uppercase block">Emotion</label>
-                                                      <select value={stage.emotion} onChange={(e) => updateJourneyStage(idx, 'emotion', e.target.value as any)} className="w-full bg-transparent text-xs outline-none">
-                                                          <option value="Delighted">Delighted</option>
-                                                          <option value="Positive">Positive</option>
-                                                          <option value="Neutral">Neutral</option>
-                                                          <option value="Negative">Negative</option>
-                                                          <option value="Frustrated">Frustrated</option>
-                                                      </select>
-                                                  </div>
+                                                  <div><label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase">Touchpoint</label>
+                                                      <input value={stage.touchpoint} onChange={(e) => updateJourneyStage(idx, 'touchpoint', e.target.value)} className="w-full bg-[var(--bg-tertiary)] p-1 rounded outline-none text-[11px]" /></div>
+                                                  <div><label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase">Emotion</label>
+                                                      <select value={stage.emotion} onChange={(e) => updateJourneyStage(idx, 'emotion', e.target.value as any)} className="w-full bg-[var(--bg-tertiary)] p-1 rounded outline-none text-[11px]">
+                                                          <option value="Delighted">Delighted</option><option value="Positive">Positive</option><option value="Neutral">Neutral</option><option value="Negative">Negative</option><option value="Frustrated">Frustrated</option>
+                                                      </select></div>
                                               </div>
-                                              
-                                              <div className="border-t border-dashed border-[var(--border-secondary)] pt-3">
-                                                  <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Frontstage (Visible)</label>
-                                                  <textarea value={stage.frontstageAction} onChange={(e) => updateJourneyStage(idx, 'frontstageAction', e.target.value)} className="w-full bg-transparent text-sm outline-none resize-none h-12" />
-                                              </div>
-                                              
-                                              <div className="border-t border-dashed border-[var(--border-secondary)] pt-3">
-                                                  <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Backstage (Invisible)</label>
-                                                  <textarea value={stage.backstageAction} onChange={(e) => updateJourneyStage(idx, 'backstageAction', e.target.value)} className="w-full bg-transparent text-sm outline-none resize-none h-12" />
-                                              </div>
-                                              
-                                              {stage.painPoint && (
-                                                  <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg border border-red-100 dark:border-red-800 mt-auto">
-                                                      <label className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase block mb-1">Pain Point</label>
-                                                      <textarea value={stage.painPoint} onChange={(e) => updateJourneyStage(idx, 'painPoint', e.target.value)} className="w-full bg-transparent text-xs text-red-800 dark:text-red-300 outline-none resize-none h-10" />
-                                                  </div>
-                                              )}
+                                              <div className="border-t border-dashed border-[var(--nxt-lime)] pt-1">
+                                                  <label className="text-[8px] font-bold text-[#00b1eb] uppercase">Frontstage</label>
+                                                  <textarea value={stage.frontstageAction} onChange={(e) => updateJourneyStage(idx, 'frontstageAction', e.target.value)} className="w-full bg-blue-50 p-1.5 rounded resize-none h-10 outline-none text-[11px] border border-blue-100" /></div>
+                                              <div><label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase">Backstage</label>
+                                                  <textarea value={stage.backstageAction} onChange={(e) => updateJourneyStage(idx, 'backstageAction', e.target.value)} className="w-full bg-teal-50 p-1.5 rounded resize-none h-10 outline-none text-[11px] border border-teal-100" /></div>
+                                              {stage.painPoint && <div className="bg-red-50 p-2 rounded border border-red-100"><label className="text-[8px] font-bold text-[#FF5A5A] uppercase">Pain Point</label>
+                                                  <textarea value={stage.painPoint} onChange={(e) => updateJourneyStage(idx, 'painPoint', e.target.value)} className="w-full bg-transparent text-[11px] text-red-800 resize-none h-8 outline-none" /></div>}
                                           </div>
                                       </div>
                                   ))}
                               </div>
                           </div>
                       </div>
-                  )}
+                      );
+                  })()}
                   {activeTab === 'tech' && techData && (() => {
                       const nodeColors: Record<string, { bg: string; border: string; text: string }> = {
                           'User': { bg: '#dbeafe', border: '#3b82f6', text: '#1e40af' },
