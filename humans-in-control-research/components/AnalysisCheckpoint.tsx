@@ -341,23 +341,41 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       logEdit("Reordered Slides");
   };
 
-  const addSlide = () => {
+  const [showSlideAdder, setShowSlideAdder] = useState(false);
+  const [generatingSlide, setGeneratingSlide] = useState(false);
+
+  const slideTemplates: { layout: string; label: string; icon: string; color: string; suggestedTitle: string; suggestedContent: string[]; suggestedRationale: string }[] = [
+      { layout: 'KEY_STATISTIC', label: 'Hook Statistic', icon: 'fa-bolt', color: '#FF5A5A', suggestedTitle: 'The Single Most Surprising Number', suggestedContent: ['[Insert the most impactful statistic from your research]', 'Context: Why this number matters NOW'], suggestedRationale: 'Opens with a data point that stops the audience' },
+      { layout: 'EVIDENCE_WALL', label: 'Evidence Wall', icon: 'fa-th-large', color: '#00b1eb', suggestedTitle: 'What the Research Reveals', suggestedContent: ['Finding 1: [cite CHUNK_XXX]', 'Finding 2: [cite CHUNK_XXX]', 'Finding 3: [cite CHUNK_XXX]'], suggestedRationale: '3-4 findings side by side showing convergence' },
+      { layout: 'DATA_INSIGHT', label: 'Data Insight', icon: 'fa-chart-bar', color: '#0CCE6B', suggestedTitle: 'The Trend Behind the Numbers', suggestedContent: ['Data point with source citation', 'So what: Why this changes the strategy'], suggestedRationale: 'Chart interpretation with strategic framing' },
+      { layout: 'PERSONA_SPOTLIGHT', label: 'Persona Spotlight', icon: 'fa-user-circle', color: '#fd8e2e', suggestedTitle: 'Meet [Persona Name]', suggestedContent: ['Core tension this persona faces', 'Key pain point from research', 'What they need from us'], suggestedRationale: 'Builds empathy before recommending solutions' },
+      { layout: 'QUOTE_FEATURE', label: 'Quote Feature', icon: 'fa-quote-left', color: '#9333ea', suggestedTitle: 'In Their Own Words', suggestedContent: ['[Verbatim quote from research corpus]', 'Context: Who said this and why it matters'], suggestedRationale: 'A quote so vivid the audience remembers it' },
+      { layout: 'COMPARISON', label: 'Before/After', icon: 'fa-columns', color: '#caca20', suggestedTitle: 'Current State vs. Desired State', suggestedContent: ['Before: [Current pain point]', 'After: [What the recommendation achieves]'], suggestedRationale: 'Shows the gap and the vision' },
+      { layout: 'RECOMMENDATION', label: 'Recommendation', icon: 'fa-lightbulb', color: '#0CCE6B', suggestedTitle: 'Strategic Action: [Specific Verb + Outcome]', suggestedContent: ['The action: What specifically to do', 'Expected impact: Quantified outcome', 'Evidence: [CHUNK_XXX] supports this'], suggestedRationale: 'Evidence-backed action with measurable impact' },
+      { layout: 'SECTION_HEADER', label: 'Section Break', icon: 'fa-minus', color: '#acacac', suggestedTitle: 'Section: [SITUATION / COMPLICATION / RESOLUTION]', suggestedContent: [], suggestedRationale: 'Transitions the audience to the next narrative phase' },
+      { layout: 'CLOSING_CTA', label: 'Call to Action', icon: 'fa-arrow-right', color: '#115054', suggestedTitle: 'Next Steps: Who Does What By When', suggestedContent: ['Action 1: [Owner] will [action] by [date]', 'Action 2: [Owner] will [action] by [date]', 'Action 3: [Owner] will [action] by [date]'], suggestedRationale: 'Concrete next steps with accountability' },
+  ];
+
+  const addSlideWithTemplate = (template: typeof slideTemplates[0]) => {
       if (!editedStructure) return;
       const newSlide: Slide = {
           slideNumber: editedStructure.slides.length + 1,
-          layout: 'CONTENT_SPLIT_RIGHT',
-          title: 'New Slide',
-          content: [],
+          layout: template.layout as any,
+          title: template.suggestedTitle,
+          content: template.suggestedContent,
           narrative: '',
           speakerNotes: '',
           visualPrompt: '',
           quote: '',
-          rationale: 'Added manually',
+          rationale: template.suggestedRationale,
           style: { backgroundColor: '#ffffff', headerColor: '#115054', textColor: '#141414', accentColor: '#caca20' }
       };
       setEditedStructure({ ...editedStructure, slides: [...editedStructure.slides, newSlide] });
-      logEdit("Added New Slide");
+      logEdit(`Added ${template.label} slide`);
+      setShowSlideAdder(false);
   };
+
+  const addSlide = () => setShowSlideAdder(true);
 
   const deleteSlide = (index: number) => {
       if (!editedStructure) return;
@@ -796,8 +814,32 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
               {/* Slides grouped by narrative section */}
               <div className="flex justify-between items-center px-1">
                   <h4 className="font-bold text-xs uppercase text-[var(--text-tertiary)]">Slides ({editedStructure.slides?.length || 0})</h4>
-                  <button onClick={addSlide} className="text-xs text-[var(--nxt-teal)] font-bold bg-[var(--bg-tertiary)] px-2 py-1 rounded">+ Add Slide</button>
+                  <button onClick={addSlide} className="text-xs text-[var(--nxt-teal)] font-bold bg-[var(--nxt-lime-10)] border border-[var(--nxt-lime)] px-3 py-1.5 rounded">+ Add Slide</button>
               </div>
+
+              {/* SLIDE TEMPLATE PICKER */}
+              {showSlideAdder && (
+                  <div className="bg-[var(--bg-secondary)] border border-[var(--nxt-lime)] rounded p-4 mb-3">
+                      <div className="flex justify-between items-center mb-3">
+                          <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)]">Choose Slide Type (AI-Suggested Content)</span>
+                          <button onClick={() => setShowSlideAdder(false)} className="text-xs text-[var(--text-tertiary)] hover:text-red-500">Cancel</button>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                          {slideTemplates.map((tpl) => (
+                              <button key={tpl.layout} onClick={() => addSlideWithTemplate(tpl)}
+                                  className="text-left p-3 rounded border border-[var(--border-primary)] hover:border-[var(--nxt-lime)] hover:bg-white transition-all group"
+                                  style={{ borderLeftWidth: 3, borderLeftColor: tpl.color }}>
+                                  <div className="flex items-center gap-2 mb-1">
+                                      <i className={`fas ${tpl.icon} text-xs`} style={{ color: tpl.color }}></i>
+                                      <span className="text-[10px] font-bold">{tpl.label}</span>
+                                  </div>
+                                  <div className="text-[8px] text-[var(--text-tertiary)] leading-snug">{tpl.suggestedRationale}</div>
+                                  <div className="text-[7px] text-[var(--nxt-teal)] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to add with suggested content</div>
+                              </button>
+                          ))}
+                      </div>
+                  </div>
+              )}
 
               {sections.map((section) => (
                   <div key={section.name}>
