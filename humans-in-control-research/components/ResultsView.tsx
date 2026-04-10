@@ -558,7 +558,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
        }
   };
 
-  const [activeVisStyle, setActiveVisStyle] = useState(getActiveVisualizationStyle());
+  const [activeVisStyle, setActiveVisStyle] = useState(() => {
+      try { return getActiveVisualizationStyle() || 'atmospheric_vector'; } catch { return 'atmospheric_vector'; }
+  });
 
   const handleRegenerateImage = async (index: number, styleOverride?: string) => {
     const scene = scriptScenes[index];
@@ -1130,29 +1132,85 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                           </div>
                       </div>
                   )}
-                  {activeTab === 'tech' && techData && (
+                  {activeTab === 'tech' && techData && (() => {
+                      const nodeColors: Record<string, { bg: string; border: string; text: string }> = {
+                          'User': { bg: '#dbeafe', border: '#3b82f6', text: '#1e40af' },
+                          'Application': { bg: '#d1fae5', border: '#10b981', text: '#065f46' },
+                          'Database': { bg: '#fef3c7', border: '#f59e0b', text: '#92400e' },
+                          'Integration': { bg: '#ede9fe', border: '#8b5cf6', text: '#5b21b6' },
+                          'External': { bg: '#f3f4f6', border: '#6b7280', text: '#374151' },
+                          'AI/ML': { bg: '#ccfbf1', border: '#14b8a6', text: '#134e4a' },
+                          'Cloud': { bg: '#e0e7ff', border: '#6366f1', text: '#3730a3' },
+                      };
+                      return (
                       <div className="space-y-8">
-                          <div className="diagram-container relative w-full aspect-[16/9] bg-[var(--bg-tertiary)] rounded overflow-hidden border border-[var(--border-primary)] mb-8">
-                               {techDiagramUrl ? <img src={techDiagramUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex flex-col items-center justify-center">No Diagram Generated</div>}
+                          {/* Overview */}
+                          {techData.overview && (
+                              <div className="bg-[var(--bg-secondary)] p-4 rounded border text-sm text-[var(--text-secondary)] leading-relaxed">{techData.overview}</div>
+                          )}
+
+                          {/* AI-generated diagram OR regenerate */}
+                          <div className="diagram-container relative w-full aspect-[16/9] bg-[var(--bg-tertiary)] rounded overflow-hidden border border-[var(--border-primary)]">
+                               {techDiagramUrl ? <img src={techDiagramUrl} className="w-full h-full object-cover" /> : (
+                                   <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+                                       <div className="text-[var(--text-tertiary)]">No AI diagram yet</div>
+                                       <div className="flex gap-2 items-center">
+                                           <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
+                                               className="text-xs rounded px-2 py-1 border border-[var(--border-primary)]">
+                                               {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}: {s.name}</option>)}
+                                           </select>
+                                           <button onClick={() => handleRegenerateDiagram('tech')} className="bg-[var(--nxt-teal)] text-white px-4 py-2 rounded text-xs font-bold">Generate Diagram in Style</button>
+                                       </div>
+                                   </div>
+                               )}
                           </div>
-                          <div className="details-container">
-                              <h2 className="text-3xl font-black mb-4 border-b pb-4">Nodes</h2>
-                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                  {techData.nodes.map((node, i) => (
-                                      <div key={i} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-sm">
-                                          <div className="flex items-center gap-3 mb-4">
-                                              <div className="w-8 h-8 rounded flex items-center justify-center font-bold text-white text-xs bg-gray-500">
-                                                  {(node.type || '').substring(0, 2)}
+
+                          {/* System Nodes — color-coded cards */}
+                          <div>
+                              <h2 className="text-2xl font-black mb-4 border-b pb-4">System Nodes ({techData.nodes?.length || 0})</h2>
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                  {(techData.nodes || []).map((node: any, i: number) => {
+                                      const colors = nodeColors[node.type] || nodeColors['External'];
+                                      return (
+                                          <div key={i} className="rounded border-2 p-4 shadow-sm" style={{ backgroundColor: colors.bg, borderColor: colors.border }}>
+                                              <div className="flex justify-between items-start mb-2">
+                                                  <input value={node.label} onChange={(e) => updateTechNode(i, 'label', e.target.value)}
+                                                      className="font-bold bg-transparent outline-none flex-1 text-sm" style={{ color: colors.text }} />
+                                                  <span className="text-[8px] font-bold uppercase px-2 py-0.5 rounded-sm" style={{ backgroundColor: colors.border + '20', color: colors.text }}>{node.type}</span>
                                               </div>
-                                              <input value={node.label} onChange={(e) => updateTechNode(i, 'label', e.target.value)} className="font-bold bg-transparent outline-none flex-1" />
+                                              <textarea value={node.description || ''} onChange={(e) => updateTechNode(i, 'description', e.target.value)}
+                                                  className="w-full text-xs bg-transparent resize-none h-14 outline-none" style={{ color: colors.text + 'cc' }} />
                                           </div>
-                                          <textarea value={node.description} onChange={(e) => updateTechNode(i, 'description', e.target.value)} className="w-full text-xs text-[var(--text-secondary)] bg-transparent resize-none h-20 outline-none" />
-                                      </div>
-                                  ))}
+                                      );
+                                  })}
                               </div>
                           </div>
+
+                          {/* Data Flows */}
+                          {techData.flows && techData.flows.length > 0 && (
+                              <div>
+                                  <h2 className="text-2xl font-black mb-4 border-b pb-4">Data Flows ({techData.flows.length})</h2>
+                                  <div className="space-y-2">
+                                      {techData.flows.map((flow: any, fi: number) => {
+                                          const fromNode = (techData.nodes || []).find((n: any) => n.id === flow.fromId);
+                                          const toNode = (techData.nodes || []).find((n: any) => n.id === flow.toId);
+                                          const statusColor = flow.status === 'active' ? '#0CCE6B' : flow.status === 'broken' ? '#FF5A5A' : '#caca20';
+                                          return (
+                                              <div key={fi} className="flex items-center gap-3 px-4 py-3 bg-[var(--card-bg)] rounded border border-[var(--border-primary)]">
+                                                  <span className="font-bold text-sm text-[var(--nxt-teal)] min-w-[100px]">{fromNode?.label || flow.fromId}</span>
+                                                  <span className="text-[var(--text-tertiary)]">{"-->"}</span>
+                                                  <span className="font-bold text-sm text-[var(--nxt-teal)] min-w-[100px]">{toNode?.label || flow.toId}</span>
+                                                  <span className="text-sm text-[var(--text-secondary)] flex-1">{flow.action}</span>
+                                                  {flow.status && <span className="text-[9px] font-bold uppercase px-2 py-0.5 rounded-sm" style={{ backgroundColor: statusColor + '20', color: statusColor }}>{flow.status}</span>}
+                                              </div>
+                                          );
+                                      })}
+                                  </div>
+                              </div>
+                          )}
                       </div>
-                  )}
+                      );
+                  })()}
                   {activeTab === 'strategy' && (
                       <div className="space-y-8">
                            <h2 className="text-3xl font-black mb-8 border-b pb-4">Strategic Recommendations</h2>
