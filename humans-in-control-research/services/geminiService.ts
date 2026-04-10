@@ -890,13 +890,26 @@ SLIDE-TYPE-SPECIFIC RULES:
 - RECOMMENDATION: content[0] = specific action (verb + outcome). content[1] = quantified impact. content[2] = evidence justifying the investment.
 - CLOSING_CTA: 3 next steps with WHO does WHAT by WHEN. No vague "consider exploring..."
 
+VIDEO SCRIPT (required — generate one scene per slide):
+For each scene in videoScript:
+- sceneNumber: matches slideNumber
+- audioNarration: 3-5 sentences of voiceover narration. This is the SPOKEN WORD for the video. Must be compelling, insight-driven, and reference specific findings. NO empty narration. Every scene MUST have narration text.
+- visualPrompt: detailed image generation prompt describing what the viewer sees
+- quote: a direct corpus quote that supports this scene (if applicable)
+
+ANTI-PATTERNS FOR VIDEO NARRATION:
+- NEVER leave audioNarration empty or blank
+- NEVER start with "Good morning" or "Welcome to"
+- NEVER use "In this scene we see..." — describe what matters, not what's on screen
+- Each scene narration must stand alone as compelling spoken content
+
 ${feedback ? 'FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                videoScript: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sceneNumber: { type: Type.INTEGER }, visualDescription: { type: Type.STRING }, audioNarration: { type: Type.STRING }, quote: { type: Type.STRING }, visualPrompt: { type: Type.STRING } } } },
+                videoScript: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sceneNumber: { type: Type.INTEGER }, visualDescription: { type: Type.STRING }, audioNarration: { type: Type.STRING }, quote: { type: Type.STRING }, visualPrompt: { type: Type.STRING } }, required: ["sceneNumber", "audioNarration", "visualPrompt"] } },
                 slides: { 
                     type: Type.ARRAY, 
                     items: { 

@@ -929,25 +929,31 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
              {((hasScript && narrativeTab === 'script') || (!hasSlides && hasScript)) && (
                  <div className="space-y-4">
-                     {(editedNarrative.videoScript || []).map((scene, idx) => (
-                         <div key={idx} className="bg-[var(--card-bg)] p-4 rounded border border-[var(--border-primary)] shadow-sm">
-                             <h5 className="text-xs font-bold text-indigo-600 uppercase mb-2">Scene {idx+1}</h5>
-                             <div className="grid md:grid-cols-2 gap-4">
+                     {(editedNarrative.videoScript || []).map((scene: any, idx: number) => (
+                         <div key={idx} className="bg-[var(--card-bg)] rounded border border-[var(--border-primary)] shadow-sm overflow-hidden">
+                             <div className="bg-[var(--nxt-teal)] text-white px-4 py-2 flex justify-between items-center">
+                                 <span className="text-xs font-bold uppercase">Scene {idx+1}</span>
+                                 {scene.durationSeconds && <span className="text-[10px] text-[var(--nxt-lime)]">{scene.durationSeconds}s</span>}
+                             </div>
+                             <div className="p-4 space-y-3">
+                                 {/* Narration — the MOST important field */}
                                  <div>
-                                     <label className="text-[10px] text-[var(--text-tertiary)] uppercase block mb-1">Visual Prompt (Editable)</label>
-                                     <textarea 
-                                        value={scene.visualPrompt || scene.visualDescription} 
-                                        onChange={(e) => updateScriptScene(idx, 'visualPrompt', e.target.value)}
-                                        className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-20 resize-none border border-[var(--border-secondary)] focus:border-indigo-500 outline-none"
-                                     />
+                                     <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Voiceover Narration</label>
+                                     <textarea value={scene.audioNarration || ''} onChange={(e) => updateScriptScene(idx, 'audioNarration', e.target.value)}
+                                        className="w-full bg-white text-sm p-3 rounded h-20 resize-none border border-[var(--border-primary)] outline-none italic" placeholder="The narrator says..." />
                                  </div>
+                                 {/* Evidence Quote */}
+                                 {scene.quote && (
+                                     <div className="bg-[var(--bg-tertiary)] p-3 rounded border-l-4 border-[var(--nxt-lime)]">
+                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Evidence Quote</label>
+                                         <div className="text-xs italic text-[var(--text-secondary)]">"{scene.quote}"</div>
+                                     </div>
+                                 )}
+                                 {/* Visual Direction */}
                                  <div>
-                                     <label className="text-[10px] text-[var(--text-tertiary)] uppercase block mb-1">Narration</label>
-                                     <textarea 
-                                        value={scene.audioNarration}
-                                        onChange={(e) => updateScriptScene(idx, 'audioNarration', e.target.value)}
-                                        className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-20 resize-none border border-[var(--border-secondary)] focus:border-indigo-500 outline-none"
-                                     />
+                                     <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Visual Direction</label>
+                                     <textarea value={scene.visualPrompt || scene.visualDescription || ''} onChange={(e) => updateScriptScene(idx, 'visualPrompt', e.target.value)}
+                                        className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-14 resize-none border border-[var(--border-secondary)] outline-none" />
                                  </div>
                              </div>
                          </div>
@@ -956,45 +962,71 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
              )}
 
              {((hasSlides && narrativeTab === 'slides') || (!hasScript && hasSlides)) && (
-                 <div className="space-y-6">
-                     {(editedNarrative.slides || []).map((slide, idx) => (
-                         <div key={idx} className="bg-[var(--card-bg)] p-4 rounded border border-[var(--border-primary)] shadow-sm">
-                             <div className="flex justify-between mb-2">
-                                 <h5 className="text-xs font-bold text-indigo-600 uppercase">Slide {slide.slideNumber}: {slide.title}</h5>
-                                 <span className="text-[10px] text-[var(--text-tertiary)] border px-1 rounded">{slide.layout}</span>
+                 <div className="space-y-5">
+                     {(editedNarrative.slides || []).map((slide: any, idx: number) => {
+                         const layoutColors: Record<string, string> = { 'KEY_STATISTIC': '#FF5A5A', 'EVIDENCE_WALL': '#00b1eb', 'DATA_INSIGHT': '#0CCE6B', 'PERSONA_SPOTLIGHT': '#fd8e2e', 'QUOTE_FEATURE': '#9333ea', 'RECOMMENDATION': '#0CCE6B', 'COMPARISON': '#caca20', 'CLOSING_CTA': '#115054' };
+                         const borderColor = layoutColors[slide.layout] || '#acacac';
+                         return (
+                         <div key={idx} className="bg-[var(--card-bg)] rounded border border-[var(--border-primary)] shadow-sm overflow-hidden" style={{ borderLeftWidth: 4, borderLeftColor: borderColor }}>
+                             {/* Slide Header */}
+                             <div className="flex justify-between items-center px-4 py-2 bg-[var(--bg-secondary)] border-b border-[var(--border-primary)]">
+                                 <h5 className="text-xs font-bold text-[var(--nxt-teal)] uppercase">Slide {slide.slideNumber}: {slide.title}</h5>
+                                 <span className="text-[8px] font-bold uppercase px-2 py-0.5 rounded-sm" style={{ backgroundColor: borderColor + '15', color: borderColor }}>{slide.layout?.replace(/_/g, ' ')}</span>
                              </div>
-                             
-                             <div className="space-y-4">
-                                 <div>
-                                     <label className="text-[10px] text-[var(--text-tertiary)] uppercase block mb-1">Slide Narrative / Body Copy</label>
-                                     <textarea 
-                                        value={slide.narrative} 
-                                        onChange={(e) => updateSlideNarrative(idx, 'narrative', e.target.value)}
-                                        className="w-full bg-[var(--bg-tertiary)] text-sm p-2 rounded h-24 resize-none border border-[var(--border-secondary)] focus:border-indigo-500 outline-none"
-                                        placeholder="The main story text for this slide..."
-                                     />
-                                 </div>
-                                 <div className="grid md:grid-cols-2 gap-4">
+
+                             <div className="p-4 space-y-3">
+                                 {/* CONTENT BULLETS — the actual slide text (was completely missing!) */}
+                                 {slide.content && slide.content.length > 0 && (
                                      <div>
-                                         <label className="text-[10px] text-[var(--text-tertiary)] uppercase block mb-1">Visual Prompt</label>
-                                         <textarea 
-                                            value={slide.visualPrompt} 
-                                            onChange={(e) => updateSlideNarrative(idx, 'visualPrompt', e.target.value)}
-                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-16 resize-none border border-[var(--border-secondary)] focus:border-indigo-500 outline-none"
-                                         />
+                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Slide Content ({slide.content.length} points)</label>
+                                         <div className="space-y-1.5">
+                                             {slide.content.map((bullet: string, bi: number) => (
+                                                 <div key={bi} className="flex items-start gap-2 bg-[var(--bg-tertiary)] p-2 rounded border border-[var(--border-secondary)]">
+                                                     <span className="text-[var(--nxt-teal)] font-bold text-xs mt-0.5">{bi+1}.</span>
+                                                     <textarea value={bullet} onChange={(e) => {
+                                                         const newContent = [...slide.content];
+                                                         newContent[bi] = e.target.value;
+                                                         updateSlideNarrative(idx, 'content', newContent as any);
+                                                     }} className="flex-1 bg-transparent text-xs outline-none resize-none h-8" />
+                                                 </div>
+                                             ))}
+                                         </div>
+                                     </div>
+                                 )}
+
+                                 {/* EVIDENCE QUOTE */}
+                                 {slide.quote && (
+                                     <div className="bg-[var(--bg-tertiary)] p-3 rounded border-l-4 border-[var(--nxt-lime)]">
+                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Evidence Quote</label>
+                                         <textarea value={slide.quote} onChange={(e) => updateSlideNarrative(idx, 'quote', e.target.value)}
+                                            className="w-full bg-transparent text-xs italic outline-none resize-none h-8" />
+                                     </div>
+                                 )}
+
+                                 {/* PRESENTER NARRATIVE */}
+                                 <div>
+                                     <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Presenter Script</label>
+                                     <textarea value={slide.narrative} onChange={(e) => updateSlideNarrative(idx, 'narrative', e.target.value)}
+                                        className="w-full bg-white text-sm p-3 rounded h-16 resize-none border border-[var(--border-primary)] outline-none" placeholder="What the presenter says..." />
+                                 </div>
+
+                                 {/* VISUAL + SPEAKER NOTES */}
+                                 <div className="grid md:grid-cols-2 gap-3">
+                                     <div>
+                                         <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Visual Prompt</label>
+                                         <textarea value={slide.visualPrompt} onChange={(e) => updateSlideNarrative(idx, 'visualPrompt', e.target.value)}
+                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-12 resize-none border border-[var(--border-secondary)] outline-none" />
                                      </div>
                                      <div>
-                                         <label className="text-[10px] text-[var(--text-tertiary)] uppercase block mb-1">Speaker Notes</label>
-                                         <textarea 
-                                            value={slide.speakerNotes} 
-                                            onChange={(e) => updateSlideNarrative(idx, 'speakerNotes', e.target.value)}
-                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-16 resize-none border border-[var(--border-secondary)] focus:border-indigo-500 outline-none italic"
-                                         />
+                                         <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Speaker Notes</label>
+                                         <textarea value={slide.speakerNotes} onChange={(e) => updateSlideNarrative(idx, 'speakerNotes', e.target.value)}
+                                            className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-12 resize-none border border-[var(--border-secondary)] outline-none italic" />
                                      </div>
                                  </div>
                              </div>
                          </div>
-                     ))}
+                         );
+                     })}
                  </div>
              )}
          </div>
