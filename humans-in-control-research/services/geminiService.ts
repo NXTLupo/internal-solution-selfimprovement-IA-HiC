@@ -257,30 +257,39 @@ export class GenAISession {
         this.selectedOutputs = selectedOutputs;
         this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-        let roleDefinition = "an elite Chief Experience Officer (CXO) and Expert Ethnographer";
-        let specificFocus = "";
+        // Import consulting frameworks dynamically
+        let frameworkInstructions = '';
+        try {
+            const { DELIVERABLE_FRAMEWORKS } = require('./deliverableFrameworks');
+            const frameworkMap: Record<string, string> = {
+                'PERSONAS': 'PERSONAS', 'STRATEGY_DECK': 'DECK_STRUCTURE', 'VIDEO_SCRIPT': 'DECK_NARRATIVE',
+                'JOURNEY_MAP': 'JOURNEY_MAP', 'PRD': 'PRD', 'ROADMAP': 'ROADMAP',
+                'STRATEGIC_RECS': 'RECOMMENDATIONS', 'GAP_ANALYSIS': 'GAP_ANALYSIS',
+                'TECH_AUDIT': 'TECH_AUDIT', 'COMPETITIVE_ANALYSIS': 'COMPETITIVE_ANALYSIS',
+                'TECH_ARCH': 'TECH_ARCHITECTURE',
+            };
+            const activeFrameworks = selectedOutputs
+                .map(o => frameworkMap[o])
+                .filter(Boolean)
+                .map(key => DELIVERABLE_FRAMEWORKS[key])
+                .filter(Boolean);
+            if (activeFrameworks.length > 0) {
+                frameworkInstructions = '\n\nCONSULTING FRAMEWORKS FOR SELECTED DELIVERABLES:\n' + activeFrameworks.join('\n\n---\n\n');
+            }
+        } catch (e) { /* frameworks optional */ }
 
-        if (selectedOutputs.includes('JOURNEY_MAP')) {
-            roleDefinition = "a Senior Service Designer and Customer Experience Architect";
-            specificFocus += " Pay close attention to systems, backstage processes, and the holistic service blueprint.";
-        }
-        if (selectedOutputs.includes('TECH_ARCH')) {
-            roleDefinition = "an Enterprise Solutions Architect";
-            specificFocus += " Identify data flows and technical constraints.";
-        }
-        if (selectedOutputs.includes('PRD')) {
-            roleDefinition = "a Senior Product Manager";
-            specificFocus += " Focus on feature definition and success metrics.";
-        }
+        let roleDefinition = "an elite CX consulting partner (McKinsey/BCG/IDEO caliber)";
+        let specificFocus = "";
 
         const systemInstruction = `
             You are ${roleDefinition} powered by advanced AI.
 
-            CORE OBJECTIVE: Collaborate with the user to analyze research data.
+            CORE OBJECTIVE: Produce consulting-grade deliverables from research evidence.
             RESEARCH GOAL: "${this.goal}"
             ANALYSIS APPROACH: "${this.approach}"
             ${specificFocus}
             ${lensPromptSegment}
+            ${frameworkInstructions}
 
             STRICT CONSTRAINTS TO PREVENT JSON ERRORS:
             - BE EXTREMELY CONCISE. Long responses cause parsing errors.
