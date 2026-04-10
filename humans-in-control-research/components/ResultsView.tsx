@@ -1,7 +1,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { AnalysisResult, ScriptScene, Theme, Slide, SlideLayout, Citation, OutputOption, AnalysisStage, StrategicRoadmap, PRD, ServiceBlueprintStage, TechnicalArchitecture, RoadmapItem, PRDFeature, TechNode, Persona } from '../types';
-import { generateSceneVideo, generateImage, rewriteSlideContent } from '../services/geminiService';
+import { generateSceneVideo, generateImage, rewriteSlideContent, setActiveVisualizationStyle, getActiveVisualizationStyle } from '../services/geminiService';
+import { VISUALIZATION_STYLES } from '../services/visualizationStyles';
 import { exportPPTX, exportJSON } from '../services/exportService';
 import PptxGenJS from 'pptxgenjs';
 import html2canvas from 'html2canvas';
@@ -507,15 +508,19 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
     }
   };
 
-  const handleRegeneratePersonaImage = async (index: number) => {
+  const handleRegeneratePersonaImage = async (index: number, styleOverride?: string) => {
+      if (styleOverride) {
+          setActiveVisualizationStyle(styleOverride);
+          setActiveVisStyle(styleOverride);
+      }
       const p = personasData[index];
       const newPersonas = [...personasData];
-      newPersonas[index] = { ...p, imageUrl: undefined }; 
+      newPersonas[index] = { ...p, imageUrl: undefined };
       setPersonasData(newPersonas);
       try {
           const bioSnippet = (p.bio || '').substring(0, 50);
-          // Revised Prompt: Photorealistic Professional
-          const imgPrompt = `Professional editorial portrait of ${p.name}, ${p.role}, ${p.demographics}. Context: ${bioSnippet}. 4K, 85mm lens, authentic human subject in a natural environment. Subtle, clean data UI elements integrated into the scene (non-intrusive). Modern, polished aesthetic.`;
+          // Uses the active visualization style's portrait prompt
+          const imgPrompt = `Portrait of ${p.name}, ${p.role}, ${p.demographics}. Context: ${bioSnippet}`;
           const url = await generateImage(imgPrompt, "1:1");
           setPersonasData(prev => {
               const updated = [...prev];
@@ -553,9 +558,18 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
        }
   };
 
-  const handleRegenerateImage = async (index: number) => {
+  const [activeVisStyle, setActiveVisStyle] = useState(getActiveVisualizationStyle());
+
+  const handleRegenerateImage = async (index: number, styleOverride?: string) => {
     const scene = scriptScenes[index];
     if (scene.imageStatus === 'generating') return;
+
+    // Apply style override if provided
+    if (styleOverride) {
+        setActiveVisualizationStyle(styleOverride);
+        setActiveVisStyle(styleOverride);
+    }
+
     const newScenes = [...scriptScenes];
     newScenes[index] = { ...scene, imageStatus: 'generating' };
     setScriptScenes(newScenes);
@@ -580,7 +594,11 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
     }
   };
 
-  const handleRegenerateSlideImage = async (index: number) => {
+  const handleRegenerateSlideImage = async (index: number, styleOverride?: string) => {
+    if (styleOverride) {
+        setActiveVisualizationStyle(styleOverride);
+        setActiveVisStyle(styleOverride);
+    }
     const slide = slides[index];
     if (slide.imageStatus === 'generating') return;
     const newSlides = [...slides];
@@ -792,10 +810,18 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                         </p>
                     </div>
                )}
-               <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2 z-20">
-                   <button onClick={() => deleteSlide(idx)} className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-none">Delete</button>
-                   <button onClick={() => startEditingSlide(idx)} className="bg-white text-black px-3 py-1 rounded-full text-xs font-bold shadow-none">Edit</button>
-                   <button onClick={() => handleRegenerateSlideImage(idx)} className="bg-black/50 text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">Regen Image</button>
+               <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                   <div className="flex gap-2 mb-1">
+                       <button onClick={() => deleteSlide(idx)} className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">Delete</button>
+                       <button onClick={() => startEditingSlide(idx)} className="bg-white text-black px-3 py-1 rounded-full text-xs font-bold">Edit</button>
+                   </div>
+                   <div className="flex gap-1 items-center">
+                       <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
+                           className="bg-black/60 text-white text-[8px] rounded px-1.5 py-1 border border-white/20">
+                           {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}</option>)}
+                       </select>
+                       <button onClick={() => handleRegenerateSlideImage(idx, activeVisStyle)} className="bg-black/50 text-white px-2 py-1 rounded-full text-[9px]">Regen</button>
+                   </div>
                </div>
                <div className="absolute bottom-4 right-6 text-xs font-mono opacity-30 mix-blend-difference" style={{ color: 'white' }}>
                    {idx + 1} / {slides.length}
@@ -850,7 +876,13 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       <div className="grid md:grid-cols-3">
                                           <div className="relative aspect-square md:aspect-auto bg-[var(--bg-tertiary)] min-h-[280px]">
                                               {p.imageUrl ? <img src={p.imageUrl} alt={p.name} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[var(--text-tertiary)]">Generating...</div>}
-                                              <button onClick={() => handleRegeneratePersonaImage(i)} className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded hover:bg-black/70">Regen</button>
+                                              <div className="absolute bottom-2 right-2 flex gap-1">
+                                                  <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
+                                                      className="bg-black/60 text-white text-[8px] rounded px-1 py-1 border border-white/20">
+                                                      {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}</option>)}
+                                                  </select>
+                                                  <button onClick={() => handleRegeneratePersonaImage(i, activeVisStyle)} className="bg-black/50 text-white text-xs px-2 py-1 rounded hover:bg-black/70">Regen</button>
+                                              </div>
                                           </div>
                                           <div className="md:col-span-2 p-6 flex flex-col gap-4">
                                               <div>
@@ -1161,9 +1193,19 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       <div className="absolute top-2 left-2 z-10 bg-[var(--nxt-teal)] text-white text-xs font-bold px-2 py-1 rounded-sm">Scene {i + 1}</div>
                                       <div className="aspect-video bg-black rounded overflow-hidden relative shadow-sm">
                                           {scene.videoUrl ? <video src={scene.videoUrl} controls className="w-full h-full object-cover" /> : scene.imageUrl ? <img src={scene.imageUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-500">Visual</div>}
-                                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                              <button onClick={() => handleRegenerateImage(i)} className="bg-white/20 text-white px-3 py-1.5 rounded text-xs">Regen Frame</button>
-                                              <button onClick={() => handleGenerateVideo(i)} className="bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-3 py-1.5 rounded text-xs font-bold">Animate</button>
+                                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                              <div className="flex items-center gap-2 mb-2">
+                                                  <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
+                                                      className="bg-black/60 text-white text-[9px] rounded px-2 py-1 border border-white/20 flex-1">
+                                                      {VISUALIZATION_STYLES.map(s => (
+                                                          <option key={s.id} value={s.id}>{s.shortLabel}: {s.name}</option>
+                                                      ))}
+                                                  </select>
+                                              </div>
+                                              <div className="flex justify-end gap-2">
+                                                  <button onClick={() => handleRegenerateImage(i, activeVisStyle)} className="bg-white/20 text-white px-3 py-1.5 rounded text-xs hover:bg-white/30">Regen in Style</button>
+                                                  <button onClick={() => handleGenerateVideo(i)} className="bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-3 py-1.5 rounded text-xs font-bold">Animate</button>
+                                              </div>
                                           </div>
                                       </div>
                                   </div>
