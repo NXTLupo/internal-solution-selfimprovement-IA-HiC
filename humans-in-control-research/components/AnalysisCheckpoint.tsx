@@ -984,7 +984,8 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
   const renderJourneyVisual = (stages: any[]) => {
       const emotionColors: Record<string, string> = { 'Delighted': '#0CCE6B', 'Positive': '#00b1eb', 'Neutral': '#acacac', 'Negative': '#fd8e2e', 'Frustrated': '#FF5A5A' };
-      const emotionY: Record<string, number> = { 'Delighted': 10, 'Positive': 30, 'Neutral': 50, 'Negative': 70, 'Frustrated': 90 };
+      const emotionYRaw: Record<string, number> = { 'Delighted': 10, 'Positive': 30, 'Neutral': 50, 'Negative': 70, 'Frustrated': 90, 'delighted': 10, 'positive': 30, 'neutral': 50, 'negative': 70, 'frustrated': 90, 'Happy': 10, 'Anxious': 70, 'Hopeful': 30, 'Confused': 70, 'Satisfied': 20, 'Overwhelmed': 80 };
+      const emotionY = (e: string) => emotionYRaw[e] ?? emotionYRaw[e?.charAt(0)?.toUpperCase() + e?.slice(1)] ?? 50;
       const allActors = [...new Set(stages.flatMap((s: any) => s.actors || []))];
       const actorColors = ['#115054', '#fd8e2e', '#00b1eb', '#caca20', '#0CCE6B', '#9333ea', '#FF5A5A', '#525252'];
 
@@ -998,12 +999,12 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                       <line x1="0" y1="30" x2={stages.length * 120} y2="30" stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4,4" />
                       {/* Emotion path */}
                       <polyline fill="none" stroke="#115054" strokeWidth="2.5" strokeLinejoin="round"
-                          points={stages.map((s: any, i: number) => `${i * 120 + 60},${emotionY[s.emotion] || 50}`).join(' ')} />
+                          points={stages.map((s: any, i: number) => `${i * 120 + 60},${emotionY(s.emotion)}`).join(' ')} />
                       {/* Emotion dots */}
                       {stages.map((s: any, i: number) => (
                           <g key={i}>
-                              <circle cx={i * 120 + 60} cy={emotionY[s.emotion] || 50} r="6" fill={emotionColors[s.emotion] || '#acacac'} stroke="white" strokeWidth="2" />
-                              {s.momentOfTruth && <text x={i * 120 + 60} y={emotionY[s.emotion] - 12} textAnchor="middle" fontSize="7" fontWeight="bold" fill="#FF5A5A">MOT</text>}
+                              <circle cx={i * 120 + 60} cy={emotionY(s.emotion)} r="6" fill={emotionColors[s.emotion] || '#acacac'} stroke="white" strokeWidth="2" />
+                              {s.momentOfTruth && <text x={i * 120 + 60} y={(emotionY(s.emotion)) - 12} textAnchor="middle" fontSize="7" fontWeight="bold" fill="#FF5A5A">MOT</text>}
                           </g>
                       ))}
                       {/* Y-axis labels */}
