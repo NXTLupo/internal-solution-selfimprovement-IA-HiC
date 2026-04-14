@@ -1,0 +1,15 @@
+Topic 13 - Content Sample
+Number of content items: 19
+Top words: vendor, compliance, audit, frameworks, risk, grc, soc
+
+Content 1 (length: 222 chars):
+* Only vendors that handle or access data are considered
+* Vendor relationships are not visible to other organizations
+* The goal is to complement existing vendor risk practices, not replace audits or compliance frameworks
+
+Content 2 (length: 109 chars):
+I am especially interested in criticism from people who work with GRC, vendor risk, or security architecture.
+
+Content 3 (length: 244 chars):
+Many organizations depend heavily on vendors that handle or access their data, but risk assessments still mostly evaluate companies as isolated units. In practice, a significant portion of risk seems to be inherited through vendor dependencies.
+

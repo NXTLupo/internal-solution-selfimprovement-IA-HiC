@@ -22,9 +22,16 @@ Browser → Launchpad:8000 → Agent:8500 → MCP Wrappers (8501-8507) → Core 
 Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). Integrated via `docker-compose-all.yml`. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
 
 ### Critical Files (modify with caution)
-- `mcp-services/agent/app.py` — AI orchestrator; `tool_services` dict (~line 92) maps service names to MCP URLs
-- `launchpad/app.py` — WebSocket proxy hub (~1,370 lines)
-- `docker-compose-all.yml` — Full platform config (**always use this file**, never `docker-compose.yml` alone)
+- `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
+- `launchpad/app.py` — WebSocket proxy hub (1,310 lines)
+- `docker-compose-all.yml` — Full platform config (486 lines). **Always use this file**, never `docker-compose.yml` alone
+
+### Dormant MCP Services
+These exist in the filesystem but are **not** in `docker-compose-all.yml` or `tool_services`:
+- `mcp-services/linkedin-mcp/` — LinkedIn integration (not wired up)
+- `mcp-services/mulmocast-mcp/` — Podcast/multimodal cast (not wired up)
+- `mcp-services/claude4-journey-mcp/` — Was removed from compose; `claude4-journey-mapper-v2` service also removed
+- `mcp-services/openai-journey-mcp/` — Referenced in `tool_services` as `openai_journey` but has no compose service (silently fails at startup)
 
 ## Essential Commands
 
@@ -121,6 +128,7 @@ docker compose -f docker-compose-all.yml exec launchpad curl -s http://localhost
 | Miro Generator | 5004 | miro-generator | TypeScript CLI, Jest |
 | Character Generator | 5010 | consistent-character-generator | Gemini (Imagen 3, Veo 3.1), IndexedDB |
 | Research Generator | 5011 | hic-research | React 19, Vite, Gemini AI, human-in-loop |
+| Research Proxy | 5012 | research-proxy | Python proxy for HiC Research AI calls |
 | Copilot Recipe Generator | 5013 | copilot-recipe-generator | FastAPI + Vite React frontend, Claude Opus 4.6 |
 | Journey Mapper | 8080 | journey-mapper | FastAPI, Claude Opus 4.5 |
 | NXT Agency Launchpad | 5050 | nxt-agency-launchpad | Nginx serving pre-built Vite dist |
@@ -173,7 +181,7 @@ One service builds from a sibling directory outside this repo:
 
 Changes to this service require working in its respective repo. Only `docker-compose-all.yml` references it.
 
-The Research Generator was moved into this repo at `humans-in-control-research/` — a React 19 SPA (Vite + Gemini AI) with no backend. All AI calls happen client-side.
+The Research Generator was moved into this repo at `humans-in-control-research/` — a React 19 SPA (Vite + Gemini AI) with a Python CORS proxy (`research-proxy`). AI calls happen client-side via Gemini; the proxy handles external data API CORS. The legacy directory `internal-solutions-research-generator/` still exists but Docker builds from `humans-in-control-research/`.
 
 ### Dockerfile Patterns
 - **Layer caching**: Copy `requirements.txt`/`package.json` before source code
@@ -210,7 +218,7 @@ docker compose -f docker-compose-all.yml restart agent
 - `social-research-frontend` / `social-research-backend` (not socialresearch-*)
 - `hic-research` (container name for research-generator)
 
-**`openai_journey` in agent tool_services**: The agent references `OPENAI_JOURNEY_MCP_URL` but no matching `openai-journey-mcp` service exists in `docker-compose-all.yml`. This will silently fail tool discovery at startup — expected behavior until that service is added.
+**`openai_journey` in agent tool_services**: See "Dormant MCP Services" above — silently fails tool discovery at startup. Expected behavior.
 
 **NXT Agency DB Issues**: Separate PostgreSQL instance (`nxt-agency-db`, database `ai_assistant`). Not shared with Social Research DB.
 

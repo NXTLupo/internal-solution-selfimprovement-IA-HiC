@@ -1,12 +1,180 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { AnalysisResult, ScriptScene, Theme, Slide, SlideLayout, Citation, OutputOption, AnalysisStage, StrategicRoadmap, PRD, ServiceBlueprintStage, TechnicalArchitecture, RoadmapItem, PRDFeature, TechNode, Persona } from '../types';
+import { AnalysisResult, ScriptScene, Theme, Slide, SlideLayout, SlideMetric, BentoCell, Citation, OutputOption, AnalysisStage, StrategicRoadmap, PRD, ServiceBlueprintStage, TechnicalArchitecture, RoadmapItem, PRDFeature, TechNode, Persona } from '../types';
 import { generateSceneVideo, generateImage, rewriteSlideContent, setActiveVisualizationStyle, getActiveVisualizationStyle } from '../services/geminiService';
-import { VISUALIZATION_STYLES } from '../services/visualizationStyles';
+// Design system: single unified NXT Humans visual language (no style selector)
 import { exportPPTX, exportJSON } from '../services/exportService';
+import { stripMarkdown, resolveCitations } from '../services/slidePostProcessor';
+import { getChunkSourceMap } from '../services/researchFabricOrchestrator';
 import PptxGenJS from 'pptxgenjs';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+
+/** Clean text for ANY display: strip markdown, resolve citations, remove leftover CHUNK refs */
+const cleanText = (text: string | undefined): string => {
+    if (!text) return '';
+    const chunkMap = getChunkSourceMap();
+    let cleaned = resolveCitations(stripMarkdown(text), undefined, chunkMap);
+    // Final sweep: strip any surviving [CHUNK_XXX] references
+    cleaned = cleaned.replace(/\s*\[CHUNK_\d+\]\s*/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    return cleaned;
+};
+/** Alias for backward compat */
+const cleanSlideText = cleanText;
+
+/** Extract source citations from body text and return cleaned text + sources array */
+const extractSources = (text: string): { clean: string; sources: string[] } => {
+    const sources: string[] = [];
+    const clean = text.replace(/\((?:Source(?:s)?:\s*)?([^)]+(?:Dive|OpenAlex|Reddit|Times|Post|Journal|News|Report|Survey|Study|Research|Review|Analysis|Data|Paper)[^)]*)\)/gi, (_, src) => {
+        sources.push(src.trim());
+        return '';
+    }).replace(/\s{2,}/g, ' ').trim();
+    return { clean, sources };
+};
+
+/** Normalize legacy SlideLayout values to the 7 universal archetypes */
+const normalizeLayout = (layout: SlideLayout): SlideLayout => {
+    switch (layout) {
+        case 'TITLE_SLIDE':
+        case 'SECTION_HEADER':
+        case 'CONTENT_DATA_PANEL':
+        case 'CONTENT_INSIGHT_CHART':
+        case 'FULL_WIDTH_VIZ':
+        case 'BENTO_GRID':
+        case 'PROBLEM_SOLUTION':
+            return layout; // Already a universal archetype
+        case 'CONTENT_SPLIT_RIGHT':
+        case 'CONTENT_SPLIT_LEFT':
+        case 'FULL_BLEED_IMAGE':
+        case 'KEY_STATISTIC':
+        case 'PERSONA_SPOTLIGHT':
+        case 'RECOMMENDATION':
+        case 'CLOSING_CTA':
+            return 'CONTENT_DATA_PANEL';
+        case 'CONTENT_INSIGHT_CHART':
+        case 'DATA_INSIGHT':
+            return 'CONTENT_INSIGHT_CHART';
+        case 'TYPOGRAPHY_QUOTE':
+        case 'EVIDENCE_WALL':
+        case 'QUOTE_FEATURE':
+            return 'BENTO_GRID';
+        case 'COMPARISON':
+            return 'PROBLEM_SOLUTION';
+        default:
+            return 'CONTENT_DATA_PANEL';
+    }
+};
+
+/** Accent color rotation for metric cards */
+const ACCENT_ROTATION = ['#CC6644', '#B8B800', '#00B7C3'];
+const getRotatedAccent = (index: number) => ACCENT_ROTATION[index % ACCENT_ROTATION.length];
+
+/** Extract numbers/stats from bullet text to auto-generate metric cards */
+const extractMetricsFromContent = (content: string[]): SlideMetric[] => {
+    const metrics: SlideMetric[] = [];
+    const statRegex = /(\d[\d,.]*)\s*(%|months?|years?|hours?|days?|x|pts?|M|K|B|\$[\d,.]+[MBK]?|pp)/gi;
+    for (const line of content) {
+        const matches = [...line.matchAll(statRegex)];
+        for (const m of matches) {
+            if (metrics.length >= 4) break;
+            const value = m[1];
+            const unit = m[2] || '';
+            // Use the surrounding text as the label (first 40 chars of the line)
+            const label = line.replace(statRegex, '').trim().substring(0, 40) || 'Metric';
+            metrics.push({ label, value, unit, accentColor: getRotatedAccent(metrics.length) });
+        }
+        if (metrics.length >= 4) break;
+    }
+    return metrics;
+};
+
+/** Common NXT Humans font stacks */
+const FONT = {
+    primary: "'Helvetica Neue', Arial, -apple-system, sans-serif",
+    serif: "Georgia, 'Times New Roman', serif",
+};
+
+/**
+ * P5-02: Clickable citation traceability.
+ *
+ * Renders text with [CHUNK_XXX] references as clickable spans.
+ * Each citation is styled with NXT teal (#115054), underlined,
+ * and triggers the onCitationClick callback with the chunk ID.
+ *
+ * @param text - Raw text potentially containing [CHUNK_XXX] patterns
+ * @param onCitationClick - Callback invoked with the chunk ID string when clicked
+ * @returns JSX elements with inline clickable citations
+ */
+function renderWithCitations(
+    text: string,
+    onCitationClick: (chunkId: string) => void
+): React.ReactNode {
+    if (!text) return null;
+
+    const chunkMap = getChunkSourceMap();
+    const CITATION_REGEX = /\[CHUNK_(\d+)\]/g;
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = CITATION_REGEX.exec(text)) !== null) {
+        // Push the text before this citation
+        if (match.index > lastIndex) {
+            parts.push(text.slice(lastIndex, match.index));
+        }
+
+        const fullMatch = match[0];       // e.g. [CHUNK_042]
+        const chunkNum = match[1];         // e.g. "042"
+        const chunkId = `CHUNK_${chunkNum}`;
+        const sourceInfo = chunkMap[chunkId];
+        const displayText = sourceInfo
+            ? `[${sourceInfo.sourceName}]`
+            : fullMatch;
+        const tooltipText = sourceInfo
+            ? `${sourceInfo.sourceName}: ${sourceInfo.title}${sourceInfo.url ? '\n' + sourceInfo.url : ''}`
+            : `Click to trace source: ${chunkId}`;
+
+        parts.push(
+            <span
+                key={`cite-${match.index}`}
+                onClick={(e) => { e.stopPropagation(); onCitationClick(chunkId); }}
+                style={{
+                    color: '#115054',
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '0.85em',
+                    fontWeight: 600,
+                    padding: '0 2px',
+                    borderRadius: '2px',
+                    transition: 'background-color 0.15s ease',
+                }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'rgba(17,80,84,0.1)'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; }}
+                title={tooltipText}
+            >
+                {displayText}
+            </span>
+        );
+
+        lastIndex = match.index + fullMatch.length;
+    }
+
+    // Push any remaining text after the last citation
+    if (lastIndex < text.length) {
+        parts.push(text.slice(lastIndex));
+    }
+
+    // If no citations were found, return the raw text
+    if (parts.length === 0) return text;
+
+    return <>{parts}</>;
+}
+
+/** Default citation click handler — logs to console until full source-scroll is wired up */
+const handleCitationClick = (chunkId: string) => {
+    console.log('Citation clicked:', chunkId);
+};
 
 interface Props {
   result: AnalysisResult;
@@ -106,7 +274,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               'TECH_ARCH': 'tech',
               'STRATEGIC_RECS': 'strategy',
               'STRATEGY_DECK': 'deck',
-              'VIDEO_SCRIPT': 'script'
+              'GAP_ANALYSIS': 'gap',
+              'TECH_AUDIT': 'techAudit',
+              'COMPETITIVE_ANALYSIS': 'competitive',
           };
           const mapped = map[result.selectedOutputs[0]];
           if (mapped) return mapped;
@@ -177,14 +347,14 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
   };
 
   const updateRoadmapItem = (index: number, field: keyof RoadmapItem, value: string) => {
-      if (!roadmapData) return;
+      if (!roadmapData || !roadmapData.items) return;
       const newItems = [...roadmapData.items];
       (newItems[index] as any)[field] = value;
       setRoadmapData({ ...roadmapData, items: newItems });
   };
 
   const updatePRDFeature = (index: number, field: keyof PRDFeature, value: string) => {
-      if (!prdData) return;
+      if (!prdData || !prdData.features) return;
       const newFeatures = [...prdData.features];
       (newFeatures[index] as any)[field] = value;
       setPrdData({ ...prdData, features: newFeatures });
@@ -197,7 +367,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
   };
 
   const updateTechNode = (index: number, field: keyof TechNode, value: string) => {
-      if (!techData) return;
+      if (!techData || !techData.nodes) return;
       const newNodes = [...techData.nodes];
       (newNodes[index] as any)[field] = value;
       setTechData({ ...techData, nodes: newNodes });
@@ -274,30 +444,30 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       if (activeTab === 'personas') {
           data = personasData.map(p => ({
               Name: p.name, Role: p.role, Quote: p.quote, Bio: p.bio, 
-              PainPoints: p.painPoints.map(pp => pp.label).join('; ')
+              PainPoints: (p.painPoints || []).map(pp => pp.label).join('; ')
           }));
           filename = 'personas.csv';
       } else if (activeTab === 'prd' && prdData) {
-          data = prdData.features.map(f => ({
-              Feature: f.name, Priority: f.priority, Description: f.description, UserStories: f.userStories.join('; ')
+          data = (prdData.features || []).map(f => ({
+              Feature: f.name, Priority: f.priority, Description: f.description, UserStories: (f.userStories || []).join('; ')
           }));
           filename = 'prd_features.csv';
       } else if (activeTab === 'roadmap' && roadmapData) {
-          data = roadmapData.items.map(i => ({
-              Initiative: i.initiative, Horizon: i.horizon, Status: i.status, Owner: i.owner, Description: i.description
+          data = (roadmapData.items || []).map(i => ({
+              Initiative: i.initiative, Horizon: i.horizon, Status: i.status || 'Planned', Owner: i.owner, Description: i.description
           }));
           filename = 'roadmap.csv';
       } else if (activeTab === 'journey' && journeyData) {
           data = journeyData;
           filename = 'service_blueprint.csv';
       } else if (activeTab === 'tech' && techData) {
-          data = techData.nodes.map(n => ({
+          data = (techData.nodes || []).map(n => ({
               Label: n.label, Type: n.type, Description: n.description
           }));
           filename = 'tech_nodes.csv';
       } else if (activeTab === 'strategy' && result.recommendations) {
-          data = result.recommendations.map(r => ({
-              Title: r.title, Impact: r.impactLevel, Description: r.description, ActionItems: r.actionItems.join('; ')
+          data = (result.recommendations || []).map(r => ({
+              Title: r.title, Impact: r.impactLevel, Description: r.description, ActionItems: (r.actionItems || []).join('; ')
           }));
           filename = 'strategic_recs.csv';
       } else if (activeTab === 'deck' && slides.length > 0) {
@@ -305,11 +475,6 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               Slide: s.slideNumber, Title: s.title, Layout: s.layout, Content: (s.content || []).join('; '), VisualPrompt: s.visualPrompt
           }));
           filename = 'strategy_deck.csv';
-      } else if (activeTab === 'script' && scriptScenes.length > 0) {
-          data = scriptScenes.map(s => ({
-              Scene: s.sceneNumber, Narration: s.audioNarration, Visual: s.visualDescription
-          }));
-          filename = 'video_script.csv';
       }
 
       if (data.length > 0) {
@@ -318,6 +483,48 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       } else {
           alert("No structured data available for CSV export on this tab.");
       }
+  };
+
+  // --- RENDER-GATED CAPTURE UTILITIES ---
+  // Waits for all images inside an element to finish loading
+  const waitForImages = (el: HTMLElement, timeoutMs = 5000): Promise<void> => {
+      const images = el.querySelectorAll('img');
+      if (images.length === 0) return Promise.resolve();
+      return new Promise<void>((resolve) => {
+          let loaded = 0;
+          const total = images.length;
+          const done = () => { loaded++; if (loaded >= total) resolve(); };
+          const timer = setTimeout(resolve, timeoutMs); // Ceiling timeout
+          images.forEach(img => {
+              if (img.complete && img.naturalWidth > 0) { done(); }
+              else { img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true }); }
+          });
+      });
+  };
+
+  // Waits for at least one full browser paint cycle after content is ready
+  const waitForPaint = (): Promise<void> => new Promise(resolve => {
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+  });
+
+  // Checks if a canvas has meaningful content (not >95% single color)
+  const isCanvasBlank = (canvas: HTMLCanvasElement, threshold = 0.95): boolean => {
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return true;
+      // Sample a grid of pixels for performance (don't scan every pixel)
+      const step = Math.max(4, Math.floor(Math.min(canvas.width, canvas.height) / 40));
+      const pixels: Record<string, number> = {};
+      let total = 0;
+      for (let x = 0; x < canvas.width; x += step) {
+          for (let y = 0; y < canvas.height; y += step) {
+              const [r, g, b] = ctx.getImageData(x, y, 1, 1).data;
+              const key = `${r >> 4},${g >> 4},${b >> 4}`; // Quantize to reduce noise
+              pixels[key] = (pixels[key] || 0) + 1;
+              total++;
+          }
+      }
+      const maxCount = Math.max(...Object.values(pixels));
+      return maxCount / total > threshold;
   };
 
   const handleDownloadPDF = async () => {
@@ -331,21 +538,96 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   setIsExporting(false);
                   return;
               }
-              const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+
+              // --- FIX 2: Apply print-mode to strip interactive chrome ---
+              contentRef.current.setAttribute('data-print-mode', 'true');
+
+              // Wait for print-mode CSS to apply
+              await waitForPaint();
+
+              const pdfPageWidth = 338.67; // mm (13.33")
+              const pdfPageHeight = 190.5; // mm (7.5") — exact 16:9
+              const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [pdfPageWidth, pdfPageHeight] });
               pdf.deletePage(1);
+
+              const blankSlides: number[] = [];
+              const RENDER_WAIT_MS = 300; // Per-slide settle time
+              const MAX_RETRIES = 2;
+
               for (let i = 0; i < slideElements.length; i++) {
                   const slideElement = slideElements[i] as HTMLElement;
-                  const canvas = await html2canvas(slideElement, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
-                  const imgWidth = canvas.width;
-                  const imgHeight = canvas.height;
-                  const ratio = imgWidth / imgHeight;
-                  const pdfPageWidth = 297; 
-                  const pdfPageHeight = pdfPageWidth / ratio;
-                  pdf.addPage([pdfPageWidth, pdfPageHeight], 'landscape');
-                  pdf.addImage(canvas, 'PNG', 0, 0, pdfPageWidth, pdfPageHeight);
+
+                  // --- FIX 1: Render-complete gate ---
+                  // Step 1: Scroll element into view to trigger lazy rendering
+                  slideElement.scrollIntoView({ behavior: 'instant' as any, block: 'center' });
+                  // Step 2: Wait for images inside this slide
+                  await waitForImages(slideElement);
+                  // Step 3: Wait for browser paint cycle + settle time
+                  await waitForPaint();
+                  await new Promise(r => setTimeout(r, RENDER_WAIT_MS));
+
+                  let canvas: HTMLCanvasElement | null = null;
+                  let retries = 0;
+
+                  while (retries <= MAX_RETRIES) {
+                      canvas = await html2canvas(slideElement, {
+                          scale: 2, useCORS: true, logging: false,
+                          backgroundColor: null, // Preserve actual backgrounds (dark slides!)
+                          windowWidth: slideElement.scrollWidth,
+                          windowHeight: slideElement.scrollHeight,
+                      });
+
+                      // --- FIX 3: Pre-export blank detection ---
+                      if (!isCanvasBlank(canvas)) break; // Content detected, proceed
+
+                      // Blank — retry with longer wait
+                      retries++;
+                      if (retries <= MAX_RETRIES) {
+                          await new Promise(r => setTimeout(r, 500 * retries));
+                          await waitForPaint();
+                      }
+                  }
+
+                  if (canvas && isCanvasBlank(canvas)) {
+                      blankSlides.push(i + 1);
+                  }
+
+                  if (canvas) {
+                      const imgRatio = canvas.width / canvas.height;
+                      const pageRatio = pdfPageWidth / pdfPageHeight;
+                      let finalW: number, finalH: number, x: number, y: number;
+                      if (Math.abs(imgRatio - pageRatio) < 0.05) {
+                          finalW = pdfPageWidth; finalH = pdfPageHeight; x = 0; y = 0;
+                      } else if (imgRatio > pageRatio) {
+                          finalW = pdfPageWidth; finalH = pdfPageWidth / imgRatio;
+                          x = 0; y = (pdfPageHeight - finalH) / 2;
+                      } else {
+                          finalH = pdfPageHeight; finalW = pdfPageHeight * imgRatio;
+                          x = (pdfPageWidth - finalW) / 2; y = 0;
+                      }
+                      pdf.addPage([pdfPageWidth, pdfPageHeight], 'landscape');
+                      pdf.addImage(canvas, 'PNG', x, y, finalW, finalH);
+                  }
               }
+
+              // Remove print mode
+              contentRef.current.removeAttribute('data-print-mode');
+
+              // --- FIX 3: Warn user about blank slides ---
+              if (blankSlides.length > 0) {
+                  const proceed = confirm(
+                      `Warning: Slides ${blankSlides.join(', ')} appear to be blank or nearly empty.\n\n` +
+                      `${blankSlides.length} of ${slideElements.length} slides may not have rendered correctly.\n\n` +
+                      `Click OK to download anyway, or Cancel to abort and retry.`
+                  );
+                  if (!proceed) {
+                      setIsExporting(false);
+                      return;
+                  }
+              }
+
               pdf.save('NXT_Humans_Strategy_Deck.pdf');
-          } 
+          }
           else if (activeTab === 'personas') {
               const slideElements = contentRef.current.querySelectorAll('.persona-card');
               if (slideElements.length === 0) {
@@ -545,7 +827,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
            }
            if (type === 'tech' && techData) {
                setTechDiagramUrl(undefined);
-                const nodesList = techData.nodes.map(n => n.label).join(", ");
+                const nodesList = (techData.nodes || []).map(n => n.label).join(", ");
                 // Revised Prompt: High-Fidelity 3D Diagram
                 const imgPrompt = `A high-fidelity 3D isometric Technical System Architecture. Clean white background, floating glass nodes, data stream connections. Professional cloud infrastructure aesthetic. Nodes: ${nodesList}.`;
                 const url = await generateImage(imgPrompt, "16:9");
@@ -578,7 +860,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
     try {
         let refImage = undefined;
         if (scene.personaRef) {
-             const persona = result.personas.find(p => p.name === scene.personaRef);
+             const persona = (result.personas || []).find(p => p.name === scene.personaRef);
              if (persona?.imageUrl) refImage = persona.imageUrl;
         }
         const imageUrl = await generateImage(scene.visualPrompt || scene.visualDescription, "16:9", refImage);
@@ -648,7 +930,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
 
   const handleRewriteSlide = async () => {
       if (!rewriteThemeId || !editForm || editingSlideIndex === null) return;
-      const theme = result.themes[parseInt(rewriteThemeId)];
+      const theme = (result.themes || [])[parseInt(rewriteThemeId)];
       if (!theme) return;
       setIsRewriting(true);
       try {
@@ -662,75 +944,58 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
   };
 
   const renderSlidePreview = (slide: Slide, idx: number) => {
-      const containerClass = "slide-export-target rounded-none shadow-none max-w-5xl mx-auto aspect-[16/9] flex flex-col relative overflow-hidden group border border-[var(--border-secondary)] transition-all hover:scale-[1.01]";
-      const { style } = slide;
+      const containerClass = "slide-export-target rounded-none shadow-none max-w-5xl mx-auto aspect-[16/9] flex flex-col relative overflow-hidden group border border-[#E8E8E8] transition-all hover:scale-[1.01]";
+      const archetypeLayout = normalizeLayout(slide.layout);
+      const slides_total = result.slides?.length || 0;
+      const showSlideNumber = archetypeLayout !== 'TITLE_SLIDE' && archetypeLayout !== 'SECTION_HEADER';
 
-      // Ensure layout has a fallback
-      const validLayouts: SlideLayout[] = ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_SPLIT_RIGHT', 'CONTENT_SPLIT_LEFT', 'FULL_BLEED_IMAGE', 'TYPOGRAPHY_QUOTE'];
-      const activeLayout = validLayouts.includes(slide.layout) ? slide.layout : 'CONTENT_SPLIT_RIGHT';
+      // Collect or auto-extract metrics for data panel archetypes
+      const metrics: SlideMetric[] = slide.metrics || extractMetricsFromContent(slide.content || []);
+      // Collect sources from slide or extract from text
+      const allSources = slide.sources || [];
 
+      // Edit form (unchanged in functionality, updated archetype options)
       if (editingSlideIndex === idx && editForm) {
           return (
               <div key={idx} className="max-w-5xl mx-auto bg-[var(--card-bg)] rounded p-6 border border-[var(--border-primary)] shadow-none animate-fade-in relative z-10 text-[var(--text-primary)]">
                   <div className="flex justify-between items-center mb-6 pb-4 border-b border-[var(--border-primary)]">
-                      <h3 className="text-xl font-bold">Edit Slide {slide.slideNumber}</h3>
+                      <h3 className="text-xl font-bold" style={{ fontFamily: FONT.primary }}>Edit Slide {slide.slideNumber}</h3>
                       <div className="flex gap-2">
                            <button onClick={cancelSlideEdit} className="px-3 py-1 text-sm text-[var(--text-tertiary)] hover:text-[var(--text-primary)]">Cancel</button>
-                           <button onClick={saveSlideEdit} className="px-4 py-1 text-sm bg-indigo-600 hover:bg-[var(--nxt-teal)] text-white font-bold rounded shadow-none">Save Changes</button>
+                           <button onClick={saveSlideEdit} className="px-4 py-1 text-sm bg-[#00B7C3] hover:brightness-110 text-white font-bold rounded shadow-none">Save Changes</button>
                       </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-4">
                           <div>
-                              <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Layout Template</label>
-                              <select 
-                                value={editForm.layout}
-                                onChange={e => setEditForm({...editForm, layout: e.target.value as SlideLayout})}
-                                className="w-full bg-white text-black border border-[var(--border-primary)] rounded p-2 text-sm outline-none"
-                              >
+                              <label className="text-xs font-bold text-[#AAAAAA] uppercase block mb-1" style={{ letterSpacing: '1.5px' }}>Layout Archetype</label>
+                              <select value={editForm.layout} onChange={e => setEditForm({...editForm, layout: e.target.value as SlideLayout})} className="w-full bg-white text-black border border-[#E8E8E8] rounded p-2 text-sm outline-none">
                                   <option value="TITLE_SLIDE">Title Slide</option>
-                                  <option value="SECTION_HEADER">Section Header</option>
-                                  <option value="CONTENT_SPLIT_RIGHT">Standard (Text Left / Image Right)</option>
-                                  <option value="CONTENT_SPLIT_LEFT">Standard (Image Left / Text Right)</option>
-                                  <option value="FULL_BLEED_IMAGE">Full Bleed Image (Overlay Text)</option>
-                                  <option value="TYPOGRAPHY_QUOTE">Typography Quote</option>
+                                  <option value="SECTION_HEADER">Section Divider</option>
+                                  <option value="CONTENT_DATA_PANEL">Content + Data Panel</option>
+                                  <option value="CONTENT_INSIGHT_CHART">Content + Insight Chart</option>
+                                  <option value="FULL_WIDTH_VIZ">Full-Width Visualization</option>
+                                  <option value="BENTO_GRID">Bento Insight Grid</option>
+                                  <option value="PROBLEM_SOLUTION">Problem / Solution Split</option>
                               </select>
                           </div>
                           <div>
-                              <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Slide Title</label>
-                              <input 
-                                  type="text"
-                                  value={editForm.title}
-                                  onChange={e => setEditForm({...editForm, title: e.target.value})}
-                                  className="w-full bg-[var(--input-bg)] border border-[var(--border-primary)] rounded p-2 text-sm outline-none font-bold"
-                              />
+                              <label className="text-xs font-bold text-[#AAAAAA] uppercase block mb-1" style={{ letterSpacing: '1.5px' }}>Slide Title</label>
+                              <input type="text" value={editForm.title} onChange={e => setEditForm({...editForm, title: e.target.value})} className="w-full bg-white border border-[#E8E8E8] rounded p-2 text-sm outline-none font-bold" />
                           </div>
                           <div>
-                              <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Main Content</label>
-                              <textarea 
-                                  value={(editForm.content || []).join('\n')}
-                                  onChange={e => setEditForm({...editForm, content: e.target.value.split('\n')})}
-                                  className="w-full h-32 bg-[var(--input-bg)] border border-[var(--border-primary)] rounded p-2 text-sm outline-none resize-none"
-                                  placeholder="One bullet per line..."
-                              />
+                              <label className="text-xs font-bold text-[#AAAAAA] uppercase block mb-1" style={{ letterSpacing: '1.5px' }}>Main Content</label>
+                              <textarea value={(editForm.content || []).join('\n')} onChange={e => setEditForm({...editForm, content: e.target.value.split('\n')})} className="w-full h-32 bg-white border border-[#E8E8E8] rounded p-2 text-sm outline-none resize-none" placeholder="One bullet per line..." />
                           </div>
                       </div>
                       <div className="space-y-4">
                           <div>
-                              <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Visual Prompt</label>
-                              <textarea 
-                                  value={editForm.visualPrompt}
-                                  onChange={e => setEditForm({...editForm, visualPrompt: e.target.value})}
-                                  className="w-full h-24 bg-[var(--input-bg)] border border-[var(--border-primary)] rounded p-2 text-xs outline-none resize-none font-mono"
-                              />
+                              <label className="text-xs font-bold text-[#AAAAAA] uppercase block mb-1" style={{ letterSpacing: '1.5px' }}>Speaker Notes</label>
+                              <textarea value={editForm.narrative} onChange={e => setEditForm({...editForm, narrative: e.target.value})} className="w-full h-24 bg-white border border-[#E8E8E8] rounded p-2 text-sm outline-none resize-none italic" />
                           </div>
                           <div>
-                              <label className="text-xs font-bold text-[var(--text-tertiary)] uppercase block mb-1">Voiceover</label>
-                              <textarea 
-                                  value={editForm.narrative}
-                                  onChange={e => setEditForm({...editForm, narrative: e.target.value})}
-                                  className="w-full h-24 bg-[var(--input-bg)] border border-[var(--border-primary)] rounded p-2 text-sm outline-none resize-none italic"
-                              />
+                              <label className="text-xs font-bold text-[#AAAAAA] uppercase block mb-1" style={{ letterSpacing: '1.5px' }}>Source Quote</label>
+                              <textarea value={editForm.quote || ''} onChange={e => setEditForm({...editForm, quote: e.target.value})} className="w-full h-24 bg-white border border-[#E8E8E8] rounded p-2 text-sm outline-none resize-none" placeholder="Verbatim quote from research source..." />
                           </div>
                       </div>
                   </div>
@@ -738,95 +1003,308 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
           );
       }
 
+      // --- EDITORIAL SLIDE TEMPLATES (inspired by reference deck) ---
+      // Key DNA: dark/white alternation, massive typography, minimal content, accent keyword
+      const F = FONT.primary;
+      const isDark = archetypeLayout === 'TITLE_SLIDE' || archetypeLayout === 'SECTION_HEADER' || archetypeLayout === 'BENTO_GRID';
+      const bg = isDark ? '#0D0D0D' : '#FFFFFF';
+      const fg = isDark ? '#FFFFFF' : '#1A1A1A';
+      const muted = isDark ? 'rgba(255,255,255,0.5)' : '#888888';
+      const accent = '#B8B800';
+      const cyan = '#00B7C3';
+
+      // Extract first stat from content or metrics for hero display
+      const heroStat = metrics[0] || null;
+      const titleText = cleanSlideText(slide.title);
+      // Highlight last significant word in accent
+      const titleWords = titleText.split(' ');
+      const accentWordIdx = titleWords.length > 3 ? titleWords.length - 1 : -1;
+
+      // Shared: Source footnote strip
+      const FootnoteStrip = () => allSources.length > 0 ? (
+          <div style={{ position: 'absolute', bottom: 14, left: 48, right: 80, fontFamily: F, fontSize: 9, color: isDark ? 'rgba(255,255,255,0.2)' : '#CCCCCC', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {allSources.slice(0, 3).join(' \u00B7 ')}
+          </div>
+      ) : null;
+
+      // Shared: Slide number
+      const SlideNum = () => showSlideNumber ? (
+          <div style={{ position: 'absolute', bottom: 14, right: 48, fontFamily: F, fontSize: 10, fontWeight: 400, color: isDark ? 'rgba(255,255,255,0.2)' : '#CCCCCC' }}>
+              {String(idx + 1).padStart(2, '0')}
+          </div>
+      ) : null;
+
       return (
-          <div key={idx} className={containerClass} style={{ backgroundColor: style.backgroundColor }}>
-               {activeLayout === 'TITLE_SLIDE' && (
-                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-10">
-                       <h3 className="text-xl tracking-[0.3em] font-bold mb-4 opacity-80" style={{ color: style.headerColor }}>STRATEGIC ANALYSIS</h3>
-                       <h1 className="text-5xl font-black mb-6 tracking-tighter" style={{ color: style.headerColor }}>
-                           {slide.title || 'NXT HUMANS'}<span style={{ color: style.accentColor }}>.</span>
-                       </h1>
-                       <p className="text-xl max-w-2xl leading-relaxed" style={{ color: style.textColor }}>{slide.narrative}</p>
-                   </div>
-               )}
-               {activeLayout === 'SECTION_HEADER' && (
-                   <div className="absolute inset-0 flex flex-col items-center justify-center relative">
-                       {slide.imageUrl && (
-                           <div className="absolute inset-0 z-0">
-                               <img src={slide.imageUrl} className="w-full h-full object-cover opacity-40" alt="background" />
-                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          <div key={idx} className={containerClass} style={{ backgroundColor: bg }}>
+
+               {/* ====== TEMPLATE 1: TITLE — Dark, editorial statement + stat row ====== */}
+               {archetypeLayout === 'TITLE_SLIDE' && (
+                   <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '56px 56px 48px' }}>
+                       {/* Top section: section label + thin divider lines */}
+                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                           <div style={{ width: 24, height: 1, background: accent }} />
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase' as const, color: accent }}>
+                               {result.selectedOutputs?.[0]?.replace(/_/g, ' ') || 'STRATEGIC ANALYSIS'}
                            </div>
-                       )}
-                       <div className="relative z-10 text-center p-12">
-                           <h2 className="text-4xl font-bold mb-4 tracking-tight" style={{ color: style.headerColor }}>{slide.title}</h2>
-                           <p className="text-xl italic font-light opacity-90 max-w-3xl" style={{ color: style.textColor }}>{slide.narrative}</p>
                        </div>
-                   </div>
-               )}
-               {activeLayout === 'FULL_BLEED_IMAGE' && (
-                   <div className="absolute inset-0">
-                       {slide.imageUrl ? (
-                           <img src={slide.imageUrl} className="w-full h-full object-cover" alt="slide visual" />
-                       ) : (
-                           <div className="w-full h-full bg-gray-800 flex items-center justify-center text-gray-500">No Image Generated</div>
-                       )}
-                       <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent backdrop-blur-[2px]">
-                           <h2 className="text-2xl font-bold mb-2" style={{ color: style.headerColor }}>{slide.title}</h2>
-                           <p className="text-base opacity-90" style={{ color: style.textColor }}>{(slide.content || []).join(' ')}</p>
+                       {/* Middle: Large editorial headline */}
+                       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: '75%' }}>
+                           <h1 style={{ fontFamily: F, fontSize: 36, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.15 }}>
+                               {titleWords.map((w, i) => (
+                                   <span key={i}>{i === accentWordIdx ? <span style={{ color: accent }}>{w}</span> : w}{i < titleWords.length - 1 ? ' ' : ''}</span>
+                               ))}<span style={{ color: accent }}>.</span>
+                           </h1>
+                           {slide.narrative && (
+                               <p style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginTop: 16, maxWidth: '70%' }}>{cleanSlideText(slide.narrative).substring(0, 150)}</p>
+                           )}
                        </div>
-                   </div>
-               )}
-               {(activeLayout === 'CONTENT_SPLIT_RIGHT' || activeLayout === 'CONTENT_SPLIT_LEFT') && (
-                   <div className={`absolute inset-0 flex ${activeLayout === 'CONTENT_SPLIT_LEFT' ? 'flex-row-reverse' : 'flex-row'}`}>
-                       <div className="w-1/2 p-8 flex flex-col justify-center">
-                           <h2 className="text-2xl font-bold mb-4" style={{ color: style.headerColor }}>
-                               {slide.title}<span style={{ color: style.accentColor }}>.</span>
-                           </h2>
-                           <div className="space-y-4 mb-8">
-                               {(slide.content || []).map((point, i) => (
-                                   <div key={i} className="flex gap-3">
-                                       <span style={{ color: style.accentColor }}>•</span>
-                                       <p className="text-base leading-snug" style={{ color: style.textColor }}>{point}</p>
+                       {/* Bottom: Stat row (3 hero metrics if available) */}
+                       {metrics.length > 0 && (
+                           <div style={{ display: 'flex', gap: 40, borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 20 }}>
+                               {metrics.slice(0, 3).map((m, i) => (
+                                   <div key={i}>
+                                       <div style={{ fontFamily: F, fontSize: 36, fontWeight: 200, color: '#FFFFFF', lineHeight: 1 }}>
+                                           {m.value}<span style={{ fontSize: 14, color: accent, marginLeft: 2 }}>{m.unit || ''}</span>
+                                       </div>
+                                       <div style={{ fontFamily: F, fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{m.label}</div>
                                    </div>
                                ))}
                            </div>
-                           <div className="mt-auto pt-6 border-t border-white/10">
-                               <p className="text-sm italic opacity-60" style={{ color: style.textColor }}>{slide.narrative}</p>
-                           </div>
+                       )}
+                       <SlideNum />
+                   </div>
+               )}
+
+               {/* ====== TEMPLATE 2: SECTION — Giant oversized accent word (bleeds off edges) ====== */}
+               {archetypeLayout === 'SECTION_HEADER' && (
+                   <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+                       {/* Giant accent word — fills the slide, bleeds off right edge */}
+                       <div style={{ position: 'absolute', left: 48, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 'clamp(80px, 14vw, 160px)', fontWeight: 900, color: accent, lineHeight: 0.9, pointerEvents: 'none', opacity: 0.15, whiteSpace: 'nowrap', maxWidth: '120%' }}>
+                           {titleText.substring(0, 30)}
                        </div>
-                       <div className="w-1/2 relative bg-black/20 overflow-hidden flex items-center justify-center">
-                           {slide.imageUrl ? (
-                               <img src={slide.imageUrl} className="w-full h-full object-cover relative z-10" alt="visual" />
-                           ) : (
-                               <div className="w-full h-full flex items-center justify-center text-gray-500">Generating Visual...</div>
+                       {/* Ghost slide number */}
+                       <div style={{ position: 'absolute', right: 56, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 200, fontWeight: 900, color: 'rgba(255,255,255,0.03)', lineHeight: 0.85, pointerEvents: 'none' }}>
+                           {String(slide.slideNumber || idx + 1).padStart(2, '0')}
+                       </div>
+                       <div style={{ padding: '0 56px', position: 'relative', zIndex: 2, maxWidth: '65%' }}>
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '3px', color: accent, textTransform: 'uppercase' as const, marginBottom: 12 }}>SECTION {slide.slideNumber}</div>
+                           <h2 style={{ fontFamily: F, fontSize: 32, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.15 }}>{titleText}</h2>
+                       </div>
+                       <SlideNum />
+                   </div>
+               )}
+
+               {/* ====== TEMPLATE 3: CONTENT + DATA — White, split layout with metric cards ====== */}
+               {archetypeLayout === 'CONTENT_DATA_PANEL' && (
+                   <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
+                       <div style={{ width: '55%', padding: '40px 36px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 14 }}>
+                               {slide.rationale ? cleanSlideText(slide.rationale).substring(0, 35) : ''}
+                           </div>
+                           <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: '#1A1A1A', lineHeight: 1.25, marginBottom: 20 }}>
+                               {titleText}<span style={{ color: accent }}>.</span>
+                           </h2>
+                           {(slide.content || []).slice(0, 3).map((point, i) => (
+                               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
+                                   <div style={{ width: 5, height: 5, borderRadius: '50%', background: getRotatedAccent(i), flexShrink: 0, marginTop: 6 }} />
+                                   <p style={{ fontFamily: F, fontSize: 12, color: '#555', lineHeight: 1.6 }}>{cleanSlideText(point)}</p>
+                               </div>
+                           ))}
+                           {/* Persona card if present */}
+                           {slide.personaName && (
+                               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16, padding: '10px 14px', background: '#FAFAFA', borderRadius: 4 }}>
+                                   {slide.personaImageUrl && <img src={slide.personaImageUrl} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} alt="" />}
+                                   <div>
+                                       <div style={{ fontFamily: F, fontSize: 11, fontWeight: 700, color: '#1A1A1A' }}>{slide.personaName}</div>
+                                       {slide.personaRole && <div style={{ fontFamily: F, fontSize: 9, color: '#888' }}>{slide.personaRole}</div>}
+                                   </div>
+                               </div>
                            )}
                        </div>
+                       <div style={{ width: '45%', background: '#FAFAFA', borderLeft: '1px solid #F0F0F0', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
+                           {metrics.length > 0 ? metrics.slice(0, 3).map((m, i) => {
+                               const a = m.accentColor || getRotatedAccent(i);
+                               return (
+                                   <div key={i} style={{ background: '#FFFFFF', border: '1px solid #EEEEEE', borderRadius: 6, borderLeft: `3px solid ${a}`, padding: '14px 18px' }}>
+                                       <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: a, marginBottom: 4 }}>{m.label}</div>
+                                       <div style={{ fontFamily: F, fontSize: 32, fontWeight: 200, color: '#1A1A1A', lineHeight: 1 }}>{m.value}<span style={{ fontSize: 14, color: '#888', marginLeft: 3 }}>{m.unit || ''}</span></div>
+                                   </div>
+                               );
+                           }) : slide.quote ? (
+                               <div style={{ borderLeft: `3px solid ${accent}`, paddingLeft: 16 }}>
+                                   <p style={{ fontFamily: F, fontSize: 14, fontStyle: 'italic', color: '#444', lineHeight: 1.6 }}>"{cleanSlideText(slide.quote)}"</p>
+                               </div>
+                           ) : null}
+                       </div>
+                       <FootnoteStrip />
+                       <SlideNum />
                    </div>
                )}
-               {activeLayout === 'TYPOGRAPHY_QUOTE' && (
-                    <div className="absolute inset-0 flex flex-col justify-center p-16 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 text-[120px] font-serif opacity-10 leading-none select-none" style={{ color: style.accentColor }}>"</div>
-                        <h4 className="text-sm font-bold tracking-[0.2em] mb-8 uppercase opacity-60" style={{ color: style.accentColor }}>Key Insight</h4>
-                        <p className="text-3xl font-serif italic leading-tight mb-8 relative z-10" style={{ color: style.textColor }}>
-                            "{slide.quote}"
-                        </p>
-                    </div>
+
+               {/* ====== TEMPLATE 4: INSIGHT CHART — Big percentage hero ====== */}
+               {archetypeLayout === 'CONTENT_INSIGHT_CHART' && (
+                   <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
+                       <div style={{ width: '50%', padding: '40px 32px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                           {heroStat && (
+                               <div style={{ fontFamily: F, fontSize: 72, fontWeight: 200, color: '#1A1A1A', lineHeight: 1, marginBottom: 12 }}>
+                                   {heroStat.value}<span style={{ fontSize: 28, color: accent }}>{heroStat.unit || ''}</span>
+                               </div>
+                           )}
+                           <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#1A1A1A', lineHeight: 1.25, marginBottom: 16 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
+                           <p style={{ fontFamily: F, fontSize: 12, color: '#888', lineHeight: 1.6 }}>{(slide.content || []).slice(0, 1).map(cleanSlideText).join(' ')}</p>
+                       </div>
+                       <div style={{ width: '50%', background: '#FAFAFA', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8 }}>
+                           {metrics.slice(0, 5).map((m, i) => (
+                               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                                   <span style={{ fontFamily: F, fontSize: 10, color: '#888', width: 80, textAlign: 'right' }}>{m.label.substring(0, 18)}</span>
+                                   <div style={{ flex: 1, height: 8, background: '#E8E8E8', borderRadius: 0, overflow: 'hidden' }}>
+                                       <div style={{ height: '100%', background: i === 0 ? cyan : '#CCCCCC', width: `${Math.min(100, (m.progress || 50) + (i === 0 ? 30 : 0))}%` }} />
+                                   </div>
+                                   <span style={{ fontFamily: F, fontSize: 11, fontWeight: 700, color: i === 0 ? cyan : '#888', width: 40 }}>{m.value}</span>
+                               </div>
+                           ))}
+                       </div>
+                       <FootnoteStrip />
+                       <SlideNum />
+                   </div>
                )}
+
+               {/* ====== TEMPLATE 5: FULL-WIDTH — Numbered grid or problem card grid ====== */}
+               {archetypeLayout === 'FULL_WIDTH_VIZ' && (
+                   <div style={{ position: 'absolute', inset: 0, padding: '40px 56px', display: 'flex', flexDirection: 'column' }}>
+                       <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#1A1A1A', marginBottom: 24 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
+                       {/* If 3-4 items: use problem card grid (accent border-top, bold title + description) */}
+                       {(slide.content || []).length <= 5 ? (
+                           <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min((slide.content || []).length, 4)}, 1fr)`, gap: 16, flex: 1, alignContent: 'start' }}>
+                               {(slide.content || []).map((point, i) => {
+                                   const cleaned = cleanSlideText(point);
+                                   const parts = cleaned.split(/[.!?]\s+/);
+                                   const cardTitle = parts[0] || '';
+                                   const cardBody = parts.slice(1).join('. ');
+                                   return (
+                                       <div key={i} style={{ borderTop: `3px solid ${getRotatedAccent(i)}`, padding: '16px 0' }}>
+                                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: getRotatedAccent(i), marginBottom: 8 }}>{String(i + 1).padStart(2, '0')}</div>
+                                           <div style={{ fontFamily: F, fontSize: 13, fontWeight: 700, color: '#1A1A1A', marginBottom: 6, lineHeight: 1.3 }}>{cardTitle}</div>
+                                           {cardBody && <p style={{ fontFamily: F, fontSize: 11, color: '#888', lineHeight: 1.5 }}>{cardBody}</p>}
+                                       </div>
+                                   );
+                               })}
+                           </div>
+                       ) : (
+                           /* If many items: numbered grid layout */
+                           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10, flex: 1 }}>
+                               {(slide.content || []).map((point, i) => (
+                                   <div key={i} style={{ padding: 12, borderBottom: '2px solid #F0F0F0' }}>
+                                       <div style={{ fontFamily: F, fontSize: 24, fontWeight: 200, color: accent, marginBottom: 4 }}>{String(i + 1).padStart(2, '0')}</div>
+                                       <p style={{ fontFamily: F, fontSize: 10, color: '#555', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
+                                   </div>
+                               ))}
+                           </div>
+                       )}
+                       <FootnoteStrip />
+                       <SlideNum />
+                   </div>
+               )}
+
+               {/* ====== TEMPLATE 6: BENTO — Dark, stat comparison grid ====== */}
+               {archetypeLayout === 'BENTO_GRID' && (
+                   <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', padding: '40px 56px', display: 'flex', flexDirection: 'column' }}>
+                       <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 20 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
+                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, flex: 1 }}>
+                           {(slide.bentoCells || []).length > 0 ? slide.bentoCells!.map((cell, i) => (
+                               <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20, gridColumn: cell.span === 2 ? 'span 2' : 'span 1' }}>
+                                   {cell.type === 'stat' && (
+                                       <>
+                                           <div style={{ fontFamily: F, fontSize: cell.span === 2 ? 52 : 38, fontWeight: 200, color: cell.accentColor || accent, lineHeight: 1 }}>{cell.value}<span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', marginLeft: 3 }}>{cell.unit || ''}</span></div>
+                                           <div style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 8 }}>{cell.text || cell.label}</div>
+                                       </>
+                                   )}
+                                   {cell.type === 'quote' && (
+                                       <>
+                                           <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>"{cell.text}"</p>
+                                           {cell.attribution && <p style={{ fontFamily: F, fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>-- {cell.attribution}</p>}
+                                       </>
+                                   )}
+                                   {(cell.type === 'indicator' || cell.type === 'list') && (
+                                       <>
+                                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: cell.accentColor || accent, marginBottom: 6 }}>{cell.label}</div>
+                                           {cell.type === 'list' ? (cell.items || []).map((item, j) => (
+                                               <div key={j} style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.6)', marginBottom: 3 }}>- {item}</div>
+                                           )) : <p style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>{cell.text}</p>}
+                                       </>
+                                   )}
+                               </div>
+                           )) : (
+                               <>
+                                   {metrics.slice(0, 2).map((m, i) => (
+                                       <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
+                                           <div style={{ fontFamily: F, fontSize: 40, fontWeight: 200, color: m.accentColor || accent, lineHeight: 1 }}>{m.value}<span style={{ fontSize: 14, color: 'rgba(255,255,255,0.3)', marginLeft: 3 }}>{m.unit || ''}</span></div>
+                                           <div style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 6 }}>{m.label}</div>
+                                       </div>
+                                   ))}
+                                   {slide.quote && (
+                                       <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
+                                           <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>"{cleanSlideText(slide.quote)}"</p>
+                                       </div>
+                                   )}
+                                   {(slide.content || []).slice(0, 3).map((point, i) => (
+                                       <div key={`c${i}`} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
+                                           <p style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
+                                       </div>
+                                   ))}
+                               </>
+                           )}
+                       </div>
+                       <FootnoteStrip />
+                       <SlideNum />
+                   </div>
+               )}
+
+               {/* ====== TEMPLATE 7: PROBLEM/SOLUTION — Dark left, white right ====== */}
+               {archetypeLayout === 'PROBLEM_SOLUTION' && (
+                   <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
+                       <div style={{ width: '50%', background: '#0D0D0D', padding: '40px 40px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#CC6644', marginBottom: 16 }}>THE CHALLENGE</div>
+                           {slide.problemStat ? (
+                               <>
+                                   <div style={{ fontFamily: F, fontSize: 64, fontWeight: 200, color: '#FFFFFF', lineHeight: 1 }}>{slide.problemStat.value}<span style={{ fontSize: 22, color: '#CC6644', marginLeft: 4 }}>{slide.problemStat.unit || ''}</span></div>
+                                   <p style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginTop: 12 }}>{slide.problemStat.description}</p>
+                               </>
+                           ) : (
+                               <>
+                                   <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.2 }}>{titleText}</h2>
+                                   {(slide.content || []).slice(0, 2).map((point, i) => (
+                                       <p key={i} style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginTop: 8 }}>{cleanSlideText(point)}</p>
+                                   ))}
+                               </>
+                           )}
+                       </div>
+                       <div style={{ width: '50%', background: '#FFFFFF', padding: '40px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: cyan, marginBottom: 20 }}>THE SOLUTION</div>
+                           {(slide.solutionPoints || []).length > 0 ? slide.solutionPoints!.map((sp, i) => (
+                               <div key={i} style={{ marginBottom: 18 }}>
+                                   <div style={{ width: 24, height: 2, background: getRotatedAccent(i), marginBottom: 8 }} />
+                                   <div style={{ fontFamily: F, fontSize: 13, fontWeight: 700, color: '#1A1A1A', marginBottom: 3 }}>{sp.title}</div>
+                                   <div style={{ fontFamily: F, fontSize: 11, color: '#888', lineHeight: 1.5 }}>{sp.description}</div>
+                               </div>
+                           )) : (slide.content || []).slice(1, 4).map((point, i) => (
+                               <div key={i} style={{ marginBottom: 14 }}>
+                                   <div style={{ width: 24, height: 2, background: getRotatedAccent(i), marginBottom: 6 }} />
+                                   <p style={{ fontFamily: F, fontSize: 12, color: '#555', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
+                               </div>
+                           ))}
+                       </div>
+                       <FootnoteStrip />
+                       <SlideNum />
+                   </div>
+               )}
+
+               {/* Hover controls */}
                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
                    <div className="flex gap-2 mb-1">
-                       <button onClick={() => deleteSlide(idx)} className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">Delete</button>
-                       <button onClick={() => startEditingSlide(idx)} className="bg-white text-black px-3 py-1 rounded-full text-xs font-bold">Edit</button>
+                       <button onClick={() => deleteSlide(idx)} style={{ background: '#CC6644', color: 'white', padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 600, border: 'none', cursor: 'pointer' }}>Delete</button>
+                       <button onClick={() => startEditingSlide(idx)} style={{ background: 'white', color: '#1A1A1A', padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 600, border: '1px solid #E8E8E8', cursor: 'pointer' }}>Edit</button>
                    </div>
-                   <div className="flex gap-1 items-center">
-                       <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
-                           className="bg-black/60 text-white text-[8px] rounded px-1.5 py-1 border border-white/20">
-                           {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}</option>)}
-                       </select>
-                       <button onClick={() => handleRegenerateSlideImage(idx, activeVisStyle)} className="bg-black/50 text-white px-2 py-1 rounded-full text-[9px]">Regen</button>
-                   </div>
-               </div>
-               <div className="absolute bottom-4 right-6 text-xs font-mono opacity-30 mix-blend-difference" style={{ color: 'white' }}>
-                   {idx + 1} / {slides.length}
                </div>
           </div>
       );
@@ -836,6 +1314,14 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
 
   return (
       <div className="bg-[var(--bg-secondary)] min-h-screen relative flex flex-col">
+          {/* G-06: NXT Humans Brand Sidebar */}
+          <div style={{position:'fixed',left:0,top:0,width:'48px',height:'100vh',background:'#0D0D0D',zIndex:100,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'space-between',padding:'20px 0'}}>
+              <div style={{writingMode:'vertical-rl',textOrientation:'mixed',fontFamily:"'Bebas Neue',sans-serif",fontSize:'14px',letterSpacing:'3px',color:'#fff',transform:'rotate(180deg)'}}>NXT HUMANS</div>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(3,6px)',gridTemplateRows:'repeat(3,6px)',gap:'4px'}}>
+                  {[...Array(9)].map((_,i) => <span key={i} style={{width:'6px',height:'6px',background:'#B8B800',display:'block'}}></span>)}
+              </div>
+          </div>
+          <div style={{marginLeft:'48px'}} className="flex flex-col flex-1">
           <div className="bg-[var(--bg-primary)] border-b border-[var(--border-primary)] sticky top-0 z-30 px-8 py-4 flex justify-between items-center shadow-sm">
               <div className="flex-1 flex justify-center">
                   <div className="flex bg-[var(--bg-secondary)] rounded p-1.5 border border-[var(--border-primary)] overflow-x-auto gap-1">
@@ -845,9 +1331,6 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       {isOutputSelected('STRATEGY_DECK') && (
                           <button onClick={() => setActiveTab('deck')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'deck' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Strategy Deck</button>
                       )}
-                      {isOutputSelected('VIDEO_SCRIPT') && (
-                          <button onClick={() => setActiveTab('script')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'script' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Video Script</button>
-                      )}
                       {isOutputSelected('STRATEGIC_RECS') && (
                           <button onClick={() => setActiveTab('strategy')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'strategy' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Recs</button>
                       )}
@@ -855,6 +1338,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       {isOutputSelected('ROADMAP') && <button onClick={() => setActiveTab('roadmap')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'roadmap' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Roadmap</button>}
                       {isOutputSelected('JOURNEY_MAP') && <button onClick={() => setActiveTab('journey')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'journey' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Blueprint</button>}
                       {isOutputSelected('TECH_ARCH') && <button onClick={() => setActiveTab('tech')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'tech' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Tech Arch</button>}
+                      {isOutputSelected('GAP_ANALYSIS') && <button onClick={() => setActiveTab('gap')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'gap' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Gap Analysis</button>}
+                      {isOutputSelected('TECH_AUDIT') && <button onClick={() => setActiveTab('techAudit')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'techAudit' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Tech Audit</button>}
+                      {isOutputSelected('COMPETITIVE_ANALYSIS') && <button onClick={() => setActiveTab('competitive')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'competitive' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Competitive</button>}
                   </div>
               </div>
               <div className="flex gap-2">
@@ -870,37 +1356,90 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               <div ref={contentRef} className="max-w-7xl mx-auto bg-[var(--bg-primary)] p-8 rounded shadow-sm border border-[var(--border-primary)] min-h-[80vh]">
                   {activeTab === 'personas' && (
                       <div className="space-y-8">
-                          <h2 className="text-3xl font-black mb-8 border-b pb-4">Archetypes & Personas</h2>
-                          <div className="grid grid-cols-1 gap-16">
+                          <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-8 border-b pb-4">ARCHETYPES & PERSONAS</h2>
+                          <div className="grid grid-cols-1 gap-8">
                               {(personasData || []).map((p: any, i: number) => (
-                                  <div key={i} className="persona-card bg-[var(--card-bg)] border border-[var(--border-primary)] rounded overflow-hidden shadow-sm">
-                                      {/* HEADER: Image + Identity + Quote */}
-                                      <div className="grid md:grid-cols-3">
-                                          <div className="relative aspect-square md:aspect-auto bg-[var(--bg-tertiary)] min-h-[280px]">
-                                              {p.imageUrl ? <img src={p.imageUrl} alt={p.name} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[var(--text-tertiary)]">Generating...</div>}
-                                              <div className="absolute bottom-2 right-2 flex gap-1">
-                                                  <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
-                                                      className="bg-black/60 text-white text-[8px] rounded px-1 py-1 border border-white/20">
-                                                      {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}</option>)}
-                                                  </select>
-                                                  <button onClick={() => handleRegeneratePersonaImage(i, activeVisStyle)} className="bg-black/50 text-white text-xs px-2 py-1 rounded hover:bg-black/70">Regen</button>
+                                  <div key={i}>
+                                  <div className="persona-card" style={{display:'grid',gridTemplateColumns:'240px 1fr',border:'1px solid #E0E0E0',overflow:'visible',minHeight:'420px'}}>
+                                      {/* LEFT: Identity Panel — NXT Humans Design System */}
+                                      <div style={{background:'#0D0D0D',color:'#fff',display:'flex',flexDirection:'column'}}>
+                                          <div style={{width:'100%',height:'240px',position:'relative',overflow:'hidden'}}>
+                                              {p.imageUrl ? <img src={p.imageUrl} alt={p.name} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 15%',filter:'grayscale(100%) contrast(1.2) brightness(0.95)',display:'block',borderRadius:0}} /> : <div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',color:'#999'}}>Generating...</div>}
+                                              <div className="absolute bottom-1 right-1">
+                                                  <button onClick={() => handleRegeneratePersonaImage(i, activeVisStyle)} className="bg-black/60 text-white text-[8px] px-1.5 py-0.5 hover:bg-black/80">Regen</button>
                                               </div>
                                           </div>
-                                          <div className="md:col-span-2 p-6 flex flex-col gap-4">
+                                          <div style={{padding:'18px',flex:1,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
                                               <div>
-                                                  <input value={p.name} onChange={e => updatePersonaField(i, 'name', e.target.value)} className="text-3xl font-bold bg-transparent outline-none w-full" />
-                                                  <input value={p.role} onChange={e => updatePersonaField(i, 'role', e.target.value)} className="text-[var(--nxt-teal)] font-bold bg-transparent outline-none w-full text-lg" />
-                                                  {p.demographics && <div className="text-sm text-[var(--text-tertiary)] mt-1">{p.demographics}</div>}
+                                                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'9px',letterSpacing:'4px',color:'#B8B800'}}>PERSONA</div>
+                                                  <textarea value={p.name} onChange={e => updatePersonaField(i, 'name', e.target.value)} rows={2} style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'20px',lineHeight:'1.05',color:'#fff',background:'transparent',border:'none',outline:'none',width:'100%',letterSpacing:'0.5px',marginTop:'4px',resize:'none',overflow:'hidden'}} />
+                                                  <input value={p.role} onChange={e => updatePersonaField(i, 'role', e.target.value)} style={{fontSize:'11px',color:'#999',background:'transparent',border:'none',outline:'none',width:'100%',marginTop:'8px',lineHeight:'1.4'}} />
+                                                  {p.demographics && <div style={{fontSize:'10px',color:'#666',marginTop:'4px'}}>{p.demographics}</div>}
                                               </div>
-                                              <div className="bg-[var(--bg-tertiary)] p-4 rounded border-l-4 border-[var(--nxt-lime)]">
-                                                  <textarea value={p.quote} onChange={e => updatePersonaField(i, 'quote', e.target.value)} className="w-full bg-transparent text-lg italic outline-none text-[var(--text-primary)]" rows={2} />
+                                              <div style={{display:'grid',gridTemplateColumns:'repeat(3,5px)',gridTemplateRows:'repeat(3,5px)',gap:'3px',marginTop:'auto'}}>
+                                                  {[...Array(9)].map((_,di) => <span key={di} style={{width:'5px',height:'5px',background:'#B8B800',display:'block'}}></span>)}
                                               </div>
-                                              <textarea value={p.bio} onChange={e => updatePersonaField(i, 'bio', e.target.value)} className="w-full bg-transparent text-sm outline-none text-[var(--text-secondary)] leading-relaxed" rows={3} />
                                           </div>
                                       </div>
-
-                                      {/* FIVE Ws — Strategic Analysis */}
-                                      {p.fiveWs && (
+                                      {/* RIGHT: Content Panel — STARK WHITE */}
+                                      <div style={{background:'#FFFFFF',padding:'24px 28px',display:'flex',flexDirection:'column',gap:'16px'}}>
+                                          {/* Quote */}
+                                          <div style={{fontSize:'14px',fontStyle:'italic',color:'#666',paddingLeft:'14px',borderLeft:'3px solid #B8B800',lineHeight:'1.6'}}>
+                                              <textarea value={p.quote} onChange={e => updatePersonaField(i, 'quote', e.target.value)} style={{width:'100%',background:'transparent',border:'none',outline:'none',fontStyle:'italic',fontSize:'14px',color:'#666',lineHeight:'1.6',resize:'none'}} rows={2} />
+                                          </div>
+                                          {/* JTBD */}
+                                          {p.jtbd && (
+                                              <div style={{background:'#F5F5F0',padding:'14px 16px'}}>
+                                                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'10px',letterSpacing:'2px',color:'#999',marginBottom:'5px'}}>JOBS TO BE DONE</div>
+                                                  <div style={{fontSize:'13px',color:'#333',lineHeight:'1.55'}}>{p.jtbd}</div>
+                                              </div>
+                                          )}
+                                          {/* Behavioral Attributes — no arbitrary scores */}
+                                          {p.attributes && p.attributes.length > 0 && (
+                                              <div>
+                                                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>BEHAVIORAL PROFILE</div>
+                                                  <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+                                                      {p.attributes.map((attr: any, ai: number) => (
+                                                          <div key={ai} style={{display:'flex',gap:'8px',alignItems:'flex-start'}}>
+                                                              <div style={{width:'4px',minHeight:'100%',background: ai % 3 === 0 ? '#B8B800' : ai % 3 === 1 ? '#00B7C3' : '#CC6644',borderRadius:'2px',flexShrink:0,alignSelf:'stretch'}}></div>
+                                                              <div style={{flex:1,minWidth:0}}>
+                                                                  <div style={{fontSize:'10px',fontWeight:700,color:'#0D0D0D',textTransform:'uppercase',letterSpacing:'0.5px'}}>{attr.name?.replace(/_/g,' ')}</div>
+                                                                  <div style={{fontSize:'11px',color:'#666',lineHeight:'1.4',marginTop:'1px'}}>{attr.behavior || attr.score || ''}</div>
+                                                              </div>
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+                                          {/* Goals (Cooper 3-tier) */}
+                                          {p.goals && (
+                                              <div>
+                                                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>COOPER GOAL HIERARCHY</div>
+                                                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:'8px'}}>
+                                                      {[
+                                                          {label:'Life Goal',value:p.goals.lifeGoal},
+                                                          {label:'Experience Goal',value:p.goals.experienceGoal},
+                                                          {label:'Functional Goal',value:p.goals.functionalGoal},
+                                                      ].map((g,gi) => (
+                                                          <div key={gi} style={{fontSize:'12px',lineHeight:'1.45'}}>
+                                                              <strong style={{color:'#0D0D0D',fontWeight:600,display:'block',fontSize:'10px',textTransform:'uppercase',letterSpacing:'0.5px',marginBottom:'2px'}}>{g.label}</strong>
+                                                              <span style={{color:'#666'}}>{g.value || '--'}</span>
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+                                          {/* Bio — with clickable citation traceability (P5-02) */}
+                                          <div style={{fontSize:'13px',color:'#666',lineHeight:'1.6',whiteSpace:'pre-wrap',maxHeight:'120px',overflowY:'auto',padding:'4px 0'}}>{renderWithCitations(p.bio || '', handleCitationClick)}</div>
+                                          {/* Confidence Badge */}
+                                          <div style={{display:'flex',alignItems:'center',gap:'8px',fontSize:'11px',color:'#999',marginTop:'auto',paddingTop:'10px',borderTop:'1px solid #E0E0E0'}}>
+                                              <span style={{display:'inline-block',fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',padding:'2px 8px',letterSpacing:'1px',background: p.confidenceLevel === 'EVIDENCED' ? '#E8F6F7' : p.confidenceLevel === 'HYPOTHESIS' ? '#FFF8E1' : '#F5F5F0', color: p.confidenceLevel === 'EVIDENCED' ? '#00706B' : p.confidenceLevel === 'HYPOTHESIS' ? '#8A8A00' : '#666'}}>{p.confidenceLevel || 'UNSCORED'}</span>
+                                              <span>{p.evidenceCount ? `Based on ${p.evidenceCount} evidence sources` : ''}</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  {/* FIVE Ws — below the card */}
+                                  {p.fiveWs && (
                                           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-6 py-4 bg-[var(--bg-secondary)] border-t border-b border-[var(--border-primary)]">
                                               {[
                                                   { label: 'Who (Their World)', value: p.fiveWs.who, color: '#115054' },
@@ -927,7 +1466,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                           <div key={mi} className="text-xs">
                                                               <div className="font-bold text-[var(--text-primary)]">{m.label}</div>
                                                               {m.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{m.quote}"</div>}
-                                                              {m.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{m.citation.sourceFile} - {m.citation.sourceName}</div>}
+                                                              {(m.source || m.citation?.sourceName) && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{m.source || `${m.citation?.sourceFile || ''} - ${m.citation?.sourceName || ''}`}</div>}
                                                           </div>
                                                       ))}
                                                   </div>
@@ -943,7 +1482,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                           <div key={pi} className="text-xs">
                                                               <div className="font-bold text-[var(--text-primary)]">{pp.label}</div>
                                                               {pp.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{pp.quote}"</div>}
-                                                              {pp.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{pp.citation.sourceFile} - {pp.citation.sourceName}</div>}
+                                                              {(pp.source || pp.citation?.sourceName) && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{pp.source || `${pp.citation?.sourceFile || ''} - ${pp.citation?.sourceName || ''}`}</div>}
                                                           </div>
                                                       ))}
                                                   </div>
@@ -974,13 +1513,32 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                           <div key={oi} className="text-xs">
                                                               <div className="font-bold text-[var(--text-primary)]">{o.label}</div>
                                                               {o.quote && <div className="text-[var(--text-tertiary)] italic mt-0.5 text-[11px]">"{o.quote}"</div>}
-                                                              {o.citation?.sourceName && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{o.citation.sourceFile} - {o.citation.sourceName}</div>}
+                                                              {(o.source || o.citation?.sourceName) && <div className="text-[9px] text-[var(--nxt-teal)] mt-0.5">{o.source || `${o.citation?.sourceFile || ''} - ${o.citation?.sourceName || ''}`}</div>}
                                                           </div>
                                                       ))}
                                                   </div>
                                               </div>
                                           )}
                                       </div>
+                                      {/* PERSONA-01: Extended persona sections */}
+                                      {(p.behaviors || p.technologyUsage || p.journeyContext || p.dayInTheLife || p.brandRelationships || p.communicationPrefs || p.decisionProcess) && (
+                                          <div className="grid md:grid-cols-2 gap-0 border-t border-[var(--border-primary)]">
+                                              {[
+                                                  { key: 'behaviors', label: 'Behaviors & Habits', color: '#7c3aed' },
+                                                  { key: 'technologyUsage', label: 'Technology Usage', color: '#0891b2' },
+                                                  { key: 'journeyContext', label: 'Journey Context', color: '#115054' },
+                                                  { key: 'dayInTheLife', label: 'Day in the Life', color: '#fd8e2e' },
+                                                  { key: 'brandRelationships', label: 'Brand Relationships', color: '#B8B800' },
+                                                  { key: 'communicationPrefs', label: 'Communication Preferences', color: '#00b1eb' },
+                                                  { key: 'decisionProcess', label: 'Decision-Making Process', color: '#FF5A5A' },
+                                              ].filter(s => (p as any)[s.key]).map((section, si) => (
+                                                  <div key={si} className="p-4 border-b border-r border-[var(--border-primary)]">
+                                                      <div className="text-[9px] font-bold uppercase tracking-widest mb-2" style={{ color: section.color }}>{section.label}</div>
+                                                      <div className="text-xs text-[var(--text-secondary)] leading-relaxed">{(p as any)[section.key]}</div>
+                                                  </div>
+                                              ))}
+                                          </div>
+                                      )}
                                   </div>
                               ))}
                           </div>
@@ -993,16 +1551,23 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   )}
                   {activeTab === 'roadmap' && roadmapData && (
                       <div className="space-y-8">
-                          <h2 className="text-3xl font-black mb-4 border-b pb-4">Strategic Roadmap</h2>
-                          <div className="grid grid-cols-3 gap-6 h-full min-h-[600px]">
-                              {['Now', 'Next', 'Later'].map((horizon) => (
-                                  <div key={horizon} className="bg-[var(--bg-tertiary)] rounded p-4 border border-[var(--border-secondary)]">
-                                      <h3 className="font-black text-lg uppercase tracking-widest text-[var(--text-tertiary)] mb-4">{horizon}</h3>
-                                      <div className="space-y-3">
-                                          {roadmapData.items.filter(i => i.horizon === horizon).map((item, idx) => (
-                                              <div key={idx} className="bg-[var(--card-bg)] p-4 rounded-lg shadow-sm border border-[var(--border-primary)]">
-                                                  <input value={item.initiative} onChange={(e) => { const rIdx = roadmapData.items.findIndex(x => x === item); updateRoadmapItem(rIdx, 'initiative', e.target.value); }} className="font-bold text-sm bg-transparent w-full mb-2 outline-none" />
-                                                  <textarea value={item.description} onChange={(e) => { const rIdx = roadmapData.items.findIndex(x => x === item); updateRoadmapItem(rIdx, 'description', e.target.value); }} className="text-xs text-[var(--text-secondary)] bg-transparent w-full resize-none h-16 outline-none" />
+                          <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">STRATEGIC ROADMAP</h2>
+                          <div className="grid grid-cols-3 gap-0" style={{border:'1px solid #E0E0E0'}}>
+                              {[
+                                  {horizon:'Now',label:'NOW (0-3 months)',confidence:'HIGH CONFIDENCE',bg:'#FFFFFF'},
+                                  {horizon:'Next',label:'NEXT (3-9 months)',confidence:'MEDIUM CONFIDENCE',bg:'#FAFAFA'},
+                                  {horizon:'Later',label:'LATER (9-18 months)',confidence:'EXPLORATORY',bg:'#F5F5F0'},
+                              ].map(({horizon,label,confidence,bg}) => (
+                                  <div key={horizon} style={{background:bg,padding:'24px',borderRight:'1px solid #E0E0E0'}}>
+                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'14px',letterSpacing:'3px',color:'#999',marginBottom:'4px'}}>{label}</div>
+                                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'8px',letterSpacing:'1px',padding:'2px 6px',display:'inline-block',background: horizon==='Now' ? '#B8B800' : horizon==='Next' ? '#E0E0E0' : '#F5F5F0', color: horizon==='Now' ? '#0D0D0D' : '#999',marginBottom:'16px', border: horizon==='Later' ? '1px dashed #CCC' : 'none'}}>{confidence}</div>
+                                      <div className="space-y-4">
+                                          {(roadmapData.items || []).filter((i: any) => i.horizon === horizon).map((item: any, idx: number) => (
+                                              <div key={idx} style={{borderLeft:'3px solid #B8B800',paddingLeft:'12px',paddingBottom:'12px',borderBottom:'1px solid #E0E0E0'}}>
+                                                  <input value={item.initiative || ''} onChange={(e) => { const rIdx = (roadmapData.items || []).findIndex((x: any) => x === item); updateRoadmapItem(rIdx, 'initiative', e.target.value); }} style={{fontWeight:700,fontSize:'14px',background:'transparent',width:'100%',border:'none',outline:'none',color:'#0D0D0D',marginBottom:'4px'}} />
+                                                  <textarea value={item.description || ''} onChange={(e) => { const rIdx = (roadmapData.items || []).findIndex((x: any) => x === item); updateRoadmapItem(rIdx, 'description', e.target.value); }} style={{fontSize:'12px',color:'#666',background:'transparent',width:'100%',resize:'vertical',border:'none',outline:'none',lineHeight:'1.5',minHeight:'60px'}} />
+                                                  {item.successMetric && <div style={{fontSize:'11px',color:'#B8B800',fontFamily:"'JetBrains Mono',monospace",marginTop:'4px'}}>{item.successMetric}</div>}
+                                                  {item.owner && <div style={{fontSize:'10px',color:'#999',marginTop:'2px'}}>Owner: {item.owner}</div>}
                                               </div>
                                           ))}
                                       </div>
@@ -1013,44 +1578,78 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   )}
                   {activeTab === 'prd' && prdData && (
                       <div className="space-y-8">
-                          <h2 className="text-3xl font-black mb-4 border-b pb-4">Product Requirements Document</h2>
-                          <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-sm">
-                              <h3 className="text-2xl font-bold mb-2">{prdData.title}</h3>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                                  <div>
-                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Purpose & Objectives</h4>
-                                      <p className="text-[var(--text-secondary)]">{prdData.purposeAndObjectives}</p>
+                          <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">PRODUCT REQUIREMENTS DOCUMENT</h2>
+                          <div style={{border:'1px solid #E0E0E0',padding:'28px',background:'#FFFFFF'}}>
+                              <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1.75rem',color:'#0D0D0D',letterSpacing:'0.02em'}}>{prdData.title}</h3>
+                              {/* Problem Statement — the most important section per Cagan */}
+                              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'0',marginTop:'24px'}}>
+                                  <div style={{paddingRight:'24px',borderRight:'1px solid #E0E0E0'}}>
+                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>PURPOSE & OBJECTIVES</div>
+                                      <p style={{fontSize:'14px',color:'#333',lineHeight:'1.65'}}>{prdData.purposeAndObjectives}</p>
                                   </div>
-                                  <div>
-                                      <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Target Audience</h4>
-                                      <p className="text-[var(--text-secondary)]">{prdData.targetAudience}</p>
+                                  <div style={{paddingLeft:'24px'}}>
+                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'6px'}}>TARGET AUDIENCE</div>
+                                      <p style={{fontSize:'14px',color:'#333',lineHeight:'1.65'}}>{prdData.targetAudience || 'See Personas tab for detailed archetype analysis.'}</p>
                                   </div>
                               </div>
                               <div className="mt-8">
                                   <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-4">Features</h4>
                                   <div className="space-y-4">
-                                      {prdData.features.map((feature, idx) => (
-                                          <div key={idx} className="bg-[var(--bg-tertiary)] p-4 rounded-lg border border-[var(--border-secondary)]">
+                                      {(prdData.features || []).map((feature, idx) => (
+                                          <div key={idx} style={{border:'1px solid #E0E0E0',padding:'16px',borderLeft: feature.priority === 'Must-have' ? '4px solid #B8B800' : feature.priority === 'Should-have' ? '4px solid #00B7C3' : '4px solid #E0E0E0'}}>
                                               <div className="flex justify-between items-start mb-2">
-                                                  <input value={feature.name} onChange={(e) => updatePRDFeature(idx, 'name', e.target.value)} className="font-bold text-lg bg-transparent outline-none w-full" />
-                                                  <span className="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded ml-4 whitespace-nowrap">{feature.priority}</span>
+                                                  <input value={feature.name || ''} onChange={(e) => updatePRDFeature(idx, 'name', e.target.value)} style={{fontWeight:700,fontSize:'15px',background:'transparent',outline:'none',width:'100%',color:'#0D0D0D'}} />
+                                                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',padding:'2px 8px',letterSpacing:'1px',whiteSpace:'nowrap',marginLeft:'12px',background: feature.priority === 'Must-have' ? '#B8B800' : feature.priority === 'Should-have' ? '#E8F6F7' : '#F5F5F0', color: feature.priority === 'Must-have' ? '#0D0D0D' : feature.priority === 'Should-have' ? '#00706B' : '#999'}}>{feature.priority?.toUpperCase() || 'UNRANKED'}</span>
                                               </div>
-                                              <textarea value={feature.description} onChange={(e) => updatePRDFeature(idx, 'description', e.target.value)} className="w-full bg-transparent text-sm text-[var(--text-secondary)] outline-none resize-none h-16" />
+                                              <textarea value={feature.description || ''} onChange={(e) => updatePRDFeature(idx, 'description', e.target.value)} className="w-full bg-transparent text-sm text-[var(--text-secondary)] outline-none resize-none h-16" />
+                                              {(feature.userStories && feature.userStories.length > 0) && (
                                               <div className="mt-2">
                                                   <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">User Stories</h5>
                                                   <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] mt-1">
                                                       {feature.userStories.map((story, i) => <li key={i}>{story}</li>)}
                                                   </ul>
                                               </div>
+                                              )}
+                                              {feature.acceptanceCriteria && feature.acceptanceCriteria.length > 0 && (
+                                              <div className="mt-2">
+                                                  <h5 className="text-xs font-bold text-[var(--text-tertiary)] uppercase">Acceptance Criteria</h5>
+                                                  <ul className="list-disc list-inside text-sm text-[var(--text-secondary)] mt-1">
+                                                      {(feature.acceptanceCriteria as string[]).map((ac, i) => <li key={i}>{ac}</li>)}
+                                                  </ul>
+                                              </div>
+                                              )}
+                                              {feature.citation && (
+                                              <div className="mt-2 text-xs text-[var(--text-tertiary)] italic border-t border-[var(--border-secondary)] pt-2">Evidence: {feature.citation}</div>
+                                              )}
                                           </div>
                                       ))}
                                   </div>
                               </div>
+                              {/* PRD-01: Render all 16 sections */}
+                              {prdData.sections && prdData.sections.length > 0 && (
+                                  <div className="mt-8 space-y-4">
+                                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'14px',letterSpacing:'2px',color:'#999',borderTop:'2px solid #E0E0E0',paddingTop:'16px'}}>DOCUMENT SECTIONS ({prdData.sections.length})</div>
+                                      {prdData.sections.map((section: any, si: number) => (
+                                          <div key={si} style={{border:'1px solid #E0E0E0',padding:'16px 20px'}}>
+                                              <div className="flex items-baseline gap-3 mb-2">
+                                                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',color:'#B8B800',fontWeight:700}}>{String(section.sectionNumber || si + 1).padStart(2, '0')}</span>
+                                                  <h5 style={{fontSize:'15px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h5>
+                                              </div>
+                                              <p style={{fontSize:'13px',lineHeight:'1.6',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
+                                              {section.evidenceGap && (
+                                                  <div style={{marginTop:'8px',padding:'8px 12px',background:'#FFF8E1',border:'1px solid #FFE082',fontSize:'12px',color:'#8A6D00'}}>
+                                                      EVIDENCE GAP: {section.evidenceGap}
+                                                  </div>
+                                              )}
+                                          </div>
+                                      ))}
+                                  </div>
+                              )}
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                                   <div>
                                       <h4 className="font-bold text-lg text-[var(--text-secondary)] mb-2">Success Metrics</h4>
                                       <ul className="list-disc list-inside text-[var(--text-secondary)]">
-                                          {prdData.successMetrics.map((metric, i) => <li key={i}>{metric}</li>)}
+                                          {(prdData.successMetrics || []).map((metric, i) => <li key={i}>{metric}</li>)}
                                       </ul>
                                   </div>
                                   <div>
@@ -1068,123 +1667,173 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       const emotionYMap: Record<string, number> = { 'Delighted': 20, 'Positive': 40, 'Neutral': 60, 'Negative': 80, 'Frustrated': 95 };
                       const getEmotionY = (e: string) => emotionYMap[e] ?? emotionYMap[e?.charAt(0)?.toUpperCase() + e?.slice(1)] ?? 60;
                       const getEmotionColor = (e: string) => emotionColors[e] ?? emotionColors[e?.charAt(0)?.toUpperCase() + e?.slice(1)] ?? '#acacac';
-                      const colW = 180;
-                      const svgW = journeyData.length * colW + 120;
+                      // TRUNC-01: Wider columns to prevent text truncation. NO .substring() anywhere.
+                      const colW = 280;
+                      const labelW = 120;
+                      const svgW = journeyData.length * colW + labelW + 20;
                       const allActors = [...new Set(journeyData.flatMap((s: any) => s.actors || []))];
-                      const actorColors = ['#115054', '#fd8e2e', '#00b1eb', '#caca20', '#0CCE6B', '#9333ea'];
+                      // NXT Humans semantic actor palette: teal primary, then graduated neutral-professional tones
+                      const actorColors = ['#115054', '#1a6b70', '#2d8a8e', '#3a7ca5', '#4a6fa5', '#5a6478'];
+                      // Lane heights expanded to fit full text content
+                      const laneH = 48;
+                      const actorLaneH = 28;
+                      // Computed Y offsets for each lane
+                      const emotionTop = 38;
+                      const emotionH = 80;
+                      const touchpointTop = emotionTop + emotionH + 8;
+                      const actorsTop = touchpointTop + laneH + 4;
+                      const frontstageTop = actorsTop + allActors.length * actorLaneH + 8;
+                      const lovTop = frontstageTop + laneH + 8;
+                      const backstageTop = lovTop + 14;
+                      const painTop = backstageTop + laneH + 8;
+                      const supportTop = painTop + laneH + 8;
+                      const legendTop = supportTop + laneH + 16;
+                      const svgH = legendTop + 24;
 
                       return (
                       <div className="space-y-6">
                           <h2 className="text-3xl font-black border-b pb-4">Service Blueprint</h2>
 
                           {/* === SVG SERVICE BLUEPRINT VISUALIZATION === */}
-                          <div className="diagram-container overflow-x-auto border border-[var(--border-primary)] rounded bg-white p-4">
-                              <svg width={svgW} height={380} viewBox={`0 0 ${svgW} 380`} className="font-sans">
-                                  {/* Column headers — stage names */}
+                          <div className="diagram-container overflow-x-auto border border-[var(--border-primary)] rounded bg-white p-4" style={{overflowX:'auto'}}>
+                              <svg width={svgW} height={svgH} viewBox={`0 0 ${svgW} ${svgH}`} className="font-sans">
+                                  {/* Column headers — stage names — FULL TEXT, no truncation */}
                                   {journeyData.map((s: any, i: number) => (
                                       <g key={`h${i}`}>
-                                          <rect x={100 + i * colW} y={0} width={colW - 4} height={28} rx={4} fill={s.momentOfTruth ? '#FF5A5A' : '#115054'} />
-                                          <text x={100 + i * colW + (colW - 4) / 2} y={18} textAnchor="middle" fontSize="8" fontWeight="bold" fill="white">{(s.phase || '').substring(0, 22)}</text>
-                                          {s.momentOfTruth && <text x={100 + i * colW + colW - 10} y={12} fontSize="6" fill="#fff" fontWeight="bold">MOT</text>}
+                                          <rect x={labelW + i * colW} y={0} width={colW - 4} height={32} rx={4} fill={s.momentOfTruth ? '#FF5A5A' : '#115054'} />
+                                          <foreignObject x={labelW + i * colW + 4} y={2} width={colW - 12} height={28}>
+                                              <div style={{ fontSize: '9px', fontWeight: 'bold', color: 'white', lineHeight: '1.3', textAlign: 'center', wordWrap: 'break-word', overflow: 'visible' }}>{s.phase || ''}{s.momentOfTruth ? ' [MOT]' : ''}</div>
+                                          </foreignObject>
                                       </g>
                                   ))}
 
-                                  {/* EMOTION CURVE */}
-                                  <text x={10} y={55} fontSize="7" fontWeight="bold" fill="#115054">EMOTION</text>
-                                  <rect x={95} y={35} width={journeyData.length * colW + 5} height={80} rx={4} fill="#fafafa" stroke="#e5e5e5" />
-                                  <line x1={100} y1={75} x2={95 + journeyData.length * colW} y2={75} stroke="#e5e5e5" strokeDasharray="3,3" />
+                                  {/* EMOTION CURVE — labeled data points with color fills */}
+                                  <text x={10} y={emotionTop + 20} fontSize="7" fontWeight="bold" fill="#115054">EMOTION</text>
+                                  <rect x={labelW - 5} y={emotionTop} width={journeyData.length * colW + 5} height={emotionH} rx={4} fill="#fafafa" stroke="#e5e5e5" />
+                                  {/* Positive zone (green tint above neutral) */}
+                                  <rect x={labelW - 5} y={emotionTop} width={journeyData.length * colW + 5} height={40} rx={4} fill="rgba(12,206,107,0.06)" />
+                                  {/* Negative zone (red tint below neutral) */}
+                                  <rect x={labelW - 5} y={emotionTop + 40} width={journeyData.length * colW + 5} height={40} fill="rgba(255,90,90,0.06)" />
+                                  <line x1={labelW} y1={emotionTop + 40} x2={labelW - 5 + journeyData.length * colW} y2={emotionTop + 40} stroke="#e5e5e5" strokeDasharray="3,3" />
                                   <polyline fill="none" stroke="#115054" strokeWidth="2.5" strokeLinejoin="round"
-                                      points={journeyData.map((s: any, i: number) => `${100 + i * colW + (colW - 4) / 2},${35 + getEmotionY(s.emotion) * 0.8}`).join(' ')} />
-                                  {journeyData.map((s: any, i: number) => (
-                                      <circle key={`ec${i}`} cx={100 + i * colW + (colW - 4) / 2} cy={35 + getEmotionY(s.emotion) * 0.8} r={5} fill={getEmotionColor(s.emotion)} stroke="white" strokeWidth="2" />
-                                  ))}
+                                      points={journeyData.map((s: any, i: number) => `${labelW + i * colW + (colW - 4) / 2},${emotionTop + getEmotionY(s.emotion) * 0.8}`).join(' ')} />
+                                  {journeyData.map((s: any, i: number) => {
+                                      const cx = labelW + i * colW + (colW - 4) / 2;
+                                      const cy = emotionTop + getEmotionY(s.emotion) * 0.8;
+                                      return (
+                                          <g key={`ec${i}`}>
+                                              <circle cx={cx} cy={cy} r={6} fill={getEmotionColor(s.emotion)} stroke="white" strokeWidth="2" />
+                                              <text x={cx} y={cy + 16} textAnchor="middle" fontSize="8" fontWeight="600" fill={getEmotionColor(s.emotion)}>{s.emotion || ''}</text>
+                                          </g>
+                                      );
+                                  })}
 
-                                  {/* TOUCHPOINTS ROW */}
-                                  <text x={10} y={135} fontSize="7" fontWeight="bold" fill="#525252">TOUCHPOINTS</text>
+                                  {/* TOUCHPOINTS ROW — full text, word-wrap */}
+                                  <text x={10} y={touchpointTop + 14} fontSize="7" fontWeight="bold" fill="#525252">TOUCHPOINTS</text>
                                   {journeyData.map((s: any, i: number) => (
-                                      <foreignObject key={`tp${i}`} x={100 + i * colW} y={120} width={colW - 8} height={30}>
-                                          <div style={{ fontSize: '7px', color: '#525252', lineHeight: '1.2', overflow: 'hidden' }}>{(s.touchpoint || '').substring(0, 50)}</div>
+                                      <foreignObject key={`tp${i}`} x={labelW + i * colW} y={touchpointTop} width={colW - 8} height={laneH}>
+                                          <div style={{ fontSize: '8px', color: '#525252', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.touchpoint || ''}</div>
                                       </foreignObject>
                                   ))}
 
-                                  {/* ACTOR LANES */}
+                                  {/* ACTOR LANES — full names and full action text */}
                                   {allActors.map((actor: string, ai: number) => {
-                                      const y = 158 + ai * 22;
+                                      const y = actorsTop + ai * actorLaneH;
                                       return (
                                           <g key={`a${ai}`}>
-                                              <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill={actorColors[ai % actorColors.length]}>{(actor as string).substring(0, 15)}</text>
+                                              <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill={actorColors[ai % actorColors.length]}>{String(actor || '')}</text>
                                               {journeyData.map((s: any, si: number) => {
                                                   const involved = (s.actors || []).includes(actor);
-                                                  return involved ? (
-                                                      <rect key={`ar${si}`} x={100 + si * colW + 2} y={y} width={colW - 12} height={16} rx={3}
-                                                          fill={actorColors[ai % actorColors.length] + '20'} stroke={actorColors[ai % actorColors.length]} strokeWidth="1" />
-                                                  ) : null;
+                                                  const actorAction = involved && s.actorActions ? (s.actorActions[actor] || '') : '';
+                                                  return (
+                                                      <g key={`ar${si}`}>
+                                                          <rect x={labelW + si * colW + 2} y={y} width={colW - 12} height={actorLaneH - 4} rx={3}
+                                                              fill={involved ? actorColors[ai % actorColors.length] + '20' : '#f9fafb'} stroke={involved ? actorColors[ai % actorColors.length] : '#e5e7eb'} strokeWidth="1" />
+                                                          <foreignObject x={labelW + si * colW + 6} y={y + 2} width={colW - 20} height={actorLaneH - 6}>
+                                                              <div style={{ fontSize: '7px', color: involved ? actorColors[ai % actorColors.length] : '#d1d5db', lineHeight: '1.4', textAlign: 'center', fontWeight: involved ? 600 : 400, wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+                                                                  {involved ? (actorAction || String(actor)) : '---'}
+                                                              </div>
+                                                          </foreignObject>
+                                                      </g>
+                                                  );
                                               })}
                                           </g>
                                       );
                                   })}
 
-                                  {/* FRONTSTAGE LANE */}
-                                  {(() => { const y = 160 + allActors.length * 22; return (
+                                  {/* FRONTSTAGE LANE — full text */}
+                                  {(() => { const y = frontstageTop; return (
                                       <g>
-                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#00b1eb">FRONTSTAGE</text>
-                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#eff6ff" stroke="#bfdbfe" />
+                                          <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#00b1eb">FRONTSTAGE</text>
+                                          <rect x={labelW - 5} y={y} width={journeyData.length * colW + 5} height={laneH} rx={4} fill="#eff6ff" stroke="#bfdbfe" />
                                           {journeyData.map((s: any, i: number) => (
-                                              <foreignObject key={`fs${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
-                                                  <div style={{ fontSize: '7px', color: '#1e40af', lineHeight: '1.2', overflow: 'hidden' }}>{(s.frontstageAction || '').substring(0, 60)}</div>
+                                              <foreignObject key={`fs${i}`} x={labelW + i * colW} y={y + 3} width={colW - 8} height={laneH - 6}>
+                                                  <div style={{ fontSize: '8px', color: '#1e40af', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.frontstageAction || ''}</div>
                                               </foreignObject>
                                           ))}
                                       </g>
                                   ); })()}
 
                                   {/* LINE OF VISIBILITY */}
-                                  {(() => { const y = 200 + allActors.length * 22; return (
+                                  {(() => { const y = lovTop; return (
                                       <g>
                                           <line x1={0} y1={y} x2={svgW} y2={y} stroke="#caca20" strokeWidth="2" strokeDasharray="8,4" />
                                           <text x={svgW / 2} y={y - 3} textAnchor="middle" fontSize="6" fontWeight="bold" fill="#caca20">LINE OF VISIBILITY</text>
                                       </g>
                                   ); })()}
 
-                                  {/* BACKSTAGE LANE */}
-                                  {(() => { const y = 208 + allActors.length * 22; return (
+                                  {/* BACKSTAGE LANE — full text */}
+                                  {(() => { const y = backstageTop; return (
                                       <g>
-                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#115054">BACKSTAGE</text>
-                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#f0fdfa" stroke="#99f6e4" />
+                                          <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#115054">BACKSTAGE</text>
+                                          <rect x={labelW - 5} y={y} width={journeyData.length * colW + 5} height={laneH} rx={4} fill="#f0fdfa" stroke="#99f6e4" />
                                           {journeyData.map((s: any, i: number) => (
-                                              <foreignObject key={`bs${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
-                                                  <div style={{ fontSize: '7px', color: '#134e4a', lineHeight: '1.2', overflow: 'hidden' }}>{(s.backstageAction || '').substring(0, 60)}</div>
+                                              <foreignObject key={`bs${i}`} x={labelW + i * colW} y={y + 3} width={colW - 8} height={laneH - 6}>
+                                                  <div style={{ fontSize: '8px', color: '#134e4a', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.backstageAction || ''}</div>
                                               </foreignObject>
                                           ))}
                                       </g>
                                   ); })()}
 
-                                  {/* PAIN POINTS LANE */}
-                                  {(() => { const y = 250 + allActors.length * 22; return (
+                                  {/* PAIN POINTS LANE — full text */}
+                                  {(() => { const y = painTop; return (
                                       <g>
-                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#FF5A5A">PAIN POINTS</text>
-                                          <rect x={95} y={y} width={journeyData.length * colW + 5} height={35} rx={4} fill="#fef2f2" stroke="#fecaca" />
+                                          <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#FF5A5A">PAIN POINTS</text>
+                                          <rect x={labelW - 5} y={y} width={journeyData.length * colW + 5} height={laneH} rx={4} fill="#fef2f2" stroke="#fecaca" />
                                           {journeyData.map((s: any, i: number) => (
-                                              <foreignObject key={`pp${i}`} x={100 + i * colW} y={y + 2} width={colW - 8} height={32}>
-                                                  <div style={{ fontSize: '7px', color: '#991b1b', lineHeight: '1.2', overflow: 'hidden' }}>{(s.painPoint || '').substring(0, 60)}</div>
+                                              <foreignObject key={`pp${i}`} x={labelW + i * colW} y={y + 3} width={colW - 8} height={laneH - 6}>
+                                                  <div style={{ fontSize: '8px', color: '#991b1b', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.painPoint || ''}</div>
                                               </foreignObject>
                                           ))}
                                       </g>
                                   ); })()}
 
-                                  {/* SUPPORT PROCESSES LANE */}
-                                  {(() => { const y = 292 + allActors.length * 22; return (
+                                  {/* SUPPORT PROCESSES LANE — full text */}
+                                  {(() => { const y = supportTop; return (
                                       <g>
-                                          <text x={10} y={y + 12} fontSize="7" fontWeight="bold" fill="#6b7280">SUPPORT</text>
+                                          <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#6b7280">SUPPORT</text>
                                           {journeyData.map((s: any, i: number) => (
-                                              <foreignObject key={`sp${i}`} x={100 + i * colW} y={y} width={colW - 8} height={25}>
-                                                  <div style={{ fontSize: '6px', color: '#6b7280', lineHeight: '1.2', overflow: 'hidden' }}>{(s.supportProcesses || '').substring(0, 50)}</div>
+                                              <foreignObject key={`sp${i}`} x={labelW + i * colW} y={y} width={colW - 8} height={laneH}>
+                                                  <div style={{ fontSize: '8px', color: '#6b7280', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.supportProcesses || ''}</div>
+                                              </foreignObject>
+                                          ))}
+                                      </g>
+                                  ); })()}
+
+                                  {/* TECHNOLOGY SYSTEMS LANE — new per audit B-05 */}
+                                  {journeyData.some((s: any) => s.technologySystems) && (() => { const y = supportTop + laneH + 4; return (
+                                      <g>
+                                          <text x={10} y={y + 14} fontSize="7" fontWeight="bold" fill="#7c3aed">TECH SYSTEMS</text>
+                                          {journeyData.map((s: any, i: number) => (
+                                              <foreignObject key={`ts${i}`} x={labelW + i * colW} y={y} width={colW - 8} height={laneH}>
+                                                  <div style={{ fontSize: '8px', color: '#7c3aed', lineHeight: '1.4', wordWrap: 'break-word', overflowWrap: 'break-word' }}>{s.technologySystems || ''}</div>
                                               </foreignObject>
                                           ))}
                                       </g>
                                   ); })()}
 
                                   {/* Legend */}
-                                  <g transform={`translate(10, ${330 + allActors.length * 22})`}>
+                                  <g transform={`translate(10, ${legendTop})`}>
                                       {[{ label: 'Delighted', color: '#0CCE6B' }, { label: 'Positive', color: '#00b1eb' }, { label: 'Neutral', color: '#acacac' }, { label: 'Negative', color: '#fd8e2e' }, { label: 'Frustrated', color: '#FF5A5A' }].map((e, i) => (
                                           <g key={i} transform={`translate(${i * 80}, 0)`}>
                                               <circle cx={5} cy={5} r={4} fill={e.color} />
@@ -1193,6 +1842,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       ))}
                                       <rect x={420} y={0} width={12} height={3} fill="#caca20" />
                                       <text x={436} y={7} fontSize="7" fill="#525252">Line of Visibility</text>
+                                      <circle cx={530} cy={5} r={4} fill="#FF5A5A" />
+                                      <text x={539} y={8} fontSize="7" fill="#525252">Moment of Truth</text>
                                   </g>
                               </svg>
                           </div>
@@ -1226,6 +1877,19 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <textarea value={stage.backstageAction} onChange={(e) => updateJourneyStage(idx, 'backstageAction', e.target.value)} className="w-full bg-teal-50 p-1.5 rounded resize-none h-10 outline-none text-[11px] border border-teal-100" /></div>
                                               {stage.painPoint && <div className="bg-red-50 p-2 rounded border border-red-100"><label className="text-[8px] font-bold text-[#FF5A5A] uppercase">Pain Point</label>
                                                   <textarea value={stage.painPoint} onChange={(e) => updateJourneyStage(idx, 'painPoint', e.target.value)} className="w-full bg-transparent text-[11px] text-red-800 resize-none h-8 outline-none" /></div>}
+                                              {/* BLUE-01: Fail points, tech systems, actor needs */}
+                                              {stage.fail_point && <div className="bg-orange-50 p-2 rounded border border-orange-200"><label className="text-[8px] font-bold text-[#fd8e2e] uppercase">Fail Point</label>
+                                                  <div className="text-[11px] text-orange-800">{stage.fail_point}</div></div>}
+                                              {stage.technologySystems && <div className="bg-purple-50 p-2 rounded border border-purple-200"><label className="text-[8px] font-bold text-[#7c3aed] uppercase">Technology Systems</label>
+                                                  <div className="text-[11px] text-purple-800">{stage.technologySystems}</div></div>}
+                                              {stage.actorNeeds && <div className="bg-teal-50 p-2 rounded border border-teal-200"><label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase">Actor Needs</label>
+                                                  <div className="text-[11px] text-teal-800">{stage.actorNeeds}</div></div>}
+                                              {stage.momentOfTruth && (
+                                                  <div style={{ background: '#FEF2F2', border: '2px solid #FF5A5A', borderRadius: 6, padding: '10px 12px', marginTop: 4 }}>
+                                                      <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', color: '#FF5A5A', textTransform: 'uppercase', marginBottom: 4 }}>MOMENT OF TRUTH</div>
+                                                      <div style={{ fontSize: 12, color: '#991B1B', lineHeight: 1.5, fontWeight: 600 }}>{typeof stage.momentOfTruth === 'string' ? stage.momentOfTruth : 'Critical decision point in this stage'}</div>
+                                                  </div>
+                                              )}
                                           </div>
                                       </div>
                                   ))}
@@ -1248,24 +1912,112 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       <div className="space-y-8">
                           {/* Overview */}
                           {techData.overview && (
-                              <div className="bg-[var(--bg-secondary)] p-4 rounded border text-sm text-[var(--text-secondary)] leading-relaxed">{techData.overview}</div>
+                              <div className="bg-[var(--bg-secondary)] p-5 rounded border" style={{fontFamily:"'Archivo', sans-serif", fontSize:'14px', color:'#333333', lineHeight:'1.65', maxWidth:'800px'}}>{techData.overview}</div>
                           )}
 
-                          {/* AI-generated diagram OR regenerate */}
-                          <div className="diagram-container relative w-full aspect-[16/9] bg-[var(--bg-tertiary)] rounded overflow-hidden border border-[var(--border-primary)]">
-                               {techDiagramUrl ? <img src={techDiagramUrl} className="w-full h-full object-cover" /> : (
-                                   <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-                                       <div className="text-[var(--text-tertiary)]">No AI diagram yet</div>
-                                       <div className="flex gap-2 items-center">
-                                           <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
-                                               className="text-xs rounded px-2 py-1 border border-[var(--border-primary)]">
-                                               {VISUALIZATION_STYLES.map(s => <option key={s.id} value={s.id}>{s.shortLabel}: {s.name}</option>)}
-                                           </select>
-                                           <button onClick={() => handleRegenerateDiagram('tech')} className="bg-[var(--nxt-teal)] text-white px-4 py-2 rounded text-xs font-bold">Generate Diagram in Style</button>
-                                       </div>
-                                   </div>
-                               )}
-                          </div>
+                          {/* Structured SVG architecture diagram — built from actual node/flow data */}
+                          {(() => {
+                              const nodeFills: Record<string, string> = { 'User': '#dbeafe', 'Application': '#d1fae5', 'Database': '#fef3c7', 'Integration': '#ede9fe', 'External': '#f3f4f6', 'AI/ML': '#ccfbf1', 'Cloud': '#e0e7ff' };
+                              const nodeStrokes: Record<string, string> = { 'User': '#3b82f6', 'Application': '#10b981', 'Database': '#f59e0b', 'Integration': '#8b5cf6', 'External': '#6b7280', 'AI/ML': '#14b8a6', 'Cloud': '#6366f1' };
+                              const statusColorsMap: Record<string, string> = { 'active': '#0CCE6B', 'broken': '#FF5A5A', 'planned': '#caca20' };
+                              const archNodes = techData.nodes || [];
+                              const archFlows = techData.flows || [];
+                              if (archNodes.length === 0) return <div className="p-8 text-center text-[var(--text-tertiary)]">No architecture nodes generated</div>;
+
+                              const typeOrder = ['User', 'Application', 'AI/ML', 'Integration', 'Database', 'External', 'Cloud'];
+                              const grouped: Record<string, any[]> = {};
+                              archNodes.forEach((n: any) => { const t = n.type || 'External'; if (!grouped[t]) grouped[t] = []; grouped[t].push(n); });
+                              const layers = typeOrder.filter(t => grouped[t]);
+
+                              const nodePos: Record<string, { x: number; y: number }> = {};
+                              const nodeW = 180, nodeH = 50, layerH = 90;
+                              // Dynamic width: fit widest layer + 20% margin
+                              const maxNodesInLayer = Math.max(...layers.map(l => (grouped[l] || []).length));
+                              const W = Math.max(960, maxNodesInLayer * (nodeW + 28) + 100);
+                              layers.forEach((layer, li) => {
+                                  const layerNodes = grouped[layer];
+                                  const totalLayerW = layerNodes.length * (nodeW + 28);
+                                  const startX = (W - totalLayerW) / 2;
+                                  layerNodes.forEach((n: any, ni: number) => {
+                                      nodePos[n.id] = { x: startX + ni * (nodeW + 28) + nodeW / 2, y: 55 + li * layerH + nodeH / 2 };
+                                  });
+                              });
+                              const svgH = 55 + layers.length * layerH + 30;
+
+                              return (
+                                  <div className="diagram-container overflow-x-auto border border-[var(--border-primary)] rounded bg-white p-4">
+                                      <svg width={W} height={svgH} viewBox={`0 0 ${W} ${svgH}`} className="mx-auto" style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>
+                                          <defs>
+                                              <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#115054" /></marker>
+                                              <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#FF5A5A" /></marker>
+                                          </defs>
+                                          {/* Layer labels */}
+                                          {layers.map((layer, li) => (
+                                              <text key={li} x="10" y={50 + li * layerH + nodeH / 2 + 4} fontSize="9" fontWeight="bold" fill={nodeStrokes[layer] || '#6b7280'} textAnchor="start" style={{ textTransform: 'uppercase', letterSpacing: '1px' }}>{layer}</text>
+                                          ))}
+                                          {/* Flows */}
+                                          {(() => {
+                                              // Track midpoint positions to avoid label overlap
+                                              const usedMidpoints: { x: number; y: number }[] = [];
+                                              return archFlows.map((flow: any, fi: number) => {
+                                                  const from = nodePos[flow.fromId];
+                                                  const to = nodePos[flow.toId];
+                                                  if (!from || !to) return null;
+                                                  const color = statusColorsMap[flow.status] || '#115054';
+                                                  const dash = flow.status === 'planned' ? '4,3' : flow.status === 'broken' ? '2,2' : 'none';
+                                                  const strokeW = flow.status === 'active' ? 1.8 : 1.2;
+                                                  // Orthogonal routing: drop from source, traverse, rise to target
+                                                  const midY = (from.y + to.y) / 2 + (fi % 3 - 1) * 8; // Offset stacked flows
+                                                  const pathD = `M${from.x},${from.y} L${from.x},${midY} L${to.x},${midY} L${to.x},${to.y}`;
+                                                  // Check if label would overlap
+                                                  const mx = (from.x + to.x) / 2;
+                                                  const labelOverlaps = usedMidpoints.some(p => Math.abs(p.x - mx) < 60 && Math.abs(p.y - midY) < 12);
+                                                  if (flow.action && !labelOverlaps) usedMidpoints.push({ x: mx, y: midY });
+                                                  return (
+                                                      <g key={`f${fi}`}>
+                                                          <path d={pathD} fill="none" stroke={color} strokeWidth={strokeW} strokeDasharray={dash}
+                                                              markerEnd={flow.status === 'broken' ? 'url(#arrowR)' : 'url(#arrowG)'} opacity="0.5" />
+                                                          {flow.action && !labelOverlaps && (
+                                                              <text x={mx} y={midY - 4} fontSize="7" fill="#888" textAnchor="middle" opacity="0.7">{(flow.action || '').substring(0, 30)}</text>
+                                                          )}
+                                                      </g>
+                                                  );
+                                              });
+                                          })()}
+                                          {/* Nodes */}
+                                          {archNodes.map((nd: any, ni: number) => {
+                                              const pos = nodePos[nd.id];
+                                              if (!pos) return null;
+                                              const fill = nodeFills[nd.type] || '#f3f4f6';
+                                              const stroke = nodeStrokes[nd.type] || '#6b7280';
+                                              return (
+                                                  <g key={`n${ni}`}>
+                                                      <rect x={pos.x - nodeW / 2} y={pos.y - nodeH / 2} width={nodeW} height={nodeH} rx="6" fill={fill} stroke={stroke} strokeWidth="1.5" />
+                                                      {/* Full label — word-wrapped via foreignObject */}
+                                                      <foreignObject x={pos.x - nodeW / 2 + 6} y={pos.y - nodeH / 2 + 4} width={nodeW - 12} height={nodeH - 16}>
+                                                          <div style={{ fontSize: '9px', fontWeight: 700, color: '#1A1A1A', textAlign: 'center', lineHeight: 1.2, wordWrap: 'break-word', overflow: 'hidden' }}>{nd.label || ''}</div>
+                                                      </foreignObject>
+                                                      <text x={pos.x} y={pos.y + nodeH / 2 - 5} fontSize="7" fill={stroke} textAnchor="middle" fontWeight="600">{nd.type}</text>
+                                                  </g>
+                                              );
+                                          })}
+                                      </svg>
+                                      {/* Legend */}
+                                      <div className="flex items-center gap-3 mt-3 justify-center flex-wrap">
+                                          {Object.entries(nodeStrokes).filter(([t]) => grouped[t]).map(([type, color]) => (
+                                              <div key={type} className="flex items-center gap-1">
+                                                  <div className="w-3 h-2 rounded-sm" style={{ backgroundColor: nodeFills[type], border: `1px solid ${color}` }}></div>
+                                                  <span style={{ fontSize: 8, fontWeight: 700, textTransform: 'uppercase' as const, color, letterSpacing: '0.5px' }}>{type}</span>
+                                              </div>
+                                          ))}
+                                          <div className="w-px h-3 bg-gray-200 mx-1"></div>
+                                          <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-[#0CCE6B]"></div><span style={{ fontSize: 8, color: '#0CCE6B', fontWeight: 700 }}>Active</span></div>
+                                          <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-dashed border-[#caca20]"></div><span style={{ fontSize: 8, color: '#caca20', fontWeight: 700 }}>Planned</span></div>
+                                          <div className="flex items-center gap-1"><div className="w-4 h-0 border-t-2 border-dotted border-[#FF5A5A]"></div><span style={{ fontSize: 8, color: '#FF5A5A', fontWeight: 700 }}>Broken</span></div>
+                                      </div>
+                                  </div>
+                              );
+                          })()}
 
                           {/* System Nodes — color-coded cards */}
                           <div>
@@ -1315,23 +2067,89 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   })()}
                   {activeTab === 'strategy' && (
                       <div className="space-y-8">
-                           <h2 className="text-3xl font-black mb-8 border-b pb-4">Strategic Recommendations</h2>
+                           <h2 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.5px',color:'#0D0D0D'}} className="mb-4 border-b pb-4">STRATEGIC PLAN</h2>
+
+                           {/* STRAT-01: Rumelt's Kernel — Diagnosis + Guiding Policy */}
+                           {result.strategyDocument && (
+                               <div className="space-y-6">
+                                   {/* Executive Summary */}
+                                   {result.strategyDocument.executiveSummary && (
+                                       <div style={{background:'#0D0D0D',color:'#fff',padding:'32px'}}>
+                                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'10px',letterSpacing:'3px',color:'#B8B800',marginBottom:'8px'}}>EXECUTIVE SUMMARY</div>
+                                           <p style={{fontSize:'16px',lineHeight:'1.7',color:'#E0E0E0'}}>{result.strategyDocument.executiveSummary}</p>
+                                       </div>
+                                   )}
+
+                                   {/* Rumelt's Kernel */}
+                                   <div className="grid grid-cols-1 md:grid-cols-2 gap-0" style={{border:'1px solid #E0E0E0'}}>
+                                       <div style={{padding:'24px',borderRight:'1px solid #E0E0E0',borderBottom:'1px solid #E0E0E0'}}>
+                                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'10px',letterSpacing:'3px',color:'#FF5A5A',marginBottom:'8px'}}>DIAGNOSIS</div>
+                                           <p style={{fontSize:'14px',lineHeight:'1.65',color:'#333'}}>{result.strategyDocument.diagnosis}</p>
+                                       </div>
+                                       <div style={{padding:'24px',borderBottom:'1px solid #E0E0E0'}}>
+                                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'10px',letterSpacing:'3px',color:'#115054',marginBottom:'8px'}}>GUIDING POLICY</div>
+                                           <p style={{fontSize:'14px',lineHeight:'1.65',color:'#333'}}>{result.strategyDocument.guidingPolicy}</p>
+                                       </div>
+                                   </div>
+
+                                   {/* Strategic Pillars */}
+                                   {result.strategyDocument.strategicPillars && result.strategyDocument.strategicPillars.length > 0 && (
+                                       <div>
+                                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'11px',letterSpacing:'2px',color:'#999',marginBottom:'12px'}}>STRATEGIC PILLARS</div>
+                                           <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+                                               {result.strategyDocument.strategicPillars.map((pillar: string, pi: number) => {
+                                                   const pillarColors = ['#115054', '#B8B800', '#fd8e2e', '#00b1eb', '#FF5A5A'];
+                                                   return (
+                                                       <div key={pi} style={{padding:'16px',borderTop:`3px solid ${pillarColors[pi % pillarColors.length]}`,background:'#FAFAFA'}}>
+                                                           <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',color:pillarColors[pi % pillarColors.length],marginBottom:'4px'}}>PILLAR {pi + 1}</div>
+                                                           <div style={{fontSize:'13px',fontWeight:700,color:'#0D0D0D',lineHeight:'1.4'}}>{pillar}</div>
+                                                       </div>
+                                                   );
+                                               })}
+                                           </div>
+                                       </div>
+                                   )}
+
+                                   {/* Strategy Sections */}
+                                   {result.strategyDocument.sections && result.strategyDocument.sections.length > 0 && (
+                                       <div className="space-y-4">
+                                           {result.strategyDocument.sections.map((section: any, si: number) => (
+                                               <div key={si} style={{border:'1px solid #E0E0E0',padding:'20px 24px'}}>
+                                                   <div className="flex items-baseline gap-3 mb-2">
+                                                       <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',color:'#B8B800',fontWeight:700}}>{String(section.sectionNumber || si + 1).padStart(2, '0')}</span>
+                                                       <h4 style={{fontSize:'16px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h4>
+                                                   </div>
+                                                   <p style={{fontSize:'14px',lineHeight:'1.65',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
+                                                   {section.evidenceGap && (
+                                                       <div style={{marginTop:'8px',padding:'8px 12px',background:'#FFF8E1',border:'1px solid #FFE082',fontSize:'12px',color:'#8A6D00'}}>
+                                                           EVIDENCE GAP: {section.evidenceGap}
+                                                       </div>
+                                                   )}
+                                               </div>
+                                           ))}
+                                       </div>
+                                   )}
+                               </div>
+                           )}
+
+                           {/* Recommendation Cards (Coherent Actions) */}
+                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'14px',letterSpacing:'2px',color:'#999',marginTop:'32px',marginBottom:'8px',paddingTop:'16px',borderTop:'2px solid #E0E0E0'}}>COHERENT ACTIONS ({(result.recommendations || []).length} Recommendations)</div>
                            {(result.recommendations || []).map((rec: any, i: number) => {
                                const impactColors: Record<string, string> = { 'HIGH': 'bg-red-100 text-red-700', 'MEDIUM': 'bg-amber-100 text-amber-700', 'LOW': 'bg-blue-100 text-blue-700' };
                                return (
-                               <div key={i} className="bg-[var(--card-bg)] p-6 rounded border border-[var(--border-primary)] shadow-sm">
+                               <div key={i} style={{border:'1px solid #E0E0E0',padding:'20px 24px',borderLeft: rec.impactLevel === 'HIGH' ? '4px solid #FF5A5A' : rec.impactLevel === 'MEDIUM' ? '4px solid #fd8e2e' : '4px solid #E0E0E0'}}>
                                    <div className="flex justify-between items-start mb-3">
-                                       <h3 className="text-xl font-bold flex-1">{rec.title}</h3>
-                                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${impactColors[rec.impactLevel?.toUpperCase()] || 'bg-gray-100 text-gray-700'}`}>{rec.impactLevel}</span>
+                                       <h3 style={{fontSize:'16px',fontWeight:700,color:'#0D0D0D',flex:1}}>{rec.title}</h3>
+                                       <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'9px',padding:'2px 8px',letterSpacing:'1px',whiteSpace:'nowrap',marginLeft:'12px',background: rec.impactLevel === 'HIGH' ? '#FEE2E2' : rec.impactLevel === 'MEDIUM' ? '#FFF8E1' : '#F5F5F0', color: rec.impactLevel === 'HIGH' ? '#991b1b' : rec.impactLevel === 'MEDIUM' ? '#8A6D00' : '#666'}}>{rec.impactLevel}</span>
                                    </div>
-                                   <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">{rec.description}</p>
+                                   <p style={{fontSize:'14px',color:'#555',lineHeight:'1.6',marginBottom:'12px'}}>{renderWithCitations(rec.description || '', handleCitationClick)}</p>
                                    {rec.actionItems && rec.actionItems.length > 0 && (
-                                       <div className="border-t border-[var(--border-primary)] pt-3">
-                                           <div className="text-[9px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] mb-2">Action Items</div>
+                                       <div style={{borderTop:'1px solid #E0E0E0',paddingTop:'10px'}}>
+                                           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'9px',letterSpacing:'2px',color:'#115054',marginBottom:'6px'}}>ACTION ITEMS</div>
                                            <div className="space-y-1.5">
                                                {rec.actionItems.map((item: string, ai: number) => (
-                                                   <div key={ai} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-                                                       <span className="text-[var(--nxt-teal)] font-bold mt-0.5 text-xs">{ai + 1}.</span>
+                                                   <div key={ai} style={{display:'flex',alignItems:'flex-start',gap:'8px',fontSize:'13px',color:'#555'}}>
+                                                       <span style={{color:'#115054',fontWeight:700,fontSize:'12px',fontFamily:"'JetBrains Mono',monospace"}}>{ai + 1}.</span>
                                                        <span>{item}</span>
                                                    </div>
                                                ))}
@@ -1343,56 +2161,234 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                            })}
                       </div>
                   )}
-                  {activeTab === 'script' && (
-                      <div className="space-y-12">
-                          <h2 className="text-3xl font-black mb-8 border-b pb-4">Video Storyboard</h2>
-                          {scriptScenes.map((scene: any, i: number) => (
-                              <div key={i} className="flex flex-col md:flex-row gap-6 items-start group">
-                                  {/* Scene number + visual */}
-                                  <div className="w-full md:w-5/12 relative">
-                                      <div className="absolute top-2 left-2 z-10 bg-[var(--nxt-teal)] text-white text-xs font-bold px-2 py-1 rounded-sm">Scene {i + 1}</div>
-                                      <div className="aspect-video bg-black rounded overflow-hidden relative shadow-sm">
-                                          {scene.videoUrl ? <video src={scene.videoUrl} controls className="w-full h-full object-cover" /> : scene.imageUrl ? <img src={scene.imageUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-500">Visual</div>}
-                                          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                                              <div className="flex items-center gap-2 mb-2">
-                                                  <select value={activeVisStyle} onChange={(e) => { setActiveVisualizationStyle(e.target.value); setActiveVisStyle(e.target.value); }}
-                                                      className="bg-black/60 text-white text-[9px] rounded px-2 py-1 border border-white/20 flex-1">
-                                                      {VISUALIZATION_STYLES.map(s => (
-                                                          <option key={s.id} value={s.id}>{s.shortLabel}: {s.name}</option>
-                                                      ))}
-                                                  </select>
-                                              </div>
-                                              <div className="flex justify-end gap-2">
-                                                  <button onClick={() => handleRegenerateImage(i, activeVisStyle)} className="bg-white/20 text-white px-3 py-1.5 rounded text-xs hover:bg-white/30">Regen in Style</button>
-                                                  <button onClick={() => handleGenerateVideo(i)} className="bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-3 py-1.5 rounded text-xs font-bold">Animate</button>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  {/* Scene content */}
-                                  <div className="flex-1 space-y-3 pt-1 w-full">
-                                      <div>
-                                          <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] block mb-1">Visual Direction</label>
-                                          <textarea value={scene.visualPrompt || scene.visualDescription} onChange={(e) => updateScriptScene(i, 'visualPrompt', e.target.value)} className="w-full bg-[var(--bg-tertiary)] text-xs p-3 rounded h-16 outline-none border border-[var(--border-primary)]" />
-                                      </div>
-                                      {scene.quote && (
-                                          <div className="bg-[var(--bg-tertiary)] p-3 rounded border-l-4 border-[var(--nxt-lime)]">
-                                              <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-teal)] block mb-1">Evidence Quote</label>
-                                              <div className="text-sm italic text-[var(--text-secondary)]">"{scene.quote}"</div>
-                                          </div>
-                                      )}
-                                      <div>
-                                          <label className="text-[8px] font-bold uppercase tracking-widest text-[var(--text-tertiary)] block mb-1">Narration</label>
-                                          <textarea value={scene.audioNarration} onChange={(e) => updateScriptScene(i, 'audioNarration', e.target.value)} className="w-full bg-white text-sm p-3 rounded h-20 outline-none border border-[var(--border-primary)]" />
-                                      </div>
-                                  </div>
+                  {/* ====== GAP ANALYSIS TAB ====== */}
+                  {activeTab === 'gap' && result.gapAnalysis && (() => {
+                      const gap = result.gapAnalysis;
+                      return (
+                          <div className="space-y-8">
+                              <div>
+                                  <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>GAP ANALYSIS</div>
+                                  <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 12 }}>Capability Maturity Assessment<span style={{ color: '#B8B800' }}>.</span></h2>
+                                  {gap.assessmentScope && <p style={{ fontFamily: FONT.primary, fontSize: 14, color: '#444444', lineHeight: 1.6, maxWidth: 700, borderLeft: '2px solid #00B7C3', paddingLeft: 16 }}>{cleanText(gap.assessmentScope)}</p>}
                               </div>
-                          ))}
-                      </div>
-                  )}
+                              {/* Capability Gap Grid */}
+                              {gap.gaps && gap.gaps.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 12 }}>CAPABILITY GAPS</div>
+                                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
+                                          {gap.gaps.map((g: any, i: number) => {
+                                              const severityColor = g.severity === 'critical' ? '#CC6644' : g.severity === 'high' ? '#B8B800' : '#888888';
+                                              return (
+                                                  <div key={i} style={{ background: '#FAFAFA', border: '1px solid #F0F0F0', borderRadius: 8, borderLeft: `3px solid ${severityColor}`, padding: 16 }}>
+                                                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 14, fontWeight: 600, color: '#1A1A1A' }}>{g.capability}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, textTransform: 'uppercase' as const, color: severityColor, background: `${severityColor}15`, padding: '2px 8px', borderRadius: 100 }}>{g.severity}</span>
+                                                      </div>
+                                                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                                                          <div style={{ flex: 1 }}>
+                                                              <div style={{ fontFamily: FONT.primary, fontSize: 10, color: '#AAAAAA', marginBottom: 2 }}>CURRENT</div>
+                                                              <div style={{ height: 6, background: '#E8E8E8', borderRadius: 3, overflow: 'hidden' }}>
+                                                                  <div style={{ height: '100%', borderRadius: 3, background: '#CC6644', width: `${(g.currentMaturity / 5) * 100}%` }} />
+                                                              </div>
+                                                              <div style={{ fontFamily: FONT.primary, fontSize: 11, color: '#888', marginTop: 2 }}>{g.currentMaturity}/5</div>
+                                                          </div>
+                                                          <div style={{ fontFamily: FONT.primary, fontSize: 18, fontWeight: 200, color: '#CCCCCC' }}>→</div>
+                                                          <div style={{ flex: 1 }}>
+                                                              <div style={{ fontFamily: FONT.primary, fontSize: 10, color: '#AAAAAA', marginBottom: 2 }}>TARGET</div>
+                                                              <div style={{ height: 6, background: '#E8E8E8', borderRadius: 3, overflow: 'hidden' }}>
+                                                                  <div style={{ height: '100%', borderRadius: 3, background: '#00B7C3', width: `${(g.targetMaturity / 5) * 100}%` }} />
+                                                              </div>
+                                                              <div style={{ fontFamily: FONT.primary, fontSize: 11, color: '#888', marginTop: 2 }}>{g.targetMaturity}/5</div>
+                                                          </div>
+                                                      </div>
+                                                      <p style={{ fontFamily: FONT.primary, fontSize: 12, color: '#666', lineHeight: 1.5 }}>{cleanText(g.impact)}</p>
+                                                  </div>
+                                              );
+                                          })}
+                                      </div>
+                                  </div>
+                              )}
+                              {/* Quick Wins */}
+                              {gap.quickWins && gap.quickWins.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#00B7C3', marginBottom: 8 }}>QUICK WINS</div>
+                                      {gap.quickWins.map((qw: any, i: number) => (
+                                          <div key={i} style={{ padding: '8px 12px', borderLeft: '2px solid #00B7C3', marginBottom: 6, fontFamily: FONT.primary, fontSize: 13, color: '#444' }}>{cleanText(qw.action)}{qw.timeline ? ` (${qw.timeline})` : ''}</div>
+                                      ))}
+                                  </div>
+                              )}
+                              {/* Prioritized Actions */}
+                              {gap.prioritizedActions && gap.prioritizedActions.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>PRIORITIZED ACTIONS</div>
+                                      {gap.prioritizedActions.map((a: any, i: number) => (
+                                          <div key={i} style={{ padding: '8px 12px', background: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF', borderRadius: 4, marginBottom: 4, fontFamily: FONT.primary, fontSize: 13, color: '#444' }}>
+                                              <strong style={{ color: '#1A1A1A' }}>{a.priority}</strong>: {cleanText(a.action)}{a.owner ? ` — ${a.owner}` : ''}
+                                          </div>
+                                      ))}
+                                  </div>
+                              )}
+                          </div>
+                      );
+                  })()}
+
+                  {/* ====== TECH AUDIT TAB ====== */}
+                  {activeTab === 'techAudit' && result.techAudit && (() => {
+                      const audit = result.techAudit;
+                      return (
+                          <div className="space-y-8">
+                              <div>
+                                  <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>TECHNOLOGY ECOSYSTEM AUDIT</div>
+                                  <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 12 }}>Systems Inventory & Integration Map<span style={{ color: '#B8B800' }}>.</span></h2>
+                              </div>
+                              {/* Systems Inventory */}
+                              {audit.systemsInventory && audit.systemsInventory.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>SYSTEMS ({audit.systemsInventory.length})</div>
+                                      <div style={{ border: '1px solid #E8E8E8', borderRadius: 8, overflow: 'hidden' }}>
+                                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px 80px', background: '#FAFAFA', padding: '8px 16px', gap: 8, borderBottom: '1px solid #EEEEEE' }}>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>SYSTEM</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>VENDOR</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>CATEGORY</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>STATUS</span>
+                                          </div>
+                                          {audit.systemsInventory.map((s: any, i: number) => {
+                                              const statusColor = s.status === 'active' ? '#00B7C3' : s.status === 'legacy' ? '#B8B800' : s.status === 'deprecated' ? '#CC6644' : '#888';
+                                              return (
+                                                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px 80px', padding: '10px 16px', gap: 8, borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
+                                                      <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{s.name}</span>
+                                                      <span style={{ fontFamily: FONT.primary, fontSize: 12, color: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? '#B8B800' : '#666', fontWeight: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 600 : 400 }}>{(!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 'TBD — vendor selection needed' : s.vendor}</span>
+                                                      <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#888' }}>{s.category}</span>
+                                                      <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, textTransform: 'uppercase' as const, color: statusColor }}>{s.status}</span>
+                                                  </div>
+                                              );
+                                          })}
+                                      </div>
+                                  </div>
+                              )}
+                              {/* Integration Map — structured cards */}
+                              {audit.integrationMap && audit.integrationMap.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>INTEGRATIONS ({audit.integrationMap.length})</div>
+                                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: 12 }}>
+                                          {audit.integrationMap.map((link: any, i: number) => {
+                                              const healthColor = link.health === 'healthy' ? '#00B7C3' : link.health === 'degraded' ? '#B8B800' : link.health === 'broken' ? '#CC6644' : '#888';
+                                              const healthLabel = link.health || 'unknown';
+                                              const priorityColor = link.priority === 'must-have' ? '#CC6644' : link.priority === 'should-have' ? '#B8B800' : '#888';
+                                              return (
+                                                  <div key={i} style={{ background: '#FAFAFA', border: '1px solid #E8E8E8', borderRadius: 8, padding: 14, borderLeft: `4px solid ${healthColor}` }}>
+                                                      {/* Source -> Target header */}
+                                                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#1A1A1A' }}>{link.source}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 14, color: '#00B7C3' }}>{link.direction === 'bidirectional' ? '\u21C4' : '\u2192'}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#1A1A1A' }}>{link.target}</span>
+                                                      </div>
+                                                      {/* Method + Data + Status badges */}
+                                                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 6 }}>
+                                                          {link.method && <span style={{ fontSize: 9, fontWeight: 600, padding: '2px 8px', borderRadius: 3, background: '#E0E7FF', color: '#3730A3', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{link.method}</span>}
+                                                          <span style={{ fontSize: 9, fontWeight: 600, padding: '2px 8px', borderRadius: 3, background: healthColor + '20', color: healthColor, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{healthLabel}</span>
+                                                          {link.priority && <span style={{ fontSize: 9, fontWeight: 600, padding: '2px 8px', borderRadius: 3, background: priorityColor + '15', color: priorityColor, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{link.priority}</span>}
+                                                      </div>
+                                                      {/* Data flow description */}
+                                                      {link.dataFlow && <div style={{ fontFamily: FONT.primary, fontSize: 12, color: '#666', lineHeight: 1.5, marginBottom: 4 }}>{cleanText(link.dataFlow)}</div>}
+                                                      {/* Risk / effort row */}
+                                                      {(link.risk || link.effort) && (
+                                                          <div style={{ display: 'flex', gap: 16, fontSize: 11, color: '#888', marginTop: 4, paddingTop: 6, borderTop: '1px solid #EEEEEE' }}>
+                                                              {link.risk && <span><strong style={{ color: '#CC6644' }}>Risk:</strong> {link.risk}</span>}
+                                                              {link.effort && <span><strong style={{ color: '#B8B800' }}>Effort:</strong> {link.effort}</span>}
+                                                          </div>
+                                                      )}
+                                                  </div>
+                                              );
+                                          })}
+                                      </div>
+                                  </div>
+                              )}
+                              {/* Consolidation Opportunities */}
+                              {audit.consolidationOpportunities && audit.consolidationOpportunities.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#B8B800', marginBottom: 8 }}>CONSOLIDATION OPPORTUNITIES</div>
+                                      {audit.consolidationOpportunities.map((c: any, i: number) => (
+                                          <div key={i} style={{ background: '#FAFAFA', border: '1px solid #F0F0F0', borderRadius: 8, borderLeft: '3px solid #B8B800', padding: 16, marginBottom: 8 }}>
+                                              <div style={{ fontFamily: FONT.primary, fontSize: 14, fontWeight: 600, color: '#1A1A1A', marginBottom: 4 }}>{c.title}</div>
+                                              <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#666', lineHeight: 1.5 }}>{cleanText(c.description)}</p>
+                                              <div style={{ fontFamily: FONT.primary, fontSize: 11, color: '#888', marginTop: 6 }}>Impact: {c.impact} | Effort: {c.effort}</div>
+                                          </div>
+                                      ))}
+                                  </div>
+                              )}
+                          </div>
+                      );
+                  })()}
+
+                  {/* ====== COMPETITIVE ANALYSIS TAB ====== */}
+                  {activeTab === 'competitive' && result.competitiveAnalysis && (() => {
+                      const comp = result.competitiveAnalysis;
+                      return (
+                          <div className="space-y-8">
+                              <div>
+                                  <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>COMPETITIVE LANDSCAPE</div>
+                                  <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 12 }}>Peer Positioning & Gap Assessment<span style={{ color: '#B8B800' }}>.</span></h2>
+                                  {comp.industryContext && <p style={{ fontFamily: FONT.primary, fontSize: 14, color: '#444444', lineHeight: 1.6, maxWidth: 700, borderLeft: '2px solid #00B7C3', paddingLeft: 16 }}>{cleanText(comp.industryContext)}</p>}
+                              </div>
+                              {/* Peer Profiles */}
+                              {comp.peers && comp.peers.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 12 }}>PEER PROFILES</div>
+                                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12 }}>
+                                          {comp.peers.map((p: any, i: number) => (
+                                              <div key={i} style={{ background: '#FAFAFA', border: '1px solid #F0F0F0', borderRadius: 8, borderTop: `3px solid ${['#00B7C3', '#B8B800', '#CC6644', '#888'][i % 4]}`, padding: 20 }}>
+                                                  <div style={{ fontFamily: FONT.primary, fontSize: 16, fontWeight: 600, color: '#1A1A1A', marginBottom: 4 }}>{p.name}</div>
+                                                  <div style={{ fontFamily: FONT.primary, fontSize: 12, color: '#888', marginBottom: 12 }}>{cleanText(p.position)}</div>
+                                                  <div style={{ marginBottom: 8 }}>
+                                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' as const, color: '#00B7C3', marginBottom: 4 }}>STRENGTHS</div>
+                                                      {(p.strengths || []).map((s: string, j: number) => (
+                                                          <div key={j} style={{ fontFamily: FONT.primary, fontSize: 12, color: '#444', marginBottom: 2 }}>+ {cleanText(s)}</div>
+                                                      ))}
+                                                  </div>
+                                                  <div>
+                                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' as const, color: '#CC6644', marginBottom: 4 }}>WEAKNESSES</div>
+                                                      {(p.weaknesses || []).map((w: string, j: number) => (
+                                                          <div key={j} style={{ fontFamily: FONT.primary, fontSize: 12, color: '#444', marginBottom: 2 }}>- {cleanText(w)}</div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          ))}
+                                      </div>
+                                  </div>
+                              )}
+                              {/* Gap Summary */}
+                              {comp.gapSummary && comp.gapSummary.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>COMPETITIVE GAPS</div>
+                                      <div style={{ border: '1px solid #E8E8E8', borderRadius: 8, overflow: 'hidden' }}>
+                                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 60px 60px 50px 1fr', background: '#FAFAFA', padding: '8px 16px', gap: 8, borderBottom: '1px solid #EEEEEE' }}>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>DIMENSION</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', textAlign: 'center' }}>OURS</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', textAlign: 'center' }}>BEST</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', textAlign: 'center' }}>GAP</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>ACTION</span>
+                                          </div>
+                                          {comp.gapSummary.map((g: any, i: number) => (
+                                              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 60px 60px 50px 1fr', padding: '10px 16px', gap: 8, borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{g.dimension}</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#CC6644', textAlign: 'center' }}>{g.ourScore}</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#00B7C3', textAlign: 'center' }}>{g.bestInClass}</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 700, color: g.gap >= 2 ? '#CC6644' : '#B8B800', textAlign: 'center' }}>{g.gap}</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#666' }}>{cleanText(g.action)}</span>
+                                              </div>
+                                          ))}
+                                      </div>
+                                  </div>
+                              )}
+                          </div>
+                      );
+                  })()}
+
               </div>
           </div>
           <EvidenceModal isOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalData.title} content={modalData.content} citations={modalData.citations} quote={modalData.quote} />
+      </div>{/* end marginLeft wrapper */}
       </div>
   );
 };

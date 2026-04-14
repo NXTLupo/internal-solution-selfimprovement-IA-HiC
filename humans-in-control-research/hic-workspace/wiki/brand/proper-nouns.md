@@ -1,0 +1,305 @@
+
+
+
+## Auto-extracted (2026-04-12)
+- The Aspiring Student
+- Northeastern University
+- The Co-op Program Lead
+- The Co-op Employer Partner
+- The Co
+- Employer Partner
+- The Loyal Alumni Donor
+- The Major Gift Philanthropist
+- The Parent & Family Giver
+- The Parent
+- Family Giver
+- The Corporate/Foundation Donor
+- The Corporate
+- Foundation Donor
+- The Cause-Driven Donor
+- The Cause
+- Driven Donor
+- Powered Personalized Career Readiness Ecosystem Aspiring Students
+- Personalized Donor Impact Reporting System Donors
+- Loyal Alumni
+- Major Gift Philanthropists
+- Fortify Ethical
+- Data Privacy Frameworks The
+- Optimize Co
+- Program Promotion
+- Embedded Communication Channels Current
+- Aspiring Students
+- Streamline Employer Engagement
+- Feedback Collection
+- Partnerships Co
+- Employer Partners
+- Using Co Op Employer Surveys To Assess Abet Outcomes
+- Employer Partner Portal
+- Unified Comprehensive Learner Record
+- Holistic Student Support The
+- Work Overview
+- Program Leads
+- Standardize Digital Initiative Discovery
+- Roadmap Development Northeastern
+- Northeastern University Advancement Digital Opportunity Definition
+- Roadmap Proposal
+- Structured Discovery
+- Roadmap Development
+- Infrastructure The
+
+
+## Auto-extracted (2026-04-13)
+- Advancement Leader
+- The Senior Vice President
+- Northeastern University
+- Prospective Co-op Student
+- University Technologist / AI Strategist
+- The University Technologist
+- Co-op Employer / Industry Partner
+- Alumni Donor
+- Alumni Donors
+- Academic Advisor / Student Success Professional
+- Academic Advisors
+- Establish Comprehensive
+- Governance Frameworks Address
+- University Technologist
+- Enhanced First
+- Year Readiness Roadmap Solve
+- Work Overview
+- Prospective Co
+- Consolidate Student Data
+- Comprehensive Learner Record Address
+- Comprehensive Learner Record
+- Driven Co
+- Matching Platform Rectify
+- Recommendation Engine
+- Personalize Donor Engagement
+- Automation Counter
+- Advancement Leaders
+- Enhance Donor Impact Transparency
+- Reporting Address
+- Integrated Impact Reporting Portal
+- Strengthen Co
+- Program Awareness
+- Mentorship Counter
+- Optimize Internal Knowledge Management
+- Productivity Tackle
+- University Technologists
+- Formalize Co
+- Employer Engagement
+- Feedback Loop Address
+- Employer Feedback
+- Recognition Platform
+- Ready Workforce Training Programs Address
+- The Impact
+- Future Workforce Demands
+- Integrate International Student Co
+- Visa Support Resolve
+- International Student Enrollment
+
+
+## Auto-extracted (2026-04-13)
+- Northeastern Senior Leadership (Co-Op & ITS)
+- Northeastern Senior Leadership
+- Northeastern Senior Leadership (Advancement)
+- Northeastern University
+- Ambitious Northeastern Co-op Student
+- Concerned Parent/Prospective Student
+- Co-op Employer/Hiring Manager
+- Hiring Manager
+- Engaged University Donor/Alumnus
+- University Faculty/Staff (Support & Instruction)
+- Unified Student Data Platform
+- Comprehensive Learner Record
+- Work Overview
+- University Faculty
+- Powered First
+- Year Readiness Roadmap This
+- Ambitious Northeastern Co
+- Enabled First
+- Year Readiness Roadmap
+- Driven Co
+- Feedback System This
+- Modernize Advancement Digital Platform
+- Integration This
+- Northeastern University Advancement Digital Opportunity Definition
+- Roadmap Proposal
+- Northeastern Giving Site
+- Salesforce Commerce
+- Blackbaud Raiser
+- Establish Personalized Digital Stewardship Reporting This
+- Engaged University Donor
+- Implement Proactive Student Well
+- Intervention System This
+- Establish Comprehensive
+- Literacy Framework This
+- Enhance Value Communication
+- Career Outcomes This
+- Concerned Parent
+- Prospective Student
+- Launch Targeted Employer Engagement
+- Vetting Program This
+- Consolidate Alumni
+- Advancement Engagement Strategies This
+- Establish Proactive Regulatory Monitoring
+- Adaptation Unit This
+- Redesign Curriculum
+- Augmented Workforce This
+- Promote Student Tech Resource Hub This
+- Hub Student Pack
+- Cursor Pro
+- Google Gemini
+
+
+## Auto-extracted (2026-04-13)
+- The Ambitious Co-Op Student
+- The Dedicated Faculty/Advisor
+- The Dedicated Faculty
+- Northeastern University
+- The Visionary University Leader
+- The Impact-Focused Donor/Alumnus
+- The Digital Transformation Architect
+- The Talent-Seeking Industry Partner
+- Streamline International Student Co
+- Op Visa
+- Work Permit Support This
+- The Ambitious Co
+- Op Student
+- Inside Higher Ed
+- Student Visa Refusals Reached High
+- Last Year
+- Establish Robust
+- Cybersecurity Frameworks This
+- Campus News
+- Unified Comprehensive Learner Record
+- Degree Student Insights This
+- Work Overview
+- Powered First
+- Year Readiness Roadmaps
+- Personalized Skill Development This
+- Enabled First
+- Year Readiness Roadmap
+- Transform Donor Stewardship
+- Driven Reporting
+- Integrated Alumni Engagement This
+- The Impact
+- Focused Donor
+- Optimize Co
+- Op Matching
+- Enhanced Predictive Analytics This
+- The Talent
+- Seeking Industry Partner
+- Enhanced Co
+- Op Matching Engine
+- Integrate Proactive Holistic Student Wellbeing Support
+- Digital Platforms This
+- Enhance Faculty Engagement
+- Op Program Contributions This
+- Evolve Curriculum
+- Experiential Learning
+- Meet Emerging
+- Driven Workforce Demands This
+- Drive Outcome
+- Based Reporting
+- Justify Value
+- Secure Funding This
+- Visionary University Leader
+- Higher Ed Dive
+- Hechinger Report
+- Ensure Seamless Digital Integration
+- Advancement Systems This
+- Salesforce Commerce
+- Northeastern University Advancement Digital Opportunity Definition
+- Roadmap Proposal
+- Giving Site
+- Content Detection
+- Literacy Programs
+- Academic Integrity This
+- Dedicated Faculty
+- Campus Technology
+
+
+## Auto-extracted (2026-04-14)
+- The Strategic Visionary
+- Northeastern University
+- The First-Year Experiential Explorer
+- The Co-op & CLR User
+- The Operational Implementer
+- The External Partner
+- The Philanthropic Cultivator
+- The Academic Steward
+- The Student Leader & Advocate
+- The Student Leader
+- Official Status
+- Experiential Learning Policies The
+- Comprehensive Learner Record
+- Project Charter
+- Enabled First
+- Year Readiness Roadmap
+- Deploy Comprehensive Learner Record
+- Digital Credentials The
+- The Co
+- Launch Targeted
+- Value Proposition
+- Change Management Campaign Stakeholder
+- The First
+- Year Experiential Explorer
+- Develop Tiered Donor Segmentation
+- Personalized Stewardship Program Donor
+- Establish Robust
+- Data Governance
+- Integration Architecture Challenges
+- Formalize Employer Advisory
+- Feedback Loops
+- Optimize Technology Investment
+- Digital Initiatives Budget
+- Lifecycle Student
+- Institute Strong
+- Ethical Data Use Policies The
+- Develop Career Readiness
+- Utilization Coaching
+- Students Even
+- Implement Comprehensive
+- Impact Metrics Without
+
+
+## Auto-extracted (2026-04-14)
+- The University Transformational Leader
+- Northeastern University
+- The First-Year Co-op Aspirant
+- The Experienced Co-op Seeker/Grad
+- The Impact-Driven Alumni Donor
+- The Strategic Corporate Partner/Employer
+- The Academic Implementer
+- The Policy & Compliance Officer
+- The Policy
+- Compliance Officer
+- Establish Clear
+- Experiential Learning Definitions The
+- Project Charter
+- Enabled Personalized Skill Roadmaps
+- Year Students First
+- The First
+- Year Co
+- Integrate Comprehensive Learner Record
+- Student Profiles The
+- The Experienced Co
+- Implement Centralized Data Governance
+- Integrity Controls Challenges
+- Launch Proactive Change Management
+- Enhance Donor Impact Reporting
+- Personalized Digital Portals Impact
+- The Impact
+- Driven Alumni Donor
+- Personalized Donor Impact
+- Engagement Portal
+- Ethical Deployment Framework The
+- The Strategic Corporate Partner
+- Modernize Co
+- Enhanced Engine Inefficient
+- Management System
+- Adaptive Federal Policy Monitoring
+- Dissemination Process Rapidly
+- Federal Register
+- Evaluate Digital Wallet Integration
+- Credentials Students

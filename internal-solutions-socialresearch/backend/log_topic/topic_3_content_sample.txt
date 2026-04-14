@@ -1,18 +1,13 @@
 Topic 3 - Content Sample
-Number of content items: 9
-Top words: kerr, coach, movie, goat, congrats, steve, right
+Number of content items: 17
+Top words: ai, security, cybersecurity, years, cra, offensive ai, new
 
-Content 1 (length: 488 chars):
-[Basketnews] Golden State Warriors head coach Steve Kerr has added another honor to his remarkable résumé - this time off the court. The documentary short "All the Empty Rooms," produced by Kerr, has won the Oscar for Best Documentary Short.  Congrats coach! 
-We as fans could certainly have worse people as a coach but we’re blessed and lucky to have someone rooted in decency who’s brought us so much joy over the years. 
-10 rings and an Oscar.  
-and some of you "fans" want him fired\~
+Content 1 (length: 336 chars):
+I hold CISSP and CISA certifications and have spent my career across penetration testing, incident response, and AI security research. I presented at Black Hat back in 2004. This August I’m returning to deliver a training on adversarial AI and red teaming the entire AI supply chain — from RAG pipelines to agents to production systems.
 
-Content 2 (length: 573 chars):
-600th career win earns Coach Kerr the game ball! 👏  💙🏀💛 Congrats to him!!! Sucks that so many other fan bases appreciate him more than DubNation...I read/hear it all the time when analysts of other teams comment about how their coaches were "out-coached" by Kerr!!! And complement our beautiful ball movement, and the GSW system of play!!!💙🏀💛
-Yup, after the Rockets game the entire sub wanted to fire Ime and talked about Kerr coaching circles around him. I wish people would respect Steve more, he transformed our offense for the better back in 2015.
-this is a good start！
+Content 2 (length: 373 chars):
+Few argue it’s mostly hype, since many security products now label themselves as AI-powered. However, attackers are already leveraging LLMs, automation frameworks, and AI-assisted tooling to speed up scripting, exploit research, social engineering, and code analysis. This raises an interesting question, Will offensive AI become a core skillset for security professionals?
 
-Content 3 (length: 306 chars):
-I watched GOAT the movie. So I watched GOAT (the movie by our very own G.O.A.T. Steph Curry) over the weekend and it was amazing! I am impressed how Steph incorporated different things from the NBA into the animation to name a few: (just a few spoilers, I apologize to anyone who hasn't seen the movie yet)
+Content 3 (length: 292 chars):
+We’re already seeing early training programs focused on this area. For example, EC-Council recently introduced Certified Offensive AI Security Professional COASP, which focuses on understanding how AI systems can be attacked and how offensive AI techniques can be applied in security testing.
 

@@ -1,18 +1,74 @@
 {
-  "1rx08eb": {
+  "1s2qfn5": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.7153471112251282
+    "sentiment_score": -0.5442590713500977
   },
-  "1rvtytl": {
-    "sentiment_category": "positive",
-    "sentiment_score": 0.4414994418621063
-  },
-  "1rv0vh0": {
+  "1s2ethf": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.9441062808036804
+    "sentiment_score": -0.5544517040252686
   },
-  "1rv00sn": {
+  "1s3e4ui": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1s1gxis": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.5947113037109375
+    "sentiment_score": -0.7212362885475159
+  },
+  "1s2rtnl": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.619760274887085
+  },
+  "1s2amsy": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1s13zii": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1s2nzyp": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5061330795288086
+  },
+  "1s1ts8m": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6758104562759399
+  },
+  "1s1eknb": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1s1jsl8": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.3478865325450897
+  },
+  "1ryim1t": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5866667230923971
+  },
+  "1rwfmrs": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rwnv81": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5171645283699036
+  },
+  "1rvmvw7": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rwbbeg": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5942583084106445
+  },
+  "1rvqic8": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.552240252494812
+  },
+  "1ruv858": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.2577672302722931
   }
 }

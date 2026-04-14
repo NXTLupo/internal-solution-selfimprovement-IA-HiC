@@ -30,10 +30,12 @@ interface Props {
     phase: string;  // 'refining' | 'collecting' | 'filtering' | 'complete'
 }
 
+// Source type labels — NOT credibility judgments
+// Actual source value is determined POST-ANALYSIS based on contribution to research objective
 const TIER_CONFIG: Record<number, { label: string; color: string; bg: string }> = {
-    1: { label: 'TIER 1', color: '#115054', bg: 'rgba(17, 80, 84, 0.1)' },
-    2: { label: 'TIER 2', color: '#fd8e2e', bg: 'rgba(253, 142, 46, 0.1)' },
-    3: { label: 'TIER 3', color: '#acacac', bg: 'rgba(172, 172, 172, 0.1)' },
+    1: { label: 'ACADEMIC', color: '#115054', bg: 'rgba(17, 80, 84, 0.1)' },
+    2: { label: 'NEWS', color: '#666666', bg: 'rgba(102, 102, 102, 0.08)' },
+    3: { label: 'COMMUNITY', color: '#999999', bg: 'rgba(153, 153, 153, 0.06)' },
 };
 
 const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollected, totalSources, successfulSources, isCollecting, phase }) => {

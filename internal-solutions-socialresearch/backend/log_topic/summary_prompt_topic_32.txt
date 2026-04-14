@@ -1,0 +1,91 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: salary, spain, dere, cybersecurity, barcelona, har, og
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+- Is the cybersecurity market in Spain really growing that fast?
+- Are salaries becoming competitive compared to France or other EU countries?
+- What roles are currently the most in demand (SOC, IR, cloud security, etc.)?
+
+EXAMPLE 2:
+I'm currently working in incident response, and today a coworker mentioned that the cybersecurity job market in Spain has been improving a lot recently. According to him, not only are there more opportunities, but salaries are also starting to become competitive even higher than in France in some cases.
+
+EXAMPLE 3:
+Nordmenn som jobber i USA/UK Jeg har en master i cybersikkerhet fra NTNU og ca 4 års erfaring fra Norge. Jeg er fortsatt ung og er veldig nysgjerrig på tanken om å jobbe enten fra USA eller UK for en periode. Ønsker derfor å høre mer fra nordmenn som har flyttet.
+
+EXAMPLE 4:
+I found that a bit surprising, so I wanted to ask people who are actually working in Spain or familiar with the market:
+
+EXAMPLE 5:
+\- It is growing, i woudnt say fast, but there is more demand, however according to numbers there is mayor demand for cybersecurity professionals in almost every country, if that materializes in the actual market is a different story.
+
+EXAMPLE 6:
+\- Mainly things that have to do with compliance and analysis, information security analyst, IAM, cyber consultant and then cybersecurity engineers where they essentially want you to be a data scientist, know devops, a bit of MLOps, LLMs, orquestate a SOAR and swallow a sword like in the circus.
+
+EXAMPLE 7:
+\- No, its gotten A BIT better than it used to, but it is still almost impossible to pass 60-70k without a team lead, architect or director position. Starts about 25k, mid level is between 40 to 55, and then senior around 60 or 70 tops. Depends on WHERE you work obviously, Revolut if not going to pay the same as PwC for example, but yeah. In summer this year it is going to be mandatory by law to post the salary on an open position.
+
+EXAMPLE 8:
+I have talked with alot of students in different countries and came to conclusion that job market in UK, Germany are really very bad. 
+Australia is good but degree and living expenses are alot, approx. 1cr in INR.
+
+EXAMPLE 9:
+The reason why I think its in a decent (not good) spot right know is because companies are outsourcing a lot of work over here, its way cheaper and you still have pretty good output quality.
+Would the Spanish language be a barrier for a professional who speak only English and French?
+What about the taxes , are they high like France ?
+
+EXAMPLE 10:
+My background - I have done my bachelor's in 2020 in computer science and masters in year 2025. Masters was in software engineering. 
+During my master's i develop interest in cybersecurity. Also I am keen to do one more degree. So I am thinking to do master's in cybersecurity from abroad ( fyi I am Indian).
+
+EXAMPLE 11:
+Hvordan gikk dere frem med å flytte? Søkte dere bare jobber der dere ønsket å bo eller flyttet dere lokasjon internt i bedriften?
+
+EXAMPLE 12:
+So I started to search more and came across singapore for which I got mixed reaction.
+Estonia - I spoke with couple of people from here they are positive about it but PR is uncertain because we need estonian language for that. 
+Other countries which are there in my mind right now are Ireland, Canada, Netherlands, Poland and Spain.
+
+EXAMPLE 13:
+Future guidance Hi all,
+I am frontend developer with around 6 years of experience. I work in a mnc and unfortunately I am getting layed off. My skill set is react, typescript, javascript, angular, html, css. 
+I tried to find suitable role outside but unable to get any. I feel that frontend alone is kind of dead now. 
+So I am thinking to pivot.
+
+EXAMPLE 14:
+Can you please guide me which will be best. 
+Also I have already given pte last year and secured 81. I can prepare for ielts if needed.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,0 +1,77 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: experience, cybersecurity, cyber, role, field, career, security
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Joining Career Assured Program in Cybersecurity Hey folks 👋!
+I'm BCA'25 Graduate with RedHat RHCSA certified and RHCE soon. I've enrolled in Career Assured Program in Cybersecurity training will be from April start, I need to know what would be training and job roles as a fresher I'll be joining in Cybersecurity realm and future scope of this field (India) and growth and what other roles I can switch to. Am I going on right direction?  Before locking into a specific role, mess around with CyberDefenders' free labs for a weekend because the hands-on stuff will tell you pretty fast whether you g [...]
+
+EXAMPLE 2:
+I’ve been reading lots of these posts and I see so many people saying you need experience before starting a cybersecurity career. But no one is saying \~what kind\~ of experience is needed.
+
+EXAMPLE 3:
+I just signed up for a cyber security conference based on your comment. I really appreciate the advice! 
+It really depends on what exactly you’re looking to do in cybersecurity: if it’s GRC, start learning about compliance requirements and certifications, if it’s detection and response- start by learning how to analyze logs to detect breaches…there are so many more aspects, each requires a different approach and experience.
+
+EXAMPLE 4:
+Volunteering What volunteer opportunities exist in this professional realm? Any charitable organizations in need of pro bono work?  Yes. Look at local non profits, clinics, schools, libraries, and small municipalities. I did pro bono vuln management and M365 hardening for a food bank after they got hit by basic phishing. Biggest need was MFA, asset inventory, backups, and patching, not fancy pentest stuff. Also check crisis hotlines and digital rights orgs.
+If in the US, check out your local state militia/defense force. [...]
+
+EXAMPLE 5:
+Edit: I want to move into the GRC space.  Hring manager/director here:  
+\- it really depends on what you want to do and what your expectations are..  
+\- if you want to get into:  
+\---  network security (detecting and blocking bad guys) : you'd need experience with real business and hospital networks (IT Department work)  
+\--- desktop/server/cloud security : you'd need experience with real servers, desktops, cloud servers (IT dept work)  
+\--- if you want to be more on the policy/proceedure side of things "is this hospital meeting all the state and federal legal requirements in terms of cyb [...]
+
+EXAMPLE 6:
+I’m currently a Senior EMR Analyst at a healthcare organization. I’m studying for Security+ now and would like to stay in healthcare cybersecurity. Is this the kind of experience you (hiring managers) are looking for?
+
+EXAMPLE 7:
+net+ and sec+ will teach you some of the language of cyber.. but that doesnt give you real practical experience. 
+Thank you for chiming in! I’m interested in transitioning into GRC.
+
+EXAMPLE 8:
+[https://www.hqmc.marines.mil/Agencies/Deputy-Commandant-for-Information/Information-Maneuver-Division/Marine-Corps-Cyber-Auxiliary/](https://www.hqmc.marines.mil/Agencies/Deputy-Commandant-for-Information/Information-Maneuver-Division/Marine-Corps-Cyber-Auxiliary/)
+
+EXAMPLE 9:
+Cyberpeace institute  
+[https://www.iamcybersafe.org/s/cyberpeace-builders](https://www.iamcybersafe.org/s/cyberpeace-builders)
+
+EXAMPLE 10:
+along with that, you MUST network in person with the hospital and cyber community to find opportunities.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

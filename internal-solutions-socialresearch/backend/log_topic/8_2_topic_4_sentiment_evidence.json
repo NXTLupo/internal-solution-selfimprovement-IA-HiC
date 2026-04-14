@@ -1,35 +1,53 @@
 {
   "positive": [
     {
-      "point": "Podz is one of the best rebounding guards in the league, ranking in the top 5, and is an efficient scorer with a high usage low turnover profile. He is also a good defender and is paid less than $4M a year.",
+      "point": "Virtual Mobile Infrastructure (VMI) solutions for BYOD are appreciated for not requiring data on the device, MDM profiles, or wipe capabilities, addressing user pushback against traditional MDM solutions.",
       "post_refs": [
-        "1rwb0kh"
+        "1s4fle8"
       ]
     },
     {
-      "point": "Podz has stepped up massively since Steph went down, averaging 18.2 points, 7.7 rebounds, 4.4 assists, and 1.1 steals on 56% true shooting percentage over the last 10 games, which are fringe all-star numbers.",
+      "point": "The creation of a free tool to check domain vulnerability to email spoofing is appreciated for addressing a significant security gap and providing practical advice.",
       "post_refs": [
-        "1rvphwt"
+        "1s43prl"
+      ]
+    },
+    {
+      "point": "BlackBerry's legacy in mobile security is recognized for influencing modern mobile protection strategies, such as secure containerization and zero-trust architecture.",
+      "post_refs": [
+        "1rvnvys"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Podz's ego and play have driven enough of his teammates to snap at him during games more than any other player on the team, and he gets more playing time at the expense of other young players.",
+      "point": "Concerns about latency, iOS experience, and usability in day-to-day operations are significant when considering Virtual Mobile Infrastructure (VMI) solutions.",
       "post_refs": [
-        "1rwb0kh"
+        "1s4fle8"
       ]
     },
     {
-      "point": "There is frustration that Podz is getting 35 minutes per game, which is seen as a longer leash than other younger players, leading to complaints about his playing time.",
+      "point": "Device code phishing and OAuth abuse are significant threats, with over 340 Microsoft 365 organizations affected, highlighting the need to disable device code flow.",
       "post_refs": [
-        "1rwb0kh"
+        "1s3iqcu"
       ]
     },
     {
-      "point": "Podz's ego is somewhat deserved, and there is a perception that the hate on him is disproportionate to his actual performance compared to other players.",
+      "point": "The presence of malware apps on app stores, which provide no benefit to users and make devices unusable, raises concerns about corporate greed and user data collection.",
       "post_refs": [
-        "1rvphwt"
+        "1rz7n2t"
+      ]
+    },
+    {
+      "point": "The lack of email verification on TikTok account creation is seen as a security flaw, allowing unauthorized account creation and password resets.",
+      "post_refs": [
+        "1s2tf6e"
+      ]
+    },
+    {
+      "point": "Phishing threats using legitimate Microsoft OAuth flows to hijack emails are a concern, with a need for better app registration controls in Microsoft 365 environments.",
+      "post_refs": [
+        "1ry9f4y"
       ]
     }
   ]

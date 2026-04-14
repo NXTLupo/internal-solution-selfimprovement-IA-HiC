@@ -20,7 +20,29 @@
       "Bash(cp \"D:/NXT-Agency/frontend/images/new_logo.png\" \"D:/NXT-Agency/agency-agents-launchpad/public/nxt-humans-logo.png\")",
       "Bash(find D:/NXT-Agency/agency-agents-launchpad/src -type f \\\\\\(-name *.tsx -o -name *.jsx -o -name *.ts -o -name *.css \\\\\\))",
       "Bash(powershell.exe -Command \"Start-Process ''C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe''\")",
-      "Bash(powershell.exe -Command \"Get-NetTCPConnection -LocalPort 8201 -ErrorAction SilentlyContinue\")"
+      "Bash(powershell.exe -Command \"Get-NetTCPConnection -LocalPort 8201 -ErrorAction SilentlyContinue\")",
+      "Bash(gh api:*)",
+      "Bash(gh search:*)",
+      "Bash(gh --version)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(find /d/NXT-Agency/backend/app/tools -name *.py)",
+      "Read(//d/NXT-Agency/backend/app/**)",
+      "Bash(docker ps:*)",
+      "Bash(docker exec nxt-agency-backend bash -c 'python3 -c \"\":*)",
+      "Bash(SRC=\"New Frontend Files/favicon.ico\")",
+      "Bash(for dest:*)",
+      "Bash(cp \"$SRC\" \"$dest\")",
+      "Bash(cp \"New Frontend Files/favicon.ico\" \"internal-solutions-copilot-recipe-generator/frontend/public/favicon.ico\")",
+      "Bash(cp \"New Frontend Files/favicon.ico\" \"internal-solutions-socialresearch/frontend/public/favicon.ico\")",
+      "Bash(mkdir -p internal-solutions-research-generator/static)",
+      "Bash(cp \"New Frontend Files/favicon.ico\" \"internal-solutions-research-generator/static/favicon.ico\")",
+      "Bash(find /d/NXT-HUMANS_AI_CX_WORKBENCH/internal-solutions-copilot-recipe-generator/frontend -type f -name *.tsx -o -name *.ts -o -name *.jsx -o -name *.js)",
+      "Bash(find D:NXT-Agencybackendagent-prompts -name *.txt -o -name *.md)",
+      "Bash(find D:NXT-Agency -path *agent* -name *.txt)"
+    ],
+    "additionalDirectories": [
+      "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
     ]
   }
 }

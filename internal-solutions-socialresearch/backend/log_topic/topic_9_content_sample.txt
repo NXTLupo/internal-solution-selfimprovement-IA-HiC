@@ -1,18 +1,18 @@
 Topic 9 - Content Sample
-Number of content items: 4
-Top words: santos, gui, best, elite, better, second, half
+Number of content items: 25
+Top words: security, roles, experience, appsec, work, career, grc
 
-Content 1 (length: 126 chars):
-Big 3 🔥🔥🔥  Santos with the pivotal steal and steps up huge in the second half. 
-Santos the new Draymond.
-We finally won a game
+Content 1 (length: 250 chars):
+PortSwigger and OSWE make sense but AppSec is broader than web exploitation. The roles hiring well want threat modeling, secure code review, CI/CD security, API security, and supply chain awareness. Offensive skills are one piece of a larger picture.
 
-Content 2 (length: 646 chars):
-Gui Santos’s takeaway from this narrow loss down half the team: “We gotta keep batting. We gotta keep trying to win games when we don't have other guys, because we know when they get back we're gonna be good.”  I really do like Gui I actually think he might have the highest upside of any of our younger players to be honest.
-He’s surprisingly an incredibly smart player especially for his age, ironically reminds me a lot of Jimmy Butler. He could legit be another Jimmy in the league at this pace. Just solid at everything, elite court awareness, cerebral, gritty and finds all these crafty ways to get a bucket.
-He’s like a unathletic iguadala
+Content 2 (length: 508 chars):
+* Building and maintaining enterprise web applications using C# / .NET, JavaScript, SQL Server
+* Designing and implementing APIs and third-party integrations
+* Working with authentication / security features (MFA flows, email verification systems, access controls, etc.)
+* Following secure coding practices and remediation initiatives in a regulated industry
+* Using typical dev tooling like Git, CI/CD pipelines, Azure services, logging/monitoring, etc.
+* Supporting applications that serve large user bases
 
-Content 3 (length: 595 chars):
-GP2 has been playing the second best stretch of his career Obviously after injuries started adding up, Gui/Mo/Podz and all the other role players have stepped up but one of them that doesn’t get talked about is Gary. His energy is there every night, elite crash rate, moving a lot better than he did earlier this season and even last season. 22’ GP2 back? Maybe the best of his career. He's not quite as insanely athletic - but his shooting is better as is his passing and playmaking. He's a more rounded player - and real valuable.
-He's probably better offensively then he was in the title run.
+Content 3 (length: 176 chars):
+Full-stack .NET dev (4+ yrs) trying to transition into AppSec — looking for advice Hey everyone — looking for some guidance from people already working in Application Security.
 

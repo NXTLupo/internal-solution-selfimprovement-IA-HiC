@@ -1,22 +1,78 @@
 {
-  "1rwh2va": {
+  "1s2bi17": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.9310884475708008
+  },
+  "1s2fuuy": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.30840566754341125
+  },
+  "1s2fhtt": {
     "sentiment_category": "neutral",
-    "sentiment_score": 0.12916956345240274
+    "sentiment_score": 0.0
   },
-  "1ruyai4": {
+  "1s1fgxc": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1s1apni": {
     "sentiment_category": "positive",
-    "sentiment_score": 0.5346555113792419
+    "sentiment_score": 0.28269749879837036
   },
-  "1rv0yx0": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.5109972357749939
-  },
-  "1ruxw6h": {
+  "1s0kndm": {
     "sentiment_category": "positive",
-    "sentiment_score": 0.6096379160881042
+    "sentiment_score": 0.5859262943267822
   },
-  "1ruu6ry": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.602266252040863
+  "1rz6isl": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.4640362560749054
+  },
+  "1ry151k": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.8776482939720154
+  },
+  "1rxjerp": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rwzn1e": {
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.24103549122810364
+  },
+  "1rw5176": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.3755805790424347
+  },
+  "1rwfb84": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rwcz1x": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.907865583896637
+  },
+  "1rwblzn": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rv5h9k": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.8033183217048645
+  },
+  "1rv160b": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rslhor": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rsll21": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
+  },
+  "1rruntn": {
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0
   }
 }

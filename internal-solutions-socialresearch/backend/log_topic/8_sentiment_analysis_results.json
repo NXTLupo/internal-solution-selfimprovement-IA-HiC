@@ -1,62 +1,77 @@
 [
   {
     "topic_id": 0,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.3557587130503221
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.013320034533216242
   },
   {
     "topic_id": 1,
     "sentiment_category": "neutral",
-    "sentiment_score": 0.09805109765794542
+    "sentiment_score": -0.21774982613248703
   },
   {
     "topic_id": 2,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.29093262553215027
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.14724384710706515
   },
   {
     "topic_id": 3,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.6670116867337909
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.18437864258885384
   },
   {
     "topic_id": 4,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.1479489877820015
+    "sentiment_category": "negative",
+    "sentiment_score": -0.36089071746055895
   },
   {
     "topic_id": 5,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.0320399006207784
+    "sentiment_category": "positive",
+    "sentiment_score": 0.2787121816685325
   },
   {
     "topic_id": 6,
     "sentiment_category": "negative",
-    "sentiment_score": -0.45316631346940994
+    "sentiment_score": -0.35986858054443643
   },
   {
     "topic_id": 7,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.5875789001584053
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.17028180095884535
   },
   {
     "topic_id": 8,
-    "sentiment_category": "negative",
-    "sentiment_score": -0.30102596680323285
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.1163042965862486
   },
   {
     "topic_id": 9,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.9084707697232565
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.015076037910249498
   },
   {
     "topic_id": 10,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.4324875275293986
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.0518028923109466
   },
   {
     "topic_id": 11,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.5021135608355204
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.15760384686291218
+  },
+  {
+    "topic_id": 12,
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.19224982659022014
+  },
+  {
+    "topic_id": 13,
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.05545816996267864
+  },
+  {
+    "topic_id": 14,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5095602400027789
   }
 ]

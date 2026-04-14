@@ -1,59 +1,65 @@
 {
   "positive": [
     {
-      "point": "Despite being short-handed and lacking talent, the team shows great hustle and determination, continuing to battle in games even when down by significant margins.",
+      "point": "Cybersec Research consolidates relevant arXiv papers in one place, making it easier for users to access important research.",
       "post_refs": [
-        "1rwh2va"
+        "1s2bi17"
       ]
     },
     {
-      "point": "The struggles have allowed for the emergence of players like Gui Santos, who is now being considered for a starting role even when the main players return.",
+      "point": "SubAnalyzer offers a comprehensive subdomain enumeration tool with multiple techniques and a feedback loop, providing more accurate results.",
       "post_refs": [
-        "1rwh2va"
+        "1s2fuuy"
       ]
     },
     {
-      "point": "The young team is being given time to make mistakes and learn, which is crucial for building chemistry and improving results.",
+      "point": "Samuraizer automates the ingestion and analysis of security research, helping researchers manage information overload.",
       "post_refs": [
-        "1ruyai4"
+        "1s2fhtt"
       ]
     },
     {
-      "point": "The games without Steph Curry have been surprisingly enjoyable and competitive, with young players like Gui, Will, and Podz showing potential as legit bench players.",
+      "point": "AbuseBox consolidates multiple threat monitoring tools into one dashboard, simplifying the process of checking various security aspects.",
       "post_refs": [
-        "1ruxw6h"
+        "1s1apni"
       ]
     },
     {
-      "point": "The freedom given to Podz to make mistakes and learn is seen as a positive development for his growth.",
+      "point": "DarkGrid visualizes threat intelligence data on a 3D globe, providing a unique and interactive way to view malicious infrastructure.",
       "post_refs": [
-        "1ruxw6h"
+        "1rw5176"
+      ]
+    },
+    {
+      "point": "Reachability Check is a zero-dependency, browser-based tool for network and firewall reachability, offering portability and ease of use.",
+      "post_refs": [
+        "1rwfb84"
       ]
     }
   ],
   "negative": [
     {
-      "point": "The team is missing a significant amount of talent and financial investment in players due to injuries.",
+      "point": "OSINT threat intel feeds often suffer from noise, duplication, and inconsistent formats, making them difficult to operationalize.",
       "post_refs": [
-        "1ruu6ry"
+        "1s1fgxc"
       ]
     },
     {
-      "point": "There is frustration with the inconsistency in lineups and the lack of traction due to the absence of a roster filled with experienced veterans.",
+      "point": "Subdomain takeovers due to misconfigured DNS records pose a significant risk, as they can lead to phishing or brand damage.",
       "post_refs": [
-        "1ruyai4"
+        "1rwzn1e"
       ]
     },
     {
-      "point": "Podz's decision-making, particularly taking a 3-point shot with 17 seconds left on the shot clock, is questioned, as it is not considered a good shot for anyone other than Steph Curry.",
+      "point": "The OWASP Threat Dragon AI tool's value proposition is unclear, with users questioning its necessity over direct LLM usage.",
       "post_refs": [
-        "1rv0yx0"
+        "1rslhor"
       ]
     },
     {
-      "point": "There is skepticism about the front office's strategy with the second timeline, as it is not seen as something worthwhile.",
+      "point": "The Iran Cyber Threat Intel Center site may have security gaps that need to be addressed before full production.",
       "post_refs": [
-        "1ruu6ry"
+        "1rz6isl"
       ]
     }
   ]

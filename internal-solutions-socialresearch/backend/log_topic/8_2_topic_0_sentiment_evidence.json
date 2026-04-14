@@ -1,59 +1,68 @@
 {
   "positive": [
     {
-      "point": "Klay Thompson is still playing well and contributing good minutes in Dallas despite the team tanking.",
+      "point": "CompTIA CySA+ CS0-003 offers practical, scenario-based questions that test real-world skills, such as identifying phishing attacks and analyzing logs.",
       "post_refs": [
-        "1rxs98l"
+        "1s405oy"
       ]
     },
     {
-      "point": "Kevin Durant's time with the Warriors is remembered positively, and he is welcome back anytime.",
+      "point": "Free resources like PortSwigger Labs and PentesterLab Pro offer valuable learning opportunities for web pentesting.",
       "post_refs": [
-        "1rwhgxq"
+        "1s2z2if"
       ]
     },
     {
-      "point": "Steph Curry and Gary Payton II display great charisma and have a fun dynamic, with GP2 being particularly charismatic.",
+      "point": "Security+ is considered a foundational certification that is respected in the industry and covers fundamental tech skills.",
       "post_refs": [
-        "1rves2r"
+        "1s2bf0j"
       ]
     },
     {
-      "point": "The KP trade is seen as a strategic move for the future, with potential for KP to fit well in the modern game and benefit from the Warriors' medical team.",
+      "point": "Practical experience is highly valued in the cybersecurity field, often more than degrees or certifications.",
       "post_refs": [
-        "1rvunpf"
+        "1s2ifl1",
+        "1s3jpce"
       ]
     },
     {
-      "point": "The idea of resting older players and giving young players more playing time is seen as a hopeful strategy for future success.",
+      "point": "Azure certifications like AZ-500 and SC-100 are valuable for specializing in Cloud Security and align with compliance objectives.",
       "post_refs": [
-        "1ruxxz4"
+        "1s0wqis"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Jordan Poole's career trajectory has declined since his trade, and his defensive efforts were criticized.",
+      "point": "The CEH certification is criticized for being outdated and not worth the investment compared to other certifications.",
       "post_refs": [
-        "1rxfrjn"
+        "1s3xcgq",
+        "1s1g1v5"
       ]
     },
     {
-      "point": "Kevin Durant is perceived to have self-sabotaged his career by leaving the Warriors, missing out on potential championships.",
+      "point": "Free cybersecurity certifications are often not respected by employers compared to paid, well-known certifications.",
       "post_refs": [
-        "1rwhgxq"
+        "1s3i4c6"
       ]
     },
     {
-      "point": "The Warriors' performance post-KP trade has been poor, with a record of 3-8, indicating struggles despite the trade.",
+      "point": "Cybersecurity degrees are not highly regarded and may not provide a competitive edge in the job market.",
       "post_refs": [
-        "1rvuu4g"
+        "1s2vasi"
       ]
     },
     {
-      "point": "The team is unlikely to succeed without Jimmy, highlighting concerns about the team's dependency on him.",
+      "point": "CrowdStrike\u2019s NG SIEM certification is criticized for lacking depth and requiring additional resources for better understanding.",
       "post_refs": [
-        "1ruxxz4"
+        "1s2bs7e"
+      ]
+    },
+    {
+      "point": "The job market for cybersecurity is competitive, and certifications alone may not guarantee job placement.",
+      "post_refs": [
+        "1s2vasi",
+        "1rw4ad6"
       ]
     }
   ]

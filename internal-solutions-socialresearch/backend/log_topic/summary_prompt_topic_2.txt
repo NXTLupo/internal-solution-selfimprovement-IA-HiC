@@ -1,22 +1,106 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: post, reddit, game, warriors, old, click view post, view post
+- Top keywords: 537 36, report, 2026, 10, 17, ai, key stats
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Post Game Thread - NBA: The Celtics defeat the Warriors on Mar 18, 2026, the final score is 120-99. This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxmxb6) Hello 10th seed my old friend!
-*old* friend?
-god i miss Steph and Jimmy
+*Read the full report* [*here*](https://www.gartner.com/en/newsroom/press-releases/2026-03-17-gartner-predicts-ai-applications-will-drive-50-percent-of-cybersecurity-incident-response-efforts-by-2028)*.*
 
 EXAMPLE 2:
-Game Thread: Boston Celtics vs Golden State Warriors Live Score | NBA | Mar 18, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxhri6) I swear Pat and Podz can never have a good game at the same time 😭
-The new Steph/Klay. Stg those two traded hot shooting nights.
-Damn a 9th seed getting blown out by an actual contender cmon guys lol
+*Read the full report* [*here*](https://www.ey.com/en_us/consulting/the-ai-landscape-in-cybersecurity)*.*
 
 EXAMPLE 3:
-Game Thread: Washington Wizards vs Golden State Warriors Live Score | NBA | Mar 16, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rvnrkl) This game is devolving into some globetrotter shit
-Wizards already have the same jerseys as the globetrotters :D
-KP is very good at basketball.
+**Gartner Predicts AI Applications Will Drive 50% of Cybersecurity Incident Response Efforts by 2028 (Gartner)**
+
+EXAMPLE 4:
+*Read the full report* [*here*](https://www.halcyon.ai/lp/2026-security-leadership-survey-report)*.*
+
+EXAMPLE 5:
+* DataDome's network recorded 7.9 billion AI agent requests in January and February 2026, a 5% increase quarter-over-quarter.
+* Meta-ExternalAgent was the most impersonated agent in early 2026.
+* E-commerce and retail accounted for roughly 20% of agentic browser traffic.
+
+EXAMPLE 6:
+*Read the full report* [*here*](https://optro.ai/resources/ebook/the-ai-oversight-gap-adoption-is-scaling-governance-controls-arent#39;t)*.*
+
+EXAMPLE 7:
+* 96% of senior corporate security leaders say AI-enabled cybersecurity attacks are a significant threat to their organization.
+* Currently, 9% of organizations dedicate at least 25% of their total cybersecurity budget to AI solutions; this share is expected to rise to 48% in two years.
+* 97% agree their organization's competitive advantage in the next two years will be directly tied to the maturity of agentic AI cybersecurity defenses.
+
+EXAMPLE 8:
+* 77% of organizations report AI-driven job creation compared to 46% reporting job losses, and among those experiencing both, 69% say the net impact of AI on jobs has been positive.
+* 53% of respondents say they use gen AI in cybersecurity.
+* When asked what IT/cybersecurity use cases are being pursued with gen AI, 61% of respondents said help desk and ticket automation.
+
+EXAMPLE 9:
+*Read the full report* [*here*](https://spycloud.com/resource/report/spycloud-annual-identity-exposure-report-2026/)*.*
+
+EXAMPLE 10:
+*Read the full report* [*here*](https://www.kroll.com/en/publications/cyber/state-of-cyber-resilience-2026)*.*
+
+EXAMPLE 11:
+* Through 2027, manual AI compliance processes will expose 75% of regulated organizations to fines exceeding 5% of their global revenue.
+* By 2028, 70% of CISOs will use identity visibility and intelligence capabilities to shrink the IAM attack surface, reducing the risks of credential compromise.
+* Through 2030, 33% of IT work will be spent remediating AI data debt to secure AI.
+
+EXAMPLE 12:
+AI is being seen by security leaders as both a threat and a solution, with budgets set to shift dramatically toward AI defenses over the next two years.
+
+EXAMPLE 13:
+* 79% of IT decision-makers state that AI-powered attacks pose a significant threat to their organization's security.
+* 52% say their average ransomware payout exceeds their annual cybersecurity budget.
+* 55% admit they still lack the necessary expertise needed to implement and manage AI-powered security solutions effectively.
+
+EXAMPLE 14:
+* 53% of organizations admit they have withheld AI breach reporting due to fear of backlash.
+* 31% of organizations do not know whether they experienced an AI security breach in the past 12 months.
+* Autonomous agents account for more than 1 in 8 reported AI breaches.
+
+EXAMPLE 15:
+* In 2025, 28.65 million new hardcoded secrets were found in new public GitHub commits, a 34% increase from the previous year.
+* Eight of the ten types of leaked secrets showing the sharpest increase year over year are tied to AI services.
+* Developers who rely on Claude Code to produce code and co-author commits leak secrets at 2x the baseline rate.
+
+EXAMPLE 16:
+Impressive report with benchmarking based on 236+ million account applications across credit cards, auto lending, consumer lending, DDAs, and telecom, now with a first-party fraud rate.
+
+EXAMPLE 17:
+*Read the full report* [*here*](https://www.ox.security/resource-category/whitepapers-and-reports/derailed-2026-application-security-benchmark-report/)*.*
+
+EXAMPLE 18:
+Not strictly security-related, but it has good data for anyone worried about their job. AI is creating more jobs than it eliminates, with organizations reporting positive returns on their AI investments.
+
+EXAMPLE 19:
+* 85% of organizations have integrated AI into core operations or multiple functions.
+* 25% of organizations have comprehensive visibility into employee AI use.
+* Roughly 80% of organizations describe 'shadow AI' use as moderate to pervasive.
+
+EXAMPLE 20:
+*Read the full report* [*here*](https://go.barndoor.ai/hubfs/Marketing%20Assets/2026%20Organizational%20Behavior%20&%20AI%20Governance-Barndoor.pdf)*.*
+
+EXAMPLE 21:
+* 90% of people are worried about AI using their data without consent.
+* 88% do not freely share personal information with AI tools like ChatGPT and Gemini.
+* 76% use multi-factor authentication, up from 69%.
+
+EXAMPLE 22:
+* In 2025, 52% of U.S. school districts experienced a cybersecurity incident, up from 36% in 2024 and 31% in 2023.
+* Vendor-related cybersecurity incidents among school districts rose from 4% in 2023 to 32% in 2025.
+* Four out of five U.S. school districts (80%) believe AI is increasing their cybersecurity risk.
+
+EXAMPLE 23:
+* 26 of 30 pull requests (87%) introduce at least one vulnerability.
+* No AI coding agent evaluated (Claude, Codex, and Gemini) produced a fully secure application.
+* Four authentication-related weaknesses appeared in every final codebase: insecure JWT verification and management, lack of application-level brute force protections, exposure to token replay attacks, and insecure defaults for refresh token cookie configurations.
+
+EXAMPLE 24:
+*Read the full report* [*here*](https://www.bridewell.com/insights/white-papers/detail/cyber-security-in-cni-2026)*.*
+
+EXAMPLE 25:
+* 93% of CNI organisations experienced a cyber attack in the past 12 months.
+* 35% of security leaders working across the UK's 13 CNI sectors cited regulatory requirements as the primary influence on their security programs, up from 26% in 2025.
+* 39% said managing AI cyber risk is the biggest security challenge in 2026.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

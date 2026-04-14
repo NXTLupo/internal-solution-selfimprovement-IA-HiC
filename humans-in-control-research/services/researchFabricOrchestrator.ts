@@ -18,6 +18,24 @@ import { AnalyticalLens } from '../types';
 import { GoogleGenAI } from "@google/genai";
 import { tryRepairJson } from './aiRouter';
 
+/**
+ * Chunk-to-source mapping built during corpus assembly.
+ * Maps CHUNK_001, CHUNK_002, etc. to human-readable source names and titles.
+ * Used by slidePostProcessor to resolve [CHUNK_XXX] citations to real source names.
+ */
+export interface ChunkSourceInfo {
+    sourceName: string;
+    title: string;
+    url?: string;
+}
+
+let _chunkSourceMap: Record<string, ChunkSourceInfo> = {};
+
+/** Get the chunk-to-source mapping from the last corpus build */
+export function getChunkSourceMap(): Record<string, ChunkSourceInfo> {
+    return _chunkSourceMap;
+}
+
 // --- TYPES ---
 
 export interface ResearchPlanSource {
@@ -339,7 +357,7 @@ export async function generateResearchPlan(
                 name: `Reddit: r/${sub}`,
                 description: `Collect posts and comments from r/${sub}`,
                 query: sub,
-                config: { source: 'reddit', target: sub, count: 100 },
+                config: { source: 'reddit', target: sub, count: 30 },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 30,
                 enabled: true,
@@ -457,6 +475,7 @@ export async function executePlan(
                         onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'running', itemsCollected: 0, message: p.message });
                     });
 
+                    // The synthesized research content (always include — this is the AI's analysis)
                     items = [{
                         id: `research_${source.id}`,
                         title: `AI Research (${researchResult.provider}): ${source.query.substring(0, 60)}`,
@@ -464,15 +483,57 @@ export async function executePlan(
                         sourceType: 'web',
                         sourceName: `${researchResult.provider} (${source.config.mode} research)`,
                     }];
+
+                    // RELEVANCE FILTER: Only filter out clearly off-topic results
+                    // (e.g., Gemini product news for a higher-ed query).
+                    // Use broad domain matching — include anything that mentions ANY
+                    // domain-relevant term from the research query OR common domain synonyms.
+                    const allQueryText = `${source.query} ${researchGoal || ''}`.toLowerCase();
+                    const queryWords = allQueryText.split(/\s+/).filter(w => w.length > 3);
+                    // Add domain synonyms so "fundraising" matches when query says "advancement"
+                    const domainSynonyms = new Set<string>();
+                    if (allQueryText.includes('fundrais') || allQueryText.includes('advancement') || allQueryText.includes('donor') || allQueryText.includes('giving')) {
+                        ['fundrais', 'donor', 'giving', 'advancement', 'philanthrop', 'alumni', 'endowment', 'stewardship', 'solicit', 'campaign'].forEach(s => domainSynonyms.add(s));
+                    }
+                    if (allQueryText.includes('higher ed') || allQueryText.includes('university') || allQueryText.includes('college') || allQueryText.includes('student')) {
+                        ['higher ed', 'university', 'college', 'student', 'campus', 'enrollment', 'tuition', 'faculty', 'academic'].forEach(s => domainSynonyms.add(s));
+                    }
+                    if (allQueryText.includes('co-op') || allQueryText.includes('coop') || allQueryText.includes('experiential') || allQueryText.includes('career')) {
+                        ['co-op', 'coop', 'experiential', 'career', 'intern', 'employer', 'workforce', 'skill'].forEach(s => domainSynonyms.add(s));
+                    }
+
+                    let includedSources = 0;
+                    let filteredSources = 0;
+                    // Only apply strict filtering for KNOWN irrelevant patterns
+                    const IRRELEVANT_PATTERNS = [/gemini.*flash/i, /gemini.*pro/i, /apple.*siri/i, /google.*workspace/i, /chatgpt.*update/i, /openai.*release/i, /claude.*update/i];
+
                     for (const src of researchResult.sources) {
-                        items.push({
-                            id: `research_src_${items.length}`,
-                            title: src.title || src.url,
-                            content: src.citedText || src.snippet || src.title || '',
-                            url: src.url,
-                            sourceType: 'web',
-                            sourceName: researchResult.provider,
-                        });
+                        const title = src.title || '';
+                        const titleLower = title.toLowerCase();
+
+                        // Only filter if title matches a KNOWN irrelevant pattern
+                        const isKnownIrrelevant = IRRELEVANT_PATTERNS.some(p => p.test(title));
+                        // OR if it has zero overlap with query words AND zero domain synonym matches
+                        const hasQueryOverlap = queryWords.some(w => titleLower.includes(w));
+                        const hasDomainOverlap = Array.from(domainSynonyms).some(s => titleLower.includes(s));
+
+                        if (isKnownIrrelevant && !hasQueryOverlap && !hasDomainOverlap) {
+                            filteredSources++;
+                            console.log(`[DeepResearch] Filtered irrelevant source: "${title}"`);
+                        } else {
+                            items.push({
+                                id: `research_src_${items.length}`,
+                                title: src.title || src.url,
+                                content: src.citedText || src.snippet || src.title || '',
+                                url: src.url,
+                                sourceType: 'web',
+                                sourceName: researchResult.provider,
+                            });
+                            includedSources++;
+                        }
+                    }
+                    if (filteredSources > 0) {
+                        console.log(`[DeepResearch] Relevance filter: ${includedSources} sources kept, ${filteredSources} irrelevant sources removed`);
                     }
 
                 } else if (source.type === 'data_api') {
@@ -501,7 +562,9 @@ export async function executePlan(
                             id: `cx_${source.id}_${i}`,
                             title: item.title || `${source.config.source} item`,
                             content: item.selftext || item.body || item.content || item.title || '',
-                            url: item.url || item.permalink ? `https://reddit.com${item.permalink}` : undefined,
+                            url: item.permalink
+                                ? (item.permalink.startsWith('http') ? item.permalink : `https://www.reddit.com${item.permalink}`)
+                                : (item.url && item.url.startsWith('http') ? item.url : undefined),
                             date: item.created ? new Date(item.created * 1000).toISOString() : undefined,
                             sourceType: 'social' as const,
                             sourceName: `${source.config.source}: ${source.config.target}`,
@@ -588,11 +651,19 @@ IMPORTANT: Score EVERY item. Be STRICT on relevance.`;
             };
         });
 
-        // Filter: drop items below 30
-        const kept = scored.filter(item => (item.relevanceScore ?? 0) >= 30);
-        console.log(`AI relevance scoring: ${kept.length}/${items.length} items scored >= 30 for "${goal.substring(0, 50)}..."`);
+        // KEEP ALL ITEMS — do NOT drop evidence before the AI analyzes it
+        // Relevance scores are attached for sorting and post-analysis scoring,
+        // but no item is excluded. The AI must see everything to perform
+        // comprehensive cross-source analysis. Confidence is computed AFTER
+        // theme extraction based on what sources actually contributed.
+        const highRelevance = scored.filter(item => (item.relevanceScore ?? 0) >= 60).length;
+        const moderate = scored.filter(item => (item.relevanceScore ?? 0) >= 30 && (item.relevanceScore ?? 0) < 60).length;
+        const lowRelevance = scored.filter(item => (item.relevanceScore ?? 0) < 30).length;
+        console.log(`AI relevance scoring: ${scored.length} items scored (${highRelevance} high, ${moderate} moderate, ${lowRelevance} low relevance) for "${goal.substring(0, 50)}..."`);
 
-        return kept.length > 0 ? kept : scored.sort((a, b) => (b.relevanceScore ?? 0) - (a.relevanceScore ?? 0)).slice(0, 5);
+        // Sort by relevance so highest-quality items appear first in corpus,
+        // but ALL items are included
+        return scored.sort((a, b) => (b.relevanceScore ?? 0) - (a.relevanceScore ?? 0));
     } catch (e) {
         console.warn('AI relevance scoring failed, keeping all items:', e);
         return items.map(item => ({ ...item, relevanceScore: 50 }));
@@ -612,7 +683,7 @@ const filterRelevantItems = filterAndScoreItems;
  * Academic APIs only return titles/abstracts. This downloads the actual content
  * from the URL (landing page, open access PDF, blog post) to get the real evidence.
  */
-async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): Promise<DataSourceItem[]> {
+async function enrichTopItems(items: DataSourceItem[], maxItems: number = 30): Promise<DataSourceItem[]> {
     // Only enrich items that have URLs and short content (likely just abstracts)
     const needsEnrichment = items.filter(item =>
         item.url &&
@@ -649,7 +720,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
                     const method = data.method; // 'pdf' or 'jina'
                     if (fullContent && fullContent.length > (item.content?.length || 0)) {
                         console.log(`  Enriched "${item.title?.substring(0,40)}" via ${method} (${fullContent.length} chars)`);
-                        return { id: item.id, content: fullContent.substring(0, 5000), method };  // Cap at 5KB per item
+                        return { id: item.id, content: fullContent.substring(0, 3000), method };  // Cap at 3KB per item (reduced from 5KB to prevent token overflow)
                     }
                     return null;
                 } catch { return null; }
@@ -675,6 +746,100 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 12): P
     });
 }
 
+/**
+ * TRI-MODEL PARALLEL ANALYSIS — Split enriched corpus across Gemini, Claude, OpenAI
+ * Each model analyzes a third of the enriched items and produces a focused summary.
+ * The three summaries are merged into a unified "multi-model synthesis" that gets
+ * prepended to the corpus, giving the main session diverse analytical perspectives.
+ */
+const PROXY = 'http://localhost:5012';
+
+async function triModelAnalysis(enrichedItems: DataSourceItem[], researchGoal: string): Promise<string> {
+    if (enrichedItems.length < 6 || !researchGoal) return '';
+
+    // Split enriched items into 3 groups by round-robin (ensures each model gets diverse sources)
+    const groups: DataSourceItem[][] = [[], [], []];
+    enrichedItems.forEach((item, i) => groups[i % 3].push(item));
+
+    const modelConfigs = [
+        { name: 'Gemini', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-2.5-flash' },
+        { name: 'Claude', endpoint: `${PROXY}/api/ai/anthropic`, model: 'claude-sonnet-4-6' },
+        { name: 'OpenAI', endpoint: `${PROXY}/api/ai/openai`, model: 'gpt-5.4-mini' },
+    ];
+
+    const analyzeWithModel = async (config: typeof modelConfigs[0], items: DataSourceItem[]): Promise<string> => {
+        const itemText = items.map((item, i) => `[${i+1}] ${item.title}\n${item.content?.substring(0, 1500) || ''}`).join('\n\n');
+        const prompt = `Research objective: "${researchGoal}"
+
+Analyze these ${items.length} research items and extract:
+1. The 3-5 most important findings relevant to the research objective (with specific data points)
+2. Any contradictions or tensions between sources
+3. Gaps — what questions do these sources NOT answer?
+
+ITEMS:\n${itemText}
+
+Be specific. Cite item numbers. Extract statistics, percentages, and named entities.`;
+
+        try {
+            let body: any;
+            let headers: Record<string, string> = { 'Content-Type': 'application/json' };
+
+            if (config.name === 'Gemini') {
+                body = { model: config.model, contents: prompt, config: { temperature: 0.2 } };
+            } else if (config.name === 'Claude') {
+                body = { model: config.model, max_tokens: 4000, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] };
+            } else {
+                body = { model: config.model, input: prompt };
+            }
+
+            const resp = await fetch(config.endpoint, {
+                method: 'POST', headers, body: JSON.stringify(body),
+                signal: AbortSignal.timeout(60000),
+            });
+
+            if (!resp.ok) {
+                console.warn(`[TriModel] ${config.name} failed: ${resp.status}`);
+                return '';
+            }
+
+            const data = await resp.json();
+
+            // Extract text from different response formats
+            if (config.name === 'Gemini') {
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || data.text || '';
+            } else if (config.name === 'Claude') {
+                return (data.content || []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n') || '';
+            } else {
+                return (data.output || []).filter((i: any) => i.type === 'message')
+                    .flatMap((i: any) => (i.content || []).filter((b: any) => b.type === 'output_text').map((b: any) => b.text)).join('\n') || '';
+            }
+        } catch (e: any) {
+            console.warn(`[TriModel] ${config.name} analysis failed:`, e.message);
+            return '';
+        }
+    };
+
+    console.log(`[TriModel] Running parallel analysis: ${groups.map((g, i) => `${modelConfigs[i].name}(${g.length} items)`).join(', ')}`);
+
+    const results = await Promise.allSettled(
+        modelConfigs.map((config, i) => analyzeWithModel(config, groups[i]))
+    );
+
+    const summaries = results
+        .map((r, i) => {
+            const text = r.status === 'fulfilled' ? r.value : '';
+            return text ? `\n=== ${modelConfigs[i].name.toUpperCase()} ANALYSIS (${groups[i].length} items) ===\n${text}` : '';
+        })
+        .filter(Boolean);
+
+    if (summaries.length === 0) return '';
+
+    const successCount = summaries.length;
+    console.log(`[TriModel] ${successCount}/3 models returned analysis`);
+
+    return `\n=== TRI-MODEL PARALLEL ANALYSIS ===\nThree reasoning models each analyzed a different subset of the enriched evidence.\nModels: ${modelConfigs.filter((_, i) => results[i].status === 'fulfilled' && (results[i] as any).value).map(c => c.name).join(', ')}\n${summaries.join('\n')}\n=== END TRI-MODEL ANALYSIS ===\n`;
+}
+
 export async function mergeResultsToCorpus(executionResult: ResearchExecutionResult, researchGoal?: string): Promise<string> {
     const sections: string[] = [];
 
@@ -696,33 +861,64 @@ export async function mergeResultsToCorpus(executionResult: ResearchExecutionRes
     // CONTENT ENRICHMENT: Fetch full text for top-scored items with short content
     scoredItems = await enrichTopItems(scoredItems);
 
-    // Build STRUCTURED corpus with chunk IDs for citation tracking
-    const tierLabels: Record<number, string> = { 1: 'Tier 1: Peer-Reviewed/Government', 2: 'Tier 2: Established News', 3: 'Tier 3: Community' };
-    let chunkIndex = 0;
+    // TRI-MODEL PARALLEL ANALYSIS: Split enriched items across Gemini/Claude/OpenAI
+    // Each model analyzes a subset; merged synthesis prepended to corpus
+    let triModelSynthesis = '';
+    if (researchGoal) {
+        const enrichedItems = scoredItems.filter(item => (item as any).enriched);
+        if (enrichedItems.length >= 6) {
+            try {
+                triModelSynthesis = await triModelAnalysis(enrichedItems, researchGoal);
+            } catch (e) {
+                console.warn('[TriModel] Analysis failed (non-blocking):', e);
+            }
+        }
+    }
 
-    // Group scored items back by source
+    // Build STRUCTURED corpus with chunk IDs for citation tracking
+    // NO STATIC TIER LABELS — source credibility is determined POST-ANALYSIS
+    // based on actual contribution to the research objective
+    let chunkIndex = 0;
+    const chunkMap: Record<string, ChunkSourceInfo> = {};
+
+    // Group items by source, sorted by RELEVANCE SCORE (highest first)
+    // Every source is equal until the AI proves otherwise through analysis
     const scoredSet = new Set(scoredItems.map(i => i.id));
 
-    for (const range of sourceRanges) {
+    const rangesWithRelevance = sourceRanges.map(range => {
         const sourceItems = allItems.slice(range.start, range.start + range.count);
         const kept = sourceItems.filter(item => scoredSet.has(item.id));
+        const avgRelevance = kept.length > 0
+            ? kept.reduce((sum, item) => sum + ((item as any).relevanceScore || 50), 0) / kept.length
+            : 0;
+        return { ...range, avgRelevance, kept };
+    });
+    // Sort by average relevance — most relevant sources appear first
+    rangesWithRelevance.sort((a, b) => b.avgRelevance - a.avgRelevance);
 
-        if (kept.length === 0) {
-            sections.push(`\n=== SOURCE: ${range.name} ===\n(All ${range.count} items filtered as irrelevant)\n`);
-            continue;
-        }
+    for (const range of rangesWithRelevance) {
+        const kept = range.kept;
 
-        const tier = (kept[0] as any)?.credibilityTier || 3;
-        sections.push(`\n=== SOURCE: ${range.name} (${kept.length}/${range.count} relevant) | ${tierLabels[tier] || 'Tier 3'} ===\n`);
+        if (kept.length === 0) continue; // Skip empty sources silently
+
+        sections.push(`\n=== SOURCE: ${range.name} (${kept.length} items, avg relevance: ${Math.round(range.avgRelevance)}/100) ===\n`);
 
         for (const item of kept) {
             chunkIndex++;
             const chunkId = `CHUNK_${String(chunkIndex).padStart(3, '0')}`;
             const score = (item as any).relevanceScore || '?';
             const freshness = item.date ? `Freshness: ${computeFreshnessFromDate(item.date)}` : 'Undated';
+            const enrichedTag = (item as any).enriched ? ` | FULL TEXT (${(item as any).extractionMethod || 'web'})` : '';
 
-            const enrichedTag = (item as any).enriched ? ` | FULL TEXT EXTRACTED (${(item as any).extractionMethod || 'web'})` : '';
-            sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness} | Tier ${tier}${enrichedTag}`);
+            // Track chunk-to-source mapping for human-readable citation resolution
+            chunkMap[chunkId] = {
+                sourceName: range.name,
+                title: item.title || '',
+                url: item.url,
+            };
+
+            sections.push(`[${chunkId}] Relevance: ${score}/100 | ${freshness}${enrichedTag}`);
+            sections.push(`SOURCE: ${range.name}`);
             sections.push(`Title: ${item.title}`);
             if (item.url) sections.push(`URL: ${item.url}`);
             if (item.date) sections.push(`Date: ${item.date}`);
@@ -731,9 +927,34 @@ export async function mergeResultsToCorpus(executionResult: ResearchExecutionRes
         }
     }
 
-    // Add citation instruction header at the top
-    const header = `=== RESEARCH CORPUS: ${scoredItems.length} items from ${sourceRanges.filter(r => allItems.slice(r.start, r.start + r.count).some(i => scoredSet.has(i.id))).length} sources ===
-CITATION RULE: When generating themes, personas, or recommendations, cite your sources using [CHUNK_XXX] format. Every factual claim must reference the chunk it came from.\n`;
+    const activeSources = rangesWithRelevance.filter(r => r.kept.length > 0).length;
 
-    return header + sections.join('\n');
+    // Add citation instruction header at the top
+    const header = `=== RESEARCH CORPUS: ${scoredItems.length} items from ${activeSources} sources ===
+NO PRE-ASSIGNED CREDIBILITY TIERS. Source value is determined by YOU based on actual contribution to the research objective. An academic paper irrelevant to the goal is worth less than a practitioner Reddit post that describes exactly the problem the client faces. Judge each source by what it contributes, not where it came from.
+CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must reference the chunk it came from. Cite from across the FULL corpus range.\n`;
+
+    let corpus = header + (triModelSynthesis ? triModelSynthesis + '\n\n' : '') + sections.join('\n');
+
+    // CORPUS SIZE GUARD: Gemini 2.5 Flash can handle ~1M tokens input but the combined
+    // corpus + system prompt + wiki knowledge + uploaded files can exceed limits.
+    // Cap the corpus at 500KB (~125K tokens) to leave room for everything else.
+    const MAX_CORPUS_CHARS = 500_000;
+    if (corpus.length > MAX_CORPUS_CHARS) {
+        console.warn(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB exceeds ${MAX_CORPUS_CHARS / 1024}KB limit. Truncating low-relevance items.`);
+        // Truncate from the end (lowest-relevance items are last since we sort by relevance)
+        corpus = corpus.substring(0, MAX_CORPUS_CHARS);
+        // Ensure we don't cut mid-chunk — find last complete chunk boundary
+        const lastChunkEnd = corpus.lastIndexOf('\n[CHUNK_');
+        if (lastChunkEnd > MAX_CORPUS_CHARS * 0.8) {
+            corpus = corpus.substring(0, lastChunkEnd);
+        }
+        corpus += '\n\n[CORPUS TRUNCATED — lowest-relevance items omitted to fit context window]\n';
+    }
+
+    // Store chunk map for downstream citation resolution
+    _chunkSourceMap = chunkMap;
+    console.log(`[Corpus] Built chunk-to-source map: ${Object.keys(chunkMap).length} chunks mapped`);
+
+    return corpus;
 }

@@ -2,7 +2,177 @@
  * CX Consulting Toolkit — World-Class Deliverable Frameworks
  * Based on McKinsey, BCG, Bain, IDEO, Forrester, Gartner methodologies.
  * Each framework provides the system prompt injection for its deliverable type.
+ *
+ * WIKI INTEGRATION (2026-04-10):
+ * These static prompts are now augmented at runtime by the wiki knowledge layer.
+ * The wikiService.ts loads compiled framework specs, anti-patterns, benchmarks,
+ * and brand standards from hic-workspace/wiki/ and assembles them with these
+ * static prompts via assembleEnhancedPrompt(). The wiki content provides:
+ * - Deep structural requirements (from wiki/frameworks/)
+ * - Known failure modes to avoid (from wiki/anti-patterns/)
+ * - Benchmark data to cite (from wiki/benchmarks/)
+ * - Evidence base with citations (from wiki/evidence/)
+ * - Visual rendering standards (from wiki/brand/)
+ *
+ * To use: import { loadGenerationContext, assembleEnhancedPrompt } from './wikiService';
+ * const context = await loadGenerationContext('PERSONAS');
+ * const fullPrompt = assembleEnhancedPrompt(DELIVERABLE_FRAMEWORKS.PERSONAS, context);
  */
+
+import type { OutputOption } from '../types';
+import { loadGenerationContext, assembleEnhancedPrompt } from './wikiService';
+
+/**
+ * Get the enhanced prompt for a deliverable type, combining the static
+ * framework prompt with compiled wiki knowledge. Falls back to static
+ * prompt alone if wiki pages are unavailable.
+ */
+export async function getEnhancedFrameworkPrompt(
+    outputType: OutputOption,
+    options?: { industry?: string; engagement?: string }
+): Promise<string> {
+    const frameworkKey = OUTPUT_TYPE_TO_FRAMEWORK_KEY[outputType];
+    const staticPrompt = DELIVERABLE_FRAMEWORKS[frameworkKey] || '';
+
+    // Only the Strategy Deck produces slides. All other outputs are structured data.
+    // Injecting 3.5KB of slide visual rules into non-slide prompts wastes context and confuses the model.
+    const isSlideProducing = outputType === 'STRATEGY_DECK';
+    const designPrefix = isSlideProducing ? UNIVERSAL_SLIDE_DESIGN_SYSTEM : '';
+
+    try {
+        const context = await loadGenerationContext(outputType, options);
+        return designPrefix + assembleEnhancedPrompt(staticPrompt, context);
+    } catch (err) {
+        console.warn('[DeliverableFrameworks] Wiki unavailable, using static prompt:', err);
+        return designPrefix + staticPrompt;
+    }
+}
+
+/**
+ * Maps OutputOption values to DELIVERABLE_FRAMEWORKS keys.
+ */
+const OUTPUT_TYPE_TO_FRAMEWORK_KEY: Record<string, string> = {
+    'PERSONAS': 'PERSONAS',
+    'STRATEGY_DECK': 'DECK_STRUCTURE',
+    'JOURNEY_MAP': 'JOURNEY_MAP',
+    'TECH_ARCH': 'TECH_ARCHITECTURE',
+    'STRATEGIC_RECS': 'RECOMMENDATIONS',
+    'PRD': 'PRD',
+    'ROADMAP': 'ROADMAP',
+    'GAP_ANALYSIS': 'GAP_ANALYSIS',
+    'TECH_AUDIT': 'TECH_AUDIT',
+    'COMPETITIVE_ANALYSIS': 'COMPETITIVE_ANALYSIS',
+};
+
+// ============================================================
+// UNIVERSAL PRESENTATION DESIGN SYSTEM
+// Prepended to all slide-producing deliverable prompts.
+// Based on NXT Humans Template Design Spec v1.0
+// ============================================================
+export const UNIVERSAL_SLIDE_DESIGN_SYSTEM = `
+
+=== UNIVERSAL SLIDE ARCHETYPE SYSTEM ===
+Every slide you generate MUST use one of these 7 archetypes. Select based on CONTENT TYPE, not deliverable type.
+
+ARCHETYPE 1 — TITLE_SLIDE:
+When: First slide of any presentation.
+Rules: Left-aligned title in lower-left quadrant. Section label above title (10px uppercase, #AAAAAA). Title: 32-36px, weight 700. Subtitle below: 14px, #888, max 50% width. Thin horizontal rule (1px #E8E8E8) between label and title.
+
+ARCHETYPE 2 — SECTION_HEADER:
+When: Between major sections.
+Rules: Full dark background (#0D0D0D). Section label "SECTION N" in chartreuse (#B8B800), 10px uppercase. Title: 28px, weight 700, white. Ghost text behind: same title at 160-200px, rgba(255,255,255,0.04). Slide number bottom-right: 12px, rgba(255,255,255,0.25). NO illustrations, NO images. Typography IS the visual.
+
+ARCHETYPE 3 — CONTENT_DATA_PANEL:
+When: Content includes specific stats, metrics, or quantifiable data alongside narrative text.
+Rules: 55/45 split. Left (#FFFFFF): heading + 3 max bullet points with ringed-dot bullets. Right (#FAFAFA): 2-4 metric cards stacked vertically. Each metric card has: label (11px uppercase accent), value (36px weight 200), optional unit (16px #888), optional 4px progress bar. Metric cards rotate accent colors: #CC6644, #B8B800, #00B7C3. Extract ALL numbers from body text into metric cards. Bold key numbers in body text that correspond to metric cards.
+MANDATORY: populate the "metrics" array with 2-4 SlideMetric objects extracted from the content.
+
+ARCHETYPE 4 — CONTENT_INSIGHT_CHART:
+When: Content describes trends, comparisons, or before/after scenarios that can be charted.
+Rules: Same 55/45 split as Archetype 3. Right panel contains a SINGLE chart description (bar, waterfall, or line). Insight-first pattern: all bars #E8E8E8 except the critical data point in accent color. No gridlines. Value labels above bars. One-line chart annotation below: 12px #888 "so what" sentence.
+
+ARCHETYPE 5 — FULL_WIDTH_VIZ:
+When: Dedicated data/comparison/matrix slide.
+Rules: No split. Heading top-left, then visualization fills remaining space. For comparison tables: product column tinted rgba(0,183,195,0.06). For 2x2 matrices: 1px #E8E8E8 cross-axis, tint "good" quadrants.
+
+ARCHETYPE 6 — BENTO_GRID:
+When: 3-6 discrete findings, quotes, or data points that don't form a narrative paragraph.
+Rules: CSS grid with varying cell sizes (some cells span 2 columns). Cells: #FAFAFA bg, 1px #F0F0F0 border, 8px radius, 24px padding. Stat cells: 36-48px weight 200 number + 13px #888 description. Quote cells: 13px italic #444 + 11px #AAAAAA attribution. Never put two stat cells adjacent.
+MANDATORY: populate the "bentoCells" array with 3-6 BentoCell objects.
+
+ARCHETYPE 7 — PROBLEM_SOLUTION:
+When: Contrasting a current-state pain with a proposed solution.
+Rules: 55/45 split with 1px #E8E8E8 vertical divider. Left (problem): section label in #CC6644, stat in 48px weight 200, pain description 14px #888. Right (solution): section label in #00B7C3, 2-3 solution points each with 28px accent horizontal rule above.
+MANDATORY: populate "problemStat" and "solutionPoints" fields.
+
+=== ARCHETYPE SELECTION DECISION TREE ===
+For each slide, follow this:
+1. First slide? -> TITLE_SLIDE
+2. Section break? -> SECTION_HEADER
+3. Contains specific stats/numbers?
+   a. Describes a trend or comparison? -> CONTENT_INSIGHT_CHART
+   b. Otherwise -> CONTENT_DATA_PANEL
+4. Contrasts problem with solution? -> PROBLEM_SOLUTION
+5. Lists 3+ discrete findings/quotes? -> BENTO_GRID
+6. Dedicated data/comparison slide? -> FULL_WIDTH_VIZ
+7. Default fallback -> CONTENT_DATA_PANEL
+
+=== GLOBAL VISUAL RULES (ALL SLIDES) ===
+
+HEADING FORMAT:
+- Sentence case, max 2 lines. Heading IS the "so what" — a conclusion, not a topic label.
+- Always end with chartreuse period: append "." in #B8B800 accent color.
+- BAD: "Market Overview" | GOOD: "Young alumni giving declined 12% while overall fundraising grew, creating a generational crisis."
+
+BULLET FORMAT:
+- Max 3 bullets per slide. Bold key stats/phrases within text.
+- Each bullet uses a ringed-dot: 20px circle (rgba(accent, 0.1)) containing 6px solid accent dot.
+- NEVER plain round bullets.
+
+SOURCE CITATIONS:
+- Move ALL [CHUNK_XXX] citations to a "sources" array on the slide.
+- Sources render as a footnote strip at slide bottom: 11px, #CCCCCC, separated by " . ".
+- NEVER expose internal IDs. Format as: "Source Name: Article Title".
+- Body text must be citation-free (sources are in the footnote).
+
+TYPOGRAPHY CONTRAST:
+- Weight 700 headings + weight 200 stat numbers = designed contrast (not AI sameness).
+- Stat unit/suffix: 16px weight 400 #888 (always lighter than the number).
+
+SURFACE LAYERING:
+- Never #FFFFFF touching #FFFFFF without a border or fill difference.
+- Data panels: #FAFAFA with 1px #F0F0F0 left border.
+- Nested cards inside panels: #FFFFFF with 1px #EEEEEE border.
+
+ACCENT COLORS:
+- Use structurally: left-border strips (3px), section labels, metric values, progress bars.
+- Rotate across cards: #CC6644 -> #B8B800 -> #00B7C3.
+- NEVER full background fills (except 4-8% opacity tints).
+- NEVER gradients, drop shadows, 3D effects.
+
+AI-GENERATED ILLUSTRATIONS — BANNED:
+- NEVER abstract geometric art, stylized silhouettes, or decorative illustrations.
+- Every visual MUST encode real information: metric cards, charts, diagrams, structured grids.
+- The only acceptable non-data visuals: 16px SVG icons as indicators, and the NXT Humans logo.
+
+SLIDE NUMBERS:
+- Every slide except TITLE_SLIDE and SECTION_HEADER: bottom-right, "N / TOTAL", 12px #CCCCCC.
+
+PERSONA REFERENCES (when applicable):
+- Use abbreviated persona cards (name, role, image, one quote) embedded in relevant slides.
+- Populate personaName, personaRole, personaImageUrl, personaQuote fields.
+- Render as a compact 96px avatar + text block, not a full persona card.
+
+ANTI-PATTERNS (any match = reject):
+AP-01: Meta-narration ("We now move to", "This is where we") — BANNED.
+AP-02: Raw markdown (**bold**, # headers) — plain text only.
+AP-03: AI illustrations carrying zero information — BANNED. Replace with data panels.
+AP-04: Same layout on every slide — monotony = AI slop. Vary archetypes.
+AP-05: Unresolved [CHUNK_XXX] in body text — move to sources array.
+AP-06: SaaS CTAs ("Ready to Innovate?", "Schedule a Demo") — BANNED.
+AP-07: All-caps body text — uppercase reserved for 10px section labels only.
+AP-08: Decorative gradients — flat fills only. Contrast from juxtaposition, not transition.
+`;
 
 export const DELIVERABLE_FRAMEWORKS: Record<string, string> = {
 
@@ -41,13 +211,34 @@ CRITICAL ANTI-PATTERNS TO AVOID:
 // ============================================================
 // 2. DECK — Pyramid Principle + SCR + Duarte
 // ============================================================
-DECK_STRUCTURE: `You are a McKinsey-trained presentation strategist using the Pyramid Principle (Barbara Minto).
+DECK_STRUCTURE: `RESEARCH OBJECTIVE: The user's research goal drives this strategy deck. Every slide must serve this objective with specific evidence.
+
+RUMELT'S KERNEL TEST (non-negotiable):
+This deck MUST contain:
+1. DIAGNOSIS: Name THE central challenge. Not "things are changing." A diagnosis is specific: "Donor retention among affluent millennials declined 18% in 3 years because advancement offices optimize for institutional loyalty while donors now prioritize measurable impact."
+2. GUIDING POLICY: State the approach. Not "improve donor experience." A policy is a DECISION: "Shift from loyalty-based solicitation to impact-verified giving."
+3. COHERENT ACTIONS: 5-7 actions that SUPPORT EACH OTHER, not a random list.
+
+3-LAYER DEPTH REQUIREMENT (every analysis paragraph):
+Layer 1 - Observation: What is happening (1 sentence with data)
+Layer 2 - Implication: What it means for THIS organization (1-2 sentences)
+Layer 3 - Recommendation with evidence: What to do, quantified impact, timeline, source citation (1-2 sentences)
+Paragraphs that only observe without implying and recommending are INCOMPLETE.
+
+VISUAL DIRECTION FOR SLIDES:
+NEVER request images containing text, words, labels, numbers, or typography. AI image models cannot spell.
+NEVER request clip-art, teal illustrations, or multi-element decorative compositions.
+Instead, specify ONE of: (A) Abstract geometric composition (no text), (B) Photorealistic environment, (C) Conceptual visual metaphor, (D) "TEXT ONLY - no visual needed."
+All text overlays (stat callouts, chart labels, evidence quotes) are added by the rendering system.
+
+You are a McKinsey-trained presentation strategist using the Pyramid Principle (Barbara Minto).
 
 NON-NEGOTIABLE RULES:
 - Think from the bottom up, present from the top down
 - State recommendation FIRST, support with three key arguments (Rule of Three)
 - All arguments must be MECE (Mutually Exclusive, Collectively Exhaustive)
-- SCQA/SCR framework for opening: Situation (10-15%) -> Complication (15-20%) -> Resolution (60-70%)
+- SCQA/SCR framework: Situation (10-15%) -> Complication (15-20%) -> Resolution (60-70%)
+- MUST include an Executive Summary slide (first content slide)
 
 SLIDE-LEVEL REQUIREMENTS:
 - Every slide has an ACTION TITLE — a complete sentence stating a conclusion, NOT a topic label
@@ -59,31 +250,85 @@ SLIDE-LEVEL REQUIREMENTS:
 
 DATA VISUALIZATION (Gene Zelazny/McKinsey standards):
 - Bar/column for comparison, line for change over time, waterfall for cumulative impact
-- NO PIE CHARTS (McKinsey bans them — angles are harder to compare than lengths)
-- Write the title BEFORE building the chart
-- Source every data point with [CHUNK_XXX]
+- NO PIE CHARTS (McKinsey bans them)
+- Only generate charts from ACTUAL data in the source documents. Every axis value must be real.
+- If data doesn't exist for a chart, use a stat callout instead. NEVER fabricate chart data.
 
-STRUCTURE: Title -> Executive Summary (SCR, 1-2 slides) -> Body exhibits -> Recommendations -> Appendix`,
+ANTI-PATTERNS (any match = reject and revise):
+AP-01: Meta-narration — "We now move to", "This is where we", "Let us examine" — BANNED. Present content directly.
+AP-02: Raw markdown in output — No **bold** asterisks, no *italic*, no # headers. Write plain text.
+AP-03: Images with embedded text — NEVER generate images containing words. Text in AI images WILL be misspelled.
+AP-04: Fabricated charts — Non-sequential axes, repeated values, generic "GROWTH/TIME" axes = rejected.
+AP-05: Reddit/social media as strategic source — Cite the ORIGINAL source, not social posts.
+AP-06: Unresolved placeholders — [Date], [X%], [TBD] must be resolved or replaced with honest language.
+AP-07: Speaker notes on slide face — Narrative/voiceover text goes in speaker notes, NOT on the slide.
+AP-08: Topic titles — Every slide title must be a conclusion sentence, not a topic label.
+AP-09: SaaS marketing CTAs — "Ready to Innovate?", "Start Project", "Join Us" = landing page, not strategy deck.
 
-DECK_NARRATIVE: `You are writing consulting-grade slide content using the Assertion-Evidence model.
+DIRECT QUOTE REQUIREMENT (non-negotiable):
+- Every body slide MUST include a "quote" field containing a VERBATIM direct quote from the research corpus.
+- Quotes must be EXACT text copy-pasted from source material — not paraphrased, not summarized, not fabricated.
+- Each quote MUST cite its source: "We found that 73% of first-year students..." -- Higher Ed Dive, 2025
+- The quote field serves as evidence backing: it proves the slide's claim with a real human voice.
+- If no direct quote exists for a slide's claim, the claim is unsupported — reconsider including it.
+- NEVER leave the quote field empty on body slides. NEVER fill it with a generic statement.
+- Aim for quotes that are specific, surprising, or emotionally compelling — not bland summaries.
+
+CITATION FORMAT IN CONTENT BULLETS:
+- Every bullet point citing [CHUNK_XXX] should ALSO include the source name inline.
+- Format: "Student retention dropped 18% year-over-year [CHUNK_042] (Higher Ed Dive)"
+- The rendering system resolves [CHUNK_XXX] to source names, but include the source name for the AI's own coherence checking.
+
+STRUCTURE: Title -> Executive Summary (SCR, 1-2 slides) -> Deliverable-rich body (themes, personas with images, journey pain points, competitive landscape, gap analysis) -> Recommendations + Roadmap + Architecture -> Closing (specific next steps with owners and dates). Let evidence richness determine deck size (15-30 slides). Every available deliverable gets at least one dedicated slide.`,
+
+DECK_NARRATIVE: `META-NARRATION BAN (critical — violation = instant rejection):
+NEVER reference the presentation's own structure. These are BANNED:
+"We now move to" | "We are now entering" | "This is where we" | "In this section" |
+"Let us examine" | "Today we'll discuss" | "As you can see" | "This slide shows" |
+"Good morning" | "Welcome to" | "Thank you for being here"
+A consultant NEVER announces the framework. Present the content directly.
+
+ANTI-SLOP ENFORCEMENT:
+- NEVER use: "paradigm shift", "game-changer", "holistic approach", "cutting-edge", "best-in-class"
+- LEAD with the insight. First sentence = the finding with a number.
+- Every slide bullet must cite its source. No uncited claims.
+
+PLAIN TEXT ONLY — NO MARKDOWN:
+- NEVER output **bold**, *italic*, # headers, or any markdown syntax in any field.
+- The rendering system handles all formatting. Write clean plain text only.
+
+3-LAYER DEPTH:
+Every slide narrative MUST go beyond observation:
+BAD: "The philanthropic world is fundamentally shifting."
+GOOD: "Affluent donor retention has declined 18% since 2023. For advancement offices still optimizing loyalty-based solicitation, this means a projected $2.3M revenue gap by 2027. Recommendation: Reallocate 30% of solicitation budget to impact-verified platforms within 18 months."
+
+You are writing consulting-grade slide content using the Assertion-Evidence model.
 
 STORYTELLING RULES:
 - LEAD with the insight, not the setup. First sentence = the finding.
-- NEVER: "Good morning", "Today we'll discuss", "Let's explore", "As you can see"
 - NEVER: hedge words ("It seems", "Perhaps", "It's possible")
 - Nancy Duarte's Sparkline: oscillate between "what is" and "what could be"
 - Every slide must make the audience FEEL something: urgency, surprise, opportunity
 
 SLIDE CONTENT RULES:
-- 2-4 bullet points maximum per slide. Each bullet = specific data point + [CHUNK_XXX]
+- 2-4 bullet points maximum per slide. Each bullet = specific data point with source reference
 - Content bullets are evidence, not filler
-- Narrative = what the PRESENTER says (adds context the slide doesn't show)
+- Narrative = SPEAKER NOTES ONLY (goes to presenter notes pane, NOT on slide face)
 - Visual prompt = what supports the insight (not decorates it)
+- QUOTE FIELD (mandatory for body slides): Include a VERBATIM direct quote from a real source in the research corpus. The quote must be copy-pasted exactly as it appears in the evidence. Attribute it: "Quote text here" -- Source Name, Date. NEVER leave the quote field empty. NEVER fabricate a quote.
 
-VIDEO SCRIPT (one scene per slide):
-- audioNarration: 3-5 sentences of compelling voiceover. NEVER empty.
-- Start with the insight or provocation, not "In this scene..."
-- Reference specific findings, names, numbers from the research`,
+CLOSING SLIDE RULES:
+- 3-5 specific next steps, each with: Action + Owner (role) + Timeline
+- NEVER use: "Ready to Innovate?", "Start Project", "Get Consulting", "Join Us", "Let's Get Started"
+- A strategy deck closes with commitments, not marketing CTAs
+
+VISUAL DIRECTION (critical — AI image models CANNOT spell):
+- NEVER request images containing text, words, numbers, labels, captions, or typography
+- Specify text-free visuals: abstract geometry, photorealistic environments, visual metaphors
+- All text overlays (stats, labels, quotes) are rendered by the presentation system, not baked into images
+- If no visual adds value, say "TEXT ONLY — no visual needed"
+
+NEVER generate: teal clip-art, multi-element illustrations, icons-in-circles, abstract tech patterns, images with words.`,
 
 // ============================================================
 // 3. BLUEPRINT — Shostack/Bitner 5-component model
@@ -155,7 +400,23 @@ QUALITY TEST: Aakash Gupta rated a typical PRD template 9/10 as template but 2/1
 // ============================================================
 // 5. ROADMAP — NOW/NEXT/LATER + Outcome-based
 // ============================================================
-ROADMAP: `You are producing a consulting-grade product/CX roadmap using Janna Bastow's NOW-NEXT-LATER framework.
+ROADMAP: `MANDATORY ROADMAP FIELDS (R-01, R-03):
+
+Every roadmap initiative MUST include:
+- "successMetric": A specific, measurable target. Example: "Reduce donor churn by 15% within 6 months (baseline: 22%)"
+- "strategicTheme": Which strategic pillar this serves (e.g., "Data Unification", "AI Personalization", "Trust & Transparency")
+- "owner": Who is responsible (role, not person name)
+- "dependencies": What must happen first (reference other initiative names)
+- "confidenceLevel": NOW items = "HIGH", NEXT items = "MEDIUM", LATER items = "EXPLORATORY"
+
+STRATEGIC THEME GROUPING: Identify 3-5 strategic themes/pillars FIRST, then tag every initiative to a theme.
+Each theme should have items across NOW/NEXT/LATER horizons.
+
+PROBLEM FRAMING: Every initiative MUST be framed as a PROBLEM, not a feature.
+BAD: "Build unified constituent data hub"
+GOOD: "Advancement practitioners waste 30% of outreach time cross-referencing fragmented systems"
+
+You are producing a consulting-grade product/CX roadmap using Janna Bastow's NOW-NEXT-LATER framework.
 
 FRAMEWORK:
 - NOW: Actively working, committed. Detailed scope, assigned teams.

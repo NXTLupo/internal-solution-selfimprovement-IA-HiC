@@ -1,0 +1,66 @@
+{
+  "positive": [
+    {
+      "point": "Using AI to brainstorm and implement cybersecurity projects is appreciated as it aligns with organizational goals and leverages AI capabilities.",
+      "post_refs": [
+        "1s4j0f0"
+      ]
+    },
+    {
+      "point": "The open-source security automation platform Shipsec Studio is praised for being free, easy to set up, and offering comprehensive security tools.",
+      "post_refs": [
+        "1s1hquk"
+      ]
+    },
+    {
+      "point": "The initiative to make cybersecurity accessible for SMEs through playbooks is seen as a much-needed and scalable solution.",
+      "post_refs": [
+        "1rxysrl"
+      ]
+    },
+    {
+      "point": "The tool built to streamline threat investigation workflows is valued for significantly reducing analysis time and tool switching.",
+      "post_refs": [
+        "1rv60ig"
+      ]
+    },
+    {
+      "point": "The curated awesome-list for Wazuh is appreciated for being a comprehensive resource for deployment, rules, and integrations.",
+      "post_refs": [
+        "1s0qcbh"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Struggles with deploying a Breach & Attack Simulation lab due to technical issues with OpenAEV and integration challenges.",
+      "post_refs": [
+        "1rxonkb"
+      ]
+    },
+    {
+      "point": "Frustration with tool fragmentation in threat investigation workflows, leading to the development of a new tool.",
+      "post_refs": [
+        "1rv60ig"
+      ]
+    },
+    {
+      "point": "Challenges faced by a PhD student in accessing data for research due to budget constraints and lack of support from CTI vendors.",
+      "post_refs": [
+        "1s06gbm"
+      ]
+    },
+    {
+      "point": "Difficulty in managing a cybersecurity business alone, with too many tasks and the need for collaboration or hiring.",
+      "post_refs": [
+        "1ryesvt"
+      ]
+    },
+    {
+      "point": "Issues with the virtual browser feature in a newly developed tool, which is broken on Firefox and not optimized for mobile.",
+      "post_refs": [
+        "1rv60ig"
+      ]
+    }
+  ]
+}

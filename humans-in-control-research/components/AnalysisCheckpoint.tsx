@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { AnalysisStage, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_JourneyMap, StepResult_TechArch, StepResult_PRD, StepResult_Roadmap, StepResult_Recommendations, Slide, Theme, Persona, ScriptScene, ServiceBlueprintStage, PRDFeature, RoadmapItem, StrategicRecommendation, computeFreshnessScore } from '../types';
-import { logEdit as logEditToEngine } from '../services/promptImprovementEngine';
+import { logEdit as logEditToEngine, getStats as getPromptStats } from '../services/promptImprovementEngine';
 
 interface Props {
   stage: AnalysisStage;
@@ -108,7 +108,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   const [editedRecs, setEditedRecs] = useState<StepResult_Recommendations | null>(null);
   
   const [expandedPersona, setExpandedPersona] = useState<number | null>(null);
-  const [narrativeTab, setNarrativeTab] = useState<'script' | 'slides'>('script');
+  const [narrativeTab, setNarrativeTab] = useState<'slides'>('slides');
   const [hasEdits, setHasEdits] = useState(false);
   
   // Track specific edits for logging
@@ -218,7 +218,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   };
 
   const updateJourneyStage = (index: number, field: keyof ServiceBlueprintStage, value: string) => {
-      if (!editedJourney) return;
+      if (!editedJourney || !editedJourney.stages) return;
       const newStages = [...editedJourney.stages];
       (newStages[index] as any)[field] = value;
       setEditedJourney({...editedJourney, stages: newStages});
@@ -241,15 +241,15 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   };
 
   const updatePRDFeature = (index: number, field: keyof PRDFeature, value: string) => {
-      if (!editedPRD) return;
+      if (!editedPRD || !editedPRD.prd || !editedPRD.prd.features) return;
       const newFeatures = [...editedPRD.prd.features];
       (newFeatures[index] as any)[field] = value;
       setEditedPRD({ ...editedPRD, prd: { ...editedPRD.prd, features: newFeatures } });
-      logEdit(`Edited Feature '${newFeatures[index].name}'`);
+      logEdit(`Edited Feature '${newFeatures[index]?.name || 'unknown'}'`);
   };
 
   const addPRDFeature = () => {
-      if (!editedPRD) return;
+      if (!editedPRD || !editedPRD.prd) return;
       const newFeature: PRDFeature = {
           id: Date.now().toString(),
           name: "New Feature",
@@ -258,19 +258,19 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           userStories: [],
           dependencies: ""
       };
-      setEditedPRD({ ...editedPRD, prd: { ...editedPRD.prd, features: [...editedPRD.prd.features, newFeature] } });
+      setEditedPRD({ ...editedPRD, prd: { ...editedPRD.prd, features: [...(editedPRD.prd.features || []), newFeature] } });
       logEdit("Added New Feature");
   };
 
   const deletePRDFeature = (index: number) => {
-      if (!editedPRD) return;
+      if (!editedPRD || !editedPRD.prd || !editedPRD.prd.features) return;
       const newFeatures = editedPRD.prd.features.filter((_, i) => i !== index);
       setEditedPRD({ ...editedPRD, prd: { ...editedPRD.prd, features: newFeatures } });
       logEdit(`Deleted Feature ${index + 1}`);
   };
 
   const updateRoadmapItem = (index: number, field: keyof RoadmapItem, value: string) => {
-      if (!editedRoadmap) return;
+      if (!editedRoadmap || !editedRoadmap.roadmap || !editedRoadmap.roadmap.items) return;
       const newItems = [...editedRoadmap.roadmap.items];
       (newItems[index] as any)[field] = value;
       setEditedRoadmap({ ...editedRoadmap, roadmap: { ...editedRoadmap.roadmap, items: newItems } });
@@ -278,15 +278,15 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   };
 
   const updateRecommendation = (index: number, field: keyof StrategicRecommendation, value: any) => {
-      if (!editedRecs) return;
+      if (!editedRecs || !editedRecs.recommendations) return;
       const newRecs = [...editedRecs.recommendations];
       (newRecs[index] as any)[field] = value;
       setEditedRecs({ ...editedRecs, recommendations: newRecs });
       logEdit(`Edited Recommendation ${index+1}`);
   };
-  
+
   const deleteRecommendation = (index: number) => {
-      if (!editedRecs) return;
+      if (!editedRecs || !editedRecs.recommendations) return;
       const newRecs = editedRecs.recommendations.filter((_, i) => i !== index);
       setEditedRecs({ ...editedRecs, recommendations: newRecs });
       logEdit(`Deleted Recommendation ${index+1}`);
@@ -300,12 +300,12 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           impactLevel: "MEDIUM",
           actionItems: ["First step"]
       };
-      setEditedRecs({ ...editedRecs, recommendations: [...editedRecs.recommendations, newRec] });
+      setEditedRecs({ ...editedRecs, recommendations: [...(editedRecs.recommendations || []), newRec] });
       logEdit(`Added New Recommendation`);
   };
 
   const updateSlideStructure = (index: number, field: keyof Slide, value: string) => {
-      if (!editedStructure) return;
+      if (!editedStructure || !editedStructure.slides) return;
       const newSlides = [...editedStructure.slides];
       (newSlides[index] as any)[field] = value;
       setEditedStructure({ ...editedStructure, slides: newSlides });
@@ -329,7 +329,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   };
 
   const moveSlide = (index: number, direction: 'up' | 'down') => {
-      if (!editedStructure) return;
+      if (!editedStructure || !editedStructure.slides) return;
       const newSlides = [...editedStructure.slides];
       if (direction === 'up' && index > 0) {
           [newSlides[index], newSlides[index-1]] = [newSlides[index-1], newSlides[index]];
@@ -345,21 +345,19 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   const [generatingSlide, setGeneratingSlide] = useState(false);
 
   const slideTemplates: { layout: string; label: string; icon: string; color: string; suggestedTitle: string; suggestedContent: string[]; suggestedRationale: string }[] = [
-      { layout: 'KEY_STATISTIC', label: 'Hook Statistic', icon: 'fa-bolt', color: '#FF5A5A', suggestedTitle: 'The Single Most Surprising Number', suggestedContent: ['[Insert the most impactful statistic from your research]', 'Context: Why this number matters NOW'], suggestedRationale: 'Opens with a data point that stops the audience' },
-      { layout: 'EVIDENCE_WALL', label: 'Evidence Wall', icon: 'fa-th-large', color: '#00b1eb', suggestedTitle: 'What the Research Reveals', suggestedContent: ['Finding 1: [cite CHUNK_XXX]', 'Finding 2: [cite CHUNK_XXX]', 'Finding 3: [cite CHUNK_XXX]'], suggestedRationale: '3-4 findings side by side showing convergence' },
-      { layout: 'DATA_INSIGHT', label: 'Data Insight', icon: 'fa-chart-bar', color: '#0CCE6B', suggestedTitle: 'The Trend Behind the Numbers', suggestedContent: ['Data point with source citation', 'So what: Why this changes the strategy'], suggestedRationale: 'Chart interpretation with strategic framing' },
-      { layout: 'PERSONA_SPOTLIGHT', label: 'Persona Spotlight', icon: 'fa-user-circle', color: '#fd8e2e', suggestedTitle: 'Meet [Persona Name]', suggestedContent: ['Core tension this persona faces', 'Key pain point from research', 'What they need from us'], suggestedRationale: 'Builds empathy before recommending solutions' },
-      { layout: 'QUOTE_FEATURE', label: 'Quote Feature', icon: 'fa-quote-left', color: '#9333ea', suggestedTitle: 'In Their Own Words', suggestedContent: ['[Verbatim quote from research corpus]', 'Context: Who said this and why it matters'], suggestedRationale: 'A quote so vivid the audience remembers it' },
-      { layout: 'COMPARISON', label: 'Before/After', icon: 'fa-columns', color: '#caca20', suggestedTitle: 'Current State vs. Desired State', suggestedContent: ['Before: [Current pain point]', 'After: [What the recommendation achieves]'], suggestedRationale: 'Shows the gap and the vision' },
-      { layout: 'RECOMMENDATION', label: 'Recommendation', icon: 'fa-lightbulb', color: '#0CCE6B', suggestedTitle: 'Strategic Action: [Specific Verb + Outcome]', suggestedContent: ['The action: What specifically to do', 'Expected impact: Quantified outcome', 'Evidence: [CHUNK_XXX] supports this'], suggestedRationale: 'Evidence-backed action with measurable impact' },
-      { layout: 'SECTION_HEADER', label: 'Section Break', icon: 'fa-minus', color: '#acacac', suggestedTitle: 'Section: [SITUATION / COMPLICATION / RESOLUTION]', suggestedContent: [], suggestedRationale: 'Transitions the audience to the next narrative phase' },
-      { layout: 'CLOSING_CTA', label: 'Call to Action', icon: 'fa-arrow-right', color: '#115054', suggestedTitle: 'Next Steps: Who Does What By When', suggestedContent: ['Action 1: [Owner] will [action] by [date]', 'Action 2: [Owner] will [action] by [date]', 'Action 3: [Owner] will [action] by [date]'], suggestedRationale: 'Concrete next steps with accountability' },
+      { layout: 'CONTENT_DATA_PANEL', label: 'Data Panel', icon: 'fa-chart-bar', color: '#00B7C3', suggestedTitle: 'The insight with supporting data', suggestedContent: ['Key finding with source citation', 'Supporting evidence or metric', 'Implication for the organization'], suggestedRationale: '55/45 split: bullets left, metric cards right' },
+      { layout: 'BENTO_GRID', label: 'Bento Grid', icon: 'fa-th-large', color: '#9333ea', suggestedTitle: 'Multiple findings at a glance', suggestedContent: [], suggestedRationale: '3-6 mixed cells: stats, quotes, indicators' },
+      { layout: 'PROBLEM_SOLUTION', label: 'Problem/Solution', icon: 'fa-columns', color: '#fd8e2e', suggestedTitle: 'The challenge vs. the path forward', suggestedContent: ['Problem stat and description', 'Solution point 1', 'Solution point 2'], suggestedRationale: 'Pain stat on left, solution points on right' },
+      { layout: 'CONTENT_INSIGHT_CHART', label: 'Insight Chart', icon: 'fa-chart-line', color: '#0CCE6B', suggestedTitle: 'The trend behind the numbers', suggestedContent: ['Data point with source citation', 'So what: Why this changes the strategy'], suggestedRationale: '55/45 split: text left, chart visualization right' },
+      { layout: 'FULL_WIDTH_VIZ', label: 'Full Visualization', icon: 'fa-expand', color: '#B8B800', suggestedTitle: 'Comprehensive data view', suggestedContent: ['Full-width data table, matrix, or comparison'], suggestedRationale: 'No split — heading + full-width data' },
+      { layout: 'SECTION_HEADER', label: 'Section Break', icon: 'fa-minus', color: '#acacac', suggestedTitle: 'The Landscape', suggestedContent: [], suggestedRationale: 'Dark divider between narrative sections (2-5 words max)' },
+      { layout: 'CONTENT_DATA_PANEL', label: 'Closing Steps', icon: 'fa-arrow-right', color: '#115054', suggestedTitle: 'Next Steps: Who Does What By When', suggestedContent: ['Action 1: [Owner] will [action] by [date]', 'Action 2: [Owner] will [action] by [date]'], suggestedRationale: 'Concrete next steps with accountability' },
   ];
 
   const addSlideWithTemplate = (template: typeof slideTemplates[0]) => {
       if (!editedStructure) return;
       const newSlide: Slide = {
-          slideNumber: editedStructure.slides.length + 1,
+          slideNumber: (editedStructure.slides || []).length + 1,
           layout: template.layout as any,
           title: template.suggestedTitle,
           content: template.suggestedContent,
@@ -370,7 +368,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           rationale: template.suggestedRationale,
           style: { backgroundColor: '#ffffff', headerColor: '#115054', textColor: '#141414', accentColor: '#caca20' }
       };
-      setEditedStructure({ ...editedStructure, slides: [...editedStructure.slides, newSlide] });
+      setEditedStructure({ ...editedStructure, slides: [...(editedStructure.slides || []), newSlide] });
       logEdit(`Added ${template.label} slide`);
       setShowSlideAdder(false);
   };
@@ -378,7 +376,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
   const addSlide = () => setShowSlideAdder(true);
 
   const deleteSlide = (index: number) => {
-      if (!editedStructure) return;
+      if (!editedStructure || !editedStructure.slides) return;
       const newSlides = editedStructure.slides.filter((_, i) => i !== index).map((s, i) => ({...s, slideNumber: i+1}));
       setEditedStructure({ ...editedStructure, slides: newSlides });
       logEdit(`Deleted Slide ${index+1}`);
@@ -614,8 +612,43 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       );
   };
 
-  const renderThemes = () => (
+  const renderThemes = () => {
+      // P2-05: Compute evidence coverage stats
+      const allCitations = (editedThemes || []).flatMap(t => (t.citations || []).map((c: any) => c.sourceFile || c.sourceName || ''));
+      const uniqueCitations = new Set(allCitations.filter(Boolean));
+      const totalThemes = (editedThemes || []).length;
+      const priorityThemes = (editedThemes || []).filter(t => t.status === 'priority').length;
+      const skippedThemes = (editedThemes || []).filter(t => t.status === 'skipped').length;
+      const thinThemes = (editedThemes || []).filter(t => (t.citations || []).length < 3).length;
+
+      return (
       <div className="space-y-3 max-h-[65vh] overflow-y-auto">
+          {/* P2-05: Evidence coverage summary */}
+          <div className="flex items-center gap-4 px-4 py-2.5 bg-[#0D0D0D] rounded text-white">
+              <div className="flex-1 flex items-center gap-4">
+                  <div>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'18px',fontWeight:700}}>{totalThemes}</div>
+                      <div style={{fontSize:'8px',letterSpacing:'2px',textTransform:'uppercase',color:'#888'}}>Themes</div>
+                  </div>
+                  <div>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'18px',fontWeight:700,color:'#B8B800'}}>{uniqueCitations.size}</div>
+                      <div style={{fontSize:'8px',letterSpacing:'2px',textTransform:'uppercase',color:'#888'}}>Citations</div>
+                  </div>
+                  <div>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'18px',fontWeight:700,color: priorityThemes > 0 ? '#B8B800' : '#666'}}>{priorityThemes}</div>
+                      <div style={{fontSize:'8px',letterSpacing:'2px',textTransform:'uppercase',color:'#888'}}>Priority</div>
+                  </div>
+                  {thinThemes > 0 && (
+                      <div>
+                          <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:'18px',fontWeight:700,color:'#E24B4A'}}>{thinThemes}</div>
+                          <div style={{fontSize:'8px',letterSpacing:'2px',textTransform:'uppercase',color:'#888'}}>Thin (&lt;3 cites)</div>
+                      </div>
+                  )}
+              </div>
+              <div style={{fontSize:'9px',color:'#666',maxWidth:'200px'}}>
+                  Use P/A/S buttons to prioritize, approve, or skip themes. Priority themes get emphasis in deliverables.
+              </div>
+          </div>
           {(editedThemes || []).map((theme, idx) => (
               <div key={idx} className={`rounded border overflow-hidden transition-all ${theme.status === 'skipped' ? 'opacity-30' : ''} ${theme.status === 'priority' ? 'border-[var(--nxt-lime)] ring-1 ring-[var(--nxt-lime)]' : 'border-[var(--border-primary)]'}`}>
                   {/* THEME HEADER BAR */}
@@ -694,20 +727,21 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           ))}
       </div>
   );
+  }; // end renderThemes
 
   const renderPersonas = () => (
       <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2">
           {(editedPersonas || []).map((persona, idx) => (
               <div key={idx} className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded overflow-hidden shadow-sm transition-all duration-300">
                   <div className="p-4 flex gap-4 cursor-pointer hover:bg-[var(--bg-secondary)] transition-colors" onClick={() => setExpandedPersona(expandedPersona === idx ? null : idx)}>
-                      <div className="w-16 h-16 rounded-full bg-gray-200 overflow-hidden flex-shrink-0 border-2 border-[var(--border-secondary)]">
-                          {persona.imageUrl ? <img src={persona.imageUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full bg-[var(--nxt-lime-10)] flex items-center justify-center text-[var(--nxt-teal)] font-bold text-xl">{persona.name.charAt(0)}</div>}
+                      <div style={{width:'64px',height:'64px',overflow:'hidden',flexShrink:0,background:'#0D0D0D'}}>
+                          {persona.imageUrl ? <img src={persona.imageUrl} style={{width:'100%',height:'100%',objectFit:'cover',filter:'grayscale(100%) contrast(1.2) brightness(0.95)',borderRadius:0}} /> : <div style={{width:'100%',height:'100%',background:'#1A1A1A',display:'flex',alignItems:'center',justifyContent:'center',color:'#B8B800',fontFamily:"'Bebas Neue',sans-serif",fontSize:'24px'}}>{(persona.name || '?').charAt(0)}</div>}
                       </div>
                       <div className="flex-1">
                           <div className="flex justify-between items-start">
                              <div>
                                 <h3 className="font-bold text-lg">{persona.name}</h3>
-                                <p className="text-sm text-indigo-600">{persona.role} • {persona.demographics}</p>
+                                <p className="text-sm" style={{color:'#00B7C3'}}>{persona.role} • {persona.demographics}</p>
                              </div>
                              <button className="text-[var(--text-tertiary)] transform transition-transform duration-200" style={{ transform: expandedPersona === idx ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</button>
                           </div>
@@ -759,7 +793,15 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       if (!editedStructure) return <div className="text-gray-500 text-center p-8">No structure data available to edit.</div>;
 
       const layoutMeta: Record<string, { icon: string; color: string; label: string; section: string }> = {
+          // Universal archetypes (primary)
           'TITLE_SLIDE': { icon: 'fa-flag', color: '#115054', label: 'Title', section: 'OPENING' },
+          'SECTION_HEADER': { icon: 'fa-minus', color: '#acacac', label: 'Section Break', section: '' },
+          'CONTENT_DATA_PANEL': { icon: 'fa-chart-bar', color: '#00B7C3', label: 'Data Panel', section: 'SITUATION' },
+          'CONTENT_INSIGHT_CHART': { icon: 'fa-chart-line', color: '#0CCE6B', label: 'Insight Chart', section: 'SITUATION' },
+          'FULL_WIDTH_VIZ': { icon: 'fa-expand', color: '#B8B800', label: 'Full Viz', section: 'SITUATION' },
+          'BENTO_GRID': { icon: 'fa-th-large', color: '#9333ea', label: 'Bento Grid', section: 'SITUATION' },
+          'PROBLEM_SOLUTION': { icon: 'fa-columns', color: '#fd8e2e', label: 'Problem/Solution', section: 'COMPLICATION' },
+          // Legacy layouts (backward compatibility)
           'KEY_STATISTIC': { icon: 'fa-bolt', color: '#FF5A5A', label: 'Hook Statistic', section: 'HOOK' },
           'EVIDENCE_WALL': { icon: 'fa-th-large', color: '#00b1eb', label: 'Evidence Wall', section: 'SITUATION' },
           'QUOTE_FEATURE': { icon: 'fa-quote-left', color: '#9333ea', label: 'Quote Feature', section: 'COMPLICATION' },
@@ -767,9 +809,8 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           'DATA_INSIGHT': { icon: 'fa-chart-bar', color: '#0CCE6B', label: 'Data Insight', section: 'SITUATION' },
           'COMPARISON': { icon: 'fa-columns', color: '#caca20', label: 'Comparison', section: 'COMPLICATION' },
           'RECOMMENDATION': { icon: 'fa-lightbulb', color: '#0CCE6B', label: 'Recommendation', section: 'RESOLUTION' },
-          'SECTION_HEADER': { icon: 'fa-minus', color: '#acacac', label: 'Section Break', section: '' },
-          'CONTENT_SPLIT_RIGHT': { icon: 'fa-columns', color: '#525252', label: 'Content + Image', section: '' },
-          'CONTENT_SPLIT_LEFT': { icon: 'fa-columns', color: '#525252', label: 'Image + Content', section: '' },
+          'CONTENT_SPLIT_RIGHT': { icon: 'fa-columns', color: '#525252', label: 'Content + Data', section: '' },
+          'CONTENT_SPLIT_LEFT': { icon: 'fa-columns', color: '#525252', label: 'Data + Content', section: '' },
           'CLOSING_CTA': { icon: 'fa-arrow-right', color: '#115054', label: 'Call to Action', section: 'CLOSE' },
           'FULL_BLEED_IMAGE': { icon: 'fa-image', color: '#525252', label: 'Full Image', section: '' },
           'TYPOGRAPHY_QUOTE': { icon: 'fa-font', color: '#9333ea', label: 'Typography', section: '' },
@@ -906,65 +947,14 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
     if (!editedNarrative) return null;
     
     const hasSlides = editedNarrative.slides && editedNarrative.slides.length > 0;
-    const hasScript = editedNarrative.videoScript && editedNarrative.videoScript.length > 0;
 
     return (
          <div className="max-h-[60vh] overflow-y-auto pr-2 flex flex-col h-full">
-             {(hasSlides && hasScript) && (
-                 <div className="flex gap-2 mb-4 border-b border-[var(--border-primary)]">
-                     <button 
-                        onClick={() => setNarrativeTab('script')} 
-                        className={`px-4 py-2 text-xs font-bold border-b-2 ${narrativeTab === 'script' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-[var(--text-tertiary)]'}`}
-                     >
-                         Video Script
-                     </button>
-                     <button 
-                        onClick={() => setNarrativeTab('slides')} 
-                        className={`px-4 py-2 text-xs font-bold border-b-2 ${narrativeTab === 'slides' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-[var(--text-tertiary)]'}`}
-                     >
-                         Slide Content
-                     </button>
-                 </div>
-             )}
 
-             {((hasScript && narrativeTab === 'script') || (!hasSlides && hasScript)) && (
-                 <div className="space-y-4">
-                     {(editedNarrative.videoScript || []).map((scene: any, idx: number) => (
-                         <div key={idx} className="bg-[var(--card-bg)] rounded border border-[var(--border-primary)] shadow-sm overflow-hidden">
-                             <div className="bg-[var(--nxt-teal)] text-white px-4 py-2 flex justify-between items-center">
-                                 <span className="text-xs font-bold uppercase">Scene {idx+1}</span>
-                                 {scene.durationSeconds && <span className="text-[10px] text-[var(--nxt-lime)]">{scene.durationSeconds}s</span>}
-                             </div>
-                             <div className="p-4 space-y-3">
-                                 {/* Narration — the MOST important field */}
-                                 <div>
-                                     <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Voiceover Narration</label>
-                                     <textarea value={scene.audioNarration || ''} onChange={(e) => updateScriptScene(idx, 'audioNarration', e.target.value)}
-                                        className="w-full bg-white text-sm p-3 rounded h-20 resize-none border border-[var(--border-primary)] outline-none italic" placeholder="The narrator says..." />
-                                 </div>
-                                 {/* Evidence Quote */}
-                                 {scene.quote && (
-                                     <div className="bg-[var(--bg-tertiary)] p-3 rounded border-l-4 border-[var(--nxt-lime)]">
-                                         <label className="text-[8px] font-bold text-[var(--nxt-teal)] uppercase tracking-widest block mb-1">Evidence Quote</label>
-                                         <div className="text-xs italic text-[var(--text-secondary)]">"{scene.quote}"</div>
-                                     </div>
-                                 )}
-                                 {/* Visual Direction */}
-                                 <div>
-                                     <label className="text-[8px] font-bold text-[var(--text-tertiary)] uppercase tracking-widest block mb-1">Visual Direction</label>
-                                     <textarea value={scene.visualPrompt || scene.visualDescription || ''} onChange={(e) => updateScriptScene(idx, 'visualPrompt', e.target.value)}
-                                        className="w-full bg-[var(--bg-tertiary)] text-xs p-2 rounded h-14 resize-none border border-[var(--border-secondary)] outline-none" />
-                                 </div>
-                             </div>
-                         </div>
-                     ))}
-                 </div>
-             )}
-
-             {((hasSlides && narrativeTab === 'slides') || (!hasScript && hasSlides)) && (
+             {hasSlides && (
                  <div className="space-y-5">
                      {(editedNarrative.slides || []).map((slide: any, idx: number) => {
-                         const layoutColors: Record<string, string> = { 'KEY_STATISTIC': '#FF5A5A', 'EVIDENCE_WALL': '#00b1eb', 'DATA_INSIGHT': '#0CCE6B', 'PERSONA_SPOTLIGHT': '#fd8e2e', 'QUOTE_FEATURE': '#9333ea', 'RECOMMENDATION': '#0CCE6B', 'COMPARISON': '#caca20', 'CLOSING_CTA': '#115054' };
+                         const layoutColors: Record<string, string> = { 'CONTENT_DATA_PANEL': '#00B7C3', 'CONTENT_INSIGHT_CHART': '#0CCE6B', 'FULL_WIDTH_VIZ': '#B8B800', 'BENTO_GRID': '#9333ea', 'PROBLEM_SOLUTION': '#fd8e2e', 'SECTION_HEADER': '#acacac', 'KEY_STATISTIC': '#FF5A5A', 'EVIDENCE_WALL': '#00b1eb', 'DATA_INSIGHT': '#0CCE6B', 'PERSONA_SPOTLIGHT': '#fd8e2e', 'QUOTE_FEATURE': '#9333ea', 'RECOMMENDATION': '#0CCE6B', 'COMPARISON': '#caca20', 'CLOSING_CTA': '#115054' };
                          const borderColor = layoutColors[slide.layout] || '#acacac';
                          return (
                          <div key={idx} className="bg-[var(--card-bg)] rounded border border-[var(--border-primary)] shadow-sm overflow-hidden" style={{ borderLeftWidth: 4, borderLeftColor: borderColor }}>
@@ -1044,7 +1034,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
               <div>
                   <h3 className="text-2xl font-bold mb-2">Synthesizing Final Assets</h3>
                   <p className="text-[var(--text-secondary)] max-w-md mx-auto">
-                      We are now generating high-fidelity images, video scripts, and formatting your final deliverables. This may take a moment.
+                      We are now assembling data panels and formatting your final deliverables. This may take a moment.
                   </p>
               </div>
               <div className="bg-[var(--bg-tertiary)] p-4 rounded-lg border border-[var(--border-secondary)] w-full max-w-lg font-mono text-xs text-[var(--text-secondary)]">
@@ -1185,13 +1175,13 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                 </div>
 
                 {/* VISUAL SWIMLANE VIEW */}
-                {journeyView === 'visual' && renderJourneyVisual(editedJourney.stages)}
+                {journeyView === 'visual' && renderJourneyVisual(editedJourney.stages || [])}
 
                 {/* DETAIL VIEW — the existing card-based editor */}
                 {journeyView === 'detail' && <>
                 {/* Emotion curve + stage labels */}
                 <div className="flex items-end gap-1 mb-4 h-14 px-2">
-                    {editedJourney.stages.map((stage: any, idx: number) => (
+                    {(editedJourney.stages || []).map((stage: any, idx: number) => (
                         <div key={idx} className="flex-1 flex flex-col items-center gap-1">
                             {stage.momentOfTruth && <span className="text-[7px] font-bold text-[#FF5A5A]">MOT</span>}
                             <div className="rounded-sm w-full transition-all" style={{ height: emotionHeight[stage.emotion] || 24, backgroundColor: emotionColors[stage.emotion] || '#acacac' }}></div>
@@ -1201,7 +1191,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                 </div>
 
                 <div className="space-y-4">
-                     {editedJourney.stages.map((stage: any, idx: number) => (
+                     {(editedJourney.stages || []).map((stage: any, idx: number) => (
                          <div key={idx} className={`bg-[var(--card-bg)] rounded border overflow-hidden ${stage.momentOfTruth ? 'border-[#FF5A5A] ring-1 ring-[#FF5A5A]/20' : 'border-[var(--border-primary)]'}`}>
                              {/* Stage header */}
                              <div className="flex justify-between items-center px-4 py-2 border-b border-[var(--border-secondary)]" style={{ borderLeftWidth: 4, borderLeftColor: emotionColors[stage.emotion] || '#acacac' }}>
@@ -1421,7 +1411,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
   const renderArch = () => {
       if (!editedArch) return <div className="p-4 text-center text-gray-500">No Architecture data available.</div>;
-      const arch = editedArch.architecture;
+      const arch = editedArch.architecture || { overview: '', nodes: [], flows: [] };
       const nodeTypeColors: Record<string, string> = {
           'User': 'bg-blue-50 border-blue-200 text-blue-700',
           'Application': 'bg-emerald-50 border-emerald-200 text-emerald-700',
@@ -1508,9 +1498,9 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
 
   const renderPRD = () => {
       if (!editedPRD) return <div className="p-4 text-center text-gray-500">No PRD data available.</div>;
-      const prd = editedPRD.prd;
+      const prd = editedPRD.prd || { title: '', purposeAndObjectives: '', targetAudience: '', successMetrics: [], features: [], risks: [], assumptions: [] };
       const priorityCounts = { 'Must-have': 0, 'Should-have': 0, 'Could-have': 0, "Won't-have": 0 };
-      prd.features?.forEach((f: any) => { if (priorityCounts[f.priority as keyof typeof priorityCounts] !== undefined) priorityCounts[f.priority as keyof typeof priorityCounts]++; });
+      (prd.features || []).forEach((f: any) => { if (priorityCounts[f.priority as keyof typeof priorityCounts] !== undefined) priorityCounts[f.priority as keyof typeof priorityCounts]++; });
       return (
           <div className="max-h-[65vh] overflow-y-auto pr-2 space-y-4">
                {/* Title */}
@@ -1557,7 +1547,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                         <button onClick={addPRDFeature} className="text-xs text-indigo-600 font-bold hover:underline bg-[var(--bg-tertiary)] px-2 py-1 rounded">+ Add Feature</button>
                    </div>
                    <div className="space-y-3">
-                       {editedPRD.prd.features.map((feature, idx) => (
+                       {(editedPRD.prd?.features || []).map((feature, idx) => (
                            <div key={idx} className="bg-[var(--card-bg)] p-3 rounded border border-[var(--border-primary)] relative group">
                                <button onClick={() => deletePRDFeature(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
                                <div className="flex justify-between items-center mb-2 pr-6">
@@ -1599,8 +1589,9 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           'Next': { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', label: '3-9 months' },
           'Later': { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-600', label: '9-18 months' },
       };
+      const roadmap = editedRoadmap.roadmap || { vision: '', items: [] };
       const grouped = { Now: [] as any[], Next: [] as any[], Later: [] as any[] };
-      editedRoadmap.roadmap.items.forEach((item: any, idx: number) => {
+      (roadmap.items || []).forEach((item: any, idx: number) => {
           const h = item.horizon || 'Later';
           if (grouped[h as keyof typeof grouped]) grouped[h as keyof typeof grouped].push({ ...item, _idx: idx });
       });
@@ -1608,10 +1599,10 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
       return (
           <div className="max-h-[65vh] overflow-y-auto pr-2 space-y-4">
                {/* Vision */}
-               {editedRoadmap.roadmap.vision && (
+               {roadmap.vision && (
                    <div className="bg-[var(--nxt-teal)] text-white p-4 rounded">
                        <div className="text-[8px] font-bold uppercase tracking-widest text-[var(--nxt-lime)] mb-1">Strategic Vision</div>
-                       <p className="text-sm font-light leading-relaxed">{editedRoadmap.roadmap.vision}</p>
+                       <p className="text-sm font-light leading-relaxed">{roadmap.vision}</p>
                    </div>
                )}
 
@@ -1819,7 +1810,7 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
           <div className="max-h-[60vh] overflow-y-auto pr-2 space-y-4">
               <button onClick={addRecommendation} className="w-full py-2 bg-[var(--bg-tertiary)] hover:bg-[var(--bg-secondary)] border border-[var(--border-secondary)] rounded text-xs font-bold text-indigo-600 mb-2 transition-colors">+ Add Strategic Opportunity</button>
               
-              {editedRecs.recommendations.map((rec, idx) => (
+              {(editedRecs.recommendations || []).map((rec, idx) => (
                   <div key={idx} className="bg-[var(--card-bg)] p-4 rounded border border-[var(--border-primary)] relative group">
                        <button onClick={() => deleteRecommendation(idx)} className="absolute top-2 right-2 text-gray-400 hover:text-red-500 font-bold opacity-0 group-hover:opacity-100 transition-opacity">✕</button>
                        <div className="flex gap-3 mb-2">
@@ -1917,6 +1908,30 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                 </button>
             )}
         </div>
+        {/* A11: Constraint / Brain Status indicator */}
+        {(() => {
+            try {
+                const stats = getPromptStats();
+                if (stats.activeConstraints > 0 || stats.totalEdits > 0) {
+                    return (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '6px 24px', background: '#0D0D0D', borderBottom: '1px solid #333', fontFamily: "'Helvetica Neue', Arial, sans-serif" }}>
+                            <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#B8B800' }}>INTELLIGENCE</span>
+                            {stats.activeConstraints > 0 && (
+                                <span style={{ fontSize: 10, color: '#00B7C3', background: 'rgba(0,183,195,0.15)', padding: '1px 8px', borderRadius: 100 }}>
+                                    {stats.activeConstraints} learned constraints active
+                                </span>
+                            )}
+                            {stats.totalEdits > 0 && (
+                                <span style={{ fontSize: 10, color: '#888' }}>
+                                    {stats.totalEdits} edits tracked{stats.pendingPatterns.length > 0 ? ` (${stats.pendingPatterns.length} patterns emerging)` : ''}
+                                </span>
+                            )}
+                        </div>
+                    );
+                }
+            } catch { /* non-blocking */ }
+            return null;
+        })()}
         <div className="p-6 overflow-hidden flex-1 flex flex-col bg-[var(--bg-primary)]">
             {stage === AnalysisStage.DATA_REVIEW && renderDataReview()}
             {stage === AnalysisStage.INGESTION && renderIngestion()}

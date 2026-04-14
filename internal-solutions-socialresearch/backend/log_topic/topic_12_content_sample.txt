@@ -1,0 +1,21 @@
+Topic 12 - Content Sample
+Number of content items: 20
+Top words: security, wazuh, platform, open, linux, automation, use
+
+Content 1 (length: 637 chars):
+1. **Endpoint Security** — EDR/XDR for mixed Linux + Windows environments, open-source or cost-effective options
+2. **BYOD Mobile** — MDM vs. MAM-only approaches, work profiles, conditional access, company-data-only wipe
+3. **Identity & Access** — MFA everywhere, SSO, conditional access across Linux-heavy dev environments
+4. **Monitoring & Detection** — Centralized logging, lightweight SIEM alternatives, Linux-friendly visibility
+5. **Developer Workflow Security** — Git/CI-CD pipeline security, secrets management, dependency scanning
+6. **Network Security** — Zero Trust alternatives to traditional VPN, multi-location segmentation
+
+Content 2 (length: 276 chars):
+Security Stack Recommendations for a Mid-Size Dev Company Looking for practical security tool recommendations for a software product development org with \~500 employees, 60% Linux / 40% Windows endpoints, 100% BYOD mobile phones, and multiple office locations + remote users.
+
+Content 3 (length: 1327 chars):
+[https://thebatsignal.substack.com/p/how-much-is-too-much](https://thebatsignal.substack.com/p/how-much-is-too-much) Dude I am running OpenBSD for anything critical. 
+Fair enough. If I had anything critical or sensitive, I probably wouldn't be putting it on such a platform either. But while this is a lab resource for me, I also want to make sure that I can make recommendations for people that wish to harden their personal systems. But your point is well made. I would use a corollary piece of advice: use the right tool for the right job. Is CachyOS a platform that you should spend excessive amounts of time hardening? That depends. If this is your only system, then the answer is most definitely "yes". But if you want security as your primary focus, then you probably should consider using a different platform.   
+  
+OpenBSD is probably the best platform for security and privacy. Some might quibble and would consider Qubes. For me, I have too much invested in Linux to move to OpenBSD. Nevertheless, I still want to make my daily driver the most secure platform that It can be. So, I've spent time layering all sorts of non-standard (i.e., not installed with the base) options. But it feels like I may be at the end of what I should invest - unless I want to consider more fundamental changes - like OpenBSD or Qubes.
+

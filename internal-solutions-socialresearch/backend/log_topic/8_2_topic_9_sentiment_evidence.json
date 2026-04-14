@@ -1,29 +1,65 @@
 {
   "positive": [
     {
-      "point": "Gary Payton II (GP2) is playing the second-best stretch of his career, with improved shooting, passing, and playmaking, making him a more rounded and valuable player offensively.",
+      "point": "Having a technical background in IT is beneficial for transitioning into cybersecurity roles.",
       "post_refs": [
-        "1rxq20l"
+        "1s2c32b"
       ]
     },
     {
-      "point": "Gui Santos is seen as having the highest upside among younger players, with elite court awareness and a playing style reminiscent of Jimmy Butler.",
+      "point": "Experience in application security and secure coding practices is valuable for transitioning into AppSec roles.",
       "post_refs": [
-        "1rv14u0"
+        "1rxsmqd"
       ]
     },
     {
-      "point": "Santos made a pivotal steal and stepped up significantly in the second half, contributing to a game win.",
+      "point": "GRC roles can be a stepping stone into management or C-Suite positions.",
       "post_refs": [
-        "1rvt3qy"
+        "1s45kz3"
+      ]
+    },
+    {
+      "point": "Working in public sector cyber roles offers good compensation, strong pension, and work-life balance.",
+      "post_refs": [
+        "1ru1yun"
+      ]
+    },
+    {
+      "point": "Experience in SOC roles provides a strong foundation for transitioning into detection engineering or security engineering roles.",
+      "post_refs": [
+        "1rwdggd"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Gary Payton II is not the same defensive force he once was, having been considered one of the best guard defenders in the league.",
+      "point": "The job market for cybersecurity roles is oversaturated, making it difficult to land interviews.",
       "post_refs": [
-        "1rxq20l"
+        "1s4j02j"
+      ]
+    },
+    {
+      "point": "GRC roles can be policy-heavy and may limit technical skill development if pursued too early in a career.",
+      "post_refs": [
+        "1s45kz3"
+      ]
+    },
+    {
+      "point": "Reverse engineering market is smaller and may offer similar or worse pay compared to other cybersecurity roles.",
+      "post_refs": [
+        "1s37lkw"
+      ]
+    },
+    {
+      "point": "SOC roles can be demanding with 24/7 shifts, leading to burnout.",
+      "post_refs": [
+        "1rvwy3g"
+      ]
+    },
+    {
+      "point": "Transitioning from software development to cybersecurity may require starting from lower-level roles, which can be a financial setback.",
+      "post_refs": [
+        "1s2c32b"
       ]
     }
   ]

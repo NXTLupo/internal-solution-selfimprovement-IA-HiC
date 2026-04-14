@@ -1,24 +1,115 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: santos, gui, best, elite, better, second, half
+- Top keywords: security, roles, experience, appsec, work, career, grc
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Big 3 🔥🔥🔥  Santos with the pivotal steal and steps up huge in the second half. 
-Santos the new Draymond.
-We finally won a game
+PortSwigger and OSWE make sense but AppSec is broader than web exploitation. The roles hiring well want threat modeling, secure code review, CI/CD security, API security, and supply chain awareness. Offensive skills are one piece of a larger picture.
 
 EXAMPLE 2:
-Gui Santos’s takeaway from this narrow loss down half the team: “We gotta keep batting. We gotta keep trying to win games when we don't have other guys, because we know when they get back we're gonna be good.”  I really do like Gui I actually think he might have the highest upside of any of our younger players to be honest.
-He’s surprisingly an incredibly smart player especially for his age, ironically reminds me a lot of Jimmy Butler. He could legit be another Jimmy in the league at this pace. [...]
+* Building and maintaining enterprise web applications using C# / .NET, JavaScript, SQL Server
+* Designing and implementing APIs and third-party integrations
+* Working with authentication / security features (MFA flows, email verification systems, access controls, etc.)
+* Following secure coding practices and remediation initiatives in a regulated industry
+* Using typical dev tooling like Git, CI/CD pipelines, Azure services, logging/monitoring, etc.
+* Supporting applications that serve large user bases
 
 EXAMPLE 3:
-GP2 has been playing the second best stretch of his career Obviously after injuries started adding up, Gui/Mo/Podz and all the other role players have stepped up but one of them that doesn’t get talked about is Gary. His energy is there every night, elite crash rate, moving a lot better than he did earlier this season and even last season. 22’ GP2 back? Maybe the best of his career. He's not quite as insanely athletic - but his shooting is better as is his passing and playmaking. He's a more rounded player - and real valuable.
-He's probably better offensively then he was in the title run.
+Full-stack .NET dev (4+ yrs) trying to transition into AppSec — looking for advice Hey everyone — looking for some guidance from people already working in Application Security.
 
 EXAMPLE 4:
-He's someway off being the same defensive force though.   He was arguably the best guard defender in the league at that point. 
-He’s been making a lot of the right cuts
+bachman erlich 
+Compiled this from real experience hiring and mentoring people into the field.
+Skips the cert-chasing advice. Focuses on what you actually need to do the job.
+---
+## Start With the Fundamentals
+- Read *Alice and Bob Learn Application Security* and *Alice and Bob Learn Secure Coding* by Tanya Janca
+- Watch Jim Manico's "Abridged History of AppSec" on YouTube
+- Learn the standards you'll reference daily:
+  - [OWASP Top 10 2025](https://owasp.org/Top10/2025/)
+  - [OWASP ASVS](https://owasp. [...]
+
+EXAMPLE 5:
+I came from a similar dev background and used Practical DevSecOps to fill those gaps. Certified DevSecOps Professional covered DevSecOps and secure SDLC, Certified Threat Modeling Professional built threat modeling methodology I now use in design reviews, Certified API Security Professional covered API security which given your API work will click immediately. Certified Software Supply Chain Security Expert covers supply chain which is increasingly showing up in AppSec job requirements.
+
+EXAMPLE 6:
+1. Go through PortSwigger Web Security Academy seriously (not just skimming — actually practicing labs and methodology)
+2. Then attempt to move toward the OSWE certification
+3. Ultimately transition into an Application Security Engineer
+
+EXAMPLE 7:
+I’m currently based in London, almost 2 years of experience as a swe, 1+ as a cyber analyst/dfir, previously studied chemistry at a top 1 (at the time? Maybe top 3 now, regardless, a target) university. My longer-term interest is in offensive security, specifically red teaming, adversary emulation, and physical/cyber crossover work, rather than staying purely in cyber analysis or DFIR.
+
+EXAMPLE 8:
+I’d like to ask for some advice about my cybersecurity career because lately I’ve been questioning what direction I should take.
+
+EXAMPLE 9:
+Your developer background is a genuine asset here. Most AppSec engineers have never actually built anything, you already speak the dev team's language which makes you more effective from day one.
+
+EXAMPLE 10:
+At the moment I’m in public sector, earning ~60k but scope to earn more if I play cards right after promotion (guesstimations are in the 70s within year/few). The role provides opportunity to upskill: as I’m planning to take the OSCP, and have the opportunity to do a masters in cybersecurity, sans courses etc.
+
+EXAMPLE 11:
+UK public vs private roles Throwaway but have been stuck on this debate for far too long to let my mind continue to wander and crunch numbers. I’m trying to sense-check a career move and would be interested in views from people in both public and private sector cyber, especially anyone who has moved between the two.
+
+EXAMPLE 12:
+* Does this path make sense coming from a developer background?
+* Is OSWE a realistic next step after PortSwigger or should I target something else first?
+* What skills should I prioritize to be competitive for AppSec roles?
+* How to best leverage my existing dev experience?
+
+EXAMPLE 13:
+I currently have a little over 4 years of experience as a full-stack web developer. My day-to-day work involves:
+
+EXAMPLE 14:
+Your .NET and Azure experience is the differentiator. The training just organises the security knowledge around it.
+
+EXAMPLE 15:
+3️⃣ A **role that is difficult to replace**, ideally **without heavy programming** (maybe small scripts at most)
+
+EXAMPLE 16:
+2️⃣ **Videos, books, or resources** that explain the different career paths (incident response, forensics, etc.)
+
+EXAMPLE 17:
+* Will I **always remain a SOC analyst**?
+* Are my certifications enough for career growth?
+* With the rapid progress of **AI**, I sometimes worry about the future of this role
+* Some of my colleagues are extremely skilled and sometimes I feel **far behind them**
+
+EXAMPLE 18:
+I’d be interested in views on a few things:
+	•	whether it makes sense to stay put until OSCP and a GIAC cert is complete (in reference to both blue/red team roles). 
+	•	whether my compensation thresholds sound realistic for financial and other cyber sectors in London (ofc Jane street and other quant firms would be, but unrealistic expectation I guess). 
+	•	whether it’s smarter to target IR / threat-led defence / purple-team-style roles first as a bridge, rather than trying to jump directly into red teaming
+	•	how people weigh pension/security/flexibility against private-sector pay and offensiv [...]
+
+EXAMPLE 19:
+The question I’m trying to answer is: at what point does it become worth leaving this public-sector package for private-sector cyber? I’m mainly looking at financial services roles (e.g. Jane Street, J.P. Morgan, Lloyds, etc) and to remain in London/UK.
+
+EXAMPLE 20:
+On the other hand, **Threat Hunting doesn’t really appeal to me**.  
+A friend of mine does it and says it’s mostly calls with clients, discussing hypotheses and writing detection queries, which isn’t really what I enjoy.
+
+EXAMPLE 21:
+It’s a bit complicated to explain, but basically I handle different responsibilities depending on the team. I’m also lucky to work with **a great group of colleagues** — we help each other a lot, cover shifts when needed, discuss cases together, and even review emails or reports to make sure they’re written well.
+
+EXAMPLE 22:
+One important thing: **I have almost no real SIEM experience**, except maybe an hour during some training courses. However, our company will soon start onboarding clients with **SIEM platforms**, so I expect that within **6–12 months** I’ll gain some hands-on experience there as well.
+
+EXAMPLE 23:
+I’ve been working as a **SOC Analyst (Blue Team)** for about **3 years** in the same company, but in a slightly unusual situation: I work with **two different teams at the same time**.
+
+EXAMPLE 24:
+* In one team I mostly work as an **L1 analyst**
+* In the other I perform more **L2-type activities**
+
+EXAMPLE 25:
+Reasons to stay in public sector
+	•	realistically good compensation but I’m afraid of stagnation once I reach the next rung, lack of personal growth especially scares me as I don’t want to reach a stage where I’m not learning anything new but content with golden handcuffs. 
+	•	strong pension and overall security
+	•	better work-life balance and flexibility in the near and likely longer term
+	•	the option to keep building skills and credentials without making a rushed move
+	•	I’d probably be more happy to stay if offensive-leaning roles opened up
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

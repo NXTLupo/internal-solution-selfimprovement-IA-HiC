@@ -66,8 +66,7 @@ const App: React.FC = () => {
   const [isGeneratingVideo, setIsGeneratingVideo] = useState<boolean>(false);
 
   const [entityInputs, setEntityInputs] = useState<EntityInput[]>([
-    { id: crypto.randomUUID(), description: 'A kind-faced woman in her 60s with grey hair, smiling warmly, wearing a beige cardigan.' },
-    { id: crypto.randomUUID(), description: 'A man in his late 30s with a short beard, wearing a plaid shirt and looking thoughtfully into the distance.' }
+    { id: crypto.randomUUID(), description: '' }
   ]);
   const [sceneDescription, setSceneDescription] = useState<string>('enjoying a cup of coffee on a sunny porch.');
   const [aspectRatio, setAspectRatio] = useState('1:1');

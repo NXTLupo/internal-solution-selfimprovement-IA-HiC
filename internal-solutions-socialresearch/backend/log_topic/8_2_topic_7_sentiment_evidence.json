@@ -1,41 +1,48 @@
 {
   "positive": [
     {
-      "point": "Steve Kerr's competitive spirit and dedication to the game, emphasizing the importance of competition and making the playoffs.",
+      "point": "MESH tool enables remote mobile forensics and network monitoring in a secure and censorship-resistant manner, providing significant capabilities for civil society forensics.",
       "post_refs": [
-        "1rwv7iv"
+        "1s29vhq"
       ]
     },
     {
-      "point": "Steve Kerr's personal growth in handling losses better and learning to forgive himself, which contributes to his coaching effectiveness.",
+      "point": "Poland's National Centre for Nuclear Research successfully detected and blocked a cyberattack, demonstrating effective security systems and procedures.",
       "post_refs": [
-        "1rw78ol"
+        "1rswozx"
       ]
     },
     {
-      "point": "Enjoyment of watching games on Peacock without gambling advertisements, providing a refreshing viewing experience.",
+      "point": "CyberShield is a tool designed to help victims of digital surveillance and cybercrime document evidence and understand legal options, potentially supporting law enforcement filings.",
       "post_refs": [
-        "1rv3ix1"
+        "1ry8scv"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Frustration with the prevalence of gambling advertisements and live betting references during sports broadcasts.",
+      "point": "Concerns about the potential misuse of government-backed surveillance tools, which could lead to mission creep and privacy violations.",
       "post_refs": [
-        "1rv3ix1"
+        "1ry8scv"
       ]
     },
     {
-      "point": "Issues with streaming services like SlingTV, including game blackouts and errors, leading to dissatisfaction.",
+      "point": "Ukraine continues to face successful cyberattacks on its critical infrastructure, raising questions about its cyber defense capabilities despite international support.",
       "post_refs": [
-        "1rvqg4d"
+        "1rsxic8"
       ]
     },
     {
-      "point": "Concerns about the future of the Warriors and uncertainty regarding Steve Kerr's tenure as head coach.",
+      "point": "The FBI's investigation into malware distributed through Steam games raises concerns about potential device seizures during forensic investigations.",
       "post_refs": [
-        "1rw78ol"
+        "1rt5w4a",
+        "1rtf827"
+      ]
+    },
+    {
+      "point": "Trump's 2026 Cyber Strategy is criticized for its lack of focus on key international cyber threats and perceived political bias.",
+      "post_refs": [
+        "1rvx2tm"
       ]
     }
   ]

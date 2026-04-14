@@ -15,6 +15,10 @@ RUN npm run build
 # Stage 2: Serve with Nginx (proper MIME types, zero caching)
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
+# Copy wiki knowledge layer so wikiService can fetch pages at runtime
+COPY hic-workspace/wiki /usr/share/nginx/html/hic-workspace/wiki
+# Copy documentation page (public/ may not be included in Vite build if .dockerignore excludes it)
+COPY public/documentation.html /usr/share/nginx/html/documentation.html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 5011
 CMD ["nginx", "-g", "daemon off;"]

@@ -13,16 +13,63 @@
 
 // --- JSON REPAIR UTILITY (shared across all services) ---
 export function tryRepairJson(jsonString: string): string {
-    let stack: string[] = [];
-    let inString = false;
-    let escaped = false;
+    // Strip \r (carriage return) globally — Gemini sometimes returns \r\n on Windows
+    // JSON.parse chokes on \r at position 1 in some runtimes
+    let cleaned = jsonString.replace(/\r/g, '').trim();
 
-    let cleaned = jsonString.trim();
+    // Strip markdown code fences
     if (cleaned.includes('```json')) {
         cleaned = cleaned.split('```json')[1].split('```')[0].trim();
     } else if (cleaned.includes('```')) {
         cleaned = cleaned.split('```')[1].split('```')[0].trim();
     }
+
+    // FIX: Handle double-escaped JSON from Gemini streaming.
+    // Detection: raw text starts with literal \n or contains literal \" sequences
+    // but the first real JSON char ({ or [) isn't at position 0.
+    // Example broken input: \n{\n  \"name\": \"value\"\n}
+    if (/^\\n|^"\\n|^"?\s*\\n?\s*\{/.test(cleaned) && !cleaned.startsWith('{') && !cleaned.startsWith('[')) {
+        try {
+            // Try JSON.parse in case it's a JSON-encoded string
+            const unescaped = JSON.parse(cleaned);
+            if (typeof unescaped === 'string') {
+                cleaned = unescaped.trim();
+            }
+        } catch {
+            // Manual unescape of literal \n, \t, \", \\ sequences
+            cleaned = cleaned
+                .replace(/\\n/g, '\n')
+                .replace(/\\t/g, '\t')
+                .replace(/\\"/g, '"')
+                .replace(/\\\\/g, '\\');
+            if (cleaned.startsWith('"') && cleaned.endsWith('"')) {
+                cleaned = cleaned.slice(1, -1);
+            }
+            cleaned = cleaned.trim();
+        }
+    }
+
+    // Also handle the case where the text IS valid JSON structure but has leading \n
+    // (literal backslash-n at the start, before the opening brace)
+    if (cleaned.startsWith('\\n')) {
+        cleaned = cleaned.replace(/^(\\n)+/, '').trim();
+    }
+
+    // Strip leading non-JSON text (Gemini sometimes prepends prose)
+    const jsonStart = cleaned.search(/[\[{]/);
+    if (jsonStart > 0) {
+        cleaned = cleaned.substring(jsonStart);
+    } else if (jsonStart === -1) {
+        // No JSON structure found at all — response is pure text, not JSON.
+        // Wrap it as a minimal valid JSON object so downstream doesn't crash.
+        console.warn('[tryRepairJson] No JSON structure found in response, wrapping as error object');
+        return JSON.stringify({ _error: "Model returned non-JSON text", _raw: cleaned.substring(0, 200) });
+    }
+
+    // Bracket-balancing repair for truncated responses
+    let stack: string[] = [];
+    let inString = false;
+    let escaped = false;
 
     for (let i = 0; i < cleaned.length; i++) {
         let char = cleaned[i];
@@ -36,8 +83,48 @@ export function tryRepairJson(jsonString: string): string {
             }
         }
     }
+
+    // Close unclosed string
     if (inString) cleaned += '"';
+    // Close remaining brackets/braces
     while (stack.length > 0) cleaned += stack.pop();
+    // Fix trailing comma before closing bracket (common truncation artifact)
+    cleaned = cleaned.replace(/,\s*([\]}])/g, '$1');
+
+    // Validation: try to parse. If bracket-balanced version fails,
+    // progressively trim from the end to find a parseable prefix.
+    try {
+        JSON.parse(cleaned);
+    } catch {
+        // Strip the appended closers and try again with a backward search
+        let base = cleaned;
+        for (let trim = 0; trim < 5; trim++) {
+            // Remove last closer and any trailing comma/whitespace
+            base = base.replace(/[\]}"]?\s*$/, '').replace(/,\s*$/, '');
+            // Re-run bracket balance on trimmed version
+            let s: string[] = [];
+            let iS = false;
+            let es = false;
+            for (let i = 0; i < base.length; i++) {
+                if (es) { es = false; continue; }
+                if (base[i] === '\\') { es = true; continue; }
+                if (base[i] === '"') { iS = !iS; continue; }
+                if (!iS) {
+                    if (base[i] === '{' || base[i] === '[') s.push(base[i] === '{' ? '}' : ']');
+                    else if (base[i] === '}' || base[i] === ']') { if (s.length) s.pop(); }
+                }
+            }
+            let attempt = base;
+            if (iS) attempt += '"';
+            while (s.length > 0) attempt += s.pop();
+            attempt = attempt.replace(/,\s*([\]}])/g, '$1');
+            try {
+                JSON.parse(attempt);
+                return attempt;
+            } catch { /* keep trimming */ }
+        }
+    }
+
     return cleaned;
 }
 

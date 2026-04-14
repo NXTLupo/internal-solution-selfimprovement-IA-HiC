@@ -1,19 +1,13 @@
 Topic 2 - Content Sample
-Number of content items: 3
-Top words: post, reddit, game, warriors, old, click view post, view post
+Number of content items: 25
+Top words: 537 36, report, 2026, 10, 17, ai, key stats
 
-Content 1 (length: 313 chars):
-Post Game Thread - NBA: The Celtics defeat the Warriors on Mar 18, 2026, the final score is 120-99. This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxmxb6) Hello 10th seed my old friend!
-*old* friend?
-god i miss Steph and Jimmy
+Content 1 (length: 203 chars):
+*Read the full report* [*here*](https://www.gartner.com/en/newsroom/press-releases/2026-03-17-gartner-predicts-ai-applications-will-drive-50-percent-of-cybersecurity-incident-response-efforts-by-2028)*.*
 
-Content 2 (length: 426 chars):
-Game Thread: Boston Celtics vs Golden State Warriors Live Score | NBA | Mar 18, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxhri6) I swear Pat and Podz can never have a good game at the same time 😭
-The new Steph/Klay. Stg those two traded hot shooting nights.
-Damn a 9th seed getting blown out by an actual contender cmon guys lol
+Content 2 (length: 105 chars):
+*Read the full report* [*here*](https://www.ey.com/en_us/consulting/the-ai-landscape-in-cybersecurity)*.*
 
-Content 3 (length: 374 chars):
-Game Thread: Washington Wizards vs Golden State Warriors Live Score | NBA | Mar 16, 2026 This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rvnrkl) This game is devolving into some globetrotter shit
-Wizards already have the same jerseys as the globetrotters :D
-KP is very good at basketball.
+Content 3 (length: 112 chars):
+**Gartner Predicts AI Applications Will Drive 50% of Cybersecurity Incident Response Efforts by 2028 (Gartner)**
 

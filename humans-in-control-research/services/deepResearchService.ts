@@ -73,9 +73,45 @@ async function geminiGroundedSearch(config: ResearchConfig): Promise<ResearchRes
 
     const ai = new GoogleGenAI({ apiKey });
 
+    // Structured research prompt following the Deep Research template pattern:
+    // temporal grounding, quality rules, multi-step methodology, relevance constraints, self-validation
+    const today = new Date().toISOString().split('T')[0];
+    const groundedPrompt = `You are a Deep Research system. Date of research: ${today}. Language: English.
+
+TASK: Find the most relevant, authoritative evidence for this SPECIFIC research objective:
+"${config.query}"
+
+SOURCE QUALITY RULES:
+- Prioritize primary/official sources: government agencies, academic institutions, official reports, peer-reviewed research, authoritative industry analysis
+- Every source MUST be DIRECTLY relevant to the research objective above. Generic tech news, product announcements, or tangentially related content is IRRELEVANT and must be excluded.
+- If a claim cannot be verified, write "unspecified" — do not fabricate data
+- Prefer sources with specific data points: statistics, percentages, dollar amounts, timelines, named stakeholders
+
+RELEVANCE FILTER (CRITICAL):
+Before including ANY source or finding, apply this test:
+"Does this source contain specific information that a consultant working on '${config.query.substring(0, 100)}' would cite in their strategy deck?"
+If NO → exclude it. If YES → include it with a specific data point.
+
+RESEARCH METHODOLOGY:
+A) Search for sources that DIRECTLY address the research objective — not the general topic area
+B) For each source found, extract the SPECIFIC data point, statistic, or finding that is relevant
+C) Cite each finding with its source URL
+D) Synthesize findings into a coherent analysis organized by theme
+
+ANTI-PATTERNS (these make the research useless):
+- Generic AI product news (e.g., "Google releases new Gemini model") when the research is about a specific organization
+- Industry trend articles with no specific data points
+- Sources about a different domain than the research objective
+- Marketing content or press releases with no analytical substance
+
+OUTPUT: Provide a structured synthesis with:
+1. Key findings organized by theme (each with specific data points)
+2. Source citations for every factual claim
+3. Gaps identified — what questions remain unanswered by available evidence`;
+
     const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: config.query,
+        contents: groundedPrompt,
         config: {
             tools: [{ googleSearch: {} }],
         },
@@ -187,11 +223,21 @@ async function claudeWebSearch(config: ResearchConfig): Promise<ResearchResult> 
     if (config.allowedDomains?.length) toolDef.allowed_domains = config.allowedDomains;
     if (config.blockedDomains?.length) toolDef.blocked_domains = config.blockedDomains;
 
+    // Structured research prompt — same pattern as Gemini grounding fix
+    const today = new Date().toISOString().split('T')[0];
+    const researchPrompt = `Date: ${today}. Research objective: "${config.query}"
+
+Search the web for authoritative evidence DIRECTLY relevant to this research objective. Every source must pass this relevance test: "Would a consultant working on this specific objective cite this in their strategy deck?"
+
+Prioritize: academic papers, government data, institutional reports, industry analyses with specific data points. Exclude: generic tech news, product announcements, marketing content, tangentially related articles.
+
+For each finding, extract the specific data point, statistic, or insight that is relevant. Cite sources.`;
+
     const body: any = {
         model: 'claude-opus-4-6',
         max_tokens: 16000,
         tools: [toolDef],
-        messages: [{ role: 'user', content: [{ type: 'text', text: config.query }] }],
+        messages: [{ role: 'user', content: [{ type: 'text', text: researchPrompt }] }],
     };
 
     // Enable extended thinking for focused mode

@@ -49,13 +49,13 @@ DEFAULT_HEADERS = {"User-Agent": "NXTHumans-HiC-Research/2.0 (research@nxthumans
 SOURCES = {
     # --- NEWS & HIGHER-ED (RSS/Atom + Web) — Tier 2 ---
     "higher_ed_dive": {"name": "Higher Ed Dive", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.highereddive.com/feeds/news/"},
-    "inside_higher_ed": {"name": "Inside Higher Ed", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.insidehighered.com/feed"},
+    "inside_higher_ed": {"name": "Inside Higher Ed", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.insidehighered.com/rss.xml"},
     "edsurge": {"name": "EdSurge", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.edsurge.com/feed"},
     "hechinger": {"name": "Hechinger Report", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://hechingerreport.org/feed/"},
-    "campus_tech": {"name": "Campus Technology", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://campustechnology.com/rss-feeds/all.aspx"},
+    "campus_tech": {"name": "Campus Technology", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://campustechnology.com/rss-feeds/news.aspx"},
     "ecampus": {"name": "eCampus News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.ecampusnews.com/feed/"},
     "the_conversation_edu": {"name": "The Conversation - Education", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://theconversation.com/us/education/articles.atom"},
-    "university_world_news": {"name": "University World News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://www.universityworldnews.com/rss/UWN.xml"},
+    "university_world_news": {"name": "University World News", "category": "Higher-Ed News", "type": "web_search", "tier": 2, "domain": "universityworldnews.com"},
     "pie_news": {"name": "The PIE News", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://thepienews.com/feed/"},
     "open_campus": {"name": "Open Campus", "category": "Higher-Ed News", "type": "rss", "tier": 2, "url": "https://opencampus.org/feed/"},
 
@@ -83,10 +83,8 @@ SOURCES = {
         "params": {"format": "json", "resultType": "core"},
         "query_param": "query", "limit_param": "pageSize", "default_limit": 20,
         "results_path": "resultList.result", "total_path": "hitCount"},
-    "core_ac": {"name": "CORE", "category": "Academic Literature", "type": "rest", "tier": 1,
-        "base_url": "https://api.core.ac.uk/v3/search/works",
-        "params": {}, "query_param": "q", "limit_param": "limit", "default_limit": 15,
-        "results_path": "results", "total_path": "totalHits"},
+    "core_ac": {"name": "CORE", "category": "Academic Literature", "type": "web_search", "tier": 1,
+        "domain": "core.ac.uk"},
 
     # --- EDUCATION GOVERNMENT DATA ---
     "college_scorecard": {"name": "College Scorecard", "category": "Education Data", "type": "rest", "tier": 1,
@@ -106,35 +104,23 @@ SOURCES = {
         "params": {"format": "json", "per_page": "20"},
         "query_param": "qterm", "limit_param": "per_page", "default_limit": 20,
         "results_path": "_array_1", "total_path": "_array_0.total"},
-    "fred": {"name": "FRED", "category": "Economic Data", "type": "rest", "tier": 1,
-        "base_url": "https://api.stlouisfed.org/fred/series/search",
-        "params": {"api_key": os.getenv("FRED_API_KEY", ""), "file_type": "json"},
-        "query_param": "search_text", "limit_param": "limit", "default_limit": 20,
-        "results_path": "seriess", "total_path": "count"},
-    "bls": {"name": "BLS", "category": "Economic Data", "type": "rest", "tier": 1,
-        "base_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
-        "params": {}, "query_param": None, "limit_param": None, "default_limit": 10,
-        "results_path": "Results.series", "total_path": None},
-    "imf": {"name": "IMF Data", "category": "Economic Data", "type": "rest", "tier": 1,
-        "base_url": "https://dataservices.imf.org/REST/SDMX_JSON.svc/Dataflow",
-        "params": {}, "query_param": None, "limit_param": None, "default_limit": 50,
-        "results_path": None, "total_path": None},
+    "fred": {"name": "FRED", "category": "Economic Data", "type": "web_search", "tier": 1,
+        "domain": "fred.stlouisfed.org"},
+    "bls": {"name": "BLS", "category": "Economic Data", "type": "web_search", "tier": 1,
+        "domain": "bls.gov"},
+    "imf": {"name": "IMF Data", "category": "Economic Data", "type": "web_search", "tier": 1,
+        "domain": "imf.org/en/Data"},
 
     # --- GOVERNMENT & REGULATORY ---
-    "usaspending": {"name": "USAspending", "category": "Government Data", "type": "rest", "tier": 1,
-        "base_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-        "params": {}, "query_param": None, "limit_param": "limit", "default_limit": 20,
-        "results_path": "results", "total_path": "page_metadata.total"},
+    "usaspending": {"name": "USAspending", "category": "Government Data", "type": "web_search", "tier": 1,
+        "domain": "usaspending.gov"},
     "federal_register": {"name": "Federal Register", "category": "Government Data", "type": "rest", "tier": 1,
         "base_url": "https://www.federalregister.gov/api/v1/documents.json",
         "params": {"order": "relevance"},
         "query_param": "conditions[term]", "limit_param": "per_page", "default_limit": 20,
         "results_path": "results", "total_path": "count"},
-    "congress": {"name": "Congress.gov", "category": "Government Data", "type": "rest", "tier": 1,
-        "base_url": "https://api.congress.gov/v3/bill",
-        "params": {"api_key": os.getenv("DATA_GOV_API_KEY", "DEMO_KEY"), "format": "json"},
-        "query_param": None, "limit_param": "limit", "default_limit": 20,
-        "results_path": "bills", "total_path": "pagination.count"},
+    "congress": {"name": "Congress.gov", "category": "Government Data", "type": "web_search", "tier": 1,
+        "domain": "congress.gov"},
     "sec_edgar": {"name": "SEC EDGAR", "category": "Government Data", "type": "rest", "tier": 1,
         "base_url": "https://efts.sec.gov/LATEST/search-index",
         "params": {"dateRange": "custom", "startdt": "2024-01-01"},
@@ -177,14 +163,14 @@ SOURCES = {
 
     # --- AI NEWS (RSS) — Tier 2 ---
     "mit_tech_review_ai": {"name": "MIT Technology Review AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.technologyreview.com/feed/"},
-    "ieee_spectrum_ai": {"name": "IEEE Spectrum AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence"},
+    "ieee_spectrum_ai": {"name": "IEEE Spectrum AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://spectrum.ieee.org/feeds/feed.rss"},
     "venturebeat_ai": {"name": "VentureBeat AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://venturebeat.com/category/ai/feed/"},
     "techcrunch_ai": {"name": "TechCrunch AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://techcrunch.com/tag/artificial-intelligence/feed/"},
     "ars_technica_ai": {"name": "Ars Technica AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://arstechnica.com/tag/artificial-intelligence/feed/"},
     "wired_ai": {"name": "WIRED AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.wired.com/feed/tag/ai/latest/rss"},
     "the_verge_ai": {"name": "The Verge AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theverge.com/rss/artificial-intelligence/index.xml"},
     "zdnet_ai": {"name": "ZDNet AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml"},
-    "the_register_ml": {"name": "The Register ML", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theregister.com/offbeat/ml/headlines.atom"},
+    "the_register_ml": {"name": "The Register ML", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theregister.com/headlines.atom"},
     "the_guardian_ai": {"name": "The Guardian AI", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss"},
     "synced_review": {"name": "Synced Review", "category": "AI News", "type": "rss", "tier": 2, "url": "https://syncedreview.com/feed/"},
     "marktechpost": {"name": "MarkTechPost", "category": "AI News", "type": "rss", "tier": 2, "url": "https://www.marktechpost.com/feed/"},
@@ -193,15 +179,15 @@ SOURCES = {
 
     # --- AI LAB BLOGS (RSS) — Tier 1 ---
     "openai_blog": {"name": "OpenAI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://openai.com/blog/rss.xml"},
-    "google_ai_blog": {"name": "Google AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://ai.googleblog.com/feeds/posts/default"},
+    "google_ai_blog": {"name": "Google AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://blog.google/technology/ai/rss/"},
     "deepmind_blog": {"name": "DeepMind Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://deepmind.google/blog/rss.xml"},
-    "meta_ai_blog": {"name": "Meta AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://ai.meta.com/blog/rss/"},
+    "meta_ai_blog": {"name": "Meta AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://engineering.fb.com/feed/"},
     "microsoft_research": {"name": "Microsoft Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.microsoft.com/en-us/research/feed/"},
     "nvidia_dev_blog": {"name": "NVIDIA Developer", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://developer.nvidia.com/blog/feed/"},
     "huggingface_blog": {"name": "Hugging Face Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://huggingface.co/blog/feed.xml"},
-    "anthropic_blog": {"name": "Anthropic Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.anthropic.com/feed.xml"},
-    "stability_ai": {"name": "Stability AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://stability.ai/news/rss.xml"},
-    "mistral_ai": {"name": "Mistral AI", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://mistral.ai/feed.xml"},
+    "anthropic_blog": {"name": "Anthropic Blog", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "anthropic.com/news"},
+    "stability_ai": {"name": "Stability AI", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "stability.ai/news"},
+    "mistral_ai": {"name": "Mistral AI", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "mistral.ai/news"},
     "bair_blog": {"name": "BAIR (Berkeley)", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://bair.berkeley.edu/blog/feed.xml"},
 
     # --- AI RESEARCH REPOS (RSS + REST) — Tier 1 ---
@@ -222,10 +208,8 @@ SOURCES = {
         "params": {"sortBy": "relevance", "sortOrder": "descending", "max_results": "15"},
         "query_param": "search_query", "limit_param": "max_results", "default_limit": 15,
         "results_path": None, "total_path": None},
-    "openreview": {"name": "OpenReview", "category": "AI Research", "type": "rest", "tier": 1,
-        "base_url": "https://api.openreview.net/notes/search",
-        "params": {}, "query_param": "term", "limit_param": "limit", "default_limit": 15,
-        "results_path": "notes", "total_path": "count"},
+    "openreview": {"name": "OpenReview", "category": "AI Research", "type": "web_search", "tier": 1,
+        "domain": "openreview.net"},
     "dblp": {"name": "DBLP", "category": "AI Research", "type": "rest", "tier": 1,
         "base_url": "https://dblp.org/search/publ/api",
         "params": {"format": "json"}, "query_param": "q", "limit_param": "h", "default_limit": 20,
@@ -242,8 +226,8 @@ SOURCES = {
         "results_path": None, "total_path": None},
 
     # --- AI POLICY & ETHICS (RSS) — Tier 1 ---
-    "brookings_ai": {"name": "Brookings AI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.brookings.edu/topic/artificial-intelligence/feed/"},
-    "stanford_hai": {"name": "Stanford HAI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://hai.stanford.edu/news/rss.xml"},
+    "brookings_ai": {"name": "Brookings AI", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "brookings.edu/topic/artificial-intelligence"},
+    "stanford_hai": {"name": "Stanford HAI", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "hai.stanford.edu/news"},
 
     # --- AI COMMUNITIES (REST) — Tier 3 ---
     "stackoverflow_ai": {"name": "Stack Overflow AI", "category": "AI Communities", "type": "rest", "tier": 3,
@@ -275,11 +259,11 @@ SOURCES = {
     "apple_ml": {"name": "Apple ML Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://machinelearning.apple.com/rss.xml"},
     "amazon_science": {"name": "Amazon Science", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://www.amazon.science/index.rss"},
     "aws_ml_blog": {"name": "AWS ML Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://aws.amazon.com/blogs/machine-learning/feed/"},
-    "ibm_research": {"name": "IBM Research", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://research.ibm.com/blog/rss"},
-    "salesforce_ai": {"name": "Salesforce AI Research", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://blog.salesforceairesearch.com/rss/"},
-    "cohere_blog": {"name": "Cohere Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://cohere.com/blog/rss.xml"},
-    "allen_ai": {"name": "Allen AI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://allenai.org/blog/feed"},
-    "stanford_hai_blog": {"name": "Stanford HAI Blog", "category": "AI Lab Blogs", "type": "rss", "tier": 1, "url": "https://hai.stanford.edu/news/rss.xml"},
+    "ibm_research": {"name": "IBM Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "research.ibm.com/blog"},
+    "salesforce_ai": {"name": "Salesforce AI Research", "category": "AI Lab Blogs", "type": "web_search", "tier": 2, "domain": "blog.salesforceairesearch.com"},
+    "cohere_blog": {"name": "Cohere Blog", "category": "AI Lab Blogs", "type": "web_search", "tier": 2, "domain": "cohere.com/blog"},
+    "allen_ai": {"name": "Allen AI Blog", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "allenai.org/blog"},
+    "stanford_hai_blog": {"name": "Stanford HAI Blog", "category": "AI Lab Blogs", "type": "web_search", "tier": 1, "domain": "hai.stanford.edu/news"},
     "databricks_ai": {"name": "Databricks AI", "category": "AI Lab Blogs", "type": "rss", "tier": 2, "url": "https://www.databricks.com/feed"},
 
     # --- MORE AI RESEARCH (RSS) — Tier 1 ---
@@ -300,18 +284,15 @@ SOURCES = {
         "params": {"resource-type-id": "dataset"},
         "query_param": "query", "limit_param": "page[size]", "default_limit": 15,
         "results_path": "data", "total_path": "meta.total"},
-    "zenodo": {"name": "Zenodo", "category": "Academic Literature", "type": "rest", "tier": 1,
-        "base_url": "https://zenodo.org/api/records",
-        "params": {"type": "publication"},
-        "query_param": "q", "limit_param": "size", "default_limit": 15,
-        "results_path": "hits.hits", "total_path": "hits.total"},
+    "zenodo": {"name": "Zenodo", "category": "Academic Literature", "type": "web_search", "tier": 1,
+        "domain": "zenodo.org"},
 
     # --- AI POLICY & ETHICS (RSS) — Tier 1 ---
-    "oecd_ai": {"name": "OECD AI Policy", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.oecd-ilibrary.org/rss/science-and-technology.rss"},
+    "oecd_ai": {"name": "OECD AI Policy", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "oecd.ai/en"},
     "eff_ai": {"name": "EFF AI & Rights", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.eff.org/rss/updates.xml"},
     "ada_lovelace": {"name": "Ada Lovelace Institute", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://www.adalovelaceinstitute.org/feed/"},
     "ai_now_institute": {"name": "AI Now Institute", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://ainowinstitute.org/feed"},
-    "cset_georgetown": {"name": "Georgetown CSET", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://cset.georgetown.edu/feed/"},
+    "cset_georgetown": {"name": "Georgetown CSET", "category": "AI Policy & Ethics", "type": "web_search", "tier": 1, "domain": "cset.georgetown.edu"},
     "partnership_on_ai": {"name": "Partnership on AI", "category": "AI Policy & Ethics", "type": "rss", "tier": 1, "url": "https://partnershiponai.org/feed/"},
 
     # --- OPEN DATA PORTALS (CKAN/Socrata) — Tier 1 ---
@@ -319,10 +300,8 @@ SOURCES = {
         "base_url": "https://data.gov.au/data/api/3/action/package_search"},
     "data_gov_ca": {"name": "Open Canada", "category": "Open Data Portals", "type": "ckan", "tier": 1,
         "base_url": "https://open.canada.ca/data/api/3/action/package_search"},
-    "eu_data_portal": {"name": "EU Open Data", "category": "Open Data Portals", "type": "rest", "tier": 1,
-        "base_url": "https://data.europa.eu/api/hub/search/datasets",
-        "params": {"limit": "15"}, "query_param": "q", "limit_param": "limit", "default_limit": 15,
-        "results_path": "result.results", "total_path": "result.count"},
+    "eu_data_portal": {"name": "EU Open Data", "category": "Open Data Portals", "type": "web_search", "tier": 1,
+        "domain": "data.europa.eu"},
     "la_open_data": {"name": "LA Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
         "domain": "data.lacity.org", "default_dataset": None},
     "sf_open_data": {"name": "SF Open Data", "category": "Open Data Portals", "type": "socrata", "tier": 1,
@@ -331,10 +310,8 @@ SOURCES = {
         "domain": "data.texas.gov", "default_dataset": None},
 
     # --- AI CODE REPOS (REST via GitHub) — Tier 2 ---
-    "github_trending": {"name": "GitHub Code Search", "category": "AI Code", "type": "rest", "tier": 2,
-        "base_url": "https://api.github.com/search/code",
-        "params": {"sort": "indexed", "order": "desc"}, "query_param": "q", "limit_param": "per_page", "default_limit": 10,
-        "results_path": "items", "total_path": "total_count"},
+    "github_trending": {"name": "GitHub Code Search", "category": "AI Code", "type": "web_search", "tier": 2,
+        "domain": "github.com"},
 
     # --- AI COMMUNITIES (REST) — Tier 3 ---
     "reddit_ml": {"name": "Reddit r/MachineLearning", "category": "AI Communities", "type": "rest", "tier": 3,
@@ -354,14 +331,10 @@ SOURCES = {
         "results_path": "data.children", "total_path": None},
 
     # --- MORE ECONOMIC & STATISTICAL (REST) — Tier 1 ---
-    "imf_data": {"name": "IMF Data", "category": "Economic Data", "type": "rest", "tier": 1,
-        "base_url": "https://dataservices.imf.org/REST/SDMX_JSON.svc/Dataflow",
-        "params": {}, "query_param": None, "limit_param": None, "default_limit": 50,
-        "results_path": None, "total_path": None},
-    "oecd_data": {"name": "OECD Data", "category": "Economic Data", "type": "rest", "tier": 1,
-        "base_url": "https://stats.oecd.org/SDMX-JSON/data",
-        "params": {}, "query_param": None, "limit_param": None, "default_limit": 20,
-        "results_path": None, "total_path": None},
+    "imf_data": {"name": "IMF Data", "category": "Economic Data", "type": "web_search", "tier": 1,
+        "domain": "imf.org/en/Data"},
+    "oecd_data": {"name": "OECD Data", "category": "Economic Data", "type": "web_search", "tier": 1,
+        "domain": "data.oecd.org"},
 
     # --- GOVERNMENT & REGULATORY (REST) — Tier 1 ---
     "nist_ai": {"name": "NIST AI Standards", "category": "Government Data", "type": "rss", "tier": 1, "url": "https://www.nist.gov/news-events/news/rss.xml"},
@@ -385,8 +358,8 @@ SOURCES = {
         "results_path": "results", "total_path": "count"},
 
     # --- CONFERENCE PROCEEDINGS (Web/RSS where available) — Tier 1 ---
-    "neurips_proc": {"name": "NeurIPS Proceedings", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://proceedings.neurips.cc/rss"},
-    "acl_anthology": {"name": "ACL Anthology", "category": "AI Conferences", "type": "rss", "tier": 1, "url": "https://aclanthology.org/feed.xml"},
+    "neurips_proc": {"name": "NeurIPS Proceedings", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "proceedings.neurips.cc"},
+    "acl_anthology": {"name": "ACL Anthology", "category": "AI Conferences", "type": "web_search", "tier": 1, "domain": "aclanthology.org"},
 
     # ================================================================
     # WEB-ONLY SOURCES — Site-scoped Jina search (no API/RSS available)
@@ -590,7 +563,7 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                         items.append({
                             "title": to_str(raw_title, str(item)[:100]),
                             "content": to_str(item.get("abstract") or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
-                            "url": to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink")),
+                            "url": (lambda u: ("https://www.reddit.com" + u) if u and u.startswith("/r/") else to_str(u))(to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink"))),
                             "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
                         })
                     else:
@@ -653,7 +626,14 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                 resp = await fetch_with_retry(client, src["base_url"], params=params)
                 data = resp.json()
                 results = data.get("result", {}).get("results", [])
-                items = [{"title": r.get("title", ""), "content": (r.get("notes") or "")[:500], "url": f"https://catalog.data.gov/dataset/{r.get('name', '')}", "date": r.get("metadata_modified", "")} for r in results[:limit]]
+                # Derive the portal base URL from the API URL (e.g., catalog.data.gov from catalog.data.gov/api/...)
+                api_base = src["base_url"]  # e.g., https://catalog.data.gov/api/3/action/package_search
+                portal_base = api_base.split("/api/")[0] if "/api/" in api_base else api_base
+                items = []
+                for r in results[:limit]:
+                    # Prefer the CKAN package's own url/resources, fall back to constructed URL
+                    pkg_url = r.get("url") or f"{portal_base}/dataset/{r.get('name', r.get('id', ''))}"
+                    items.append({"title": r.get("title", ""), "content": (r.get("notes") or "")[:500], "url": pkg_url, "date": r.get("metadata_modified", "")})
                 return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": data.get("result", {}).get("count", 0)}
 
             # --- Socrata connector ---
@@ -885,25 +865,72 @@ async def proxy_anthropic(request: Request):
     if not api_key:
         return JSONResponse({"error": "ANTHROPIC_API_KEY not configured"}, status_code=500)
 
-    body = await request.json()
-    headers = {
-        "Content-Type": "application/json",
-        "x-api-key": api_key,
-        "anthropic-version": "2023-06-01",
-    }
-    # Forward anthropic-beta header if present
-    beta = request.headers.get("anthropic-beta")
-    if beta:
-        headers["anthropic-beta"] = beta
+    try:
+        body = await request.json()
+        headers = {
+            "Content-Type": "application/json",
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+        }
+        # Forward anthropic-beta header if present
+        beta = request.headers.get("anthropic-beta")
+        if beta:
+            headers["anthropic-beta"] = beta
 
-    async with httpx.AsyncClient() as client:
-        resp = await client.post(
-            "https://api.anthropic.com/v1/messages",
-            json=body,
-            headers=headers,
-            timeout=300.0,  # Long timeout for thinking/research tasks
-        )
-        return JSONResponse(resp.json(), status_code=resp.status_code)
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                json=body,
+                headers=headers,
+                timeout=300.0,
+            )
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except httpx.TimeoutException:
+        logger.error("Anthropic proxy timeout")
+        return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
+    except Exception as e:
+        logger.error(f"Anthropic proxy error: {e}")
+        return JSONResponse({"error": f"Anthropic proxy error: {str(e)[:200]}"}, status_code=502)
+
+
+@app.post("/api/ai/gemini")
+async def proxy_gemini(request: Request):
+    """Proxy requests to Gemini API. Adds API key server-side."""
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "GEMINI_API_KEY not configured"}, status_code=500)
+
+    try:
+        body = await request.json()
+        model = body.get("model", "gemini-2.5-flash")
+        contents = body.get("contents", "")
+        config = body.get("config", {})
+
+        # Build Gemini API request
+        gemini_body = {
+            "contents": [{"parts": [{"text": contents}]}] if isinstance(contents, str) else contents,
+            "generationConfig": {
+                "temperature": config.get("temperature", 0.2),
+                "maxOutputTokens": config.get("maxOutputTokens", 8192),
+            },
+        }
+
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        content_size = len(json.dumps(gemini_body))
+        logger.info(f"Gemini proxy: model={model}, content_size={content_size:,} chars")
+
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=gemini_body, headers={"Content-Type": "application/json"}, timeout=300.0)
+            result = resp.json()
+            if resp.status_code != 200:
+                logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
+            return JSONResponse(result, status_code=resp.status_code)
+    except httpx.TimeoutException:
+        logger.error("Gemini proxy timeout")
+        return JSONResponse({"error": "Gemini API timeout (300s)"}, status_code=504)
+    except Exception as e:
+        logger.error(f"Gemini proxy error: {e}")
+        return JSONResponse({"error": f"Gemini proxy error: {str(e)[:200]}"}, status_code=502)
 
 
 @app.post("/api/ai/openai")
@@ -913,22 +940,29 @@ async def proxy_openai(request: Request):
     if not api_key:
         return JSONResponse({"error": "OPENAI_API_KEY not configured"}, status_code=500)
 
-    body = await request.json()
-    # Determine endpoint: responses API vs chat completions
-    endpoint = request.headers.get("x-openai-endpoint", "responses")
-    if endpoint == "chat":
-        url = "https://api.openai.com/v1/chat/completions"
-    else:
-        url = "https://api.openai.com/v1/responses"
+    try:
+        body = await request.json()
+        # Determine endpoint: responses API vs chat completions
+        endpoint = request.headers.get("x-openai-endpoint", "responses")
+        if endpoint == "chat":
+            url = "https://api.openai.com/v1/chat/completions"
+        else:
+            url = "https://api.openai.com/v1/responses"
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}",
-    }
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
 
-    async with httpx.AsyncClient() as client:
-        resp = await client.post(url, json=body, headers=headers, timeout=300.0)
-        return JSONResponse(resp.json(), status_code=resp.status_code)
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except httpx.TimeoutException:
+        logger.error("OpenAI proxy timeout")
+        return JSONResponse({"error": "OpenAI API timeout (300s)"}, status_code=504)
+    except Exception as e:
+        logger.error(f"OpenAI proxy error: {e}")
+        return JSONResponse({"error": f"OpenAI proxy error: {str(e)[:200]}"}, status_code=502)
 
 
 @app.get("/api/ai/status")
@@ -998,6 +1032,90 @@ async def cx_health():
             return {"available": resp.status_code == 200, "url": REDDIT_RIPPER_URL}
     except Exception:
         return {"available": False, "url": REDDIT_RIPPER_URL}
+
+
+# ================================================================
+# WIKI WRITE LAYER — P6-01: Enables the self-improvement loop
+# The wiki directory is mounted in the container; these endpoints
+# allow the frontend to write learnings back to wiki pages.
+# ================================================================
+
+# In Docker: wiki is mounted at /hic-workspace/wiki via docker-compose volume
+# Locally: fall back to relative path from proxy directory
+WIKI_BASE = os.environ.get("WIKI_PATH", "/hic-workspace/wiki")
+if not os.path.isdir(WIKI_BASE):
+    WIKI_BASE = os.path.join(os.path.dirname(__file__), "..", "hic-workspace", "wiki")
+
+from pydantic import BaseModel
+
+class WikiWriteRequest(BaseModel):
+    path: str       # Relative path within wiki/ (e.g., "anti-patterns/personas.md")
+    content: str    # Full content to write
+
+class WikiAppendRequest(BaseModel):
+    path: str       # Relative path within wiki/
+    content: str    # Content to append
+    section: str = ""  # Optional: append under this section header
+
+@app.post("/api/wiki/write")
+async def wiki_write(req: WikiWriteRequest):
+    """Write (overwrite) a wiki page. Used for full page updates."""
+    safe_path = os.path.normpath(os.path.join(WIKI_BASE, req.path))
+    if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    os.makedirs(os.path.dirname(safe_path), exist_ok=True)
+    try:
+        with open(safe_path, "w", encoding="utf-8") as f:
+            f.write(req.content)
+        logger.info(f"Wiki write: {req.path} ({len(req.content)} chars)")
+        return {"status": "ok", "path": req.path, "chars": len(req.content)}
+    except Exception as e:
+        logger.error(f"Wiki write failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.post("/api/wiki/append")
+async def wiki_append(req: WikiAppendRequest):
+    """Append content to an existing wiki page. Creates if not exists."""
+    safe_path = os.path.normpath(os.path.join(WIKI_BASE, req.path))
+    if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    os.makedirs(os.path.dirname(safe_path), exist_ok=True)
+    try:
+        existing = ""
+        if os.path.exists(safe_path):
+            with open(safe_path, "r", encoding="utf-8") as f:
+                existing = f.read()
+
+        if req.section and req.section in existing:
+            # Append under the specified section header
+            section_idx = existing.index(req.section) + len(req.section)
+            # Find the next section header or end of file
+            next_section = existing.find("\n## ", section_idx + 1)
+            if next_section == -1:
+                next_section = existing.find("\n# ", section_idx + 1)
+            insert_at = next_section if next_section != -1 else len(existing)
+            updated = existing[:insert_at].rstrip() + "\n" + req.content + "\n" + existing[insert_at:]
+        else:
+            updated = existing.rstrip() + "\n\n" + req.content + "\n"
+
+        with open(safe_path, "w", encoding="utf-8") as f:
+            f.write(updated)
+        logger.info(f"Wiki append: {req.path} (+{len(req.content)} chars)")
+        return {"status": "ok", "path": req.path, "totalChars": len(updated)}
+    except Exception as e:
+        logger.error(f"Wiki append failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/wiki/read/{path:path}")
+async def wiki_read(path: str):
+    """Read a wiki page. Alternative to the nginx/vite static serving."""
+    safe_path = os.path.normpath(os.path.join(WIKI_BASE, path))
+    if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    if not os.path.exists(safe_path):
+        return JSONResponse({"error": "Not found"}, status_code=404)
+    with open(safe_path, "r", encoding="utf-8") as f:
+        return {"path": path, "content": f.read()}
 
 
 if __name__ == "__main__":

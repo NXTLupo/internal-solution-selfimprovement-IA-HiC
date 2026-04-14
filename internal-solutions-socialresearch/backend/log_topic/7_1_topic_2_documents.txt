@@ -1,16 +1,25 @@
 Documents for Topic 2 (showing first 3):
 
 Document 1:
-Post Game Thread - NBA: The Celtics defeat the Warriors on Mar 18, 2026, the final score is 120-99. This post contains content not supported on old Reddit. [Click here to view the full post](https://sh.reddit.com/r/warriors/comments/1rxmxb6) Hello 10th seed my old friend!
-*old* friend?
-god i miss Steph and Jimmy...
+Foster City, California, ransomware incident halts most city services *Foster City, California, took most municipal services offline after staff discovered ransomware on city networks Thursday, while 911 and police dispatch remained operational, officials said.*
+
+*The city said its information technology staff identified the ransomware in the early hours of March 19, prompting officials to pause public services outside emergency response functions.*...
 
 Document 2:
-Starters in Boston  They coming off a loss, right. We should focus on staying awake ourselves. 
-I miss Moses
-Carry us Brazilian Guy...
+We’re Cisco Talos. Ask us anything (24h AMA) Hey r/cybersecurity 👋
+
+We just released our [Talos 2025 Year in Review](https://blog.talosintelligence.com/2025yearinreview) and we have researchers and incident responders here for the next 24 hours to answer your questions. 
+
+We also have some of our friends from Splunk on standby too!
+
+A few callouts from the Talos report:
+
+	•	⚡ New vulnerabilities are weaponized almost immediately (React2Shell) 
+
+	•	🧟 Old ones still dominate (Log4j, EOL systems = ...
 
 Document 3:
-One play from every Golden State Warriors game in the 2015–16 season video:@Gardas111 Take me back 😭
-What a team man, Curry in peak form, Best role player in the game Klay pre ego issues, Draymond at his athletic peak, iggy all-star turned Swiss Army knife, the Forgotten first overall pick Bogut with size defense and IQ, and then rounding out with Barnes, Livingston, Barboza, Festus. It’s a shame Curry got hurt in the playoffs and then Bogut and Iggy in the finals. That team was untouchable but ...
+The CVE Program, a bedrock of global cyber defense, is teetering on the brink It's true. I'm from the future. First time? 
+lol
+I'm long aware of the CVE thing but not funding stuff - is that common?...
 

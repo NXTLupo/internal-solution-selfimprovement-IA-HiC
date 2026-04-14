@@ -388,6 +388,7 @@ services:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./humans-in-control-research/proxy:/app
+      - ./humans-in-control-research/hic-workspace/wiki:/hic-workspace/wiki
     working_dir: /app
     command: >-
       bash -c "pip install --no-cache-dir -r requirements.txt && python app.py"

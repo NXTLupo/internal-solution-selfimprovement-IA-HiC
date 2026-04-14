@@ -1,0 +1,13 @@
+Topic 16 - Content Sample
+Number of content items: 18
+Top words: conference, rsa, events, vendors, friends, tier, attend
+
+Content 1 (length: 229 chars):
+Have plan if you are going to RSA. I've been going to the RSA Conference for 20 years. If you have never been there, it can be like visiting NYC and not knowing anyone. Here are three things you can do to have a great conference:
+
+Content 2 (length: 407 chars):
+Most of the high‑value offline tech events I am interested in (like CTF events, Security conferences etc.) take place in Tier‑1 cities like Bengaluru, Pune etc. Even relatively closer cities like Kolkata or Ranchi are not realistically feasible for a same‑day round trip; the travel time plus a full‑day event effectively requires at least one overnight stay, which pushes the cost beyond my current budget.
+
+Content 3 (length: 228 chars):
+The sessions can fill up fast, so finding out which ones you want to be in and planning out a schedule is key. Some speaking slots are also NOT in the session rooms, they're on the vendor floor itself, so double-check locations.
+

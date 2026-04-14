@@ -1,25 +1,24 @@
 Documents for Topic 8 (showing first 3):
 
 Document 1:
-Imagine scoring your first-ever NBA points and the ref immediately hits you with a tech.😂  Set the tone for his career
-Why did he get a technical? I don't see anything worthy of a tech here.
-Weenie refs can't handle the big bad swear words...
+Why “fresh” stealer logs keep failing validation at scale Most teams treat stealer logs as near-real-time indicators, but in practice the bigger issue we keep running into is *temporal integrity*, not collection.  
+  
+Even when data is labeled as “fresh,” a large portion of logs fail basic freshness validation once you actually normalize and enrich them. The problems are not subtle:
+
+* Timestamps are often stripped, rewritten, or inconsistent across fields 
+* Credential pairs get merged from old...
 
 Document 2:
-Steph curry ranks #2 for impact on teammate shot quality  I saw a metric today, the East is realizing that Kuminga has the worst hands in the NBA....  The top 5 in Turnovers Per 100 Touches  
-  
-1. Shaedon Sharpe 5.39  
-2. Jaylen Brown 5.18  
-3. Jonathan Kuminga 5.16  
-4. Devin Booker 5.12  
-5. Cole Anthony 5.06
-Thank you warriors clap clap clapclapclap
-Fucking imbecile Nico Harrison...
+Found some websites offering free scan of my site build using WordPress for security ? Are these safe what’s safest ? How to manage security and not have budget to get wordfence pro  Wordfence has a free version that includes a malware scanner and firewall. You can install it directly from the WordPress plugin directory and scan your site from there.
+
+If you have any questions, we offer free support on our WordPress.org forum: https://wordpress.org/support/plugin/wordfence/
+
+Margaret - Wordfence...
 
 Document 3:
-Steph's face sums it up again Instead of a random player going nova, we let a team going "big achievement since" stat 🥲 I gotta give the guys credit for playing very hard against a very good Knicks team though
-They did put up a good fight 🔆
-yeah i give the team a lot of credit
+Ad block for Businesses - security? Best one? I am trying to find out the best way to deploy an ad blocker to an organization for security purposes. 
 
-and podz should be crucified for the shot he took after everyone else on the team stepped up, some of them playing hurt, to try to win...
+I've done more research on this than I thought I'd need, yet nothing I've found has satisfied me. To my knowledge, Ad block browser extensions require horrifying permissions to be effective, and a single malicious extension update completely nukes the benefits of adblocking in the first place. How do you reconcile and/or mitigate that?
+
+Adblock se...
 

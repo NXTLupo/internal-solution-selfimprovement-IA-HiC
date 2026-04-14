@@ -1,0 +1,98 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: breach, telus, data, telus digital, field effect, petabyte data, records
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Telus Digital confirms breach after hacker claims 1 petabyte data Canadian business process outsourcing giant Telus Digital has confirmed it suffered a security incident after threat actors claimed to have stolen nearly 1 petabyte of data from the company in a multi-month breach.
+
+EXAMPLE 2:
+[Telus Digital confirms breach after hacker claims 1 petabyte data theft](https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/)
+
+EXAMPLE 3:
+[https://www.telusdigital.com/technology-partners](https://www.telusdigital.com/technology-partners)
+I bet you’ve had a fun morning!
+A petabyte.
+
+EXAMPLE 4:
+TELUS Business Solutions (TBS) is a reseller of a white labelled Field Effect solution. TELUS **Digital**, a separate arm of TELUS, experienced a breach. Field Effect is not deployed internally at TELUS Digital, **and we do not have any sort of business relationship with TELUS Digital.**
+
+EXAMPLE 5:
+[https://fieldeffect.com/blog/telus-launches-managed-detection-and-response-mdr-solution-in-partnership-with-field-effect-security/](https://fieldeffect.com/blog/telus-launches-managed-detection-and-response-mdr-solution-in-partnership-with-field-effect-security/) Hi there, Lisa here, with the community team at Field Effect - chiming in to reassure you **we were not involved** in this incident.
+
+EXAMPLE 6:
+Crunchyroll Breach: Malware Targets Supply Chain to Exfiltrate 100GB of Data A significant data breach allegedly happening at Crunchyroll. The incident originated at Telus, an outsourcing partner in India, and led to the exfiltration of 100 GB of customer analytics and ticketing data.
+
+EXAMPLE 7:
+Initial Access: An malware / infostealer was deployed via a spoofed phishing email targeting a Telus employee.
+
+EXAMPLE 8:
+Data Compromised: Exfiltrated files include PII such as email addresses, IP addresses, and credit card details.
+
+EXAMPLE 9:
+They may or may not also use FE internally as an internal client, however Telus white label resells Field Effect. If you are thinking about using Telus services ensure you do your due diligence.
+
+EXAMPLE 10:
+I struggle to see how Telus passed audits having seemingly no: 
+- CSIRT
+- rules engine
+- DevSecOps
+- DLP
+
+EXAMPLE 11:
+So the real lesson is not just breach size. It is concentration risk. When one third party sits on identity, benefits, and health-related data at scale, one compromise creates multiple abuse paths at once.
+The ugly part is medical records do not rotate. SSN fraud is bad, but diagnosis, meds, and claims data get reused for years in insurance scams and targeted phishing. Check your EOBs, patient portals, and HSA/FSA activity now. We catch a lot more abuse there than people expect.
+
+EXAMPLE 12:
+Navia Data Breach Impacts 2.7 Million 2.7 Million People's SSNs and Medical Records Just Confirmed Stolen.. If you're one of the 2.7 million affected, don't rely on the 12 months of credit monitoring. Freeze your credit with all three bureaus now. It's free, takes minutes, and is significantly more effective than monitoring which only tells you after someone has already opened accounts in your name. SSNs don't expire. The risk from this breach doesn't end in 12 months.
+This is not just another “big breach” story. [...]
+
+EXAMPLE 13:
+Credential Theft: The malware successfully captured the employee’s Okta credentials, providing a gateway into Crunchyroll’s environment.
+
+EXAMPLE 14:
+[https://www.linkedin.com/feed/update/urn:li:activity:7441656561325924352/](https://www.linkedin.com/feed/update/urn:li:activity:7441656561325924352/)
+
+EXAMPLE 15:
+Outsourcing strikes again
+All things considered, 24hr response time is like REALLY good considering how long some APTs persist.
+24h is also a default Okta session duration, so yeah it’s been “revoked”. They should all go pat themselves on their backs. 💪
+
+EXAMPLE 16:
+The obvious advice is credit freeze, and others already covered that well. But the less discussed issue is medical identity abuse and highly credible benefits-themed phishing. Those risks can outlive the usual 12 months of monitoring by a long way.
+
+EXAMPLE 17:
+[https://x.com/IntCyberDigest/status/2035864555805413448](https://x.com/IntCyberDigest/status/2035864555805413448)
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

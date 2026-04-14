@@ -1,30 +1,65 @@
 {
   "positive": [
     {
-      "point": "Steve Kerr took accountability for wrongly blaming Will Richard for a turnover, showing leadership and responsibility.",
+      "point": "Creative methods to encourage security practices, such as sending love poems to bosses or changing wallpapers, are effective in changing user behavior.",
       "post_refs": [
-        "1rx08eb",
-        "1rv0vh0"
+        "1s2ethf"
       ]
     },
     {
-      "point": "Will Richard is seen as a valuable role player on a cost-effective contract, exceeding expectations as a rookie.",
+      "point": "Forensic readiness is becoming a strategic security discipline, transitioning from a niche practice to a discipline of risk management and incident preparedness.",
       "post_refs": [
-        "1rvtytl"
+        "1s2amsy"
+      ]
+    },
+    {
+      "point": "The use of Faraday bags to block signals to/from devices is a practical measure for protecting sensitive data during travel.",
+      "post_refs": [
+        "1rwnv81"
       ]
     }
   ],
   "negative": [
     {
-      "point": "There is frustration over perceived inconsistency in how Steve Kerr criticizes players, with Will Richard receiving more criticism than Podziemski and Draymond for similar mistakes.",
+      "point": "Concerns about Reddit introducing ID verification, which could undermine the platform's appeal of anonymity and lack of personal ties to the real world.",
       "post_refs": [
-        "1rv00sn"
+        "1s2qfn5"
       ]
     },
     {
-      "point": "The community is described as insufferable and filled with emotionally unstable individuals who lack knowledge of the game.",
+      "point": "Users not taking basic security measures seriously, such as locking their laptops, which can expose sensitive information.",
       "post_refs": [
-        "1rv0vh0"
+        "1s2ethf"
+      ]
+    },
+    {
+      "point": "Human error is a significant security risk, as demonstrated by people sharing sensitive information publicly or leaving devices unlocked.",
+      "post_refs": [
+        "1s1gxis"
+      ]
+    },
+    {
+      "point": "The ease of social engineering attacks, such as phishing, highlights the vulnerability of systems to human manipulation.",
+      "post_refs": [
+        "1s2nzyp"
+      ]
+    },
+    {
+      "point": "Misconfigured security settings by experienced professionals, such as leaving an S3 bucket open, are common and often overlooked.",
+      "post_refs": [
+        "1s1jsl8"
+      ]
+    },
+    {
+      "point": "The segmented architecture of Reddit makes it a high-value target for misinformation campaigns by foreign adversaries.",
+      "post_refs": [
+        "1ryim1t"
+      ]
+    },
+    {
+      "point": "Biometric data, such as fingerprints, can be extracted from high-resolution images and videos, posing a significant privacy risk.",
+      "post_refs": [
+        "1ruv858"
       ]
     }
   ]

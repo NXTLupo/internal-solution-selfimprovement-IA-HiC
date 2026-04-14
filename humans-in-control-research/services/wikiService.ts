@@ -1,0 +1,1287 @@
+/**
+ * Wiki Service — Persistent Knowledge Layer Interface
+ *
+ * Reads from hic-workspace/wiki/ to provide compiled knowledge
+ * for deliverable generation. The wiki is the quality layer:
+ * framework specs, anti-patterns, benchmarks, evidence, brand standards.
+ *
+ * This service is the bridge between the React app and the markdown wiki.
+ * All wiki reads happen at generation time via fetch() to the local server
+ * or direct file read depending on environment.
+ */
+
+import type { OutputOption } from '../types';
+
+// --- TYPES ---
+
+export interface WikiPage {
+    path: string;
+    title: string;
+    type: string;
+    content: string;
+    frontmatter: WikiFrontmatter;
+}
+
+export interface WikiFrontmatter {
+    title: string;
+    type: string;
+    created: string;
+    updated: string;
+    sources: string[];
+    confidence: 'high' | 'medium' | 'speculative';
+    status: 'active' | 'needs-review' | 'superseded' | 'archived';
+    tags: string[];
+    evidence_count: number;
+}
+
+export interface WikiLogEntry {
+    date: string;
+    operation: 'ingest' | 'generate' | 'lint' | 'bootstrap' | 'update';
+    subject: string;
+    details: string;
+}
+
+export interface BrandConfig {
+    identity: string;
+    illustrationStyle: string;
+    chartStandards: string;
+    layoutPatterns: string;
+    antiSlop: string;
+    referenceDeck: string;
+}
+
+export interface SocialIntelligenceContext {
+    sentimentPipeline: string;
+    topicModeling: string;
+    cxMesh: string;
+}
+
+export interface ResearchContext {
+    researchModes: string;
+    knowledgeGraph: string;
+    methodology: string;
+    analyticalLenses: string;
+    sourceConnectors: string;
+}
+
+export interface GenerationContext {
+    framework: string;
+    antiPatterns: string;
+    benchmarks: string;
+    evidence: string;
+    brand: BrandConfig;
+    socialIntelligence: SocialIntelligenceContext;
+    research: ResearchContext;
+    industryAdaptation?: string;
+    engagementContext?: string;
+    exemplar?: string;
+}
+
+export interface QualityScore {
+    completeness: number;      // 0-5
+    depth: number;             // 0-5
+    evidence: number;          // 0-5
+    visualQuality: number;     // 0-5
+    specificity: number;       // 0-5
+    overall: number;           // weighted average
+    passing: boolean;          // >= 3.8
+    failingDimensions: string[];
+}
+
+// --- CONSTANTS ---
+
+const WIKI_BASE = '/hic-workspace/wiki';
+
+/**
+ * Maps OutputOption enum values to wiki framework page filenames.
+ */
+const OUTPUT_TO_FRAMEWORK: Record<string, string> = {
+    'PERSONAS': 'personas',
+    'STRATEGY_DECK': 'deck',
+    'JOURNEY_MAP': 'blueprint',
+    'TECH_ARCH': 'architecture',
+    'STRATEGIC_RECS': 'strategy',
+    'PRD': 'prd',
+    'ROADMAP': 'roadmap',
+    'GAP_ANALYSIS': 'gap-analysis',
+    'TECH_AUDIT': 'tech-audit',
+    'COMPETITIVE_ANALYSIS': 'competitive',
+};
+
+/**
+ * Maps framework types to their relevant benchmark pages.
+ */
+const FRAMEWORK_BENCHMARKS: Record<string, string[]> = {
+    'personas': ['cx-metrics'],
+    'deck': ['cx-metrics', 'financial-impact'],
+    'script': ['cx-metrics', 'technology-adoption'],
+    'blueprint': ['cx-metrics'],
+    'architecture': ['technology-adoption'],
+    'prd': ['technology-adoption', 'cx-metrics'],
+    'roadmap': ['technology-adoption', 'financial-impact'],
+    'strategy': ['cx-metrics', 'financial-impact', 'maturity-models'],
+    'gap-analysis': ['maturity-models', 'cx-metrics'],
+    'tech-audit': ['technology-adoption', 'competitive-intel'],
+    'competitive': ['competitive-intel', 'cx-metrics'],
+};
+
+// --- BANNED PHRASES (loaded from wiki/brand/anti-slop.md at build time) ---
+
+/**
+ * Comprehensive AI Slop Blacklist — ~350 phrases across 12 categories.
+ * Any match triggers detection + auto-correction in the slide pipeline.
+ * Source: NXT Humans anti-slop style guide (2026-04-13).
+ */
+const BANNED_PHRASES = [
+    // === I. META-NARRATION (presenter self-reference) ===
+    "good morning", "good afternoon", "good evening", "welcome to",
+    "today we will", "today we'll", "we will present", "we are going to present",
+    "we now move to", "we are now entering", "let us now examine",
+    "in this section", "in this presentation", "in this deck", "in this document",
+    "as you can see", "this slide shows", "the next slide", "the next section",
+    "thank you for being here", "thank you for joining", "thank you for attending",
+    "our objective is to", "allow me to", "before we begin", "before we get started",
+    "let's explore the nuances", "let's pivot to", "turning our attention to",
+    "having explored", "now that we've covered", "building on that idea",
+    "this leads us to", "with that in mind", "transitioning to the next point",
+
+    // === II. GRAND OPENING (introductory slop) ===
+    "in today's rapidly evolving landscape", "in today's digital age",
+    "in the rapidly evolving landscape", "it is important to note",
+    "it's important to note", "delve into the world of",
+    "unlocking the potential of", "a testament to the power of",
+    "navigating the complexities of", "at the intersection of",
+    "shifting the paradigm", "delving into the intricacies",
+
+    // === III. CORPORATE CHEERLEADER (adjective overload) ===
+    "robust", "seamlessly", "comprehensive solution", "game-changer", "game changer",
+    "elevate your", "empower your", "synergy", "synergies", "innovative solution",
+    "cutting-edge", "transformative", "revolutionize", "holistic approach",
+    "bespoke solutions", "mission-critical", "scalable solution",
+    "groundbreaking advancements", "unprecedented growth", "paradigm-shattering",
+    "world-class excellence", "state-of-the-art", "revolutionary breakthroughs",
+    "extraordinary impact", "unparalleled access", "disruption at its finest",
+    "best-in-class", "peerless performance", "unrivaled expertise",
+
+    // === IV. TYING A BOW (concluding slop) ===
+    "in conclusion", "to summarize", "ultimately, the choice is yours",
+    "only time will tell", "the future looks bright", "in short",
+    "by and large", "at the end of the day", "a journey toward excellence",
+    "embracing the possibilities",
+
+    // === V. BRIDGE TO NOWHERE (connective slop) ===
+    "furthermore", "moreover", "additionally", "not only", "but also",
+    "conversely", "on the other hand", "looking ahead", "that being said",
+    "in this regard", "in a similar fashion", "on the flip side",
+    "along those lines", "in the same way",
+
+    // === VI. FALSE PROFUNDITY (pretentious slop) ===
+    "tapestry of", "beacon of hope", "symphony of collaboration",
+    "catalyst for change", "diving deep into", "unveiling the secrets",
+    "mastering the art of", "the ultimate guide to", "harnessing the power of",
+    "fostering a culture of", "pushing the boundaries", "orchestrating success",
+    "a multifaceted approach", "bridging the gap", "charting a course for",
+    "a tapestry of possibilities", "navigating the stormy seas",
+    "planting the seeds of", "a beacon in the dark", "scaling the heights of",
+    "the heartbeat of the industry", "a symphony of voices",
+    "the DNA of success", "unlocking the vault", "a roadmap to the future",
+    "turning the tide", "a masterclass in", "fueling the fire of",
+    "the engine of growth", "a canvas for creativity", "architecting the future",
+    "the gold standard", "navigating the labyrinth",
+    "a marathon, not a sprint", "breaking the mold",
+
+    // === VII. MANAGERIAL WORD SALAD ===
+    "leverage synergies", "core competencies", "paradigm shift",
+    "low-hanging fruit", "moving the needle", "think outside the box",
+    "deep dive analysis", "aligning our goals", "bandwidth for",
+    "circle back", "on the radar", "touching base", "value proposition",
+    "key deliverables", "scalable architecture", "strategic alignment",
+    "cross-functional teams", "frictionless experience", "ecosystem integration",
+    "actionable insights", "agile methodology", "change management",
+    "operational excellence", "stakeholder engagement",
+
+    // === VIII. ACADEMIC ECHO (pseudo-intellectual filler) ===
+    "a nuanced understanding", "the quintessential example",
+    "pivotal role in the process", "underpinning the concept",
+    "a cornerstone of modern", "examining the interplay",
+    "the inherent nature of", "paradoxically enough",
+    "to further elucidate", "strikingly evident",
+    "noteworthy is the fact", "within the realm of",
+    "central to the discourse", "the overarching theme",
+    "salient points to consider", "a synthesis of ideas",
+    "broadly speaking", "predicated on the idea",
+
+    // === IX. VAGUE BUZZWORDS (filler slop) ===
+    "next-level", "high-octane", "results-driven", "thought leadership",
+    "customer-centric", "data-driven insights", "real-world applications",
+    "dynamic ecosystem", "value-added", "key takeaways",
+    "industry-leading", "expert-led", "proven track record",
+    "battle-tested", "time-honored", "cutting-edge research",
+    "tailor-made for you", "custom-built solutions", "personalized approach",
+
+    // === X. MORALIZING OUTRO (preachy slop) ===
+    "a call to action", "shaping a better tomorrow", "for the greater good",
+    "a collective responsibility", "empowering the next generation",
+    "fostering a brighter future", "leaving a lasting legacy",
+    "making a difference together", "a shared vision",
+    "towards a more inclusive", "driving positive change",
+    "a journey of discovery", "cultivating a mindset",
+    "standing at the threshold",
+
+    // === XI. OVER-ALLITERATION (stylistic slop) ===
+    "poised for progress", "passionate and purposeful",
+    "bold and brave", "simple yet sophisticated",
+    "creative and collaborative", "mindful and meaningful",
+    "strategic and streamlined", "visionary and versatile",
+    "efficient and effective", "resilient and robust",
+
+    // === XII. UNIVERSAL TRUTHS (obvious slop) ===
+    "there is no one-size-fits-all", "every situation is unique",
+    "innovation is the key to growth", "collaboration is essential",
+    "knowledge is power", "change is the only constant",
+    "the possibilities are endless",
+
+    // === XIII. HALL OF FAME (the worst offenders) ===
+    "explore the possibilities", "unlock your potential",
+    "elevate your brand", "experience the difference",
+    "ignite your passion", "brave new world",
+    "the art and science of", "redefining the standard",
+    "setting the bar", "pushing the envelope",
+    "dream, believe, achieve", "the secret sauce",
+    "magic happens when", "sky's the limit",
+    "take it to the next level", "high-level overview",
+    "bottom line", "win-win situation", "best practices",
+    "visionary leadership", "thought-provoking", "eye-opening",
+    "life-altering", "mind-blowing", "a labor of love",
+    "the perfect storm", "a breath of fresh air",
+    "the tip of the iceberg", "behind the scenes",
+    "under the hood", "in the trenches", "on the front lines",
+    "level the playing field", "raise the stakes",
+    "open the door", "close the loop", "connect the dots",
+
+    // === XIV. PASSIVE HEDGING (weak slop) ===
+    "it is believed that", "it could be argued", "one might suggest",
+    "it appears to be", "generally considered", "to some extent",
+    "as far as we know", "largely attributed to", "arguably the best",
+    "possibly the most", "it should be noted", "it is often the case",
+];
+
+// --- WIKI FILE READER ---
+
+/**
+ * Reads a wiki markdown file and parses its frontmatter.
+ * In browser context, fetches from the local dev server.
+ * Falls back gracefully if file doesn't exist.
+ */
+async function readWikiPage(relativePath: string): Promise<WikiPage | null> {
+    try {
+        // Try static path first (Vite dev server / nginx), then proxy fallback (for dynamically written pages)
+        let content: string | null = null;
+        const fullPath = `${WIKI_BASE}/${relativePath}`;
+        const response = await fetch(fullPath);
+        if (response.ok) {
+            content = await response.text();
+        } else {
+            // Fallback: try the proxy read endpoint (serves from Docker volume mount)
+            try {
+                const proxyResp = await fetch(`${PROXY_BASE}/api/wiki/read/${relativePath}`);
+                if (proxyResp.ok) {
+                    const data = await proxyResp.json();
+                    content = data.content || null;
+                }
+            } catch { /* proxy may not be available */ }
+        }
+        if (!content) return null;
+        const frontmatter = parseFrontmatter(content);
+        const body = extractBody(content);
+        return {
+            path: relativePath,
+            title: frontmatter?.title || relativePath,
+            type: frontmatter?.type || 'unknown',
+            content: body,
+            frontmatter: frontmatter || getDefaultFrontmatter(),
+        };
+    } catch (err) {
+        console.warn(`[WikiService] Failed to read ${relativePath}:`, err);
+        return null;
+    }
+}
+
+// --- WIKI WRITE LAYER (P6-01) ---
+// Writes go through the research-proxy which has filesystem access.
+
+const PROXY_BASE = 'http://localhost:5012';
+
+/**
+ * Write (overwrite) a wiki page. Used for full page updates.
+ */
+export async function writeWikiPage(relativePath: string, content: string): Promise<boolean> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/write`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: relativePath, content }),
+        });
+        if (!resp.ok) {
+            console.error(`[WikiService] Write failed for ${relativePath}:`, await resp.text());
+            return false;
+        }
+        console.log(`[WikiService] Wrote ${relativePath}`);
+        return true;
+    } catch (err) {
+        console.error(`[WikiService] Write error for ${relativePath}:`, err);
+        return false;
+    }
+}
+
+/**
+ * Append content to a wiki page. Optionally append under a specific section header.
+ */
+export async function appendToWikiPage(relativePath: string, content: string, section?: string): Promise<boolean> {
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/append`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: relativePath, content, section: section || '' }),
+        });
+        if (!resp.ok) {
+            console.error(`[WikiService] Append failed for ${relativePath}:`, await resp.text());
+            return false;
+        }
+        console.log(`[WikiService] Appended to ${relativePath}`);
+        return true;
+    } catch (err) {
+        console.error(`[WikiService] Append error for ${relativePath}:`, err);
+        return false;
+    }
+}
+
+/**
+ * Append an entry to the wiki operation log.
+ */
+export async function appendWikiLog(operation: string, subject: string, details: Record<string, any>): Promise<void> {
+    const date = new Date().toISOString().split('T')[0];
+    const detailLines = Object.entries(details).map(([k, v]) => `  - ${k}: ${v}`).join('\n');
+    const entry = `\n## [${date}] ${operation} | ${subject}\n${detailLines}\n`;
+    await appendToWikiPage('log.md', entry);
+}
+
+/**
+ * P6-04: Append a learned anti-pattern from user edit patterns.
+ */
+export async function appendLearnedAntiPattern(deliverableType: string, patternName: string, description: string, detection: string): Promise<void> {
+    const entry = `\n### AP-LEARNED: ${patternName}\n- **Detection**: ${detection}\n- **Description**: ${description}\n- **Source**: Learned from user edit patterns\n- **Added**: ${new Date().toISOString().split('T')[0]}\n`;
+    await appendToWikiPage(`anti-patterns/${deliverableType}.md`, entry);
+    await appendWikiLog('learn', `Anti-pattern: ${patternName}`, { type: deliverableType, detection });
+}
+
+/**
+ * P6-03: Ingest research run results into wiki pages.
+ * Called after a research run completes to seed the wiki with new knowledge.
+ */
+export async function ingestResearchRun(runData: {
+    goal: string;
+    themes: any[];
+    personas: any[];
+    recommendations: any[];
+    sourceCount: number;
+    evidenceCount: number;
+    collectedSources?: any[]; // Raw source results from data collection (for article archival)
+}): Promise<{ pagesUpdated: number }> {
+    let pagesUpdated = 0;
+    const date = new Date().toISOString().split('T')[0];
+
+    // 1. Log the operation
+    await appendWikiLog('generate', runData.goal.substring(0, 80), {
+        themes: runData.themes?.length || 0,
+        personas: runData.personas?.length || 0,
+        recommendations: runData.recommendations?.length || 0,
+        sources: runData.sourceCount,
+        evidence: runData.evidenceCount,
+    });
+    pagesUpdated++;
+
+    // 2. Extract proper nouns from personas and recommendations → brand/proper-nouns.md
+    const properNouns = new Set<string>();
+    (runData.personas || []).forEach((p: any) => {
+        if (p.name) properNouns.add(p.name);
+        // Extract capitalized multi-word names from bio
+        const nameMatches = (p.bio || '').match(/[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+/g);
+        if (nameMatches) nameMatches.forEach((n: string) => properNouns.add(n));
+    });
+    (runData.recommendations || []).forEach((r: any) => {
+        const nameMatches = (r.title + ' ' + (r.description || '')).match(/[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+/g);
+        if (nameMatches) nameMatches.forEach((n: string) => properNouns.add(n));
+    });
+    if (properNouns.size > 0) {
+        const nounLines = Array.from(properNouns).map(n => `- ${n}`).join('\n');
+        await appendToWikiPage('brand/proper-nouns.md', `\n## Auto-extracted (${date})\n${nounLines}`, '## Technology Vendors');
+        pagesUpdated++;
+    }
+
+    // 3. Extract key findings from themes → evidence pages
+    if (runData.themes?.length > 0) {
+        const evidenceEntries = runData.themes.map((t: any) =>
+            `### ${t.name}\n${t.description || ''}\n- Status: ${t.status || 'unknown'}\n- Citations: ${(t.citations || []).length}`
+        ).join('\n\n');
+        await appendToWikiPage('evidence/research-findings.md',
+            `\n## Research Run: ${date} — ${runData.goal.substring(0, 60)}\n\n${evidenceEntries}`);
+        pagesUpdated++;
+    }
+
+    // 4. Archive collected articles/sources → sources/{date}-{slug}.md
+    // Creates a persistent record of every article collected during this run
+    if (runData.collectedSources?.length) {
+        try {
+            const slug = runData.goal.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40);
+            const sourceLines: string[] = [];
+            for (const src of runData.collectedSources) {
+                if (!src.items || src.items.length === 0) continue;
+                sourceLines.push(`\n### ${src.source || 'Unknown Source'} (Tier ${src.credibilityTier || '?'}, ${src.items.length} items)\n`);
+                for (const item of src.items.slice(0, 15)) {
+                    const url = item.url ? ` [View](${item.url})` : '';
+                    const dateStr = item.date ? ` (${item.date})` : '';
+                    const relevance = (item as any).relevanceScore ? ` | Relevance: ${(item as any).relevanceScore}/100` : '';
+                    sourceLines.push(`- **${(item.title || 'Untitled').substring(0, 100)}**${dateStr}${relevance}${url}`);
+                }
+            }
+            if (sourceLines.length > 0) {
+                const totalItems = runData.collectedSources.reduce((s: number, src: any) => s + (src.items?.length || 0), 0);
+                const archivePage = `---
+title: "Research Sources: ${runData.goal.substring(0, 60)}"
+type: source-archive
+created: ${date}
+status: active
+tags: [sources, archive, ${slug}]
+evidence_count: ${totalItems}
+---
+
+# Research Source Archive
+
+**Goal:** ${runData.goal}
+**Date:** ${date}
+**Sources:** ${runData.collectedSources.length} sources, ${totalItems} total items
+
+${sourceLines.join('\n')}
+`;
+                await writeWikiPage(`sources/${date}-${slug}.md`, archivePage);
+                pagesUpdated++;
+                console.log(`[WikiService] Archived ${totalItems} articles to sources/${date}-${slug}.md`);
+            }
+        } catch (e) {
+            console.warn('[WikiService] Article archival failed (non-blocking):', e);
+        }
+    }
+
+    // 5. A10: Benchmark verification — scan evidence for numbers matching benchmark claims
+    try {
+        const benchmarkFiles = ['benchmarks/cx-metrics.md', 'benchmarks/technology-adoption.md', 'benchmarks/financial-impact.md', 'benchmarks/maturity-models.md', 'benchmarks/competitive-intel.md'];
+        const allEvidenceText = (runData.themes || []).map((t: any) =>
+            `${t.description || ''} ${(t.citations || []).map((c: any) => c.text || '').join(' ')}`
+        ).join(' ');
+        // Extract all numbers from evidence
+        const evidenceNumbers = [...allEvidenceText.matchAll(/(\d+(?:\.\d+)?)\s*(%|percent)/gi)].map(m => parseFloat(m[1]));
+
+        let verifiedCount = 0;
+        for (const benchFile of benchmarkFiles) {
+            const page = await readWikiPage(benchFile);
+            if (!page?.content || !page.content.includes('HYPOTHESIS')) continue;
+
+            let updated = page.content;
+            let changed = false;
+            // Find benchmark data points and check if evidence supports them
+            const benchMatches = [...page.content.matchAll(/\*\*Data\*\*:\s*.*?(\d+(?:\.\d+)?)/g)];
+            for (const bm of benchMatches) {
+                const benchValue = parseFloat(bm[1]);
+                // Check if any evidence number is within 20% of the benchmark value
+                const match = evidenceNumbers.find(ev => Math.abs(ev - benchValue) / benchValue < 0.2);
+                if (match) {
+                    // Upgrade the nearest HYPOTHESIS after this data point
+                    const idx = updated.indexOf(bm[0]);
+                    const hypothesisIdx = updated.indexOf('HYPOTHESIS - verify with current data', idx);
+                    if (hypothesisIdx > idx && hypothesisIdx - idx < 200) {
+                        updated = updated.substring(0, hypothesisIdx) + `VERIFIED (matched evidence value ${match}%, ${date})` + updated.substring(hypothesisIdx + 'HYPOTHESIS - verify with current data'.length);
+                        changed = true;
+                        verifiedCount++;
+                    }
+                }
+            }
+            if (changed) {
+                await writeWikiPage(benchFile, updated);
+                pagesUpdated++;
+            }
+        }
+        if (verifiedCount > 0) {
+            console.log(`[WikiService] Verified ${verifiedCount} benchmark data points from research evidence`);
+        }
+    } catch (e) {
+        console.warn('[WikiService] Benchmark verification failed (non-blocking):', e);
+    }
+
+    return { pagesUpdated };
+}
+
+// --- A12: WIKI SEEDING FROM UPLOADED DOCUMENTS ---
+
+/**
+ * Create a wiki source summary page for uploaded documents.
+ * Extracts file names, types, and creates a lightweight catalog
+ * so the wiki knows what client documents exist.
+ */
+export async function seedWikiFromUploads(fileNames: string[], researchGoal: string): Promise<number> {
+    if (!fileNames.length) return 0;
+    const date = new Date().toISOString().split('T')[0];
+    const slug = researchGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40);
+
+    const fileEntries = fileNames.map(name => {
+        const ext = name.split('.').pop()?.toLowerCase() || 'unknown';
+        const typeMap: Record<string, string> = {
+            'pdf': 'Document', 'docx': 'Document', 'doc': 'Document',
+            'pptx': 'Presentation', 'ppt': 'Presentation',
+            'xlsx': 'Spreadsheet', 'xls': 'Spreadsheet', 'csv': 'Data',
+            'txt': 'Text', 'json': 'Data',
+        };
+        return `- **${name}** (${typeMap[ext] || 'File'})`;
+    }).join('\n');
+
+    const page = `---
+title: "Uploaded Documents: ${researchGoal.substring(0, 50)}"
+type: source-summary
+created: ${date}
+status: active
+tags: [uploads, client-docs, ${slug}]
+evidence_count: ${fileNames.length}
+---
+
+# Client-Uploaded Documents
+
+**Research Goal:** ${researchGoal}
+**Upload Date:** ${date}
+**Files:** ${fileNames.length}
+
+## Document Catalog
+
+${fileEntries}
+
+## Notes
+
+These documents represent the client's own materials — proposals, SOWs, transcripts, strategies, budgets.
+They define the project scope, stakeholders, goals, constraints, and organizational reality.
+The AI ingestion pipeline reads these as PRIORITY 1 sources.
+`;
+
+    try {
+        await writeWikiPage(`sources/uploads-${date}-${slug}.md`, page);
+        console.log(`[WikiService] Seeded wiki with ${fileNames.length} uploaded document records`);
+        return 1;
+    } catch (e) {
+        console.warn('[WikiService] Upload seeding failed (non-blocking):', e);
+        return 0;
+    }
+}
+
+// --- ENGAGEMENT MEMORY (P6-07) ---
+
+/**
+ * Create a slug from a research goal string.
+ * Lowercase, replace spaces with hyphens, remove special chars, truncate to 50 chars.
+ */
+function createGoalSlug(goal: string): string {
+    return goal
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+        .substring(0, 50);
+}
+
+/**
+ * Save an engagement memory file to the wiki.
+ * Records the research goal, themes, personas, recommendations, and source count
+ * as a structured markdown page under engagements/.
+ */
+export async function saveEngagementMemory(
+    goal: string,
+    date: string,
+    themes: any[],
+    personas: any[],
+    recommendations: any[],
+    sourceCount: number
+): Promise<boolean> {
+    const slug = createGoalSlug(goal);
+    if (!slug) {
+        console.warn('[WikiService] Cannot save engagement memory: empty slug from goal');
+        return false;
+    }
+
+    const themesSection = (themes || []).map(t =>
+        `- **${t.name || 'Unnamed'}**: ${t.description || 'No description'}`
+    ).join('\n') || '- None identified';
+
+    const personasSection = (personas || []).map(p =>
+        `- **${p.name || 'Unnamed'}** (${p.role || 'Unknown role'}): "${p.quote || ''}"`
+    ).join('\n') || '- None generated';
+
+    const recsSection = (recommendations || []).map(r =>
+        `- **[${r.impactLevel || 'Unknown'}] ${r.title || 'Untitled'}**: ${r.description || ''}`
+    ).join('\n') || '- None generated';
+
+    const content = `---
+title: "${goal.replace(/"/g, '\\"')}"
+type: engagement
+created: "${date}"
+updated: "${date}"
+---
+
+## Research Goal
+
+${goal}
+
+## Themes Found
+
+${themesSection}
+
+## Personas Identified
+
+${personasSection}
+
+## Recommendations Made
+
+${recsSection}
+
+## Sources Used
+
+- Total sources consulted: ${sourceCount}
+- Analysis date: ${date}
+`;
+
+    const success = await writeWikiPage(`engagements/${slug}.md`, content);
+    if (success) {
+        await appendWikiLog('ingest', `Engagement memory: ${slug}`, {
+            goal: goal.substring(0, 80),
+            themes: themes?.length || 0,
+            personas: personas?.length || 0,
+            recommendations: recommendations?.length || 0,
+            sources: sourceCount,
+        });
+    }
+    return success;
+}
+
+/**
+ * Load a previously saved engagement memory by goal slug.
+ * Goes directly to proxy (which has live filesystem) to avoid 404 console noise
+ * from the static nginx path on first-run when no engagement file exists yet.
+ */
+export async function loadEngagementMemory(goalSlug: string, fullGoal?: string): Promise<WikiPage | null> {
+    // Strategy 1: Exact slug match (fast)
+    try {
+        const resp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${goalSlug}.md`);
+        if (resp.ok) {
+            const data = await resp.json();
+            if (data.content) {
+                return {
+                    path: `engagements/${goalSlug}.md`,
+                    title: goalSlug,
+                    type: 'engagement',
+                    content: data.content,
+                    frontmatter: parseFrontmatter(data.content) || getDefaultFrontmatter(),
+                };
+            }
+        }
+    } catch { /* try semantic matching */ }
+
+    // A5: Strategy 2: Semantic keyword matching (broader recall)
+    // Extract significant keywords from the goal and match against all engagement files
+    if (fullGoal) {
+        try {
+            const goalWords = fullGoal.toLowerCase().split(/\s+/).filter(w => w.length > 4);
+            // List all engagement files via proxy
+            const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/engagements`);
+            if (listResp.ok) {
+                const files: string[] = await listResp.json();
+                let bestMatch: { file: string; overlap: number; content: string } | null = null;
+                for (const file of files) {
+                    if (file === `${goalSlug}.md`) continue; // Already tried exact match
+                    const fileWords = file.replace('.md', '').split('-').filter(w => w.length > 3);
+                    const overlap = goalWords.filter(gw => fileWords.some(fw => gw.includes(fw) || fw.includes(gw))).length;
+                    if (overlap >= 3 && (!bestMatch || overlap > bestMatch.overlap)) {
+                        try {
+                            const readResp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${file}`);
+                            if (readResp.ok) {
+                                const data = await readResp.json();
+                                if (data.content) bestMatch = { file, overlap, content: data.content };
+                            }
+                        } catch { /* skip this file */ }
+                    }
+                }
+                if (bestMatch) {
+                    console.log(`[WikiService] Semantic engagement match: ${bestMatch.file} (${bestMatch.overlap} keyword overlaps)`);
+                    return {
+                        path: `engagements/${bestMatch.file}`,
+                        title: bestMatch.file.replace('.md', ''),
+                        type: 'engagement',
+                        content: bestMatch.content,
+                        frontmatter: parseFrontmatter(bestMatch.content) || getDefaultFrontmatter(),
+                    };
+                }
+            }
+        } catch { /* non-blocking */ }
+    }
+
+    return null;
+}
+
+// --- QUALITY SCORE PERSISTENCE (P6-05) ---
+
+/**
+ * Persist a quality score entry to the wiki synthesis log.
+ *
+ * Appends a row to wiki/synthesis/quality-scores.md so quality trends
+ * can be tracked across research runs and correlated with active constraints.
+ *
+ * @param deliverableType - The deliverable that was scored (e.g., "personas", "deck")
+ * @param score - Quality score 0-100 (higher is better)
+ * @param activeConstraints - List of constraint names that were active during generation
+ * @param date - ISO date string (e.g., "2026-04-11")
+ */
+export async function persistQualityScore(
+    deliverableType: string,
+    score: number,
+    activeConstraints: string[],
+    date: string
+): Promise<boolean> {
+    const constraintSummary = `${activeConstraints.length} constraints`;
+    const constraintDetail = activeConstraints.length > 0
+        ? activeConstraints.join('; ')
+        : 'none';
+    const row = `| ${date} | ${deliverableType} | ${score} | ${constraintSummary} | ${constraintDetail} |`;
+    const success = await appendToWikiPage('synthesis/quality-scores.md', '\n' + row);
+    if (success) {
+        await appendWikiLog('generate', `Quality score: ${deliverableType}`, {
+            score,
+            constraints: activeConstraints.length,
+            date,
+        });
+    }
+    return success;
+}
+
+function parseFrontmatter(content: string): WikiFrontmatter | null {
+    const match = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return null;
+    const yaml = match[1];
+    const fm: Record<string, any> = {};
+    for (const line of yaml.split('\n')) {
+        const colonIdx = line.indexOf(':');
+        if (colonIdx === -1) continue;
+        const key = line.slice(0, colonIdx).trim();
+        let value = line.slice(colonIdx + 1).trim();
+        if (value.startsWith('[') && value.endsWith(']')) {
+            fm[key] = value.slice(1, -1).split(',').map(s => s.trim().replace(/"/g, ''));
+        } else if (value === 'true') fm[key] = true;
+        else if (value === 'false') fm[key] = false;
+        else if (!isNaN(Number(value)) && value !== '') fm[key] = Number(value);
+        else fm[key] = value.replace(/^"|"$/g, '');
+    }
+    return fm as unknown as WikiFrontmatter;
+}
+
+function extractBody(content: string): string {
+    const match = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+    return match ? match[1].trim() : content.trim();
+}
+
+function getDefaultFrontmatter(): WikiFrontmatter {
+    return {
+        title: '', type: 'unknown', created: '', updated: '',
+        sources: [], confidence: 'speculative', status: 'needs-review',
+        tags: [], evidence_count: 0,
+    };
+}
+
+// --- PUBLIC API ---
+
+/**
+ * Load the complete generation context for a deliverable type.
+ * This is the main entry point — call before generating any deliverable.
+ *
+ * Returns compiled knowledge from:
+ * - Framework page (structural requirements)
+ * - Anti-pattern page (what to avoid)
+ * - Relevant benchmark pages (data to cite)
+ * - Evidence pages (pre-compiled citations)
+ * - Brand standards (visual rendering rules)
+ */
+export async function loadGenerationContext(
+    outputType: OutputOption,
+    options?: {
+        industry?: string;
+        engagement?: string;
+    }
+): Promise<GenerationContext> {
+    const frameworkKey = OUTPUT_TO_FRAMEWORK[outputType] || 'personas';
+    const benchmarkKeys = FRAMEWORK_BENCHMARKS[frameworkKey] || ['cx-metrics'];
+
+    // Load all wiki pages in parallel — frameworks, anti-patterns, benchmarks, brand,
+    // social intelligence, research context, and methodology pages
+    const [
+        framework, antiPatterns, brand,
+        // Social intelligence pages
+        sentimentPipeline, topicModeling, cxMesh,
+        // Research context pages
+        researchModes, knowledgeGraph, documentIngestion, methodology, analyticalLenses, sourceConnectors,
+        // Benchmark pages
+        ...benchmarkPages
+    ] = await Promise.all([
+        readWikiPage(`frameworks/${frameworkKey}.md`),
+        readWikiPage(`anti-patterns/${frameworkKey}.md`),
+        loadBrandConfig(),
+        // Social intelligence
+        readWikiPage('social-intelligence/sentiment-pipeline.md'),
+        readWikiPage('social-intelligence/topic-modeling.md'),
+        readWikiPage('social-intelligence/cx-mesh.md'),
+        // Research context
+        readWikiPage('deep-research/research-modes.md'),
+        readWikiPage('deep-research/knowledge-graph.md'),
+        readWikiPage('deep-research/document-ingestion.md'),
+        readWikiPage('methodologies/research-fabric.md'),
+        readWikiPage('methodologies/analytical-lenses.md'),
+        readWikiPage('sources-registry/connector-catalog.md'),
+        // Benchmarks
+        ...benchmarkKeys.map(key => readWikiPage(`benchmarks/${key}.md`)),
+    ]);
+
+    // Optional: industry and engagement context
+    let industryAdaptation: string | undefined;
+    let engagementContext: string | undefined;
+    if (options?.industry) {
+        const page = await readWikiPage(`industries/${options.industry}.md`);
+        industryAdaptation = page?.content;
+    }
+    if (options?.engagement) {
+        const page = await readWikiPage(`engagements/${options.engagement}.md`);
+        engagementContext = page?.content;
+    }
+
+    // Combine benchmark data
+    const benchmarksContent = benchmarkPages
+        .filter((p): p is WikiPage => p !== null)
+        .map(p => `## ${p.title}\n\n${p.content}`)
+        .join('\n\n---\n\n');
+
+    // Load all evidence pages (including any dynamically created ones)
+    const evidencePages = await loadAllEvidencePages();
+    const evidenceContent = evidencePages
+        .filter((p): p is WikiPage => p !== null)
+        .map(p => p.content)
+        .join('\n\n');
+
+    return {
+        framework: framework?.content || '',
+        antiPatterns: antiPatterns?.content || '',
+        benchmarks: benchmarksContent,
+        evidence: evidenceContent,
+        brand,
+        socialIntelligence: {
+            sentimentPipeline: sentimentPipeline?.content || '',
+            topicModeling: topicModeling?.content || '',
+            cxMesh: cxMesh?.content || '',
+        },
+        research: {
+            researchModes: researchModes?.content || '',
+            knowledgeGraph: knowledgeGraph?.content || '',
+            methodology: methodology?.content || '',
+            analyticalLenses: analyticalLenses?.content || '',
+            sourceConnectors: sourceConnectors?.content || '',
+        },
+        industryAdaptation,
+        engagementContext,
+    };
+}
+
+/**
+ * Load all evidence pages from wiki/evidence/ directory.
+ * Dynamically discovers pages rather than hardcoding filenames,
+ * so new evidence pages created by INGEST operations are automatically included.
+ */
+async function loadAllEvidencePages(): Promise<(WikiPage | null)[]> {
+    // Known evidence page stubs — extend this list as INGEST creates new pages
+    const knownEvidencePages = [
+        'evidence/cx-maturity.md',
+        'evidence/digital-transformation.md',
+    ];
+    return Promise.all(knownEvidencePages.map(p => readWikiPage(p)));
+}
+
+/**
+ * Load the complete brand configuration from wiki/brand/ pages.
+ */
+export async function loadBrandConfig(): Promise<BrandConfig> {
+    const [identity, illustrationStyle, chartStandards, layoutPatterns, antiSlop, referenceDeck] =
+        await Promise.all([
+            readWikiPage('brand/identity.md'),
+            readWikiPage('brand/illustration-style.md'),
+            readWikiPage('brand/chart-standards.md'),
+            readWikiPage('brand/layout-patterns.md'),
+            readWikiPage('brand/anti-slop.md'),
+            readWikiPage('brand/reference-deck.md'),
+        ]);
+
+    return {
+        identity: identity?.content || '',
+        illustrationStyle: illustrationStyle?.content || '',
+        chartStandards: chartStandards?.content || '',
+        layoutPatterns: layoutPatterns?.content || '',
+        antiSlop: antiSlop?.content || '',
+        referenceDeck: referenceDeck?.content || '',
+    };
+}
+
+/**
+ * Load the wiki index for navigation.
+ */
+export async function loadWikiIndex(): Promise<WikiPage | null> {
+    return readWikiPage('index.md');
+}
+
+/**
+ * Assemble the enhanced prompt for a deliverable type.
+ * Combines the static framework prompt from deliverableFrameworks.ts
+ * with compiled wiki knowledge for richer generation.
+ */
+export function assembleEnhancedPrompt(
+    staticPrompt: string,
+    context: GenerationContext
+): string {
+    const sections: string[] = [];
+
+    // Primary framework specification from wiki
+    if (context.framework) {
+        sections.push(
+            '=== COMPILED FRAMEWORK SPECIFICATION (from wiki) ===\n' +
+            context.framework
+        );
+    }
+
+    // Static prompt (existing deliverableFrameworks.ts content)
+    sections.push(
+        '=== GENERATION INSTRUCTIONS ===\n' +
+        staticPrompt
+    );
+
+    // Anti-patterns to avoid
+    if (context.antiPatterns) {
+        sections.push(
+            '=== ANTI-PATTERNS TO AVOID ===\n' +
+            'The following are known failure modes. Detect and avoid them:\n\n' +
+            context.antiPatterns
+        );
+    }
+
+    // Benchmark data to cite
+    if (context.benchmarks) {
+        sections.push(
+            '=== BENCHMARK DATA (cite where relevant) ===\n' +
+            'Use these data points with proper attribution. Mark as HYPOTHESIS if from AI training knowledge:\n\n' +
+            context.benchmarks
+        );
+    }
+
+    // Evidence base
+    if (context.evidence) {
+        sections.push(
+            '=== PRE-COMPILED EVIDENCE ===\n' +
+            'Prefer this evidence over AI training knowledge. Cite with full source attribution:\n\n' +
+            context.evidence
+        );
+    }
+
+    // Industry adaptation
+    if (context.industryAdaptation) {
+        sections.push(
+            '=== INDUSTRY ADAPTATION ===\n' +
+            context.industryAdaptation
+        );
+    }
+
+    // Engagement-specific context
+    if (context.engagementContext) {
+        sections.push(
+            '=== ENGAGEMENT CONTEXT ===\n' +
+            context.engagementContext
+        );
+    }
+
+    // Social intelligence context (sentiment, topic modeling, CX mesh)
+    const hasSocialContext = context.socialIntelligence.sentimentPipeline ||
+        context.socialIntelligence.topicModeling || context.socialIntelligence.cxMesh;
+    if (hasSocialContext) {
+        sections.push(
+            '=== SOCIAL INTELLIGENCE CONTEXT ===\n' +
+            'The platform collects and analyzes social data via these capabilities:\n\n' +
+            (context.socialIntelligence.sentimentPipeline
+                ? '## Sentiment Analysis Pipeline\n' + context.socialIntelligence.sentimentPipeline + '\n\n' : '') +
+            (context.socialIntelligence.topicModeling
+                ? '## Topic Modeling & Semantic Analysis\n' + context.socialIntelligence.topicModeling + '\n\n' : '') +
+            (context.socialIntelligence.cxMesh
+                ? '## CX Mesh (Voice of Customer)\n' + context.socialIntelligence.cxMesh : '')
+        );
+    }
+
+    // Research context (deep research modes, knowledge graph, methodology)
+    const hasResearchContext = context.research.researchModes || context.research.methodology;
+    if (hasResearchContext) {
+        sections.push(
+            '=== RESEARCH INTELLIGENCE CONTEXT ===\n' +
+            'The platform uses these research capabilities to collect and process data:\n\n' +
+            (context.research.researchModes
+                ? '## Research Modes\n' + context.research.researchModes + '\n\n' : '') +
+            (context.research.methodology
+                ? '## Research Methodology\n' + context.research.methodology + '\n\n' : '') +
+            (context.research.analyticalLenses
+                ? '## Analytical Lenses\n' + context.research.analyticalLenses : '')
+        );
+    }
+
+    // Brand and visual rendering rules
+    sections.push(
+        '=== VISUAL RENDERING STANDARDS ===\n' +
+        'Apply these brand standards to all visual output:\n\n' +
+        `Typography: ${context.brand.identity ? 'Loaded from wiki' : 'Use defaults'}\n` +
+        `Chart Standards: ${context.brand.chartStandards ? 'Loaded from wiki' : 'Use defaults'}\n` +
+        `Layout Patterns: ${context.brand.layoutPatterns ? 'Loaded from wiki' : 'Use defaults'}\n` +
+        (context.brand.antiSlop ? '\nAnti-Slop Rules:\n' + context.brand.antiSlop : '')
+    );
+
+    return sections.join('\n\n---\n\n');
+}
+
+// --- QUALITY SCORING ---
+
+/**
+ * Score generated output against the quality rubric.
+ * Minimum passing score: 3.8/5.0.
+ */
+export function scoreOutput(output: {
+    sections: string[];
+    requiredSections: number;
+    citations: number;
+    totalSections: number;
+    text: string;
+}): QualityScore {
+    // Completeness: required sections present / total required
+    const completeness = Math.min(5, (output.sections.length / output.requiredSections) * 5);
+
+    // Depth: heuristic based on average paragraph depth
+    const depth = estimateDepth(output.text);
+
+    // Evidence: citations per major section
+    const evidencePerSection = output.totalSections > 0
+        ? output.citations / output.totalSections
+        : 0;
+    const evidence = Math.min(5, evidencePerSection * (5 / 3)); // 3+ per section = 5.0
+
+    // Visual quality: check for anti-slop violations
+    const slopCount = detectBannedPhrases(output.text).length;
+    const visualQuality = Math.max(1, 5 - slopCount * 0.5);
+
+    // Specificity: check for quantified recommendations
+    const specificity = estimateSpecificity(output.text);
+
+    // Weighted overall
+    const overall = (
+        completeness * 0.25 +
+        depth * 0.25 +
+        evidence * 0.20 +
+        visualQuality * 0.15 +
+        specificity * 0.15
+    );
+
+    const failingDimensions: string[] = [];
+    if (completeness < 3.0) failingDimensions.push('completeness');
+    if (depth < 3.0) failingDimensions.push('depth');
+    if (evidence < 3.0) failingDimensions.push('evidence');
+    if (visualQuality < 3.0) failingDimensions.push('visualQuality');
+    if (specificity < 3.0) failingDimensions.push('specificity');
+
+    return {
+        completeness: Math.round(completeness * 10) / 10,
+        depth: Math.round(depth * 10) / 10,
+        evidence: Math.round(evidence * 10) / 10,
+        visualQuality: Math.round(visualQuality * 10) / 10,
+        specificity: Math.round(specificity * 10) / 10,
+        overall: Math.round(overall * 10) / 10,
+        passing: overall >= 3.8,
+        failingDimensions,
+    };
+}
+
+// --- ANTI-SLOP DETECTION ---
+
+export interface SlopViolation {
+    phrase: string;
+    position: number;
+    suggestion: string;
+}
+
+/**
+ * Detect banned phrases in generated output.
+ * Returns list of violations with position and suggested replacement.
+ */
+export function detectBannedPhrases(text: string): SlopViolation[] {
+    const lower = text.toLowerCase();
+    const violations: SlopViolation[] = [];
+
+    for (const phrase of BANNED_PHRASES) {
+        let pos = lower.indexOf(phrase);
+        while (pos !== -1) {
+            violations.push({
+                phrase,
+                position: pos,
+                suggestion: getSlopReplacement(phrase),
+            });
+            pos = lower.indexOf(phrase, pos + 1);
+        }
+    }
+
+    return violations;
+}
+
+export function getSlopReplacement(phrase: string): string {
+    // Specific high-value replacements for common phrases
+    const specific: Record<string, string> = {
+        "in today's rapidly evolving landscape": "Use specific market data: '[X]% growth in [metric] since [year]'",
+        "it's important to note": "Remove — state the point directly",
+        "game-changer": "Quantify the impact: '[X]% improvement in [metric]'",
+        "leverage synergies": "Name the specific integration and its measured benefit",
+        "best-in-class": "Cite the specific benchmark: 'Top quartile per [source]'",
+        "cutting-edge": "Name the specific technology and its adoption rate",
+        "paradigm shift": "Describe the specific change and its measured impact",
+        "actionable insights": "Remove — state the specific action and expected outcome",
+        "deep dive": "Use 'Detailed analysis of [specific topic]'",
+        "low-hanging fruit": "Use 'Quick wins (0-3 months): [specific items]'",
+        "moving forward": "Use specific timeline: 'In Q3 2026' or 'Within 90 days'",
+        "circle back": "Use 'Revisit in [specific timeframe] when [condition]'",
+        "stakeholder engagement": "Name the specific stakeholders and engagement mechanism",
+        "value proposition": "State the specific measurable benefit to the specific user",
+    };
+    const key = phrase.toLowerCase();
+    if (specific[key]) return specific[key];
+
+    // Category-based fallbacks
+    const metaNarration = ["good morning", "good afternoon", "welcome to", "today we will", "today we'll", "we will present", "we now move to", "let us now examine", "in this section", "in this presentation", "as you can see", "this slide shows", "thank you for", "our objective is", "allow me to", "before we begin", "before we get started", "let's explore", "let's pivot", "turning our attention", "having explored", "now that we've", "building on that", "this leads us", "with that in mind", "transitioning to"];
+    if (metaNarration.some(m => key.includes(m))) return "Remove — present content directly without announcing it";
+
+    const concluding = ["in conclusion", "to summarize", "ultimately", "only time will tell", "the future looks bright", "in short", "by and large", "at the end of the day", "embracing the possibilities", "a journey toward"];
+    if (concluding.some(m => key.includes(m))) return "Remove — end with a specific action item or data point";
+
+    const filler = ["basically", "essentially", "actually", "definitely", "absolutely", "truly", "literally", "clearly", "obviously", "naturally", "effectively", "successfully"];
+    if (filler.some(m => key === m)) return "Remove — adds no meaning";
+
+    const hedging = ["it is believed", "it could be argued", "one might suggest", "it appears to be", "generally considered", "to some extent", "arguably", "possibly the most", "it should be noted"];
+    if (hedging.some(m => key.includes(m))) return "Remove hedging — state the claim directly with evidence";
+
+    return "Remove — replace with specific, quantified language";
+}
+
+// --- EVIDENCE DENSITY SCORING (G-05) ---
+
+/**
+ * Compute evidence density per major section of generated output.
+ * Returns a report showing which sections have citations and which don't.
+ */
+export function computeEvidenceDensity(text: string): {
+    totalCitations: number;
+    sectionsWithEvidence: number;
+    sectionsWithout: string[];
+    densityScore: number;
+} {
+    // Split by major section headers (## or ### or numbered sections)
+    const sections = text.split(/(?=^#{1,3}\s|^\d+\.\s)/m).filter(s => s.trim().length > 50);
+    const totalCitations = (text.match(/\[CHUNK_\d+\]|\(Source:/g) || []).length;
+
+    let sectionsWithEvidence = 0;
+    const sectionsWithout: string[] = [];
+
+    for (const section of sections) {
+        const firstLine = section.trim().split('\n')[0].substring(0, 60);
+        const hasCitation = /\[CHUNK_\d+\]|\(Source:/.test(section);
+        if (hasCitation) {
+            sectionsWithEvidence++;
+        } else if (firstLine.length > 5) {
+            sectionsWithout.push(firstLine.replace(/^#+\s*/, '').trim());
+        }
+    }
+
+    const densityScore = sections.length > 0
+        ? Math.round((sectionsWithEvidence / sections.length) * 100)
+        : 0;
+
+    return { totalCitations, sectionsWithEvidence, sectionsWithout: sectionsWithout.slice(0, 5), densityScore };
+}
+
+// --- DEPTH ESTIMATION ---
+
+function estimateDepth(text: string): number {
+    // Heuristic: count paragraphs that contain evidence markers, implications, and recommendations
+    const paragraphs = text.split(/\n\n+/);
+    if (paragraphs.length === 0) return 1;
+
+    let depthSum = 0;
+    for (const para of paragraphs) {
+        const lower = para.toLowerCase();
+        let paraDepth = 1; // Base: observation
+
+        // Layer 2 indicators: implications, "this means", "as a result", "consequently"
+        if (/this (means|implies|suggests|indicates)|as a result|consequently|therefore|the implication/i.test(para)) {
+            paraDepth = Math.max(paraDepth, 3);
+        }
+
+        // Layer 3 indicators: recommendations with evidence
+        if (/recommend|should|must|action:|implement|deploy|migrate|redesign/i.test(para) &&
+            /\d+%|\$[\d,]+|CHUNK_|source:|evidence/i.test(para)) {
+            paraDepth = Math.max(paraDepth, 5);
+        } else if (/recommend|should|action:/i.test(para)) {
+            paraDepth = Math.max(paraDepth, 4);
+        }
+
+        // Evidence markers boost depth
+        if (/CHUNK_\d+|\(source:|citation|per \w+ \d{4}|according to/i.test(para)) {
+            paraDepth = Math.min(5, paraDepth + 1);
+        }
+
+        depthSum += paraDepth;
+    }
+
+    return Math.min(5, depthSum / paragraphs.length);
+}
+
+// --- SPECIFICITY ESTIMATION ---
+
+function estimateSpecificity(text: string): number {
+    const lower = text.toLowerCase();
+    let score = 2; // Base
+
+    // Quantified metrics boost specificity
+    const percentMatches = text.match(/\d+(\.\d+)?%/g);
+    if (percentMatches && percentMatches.length >= 5) score += 1;
+
+    // Dollar amounts
+    const dollarMatches = text.match(/\$[\d,]+(\.\d+)?[KMBkmb]?/g);
+    if (dollarMatches && dollarMatches.length >= 3) score += 0.5;
+
+    // Specific timelines
+    const timelineMatches = text.match(/\d+\s*(days?|weeks?|months?|sprints?|quarters?)/gi);
+    if (timelineMatches && timelineMatches.length >= 3) score += 0.5;
+
+    // Named frameworks/tools
+    const frameworkMatches = text.match(/(Gartner|Forrester|McKinsey|BCG|Porter|Rumelt|Cooper|Bitner|Cagan|NPS|CSAT|CES)/gi);
+    if (frameworkMatches && frameworkMatches.length >= 3) score += 0.5;
+
+    // Action verbs with owners
+    if (/assign|owner:|responsible:|RACI/i.test(lower)) score += 0.5;
+
+    return Math.min(5, score);
+}

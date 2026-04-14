@@ -1,5 +1,6 @@
 
 import React, { useRef, useState } from 'react';
+import mammoth from 'mammoth';
 import { FileUpload as FileUploadType } from '../types';
 
 interface Props {
@@ -18,6 +19,33 @@ const FileUpload: React.FC<Props> = ({ onFilesSelected, isLoading }) => {
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
+      const ext = file.name.split('.').pop()?.toLowerCase();
+
+      // DOCX files: convert to plaintext using mammoth before upload
+      // This ensures the AI can read the full content, not garbled binary
+      if (ext === 'docx' || ext === 'doc') {
+        try {
+          const arrayBuffer = await file.arrayBuffer();
+          const result = await mammoth.extractRawText({ arrayBuffer });
+          const textContent = result.value;
+          if (textContent && textContent.trim().length > 50) {
+            const base64Text = btoa(unescape(encodeURIComponent(
+              `[CONVERTED FROM ${file.name}]\n\n${textContent}`
+            )));
+            processedFiles.push({
+              name: file.name.replace(/\.docx?$/i, '.txt'),
+              type: 'text/plain',
+              size: textContent.length,
+              data: base64Text
+            });
+            continue;
+          }
+        } catch (e) {
+          console.warn(`Mammoth DOCX extraction failed for ${file.name}, falling back to binary:`, e);
+        }
+      }
+
+      // All other files (PDF, TXT, JSON, CSV, etc.): standard Base64 encoding
       const reader = new FileReader();
 
       const promise = new Promise<void>((resolve, reject) => {
@@ -26,7 +54,7 @@ const FileUpload: React.FC<Props> = ({ onFilesSelected, isLoading }) => {
             const base64Data = (e.target.result as string).split(',')[1];
             processedFiles.push({
               name: file.name,
-              type: file.type || 'text/plain', // Default to text if unknown
+              type: file.type || 'text/plain',
               size: file.size,
               data: base64Data
             });

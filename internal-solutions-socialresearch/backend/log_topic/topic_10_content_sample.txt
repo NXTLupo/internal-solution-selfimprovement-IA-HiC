@@ -1,18 +1,13 @@
 Topic 10 - Content Sample
-Number of content items: 4
-Top words: kristaps, porzingis, melton, offer, question, kristaps porzingis, able
+Number of content items: 25
+Top words: cve, vulnerability, actually, cvss, tools, patch, cves
 
-Content 1 (length: 425 chars):
-Steve Kerr on Porzingis' future in Golden State. "The whole point in trading for [Kristaps Porzingis]...see what we can do with him and pair him with Steph...but he's our our guy and we get to show him what we have to offer."  Now we just need to find a way to get Jrue Holiday and our Celtics core will be complete. 
-If healthy he's a brilliant player.
-The question is what can we offer him and still be able to keep Melton?
+Content 1 (length: 195 chars):
+I doubt one patches each CVE individually if it belongs to the same vendor product. Chainable CVEs are typically reported in one go to the vendor and if technically possible fixed in one release.
 
-Content 2 (length: 441 chars):
-De'Anthony Melton on playing with Kristaps Porzingis. "KP's such a matchup nightmare...I just try to keep him rolling honestly." 😨  Look at Melton man so inspirational 🥹
-He should be our priority in the offseason. Get him the bag before any of our FA. 
-Ask Podz the same question: Yeah, when KP got traded to my team I knew he’d be a nice piece for me. The more fire power around me the better, I’ll lead him as long as he’s ready to follow.
+Content 2 (length: 234 chars):
+A CVE-to-CVE chain analyzer , tells you which single patch breaks the most attack paths not just which CVEs score highest. Most vulnerability management stops at a list. CVSS 9.8 → patch first. CVSS 8.1 → patch second. Repeat forever.
 
-Content 3 (length: 216 chars):
-Warriors @ Wizards breakdown: How Kristaps Porziņģis Reshapes the Warriors’ Offense & Defense  Shoulda let him go for 84
-lol is he staying or do we even want him next year if he has an unknown illness and can’t play.
+Content 3 (length: 156 chars):
+Going back on the basics on CVSS been doing vuln management tooling for a couple years and honestly sometimes I get surprised at how teams actually use CVSS
 

@@ -15,7 +15,7 @@ class ChatbotWidget {
     this.isMinimized = false;
     this.isTyping = false;
     this.baseUrl = window.location.origin;
-    this.fileUpload = null;
+    this.fileUploads = [];  // Array of pending files (supports multiple uploads)
     this.ws = null;
     this.wsConnected = false;
     this._firstMessageReceived = false;
@@ -33,12 +33,17 @@ class ChatbotWidget {
     console.log('ChatbotWidget.init() called');
     // Create DOM elements
     this.createWidgetDom();
-    
+
     // Add event listeners
     this.addEventListeners();
-    
+
     // Create a new conversation
     this.createConversation();
+
+    // Request notification permission for long-running task alerts
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
   }
   
   /**
@@ -61,7 +66,7 @@ class ChatbotWidget {
       <div class="chat-header">
         <div class="chat-header-left">
           <div class="chat-header-icon">
-            <i class="fa-solid fa-robot"></i>
+            <img src="/static/app-icon-24.png" alt="NXT" width="24" height="24" style="border-radius:4px;">
           </div>
           <div class="chat-header-title">NXT Intelligence Agent</div>
         </div>
@@ -79,7 +84,7 @@ class ChatbotWidget {
         <div class="chat-actions">
           <label class="chat-action-button file-upload-label" aria-label="Upload file">
             <i class="fa-solid fa-paperclip"></i>
-            <input type="file" class="file-input" accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx">
+            <input type="file" class="file-input" multiple accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx">
           </label>
         </div>
         <div class="chat-input">
@@ -169,19 +174,14 @@ class ChatbotWidget {
       this.resizeInput();
     });
     
-    // File upload
+    // File upload (supports multiple files)
     this.fileInput.addEventListener('change', (e) => {
-      if (e.target.files.length > 0) {
-        const selectedFile = e.target.files[0];
+      for (const selectedFile of e.target.files) {
         console.log('File selected:', selectedFile.name);
-        console.log('DEBUG: Initial file selection details:', {
-          name: selectedFile.name,
-          type: selectedFile.type,
-          size: selectedFile.size,
-          lastModified: selectedFile.lastModified
-        });
         this.handleFileUpload(selectedFile);
       }
+      // Reset input so the same file(s) can be re-selected
+      e.target.value = '';
     });
     console.log('All event listeners added');
   }
@@ -225,14 +225,12 @@ class ChatbotWidget {
     if (!container) {
       container = document.createElement('div');
       container.className = 'suggested-prompts-widget';
-      container.style.cssText = 'padding:8px 12px;';
       const label = document.createElement('div');
-      label.style.cssText = 'font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#acacac;margin-bottom:6px;';
+      label.style.cssText = 'font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#9aa0a6;margin-bottom:8px;';
       label.textContent = 'Try a prompt';
       container.appendChild(label);
       const chips = document.createElement('div');
       chips.className = 'prompt-chips-area';
-      chips.style.cssText = 'display:flex;flex-direction:column;gap:6px;transition:opacity 0.3s ease;';
       container.appendChild(chips);
       this.chatBody.appendChild(container);
     }
@@ -242,10 +240,7 @@ class ChatbotWidget {
     chips.innerHTML = '';
     set.forEach(text => {
       const chip = document.createElement('button');
-      chip.style.cssText = 'font-family:inherit;font-size:11px;font-weight:400;color:#525252;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;padding:7px 10px;cursor:pointer;text-align:left;line-height:1.3;transition:border-color 0.15s;';
       chip.textContent = text;
-      chip.addEventListener('mouseenter', () => { chip.style.borderColor = '#115054'; chip.style.color = '#115054'; });
-      chip.addEventListener('mouseleave', () => { chip.style.borderColor = '#e5e5e5'; chip.style.color = '#525252'; });
       chip.addEventListener('click', () => {
         this.chatInput.value = text;
         this.chatInput.focus();
@@ -389,8 +384,9 @@ class ChatbotWidget {
     }
 
     if (type === 'tool_start') {
-      this.updateTypingStatus(data.description || `Using ${data.tool}...`);
-      this.addSystemMessage(`> ${data.description || data.tool}`);
+      const desc = data.description || `Using ${data.tool}`;
+      this.updateTypingStatus(desc);
+      this._addActivityStep(desc, 'running');
       // Show live browser panel when computer use starts
       if (data.tool === 'computer') {
         this.showBrowserPanel();
@@ -398,42 +394,56 @@ class ChatbotWidget {
     }
     else if (type === 'screenshot') {
       // Show the screenshot inline in the chat
+      const imgLen = data.image ? data.image.length : 0;
+      console.log(`Screenshot received: tool=${data.tool}, mime=${data.mimeType || 'image/png'}, url=${data.url}, base64_len=${imgLen}`);
       this.hideTypingIndicator();
-      this.addScreenshot(data.image, data.url || '');
+      this.addScreenshot(data.image, data.url || '', data.mimeType || 'image/png');
       this.showTypingIndicator();
-      this.updateTypingStatus('Analyzing screenshot...');
+      this.updateTypingStatus('Processing...');
+    }
+    else if (type === 'inline_image') {
+      // Render an image from an HTTP URL (used for character images, etc.)
+      console.log(`Inline image received: url=${data.url}, alt=${data.alt}`);
+      this.hideTypingIndicator();
+      this.addInlineImage(data.url, data.alt || '');
+      // Don't show typing indicator — this arrives after message_complete
     }
     else if (type === 'tool_result') {
-      this.updateTypingStatus(`${data.tool} completed`);
+      this._completeActivityStep(data.tool);
+      this.updateTypingStatus('Processing results...');
     }
     else if (type === 'tool_error') {
-      this.addSystemMessage(`Tool error (${data.tool}): ${data.error}`);
+      this._addActivityStep(`${data.tool}: ${data.error}`, 'error');
     }
     else if (type === 'text_delta') {
-      // Accumulate text deltas for the final message
       if (!this._accumulatedText) this._accumulatedText = '';
       this._accumulatedText += data.content;
     }
     else if (type === 'status') {
+      this._updateActivityStatus(data.message || 'Working...');
       this.updateTypingStatus(data.message || 'Working...');
     }
     else if (type === 'message_complete') {
-      // Final response — hide browser panel if open
-      this.hideBrowserPanel();
+      // Do NOT auto-close the browser panel — user may want to watch long-running tasks.
+      // The panel has a manual close (X) button.
       this.hideTypingIndicator();
       if (this._statusTimers) this._statusTimers.forEach(t => clearTimeout(t));
 
       const elapsed = this._inferenceStart ? ((Date.now() - this._inferenceStart) / 1000).toFixed(1) : '?';
       const tools = data.tools_used || [];
-      if (tools.length > 0) {
-        this.addSystemMessage(`Tools: ${tools.join(', ')} | ${data.turns || '?'} turns | ${elapsed}s`);
-      }
+
+      // Finalize the activity panel
+      this._finalizeActivity(tools, data.turns, elapsed);
 
       if (this._accumulatedText) {
         this.addMessage('assistant', this._accumulatedText);
       }
       this._accumulatedText = '';
       this.sendButton.disabled = !this.chatInput.value.trim();
+
+      if (this._inferenceStart && (Date.now() - this._inferenceStart) > 30000) {
+        this._notifyTaskComplete(elapsed, tools);
+      }
       this._inferenceStart = null;
     }
     else if (type === 'error') {
@@ -453,22 +463,73 @@ class ChatbotWidget {
    * @param {string} base64Data - Base64-encoded PNG image data
    * @param {string} url - The URL the screenshot was taken from
    */
-  addScreenshot(base64Data, url) {
+  addScreenshot(base64Data, url, mimeType) {
+    const mime = mimeType || 'image/png';
     const container = document.createElement('div');
-    container.style.cssText = 'margin:8px 0;padding:8px;background:#f5f5f5;border:1px solid #e5e5e5;border-radius:4px;';
+    container.className = 'nxt-screenshot-container';
 
     if (url) {
       const urlLabel = document.createElement('div');
-      urlLabel.style.cssText = 'font-size:10px;color:#acacac;font-family:monospace;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      urlLabel.className = 'nxt-screenshot-url';
       urlLabel.textContent = url;
       container.appendChild(urlLabel);
     }
 
     const img = document.createElement('img');
-    img.src = `data:image/png;base64,${base64Data}`;
-    img.style.cssText = 'width:100%;border-radius:2px;border:1px solid #e5e5e5;';
-    img.alt = 'Browser screenshot';
+    img.src = `data:${mime};base64,${base64Data}`;
+    img.alt = url || 'Screenshot';
     container.appendChild(img);
+
+    this.chatBody.appendChild(container);
+    this.scrollToBottom();
+  }
+
+  /**
+   * Add an inline image from an HTTP URL (for generated characters, etc.)
+   */
+  addInlineImage(url, alt) {
+    // Show a loading placeholder immediately
+    const container = document.createElement('div');
+    container.className = 'message assistant';
+    container.style.maxWidth = '90%';
+
+    if (alt) {
+      const label = document.createElement('div');
+      label.style.cssText = 'font-size:12px;font-weight:600;color:var(--chat-teal,#115054);margin-bottom:8px;';
+      label.textContent = alt;
+      container.appendChild(label);
+    }
+
+    const img = document.createElement('img');
+    img.style.cssText = 'width:100%;border-radius:8px;display:block;background:#f0f0f0;min-height:120px;';
+    img.alt = alt || 'Generated image';
+    img.onload = () => {
+      img.style.minHeight = '';
+      img.style.background = '';
+      this.scrollToBottom();
+      console.log('Character image loaded successfully:', url);
+    };
+    img.onerror = () => {
+      img.style.display = 'none';
+      const err = document.createElement('div');
+      err.style.cssText = 'padding:12px;background:#fff5f5;color:#d93025;border-radius:8px;font-size:12px;';
+      err.textContent = 'Image failed to load. Try refreshing or visit the Character Generator directly.';
+      container.appendChild(err);
+      console.error('Failed to load character image:', url);
+    };
+    img.src = url;
+    container.appendChild(img);
+
+    // Add download link
+    const actions = document.createElement('div');
+    actions.style.cssText = 'margin-top:8px;display:flex;gap:8px;';
+    const dlLink = document.createElement('a');
+    dlLink.href = url;
+    dlLink.download = (alt || 'character') + '.jpg';
+    dlLink.style.cssText = 'font-size:11px;color:var(--chat-teal,#115054);text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid var(--chat-teal,#115054);border-radius:6px;font-weight:500;';
+    dlLink.innerHTML = '<i class="fa-solid fa-download" style="font-size:10px;"></i> Download';
+    actions.appendChild(dlLink);
+    container.appendChild(actions);
 
     this.chatBody.appendChild(container);
     this.scrollToBottom();
@@ -485,25 +546,27 @@ class ChatbotWidget {
     panel.style.cssText = `
       position: fixed;
       bottom: 80px;
-      right: 470px;
+      right: 460px;
       width: 680px;
       height: 460px;
       background: #141414;
-      border: 1px solid #115054;
-      border-radius: 4px;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
       z-index: 10001;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.08);
     `;
 
     const header = document.createElement('div');
-    header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#115054;color:#ffffff;font-family:Archivo,sans-serif;font-size:12px;font-weight:500;';
+    header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:#115054;color:#ffffff;font-family:Archivo,Inter,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.02em;';
     header.innerHTML = `
-      <span style="display:flex;align-items:center;gap:6px;">
-        <span style="width:8px;height:8px;background:#0CCE6B;border-radius:50%;animation:pulse 2s infinite;"></span>
-        LIVE BROWSER -- Agent Computer Use
+      <span style="display:flex;align-items:center;gap:8px;">
+        <span style="width:7px;height:7px;background:#0CCE6B;border-radius:50%;animation:pulse 2s infinite;"></span>
+        LIVE BROWSER — Agent Computer Use
       </span>
-      <button id="nxt-browser-close" style="background:none;border:none;color:#ffffff;cursor:pointer;font-size:16px;padding:0 4px;">&times;</button>
+      <button id="nxt-browser-close" style="background:rgba(255,255,255,0.1);border:none;color:#ffffff;cursor:pointer;font-size:16px;padding:2px 6px;border-radius:4px;opacity:0.8;transition:opacity 0.15s;"
+        onmouseenter="this.style.opacity='1';this.style.background='rgba(255,255,255,0.2)'"
+        onmouseleave="this.style.opacity='0.8';this.style.background='rgba(255,255,255,0.1)'">&times;</button>
     `;
     panel.appendChild(header);
 
@@ -526,7 +589,7 @@ class ChatbotWidget {
       document.head.appendChild(style);
     }
 
-    this.addSystemMessage('> Live browser viewport opened -- watch the agent operate your apps');
+    this._addActivityStep('Live browser viewport opened', 'done');
   }
 
   /**
@@ -535,6 +598,41 @@ class ChatbotWidget {
   hideBrowserPanel() {
     const panel = document.getElementById('nxt-browser-panel');
     if (panel) panel.remove();
+  }
+
+  /**
+   * Notify the user when a long-running task completes.
+   * Uses browser Notification API (if permitted) + a visual flash on the tab title.
+   */
+  _notifyTaskComplete(elapsedSeconds, tools) {
+    const toolStr = tools.length ? tools.join(', ') : 'task';
+    const msg = `NXT Agent: ${toolStr} completed (${elapsedSeconds}s)`;
+
+    // Browser notification (works even if tab is backgrounded)
+    if ('Notification' in window) {
+      if (Notification.permission === 'granted') {
+        new Notification('NXT Intelligence Agent', { body: msg, icon: '/static/nxt-humans-logo.png' });
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission();
+      }
+    }
+
+    // Flash the tab title to draw attention
+    const originalTitle = document.title;
+    let flash = true;
+    const interval = setInterval(() => {
+      document.title = flash ? '** Task Complete **' : originalTitle;
+      flash = !flash;
+    }, 800);
+    // Stop flashing when the user focuses the window
+    const stopFlash = () => {
+      clearInterval(interval);
+      document.title = originalTitle;
+      window.removeEventListener('focus', stopFlash);
+    };
+    window.addEventListener('focus', stopFlash);
+    // Auto-stop after 30 seconds
+    setTimeout(stopFlash, 30000);
   }
 
   /**
@@ -569,27 +667,37 @@ class ChatbotWidget {
     if (this.ws && this.ws.readyState === WebSocket.OPEN) {
       console.log('Sending via WebSocket (streaming mode)');
 
-      // If there is a pending file, send as file message with base64
-      if (this.fileUpload) {
-        const pendingFile = this.fileUpload;
-        this.fileUpload = null;
-        const reader = new FileReader();
-        reader.onload = () => {
-          const base64 = reader.result.split(',')[1]; // Remove data:... prefix
-          this.ws.send(JSON.stringify({
-            type: 'file',
-            content: message,
-            file: {
-              data: base64,
-              name: pendingFile.name,
-            }
-          }));
+      // If there are pending files, send each as a file message then the text
+      if (this.fileUploads.length > 0) {
+        const files = [...this.fileUploads];
+        this.fileUploads = [];
+        let filesProcessed = 0;
+
+        const sendNextFileOrMessage = () => {
+          if (filesProcessed < files.length) {
+            const file = files[filesProcessed];
+            const reader = new FileReader();
+            reader.onload = () => {
+              const base64 = reader.result.split(',')[1];
+              // Only include the text message with the LAST file
+              const content = (filesProcessed === files.length - 1) ? message : '';
+              this.ws.send(JSON.stringify({
+                type: 'file',
+                content: content,
+                file: { data: base64, name: file.name }
+              }));
+              filesProcessed++;
+              sendNextFileOrMessage();
+            };
+            reader.onerror = () => {
+              this.addErrorMessage(`Failed to read file: ${file.name}`);
+              filesProcessed++;
+              sendNextFileOrMessage();
+            };
+            reader.readAsDataURL(file);
+          }
         };
-        reader.onerror = () => {
-          this.addErrorMessage('Failed to read file for upload.');
-          this.sendButton.disabled = false;
-        };
-        reader.readAsDataURL(pendingFile);
+        sendNextFileOrMessage();
       } else {
         this.ws.send(JSON.stringify({ type: 'message', content: message }));
       }
@@ -614,10 +722,10 @@ class ChatbotWidget {
         formData.append('conversation_id', this.conversationId);
         formData.append('message', message);
 
-        if (this.fileUpload) {
-          formData.append('file', this.fileUpload);
-          this.fileUpload = null;
+        for (const file of this.fileUploads) {
+          formData.append('file', file);
         }
+        this.fileUploads = [];
 
         const response = await fetch(`${this.baseUrl}/api/mcp/message`, {
           method: 'POST',
@@ -691,18 +799,21 @@ class ChatbotWidget {
       fileName: file.name,
       fileType: file.type
     });
-    
-    // Store the original file object directly (no base64 conversion)
-    this.fileUpload = file;
-    
-    console.log('Stored original file object:', {
+
+    // Add to pending files array
+    this.fileUploads.push(file);
+
+    console.log('Stored file object:', {
       name: file.name,
       type: file.type,
-      size: file.size
+      size: file.size,
+      totalPending: this.fileUploads.length
     });
-    
-    // Prompt user to add a message
-    this.addSystemMessage(`File ready to send. Add a message and press send to process this file.`);
+
+    // Prompt user
+    const count = this.fileUploads.length;
+    const noun = count === 1 ? 'file' : 'files';
+    this.addSystemMessage(`${count} ${noun} ready to send. Add a message and press send to process. You can attach more files.`);
     this.chatInput.focus();
   }
   
@@ -768,6 +879,119 @@ class ChatbotWidget {
     messageDiv.textContent = content;
     this.chatBody.appendChild(messageDiv);
     this.scrollToBottom();
+  }
+
+  /**
+   * Get or create the activity panel — a compact, visual feed of agent actions.
+   */
+  _getActivityPanel() {
+    let panel = this.chatBody.querySelector('.nxt-activity-panel:last-of-type');
+    // Reuse panel if it's the last element and not finalized
+    if (panel && !panel.dataset.finalized) return panel;
+
+    panel = document.createElement('div');
+    panel.className = 'nxt-activity-panel';
+    panel.innerHTML = `
+      <div class="nxt-activity-header">
+        <span style="display:inline-block;width:6px;height:6px;background:#0CCE6B;border-radius:50%;animation:pulse 1.5s infinite;"></span>
+        Agent Working
+      </div>
+      <div class="nxt-activity-steps"></div>
+      <div class="nxt-activity-status"></div>
+    `;
+    this.chatBody.appendChild(panel);
+    this.scrollToBottom();
+    return panel;
+  }
+
+  /**
+   * Add a step to the activity panel (tool starting, completing, or erroring).
+   */
+  _addActivityStep(description, state = 'running') {
+    const panel = this._getActivityPanel();
+    const steps = panel.querySelector('.nxt-activity-steps');
+
+    const step = document.createElement('div');
+    step.dataset.tool = description;
+    const icons = {
+      running: '<span style="color:#E8A317;font-size:10px;">&#9679;</span>',
+      done: '<span style="color:#0CCE6B;font-size:10px;">&#10003;</span>',
+      error: '<span style="color:#d93025;font-size:10px;">&#10007;</span>',
+    };
+
+    step.innerHTML = `${icons[state] || icons.running} <span style="flex:1;">${description}</span>`;
+    if (state === 'error') step.style.color = '#d93025';
+
+    steps.appendChild(step);
+    this.scrollToBottom();
+  }
+
+  /**
+   * Mark the most recent running step as complete.
+   */
+  _completeActivityStep() {
+    const panel = this.chatBody.querySelector('.nxt-activity-panel:last-of-type');
+    if (!panel) return;
+    const steps = panel.querySelectorAll('.nxt-activity-steps > div');
+    for (let i = steps.length - 1; i >= 0; i--) {
+      const icon = steps[i].querySelector('span');
+      if (icon && icon.innerHTML === '&#9679;') {
+        icon.innerHTML = '&#10003;';
+        icon.style.color = '#0CCE6B';
+        break;
+      }
+    }
+  }
+
+  /**
+   * Update the status line at the bottom of the activity panel (for long-running heartbeats).
+   */
+  _updateActivityStatus(message) {
+    const panel = this.chatBody.querySelector('.nxt-activity-panel:last-of-type');
+    if (!panel) return;
+    const status = panel.querySelector('.nxt-activity-status');
+    if (status) {
+      status.style.display = 'block';
+      status.textContent = message;
+    }
+    this.scrollToBottom();
+  }
+
+  /**
+   * Finalize the activity panel — show summary and mark as done.
+   */
+  _finalizeActivity(tools, turns, elapsed) {
+    const panel = this.chatBody.querySelector('.nxt-activity-panel:last-of-type');
+    if (!panel) return;
+    panel.dataset.finalized = 'true';
+
+    // Mark all remaining steps as done
+    panel.querySelectorAll('.nxt-activity-steps > div span').forEach(icon => {
+      if (icon.innerHTML === '&#9679;') {
+        icon.innerHTML = '&#10003;';
+        icon.style.color = '#0CCE6B';
+      }
+    });
+
+    // Update header
+    const header = panel.querySelector('.nxt-activity-header');
+    if (header) {
+      const dot = header.querySelector('span');
+      if (dot) { dot.style.animation = 'none'; dot.style.background = '#0CCE6B'; }
+      header.innerHTML = '';
+      header.appendChild(dot || document.createTextNode(''));
+      header.insertAdjacentHTML('beforeend', ` Done`);
+    }
+
+    // Show summary
+    const status = panel.querySelector('.nxt-activity-status');
+    if (status && tools.length > 0) {
+      status.style.display = 'block';
+      status.textContent = `${tools.join(', ')} | ${turns || '?'} turns | ${elapsed}s`;
+    }
+
+    // Mark complete
+    panel.style.borderLeftColor = '#0CCE6B';
   }
   
   /**
@@ -883,7 +1107,7 @@ class ChatbotWidget {
     typingDiv.innerHTML = `
       <div style="display:flex;align-items:center;gap:8px;">
         <span></span><span></span><span></span>
-        <span class="typing-status" style="font-size:11px;color:#acacac;font-style:italic;margin-left:4px;">Thinking...</span>
+        <span class="typing-status">Thinking...</span>
       </div>
     `;
     typingDiv.id = 'typing-indicator';

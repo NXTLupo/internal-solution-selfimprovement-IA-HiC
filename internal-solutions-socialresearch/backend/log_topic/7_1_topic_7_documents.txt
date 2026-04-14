@@ -1,20 +1,25 @@
 Documents for Topic 7 (showing first 3):
 
 Document 1:
-Steve Kerr responds to a caller questioning, "Play-In for what??". "So we should just quit? What is the point of what we're doing? It's competition...Every opportunity you have to make the playoffs, you want it because you always have a chance." 🔥  Kind of a shame that one of the top winningest coaches of all time has to explain this to fans.
-People think they're doctors now because of WebMD and chatgpt.  And they're GMs because of YouTube and fantasy leagues.
-Yeah I hate the modern fandom. Can ...
+Wargaming a China-Taiwan Conflict and Its Cyber Scenarios What would a China–Taiwan conflict look like in cyberspace?  
+  
+Together with the Natto Team, we explored this question using insights from CSIS's 2023 wargame on a potential Chinese invasion. We built an assessment of how cyber operations could shape the conflict before and during kinetic action.
+
+Let me know your thoughts....
 
 Document 2:
-Warriors' Steve Kerr opens up on his driving force with future unclear  > Warriors head coach Steve Kerr said he’s brooding less about his mistakes and losses, but assistant coach Bruce Fraser said not to believe it.
+[TOOL] MESH - remote mobile forensics & network monitoring (live logical acquisitions) Hi there,
 
-> Steve Kerr says he’s coping with losing better than he coped with it a few years ago, when he stayed up past 4 a.m. routinely if he felt like his coaching cost the Golden State Warriors.
+Just wanting to share our open-source tool we're developing to enable remote Android and iOS forensics capabilities. Please note these are specifically for live logical acquisitions and not disk.
 
-> “I’ve really learned to enjoy it more and I’ve stopped beating myself up,” he said last mo...
+**Description:**
+
+MESH enables remote mobile forensics by assigning CGNAT-range IP addresses to devices over an encrypted, censorship-resistant peer-to-peer mesh network.
+
+Mobile devices are often placed b...
 
 Document 3:
-The best thing about watching the Dubs vs Knick on Peacock was zero gambling. No gambling commercials and no analysts selling gambling bargains. It was refreshing. lol what? They practically have pickem built into the interface on peacock 
-Im really sick of this kind of thing and honestly having a hard time wrapping me head around the fact that 4 espn talking heads will come on, make their (bold) predictions and then remind you that 1 5 dollar bet on a ridiculous prop can win you 100
+Mapping cyber operations in the 2026 conflict - timeline and attack patterns Been tracking the cyber side of the Iran conflict. seeing a mix of infra attacks + psy and info ops tied to real-world escalation, which began much before the actual operation on ground.
 
-its like c...
+Put together a simple timeline to make sense of it all...
 

@@ -1,20 +1,26 @@
 Documents for Topic 3 (showing first 3):
 
 Document 1:
-Can you name this veteran leader during the 2010-11 losing streak?  Vlad?
-Vlad Rad
+Are companies buying security tools before fixing security operations? Something I keep seeing is companies jumping straight into security buying mode.
 
-Vladimir Radmanović
-Dorell Wright...
+New firewall  
+new dashboard  
+new endpoint product  
+new monitoring layer
+
+But the basics underneath are still loose:  
+access is over-permissioned  
+alerts are noisy  
+response ownership is unclear  
+assets are not fully mapped  
+cloud and endpoint visibility are incomplete
+
+That usually creates a false sense of maturity. The stack looks impre...
 
 Document 2:
-Hang it in the Louvre 😤  This reminds me of another poster
-
-![gif](giphy|cuXq2yRyEcRXdmWm9o|downsized)
-I’ll never forget how they tried to take away this poster 
-NGL this actually a nice shot...
+AI SOC vendors are selling a future that production deployments haven’t reached yet [https://www.helpnetsecurity.com/2026/03/26/future-ai-soc-vendor-claims/](https://www.helpnetsecurity.com/2026/03/26/future-ai-soc-vendor-claims/)  
+Vendors selling AI-powered security operations platforms have built their pitches around a consistent set of promises: autonomous threat investigation, dramatic reductions in analyst workload, and an accelerating path toward humanless operations. Practitioners buying...
 
 Document 3:
-600th career win earns Coach Kerr the game ball! 👏  💙🏀💛 Congrats to him!!! Sucks that so many other fan bases appreciate him more than DubNation...I read/hear it all the time when analysts of other teams comment about how their coaches were "out-coached" by Kerr!!! And complement our beautiful ball movement, and the GSW system of play!!!💙🏀💛
-Yup, after the Rockets game the entire sub wanted to fire Ime and talked about Kerr coaching circles around him. I wish people would respect Steve more, he t...
+What are your opnions on the Microsoft Stack and certifications What are your opnions on the Microsoft Stack and certifications , do you guys like it , do businesses look out for them ? Personally, I think that the only thing that right now Microsoft is the best in it is the Desktop office (for the things that you still do yourself). Cloud, AI, OS, security and anything else - better alternatives......
 

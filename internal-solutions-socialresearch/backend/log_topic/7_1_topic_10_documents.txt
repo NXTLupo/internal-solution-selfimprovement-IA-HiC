@@ -1,19 +1,25 @@
 Documents for Topic 10 (showing first 3):
 
 Document 1:
-Steve Kerr on Porzingis' future in Golden State. "The whole point in trading for [Kristaps Porzingis]...see what we can do with him and pair him with Steph...but he's our our guy and we get to show him what we have to offer."  Now we just need to find a way to get Jrue Holiday and our Celtics core will be complete. 
-If healthy he's a brilliant player.
-The question is what can we offer him and still be able to keep Melton?...
+What EASM tools are actually working for lean security teams at scale What EASM tools are actually working for lean security teams at scale? We’re a ~4,500 person org, heavy cloud footprint, and went through two acquisitions in the last 18 months. Our “EASM strategy” up until recently was a combination of Shodan alerts, periodic Censys sweeps, and a spreadsheet that one person owned. Embarrassing in retrospect.
+
+We finally got budget to evaluate dedicated tooling. The thing that’s been frustrati...
 
 Document 2:
-De'Anthony Melton on playing with Kristaps Porzingis. "KP's such a matchup nightmare...I just try to keep him rolling honestly." 😨  Look at Melton man so inspirational 🥹
-He should be our priority in the offseason. Get him the bag before any of our FA. 
-Ask Podz the same question: Yeah, when KP got traded to my team I knew he’d be a nice piece for me. The more fire power around me the better, I’ll lead him as long as he’s ready to follow....
+MCP for CVE chaining Building a SaaS product that takes **only CVEs as input** and tries to determine whether they form a **meaningful exploit chain**.
+
+The goal is not just to list vulnerabilities, but to answer:  
+**can these CVEs actually connect into a path, and is there a pivot worth paying attention to?**
+
+At the moment, the system works best on a focused batch of about **10 CVEs** at a time.
+
+Before I take it further, I’d love input from this group:
+
+* Who would actually find this useful?...
 
 Document 3:
-Warriors @ Wizards breakdown: How Kristaps Porziņģis Reshapes the Warriors’ Offense & Defense  Shoulda let him go for 84
-lol is he staying or do we even want him next year if he has an unknown illness and can’t play.
-
-
-What’s the point until he can play on a regular basis.  And if he can, would we even be able to afford him next year?...
+would it be possible to block the path , rather than chasing Attacker ? Hello Everyone ,   
+Just curious to know in Cyber Security world, i see Threat Intel is something talks about APT's , IOCs  and PoC's and much more...  and now a days there are frequent changes in the IOCs..  
+ Instead of chasing them ., is there a tool that can break the cyber kill chain.. ?  
+if there is a tool shows CVE to CVE chaining .. would that be good coverage to see the pivots and fix them first ? ...so what ever a...
 

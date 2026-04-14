@@ -106,11 +106,24 @@ export interface Persona {
   demographics: string;
   quote: string; // The persona's "voice" quote (synthetic)
   bio: string;
+  jtbd?: string; // Jobs-to-Be-Done statement
+  goals?: { lifeGoal: string; experienceGoal: string; functionalGoal: string }; // Cooper 3-tier
   fiveWs: StrategicAnalysis; // The 5 W's Framework
+  attributes?: { name: string; score: number }[]; // Scored behavioral dimensions
   motivations: EvidenceItem[];
   tasks: EvidenceItem[];
   painPoints: EvidenceItem[];
   opportunities: EvidenceItem[];
+  // PERSONA-01: Extended sections
+  behaviors?: string;          // Behaviors & habits
+  technologyUsage?: string;    // Technology usage & comfort
+  journeyContext?: string;     // Journey context & touchpoints
+  dayInTheLife?: string;       // Day-in-the-life scenario
+  brandRelationships?: string; // Current solutions & loyalty
+  communicationPrefs?: string; // Channel & content preferences
+  decisionProcess?: string;    // Criteria, influencers, triggers
+  confidenceLevel?: string;    // EVIDENCED | PARTIALLY_EVIDENCED | HYPOTHESIS
+  evidenceCount?: number;
   imageUrl?: string;
 }
 
@@ -129,21 +142,32 @@ export interface ScriptScene {
   personaRef?: string; // Name of the persona if this scene features them
 }
 
+/**
+ * Universal Slide Archetypes — 7 content-driven layout patterns.
+ * The AI selects the archetype based on what the content IS, not what deliverable it's for.
+ * Legacy layouts map to the nearest archetype at render time.
+ */
 export type SlideLayout =
-  | 'TITLE_SLIDE'
-  | 'SECTION_HEADER'
-  | 'KEY_STATISTIC'        // Single powerful number, full-width
-  | 'EVIDENCE_WALL'        // 3-4 findings side by side with sources
-  | 'QUOTE_FEATURE'        // Full-width quote with attribution
-  | 'PERSONA_SPOTLIGHT'    // Persona card with key tension
-  | 'DATA_INSIGHT'         // Data + interpretation + "so what"
-  | 'COMPARISON'           // Before/after or current/desired
-  | 'RECOMMENDATION'       // Action + impact + evidence
-  | 'CLOSING_CTA'          // Call to action with next steps
-  | 'CONTENT_SPLIT_RIGHT'  // Image on Right, Text on Left
-  | 'CONTENT_SPLIT_LEFT'   // Image on Left, Text on Right
-  | 'FULL_BLEED_IMAGE'     // Image covers slide, text overlay
-  | 'TYPOGRAPHY_QUOTE';    // Focus on big text
+  | 'TITLE_SLIDE'            // Archetype 1: Left-aligned title, subtitle, horizontal rule
+  | 'SECTION_HEADER'         // Archetype 2: Full-bleed dark (#0D0D0D), ghost text, section label
+  | 'CONTENT_DATA_PANEL'     // Archetype 3: 55/45 split — text left (#FFF), metric cards right (#FAFAFA)
+  | 'CONTENT_INSIGHT_CHART'  // Archetype 4: 55/45 split — text left, single chart right
+  | 'FULL_WIDTH_VIZ'         // Archetype 5: No split — heading + full-width data visualization
+  | 'BENTO_GRID'             // Archetype 6: 3-6 cells of mixed stats, quotes, indicators
+  | 'PROBLEM_SOLUTION'       // Archetype 7: 55/45 split — pain stat left, solution list right
+  // Legacy aliases (still accepted by AI, mapped at render time)
+  | 'CONTENT_SPLIT_RIGHT'    // -> CONTENT_DATA_PANEL
+  | 'CONTENT_SPLIT_LEFT'     // -> CONTENT_DATA_PANEL
+  | 'FULL_BLEED_IMAGE'       // -> CONTENT_DATA_PANEL
+  | 'TYPOGRAPHY_QUOTE'       // -> BENTO_GRID (quote cell)
+  | 'KEY_STATISTIC'          // -> CONTENT_DATA_PANEL (stat-focused)
+  | 'EVIDENCE_WALL'          // -> BENTO_GRID
+  | 'QUOTE_FEATURE'          // -> BENTO_GRID (quote cell)
+  | 'PERSONA_SPOTLIGHT'      // -> CONTENT_DATA_PANEL
+  | 'DATA_INSIGHT'           // -> CONTENT_INSIGHT_CHART
+  | 'COMPARISON'             // -> PROBLEM_SOLUTION
+  | 'RECOMMENDATION'         // -> CONTENT_DATA_PANEL
+  | 'CLOSING_CTA';           // -> CONTENT_DATA_PANEL
 
 export interface SlideStyle {
     backgroundColor: string;
@@ -152,19 +176,55 @@ export interface SlideStyle {
     accentColor: string;
 }
 
+/** Metric card for the data panel (Archetype 3/4) */
+export interface SlideMetric {
+    label: string;
+    value: string;
+    unit?: string;
+    accentColor?: string;   // Override: '#CC6644' | '#B8B800' | '#00B7C3'
+    progress?: number;      // 0-100, renders a progress bar
+}
+
+/** Bento cell for Archetype 6 */
+export interface BentoCell {
+    type: 'stat' | 'quote' | 'indicator' | 'list';
+    label?: string;
+    value?: string;          // For stat cells
+    unit?: string;
+    text?: string;           // For quote/indicator cells
+    attribution?: string;    // For quote cells
+    items?: string[];        // For list/indicator cells
+    accentColor?: string;
+    span?: number;           // grid-column span (1 or 2)
+}
+
 export interface Slide {
   slideNumber: number;
   layout: SlideLayout;
   title: string;
-  content: string[]; // Renamed from bulletPoints to content (can be paragraphs or bullets)
-  narrative: string; // New: The connecting story/voiceover for this slide
-  speakerNotes: string; // Narrative for the presenter
-  visualPrompt: string; // Editable GenAI prompt
-  quote: string; // Transparency: Direct quote from research backing this slide
-  rationale?: string; // Why this slide exists (for Structure step)
+  content: string[];
+  narrative: string;
+  speakerNotes: string;
+  visualPrompt: string;
+  quote: string;
+  rationale?: string;
   imageUrl?: string;
   imageStatus?: 'idle' | 'generating' | 'error';
-  style: SlideStyle; // New: Custom colors for this specific slide
+  style: SlideStyle;
+  // Archetype 3/4 data panel fields
+  metrics?: SlideMetric[];
+  // Archetype 6 bento grid fields
+  bentoCells?: BentoCell[];
+  // Archetype 7 problem/solution fields
+  problemStat?: { value: string; unit?: string; description: string };
+  solutionPoints?: { title: string; description: string }[];
+  // Source citations (moved to footnote strip)
+  sources?: string[];
+  // Abbreviated persona reference (for PERSONA_SPOTLIGHT)
+  personaName?: string;
+  personaRole?: string;
+  personaImageUrl?: string;
+  personaQuote?: string;
 }
 
 export interface StrategicRecommendation {
@@ -174,6 +234,22 @@ export interface StrategicRecommendation {
   actionItems: string[];
 }
 
+/** STRAT-01: Full 15-section strategy document per Rumelt's Kernel */
+export interface StrategySection {
+    sectionNumber: number;
+    title: string;
+    content: string;
+    evidenceGap?: string; // Flagged if insufficient data
+}
+
+export interface StrategyDocument {
+    executiveSummary: string;         // SCR format
+    diagnosis: string;               // Rumelt: THE central challenge
+    guidingPolicy: string;           // Rumelt: the approach/decision
+    strategicPillars: string[];      // 3-5 MECE pillars
+    sections: StrategySection[];     // All 15 sections
+}
+
 // --- SERVICE DESIGN TYPES ---
 
 export interface ServiceBlueprintStage {
@@ -181,11 +257,20 @@ export interface ServiceBlueprintStage {
     customerAction: string;    // What the user does
     touchpoint: string;        // Channel/Device/Interaction point
     frontstageAction: string;  // Employee/App visible action
-    backstageAction: string;   // Internal process/System invisble action
+    backstageAction: string;   // Internal process/System invisible action
     supportProcesses: string;  // Infrastructure/3rd party
     physicalEvidence: string;  // What they see/hold
     emotion: 'Positive' | 'Neutral' | 'Negative' | 'Frustrated' | 'Delighted';
     painPoint: string;
+    actors?: string[];                  // Persona names involved at this stage
+    actorNeeds?: string;                // What actors need at this stage
+    actorBehaviors?: string;            // Observed behaviors per actor
+    opportunityForImprovement?: string; // CX improvement opportunity
+    valueProposition?: string;          // Value delivered at this stage
+    momentOfTruth?: boolean;            // Critical judgment point
+    fail_point?: string;               // B-03: Failure mode — what fails, frequency, consequence
+    technologySystems?: string;        // B-05: Systems/platforms supporting this stage
+    emotionIntensity?: number;         // Emotion intensity score (1-5)
 }
 
 export interface TechNode {
@@ -200,14 +285,23 @@ export interface TechFlow {
     toId: string;
     action: string;
     protocol?: string;
+    status?: 'active' | 'planned' | 'broken';
+}
+
+export interface ArchitectureSection {
+    sectionNumber: number;
+    title: string;
+    content: string;
+    evidenceGap?: string;
 }
 
 export interface TechnicalArchitecture {
     overview: string;
+    sections?: ArchitectureSection[];   // A-02: 20 C4+TOGAF sections
     nodes: TechNode[];
     flows: TechFlow[];
-    securityConsiderations: string[];
-    diagramUrl?: string; // Visual representation of the architecture
+    securityConsiderations?: string[];
+    diagramUrl?: string;
 }
 
 // --- PRODUCT MANAGEMENT TYPES (NEW) ---
@@ -218,8 +312,16 @@ export interface PRDFeature {
     description: string;
     priority: 'Must-have' | 'Should-have' | 'Could-have' | 'Won\'t-have'; // MoSCoW
     userStories: string[];
+    acceptanceCriteria?: string[];
     dependencies: string;
     citation?: string; // Source quote
+}
+
+export interface PRDSection {
+    sectionNumber: number;
+    title: string;
+    content: string;
+    evidenceGap?: string;
 }
 
 export interface PRD {
@@ -227,6 +329,7 @@ export interface PRD {
     purposeAndObjectives: string; // Objectives (SMART)
     targetAudience: string;
     successMetrics: string[]; // KPIs
+    sections?: PRDSection[];  // PRD-03: 16 Cagan/SVPG framework sections
     features: PRDFeature[];
     userFlowAndDesignNotes: string; // High level flow
     systemRequirements: string[]; // Non-functional
@@ -241,20 +344,22 @@ export interface PRD {
 }
 
 export interface RoadmapItem {
-    id: string;
+    id?: string;
     initiative: string;
     description: string;
     horizon: 'Now' | 'Next' | 'Later';
     owner: string;
-    status: 'Planned' | 'In Progress' | 'Discovery' | 'Shipped';
-    dependencies: string[];
-    successMetric?: string; // New
+    status?: 'Planned' | 'In Progress' | 'Discovery' | 'Shipped';
+    dependencies?: string | string[];
+    successMetric?: string;
+    strategicTheme?: string;
+    confidenceLevel?: 'HIGH' | 'MEDIUM' | 'EXPLORATORY';
 }
 
 export interface StrategicRoadmap {
     vision: string;
-    goals: string[]; // New: High level goals
-    themes: string[]; // Strategic themes this roadmap addresses
+    goals?: string[];
+    themes?: string[];
     items: RoadmapItem[];
 }
 
@@ -265,8 +370,9 @@ export interface AnalysisResult {
   personas: Persona[];
   videoScript?: ScriptScene[]; // Optional based on selection
   slides?: Slide[]; // Optional based on selection
-  recommendations: StrategicRecommendation[]; 
-  journeyMap?: ServiceBlueprintStage[]; 
+  recommendations: StrategicRecommendation[];
+  strategyDocument?: StrategyDocument; // STRAT-01: Full 15-section strategy
+  journeyMap?: ServiceBlueprintStage[];
   techArchitecture?: TechnicalArchitecture;
   prd?: PRD;
   roadmap?: StrategicRoadmap;
@@ -274,6 +380,7 @@ export interface AnalysisResult {
   gapAnalysis?: GapAnalysis;
   techAudit?: TechEcosystemAudit;
   competitiveAnalysis?: CompetitiveAnalysis;
+  crossCuttingSynthesis?: CrossCuttingInsight[];
 }
 
 export enum AppState {
@@ -357,6 +464,22 @@ export interface StepResult_Roadmap {
 export interface StepResult_Recommendations {
     methodology: string;
     recommendations: StrategicRecommendation[];
+    strategyDocument?: StrategyDocument; // STRAT-01: Full 15-section strategy
+}
+
+// --- CROSS-CUTTING SYNTHESIS TYPES ---
+
+export interface CrossCuttingInsight {
+    name: string;
+    connectedThemes: string[];
+    connectedPersonas: string[];
+    strategicImplication: string;
+    evidence: string;
+}
+
+export interface StepResult_CrossCuttingSynthesis {
+    methodology: string;
+    insights: CrossCuttingInsight[];
 }
 
 export interface StepResult_Structure {
@@ -383,7 +506,25 @@ export interface StepResult_Final {
     journeyMapDiagramUrl?: string;
 }
 
-export type OutputOption = 'PERSONAS' | 'STRATEGY_DECK' | 'VIDEO_SCRIPT' | 'JOURNEY_MAP' | 'TECH_ARCH' | 'STRATEGIC_RECS' | 'PRD' | 'ROADMAP' | 'GAP_ANALYSIS' | 'TECH_AUDIT' | 'COMPETITIVE_ANALYSIS';
+export type OutputOption = 'PERSONAS' | 'STRATEGY_DECK' | 'JOURNEY_MAP' | 'TECH_ARCH' | 'STRATEGIC_RECS' | 'PRD' | 'ROADMAP' | 'GAP_ANALYSIS' | 'TECH_AUDIT' | 'COMPETITIVE_ANALYSIS';
+
+/**
+ * Bundles ALL available deliverable results for the Strategy Deck pipeline.
+ * The deck reads these as READ-ONLY inputs — original outputs are never mutated.
+ * The AI reformats this content into slide-appropriate layouts.
+ */
+export interface DeckInputContext {
+    themes?: Theme[];
+    personas?: Persona[];
+    recommendations?: StrategicRecommendation[];
+    journeyStages?: ServiceBlueprintStage[];
+    prd?: PRD;
+    roadmap?: StrategicRoadmap;
+    techArchitecture?: TechnicalArchitecture;
+    gapAnalysis?: GapAnalysis;
+    techAudit?: TechEcosystemAudit;
+    competitiveAnalysis?: CompetitiveAnalysis;
+}
 
 // ============================================================
 // NEW OUTPUT TYPES: Gap Analysis, Tech Audit, Competitive Analysis
@@ -529,6 +670,7 @@ export interface SavedProject {
     prd: StepResult_PRD | null; // New
     roadmap: StepResult_Roadmap | null; // New
     recommendations: StepResult_Recommendations | null; // New
+    synthesis: StepResult_CrossCuttingSynthesis | null;
     structure: StepResult_Structure | null;
     narrative: StepResult_Narrative | null;
 }

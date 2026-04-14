@@ -1,6 +1,34 @@
 import path from 'path';
+import fs from 'fs';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import type { Plugin } from 'vite';
+
+/**
+ * Vite plugin to serve wiki markdown files from hic-workspace/wiki/
+ * at the /hic-workspace/wiki/ URL path. Used by wikiService.ts to
+ * load framework specs, anti-patterns, benchmarks, and brand standards.
+ */
+function wikiStaticPlugin(): Plugin {
+    return {
+        name: 'wiki-static-server',
+        configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+                if (req.url && req.url.startsWith('/hic-workspace/wiki/')) {
+                    const relativePath = req.url.replace('/hic-workspace/wiki/', '');
+                    const filePath = path.resolve(__dirname, 'hic-workspace', 'wiki', relativePath);
+                    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+                        res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                        res.setHeader('Access-Control-Allow-Origin', '*');
+                        fs.createReadStream(filePath).pipe(res);
+                        return;
+                    }
+                }
+                next();
+            });
+        },
+    };
+}
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -9,7 +37,7 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
-      plugins: [react()],
+      plugins: [react(), wikiStaticPlugin()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

@@ -1,15 +1,15 @@
 Topic 7 - Content Sample
-Number of content items: 11
-Top words: stream, coach, warriors, said, steve kerr, learned, matters
+Number of content items: 25
+Top words: sim, 2016, logs, ki, satellites, carrier, cyber
 
-Content 1 (length: 216 chars):
-Warriors' Steve Kerr opens up on his driving force with future unclear  > Warriors head coach Steve Kerr said he’s brooding less about his mistakes and losses, but assistant coach Bruce Fraser said not to believe it.
+Content 1 (length: 367 chars):
+The logs contain one technically interesting exchange where the operator notes "the new protocol won't break" and asks if the target carrier "might still be on v1." This indicates awareness of the difference between COMP128-1 (v1, extractable Ki) and later implementations, and suggests they were working with insider-provided Ki rather than cryptographic extraction.
 
-Content 2 (length: 188 chars):
-> Steve Kerr says he’s coping with losing better than he coped with it a few years ago, when he stayed up past 4 a.m. routinely if he felt like his coaching cost the Golden State Warriors.
+Content 2 (length: 386 chars):
+1. Ki is never transmitted over the air, but it's stored in plaintext (or weakly protected) in many carrier billing/provisioning systems
+2. The authentication is one-way - the network authenticates the SIM, but the SIM does not authenticate the network
+3. COMP128-1 had known cryptographic weaknesses allowing Ki extraction from the card itself (though that's a different attack vector)
 
-Content 3 (length: 792 chars):
-> Whether Kerr’s attempts at forgiving himself for a costly decision are feeble or not, the competitive fire that forged nine NBA titles — five as a player, four as the Warriors coach — keeps burning. It’s burned through 32 wins this season and 30 losses for the fading Warriors, for whom he’s contracted to coach the rest of this season — and not a day longer.
-sucks i feel like its coming to an end. we have a weird roster. its basically like just next year. maybe he comes back for a year. i feel we need to change but i understand getting a coach isnt that easy and you might end up with something worse. im ok with running it back and then breaking up the team which is going to happen anyways
-The roster was decent, jimmy just got injured.  Its wierd people can't just move in with that
+Content 3 (length: 171 chars):
+**Kazakhstan side:** Insiders at Kcell and Altel with access to the USI billing system. Their role was data acquisition only - photograph IMSI/Ki records and forward them.
 

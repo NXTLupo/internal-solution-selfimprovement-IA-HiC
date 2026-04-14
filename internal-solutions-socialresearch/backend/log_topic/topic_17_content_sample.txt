@@ -1,0 +1,46 @@
+Topic 17 - Content Sample
+Number of content items: 18
+Top words: jobs, cybersecurity, school, security, started, resume, work
+
+Content 1 (length: 2349 chars):
+How did you know you wanted to do this? I know I wanna do something computer related and computer science seems like a great thing to major in. But now with AI and everything I don't know what I should do. I'm not really amazing at coding. I'm not a super mathy person. I have no idea about cyber security, but it seems amazing as far as I can tell but why choose this?  I fell into it.   
+  
+I taught myself how to program on a ti-82 calculator which used a derivative of qbasic. From there I ran my school out of computer classes and did a year of vocational school for networking in high school.   
+  
+I also figured out how to social engineer and hack through them too breaking into the schools domain and achieving persistence while flying under the radar. I learned how to subvert their protections and bypass controls to use things like AOL Instant messenger and more.   
+  
+From there I naturally progressed to lock picking (I locked a teachers keys in her desk once using a few paper clips) and got big into understanding how computers were assembled. I got into the internet subculture of piracy and rebellion.   
+  
+My first actual job was working as a programmer in the military. I then learned how to defend against cyber attacks and code securely which of course led me to offensive security postures.   
+  
+From there I started into engineering and broadened my reach. I helped stand up companies paradigms and began designing my own.  
+  
+Now I work as a full time pen tester and security researcher and love my job. I get to put skills to use that even it professionals don’t know. It’s awesome and I can’t believe I’m paid to break into and through defenses.
+I was in a completely unrelated field. Found cybersecurity by accident and did a crash course on it (0 IT experience). The people lecturing the course liked my performance and hired me for a 6 months contract to get some more hands-on experience. Very fun job and much better paid than my old engineering research one.
+I started programming on TI-99 and TRS-80. Hacked school computers for funzies. When I grew up I went into IT and every time someone would try to do something stupid I would speak up and point out why that was a bad idea. They made me the security guy for it. Now I do threat hunting, incident response, and detection engineering (and other things too).
+
+Content 2 (length: 2019 chars):
+If anyone has been in a similar position, especially as an international student in tech/cybersecurity, what actually helped? 300 apps zero interviews as an international student is rough but the guided platform stuff on your resume probably looks identical to every other applicant. Shift some hours into the free incident cases CyberDefenders puts out and document your analysis, that kind of writeup is what gets you past the resume screen.
+That's just the current state of the US market at the moment.  
+There are literally close to zero entry level jobs available, even those posted tend to be ghost jobs.  
+  
+There has been so much demand some years ago, the market overcompensated and now is completely saturated.  
+People trying to enter right now are basically fucked.  
+  
+This is espacially true if you:  
+- Have no formal professional qualification / are still in school  
+- Have no relevant certs, not even entry level certs like Sec+  
+- have no work experience besides some online-bootcamps that are not really valuable to employers  
+- Have things complicating an employment, like necessity of H1B
+  
+I also doubt if orgs really hire "straight from school" security staff, since usually, information security is not an entry level field, but a mid-career choice.  
+Orgs expect you to have relevant experience in IT or compliance.  
+  
+How would somebody without an understanding of "How does an IT system even work" be good at evaluating risks of such an IT system?  
+I tend to be very skeptical (but i also tend to be pessimistic in general, so take my doubts with a grain of salt).
+I think it's the state of the job market in most places, at the moment. I'm in the EU, so there's definitely a bit of an uptick in GRC due to orgs scrambling now that they realize that they're going to have reporting obligations beginning this year, lol. However, as you said, the uptick is more in mid-senior roles, because realistically there aren't many entry level jobs, beyond maybe SOC (and even then, arguable).
+
+Content 3 (length: 191 chars):
+Cybersecurity is a massive field, coding is very important for some jobs in cyber and not very important at all in other jobs in cybersecurity.
+You seem pretty smart so I think you'll be fine
+

@@ -1,0 +1,16 @@
+Topic 29 - Content Sample
+Number of content items: 7
+Top words: ios, darksword, ios exploit, iphone, ios exploit kit, archive, exploit kit
+
+Content 1 (length: 258 chars):
+New Apple Hack: Up to 270M iPhones Vulnerable to ‘DarkSword’ Exploit  You would expect a tool capable of silently breaking into hundreds of millions of iPhones to be locked away behind layers of encryption, traded in whispers on dark corners of the internet.
+
+Content 2 (length: 279 chars):
+* https://cloud.google.com/blog/topics/threat-intelligence/coruna-powerful-ios-exploit-kit
+* https://techcrunch.com/2026/03/10/us-military-contractor-likely-built-iphone-hacking-tools-used-by-russian-spies-in-ukraine/
+* https://iverify.io/blog/darksword-ios-exploit-kit-explained
+
+Content 3 (length: 973 chars):
+DarkSword iOS exploit chain leaked on GitHub which lowers barrier for real-world attacks DarkSword (multi-zero-day iOS exploit chain) is now reportedly public on GitHub. Originally used by state actors, but the leaked version is simple enough to be used by anyone. Breakdown updated. People are focusing a bit too much on the GitHub leak. The bigger problem is that DarkSword was already being reused by multiple actors through compromised sites, so this feels less like “one repo changed everything” and more like iPhone web exploitation becoming operational at scale. Still serious, but not “every iPhone is cooked overnight” either. Apple, Google and the researchers all point to the same boring answer: patched devices were protected, known malicious domains were blocked, and Lockdown Mode also disrupted the observed chains.  
+DarkSword, is a US built and used tool that was leaked by a US employee. Stop using 'state actors' when we know who is actually responsible.
+

@@ -1,15 +1,14 @@
 Topic 0 - Content Sample
-Number of content items: 8
-Top words: steph, year, kuminga, jimmy, kp, playing, healthy
+Number of content items: 25
+Top words: que, certification, experience, certs, oscp, security, cybersecurity
 
-Content 1 (length: 342 chars):
-In case it wasnt obvious to some, there was no saving the season when Jimmy went down, that was it, any slim chance of winning Steph another ring was done (this year). Plus, they likely knew Steph's knee was starting to really flair up. They also knew they were making the play-in no matter what they do with the state of tanking where it is.
+Content 1 (length: 185 chars):
+If OSCP is your goal, study for OSCP, and not another vendor's exam. Back in the day there wasn't a million and one trainings and we learned through blog posts, research, trial & error.
 
-Content 2 (length: 432 chars):
-It’s a conspiracy that’s just crazy enough to give me hope.  It is a possibility. However I don’t think we can make it far without Jimmy tbh.
-Yeah, we can’t win without Jimmy.   But in theory we’ll see how a mostly healthy team minus Jimmy would look.  Last year Podz and Moody were scheduled for surgery, Jimmy had a busted tailbone, and Draymond was on fumes even before Curry went down
-That and 2022 had a plug and play Steph Jr.
+Content 2 (length: 1128 chars):
+OSCP Voucher as a Beginner So for background, I'm a first year college student with some technical background in software, web, and game development. I also currently hold Sec+, PJPT, as well as the PNPT, and soon, CySA+ (and yes I know, pls dont criticize me for chasing certs, its lowkey one of the things that give me a clear path into pursuing cybersecurity as a whole). Now I've recently seen people pass despite being beginners, and some people saying to take the CPTS first. But as a beginner focused on gettinf the OSCP first rather than spending a couple more getting the CPTS, is it genuinely possible to accomplish the OSCP in just about 3 months? If so, what are the tips for studying thats suggested? Is there any optimal path in going about the course material? 
+I apologize if this is a redundant or reccurring question, but even with research I'm still a bit overwhelmed by a lot of positive or negative impact the certification and course has on people who have taken it, spending months or years just preparing for it alone. Take PEN-200 first and seek supplemental material out afterwards if you want/need it.
 
-Content 3 (length: 201 chars):
-The KP Trade & Next Year Sorry team, I know this has been done to death a bit but I do hope the more a certain type of Warriors fans watch him play, the more they accept why the FO did the swap for KP.
+Content 3 (length: 108 chars):
+Good beginner and foundational certifications are:  CompTIA Security+ and ISC2 CC (also might still be free)
 

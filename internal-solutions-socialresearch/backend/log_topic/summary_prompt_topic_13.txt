@@ -1,0 +1,117 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: vendor, compliance, audit, frameworks, risk, grc, soc
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+* Only vendors that handle or access data are considered
+* Vendor relationships are not visible to other organizations
+* The goal is to complement existing vendor risk practices, not replace audits or compliance frameworks
+
+EXAMPLE 2:
+I am especially interested in criticism from people who work with GRC, vendor risk, or security architecture.
+
+EXAMPLE 3:
+Many organizations depend heavily on vendors that handle or access their data, but risk assessments still mostly evaluate companies as isolated units. In practice, a significant portion of risk seems to be inherited through vendor dependencies.
+
+EXAMPLE 4:
+Frameworks (NIST, ISO, SOC2, PCI)
+        ↓
+Control relationship graph
+        ↓
+Unified control layer
+        ↓
+Policy-as-code + audit evidence
+
+EXAMPLE 5:
+Curious if anyone here has worked on compliance automation before and what challenges you ran into.
+* NIST (both CRF and 800-53)
+* SOC 2
+* PCI DSS
+* HITECH
+* ISO 27001
+
+EXAMPLE 6:
+I am working on a research-oriented project exploring a different way to model vendor-related cybersecurity risk, and I would really appreciate technical criticism from people working with third-party or supply chain risk.
+
+EXAMPLE 7:
+* Organizations privately declare their data-handling vendors
+* Vendor relationships remain confidential and are never publicly visible
+* A public score is calculated using three categories of signals:
+   * Outside-in technical exposure
+   * Policy maturity indicators
+   * Vendor dependency exposure
+
+EXAMPLE 8:
+Security teams spend months mapping the same controls across frameworks — I built an open-source tool to automate it I’ve spent a lot of time working in cybersecurity compliance environments where teams have to manage multiple frameworks at the same time — things like NIST 800-53, ISO 27001, SOC 2, PCI DSS, and others.
+
+EXAMPLE 9:
+The project is called ControlWeave. The idea is to treat compliance frameworks more like a structured system rather than isolated checklists.
+
+EXAMPLE 10:
+Right now I’m mainly looking for feedback from people working in security engineering, compliance, DevSecOps, or GRC.
+
+EXAMPLE 11:
+1. What failure modes would you expect in a model like this?
+2. Where could this create false confidence or misleading signals?
+3. How would organizations realistically game something like this?
+4. Does modeling vendor dependencies as a network reflect how you think about real-world vendor risk?
+
+EXAMPLE 12:
+Thanks for any honest feedback. How would your proposed model stand up against known past breaches? 
+That is a good question, and honestly something I am still trying to figure out properly.
+
+EXAMPLE 13:
+For example, in large vendor-related incidents like SolarWinds or MOVEit, many downstream organizations were affected through shared dependencies. In a network-based model, organizations heavily dependent on a widely used vendor would show higher inherited exposure even before a specific vulnerability becomes public.
+
+EXAMPLE 14:
+That is something I would like to test using historical cases, but I have not yet done a proper retrospective evaluation.
+Your approach is not novel and organisations have been trying to apply it with mixed success. A key problem is with information from vendors. If Vendor A and Vendor B are both using Product C as part of their processes to handle your data, in most situations, your contracts with either vendor wouldn't reveal that. If Product C is compromised, you wouldn't have the visibility. The cost of compliance for declaration of such relationships just outweighs business costs.
+
+EXAMPLE 15:
+The intention is not that the model would "detect" breaches in the traditional sense. It would not replace monitoring or threat detection.
+
+EXAMPLE 16:
+The outside-in component would react to known issues like exposed services or recently disclosed vulnerabilities, but the network component is more about showing concentration risk and dependency exposure.
+
+EXAMPLE 17:
+Would really appreciate thoughts from anyone working in this space. A few people asked about the architecture, so here’s the rough concept behind ControlWeave.
+
+EXAMPLE 18:
+One thing that always stood out was how much duplicated effort exists between these frameworks. Many controls are conceptually similar, but teams still spend months manually cross-mapping them, usually in spreadsheets or static documents.
+
+EXAMPLE 19:
+The idea is to treat organizations as nodes in a dependency network rather than standalone entities.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

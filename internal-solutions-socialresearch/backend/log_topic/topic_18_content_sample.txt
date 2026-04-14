@@ -1,0 +1,17 @@
+Topic 18 - Content Sample
+Number of content items: 25
+Top words: injection, prompt injection, model, copilot, data, ai, llm
+
+Content 1 (length: 642 chars):
+Curious what others here are doing. Is it mostly ship and guardrail? Or is anyone actually using something like the Rule of Two as a design gate for AI deployments? interesting framing ,the bigger issue might be the lack of separation between instructions and data in llm that makes prompt injection fundamentally different from traditional input validation problem 
+Indeed - practically before you start a project with an LLM, 2 of the 3 criteria is used up. 
+that's a great point when the instructions and data share the same channel in LLMs prompt injection stops being a simple validation issue and becomes a structural security challenge
+
+Content 2 (length: 184 chars):
+If you're building LLM applications professionally; does your team have an explicit threat model for prompt-layer attacks? I'm genuinely curious what teams are shipping with right now.
+
+Content 3 (length: 387 chars):
+* Untrustworthy input. Alert feeds, phishing emails, threat intel. You are feeding it adversary-crafted content by design.
+* High privilege. It needs to escalate, quarantine, dismiss, perform some action. 
+* Safe implementation. The LLM has no formal boundary between instructions and data. A phishing email the model reads to classify can contain instructions the model follows instead.
+

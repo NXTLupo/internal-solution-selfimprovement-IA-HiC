@@ -1,19 +1,39 @@
 Documents for Topic 11 (showing first 3):
 
 Document 1:
-30 PTS 5 REB 4 AST 3 BLK Kristaps Porzingis. Roll the tape 📽️  Based. Still nice to see aggression, even if basically practice 😂
-To be fair, KP and JK BOTH had their best games against the Wizards.   And Bam scored 83
-Yeah thats the least that was expected of him. At least he helped our g leaguers in the other games and kept games close. He was a major reason we werent getting blown out by the wolves or OKC. Meanwhile a certain kid who could jump high was nearly invisible in the hawks wins over ...
+Delinea PAM approval workflow Hello All,
+
+Is there a way to implement an approval workflow in Delinea PAM where a user can request access before they even have access to the PAM portal?
+
+Basically:
+
+\- User has no PAM access
+
+\- Requests access to a system/secret
+
+\- Goes through approval within PAM system
+
+\- Then gets onboarded/granted access
+
+Or is this something that must be handled outside Delinea like ITSM/IAM or emails
+
+Appreciate any advise Currently doing this,
+
+It's integrated to entra...
 
 Document 2:
-We had 187m out of 204m total team salary out injured last night vs the Knicks.  Every player making over 4m/year last night was out injured.  Our  entire  team combined last night was being paid less than Josh Hart. 
+open source governance layer for AI agent actions FINRA's 2026 report is explicitly calling for "human checkpoints before execution" for AI agents and the EU AI Act high-risk deadline is august 2026
 
-  
- A close loss sucks but that game shouldn’t have even been close.
+from a security standpoint heres what should be covered:
 
- To  put this in perspective, 16 teams have total team salaries below 187 million.
-That’s why I’m sorta enjoying watching them play shorthanded. On the flip side you really see where the less played guys need wo...
+\- agent identity with scoped permissions, lifecycle management (active/suspended/revoked)
+
+\- policy engine with allow/approval\_required/deny and data classification
+
+\- human-in-the-loop approval with separation of duties (agent owner cant...
 
 Document 3:
-Proud of our guys performance against the Knicks. They fought super hard, gave it everything, every play. You cannot ask for more. If we keep this energy up and starting adding players again as they get healthy, it will be a great foundation to build on. It wasnt even our hot shooting start.  The best part was the team fighting back bucket for bucket in the 4th quarter.  After all the momentum had swung to the much more talented team locking down.  Coulda easily just fell apart.  Instead, showed...
+Anyone else dealing with apps that just fell off the IGA radar completely? Inherited this environment about 6 months ago and I keep finding stuff I didn't know existed.
+
+We have Okta and SailPoint running for the usual stuff like AD, Entra, HR system all flow through fine. The problem is everything outside that. Dozens of apps that were never onboarded to SailPoint at all like old internal tools the dev team built years back, some vendor systems IT set up and nobody documented, all running their...
 

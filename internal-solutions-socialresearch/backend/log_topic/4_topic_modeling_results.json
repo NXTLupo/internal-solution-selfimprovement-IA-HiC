@@ -1,543 +1,1402 @@
 {
-  "total_topics": 12,
+  "total_topics": 33,
   "topics": [
     {
       "topic_id": 0,
-      "count": 11,
-      "name": "0_steph_year_kuminga_jimmy",
+      "count": 59,
+      "name": "0_que_certification_experience_certs",
       "representation": [
         {
-          "term": "steph",
-          "weight": 0.02322201563247092
+          "term": "que",
+          "weight": 0.01279452946128777
         },
         {
-          "term": "year",
-          "weight": 0.02281838155508312
+          "term": "certification",
+          "weight": 0.012046899502961821
         },
         {
-          "term": "kuminga",
-          "weight": 0.02262759727308669
+          "term": "experience",
+          "weight": 0.011962190194069057
         },
         {
-          "term": "jimmy",
-          "weight": 0.02040543213339387
+          "term": "certs",
+          "weight": 0.011706517452449498
         },
         {
-          "term": "kp",
-          "weight": 0.018264791132610387
+          "term": "oscp",
+          "weight": 0.011445431578052096
         },
         {
-          "term": "playing",
-          "weight": 0.017946297894656855
+          "term": "security",
+          "weight": 0.009417225550828289
         },
         {
-          "term": "healthy",
-          "weight": 0.016541688713448632
+          "term": "cybersecurity",
+          "weight": 0.00925560271594358
         },
         {
-          "term": "team",
-          "weight": 0.015621869640011362
-        },
-        {
-          "term": "trade",
-          "weight": 0.015576921679423478
+          "term": "job",
+          "weight": 0.008714654879645732
         }
       ]
     },
     {
       "topic_id": 1,
-      "count": 9,
-      "name": "1_buddy_jimmy_warriors_injury",
+      "count": 53,
+      "name": "1_code_packages_github_npm",
       "representation": [
         {
-          "term": "buddy",
-          "weight": 0.03603678572345676
+          "term": "code",
+          "weight": 0.012600563826002872
         },
         {
-          "term": "jimmy",
-          "weight": 0.03047506929487302
+          "term": "packages",
+          "weight": 0.011535585521499872
         },
         {
-          "term": "warriors",
-          "weight": 0.027516940680801454
+          "term": "github",
+          "weight": 0.010354285142138674
         },
         {
-          "term": "injury",
-          "weight": 0.019121071142527993
+          "term": "npm",
+          "weight": 0.009988089980848587
         },
         {
-          "term": "love",
-          "weight": 0.017567752882920517
+          "term": "malicious",
+          "weight": 0.009947315004668554
         },
         {
-          "term": "weeks",
-          "weight": 0.016339616595867298
+          "term": "supply chain",
+          "weight": 0.009903878180183552
         },
         {
-          "term": "locker",
-          "weight": 0.016339616595867298
+          "term": "attack",
+          "weight": 0.00888577764940993
         },
         {
-          "term": "prp injection",
-          "weight": 0.016339616595867298
+          "term": "litellm",
+          "weight": 0.008291257127706784
         }
       ]
     },
     {
       "topic_id": 2,
-      "count": 8,
-      "name": "2_post_reddit_game_warriors",
+      "count": 30,
+      "name": "2_36_537_537 36_report",
       "representation": [
         {
-          "term": "post",
-          "weight": 0.045121168094448334
+          "term": "537 36",
+          "weight": 0.019763114133157057
         },
         {
-          "term": "reddit",
-          "weight": 0.03990542761291376
+          "term": "report",
+          "weight": 0.01815508103905882
         },
         {
-          "term": "game",
-          "weight": 0.03980437960115933
+          "term": "2026",
+          "weight": 0.01785079765688845
         },
         {
-          "term": "warriors",
-          "weight": 0.034118039658136576
+          "term": "10",
+          "weight": 0.013975112864865672
         },
         {
-          "term": "old",
-          "weight": 0.028589031814186695
+          "term": "17",
+          "weight": 0.012496745062765898
         },
         {
-          "term": "click view post",
-          "weight": 0.023040047538912208
+          "term": "ai",
+          "weight": 0.012191990535171823
         },
         {
-          "term": "view post",
-          "weight": 0.023040047538912208
-        },
-        {
-          "term": "contains",
-          "weight": 0.023040047538912208
-        },
-        {
-          "term": "supported",
-          "weight": 0.023040047538912208
-        },
-        {
-          "term": "click view",
-          "weight": 0.023040047538912208
+          "term": "key stats",
+          "weight": 0.012034776998945965
         }
       ]
     },
     {
       "topic_id": 3,
-      "count": 7,
-      "name": "3_kerr_coach_movie_goat",
+      "count": 28,
+      "name": "3_ai_security_cybersecurity_years",
       "representation": [
         {
-          "term": "kerr",
-          "weight": 0.032800533273864646
+          "term": "ai",
+          "weight": 0.0396315768604032
         },
         {
-          "term": "coach",
-          "weight": 0.02932509227842502
+          "term": "security",
+          "weight": 0.016297632722585158
         },
         {
-          "term": "movie",
-          "weight": 0.02614023742182394
+          "term": "cybersecurity",
+          "weight": 0.007694639067577892
         },
         {
-          "term": "goat",
-          "weight": 0.02181721752041576
+          "term": "years",
+          "weight": 0.007148244854279669
         },
         {
-          "term": "congrats",
-          "weight": 0.017239045032337058
+          "term": "cra",
+          "weight": 0.006814799264448851
         },
         {
-          "term": "steve",
-          "weight": 0.01705458580781969
+          "term": "offensive ai",
+          "weight": 0.006027296835380992
         },
         {
-          "term": "right",
-          "weight": 0.013582489582010098
+          "term": "new",
+          "weight": 0.005981825131021437
         },
         {
-          "term": "steve kerr",
-          "weight": 0.013032126846438452
+          "term": "industry",
+          "weight": 0.0058550533556375696
         },
         {
-          "term": "steph",
-          "weight": 0.013010009981249765
-        },
-        {
-          "term": "antagonist",
-          "weight": 0.012316910253645267
+          "term": "ai security",
+          "weight": 0.005726783862546898
         }
       ]
     },
     {
       "topic_id": 4,
-      "count": 6,
-      "name": "4_podz_players_rebounds_hair",
+      "count": 26,
+      "name": "4_email_password_device_blackberry",
       "representation": [
         {
-          "term": "podz",
-          "weight": 0.05772751638212077
+          "term": "email",
+          "weight": 0.02533400037637522
         },
         {
-          "term": "players",
-          "weight": 0.0198358851646483
+          "term": "password",
+          "weight": 0.016595130893525326
         },
         {
-          "term": "rebounds",
-          "weight": 0.018728131978651887
+          "term": "device",
+          "weight": 0.015057531696068438
         },
         {
-          "term": "hair",
-          "weight": 0.018728131978651887
+          "term": "blackberry",
+          "weight": 0.013717524932281247
         },
         {
-          "term": "ego",
-          "weight": 0.017776320919873637
+          "term": "mobile",
+          "weight": 0.013234107962634476
         },
         {
-          "term": "guard",
-          "weight": 0.017038918877614145
+          "term": "account",
+          "weight": 0.009474707568241468
         },
         {
-          "term": "hate",
-          "weight": 0.016437133415711357
+          "term": "phishing",
+          "weight": 0.008816387570792636
         },
         {
-          "term": "say",
-          "weight": 0.016437133415711357
+          "term": "phone",
+          "weight": 0.00763777286861586
         },
         {
-          "term": "minutes",
-          "weight": 0.015101847370284666
-        },
-        {
-          "term": "point",
-          "weight": 0.01475572788477509
+          "term": "spoofing",
+          "weight": 0.0073812579029831635
         }
       ]
     },
     {
       "topic_id": 5,
-      "count": 5,
-      "name": "5_games_team_season_steph",
+      "count": 19,
+      "name": "5_threat_dragon_threat dragon_dns",
       "representation": [
         {
-          "term": "games",
-          "weight": 0.02617667759246696
+          "term": "threat",
+          "weight": 0.02864963019497825
         },
         {
-          "term": "team",
-          "weight": 0.02407158691424111
+          "term": "threat dragon",
+          "weight": 0.019592951247413243
         },
         {
-          "term": "season",
-          "weight": 0.023008243480202424
+          "term": "dns",
+          "weight": 0.019557646666930488
         },
         {
-          "term": "steph",
-          "weight": 0.019267541955926958
+          "term": "github",
+          "weight": 0.016968218284588006
         },
         {
-          "term": "podz",
-          "weight": 0.018516605318647007
+          "term": "tool",
+          "weight": 0.01685788577841656
         },
         {
-          "term": "gui",
-          "weight": 0.018013610115638654
+          "term": "feeds",
+          "weight": 0.01586562412569461
         },
         {
-          "term": "guys",
-          "weight": 0.017085245742031713
+          "term": "ai tool",
+          "weight": 0.012374495524682049
         },
         {
-          "term": "losses",
-          "weight": 0.014476477084996709
-        },
-        {
-          "term": "numbers",
-          "weight": 0.014476477084996709
-        },
-        {
-          "term": "shot",
-          "weight": 0.013724806939781654
+          "term": "intel",
+          "weight": 0.010554913018898358
         }
       ]
     },
     {
       "topic_id": 6,
-      "count": 4,
-      "name": "6_richard_kerr_podz_pass",
+      "count": 18,
+      "name": "6_reddit_post_tamper_profile",
       "representation": [
         {
-          "term": "richard",
-          "weight": 0.04756291839938683
+          "term": "reddit",
+          "weight": 0.011960329771412582
         },
         {
-          "term": "kerr",
-          "weight": 0.03366835007348708
+          "term": "post",
+          "weight": 0.008491816347847694
         },
         {
-          "term": "podz",
-          "weight": 0.03208437800504576
+          "term": "profile",
+          "weight": 0.008258389533800106
         },
         {
-          "term": "pass",
-          "weight": 0.02866731964454954
+          "term": "tamper evident",
+          "weight": 0.008179589190605244
         },
         {
-          "term": "draymond",
-          "weight": 0.02717881051393533
+          "term": "laptop",
+          "weight": 0.007666357849102369
         },
         {
-          "term": "accountability",
-          "weight": 0.025278779038449405
+          "term": "information",
+          "weight": 0.007513788508649304
         },
         {
-          "term": "turnover",
-          "weight": 0.023994047519650064
+          "term": "use",
+          "weight": 0.007205745603502907
         },
         {
-          "term": "guy",
-          "weight": 0.01991692418527938
-        },
-        {
-          "term": "instead opposite",
-          "weight": 0.018061119519919292
-        },
-        {
-          "term": "wrong",
-          "weight": 0.018061119519919292
+          "term": "actors",
+          "weight": 0.007114330016095865
         }
       ]
     },
     {
       "topic_id": 7,
-      "count": 4,
-      "name": "7_stream_coach_kerr_warriors",
+      "count": 18,
+      "name": "7_sim_2016_logs_ki",
       "representation": [
         {
-          "term": "stream",
-          "weight": 0.028025762744053863
+          "term": "sim",
+          "weight": 0.011471825302617243
         },
         {
-          "term": "coach",
-          "weight": 0.02245738916872361
+          "term": "2016",
+          "weight": 0.010655538978731066
         },
         {
-          "term": "warriors",
-          "weight": 0.020750479857653555
+          "term": "logs",
+          "weight": 0.009819691809869963
         },
         {
-          "term": "said",
-          "weight": 0.01900476973414641
+          "term": "ki",
+          "weight": 0.00972488334202575
         },
         {
-          "term": "steve kerr",
-          "weight": 0.018629532147695624
+          "term": "satellites",
+          "weight": 0.009088125358306892
         },
         {
-          "term": "learned",
-          "weight": 0.018482517133030223
+          "term": "carrier",
+          "weight": 0.008873771054548637
         },
         {
-          "term": "matters",
-          "weight": 0.018482517133030223
+          "term": "cyber",
+          "weight": 0.008833119660767302
         },
         {
-          "term": "gambling",
-          "weight": 0.018482517133030223
+          "term": "ukraine",
+          "weight": 0.00813429013333625
+        },
+        {
+          "term": "roaming",
+          "weight": 0.007784762319681309
+        },
+        {
+          "term": "infrastructure",
+          "weight": 0.00739873482854119
         }
       ]
     },
     {
       "topic_id": 8,
-      "count": 3,
-      "name": "8_team_tech_clap_credit",
+      "count": 18,
+      "name": "8_url_scan_phishing_urlscan",
       "representation": [
         {
-          "term": "team",
-          "weight": 0.042588192232888115
+          "term": "url",
+          "weight": 0.014816764406478207
         },
         {
-          "term": "tech",
-          "weight": 0.04195447555147919
+          "term": "scan",
+          "weight": 0.014776989774115509
         },
         {
-          "term": "clap",
-          "weight": 0.04195447555147919
+          "term": "phishing",
+          "weight": 0.01235230927913178
         },
         {
-          "term": "credit",
-          "weight": 0.039146998094265396
+          "term": "urlscan",
+          "weight": 0.010461692189916487
         },
         {
-          "term": "big",
-          "weight": 0.03715744858945808
+          "term": "virustotal",
+          "weight": 0.010257444266893276
         },
         {
-          "term": "shot",
-          "weight": 0.0315670559614978
+          "term": "extension",
+          "weight": 0.008670546402130561
         },
         {
-          "term": "nba",
-          "weight": 0.03084357009248126
+          "term": "feedback",
+          "weight": 0.008209697345088349
         },
         {
-          "term": "kuminga",
-          "weight": 0.03084357009248126
+          "term": "io",
+          "weight": 0.007971539154588408
         },
         {
-          "term": "playing",
-          "weight": 0.028539598735252917
-        },
-        {
-          "term": "set tone",
-          "weight": 0.02337986767999083
+          "term": "free",
+          "weight": 0.00771697061224832
         }
       ]
     },
     {
       "topic_id": 9,
-      "count": 3,
-      "name": "9_santos_gui_best_elite",
+      "count": 18,
+      "name": "9_security_roles_experience_appsec",
       "representation": [
         {
-          "term": "santos",
-          "weight": 0.04122980965107599
+          "term": "security",
+          "weight": 0.018643436281418315
         },
         {
-          "term": "gui",
-          "weight": 0.03551254565654478
+          "term": "roles",
+          "weight": 0.011995308329811253
         },
         {
-          "term": "best",
-          "weight": 0.033682341605719666
+          "term": "experience",
+          "weight": 0.011798583488028517
         },
         {
-          "term": "elite",
-          "weight": 0.03356358044118335
+          "term": "appsec",
+          "weight": 0.011355695007336002
         },
         {
-          "term": "better",
-          "weight": 0.03133363873691887
-        },
-        {
-          "term": "second",
-          "weight": 0.03131759847541232
-        },
-        {
-          "term": "half",
-          "weight": 0.029725958871566472
-        },
-        {
-          "term": "gp2",
-          "weight": 0.027486539767383994
+          "term": "work",
+          "weight": 0.011037176863597136
         },
         {
           "term": "career",
-          "weight": 0.026636717836393948
+          "weight": 0.010527864476560012
         },
         {
-          "term": "gotta",
-          "weight": 0.026636717836393948
+          "term": "grc",
+          "weight": 0.010130553968491416
+        },
+        {
+          "term": "transition",
+          "weight": 0.009871681210598362
+        },
+        {
+          "term": "years",
+          "weight": 0.009111658185656527
+        },
+        {
+          "term": "learn",
+          "weight": 0.0089821143267749
         }
       ]
     },
     {
       "topic_id": 10,
-      "count": 3,
-      "name": "10_kristaps_porzingis_melton_offer",
+      "count": 18,
+      "name": "10_cve_vulnerability_actually_cvss",
       "representation": [
         {
-          "term": "kristaps",
-          "weight": 0.0603378186136689
+          "term": "cve",
+          "weight": 0.02237994049213591
         },
         {
-          "term": "porzingis",
-          "weight": 0.056407167182951884
+          "term": "vulnerability",
+          "weight": 0.016105716298237777
         },
         {
-          "term": "melton",
-          "weight": 0.05013535857394557
+          "term": "actually",
+          "weight": 0.013271818375757517
         },
         {
-          "term": "offer",
-          "weight": 0.04738387826990591
+          "term": "cvss",
+          "weight": 0.012435706869087827
         },
         {
-          "term": "question",
-          "weight": 0.044213080200582094
+          "term": "tools",
+          "weight": 0.011725607948782742
         },
         {
-          "term": "kristaps porzingis",
-          "weight": 0.044213080200582094
+          "term": "patch",
+          "weight": 0.010072260241164628
         },
         {
-          "term": "able",
-          "weight": 0.041966059583387956
+          "term": "cves",
+          "weight": 0.010016834625938952
         },
         {
-          "term": "point",
-          "weight": 0.03483509092797884
+          "term": "prioritization",
+          "weight": 0.009631064656779108
         },
         {
-          "term": "kp",
-          "weight": 0.03280499740680611
-        },
-        {
-          "term": "year",
-          "weight": 0.030737702212435495
+          "term": "epss",
+          "weight": 0.009537607577639065
         }
       ]
     },
     {
       "topic_id": 11,
-      "count": 3,
-      "name": "11_night_team_close_vs",
+      "count": 16,
+      "name": "11_agents_access_ai_agent",
       "representation": [
         {
-          "term": "night",
-          "weight": 0.03331295844203825
+          "term": "agents",
+          "weight": 0.021240000872145514
         },
         {
-          "term": "team",
-          "weight": 0.029371167057164214
+          "term": "access",
+          "weight": 0.02022276069332448
         },
         {
-          "term": "close",
-          "weight": 0.027555225347993737
+          "term": "ai",
+          "weight": 0.019401987379943763
         },
         {
-          "term": "vs",
-          "weight": 0.02679459283317367
+          "term": "ai agents",
+          "weight": 0.013511630451530688
         },
         {
-          "term": "game",
-          "weight": 0.02424864504438442
+          "term": "accounts",
+          "weight": 0.012143129487516712
         },
         {
-          "term": "guys",
-          "weight": 0.02322920110739287
+          "term": "iam",
+          "weight": 0.010102994809822768
         },
         {
-          "term": "total team",
-          "weight": 0.023147296855988514
+          "term": "service",
+          "weight": 0.010015459698808538
         },
         {
-          "term": "wolves",
-          "weight": 0.023147296855988514
+          "term": "pam",
+          "weight": 0.009959209412796623
         },
         {
-          "term": "bucket",
-          "weight": 0.021598343776146427
+          "term": "tools",
+          "weight": 0.009448381891104946
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "count": 15,
+      "name": "12_security_wazuh_platform_open",
+      "representation": [
+        {
+          "term": "security",
+          "weight": 0.014146173913415404
+        },
+        {
+          "term": "wazuh",
+          "weight": 0.011850443842115576
+        },
+        {
+          "term": "platform",
+          "weight": 0.011800869183718742
+        },
+        {
+          "term": "open",
+          "weight": 0.009118308525282831
+        },
+        {
+          "term": "linux",
+          "weight": 0.008725032338149658
+        },
+        {
+          "term": "automation",
+          "weight": 0.008571084932640522
+        },
+        {
+          "term": "use",
+          "weight": 0.00855098786281411
+        },
+        {
+          "term": "workflow",
+          "weight": 0.008484196442975366
+        },
+        {
+          "term": "tool",
+          "weight": 0.007931803300750854
+        },
+        {
+          "term": "ideas",
+          "weight": 0.007710690648353124
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "count": 14,
+      "name": "13_vendor_compliance_audit_auditor",
+      "representation": [
+        {
+          "term": "vendor",
+          "weight": 0.02628808272172555
+        },
+        {
+          "term": "compliance",
+          "weight": 0.019237947182385255
+        },
+        {
+          "term": "audit",
+          "weight": 0.018231803026658343
+        },
+        {
+          "term": "frameworks",
+          "weight": 0.015445548818468265
+        },
+        {
+          "term": "risk",
+          "weight": 0.014584810648483701
+        },
+        {
+          "term": "grc",
+          "weight": 0.0106655273502109
+        },
+        {
+          "term": "soc",
+          "weight": 0.010423587109043276
+        },
+        {
+          "term": "control",
+          "weight": 0.010169063479731424
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "count": 14,
+      "name": "14_linkedin_edps_laws_eu",
+      "representation": [
+        {
+          "term": "linkedin",
+          "weight": 0.023847169991201157
+        },
+        {
+          "term": "edps",
+          "weight": 0.014352547009015547
+        },
+        {
+          "term": "laws",
+          "weight": 0.013597425538211829
+        },
+        {
+          "term": "eu",
+          "weight": 0.012025516635822228
+        },
+        {
+          "term": "microsoft",
+          "weight": 0.011927028091719716
+        },
+        {
+          "term": "fedramp",
+          "weight": 0.010941103298565305
+        },
+        {
+          "term": "age",
+          "weight": 0.009523690133763918
+        },
+        {
+          "term": "systems",
+          "weight": 0.009427847167646173
+        },
+        {
+          "term": "linkedin search",
+          "weight": 0.009296110471910809
+        },
+        {
+          "term": "search results keywords",
+          "weight": 0.009296110471910809
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "count": 13,
+      "name": "15_interview_questions_analyst_soc",
+      "representation": [
+        {
+          "term": "interview",
+          "weight": 0.04148787550602853
+        },
+        {
+          "term": "questions",
+          "weight": 0.019019999603582742
+        },
+        {
+          "term": "analyst",
+          "weight": 0.01706935801646568
+        },
+        {
+          "term": "soc",
+          "weight": 0.01553657889001948
+        },
+        {
+          "term": "technical",
+          "weight": 0.013206774666655433
+        },
+        {
+          "term": "role",
+          "weight": 0.01194119266258099
+        },
+        {
+          "term": "soc analyst",
+          "weight": 0.01193506289111147
+        },
+        {
+          "term": "job",
+          "weight": 0.011562456214145615
+        },
+        {
+          "term": "interview questions",
+          "weight": 0.00977344341282158
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "count": 12,
+      "name": "16_conference_rsa_events_vendors",
+      "representation": [
+        {
+          "term": "conference",
+          "weight": 0.031071411077235666
+        },
+        {
+          "term": "rsa",
+          "weight": 0.03082002610255427
+        },
+        {
+          "term": "events",
+          "weight": 0.021794670057692662
+        },
+        {
+          "term": "vendors",
+          "weight": 0.018970024978686523
+        },
+        {
+          "term": "friends",
+          "weight": 0.014499991836043311
+        },
+        {
+          "term": "tier",
+          "weight": 0.01438267884785866
+        },
+        {
+          "term": "attend",
+          "weight": 0.014318699084317167
+        },
+        {
+          "term": "expo",
+          "weight": 0.012740852720903709
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "count": 12,
+      "name": "17_jobs_job_cybersecurity_school",
+      "representation": [
+        {
+          "term": "jobs",
+          "weight": 0.01875691423418027
+        },
+        {
+          "term": "cybersecurity",
+          "weight": 0.014575312361324014
+        },
+        {
+          "term": "school",
+          "weight": 0.010606776462701775
+        },
+        {
+          "term": "security",
+          "weight": 0.01009252239705015
+        },
+        {
+          "term": "started",
+          "weight": 0.00960170436690145
+        },
+        {
+          "term": "resume",
+          "weight": 0.008844607366574005
+        },
+        {
+          "term": "work",
+          "weight": 0.008449375324455466
+        },
+        {
+          "term": "trying",
+          "weight": 0.008290785518830742
+        },
+        {
+          "term": "years",
+          "weight": 0.0075358347613444536
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "count": 12,
+      "name": "18_injection_prompt_prompt injection_model",
+      "representation": [
+        {
+          "term": "injection",
+          "weight": 0.02113749297081895
+        },
+        {
+          "term": "prompt injection",
+          "weight": 0.015918433005687797
+        },
+        {
+          "term": "model",
+          "weight": 0.01548035576158546
+        },
+        {
+          "term": "copilot",
+          "weight": 0.014948345088318608
+        },
+        {
+          "term": "data",
+          "weight": 0.014896325680868017
+        },
+        {
+          "term": "ai",
+          "weight": 0.014658505981044508
+        },
+        {
+          "term": "llm",
+          "weight": 0.013823991634325232
+        },
+        {
+          "term": "teams",
+          "weight": 0.013515399440025968
+        },
+        {
+          "term": "sensitive",
+          "weight": 0.011594254247256809
+        }
+      ]
+    },
+    {
+      "topic_id": 19,
+      "count": 11,
+      "name": "19_stryker_intune_microsoft_ibb",
+      "representation": [
+        {
+          "term": "stryker",
+          "weight": 0.041918015272398086
+        },
+        {
+          "term": "intune",
+          "weight": 0.032602900767420735
+        },
+        {
+          "term": "microsoft",
+          "weight": 0.01956347512074158
+        },
+        {
+          "term": "ibb",
+          "weight": 0.01818526737350623
+        },
+        {
+          "term": "admin",
+          "weight": 0.017596775115896794
+        },
+        {
+          "term": "dell",
+          "weight": 0.016862845379186045
+        },
+        {
+          "term": "apex",
+          "weight": 0.015248075592540171
+        },
+        {
+          "term": "devices",
+          "weight": 0.014839940198796128
+        },
+        {
+          "term": "cpu",
+          "weight": 0.01272968716145436
+        },
+        {
+          "term": "wipe",
+          "weight": 0.012133519823205678
+        }
+      ]
+    },
+    {
+      "topic_id": 20,
+      "count": 11,
+      "name": "20_code_github_ai_gitleaks",
+      "representation": [
+        {
+          "term": "code",
+          "weight": 0.01905636363579084
+        },
+        {
+          "term": "github",
+          "weight": 0.017338085656661964
+        },
+        {
+          "term": "ai",
+          "weight": 0.015455540585214776
+        },
+        {
+          "term": "gitleaks",
+          "weight": 0.010873112404680715
+        },
+        {
+          "term": "line",
+          "weight": 0.010716162851168172
+        },
+        {
+          "term": "sast",
+          "weight": 0.01011238979470287
+        },
+        {
+          "term": "secrets",
+          "weight": 0.010041218372781088
+        },
+        {
+          "term": "betterleaks",
+          "weight": 0.010019375209160832
+        },
+        {
+          "term": "security",
+          "weight": 0.009582527914220488
+        },
+        {
+          "term": "regex",
+          "weight": 0.00925570781172248
+        }
+      ]
+    },
+    {
+      "topic_id": 21,
+      "count": 11,
+      "name": "21_breach_telus_data_telus digital",
+      "representation": [
+        {
+          "term": "breach",
+          "weight": 0.05646359457195315
+        },
+        {
+          "term": "telus",
+          "weight": 0.0552831329441401
+        },
+        {
+          "term": "data",
+          "weight": 0.03027133424932268
+        },
+        {
+          "term": "telus digital",
+          "weight": 0.026590888659221136
+        },
+        {
+          "term": "field effect",
+          "weight": 0.0237149240562152
+        },
+        {
+          "term": "petabyte data",
+          "weight": 0.02077032506580932
+        },
+        {
+          "term": "records",
+          "weight": 0.019876505223982408
+        }
+      ]
+    },
+    {
+      "topic_id": 22,
+      "count": 11,
+      "name": "22_knowledge_cybersecurity_learning_programming",
+      "representation": [
+        {
+          "term": "knowledge",
+          "weight": 0.020772346268688343
+        },
+        {
+          "term": "cybersecurity",
+          "weight": 0.01937431148454719
+        },
+        {
+          "term": "learning",
+          "weight": 0.01738371407727777
+        },
+        {
+          "term": "programming",
+          "weight": 0.017309428275808923
+        },
+        {
+          "term": "start",
+          "weight": 0.015591214054286937
+        },
+        {
+          "term": "crowdstrike",
+          "weight": 0.015115810355745893
+        },
+        {
+          "term": "courses",
+          "weight": 0.014084004679565698
+        },
+        {
+          "term": "falcon",
+          "weight": 0.013762199290118174
+        },
+        {
+          "term": "topics",
+          "weight": 0.012047141848745424
+        }
+      ]
+    },
+    {
+      "topic_id": 23,
+      "count": 10,
+      "name": "23_experience_cybersecurity_cyber_role",
+      "representation": [
+        {
+          "term": "experience",
+          "weight": 0.024195609559596678
+        },
+        {
+          "term": "cybersecurity",
+          "weight": 0.021395503754081713
+        },
+        {
+          "term": "cyber",
+          "weight": 0.020663744088622055
+        },
+        {
+          "term": "role",
+          "weight": 0.01963649364260661
+        },
+        {
+          "term": "field",
+          "weight": 0.019367119127338885
+        },
+        {
+          "term": "career",
+          "weight": 0.018253125796112327
+        },
+        {
+          "term": "security",
+          "weight": 0.016790438165487215
+        },
+        {
+          "term": "volunteer",
+          "weight": 0.015490481408899966
+        },
+        {
+          "term": "job",
+          "weight": 0.014445463388593765
+        },
+        {
+          "term": "work",
+          "weight": 0.014174938866685156
+        }
+      ]
+    },
+    {
+      "topic_id": 24,
+      "count": 10,
+      "name": "24_agent_mcp_cli_agents",
+      "representation": [
+        {
+          "term": "agent",
+          "weight": 0.02427799400123291
+        },
+        {
+          "term": "mcp",
+          "weight": 0.02370727446305
+        },
+        {
+          "term": "cli",
+          "weight": 0.021929215017976
+        },
+        {
+          "term": "ai",
+          "weight": 0.015639259812453822
+        },
+        {
+          "term": "tool",
+          "weight": 0.013434615466009926
+        },
+        {
+          "term": "claude",
+          "weight": 0.013360178006092169
+        },
+        {
+          "term": "code",
+          "weight": 0.012160378346696123
+        },
+        {
+          "term": "ai agent",
+          "weight": 0.011795394563784718
+        },
+        {
+          "term": "security",
+          "weight": 0.011605771546981922
+        }
+      ]
+    },
+    {
+      "topic_id": 25,
+      "count": 10,
+      "name": "25_disclosure_ptc_rce_backup",
+      "representation": [
+        {
+          "term": "disclosure",
+          "weight": 0.03646351532666643
+        },
+        {
+          "term": "ptc",
+          "weight": 0.02746978703178261
+        },
+        {
+          "term": "rce",
+          "weight": 0.026735223042457
+        },
+        {
+          "term": "backup",
+          "weight": 0.026312706915557666
+        },
+        {
+          "term": "2026",
+          "weight": 0.02509541351494251
+        },
+        {
+          "term": "vulnerability",
+          "weight": 0.024369482636976445
+        },
+        {
+          "term": "critical",
+          "weight": 0.024366283762748582
+        },
+        {
+          "term": "team82",
+          "weight": 0.024058959867895795
+        },
+        {
+          "term": "disclosure dashboard",
+          "weight": 0.024058959867895795
+        },
+        {
+          "term": "windchill",
+          "weight": 0.024058959867895795
+        }
+      ]
+    },
+    {
+      "topic_id": 26,
+      "count": 9,
+      "name": "26_password_passkeys_passkey_bitwarden",
+      "representation": [
+        {
+          "term": "password",
+          "weight": 0.04373321338718372
+        },
+        {
+          "term": "bitwarden",
+          "weight": 0.024003910895484707
+        },
+        {
+          "term": "password manager",
+          "weight": 0.02038481794965237
+        },
+        {
+          "term": "hardware",
+          "weight": 0.01932183218205199
+        },
+        {
+          "term": "mfa",
+          "weight": 0.019036968840750856
+        },
+        {
+          "term": "tpm",
+          "weight": 0.017017292755681503
+        },
+        {
+          "term": "yubikey",
+          "weight": 0.01675441602324084
+        }
+      ]
+    },
+    {
+      "topic_id": 27,
+      "count": 9,
+      "name": "27_python_github_tool_akira",
+      "representation": [
+        {
+          "term": "python",
+          "weight": 0.03306144336872264
+        },
+        {
+          "term": "github",
+          "weight": 0.02741178004231975
+        },
+        {
+          "term": "tool",
+          "weight": 0.023258274092198012
+        },
+        {
+          "term": "akira",
+          "weight": 0.022363462983812164
+        },
+        {
+          "term": "attack",
+          "weight": 0.021816445219888476
+        },
+        {
+          "term": "wireshark",
+          "weight": 0.019168682557553284
+        },
+        {
+          "term": "kerberos",
+          "weight": 0.019168682557553284
+        },
+        {
+          "term": "feedback",
+          "weight": 0.018872835450360833
+        },
+        {
+          "term": "graph",
+          "weight": 0.01860343965493766
+        },
+        {
+          "term": "nmap",
+          "weight": 0.018487352871617808
+        }
+      ]
+    },
+    {
+      "topic_id": 28,
+      "count": 9,
+      "name": "28_key_file_commitment_message",
+      "representation": [
+        {
+          "term": "key",
+          "weight": 0.017687718793050394
+        },
+        {
+          "term": "file",
+          "weight": 0.017433933475506286
+        },
+        {
+          "term": "commitment",
+          "weight": 0.01574324575477825
+        },
+        {
+          "term": "message",
+          "weight": 0.014322440915601966
+        },
+        {
+          "term": "signal",
+          "weight": 0.012799441948601045
+        },
+        {
+          "term": "shadowsign",
+          "weight": 0.011772765870763976
+        },
+        {
+          "term": "privatebin",
+          "weight": 0.011772765870763976
+        },
+        {
+          "term": "hmac",
+          "weight": 0.01155041726134918
+        },
+        {
+          "term": "app",
+          "weight": 0.011098814398813217
+        },
+        {
+          "term": "server",
+          "weight": 0.010988414819108956
+        }
+      ]
+    },
+    {
+      "topic_id": 29,
+      "count": 8,
+      "name": "29_ios_darksword_ios exploit_exploit",
+      "representation": [
+        {
+          "term": "ios",
+          "weight": 0.0460364172287206
+        },
+        {
+          "term": "darksword",
+          "weight": 0.042045592395585626
+        },
+        {
+          "term": "ios exploit",
+          "weight": 0.03682493857330989
+        },
+        {
+          "term": "iphone",
+          "weight": 0.03475810986322021
+        },
+        {
+          "term": "ios exploit kit",
+          "weight": 0.020179766136463946
+        },
+        {
+          "term": "archive",
+          "weight": 0.020179766136463946
+        },
+        {
+          "term": "exploit kit",
+          "weight": 0.020179766136463946
+        },
+        {
+          "term": "ios exploit chain",
+          "weight": 0.020179766136463946
+        }
+      ]
+    },
+    {
+      "topic_id": 30,
+      "count": 8,
+      "name": "30_siem_elastic_alerts_ids",
+      "representation": [
+        {
+          "term": "siem",
+          "weight": 0.057962032843682516
+        },
+        {
+          "term": "elastic",
+          "weight": 0.04587440179298869
+        },
+        {
+          "term": "alerts",
+          "weight": 0.023937768890233968
+        },
+        {
+          "term": "logs",
+          "weight": 0.02230300899798065
+        },
+        {
+          "term": "ids alerts",
+          "weight": 0.018085192265254322
+        },
+        {
+          "term": "securityonion",
+          "weight": 0.017556078909373368
+        },
+        {
+          "term": "lakewatch new open",
+          "weight": 0.014075566415469514
+        }
+      ]
+    },
+    {
+      "topic_id": 31,
+      "count": 8,
+      "name": "31_course_training_security_looking",
+      "representation": [
+        {
+          "term": "course",
+          "weight": 0.02516562970297421
+        },
+        {
+          "term": "training",
+          "weight": 0.023938259583295887
+        },
+        {
+          "term": "security",
+          "weight": 0.023912079121127302
+        },
+        {
+          "term": "looking",
+          "weight": 0.02123057290727794
+        },
+        {
+          "term": "academy",
+          "weight": 0.01913320101200523
+        },
+        {
+          "term": "hardware",
+          "weight": 0.018366062881396465
+        },
+        {
+          "term": "maldev",
+          "weight": 0.01666132954840429
+        },
+        {
+          "term": "ai security",
+          "weight": 0.016622148797714464
+        },
+        {
+          "term": "hands",
+          "weight": 0.016491007791259282
+        }
+      ]
+    },
+    {
+      "topic_id": 32,
+      "count": 7,
+      "name": "32_salary_spain_dere_cybersecurity",
+      "representation": [
+        {
+          "term": "salary",
+          "weight": 0.026041492868322996
+        },
+        {
+          "term": "spain",
+          "weight": 0.02491921333925283
+        },
+        {
+          "term": "dere",
+          "weight": 0.02362581983754088
+        },
+        {
+          "term": "cybersecurity",
+          "weight": 0.023064656529222842
+        },
+        {
+          "term": "barcelona",
+          "weight": 0.020185180742773798
+        },
+        {
+          "term": "har",
+          "weight": 0.019688183197950734
+        },
+        {
+          "term": "og",
+          "weight": 0.019688183197950734
+        },
+        {
+          "term": "uk",
+          "weight": 0.017772796281474188
+        },
+        {
+          "term": "fra",
+          "weight": 0.016634824964112813
         }
       ]
     }

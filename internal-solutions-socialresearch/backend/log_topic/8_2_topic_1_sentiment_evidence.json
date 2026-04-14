@@ -1,50 +1,53 @@
 {
   "positive": [
     {
-      "point": "Cautious optimism about Steph Curry's return in March after a strong on-court workout and no swelling issues.",
+      "point": "Development of tools like TraceTree and safe-install that analyze runtime behavior and provide sandbox isolation to catch supply chain attacks that static scanners miss.",
       "post_refs": [
-        "1rxfuz3"
+        "1s42qfm",
+        "1s36x7y"
       ]
     },
     {
-      "point": "Jimmy Butler's positive impact on the Warriors' locker room and team spirit is appreciated and missed.",
+      "point": "Community efforts in quickly identifying and escalating security threats, such as Callum's quick action on the litellm compromise and the development of tools like MUAD\u2019DIB for real-time monitoring.",
       "post_refs": [
-        "1rwfn2u",
-        "1rvyjlb",
-        "1rvoixy"
+        "1s3natc",
+        "1s1blbi"
       ]
     },
     {
-      "point": "Jimmy Butler's dedication to being with the team, even traveling to DC to be around his teammates.",
+      "point": "Implementation of organizational policies like dependency cooldowns to prevent immature packages from being used, thereby reducing operational risks.",
       "post_refs": [
-        "1rvoixy"
-      ]
-    },
-    {
-      "point": "Fans' excitement about the potential for a high-scoring game against the Wizards.",
-      "post_refs": [
-        "1rvoqsb"
+        "1s38v9m"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Concerns about the Warriors' injury reports and the impact on team performance.",
+      "point": "Widespread compromise of popular tools like litellm and Trivy, leading to credential theft and persistent backdoors, highlighting the vulnerability of supply chains.",
       "post_refs": [
-        "1rxj1z4",
-        "1rvoqsb"
+        "1s2gf82",
+        "1s18t30",
+        "1s2tau0"
       ]
     },
     {
-      "point": "Frustration with Jimmy Butler's absence from games and events, raising questions about his commitment.",
+      "point": "The use of sophisticated social engineering tactics by threat groups like NICKEL ALLEY to target developers through fake job opportunities, leading to malware infections.",
       "post_refs": [
-        "1ruz7hd"
+        "1s3zh7c",
+        "1s0kn5a"
       ]
     },
     {
-      "point": "Fans experiencing despair after a Warriors loss, highlighting the emotional impact of the team's performance.",
+      "point": "The ongoing issue of dependency confusion and typo-squatting attacks, where attackers exploit package management systems to distribute malicious code.",
       "post_refs": [
-        "1rvgbib"
+        "1s2g1ns",
+        "1s06lcg"
+      ]
+    },
+    {
+      "point": "The architectural flaws in AI orchestration tools that allow for rapid exploitation of vulnerabilities, as seen with Langflow's repeated security issues.",
+      "post_refs": [
+        "1s0rqzd"
       ]
     }
   ]

@@ -1,0 +1,13 @@
+Topic 20 - Content Sample
+Number of content items: 25
+Top words: code, github, ai, gitleaks, line, sast, secrets
+
+Content 1 (length: 140 chars):
+\*\*Repo:\*\* [https://github.com/deepanshu-maliyan/guardrails-for-ai-coders](https://github.com/deepanshu-maliyan/guardrails-for-ai-coders)
+
+Content 2 (length: 245 chars):
+1. Run one command in your project: \`curl -sSL [https://raw.githubusercontent.com/deepanshu-maliyan/guardrails-for-ai-coders/main/install.sh](https://raw.githubusercontent.com/deepanshu-maliyan/guardrails-for-ai-coders/main/install.sh) | bash\`
+
+Content 3 (length: 480 chars):
+One thing worth pressure-testing though: SAST was designed to pattern-match against known vulnerability signatures. AI-generated code is introducing a different class of problem, specifically logic flaws and subtle misuse of secure APIs that look syntactically clean. Your pipeline is getting better at filtering the noise, but the signal it's preserving may itself be incomplete. The findings that make it through triage are the ones your existing rules already know to look for.
+

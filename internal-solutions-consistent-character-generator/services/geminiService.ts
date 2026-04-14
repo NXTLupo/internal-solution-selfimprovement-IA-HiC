@@ -344,7 +344,7 @@ export const generateCharacterImage = async (description: string): Promise<Image
   const prompt = buildEnhancedCharacterPrompt(description);
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3-pro-image-preview',
+    model: 'gemini-3.1-flash-image-preview',
     contents: {
       parts: [{ text: prompt }],
     },
@@ -360,7 +360,7 @@ export const generateObjectImage = async (description: string): Promise<ImageDat
     const prompt = `Generate a highly realistic photographic image of an object based on this description: "${description}". The object must be isolated on a clean, neutral, light-gray studio background. The image should be photorealistic and detailed.`;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-image-preview',
+        model: 'gemini-3.1-flash-image-preview',
         contents: { parts: [{ text: prompt }] },
         config: { responseModalities: [Modality.IMAGE, Modality.TEXT] },
     });
@@ -387,7 +387,7 @@ export const generateCharactersFromImage = async (image: ImageData, hint: string
     `;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-image-preview',
+        model: 'gemini-3.1-flash-image-preview',
         contents: {
             parts: [
                 { inlineData: { data: image.base64, mimeType: image.mimeType } },
@@ -421,7 +421,7 @@ export const generateObjectsFromImage = async (image: ImageData, hint: string): 
     `;
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-image-preview',
+        model: 'gemini-3.1-flash-image-preview',
         contents: {
             parts: [
                 { inlineData: { data: image.base64, mimeType: image.mimeType } },
@@ -998,7 +998,7 @@ FINAL REMINDER: Generate this as ${aspectRatio === '16:9' ? 'landscape (wide)' :
     parts.push({ text: prompt });
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-image-preview',
+      model: 'gemini-3.1-flash-image-preview',
       contents: [
         {
           role: 'user',

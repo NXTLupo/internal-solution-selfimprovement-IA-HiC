@@ -1,15 +1,16 @@
 Topic 4 - Content Sample
-Number of content items: 9
-Top words: podz, players, rebounds, hair, ego, guard, hate
+Number of content items: 25
+Top words: email, password, device, blackberry, mobile, account, phishing
 
-Content 1 (length: 564 chars):
-PODZ needs a haircut, maybe he will get better I've said this once and I'll say it again, podz needs a wigga haircut. Get a buzzcut and you'll get better 10x. Example of players who are better with shorter hair: Braun, DiVincenzo, Pritchard. This is proven by fact through the studies of eugenics conducted for years showing males with shorter hair to excel in basketball several magnitudes higher than their long hair compadres Damn I wouldn’t have recognized him
-This is the great example 
-I want more dumbass posts like this tbh and less of the doomer shit lmao
+Content 1 (length: 229 chars):
+Long before mobile security became a mainstream concern, BlackBerry built its entire identity around protecting sensitive information. Several core elements of its security architecture still echo across today’s mobile ecosystem:
 
-Content 2 (length: 101 chars):
-The ego on Podz is crazy. All his mistakes and still gets a ton of minutes and doesn’t get yelled at.
+Content 2 (length: 178 chars):
+Even though BlackBerry devices are no longer mainstream, the industry absorbed many of its ideas. Today’s mobile security landscape reflects several BlackBerry‑driven principles:
 
-Content 3 (length: 197 chars):
-We owe Podz an apology Podz has stepped up massively since Steph went down. Y'all love to hate on him because of his ego, which is somewhat deserved, but he's been lights out since Steph went down.
+Content 3 (length: 327 chars):
+* BlackBerry’s security culture pushed competitors to take mobile protection seriously.
+* Its early innovations shaped enterprise mobility standards.
+* Its approach to encryption and device integrity still informs modern best practices.
+* Its software division continues to contribute to threat detection and endpoint security.
 

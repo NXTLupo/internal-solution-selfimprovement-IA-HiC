@@ -1,0 +1,118 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: linkedin, edps, laws, eu, microsoft, fedramp, age
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+The General Services Administration, which houses FedRAMP, did not respond to written questions regarding the Microsoft product’s authorization. In a statement, GSA said that “FedRAMP’s role is to assess if cloud services have provided sufficient information and materials to be adequate for agency use, and the program today operates with strengthened oversight and accountability mechanisms to do exactly that.”
+Thanks for sharing. Keep up the good work. [...]
+
+EXAMPLE 2:
+In response to questions, Microsoft acknowledged a yearslong confrontation with FedRAMP but also said it provided “comprehensive documentation” throughout the review process and “remediated findings where possible.” A spokesperson acknowledged that Microsoft faces a unique challenge but maintains that its cloud products meet federal security requirements.
+
+EXAMPLE 3:
+All this data protection mess has happened under [Wojciech Wiewiorowski](https://www.linkedin.com/in/wiewiorowski/)'s close watch, I hope [Bruno Gencarelli](https://www.linkedin.com/in/bruno-gencarelli-9a84501/), [François PELLEGRINI](https://www.linkedin.com/in/fran%C3%A7ois-pellegrini-908512a5/) or [Anna Pouliou](https://www.linkedin.com/in/anna-p-b99aa77/) who are running for the EDPS chair change EDPS' direction.
+
+EXAMPLE 4:
+🚨 Urgent Call for Investigation: Open Letter to OLAF Regarding European Data Protection Supervisor II  
+[https://www.linkedin.com/posts/juansierrapons\_open-letter-reporting-the-edps-activity-7393621582344097793-sqjf](https://www.linkedin.com/posts/juansierrapons_open-letter-reporting-the-edps-activity-7393621582344097793-sqjf) Do yourself and your audience a favor and [read this](https://publications.europa.eu/resource/cellar/725b7eb0-d92e-11e5-8fea-01aa75ed71a1.0004.03/DOC_1). Your story is incomprehensible for anyone who isn't familiar with it and it reads like the ramblings of a mad man. [...]
+
+EXAMPLE 5:
+Complaint to the OLAF against the EDPS I  
+[https://www.linkedin.com/posts/juansierrapons\_open-letter-reporting-the-edps-activity-7375843925686661121-cppu](https://www.linkedin.com/posts/juansierrapons_open-letter-reporting-the-edps-activity-7375843925686661121-cppu)
+
+EXAMPLE 6:
+The alarming composition of the Interinstitutional Cybersecurity Board (IICB) A recently disclosed public document on the composition of the Interinstitutional [hashtag#Cybersecurity](https://www.linkedin.com/search/results/all/?keywords=%23cybersecurity&origin=HASH_TAG_FROM_FEED) Board (IICB) shows that Mr [Leonardo Cervera-Navas](https://www.linkedin.com/in/leonardo-cervera-navas-674a793/), Secretary‑General of the [EDPS - European Data Protection Supervisor](https://www.linkedin.com/company/edps/), is the EDPS’ official member on this Board. [...]
+
+EXAMPLE 7:
+The matter has also been escalated to [European Anti-Fraud Office (OLAF)](https://www.linkedin.com/company/european-anti-fraud-office-olaf/) (now under new management as Mr. Petr Klement has taken the Director General seat last February). Also [POLITICO Europe](https://www.linkedin.com/company/politico-europe/) [POLITICO](https://www.linkedin.com/company/politico/) in a Linkedin post by u/Ellen  
+O'Regan has confirmed that: "Staff members at the European Data Protection Supervisor are being investigated by the EU’s anti-fraud agency, the fraud agency confirmed to POLITICO."
+
+EXAMPLE 8:
+What do you guys know about this? no. some dumb politicians keep trying tho. just google a bit. the first attempt in EU was basically "ACTA" and the last one was "chat control 2.0". not sure about other countries, but california did an oopsie with age verification on all systems recently.
+
+EXAMPLE 9:
+**Read our full investigation:** [https://www.propublica.org/article/microsoft-cloud-fedramp-cybersecurity-government](https://www.propublica.org/article/microsoft-cloud-fedramp-cybersecurity-government)
+
+EXAMPLE 10:
+The link the the letter from Mr [Leonardo Cervera-Navas](https://www.linkedin.com/in/leonardo-cervera-navas-674a793/) addressed to Mr [Thomas Zerdick](https://www.linkedin.com/in/thomaszerdick/) [https://www.elsotanillo.net/wp-content/uploads/EDPS/Reply%20letter%20to%20Mr%20Zerdick\_2025-0348%20D(2025)%201485%20(25-04-25).pdf](https://www.elsotanillo.net/wp-content/uploads/EDPS/Reply%20letter%20to%20Mr%20Zerdick_2025-0348%20D(2025)%201485%20(25-04-25).pdf)
+
+EXAMPLE 11:
+This sounds a little bit like fearmongering to me. Also, during the whole clip this guy not once mentions the names of the laws or draft laws (I mean legally speaking, my mother as a lawyer said it can’t be only one law made together as there are totally different laws & ways of making laws in the US, EU & UK), or ANYTHING concrete at all, like exact dates when these laws will go into effect, who is making these laws (what does he mean „THE US“, „THE EU“, „THE UK“, WHICH part of government exactly, which political parties, is everyone everywhere e.g. [...]
+
+EXAMPLE 12:
+Although the U.S. created a program called FedRAMP to ensure the security of new cloud technology, ProPublica’s investigation — drawn from internal memos, emails, and interviews with former and current staff — found breakdowns at every juncture of that process.
+
+EXAMPLE 13:
+The gravity of the situation lies in this disconnect: the EDPS’s top representative on the Interinstitutional Cybersecurity Board is publicly endorsing practices that undermine core principles of auditability, traceability and evidence integrity in logging. If such standards are considered acceptable within the EDPS itself, it raises uncomfortable questions about the level of cybersecurity assurance and forensic robustness being promoted at inter‑institutional level.
+
+EXAMPLE 14:
+EU+US+UK made a new law together that will erase privacy online 100%? Not even surfing on Tor Browser will be anonymous at all, all encryption can be broken. No loopholes possible. World changing new law that will affect even the governments, the goal is to fight global corruption, is this true? Hi,
+
+EXAMPLE 15:
+This matters because in his capacity as [hashtag#EDPS](https://www.linkedin.com/search/results/all/?keywords=%23edps&origin=HASH_TAG_FROM_FEED) Secretary‑General, Mr Cervera Navas has signed an official reply in complaint case 2025‑0299 which defends providing consultation logs in non‑machine‑readable PDF format, composed of screen captures, as fully compliant with the right of access. Even more troubling, the letter explicitly states that “the content of the logs was provided in a screen capture format, which shows that information has not been tampered with,” treating the mere use of screens [...]
+
+EXAMPLE 16:
+currently, neither US, UK nor EU or any EU country has laws that force identities on device level or for social accounts and also none that force companies to implement backdoors in encryption. UK is trying really hard tho, google "uk apple encryption".
+
+EXAMPLE 17:
+Federal Cyber Experts Thought Microsoft’s Cloud Was “a Pile of Shit.” They Approved It Anyway.  Hi r/cybersecurity,
+
+EXAMPLE 18:
+Today he sent me a short video apparently from TikTok, of a guy I have never seen in my life spreading A LOT of fear about that the UK, EU & US have rolled out legislation that will come into effect in about 12 months (I don’t know from when this video is though, my friend just sent it to me today).Every operating system including those deemed to be free, open source & privacy based will be required to log & store user based identities & this doesn’t only apply to operating systems but also application developers. [...]
+
+EXAMPLE 19:
+if we combine all US, EU, UK and AUS proposals on this topic, then the total result would be still be less than what your friend claims, it would come close though. so if you care about this, maybe inform yourself a bit about the actual laws that are proposed on this topic and share that info and make sure to vote for parties who are opposed to all that surveillance crap or let those who support it know that you won't ever vote for them if they support such things. [...]
+
+EXAMPLE 20:
+For years, reviewers said, Microsoft had failed to fully explain how it protects sensitive U.S. government information in the cloud as it hops from server to server. Given that and other unknowns, they couldn’t vouch for the tech’s security.
+
+EXAMPLE 21:
+My point mostly being that technological control and enforcement has always been a cat and mouse game, and anything short of plugging our heads into a matrix will always have mice adapting. For every technically adept person working to enforce a controlled internet by leveraging the latest technology, there is an equally technically adept person on the other side leveraging the same technology to get around it.
+
+EXAMPLE 22:
+We thought folks here may be interested in our latest investigation:  
+  
+In late 2024, federal cybersecurity evaluators gave a troubling verdict on one of Microsoft’s biggest cloud computing offerings: “The package is a pile of shit.”
+
+EXAMPLE 23:
+From any basic [hashtag#cybersecurity](https://www.linkedin.com/search/results/all/?keywords=%23cybersecurity&origin=HASH_TAG_FROM_FEED) or [hashtag#digital](https://www.linkedin.com/search/results/all/?keywords=%23digital&origin=HASH_TAG_FROM_FEED) [hashtag#forensics](https://www.linkedin.com/search/results/all/?keywords=%23forensics&origin=HASH_TAG_FROM_FEED) perspective, this is indefensible. Screenshots are among the easiest artefacts to falsify; they provide no cryptographic integrity, no verifiable chain of custody, and no ability for an independent expert to parse, correlate or validate [...]
+
+EXAMPLE 24:
+It also found a remarkable deference to Microsoft, even as the company’s products and practices were central to two of the most damaging cyberattacks ever carried out against the government.
+
+EXAMPLE 25:
+I have an online friend that I have the feeling may be a bit of a conspiracy theorist, so I‘m not sure what to believe.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

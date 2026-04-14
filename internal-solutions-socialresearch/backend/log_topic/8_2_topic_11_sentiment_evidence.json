@@ -1,41 +1,59 @@
 {
   "positive": [
     {
-      "point": "Kristaps Porzingis had an impressive performance with 30 points, 5 rebounds, 4 assists, and 3 blocks, showing aggression and contributing significantly to the team's efforts.",
+      "point": "Integration of approval workflows within Delinea PAM system for seamless access management.",
       "post_refs": [
-        "1rvudrn"
+        "1s4b6sp"
       ]
     },
     {
-      "point": "Despite being shorthanded with a significant portion of the team salary out injured, the team played competitively against the Knicks, showcasing the potential of less experienced players.",
+      "point": "Open source governance layer for AI agent actions aligns with upcoming regulations like FINRA 2026 and EU AI Act.",
       "post_refs": [
-        "1rvrk8z"
+        "1s4azxv"
       ]
     },
     {
-      "point": "The team demonstrated resilience and heart by fighting back in the fourth quarter against a more talented Knicks team, providing valuable experience for young players.",
+      "point": "Cartography tool now inventories AI agents and maps them to IAM roles, enhancing visibility and security.",
       "post_refs": [
-        "1rvn7qc"
+        "1rsv2n3"
       ]
     },
     {
-      "point": "The team's performance against the Wolves was commendable, with a significant comeback making it a winnable game, highlighting the competitive spirit of the young squad.",
+      "point": "Regular audits and reviews in Google Workspace security help maintain least privilege and compliance.",
       "post_refs": [
-        "1rvn7qc"
+        "1s1vhub"
       ]
     }
   ],
   "negative": [
     {
-      "point": "The team faced a close loss against the Knicks, which was disappointing given the circumstances of playing with a significantly reduced roster.",
+      "point": "Lack of visibility and governance for legacy and shadow applications in IGA systems.",
       "post_refs": [
-        "1rvrk8z"
+        "1s34ebo"
       ]
     },
     {
-      "point": "The absence of key players due to injuries, with 187 million out of 204 million total team salary unavailable, highlighted the team's vulnerability and the need for improvement among less experienced players.",
+      "point": "AI agents often have unclear ownership and overly broad permissions, posing security risks.",
       "post_refs": [
-        "1rvrk8z"
+        "1s22un1"
+      ]
+    },
+    {
+      "point": "Unused permissions in AI agents create a significant security threat due to their continuous operation.",
+      "post_refs": [
+        "1ry0ygt"
+      ]
+    },
+    {
+      "point": "Service accounts created by former employees remain active, posing security risks due to lack of ownership and lifecycle management.",
+      "post_refs": [
+        "1rvzlxr"
+      ]
+    },
+    {
+      "point": "AI agents lack identity governance, leading to unmanaged access and security gaps.",
+      "post_refs": [
+        "1rsi91w"
       ]
     }
   ]

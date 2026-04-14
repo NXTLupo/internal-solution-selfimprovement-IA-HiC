@@ -1,0 +1,13 @@
+Topic 26 - Content Sample
+Number of content items: 23
+Top words: password, bitwarden, password manager, hardware, mfa, tpm, yubikey
+
+Content 1 (length: 325 chars):
+You're also correct that your putting a lot of trust in your password manager, Bitwarden, as it now has the only factor involved, which locally is protected by your master password and remotely on their servers by your password (that handles encryption of your vault) and your mfa (which should be a hardware webauthn/fido2).
+
+Content 2 (length: 165 chars):
+The best option is password + hardware backed webauthn(eg yubikey), followerd by password (in Bitwarden password manager) + passkey mfa (maybe chrome or your phone).
+
+Content 3 (length: 520 chars):
+I am currently using Bitwarden to store my password and Google authenticator as my MFA where possible, including MFA for Bitwarden. I have all of my passwords for financial institutions stored in Bitwarden, however, the last 6 characters of my passwords are not stored in the vault. I have memorized this string of characters and add it to my vault password when I am logging in. I only do this for my bank/financial accounts. I also have MFA set up where possible, unfortunately, one of my bank accounts only allow SMS.
+

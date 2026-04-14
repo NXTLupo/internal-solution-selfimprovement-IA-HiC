@@ -4,6 +4,7 @@ import requests
 import json
 import logging
 from datetime import datetime
+import queue
 import threading
 import time
 import uuid
@@ -493,6 +494,27 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
         target_url = f"{urls['agent']['internal_url']}/api/chat/conversation"
         return proxy_request(target_url, request.method, request.headers, request.get_data(), request.args)
 
+    # Proxy generated images from agent backend
+    @app.route('/api/chat/image/<image_id>')
+    def proxy_chat_image(image_id):
+        """Proxy generated character/scene images from agent backend."""
+        urls = get_dynamic_urls(request_is_secure=False)
+        if 'agent' not in urls:
+            return jsonify({"error": "Agent not configured"}), 404
+        target_url = f"{urls['agent']['internal_url']}/api/chat/image/{image_id}"
+        try:
+            resp = requests.get(target_url, timeout=10, stream=True)
+            if resp.status_code == 200:
+                from flask import Response
+                return Response(
+                    resp.content,
+                    content_type=resp.headers.get('content-type', 'image/jpeg'),
+                )
+            return jsonify({"error": "Image not found"}), 404
+        except Exception as e:
+            logger.error(f"Image proxy error: {e}")
+            return jsonify({"error": str(e)}), 500
+
     # API endpoint for sending chat messages - Proxy to agent
     @app.route('/api/chat/message', methods=['POST'])
     def send_chat_message():
@@ -538,14 +560,20 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
     # WebSocket proxy to the agent
     @sock.route('/ws-proxy/<conversation_id>')
     def ws_proxy(ws, conversation_id):
-        """WebSocket proxy that forwards messages between client and agent"""
-        # Store active connections
+        """WebSocket proxy: forwards messages between browser and NXT Agency backend.
+
+        Architecture:
+        - Main thread (Flask-Sock) owns client receive — calls ws.receive()
+        - Background thread runs an asyncio loop that:
+          * Connects to the agent backend via websockets
+          * Forwards agent->client messages
+          * Consumes a thread-safe queue for client->agent messages
+        """
         conn_id = str(uuid.uuid4())
-        agent_ws = None
         logger.info(f"WebSocket proxy connection established: {conn_id}")
-        
+
         # Get correct agent URL
-        urls = get_dynamic_urls(request_is_secure=False)  # Use HTTP for internal communication
+        urls = get_dynamic_urls(request_is_secure=False)
         agent_ws_url = urls['agent']['ws_url'] if 'agent' in urls else None
 
         # Check agent service status
@@ -559,7 +587,7 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
             return
 
         if not agent_ws_url:
-            logger.error(f"Agent WebSocket URL not configured")
+            logger.error("Agent WebSocket URL not configured")
             ws.send(json.dumps({
                 "type": "error",
                 "content": "Agent service not configured properly"
@@ -568,206 +596,195 @@ if has_flask_sock and os.environ.get('ENABLE_CX_AGENT', 'false').lower() == 'tru
 
         agent_ws_url = f"{agent_ws_url}/ws/{conversation_id}"
         logger.info(f"Connecting to agent at: {agent_ws_url}")
-        
-        # Send initial status to client
-        try:
-            ws.send(json.dumps({
-                "type": "status",
-                "status": "connecting",
-                "message": "Connecting to agent service..."
-            }))
-        except Exception as e:
-            logger.error(f"Error sending initial status: {e}")
-        
-        # Event for signaling thread termination
+
+        ws.send(json.dumps({
+            "type": "status",
+            "status": "connecting",
+            "message": "Connecting to agent service..."
+        }))
+
+        # Thread-safe queues bridging the sync main thread and async background thread.
+        # Main thread OWNS the Flask-Sock ws (both send and receive).
+        # Background thread reads from agent_ws and pushes to agent_to_client_queue.
+        # Main thread reads from client ws and pushes to client_to_agent_queue.
+        client_to_agent_queue = queue.Queue()
+        agent_to_client_queue = queue.Queue()
         shutdown_event = threading.Event()
-        
-        # Define the async processing function
-        async def handle_websocket_proxy():
-            nonlocal agent_ws
-            
-            # Connection attempt with retry
+        agent_ws_holder = [None]  # mutable ref for cleanup
+
+        # ---- Background async loop (agent connection + forwarding) ----
+        async def _agent_loop():
             retry_count = 0
             max_retries = 3
             retry_delay = 1
-            
+
             while retry_count < max_retries and not shutdown_event.is_set():
                 try:
-                    # Connect with explicit settings for reliability
                     agent_ws = await websockets.connect(
                         agent_ws_url,
-                        ping_interval=20,  # Send ping every 20 seconds
-                        ping_timeout=10,   # Wait 10 seconds for pong
-                        close_timeout=5,   # Wait 5 seconds for close frame
-                        max_size=10485760, # 10MB message size limit
-                        compression=None   # Disable compression for compatibility
+                        ping_interval=None,   # Disable protocol-level pings (app-level pings handle keepalive)
+                        ping_timeout=None,
+                        close_timeout=5,
+                        max_size=10485760,
+                        compression=None,
                     )
-                    
+                    agent_ws_holder[0] = agent_ws
                     logger.info(f"Connected to agent WebSocket: {agent_ws_url}")
-                    
-                    # Send success notification to client
-                    try:
-                        ws.send(json.dumps({
-                            "type": "status",
-                            "status": "connected",
-                            "message": "Connected to agent service"
-                        }))
-                    except Exception as e:
-                        logger.error(f"Error sending connection status: {e}")
-                    
-                    # Process messages in both directions
+
+                    agent_to_client_queue.put(json.dumps({
+                        "type": "status",
+                        "status": "connected",
+                        "message": "Connected to agent service"
+                    }))
+
+                    # Run both directions concurrently
                     await asyncio.gather(
-                        forward_agent_to_client(agent_ws, ws, shutdown_event),
-                        forward_client_to_agent(ws, agent_ws, shutdown_event)
+                        _forward_agent_to_client(agent_ws),
+                        _forward_queue_to_agent(agent_ws),
                     )
-                    
-                    break  # Exit retry loop if connection succeeds
-                    
-                except (websockets.exceptions.InvalidStatusCode, 
+                    break
+
+                except (websockets.exceptions.InvalidStatusCode,
                         websockets.exceptions.InvalidHandshake) as e:
-                    # These errors indicate agent is running but WebSocket endpoint is invalid
                     logger.error(f"Agent WebSocket handshake failed: {e}")
-                    try:
-                        ws.send(json.dumps({
-                            "type": "error",
-                            "content": f"Agent service endpoint error: {e}"
-                        }))
-                    except:
-                        pass
-                    break  # Don't retry for these errors
-                    
-                except (websockets.exceptions.WebSocketException, 
+                    agent_to_client_queue.put(json.dumps({"type": "error", "content": f"Agent endpoint error: {e}"}))
+                    break
+
+                except (websockets.exceptions.WebSocketException,
                         ConnectionRefusedError, OSError) as e:
-                    # Potentially recoverable network errors
                     retry_count += 1
                     logger.warning(f"Connection attempt {retry_count} failed: {e}")
-                    
                     if retry_count < max_retries:
-                        # Notify client about retry
-                        try:
-                            ws.send(json.dumps({
-                                "type": "status",
-                                "status": "reconnecting",
-                                "message": f"Connection failed. Retrying in {retry_delay}s..."
-                            }))
-                        except:
-                            pass
-                        
-                        # Wait before retrying
-                        await asyncio.sleep(retry_delay)
-                        retry_delay *= 2  # Exponential backoff
-                    else:
-                        # All retries failed
-                        logger.error(f"Failed to connect to agent after {max_retries} attempts")
-                        try:
-                            ws.send(json.dumps({
-                                "type": "error",
-                                "content": "Cannot connect to agent service. Please try again later."
-                            }))
-                        except:
-                            pass
-                
-                except Exception as e:
-                    # Unexpected errors
-                    logger.error(f"Unexpected error connecting to agent: {e}", exc_info=True)
-                    try:
-                        ws.send(json.dumps({
-                            "type": "error",
-                            "content": f"Unexpected error: {str(e)}"
+                        agent_to_client_queue.put(json.dumps({
+                            "type": "status", "status": "reconnecting",
+                            "message": f"Connection failed. Retrying in {retry_delay}s..."
                         }))
-                    except:
-                        pass
+                        await asyncio.sleep(retry_delay)
+                        retry_delay *= 2
+                    else:
+                        logger.error(f"Failed to connect to agent after {max_retries} attempts")
+                        agent_to_client_queue.put(json.dumps({
+                            "type": "error",
+                            "content": "Cannot connect to agent service. Please try again later."
+                        }))
+
+                except Exception as e:
+                    logger.error(f"Unexpected error connecting to agent: {e}", exc_info=True)
+                    agent_to_client_queue.put(json.dumps({"type": "error", "content": f"Unexpected error: {str(e)}"}))
                     break
-        
-        # Forward messages from agent to client
-        async def forward_agent_to_client(agent_ws, client_ws, shutdown_event):
+
+        async def _forward_agent_to_client(agent_ws):
+            """Read from agent WebSocket, push to queue (main thread sends)."""
             try:
                 while not shutdown_event.is_set():
                     try:
-                        # Use wait_for to prevent blocking indefinitely
                         message = await asyncio.wait_for(agent_ws.recv(), timeout=0.5)
-                        logger.debug(f"Agent → Client: {message[:100]}...")
-                        client_ws.send(message)
+                        logger.info(f"Agent -> Queue ({len(message)} bytes): {message[:120]}...")
+                        agent_to_client_queue.put(message)
                     except asyncio.TimeoutError:
-                        # This is expected, just check shutdown_event and continue
                         continue
-                    except websockets.exceptions.ConnectionClosed:
+                    except (websockets.exceptions.ConnectionClosed,
+                            websockets.exceptions.ConnectionClosedError,
+                            websockets.exceptions.ConnectionClosedOK):
                         logger.warning("Agent connection closed")
-                        try:
-                            client_ws.send(json.dumps({
-                                "type": "status",
-                                "status": "disconnected",
-                                "message": "Agent service disconnected"
-                            }))
-                        except:
-                            pass
+                        agent_to_client_queue.put(json.dumps({
+                            "type": "status", "status": "disconnected",
+                            "message": "Agent service disconnected"
+                        }))
                         break
             except Exception as e:
-                logger.error(f"Error in agent→client forwarding: {e}", exc_info=True)
+                logger.error(f"Error in agent->client forwarding: {e}", exc_info=True)
             finally:
-                shutdown_event.set()  # Signal to stop the other forwarding task
-        
-        # Forward messages from client to agent
-        async def forward_client_to_agent(client_ws, agent_ws, shutdown_event):
+                shutdown_event.set()
+
+        async def _forward_queue_to_agent(agent_ws):
+            """Drain the client->agent queue and forward to agent WebSocket."""
+            loop = asyncio.get_event_loop()
             try:
                 while not shutdown_event.is_set():
                     try:
-                        # Non-blocking receive with timeout
-                        message = client_ws.receive(timeout=0.5)
-                        if message:
-                            logger.debug(f"Client → Agent: {message[:100]}...")
-                            await agent_ws.send(message)
-                    except Exception as e:
-                        if "WebSocket is already closed" in str(e):
-                            logger.warning("Client WebSocket closed")
-                            break
-                        elif "Timed out" not in str(e):
-                            # Ignore timeout errors as they're expected
-                            logger.error(f"Error receiving from client: {e}")
-                            break
+                        # MUST use run_in_executor — queue.get() is blocking and would
+                        # starve the event loop (preventing recv() in the other task).
+                        message = await asyncio.wait_for(
+                            loop.run_in_executor(None, lambda: client_to_agent_queue.get(timeout=1)),
+                            timeout=1.5,
+                        )
+                    except (queue.Empty, asyncio.TimeoutError):
+                        continue
+                    if message is None:
+                        break  # Sentinel — client disconnected
+                    logger.info(f"Client -> Agent ({len(message)} bytes): {message[:120]}...")
+                    try:
+                        await agent_ws.send(message)
+                    except (websockets.exceptions.ConnectionClosed,
+                            websockets.exceptions.ConnectionClosedError):
+                        logger.warning("Agent connection closed during send")
+                        break
             except Exception as e:
-                logger.error(f"Error in client→agent forwarding: {e}", exc_info=True)
+                logger.error(f"Error in queue->agent forwarding: {e}", exc_info=True)
             finally:
-                shutdown_event.set()  # Signal to stop the other forwarding task
-        
-        # Run the async function in a thread
-        def run_async_proxy():
-            # Create an event loop for this thread
+                shutdown_event.set()
+
+        def _run_agent_loop():
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
-            
             try:
-                # Run the proxy handler
-                loop.run_until_complete(handle_websocket_proxy())
+                loop.run_until_complete(_agent_loop())
             finally:
-                # Clean up
+                agent_ws = agent_ws_holder[0]
+                if agent_ws:
+                    try:
+                        # websockets v15: use .state or just try to close
+                        loop.run_until_complete(agent_ws.close())
+                    except Exception:
+                        pass
                 loop.close()
-                if agent_ws and not agent_ws.closed:
-                    loop = asyncio.new_event_loop()
-                    asyncio.set_event_loop(loop)
-                    loop.run_until_complete(agent_ws.close())
-                    loop.close()
-                
-                logger.info(f"WebSocket proxy connection closed: {conn_id}")
-        
-        # Start the proxy in a separate thread
-        proxy_thread = threading.Thread(target=run_async_proxy)
-        proxy_thread.daemon = True
+                logger.info(f"WebSocket proxy agent loop closed: {conn_id}")
+
+        # Start background thread for agent connection
+        proxy_thread = threading.Thread(target=_run_agent_loop, daemon=True)
         proxy_thread.start()
-        
-        # Keep the client WebSocket open
+
+        # ---- Main thread: read from client, push to queue ----
         try:
-            while ws.connected:
-                time.sleep(0.1)
+            while not shutdown_event.is_set():
+                # 1) Drain agent->client queue (send to browser)
+                while True:
+                    try:
+                        outgoing = agent_to_client_queue.get_nowait()
+                        ws.send(outgoing)
+                    except queue.Empty:
+                        break
+                    except Exception as e:
+                        logger.error(f"Error sending to client: {e}")
+                        shutdown_event.set()
+                        break
+
+                if shutdown_event.is_set():
+                    break
+
+                # 2) Receive from client (short timeout so we loop back to drain sends)
+                try:
+                    message = ws.receive(timeout=0.1)
+                    if message is not None:
+                        client_to_agent_queue.put(message)
+                except Exception as e:
+                    err_str = str(e)
+                    if "Timed out" in err_str:
+                        continue
+                    elif "WebSocket is already closed" in err_str or "Connection closed" in err_str:
+                        logger.info(f"Client WebSocket closed: {conn_id}")
+                        break
+                    else:
+                        logger.error(f"Error receiving from client: {e}")
+                        break
         except Exception as e:
-            logger.error(f"Error in client WebSocket: {e}")
+            logger.error(f"Error in client WebSocket loop: {e}")
         finally:
-            # Clean up resources
             shutdown_event.set()
+            client_to_agent_queue.put(None)  # Sentinel to unblock queue consumer
             logger.info(f"Client WebSocket disconnected: {conn_id}")
-            
-            # Give the proxy thread a moment to clean up
-            proxy_thread.join(timeout=2.0)
+            proxy_thread.join(timeout=3.0)
 
     # MCP Server Proxy functions
     def proxy_request(target_url, method, headers, data, params=None):
@@ -885,57 +902,40 @@ def send_mcp_message():
         # Debug: Log what we're receiving from the browser
         logger.info(f"[LAUNCHPAD DEBUG] === FILE UPLOAD DEBUG START ===")
         logger.info(f"[LAUNCHPAD DEBUG] Received form data: {dict(request.form)}")
-        logger.info(f"[LAUNCHPAD DEBUG] Files in request: {list(request.files.keys())}")
-        
-        if request.files:
-            for key, file in request.files.items():
-                try:
-                    # Read file content to check actual size
-                    file.seek(0)  # Go to beginning
-                    content = file.read()
-                    file.seek(0)  # Reset for forwarding
-                    actual_size = len(content)
-                    logger.info(f"[LAUNCHPAD DEBUG] File '{key}': filename='{file.filename}', content_type='{file.content_type}', reported_size={file.content_length}, actual_size={actual_size}")
-                    
-                    if actual_size == 0:
-                        logger.error(f"[LAUNCHPAD DEBUG] *** ZERO BYTE FILE DETECTED *** File '{file.filename}' has no content!")
-                    else:
-                        logger.info(f"[LAUNCHPAD DEBUG] File '{file.filename}' has {actual_size} bytes of content - GOOD!")
-                        
-                    # Log first few bytes for debugging
-                    if actual_size > 0:
-                        preview = content[:50] if len(content) > 50 else content
-                        logger.info(f"[LAUNCHPAD DEBUG] First 50 bytes: {preview}")
-                        
-                except Exception as e:
-                    logger.error(f"[LAUNCHPAD DEBUG] Error reading file '{key}': {str(e)}")
-        else:
+        # Use getlist to capture ALL files sent with the same key 'file'
+        all_files = request.files.getlist('file')
+        logger.info(f"[LAUNCHPAD DEBUG] Files in request: {len(all_files)} file(s)")
+
+        for file in all_files:
+            try:
+                file.seek(0)
+                content = file.read()
+                file.seek(0)
+                actual_size = len(content)
+                logger.info(f"[LAUNCHPAD DEBUG] File: filename='{file.filename}', content_type='{file.content_type}', actual_size={actual_size}")
+                if actual_size == 0:
+                    logger.error(f"[LAUNCHPAD DEBUG] *** ZERO BYTE FILE DETECTED *** File '{file.filename}' has no content!")
+            except Exception as e:
+                logger.error(f"[LAUNCHPAD DEBUG] Error reading file: {str(e)}")
+        if not all_files:
             logger.info(f"[LAUNCHPAD DEBUG] No files in request")
-            
+
         logger.info(f"[LAUNCHPAD DEBUG] === FILE UPLOAD DEBUG END ===")
-        
+
         # Proxy the request to the agent service
         target_url = f"{urls['agent']['internal_url']}/api/chat/message"
-        
-        # Check if this is a video transcription request for longer timeout
-        message_content = request.form.get('message', '').lower()
-        is_video_request = 'youtube.com' in message_content or 'transcribe' in message_content
-        
+
         # Use appropriate timeout — NXT Intelligence Agent uses multi-turn Opus which needs time
         timeout = 300  # 5 minutes for all requests (Opus multi-turn can take 2-3 min)
-        
-        # Properly reconstruct files for forwarding
-        files_to_forward = {}
-        if request.files:
-            for key, file in request.files.items():
-                # Read the file content
-                file.seek(0)
-                file_content = file.read()
-                file.seek(0)  # Reset for any further use
-                
-                # Create a tuple with filename, content, and content_type for requests
-                files_to_forward[key] = (file.filename, file_content, file.content_type)
-                logger.info(f"[LAUNCHPAD DEBUG] Forwarding file: {key} -> filename='{file.filename}', content_type='{file.content_type}', size={len(file_content)}")
+
+        # Properly reconstruct files for forwarding (list of tuples for multi-file)
+        files_to_forward = []
+        for file in all_files:
+            file.seek(0)
+            file_content = file.read()
+            file.seek(0)
+            files_to_forward.append(('file', (file.filename, file_content, file.content_type)))
+            logger.info(f"[LAUNCHPAD DEBUG] Forwarding file: filename='{file.filename}', content_type='{file.content_type}', size={len(file_content)}")
         
         # Forward the form data to the agent service
         response = requests.post(

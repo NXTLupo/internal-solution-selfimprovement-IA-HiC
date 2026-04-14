@@ -1,35 +1,59 @@
 {
   "positive": [
     {
-      "point": "Steph Curry ranks #2 for impact on teammate shot quality, indicating his significant positive influence on the game.",
+      "point": "Wordfence offers a free version with malware scanner and firewall, providing a budget-friendly security option for WordPress users.",
       "post_refs": [
-        "1rw8p2x"
+        "1s3esbp"
       ]
     },
     {
-      "point": "The team played very hard against a very good Knicks team, showing commendable effort and resilience.",
+      "point": "The idea of scoring links for phishing detection is useful, and adding domain reputation checks and visual aids like screenshot previews can enhance its effectiveness.",
       "post_refs": [
-        "1ruyflu"
+        "1s05kyc"
+      ]
+    },
+    {
+      "point": "The development of a Chrome extension to detect phishing and impersonation attacks directly in the browser is seen as a proactive measure against social engineering threats.",
+      "post_refs": [
+        "1rww2lo"
+      ]
+    },
+    {
+      "point": "VoidBrowser is designed to prioritize user privacy by not collecting user data and offering features like fingerprint resistance and encrypted local storage.",
+      "post_refs": [
+        "1rvb415"
+      ]
+    },
+    {
+      "point": "Developing a web app to help older users avoid phishing and fraud is considered a worthwhile endeavor, addressing a significant and often overlooked issue.",
+      "post_refs": [
+        "1ru9emd"
       ]
     }
   ],
   "negative": [
     {
-      "point": "A player received a technical foul immediately after scoring their first-ever NBA points, which seemed unwarranted.",
+      "point": "Stealer logs often fail freshness validation due to issues like timestamp inconsistencies and recycled datasets, leading to unreliable data.",
       "post_refs": [
-        "1ry0uej"
+        "1s41tpv"
       ]
     },
     {
-      "point": "Jonathan Kuminga is noted for having the worst hands in the NBA, contributing to high turnovers.",
+      "point": "Ad block browser extensions require extensive permissions, posing a security risk if a malicious update occurs.",
       "post_refs": [
-        "1rw8p2x"
+        "1s1rmih"
       ]
     },
     {
-      "point": "Podz took a poor shot after other team members, some playing hurt, stepped up to try to win, leading to frustration.",
+      "point": "Dark web monitoring often results in low-signal alerts due to recycled data and noise from common domains, making it less effective for proactive threat detection.",
       "post_refs": [
-        "1ruyflu"
+        "1rw1pn9"
+      ]
+    },
+    {
+      "point": "Publicly available scan histories on platforms like urlscan.io and VirusTotal can be monitored by threat actors, posing a risk of exposing organizational vulnerabilities.",
+      "post_refs": [
+        "1rttqhk"
       ]
     }
   ]

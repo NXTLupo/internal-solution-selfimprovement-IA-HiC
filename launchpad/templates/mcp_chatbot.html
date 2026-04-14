@@ -327,7 +327,7 @@ Just tell me what you need and I'll ask for the details. You can also upload fil
                 </button>
             </div>
             <div class="input-hint">Enter to send -- Shift+Enter for new line -- Attach images, PDFs, or documents for analysis</div>
-            <input type="file" id="file-input" accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx">
+            <input type="file" id="file-input" accept="image/*,.pdf,.csv,.txt,.json,.md,.xml,.html,.xlsx,.docx" multiple>
         </div>
     </div>
 
@@ -363,7 +363,7 @@ Just tell me what you need and I'll ask for the details. You can also upload fil
     class NXTChatbot {
         constructor() {
             this.conversationId = null;
-            this.pendingFile = null;
+            this.pendingFiles = [];
             this.currentPromptSet = 0;
 
             this.messages = document.getElementById('chat-messages');
@@ -441,42 +441,47 @@ Just tell me what you need and I'll ask for the details. You can also upload fil
             this.promptChips.style.transition = 'opacity 0.3s ease';
         }
 
-        // --- File handling ---
+        // --- File handling (multi-file) ---
         handleFileSelect(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            this.pendingFile = file;
-            this.showFilePreview(file);
+            const newFiles = Array.from(e.target.files);
+            if (!newFiles.length) return;
+            this.pendingFiles = [...this.pendingFiles, ...newFiles];
+            this.renderFilePreviews();
             this.fileInput.value = ''; // Reset for re-select
         }
 
-        showFilePreview(file) {
-            const sizeKB = (file.size / 1024).toFixed(1);
-            this.filePreviewArea.innerHTML = `
-                <div class="file-preview">
+        renderFilePreviews() {
+            this.filePreviewArea.innerHTML = this.pendingFiles.map((file, i) => {
+                const sizeKB = (file.size / 1024).toFixed(1);
+                return `
+                <div class="file-preview" data-index="${i}">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     <span>${file.name} (${sizeKB} KB)</span>
                     <span class="remove-file" title="Remove file">&times;</span>
-                </div>
-            `;
-            this.filePreviewArea.querySelector('.remove-file').addEventListener('click', () => {
-                this.pendingFile = null;
-                this.filePreviewArea.innerHTML = '';
+                </div>`;
+            }).join('');
+            this.filePreviewArea.querySelectorAll('.remove-file').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = parseInt(e.target.closest('.file-preview').dataset.index);
+                    this.pendingFiles.splice(idx, 1);
+                    this.renderFilePreviews();
+                });
             });
         }
 
         // --- Send message ---
         async send() {
             const text = this.input.value.trim();
-            if (!text && !this.pendingFile) return;
+            if (!text && !this.pendingFiles.length) return;
             if (!this.conversationId) return;
 
             // Hide suggested prompts after first message
             this.suggestedArea.style.display = 'none';
 
             // Show user message
-            const displayText = this.pendingFile
-                ? `${text || 'Analyze this file'}\n[Attached: ${this.pendingFile.name}]`
+            const fileNames = this.pendingFiles.map(f => f.name);
+            const displayText = fileNames.length
+                ? `${text || 'Analyze these files'}\n[Attached: ${fileNames.join(', ')}]`
                 : text;
             this.addMessage('user', displayText);
 
@@ -501,9 +506,9 @@ Just tell me what you need and I'll ask for the details. You can also upload fil
             try {
                 const formData = new FormData();
                 formData.append('conversation_id', this.conversationId);
-                formData.append('message', text || (this.pendingFile ? `Analyze this file: ${this.pendingFile.name}` : ''));
-                if (this.pendingFile) {
-                    formData.append('file', this.pendingFile);
+                formData.append('message', text || (this.pendingFiles.length ? `Analyze these files: ${fileNames.join(', ')}` : ''));
+                for (const file of this.pendingFiles) {
+                    formData.append('file', file);
                 }
 
                 const res = await fetch('/api/mcp/message', {
@@ -532,7 +537,7 @@ Just tell me what you need and I'll ask for the details. You can also upload fil
                 console.error('Send error:', e);
                 this.addError('Failed to reach the Intelligence Agent. Please try again.');
             } finally {
-                this.pendingFile = null;
+                this.pendingFiles = [];
                 this.filePreviewArea.innerHTML = '';
                 this.hideTyping();
                 this.setLoading(false);

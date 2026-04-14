@@ -1,0 +1,105 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: python, github, tool, akira, attack, wireshark, kerberos
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I built a small open-source Python tool that parses Kerberos authentication traffic from .pcap files and extracts useful data from:
+
+EXAMPLE 2:
+It’s a lightweight CLI tool, currently focused on making Kerberos packet extraction easier and more reproducible from captured traffic.
+
+EXAMPLE 3:
+* parsing reliability
+* edge cases in real-world Kerberos captures
+* improvements to the CLI or output structure
+* ideas for extending support in future versions
+
+EXAMPLE 4:
+The main idea is to reduce the amount of manual work needed when reviewing Kerberos captures in Wireshark or tshark during lab exercises, protocol analysis, and authorized security assessments.
+
+EXAMPLE 5:
+GitHub:  
+[https://github.com/0xprxdhx/akira](https://github.com/0xprxdhx/akira) Cool idea and good looking tool!  Checking it out now.  One thing I noticed and would like to see is you have a command preview with nmap but not with other tools like nikto or gobuster.  I'd like to see that as well with other those tools.  Otherwise, it looks really cool so far!
+
+EXAMPLE 6:
+* simplify Kerberos packet parsing from PCAPs
+* avoid manual field extraction from captures
+* make the workflow easier for lab validation and testing
+* keep the code easy to extend for additional output formats later
+
+EXAMPLE 7:
+I built a CLI pentesting tool (AKIRA) that automates Nmap, Nikto & Gobuster — looking for feedback Hey everyone,
+
+EXAMPLE 8:
+[https://saikiran52.medium.com/i-turned-a-cyber-attack-into-a-graph-using-kali-linux-wireshark-and-neo4j-443acb71a325](https://saikiran52.medium.com/i-turned-a-cyber-attack-into-a-graph-using-kali-linux-wireshark-and-neo4j-443acb71a325)
+
+EXAMPLE 9:
+Experiment: Visualizing a SQL Injection Attack as a Graph Using Kali Linux, Wireshark, and Neo4j Hi everyone,
+
+EXAMPLE 10:
+Edit:  One other idea -- maybe have the results be output by IP\_DATE or something rather than flat out in the /results folder.
+i will consider this , i and add description and add preview command for other tools as well. thankyou for going through my project, i am still learning so please kindly help me whereever you think i am falling behind. thank you for responding as well
+You sure you want to name your project after one of the most prolific ransomware gangs? I think my boss would scream at me if I told him I "downloaded Akira" 😅
+
+EXAMPLE 11:
+• Simulate a SQL injection attack using Kali Linux  
+• Capture the network request with Wireshark  
+• Model the attacker, IP, endpoint, and server relationships using Neo4j
+
+EXAMPLE 12:
+Since this is my **first Reddit post**, I’d really appreciate any feedback, suggestions, or ideas on how this experiment could be improved or extended. Mods can we pls ban ai posting, this is literally negative value
+you should take a look at tsec tpot honeypot framework.. use it to capture attack data.. then visualize that data
+
+EXAMPLE 13:
+That’s a great suggestion! Thanks for sharing 🙌 Using T-Pot to capture real attack data and then visualizing it with Neo4j sounds like a really interesting next step
+
+EXAMPLE 14:
+This is my **first post here**, and I’ve been exploring cybersecurity concepts through small hands-on labs. I’d really appreciate any suggestions or feedback from the community.
+
+EXAMPLE 15:
+Seeing the attack path visually connected as a graph was quite interesting and made me think about how graph-based approaches could help in areas like:
+
+EXAMPLE 16:
+* Interactive CLI (Metasploit-style)
+* Scan profiles (Quick, Balanced, Full, Custom)
+* Auto-detection of web services
+* Structured output + reports
+
+EXAMPLE 17:
+Recently I ran a small experiment exploring how **graph databases could be used in cybersecurity analysis**.  
+  
+The goal was to see if an attack could be visualized as a **connected graph instead of analyzing only logs**.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

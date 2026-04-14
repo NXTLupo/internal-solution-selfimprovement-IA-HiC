@@ -1,0 +1,106 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: jobs, cybersecurity, school, security, started, resume, work
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+How did you know you wanted to do this? I know I wanna do something computer related and computer science seems like a great thing to major in. But now with AI and everything I don't know what I should do. I'm not really amazing at coding. I'm not a super mathy person. I have no idea about cyber security, but it seems amazing as far as I can tell but why choose this?  I fell into it.   
+  
+I taught myself how to program on a ti-82 calculator which used a derivative of qbasic. From there I ran my school out of computer classes and did a year of vocational school for networking in high school. [...]
+
+EXAMPLE 2:
+If anyone has been in a similar position, especially as an international student in tech/cybersecurity, what actually helped? 300 apps zero interviews as an international student is rough but the guided platform stuff on your resume probably looks identical to every other applicant. Shift some hours into the free incident cases CyberDefenders puts out and document your analysis, that kind of writeup is what gets you past the resume screen.
+That's just the current state of the US market at the moment. [...]
+
+EXAMPLE 3:
+Cybersecurity is a massive field, coding is very important for some jobs in cyber and not very important at all in other jobs in cybersecurity.
+You seem pretty smart so I think you'll be fine
+
+EXAMPLE 4:
+but once i realized i actually wanna try and get a job in programming instead of finance ( since I'm in my third year of college learning finance) learning Assembly just to mod games just isn't gonna cut it, which is why i wanted to switch over to Cybersecurity.
+
+EXAMPLE 5:
+certifications  
+better projects  
+networking  
+different job titles  
+campus jobs / local IT roles  
+changing graduation timing
+
+EXAMPLE 6:
+I’m an international student in the U.S., currently a junior majoring in cybersecurity. I graduate in Spring 2027. I have a 4.0 GPA, I’ve done a lot of TryHackMe rooms and hands-on labs, and I keep adding relevant work to my resume. I also tailor my resume for each job before applying.
+
+EXAMPLE 7:
+Any advice or guidance is truly appreciated, thank you for reading! :D It’s not irrelevant at all. You might be running into backlash against the *other* completely wrong take, which is that if you can’t code you’re useless in cybersecurity. There’s plenty of roles where coding is extremely useful and others where it’s essential. 
+Coding isn’t irrelevant, it’s just not the end all be all. Cyber is not one monolithic skill that of you have you “know cybersecurity”. It’s a lot of different disciplines combined together to build an environment. [...]
+
+EXAMPLE 8:
+International student in cybersecurity, 300+ applications, 0 interviews. What am I doing wrong? I want honest advice because clearly something in my strategy is not working.
+
+EXAMPLE 9:
+TL:DR - i wanna get a programming job, Cyber seems really cool but I'm afraid that it's gonna be dull if all i do is just solving puzzles, so far it seems like working in Cyber is reacting to something happening, and not a motivation to create something creative in mind, i really hope I'm wrong cuz if i don't succeed in Cyber, I'll probably try to be a reverse engineer or something similar to it.
+
+EXAMPLE 10:
+i began with THM and it says Pentester fits me well, and i agree, but i had a deep interest in coding since i was in middle school, sadly i wasn't able to get accepted in it for college, so i just gave up for a few years, but now I'm giving it my best and probably last try to actually get a job somewhere i have an interest in since i really hate finance.
+
+EXAMPLE 11:
+I’m not just mass applying with one generic resume. I do change it to fit the role. I’ve been applying mostly to cybersecurity internships and related roles, and I’ve been trying to build skills the whole time instead of doing nothing.
+
+EXAMPLE 12:
+but game dev isn't really my thing, creating games and playing them is like day and night, so i switched into reverse engineering alongside C++, learning Assembly wasn't too bad since i kept in mind that i could just reverse engineer any game i wanted and inject my mods into it, that goal kept me interested.
+
+EXAMPLE 13:
+Lots of people are saying Coding is irrelevant in Cyber, and it discourages me i started learning C++ almost 2 months ago, i absolutely love it, it's not easy but the ability you get to create almost anything you want is really cool, i was even able to create mods for a few video games i played.
+
+EXAMPLE 14:
+Is it mostly because I’m an international student?  
+Is my resume still not strong enough?  
+Are projects like TryHackMe and labs just not valuable to employers?  
+Am I applying to the wrong types of roles?  
+Should I stop applying for a while, get Security+, build a stronger project, then come back?  
+Is delaying graduation to Fall 2027 for one more summer internship cycle a smart move, or just stupid?
+
+EXAMPLE 15:
+Regardless, @ OP: I have almost 0 experience in this field, but landed an internship in GRC by scouring Linkedin, looking up where other people had done their internships, found said companies, then e-mailed the recruiters directly. Calling is also recommended, tbh. If you find that you can juggle it with your studies, getting something like Sec+ is good, since then you're talking in a language recruiters understand. Networking is also always good, probably one of the best ways of getting a job/internship in this day and age. Go to events, see if you can grab coffee with people, whatever. [...]
+
+EXAMPLE 16:
+I use my offensive experience to improve my detection skills. I love the hunt. You have to love this job or it will likely burn you out, I’ve seen it a lot. Be careful and good luck, I hope to see you at a con.
+
+EXAMPLE 17:
+At this point I’ve submitted over 300 applications for internships and got absolutely nothing. Not even one interview.
+
+EXAMPLE 18:
+I’ve done red teaming but IMO it requires constant education to keep up and I have kids now so I don’t have time for that anymore.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

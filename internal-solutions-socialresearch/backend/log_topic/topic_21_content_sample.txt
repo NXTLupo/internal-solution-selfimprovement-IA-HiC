@@ -1,0 +1,15 @@
+Topic 21 - Content Sample
+Number of content items: 17
+Top words: breach, telus, data, telus digital, field effect, petabyte data, records
+
+Content 1 (length: 280 chars):
+Telus Digital confirms breach after hacker claims 1 petabyte data Canadian business process outsourcing giant Telus Digital has confirmed it suffered a security incident after threat actors claimed to have stolen nearly 1 petabyte of data from the company in a multi-month breach.
+
+Content 2 (length: 194 chars):
+[Telus Digital confirms breach after hacker claims 1 petabyte data theft](https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/)
+
+Content 3 (length: 144 chars):
+[https://www.telusdigital.com/technology-partners](https://www.telusdigital.com/technology-partners)
+I bet you’ve had a fun morning!
+A petabyte.
+

@@ -1,48 +1,65 @@
 {
   "positive": [
     {
-      "point": "Porzingis is seen as a perfect fit with Jimmy, and a healthy KP is considered lethal due to his scoring, defending, and ability to get to the line.",
+      "point": "International law enforcement operation successfully took down 45,000 malicious IP addresses and servers linked to phishing, malware, and ransomware activity.",
       "post_refs": [
-        "1rvt0dp"
+        "1rv7fk2"
       ]
     },
     {
-      "point": "There is excitement about the potential of Steph returning for a crucial game against the Clippers, with hopes for a memorable game.",
+      "point": "Interpol's operation led to a noticeable drop in public-facing server scanning for vulnerabilities.",
       "post_refs": [
-        "1rwg11x"
+        "1rv5piw"
       ]
     },
     {
-      "point": "The Warriors have a strong closing lineup with Pingus, Melton, Butler, Curry, Gui/Dray, and Horford.",
+      "point": "Authorities disrupted Aisuru and Kimwolf DDoS botnets, which had compromised over 3 million devices.",
       "post_refs": [
-        "1rvt0dp"
+        "1rzl3lm"
+      ]
+    },
+    {
+      "point": "Clayton, North Carolina, successfully contained a cyberattack without any data compromise.",
+      "post_refs": [
+        "1s2dcel"
+      ]
+    },
+    {
+      "point": "Cisco Talos and Splunk are actively engaging with the community to discuss threat trends and cybersecurity challenges.",
+      "post_refs": [
+        "1s46l9v"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Frustration over the Warriors being a 9th seed and getting blown out by a contender like the Celtics.",
+      "point": "Ransomware incidents have led to significant disruptions in municipal services, as seen in Foster City, California.",
       "post_refs": [
-        "1rxhri6"
+        "1ryklm8"
       ]
     },
     {
-      "point": "Concerns about the Warriors' inconsistency, playing well against good teams but losing to tanking teams.",
+      "point": "The CVE Program, a critical component of global cyber defense, is facing funding challenges.",
       "post_refs": [
-        "1ruxpqd"
+        "1s3ckhx"
       ]
     },
     {
-      "point": "Disappointment over the Warriors' current standing and the risk of ending up as the 10th seed.",
+      "point": "A government-funded cybersecurity bootcamp and hackathon was poorly organized, with unqualified speakers and misleading event descriptions.",
       "post_refs": [
-        "1rxmxb6",
-        "1rwg11x"
+        "1s1ij2g"
       ]
     },
     {
-      "point": "Nostalgia and regret over past injuries to key players like Curry, Bogut, and Iggy, which affected the Warriors' performance in the playoffs.",
+      "point": "Businesses paying ransoms to cyber attackers have increased significantly, driven by AI-enhanced attacks.",
       "post_refs": [
-        "1rx8dtn"
+        "1rrpd0v"
+      ]
+    },
+    {
+      "point": "A small to medium-sized company experienced a ransomware attack, highlighting issues with alert systems and IT partner response.",
+      "post_refs": [
+        "1rulh8y"
       ]
     }
   ]

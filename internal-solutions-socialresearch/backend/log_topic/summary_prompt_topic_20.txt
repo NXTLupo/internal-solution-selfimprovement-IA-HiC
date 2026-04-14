@@ -1,0 +1,123 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: code, github, ai, gitleaks, line, sast, secrets
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+\*\*Repo:\*\* [https://github.com/deepanshu-maliyan/guardrails-for-ai-coders](https://github.com/deepanshu-maliyan/guardrails-for-ai-coders)
+
+EXAMPLE 2:
+1. Run one command in your project: \`curl -sSL [https://raw.githubusercontent.com/deepanshu-maliyan/guardrails-for-ai-coders/main/install.sh](https://raw.githubusercontent.com/deepanshu-maliyan/guardrails-for-ai-coders/main/install.sh) | bash\`
+
+EXAMPLE 3:
+One thing worth pressure-testing though: SAST was designed to pattern-match against known vulnerability signatures. AI-generated code is introducing a different class of problem, specifically logic flaws and subtle misuse of secure APIs that look syntactically clean. Your pipeline is getting better at filtering the noise, but the signal it's preserving may itself be incomplete. The findings that make it through triage are the ones your existing rules already know to look for.
+
+EXAMPLE 4:
+\*\*What I built:\*\* guardrails-for-ai-coders — a free, open-source GitHub repo of security prompts and checklists designed specifically for AI coding workflows.
+
+EXAMPLE 5:
+I built a free, open-source security prompt library for AI coding tools (ChatGPT, Copilot, Claude) — catches OWASP Top 10 before code hits prod \*\*The problem:\*\* Most developers now use AI tools (Copilot, ChatGPT, Claude) to write code. But AI-generated code routinely has OWASP Top 10 issues — hardcoded secrets, no input validation, weak auth, missing rate limiting — because these tools are optimized for functionality, not security.
+
+EXAMPLE 6:
+Repo: [https://github.com/asamassekou10/ship-safe](https://github.com/asamassekou10/ship-safe) Makes sense for CI/CD shift-left where you want a quick pass before anything heavier runs. Zero-config matters a lot in that context.
+
+EXAMPLE 7:
+How regex pattern recognition powers a 13-agent SAST scanner (and where it breaks down) Been building [ship-safe](https://github.com/asamassekou10/ship-safe), an open-source security scanner that uses pure regex pattern matching instead of AST parsing. Wanted to share what I've learned about the tradeoffs.
+
+EXAMPLE 8:
+AI code generation has made my AppSec workload unmanageable. Here’s how I’m attempting to manage it. I’m responsible for the security of thousands of repositories and billions of lines of code across mission critical healthcare applications used globally. People’s lives depend on these systems working correctly and securely.
+
+EXAMPLE 9:
+SAST scans were already noisy – roughly 10 findings for every 1 legitimate vulnerability. At scale across thousands of repos that’s an impossible manual review burden. We don’t have the headcount to go line by line and we never will.
+
+EXAMPLE 10:
+That said, the “breadth + speed + zero-config” value prop is genuinely underrated for shift-left scenarios, catching the obvious stuff in CI before it even reaches a proper SAST scan is a legitimate layer. Defense in depth applies to tooling too.
+The Levenshtein on package names is clever. Typosquatting catches in supply chain are high signal, low noise. That alone might justify the tool for dependency-heavy projects.
+What’s your false negative rate looking like on the eval() patterns specifically? I’m curious how context-aware confidence tuning is performing in practice.
+
+EXAMPLE 11:
+* Can't trace data flow — if user input passes through 3 functions before hitting `eval()`, regex won't catch it
+* String formatting patterns differ by language, so some regexes are JS/Python-specific
+* Minified code breaks line-by-line scanning
+
+EXAMPLE 12:
+Developers are great at solving problems. Security is almost always an afterthought. I’ve managed this gap for years with SAST, DAST, manual fuzzing and pen tests. It was never perfect but it was manageable.
+
+EXAMPLE 13:
+I’m using Checkmarx for SAST but the same workflow applies to anything with similar noise problems – Semgrep, CodeQL, whatever you’re running. The accuracy issues are not unique to any one tool. At scale they all produce more false positives than any human team can manually review. That’s not a criticism of the tools, it’s just the reality of static analysis.
+
+EXAMPLE 14:
+The data flow gap is the real one though. Most serious vulns I've seen involve user input passing through a few sanitization helpers before hitting the dangerous sink, which is exactly what regex misses. Have you thought about integrating semgrep's taint mode for those cases, or is keeping zero deps the priority?
+The data flow gap is definitely the biggest blind spot right now. I thought about integrating Semgrep, but keeping the base tool strictly zero-dependency is the main priority so it stays frictionless
+The taint tracking gap you mentioned is the real ceiling. [...]
+
+EXAMPLE 15:
+First I was copy-pasting scan results into local LLM prompts and manually reacting to recommendations. Useful but not scalable. Then I standardized the prompts, built structured artifacts, and wrote Python scripts to run deterministic triage logic inside GitHub Actions. That alone caught the obvious false positives (the low hanging fruit) without any AI inference cost.
+
+EXAMPLE 16:
+It's MIT licensed, works with any stack (Node, Java, Swift, React, LLM apps), and takes 30 seconds to set up. Happy to answer questions or take feedback on the prompts.
+
+EXAMPLE 17:
+* Language-agnostic — same patterns catch `eval()` in JS, Python, and Ruby
+* Zero dependencies means it runs anywhere with just `npx ship-safe`
+* Levenshtein distance on package names catches typosquatting without any external DB
+* Context-aware confidence tuning (test files, comments, examples get downgraded) kills most false positives
+
+EXAMPLE 18:
+**The approach:** Each of the 13 agents defines an array of regex patterns with CWE/OWASP mappings. The base agent scans line-by-line and produces findings with severity + confidence ratings.
+
+EXAMPLE 19:
+**The tradeoff I'm making:** breadth + speed + zero-config over precision. For most projects, catching the obvious stuff fast matters more than catching everything slowly.
+
+EXAMPLE 20:
+AI generated code is not slowing down. If our AppSec tooling hasn’t adapted yet we are already behind. The triage pipeline you built is genuinely clever engineering, and the deterministic-first approach before burning inference budget is the right call.
+
+EXAMPLE 21:
+End results: 60-70% of false positives were eliminated automatically. The true findings (hopefully) surface faster than they did before. What’s left goes into our security posture management platform for human review.
+
+EXAMPLE 22:
+For what remained I got approval and funding to run Claude Haiku on AWS Bedrock. Probabilistic analysis on the results the deterministic logic couldn’t confidently resolve. That knocked out another 40% of the remaining false positives.
+
+EXAMPLE 23:
+It’s not quite magic. It is triage automation that lets my team of 1 focus on findings that actually matter. The cost is minimal compared to what manual review at this scale would require.
+
+EXAMPLE 24:
+The volume problem you solved is real. Just worth making sure the audit posture around the automation keeps pace with it.
+I keep a human in the loop by setting results to proposed not exploitable and setting detailed comments. This reduces time dramatically, retains human approval and generates evidence to the reasoning. 
+Your threat model now includes autocomplete.
+
+EXAMPLE 25:
+In healthcare especially, that matters a lot. A missed injection flaw is a compliance problem. A missed access control logic error in a clinical workflow is a patient safety problem. The risk profile isn't symmetric.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

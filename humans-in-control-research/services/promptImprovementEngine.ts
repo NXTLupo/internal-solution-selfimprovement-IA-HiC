@@ -149,6 +149,44 @@ export function detectPatterns(): EditPattern[] {
     }
 
     localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
+
+    // P6-02: Auto-approve high-confidence patterns (5+ occurrences = strong signal).
+    // This closes the loop: edits are captured -> patterns detected -> constraints auto-approved -> injected into next run.
+    // Without this, getActiveConstraints() always returns '' because no UI calls approveConstraint().
+    const improvements = getImprovements();
+    const existingFields = new Set(improvements.map(imp => `${imp.stage}:${imp.field}`));
+    for (let i = 0; i < patterns.length; i++) {
+        const p = patterns[i];
+        const key = `${p.stage}:${p.field}`;
+        if (p.status === 'pending' && p.occurrences >= 5 && !existingFields.has(key)) {
+            p.status = 'approved';
+            improvements.push({
+                id: `auto_${Date.now()}_${i}`,
+                field: p.field,
+                stage: p.stage,
+                constraint: p.suggestedConstraint,
+                appliedAt: Date.now(),
+                improvementScore: 0,
+            });
+            existingFields.add(key);
+            console.log(`[PromptImprovement] Auto-approved constraint: ${p.suggestedConstraint}`);
+
+            // P6-04: Also write to wiki anti-pattern page for cross-session persistence
+            try {
+                import('./wikiService').then(wiki => {
+                    wiki.appendLearnedAntiPattern(
+                        p.stage.toLowerCase().replace(/\s+/g, '-'),
+                        `User consistently ${p.direction}s "${p.field}"`,
+                        p.suggestedConstraint,
+                        `${p.occurrences} edits, ${Math.round(p.occurrences)}+ occurrences`
+                    );
+                });
+            } catch (e) { /* wiki write is best-effort */ }
+        }
+    }
+    localStorage.setItem(PATTERNS_KEY, JSON.stringify(patterns));
+    localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(improvements));
+
     return patterns;
 }
 
@@ -283,4 +321,75 @@ export function resetAll(): void {
     localStorage.removeItem(EDIT_LOG_KEY);
     localStorage.removeItem(PATTERNS_KEY);
     localStorage.removeItem(IMPROVEMENTS_KEY);
+}
+
+/**
+ * P6-06: Cross-session knowledge compounding.
+ * Loads learned constraints from the wiki and merges them into localStorage.
+ * Call this at app startup so that constraints learned in previous sessions
+ * (including by other users) are available for prompt injection.
+ */
+export async function loadWikiConstraints(): Promise<number> {
+    try {
+        const resp = await fetch('http://localhost:5012/api/wiki/read/synthesis/learned-constraints.md');
+        if (!resp.ok) return 0;
+        const data = await resp.json();
+        const content = data.content || '';
+
+        // Parse constraint entries from the wiki page
+        // Format: "- CONSTRAINT: {text}" lines
+        const constraintLines = content.match(/^- CONSTRAINT: .+$/gm) || [];
+        if (constraintLines.length === 0) return 0;
+
+        const existing = getImprovements();
+        const existingTexts = new Set(existing.map(i => i.constraint));
+        let added = 0;
+
+        for (const line of constraintLines) {
+            const text = line.replace(/^- CONSTRAINT: /, '').trim();
+            if (text && !existingTexts.has(text)) {
+                existing.push({
+                    id: `wiki_${Date.now()}_${added}`,
+                    field: 'wiki-imported',
+                    stage: 'cross-session',
+                    constraint: text,
+                    appliedAt: Date.now(),
+                    improvementScore: 0,
+                });
+                existingTexts.add(text);
+                added++;
+            }
+        }
+
+        if (added > 0) {
+            localStorage.setItem(IMPROVEMENTS_KEY, JSON.stringify(existing));
+            console.log(`[PromptImprovement] Loaded ${added} constraints from wiki (cross-session compounding)`);
+        }
+        return added;
+    } catch (e) {
+        // Wiki may not be available (e.g., proxy not running) — non-blocking
+        return 0;
+    }
+}
+
+/**
+ * P6-06: Export current localStorage constraints to wiki for cross-session persistence.
+ */
+export async function exportConstraintsToWiki(): Promise<boolean> {
+    const improvements = getImprovements();
+    if (improvements.length === 0) return false;
+
+    const lines = improvements.map(i => `- CONSTRAINT: ${i.constraint}`).join('\n');
+    const content = `---\ntitle: Learned Constraints\ntype: synthesis\nupdated: ${new Date().toISOString().split('T')[0]}\n---\n\n# Learned Constraints\n\nAuto-generated from user edit patterns across research sessions.\n\n${lines}\n`;
+
+    try {
+        const resp = await fetch('http://localhost:5012/api/wiki/write', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: 'synthesis/learned-constraints.md', content }),
+        });
+        return resp.ok;
+    } catch {
+        return false;
+    }
 }

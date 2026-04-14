@@ -1,0 +1,368 @@
+/**
+ * NXT Humans Design Token System v1.0
+ * Based on: nxt-humans-template-design-spec.md
+ * Stark white theme only. Helvetica Neue primary.
+ */
+
+:root {
+  /* === COLOR PALETTE === */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FAFAFA;
+  --color-bg-tertiary: #F7F7F7;
+
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #444444;
+  --color-text-tertiary: #888888;
+  --color-text-muted: #AAAAAA;
+  --color-text-disabled: #CCCCCC;
+
+  --color-border-primary: #E8E8E8;
+  --color-border-secondary: #EEEEEE;
+  --color-border-tertiary: #F0F0F0;
+  --color-border-faint: #F5F5F5;
+
+  --color-accent-cyan: #00B7C3;
+  --color-accent-cyan-bg: rgba(0,183,195,0.08);
+  --color-accent-cyan-border: rgba(0,183,195,0.20);
+  --color-accent-chartreuse: #B8B800;
+  --color-accent-chartreuse-bg: rgba(184,184,0,0.06);
+  --color-accent-chartreuse-border: rgba(184,184,0,0.20);
+  --color-accent-negative: #CC6644;
+  --color-accent-neutral: #888888;
+
+  /* === TYPOGRAPHY === */
+  --font-primary: 'Helvetica Neue', Arial, -apple-system, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+
+  /* === SPACING === */
+  --space-card-padding: 36px;
+  --space-section-gap: 24px;
+  --space-element-gap: 16px;
+  --space-inner-padding: 14px;
+  --space-text-gap: 6px;
+
+  /* === RADII === */
+  --radius-card: 12px;
+  --radius-inner: 8px;
+  --radius-node: 6px;
+  --radius-pill: 100px;
+  --radius-small: 4px;
+
+  /* === SLIDE DIMENSIONS === */
+  --slide-width: 960px;
+  --slide-height: 540px;
+  --slide-padding-x: 44px;
+  --slide-padding-y: 36px;
+}
+
+/* === SLIDE CONTAINER === */
+.nxt-slide {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--color-bg-primary);
+  font-family: var(--font-primary);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* === SECTION LABEL (uppercase muted) === */
+.nxt-section-label {
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* === CARD TITLE === */
+.nxt-card-title {
+  font-family: var(--font-primary);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+/* === SLIDE HEADING (24px bold, chartreuse period) === */
+.nxt-slide-heading {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  max-width: 80%;
+}
+.nxt-slide-heading .nxt-period {
+  color: var(--color-accent-chartreuse);
+}
+
+/* === STAT TYPOGRAPHY === */
+.nxt-stat-large {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 200;
+  color: var(--color-text-primary);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.nxt-stat-medium {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: 200;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+.nxt-stat-small {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+.nxt-stat-unit {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+  margin-left: 4px;
+}
+
+/* === BODY TEXT === */
+.nxt-body {
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.nxt-body-small {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* === METRIC CARD === */
+.nxt-metric-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--radius-inner);
+  border-left: 3px solid var(--color-accent-cyan);
+  padding: 20px;
+}
+.nxt-metric-card .nxt-metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-accent-cyan);
+  margin-bottom: 8px;
+}
+.nxt-metric-card .nxt-metric-value {
+  font-size: 36px;
+  font-weight: 200;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+/* Accent color variants */
+.nxt-metric-card.accent-chartreuse {
+  border-left-color: var(--color-accent-chartreuse);
+}
+.nxt-metric-card.accent-chartreuse .nxt-metric-label {
+  color: var(--color-accent-chartreuse);
+}
+.nxt-metric-card.accent-negative {
+  border-left-color: var(--color-accent-negative);
+}
+.nxt-metric-card.accent-negative .nxt-metric-label {
+  color: var(--color-accent-negative);
+}
+
+/* === PROGRESS BAR === */
+.nxt-progress-track {
+  height: 4px;
+  background: #F0F0F0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.nxt-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--color-accent-cyan);
+}
+
+/* === STATUS BADGE / PILL === */
+.nxt-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 500;
+}
+.nxt-pill.cyan {
+  background: var(--color-accent-cyan-bg);
+  border: 1px solid var(--color-accent-cyan-border);
+  color: var(--color-accent-cyan);
+}
+.nxt-pill.chartreuse {
+  background: var(--color-accent-chartreuse-bg);
+  border: 1px solid var(--color-accent-chartreuse-border);
+  color: var(--color-accent-chartreuse);
+}
+.nxt-pill.neutral {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-secondary);
+  color: var(--color-text-tertiary);
+}
+.nxt-pill.negative {
+  background: rgba(204,102,68,0.08);
+  border: 1px solid rgba(204,102,68,0.20);
+  color: var(--color-accent-negative);
+}
+
+/* === TAG / CHIP === */
+.nxt-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-small);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-secondary);
+  font-family: var(--font-primary);
+  font-size: 11px;
+  color: var(--color-text-primary);
+}
+
+/* === RINGED BULLET === */
+.nxt-bullet-ring {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nxt-bullet-ring .nxt-bullet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* === SOURCE FOOTNOTE STRIP === */
+.nxt-footnote-strip {
+  position: absolute;
+  bottom: 16px;
+  left: 44px;
+  right: 44px;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  color: var(--color-text-disabled);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === SLIDE NUMBER === */
+.nxt-slide-number {
+  position: absolute;
+  bottom: 16px;
+  right: 44px;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-disabled);
+}
+
+/* === TABLE STYLES === */
+.nxt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-primary);
+}
+.nxt-table th {
+  background: var(--color-bg-secondary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+.nxt-table td {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border-faint);
+}
+.nxt-table tr:nth-child(even) td {
+  background: var(--color-bg-secondary);
+}
+
+/* === INNER CARD === */
+.nxt-inner-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--radius-inner);
+  padding: var(--space-inner-padding);
+}
+
+/* === DATA PANEL (right column in 55/45 split) === */
+.nxt-data-panel {
+  background: var(--color-bg-secondary);
+  border-left: 1px solid var(--color-border-tertiary);
+  padding: var(--space-card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-element-gap);
+}
+
+/* === CELL HEADER (table/grid) === */
+.nxt-cell-header {
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* === DECORATIVE NUMBER (Georgia serif) === */
+.nxt-number-label {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 1;
+}
+
+/* === LEFT ACCENT BORDER === */
+.nxt-accent-left {
+  border-left: 2px solid var(--color-accent-cyan);
+  padding-left: 16px;
+}
+.nxt-accent-left.chartreuse {
+  border-left-color: var(--color-accent-chartreuse);
+}
+.nxt-accent-left.negative {
+  border-left-color: var(--color-accent-negative);
+}
+
+/* === PRINT/EXPORT MODE — strips interactive UI chrome === */
+[data-print-mode="true"] button,
+[data-print-mode="true"] [class*="group-hover"],
+[data-print-mode="true"] .opacity-0 {
+  display: none !important;
+  visibility: hidden !important;
+}
+[data-print-mode="true"] .slide-export-target {
+  transform: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
