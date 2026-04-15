@@ -1,13 +1,12 @@
 ---
 title: Learned Constraints
 type: synthesis
-created: 2026-04-12
-updated: 2026-04-12
-status: active
+updated: 2026-04-15
 ---
 
 # Learned Constraints
 
 Auto-generated from user edit patterns across research sessions.
-Constraints below are injected into AI system prompts to prevent recurring mistakes.
 
+- CONSTRAINT: "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).
+- CONSTRAINT: "source_curation" requires more accuracy. Review factual claims and specificity in this field.

@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
-import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext } from "../types";
+import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
 import { tryRepairJson } from './aiRouter';
 import { getActiveConstraints } from './promptImprovementEngine';
 
@@ -767,10 +767,10 @@ Output JSON.`;
                 goals: { type: Type.OBJECT, properties: { lifeGoal: {type:Type.STRING}, experienceGoal: {type:Type.STRING}, functionalGoal: {type:Type.STRING} } },
                 fiveWs: { type: Type.OBJECT, properties: { who: {type:Type.STRING}, what: {type:Type.STRING}, whenWhere: {type:Type.STRING}, why: {type:Type.STRING} } },
                 attributes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: {type:Type.STRING}, behavior: {type:Type.STRING} }, required: ["name", "behavior"] } },
-                motivations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label"] } },
+                motivations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
                 tasks: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING} }, required: ["label"] } },
-                painPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label"] } },
-                opportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label"] } },
+                painPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
+                opportunities: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: {type:Type.STRING}, quote: {type:Type.STRING}, source: {type:Type.STRING} }, required: ["label", "quote", "source"] } },
                 confidenceLevel: { type: Type.STRING },
                 evidenceCount: { type: Type.NUMBER },
             },
@@ -785,32 +785,51 @@ Output JSON.`;
 
             // Use a STANDALONE Gemini call (not the chat session) to avoid context contamination.
             // The chat session accumulates tech arch, audit, journey map context that poisons persona enrichment.
+            // BUT: We inject theme evidence so the persona is grounded in actual research data.
+
+            // Gather relevant theme evidence for this persona
+            const themes = themesInput?.themes || [];
+            const relevantEvidence: string[] = [];
+            for (const theme of themes) {
+                const citations = (theme.citations || []).slice(0, 3);
+                for (const c of citations) {
+                    const sourceName = c.sourceName || c.sourceFile || '';
+                    const quote = c.text ? `"${c.text.substring(0, 150)}"` : '';
+                    if (sourceName || quote) {
+                        relevantEvidence.push(`[${sourceName}] ${quote}`);
+                    }
+                }
+            }
+            const evidenceContext = relevantEvidence.length > 0
+                ? `\nRESEARCH EVIDENCE (from ${themes.length} themes with ${relevantEvidence.length} citations — use these to ground the persona):\n${relevantEvidence.slice(0, 20).join('\n')}\n`
+                : '';
+
             const enrichPrompt = `You are a CX persona researcher. Research goal: "${this.goal}".
 
-ENRICH this persona with COMPLETE detail. Output a JSON object with ALL fields populated.
+ENRICH this persona with COMPLETE detail grounded in the RESEARCH EVIDENCE provided below. Every pain point, motivation, and opportunity must cite a specific source. Output a JSON object with ALL fields populated.
 
 PERSONA: "${p.name}"
 Role: ${p.role}. Demographics: ${p.demographics || 'N/A'}. Core tension: ${p.coreTension || 'N/A'}.
-
+${evidenceContext}
 REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
-- "bio": 2-3 sentences describing this persona's relationship to the research domain
+- "bio": 2-3 sentences describing this persona's relationship to the research domain. Reference specific findings from the evidence.
 - "jtbd": UNDER 25 WORDS. Canonical format: "When [specific situation], I want [concrete capability], so I can [measurable outcome]." Cut every adjective that doesn't add specificity.
 - "goals": { "lifeGoal": "one sentence", "experienceGoal": "one sentence", "functionalGoal": "one sentence" }
   CRITICAL: Put DIFFERENT content in each goal field. lifeGoal = aspirational WHY. experienceGoal = how they want to FEEL. functionalGoal = specific TASK outcome.
-- "fiveWs": { "who": "their world and mindset (2-3 sentences)", "what": "core tension they face (2-3 sentences)", "whenWhere": "context of interaction", "why": "deeper motivation" }
-  CRITICAL: Each fiveWs field MUST have 2+ sentences. Empty strings are a failure.
-- "attributes": [{ "name": "dimension_name", "behavior": "specific observable behavior" }] (EXACTLY 6 items)
+- "fiveWs": { "who": "their world and mindset (2-3 sentences with research evidence)", "what": "core tension they face (2-3 sentences citing data)", "whenWhere": "context of interaction", "why": "deeper motivation grounded in evidence" }
+  CRITICAL: Each fiveWs field MUST have 2+ sentences. Reference specific research findings. Empty strings are a failure.
+- "attributes": [{ "name": "dimension_name", "behavior": "specific observable behavior from research" }] (EXACTLY 6 items)
   CRITICAL: NO numeric scores. Each attribute MUST have a behavioral descriptor that is verifiable against research.
   Example: { "name": "Strategic Thinking", "behavior": "Makes decisions based on 3-5 year institutional impact" }
-  Example: { "name": "Risk Tolerance", "behavior": "Pilots new initiatives with small cohorts before scaling" }
-  Example: { "name": "Data Literacy", "behavior": "Requires quantitative evidence before approving budget changes" }
   NEVER use arbitrary numbers. Behavioral descriptors are verifiable; scores are fabricated.
-- "motivations": [{ "label": "motivation name", "quote": "supporting evidence", "source": "source name" }] (2-3 items)
-- "tasks": [{ "label": "task description" }] (3-4 items)
-- "painPoints": [{ "label": "pain point", "quote": "supporting evidence", "source": "source name" }] (2-3 items)
-- "opportunities": [{ "label": "opportunity", "quote": "evidence", "source": "source" }] (1-2 items)
-- "confidenceLevel": "EVIDENCED" or "PARTIALLY_EVIDENCED" or "HYPOTHESIS"
-- "evidenceCount": number of evidence sources`;
+- "motivations": [{ "label": "motivation name", "quote": "VERBATIM quote from a specific research source", "source": "source name (e.g., 'Higher Ed Dive', 'Reddit: r/cscareerquestions', 'OpenAlex: Smith 2024')" }] (3-4 items)
+  CRITICAL: Every motivation MUST have a real source name and a direct quote from the evidence. NEVER use generic sources like "research" or "studies."
+- "tasks": [{ "label": "task description grounded in research" }] (3-4 items)
+- "painPoints": [{ "label": "pain point from evidence", "quote": "VERBATIM quote from a specific source proving this pain", "source": "real source name" }] (3-4 items)
+  CRITICAL: Every pain point MUST cite a specific source by name with a direct quote. These are the evidence chains that make personas credible.
+- "opportunities": [{ "label": "opportunity from evidence", "quote": "evidence supporting this opportunity", "source": "source name" }] (2-3 items)
+- "confidenceLevel": "EVIDENCED" if 70%+ of fields cite specific sources, "PARTIALLY_EVIDENCED" if 40-70%, "HYPOTHESIS" if <40%
+- "evidenceCount": actual number of distinct sources cited across all fields`;
 
             try {
                 // Standalone call bypasses the polluted chat session
@@ -934,6 +953,8 @@ REQUIREMENTS:
   d) QUANTIFY expected impact where possible (%, $, timeframe)
 - Impact Level: HIGH = urgent + high ROI, MEDIUM = important but longer timeline, LOW = nice-to-have
 - Action Items: 4-5 concrete, specific, assignable next steps. Each starts with a verb. Include WHO should do it.
+- citations: Array of 2-4 source names that evidence this recommendation (e.g., "Higher Ed Dive", "Reddit: r/cscareerquestions", "OpenAlex: Smith 2024")
+- evidenceBasis: 1-2 sentences summarizing the specific data that proves this recommendation is needed. Include statistics, quotes, or findings.
 - Every recommendation must map to at least one theme or persona pain point
 
 ANTI-PATTERNS (do NOT do these):
@@ -952,18 +973,20 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                recommendations: { 
-                    type: Type.ARRAY, 
-                    items: { 
-                        type: Type.OBJECT, 
-                        properties: { 
-                            title: { type: Type.STRING }, 
-                            description: { type: Type.STRING }, 
-                            impactLevel: { type: Type.STRING }, 
-                            actionItems: { type: Type.ARRAY, items: { type: Type.STRING } } 
+                recommendations: {
+                    type: Type.ARRAY,
+                    items: {
+                        type: Type.OBJECT,
+                        properties: {
+                            title: { type: Type.STRING },
+                            description: { type: Type.STRING },
+                            impactLevel: { type: Type.STRING },
+                            actionItems: { type: Type.ARRAY, items: { type: Type.STRING } },
+                            citations: { type: Type.ARRAY, items: { type: Type.STRING } },
+                            evidenceBasis: { type: Type.STRING }
                         },
-                        required: ["title", "description", "impactLevel", "actionItems"]
-                    } 
+                        required: ["title", "description", "impactLevel", "actionItems", "citations", "evidenceBasis"]
+                    }
                 }
             },
             required: ["methodology", "recommendations"]
@@ -1169,6 +1192,8 @@ EVIDENCE GROUNDING:
 - EVERY painPoint, actorBehaviors, and emotion must cite [CHUNK_XXX]
 - actors must reference persona names from Step 3
 - opportunityForImprovement should reference recommendations from Step 5
+- citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Higher Ed Dive", "Reddit: r/highereducation", "OpenAlex: Jones 2024")
+- evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage — quote data points, articles, or posts
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -1194,8 +1219,10 @@ Output JSON.`;
                     momentOfTruth: { type: Type.BOOLEAN },
                     fail_point: { type: Type.STRING },
                     technologySystems: { type: Type.STRING },
-                    emotionIntensity: { type: Type.INTEGER }
-                }, required: ["phase", "actors", "actorNeeds", "actorBehaviors", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint", "opportunityForImprovement", "valueProposition", "momentOfTruth", "fail_point", "technologySystems", "emotionIntensity"] } }
+                    emotionIntensity: { type: Type.INTEGER },
+                    citations: { type: Type.ARRAY, items: { type: Type.STRING } },
+                    evidenceBasis: { type: Type.STRING }
+                }, required: ["phase", "actors", "actorNeeds", "actorBehaviors", "customerAction", "touchpoint", "frontstageAction", "backstageAction", "supportProcesses", "physicalEvidence", "emotion", "painPoint", "opportunityForImprovement", "valueProposition", "momentOfTruth", "fail_point", "technologySystems", "emotionIntensity", "citations", "evidenceBasis"] } }
             },
             required: ["methodology", "stages"]
         };
@@ -1254,11 +1281,14 @@ FOR EACH FEATURE:
 - priority: Must-have / Should-have / Could-have / Won't-have
 - description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Must cite [CHUNK_XXX].
 - acceptanceCriteria: 2-3 testable conditions for "done"
+- citations: Array of 2-3 source names that evidence the need for this feature (e.g., "Higher Ed Dive", "Reddit: r/cscareerquestions", "Persona: Sarah Chen pain point #2")
+- evidenceBasis: 1-2 sentences with specific data proving this feature is needed. Quote the persona pain point or research finding.
 
 ANTI-PATTERNS:
 - Generic product names with version hashes
 - Features not traceable to research evidence
 - Missing acceptance criteria
+- Features without citations or evidence basis
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -1267,7 +1297,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, successMetrics: { type: Type.ARRAY, items: { type: Type.STRING } }, sections: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sectionNumber: { type: Type.INTEGER }, title: { type: Type.STRING }, content: { type: Type.STRING }, evidenceGap: { type: Type.STRING } }, required: ["sectionNumber", "title", "content"] } }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING }, acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } } }, required: ["name", "priority", "description"] } } }, required: ["title", "purposeAndObjectives", "successMetrics", "sections", "features"] }
+                prd: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, purposeAndObjectives: { type: Type.STRING }, successMetrics: { type: Type.ARRAY, items: { type: Type.STRING } }, sections: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { sectionNumber: { type: Type.INTEGER }, title: { type: Type.STRING }, content: { type: Type.STRING }, evidenceGap: { type: Type.STRING } }, required: ["sectionNumber", "title", "content"] } }, features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { name: { type: Type.STRING }, priority: { type: Type.STRING }, description: { type: Type.STRING }, acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["name", "priority", "description", "citations", "evidenceBasis"] } } }, required: ["title", "purposeAndObjectives", "successMetrics", "sections", "features"] }
             },
             required: ["methodology", "prd"]
         };
@@ -1333,7 +1363,7 @@ Output JSON.`;
             type: Type.OBJECT,
             properties: {
                 methodology: { type: Type.STRING },
-                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING }, dependencies: { type: Type.STRING }, successMetric: { type: Type.STRING }, strategicTheme: { type: Type.STRING }, confidenceLevel: { type: Type.STRING } }, required: ["initiative", "horizon", "owner", "description", "successMetric", "strategicTheme", "confidenceLevel"] } } }, required: ["vision", "items"] }
+                roadmap: { type: Type.OBJECT, properties: { vision: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { initiative: { type: Type.STRING }, horizon: { type: Type.STRING }, owner: { type: Type.STRING }, description: { type: Type.STRING }, dependencies: { type: Type.STRING }, successMetric: { type: Type.STRING }, strategicTheme: { type: Type.STRING }, confidenceLevel: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["initiative", "horizon", "owner", "description", "successMetric", "strategicTheme", "confidenceLevel", "citations", "evidenceBasis"] } } }, required: ["vision", "items"] }
             },
             required: ["methodology", "roadmap"]
         };
@@ -1353,11 +1383,12 @@ Extract ALL technology components, systems, platforms, and integrations from the
 
 OVERVIEW: 3-5 sentences describing the technology landscape.
 
-NODES (minimum 6): Every system mentioned in the corpus.
+NODES (minimum 6): Every system mentioned in the corpus. CITE where you found each system.
 - id: unique identifier (e.g., "crm_1", "portal_web")
 - label: Exact system name from research (e.g., "Salesforce CRM", "Student Portal")
 - type: "User" | "Application" | "Database" | "Integration" | "External" | "AI/ML"
-- description: What it does and current state
+- description: What it does and current state. Must cite [CHUNK_XXX] where this system was mentioned.
+- citations: Array of source names where this system was found (e.g., ["Client SOW", "Higher Ed Dive"])
 
 FLOWS (minimum 5): Connections between nodes.
 - fromId/toId: Node IDs
@@ -1371,7 +1402,7 @@ Output JSON.`;
             properties: {
                 methodology: { type: Type.STRING },
                 overview: { type: Type.STRING },
-                nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { id: {type:Type.STRING}, label: {type:Type.STRING}, type: {type:Type.STRING}, description: {type:Type.STRING} }, required: ["id", "label", "type"] } },
+                nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { id: {type:Type.STRING}, label: {type:Type.STRING}, type: {type:Type.STRING}, description: {type:Type.STRING}, citations: { type: Type.ARRAY, items: { type: Type.STRING } } }, required: ["id", "label", "type", "citations"] } },
                 flows: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { fromId: {type:Type.STRING}, toId: {type:Type.STRING}, action: {type:Type.STRING}, status: {type:Type.STRING} }, required: ["fromId", "toId", "action"] } },
             },
             required: ["methodology", "overview", "nodes", "flows"]
@@ -1466,8 +1497,8 @@ Output JSON.`;
         }
 
         if (ctx.techArchitecture) {
-            const nodes = (ctx.techArchitecture.nodes || []).slice(0, 10).map(n => `  - ${n.name} (${n.type}): ${(n.description || '').substring(0, 50)}`).join('\n');
-            const flows = (ctx.techArchitecture.flows || []).slice(0, 5).map(f => `  - ${f.from} -> ${f.to}: ${f.action || ''}`).join('\n');
+            const nodes = (ctx.techArchitecture.nodes || []).slice(0, 10).map(n => `  - ${n.label} (${n.type}): ${(n.description || '').substring(0, 50)}`).join('\n');
+            const flows = (ctx.techArchitecture.flows || []).slice(0, 5).map(f => `  - ${f.fromId} -> ${f.toId}: ${f.action || ''}`).join('\n');
             const text = `Overview: ${(ctx.techArchitecture.overview || '').substring(0, 200)}\nNodes:\n${nodes}\nFlows:\n${flows}`;
             sections.push(`=== TECH ARCHITECTURE ===\n${cap(text)}\n=== END TECH ARCHITECTURE ===`);
         }
@@ -1506,7 +1537,27 @@ Output JSON.`;
     }
 
     async generateDeckStructure(feedback: string | undefined, context: DeckInputContext, onStream: (t: string) => void): Promise<StepResult_Structure> {
-        const digest = this.buildDeckDigest(context);
+        // Use strategic report as primary source when available (report-first architecture)
+        // Falls back to buildDeckDigest for backward compatibility when no report exists
+        let digest: string;
+        if (context.strategicReport) {
+            const report = context.strategicReport;
+            const sections = (report.sections || []).map(s =>
+                `Section ${s.sectionNumber}: ${s.title} [${s.sourceDeliverable}]\n${s.content}\n${s.keyMetrics?.map(m => `  Metric: ${m.label} = ${m.value}`).join('\n') || ''}${s.keyQuote ? `\n  Quote: "${s.keyQuote.text}" -- ${s.keyQuote.attribution}` : ''}\n  Sources: ${(s.citations || []).join(', ')}`
+            ).join('\n\n');
+            digest = `\n\n=== STRATEGIC REPORT (synthesized from all deliverables — use this as primary source) ===
+Title: ${report.title}
+Executive Summary: ${report.executiveSummary}
+Diagnosis: ${report.diagnosis}
+Guiding Policy: ${report.guidingPolicy}
+Strategic Pillars: ${(report.strategicPillars || []).join('; ')}
+
+REPORT SECTIONS:
+${sections}
+=== END STRATEGIC REPORT ===\n`;
+        } else {
+            digest = this.buildDeckDigest(context);
+        }
         const prompt = `STEP: DECK STRUCTURE. You are a McKinsey-trained presentation strategist building a comprehensive executive research deck.
 
 MINTO'S PYRAMID PRINCIPLE (non-negotiable):
@@ -1597,7 +1648,7 @@ Output JSON.`;
                             sourceDeliverable: { type: Type.STRING },
                             personaRef: { type: Type.STRING },
                         },
-                        required: ["slideNumber", "layout", "title", "rationale"]
+                        required: ["slideNumber", "layout", "title", "rationale", "sourceDeliverable"]
                     }
                 }
             },
@@ -1607,68 +1658,257 @@ Output JSON.`;
         if (!result.slides) result.slides = [];
         // Ensure every slide has a style object
         result.slides = result.slides.map(s => ({ ...s, style: s.style || { ...DEFAULT_STYLE } }));
+
+        // --- STRUCTURE VALIDATION: Check deliverable coverage, slide count, persona slides ---
+        try {
+            const { validateDeckStructure } = await import('./slidePostProcessor');
+            const availableDeliverables: string[] = [];
+            if (context.themes?.length) availableDeliverables.push('themes');
+            if (context.personas?.length) availableDeliverables.push('personas');
+            if (context.journeyStages?.length) availableDeliverables.push('journey_map');
+            if (context.prd) availableDeliverables.push('prd');
+            if (context.roadmap) availableDeliverables.push('roadmap');
+            if (context.techArchitecture) availableDeliverables.push('tech_architecture');
+            if (context.gapAnalysis) availableDeliverables.push('gap_analysis');
+            if (context.techAudit) availableDeliverables.push('tech_audit');
+            if (context.competitiveAnalysis) availableDeliverables.push('competitive_analysis');
+            if (context.recommendations?.length) availableDeliverables.push('recommendations');
+
+            const validation = validateDeckStructure(result.slides, availableDeliverables);
+            if (!validation.valid && !feedback) {
+                // Auto-retry once with specific validation feedback
+                console.log(`[DeckStructure] Validation failed (${validation.violations.length} violations), auto-retrying...`);
+                onStream("Structure validation found gaps, refining...");
+                return this.generateDeckStructure(validation.feedbackForRetry, context, onStream);
+            }
+            if (validation.violations.length > 0) {
+                console.log(`[DeckStructure] ${validation.violations.length} validation warnings:`,
+                    validation.violations.map(v => v.detail).join('; '));
+            }
+        } catch (e) {
+            console.warn('[DeckStructure] Validation skipped:', e);
+        }
+
         return result;
     }
 
     async generateNarrative(structure: StepResult_Structure, context: DeckInputContext, feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Narrative> {
-        const digest = this.buildDeckDigest(context);
+        // =====================================================================
+        // CONTENT-BLOCK NARRATIVE GENERATION (Report-Derived)
+        //
+        // Architecture: The AI declares WHAT to communicate using content blocks.
+        // The layout resolver then determines HOW to present it (which archetype).
+        // This eliminates: empty templates, broken layouts, missing evidence.
+        //
+        // Data flow: Strategic Report sections → per-slide injection → AI generates
+        // content blocks → resolveLayout() picks archetype → mapToFields() produces
+        // standard Slide objects that existing renderers understand.
+        // =====================================================================
+
+        // Build per-slide deep context from the strategic report
+        let perSlideContext = '';
+        const reportSections = context.strategicReport?.sections || [];
+
+        for (const slide of (structure.slides || [])) {
+            const srcDel = (slide as any).sourceDeliverable || '';
+            const slideTitle = (slide.title || '').toLowerCase();
+
+            // Multi-strategy matching: sourceDeliverable, title substring, section number proximity
+            let matchingSections = reportSections.filter(s =>
+                s.sourceDeliverable === srcDel ||
+                (srcDel && s.sourceDeliverable && s.sourceDeliverable.includes(srcDel.split('_')[0])) ||
+                s.title.toLowerCase().includes(slideTitle.substring(0, 25)) ||
+                slideTitle.includes(s.title.toLowerCase().substring(0, 25))
+            );
+
+            // Fallback: if no match, find the closest unmatched section by topic keywords
+            if (matchingSections.length === 0) {
+                const slideWords = slideTitle.split(/\s+/).filter(w => w.length > 4);
+                matchingSections = reportSections.filter(s =>
+                    slideWords.some(w => s.title.toLowerCase().includes(w) || (s.content || '').toLowerCase().substring(0, 200).includes(w))
+                );
+            }
+
+            if (matchingSections.length > 0) {
+                const section = matchingSections[0];
+                perSlideContext += `\n=== FOR SLIDE ${slide.slideNumber}: "${slide.title}" (from: ${srcDel || 'general'}) ===\n`;
+                perSlideContext += `REPORT SECTION ${section.sectionNumber}: ${section.title}\n`;
+                perSlideContext += `FULL CONTENT:\n${section.content}\n`;
+                if (section.keyMetrics?.length) {
+                    perSlideContext += `KEY METRICS (use these as hero_stat or metric_cards blocks):\n`;
+                    for (const m of section.keyMetrics) {
+                        perSlideContext += `  - ${m.label}: ${m.value}${m.context ? ` (${m.context})` : ''}\n`;
+                    }
+                }
+                if (section.keyQuote) {
+                    perSlideContext += `KEY QUOTE (use as quote_block): "${section.keyQuote.text}" -- ${section.keyQuote.attribution} (${section.keyQuote.source})\n`;
+                }
+                if (section.citations?.length) {
+                    perSlideContext += `CITATIONS (include ALL in sources array): ${section.citations.join(', ')}\n`;
+                }
+                if (section.evidenceGap) {
+                    perSlideContext += `EVIDENCE GAP: ${section.evidenceGap}\n`;
+                }
+                perSlideContext += `DISTILL this section into 2-5 content blocks. Preserve the key quote, most impactful metrics, and source citations.\n=== END SLIDE ${slide.slideNumber} ===\n`;
+            } else {
+                perSlideContext += `\n=== FOR SLIDE ${slide.slideNumber}: "${slide.title}" ===\nNo matching report section found. Generate content from available deliverable data for source: ${srcDel || 'general'}.\n=== END SLIDE ${slide.slideNumber} ===\n`;
+            }
+        }
+
+        // Build fallback deliverable context if no report exists
+        const fallbackContext = context.strategicReport ? '' : this.buildDeckDigest(context);
+
         const personaList = (context.personas || []).map(p =>
-            `- ${p.name} (${p.role}): "${(p.quote || '').substring(0, 60)}" [image: ${p.imageUrl ? 'AVAILABLE' : 'none'}]`
+            `- ${p.name} (${p.role}): "${(p.quote || '').substring(0, 80)}" | JTBD: "${p.jtbd || 'N/A'}" [image: ${p.imageUrl ? 'AVAILABLE' : 'none'}]`
         ).join('\n');
 
-        // Load the compiled framework prompt (DECK_NARRATIVE + wiki knowledge + UNIVERSAL_SLIDE_DESIGN_SYSTEM)
+        // Load wiki framework
         let frameworkPrompt = '';
         try {
             const { getEnhancedFrameworkPrompt } = await import('./deliverableFrameworks');
             frameworkPrompt = await getEnhancedFrameworkPrompt('STRATEGY_DECK');
         } catch (e) { console.warn('[Narrative] Framework load failed, using inline rules only'); }
 
-        const prompt = `STEP: NARRATIVE CONTENT. You are a McKinsey-trained deck writer. Write the full content for every slide in the approved structure.
+        // Load wiki constraints for self-improvement (G11)
+        let learnedConstraints = '';
+        try {
+            const constraints = getActiveConstraints();
+            if (constraints) learnedConstraints = constraints;
+        } catch (e) { /* no constraints available */ }
 
-${frameworkPrompt ? `=== COMPILED FRAMEWORK (from wiki knowledge layer) ===\n${frameworkPrompt.substring(0, 6000)}\n=== END FRAMEWORK ===\n` : ''}
+        // Load engagement memory for cross-session context (G12)
+        let engagementContext = '';
+        try {
+            const { loadEngagementMemory } = await import('./wikiService');
+            const goalSlug = this.goal.substring(0, 60).replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+            const memory = loadEngagementMemory(goalSlug);
+            if (memory) engagementContext = `\nENGAGEMENT CONTEXT (from prior sessions on similar topics):\n${memory}\n`;
+        } catch (e) { /* no engagement memory available */ }
 
-META-NARRATION BAN (critical — violation = instant rejection):
-ABSOLUTELY NEVER use ANY of these phrases or variations in ANY text field (title, content, narrative, speakerNotes, quote):
-"Good morning" | "Good afternoon" | "Welcome to" | "Today we will" | "Today we'll" | "We will present" | "We are going to" | "We now move to" | "We are now entering" | "Let us now examine" | "This is where we" | "In this section" | "In this presentation" | "In this deck" | "As you can see" | "This slide shows" | "Thank you for being here" | "Our objective is to" | "Allow me to" | "Before we begin"
-A consultant NEVER announces the framework, greets the audience, or narrates the structure. Present the content directly. LEAD with the insight, not the setup. First sentence = the finding with a number.
+        const prompt = `STEP: CONTENT-BLOCK NARRATIVE. You are a McKinsey-trained deck writer. For each slide, declare WHAT content to communicate using content blocks. The rendering engine will pick the best visual template automatically.
+
+${frameworkPrompt ? `=== COMPILED FRAMEWORK ===\n${frameworkPrompt.substring(0, 4000)}\n=== END FRAMEWORK ===\n` : ''}
+${learnedConstraints ? `=== LEARNED CONSTRAINTS (from user feedback in prior sessions) ===\n${learnedConstraints}\n=== END CONSTRAINTS ===\n` : ''}
+${engagementContext}
+
+THIS DECK IS DERIVED FROM THE STRATEGIC REPORT. Each slide has a corresponding report section injected below. Your job is DISTILLATION — compress 400-800 words of analytical prose into 2-5 content blocks that capture the essential findings, evidence, and impact.
+
+CONTENT BLOCK TYPES (declare what the slide communicates — the engine picks the template):
+
+1. hero_stat: A single dominant number that anchors the slide.
+   Fields: { type: "hero_stat", value: "35%", unit: "decline", context: "First-year retention dropped 35% since 2020" }
+
+2. evidence_bullets: 2-4 research findings, each citing a specific source.
+   Fields: { type: "evidence_bullets", items: [{ text: "72% express career uncertainty", source: "Reddit: r/cscareerquestions" }, { text: "6 of 10 universities lack integration", source: "Hechinger Report" }] }
+
+3. metric_cards: 2-4 KPI data points for a data panel.
+   Fields: { type: "metric_cards", items: [{ label: "Dropout rate", value: "35%", trend: "+12% YoY" }, { label: "Career center usage", value: "23%", unit: "of students" }] }
+
+4. quote_block: A VERBATIM quote from research with provenance.
+   Fields: { type: "quote_block", text: "I applied to 200 positions and heard back from 3", attribution: "CS Senior, Reddit", source: "Reddit: r/cscareerquestions" }
+
+5. persona_card: Reference to a persona (portrait image auto-injected by renderer).
+   Fields: { type: "persona_card", name: "Sarah Chen", role: "First-Year Student", jtbd: "Navigate career prep confidently", quote: "I don't know what I don't know" }
+
+6. problem_statement: A challenge backed by evidence.
+   Fields: { type: "problem_statement", value: "73%", description: "of graduates report degree did not prepare them for workforce", severity: "critical" }
+
+7. solution_points: 2-3 actionable recommendations.
+   Fields: { type: "solution_points", items: [{ title: "Integrated Career Curriculum", description: "Embed career skills into first-year courses — addresses 73% preparedness gap" }] }
+
+8. data_grid: 3-6 data points for a grid/bento layout.
+   Fields: { type: "data_grid", items: [{ label: "T1 Sources", value: "47", description: "Academic papers and government data" }] }
+
+9. journey_strip: A service blueprint stage.
+   Fields: { type: "journey_strip", phase: "Onboarding", action: "Student completes intake survey", pain: "42% drop off at document upload", emotion: "Frustrated", mot: true }
+
+10. comparison_row: Competitive or gap comparison.
+    Fields: { type: "comparison_row", dimension: "AI Readiness", ours: "2.1/5", theirs: "3.8/5", gap: "1.7 points behind" }
+
+11. narrative_text: 2-3 sentence analytical prose for the slide body.
+    Fields: { type: "narrative_text", text: "The convergence of three factors..." }
+
+12. section_label: Section divider text (used alone for section header slides).
+    Fields: { type: "section_label", text: "Research Findings" }
+
+BLOCK COMPOSITION RULES:
+- EVERY body slide MUST have at least one block with source attribution (evidence_bullets, quote_block, or metric_cards with source)
+- Use 2-5 blocks per slide — mix types for visual richness
+- The rendering engine auto-selects templates based on your block mix:
+  * section_label only = section header (dark background)
+  * problem_statement + solution_points = problem/solution split
+  * hero_stat + metric_cards (3+) = data insight chart
+  * 4+ diverse block types = bento grid
+  * evidence_bullets without metrics = full-width card layout
+  * Default = content/data panel (55/45 split)
+
+META-NARRATION BAN (violation = instant rejection):
+NEVER use: "Good morning" | "Welcome to" | "Today we will" | "We now move to" | "In this section" | "In this presentation" | "As you can see" | "This slide shows" | "Thank you" | "Allow me to" | "Before we begin" | "Let us examine"
+LEAD with the insight. First word of the title = the finding.
 
 STORYTELLING RULES:
 - NEVER hedge: "It seems", "Perhaps", "It's possible that"
-- LEAD with the insight. First sentence = the finding or provocation with a number.
-- Every slide makes the audience FEEL: urgency, surprise, opportunity, concern
-- Use specific numbers, names, dates from the deliverable data below — not generalities
+- Every title is a COMPLETE SENTENCE stating a conclusion (Pyramid Principle)
+- Every slide creates urgency, surprise, opportunity, or concern
+- Use SPECIFIC numbers, names, dates from the report sections — NEVER generalities
+- Speaker notes: deeper context, audience objections, transition cues (NOT slide content)
 
-PLAIN TEXT ONLY: No **bold**, *italic*, # headers. Rendering system handles formatting.
+PERSONA IMAGE INJECTION:
+${personaList ? `Available personas:\n${personaList}\n` : 'No personas available.'}
+When referencing a persona, include a persona_card block with their exact name. The renderer injects their generated portrait.
 
-FOR EACH SLIDE:
-- title: COMPLETE SENTENCE stating a conclusion. NOT a topic label.
-- content: 2-3 bullets. Each = specific data point from the deliverable data. No filler.
-- narrative: 2-3 sentences for SPEAKER NOTES ONLY (presenter notes pane, NOT slide face).
-- quote: VERBATIM direct quote from research corpus with source attribution.
-- speakerNotes: Deeper context, potential audience objections, transition cues.
-- sources: Array of source names cited on this slide (rendered as footnote strip).
+PLAIN TEXT ONLY in all text fields. No **bold**, *italic*, # headers.
 
-ARCHETYPE-SPECIFIC FIELD REQUIREMENTS:
-- CONTENT_DATA_PANEL: MUST populate "metrics" array with 2-4 objects: { label, value, unit?, accentColor? }
-  Extract real numbers from the deliverable data. Rotate accentColor: "#CC6644", "#B8B800", "#00B7C3".
-- BENTO_GRID: MUST populate "bentoCells" array with 3-6 objects: { type: "stat"|"quote"|"indicator"|"list", label?, value?, text?, attribution?, items?, span? }
-  Mix cell types. Never two stat cells adjacent. Quote cells use serif italic.
-- PROBLEM_SOLUTION: MUST populate "problemStat" { value, unit?, description } and "solutionPoints" [{ title, description }]
-- CONTENT_INSIGHT_CHART: Populate "metrics" for the chart bars. Content describes the insight.
-- SECTION_HEADER: Title ONLY (2-5 words). content = []. narrative = "". No description.
-- CLOSING slides: 3-5 specific next steps with Action + Owner (role) + Timeline. NEVER SaaS CTAs.
-
-PERSONA IMAGE INJECTION (critical):
-When a slide references a persona, populate these fields to show their actual image on the slide:
-${personaList ? `Available personas:\n${personaList}\n` : ''}
-- personaName: exact name from list above
-- personaRole: their role
-- personaQuote: their voice quote (abbreviated)
-The rendering system will inject the persona's generated image automatically.
-
-${feedback ? 'USER FEEDBACK: ' + feedback : ''}
-${digest}
+${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}
+${context.strategicReport ? 'SOURCE: This deck is derived from the approved Strategic Report. Use the per-slide report sections below.' : ''}
+${perSlideContext}
+${fallbackContext}
 Output JSON.`;
+
+        // Content-block schema — matches the SlideGeneration interface in types.ts
+        const contentBlockSchema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                type: { type: Type.STRING, enum: ['hero_stat', 'evidence_bullets', 'metric_cards', 'quote_block', 'persona_card', 'problem_statement', 'solution_points', 'data_grid', 'journey_strip', 'comparison_row', 'narrative_text', 'section_label'] },
+                value: { type: Type.STRING },
+                unit: { type: Type.STRING },
+                context: { type: Type.STRING },
+                text: { type: Type.STRING },
+                attribution: { type: Type.STRING },
+                source: { type: Type.STRING },
+                severity: { type: Type.STRING },
+                description: { type: Type.STRING },
+                name: { type: Type.STRING },
+                role: { type: Type.STRING },
+                jtbd: { type: Type.STRING },
+                quote: { type: Type.STRING },
+                phase: { type: Type.STRING },
+                action: { type: Type.STRING },
+                pain: { type: Type.STRING },
+                emotion: { type: Type.STRING },
+                mot: { type: Type.BOOLEAN },
+                dimension: { type: Type.STRING },
+                ours: { type: Type.STRING },
+                theirs: { type: Type.STRING },
+                gap: { type: Type.STRING },
+                items: { type: Type.ARRAY, items: {
+                    type: Type.OBJECT,
+                    properties: {
+                        text: { type: Type.STRING },
+                        source: { type: Type.STRING },
+                        chunkRef: { type: Type.STRING },
+                        label: { type: Type.STRING },
+                        value: { type: Type.STRING },
+                        unit: { type: Type.STRING },
+                        trend: { type: Type.STRING },
+                        title: { type: Type.STRING },
+                        description: { type: Type.STRING },
+                    }
+                }},
+            },
+            required: ['type']
+        };
+
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -1679,34 +1919,150 @@ Output JSON.`;
                         type: Type.OBJECT,
                         properties: {
                             slideNumber: { type: Type.INTEGER },
-                            layout: { type: Type.STRING, enum: ['TITLE_SLIDE', 'SECTION_HEADER', 'CONTENT_DATA_PANEL', 'CONTENT_INSIGHT_CHART', 'FULL_WIDTH_VIZ', 'BENTO_GRID', 'PROBLEM_SOLUTION'] },
                             title: { type: Type.STRING },
-                            content: { type: Type.ARRAY, items: { type: Type.STRING } },
-                            narrative: { type: Type.STRING },
-                            visualPrompt: { type: Type.STRING },
-                            quote: { type: Type.STRING },
+                            background: { type: Type.STRING, enum: ['light', 'dark'] },
+                            sourceDeliverable: { type: Type.STRING },
+                            personaRef: { type: Type.STRING },
+                            blocks: { type: Type.ARRAY, items: contentBlockSchema },
                             speakerNotes: { type: Type.STRING },
                             sources: { type: Type.ARRAY, items: { type: Type.STRING } },
-                            personaName: { type: Type.STRING },
-                            personaRole: { type: Type.STRING },
-                            personaQuote: { type: Type.STRING },
-                            metrics: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { label: { type: Type.STRING }, value: { type: Type.STRING }, unit: { type: Type.STRING }, accentColor: { type: Type.STRING } }, required: ["label", "value"] } },
-                            bentoCells: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { type: { type: Type.STRING }, label: { type: Type.STRING }, value: { type: Type.STRING }, text: { type: Type.STRING }, attribution: { type: Type.STRING }, items: { type: Type.ARRAY, items: { type: Type.STRING } }, accentColor: { type: Type.STRING }, span: { type: Type.INTEGER } }, required: ["type"] } },
-                            problemStat: { type: Type.OBJECT, properties: { value: { type: Type.STRING }, unit: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["value", "description"] },
-                            solutionPoints: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { title: { type: Type.STRING }, description: { type: Type.STRING } }, required: ["title", "description"] } },
                         },
-                        required: ["slideNumber", "layout", "title", "content", "narrative"]
+                        required: ['slideNumber', 'title', 'background', 'blocks', 'speakerNotes', 'sources']
                     }
                 }
             },
-            required: ["methodology", "slides"]
+            required: ['methodology', 'slides']
         };
-        const result = await this.executeStep<StepResult_Narrative>(prompt, schema, [], onStream);
-        if (!result.videoScript) result.videoScript = [];
-        if (!result.slides) result.slides = [];
-        
-        const slidesWithStyle = (result.slides).map(slide => ({ ...slide, style: { ...DEFAULT_STYLE } }));
-        return { ...result, slides: slidesWithStyle };
+
+        onStream('Generating content blocks for each slide...');
+        const rawResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        const rawSlides: any[] = rawResult.slides || [];
+
+        // =====================================================================
+        // LAYOUT RESOLUTION: Convert content blocks → standard Slide objects
+        // The layout resolver maps blocks to the best archetype template and
+        // translates block data to existing Slide interface fields so current
+        // HTML/PPTX renderers work unchanged.
+        // =====================================================================
+        onStream(`Resolving layouts for ${rawSlides.length} slides...`);
+        const { resolveLayout } = await import('./layoutResolver');
+
+        const resolvedSlides: Slide[] = rawSlides.map((raw: any) => {
+            const blocks: ContentBlock[] = raw.blocks || [];
+            const bgPref = raw.background === 'dark' ? 'dark' : 'light';
+
+            // Resolve layout from content blocks
+            const { layout, mappedFields } = resolveLayout(blocks, bgPref);
+
+            // Build the standard Slide object
+            const slide: Slide = {
+                slideNumber: raw.slideNumber,
+                layout: layout,
+                title: raw.title || '',
+                content: mappedFields.content || [],
+                narrative: mappedFields.narrative || '',
+                speakerNotes: raw.speakerNotes || '',
+                visualPrompt: '',
+                quote: mappedFields.quote || '',
+                sources: [...(mappedFields.sources || []), ...(raw.sources || [])].filter((v: string, i: number, a: string[]) => a.indexOf(v) === i),
+                style: { ...DEFAULT_STYLE },
+                // Archetype-specific fields from layout resolver
+                metrics: mappedFields.metrics,
+                bentoCells: mappedFields.bentoCells,
+                problemStat: mappedFields.problemStat,
+                solutionPoints: mappedFields.solutionPoints,
+                // Persona fields
+                personaName: mappedFields.personaName || raw.personaRef,
+                personaRole: mappedFields.personaRole,
+                personaQuote: mappedFields.personaQuote,
+            };
+
+            // Dark background styling
+            if (bgPref === 'dark' || (layout as string) === 'SECTION_HEADER' || (layout as string) === 'TITLE_SLIDE') {
+                slide.style = {
+                    backgroundColor: '#0D0D0D',
+                    headerColor: '#F5F5F0',
+                    textColor: '#CCCCCC',
+                    accentColor: '#B8B800',
+                };
+            }
+
+            // SECTION_HEADER cleanup: force empty content
+            if ((layout as string) === 'SECTION_HEADER') {
+                slide.content = [];
+                slide.narrative = '';
+                slide.quote = '';
+            }
+
+            return slide;
+        });
+
+        // =====================================================================
+        // DETERMINISTIC CONTENT ENRICHMENT: Inject report data into thin slides
+        //
+        // Even with content blocks, the AI may produce thin output. This step
+        // directly pulls data from the strategic report sections into slides —
+        // no AI involved, pure data transfer. This guarantees evidence reaches
+        // the final deck regardless of AI generation quality.
+        // =====================================================================
+        if (context.strategicReport) {
+            const reportSections = context.strategicReport.sections || [];
+            onStream('Enriching slides with report evidence...');
+
+            for (const slide of resolvedSlides) {
+                if ((slide.layout as string) === 'SECTION_HEADER' || (slide.layout as string) === 'TITLE_SLIDE') continue;
+
+                // Find the matching report section for this slide
+                const slideTitle = (slide.title || '').toLowerCase();
+                const matchedSection = reportSections.find(s => {
+                    const srcMatch = structure.slides?.find(ss => ss.slideNumber === slide.slideNumber);
+                    const srcDel = (srcMatch as any)?.sourceDeliverable || '';
+                    return s.sourceDeliverable === srcDel ||
+                        s.title.toLowerCase().includes(slideTitle.substring(0, 25)) ||
+                        slideTitle.includes(s.title.toLowerCase().substring(0, 25));
+                });
+
+                if (!matchedSection) continue;
+
+                // Inject metrics from report if slide has none
+                if ((!slide.metrics || slide.metrics.length === 0) && matchedSection.keyMetrics?.length) {
+                    slide.metrics = matchedSection.keyMetrics.map((m: any, i: number) => ({
+                        label: m.label,
+                        value: m.value,
+                        unit: '',
+                        accentColor: ['#CC6644', '#B8B800', '#00B7C3'][i % 3],
+                    }));
+                }
+
+                // Inject quote from report if slide has none
+                if (!slide.quote && matchedSection.keyQuote) {
+                    slide.quote = `"${matchedSection.keyQuote.text}" -- ${matchedSection.keyQuote.attribution} (${matchedSection.keyQuote.source})`;
+                }
+
+                // Inject sources from report if slide has none
+                if ((!slide.sources || slide.sources.length === 0) && matchedSection.citations?.length) {
+                    slide.sources = matchedSection.citations.slice(0, 4);
+                }
+
+                // If content bullets are just short labels (<40 chars), enrich with report evidence
+                const hasOnlyLabels = slide.content?.length && slide.content.every(c => c.length < 40);
+                if (hasOnlyLabels && matchedSection.content) {
+                    // Extract 2-3 evidence sentences from the report section
+                    const sentences = matchedSection.content.split(/(?<=[.!?])\s+/).filter((s: string) => s.length > 50 && s.length < 250);
+                    if (sentences.length >= 2) {
+                        slide.content = sentences.slice(0, 3);
+                    }
+                }
+
+                // If content is completely empty, pull from report
+                if (!slide.content || slide.content.length === 0) {
+                    const sentences = (matchedSection.content || '').split(/(?<=[.!?])\s+/).filter((s: string) => s.length > 50 && s.length < 250);
+                    slide.content = sentences.slice(0, 3);
+                }
+            }
+        }
+
+        return { slides: resolvedSlides, videoScript: [] } as StepResult_Narrative;
     }
 
     // --- NEW OUTPUT GENERATORS (Sprint 4) ---
@@ -1736,7 +2092,7 @@ STEP D: Calculate GAPS (target - current). EVERY capability where current < targ
 REQUIREMENTS:
 - Generate AT LEAST 6 capability gaps. If you found 8 themes, you should have 8+ gaps.
 - assessmentScope: 2-3 sentences defining the analysis domain
-- Each gap MUST have: capability, currentMaturity, targetMaturity, gap (number), severity, impact (with [CHUNK_XXX]), effort
+- Each gap MUST have: capability, currentMaturity, targetMaturity, gap (number), severity, impact (with [CHUNK_XXX]), effort, citations (array of source names), evidenceBasis (1-2 sentences with specific data proving the maturity gap)
 - severity: "critical" if gap >= 3 or if the impact is existential; "high" if gap = 2; "medium" if gap = 1
 - prioritizedActions: AT LEAST 4 actions, each referencing a specific gap by name
 - quickWins: AT LEAST 2 items where effort is low but impact is high
@@ -1757,7 +2113,7 @@ Output JSON.`;
                     assessmentScope: { type: Type.STRING },
                     currentState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, maturity: { type: Type.NUMBER }, evidence: { type: Type.STRING } }, required: ["capability", "maturity", "evidence"] } },
                     desiredState: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, targetMaturity: { type: Type.NUMBER }, rationale: { type: Type.STRING } }, required: ["capability", "targetMaturity", "rationale"] } },
-                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } }, required: ["capability", "currentMaturity", "targetMaturity", "gap", "severity", "impact", "effort"] } },
+                    gaps: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { capability: { type: Type.STRING }, currentMaturity: { type: Type.NUMBER }, targetMaturity: { type: Type.NUMBER }, gap: { type: Type.NUMBER }, severity: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING }, citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING } }, required: ["capability", "currentMaturity", "targetMaturity", "gap", "severity", "impact", "effort", "citations", "evidenceBasis"] } },
                     prioritizedActions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, priority: { type: Type.STRING }, timeline: { type: Type.STRING }, gapReference: { type: Type.STRING } }, required: ["action", "priority", "timeline"] } },
                     quickWins: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { action: { type: Type.STRING }, impact: { type: Type.STRING }, effort: { type: Type.STRING } }, required: ["action", "impact", "effort"] } },
                     riskRegister: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { risk: { type: Type.STRING }, likelihood: { type: Type.STRING }, impact: { type: Type.STRING }, mitigation: { type: Type.STRING } }, required: ["risk", "likelihood", "impact", "mitigation"] } },
@@ -1796,6 +2152,8 @@ For each system found:
 - users: Who uses it
 - department: Which department owns it
 - status: active | legacy | deprecated | planned
+- citations: Array of source names where this system was mentioned (e.g., ["Client SOW", "Higher Ed Dive", "Reddit"])
+- evidenceBasis: 1 sentence with specific evidence of this system's role or issues (e.g., "SOW mentions Raiser's Edge NXT as primary CRM but staff report 40% of data entry is manual")
 
 Generate at LEAST 8 systems. If the corpus mentions an organization, that organization has a CRM, a website, email, databases, and likely an LMS — include them even if the specific vendor isn't named (label as "Unspecified CRM" etc.).
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
@@ -1807,8 +2165,9 @@ ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
                 methodology: { type: Type.STRING },
                 systems: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
                     name: { type: Type.STRING }, vendor: { type: Type.STRING }, category: { type: Type.STRING },
-                    users: { type: Type.STRING }, department: { type: Type.STRING }, status: { type: Type.STRING }
-                }, required: ["name", "category", "status"] } }
+                    users: { type: Type.STRING }, department: { type: Type.STRING }, status: { type: Type.STRING },
+                    citations: { type: Type.ARRAY, items: { type: Type.STRING } }, evidenceBasis: { type: Type.STRING }
+                }, required: ["name", "category", "status", "citations", "evidenceBasis"] } }
             },
             required: ["methodology", "systems"]
         };
@@ -1922,8 +2281,10 @@ Output JSON.`;
                         strengths: { type: Type.ARRAY, items: { type: Type.STRING } },
                         weaknesses: { type: Type.ARRAY, items: { type: Type.STRING } },
                         differentiators: { type: Type.ARRAY, items: { type: Type.STRING } },
-                        isArchetype: { type: Type.BOOLEAN }
-                    }, required: ["name", "position", "strengths", "weaknesses", "differentiators"] } },
+                        isArchetype: { type: Type.BOOLEAN },
+                        citations: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        evidenceBasis: { type: Type.STRING }
+                    }, required: ["name", "position", "strengths", "weaknesses", "differentiators", "citations", "evidenceBasis"] } },
                     benchmarkDimensions: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
                         dimension: { type: Type.STRING },
                         weight: { type: Type.NUMBER },
@@ -1947,6 +2308,356 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
+        return this.executeStep<any>(prompt, schema, [], onStream);
+    }
+
+    // ============================================================
+    // STRATEGIC REPORT GENERATION (Report-First Architecture)
+    // ============================================================
+
+    /**
+     * Generate a comprehensive strategic report synthesizing ALL deliverables.
+     * This is the unrestricted narrative layer — no character budgets, no slide templates.
+     * The deck is derived FROM this report, not from raw truncated metadata.
+     */
+    async generateStrategicReport(context: DeckInputContext, feedback: string | undefined, onStream: (t: string) => void, rawSources?: any[]): Promise<any> {
+        // Load chunk-to-source map so we can resolve CHUNK_XXX → real source names
+        let chunkMap: Record<string, { sourceName: string; title: string; url?: string }> = {};
+        try {
+            const { getChunkSourceMap } = await import('./researchFabricOrchestrator');
+            chunkMap = getChunkSourceMap();
+        } catch (e) { /* no map available */ }
+
+        // Resolve a CHUNK_XXX reference to human-readable "SourceName: ArticleTitle"
+        const resolveChunk = (ref: string): string => {
+            const info = chunkMap[ref] || chunkMap[ref.replace(/[\[\]]/g, '')];
+            if (info) return `${info.sourceName}: "${info.title}"`;
+            return ref;
+        };
+
+        // Resolve all CHUNK_XXX references in a text string
+        const resolveChunksInText = (text: string): string => {
+            if (!text) return text;
+            return text.replace(/\[?(CHUNK_\d+)\]?/g, (match, chunkId) => {
+                const resolved = resolveChunk(chunkId);
+                return resolved !== chunkId ? `[${resolved}]` : match;
+            });
+        };
+
+        // Build full-depth serialization of each deliverable (NO truncation, RESOLVED citations)
+        const serializeThemes = (themes: any[]) => themes.map((t, i) => {
+            const citations = (t.citations || []).map((c: any) => {
+                const name = c.sourceName || resolveChunk(c.sourceFile || '') || 'Unknown';
+                const quote = c.text ? ` — "${c.text.substring(0, 100)}"` : '';
+                return `${name}${quote}`;
+            });
+            return `Theme ${i+1}: ${t.name}\nDescription: ${resolveChunksInText(t.description)}\nQuote: "${t.quote}"\nCitations:\n${citations.map((c: string) => `  - ${c}`).join('\n')}\nCross-document: ${t.isCrossDocument ? 'Yes' : 'No'}\nStatus: ${t.status || 'approved'}`;
+        }).join('\n\n');
+
+        const serializePersonas = (personas: any[]) => personas.map(p =>
+            `Persona: ${p.name} (${p.role})\nDemographics: ${p.demographics}\nBio: ${resolveChunksInText(p.bio)}\nJTBD: ${p.jtbd || 'N/A'}\nQuote: "${p.quote}"\nGoals: Life=${p.goals?.lifeGoal || 'N/A'} | Experience=${p.goals?.experienceGoal || 'N/A'} | Functional=${p.goals?.functionalGoal || 'N/A'}\n5Ws: Who=${resolveChunksInText(p.fiveWs?.who || 'N/A')} | What=${resolveChunksInText(p.fiveWs?.what || 'N/A')} | When/Where=${resolveChunksInText(p.fiveWs?.whenWhere || 'N/A')} | Why=${resolveChunksInText(p.fiveWs?.why || 'N/A')}\nPain Points: ${(p.painPoints || []).map((pp: any) => `${pp.label}: "${resolveChunksInText(pp.quote || '')}" (${resolveChunk(pp.sourceFile || pp.source || '')})`).join('; ')}\nMotivations: ${(p.motivations || []).map((m: any) => `${m.label}: "${resolveChunksInText(m.quote || '')}" (${resolveChunk(m.source || '')})`).join('; ')}\nOpportunities: ${(p.opportunities || []).map((o: any) => `${o.label}: "${resolveChunksInText(o.quote || '')}" (${resolveChunk(o.source || '')})`).join('; ')}\nBehaviors: ${resolveChunksInText(p.behaviors || 'N/A')}\nTechnology Usage: ${resolveChunksInText(p.technologyUsage || 'N/A')}\nJourney Context: ${resolveChunksInText(p.journeyContext || 'N/A')}\nDay in the Life: ${resolveChunksInText(p.dayInTheLife || 'N/A')}\nBrand Relationships: ${resolveChunksInText(p.brandRelationships || 'N/A')}\nDecision Process: ${resolveChunksInText(p.decisionProcess || 'N/A')}\nConfidence: ${p.confidenceLevel || 'N/A'} (${p.evidenceCount || 0} evidence items)\nImage: ${p.imageUrl ? 'Available' : 'None'}`
+        ).join('\n\n---\n\n');
+
+        const serializeJourney = (stages: any[]) => stages.map((s, i) =>
+            `Stage ${i+1}: ${s.phase}\nCustomer Action: ${resolveChunksInText(s.customerAction)}\nTouchpoint: ${s.touchpoint}\nFrontstage: ${resolveChunksInText(s.frontstageAction)}\nBackstage: ${resolveChunksInText(s.backstageAction)}\nSupport Processes: ${resolveChunksInText(s.supportProcesses)}\nPhysical Evidence: ${s.physicalEvidence}\nEmotion: ${s.emotion}${s.emotionIntensity ? ` (intensity ${s.emotionIntensity}/5)` : ''}\nPain Point: ${resolveChunksInText(s.painPoint)}\nFail Point: ${resolveChunksInText(s.fail_point || 'None identified')}\nMoment of Truth: ${s.momentOfTruth ? 'YES' : 'No'}\nTechnology Systems: ${resolveChunksInText(s.technologySystems || 'N/A')}\nActors: ${(s.actors || []).join(', ') || 'N/A'}\nOpportunity: ${resolveChunksInText(s.opportunityForImprovement || 'N/A')}`
+        ).join('\n\n');
+
+        const serializeRecommendations = (recs: any[]) => recs.map((r, i) =>
+            `Recommendation ${i+1} [${r.impactLevel}]: ${r.title}\n${resolveChunksInText(r.description)}\nAction Items:\n${(r.actionItems || []).map((a: string, j: number) => `  ${j+1}. ${resolveChunksInText(a)}`).join('\n')}`
+        ).join('\n\n');
+
+        const serializePRD = (prd: any) => {
+            const features = (prd.features || []).map((f: any) =>
+                `[${f.priority}] ${f.name}: ${resolveChunksInText(f.description)}\n  User Stories: ${(f.userStories || []).join('; ')}\n  Acceptance Criteria: ${(f.acceptanceCriteria || []).join('; ')}\n  Citation: ${resolveChunksInText(f.citation || '')}`
+            ).join('\n');
+            return `Title: ${prd.title}\nObjective: ${resolveChunksInText(prd.purposeAndObjectives)}\nTarget Audience: ${prd.targetAudience}\nSuccess Metrics: ${(prd.successMetrics || []).join('; ')}\nFeatures:\n${features}\nRisks: ${(prd.risks || []).join('; ')}\nConstraints: ${(prd.constraints || []).join('; ')}`;
+        };
+
+        const serializeRoadmap = (rm: any) => {
+            const items = (rm.items || []).map((i: any) =>
+                `[${i.horizon}] ${i.initiative}: ${resolveChunksInText(i.description)} | Owner: ${i.owner || '?'} | Metric: ${i.successMetric || 'N/A'} | Theme: ${i.strategicTheme || 'N/A'} | Confidence: ${i.confidenceLevel || 'N/A'}`
+            ).join('\n');
+            return `Vision: ${rm.vision}\nGoals: ${(rm.goals || []).join('; ')}\nItems:\n${items}`;
+        };
+
+        const serializeGapAnalysis = (ga: any) => {
+            const gaps = (ga.gaps || []).map((g: any) =>
+                `[${g.severity}] ${g.capability}: Current ${g.currentMaturity}/5 → Target ${g.targetMaturity}/5 (gap ${g.gap}). Impact: ${resolveChunksInText(g.impact)}. Effort: ${g.effort}`
+            ).join('\n');
+            const risks = (ga.riskRegister || []).map((r: any) =>
+                `Risk: ${resolveChunksInText(r.risk)} | Likelihood: ${r.likelihood} | Impact: ${r.impact} | Mitigation: ${resolveChunksInText(r.mitigation)}`
+            ).join('\n');
+            const actions = (ga.prioritizedActions || []).map((a: any) =>
+                `[${a.priority}] ${resolveChunksInText(a.action)} | Timeline: ${a.timeline || 'N/A'} | Owner: ${a.owner || 'N/A'}`
+            ).join('\n');
+            return `Scope: ${ga.assessmentScope}\nGaps:\n${gaps}\nPrioritized Actions:\n${actions}\nQuick Wins: ${(ga.quickWins || []).map((q: any) => q.action).join('; ')}\nRisk Register:\n${risks}`;
+        };
+
+        const serializeTechAudit = (ta: any) => {
+            const systems = (ta.systemsInventory || []).map((s: any) =>
+                `${s.name} (${s.vendor}, ${s.status}): ${s.category} | Users: ${s.users} | Dept: ${s.department}`
+            ).join('\n');
+            const integrations = (ta.integrationMap || []).map((i: any) =>
+                `${i.source} → ${i.target}: ${i.method} | Health: ${i.health} | Flow: ${resolveChunksInText(i.dataFlow)}`
+            ).join('\n');
+            const caps = (ta.capabilityMatrix || []).map((c: any) =>
+                `${c.capability}: ${c.currentMaturity}/5 → ${c.targetMaturity}/5 (gap ${c.gap})`
+            ).join('\n');
+            return `Systems:\n${systems}\nIntegrations:\n${integrations}\nCapability Matrix:\n${caps}\nConsolidation: ${(ta.consolidationOpportunities || []).map((c: any) => `${c.title}: ${resolveChunksInText(c.description)}`).join('; ')}`;
+        };
+
+        const serializeCompetitive = (ca: any) => {
+            const peers = (ca.peers || []).map((p: any) =>
+                `${p.name}: ${resolveChunksInText(p.position)}\n  Strengths: ${(p.strengths || []).map((s: string) => resolveChunksInText(s)).join(', ')}\n  Weaknesses: ${(p.weaknesses || []).map((w: string) => resolveChunksInText(w)).join(', ')}\n  Differentiators: ${(p.differentiators || []).map((d: string) => resolveChunksInText(d)).join(', ')}`
+            ).join('\n');
+            const matrix = (ca.maturityMatrix || []).map((m: any) =>
+                `${m.peer}: ${Object.entries(m.scores || {}).map(([k,v]) => `${k}=${v}`).join(', ')}`
+            ).join('\n');
+            const gaps = (ca.gapSummary || []).map((g: any) =>
+                `${g.dimension}: Our ${g.ourScore} vs Best ${g.bestInClass} (gap ${g.gap}). Action: ${resolveChunksInText(g.action)}`
+            ).join('\n');
+            return `Context: ${resolveChunksInText(ca.industryContext)}\nPeers:\n${peers}\nMaturity Matrix:\n${matrix}\nGap Summary:\n${gaps}`;
+        };
+
+        const serializeTechArch = (ta: any) => {
+            const sections = (ta.sections || []).map((s: any) => `${s.sectionNumber}. ${s.title}: ${resolveChunksInText(s.content)}`).join('\n');
+            const nodes = (ta.nodes || []).map((n: any) => `${n.label} (${n.type}): ${resolveChunksInText(n.description)}`).join('\n');
+            const flows = (ta.flows || []).map((f: any) => `${f.fromId} → ${f.toId}: ${resolveChunksInText(f.action)} [${f.protocol || ''}] (${f.status || 'active'})`).join('\n');
+            return `Overview: ${resolveChunksInText(ta.overview)}\nSections:\n${sections}\nNodes:\n${nodes}\nFlows:\n${flows}`;
+        };
+
+        // Build source catalog from chunk map
+        const sourceNames = new Set<string>();
+        Object.values(chunkMap).forEach((info: any) => {
+            if (info.sourceName) sourceNames.add(info.sourceName);
+        });
+
+        // Build EVIDENCE CATALOG from raw sources — the actual articles, posts, and data
+        // This is what makes the report cite real intelligence instead of just deliverable abstracts
+        // CRITICAL: The knowledge graph shows ~200 sources with full depth because it reads raw data.
+        // The report MUST see the same depth. Inject liberally — Gemini 2.5 Flash has 1M token context.
+        let evidenceCatalog = '';
+        if (rawSources && rawSources.length > 0) {
+            const evidenceEntries: string[] = [];
+            const tierLabels: Record<number, string> = { 1: 'TIER 1 (Academic/Gov)', 2: 'TIER 2 (Industry/News)', 3: 'TIER 3 (Community/Social)' };
+            let totalArticlesInjected = 0;
+
+            // Group by tier for structured evidence presentation
+            for (const tier of [1, 2, 3]) {
+                const tierSources = rawSources.filter((s: any) => (s.credibilityTier || 3) === tier && s.items?.length > 0);
+                if (tierSources.length === 0) continue;
+
+                // Content depth per tier: social posts short so full; academic needs abstracts
+                const contentCap = tier === 3 ? 3000 : tier === 1 ? 2000 : 1500;
+
+                evidenceEntries.push(`\n--- ${tierLabels[tier]} (${tierSources.length} sources, ${tierSources.reduce((s: number, src: any) => s + (src.items?.length || 0), 0)} total articles) ---`);
+                for (const src of tierSources) {
+                    evidenceEntries.push(`\nSOURCE: ${src.source || src.sourceId} (T${tier}, ${src.items.length} articles)`);
+                    // INCLUDE ALL USER-CURATED ARTICLES — no hard caps.
+                    // rawSources already filtered by excludedSources in App.tsx.
+                    // Every item that reaches here was explicitly included by the user.
+                    // Sort: priority items FIRST, then by relevance score.
+                    const sortedItems = [...(src.items || [])].sort((a: any, b: any) => {
+                        if (a.priority && !b.priority) return -1;
+                        if (!a.priority && b.priority) return 1;
+                        return (b.relevanceScore || 0) - (a.relevanceScore || 0);
+                    });
+                    for (const item of sortedItems) {
+                        const content = item.content ? item.content.substring(0, contentCap) : '';
+                        const date = item.date ? ` | Date: ${item.date}` : '';
+                        const url = item.url ? ` | URL: ${item.url}` : '';
+                        const relevance = item.relevanceScore ? ` | Relevance: ${item.relevanceScore}/100` : '';
+                        const author = item.author ? ` | Author: ${item.author}` : '';
+                        evidenceEntries.push(`  ARTICLE: "${item.title}"${author}${date}${url}${relevance}\n  ${content}`);
+                        if (item.priority) evidenceEntries.push(`  *** PRIORITY CITATION — User flagged this article for MANDATORY prominent placement in the report ***`);
+                        totalArticlesInjected++;
+                    }
+                }
+            }
+
+            if (evidenceEntries.length > 0) {
+                evidenceCatalog = `\n=== RAW INTELLIGENCE EVIDENCE (${totalArticlesInjected} articles injected from ${rawSources.reduce((s: number, r: any) => s + (r.items?.length || 0), 0)} total collected across ${rawSources.length} sources) ===
+THIS IS YOUR PRIMARY EVIDENCE BASE. The deliverables above are the AI's synthesis — but YOUR report must go DEEPER than the synthesis by citing the raw evidence directly.
+
+MANDATORY EVIDENCE USAGE:
+- CASE STUDIES: When an article describes a specific organization's experience, present it as a 2-3 sentence case study.
+- VERBATIM SOCIAL EVIDENCE: Reddit posts, forum comments, and reviews are primary practitioner evidence. Quote them DIRECTLY with attribution: "One advancement director on Reddit wrote: '...'"
+- ACADEMIC CITATIONS: Reference papers by title and author when available: "A 2024 OpenAlex study by Smith et al. found that..."
+- DATA POINTS: Extract specific numbers, percentages, dates, dollar amounts from articles. "According to Higher Ed Dive, enrollment dropped 15% at 23 institutions in Q1 2025."
+- CONVERGENT EVIDENCE: When multiple sources agree, explicitly note convergence: "This finding is corroborated by three independent sources: [source1], [source2], and [source3]."
+- COUNTER-EVIDENCE: When sources disagree, note the tension: "While [source1] reports growth, [source2] documented contraction in the same segment."
+- SOURCE NAMES: ALWAYS cite the source by its publication/platform name, never as "research" or "studies" or "intelligence sources."
+
+${evidenceEntries.join('\n')}
+=== END RAW INTELLIGENCE EVIDENCE ===\n`;
+            }
+        }
+
+        const sourceCatalog = sourceNames.size > 0
+            ? `\n=== SOURCE CATALOG (${sourceNames.size} sources — cite by name) ===\n${Array.from(sourceNames).map(s => `- ${s}`).join('\n')}\n=== END SOURCE CATALOG ===\n`
+            : '';
+
+        // Build the full deliverable context — NO TRUNCATION, RESOLVED CITATIONS
+        const deliverableContext: string[] = [];
+        if (context.themes?.length) deliverableContext.push(`=== THEMES (${context.themes.length}) ===\n${serializeThemes(context.themes)}`);
+        if (context.personas?.length) deliverableContext.push(`=== PERSONAS (${context.personas.length}) ===\n${serializePersonas(context.personas)}`);
+        if (context.journeyStages?.length) deliverableContext.push(`=== SERVICE BLUEPRINT (${context.journeyStages.length} stages) ===\n${serializeJourney(context.journeyStages)}`);
+        if (context.recommendations?.length) deliverableContext.push(`=== RECOMMENDATIONS (${context.recommendations.length}) ===\n${serializeRecommendations(context.recommendations)}`);
+        if (context.prd) deliverableContext.push(`=== PRD ===\n${serializePRD(context.prd)}`);
+        if (context.roadmap) deliverableContext.push(`=== ROADMAP ===\n${serializeRoadmap(context.roadmap)}`);
+        if (context.techArchitecture) deliverableContext.push(`=== TECH ARCHITECTURE ===\n${serializeTechArch(context.techArchitecture)}`);
+        if (context.gapAnalysis) deliverableContext.push(`=== GAP ANALYSIS ===\n${serializeGapAnalysis(context.gapAnalysis)}`);
+        if (context.techAudit) deliverableContext.push(`=== TECH ECOSYSTEM AUDIT ===\n${serializeTechAudit(context.techAudit)}`);
+        if (context.competitiveAnalysis) deliverableContext.push(`=== COMPETITIVE ANALYSIS ===\n${serializeCompetitive(context.competitiveAnalysis)}`);
+
+        // Load wiki constraints for self-improvement
+        let learnedConstraints = '';
+        try {
+            const { getActiveConstraints } = await import('./promptImprovementEngine');
+            learnedConstraints = getActiveConstraints();
+        } catch (e) { /* no constraints available */ }
+
+        const prompt = `STEP: STRATEGIC REPORT. You are a McKinsey-trained strategy consultant writing a comprehensive research report.
+
+TASK: Synthesize ALL of the deliverable data below into a unified strategic whitepaper. This report will later be distilled into a strategy deck — so be thorough, evidence-rich, and citation-heavy. Write with unrestricted analytical depth.
+
+RUMELT'S KERNEL (the report must contain all three):
+1. DIAGNOSIS: ONE specific challenge grounded in evidence from multiple deliverables.
+2. GUIDING POLICY: ONE strategic choice that excludes alternatives.
+3. COHERENT ACTIONS: 5-7 actions that reinforce each other, drawn from recommendations and roadmap.
+
+NARRATIVE STRUCTURE (McKinsey Whitepaper Format):
+- Executive Summary: 500-800 words in SCR format. State the conclusion first. Reference at least 5 distinct intelligence sources.
+- Each section: 400-800 words of analytical prose that reads like a published research report.
+- WRITE LIKE A JOURNALIST: Name specific articles, quote specific people, cite specific data. "According to a February 2025 Higher Ed Dive report..." not "according to research."
+- USE CASE STUDIES: When an article describes a real institution, company, or person's experience, present it as a 2-3 sentence case study. "Amazon's January 2024 layoff of 16,000 corporate employees, reported across multiple Reddit communities, illustrates the volatility facing graduates..."
+- CITE SOCIAL EVIDENCE: Reddit posts and community discussions are primary practitioner evidence. Quote them directly: "One CS student on r/cscareerquestions wrote: 'I applied to 200 positions...' — a sentiment echoed by 47 similar posts in the dataset."
+- WEAVE MULTIPLE SOURCES: Each paragraph should reference 2-3 different sources, showing convergent evidence. "Federal Register data confirms the regulatory shift, while a Hechinger Report investigation revealed the implementation gap at ground level."
+- Every factual claim MUST cite its source by specific name (not "research shows" or "studies indicate").
+- Include keyMetrics (label, value, context) with specific numbers from the evidence for EVERY section.
+- Include keyQuote (text, attribution, source) with a VERBATIM quote from a named source for EVERY section.
+- Flag evidenceGap when a section relies on thin or single-source evidence.
+
+PRIORITY CITATION ENFORCEMENT:
+Articles marked with "*** PRIORITY CITATION ***" in the evidence catalog below were explicitly flagged by the user for prominent placement. You MUST:
+1. Cite EVERY priority-flagged article by name in the report
+2. Include a direct quote or specific data point from each priority article
+3. Place priority articles in the most relevant section — they should anchor the argument, not be footnotes
+4. If a priority article doesn't fit any section naturally, create a "Notable Evidence" subsection
+
+MANDATORY SECTION MANIFEST (generate EXACTLY these sections in this order — do NOT substitute strategy-document boilerplate like "Vision", "Governance Model", "Communication Plan"):
+${(() => {
+    const sections: string[] = [];
+    let n = 1;
+    sections.push(`${n++}. EXECUTIVE SUMMARY (sourceDeliverable: "executive_summary") — 500-800 words synthesizing the entire research body. Must reference at least 5 intelligence sources by name.`);
+    if (context.themes?.length) {
+        sections.push(`${n++}. RESEARCH LANDSCAPE: KEY THEMES (sourceDeliverable: "themes") — Present the ${context.themes.length} research themes as findings, each grounded in specific evidence. Name the articles and data that support each theme. This is NOT a strategy section — it's a research findings section.`);
+        sections.push(`${n++}. THEME DEEP-DIVE: [Pick the highest-evidence theme] (sourceDeliverable: "themes") — 600+ words investigating the strongest theme in depth. Use case studies, quote articles, cite data. Show convergent evidence across multiple sources.`);
+    }
+    if (context.personas?.length) {
+        for (const p of context.personas.slice(0, 4)) {
+            sections.push(`${n++}. PERSONA: ${p.name} (sourceDeliverable: "personas") — Full persona profile as investigative narrative. Include JTBD, Cooper goals, pain points with quoted evidence, behaviors, technology usage, journey context, day-in-the-life. Write as if profiling a real person for a magazine article. Cite the specific sources that informed this persona.`);
+        }
+    }
+    if (context.journeyStages?.length) {
+        sections.push(`${n++}. SERVICE JOURNEY ANALYSIS (sourceDeliverable: "journey_map") — Walk through ALL ${context.journeyStages.length} journey stages. For each stage: what happens, what fails, what the emotional experience is, where the moments of truth are. Name specific pain points with evidence. Include frontstage/backstage actions.`);
+        sections.push(`${n++}. MOMENTS OF TRUTH & FAILURE POINTS (sourceDeliverable: "journey_map") — Focus on the stages with fail_points and momentOfTruth=true. Describe what breaks, the consequences, and the evidence. Use specific data from the research.`);
+    }
+    if (context.gapAnalysis) {
+        sections.push(`${n++}. CAPABILITY GAP ASSESSMENT (sourceDeliverable: "gap_analysis") — Present ALL gaps with current/target maturity scores. Include the risk register. Cite evidence for each gap's impact. Show the maturity progression path.`);
+    }
+    if (context.competitiveAnalysis) {
+        sections.push(`${n++}. COMPETITIVE POSITIONING (sourceDeliverable: "competitive_analysis") — Present ALL peers with strengths/weaknesses/differentiators. Include the maturity matrix scores. Show where we lead and where we trail. Cite specific competitive intelligence.`);
+    }
+    if (context.techAudit) {
+        sections.push(`${n++}. TECHNOLOGY ECOSYSTEM (sourceDeliverable: "tech_audit") — Present the systems inventory, integration map, and capability matrix. Name specific systems, vendors, health statuses. Identify consolidation opportunities with evidence.`);
+    }
+    if (context.recommendations?.length) {
+        sections.push(`${n++}. STRATEGIC RECOMMENDATIONS (sourceDeliverable: "recommendations") — Present ALL ${context.recommendations.length} recommendations with full action items. Each recommendation must cite the evidence that justifies it. Group by impact level.`);
+    }
+    if (context.prd) {
+        sections.push(`${n++}. PRODUCT REQUIREMENTS (sourceDeliverable: "prd") — Present key features with MoSCoW priority, user stories, and acceptance criteria. Tie each feature back to a persona need or gap finding.`);
+    }
+    if (context.roadmap) {
+        sections.push(`${n++}. IMPLEMENTATION ROADMAP (sourceDeliverable: "roadmap") — Present ALL items across NOW/NEXT/LATER horizons with owners, success metrics, and dependencies. Each item must reference the recommendation or gap it addresses.`);
+    }
+    if (context.techArchitecture) {
+        sections.push(`${n++}. ARCHITECTURE DIRECTION (sourceDeliverable: "tech_architecture") — Present the technical architecture with nodes, flows, and integration points. Tie to the tech audit findings and gap analysis.`);
+    }
+    sections.push(`${n++}. RISK ASSESSMENT & QUICK WINS (sourceDeliverable: "risk_assessment") — Top 5 risks from the gap analysis risk register + the top quick wins from the roadmap NOW horizon. Evidence-grounded, not generic.`);
+    return sections.join('\n');
+})()}
+
+TOTAL: Generate ALL sections listed above. Do NOT skip any. Do NOT add sections not in this list (no "Vision and Mission", "Governance Model", "Communication Plan", "Change Management" — those are strategy document filler, not research report content).
+
+ANTI-SLOP: No "paradigm shift", "game-changer", "leverage synergies", "in today's rapidly evolving landscape", or similar corporate filler. Write like a consultant who bills $500/hour — every word earns its place.
+
+PLAIN TEXT ONLY: No **bold**, *italic*, or markdown. The rendering system handles formatting.
+
+${learnedConstraints ? `\nLEARNED CONSTRAINTS (from prior user feedback):\n${learnedConstraints}\n` : ''}
+${feedback ? `\nUSER FEEDBACK (PRIORITY):\n${feedback}\n` : ''}
+
+=== DELIVERABLE DATA (use ALL of this) ===
+${deliverableContext.join('\n\n')}
+=== END DELIVERABLE DATA ===
+${evidenceCatalog}
+${sourceCatalog}
+CRITICAL CITATION AND EVIDENCE REQUIREMENTS:
+1. The RAW INTELLIGENCE EVIDENCE section above contains articles from ${rawSources?.length || 0} sources with ${rawSources?.reduce((s: number, r: any) => s + (r.items?.length || 0), 0) || 0} total collected items. THIS IS YOUR PRIMARY EVIDENCE BASE — the knowledge graph shows all this depth and YOUR REPORT MUST MATCH IT.
+2. Your report MUST cite evidence from at LEAST 20 different named sources — not just the uploaded client documents. The knowledge graph connects ~200 evidence nodes; your report should reference a significant fraction of them.
+3. CITE SPECIFIC ARTICLES BY NAME: "According to Higher Ed Dive's article 'Universities Struggle with Skills Gap'..." or "A Reddit post in r/cscareerquestions noted that..."
+4. QUOTE SPECIFIC DATA: Use specific statistics, dates, percentages, dollar amounts, and findings from the evidence articles. NEVER generalize what can be specified. BAD: "Research shows enrollment declined." GOOD: "Higher Ed Dive reported a 15% enrollment decline across 23 public universities in Q1 2025, with rural institutions hit hardest at 22% [Higher Ed Dive]."
+5. USE CASE STUDY FORMAT: When an article describes a specific institution's experience, present it as a 2-4 sentence case study within the relevant section. MINIMUM 3 case studies across the report. Example: "CASE STUDY: Southern Oregon University received a $15M state lifeline in March 2025 to maintain operations after enrollment dropped below sustainability thresholds. The investment, paired with a workforce-aligned curriculum redesign, is projected to recover 60% of lost enrollment within 18 months [GDELT News]."
+6. SOCIAL EVIDENCE IS PRIMARY EVIDENCE: Reddit posts, forum discussions, TrustPilot reviews, and community data are unfiltered practitioner voices. Quote them DIRECTLY and EXTENSIVELY: "A senior advancement officer wrote on r/highereducation: 'We've been doing the same thing for 20 years and wondering why young alumni don't give' — a sentiment echoed in 14 similar posts across the dataset."
+7. The uploaded client documents provide ORGANIZATIONAL CONTEXT. The intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH: what the client's documents say about their situation + what the broader evidence reveals about the landscape they operate in.
+8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Higher Ed Dive", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") — NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
+9. EVERY section must include keyMetrics with 2-4 specific numbers drawn from the evidence (not approximations), and keyQuote with a VERBATIM quote from a named source.
+10. If a section relies only on uploaded client documents with no external evidence, flag it as an evidenceGap.
+11. AIM FOR 400-800 WORDS PER SECTION. The report should feel like a published research paper, not a slide deck in paragraph form. Use analytical prose with evidence weaving, not bullet-point summaries.
+12. CONVERGENT EVIDENCE: When 3+ sources agree on a finding, explicitly note the convergence. This is the strongest possible evidence and should be prominently featured.
+
+Output JSON.`;
+
+        const schema: any = {
+            type: 'OBJECT',
+            properties: {
+                methodology: { type: 'STRING' },
+                report: {
+                    type: 'OBJECT',
+                    properties: {
+                        title: { type: 'STRING' },
+                        date: { type: 'STRING' },
+                        executiveSummary: { type: 'STRING' },
+                        diagnosis: { type: 'STRING' },
+                        guidingPolicy: { type: 'STRING' },
+                        strategicPillars: { type: 'ARRAY', items: { type: 'STRING' } },
+                        sections: { type: 'ARRAY', items: {
+                            type: 'OBJECT',
+                            properties: {
+                                sectionNumber: { type: 'INTEGER' },
+                                title: { type: 'STRING' },
+                                content: { type: 'STRING' },
+                                sourceDeliverable: { type: 'STRING' },
+                                citations: { type: 'ARRAY', items: { type: 'STRING' } },
+                                keyMetrics: { type: 'ARRAY', items: {
+                                    type: 'OBJECT',
+                                    properties: { label: { type: 'STRING' }, value: { type: 'STRING' }, context: { type: 'STRING' } },
+                                    required: ['label', 'value']
+                                }},
+                                keyQuote: { type: 'OBJECT', properties: {
+                                    text: { type: 'STRING' }, attribution: { type: 'STRING' }, source: { type: 'STRING' }
+                                }},
+                                evidenceGap: { type: 'STRING' },
+                            },
+                            required: ['sectionNumber', 'title', 'content', 'sourceDeliverable', 'citations']
+                        }},
+                    },
+                    required: ['title', 'executiveSummary', 'diagnosis', 'guidingPolicy', 'strategicPillars', 'sections']
+                }
+            },
+            required: ['methodology', 'report']
+        };
+
         return this.executeStep<any>(prompt, schema, [], onStream);
     }
 
@@ -1999,6 +2710,44 @@ Output JSON.`;
             }
             if (totalSlopFixes > 0) {
                 console.log(`[SlopCorrection] Auto-corrected ${totalSlopFixes} slop violations across slides`);
+            }
+
+            // --- LAYOUT RESOLVER: Auto-fix empty data panels ---
+            // If a slide is CONTENT_DATA_PANEL but has no metrics, or BENTO_GRID with no cells,
+            // try to extract metrics from content text and re-resolve the layout.
+            try {
+                const { resolveLayout } = await import('./layoutResolver');
+                for (const slide of processedSlides) {
+                    const layout = slide.layout;
+                    const hasEmptyMetrics = (layout === 'CONTENT_DATA_PANEL' || layout === 'CONTENT_INSIGHT_CHART') && (!slide.metrics || slide.metrics.length === 0);
+                    const hasEmptyBento = layout === 'BENTO_GRID' && (!slide.bentoCells || slide.bentoCells.length === 0);
+                    const hasEmptySolution = layout === 'PROBLEM_SOLUTION' && (!slide.problemStat && (!slide.solutionPoints || slide.solutionPoints.length === 0));
+
+                    if (hasEmptyMetrics || hasEmptyBento || hasEmptySolution) {
+                        // Build content blocks from what we have
+                        const blocks: any[] = [];
+                        if (slide.content?.length) {
+                            blocks.push({ type: 'evidence_bullets', items: slide.content.map((c: string) => ({ text: c })) });
+                        }
+                        if (slide.quote) {
+                            blocks.push({ type: 'quote_block', text: slide.quote, attribution: slide.personaName || '' });
+                        }
+                        if (blocks.length > 0) {
+                            const isDark = (layout as string) === 'BENTO_GRID' || (layout as string) === 'SECTION_HEADER';
+                            const { layout: newLayout, mappedFields } = resolveLayout(blocks, isDark ? 'dark' : 'light');
+                            // Only apply if the resolver found a better match
+                            if (newLayout !== layout) {
+                                console.log(`[LayoutResolver] Slide ${slide.slideNumber}: ${layout} (empty fields) → ${newLayout}`);
+                                (slide as any).layout = newLayout;
+                            }
+                            // Fill in any missing fields from the resolver
+                            if (mappedFields.metrics && !slide.metrics?.length) slide.metrics = mappedFields.metrics;
+                            if (mappedFields.bentoCells && !slide.bentoCells?.length) slide.bentoCells = mappedFields.bentoCells;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn('[LayoutResolver] Skipped:', e);
             }
 
             // Inject persona images into slides that reference a persona by name.

@@ -303,3 +303,107 @@
 - Federal Register
 - Evaluate Digital Wallet Integration
 - Credentials Students
+
+
+## Auto-extracted (2026-04-14)
+- University Executive
+- Northeastern University
+- Ambitious Northeastern Student
+- Dedicated Advancement/Co-Op Professional
+- Engaged Alumnus/Corporate Partner
+- Philanthropic Investor
+- Philanthropic Investors
+- Academic Innovator/Integrity Advocate
+- Unify Constituent Data
+- Holistic Stakeholder Engagement The
+- Dedicated Advancement
+- Op Professionals
+- University Executives
+- Automate Prospect
+- Partner Intelligence
+- Op Professional
+- Northeastern University Advancement Digital Opportunity Definition
+- Roadmap Proposal
+- Streamline Co
+- Op Matching
+- Powered Platform The
+- Ambitious Northeastern Students
+- Engaged Alumni
+- Corporate Partners
+- Establish Comprehensive
+- Academic Innovator
+- Integrity Advocates
+- Enhance Donor Transparency
+- Dynamic Impact Reporting Philanthropic Investors
+- Integrate Regional Engagement
+- Functional Teams Regional
+- Alumni Relations
+- Engaged Alumnus
+- Corporate Partner
+- Expand Affordable Co
+- Op Housing Support High
+- Fortify Foundational Academic Skills
+- Literacy Faculty
+- Integrity Advocate
+- Elevate Professional Development
+- Engagement Staff Dedicated Advancement
+- Implement Ethical Framework
+- Fundraising Narratives Tying
+- George Floyd
+- Enhance Inclusive Housing Policies
+- Student Support
+- Develop Robust Contingency
+- Advocacy Strategies
+- Funding Northeastern
+- Student Philanthropy Northeastern
+- Personalized Engagement
+- Community Building
+
+
+## Auto-extracted (2026-04-15)
+- The Strategic Implementer
+- Project Charter
+- The First-Year Co-op Aspirant
+- The First
+- Year Co
+- The Talent Acquirer
+- The Guardian
+- The Dedicated Alumnus Donor
+- The Disengaged/Lapsed Alumnus
+- The Disengaged
+- Lapsed Alumnus
+- The Global Alumni Networker
+- The Educational Facilitator
+- Northeastern University
+- The System Architect
+- Comprehensive Learner Record
+- Establish Comprehensive Learner Record
+- Official Competency System Address
+- Enabled Personalized Co
+- Readiness Roadmaps Solve
+- Redesign Assessments
+- Empowered Integrity Address
+- Talent Acquirers
+- Enhance Donor Trust
+- Transparent Impact Reporting Solve
+- Time Donor Impact Reporting Dashboard
+- Robust Data Integration
+- Governance Architecture Address
+- Integration Architecture
+- Data Governance Framework
+- Implement Proactive Change Management
+- Address Historical Resistance Counter
+- Tailor Engagement Strategies
+- Global Alumni Address
+- Optimize Resource Allocation
+- Phased Rollout
+- Strategic Initiatives Mitigate
+- Finalize Foundational
+- Governance Address
+- Holistic Co
+- Success Measurement Framework Solve
+- Reposition Advancement Mar
+- Strategic Growth Engine Address
+- Advancement Marketing
+- Transition Mar
+- Diversify Philanthropic Funding Channels Address

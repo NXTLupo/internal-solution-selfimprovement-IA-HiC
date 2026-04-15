@@ -232,6 +232,8 @@ export interface StrategicRecommendation {
   description: string;
   impactLevel: 'HIGH' | 'MEDIUM' | 'LOW';
   actionItems: string[];
+  citations?: string[];      // Source names that justify this recommendation
+  evidenceBasis?: string;    // Brief evidence summary with specific data points
 }
 
 /** STRAT-01: Full 15-section strategy document per Rumelt's Kernel */
@@ -271,6 +273,8 @@ export interface ServiceBlueprintStage {
     fail_point?: string;               // B-03: Failure mode — what fails, frequency, consequence
     technologySystems?: string;        // B-05: Systems/platforms supporting this stage
     emotionIntensity?: number;         // Emotion intensity score (1-5)
+    citations?: string[];              // Source names cited for this stage's evidence
+    evidenceBasis?: string;            // Key evidence supporting this stage's analysis
 }
 
 export interface TechNode {
@@ -302,6 +306,8 @@ export interface TechnicalArchitecture {
     flows: TechFlow[];
     securityConsiderations?: string[];
     diagramUrl?: string;
+    citations?: string[];              // Source names evidencing tech landscape
+    evidenceBasis?: string;            // Key evidence for architecture decisions
 }
 
 // --- PRODUCT MANAGEMENT TYPES (NEW) ---
@@ -314,7 +320,9 @@ export interface PRDFeature {
     userStories: string[];
     acceptanceCriteria?: string[];
     dependencies: string;
-    citation?: string; // Source quote
+    citation?: string; // Source quote (legacy single field)
+    citations?: string[];      // Source names that justify this feature
+    evidenceBasis?: string;    // Key evidence: persona pain points + data that prove this need
 }
 
 export interface PRDSection {
@@ -354,6 +362,8 @@ export interface RoadmapItem {
     successMetric?: string;
     strategicTheme?: string;
     confidenceLevel?: 'HIGH' | 'MEDIUM' | 'EXPLORATORY';
+    citations?: string[];      // Source names that justify this initiative
+    evidenceBasis?: string;    // Evidence from themes/personas/gaps that drives this initiative
 }
 
 export interface StrategicRoadmap {
@@ -381,6 +391,7 @@ export interface AnalysisResult {
   techAudit?: TechEcosystemAudit;
   competitiveAnalysis?: CompetitiveAnalysis;
   crossCuttingSynthesis?: CrossCuttingInsight[];
+  strategicReport?: StrategicReport;
 }
 
 export enum AppState {
@@ -409,9 +420,10 @@ export enum AnalysisStage {
   TECH_AUDIT_STAGE = 'TECH_AUDIT_STAGE',
   COMPETITIVE_ANALYSIS = 'COMPETITIVE_ANALYSIS',
 
-  DECK_STRUCTURE = 'DECK_STRUCTURE', // Step 3.5: Deck Outline Customization
-  NARRATIVE = 'NARRATIVE', // Step 4: Narrative & Strategy Draft (Text Only)
-  FINAL = 'FINAL'          // Step 5: Asset Visualization (Images/Video)
+  STRATEGIC_REPORT = 'STRATEGIC_REPORT', // Step 3.5: Strategic whitepaper synthesis
+  DECK_STRUCTURE = 'DECK_STRUCTURE', // Step 4: Deck Outline Customization
+  NARRATIVE = 'NARRATIVE', // Step 5: Narrative & Strategy Draft (Text Only)
+  FINAL = 'FINAL'          // Step 6: Asset Visualization (Images/Video)
 }
 
 export interface DocumentMetadata {
@@ -524,6 +536,124 @@ export interface DeckInputContext {
     gapAnalysis?: GapAnalysis;
     techAudit?: TechEcosystemAudit;
     competitiveAnalysis?: CompetitiveAnalysis;
+    strategicReport?: StrategicReport;
+}
+
+// ============================================================
+// STRATEGIC REPORT (Report-First Architecture)
+// ============================================================
+
+/** A citation entry in the report's master bibliography */
+export interface CitationEntry {
+    id: string;                      // CHUNK_XXX reference
+    sourceName: string;              // Human-readable name
+    sourceUrl?: string;
+    tier: CredibilityTier;
+    citedInSections: number[];       // Which report sections cite this
+}
+
+/** A section of the strategic report — unrestricted depth */
+export interface ReportSection {
+    sectionNumber: number;
+    title: string;                   // Complete sentence (Pyramid Principle)
+    content: string;                 // 300-600 words, full analytical depth
+    sourceDeliverable: string;       // Which deliverable(s) this draws from
+    citations: string[];             // Resolved source names
+    keyMetrics?: { label: string; value: string; context: string }[];
+    keyQuote?: { text: string; attribution: string; source: string };
+    evidenceGap?: string;            // Transparency: what we don't know
+    includeInDeck?: boolean;         // User toggle at report checkpoint (default true)
+}
+
+/** The full strategic report — synthesizes all 10 deliverable types */
+export interface StrategicReport {
+    executiveSummary: string;        // 500-800 words, SCR format
+    diagnosis: string;               // Rumelt: the central challenge
+    guidingPolicy: string;           // Rumelt: the strategic choice
+    strategicPillars: string[];      // 3-5 MECE pillars
+    sections: ReportSection[];       // 12-18 sections, 300-600 words each
+    title: string;
+    date: string;
+    methodology: string;
+    curatedSourceCount: number;      // Provenance: how many sources used
+    citationIndex: CitationEntry[];  // Master list of all cited sources
+}
+
+export interface StepResult_StrategicReport {
+    methodology: string;
+    report: StrategicReport;
+}
+
+// ============================================================
+// CONTENT BLOCK COMPOSITION (Content-First Slide Architecture)
+// ============================================================
+
+/** Content block types — the AI declares WHAT to communicate, not HOW to lay it out */
+export type ContentBlockType =
+    | 'hero_stat'           // A headline number that dominates the slide
+    | 'evidence_bullets'    // 2-4 data-backed findings with citations
+    | 'metric_cards'        // 2-4 KPI-style data points for a data panel
+    | 'quote_block'         // A verbatim research quote with provenance
+    | 'persona_card'        // Reference to a research persona (image auto-injected)
+    | 'problem_statement'   // A challenge/friction point with evidence
+    | 'solution_points'     // 2-3 actionable solutions with detail
+    | 'data_grid'           // 3-6 data points for a grid/bento layout
+    | 'journey_strip'       // A service blueprint stage highlight
+    | 'comparison_row'      // A competitive/gap comparison data point
+    | 'narrative_text'      // 2-3 sentence prose
+    | 'section_label';      // Small caps topic/section indicator
+
+/** An item within a list-type content block */
+export interface ContentBlockItem {
+    text?: string;               // evidence_bullets
+    source?: string;             // evidence_bullets source attribution
+    chunkRef?: string;           // evidence_bullets citation ref
+    label?: string;              // metric_cards, data_grid
+    value?: string;              // metric_cards, data_grid
+    unit?: string;               // metric_cards
+    trend?: string;              // metric_cards (+12%, -5%, etc.)
+    title?: string;              // solution_points
+    description?: string;        // solution_points, data_grid
+}
+
+/** A content block — the fundamental unit of slide content */
+export interface ContentBlock {
+    type: ContentBlockType;
+    // Type-specific fields (each block type uses its relevant subset):
+    value?: string;              // hero_stat, problem_statement
+    unit?: string;               // hero_stat
+    context?: string;            // hero_stat context line
+    text?: string;               // quote_block, narrative_text, section_label
+    attribution?: string;        // quote_block
+    source?: string;             // quote_block source name
+    severity?: string;           // problem_statement
+    description?: string;        // problem_statement
+    name?: string;               // persona_card
+    role?: string;               // persona_card
+    jtbd?: string;               // persona_card
+    quote?: string;              // persona_card voice quote
+    phase?: string;              // journey_strip
+    action?: string;             // journey_strip
+    pain?: string;               // journey_strip
+    emotion?: string;            // journey_strip
+    mot?: boolean;               // journey_strip (moment of truth)
+    dimension?: string;          // comparison_row
+    ours?: string;               // comparison_row
+    theirs?: string;             // comparison_row
+    gap?: string;                // comparison_row
+    items?: ContentBlockItem[];  // evidence_bullets, metric_cards, solution_points, data_grid
+}
+
+/** What the AI generates per slide (before layout resolution) */
+export interface SlideGeneration {
+    slideNumber: number;
+    title: string;                    // COMPLETE SENTENCE (Pyramid Principle)
+    background: 'light' | 'dark';     // AI's preference (resolver may override)
+    sourceDeliverable: string;        // Which deliverable/report section this presents
+    personaRef?: string;              // Persona name for image injection
+    blocks: ContentBlock[];           // The content declarations
+    speakerNotes: string;             // Presenter notes
+    sources: string[];                // Source attributions for footnote strip
 }
 
 // ============================================================
@@ -538,6 +668,8 @@ export interface GapItem {
     severity: 'critical' | 'high' | 'medium' | 'low';
     impact: string;
     effort: 'low' | 'medium' | 'high';
+    citations?: string[];      // Source names that evidence this gap
+    evidenceBasis?: string;    // Specific evidence for current maturity assessment
 }
 
 export interface ActionItem {
@@ -566,6 +698,8 @@ export interface SystemRecord {
     users: string;
     department: string;
     status: 'active' | 'legacy' | 'planned' | 'deprecated';
+    citations?: string[];      // Source names where this system was mentioned
+    evidenceBasis?: string;    // Evidence of system's role, adoption, or issues
 }
 
 export interface IntegrationLink {
@@ -597,6 +731,8 @@ export interface CompetitorProfile {
     strengths: string[];
     weaknesses: string[];
     differentiators: string[];
+    citations?: string[];      // Source names where this competitor was mentioned
+    evidenceBasis?: string;    // Key evidence: articles, reports, reviews mentioning this competitor
 }
 
 export interface BenchmarkDimension {

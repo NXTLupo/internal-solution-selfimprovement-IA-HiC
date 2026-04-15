@@ -780,43 +780,56 @@ ITEMS:\n${itemText}
 
 Be specific. Cite item numbers. Extract statistics, percentages, and named entities.`;
 
-        try {
-            let body: any;
-            let headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        // Scale timeout by payload size: base 90s + 2s per item (large payloads need more time)
+        const timeoutMs = Math.min(300000, 90000 + items.length * 2000);
+        const MAX_RETRIES = 2;
 
-            if (config.name === 'Gemini') {
-                body = { model: config.model, contents: prompt, config: { temperature: 0.2 } };
-            } else if (config.name === 'Claude') {
-                body = { model: config.model, max_tokens: 4000, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] };
-            } else {
-                body = { model: config.model, input: prompt };
-            }
+        for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+            try {
+                let body: any;
+                let headers: Record<string, string> = { 'Content-Type': 'application/json' };
 
-            const resp = await fetch(config.endpoint, {
-                method: 'POST', headers, body: JSON.stringify(body),
-                signal: AbortSignal.timeout(60000),
-            });
+                if (config.name === 'Gemini') {
+                    body = { model: config.model, contents: prompt, config: { temperature: 0.2 } };
+                } else if (config.name === 'Claude') {
+                    body = { model: config.model, max_tokens: 4000, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] };
+                } else {
+                    body = { model: config.model, input: prompt };
+                }
 
-            if (!resp.ok) {
-                console.warn(`[TriModel] ${config.name} failed: ${resp.status}`);
+                const resp = await fetch(config.endpoint, {
+                    method: 'POST', headers, body: JSON.stringify(body),
+                    signal: AbortSignal.timeout(timeoutMs),
+                });
+
+                if (!resp.ok) {
+                    console.warn(`[TriModel] ${config.name} failed (attempt ${attempt + 1}): HTTP ${resp.status}`);
+                    if (attempt < MAX_RETRIES - 1) { await new Promise(r => setTimeout(r, 3000 * (attempt + 1))); continue; }
+                    return '';
+                }
+
+                const data = await resp.json();
+
+                // Extract text from different response formats
+                if (config.name === 'Gemini') {
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || data.text || '';
+                } else if (config.name === 'Claude') {
+                    return (data.content || []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n') || '';
+                } else {
+                    return (data.output || []).filter((i: any) => i.type === 'message')
+                        .flatMap((i: any) => (i.content || []).filter((b: any) => b.type === 'output_text').map((b: any) => b.text)).join('\n') || '';
+                }
+            } catch (e: any) {
+                const isTimeout = e.message?.includes('timed out') || e.message?.includes('aborted') || e.name === 'TimeoutError';
+                console.warn(`[TriModel] ${config.name} ${isTimeout ? 'timed out' : 'failed'} (attempt ${attempt + 1}/${MAX_RETRIES}, timeout ${Math.round(timeoutMs/1000)}s):`, e.message);
+                if (attempt < MAX_RETRIES - 1) {
+                    await new Promise(r => setTimeout(r, 5000 * (attempt + 1)));
+                    continue;
+                }
                 return '';
             }
-
-            const data = await resp.json();
-
-            // Extract text from different response formats
-            if (config.name === 'Gemini') {
-                return data.candidates?.[0]?.content?.parts?.[0]?.text || data.text || '';
-            } else if (config.name === 'Claude') {
-                return (data.content || []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n') || '';
-            } else {
-                return (data.output || []).filter((i: any) => i.type === 'message')
-                    .flatMap((i: any) => (i.content || []).filter((b: any) => b.type === 'output_text').map((b: any) => b.text)).join('\n') || '';
-            }
-        } catch (e: any) {
-            console.warn(`[TriModel] ${config.name} analysis failed:`, e.message);
-            return '';
         }
+        return '';
     };
 
     console.log(`[TriModel] Running parallel analysis: ${groups.map((g, i) => `${modelConfigs[i].name}(${g.length} items)`).join(', ')}`);

@@ -129,3 +129,78 @@ Tracks output quality scores across research runs, correlated with active learne
 
 
 | 2026-04-14 | competitive_analysis | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | journey_map | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | journey_map | 75 | 0 constraints | none |
+
+
+| 2026-04-14 | tech_architecture | 95 | 0 constraints | none |
+
+
+| 2026-04-14 | prd | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | roadmap | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | recommendations | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | gap_analysis | 90 | 0 constraints | none |
+
+
+| 2026-04-14 | tech_audit | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | competitive_analysis | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | journey_map | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | tech_architecture | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | prd | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | roadmap | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | recommendations | 85 | 0 constraints | none |
+
+
+| 2026-04-14 | gap_analysis | 95 | 0 constraints | none |
+
+
+| 2026-04-14 | tech_audit | 100 | 0 constraints | none |
+
+
+| 2026-04-14 | competitive_analysis | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | journey_map | 95 | 0 constraints | none |
+
+
+| 2026-04-15 | tech_architecture | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | prd | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | roadmap | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | recommendations | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | gap_analysis | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | tech_audit | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | competitive_analysis | 100 | 0 constraints | none |

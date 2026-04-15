@@ -24,7 +24,7 @@ Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). Inte
 ### Critical Files (modify with caution)
 - `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
 - `launchpad/app.py` — WebSocket proxy hub (1,310 lines)
-- `docker-compose-all.yml` — Full platform config (486 lines). **Always use this file**, never `docker-compose.yml` alone
+- `docker-compose-all.yml` — Full platform config (487 lines). **Always use this file**, never `docker-compose.yml` alone
 
 ### Dormant MCP Services
 These exist in the filesystem but are **not** in `docker-compose-all.yml` or `tool_services`:

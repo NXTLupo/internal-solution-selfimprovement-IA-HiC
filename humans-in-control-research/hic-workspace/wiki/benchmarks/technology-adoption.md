@@ -27,14 +27,14 @@ is ingested and cross-referenced.
 ### MarTech Budget Allocation
 - **Data**: MarTech accounts for 25.4% of total marketing budgets, down from 32% peak in 2022
 - **Source**: Gartner, CMO Spend Survey, 2024
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 21%, 2026-04-14)
 - **Cross-refs**: [[benchmarks/financial-impact]], [[frameworks/roadmap]]
 - **Last verified**: 2026-04-10
 
 ### MarTech ROI Measurement Gap
 - **Data**: Only 26% of marketing organizations can fully measure MarTech ROI across their stack
 - **Source**: Gartner, Marketing Technology Survey, 2023
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 21%, 2026-04-14)
 - **Cross-refs**: [[benchmarks/financial-impact]], [[frameworks/gap-analysis]]
 - **Last verified**: 2026-04-10
 
@@ -134,7 +134,7 @@ is ingested and cross-referenced.
 ### Digital Maturity Revenue Premium
 - **Data**: Digitally mature companies are 23% more profitable than less mature peers
 - **Source**: Deloitte / MIT Sloan, Digital Maturity Study, 2023
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 21%, 2026-04-14)
 - **Cross-refs**: [[benchmarks/financial-impact]], [[benchmarks/maturity-models]]
 - **Last verified**: 2026-04-10
 

@@ -26,6 +26,8 @@ interface Props {
     graph: KnowledgeGraph;
     onNodeClick?: (node: KGNode) => void;
     height?: number;
+    excludedSources?: Set<string>;
+    setExcludedSources?: React.Dispatch<React.SetStateAction<Set<string>>>;
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -113,7 +115,7 @@ function getZone(type: string): 'A' | 'B' | 'C' | 'orphan' {
     return 'C'; // evidence
 }
 
-const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 500 }) => {
+const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 500, excludedSources, setExcludedSources }) => {
     const svgRef = useRef<SVGSVGElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const simulationRef = useRef<any>(null);
@@ -912,24 +914,49 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
                                             {TYPE_LABELS[type] || type} ({items.length})
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                                            {items.slice(0, 10).map((c: any, i: number) => (
+                                            {items.slice(0, 10).map((c: any, i: number) => {
+                                                const evidenceKey = c.node.id ? `kg::${c.node.id}` : `kg::${type}::${i}`;
+                                                const isEvExcluded = excludedSources?.has(evidenceKey) || false;
+                                                return (
                                                 <div key={i}
-                                                    onClick={() => { setSelectedNode(c.node); onNodeClick?.(c.node); }}
                                                     style={{
-                                                        padding: '4px 8px', background: '#FAFAFA', border: '1px solid #F0F0F0',
+                                                        padding: '4px 8px', background: isEvExcluded ? '#f8f8f8' : '#FAFAFA', border: '1px solid #F0F0F0',
                                                         borderRadius: 3, cursor: 'pointer',
-                                                        borderLeft: `3px solid ${c.node.color || TYPE_COLORS[c.node.type] || '#888'}`,
+                                                        borderLeft: `3px solid ${isEvExcluded ? '#ccc' : (c.node.color || TYPE_COLORS[c.node.type] || '#888')}`,
+                                                        opacity: isEvExcluded ? 0.4 : 1, transition: 'opacity 0.15s',
+                                                        display: 'flex', gap: 6, alignItems: 'flex-start',
                                                     }}>
-                                                    <div style={{ fontFamily: "'Helvetica Neue',sans-serif", fontSize: 11, fontWeight: 600, color: '#1A1A1A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                        {c.node.label}
-                                                    </div>
-                                                    {c.node.url && (
-                                                        <a href={c.node.url} target="_blank" rel="noopener noreferrer"
-                                                            style={{ fontSize: 9, color: '#115054', textDecoration: 'underline' }}
-                                                            onClick={e => e.stopPropagation()}>View Source</a>
+                                                    {/* Include/Exclude toggle for evidence nodes */}
+                                                    {(c.node.type === 'evidence' || c.node.type === 'source') && setExcludedSources && (
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); setExcludedSources(prev => { const next = new Set(prev); if (next.has(evidenceKey)) next.delete(evidenceKey); else next.add(evidenceKey); return next; }); }}
+                                                            style={{
+                                                                width: 16, height: 16, borderRadius: 2, flexShrink: 0, marginTop: 1,
+                                                                border: `1.5px solid ${isEvExcluded ? '#ccc' : '#115054'}`,
+                                                                background: isEvExcluded ? '#fff' : '#115054', color: isEvExcluded ? '#ccc' : '#fff',
+                                                                fontSize: 9, fontWeight: 700, cursor: 'pointer',
+                                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                            }}
+                                                            title={isEvExcluded ? 'Include in report' : 'Exclude from report'}
+                                                        >{isEvExcluded ? '' : '\u2713'}</button>
                                                     )}
+                                                    <div style={{ flex: 1, minWidth: 0 }} onClick={() => { setSelectedNode(c.node); onNodeClick?.(c.node); }}>
+                                                        <div style={{
+                                                            fontFamily: "'Helvetica Neue',sans-serif", fontSize: 11, fontWeight: 600,
+                                                            color: isEvExcluded ? '#aaa' : '#1A1A1A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                                            textDecoration: isEvExcluded ? 'line-through' : 'none',
+                                                        }}>
+                                                            {c.node.label}
+                                                        </div>
+                                                        {c.node.url && (
+                                                            <a href={c.node.url} target="_blank" rel="noopener noreferrer"
+                                                                style={{ fontSize: 9, color: '#115054', textDecoration: 'underline' }}
+                                                                onClick={e => e.stopPropagation()}>View Source</a>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                            ))}
+                                                );
+                                            })}
                                             {items.length > 10 && (
                                                 <div style={{ fontSize: 9, color: '#888', padding: '2px 8px' }}>+{items.length - 10} more</div>
                                             )}

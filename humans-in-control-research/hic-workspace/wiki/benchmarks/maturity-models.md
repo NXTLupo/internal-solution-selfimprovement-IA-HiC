@@ -118,7 +118,7 @@ maturity data, always specify which framework is being referenced.
 ### Frequency of Formal CX Maturity Assessments
 - **Data**: Only 29% of organizations conduct a formal CX maturity assessment annually; 44% have never conducted one
 - **Source**: Gartner, CX Program Management Survey, 2024
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 30%, 2026-04-14)
 - **Cross-refs**: [[evidence/cx-maturity]], [[frameworks/gap-analysis]]
 - **Last verified**: 2026-04-10
 

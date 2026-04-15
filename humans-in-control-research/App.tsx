@@ -181,12 +181,16 @@ const LiveResearchBoard = ({
     onEdit,
     isCollectingData, collectionPhase, liveSourceResults, liveRefinedQueries,
     knowledgeGraph,
+    excludedSources, setExcludedSources,
+    prioritySources, setPrioritySources,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
     onEdit: (stage: AnalysisStage) => void,
     isCollectingData?: boolean, collectionPhase?: string, liveSourceResults?: any[], liveRefinedQueries?: Record<string, string>,
     knowledgeGraph?: KGType,
+    excludedSources: Set<string>, setExcludedSources: React.Dispatch<React.SetStateAction<Set<string>>>,
+    prioritySources: Set<string>, setPrioritySources: React.Dispatch<React.SetStateAction<Set<string>>>,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
@@ -269,6 +273,8 @@ const LiveResearchBoard = ({
                         <ResearchKnowledgeGraph
                             graph={knowledgeGraph}
                             height={kgExpanded ? (typeof window !== 'undefined' ? window.innerHeight - 4 : 900) : 600}
+                            excludedSources={excludedSources}
+                            setExcludedSources={setExcludedSources}
                         />
                     </motion.div>
                 )}
@@ -521,6 +527,7 @@ const LiveResearchBoard = ({
                 {/* Priority 1: Source detail view — when a source pill is clicked (works during AND after collection) */}
                 {selectedSourceIdx !== null && liveSourceResults[selectedSourceIdx] ? (() => {
                     const src = liveSourceResults[selectedSourceIdx];
+                    const isSourceExcluded = excludedSources.has(src.sourceId);
                     return (
                         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
                             <div style={{ padding: '12px 16px', background: '#0D0D0D', borderBottom: '1px solid #333', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -528,7 +535,16 @@ const LiveResearchBoard = ({
                                     <div style={{ fontFamily: "'Helvetica Neue',sans-serif", fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#B8B800' }}>SOURCE DETAIL</div>
                                     <div style={{ fontFamily: "'Helvetica Neue',sans-serif", fontSize: 14, fontWeight: 700, color: '#FFFFFF', marginTop: 2 }}>{src.source?.replace(/ \(.*\)/, '')}</div>
                                 </div>
-                                <button onClick={() => setSelectedSourceIdx(null)} style={{ color: '#888', fontSize: 16, background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px' }} title="Back to feed">&#x2715;</button>
+                                <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                                    <button
+                                        onClick={() => setExcludedSources(prev => { const next = new Set(prev); if (next.has(src.sourceId)) next.delete(src.sourceId); else next.add(src.sourceId); return next; })}
+                                        style={{
+                                            padding: '4px 12px', borderRadius: 4, fontSize: 10, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer', border: 'none', transition: 'all 0.15s',
+                                            background: isSourceExcluded ? '#444' : '#115054', color: isSourceExcluded ? '#999' : '#fff',
+                                        }}
+                                    >{isSourceExcluded ? 'Excluded — Click to Include' : 'Included in Report'}</button>
+                                    <button onClick={() => setSelectedSourceIdx(null)} style={{ color: '#888', fontSize: 16, background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px' }} title="Back to feed">&#x2715;</button>
+                                </div>
                             </div>
                             <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-primary)', display: 'flex', gap: 16 }}>
                                 <div><span style={{ fontSize: 9, color: '#888', textTransform: 'uppercase' as const, letterSpacing: '1px' }}>STATUS</span><div style={{ fontSize: 12, fontWeight: 600, color: src.status === 'complete' ? '#0CCE6B' : src.status === 'empty' ? '#888' : '#FF5A5A' }}>{src.status}</div></div>
@@ -536,14 +552,59 @@ const LiveResearchBoard = ({
                                 <div><span style={{ fontSize: 9, color: '#888', textTransform: 'uppercase' as const, letterSpacing: '1px' }}>TIER</span><div style={{ fontSize: 12, fontWeight: 600 }}>T{src.credibilityTier || '?'}</div></div>
                             </div>
                             <div style={{ flex: 1, overflowY: 'auto', padding: '8px 0' }}>
-                                {(src.items || []).map((item: any, j: number) => (
-                                    <div key={j} style={{ padding: '8px 16px', borderBottom: '1px solid var(--border-secondary)' }}>
-                                        <div style={{ fontFamily: "'Helvetica Neue',sans-serif", fontSize: 12, fontWeight: 600, color: '#1A1A1A', lineHeight: 1.3 }}>{item.title}</div>
-                                        {item.date && <div style={{ fontSize: 10, color: '#888', marginTop: 2 }}>{item.date}</div>}
-                                        {item.content && <div style={{ fontSize: 10, color: '#666', marginTop: 4, lineHeight: 1.4, maxHeight: 40, overflow: 'hidden' }}>{item.content.substring(0, 150)}</div>}
-                                        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 10, color: '#115054', textDecoration: 'underline', display: 'inline-block', marginTop: 3 }}>View Source</a>}
+                                {(src.items || []).map((item: any, j: number) => {
+                                    const articleKey = `${src.sourceId}::${j}`;
+                                    const isArticleExcluded = excludedSources.has(articleKey);
+                                    return (
+                                    <div key={j} style={{
+                                        padding: '8px 16px', borderBottom: '1px solid var(--border-secondary)',
+                                        display: 'flex', gap: 10, alignItems: 'flex-start',
+                                        opacity: isArticleExcluded ? 0.35 : 1, transition: 'opacity 0.15s',
+                                    }}>
+                                        {/* Include/Exclude toggle */}
+                                        <button
+                                            onClick={() => setExcludedSources(prev => {
+                                                const next = new Set(prev);
+                                                if (next.has(articleKey)) next.delete(articleKey); else next.add(articleKey);
+                                                return next;
+                                            })}
+                                            style={{
+                                                width: 18, height: 18, borderRadius: 3, border: `1.5px solid ${isArticleExcluded ? '#ccc' : '#115054'}`,
+                                                background: isArticleExcluded ? '#fff' : '#115054', color: isArticleExcluded ? '#ccc' : '#fff',
+                                                fontSize: 10, fontWeight: 700, cursor: 'pointer', flexShrink: 0, marginTop: 1,
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
+                                            }}
+                                            title={isArticleExcluded ? 'Include this article in report' : 'Exclude this article from report'}
+                                        >{isArticleExcluded ? '' : '\u2713'}</button>
+                                        {/* Priority citation flag */}
+                                        <button
+                                            onClick={() => setPrioritySources(prev => {
+                                                const next = new Set(prev);
+                                                if (next.has(articleKey)) next.delete(articleKey); else next.add(articleKey);
+                                                return next;
+                                            })}
+                                            style={{
+                                                width: 18, height: 18, borderRadius: 3, border: `1.5px solid ${prioritySources.has(articleKey) ? '#B8860B' : '#555'}`,
+                                                background: prioritySources.has(articleKey) ? '#B8860B' : 'transparent', color: prioritySources.has(articleKey) ? '#fff' : '#555',
+                                                fontSize: 11, fontWeight: 700, cursor: 'pointer', flexShrink: 0, marginTop: 1,
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s',
+                                            }}
+                                            title={prioritySources.has(articleKey) ? 'Remove priority flag' : 'Flag as priority citation for prominent placement'}
+                                        >{prioritySources.has(articleKey) ? '\u2605' : '\u2606'}</button>
+                                        {/* Article content */}
+                                        <div style={{ flex: 1, minWidth: 0 }}>
+                                            <div style={{
+                                                fontFamily: "'Helvetica Neue',sans-serif", fontSize: 12, fontWeight: 600, lineHeight: 1.3,
+                                                color: isArticleExcluded ? '#aaa' : '#1A1A1A',
+                                                textDecoration: isArticleExcluded ? 'line-through' : 'none',
+                                            }}>{item.title}</div>
+                                            {item.date && <div style={{ fontSize: 10, color: '#888', marginTop: 2 }}>{item.date}</div>}
+                                            {item.content && <div style={{ fontSize: 10, color: '#666', marginTop: 4, lineHeight: 1.4, maxHeight: 40, overflow: 'hidden' }}>{item.content.substring(0, 150)}</div>}
+                                            {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 10, color: '#115054', textDecoration: 'underline', display: 'inline-block', marginTop: 3 }}>View Source</a>}
+                                        </div>
                                     </div>
-                                ))}
+                                    );
+                                })}
                                 {(!src.items || src.items.length === 0) && (
                                     <div style={{ padding: '20px 16px', textAlign: 'center', color: '#888', fontSize: 12 }}>No items collected from this source</div>
                                 )}
@@ -645,6 +706,7 @@ const App = () => {
     const [techAuditResult, setTechAuditResult] = useState<any>(null);
     const [competitiveResult, setCompetitiveResult] = useState<any>(null);
     const [synthesisResult, setSynthesisResult] = useState<any>(null);
+    const [strategicReportResult, setStrategicReportResult] = useState<any>(null);
     const [selectedLens, setSelectedLens] = useState<AnalyticalLens>('general_cx');
     const [lensAutoDetected, setLensAutoDetected] = useState(false);
     const selectedVisStyle = DEFAULT_STYLE_ID;
@@ -673,6 +735,8 @@ const App = () => {
     const [dataSourceStatus, setDataSourceStatus] = useState<string>('');
     const [collectionPhase, setCollectionPhase] = useState<string>('');
     const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
+    const [excludedSources, setExcludedSources] = useState<Set<string>>(new Set());
+    const [prioritySources, setPrioritySources] = useState<Set<string>>(new Set());
     const [liveRefinedQueries, setLiveRefinedQueries] = useState<Record<string, string>>({});
     const [knowledgeGraph, setKnowledgeGraph] = useState<KGType>({ nodes: [], edges: [] });
     const kgBuiltRef = useRef<{ sources: boolean; themes: boolean; personas: boolean; recs: boolean; journey: boolean; prd: boolean; roadmap: boolean; gaps: boolean }>({ sources: false, themes: false, personas: false, recs: false, journey: false, prd: false, roadmap: false, gaps: false });
@@ -904,8 +968,10 @@ const App = () => {
         setTechAuditResult(null);
         setCompetitiveResult(null);
         setSynthesisResult(null);
+        setStrategicReportResult(null);
         setStructureResult(null);
         setNarrativeResult(null);
+        setExcludedSources(new Set());
         sessionRef.current = null;
     };
 
@@ -1102,9 +1168,35 @@ const App = () => {
             gapAnalysis: (gapResult as any)?.analysis,
             techAudit: (techAuditResult as any)?.audit,
             competitiveAnalysis: (competitiveResult as any)?.analysis,
+            strategicReport: strategicReportResult?.report,
         };
 
-        // 7. DECK STRUCTURE — receives ALL deliverable data
+        // 6e. STRATEGIC REPORT — synthesizes all deliverables into unrestricted whitepaper
+        // CRITICAL: Filter raw sources by user's inclusion/exclusion curation decisions.
+        // Only INCLUDED sources should appear in the evidence catalog — this is the core
+        // "Humans in Control" principle: the user controls the evidence base.
+        if (selectedOutputs.includes('STRATEGY_DECK') && !strategicReportResult) {
+             setStatusMessage("Writing Strategic Report (synthesizing all deliverables)...");
+             const curatedSources = liveSourceResults.map(src => {
+                 if (!excludedSources.size && !prioritySources.size) return src;
+                 const filteredItems = (src.items || []).map((item: any, j: number) => ({
+                     ...item,
+                     _origIdx: j,
+                     priority: prioritySources.has(`${src.sourceId}::${j}`)
+                 })).filter((item: any) =>
+                     !excludedSources.has(`${src.sourceId}::${item._origIdx}`)
+                 );
+                 return { ...src, items: filteredItems };
+             }).filter(src => src.items && src.items.length > 0);
+             const report = await sessionRef.current.generateStrategicReport(deckContext, undefined, handleStreamUpdate, curatedSources);
+             setStrategicReportResult(report);
+             setResult((prev: any) => ({ ...prev, strategicReport: report?.report }));
+             setStatusMessage("Strategic Report Drafted");
+             setActiveStage(AnalysisStage.STRATEGIC_REPORT);
+             return;
+        }
+
+        // 7. DECK STRUCTURE — receives ALL deliverable data + strategic report
         if (selectedOutputs.includes('STRATEGY_DECK') && !structureResult) {
              setStatusMessage("Structuring Narrative (from all deliverables)...");
              const structure = await sessionRef.current.generateDeckStructure(undefined, deckContext, handleStreamUpdate);
@@ -1254,7 +1346,7 @@ const App = () => {
 
              // P6-03: Post-run wiki ingest — seed the wiki with learnings from this run
              try {
-                 const { ingestResearchRun, saveEngagementMemory } = await import('./services/wikiService');
+                 const { ingestResearchRun, saveEngagementMemory, writeWikiPage } = await import('./services/wikiService');
                  const ingestResult = await ingestResearchRun({
                      goal: researchGoal,
                      themes: themesResult?.themes || [],
@@ -1264,6 +1356,35 @@ const App = () => {
                      evidenceCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                      collectedSources: liveSourceResults, // Archive articles to wiki
                  });
+
+                 // Log source curation decisions to wiki for cross-session learning
+                 if (excludedSources.size > 0) {
+                     const slug = researchGoal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
+                     const excludedList = Array.from(excludedSources).map((key: string) => {
+                         if (key.startsWith('kg::')) return `KG node: ${key.substring(4)}`;
+                         const [srcId, idx] = key.split('::');
+                         const src = liveSourceResults.find((s: any) => s.sourceId === srcId);
+                         const item = src?.items?.[parseInt(idx)];
+                         return item ? `${src.source}: "${item.title}"` : key;
+                     });
+                     const curationContent = `---\ntitle: Source Curation Decisions\ntype: source-archive\nstatus: active\ncreated: ${new Date().toISOString()}\n---\n\n# Source Curation: ${researchGoal.substring(0, 80)}\n\nExcluded ${excludedSources.size} items from analysis:\n${excludedList.map(e => `- ${e}`).join('\n')}\n\nTotal collected: ${liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0)}\nTotal after curation: ${liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0) - excludedSources.size}\n`;
+                     try { await writeWikiPage(`sources/${new Date().toISOString().split('T')[0]}-${slug}-curation.md`, curationContent); } catch (e) { /* non-blocking */ }
+
+                     // Log curation as edit signals so the self-improvement engine learns patterns
+                     // Pattern detection will pick up: "users frequently exclude T3 sources" → constraint
+                     try {
+                         const { logEdit } = await import('./services/promptImprovementEngine');
+                         for (const key of Array.from(excludedSources).slice(0, 10) as string[]) {
+                             const [srcId] = key.split('::');
+                             const src = liveSourceResults.find((s: any) => s.sourceId === srcId);
+                             const tierLabel = src ? `T${src.credibilityTier || 3}` : 'unknown';
+                             logEdit('DATA_REVIEW', 'source_curation', `included (${tierLabel})`, `excluded (${tierLabel})`);
+                         }
+                     } catch (e) { /* non-blocking */ }
+
+                     // Persist curation state to localStorage for session recovery
+                     try { localStorage.setItem(`hic_curation_${slug}`, JSON.stringify(Array.from(excludedSources))); } catch (e) { /* non-blocking */ }
+                 }
                  console.log(`[WikiIngest] Post-run ingest complete: ${ingestResult.pagesUpdated} wiki pages updated`);
 
                  // P6-07: Save engagement memory for future reference
@@ -2055,6 +2176,59 @@ ${synthesisParts.join('\n')}
         sessionRef.current = new GenAISession(researchGoal, analysisApproach, selectedOutputs, lensSegment, wikiKnowledge);
 
         try {
+            // --- SOURCE CURATION: Filter corpus by user's exclude toggles ---
+            // Supports two key formats: "sourceId::j" (from SOURCE DETAIL panel)
+            // and "kg::nodeId" (from knowledge graph). Both checked.
+            if (excludedSources.size > 0 && liveSourceResults.length > 0) {
+                // Build a set of excluded article titles from KG node exclusions
+                // Build KG exclusion set: full title + 40-char prefix for robustness
+                const kgExcludedTitlesFull = new Set<string>();
+                const kgExcludedTitlesShort = new Set<string>();
+                if (knowledgeGraph?.nodes) {
+                    for (const key of Array.from(excludedSources) as string[]) {
+                        if (key.startsWith('kg::')) {
+                            const nodeId = key.substring(4);
+                            const node = knowledgeGraph.nodes.find((n: any) => n.id === nodeId);
+                            if (node?.label) {
+                                kgExcludedTitlesFull.add(node.label.toLowerCase().trim());
+                                kgExcludedTitlesShort.add(node.label.toLowerCase().substring(0, 40));
+                            }
+                        }
+                    }
+                }
+
+                const filteredCorpus = liveSourceResults.flatMap(src =>
+                    (src.items || []).filter((item: any, j: number) => {
+                        // Check direct source detail exclusion (sourceId::j format)
+                        if (excludedSources.has(`${src.sourceId}::${j}`)) return false;
+                        // Check KG-based exclusion: full title match OR 40-char prefix match
+                        if ((kgExcludedTitlesFull.size > 0 || kgExcludedTitlesShort.size > 0) && item.title) {
+                            const titleLower = item.title.toLowerCase().trim();
+                            if (kgExcludedTitlesFull.has(titleLower)) return false;
+                            if (kgExcludedTitlesShort.has(titleLower.substring(0, 40))) return false;
+                        }
+                        return true;
+                    })
+                    .map((item: any) =>
+                        `=== ${src.source || src.sourceId} (T${src.credibilityTier || 3}) ===\n${item.title}\n${item.content || ''}`
+                    )
+                ).join('\n\n');
+
+                if (filteredCorpus.trim().length > 0) {
+                    corpusTextRef.current = filteredCorpus;
+                    const base64 = btoa(unescape(encodeURIComponent(filteredCorpus)));
+                    // Replace intelligence_sources file with filtered version
+                    collectedDataFiles = collectedDataFiles.filter((f: any) => !f.name.startsWith('intelligence_sources_'));
+                    collectedDataFiles.push({
+                        name: `intelligence_sources_curated_${Date.now()}.txt`,
+                        type: 'text/plain',
+                        size: filteredCorpus.length,
+                        data: base64,
+                    });
+                    console.log(`[SourceCuration] ${excludedSources.size} items excluded, corpus filtered to ${Math.round(filteredCorpus.length / 1024)}KB`);
+                }
+            }
+
             // STEP 1: Ingestion (with collected data merged in)
             setStatusMessage("Reading & Contextualizing...");
             setActiveStage(AnalysisStage.INGESTION);
@@ -2288,6 +2462,40 @@ ${synthesisParts.join('\n')}
                  // P1-03: Refresh context with current recs before deck generation
                  const currentRecs = modifiedData || recsResult;
                  if (currentRecs) await sessionRef.current.updateContext("Recommendations (approved)", currentRecs);
+                 advanceToNextStage();
+            }
+            else if (activeStage === AnalysisStage.STRATEGIC_REPORT) {
+                 if (modifiedData) {
+                     setStrategicReportResult(modifiedData);
+                     await sessionRef.current.updateContext("Strategic Report", modifiedData);
+                 }
+                 if (feedback) {
+                      setStatusMessage("Refining Strategic Report...");
+                      const deckCtx = {
+                          themes: themesResult?.themes, personas: personasResult?.personas,
+                          recommendations: recsResult?.recommendations, journeyStages: journeyResult?.stages,
+                          prd: prdResult as any, roadmap: roadmapResult as any,
+                          techArchitecture: techResult?.architecture,
+                          gapAnalysis: (gapResult as any)?.analysis, techAudit: (techAuditResult as any)?.audit,
+                          competitiveAnalysis: (competitiveResult as any)?.analysis,
+                      };
+                      // Filter by user curation decisions — only included sources reach the report
+                      const curatedSrcs = liveSourceResults.map(src => {
+                          if (!excludedSources.size && !prioritySources.size) return src;
+                          const filteredItems = (src.items || []).map((item: any, j: number) => ({
+                              ...item,
+                              _origIdx: j,
+                              priority: prioritySources.has(`${src.sourceId}::${j}`)
+                          })).filter((item: any) =>
+                              !excludedSources.has(`${src.sourceId}::${item._origIdx}`)
+                          );
+                          return { ...src, items: filteredItems };
+                      }).filter(src => src.items && src.items.length > 0);
+                      const res = await sessionRef.current.generateStrategicReport(deckCtx, feedback, handleStreamUpdate, curatedSrcs);
+                      setStrategicReportResult(res);
+                      setStatusMessage("Report Refined");
+                      return;
+                 }
                  advanceToNextStage();
             }
             else if (activeStage === AnalysisStage.DECK_STRUCTURE) {
@@ -2652,6 +2860,10 @@ ${synthesisParts.join('\n')}
                                liveSourceResults={liveSourceResults}
                                liveRefinedQueries={liveRefinedQueries}
                                knowledgeGraph={knowledgeGraph}
+                               excludedSources={excludedSources}
+                               setExcludedSources={setExcludedSources}
+                               prioritySources={prioritySources}
+                               setPrioritySources={setPrioritySources}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
@@ -2683,6 +2895,7 @@ ${synthesisParts.join('\n')}
                                                activeStage === AnalysisStage.PRD ? prdResult :
                                                activeStage === AnalysisStage.ROADMAP ? roadmapResult :
                                                activeStage === AnalysisStage.RECOMMENDATIONS ? recsResult :
+                                               activeStage === AnalysisStage.STRATEGIC_REPORT ? strategicReportResult :
                                                activeStage === AnalysisStage.DECK_STRUCTURE ? structureResult :
                                                activeStage === AnalysisStage.NARRATIVE ? narrativeResult :
                                                activeStage === AnalysisStage.GAP_ANALYSIS ? gapResult :

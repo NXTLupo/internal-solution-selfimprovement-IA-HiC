@@ -40,7 +40,7 @@ corresponding source document is ingested and cross-referenced.
 ### Telecom NPS Benchmark
 - **Data**: Average NPS of 24 across telecommunications providers (lowest major industry)
 - **Source**: Satmetrix/NICE Systems, U.S. Consumer NPS Benchmarks, 2024
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 21%, 2026-04-14)
 - **Cross-refs**: [[benchmarks/maturity-models]], [[benchmarks/financial-impact]]
 - **Last verified**: 2026-04-10
 
@@ -165,7 +165,7 @@ corresponding source document is ingested and cross-referenced.
 ### Retail Ecommerce Repeat Purchase Rate
 - **Data**: Average repeat purchase rate of 25-30%; top-quartile retailers achieve 40-50%
 - **Source**: Adobe Digital Economy Index, Ecommerce Retention Analysis, 2024
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 21%, 2026-04-14)
 - **Cross-refs**: [[benchmarks/financial-impact]], [[benchmarks/competitive-intel]]
 - **Last verified**: 2026-04-10
 

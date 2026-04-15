@@ -157,8 +157,87 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                 });
                 addSlideNumber(s, slideNum, totalSlides, '404040');
 
-            } else if (layout === 'CONTENT_DATA_PANEL' || layout === 'CONTENT_INSIGHT_CHART') {
-                // Archetype 3/4: 55/45 split with data panel
+            } else if (layout === 'CONTENT_INSIGHT_CHART') {
+                // Archetype 4: Hero stat + horizontal bar chart
+                const splitX = SW * 0.50;
+
+                // Right panel background
+                s.addShape(pptx.ShapeType.rect, {
+                    x: splitX, y: 0, w: SW - splitX, h: SH,
+                    fill: { color: BRAND.bgSecondary },
+                    line: { color: BRAND.borderTertiary, width: 0.5 },
+                });
+
+                // Left: hero stat
+                const chartMetrics = slide.metrics || [];
+                const heroMetric = chartMetrics[0];
+                if (heroMetric) {
+                    s.addText(`${heroMetric.value}`, {
+                        x: PX, y: PY + 0.3, w: splitX - PX - 0.3, h: 1.2,
+                        fontSize: 56, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
+                        fontWeight: 200 as any,
+                    });
+                    if (heroMetric.unit) {
+                        s.addText(heroMetric.unit, {
+                            x: PX, y: PY + 1.5, w: splitX - PX - 0.3, h: 0.35,
+                            fontSize: 20, fontFace: BRAND.fallbackFont, color: BRAND.cyan,
+                        });
+                    }
+                }
+                // Left: title + insight text
+                s.addText(cleanText(slide.title), {
+                    x: PX, y: PY + 2.2, w: splitX - PX - 0.3, h: 0.7,
+                    fontSize: 18, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                });
+                const firstBullet = (slide.content || [])[0];
+                if (firstBullet) {
+                    s.addText(cleanText(firstBullet), {
+                        x: PX, y: PY + 3.1, w: splitX - PX - 0.5, h: 1.5,
+                        fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                        valign: 'top',
+                    });
+                }
+
+                // Right: horizontal bar chart
+                const barX = splitX + 0.4;
+                const barW = SW - splitX - 0.8;
+                let barY = PY + 0.6;
+                for (let bi = 0; bi < Math.min(chartMetrics.length, 5); bi++) {
+                    const bm = chartMetrics[bi];
+                    const isHero = bi === 0;
+                    const barColor = isHero ? BRAND.cyan : BRAND.textDisabled;
+                    // Label
+                    s.addText((bm.label || '').substring(0, 25), {
+                        x: barX, y: barY, w: barW, h: 0.25,
+                        fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                    });
+                    // Bar track
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: barX, y: barY + 0.3, w: barW * 0.78, h: 0.18,
+                        fill: { color: BRAND.borderPrimary },
+                        rectRadius: 0.02,
+                    });
+                    // Bar fill (use progress if available, otherwise estimate from value)
+                    const pct = Math.min(100, bm.progress || (isHero ? 85 : 50 + bi * 10));
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: barX, y: barY + 0.3, w: barW * 0.78 * (pct / 100), h: 0.18,
+                        fill: { color: barColor },
+                        rectRadius: 0.02,
+                    });
+                    // Value
+                    s.addText(`${bm.value}${bm.unit ? ' ' + bm.unit : ''}`, {
+                        x: barX + barW * 0.82, y: barY + 0.15, w: barW * 0.18, h: 0.35,
+                        fontSize: 12, fontFace: BRAND.fallbackFont, color: isHero ? BRAND.cyan : BRAND.textTertiary,
+                        bold: true, align: 'right',
+                    });
+                    barY += 1.1;
+                }
+
+                addFootnotes(s, slide.sources || []);
+                addSlideNumber(s, slideNum, totalSlides);
+
+            } else if (layout === 'CONTENT_DATA_PANEL') {
+                // Archetype 3: 55/45 split with data panel
                 const splitX = SW * 0.55;
 
                 // Right panel background (#FAFAFA)
@@ -290,6 +369,62 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                     col += span;
                     cx += w + 0.15;
                     if (col >= 3) { col = 0; cx = PX; cy += 2.4; }
+                }
+
+                addFootnotes(s, slide.sources || []);
+                addSlideNumber(s, slideNum, totalSlides);
+
+            } else if (layout === 'FULL_WIDTH_VIZ') {
+                // Archetype 5: Full-width card grid or numbered items
+                s.addText(cleanText(slide.title), {
+                    x: PX, y: PY, w: SW - PX * 2, h: 0.7,
+                    fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                });
+
+                const items = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
+                const cols = items.length <= 4 ? Math.min(items.length, 2) : items.length <= 9 ? 3 : 4;
+                const gap = 0.15;
+                const cardW = (SW - PX * 2 - gap * (cols - 1)) / cols;
+                let cardX = PX, cardY = PY + 1.0;
+
+                for (let ci = 0; ci < Math.min(items.length, 8); ci++) {
+                    const itemText = items[ci];
+                    // Split at first sentence boundary for title vs body
+                    const sentEnd = itemText.search(/[.!?]\s+/);
+                    const cardTitle = sentEnd > 0 ? itemText.substring(0, sentEnd + 1) : itemText;
+                    const cardBody = sentEnd > 0 ? itemText.substring(sentEnd + 1).trim() : '';
+
+                    // Accent border top
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: cardX, y: cardY, w: cardW, h: 0.04,
+                        fill: { color: PPTX_ACCENT_ROTATION[ci % 3] },
+                    });
+                    // Card number
+                    s.addText(String(ci + 1).padStart(2, '0'), {
+                        x: cardX, y: cardY + 0.15, w: cardW, h: 0.25,
+                        fontSize: 9, fontFace: BRAND.fallbackFont, color: PPTX_ACCENT_ROTATION[ci % 3],
+                        bold: true, letterSpacing: 1.5 as any,
+                    });
+                    // Card title
+                    s.addText(cardTitle, {
+                        x: cardX, y: cardY + 0.45, w: cardW, h: 0.5,
+                        fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                        valign: 'top',
+                    });
+                    // Card body
+                    if (cardBody) {
+                        s.addText(cardBody, {
+                            x: cardX, y: cardY + 1.0, w: cardW, h: 1.4,
+                            fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                            valign: 'top',
+                        });
+                    }
+
+                    cardX += cardW + gap;
+                    if ((ci + 1) % cols === 0) {
+                        cardX = PX;
+                        cardY += 2.7;
+                    }
                 }
 
                 addFootnotes(s, slide.sources || []);
@@ -581,4 +716,98 @@ export function exportHTML(title: string, sections: { heading: string; content: 
 
     const blob = new Blob([html], { type: 'text/html' });
     downloadBlob(blob, `${title.replace(/[^a-zA-Z0-9]/g, '_')}.html`);
+}
+
+// ============================================================
+// STRATEGIC REPORT HTML EXPORT
+// ============================================================
+
+export function exportStrategicReportHTML(report: any): void {
+    if (!report) return;
+    const sections = (report.sections || []).map((s: any) => {
+        let html = `<div class="report-section">`;
+        html += `<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">`;
+        html += `<h2 style="font-size:20px;font-weight:700;color:#1A1A1A;margin:0;">${String(s.sectionNumber).padStart(2, '0')}. ${s.title}</h2>`;
+        html += `<span style="font-size:9px;background:#115054;color:white;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:1px;">${s.sourceDeliverable || ''}</span>`;
+        html += `</div>`;
+        html += `<div style="font-size:13px;line-height:1.7;color:#444;">${(s.content || '').replace(/\n/g, '<br/>')}</div>`;
+        if (s.keyMetrics?.length) {
+            html += `<div style="display:flex;gap:12px;margin-top:16px;">`;
+            s.keyMetrics.forEach((m: any, i: number) => {
+                const colors = ['#CC6644', '#B8B800', '#00B7C3'];
+                html += `<div style="flex:1;background:#FAFAFA;border:1px solid #E5E5E5;border-left:3px solid ${colors[i % 3]};padding:12px;border-radius:4px;">`;
+                html += `<div style="font-size:8px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px;">${m.label}</div>`;
+                html += `<div style="font-size:24px;font-weight:200;color:#1A1A1A;">${m.value}</div>`;
+                if (m.context) html += `<div style="font-size:10px;color:#888;margin-top:4px;">${m.context}</div>`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+        if (s.keyQuote) {
+            html += `<div style="margin-top:16px;padding-left:16px;border-left:3px solid #B8B800;">`;
+            html += `<div style="font-size:13px;font-style:italic;color:#555;">"${s.keyQuote.text}"</div>`;
+            html += `<div style="font-size:10px;color:#888;margin-top:4px;">-- ${s.keyQuote.attribution} (${s.keyQuote.source})</div>`;
+            html += `</div>`;
+        }
+        if (s.evidenceGap) {
+            html += `<div style="margin-top:12px;background:#FFF8E1;border:1px solid #FFE082;padding:8px 12px;border-radius:4px;font-size:10px;color:#F57F17;">Evidence Gap: ${s.evidenceGap}</div>`;
+        }
+        if (s.citations?.length) {
+            html += `<div style="margin-top:12px;font-size:9px;color:#999;">Sources: ${s.citations.join(' | ')}</div>`;
+        }
+        html += `</div>`;
+        return html;
+    }).join('');
+
+    const pillarsHTML = (report.strategicPillars || []).map((p: string, i: number) => {
+        const colors = ['#CC6644', '#B8B800', '#00B7C3', '#888888', '#115054'];
+        return `<div style="flex:1;padding:12px;background:#FAFAFA;border-top:3px solid ${colors[i % 5]};border-radius:4px;"><div style="font-size:8px;font-weight:700;color:#888;text-transform:uppercase;">Pillar ${i + 1}</div><div style="font-size:12px;font-weight:700;color:#1A1A1A;margin-top:4px;">${p}</div></div>`;
+    }).join('');
+
+    const citationIndexHTML = (report.citationIndex || []).length > 0
+        ? `<div style="margin-top:40px;border-top:2px solid #E5E5E5;padding-top:20px;">
+            <h2 style="font-size:16px;font-weight:700;color:#1A1A1A;">Citation Index</h2>
+            <div style="columns:2;column-gap:20px;font-size:10px;color:#666;margin-top:12px;">
+            ${(report.citationIndex || []).map((c: any) => `<div style="break-inside:avoid;margin-bottom:6px;"><strong>${c.sourceName}</strong>${c.sourceUrl ? ` <a href="${c.sourceUrl}" style="color:#115054;">[link]</a>` : ''} <span style="color:#999;">T${c.tier} | Cited in sections: ${(c.citedInSections || []).join(', ')}</span></div>`).join('')}
+            </div></div>`
+        : '';
+
+    const html = `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>${report.title || 'Strategic Research Report'}</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #1A1A1A; }
+    .header { background: #0D0D0D; color: #fff; padding: 48px; }
+    .header h1 { font-size: 28px; font-weight: 800; max-width: 70%; line-height: 1.2; }
+    .header .subtitle { font-size: 10px; color: #B8B800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+    .header .date { font-size: 12px; color: #888; margin-top: 12px; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px; }
+    .exec-summary { background: #FAFAFA; border: 1px solid #E5E5E5; padding: 32px; border-radius: 4px; margin-bottom: 32px; font-size: 14px; line-height: 1.8; color: #333; }
+    .diagnosis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .diagnosis-grid > div { padding: 20px; border: 1px solid #E5E5E5; border-radius: 4px; }
+    .report-section { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #F0F0F0; }
+    .footer { text-align: center; font-size: 10px; color: #999; padding: 32px; border-top: 1px solid #E5E5E5; margin-top: 40px; }
+    @media print { body { font-size: 11px; } .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style></head>
+<body>
+    <div class="header">
+        <div class="subtitle">NXT Humans | Intelligence Augmentation</div>
+        <h1>${report.title || 'Strategic Research Report'}</h1>
+        <div class="date">${report.date || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+    </div>
+    <div class="container">
+        <div class="exec-summary">${(report.executiveSummary || '').replace(/\n/g, '<br/>')}</div>
+        <div class="diagnosis-grid">
+            <div><div style="font-size:9px;font-weight:700;color:#CC6644;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Diagnosis</div><div style="font-size:13px;line-height:1.6;">${report.diagnosis || ''}</div></div>
+            <div><div style="font-size:9px;font-weight:700;color:#00B7C3;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Guiding Policy</div><div style="font-size:13px;line-height:1.6;">${report.guidingPolicy || ''}</div></div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:32px;">${pillarsHTML}</div>
+        ${sections}
+        ${citationIndexHTML}
+    </div>
+    <div class="footer">NXT Humans | Humans in Control Research | Generated ${new Date().toISOString()}</div>
+</body></html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    downloadBlob(blob, `${(report.title || 'Strategic_Report').replace(/[^a-zA-Z0-9]/g, '_')}.html`);
 }

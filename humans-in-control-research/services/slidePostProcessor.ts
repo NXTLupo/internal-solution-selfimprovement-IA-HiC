@@ -665,6 +665,24 @@ export function postProcessSlides(
             });
         }
 
+        // --- HALLUCINATION GUARD: Detect fabricated proper nouns ---
+        // Scan for quoted statistics that look fabricated (round numbers like "exactly 50%")
+        const allSlideText = [s.title, ...(s.content || []), s.narrative || '', s.quote || ''].join(' ');
+        const fabricatedStatPatterns = [
+            /\b(?:exactly|precisely)\s+\d+%/i,                    // "exactly 50%"
+            /\b\d{3,}%\s/i,                                        // >100% without context
+            /\$\d+(?:\.\d+)?\s*(?:trillion|quadrillion)/i,         // absurd dollar amounts
+        ];
+        for (const pattern of fabricatedStatPatterns) {
+            if (pattern.test(allSlideText)) {
+                issues.push({
+                    slideNumber: sn, type: 'placeholder' as any, severity: 'medium',
+                    field: 'content', detail: `Potential fabricated statistic detected: ${allSlideText.match(pattern)?.[0]}`,
+                    autoCorrected: false
+                });
+            }
+        }
+
         // --- VISUAL PROMPT SANITIZATION (auto-correct) ---
         if (s.visualPrompt) {
             const original = s.visualPrompt;
@@ -681,10 +699,190 @@ export function postProcessSlides(
         return s;
     });
 
+    // --- CONTENT BUDGET ENFORCEMENT (Ship 2) ---
+    const budgeted = processed.map(s => enforceContentBudgets(s));
+
     return {
-        slides: processed,
+        slides: budgeted,
         issues,
         issueCount: issues.length,
         autoCorrectedCount: issues.filter(i => i.autoCorrected).length,
+    };
+}
+
+// ============================================================
+// CONTENT BUDGET ENFORCEMENT
+// ============================================================
+
+/** Truncate text at last sentence boundary before maxChars */
+function truncateAtSentence(text: string, maxChars: number): string {
+    if (!text || text.length <= maxChars) return text;
+    const truncated = text.substring(0, maxChars);
+    // Find last sentence boundary (.!?) followed by space or end
+    const lastSentence = truncated.search(/[.!?]\s+(?=[A-Z])/g);
+    // Scan backwards for the last occurrence
+    let best = -1;
+    for (let i = truncated.length - 1; i >= 0; i--) {
+        if ((truncated[i] === '.' || truncated[i] === '!' || truncated[i] === '?') && i < maxChars - 1) {
+            best = i + 1;
+            break;
+        }
+    }
+    if (best > maxChars * 0.4) return truncated.substring(0, best).trim();
+    // No good sentence boundary — truncate at word boundary
+    const lastSpace = truncated.lastIndexOf(' ');
+    if (lastSpace > maxChars * 0.5) return truncated.substring(0, lastSpace).trim() + '...';
+    return truncated.trim() + '...';
+}
+
+/** Enforce per-field character budgets to prevent data dumps */
+function enforceContentBudgets(slide: Slide): Slide {
+    const s = { ...slide };
+    const layout = s.layout;
+
+    // SECTION_HEADER: force empty content fields
+    if (layout === 'SECTION_HEADER') {
+        s.content = [];
+        s.narrative = '';
+        s.quote = '';
+        s.sources = [];
+        s.speakerNotes = '';
+        return s;
+    }
+
+    // Title: 120 chars
+    if (s.title && s.title.length > 120) {
+        s.title = truncateAtSentence(s.title, 120);
+    }
+
+    // Content bullets: 200 chars each, max 4 bullets
+    if (s.content) {
+        s.content = s.content
+            .slice(0, 4)
+            .map(c => truncateAtSentence(c, 200))
+            .filter(c => c.length > 0);
+    }
+
+    // Quote: 250 chars
+    if (s.quote && s.quote.length > 250) {
+        s.quote = truncateAtSentence(s.quote, 250);
+    }
+
+    // Speaker notes: 600 chars
+    if (s.speakerNotes && s.speakerNotes.length > 600) {
+        s.speakerNotes = truncateAtSentence(s.speakerNotes, 600);
+    }
+
+    // Narrative: 400 chars
+    if (s.narrative && s.narrative.length > 400) {
+        s.narrative = truncateAtSentence(s.narrative, 400);
+    }
+
+    // Bento cells: 100 chars per text field
+    if (s.bentoCells) {
+        s.bentoCells = s.bentoCells.map(cell => ({
+            ...cell,
+            text: cell.text ? truncateAtSentence(cell.text, 100) : cell.text,
+        }));
+    }
+
+    // Solution points: 150 chars per description
+    if (s.solutionPoints) {
+        s.solutionPoints = s.solutionPoints.map(sp => ({
+            ...sp,
+            description: truncateAtSentence(sp.description, 150),
+        }));
+    }
+
+    return s;
+}
+
+// ============================================================
+// STRUCTURE VALIDATION (Ship 3-5)
+// ============================================================
+
+export interface StructureViolation {
+    rule: string;
+    severity: 'blocking' | 'warning';
+    detail: string;
+}
+
+export interface StructureValidation {
+    valid: boolean;
+    violations: StructureViolation[];
+    feedbackForRetry: string;
+}
+
+/**
+ * Validate deck structure against quality constraints.
+ * Returns validation result with feedback string for auto-retry.
+ */
+export function validateDeckStructure(
+    slides: Array<{ slideNumber: number; layout: string; title: string; sourceDeliverable?: string; personaRef?: string }>,
+    availableDeliverables: string[]
+): StructureValidation {
+    const violations: StructureViolation[] = [];
+
+    // Rule 1: Deliverable coverage — every available deliverable should have >=1 slide
+    for (const del of availableDeliverables) {
+        const covered = slides.some(s => s.sourceDeliverable === del);
+        if (!covered) {
+            violations.push({
+                rule: 'deliverable_coverage',
+                severity: 'blocking',
+                detail: `Deliverable "${del}" is available but no slide references it.`,
+            });
+        }
+    }
+
+    // Rule 2: Slide count
+    if (slides.length < 12 && availableDeliverables.length >= 5) {
+        violations.push({
+            rule: 'slide_count',
+            severity: 'blocking',
+            detail: `Only ${slides.length} slides generated but ${availableDeliverables.length} deliverables are available. Expected 15-30 slides.`,
+        });
+    }
+
+    // Rule 3: Persona slides — each persona should have a slide with personaRef
+    const personaRefs = slides.filter(s => s.personaRef).map(s => s.personaRef);
+    if (availableDeliverables.includes('personas') && personaRefs.length === 0) {
+        violations.push({
+            rule: 'persona_slides',
+            severity: 'blocking',
+            detail: 'Personas are available but no slide has a personaRef set.',
+        });
+    }
+
+    // Rule 4: Journey map presence
+    if (availableDeliverables.includes('journey_map') && !slides.some(s => s.sourceDeliverable === 'journey_map')) {
+        violations.push({
+            rule: 'journey_presence',
+            severity: 'blocking',
+            detail: 'Journey map stages are available but no slide references them.',
+        });
+    }
+
+    // Rule 5: No 3+ consecutive identical sourceDeliverable
+    for (let i = 0; i < slides.length - 2; i++) {
+        if (slides[i].sourceDeliverable && slides[i].sourceDeliverable === slides[i+1].sourceDeliverable && slides[i].sourceDeliverable === slides[i+2].sourceDeliverable) {
+            violations.push({
+                rule: 'consecutive_deliverable',
+                severity: 'warning',
+                detail: `Slides ${slides[i].slideNumber}-${slides[i+2].slideNumber} all reference "${slides[i].sourceDeliverable}" — vary the narrative flow.`,
+            });
+        }
+    }
+
+    const blocking = violations.filter(v => v.severity === 'blocking');
+    const feedbackLines = blocking.map(v => `- ${v.detail}`);
+    const feedbackForRetry = blocking.length > 0
+        ? `STRUCTURE VALIDATION FAILED. Fix these issues:\n${feedbackLines.join('\n')}\n\nGenerate a revised structure that addresses all of the above.`
+        : '';
+
+    return {
+        valid: blocking.length === 0,
+        violations,
+        feedbackForRetry,
     };
 }

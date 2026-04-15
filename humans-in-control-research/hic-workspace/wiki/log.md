@@ -386,3 +386,195 @@
   - recommendations: 10
   - sources: 147
 
+
+## [2026-04-14] generate | Quality score: journey_map
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: journey_map
+  - score: 75
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: tech_architecture
+  - score: 95
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: prd
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: recommendations
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: gap_analysis
+  - score: 90
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: journey_map
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: prd
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: recommendations
+  - score: 85
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: gap_analysis
+  - score: 95
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-14
+
+
+## [2026-04-14] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 21
+  - personas: 6
+  - recommendations: 13
+  - sources: 147
+  - evidence: 656
+
+
+## [2026-04-14] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac
+  - goal: Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 21
+  - personas: 6
+  - recommendations: 13
+  - sources: 147
+
+
+## [2026-04-15] generate | Quality score: journey_map
+  - score: 95
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: prd
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: recommendations
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: gap_analysis
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 0
+  - date: 2026-04-15
+
+
+## [2026-04-15] learn | Anti-pattern: User consistently addeds "Updated Slide 12: layout"
+  - type: deck_structure
+  - detection: 5 edits, 5+ occurrences
+
+
+## [2026-04-15] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 15
+  - personas: 8
+  - recommendations: 12
+  - sources: 147
+  - evidence: 743
+
+
+## [2026-04-15] learn | Anti-pattern: User consistently correcteds "source_curation"
+  - type: data_review
+  - detection: 7 edits, 7+ occurrences
+
+
+## [2026-04-15] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac
+  - goal: Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 15
+  - personas: 8
+  - recommendations: 12
+  - sources: 147
+

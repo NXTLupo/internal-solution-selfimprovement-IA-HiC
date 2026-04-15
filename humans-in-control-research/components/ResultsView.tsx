@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnalysisResult, ScriptScene, Theme, Slide, SlideLayout, SlideMetric, BentoCell, Citation, OutputOption, AnalysisStage, StrategicRoadmap, PRD, ServiceBlueprintStage, TechnicalArchitecture, RoadmapItem, PRDFeature, TechNode, Persona } from '../types';
 import { generateSceneVideo, generateImage, rewriteSlideContent, setActiveVisualizationStyle, getActiveVisualizationStyle } from '../services/geminiService';
 // Design system: single unified NXT Humans visual language (no style selector)
-import { exportPPTX, exportJSON } from '../services/exportService';
+import { exportPPTX, exportJSON, exportStrategicReportHTML } from '../services/exportService';
 import { stripMarkdown, resolveCitations } from '../services/slidePostProcessor';
 import { getChunkSourceMap } from '../services/researchFabricOrchestrator';
 import PptxGenJS from 'pptxgenjs';
@@ -21,6 +21,26 @@ const cleanText = (text: string | undefined): string => {
 };
 /** Alias for backward compat */
 const cleanSlideText = cleanText;
+
+/** Render citations + evidence basis for any deliverable item */
+const EvidenceBlock = ({ citations, evidenceBasis }: { citations?: string[]; evidenceBasis?: string }) => {
+    if ((!citations || citations.length === 0) && !evidenceBasis) return null;
+    return (
+        <div style={{ marginTop: 8, padding: '8px 12px', background: '#F8F9FA', borderLeft: '2px solid #00B7C3', borderRadius: '0 4px 4px 0', fontSize: 10 }}>
+            {citations && citations.length > 0 && (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginBottom: evidenceBasis ? 4 : 0 }}>
+                    <span style={{ fontWeight: 700, color: '#888', textTransform: 'uppercase' as const, letterSpacing: '1px', fontSize: 8 }}>Sources:</span>
+                    {citations.map((c: string, i: number) => (
+                        <span key={i} style={{ background: '#E8F4F5', color: '#115054', padding: '1px 6px', borderRadius: 2, fontSize: 9 }}>{c}</span>
+                    ))}
+                </div>
+            )}
+            {evidenceBasis && (
+                <div style={{ color: '#666', fontStyle: 'italic', lineHeight: 1.4 }}>{evidenceBasis}</div>
+            )}
+        </div>
+    );
+};
 
 /** Extract source citations from body text and return cleaned text + sources array */
 const extractSources = (text: string): { clean: string; sources: string[] } => {
@@ -569,9 +589,13 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   let canvas: HTMLCanvasElement | null = null;
                   let retries = 0;
 
+                  // Determine if this slide has a dark background (for PNG vs JPEG decision)
+                  const slideLayout = slides[i] ? normalizeLayout(slides[i].layout) : 'CONTENT_DATA_PANEL';
+                  const isDarkSlide = slideLayout === 'SECTION_HEADER' || slideLayout === 'BENTO_GRID' || slideLayout === 'TITLE_SLIDE';
+
                   while (retries <= MAX_RETRIES) {
                       canvas = await html2canvas(slideElement, {
-                          scale: 2, useCORS: true, logging: false,
+                          scale: 1.5, useCORS: true, logging: false,
                           backgroundColor: null, // Preserve actual backgrounds (dark slides!)
                           windowWidth: slideElement.scrollWidth,
                           windowHeight: slideElement.scrollHeight,
@@ -606,7 +630,13 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                           x = (pdfPageWidth - finalW) / 2; y = 0;
                       }
                       pdf.addPage([pdfPageWidth, pdfPageHeight], 'landscape');
-                      pdf.addImage(canvas, 'PNG', x, y, finalW, finalH);
+                      // Use PNG for dark slides (JPEG artifacts visible on dark bg), JPEG for white slides (much smaller)
+                      if (isDarkSlide) {
+                          pdf.addImage(canvas, 'PNG', x, y, finalW, finalH);
+                      } else {
+                          const jpegData = canvas.toDataURL('image/jpeg', 0.85);
+                          pdf.addImage(jpegData, 'JPEG', x, y, finalW, finalH);
+                      }
                   }
               }
 
@@ -641,7 +671,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               pdf.deletePage(1);
               for (let i = 0; i < slideElements.length; i++) {
                   const slideElement = slideElements[i] as HTMLElement;
-                  const canvas = await html2canvas(slideElement, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
+                  const canvas = await html2canvas(slideElement, { scale: 1.5, useCORS: true, logging: false, backgroundColor: '#ffffff' });
                   const imgWidthRaw = canvas.width;
                   const imgHeightRaw = canvas.height;
                   const imgRatio = imgWidthRaw / imgHeightRaw;
@@ -657,7 +687,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                   const x = (pageWidth - finalW) / 2;
                   const y = (pageHeight - finalH) / 2;
                   pdf.addPage([pageWidth, pageHeight], 'landscape');
-                  pdf.addImage(canvas, 'PNG', x, y, finalW, finalH);
+                  // Light background: use JPEG for smaller file size; dark: use PNG to avoid artifacts
+                  const jpegData = canvas.toDataURL('image/jpeg', 0.85);
+                  pdf.addImage(jpegData, 'JPEG', x, y, finalW, finalH);
               }
               pdf.save('NXT_Humans_Personas.pdf');
           }
@@ -666,32 +698,33 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               pdf.deletePage(1);
               const diagramEl = contentRef.current.querySelector('.diagram-container') as HTMLElement;
               if (diagramEl) {
-                  const canvas = await html2canvas(diagramEl, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
+                  const canvas = await html2canvas(diagramEl, { scale: 1.5, useCORS: true, logging: false, backgroundColor: '#ffffff' });
                   const imgWidth = canvas.width;
                   const imgHeight = canvas.height;
                   const ratio = imgWidth / imgHeight;
                   const pdfPageWidth = 297;
                   const pdfPageHeight = pdfPageWidth / ratio;
                   pdf.addPage([pdfPageWidth, pdfPageHeight], 'landscape');
-                  pdf.addImage(canvas, 'PNG', 0, 0, pdfPageWidth, pdfPageHeight);
+                  const diagramJpeg = canvas.toDataURL('image/jpeg', 0.85);
+                  pdf.addImage(diagramJpeg, 'JPEG', 0, 0, pdfPageWidth, pdfPageHeight);
               }
               const detailsEl = contentRef.current.querySelector('.details-container') as HTMLElement;
               if (detailsEl) {
-                  const canvas = await html2canvas(detailsEl, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
-                  const pdfPageWidth = 297; 
+                  const canvas = await html2canvas(detailsEl, { scale: 1.5, useCORS: true, logging: false, backgroundColor: '#ffffff' });
+                  const pdfPageWidth = 297;
                   const pdfPageHeight = 210;
-                  const imgData = canvas.toDataURL('image/png');
+                  const imgData = canvas.toDataURL('image/jpeg', 0.85);
                   const imgPropsWidth = pdfPageWidth;
                   const imgPropsHeight = (canvas.height * imgPropsWidth) / canvas.width;
                   let heightLeft = imgPropsHeight;
                   let position = 0;
                   pdf.addPage('a4', 'landscape');
-                  pdf.addImage(imgData, 'PNG', 0, position, imgPropsWidth, imgPropsHeight);
+                  pdf.addImage(imgData, 'JPEG', 0, position, imgPropsWidth, imgPropsHeight);
                   heightLeft -= pdfPageHeight;
                   while (heightLeft > 0) {
                       position = heightLeft - imgPropsHeight;
                       pdf.addPage('a4', 'landscape');
-                      pdf.addImage(imgData, 'PNG', 0, position, imgPropsWidth, imgPropsHeight);
+                      pdf.addImage(imgData, 'JPEG', 0, position, imgPropsWidth, imgPropsHeight);
                       heightLeft -= pdfPageHeight;
                   }
               }
@@ -702,18 +735,18 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
               const pdf = new jsPDF(orientation, 'mm', 'a4');
               const pdfWidth = pdf.internal.pageSize.getWidth();
               const pdfHeight = pdf.internal.pageSize.getHeight();
-              const canvas = await html2canvas(contentRef.current, { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' });
-              const imgData = canvas.toDataURL('image/png');
+              const canvas = await html2canvas(contentRef.current, { scale: 1.5, useCORS: true, logging: false, backgroundColor: '#ffffff' });
+              const imgData = canvas.toDataURL('image/jpeg', 0.85);
               const imgWidth = pdfWidth;
               const imgHeight = (canvas.height * imgWidth) / canvas.width;
               let heightLeft = imgHeight;
               let position = 0;
-              pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+              pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
               heightLeft -= pdfHeight;
               while (heightLeft > 0) {
                   position = heightLeft - imgHeight;
                   pdf.addPage();
-                  pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                  pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                   heightLeft -= pdfHeight;
               }
               pdf.save(`Humans_in_Control_Export_${activeTab}.pdf`);
@@ -1037,35 +1070,28 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
       return (
           <div key={idx} className={containerClass} style={{ backgroundColor: bg }}>
 
-               {/* ====== TEMPLATE 1: TITLE — Dark, editorial statement + stat row ====== */}
+               {/* ====== TITLE SLIDE — Dark, editorial statement + stat row ====== */}
                {archetypeLayout === 'TITLE_SLIDE' && (
                    <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '56px 56px 48px' }}>
-                       {/* Top section: section label + thin divider lines */}
                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                            <div style={{ width: 24, height: 1, background: accent }} />
                            <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase' as const, color: accent }}>
                                {result.selectedOutputs?.[0]?.replace(/_/g, ' ') || 'STRATEGIC ANALYSIS'}
                            </div>
                        </div>
-                       {/* Middle: Large editorial headline */}
                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: '75%' }}>
                            <h1 style={{ fontFamily: F, fontSize: 36, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.15 }}>
                                {titleWords.map((w, i) => (
                                    <span key={i}>{i === accentWordIdx ? <span style={{ color: accent }}>{w}</span> : w}{i < titleWords.length - 1 ? ' ' : ''}</span>
                                ))}<span style={{ color: accent }}>.</span>
                            </h1>
-                           {slide.narrative && (
-                               <p style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginTop: 16, maxWidth: '70%' }}>{cleanSlideText(slide.narrative).substring(0, 150)}</p>
-                           )}
+                           {slide.narrative && <p style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, marginTop: 16, maxWidth: '70%' }}>{cleanSlideText(slide.narrative).substring(0, 150)}</p>}
                        </div>
-                       {/* Bottom: Stat row (3 hero metrics if available) */}
                        {metrics.length > 0 && (
                            <div style={{ display: 'flex', gap: 40, borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 20 }}>
                                {metrics.slice(0, 3).map((m, i) => (
                                    <div key={i}>
-                                       <div style={{ fontFamily: F, fontSize: 36, fontWeight: 200, color: '#FFFFFF', lineHeight: 1 }}>
-                                           {m.value}<span style={{ fontSize: 14, color: accent, marginLeft: 2 }}>{m.unit || ''}</span>
-                                       </div>
+                                       <div style={{ fontFamily: F, fontSize: 36, fontWeight: 200, color: '#FFFFFF', lineHeight: 1 }}>{m.value}<span style={{ fontSize: 14, color: accent, marginLeft: 2 }}>{m.unit || ''}</span></div>
                                        <div style={{ fontFamily: F, fontSize: 10, color: 'rgba(255,255,255,0.4)', marginTop: 4 }}>{m.label}</div>
                                    </div>
                                ))}
@@ -1075,17 +1101,11 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                    </div>
                )}
 
-               {/* ====== TEMPLATE 2: SECTION — Giant oversized accent word (bleeds off edges) ====== */}
+               {/* ====== SECTION HEADER — Dark, oversized accent word ====== */}
                {archetypeLayout === 'SECTION_HEADER' && (
                    <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                       {/* Giant accent word — fills the slide, bleeds off right edge */}
-                       <div style={{ position: 'absolute', left: 48, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 'clamp(80px, 14vw, 160px)', fontWeight: 900, color: accent, lineHeight: 0.9, pointerEvents: 'none', opacity: 0.15, whiteSpace: 'nowrap', maxWidth: '120%' }}>
-                           {titleText.substring(0, 30)}
-                       </div>
-                       {/* Ghost slide number */}
-                       <div style={{ position: 'absolute', right: 56, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 200, fontWeight: 900, color: 'rgba(255,255,255,0.03)', lineHeight: 0.85, pointerEvents: 'none' }}>
-                           {String(slide.slideNumber || idx + 1).padStart(2, '0')}
-                       </div>
+                       <div style={{ position: 'absolute', left: 48, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 'clamp(80px, 14vw, 160px)', fontWeight: 900, color: accent, lineHeight: 0.9, pointerEvents: 'none', opacity: 0.15, whiteSpace: 'nowrap', maxWidth: '120%' }}>{titleText.substring(0, 30)}</div>
+                       <div style={{ position: 'absolute', right: 56, top: '50%', transform: 'translateY(-50%)', fontFamily: F, fontSize: 200, fontWeight: 900, color: 'rgba(255,255,255,0.03)', lineHeight: 0.85, pointerEvents: 'none' }}>{String(slide.slideNumber || idx + 1).padStart(2, '0')}</div>
                        <div style={{ padding: '0 56px', position: 'relative', zIndex: 2, maxWidth: '65%' }}>
                            <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '3px', color: accent, textTransform: 'uppercase' as const, marginBottom: 12 }}>SECTION {slide.slideNumber}</div>
                            <h2 style={{ fontFamily: F, fontSize: 32, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.15 }}>{titleText}</h2>
@@ -1094,55 +1114,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                    </div>
                )}
 
-               {/* ====== TEMPLATE 3: CONTENT + DATA — White, split layout with metric cards ====== */}
-               {archetypeLayout === 'CONTENT_DATA_PANEL' && (
-                   <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
-                       <div style={{ width: '55%', padding: '40px 36px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 14 }}>
-                               {slide.rationale ? cleanSlideText(slide.rationale).substring(0, 35) : ''}
-                           </div>
-                           <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: '#1A1A1A', lineHeight: 1.25, marginBottom: 20 }}>
-                               {titleText}<span style={{ color: accent }}>.</span>
-                           </h2>
-                           {(slide.content || []).slice(0, 3).map((point, i) => (
-                               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
-                                   <div style={{ width: 5, height: 5, borderRadius: '50%', background: getRotatedAccent(i), flexShrink: 0, marginTop: 6 }} />
-                                   <p style={{ fontFamily: F, fontSize: 12, color: '#555', lineHeight: 1.6 }}>{cleanSlideText(point)}</p>
-                               </div>
-                           ))}
-                           {/* Persona card if present */}
-                           {slide.personaName && (
-                               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16, padding: '10px 14px', background: '#FAFAFA', borderRadius: 4 }}>
-                                   {slide.personaImageUrl && <img src={slide.personaImageUrl} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} alt="" />}
-                                   <div>
-                                       <div style={{ fontFamily: F, fontSize: 11, fontWeight: 700, color: '#1A1A1A' }}>{slide.personaName}</div>
-                                       {slide.personaRole && <div style={{ fontFamily: F, fontSize: 9, color: '#888' }}>{slide.personaRole}</div>}
-                                   </div>
-                               </div>
-                           )}
-                       </div>
-                       <div style={{ width: '45%', background: '#FAFAFA', borderLeft: '1px solid #F0F0F0', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
-                           {metrics.length > 0 ? metrics.slice(0, 3).map((m, i) => {
-                               const a = m.accentColor || getRotatedAccent(i);
-                               return (
-                                   <div key={i} style={{ background: '#FFFFFF', border: '1px solid #EEEEEE', borderRadius: 6, borderLeft: `3px solid ${a}`, padding: '14px 18px' }}>
-                                       <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: a, marginBottom: 4 }}>{m.label}</div>
-                                       <div style={{ fontFamily: F, fontSize: 32, fontWeight: 200, color: '#1A1A1A', lineHeight: 1 }}>{m.value}<span style={{ fontSize: 14, color: '#888', marginLeft: 3 }}>{m.unit || ''}</span></div>
-                                   </div>
-                               );
-                           }) : slide.quote ? (
-                               <div style={{ borderLeft: `3px solid ${accent}`, paddingLeft: 16 }}>
-                                   <p style={{ fontFamily: F, fontSize: 14, fontStyle: 'italic', color: '#444', lineHeight: 1.6 }}>"{cleanSlideText(slide.quote)}"</p>
-                               </div>
-                           ) : null}
-                       </div>
-                       <FootnoteStrip />
-                       <SlideNum />
-                   </div>
-               )}
-
-               {/* ====== TEMPLATE 4: INSIGHT CHART — Big percentage hero ====== */}
-               {archetypeLayout === 'CONTENT_INSIGHT_CHART' && (
+               {/* ====== ADAPTIVE BODY SLIDE — One flexible renderer for all content types ====== */}
+               {/* NXT Humans style: White bg, clean typography, content drives layout */}
+               {archetypeLayout !== 'TITLE_SLIDE' && archetypeLayout !== 'SECTION_HEADER' && (
                    <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
                        <div style={{ width: '50%', padding: '40px 32px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                            {heroStat && (
@@ -1153,147 +1127,99 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                            <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#1A1A1A', lineHeight: 1.25, marginBottom: 16 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
                            <p style={{ fontFamily: F, fontSize: 12, color: '#888', lineHeight: 1.6 }}>{(slide.content || []).slice(0, 1).map(cleanSlideText).join(' ')}</p>
                        </div>
-                       <div style={{ width: '50%', background: '#FAFAFA', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 8 }}>
-                           {metrics.slice(0, 5).map((m, i) => (
-                               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                                   <span style={{ fontFamily: F, fontSize: 10, color: '#888', width: 80, textAlign: 'right' }}>{m.label.substring(0, 18)}</span>
-                                   <div style={{ flex: 1, height: 8, background: '#E8E8E8', borderRadius: 0, overflow: 'hidden' }}>
-                                       <div style={{ height: '100%', background: i === 0 ? cyan : '#CCCCCC', width: `${Math.min(100, (m.progress || 50) + (i === 0 ? 30 : 0))}%` }} />
-                                   </div>
-                                   <span style={{ fontFamily: F, fontSize: 11, fontWeight: 700, color: i === 0 ? cyan : '#888', width: 40 }}>{m.value}</span>
+                       {/* LEFT: Title + Evidence Points */}
+                       <div style={{ width: metrics.length > 0 ? '55%' : '100%', padding: '40px 36px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                           {/* Section label */}
+                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 14 }}>
+                               {slide.rationale ? cleanSlideText(slide.rationale).substring(0, 40) : ''}
+                           </div>
+                           {/* Conclusion title */}
+                           <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: fg, lineHeight: 1.25, marginBottom: 20 }}>
+                               {titleText}<span style={{ color: accent }}>.</span>
+                           </h2>
+                           {/* Evidence points — unconstrained, as many as exist */}
+                           {(slide.content || []).map((point, i) => (
+                               <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 10 }}>
+                                   <div style={{ width: 5, height: 5, borderRadius: '50%', background: getRotatedAccent(i), flexShrink: 0, marginTop: 6 }} />
+                                   <p style={{ fontFamily: F, fontSize: 12, color: '#555', lineHeight: 1.6 }}>{cleanSlideText(point)}</p>
                                </div>
                            ))}
-                       </div>
-                       <FootnoteStrip />
-                       <SlideNum />
-                   </div>
-               )}
-
-               {/* ====== TEMPLATE 5: FULL-WIDTH — Numbered grid or problem card grid ====== */}
-               {archetypeLayout === 'FULL_WIDTH_VIZ' && (
-                   <div style={{ position: 'absolute', inset: 0, padding: '40px 56px', display: 'flex', flexDirection: 'column' }}>
-                       <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#1A1A1A', marginBottom: 24 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
-                       {/* If 3-4 items: use problem card grid (accent border-top, bold title + description) */}
-                       {(slide.content || []).length <= 5 ? (
-                           <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min((slide.content || []).length, 4)}, 1fr)`, gap: 16, flex: 1, alignContent: 'start' }}>
-                               {(slide.content || []).map((point, i) => {
-                                   const cleaned = cleanSlideText(point);
-                                   const parts = cleaned.split(/[.!?]\s+/);
-                                   const cardTitle = parts[0] || '';
-                                   const cardBody = parts.slice(1).join('. ');
-                                   return (
-                                       <div key={i} style={{ borderTop: `3px solid ${getRotatedAccent(i)}`, padding: '16px 0' }}>
-                                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: getRotatedAccent(i), marginBottom: 8 }}>{String(i + 1).padStart(2, '0')}</div>
-                                           <div style={{ fontFamily: F, fontSize: 13, fontWeight: 700, color: '#1A1A1A', marginBottom: 6, lineHeight: 1.3 }}>{cardTitle}</div>
-                                           {cardBody && <p style={{ fontFamily: F, fontSize: 11, color: '#888', lineHeight: 1.5 }}>{cardBody}</p>}
+                           {/* Problem stat if present */}
+                           {slide.problemStat && (
+                               <div style={{ marginTop: 12, padding: '12px 16px', background: '#FFF5F5', borderLeft: `3px solid #CC6644`, borderRadius: 2 }}>
+                                   <div style={{ fontFamily: F, fontSize: 28, fontWeight: 200, color: '#CC6644', lineHeight: 1 }}>{slide.problemStat.value}<span style={{ fontSize: 12, marginLeft: 3 }}>{slide.problemStat.unit || ''}</span></div>
+                                   <div style={{ fontFamily: F, fontSize: 11, color: '#888', marginTop: 4 }}>{slide.problemStat.description}</div>
+                               </div>
+                           )}
+                           {/* Solution points if present */}
+                           {(slide.solutionPoints || []).length > 0 && (
+                               <div style={{ marginTop: 12 }}>
+                                   {slide.solutionPoints!.map((sp, i) => (
+                                       <div key={i} style={{ marginBottom: 10 }}>
+                                           <div style={{ width: 20, height: 2, background: getRotatedAccent(i), marginBottom: 4 }} />
+                                           <div style={{ fontFamily: F, fontSize: 12, fontWeight: 700, color: '#1A1A1A' }}>{sp.title}</div>
+                                           <div style={{ fontFamily: F, fontSize: 10, color: '#888', lineHeight: 1.4 }}>{sp.description}</div>
                                        </div>
-                                   );
-                               })}
-                           </div>
-                       ) : (
-                           /* If many items: numbered grid layout */
-                           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 10, flex: 1 }}>
-                               {(slide.content || []).map((point, i) => (
-                                   <div key={i} style={{ padding: 12, borderBottom: '2px solid #F0F0F0' }}>
-                                       <div style={{ fontFamily: F, fontSize: 24, fontWeight: 200, color: accent, marginBottom: 4 }}>{String(i + 1).padStart(2, '0')}</div>
-                                       <p style={{ fontFamily: F, fontSize: 10, color: '#555', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
+                                   ))}
+                               </div>
+                           )}
+                           {/* Quote if present */}
+                           {slide.quote && !metrics.length && (
+                               <div style={{ borderLeft: `3px solid ${accent}`, paddingLeft: 14, marginTop: 14 }}>
+                                   <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: '#444', lineHeight: 1.6 }}>"{cleanSlideText(slide.quote)}"</p>
+                               </div>
+                           )}
+                           {/* Persona card if present */}
+                           {slide.personaName && (
+                               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 14, padding: '10px 14px', background: '#FAFAFA', borderRadius: 4 }}>
+                                   {slide.personaImageUrl && <img src={slide.personaImageUrl} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} alt="" />}
+                                   <div>
+                                       <div style={{ fontFamily: F, fontSize: 11, fontWeight: 700, color: '#1A1A1A' }}>{slide.personaName}</div>
+                                       {slide.personaRole && <div style={{ fontFamily: F, fontSize: 9, color: '#888' }}>{slide.personaRole}</div>}
+                                       {slide.personaQuote && <div style={{ fontFamily: F, fontSize: 9, fontStyle: 'italic', color: '#888', marginTop: 2 }}>"{slide.personaQuote}"</div>}
                                    </div>
-                               ))}
-                           </div>
+                               </div>
+                           )}
+                       </div>
+                       {/* RIGHT: Data panel — metrics, bento cells, or quote (only if data exists) */}
+                       {(metrics.length > 0 || (slide.bentoCells || []).length > 0 || (slide.quote && (slide.content || []).length > 0)) && (
+                       <div style={{ width: '45%', background: '#FAFAFA', borderLeft: '1px solid #F0F0F0', padding: '40px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
+                           {/* Metrics */}
+                           {metrics.slice(0, 4).map((m, i) => {
+                               const a = m.accentColor || getRotatedAccent(i);
+                               return (
+                                   <div key={i} style={{ background: '#FFFFFF', border: '1px solid #EEEEEE', borderRadius: 6, borderLeft: `3px solid ${a}`, padding: '14px 18px' }}>
+                                       <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: a, marginBottom: 4 }}>{m.label}</div>
+                                       <div style={{ fontFamily: F, fontSize: 28, fontWeight: 200, color: '#1A1A1A', lineHeight: 1 }}>{m.value}<span style={{ fontSize: 12, color: '#888', marginLeft: 3 }}>{m.unit || ''}</span></div>
+                                   </div>
+                               );
+                           })}
+                           {/* Bento cells */}
+                           {(slide.bentoCells || []).length > 0 && !metrics.length && (
+                               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+                                   {slide.bentoCells!.slice(0, 6).map((cell, i) => (
+                                       <div key={i} style={{ background: '#FFFFFF', border: '1px solid #EEEEEE', borderRadius: 4, padding: 12, gridColumn: cell.span === 2 ? 'span 2' : 'span 1' }}>
+                                           {cell.type === 'stat' && <>
+                                               <div style={{ fontFamily: F, fontSize: 22, fontWeight: 200, color: cell.accentColor || accent, lineHeight: 1 }}>{cell.value}</div>
+                                               <div style={{ fontFamily: F, fontSize: 9, color: '#888', marginTop: 4 }}>{cell.label || cell.text}</div>
+                                           </>}
+                                           {cell.type === 'quote' && <p style={{ fontFamily: F, fontSize: 10, fontStyle: 'italic', color: '#555', lineHeight: 1.4 }}>"{cell.text}"</p>}
+                                           {(cell.type === 'indicator' || cell.type === 'list') && <>
+                                               <div style={{ fontFamily: F, fontSize: 8, fontWeight: 700, color: accent, textTransform: 'uppercase' as const, marginBottom: 3 }}>{cell.label}</div>
+                                               <div style={{ fontFamily: F, fontSize: 10, color: '#555' }}>{cell.text || (cell.items || []).join(', ')}</div>
+                                           </>}
+                                       </div>
+                                   ))}
+                               </div>
+                           )}
+                           {/* Quote in data panel if no metrics/bento */}
+                           {slide.quote && !metrics.length && !(slide.bentoCells || []).length && (
+                               <div style={{ borderLeft: `3px solid ${accent}`, paddingLeft: 14 }}>
+                                   <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: '#444', lineHeight: 1.6 }}>"{cleanSlideText(slide.quote)}"</p>
+                               </div>
+                           )}
+                       </div>
                        )}
-                       <FootnoteStrip />
-                       <SlideNum />
-                   </div>
-               )}
-
-               {/* ====== TEMPLATE 6: BENTO — Dark, stat comparison grid ====== */}
-               {archetypeLayout === 'BENTO_GRID' && (
-                   <div style={{ position: 'absolute', inset: 0, background: '#0D0D0D', padding: '40px 56px', display: 'flex', flexDirection: 'column' }}>
-                       <h2 style={{ fontFamily: F, fontSize: 20, fontWeight: 800, color: '#FFFFFF', marginBottom: 20 }}>{titleText}<span style={{ color: accent }}>.</span></h2>
-                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, flex: 1 }}>
-                           {(slide.bentoCells || []).length > 0 ? slide.bentoCells!.map((cell, i) => (
-                               <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20, gridColumn: cell.span === 2 ? 'span 2' : 'span 1' }}>
-                                   {cell.type === 'stat' && (
-                                       <>
-                                           <div style={{ fontFamily: F, fontSize: cell.span === 2 ? 52 : 38, fontWeight: 200, color: cell.accentColor || accent, lineHeight: 1 }}>{cell.value}<span style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', marginLeft: 3 }}>{cell.unit || ''}</span></div>
-                                           <div style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 8 }}>{cell.text || cell.label}</div>
-                                       </>
-                                   )}
-                                   {cell.type === 'quote' && (
-                                       <>
-                                           <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>"{cell.text}"</p>
-                                           {cell.attribution && <p style={{ fontFamily: F, fontSize: 10, color: 'rgba(255,255,255,0.3)', marginTop: 6 }}>-- {cell.attribution}</p>}
-                                       </>
-                                   )}
-                                   {(cell.type === 'indicator' || cell.type === 'list') && (
-                                       <>
-                                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: cell.accentColor || accent, marginBottom: 6 }}>{cell.label}</div>
-                                           {cell.type === 'list' ? (cell.items || []).map((item, j) => (
-                                               <div key={j} style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.6)', marginBottom: 3 }}>- {item}</div>
-                                           )) : <p style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>{cell.text}</p>}
-                                       </>
-                                   )}
-                               </div>
-                           )) : (
-                               <>
-                                   {metrics.slice(0, 2).map((m, i) => (
-                                       <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
-                                           <div style={{ fontFamily: F, fontSize: 40, fontWeight: 200, color: m.accentColor || accent, lineHeight: 1 }}>{m.value}<span style={{ fontSize: 14, color: 'rgba(255,255,255,0.3)', marginLeft: 3 }}>{m.unit || ''}</span></div>
-                                           <div style={{ fontFamily: F, fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 6 }}>{m.label}</div>
-                                       </div>
-                                   ))}
-                                   {slide.quote && (
-                                       <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
-                                           <p style={{ fontFamily: F, fontSize: 13, fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>"{cleanSlideText(slide.quote)}"</p>
-                                       </div>
-                                   )}
-                                   {(slide.content || []).slice(0, 3).map((point, i) => (
-                                       <div key={`c${i}`} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4, padding: 20 }}>
-                                           <p style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
-                                       </div>
-                                   ))}
-                               </>
-                           )}
-                       </div>
-                       <FootnoteStrip />
-                       <SlideNum />
-                   </div>
-               )}
-
-               {/* ====== TEMPLATE 7: PROBLEM/SOLUTION — Dark left, white right ====== */}
-               {archetypeLayout === 'PROBLEM_SOLUTION' && (
-                   <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
-                       <div style={{ width: '50%', background: '#0D0D0D', padding: '40px 40px 40px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#CC6644', marginBottom: 16 }}>THE CHALLENGE</div>
-                           {slide.problemStat ? (
-                               <>
-                                   <div style={{ fontFamily: F, fontSize: 64, fontWeight: 200, color: '#FFFFFF', lineHeight: 1 }}>{slide.problemStat.value}<span style={{ fontSize: 22, color: '#CC6644', marginLeft: 4 }}>{slide.problemStat.unit || ''}</span></div>
-                                   <p style={{ fontFamily: F, fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginTop: 12 }}>{slide.problemStat.description}</p>
-                               </>
-                           ) : (
-                               <>
-                                   <h2 style={{ fontFamily: F, fontSize: 22, fontWeight: 800, color: '#FFFFFF', lineHeight: 1.2 }}>{titleText}</h2>
-                                   {(slide.content || []).slice(0, 2).map((point, i) => (
-                                       <p key={i} style={{ fontFamily: F, fontSize: 12, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginTop: 8 }}>{cleanSlideText(point)}</p>
-                                   ))}
-                               </>
-                           )}
-                       </div>
-                       <div style={{ width: '50%', background: '#FFFFFF', padding: '40px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                           <div style={{ fontFamily: F, fontSize: 9, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: cyan, marginBottom: 20 }}>THE SOLUTION</div>
-                           {(slide.solutionPoints || []).length > 0 ? slide.solutionPoints!.map((sp, i) => (
-                               <div key={i} style={{ marginBottom: 18 }}>
-                                   <div style={{ width: 24, height: 2, background: getRotatedAccent(i), marginBottom: 8 }} />
-                                   <div style={{ fontFamily: F, fontSize: 13, fontWeight: 700, color: '#1A1A1A', marginBottom: 3 }}>{sp.title}</div>
-                                   <div style={{ fontFamily: F, fontSize: 11, color: '#888', lineHeight: 1.5 }}>{sp.description}</div>
-                               </div>
-                           )) : (slide.content || []).slice(1, 4).map((point, i) => (
-                               <div key={i} style={{ marginBottom: 14 }}>
-                                   <div style={{ width: 24, height: 2, background: getRotatedAccent(i), marginBottom: 6 }} />
-                                   <p style={{ fontFamily: F, fontSize: 12, color: '#555', lineHeight: 1.5 }}>{cleanSlideText(point)}</p>
-                               </div>
-                           ))}
-                       </div>
                        <FootnoteStrip />
                        <SlideNum />
                    </div>
@@ -1348,6 +1274,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                    <button onClick={handleDownloadPDF} className="bg-white border border-[var(--border-primary)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-[var(--bg-secondary)] transition-colors">{isExporting ? '...' : 'PDF'}</button>
                    <button onClick={handleExportPPTX} className="bg-white border border-[var(--border-primary)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-[var(--bg-secondary)] transition-colors">{isExporting ? '...' : 'PPTX'}</button>
                    <button onClick={handleExportJSON} className="bg-white border border-[var(--border-primary)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-[var(--bg-secondary)] transition-colors">JSON</button>
+                   {result.strategicReport && <button onClick={() => exportStrategicReportHTML(result.strategicReport)} className="bg-white border border-[var(--border-primary)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-[var(--bg-secondary)] transition-colors">Report</button>}
                    <button onClick={handleSaveClick} className="bg-[var(--nxt-lime)] text-[var(--nxt-teal)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide">Save</button>
                    <button onClick={onReset} className="bg-[var(--bg-tertiary)] border border-[var(--border-primary)] px-3 py-2 rounded text-xs font-bold uppercase tracking-wide hover:bg-[var(--bg-secondary)] transition-colors">New</button>
               </div>
@@ -1568,6 +1495,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <textarea value={item.description || ''} onChange={(e) => { const rIdx = (roadmapData.items || []).findIndex((x: any) => x === item); updateRoadmapItem(rIdx, 'description', e.target.value); }} style={{fontSize:'12px',color:'#666',background:'transparent',width:'100%',resize:'vertical',border:'none',outline:'none',lineHeight:'1.5',minHeight:'60px'}} />
                                                   {item.successMetric && <div style={{fontSize:'11px',color:'#B8B800',fontFamily:"'JetBrains Mono',monospace",marginTop:'4px'}}>{item.successMetric}</div>}
                                                   {item.owner && <div style={{fontSize:'10px',color:'#999',marginTop:'2px'}}>Owner: {item.owner}</div>}
+                                                  <EvidenceBlock citations={(item as any).citations} evidenceBasis={(item as any).evidenceBasis} />
                                               </div>
                                           ))}
                                       </div>
@@ -1621,6 +1549,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               {feature.citation && (
                                               <div className="mt-2 text-xs text-[var(--text-tertiary)] italic border-t border-[var(--border-secondary)] pt-2">Evidence: {feature.citation}</div>
                                               )}
+                                              <EvidenceBlock citations={(feature as any).citations} evidenceBasis={(feature as any).evidenceBasis} />
                                           </div>
                                       ))}
                                   </div>
@@ -1890,6 +1819,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                       <div style={{ fontSize: 12, color: '#991B1B', lineHeight: 1.5, fontWeight: 600 }}>{typeof stage.momentOfTruth === 'string' ? stage.momentOfTruth : 'Critical decision point in this stage'}</div>
                                                   </div>
                                               )}
+                                              <EvidenceBlock citations={(stage as any).citations} evidenceBasis={(stage as any).evidenceBasis} />
                                           </div>
                                       </div>
                                   ))}
@@ -2034,6 +1964,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                               </div>
                                               <textarea value={node.description || ''} onChange={(e) => updateTechNode(i, 'description', e.target.value)}
                                                   className="w-full text-xs bg-transparent resize-none h-14 outline-none" style={{ color: colors.text + 'cc' }} />
+                                              <EvidenceBlock citations={(node as any).citations} evidenceBasis={(node as any).evidenceBasis} />
                                           </div>
                                       );
                                   })}
@@ -2156,6 +2087,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                            </div>
                                        </div>
                                    )}
+                                   <EvidenceBlock citations={(rec as any).citations} evidenceBasis={(rec as any).evidenceBasis} />
                                </div>
                                );
                            })}
@@ -2202,6 +2134,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                           </div>
                                                       </div>
                                                       <p style={{ fontFamily: FONT.primary, fontSize: 12, color: '#666', lineHeight: 1.5 }}>{cleanText(g.impact)}</p>
+                                                      <EvidenceBlock citations={(g as any).citations} evidenceBasis={(g as any).evidenceBasis} />
                                                   </div>
                                               );
                                           })}
@@ -2255,11 +2188,14 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                           {audit.systemsInventory.map((s: any, i: number) => {
                                               const statusColor = s.status === 'active' ? '#00B7C3' : s.status === 'legacy' ? '#B8B800' : s.status === 'deprecated' ? '#CC6644' : '#888';
                                               return (
-                                                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px 80px', padding: '10px 16px', gap: 8, borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
-                                                      <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{s.name}</span>
-                                                      <span style={{ fontFamily: FONT.primary, fontSize: 12, color: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? '#B8B800' : '#666', fontWeight: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 600 : 400 }}>{(!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 'TBD — vendor selection needed' : s.vendor}</span>
-                                                      <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#888' }}>{s.category}</span>
-                                                      <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, textTransform: 'uppercase' as const, color: statusColor }}>{s.status}</span>
+                                                  <div key={i} style={{ borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
+                                                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px 80px', padding: '10px 16px', gap: 8 }}>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>{s.name}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 12, color: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? '#B8B800' : '#666', fontWeight: (!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 600 : 400 }}>{(!s.vendor || s.vendor === 'Unspecified' || s.vendor === 'N/A') ? 'TBD — vendor selection needed' : s.vendor}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#888' }}>{s.category}</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, textTransform: 'uppercase' as const, color: statusColor }}>{s.status}</span>
+                                                      </div>
+                                                      {((s as any).citations || (s as any).evidenceBasis) && <div style={{ padding: '0 16px 8px 16px' }}><EvidenceBlock citations={(s as any).citations} evidenceBasis={(s as any).evidenceBasis} /></div>}
                                                   </div>
                                               );
                                           })}
@@ -2352,6 +2288,7 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                           <div key={j} style={{ fontFamily: FONT.primary, fontSize: 12, color: '#444', marginBottom: 2 }}>- {cleanText(w)}</div>
                                                       ))}
                                                   </div>
+                                                  <EvidenceBlock citations={(p as any).citations} evidenceBasis={(p as any).evidenceBasis} />
                                               </div>
                                           ))}
                                       </div>
