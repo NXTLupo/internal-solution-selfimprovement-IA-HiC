@@ -1,0 +1,43 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_citations.py",
+        "timeout": 30
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_evidence.py",
+        "timeout": 30
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_titles.py",
+        "timeout": 15
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_source_diversity.py",
+        "timeout": 15
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_budgets.py",
+        "timeout": 15
+      }
+    ],
+    "SubagentStop": [
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_citations.py",
+        "timeout": 30
+      },
+      {
+        "type": "command",
+        "command": "python .claude/hooks/scripts/validate_evidence.py",
+        "timeout": 30
+      }
+    ]
+  }
+}

@@ -1383,7 +1383,10 @@ const App = () => {
                      } catch (e) { /* non-blocking */ }
 
                      // Persist curation state to localStorage for session recovery
-                     try { localStorage.setItem(`hic_curation_${slug}`, JSON.stringify(Array.from(excludedSources))); } catch (e) { /* non-blocking */ }
+                     try {
+                         localStorage.setItem(`hic_curation_${slug}`, JSON.stringify(Array.from(excludedSources)));
+                         localStorage.setItem(`hic_priority_${slug}`, JSON.stringify(Array.from(prioritySources)));
+                     } catch (e) { /* non-blocking */ }
                  }
                  console.log(`[WikiIngest] Post-run ingest complete: ${ingestResult.pagesUpdated} wiki pages updated`);
 
