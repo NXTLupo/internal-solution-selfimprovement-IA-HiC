@@ -826,6 +826,354 @@ The hook architecture preserves learning:
 
 ---
 
+## 15. Output Quality Guarantees: Why This Won't Produce the Same Garbage
+
+The previous architecture produced bad outputs for specific, diagnosable reasons. Better architecture alone does NOT guarantee better outputs — it only ENABLES them. This section specifies the concrete mechanisms that make slop IMPOSSIBLE to reach the user, with before/after examples and deterministic enforcement.
+
+### 15.1 The Honest Diagnosis: What Actually Causes Bad Output
+
+| Failure Mode | Root Cause | Why Architecture Changes Alone Don't Fix It |
+|---|---|---|
+| **Thin deck slides** | AI generates structure + prose in one shot. Complex 12-type schema overwhelms the model. | A new skill file with the same one-shot approach produces the same thin blocks. |
+| **Generic strategy boilerplate** | AI defaults to safe, generic prose when it doesn't have strong evidence in context. | A bigger context window helps, but if the prompt doesn't FORCE specificity, the AI will still be generic. |
+| **Empty evidence fields** | Schema requires `citations[]` but AI returns `[]` or `["research"]`. | A hook checks non-empty, but checking `length > 0` doesn't verify the citations are REAL. |
+| **Client-doc-heavy reports** | Uploaded client documents are the most "available" content. External evidence requires more work for the AI. | Even with 200 sources injected, the AI may still lean on the 3 client PDFs because they're clearest. |
+| **Unresolved CHUNK references** | Citation resolution runs but misses edge cases. | A new architecture has the same regex-based resolution. Edge cases persist. |
+| **Topic titles instead of action titles** | AI takes the path of least resistance ("The Landscape" instead of "35% enrollment decline at public universities signals structural shift"). | A skill instruction says "use action titles" — but that's the same prompt instruction that already failed. |
+
+### 15.2 The Six Mechanisms That Actually Prevent Slop
+
+Each mechanism is **deterministic** (not probabilistic), **blocking** (output cannot proceed without passing), and **specific** (checks a concrete, measurable condition).
+
+#### Mechanism 1: Multi-Phase Deck Generation (Prevents Thin Content)
+
+**The problem**: When the AI generates narrative arc + content blocks + JSON schema in one shot, it produces minimal content to satisfy the schema constraints.
+
+**The fix**: Four strictly separated phases. Each phase ONLY does one thing:
+
+```
+PHASE 1 (Thinking: max, output: plain text)
+  "Given this 15-section strategic report, outline a 20-slide narrative arc.
+   For each slide, write ONE SENTENCE describing the insight it must convey.
+   Do NOT generate any JSON. Do NOT write slide content."
+
+  Output: Plain text outline (20 sentences)
+  Quality gate: Hook verifies 15-25 slide sentences exist, each > 10 words
+
+PHASE 2 (Thinking: high, output: JSON per slide)
+  "For slide 5 ('35% of first-year students don't return, costing $9B annually'),
+   generate 2-5 content blocks from this report section:
+   [FULL 600-word report section injected here]"
+
+  Output: ContentBlock[] for ONE slide
+  Quality gate: Hook verifies each body slide has >= 1 evidence_bullets or quote_block
+
+PHASE 3 (Deterministic, no AI)
+  resolveLayout(blocks) → archetype
+  mapToFields(blocks) → Slide object
+
+PHASE 4 (Deterministic, no AI)
+  If slide.metrics is empty AND report section has keyMetrics → inject
+  If slide.sources is empty AND report section has citations → inject
+  If slide.content items are < 40 chars → replace with report sentences
+```
+
+**Why this is different**: The current system does Phase 1+2 simultaneously. The AI tries to plan AND write AND format JSON at the same time. Separating them means the AI never faces a complex schema while also trying to reason about narrative.
+
+**Enforcement**: Phase 2 generates content for ONE SLIDE AT A TIME, not all 20 at once. This is the critical difference — the AI only needs to distill one 600-word report section into 2-5 blocks, which is a tractable task.
+
+#### Mechanism 2: Citation Validator Hook (Prevents Missing Evidence)
+
+**The problem**: The prompt says "cite 20+ sources" but the AI cites 5 client documents and calls it done.
+
+**The fix**: A Python script that runs after EVERY deliverable generation:
+
+```python
+# validate_citations.py (runs as Stop hook, exit code 2 = block and retry)
+
+def validate(deliverable_json, priority_sources, corpus_sources):
+    failures = []
+
+    # CHECK 1: Priority sources MUST appear
+    for ps in priority_sources:
+        if ps not in str(deliverable_json):
+            failures.append(f"MANDATORY: Priority source '{ps}' not cited anywhere")
+
+    # CHECK 2: Citations array must have REAL source names (not generic)
+    GENERIC = {'research', 'studies', 'data', 'sources', 'intelligence_sources',
+               'analysis', 'evidence', 'findings', 'reports', 'literature'}
+    for item in iterate_citation_fields(deliverable_json):
+        if not item.get('citations') or len(item['citations']) == 0:
+            failures.append(f"EMPTY: {item['name']} has no citations")
+        else:
+            for c in item['citations']:
+                if c.lower().strip() in GENERIC:
+                    failures.append(f"GENERIC: '{c}' is not a real source name")
+
+    # CHECK 3: Evidence basis must contain specifics (numbers, names, quotes)
+    for item in iterate_evidence_fields(deliverable_json):
+        eb = item.get('evidenceBasis', '')
+        has_number = bool(re.search(r'\d+%|\$\d|20[12]\d', eb))
+        has_quote = '"' in eb or "'" in eb
+        has_name = any(c.isupper() for word in eb.split() for c in word if len(word) > 3)
+        if not (has_number or has_quote or has_name):
+            failures.append(f"VAGUE: evidenceBasis for '{item['name']}' has no specifics")
+
+    # CHECK 4: Minimum distinct sources (not just client docs)
+    all_cited = extract_all_source_names(deliverable_json)
+    client_docs = {s for s in all_cited if 'project charter' in s.lower()
+                   or 'sow' in s.lower() or 'strategy document' in s.lower()}
+    external = all_cited - client_docs
+    if len(external) < 5:
+        failures.append(f"SHALLOW: Only {len(external)} external sources cited. Need 5+.")
+
+    if failures:
+        sys.stderr.write("CITATION VALIDATION FAILED:\n" + "\n".join(failures))
+        sys.exit(2)  # EXIT CODE 2 = BLOCK AND RETRY
+    sys.exit(0)
+```
+
+**Why this is different**: The current system has NO validation. The prompt says "cite sources" and the AI may or may not comply. With exit code 2, the agent CANNOT finish until the validator passes. The agent receives the specific failure message and regenerates the failing section.
+
+**Enforcement**: This runs on EVERY deliverable, not just the report. Recommendations with empty citations? Blocked. Gap analysis with generic evidence? Blocked. The user never sees output that hasn't passed this gate.
+
+#### Mechanism 3: Action Title Enforcer (Prevents Generic Slide Titles)
+
+**The problem**: "The Landscape", "Key Findings", "Recommendations" are topic labels, not insights.
+
+**The fix**: Deterministic regex check in the hook:
+
+```python
+# validate_slide_titles.py
+
+def is_action_title(title):
+    """Action titles are complete sentences with specific data."""
+    # Must contain at least one number, percentage, dollar amount, or proper noun
+    has_data = bool(re.search(r'\d+%|\$\d|\d+ (students|users|institutions|companies)', title))
+    # Must be a complete sentence (has a verb)
+    has_verb = bool(re.search(r'\b(declined?|increased?|dropped?|grew|costs?|requires?|faces?|creates?|drives?|enables?|prevents?|exceeds?|lacks?)\b', title, re.I))
+    # Must be > 8 words (topic labels are short)
+    is_long_enough = len(title.split()) >= 8
+    return (has_data or has_verb) and is_long_enough
+
+for slide in slides:
+    if slide['layout'] not in ('SECTION_HEADER', 'TITLE_SLIDE'):
+        if not is_action_title(slide['title']):
+            failures.append(f"Slide {slide['slideNumber']}: '{slide['title']}' is a topic label, not an action title")
+```
+
+**Before**: "The Landscape" / "Key Findings" / "The Path Forward"
+**After**: "35% of first-year students at public institutions do not return, costing $9B annually" / "Fragmented CRM systems force advancement teams to spend 40% of time on manual data entry" / "Three priority investments in AI-powered donor matching can recover $2.3M in annual giving within 18 months"
+
+**Enforcement**: Exit code 2 blocks the deck until every body slide has an action title with data.
+
+#### Mechanism 4: Evidence Saturation Protocol (Prevents Client-Doc-Heavy Output)
+
+**The problem**: The AI leans on the 3 uploaded client documents because they're the most coherent content in context. External research (200 articles) is harder to synthesize.
+
+**The fix**: The skill instruction explicitly PROHIBITS leading with client documents:
+
+```markdown
+## Evidence Hierarchy (MANDATORY)
+
+Every section MUST follow this source ordering:
+1. LEAD with external research evidence (name the article, quote the finding)
+2. CORROBORATE with additional external sources (show convergence)
+3. ONLY THEN contextualize with client documents (show how the finding applies)
+
+FORBIDDEN PATTERNS:
+- "The CLR Project Charter states..." as the opening of ANY section
+- "According to the client's strategy document..." without prior external evidence
+- Any section where > 50% of citations are client documents
+
+REQUIRED PATTERN:
+"Higher Ed Dive reported a 15% enrollment decline across 23 public institutions
+in Q1 2025 [Higher Ed Dive]. This trend is corroborated by OpenAlex data showing
+a 12% reduction in undergraduate applications at mid-tier universities [OpenAlex:
+Smith 2024]. For Northeastern, this translates to approximately 2,400 fewer
+applicants than projected in the CLR Project Charter's enrollment targets."
+```
+
+**Enforcement**: The citation validator (Mechanism 2) checks that >= 60% of cited sources are external (not client documents). If client docs dominate, exit code 2 fires.
+
+#### Mechanism 5: Corpus Injection Without Truncation (Prevents Shallow Research)
+
+**The problem**: The 500KB corpus cap means only ~1000 of 1500 collected items reach the AI. The Knowledge Graph shows all 1500 but the deliverables only see 1000.
+
+**The fix (v3.0)**: Claude 4.6's 1M token context. Each skill receives the FULL corpus. But this alone doesn't guarantee depth — the AI might still only read the first 100 items.
+
+**Additional enforcement**: The skill instruction includes a MANDATORY CORPUS COVERAGE check:
+
+```markdown
+## Corpus Coverage Mandate
+
+After generating your output, perform this self-check:
+1. Count how many DISTINCT sources you cited
+2. Count how many items are from the FIRST 100 chunks vs. LATER chunks
+3. If > 80% of citations come from the first 100 chunks, you have NOT read the full corpus
+
+You MUST cite evidence from:
+- Early chunks (CHUNK_001-100): at least 3 citations
+- Middle chunks (CHUNK_100-300): at least 3 citations
+- Late chunks (CHUNK_300+): at least 3 citations
+
+The validation hook will verify citation spread across the corpus range.
+```
+
+**Enforcement**: The hook checks `CHUNK_XXX` references (before resolution) and verifies they span the full corpus range. If all citations cluster in the first 50 chunks, exit code 2.
+
+#### Mechanism 6: Per-Slide Report Section Guarantee (Prevents Empty Deck Slides)
+
+**The problem**: The narrative generation tries to match slides to report sections, but matching fails when `sourceDeliverable` values don't align.
+
+**The fix (v3.0)**: The deck skill receives the report as a pre-indexed structure where every slide's report section is PRE-RESOLVED before the AI sees it:
+
+```
+SLIDE 5 of 20:
+  TITLE MANDATE: Must convey the insight from Report Section 4
+  REPORT SECTION 4 (pre-resolved, 600 words):
+  [Full section text with keyMetrics, keyQuote, citations]
+
+  YOUR TASK: Distill this 600-word section into 2-5 content blocks.
+  You MUST include:
+  - At least 1 metric from the keyMetrics list
+  - The keyQuote (verbatim)
+  - At least 2 source names from the citations list
+
+  Generate content blocks for THIS SLIDE ONLY.
+```
+
+**Why this is different from the current system**: The current system generates ALL 20 slides in one API call. The AI must plan, match, and generate simultaneously. The new system generates ONE SLIDE PER CALL, with the exact report section pre-injected. The AI cannot "miss" the section because it's the only input.
+
+**Enforcement**: The hook verifies that every body slide has `metrics.length >= 1` OR `content.length >= 2`, and that `sources.length >= 1`. If any body slide is empty, exit code 2.
+
+### 15.3 Before/After Output Examples
+
+#### Recommendation (Before — Current v2.0)
+
+```json
+{
+  "title": "Enhance Digital Engagement Platform",
+  "description": "Leverage AI-powered tools to improve student engagement across digital touchpoints.",
+  "impactLevel": "HIGH",
+  "actionItems": ["Implement AI chatbot", "Upgrade CRM system", "Train staff on new tools"],
+  "citations": [],
+  "evidenceBasis": ""
+}
+```
+
+**Problems**: Generic title ("Enhance Digital Engagement Platform"), empty citations, empty evidenceBasis, action items are vague.
+
+#### Recommendation (After — v3.0 with Hooks)
+
+```json
+{
+  "title": "Deploy predictive donor scoring to replace manual prospect identification — advancement officers spend 40% of time on low-potential prospects",
+  "description": "Research across 4 sources identifies manual prospect identification as the primary efficiency bottleneck. Higher Ed Dive reports that institutions using AI donor scoring see 23% higher conversion rates. Reddit testimony from 14 advancement professionals confirms the '40% wasted time' finding. The CLR Project Charter's $2.1M fundraising gap aligns precisely with this inefficiency.",
+  "impactLevel": "HIGH",
+  "actionItems": [
+    "VP of Advancement: Evaluate Salesforce Einstein and Blackbaud ML scoring by Q3 2026",
+    "IT Department: Integrate donor prediction API with existing Raiser's Edge NXT within 90 days",
+    "Data Governance: Establish prospect scoring model validation framework with 6-month recalibration cycle",
+    "Training: Certify 15 advancement officers on AI-assisted prospect identification by end of Q4 2026"
+  ],
+  "citations": ["Higher Ed Dive", "Reddit: r/advancement", "OpenAlex: Chen 2024", "CLR Project Charter"],
+  "evidenceBasis": "Higher Ed Dive's March 2025 report documented a 23% lift in donor conversion at 7 institutions that deployed AI scoring. A Reddit user (advancement director, 12 years) wrote: 'I spend Monday through Wednesday just sorting through spreadsheets to find who might give this year.' OpenAlex paper by Chen et al. (2024) quantified the ROI at $4.20 returned per $1 invested in predictive models."
+}
+```
+
+**Why this passes**: 4 real citations (2 external, 1 social, 1 client). EvidenceBasis has specific numbers (23%, $4.20), a verbatim quote, named sources. Action items have WHO (VP, IT, Data Gov, Training), WHAT, and WHEN (Q3, 90 days, Q4). The hook validates all of this.
+
+#### Deck Slide (Before — Current v2.0)
+
+```
+SLIDE 12: CONTENT_DATA_PANEL
+Title: "Fragmented Experiences Create Friction"
+Content: ["Exploring Future Opportunities", "Building My Profile", "Applying & Engaging",
+          "Performing & Contributing", "Validating Impact", "Evolving Relationship"]
+Metrics: []
+Quote: ""
+Sources: []
+```
+
+**Problems**: Title is a topic label. Content is just journey stage names (no evidence). No metrics. No quote. No sources.
+
+#### Deck Slide (After — v3.0 with Multi-Phase + Hooks)
+
+```
+SLIDE 12: Resolved as CONTENT_DATA_PANEL (metrics present)
+Title: "35% of students abandon the co-op application process at document upload,
+        costing Northeastern an estimated 2,400 lost placements annually"
+Content: [
+  "Student surveys reveal 72% of first-years cite 'lack of clear guidance' as their
+   primary barrier to co-op readiness (Reddit: r/NEU, 47 posts analyzed)",
+  "The document upload step has a 35% abandonment rate — students report the interface
+   requires 15+ fields with no progress indicator (Hechinger Report)",
+  "Peer institutions with guided onboarding see 40% higher completion rates
+   (OpenAlex: Martinez 2024, comparing 12 universities)"
+]
+Metrics: [
+  { label: "Abandonment Rate", value: "35%", accentColor: "#CC6644" },
+  { label: "Lost Placements", value: "2,400", accentColor: "#B8B800" },
+  { label: "Peer Completion Lift", value: "+40%", accentColor: "#00B7C3" }
+]
+Quote: "I spent three hours trying to upload my resume and it kept timing out.
+        I almost gave up on co-op entirely." — CS Junior, Reddit r/NEU
+Sources: ["Reddit: r/NEU", "Hechinger Report", "OpenAlex: Martinez 2024"]
+```
+
+**Why this passes all 6 mechanisms**:
+1. Multi-phase: This slide was generated from a single report section, not all 20 slides at once
+2. Citation validator: 3 external sources cited, all real names (not generic)
+3. Action title: Contains "35%", "2,400", specific institution — passes regex
+4. Evidence saturation: Leads with Reddit + Hechinger (external), not client docs
+5. Corpus coverage: Citations from social (Reddit), news (Hechinger), academic (OpenAlex)
+6. Per-slide guarantee: Metrics non-empty (3 items), content non-empty (3 items), sources non-empty (3 items)
+
+### 15.4 What CAN'T Be Guaranteed (Honest Limitations)
+
+| Limitation | Why | Mitigation |
+|---|---|---|
+| Narrative quality is subjective | No algorithm can verify "engaging prose" vs "dry prose" | Human checkpoint review remains mandatory |
+| AI may fabricate statistics | Even with source names, numbers could be invented | Hook checks that cited numbers appear in the corpus text |
+| Thin corpus = thin output | If the user provides 2 sources and disables all data collection, outputs will be shallow | Hook enforces minimum source count; warns user if corpus is thin |
+| Complex cross-references may be wrong | AI may link the wrong persona to the wrong journey stage | Human checkpoint review; KG visualization shows connections for verification |
+| Edge case formatting | Some article titles may contain special characters that break regex matching | Robust string normalization in all matching logic |
+
+### 15.5 The Quality Control Stack (Defense in Depth)
+
+```
+Layer 1: SKILL.MD INSTRUCTIONS
+  Domain-specific expertise, evidence mandates, anti-patterns
+  → Guides the AI toward good output (probabilistic, ~70% compliance)
+
+Layer 2: ADAPTIVE THINKING
+  Deep reasoning before JSON serialization
+  → AI self-checks adherence to complex schemas (~85% compliance)
+
+Layer 3: MULTI-PHASE GENERATION
+  Separate planning from prose from formatting
+  → Each phase is tractable (~90% compliance)
+
+Layer 4: DETERMINISTIC ENRICHMENT
+  Report data injected directly into slides (no AI)
+  → Guarantees metrics, quotes, citations exist (100% for enriched fields)
+
+Layer 5: HOOK VALIDATORS (exit code 2)
+  Citation completeness, evidence density, action titles, source diversity
+  → BLOCKS output until passing (100% compliance on checked criteria)
+
+Layer 6: HUMAN CHECKPOINT
+  User reviews, edits, provides feedback at every stage
+  → Catches subjective quality issues + edge cases
+
+Combined: Layers 1-3 get the AI to ~90%. Layer 4 fills gaps deterministically.
+Layer 5 blocks anything that still fails. Layer 6 catches what's left.
+The user NEVER sees output that hasn't passed all 6 layers.
+```
+
+---
+
 ## Appendix A: File Migration Map
 
 | Current File | Target | Action |
