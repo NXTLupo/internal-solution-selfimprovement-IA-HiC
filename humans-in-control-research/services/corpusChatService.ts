@@ -362,18 +362,46 @@ export function parseChatCitations(
             articleTitle = '';
         }
 
-        // Try to resolve URL from provenance index
+        // Try to resolve URL from provenance index — TITLE MATCH REQUIRED
+        // The source index has multiple articles per source (e.g., 15 arXiv papers).
+        // We MUST match the article title, not just the source name, to get the correct URL.
         let url: string | undefined;
         if (sourceRefs) {
-            const ref = sourceRefs.find(r => {
-                const nameMatch = r.sourceName.toLowerCase().includes(sourceName.toLowerCase()) ||
-                    sourceName.toLowerCase().includes(r.sourceName.toLowerCase());
-                const titleMatch = articleTitle && r.title &&
-                    (r.title.toLowerCase().includes(articleTitle.toLowerCase().substring(0, 25)) ||
-                     articleTitle.toLowerCase().includes(r.title.toLowerCase().substring(0, 25)));
-                const idMatch = r.id.startsWith(sourceName.split('::')[0]);
-                return titleMatch || (nameMatch && !articleTitle) || idMatch;
+            // Strategy 1: Exact title match (strongest — correct article URL)
+            let ref = sourceRefs.find(r => {
+                if (!articleTitle || !r.title) return false;
+                const citTitle = articleTitle.toLowerCase().trim();
+                const refTitle = r.title.toLowerCase().trim();
+                return refTitle.includes(citTitle.substring(0, 30)) ||
+                       citTitle.includes(refTitle.substring(0, 30));
             });
+
+            // Strategy 2: Source name + partial title match
+            if (!ref) {
+                ref = sourceRefs.find(r => {
+                    const nameMatch = r.sourceName.toLowerCase().includes(sourceName.toLowerCase()) ||
+                        sourceName.toLowerCase().includes(r.sourceName.toLowerCase()) ||
+                        r.id.startsWith(sourceName.split('::')[0]);
+                    if (!nameMatch) return false;
+                    // Require at least partial title match if both exist
+                    if (articleTitle && r.title) {
+                        const words = articleTitle.toLowerCase().split(/\s+/).filter(w => w.length > 4);
+                        const titleLower = r.title.toLowerCase();
+                        const matchingWords = words.filter(w => titleLower.includes(w));
+                        return matchingWords.length >= 2; // At least 2 significant words match
+                    }
+                    return false;
+                });
+            }
+
+            // Strategy 3: Source ID match (for CHUNK_XXX references only, no title available)
+            if (!ref && (chunkRef || !articleTitle)) {
+                ref = sourceRefs.find(r =>
+                    r.id.startsWith(sourceName.split('::')[0])
+                );
+            }
+
+            // NEVER assign a URL without title confidence — wrong links are worse than no links
             if (ref?.url) {
                 url = ref.url;
                 if (!articleTitle && ref.title) articleTitle = ref.title;
