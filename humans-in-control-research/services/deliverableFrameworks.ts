@@ -23,28 +23,111 @@ import type { OutputOption } from '../types';
 import { loadGenerationContext, assembleEnhancedPrompt } from './wikiService';
 
 /**
- * Get the enhanced prompt for a deliverable type, combining the static
- * framework prompt with compiled wiki knowledge. Falls back to static
- * prompt alone if wiki pages are unavailable.
+ * Maps deliverable types to their Agent Skill directory names.
+ * Each skill directory contains a SKILL.md with domain-specific expertise,
+ * methodology, evidence mandates, and anti-patterns.
+ */
+const SKILL_DIRECTORY_MAP: Record<string, string> = {
+    'PERSONAS': 'persona-architect',
+    'STRATEGY_DECK': 'deck-narrative-composer',
+    'JOURNEY_MAP': 'service-blueprint-mapper',
+    'TECH_ARCH': 'tech-arch-generator',
+    'STRATEGIC_RECS': 'strategy-author',
+    'PRD': 'prd-compiler',
+    'ROADMAP': 'roadmap-builder',
+    'GAP_ANALYSIS': 'gap-analysis-evaluator',
+    'TECH_AUDIT': 'tech-audit-inspector',
+    'COMPETITIVE_ANALYSIS': 'competitive-analyst',
+    'STRATEGIC_REPORT': 'strategic-report-writer',
+    'THEMES': 'theme-analyst',
+};
+
+/**
+ * Load a SKILL.md file content for a given deliverable type.
+ * Skills provide domain-specific expertise that augments the generation prompt.
+ * Returns the skill content (stripping YAML frontmatter) or empty string if unavailable.
+ */
+export async function loadSkillPrompt(deliverableType: string): Promise<string> {
+    const skillDir = SKILL_DIRECTORY_MAP[deliverableType];
+    if (!skillDir) return '';
+
+    try {
+        // In browser context, fetch the skill file from the project root
+        // The skills are at /.claude/skills/{name}/SKILL.md relative to project root
+        // Try multiple paths since the serving context varies
+        const paths = [
+            `/.claude/skills/${skillDir}/SKILL.md`,
+            `../.claude/skills/${skillDir}/SKILL.md`,
+            `/skills/${skillDir}/SKILL.md`,
+        ];
+
+        for (const path of paths) {
+            try {
+                const resp = await fetch(path);
+                if (resp.ok) {
+                    let content = await resp.text();
+                    // Strip YAML frontmatter (--- ... ---)
+                    content = content.replace(/^---[\s\S]*?---\s*/, '');
+                    console.log(`[Skills] Loaded ${skillDir} SKILL.md (${content.length} chars)`);
+                    return content;
+                }
+            } catch { /* try next path */ }
+        }
+
+        // Fallback: try reading via the wiki proxy endpoint
+        try {
+            const proxyResp = await fetch(`http://localhost:5012/api/file?path=.claude/skills/${skillDir}/SKILL.md`);
+            if (proxyResp.ok) {
+                let content = await proxyResp.text();
+                content = content.replace(/^---[\s\S]*?---\s*/, '');
+                console.log(`[Skills] Loaded ${skillDir} via proxy (${content.length} chars)`);
+                return content;
+            }
+        } catch { /* proxy unavailable */ }
+
+        console.warn(`[Skills] Could not load ${skillDir}/SKILL.md`);
+        return '';
+    } catch (e) {
+        console.warn(`[Skills] Error loading ${skillDir}:`, e);
+        return '';
+    }
+}
+
+/**
+ * Get the enhanced prompt for a deliverable type, combining:
+ * 1. Agent Skill instructions (from .claude/skills/{name}/SKILL.md)
+ * 2. Static framework prompt (from DELIVERABLE_FRAMEWORKS)
+ * 3. Wiki knowledge (anti-patterns, benchmarks, evidence, constraints)
+ *
+ * Priority: Skill > Wiki > Static (skill overrides if available)
  */
 export async function getEnhancedFrameworkPrompt(
-    outputType: OutputOption,
+    outputType: OutputOption | string,
     options?: { industry?: string; engagement?: string }
 ): Promise<string> {
-    const frameworkKey = OUTPUT_TYPE_TO_FRAMEWORK_KEY[outputType];
+    const frameworkKey = OUTPUT_TYPE_TO_FRAMEWORK_KEY[outputType as string] || outputType;
     const staticPrompt = DELIVERABLE_FRAMEWORKS[frameworkKey] || '';
 
-    // Only the Strategy Deck produces slides. All other outputs are structured data.
-    // Injecting 3.5KB of slide visual rules into non-slide prompts wastes context and confuses the model.
+    // Only the Strategy Deck produces slides.
     const isSlideProducing = outputType === 'STRATEGY_DECK';
     const designPrefix = isSlideProducing ? UNIVERSAL_SLIDE_DESIGN_SYSTEM : '';
 
+    // Load Agent Skill (domain expertise from .claude/skills/)
+    const skillPrompt = await loadSkillPrompt(outputType as string);
+
     try {
-        const context = await loadGenerationContext(outputType, options);
-        return designPrefix + assembleEnhancedPrompt(staticPrompt, context);
+        const context = await loadGenerationContext(outputType as OutputOption, options);
+        const wikiEnhanced = assembleEnhancedPrompt(staticPrompt, context);
+        // Skill prompt takes priority — it contains the latest methodology and anti-patterns
+        const combined = skillPrompt
+            ? `${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${wikiEnhanced}`
+            : `${designPrefix}${wikiEnhanced}`;
+        return combined;
     } catch (err) {
-        console.warn('[DeliverableFrameworks] Wiki unavailable, using static prompt:', err);
-        return designPrefix + staticPrompt;
+        console.warn('[DeliverableFrameworks] Wiki unavailable, using skill + static:', err);
+        return skillPrompt
+            ? `${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${staticPrompt}`
+            : `${designPrefix}${staticPrompt}`;
     }
 }
 

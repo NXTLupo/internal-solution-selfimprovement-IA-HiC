@@ -14,9 +14,21 @@ function wikiStaticPlugin(): Plugin {
         name: 'wiki-static-server',
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
+                // Serve wiki markdown files
                 if (req.url && req.url.startsWith('/hic-workspace/wiki/')) {
                     const relativePath = req.url.replace('/hic-workspace/wiki/', '');
                     const filePath = path.resolve(__dirname, 'hic-workspace', 'wiki', relativePath);
+                    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+                        res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                        res.setHeader('Access-Control-Allow-Origin', '*');
+                        fs.createReadStream(filePath).pipe(res);
+                        return;
+                    }
+                }
+                // Serve Agent Skill files from .claude/skills/
+                if (req.url && req.url.startsWith('/skills/')) {
+                    const relativePath = req.url.replace('/skills/', '');
+                    const filePath = path.resolve(__dirname, '..', '.claude', 'skills', relativePath);
                     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                         res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
                         res.setHeader('Access-Control-Allow-Origin', '*');

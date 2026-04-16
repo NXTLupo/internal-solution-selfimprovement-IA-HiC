@@ -615,7 +615,11 @@ Output JSON.`;
     }
 
     async generateThemes(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Themes> {
-        const prompt = `STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
+        // Load Agent Skill for theme analysis
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('THEMES'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
@@ -804,7 +808,11 @@ Output JSON.`;
                 ? `\nRESEARCH EVIDENCE (from ${themes.length} themes with ${relevantEvidence.length} citations — use these to ground the persona):\n${relevantEvidence.slice(0, 20).join('\n')}\n`
                 : '';
 
-            const enrichPrompt = `You are a CX persona researcher. Research goal: "${this.goal}".
+            // Load persona skill for enrichment
+            let personaSkill = '';
+            try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); personaSkill = await loadSkillPrompt('PERSONAS'); } catch (e) { /* skill unavailable */ }
+
+            const enrichPrompt = `${personaSkill ? `=== AGENT SKILL: PERSONA ARCHITECT ===\n${personaSkill}\n=== END SKILL ===\n\n` : ''}You are a CX persona researcher. Research goal: "${this.goal}".
 
 ENRICH this persona with COMPLETE detail grounded in the RESEARCH EVIDENCE provided below. Every pain point, motivation, and opportunity must cite a specific source. Output a JSON object with ALL fields populated.
 
@@ -936,7 +944,10 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
     }
 
     async generateRecommendations(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Recommendations> {
-        const prompt = `STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('STRATEGIC_RECS'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGY AUTHOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
 
 METHODOLOGY:
 1. First, review ALL themes and ALL persona pain points identified in previous steps
@@ -1141,7 +1152,10 @@ Output JSON.`;
     }
 
     async generateJourneyMap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_JourneyMap> {
-        const prompt = `CRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('JOURNEY_MAP'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}CRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
 
 SWIMLANE CELL CONTENT (B-01): Every intersection of [Persona] x [Stage] MUST have content.
 For each cell, describe: what this persona does at this stage, their emotional state, and their key need.
@@ -1251,7 +1265,10 @@ Output JSON.`;
     }
 
     async generatePRD(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_PRD> {
-        const prompt = `SECTION COMPLETENESS REQUIREMENT (PRD-03): Generate ALL 16 sections per the Cagan/SVPG framework:
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('PRD'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}SECTION COMPLETENESS REQUIREMENT (PRD-03): Generate ALL 16 sections per the Cagan/SVPG framework:
 1. Problem statement (data-backed, THE most important section)
 2. User stories ("As a [persona], I want [goal] so that [benefit]")
 3. Acceptance criteria (Given/When/Then format)
@@ -1340,7 +1357,10 @@ Output JSON.`;
     }
 
     async generateRoadmap(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_Roadmap> {
-        const prompt = `STEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('ROADMAP'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
 
 MANDATORY ROADMAP FIELDS (R-01, R-03):
 Every roadmap initiative MUST include ALL of these fields:
@@ -1408,11 +1428,14 @@ Output JSON.`;
     }
 
     async generateTechArchitecture(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_TechArch> {
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_ARCH'); } catch (e) { /* skill unavailable */ }
+
         // TWO-PHASE: System map (nodes+flows) first, then architecture sections.
         // Single-call with 20 sections + nodes + flows always truncates.
 
         onStream("Phase A: Mapping technology components...");
-        const mapPrompt = `STEP: TECH ARCHITECTURE PHASE A — SYSTEM MAP.
+        const mapPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH ARCH GENERATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: TECH ARCHITECTURE PHASE A — SYSTEM MAP.
 Extract ALL technology components, systems, platforms, and integrations from the research.
 
 OVERVIEW: 3-5 sentences describing the technology landscape.
@@ -2154,7 +2177,10 @@ Output JSON.`;
     // --- NEW OUTPUT GENERATORS (Sprint 4) ---
 
     async generateGapAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('GAP_ANALYSIS'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
 
 CAPABILITY EXTRACTION METHOD — follow these steps to DERIVE gaps from the research:
 
@@ -2221,11 +2247,14 @@ Output JSON.`;
     }
 
     async generateTechAudit(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_AUDIT'); } catch (e) { /* skill unavailable */ }
+
         // TWO-PHASE: Systems inventory first, then analysis.
         // Single-call approach truncates to 1 system due to output token limits.
 
         onStream("Phase A: Scanning for technology systems...");
-        const inventoryPrompt = `TECH AUDIT: SYSTEMS INVENTORY.
+        const inventoryPrompt = `${skillInstructions ? `=== AGENT SKILL: TECH AUDIT INSPECTOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}TECH AUDIT: SYSTEMS INVENTORY.
 Research goal: "${this.goal}".
 
 Scan the entire research corpus for EVERY mention of technology systems, software platforms, tools, databases, APIs, vendors, and digital processes. You MUST find at least 8 systems. If the research mentions any organization, they use technology — identify it.
@@ -2326,7 +2355,10 @@ Output JSON.`;
     }
 
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
-        const prompt = `STEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('COMPETITIVE_ANALYSIS'); } catch (e) { /* skill unavailable */ }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: COMPETITIVE ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
 
 TWO ANALYSIS MODES — use BOTH:
 
@@ -2437,6 +2469,10 @@ Output JSON.`;
      * The deck is derived FROM this report, not from raw truncated metadata.
      */
     async generateStrategicReport(context: DeckInputContext, feedback: string | undefined, onStream: (t: string) => void, rawSources?: any[]): Promise<any> {
+        // Load Agent Skill for strategic report writing
+        let skillInstructions = '';
+        try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('STRATEGIC_REPORT'); } catch (e) { /* skill unavailable */ }
+
         // Load chunk-to-source map so we can resolve CHUNK_XXX → real source names
         let chunkMap: Record<string, { sourceName: string; title: string; url?: string }> = {};
         try {
@@ -2633,9 +2669,9 @@ ${evidenceEntries.join('\n')}
             learnedConstraints = getActiveConstraints();
         } catch (e) { /* no constraints available */ }
 
-        const prompt = `STEP: STRATEGIC REPORT. You are a McKinsey-trained strategy consultant writing a comprehensive research report.
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGIC REPORT WRITER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC REPORT. You are a McKinsey-trained strategy consultant writing a comprehensive research report.
 
-TASK: Synthesize ALL of the deliverable data below into a unified strategic whitepaper. This report will later be distilled into a strategy deck — so be thorough, evidence-rich, and citation-heavy. Write with unrestricted analytical depth.
+TASK: Synthesize ALL of the deliverable data below into a unified strategic whitepaper. The report must introduce and contextualize EVERY deliverable generated in this research — themes, personas, journey map, gap analysis, competitive positioning, technology audit, recommendations, PRD, roadmap, and architecture. Each deliverable gets its own section with deep evidence. This report will later be distilled into a strategy deck — so be thorough, evidence-rich, and citation-heavy. Write with unrestricted analytical depth.
 
 RUMELT'S KERNEL (the report must contain all three):
 1. DIAGNOSIS: ONE specific challenge grounded in evidence from multiple deliverables.
