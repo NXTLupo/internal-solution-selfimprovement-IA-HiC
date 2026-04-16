@@ -1344,11 +1344,62 @@ Output JSON.`;
             },
             required: ["methodology", "prd"]
         };
+        // PHASE 1: Generate PRD framework (title, purpose, metrics, sections)
+        onStream('Phase 1: Generating PRD framework and sections...');
         const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream);
         if (!result.prd) result.prd = { title: "Untitled", purposeAndObjectives: "", features: [], successMetrics: [], sections: [] } as any;
         if (!result.prd.features) result.prd.features = [];
         if (!result.prd.successMetrics) result.prd.successMetrics = [];
         if (!result.prd.sections) result.prd.sections = [];
+
+        // PHASE 2: If features are empty (token exhaustion), generate them in a dedicated call
+        if (result.prd.features.length === 0) {
+            onStream('Phase 2: Generating product features...');
+            const featurePrompt = `STEP: GENERATE PRODUCT FEATURES for the PRD "${result.prd.title}".
+
+Based on the research themes, persona pain points, and strategic recommendations from the previous steps, generate 8-15 concrete product features with MoSCoW prioritization.
+
+CONTEXT:
+PRD Title: ${result.prd.title}
+Purpose: ${result.prd.purposeAndObjectives}
+Success Metrics: ${result.prd.successMetrics.join('; ')}
+
+FOR EACH FEATURE:
+- name: Specific capability (NOT "Analytics Dashboard" — say "Real-Time Donor Engagement Scoring Dashboard")
+- priority: Must-have / Should-have / Could-have / Won't-have
+- description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Cite evidence.
+- acceptanceCriteria: 2-3 testable conditions (Given/When/Then)
+- citations: 2-3 source names that evidence the need
+- evidenceBasis: 1-2 sentences with specific data proving this feature is needed
+
+DISTRIBUTION: At least 3 Must-have, 3 Should-have, 2 Could-have, 1 Won't-have.
+Every feature MUST trace to a persona pain point or strategic recommendation.
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
+
+            const featureSchema: Schema = {
+                type: Type.OBJECT,
+                properties: {
+                    features: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                        name: { type: Type.STRING }, priority: { type: Type.STRING },
+                        description: { type: Type.STRING },
+                        acceptanceCriteria: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        citations: { type: Type.ARRAY, items: { type: Type.STRING } },
+                        evidenceBasis: { type: Type.STRING }
+                    }, required: ["name", "priority", "description", "citations", "evidenceBasis"] } }
+                },
+                required: ["features"]
+            };
+
+            try {
+                const featureResult = await this.executeStep<any>(featurePrompt, featureSchema, [], onStream);
+                result.prd.features = featureResult.features || [];
+                onStream(`Generated ${result.prd.features.length} features.`);
+            } catch (e) {
+                console.warn('[PRD] Feature generation failed:', e);
+            }
+        }
+
         // Ensure each feature has sub-arrays
         result.prd.features.forEach(f => {
             if (!f.userStories) f.userStories = [];
