@@ -157,356 +157,270 @@ export async function exportPPTX(result: AnalysisResult, slides: Slide[]): Promi
                 });
                 addSlideNumber(s, slideNum, totalSlides, '404040');
 
-            } else if (layout === 'CONTENT_INSIGHT_CHART') {
-                // Archetype 4: Hero stat + horizontal bar chart
-                const splitX = SW * 0.50;
+            } else {
+                // ====== ADAPTIVE BODY SLIDE — One flexible renderer for all content types ======
+                // Mirrors the HTML renderer in ResultsView.tsx: content drives layout, not archetype.
+                // If metrics or bentoCells exist, render 55/45 split; otherwise full-width.
 
-                // Right panel background
-                s.addShape(pptx.ShapeType.rect, {
-                    x: splitX, y: 0, w: SW - splitX, h: SH,
-                    fill: { color: BRAND.bgSecondary },
-                    line: { color: BRAND.borderTertiary, width: 0.5 },
-                });
-
-                // Left: hero stat
-                const chartMetrics = slide.metrics || [];
-                const heroMetric = chartMetrics[0];
-                if (heroMetric) {
-                    s.addText(`${heroMetric.value}`, {
-                        x: PX, y: PY + 0.3, w: splitX - PX - 0.3, h: 1.2,
-                        fontSize: 56, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
-                        fontWeight: 200 as any,
-                    });
-                    if (heroMetric.unit) {
-                        s.addText(heroMetric.unit, {
-                            x: PX, y: PY + 1.5, w: splitX - PX - 0.3, h: 0.35,
-                            fontSize: 20, fontFace: BRAND.fallbackFont, color: BRAND.cyan,
-                        });
-                    }
-                }
-                // Left: title + insight text
-                s.addText(cleanText(slide.title), {
-                    x: PX, y: PY + 2.2, w: splitX - PX - 0.3, h: 0.7,
-                    fontSize: 18, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                });
-                const firstBullet = (slide.content || [])[0];
-                if (firstBullet) {
-                    s.addText(cleanText(firstBullet), {
-                        x: PX, y: PY + 3.1, w: splitX - PX - 0.5, h: 1.5,
-                        fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
-                        valign: 'top',
-                    });
-                }
-
-                // Right: horizontal bar chart
-                const barX = splitX + 0.4;
-                const barW = SW - splitX - 0.8;
-                let barY = PY + 0.6;
-                for (let bi = 0; bi < Math.min(chartMetrics.length, 5); bi++) {
-                    const bm = chartMetrics[bi];
-                    const isHero = bi === 0;
-                    const barColor = isHero ? BRAND.cyan : BRAND.textDisabled;
-                    // Label
-                    s.addText((bm.label || '').substring(0, 25), {
-                        x: barX, y: barY, w: barW, h: 0.25,
-                        fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
-                    });
-                    // Bar track
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: barX, y: barY + 0.3, w: barW * 0.78, h: 0.18,
-                        fill: { color: BRAND.borderPrimary },
-                        rectRadius: 0.02,
-                    });
-                    // Bar fill (use progress if available, otherwise estimate from value)
-                    const pct = Math.min(100, bm.progress || (isHero ? 85 : 50 + bi * 10));
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: barX, y: barY + 0.3, w: barW * 0.78 * (pct / 100), h: 0.18,
-                        fill: { color: barColor },
-                        rectRadius: 0.02,
-                    });
-                    // Value
-                    s.addText(`${bm.value}${bm.unit ? ' ' + bm.unit : ''}`, {
-                        x: barX + barW * 0.82, y: barY + 0.15, w: barW * 0.18, h: 0.35,
-                        fontSize: 12, fontFace: BRAND.fallbackFont, color: isHero ? BRAND.cyan : BRAND.textTertiary,
-                        bold: true, align: 'right',
-                    });
-                    barY += 1.1;
-                }
-
-                addFootnotes(s, slide.sources || []);
-                addSlideNumber(s, slideNum, totalSlides);
-
-            } else if (layout === 'CONTENT_DATA_PANEL') {
-                // Archetype 3: 55/45 split with data panel
+                const metrics = slide.metrics || [];
+                const bentoCells = slide.bentoCells || [];
+                const hasRightPanel = metrics.length > 0 || bentoCells.length > 0;
                 const splitX = SW * 0.55;
+                const leftW = hasRightPanel ? (splitX - PX - 0.3) : (SW - PX * 2);
 
-                // Right panel background (#FAFAFA)
-                s.addShape(pptx.ShapeType.rect, {
-                    x: splitX, y: 0, w: SW - splitX, h: SH,
-                    fill: { color: BRAND.bgSecondary },
-                    line: { color: BRAND.borderTertiary, width: 0.5 },
-                });
+                // Right panel background (only when data exists for it)
+                if (hasRightPanel) {
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: splitX, y: 0, w: SW - splitX, h: SH,
+                        fill: { color: BRAND.bgSecondary },
+                        line: { color: BRAND.borderTertiary, width: 0.5 },
+                    });
+                }
 
-                // Left: heading + bullets
+                // --- LEFT SIDE ---
+                let leftY = PY;
+
+                // Section label (from rationale, small uppercase muted text)
+                const sectionLabel = slide.rationale ? cleanText(slide.rationale).substring(0, 50) : '';
+                if (sectionLabel) {
+                    s.addText(sectionLabel, {
+                        x: PX, y: leftY, w: leftW, h: 0.22,
+                        fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textMuted, bold: true,
+                        letterSpacing: 2.5 as any,
+                    });
+                    leftY += 0.35;
+                }
+
+                // Title (22pt bold)
                 s.addText(cleanText(slide.title), {
-                    x: PX, y: PY, w: splitX - PX - 0.3, h: 0.8,
+                    x: PX, y: leftY, w: leftW, h: 0.8,
                     fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
                     valign: 'top',
                 });
+                leftY += 0.95;
 
-                const bullets = (slide.content || []).slice(0, 3).map(c => cleanText(c)).filter(c => c.length > 0);
+                // Content bullets (12pt with accent dots, unconstrained count)
+                const bullets = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
                 if (bullets.length > 0) {
-                    s.addText(bullets.map(b => ({
+                    const bulletItems = bullets.map((b, bi) => ({
                         text: b,
-                        options: { fontSize: 13, color: BRAND.textSecondary, bullet: { code: '2022', color: BRAND.cyan }, paraSpaceAfter: 10 },
-                    })) as any, {
-                        x: PX, y: PY + 1.0, w: splitX - PX - 0.4, h: SH - PY - 1.5,
+                        options: {
+                            fontSize: 12,
+                            color: BRAND.textSecondary,
+                            bullet: { code: '2022', color: PPTX_ACCENT_ROTATION[bi % 3] },
+                            paraSpaceAfter: 8,
+                        },
+                    }));
+                    const bulletH = Math.min(bullets.length * 0.55, 3.0);
+                    s.addText(bulletItems as any, {
+                        x: PX, y: leftY, w: leftW, h: bulletH,
                         fontFace: BRAND.fallbackFont, valign: 'top',
                     });
+                    leftY += bulletH + 0.15;
                 }
 
-                // Right: metric cards or quote
-                const metrics = slide.metrics || [];
-                const cardX = splitX + 0.3;
-                const cardW = SW - splitX - 0.6;
-                if (metrics.length > 0) {
-                    let cardY = PY + 0.5;
-                    for (let mi = 0; mi < Math.min(metrics.length, 4); mi++) {
-                        const m = metrics[mi];
-                        const accent = m.accentColor || PPTX_ACCENT_ROTATION[mi % 3];
-                        // Metric card background
+                // Problem stat (red accent card, if present)
+                if (slide.problemStat) {
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: PX, y: leftY, w: leftW, h: 0.85,
+                        fill: { color: 'FFF5F5' },
+                        rectRadius: 0.04,
+                    });
+                    // Left accent strip
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: PX, y: leftY, w: 0.04, h: 0.85,
+                        fill: { color: BRAND.negative },
+                    });
+                    s.addText(`${slide.problemStat.value}${slide.problemStat.unit ? ' ' + slide.problemStat.unit : ''}`, {
+                        x: PX + 0.2, y: leftY + 0.08, w: leftW - 0.4, h: 0.35,
+                        fontSize: 24, fontFace: BRAND.fallbackFont, color: BRAND.negative,
+                        fontWeight: 200 as any,
+                    });
+                    s.addText(cleanText(slide.problemStat.description), {
+                        x: PX + 0.2, y: leftY + 0.45, w: leftW - 0.4, h: 0.3,
+                        fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                    });
+                    leftY += 1.0;
+                }
+
+                // Solution points (accent bars, if present)
+                const solPts = slide.solutionPoints || [];
+                if (solPts.length > 0) {
+                    for (let si = 0; si < Math.min(solPts.length, 3); si++) {
+                        const spAccent = PPTX_ACCENT_ROTATION[si % 3];
+                        // Accent bar
                         s.addShape(pptx.ShapeType.rect, {
-                            x: cardX, y: cardY, w: cardW, h: 1.1,
-                            fill: { color: BRAND.white },
-                            line: { color: BRAND.borderSecondary, width: 0.5 },
-                            rectRadius: 0.08,
+                            x: PX, y: leftY, w: 0.4, h: 0.03,
+                            fill: { color: spAccent },
                         });
-                        // Left accent strip
-                        s.addShape(pptx.ShapeType.rect, {
-                            x: cardX, y: cardY, w: 0.04, h: 1.1,
-                            fill: { color: accent },
+                        s.addText(cleanText(solPts[si].title), {
+                            x: PX, y: leftY + 0.12, w: leftW, h: 0.25,
+                            fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
                         });
-                        // Label
-                        s.addText((m.label || '').toUpperCase(), {
-                            x: cardX + 0.2, y: cardY + 0.1, w: cardW - 0.4, h: 0.2,
-                            fontSize: 9, fontFace: BRAND.fallbackFont, color: accent, bold: true,
-                            letterSpacing: 1.5 as any,
-                        });
-                        // Value
-                        s.addText(`${m.value}${m.unit ? ' ' + m.unit : ''}`, {
-                            x: cardX + 0.2, y: cardY + 0.35, w: cardW - 0.4, h: 0.55,
-                            fontSize: 28, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
-                            fontWeight: 200 as any,
-                        });
-                        cardY += 1.3;
-                    }
-                } else if (slide.quote) {
-                    // Quote card fallback
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: cardX, y: PY + 0.5, w: cardW, h: 2.5,
-                        fill: { color: BRAND.white },
-                        line: { color: BRAND.borderSecondary, width: 0.5 },
-                        rectRadius: 0.08,
-                    });
-                    s.addText(`"${cleanText(slide.quote)}"`, {
-                        x: cardX + 0.3, y: PY + 0.7, w: cardW - 0.6, h: 2.0,
-                        fontSize: 13, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary, italic: true,
-                        valign: 'top',
-                    });
-                }
-
-                addFootnotes(s, slide.sources || []);
-                addSlideNumber(s, slideNum, totalSlides);
-
-            } else if (layout === 'BENTO_GRID') {
-                // Archetype 6: Bento insight grid
-                s.addText(cleanText(slide.title), {
-                    x: PX, y: PY, w: SW - PX * 2, h: 0.7,
-                    fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                });
-
-                // Render bento cells as positioned rectangles
-                const cells = slide.bentoCells || [];
-                const cellW = (SW - PX * 2 - 0.3) / 3;
-                let cx = PX, cy = PY + 1.0;
-                let col = 0;
-                for (let ci = 0; ci < Math.min(cells.length, 6); ci++) {
-                    const cell = cells[ci];
-                    const span = cell.span || 1;
-                    const w = cellW * span + (span > 1 ? 0.15 : 0);
-
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: cx, y: cy, w, h: 2.2,
-                        fill: { color: BRAND.bgSecondary },
-                        line: { color: BRAND.borderTertiary, width: 0.5 },
-                        rectRadius: 0.08,
-                    });
-
-                    if (cell.type === 'stat') {
-                        s.addText(cell.value || '', {
-                            x: cx + 0.25, y: cy + 0.3, w: w - 0.5, h: 0.7,
-                            fontSize: 32, fontFace: BRAND.fallbackFont, color: cell.accentColor || BRAND.cyan,
-                            fontWeight: 200 as any,
-                        });
-                        s.addText(cell.text || cell.label || '', {
-                            x: cx + 0.25, y: cy + 1.1, w: w - 0.5, h: 0.6,
-                            fontSize: 11, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
-                        });
-                    } else if (cell.type === 'quote') {
-                        s.addText(`"${cell.text || ''}"`, {
-                            x: cx + 0.25, y: cy + 0.3, w: w - 0.5, h: 1.4,
-                            fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary, italic: true,
-                            valign: 'top',
-                        });
-                        if (cell.attribution) {
-                            s.addText(`-- ${cell.attribution}`, {
-                                x: cx + 0.25, y: cy + 1.7, w: w - 0.5, h: 0.3,
-                                fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textMuted,
-                            });
-                        }
-                    }
-
-                    col += span;
-                    cx += w + 0.15;
-                    if (col >= 3) { col = 0; cx = PX; cy += 2.4; }
-                }
-
-                addFootnotes(s, slide.sources || []);
-                addSlideNumber(s, slideNum, totalSlides);
-
-            } else if (layout === 'FULL_WIDTH_VIZ') {
-                // Archetype 5: Full-width card grid or numbered items
-                s.addText(cleanText(slide.title), {
-                    x: PX, y: PY, w: SW - PX * 2, h: 0.7,
-                    fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                });
-
-                const items = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
-                const cols = items.length <= 4 ? Math.min(items.length, 2) : items.length <= 9 ? 3 : 4;
-                const gap = 0.15;
-                const cardW = (SW - PX * 2 - gap * (cols - 1)) / cols;
-                let cardX = PX, cardY = PY + 1.0;
-
-                for (let ci = 0; ci < Math.min(items.length, 8); ci++) {
-                    const itemText = items[ci];
-                    // Split at first sentence boundary for title vs body
-                    const sentEnd = itemText.search(/[.!?]\s+/);
-                    const cardTitle = sentEnd > 0 ? itemText.substring(0, sentEnd + 1) : itemText;
-                    const cardBody = sentEnd > 0 ? itemText.substring(sentEnd + 1).trim() : '';
-
-                    // Accent border top
-                    s.addShape(pptx.ShapeType.rect, {
-                        x: cardX, y: cardY, w: cardW, h: 0.04,
-                        fill: { color: PPTX_ACCENT_ROTATION[ci % 3] },
-                    });
-                    // Card number
-                    s.addText(String(ci + 1).padStart(2, '0'), {
-                        x: cardX, y: cardY + 0.15, w: cardW, h: 0.25,
-                        fontSize: 9, fontFace: BRAND.fallbackFont, color: PPTX_ACCENT_ROTATION[ci % 3],
-                        bold: true, letterSpacing: 1.5 as any,
-                    });
-                    // Card title
-                    s.addText(cardTitle, {
-                        x: cardX, y: cardY + 0.45, w: cardW, h: 0.5,
-                        fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                        valign: 'top',
-                    });
-                    // Card body
-                    if (cardBody) {
-                        s.addText(cardBody, {
-                            x: cardX, y: cardY + 1.0, w: cardW, h: 1.4,
+                        s.addText(cleanText(solPts[si].description), {
+                            x: PX, y: leftY + 0.4, w: leftW, h: 0.4,
                             fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
                             valign: 'top',
                         });
-                    }
-
-                    cardX += cardW + gap;
-                    if ((ci + 1) % cols === 0) {
-                        cardX = PX;
-                        cardY += 2.7;
+                        leftY += 0.95;
                     }
                 }
 
-                addFootnotes(s, slide.sources || []);
-                addSlideNumber(s, slideNum, totalSlides);
-
-            } else if (layout === 'PROBLEM_SOLUTION') {
-                // Archetype 7: Problem/solution split
-                const splitX = SW * 0.55;
-
-                // Divider line
-                s.addShape(pptx.ShapeType.line, {
-                    x: splitX, y: PY, w: 0, h: SH - PY * 2,
-                    line: { color: BRAND.borderPrimary, width: 0.75 },
-                });
-
-                // Left: problem
-                s.addText('THE CHALLENGE', {
-                    x: PX, y: PY, w: 3, h: 0.25,
-                    fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.negative, bold: true,
-                    letterSpacing: 2.5 as any,
-                });
-                if (slide.problemStat) {
-                    s.addText(`${slide.problemStat.value}${slide.problemStat.unit ? ' ' + slide.problemStat.unit : ''}`, {
-                        x: PX, y: PY + 0.6, w: splitX - PX - 0.5, h: 1.0,
-                        fontSize: 40, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
-                        fontWeight: 200 as any,
-                    });
-                    s.addText(slide.problemStat.description, {
-                        x: PX, y: PY + 1.8, w: splitX - PX - 0.5, h: 1.5,
-                        fontSize: 13, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
-                    });
-                } else {
-                    s.addText(cleanText(slide.title), {
-                        x: PX, y: PY + 0.5, w: splitX - PX - 0.5, h: 1.0,
-                        fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                    });
-                }
-
-                // Right: solution
-                s.addText('THE SOLUTION', {
-                    x: splitX + 0.4, y: PY, w: 3, h: 0.25,
-                    fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.cyan, bold: true,
-                    letterSpacing: 2.5 as any,
-                });
-                const solPts = slide.solutionPoints || [];
-                let spY = PY + 0.6;
-                for (let si = 0; si < Math.min(solPts.length, 3); si++) {
-                    // Accent bar
+                // Quote on left side (only when no metrics — otherwise quote goes to right panel)
+                if (slide.quote && !metrics.length) {
+                    // Left accent border via thin rect
                     s.addShape(pptx.ShapeType.rect, {
-                        x: splitX + 0.4, y: spY, w: 0.4, h: 0.03,
-                        fill: { color: PPTX_ACCENT_ROTATION[si % 3] },
+                        x: PX, y: leftY + 0.05, w: 0.04, h: 0.7,
+                        fill: { color: BRAND.cyan },
                     });
-                    s.addText(solPts[si].title, {
-                        x: splitX + 0.4, y: spY + 0.15, w: SW - splitX - 1, h: 0.3,
-                        fontSize: 13, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                    s.addText(`"${cleanText(slide.quote)}"`, {
+                        x: PX + 0.2, y: leftY, w: leftW - 0.3, h: 0.8,
+                        fontSize: 12, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary, italic: true,
+                        valign: 'top',
                     });
-                    s.addText(solPts[si].description, {
-                        x: splitX + 0.4, y: spY + 0.5, w: SW - splitX - 1, h: 0.6,
-                        fontSize: 11, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
-                    });
-                    spY += 1.3;
+                    leftY += 0.9;
                 }
 
-                addFootnotes(s, slide.sources || []);
-                addSlideNumber(s, slideNum, totalSlides);
-
-            } else {
-                // Default: CONTENT_DATA_PANEL fallback (same as archetype 3)
-                s.addText(cleanText(slide.title), {
-                    x: PX, y: PY, w: SW - PX * 2, h: 0.7,
-                    fontSize: 22, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
-                });
-                const bullets = (slide.content || []).map(c => cleanText(c)).filter(c => c.length > 0);
-                if (bullets.length > 0) {
-                    s.addText(bullets.map(b => ({
-                        text: b,
-                        options: { fontSize: 13, color: BRAND.textSecondary, bullet: { code: '2022', color: BRAND.cyan }, paraSpaceAfter: 10 },
-                    })) as any, {
-                        x: PX, y: PY + 0.9, w: SW - PX * 2, h: SH - PY - 1.5,
-                        fontFace: BRAND.fallbackFont, valign: 'top',
+                // Persona card (if personaName exists — small card with name/role)
+                if (slide.personaName) {
+                    s.addShape(pptx.ShapeType.rect, {
+                        x: PX, y: leftY, w: Math.min(leftW, 4), h: 0.6,
+                        fill: { color: BRAND.bgSecondary },
+                        rectRadius: 0.04,
                     });
+                    let personaText = slide.personaName;
+                    if (slide.personaRole) personaText += `  |  ${slide.personaRole}`;
+                    s.addText(personaText, {
+                        x: PX + 0.2, y: leftY + 0.08, w: Math.min(leftW, 4) - 0.4, h: 0.2,
+                        fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary, bold: true,
+                    });
+                    if (slide.personaQuote) {
+                        s.addText(`"${cleanText(slide.personaQuote)}"`, {
+                            x: PX + 0.2, y: leftY + 0.3, w: Math.min(leftW, 4) - 0.4, h: 0.2,
+                            fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary, italic: true,
+                        });
+                    }
                 }
+
+                // --- RIGHT SIDE (only if hasRightPanel) ---
+                if (hasRightPanel) {
+                    const cardX = splitX + 0.3;
+                    const cardW = SW - splitX - 0.6;
+
+                    if (metrics.length > 0) {
+                        // Metric cards (accent-bordered, large numbers)
+                        let cardY = PY + 0.5;
+                        for (let mi = 0; mi < Math.min(metrics.length, 4); mi++) {
+                            const m = metrics[mi];
+                            const accent = m.accentColor || PPTX_ACCENT_ROTATION[mi % 3];
+                            // Card background
+                            s.addShape(pptx.ShapeType.rect, {
+                                x: cardX, y: cardY, w: cardW, h: 1.1,
+                                fill: { color: BRAND.white },
+                                line: { color: BRAND.borderSecondary, width: 0.5 },
+                                rectRadius: 0.08,
+                            });
+                            // Left accent strip
+                            s.addShape(pptx.ShapeType.rect, {
+                                x: cardX, y: cardY, w: 0.04, h: 1.1,
+                                fill: { color: accent },
+                            });
+                            // Label
+                            s.addText((m.label || '').toUpperCase(), {
+                                x: cardX + 0.2, y: cardY + 0.1, w: cardW - 0.4, h: 0.2,
+                                fontSize: 9, fontFace: BRAND.fallbackFont, color: accent, bold: true,
+                                letterSpacing: 1.5 as any,
+                            });
+                            // Value
+                            s.addText(`${m.value}${m.unit ? ' ' + m.unit : ''}`, {
+                                x: cardX + 0.2, y: cardY + 0.35, w: cardW - 0.4, h: 0.55,
+                                fontSize: 28, fontFace: BRAND.fallbackFont, color: BRAND.textPrimary,
+                                fontWeight: 200 as any,
+                            });
+                            cardY += 1.3;
+                        }
+
+                        // Quote goes to right panel when metrics exist
+                        if (slide.quote) {
+                            s.addShape(pptx.ShapeType.rect, {
+                                x: cardX, y: cardY + 0.1, w: 0.04, h: 0.7,
+                                fill: { color: BRAND.cyan },
+                            });
+                            s.addText(`"${cleanText(slide.quote)}"`, {
+                                x: cardX + 0.2, y: cardY + 0.05, w: cardW - 0.4, h: 0.8,
+                                fontSize: 11, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary, italic: true,
+                                valign: 'top',
+                            });
+                        }
+
+                    } else if (bentoCells.length > 0) {
+                        // Bento cells in 2-column grid on right panel
+                        const bentoColW = (cardW - 0.12) / 2;
+                        let bx = cardX, by = PY + 0.5;
+                        let bCol = 0;
+                        for (let ci = 0; ci < Math.min(bentoCells.length, 6); ci++) {
+                            const cell = bentoCells[ci];
+                            const span = cell.span === 2 ? 2 : 1;
+                            const cellW = span === 2 ? cardW : bentoColW;
+
+                            // Cell background
+                            s.addShape(pptx.ShapeType.rect, {
+                                x: bx, y: by, w: cellW, h: 1.3,
+                                fill: { color: BRAND.white },
+                                line: { color: BRAND.borderSecondary, width: 0.5 },
+                                rectRadius: 0.06,
+                            });
+
+                            if (cell.type === 'stat') {
+                                s.addText(cell.value || '', {
+                                    x: bx + 0.15, y: by + 0.15, w: cellW - 0.3, h: 0.5,
+                                    fontSize: 22, fontFace: BRAND.fallbackFont,
+                                    color: cell.accentColor || BRAND.cyan,
+                                    fontWeight: 200 as any,
+                                });
+                                s.addText(cell.label || cell.text || '', {
+                                    x: bx + 0.15, y: by + 0.7, w: cellW - 0.3, h: 0.4,
+                                    fontSize: 9, fontFace: BRAND.fallbackFont, color: BRAND.textTertiary,
+                                });
+                            } else if (cell.type === 'quote') {
+                                s.addText(`"${cell.text || ''}"`, {
+                                    x: bx + 0.15, y: by + 0.15, w: cellW - 0.3, h: 0.85,
+                                    fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary,
+                                    italic: true, valign: 'top',
+                                });
+                                if (cell.attribution) {
+                                    s.addText(`-- ${cell.attribution}`, {
+                                        x: bx + 0.15, y: by + 1.0, w: cellW - 0.3, h: 0.2,
+                                        fontSize: 8, fontFace: BRAND.fallbackFont, color: BRAND.textMuted,
+                                    });
+                                }
+                            } else {
+                                // indicator / list cell types
+                                if (cell.label) {
+                                    s.addText(cell.label.toUpperCase(), {
+                                        x: bx + 0.15, y: by + 0.12, w: cellW - 0.3, h: 0.18,
+                                        fontSize: 8, fontFace: BRAND.fallbackFont, color: BRAND.cyan,
+                                        bold: true, letterSpacing: 1 as any,
+                                    });
+                                }
+                                const cellContent = cell.text || (cell.items || []).join(', ');
+                                if (cellContent) {
+                                    s.addText(cellContent, {
+                                        x: bx + 0.15, y: by + 0.35, w: cellW - 0.3, h: 0.75,
+                                        fontSize: 10, fontFace: BRAND.fallbackFont, color: BRAND.textSecondary,
+                                        valign: 'top',
+                                    });
+                                }
+                            }
+
+                            bCol += span;
+                            bx += cellW + 0.12;
+                            if (bCol >= 2) { bCol = 0; bx = cardX; by += 1.45; }
+                        }
+                    }
+                }
+
+                // --- BOTTOM ---
                 addFootnotes(s, slide.sources || []);
                 addSlideNumber(s, slideNum, totalSlides);
             }

@@ -463,10 +463,17 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
 
       if (activeTab === 'personas') {
           data = personasData.map(p => ({
-              Name: p.name, Role: p.role, Quote: p.quote, Bio: p.bio, 
+              Name: p.name, Role: p.role, Quote: p.quote, Bio: p.bio,
               PainPoints: (p.painPoints || []).map(pp => pp.label).join('; ')
           }));
           filename = 'personas.csv';
+      } else if (activeTab === 'themes' && result.themes) {
+          data = result.themes.map(t => ({
+              Theme: t.name, Status: t.status || '', Description: t.description, Quote: t.quote,
+              CrossDocument: t.isCrossDocument ? 'Yes' : 'No',
+              Sources: (t.citations || []).map(c => c.sourceName || c.sourceFile).join('; ')
+          }));
+          filename = 'themes.csv';
       } else if (activeTab === 'prd' && prdData) {
           data = (prdData.features || []).map(f => ({
               Feature: f.name, Priority: f.priority, Description: f.description, UserStories: (f.userStories || []).join('; ')
@@ -1254,6 +1261,9 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                       {isOutputSelected('PERSONAS') && (result.personas && result.personas.length > 0) && (
                           <button onClick={() => setActiveTab('personas')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'personas' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Personas</button>
                       )}
+                      {(result.themes && result.themes.length > 0) && (
+                          <button onClick={() => setActiveTab('themes')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'themes' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Themes</button>
+                      )}
                       {isOutputSelected('STRATEGY_DECK') && (
                           <button onClick={() => setActiveTab('deck')} className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'deck' ? 'bg-[var(--card-bg)] shadow' : 'text-[var(--text-tertiary)]'}`}>Strategy Deck</button>
                       )}
@@ -1468,6 +1478,68 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       )}
                                   </div>
                               ))}
+                          </div>
+                      </div>
+                  )}
+                  {/* ====== THEMES TAB (KI-008) ====== */}
+                  {activeTab === 'themes' && result.themes && result.themes.length > 0 && (
+                      <div className="space-y-8">
+                          <div>
+                              <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>THEMATIC ANALYSIS</div>
+                              <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 12 }}>Research Themes<span style={{ color: '#B8B800' }}>.</span></h2>
+                              <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#888', marginBottom: 4 }}>{result.themes.length} themes extracted from source corpus</p>
+                          </div>
+                          <div className="grid grid-cols-1 gap-6">
+                              {result.themes.map((theme: Theme, ti: number) => {
+                                  const statusColor = theme.status === 'priority' ? '#B8B800' : theme.status === 'approved' ? '#00B7C3' : theme.status === 'skipped' ? '#999' : '#888';
+                                  const statusBg = theme.status === 'priority' ? '#B8B80015' : theme.status === 'approved' ? '#00B7C315' : theme.status === 'skipped' ? '#99999915' : '#88888815';
+                                  const statusLabel = theme.status ? theme.status.toUpperCase() : 'UNSCORED';
+                                  return (
+                                      <div key={ti} style={{ background: '#FAFAFA', border: '1px solid #E8E8E8', borderRadius: 8, borderTop: `3px solid ${statusColor}`, overflow: 'hidden' }}>
+                                          {/* Header: name + badges */}
+                                          <div style={{ padding: '20px 24px 16px 24px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
+                                              <div style={{ flex: 1 }}>
+                                                  <div style={{ fontFamily: FONT.primary, fontSize: 18, fontWeight: 700, color: '#1A1A1A', lineHeight: 1.3, marginBottom: 4 }}>{theme.name}</div>
+                                              </div>
+                                              <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+                                                  <span style={{ fontSize: 9, fontWeight: 700, padding: '3px 10px', borderRadius: 3, background: statusBg, color: statusColor, textTransform: 'uppercase', letterSpacing: '1px' }}>{statusLabel}</span>
+                                                  {theme.isCrossDocument && (
+                                                      <span style={{ fontSize: 9, fontWeight: 600, padding: '3px 10px', borderRadius: 3, background: '#E0E7FF', color: '#3730A3', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cross-Document</span>
+                                                  )}
+                                              </div>
+                                          </div>
+                                          {/* Description */}
+                                          <div style={{ padding: '0 24px 16px 24px' }}>
+                                              <p style={{ fontFamily: FONT.primary, fontSize: 14, color: '#444', lineHeight: 1.65 }}>{cleanText(theme.description)}</p>
+                                          </div>
+                                          {/* Primary Quote */}
+                                          {theme.quote && (
+                                              <div style={{ margin: '0 24px 16px 24px', padding: '12px 16px', borderLeft: '3px solid #B8B800', background: '#FFFFFF', borderRadius: '0 4px 4px 0' }}>
+                                                  <p style={{ fontFamily: FONT.primary, fontSize: 13, fontStyle: 'italic', color: '#666', lineHeight: 1.6 }}>"{cleanText(theme.quote)}"</p>
+                                              </div>
+                                          )}
+                                          {/* Citations */}
+                                          {theme.citations && theme.citations.length > 0 && (
+                                              <div style={{ padding: '0 24px 20px 24px' }}>
+                                                  <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>SUPPORTING EVIDENCE ({theme.citations.length})</div>
+                                                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                                      {theme.citations.map((c: Citation, ci: number) => (
+                                                          <div key={ci} style={{ padding: '10px 14px', background: '#FFFFFF', border: '1px solid #F0F0F0', borderRadius: 6, borderLeft: '2px solid #00B7C3' }}>
+                                                              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                                                                  <span style={{ fontFamily: FONT.primary, fontSize: 12, fontWeight: 600, color: '#115054' }}>{c.sourceName || c.sourceFile}</span>
+                                                                  {c.author && <span style={{ fontFamily: FONT.primary, fontSize: 11, color: '#888' }}>by {c.author}</span>}
+                                                                  {c.publicationDate && <span style={{ fontFamily: FONT.primary, fontSize: 11, color: '#AAA' }}>{c.publicationDate}</span>}
+                                                              </div>
+                                                              {c.text && <p style={{ fontFamily: FONT.primary, fontSize: 12, fontStyle: 'italic', color: '#666', lineHeight: 1.5 }}>"{cleanText(c.text)}"</p>}
+                                                              {c.url && <a href={c.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: FONT.primary, fontSize: 10, color: '#00B7C3', textDecoration: 'underline', marginTop: 4, display: 'inline-block' }}>{c.url}</a>}
+                                                          </div>
+                                                      ))}
+                                                  </div>
+                                              </div>
+                                          )}
+                                      </div>
+                                  );
+                              })}
                           </div>
                       </div>
                   )}
@@ -1993,6 +2065,38 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                   </div>
                               </div>
                           )}
+
+                          {/* Architecture Sections (KI-012) */}
+                          {techData.sections && techData.sections.length > 0 && (
+                              <div>
+                                  <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 8 }}>ARCHITECTURE SECTIONS</div>
+                                  <h2 style={{ fontFamily: FONT.primary, fontSize: 22, fontWeight: 700, color: '#1A1A1A', marginBottom: 16 }}>Detailed Architecture Analysis<span style={{ color: '#B8B800' }}>.</span></h2>
+                                  <div className="grid grid-cols-1 gap-5">
+                                      {techData.sections.map((section: any, si: number) => (
+                                          <div key={si} style={{ background: '#FAFAFA', border: '1px solid #E8E8E8', borderRadius: 8, borderLeft: `3px solid ${['#00B7C3', '#B8B800', '#115054', '#CC6644', '#3730A3'][si % 5]}`, overflow: 'hidden' }}>
+                                              <div style={{ padding: '18px 22px' }}>
+                                                  {/* Section number + title */}
+                                                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+                                                      <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: '50%', background: '#0D0D0D', color: '#B8B800', fontFamily: FONT.primary, fontSize: 12, fontWeight: 700 }}>{section.sectionNumber}</span>
+                                                      <span style={{ fontFamily: FONT.primary, fontSize: 16, fontWeight: 700, color: '#1A1A1A' }}>{section.title}</span>
+                                                  </div>
+                                                  {/* Content */}
+                                                  <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#444', lineHeight: 1.65, whiteSpace: 'pre-wrap' }}>{cleanText(section.content)}</p>
+                                                  {/* Evidence gap badge */}
+                                                  {section.evidenceGap && (
+                                                      <div style={{ marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px', background: '#FFF7ED', border: '1px solid #FDBA74', borderRadius: 4 }}>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 9, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#C2410C' }}>EVIDENCE GAP</span>
+                                                          <span style={{ fontFamily: FONT.primary, fontSize: 11, color: '#9A3412' }}>{cleanText(section.evidenceGap)}</span>
+                                                      </div>
+                                                  )}
+                                                  {/* Citations via EvidenceBlock */}
+                                                  <EvidenceBlock citations={(section as any).citations} evidenceBasis={(section as any).evidenceBasis} />
+                                              </div>
+                                          </div>
+                                      ))}
+                                  </div>
+                              </div>
+                          )}
                       </div>
                       );
                   })()}
@@ -2294,6 +2398,78 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                       </div>
                                   </div>
                               )}
+                              {/* Benchmark Dimensions (KI-009) */}
+                              {comp.benchmarkDimensions && comp.benchmarkDimensions.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 12 }}>BENCHMARK DIMENSIONS</div>
+                                      <div style={{ border: '1px solid #E8E8E8', borderRadius: 8, overflow: 'hidden' }}>
+                                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px 2fr', background: '#FAFAFA', padding: '8px 16px', gap: 8, borderBottom: '1px solid #EEEEEE' }}>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>DIMENSION</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA', textAlign: 'center' }}>WEIGHT</span>
+                                              <span style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' as const, color: '#AAAAAA' }}>DESCRIPTION</span>
+                                          </div>
+                                          {comp.benchmarkDimensions.map((bd: any, i: number) => (
+                                              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 2fr', padding: '10px 16px', gap: 8, borderBottom: '1px solid #F5F5F5', background: i % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#1A1A1A' }}>{bd.dimension}</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 13, fontWeight: 700, color: '#115054', textAlign: 'center' }}>{Math.round((bd.weight || 0) * 100)}%</span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 12, color: '#666', lineHeight: 1.5 }}>{cleanText(bd.description)}</span>
+                                              </div>
+                                          ))}
+                                      </div>
+                                  </div>
+                              )}
+
+                              {/* Maturity Matrix (KI-009) */}
+                              {comp.maturityMatrix && comp.maturityMatrix.length > 0 && comp.benchmarkDimensions && comp.benchmarkDimensions.length > 0 && (
+                                  <div>
+                                      <div style={{ fontFamily: FONT.primary, fontSize: 10, fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#AAAAAA', marginBottom: 12 }}>MATURITY MATRIX</div>
+                                      <div style={{ border: '1px solid #E8E8E8', borderRadius: 8, overflow: 'hidden', overflowX: 'auto' }}>
+                                          <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONT.primary }}>
+                                              <thead>
+                                                  <tr style={{ background: '#FAFAFA', borderBottom: '1px solid #EEEEEE' }}>
+                                                      <th style={{ padding: '10px 16px', textAlign: 'left', fontSize: 10, fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#AAAAAA', borderRight: '1px solid #F0F0F0' }}>PEER</th>
+                                                      {comp.benchmarkDimensions.map((bd: any, di: number) => (
+                                                          <th key={di} style={{ padding: '10px 12px', textAlign: 'center', fontSize: 9, fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', color: '#AAAAAA', borderRight: di < comp.benchmarkDimensions.length - 1 ? '1px solid #F0F0F0' : 'none', minWidth: 80 }}>{bd.dimension}</th>
+                                                      ))}
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  {comp.maturityMatrix.map((row: any, ri: number) => (
+                                                      <tr key={ri} style={{ borderBottom: '1px solid #F5F5F5', background: ri % 2 === 0 ? '#FFFFFF' : '#FAFAFA' }}>
+                                                          <td style={{ padding: '10px 16px', fontFamily: FONT.primary, fontSize: 13, fontWeight: 600, color: '#1A1A1A', borderRight: '1px solid #F0F0F0' }}>{row.peer}</td>
+                                                          {comp.benchmarkDimensions.map((bd: any, di: number) => {
+                                                              const score = row.scores?.[bd.dimension] ?? 0;
+                                                              const cellColor = score >= 4 ? '#00B7C3' : score === 3 ? '#B8B800' : '#CC6644';
+                                                              const cellBg = score >= 4 ? '#E8F6F7' : score === 3 ? '#FFFDE8' : '#FFF0EB';
+                                                              return (
+                                                                  <td key={di} style={{ padding: '8px 12px', textAlign: 'center', borderRight: di < comp.benchmarkDimensions.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
+                                                                      <span style={{ display: 'inline-block', width: 32, height: 32, lineHeight: '32px', borderRadius: 6, background: cellBg, color: cellColor, fontFamily: FONT.primary, fontSize: 14, fontWeight: 700 }}>{score}</span>
+                                                                  </td>
+                                                              );
+                                                          })}
+                                                      </tr>
+                                                  ))}
+                                              </tbody>
+                                          </table>
+                                          {/* Legend */}
+                                          <div style={{ display: 'flex', gap: 16, padding: '10px 16px', borderTop: '1px solid #EEEEEE', background: '#FAFAFA', justifyContent: 'center' }}>
+                                              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                                                  <span style={{ display: 'inline-block', width: 12, height: 12, borderRadius: 2, background: '#FFF0EB', border: '1px solid #CC6644' }}></span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 10, color: '#CC6644', fontWeight: 600 }}>1-2: Emerging</span>
+                                              </div>
+                                              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                                                  <span style={{ display: 'inline-block', width: 12, height: 12, borderRadius: 2, background: '#FFFDE8', border: '1px solid #B8B800' }}></span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 10, color: '#B8B800', fontWeight: 600 }}>3: Developing</span>
+                                              </div>
+                                              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                                                  <span style={{ display: 'inline-block', width: 12, height: 12, borderRadius: 2, background: '#E8F6F7', border: '1px solid #00B7C3' }}></span>
+                                                  <span style={{ fontFamily: FONT.primary, fontSize: 10, color: '#00B7C3', fontWeight: 600 }}>4-5: Leading</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              )}
+
                               {/* Gap Summary */}
                               {comp.gapSummary && comp.gapSummary.length > 0 && (
                                   <div>

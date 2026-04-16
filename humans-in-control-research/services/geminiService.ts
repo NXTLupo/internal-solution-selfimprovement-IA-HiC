@@ -998,6 +998,14 @@ Output JSON.`;
             if (!r.actionItems) r.actionItems = [];
         });
 
+        // Validate and auto-retry if evidence is thin
+        const validation = validateDeliverableOutput(result, 'recommendations');
+        if (!validation.valid && !feedback) {
+            console.log(`[Validation] ${validation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${validation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateRecommendations(validation.failures.join('. '), onStream);
+        }
+
         // STRAT-01: Generate full 15-section strategy document in second pass
         // The recommendations become the "Coherent Actions" section of Rumelt's Kernel
         const stratPrompt = `STEP: FULL STRATEGY DOCUMENT. You have already generated ${result.recommendations.length} strategic recommendations. Now wrap them in a complete strategy.
@@ -1228,7 +1236,15 @@ Output JSON.`;
         };
         const result = await this.executeStep<StepResult_JourneyMap>(prompt, schema, [], onStream);
         if (!result.stages) result.stages = [];
-        
+
+        // Validate and auto-retry if evidence is thin
+        const validation = validateDeliverableOutput(result, 'journey_map');
+        if (!validation.valid && !feedback) {
+            console.log(`[Validation] ${validation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${validation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateJourneyMap(validation.failures.join('. '), onStream);
+        }
+
         // NXT Design System: No decorative AI diagrams. Service blueprints are rendered
         // as structured SVG from the stage data by the frontend component.
         return result;
@@ -1311,6 +1327,15 @@ Output JSON.`;
             if (!f.userStories) f.userStories = [];
             if (!f.name) f.name = 'Unnamed Feature';
         });
+
+        // Validate and auto-retry if evidence is thin
+        const prdValidation = validateDeliverableOutput(result, 'prd');
+        if (!prdValidation.valid && !feedback) {
+            console.log(`[Validation] ${prdValidation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${prdValidation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generatePRD(prdValidation.failures.join('. '), onStream);
+        }
+
         return result;
     }
 
@@ -1370,6 +1395,15 @@ Output JSON.`;
         const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream);
         if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
         if (!result.roadmap.items) result.roadmap.items = [];
+
+        // Validate and auto-retry if evidence is thin
+        const roadmapValidation = validateDeliverableOutput(result, 'roadmap');
+        if (!roadmapValidation.valid && !feedback) {
+            console.log(`[Validation] ${roadmapValidation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${roadmapValidation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateRoadmap(roadmapValidation.failures.join('. '), onStream);
+        }
+
         return result;
     }
 
@@ -1705,58 +1739,8 @@ Output JSON.`;
         // standard Slide objects that existing renderers understand.
         // =====================================================================
 
-        // Build per-slide deep context from the strategic report
-        let perSlideContext = '';
+        // Report sections for per-slide matching
         const reportSections = context.strategicReport?.sections || [];
-
-        for (const slide of (structure.slides || [])) {
-            const srcDel = (slide as any).sourceDeliverable || '';
-            const slideTitle = (slide.title || '').toLowerCase();
-
-            // Multi-strategy matching: sourceDeliverable, title substring, section number proximity
-            let matchingSections = reportSections.filter(s =>
-                s.sourceDeliverable === srcDel ||
-                (srcDel && s.sourceDeliverable && s.sourceDeliverable.includes(srcDel.split('_')[0])) ||
-                s.title.toLowerCase().includes(slideTitle.substring(0, 25)) ||
-                slideTitle.includes(s.title.toLowerCase().substring(0, 25))
-            );
-
-            // Fallback: if no match, find the closest unmatched section by topic keywords
-            if (matchingSections.length === 0) {
-                const slideWords = slideTitle.split(/\s+/).filter(w => w.length > 4);
-                matchingSections = reportSections.filter(s =>
-                    slideWords.some(w => s.title.toLowerCase().includes(w) || (s.content || '').toLowerCase().substring(0, 200).includes(w))
-                );
-            }
-
-            if (matchingSections.length > 0) {
-                const section = matchingSections[0];
-                perSlideContext += `\n=== FOR SLIDE ${slide.slideNumber}: "${slide.title}" (from: ${srcDel || 'general'}) ===\n`;
-                perSlideContext += `REPORT SECTION ${section.sectionNumber}: ${section.title}\n`;
-                perSlideContext += `FULL CONTENT:\n${section.content}\n`;
-                if (section.keyMetrics?.length) {
-                    perSlideContext += `KEY METRICS (use these as hero_stat or metric_cards blocks):\n`;
-                    for (const m of section.keyMetrics) {
-                        perSlideContext += `  - ${m.label}: ${m.value}${m.context ? ` (${m.context})` : ''}\n`;
-                    }
-                }
-                if (section.keyQuote) {
-                    perSlideContext += `KEY QUOTE (use as quote_block): "${section.keyQuote.text}" -- ${section.keyQuote.attribution} (${section.keyQuote.source})\n`;
-                }
-                if (section.citations?.length) {
-                    perSlideContext += `CITATIONS (include ALL in sources array): ${section.citations.join(', ')}\n`;
-                }
-                if (section.evidenceGap) {
-                    perSlideContext += `EVIDENCE GAP: ${section.evidenceGap}\n`;
-                }
-                perSlideContext += `DISTILL this section into 2-5 content blocks. Preserve the key quote, most impactful metrics, and source citations.\n=== END SLIDE ${slide.slideNumber} ===\n`;
-            } else {
-                perSlideContext += `\n=== FOR SLIDE ${slide.slideNumber}: "${slide.title}" ===\nNo matching report section found. Generate content from available deliverable data for source: ${srcDel || 'general'}.\n=== END SLIDE ${slide.slideNumber} ===\n`;
-            }
-        }
-
-        // Build fallback deliverable context if no report exists
-        const fallbackContext = context.strategicReport ? '' : this.buildDeckDigest(context);
 
         const personaList = (context.personas || []).map(p =>
             `- ${p.name} (${p.role}): "${(p.quote || '').substring(0, 80)}" | JTBD: "${p.jtbd || 'N/A'}" [image: ${p.imageUrl ? 'AVAILABLE' : 'none'}]`
@@ -1784,86 +1768,6 @@ Output JSON.`;
             const memory = loadEngagementMemory(goalSlug);
             if (memory) engagementContext = `\nENGAGEMENT CONTEXT (from prior sessions on similar topics):\n${memory}\n`;
         } catch (e) { /* no engagement memory available */ }
-
-        const prompt = `STEP: CONTENT-BLOCK NARRATIVE. You are a McKinsey-trained deck writer. For each slide, declare WHAT content to communicate using content blocks. The rendering engine will pick the best visual template automatically.
-
-${frameworkPrompt ? `=== COMPILED FRAMEWORK ===\n${frameworkPrompt.substring(0, 4000)}\n=== END FRAMEWORK ===\n` : ''}
-${learnedConstraints ? `=== LEARNED CONSTRAINTS (from user feedback in prior sessions) ===\n${learnedConstraints}\n=== END CONSTRAINTS ===\n` : ''}
-${engagementContext}
-
-THIS DECK IS DERIVED FROM THE STRATEGIC REPORT. Each slide has a corresponding report section injected below. Your job is DISTILLATION — compress 400-800 words of analytical prose into 2-5 content blocks that capture the essential findings, evidence, and impact.
-
-CONTENT BLOCK TYPES (declare what the slide communicates — the engine picks the template):
-
-1. hero_stat: A single dominant number that anchors the slide.
-   Fields: { type: "hero_stat", value: "35%", unit: "decline", context: "First-year retention dropped 35% since 2020" }
-
-2. evidence_bullets: 2-4 research findings, each citing a specific source.
-   Fields: { type: "evidence_bullets", items: [{ text: "72% express career uncertainty", source: "Reddit: r/cscareerquestions" }, { text: "6 of 10 universities lack integration", source: "Hechinger Report" }] }
-
-3. metric_cards: 2-4 KPI data points for a data panel.
-   Fields: { type: "metric_cards", items: [{ label: "Dropout rate", value: "35%", trend: "+12% YoY" }, { label: "Career center usage", value: "23%", unit: "of students" }] }
-
-4. quote_block: A VERBATIM quote from research with provenance.
-   Fields: { type: "quote_block", text: "I applied to 200 positions and heard back from 3", attribution: "CS Senior, Reddit", source: "Reddit: r/cscareerquestions" }
-
-5. persona_card: Reference to a persona (portrait image auto-injected by renderer).
-   Fields: { type: "persona_card", name: "Sarah Chen", role: "First-Year Student", jtbd: "Navigate career prep confidently", quote: "I don't know what I don't know" }
-
-6. problem_statement: A challenge backed by evidence.
-   Fields: { type: "problem_statement", value: "73%", description: "of graduates report degree did not prepare them for workforce", severity: "critical" }
-
-7. solution_points: 2-3 actionable recommendations.
-   Fields: { type: "solution_points", items: [{ title: "Integrated Career Curriculum", description: "Embed career skills into first-year courses — addresses 73% preparedness gap" }] }
-
-8. data_grid: 3-6 data points for a grid/bento layout.
-   Fields: { type: "data_grid", items: [{ label: "T1 Sources", value: "47", description: "Academic papers and government data" }] }
-
-9. journey_strip: A service blueprint stage.
-   Fields: { type: "journey_strip", phase: "Onboarding", action: "Student completes intake survey", pain: "42% drop off at document upload", emotion: "Frustrated", mot: true }
-
-10. comparison_row: Competitive or gap comparison.
-    Fields: { type: "comparison_row", dimension: "AI Readiness", ours: "2.1/5", theirs: "3.8/5", gap: "1.7 points behind" }
-
-11. narrative_text: 2-3 sentence analytical prose for the slide body.
-    Fields: { type: "narrative_text", text: "The convergence of three factors..." }
-
-12. section_label: Section divider text (used alone for section header slides).
-    Fields: { type: "section_label", text: "Research Findings" }
-
-BLOCK COMPOSITION RULES:
-- EVERY body slide MUST have at least one block with source attribution (evidence_bullets, quote_block, or metric_cards with source)
-- Use 2-5 blocks per slide — mix types for visual richness
-- The rendering engine auto-selects templates based on your block mix:
-  * section_label only = section header (dark background)
-  * problem_statement + solution_points = problem/solution split
-  * hero_stat + metric_cards (3+) = data insight chart
-  * 4+ diverse block types = bento grid
-  * evidence_bullets without metrics = full-width card layout
-  * Default = content/data panel (55/45 split)
-
-META-NARRATION BAN (violation = instant rejection):
-NEVER use: "Good morning" | "Welcome to" | "Today we will" | "We now move to" | "In this section" | "In this presentation" | "As you can see" | "This slide shows" | "Thank you" | "Allow me to" | "Before we begin" | "Let us examine"
-LEAD with the insight. First word of the title = the finding.
-
-STORYTELLING RULES:
-- NEVER hedge: "It seems", "Perhaps", "It's possible that"
-- Every title is a COMPLETE SENTENCE stating a conclusion (Pyramid Principle)
-- Every slide creates urgency, surprise, opportunity, or concern
-- Use SPECIFIC numbers, names, dates from the report sections — NEVER generalities
-- Speaker notes: deeper context, audience objections, transition cues (NOT slide content)
-
-PERSONA IMAGE INJECTION:
-${personaList ? `Available personas:\n${personaList}\n` : 'No personas available.'}
-When referencing a persona, include a persona_card block with their exact name. The renderer injects their generated portrait.
-
-PLAIN TEXT ONLY in all text fields. No **bold**, *italic*, # headers.
-
-${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}
-${context.strategicReport ? 'SOURCE: This deck is derived from the approved Strategic Report. Use the per-slide report sections below.' : ''}
-${perSlideContext}
-${fallbackContext}
-Output JSON.`;
 
         // Content-block schema — matches the SlideGeneration interface in types.ts
         const contentBlockSchema: Schema = {
@@ -1909,34 +1813,216 @@ Output JSON.`;
             required: ['type']
         };
 
-        const schema: Schema = {
+        // Per-slide schema for standalone Gemini calls
+        const perSlideSchema: Schema = {
             type: Type.OBJECT,
             properties: {
-                methodology: { type: Type.STRING },
-                slides: {
-                    type: Type.ARRAY,
-                    items: {
-                        type: Type.OBJECT,
-                        properties: {
-                            slideNumber: { type: Type.INTEGER },
-                            title: { type: Type.STRING },
-                            background: { type: Type.STRING, enum: ['light', 'dark'] },
-                            sourceDeliverable: { type: Type.STRING },
-                            personaRef: { type: Type.STRING },
-                            blocks: { type: Type.ARRAY, items: contentBlockSchema },
-                            speakerNotes: { type: Type.STRING },
-                            sources: { type: Type.ARRAY, items: { type: Type.STRING } },
-                        },
-                        required: ['slideNumber', 'title', 'background', 'blocks', 'speakerNotes', 'sources']
-                    }
-                }
+                blocks: { type: Type.ARRAY, items: contentBlockSchema },
+                speakerNotes: { type: Type.STRING },
+                sources: { type: Type.ARRAY, items: { type: Type.STRING } },
             },
-            required: ['methodology', 'slides']
+            required: ['blocks', 'speakerNotes', 'sources']
         };
 
-        onStream('Generating content blocks for each slide...');
-        const rawResult = await this.executeStep<any>(prompt, schema, [], onStream);
-        const rawSlides: any[] = rawResult.slides || [];
+        // Build the shared prompt preamble for all per-slide calls
+        const blockTypeReference = `CONTENT BLOCK TYPES (declare what the slide communicates — the engine picks the template):
+
+1. hero_stat: A single dominant number that anchors the slide.
+   Fields: { type: "hero_stat", value: "35%", unit: "decline", context: "First-year retention dropped 35% since 2020" }
+
+2. evidence_bullets: 2-4 research findings, each citing a specific source.
+   Fields: { type: "evidence_bullets", items: [{ text: "72% express career uncertainty", source: "Reddit: r/cscareerquestions" }, { text: "6 of 10 universities lack integration", source: "Hechinger Report" }] }
+
+3. metric_cards: 2-4 KPI data points for a data panel.
+   Fields: { type: "metric_cards", items: [{ label: "Dropout rate", value: "35%", trend: "+12% YoY" }, { label: "Career center usage", value: "23%", unit: "of students" }] }
+
+4. quote_block: A VERBATIM quote from research with provenance.
+   Fields: { type: "quote_block", text: "I applied to 200 positions and heard back from 3", attribution: "CS Senior, Reddit", source: "Reddit: r/cscareerquestions" }
+
+5. persona_card: Reference to a persona (portrait image auto-injected by renderer).
+   Fields: { type: "persona_card", name: "Sarah Chen", role: "First-Year Student", jtbd: "Navigate career prep confidently", quote: "I don't know what I don't know" }
+
+6. problem_statement: A challenge backed by evidence.
+   Fields: { type: "problem_statement", value: "73%", description: "of graduates report degree did not prepare them for workforce", severity: "critical" }
+
+7. solution_points: 2-3 actionable recommendations.
+   Fields: { type: "solution_points", items: [{ title: "Integrated Career Curriculum", description: "Embed career skills into first-year courses — addresses 73% preparedness gap" }] }
+
+8. data_grid: 3-6 data points for a grid/bento layout.
+   Fields: { type: "data_grid", items: [{ label: "T1 Sources", value: "47", description: "Academic papers and government data" }] }
+
+9. journey_strip: A service blueprint stage.
+   Fields: { type: "journey_strip", phase: "Onboarding", action: "Student completes intake survey", pain: "42% drop off at document upload", emotion: "Frustrated", mot: true }
+
+10. comparison_row: Competitive or gap comparison.
+    Fields: { type: "comparison_row", dimension: "AI Readiness", ours: "2.1/5", theirs: "3.8/5", gap: "1.7 points behind" }
+
+11. narrative_text: 2-3 sentence analytical prose for the slide body.
+    Fields: { type: "narrative_text", text: "The convergence of three factors..." }
+
+12. section_label: Section divider text (used alone for section header slides).
+    Fields: { type: "section_label", text: "Research Findings" }`;
+
+        const sharedRules = `BLOCK COMPOSITION RULES:
+- EVERY body slide MUST have at least one block with source attribution (evidence_bullets, quote_block, or metric_cards with source)
+- Use 2-5 blocks per slide — mix types for visual richness
+
+META-NARRATION BAN (violation = instant rejection):
+NEVER use: "Good morning" | "Welcome to" | "Today we will" | "We now move to" | "In this section" | "In this presentation" | "As you can see" | "This slide shows" | "Thank you" | "Allow me to" | "Before we begin" | "Let us examine"
+LEAD with the insight. First word of the title = the finding.
+
+STORYTELLING RULES:
+- NEVER hedge: "It seems", "Perhaps", "It's possible that"
+- Every title is a COMPLETE SENTENCE stating a conclusion (Pyramid Principle)
+- Use SPECIFIC numbers, names, dates from the report sections — NEVER generalities
+- Speaker notes: deeper context, audience objections, transition cues (NOT slide content)
+
+PLAIN TEXT ONLY in all text fields. No **bold**, *italic*, # headers.
+
+${feedback ? 'USER FEEDBACK (PRIORITY): ' + feedback : ''}`;
+
+        // =====================================================================
+        // PER-SLIDE GENERATION: Each body slide gets its own Gemini call
+        // with ONLY its matched report section as context. This prevents
+        // the model from being overwhelmed by all slides at once, producing
+        // thicker, more evidence-rich content blocks per slide.
+        // =====================================================================
+        onStream('Generating content blocks per slide...');
+        const rawSlides: any[] = [];
+        const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const totalSlides = (structure.slides || []).length;
+
+        // Build a map of slide -> matched report section for reuse
+        const slideReportMap = new Map<number, any>();
+        for (const slide of (structure.slides || [])) {
+            const srcDel = (slide as any).sourceDeliverable || '';
+            const slideTitle = (slide.title || '').toLowerCase();
+
+            let matchingSections = reportSections.filter(s =>
+                s.sourceDeliverable === srcDel ||
+                (srcDel && s.sourceDeliverable && s.sourceDeliverable.includes(srcDel.split('_')[0])) ||
+                s.title.toLowerCase().includes(slideTitle.substring(0, 25)) ||
+                slideTitle.includes(s.title.toLowerCase().substring(0, 25))
+            );
+
+            if (matchingSections.length === 0) {
+                const slideWords = slideTitle.split(/\s+/).filter(w => w.length > 4);
+                matchingSections = reportSections.filter(s =>
+                    slideWords.some(w => s.title.toLowerCase().includes(w) || (s.content || '').toLowerCase().substring(0, 200).includes(w))
+                );
+            }
+
+            if (matchingSections.length > 0) {
+                slideReportMap.set(slide.slideNumber, matchingSections[0]);
+            }
+        }
+
+        for (const slide of (structure.slides || [])) {
+            // SECTION_HEADER: Deterministic — no AI needed
+            if (slide.layout === 'SECTION_HEADER') {
+                rawSlides.push({
+                    slideNumber: slide.slideNumber,
+                    title: slide.title,
+                    background: 'dark',
+                    blocks: [{ type: 'section_label', text: slide.title }],
+                    speakerNotes: '',
+                    sources: []
+                });
+                continue;
+            }
+
+            // TITLE_SLIDE: Deterministic — no AI needed
+            if (slide.layout === 'TITLE_SLIDE') {
+                rawSlides.push({
+                    slideNumber: slide.slideNumber,
+                    title: slide.title,
+                    background: 'dark',
+                    blocks: [{ type: 'narrative_text', text: slide.rationale || '' }],
+                    speakerNotes: '',
+                    sources: []
+                });
+                continue;
+            }
+
+            // Body slide: make individual API call with matched report section
+            onStream(`Generating slide ${slide.slideNumber} of ${totalSlides}...`);
+
+            const matchedSection = slideReportMap.get(slide.slideNumber);
+            const srcDel = (slide as any).sourceDeliverable || 'general';
+
+            // Build persona context for this specific slide
+            let personaContext = '';
+            if ((slide as any).personaRef && personaList) {
+                personaContext = `\nPERSONA IMAGE INJECTION:\nAvailable personas:\n${personaList}\nWhen referencing a persona, include a persona_card block with their exact name. The renderer injects their generated portrait.\n`;
+            }
+
+            const slidePrompt = `Generate 2-5 content blocks for this ONE slide.
+
+${blockTypeReference}
+
+${sharedRules}
+${personaContext}
+${frameworkPrompt ? `FRAMEWORK: ${frameworkPrompt.substring(0, 2000)}` : ''}
+${learnedConstraints ? `LEARNED CONSTRAINTS: ${learnedConstraints}` : ''}
+
+SLIDE TITLE: "${slide.title}"
+SOURCE: ${srcDel}
+
+${matchedSection ? `REPORT SECTION (distill this into content blocks):
+${matchedSection.content}
+${matchedSection.keyMetrics ? `KEY METRICS: ${matchedSection.keyMetrics.map((m: any) => `${m.label}=${m.value}${m.context ? ` (${m.context})` : ''}`).join(', ')}` : ''}
+${matchedSection.keyQuote ? `KEY QUOTE: "${matchedSection.keyQuote.text}" -- ${matchedSection.keyQuote.attribution} (${matchedSection.keyQuote.source})` : ''}
+SOURCES: ${(matchedSection.citations || []).join(', ')}` : `No matching report section found. Generate content from available context for source: ${srcDel}.`}
+
+YOU MUST include:
+- At least 1 evidence_bullets or quote_block with named sources
+- At least 1 metric from the key metrics (as hero_stat or metric_cards) if available
+- The key quote (as quote_block) if available
+- All source names in the sources array
+
+Output JSON.`;
+
+            try {
+                const slideResult = await withRetry(() => standaloneAi.models.generateContent({
+                    model: 'gemini-2.5-flash',
+                    contents: { parts: [{ text: slidePrompt }] },
+                    config: {
+                        responseMimeType: "application/json",
+                        responseSchema: perSlideSchema,
+                        temperature: 0.3,
+                    }
+                }), 3, 2000, `Slide ${slide.slideNumber}`);
+
+                const slideText = slideResult.text || '{}';
+                const slideData = JSON.parse(tryRepairJson(slideText));
+
+                rawSlides.push({
+                    slideNumber: slide.slideNumber,
+                    title: slide.title,
+                    background: 'light',
+                    blocks: slideData.blocks || [],
+                    speakerNotes: slideData.speakerNotes || '',
+                    sources: slideData.sources || [],
+                    ...((slide as any).personaRef ? { personaRef: (slide as any).personaRef } : {})
+                });
+            } catch (slideError: any) {
+                console.error(`[Narrative] Slide ${slide.slideNumber} generation failed:`, slideError.message);
+                // Fallback: create a minimal slide with narrative_text from the report section
+                rawSlides.push({
+                    slideNumber: slide.slideNumber,
+                    title: slide.title,
+                    background: 'light',
+                    blocks: matchedSection
+                        ? [{ type: 'narrative_text', text: (matchedSection.content || '').substring(0, 500) }]
+                        : [{ type: 'narrative_text', text: slide.rationale || slide.title }],
+                    speakerNotes: '',
+                    sources: matchedSection?.citations || [],
+                    ...((slide as any).personaRef ? { personaRef: (slide as any).personaRef } : {})
+                });
+            }
+        }
+
+        onStream(`Generated content blocks for ${rawSlides.length} slides.`);
 
         // =====================================================================
         // LAYOUT RESOLUTION: Convert content blocks → standard Slide objects
@@ -2121,7 +2207,17 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        return this.executeStep<any>(prompt, schema, [], onStream);
+        const gapResult = await this.executeStep<any>(prompt, schema, [], onStream);
+
+        // Validate and auto-retry if evidence is thin
+        const gapValidation = validateDeliverableOutput(gapResult, 'gap_analysis');
+        if (!gapValidation.valid && !feedback) {
+            console.log(`[Validation] ${gapValidation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${gapValidation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateGapAnalysis(gapValidation.failures.join('. '), onStream);
+        }
+
+        return gapResult;
     }
 
     async generateTechAudit(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
@@ -2207,7 +2303,7 @@ Output JSON.`;
         };
         const analysis = await this.executeStep<any>(analysisPrompt, analysisSchema, [], onStream);
 
-        return {
+        const techAuditResult = {
             methodology: inventory.methodology,
             audit: {
                 systemsInventory: systems,
@@ -2217,6 +2313,16 @@ Output JSON.`;
                 recommendations: analysis.recommendations || [],
             }
         };
+
+        // Validate and auto-retry if evidence is thin
+        const techAuditValidation = validateDeliverableOutput(techAuditResult, 'tech_audit');
+        if (!techAuditValidation.valid && !feedback) {
+            console.log(`[Validation] ${techAuditValidation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${techAuditValidation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateTechAudit(techAuditValidation.failures.join('. '), onStream);
+        }
+
+        return techAuditResult;
     }
 
     async generateCompetitiveAnalysis(feedback: string | undefined, onStream: (t: string) => void): Promise<any> {
@@ -2308,7 +2414,17 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        return this.executeStep<any>(prompt, schema, [], onStream);
+        const compResult = await this.executeStep<any>(prompt, schema, [], onStream);
+
+        // Validate and auto-retry if evidence is thin
+        const compValidation = validateDeliverableOutput(compResult, 'competitive_analysis');
+        if (!compValidation.valid && !feedback) {
+            console.log(`[Validation] ${compValidation.failures.length} issues, auto-retrying...`);
+            onStream(`Quality gate: ${compValidation.failures.slice(0, 3).join('; ')}. Retrying...`);
+            return this.generateCompetitiveAnalysis(compValidation.failures.join('. '), onStream);
+        }
+
+        return compResult;
     }
 
     // ============================================================
@@ -2880,4 +2996,83 @@ Output JSON.`;
         }
         throw lastError;
     }
+}
+
+/**
+ * Post-generation validation — ports hook logic into the pipeline.
+ * Returns { valid: boolean, failures: string[] }.
+ * When valid is false, the pipeline should retry with failures as feedback.
+ */
+export function validateDeliverableOutput(
+    deliverable: any,
+    deliverableType: string,
+    prioritySources?: string[]
+): { valid: boolean; failures: string[] } {
+    const failures: string[] = [];
+    const allText = JSON.stringify(deliverable);
+
+    // CHECK 1: Priority sources must appear
+    if (prioritySources) {
+        for (const ps of prioritySources) {
+            if (!allText.toLowerCase().includes(ps.toLowerCase())) {
+                failures.push(`PRIORITY MISSING: '${ps}' not cited`);
+            }
+        }
+    }
+
+    // CHECK 2: No unresolved CHUNK references
+    const chunks = allText.match(/\[CHUNK_\d+\]/g);
+    if (chunks) {
+        const unique = Array.from(new Set(chunks));
+        failures.push(`UNRESOLVED: ${unique.length} CHUNK refs: ${unique.slice(0, 3).join(', ')}`);
+    }
+
+    // CHECK 3: Walk citations arrays — no empty, no generic
+    const GENERIC = new Set(['research', 'studies', 'data', 'sources', 'intelligence_sources', 'analysis', 'evidence', 'findings', 'reports', 'literature']);
+    const walkCitations = (obj: any, path: string) => {
+        if (!obj || typeof obj !== 'object') return;
+        if (Array.isArray(obj)) {
+            obj.forEach((item, i) => walkCitations(item, `${path}[${i}]`));
+            return;
+        }
+        if (obj.citations && Array.isArray(obj.citations)) {
+            if (obj.citations.length === 0 && (obj.title || obj.name || obj.capability || obj.initiative || obj.phase)) {
+                failures.push(`EMPTY CITATIONS: ${obj.title || obj.name || obj.capability || obj.initiative || obj.phase}`);
+            }
+            for (const c of obj.citations) {
+                if (typeof c === 'string' && GENERIC.has(c.toLowerCase().trim())) {
+                    failures.push(`GENERIC: '${c}' is not a real source name`);
+                }
+            }
+        }
+        for (const v of Object.values(obj)) {
+            if (typeof v === 'object') walkCitations(v, path);
+        }
+    };
+    walkCitations(deliverable, deliverableType);
+
+    // CHECK 4: Evidence specificity (for items with evidenceBasis)
+    const walkEvidence = (obj: any) => {
+        if (!obj || typeof obj !== 'object') return;
+        if (Array.isArray(obj)) { obj.forEach(walkEvidence); return; }
+        if (typeof obj.evidenceBasis === 'string') {
+            const eb = obj.evidenceBasis;
+            if (eb.length < 20) {
+                failures.push(`THIN EVIDENCE: '${obj.title || obj.name || 'unknown'}' evidenceBasis too short`);
+            } else {
+                const hasNumber = /\d+%|\$\d|20[12]\d/.test(eb);
+                const hasQuote = eb.includes('"');
+                const hasName = eb.split(' ').some((w: string, i: number) => i > 0 && w.length > 3 && w[0] === w[0].toUpperCase() && /[a-zA-Z]/.test(w[0]));
+                if (!hasNumber && !hasQuote && !hasName) {
+                    failures.push(`VAGUE EVIDENCE: '${obj.title || obj.name || 'unknown'}' has no specifics`);
+                }
+            }
+        }
+        for (const v of Object.values(obj)) {
+            if (typeof v === 'object') walkEvidence(v);
+        }
+    };
+    walkEvidence(deliverable);
+
+    return { valid: failures.length === 0, failures };
 }
