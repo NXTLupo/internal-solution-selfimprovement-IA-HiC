@@ -253,7 +253,7 @@ const LiveResearchBoard = ({
             <CorpusChatPanel
                 isOpen={showCorpusChat}
                 onToggle={() => setShowCorpusChat(false)}
-                context={{
+                getContext={() => ({
                     corpusText: corpusTextRef.current || '',
                     uploadedFileContents: (() => {
                         try {
@@ -286,7 +286,8 @@ const LiveResearchBoard = ({
                     articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                     sourceReferences: buildSourceReferences(liveSourceResults || []),
                     chunkMap: getChunkSourceMap(),
-                } as ChatContext}
+                } as ChatContext)}
+                context={{} as ChatContext}
             />
 
             {/* Main content area — full width, scrollable */}
@@ -3024,7 +3025,7 @@ ${synthesisParts.join('\n')}
                       <CorpusChatPanel
                           isOpen={showCorpusChat}
                           onToggle={() => setShowCorpusChat(false)}
-                          context={{
+                          getContext={() => ({
                               corpusText: corpusTextRef.current || '',
                               uploadedFileContents: (() => {
                                   try {
@@ -3055,7 +3056,8 @@ ${synthesisParts.join('\n')}
                               articleCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                               sourceReferences: buildSourceReferences(liveSourceResults),
                               chunkMap: getChunkSourceMap(),
-                          } as ChatContext}
+                          } as ChatContext)}
+                          context={{} as ChatContext}
                       />
                       </>
                   )}

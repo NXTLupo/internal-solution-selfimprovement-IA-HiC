@@ -17,6 +17,7 @@ import { sendChatMessage, AVAILABLE_MODELS, ChatMessage, ChatModel, ChatContext,
 
 interface Props {
     context: ChatContext;
+    getContext?: () => ChatContext;  // Lazy builder — reads refs at query time, not render time
     isOpen: boolean;
     onToggle: () => void;
 }
@@ -34,7 +35,7 @@ const SUGGESTED_QUERIES = [
     "What case studies or real-world examples appear in the data?",
 ];
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, isOpen, onToggle }) => {
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
     const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro');
@@ -69,7 +70,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, isOpen, onToggle }) 
         setIsLoading(true);
         setShowSuggestions(false);
 
-        const response = await sendChatMessage(selectedModel, query, messages, context);
+        // Use getContext() if available — reads refs at QUERY TIME, not stale render-time values
+        const liveContext = getContext ? getContext() : context;
+        const response = await sendChatMessage(selectedModel, query, messages, liveContext);
         setMessages(prev => [...prev, response]);
         setIsLoading(false);
     };
