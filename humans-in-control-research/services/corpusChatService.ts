@@ -13,7 +13,7 @@
  * deliverables) is injected as grounding context for every query.
  */
 
-export type ChatModel = 'claude-opus-4-6' | 'o3-mini' | 'gemini-2.5-flash';
+export type ChatModel = 'gemini-2.5-flash';
 
 export interface ChatMessage {
     id: string;
@@ -67,26 +67,6 @@ export interface ModelConfig {
 
 export const AVAILABLE_MODELS: ModelConfig[] = [
     {
-        id: 'claude-opus-4-6',
-        name: 'Claude Opus 4.6',
-        provider: 'anthropic',
-        description: 'Anthropic flagship — complex reasoning, extended thinking, agentic tasks',
-        contextWindow: '1M tokens',
-        strengths: 'Deep analysis, nuanced synthesis, evidence weaving',
-        color: '#CC6644',
-        available: !!(process.env.ANTHROPIC_API_KEY),
-    },
-    {
-        id: 'o3-mini',
-        name: 'o3-mini (High Reasoning)',
-        provider: 'openai',
-        description: 'OpenAI reasoning model — STEM, science, chain-of-thought',
-        contextWindow: '200K tokens',
-        strengths: 'Structured reasoning, quantitative analysis, logical deduction',
-        color: '#00B7C3',
-        available: !!(process.env.OPENAI_API_KEY),
-    },
-    {
         id: 'gemini-2.5-flash',
         name: 'Gemini 2.5 Flash',
         provider: 'google',
@@ -94,7 +74,7 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         contextWindow: '1M tokens',
         strengths: 'Fast responses, large context, comprehensive synthesis',
         color: '#B8B800',
-        available: !!(process.env.API_KEY || process.env.GEMINI_API_KEY),
+        available: true,
     },
 ];
 
@@ -169,6 +149,16 @@ function buildGroundingContext(ctx: ChatContext): string {
         parts.push('');
     }
 
+    // Include raw source articles for maximum grounding depth
+    // Build from sourceReferences if corpus text is empty (during collection)
+    if (ctx.sourceReferences?.length) {
+        parts.push(`=== SOURCE ARTICLE INDEX (${ctx.sourceReferences.length} articles) ===`);
+        for (const ref of ctx.sourceReferences.slice(0, 200)) {
+            parts.push(`[${ref.id}] ${ref.sourceName}: "${ref.title}"${ref.url ? ` | URL: ${ref.url}` : ''}${ref.date ? ` | ${ref.date}` : ''}`);
+        }
+        parts.push(`=== END SOURCE INDEX ===`);
+    }
+
     // Include raw corpus for maximum grounding depth
     if (ctx.corpusText) {
         const maxCorpus = 500000; // 500KB — fits in all model contexts
@@ -230,15 +220,7 @@ ${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.le
 ${groundingContext}`;
 
     try {
-        let responseText = '';
-
-        if (model === 'claude-opus-4-6') {
-            responseText = await callAnthropic(systemPrompt, userMessage, conversationHistory);
-        } else if (model === 'o3-mini') {
-            responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory);
-        } else if (model === 'gemini-2.5-flash') {
-            responseText = await callGemini(systemPrompt, userMessage, conversationHistory);
-        }
+        const responseText = await callGemini(systemPrompt, userMessage, conversationHistory);
 
         return {
             id: `msg_${Date.now()}`,
