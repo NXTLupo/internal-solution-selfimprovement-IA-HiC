@@ -339,50 +339,83 @@ export function parseChatCitations(
     sourceRefs?: SourceReference[]
 ): { segments: Array<{ type: 'text' | 'citation'; content: string; sourceName?: string; title?: string; url?: string }> } {
     const segments: Array<{ type: 'text' | 'citation'; content: string; sourceName?: string; title?: string; url?: string }> = [];
-    const citationPattern = /\[([^\]:]+):\s*"([^"]+)"\]/g;
+
+    // Strip markdown bold/italic that leaks through
+    let cleaned = text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
+
+    // Match multiple citation formats the AI may produce:
+    // 1. [SOURCE_NAME: "Article Title"]        — requested format
+    // 2. [source_id::index: "Article Title"]   — chunk ID format (what Gemini actually produces)
+    // 3. [Source Name: "Title"]                 — mixed case
+    // 4. [CHUNK_XXX]                           — raw chunk reference
+    const citationPattern = /\[([^\]]+?):\s*"([^"]+)"\]|\[([^\]]+?)::\d+:\s*"([^"]+)"\]|\[(CHUNK_\d+)\]/g;
 
     let lastIndex = 0;
     let match;
 
-    while ((match = citationPattern.exec(text)) !== null) {
-        // Add text before this citation
+    while ((match = citationPattern.exec(cleaned)) !== null) {
         if (match.index > lastIndex) {
-            segments.push({ type: 'text', content: text.substring(lastIndex, match.index) });
+            segments.push({ type: 'text', content: cleaned.substring(lastIndex, match.index) });
         }
 
-        const sourceName = match[1].trim();
-        const articleTitle = match[2].trim();
+        // Determine which capture group matched
+        let sourceName = (match[1] || match[3] || '').trim();
+        let articleTitle = (match[2] || match[4] || '').trim();
+        const chunkRef = match[5]; // CHUNK_XXX raw reference
+
+        // Resolve source_id format (e.g., "higher_ed_dive" -> "Higher Ed Dive")
+        if (sourceName.includes('_') || sourceName.includes('::')) {
+            const cleanId = sourceName.split('::')[0].replace(/_/g, ' ');
+            // Try to find a matching source reference with a proper display name
+            const ref = sourceRefs?.find(r =>
+                r.id.startsWith(sourceName.split('::')[0]) ||
+                r.sourceName.toLowerCase().replace(/\s+/g, '_') === sourceName.split('::')[0]
+            );
+            sourceName = ref?.sourceName || cleanId.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        }
+
+        // Resolve CHUNK_XXX references
+        if (chunkRef) {
+            sourceName = chunkRef;
+            articleTitle = '';
+        }
 
         // Try to resolve URL from provenance index
         let url: string | undefined;
         if (sourceRefs) {
-            const ref = sourceRefs.find(r =>
-                r.sourceName.toLowerCase().includes(sourceName.toLowerCase()) ||
-                sourceName.toLowerCase().includes(r.sourceName.toLowerCase()) ||
-                (r.title && r.title.toLowerCase().includes(articleTitle.toLowerCase().substring(0, 30)))
-            );
-            if (ref?.url) url = ref.url;
+            const ref = sourceRefs.find(r => {
+                const nameMatch = r.sourceName.toLowerCase().includes(sourceName.toLowerCase()) ||
+                    sourceName.toLowerCase().includes(r.sourceName.toLowerCase());
+                const titleMatch = articleTitle && r.title &&
+                    (r.title.toLowerCase().includes(articleTitle.toLowerCase().substring(0, 25)) ||
+                     articleTitle.toLowerCase().includes(r.title.toLowerCase().substring(0, 25)));
+                const idMatch = r.id.startsWith(sourceName.split('::')[0]);
+                return titleMatch || (nameMatch && !articleTitle) || idMatch;
+            });
+            if (ref?.url) {
+                url = ref.url;
+                if (!articleTitle && ref.title) articleTitle = ref.title;
+                if (sourceName === chunkRef && ref.sourceName) sourceName = ref.sourceName;
+            }
         }
 
         segments.push({
             type: 'citation',
             content: match[0],
             sourceName,
-            title: articleTitle,
+            title: articleTitle || sourceName,
             url,
         });
 
         lastIndex = match.index + match[0].length;
     }
 
-    // Add remaining text
-    if (lastIndex < text.length) {
-        segments.push({ type: 'text', content: text.substring(lastIndex) });
+    if (lastIndex < cleaned.length) {
+        segments.push({ type: 'text', content: cleaned.substring(lastIndex) });
     }
 
-    // If no citations found, return the whole text as one segment
     if (segments.length === 0) {
-        segments.push({ type: 'text', content: text });
+        segments.push({ type: 'text', content: cleaned });
     }
 
     return { segments };
