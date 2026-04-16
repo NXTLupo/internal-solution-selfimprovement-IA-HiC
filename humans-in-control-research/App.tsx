@@ -187,7 +187,7 @@ const LiveResearchBoard = ({
     knowledgeGraph,
     excludedSources, setExcludedSources,
     prioritySources, setPrioritySources,
-    showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal,
+    showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal, files,
     gapResult, techAuditResult, competitiveResult, strategicReportResult, techResult,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
@@ -197,6 +197,7 @@ const LiveResearchBoard = ({
     knowledgeGraph?: KGType,
     excludedSources: Set<string>, setExcludedSources: React.Dispatch<React.SetStateAction<Set<string>>>,
     prioritySources: Set<string>, setPrioritySources: React.Dispatch<React.SetStateAction<Set<string>>>,
+    files: any[],
     showCorpusChat: boolean, setShowCorpusChat: React.Dispatch<React.SetStateAction<boolean>>,
     corpusTextRef: React.RefObject<string>, researchGoal: string,
     gapResult?: any, techAuditResult?: any, competitiveResult?: any, strategicReportResult?: any, techResult?: any,
@@ -2936,6 +2937,7 @@ ${synthesisParts.join('\n')}
                                competitiveResult={competitiveResult}
                                strategicReportResult={strategicReportResult}
                                techResult={techResult}
+                               files={files}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
