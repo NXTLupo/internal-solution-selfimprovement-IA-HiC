@@ -8,6 +8,8 @@ import HeuristicBriefIntake from './components/HeuristicBriefIntake';
 import HeuristicReportView from './components/HeuristicReportView';
 import LiveSourceFeed from './components/LiveSourceFeed';
 import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
+import CorpusChatPanel from './components/CorpusChatPanel';
+import type { ChatContext } from './services/corpusChatService';
 import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, addJourneyStagesToGraph, addPRDFeaturesToGraph, addRoadmapToGraph, addGapAnalysisToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
@@ -183,6 +185,8 @@ const LiveResearchBoard = ({
     knowledgeGraph,
     excludedSources, setExcludedSources,
     prioritySources, setPrioritySources,
+    showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal,
+    gapResult, techAuditResult, competitiveResult, strategicReportResult, techResult,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
@@ -191,6 +195,9 @@ const LiveResearchBoard = ({
     knowledgeGraph?: KGType,
     excludedSources: Set<string>, setExcludedSources: React.Dispatch<React.SetStateAction<Set<string>>>,
     prioritySources: Set<string>, setPrioritySources: React.Dispatch<React.SetStateAction<Set<string>>>,
+    showCorpusChat: boolean, setShowCorpusChat: React.Dispatch<React.SetStateAction<boolean>>,
+    corpusTextRef: React.RefObject<string>, researchGoal: string,
+    gapResult?: any, techAuditResult?: any, competitiveResult?: any, strategicReportResult?: any, techResult?: any,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
@@ -221,6 +228,46 @@ const LiveResearchBoard = ({
                     <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#B8B800', marginLeft: 6, animation: 'pulse 1.5s infinite' }} />
                 )}
             </button>
+
+            {/* Chat to Your Data toggle button */}
+            {(liveSourceResults.length > 0 || collectionPhase === 'complete') && (
+                <button
+                    onClick={() => { setShowCorpusChat(!showCorpusChat); if (!showCorpusChat) setReasoningOpen(false); }}
+                    style={{
+                        position: 'fixed', right: showCorpusChat ? 432 : 12, top: 116, zIndex: 60,
+                        background: showCorpusChat ? '#115054' : '#0D0D0D', color: showCorpusChat ? '#FFFFFF' : '#00B7C3',
+                        border: '1px solid #333', padding: '6px 14px', fontSize: 9,
+                        fontFamily: "'Helvetica Neue', Arial, sans-serif", fontWeight: 700,
+                        letterSpacing: '2px', textTransform: 'uppercase' as const,
+                        cursor: 'pointer', borderRadius: 2, transition: 'right 0.3s ease',
+                    }}
+                >
+                    {showCorpusChat ? 'CLOSE CHAT' : 'CHAT TO DATA'}
+                </button>
+            )}
+
+            {/* Corpus Chat Panel */}
+            <CorpusChatPanel
+                isOpen={showCorpusChat}
+                onToggle={() => setShowCorpusChat(false)}
+                context={{
+                    corpusText: corpusTextRef.current || '',
+                    themes: themes?.themes,
+                    personas: personas?.personas,
+                    recommendations: recommendations?.recommendations,
+                    journeyStages: journeyMap?.stages,
+                    prd: prd as any,
+                    roadmap: roadmap as any,
+                    gapAnalysis: (gapResult as any)?.analysis,
+                    techAudit: (techAuditResult as any)?.audit,
+                    competitiveAnalysis: (competitiveResult as any)?.analysis,
+                    techArchitecture: techArch?.architecture || (techResult as any)?.architecture,
+                    strategicReport: (strategicReportResult as any)?.report,
+                    researchGoal: researchGoal,
+                    sourceCount: (liveSourceResults || []).length,
+                    articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
+                } as ChatContext}
+            />
 
             {/* Main content area — full width, scrollable */}
             <div className="w-full overflow-y-auto pr-2" style={{ height: '100%' }}>
@@ -741,6 +788,7 @@ const App = () => {
     const [knowledgeGraph, setKnowledgeGraph] = useState<KGType>({ nodes: [], edges: [] });
     const kgBuiltRef = useRef<{ sources: boolean; themes: boolean; personas: boolean; recs: boolean; journey: boolean; prd: boolean; roadmap: boolean; gaps: boolean }>({ sources: false, themes: false, personas: false, recs: false, journey: false, prd: false, roadmap: false, gaps: false });
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
+    const [showCorpusChat, setShowCorpusChat] = useState(false);
 
     const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
@@ -2867,6 +2915,15 @@ ${synthesisParts.join('\n')}
                                setExcludedSources={setExcludedSources}
                                prioritySources={prioritySources}
                                setPrioritySources={setPrioritySources}
+                               showCorpusChat={showCorpusChat}
+                               setShowCorpusChat={setShowCorpusChat}
+                               corpusTextRef={corpusTextRef}
+                               researchGoal={researchGoal}
+                               gapResult={gapResult}
+                               techAuditResult={techAuditResult}
+                               competitiveResult={competitiveResult}
+                               strategicReportResult={strategicReportResult}
+                               techResult={techResult}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
@@ -2919,6 +2976,7 @@ ${synthesisParts.join('\n')}
 
                   {/* SUCCESS / RESULTS VIEW */}
                   {appState === AppState.SUCCESS && result && appMode === 'research' && (
+                      <>
                       <ResultsView
                           result={result}
                           onReset={handleReset}
@@ -2928,6 +2986,42 @@ ${synthesisParts.join('\n')}
                               setStatusMessage("Editing Data");
                           }}
                       />
+                      {/* Chat to Your Data — persists in results dashboard */}
+                      <button
+                          onClick={() => setShowCorpusChat(!showCorpusChat)}
+                          style={{
+                              position: 'fixed', right: showCorpusChat ? 432 : 12, top: 80, zIndex: 60,
+                              background: showCorpusChat ? '#115054' : '#0D0D0D', color: showCorpusChat ? '#FFFFFF' : '#00B7C3',
+                              border: '1px solid #333', padding: '6px 14px', fontSize: 9,
+                              fontFamily: "'Helvetica Neue', Arial, sans-serif", fontWeight: 700,
+                              letterSpacing: '2px', textTransform: 'uppercase' as const,
+                              cursor: 'pointer', borderRadius: 2, transition: 'right 0.3s ease',
+                          }}
+                      >
+                          {showCorpusChat ? 'CLOSE CHAT' : 'CHAT TO DATA'}
+                      </button>
+                      <CorpusChatPanel
+                          isOpen={showCorpusChat}
+                          onToggle={() => setShowCorpusChat(false)}
+                          context={{
+                              corpusText: corpusTextRef.current || '',
+                              themes: result.themes,
+                              personas: result.personas,
+                              recommendations: result.recommendations,
+                              journeyStages: result.journeyMap?.stages,
+                              prd: result.prd,
+                              roadmap: result.roadmap,
+                              gapAnalysis: result.gapAnalysis,
+                              techAudit: result.techAudit,
+                              competitiveAnalysis: result.competitiveAnalysis,
+                              techArchitecture: result.techArchitecture,
+                              strategicReport: result.strategicReport,
+                              researchGoal: researchGoal,
+                              sourceCount: liveSourceResults.length,
+                              articleCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
+                          } as ChatContext}
+                      />
+                      </>
                   )}
                   {appState === AppState.SUCCESS && heuristicReport && appMode === 'heuristic' && (
                       <HeuristicReportView
