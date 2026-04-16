@@ -777,7 +777,13 @@ const ResearchKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 
             </div>
 
             {/* SVG Canvas */}
-            <svg ref={svgRef} width="100%" height={height} style={{ background: '#FFFFFF' }} />
+            <svg ref={svgRef} width="100%" height={height} style={{ background: '#FFFFFF' }}
+                role="img" aria-label={`Research knowledge graph with ${graph.nodes.length} nodes and ${graph.edges.length} connections. Click nodes to view details. Use mouse to pan and scroll to zoom.`}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                    if (e.key === 'Escape' && selectedNode) setSelectedNode(null);
+                }}
+            />
 
             {/* FLOATING DETAIL PANEL */}
             {selectedNode && (

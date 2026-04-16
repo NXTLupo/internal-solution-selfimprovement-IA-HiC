@@ -1,0 +1,39 @@
+{
+  "name": "nxt-humans-in-control",
+  "version": "3.0.0",
+  "description": "Humans in Control Research Platform — AI-powered CX research intelligence with evidence-driven deliverables, deterministic quality hooks, and multi-agent generation",
+  "author": "NXT Humans",
+  "homepage": "https://github.com/NXT-Humans/NXT-HUMANS_AI_CX_WORKBENCH",
+  "license": "proprietary",
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "skills": [
+    "skills/theme-analyst",
+    "skills/persona-architect",
+    "skills/service-blueprint-mapper",
+    "skills/tech-arch-generator",
+    "skills/prd-compiler",
+    "skills/roadmap-builder",
+    "skills/strategy-author",
+    "skills/gap-analysis-evaluator",
+    "skills/tech-audit-inspector",
+    "skills/competitive-analyst",
+    "skills/strategic-report-writer",
+    "skills/deck-narrative-composer"
+  ],
+  "agents": [
+    "agents/parallel-runner.md"
+  ],
+  "hooks": "hooks/hooks.json",
+  "mcp": "../.mcp.json",
+  "keywords": [
+    "cx-research",
+    "strategy",
+    "consulting",
+    "evidence-driven",
+    "multi-agent",
+    "quality-hooks",
+    "mcp"
+  ]
+}
