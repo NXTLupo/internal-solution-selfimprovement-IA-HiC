@@ -258,8 +258,15 @@ const LiveResearchBoard = ({
                     uploadedFileContents: (() => {
                         try {
                             return files.map(f => {
-                                try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
-                                catch { return `=== FILE: ${f.name} === [binary content]\n`; }
+                                // Only decode text-based files (TXT, JSON, CSV, converted DOCX)
+                                // PDFs are binary — their content is in corpusTextRef from ingestion
+                                const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
+                                    f.name.endsWith('.json') || f.name.endsWith('.csv');
+                                if (isText) {
+                                    try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
+                                    catch { return `=== FILE: ${f.name} === [decode error]\n`; }
+                                }
+                                return `=== FILE: ${f.name} === [PDF — content available in research corpus below]\n`;
                             }).join('\n');
                         } catch { return ''; }
                     })(),
@@ -3022,8 +3029,13 @@ ${synthesisParts.join('\n')}
                               uploadedFileContents: (() => {
                                   try {
                                       return files.map(f => {
-                                          try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
-                                          catch { return `=== FILE: ${f.name} === [binary content]\n`; }
+                                          const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
+                                              f.name.endsWith('.json') || f.name.endsWith('.csv');
+                                          if (isText) {
+                                              try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
+                                              catch { return `=== FILE: ${f.name} === [decode error]\n`; }
+                                          }
+                                          return `=== FILE: ${f.name} === [PDF — content in corpus]\n`;
                                       }).join('\n');
                                   } catch { return ''; }
                               })(),

@@ -152,10 +152,24 @@ function buildGroundingContext(ctx: ChatContext): string {
 
     // Include uploaded client documents (PDFs, proposals, reports, transcripts)
     // These are the PRIMARY organizational context — the user's own data
-    if (ctx.uploadedFileContents) {
+    if (ctx.uploadedFileContents && ctx.uploadedFileContents.trim().length > 10) {
         parts.push(`=== UPLOADED CLIENT DOCUMENTS (the user's own organizational data — ALWAYS reference these) ===`);
         parts.push(ctx.uploadedFileContents.substring(0, 200000)); // 200KB cap for uploaded docs
         parts.push(`=== END CLIENT DOCUMENTS ===`);
+        parts.push('');
+    }
+
+    // If corpus text contains ingested content (which includes extracted PDF text),
+    // it supersedes the raw file decode above. The corpus has the FULL extracted text
+    // from PDFs that were processed during ingestion.
+    // Check if corpus is available and substantial:
+    if (ctx.corpusText && ctx.corpusText.length > 100) {
+        // Corpus is populated — it contains ALL uploaded file text + intelligence sources
+        // This is the complete picture after ingestion
+    } else if (ctx.uploadedFileContents && ctx.uploadedFileContents.includes('[PDF')) {
+        // PDFs uploaded but corpus not yet built (pre-ingestion)
+        // Tell the AI that PDF content will be available after ingestion
+        parts.push(`NOTE: ${(ctx.uploadedFileContents.match(/\[PDF/g) || []).length} PDF files have been uploaded but their text content will be fully available after the ingestion phase processes them. For now, answer based on available text files and intelligence sources.`);
         parts.push('');
     }
 
