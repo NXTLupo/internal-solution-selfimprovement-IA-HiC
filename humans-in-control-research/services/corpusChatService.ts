@@ -13,7 +13,7 @@
  * deliverables) is injected as grounding context for every query.
  */
 
-export type ChatModel = 'claude-opus-4-6' | 'o3-mini' | 'gemini-3.1-pro';
+export type ChatModel = 'claude-opus-4-6' | 'o3-mini' | 'gemini-2.5-flash';
 
 export interface ChatMessage {
     id: string;
@@ -76,12 +76,12 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         available: !!(process.env.OPENAI_API_KEY),
     },
     {
-        id: 'gemini-3.1-pro',
-        name: 'Gemini 3.1 Pro',
+        id: 'gemini-2.5-flash',
+        name: 'Gemini 2.5 Flash',
         provider: 'google',
-        description: 'Google flagship — 2M context window, multimodal, complex reasoning',
-        contextWindow: '2M tokens',
-        strengths: 'Massive context, multimodal, comprehensive synthesis',
+        description: 'Google reasoning model — 1M context, fast, multimodal',
+        contextWindow: '1M tokens',
+        strengths: 'Fast responses, large context, comprehensive synthesis',
         color: '#B8B800',
         available: !!(process.env.API_KEY || process.env.GEMINI_API_KEY),
     },
@@ -207,7 +207,7 @@ ${groundingContext}`;
             responseText = await callAnthropic(systemPrompt, userMessage, conversationHistory);
         } else if (model === 'o3-mini') {
             responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory);
-        } else if (model === 'gemini-3.1-pro') {
+        } else if (model === 'gemini-2.5-flash') {
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory);
         }
 
@@ -282,21 +282,22 @@ async function callOpenAI(system: string, userMsg: string, history: ChatMessage[
 }
 
 async function callGemini(system: string, userMsg: string, history: ChatMessage[]): Promise<string> {
-    const contents = `${system}\n\nConversation:\n${history.map(m => `${m.role}: ${m.content}`).join('\n')}\n\nuser: ${userMsg}`;
+    // Use the Google GenAI SDK directly (same as geminiService.ts) with the app's API key
+    const { GoogleGenAI } = await import('@google/genai');
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
 
-    const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            model: 'gemini-3.1-pro',
-            contents,
-            config: { temperature: 0.2 },
-        }),
+    const ai = new GoogleGenAI({ apiKey });
+    const conversationText = history.map(m => `${m.role}: ${m.content}`).join('\n');
+    const fullPrompt = `${system}\n\n${conversationText ? `Previous conversation:\n${conversationText}\n\n` : ''}User question: ${userMsg}`;
+
+    const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: { parts: [{ text: fullPrompt }] },
+        config: { temperature: 0.2 },
     });
 
-    if (!resp.ok) throw new Error(`Gemini API error: ${resp.status}`);
-    const data = await resp.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
+    return response.text || 'No response';
 }
 
 /**
