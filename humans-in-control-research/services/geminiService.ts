@@ -2774,7 +2774,142 @@ Output JSON.`;
             required: ['methodology', 'report']
         };
 
-        return this.executeStep<any>(prompt, schema, [], onStream);
+        // PHASE 1: Generate executive summary + diagnosis + pillars in the chat session
+        onStream('Phase 1: Generating executive framework (diagnosis, pillars, summary)...');
+        const frameworkResult = await this.executeStep<any>(prompt, schema, [], onStream);
+
+        // Extract the framework from Phase 1
+        const report = frameworkResult?.report || {};
+        const executiveSummary = report.executiveSummary || '';
+        const diagnosis = report.diagnosis || '';
+        const guidingPolicy = report.guidingPolicy || '';
+        const strategicPillars = report.strategicPillars || [];
+        const phase1Sections = report.sections || [];
+
+        // PHASE 2: Generate REMAINING sections individually via standalone calls
+        // The Phase 1 call may have generated some sections but often runs out of tokens.
+        // We generate each missing section with a dedicated call that receives ONLY
+        // the relevant deliverable data + the executive summary as context anchor.
+        const sectionManifest: { title: string; sourceDeliverable: string; data: string }[] = [];
+
+        if (context.personas?.length) {
+            for (const p of context.personas.slice(0, 4)) {
+                sectionManifest.push({
+                    title: `PERSONA: ${p.name}`,
+                    sourceDeliverable: 'personas',
+                    data: serializePersonas([p])
+                });
+            }
+        }
+        if (context.journeyStages?.length) {
+            sectionManifest.push({ title: 'SERVICE JOURNEY ANALYSIS', sourceDeliverable: 'journey_map', data: serializeJourney(context.journeyStages) });
+        }
+        if (context.gapAnalysis) {
+            sectionManifest.push({ title: 'CAPABILITY GAP ASSESSMENT', sourceDeliverable: 'gap_analysis', data: serializeGapAnalysis(context.gapAnalysis) });
+        }
+        if (context.competitiveAnalysis) {
+            sectionManifest.push({ title: 'COMPETITIVE POSITIONING', sourceDeliverable: 'competitive_analysis', data: serializeCompetitive(context.competitiveAnalysis) });
+        }
+        if (context.techAudit) {
+            sectionManifest.push({ title: 'TECHNOLOGY ECOSYSTEM', sourceDeliverable: 'tech_audit', data: serializeTechAudit(context.techAudit) });
+        }
+        if (context.recommendations?.length) {
+            sectionManifest.push({ title: 'STRATEGIC RECOMMENDATIONS', sourceDeliverable: 'recommendations', data: serializeRecommendations(context.recommendations) });
+        }
+        if (context.prd) {
+            sectionManifest.push({ title: 'PRODUCT REQUIREMENTS', sourceDeliverable: 'prd', data: serializePRD(context.prd) });
+        }
+        if (context.roadmap) {
+            sectionManifest.push({ title: 'IMPLEMENTATION ROADMAP', sourceDeliverable: 'roadmap', data: serializeRoadmap(context.roadmap) });
+        }
+        if (context.techArchitecture) {
+            sectionManifest.push({ title: 'ARCHITECTURE DIRECTION', sourceDeliverable: 'tech_architecture', data: serializeTechArch(context.techArchitecture) });
+        }
+
+        // Check which sections Phase 1 already generated
+        const generatedDeliverables = new Set(phase1Sections.map((s: any) => s.sourceDeliverable));
+        const missingSections = sectionManifest.filter(s => !generatedDeliverables.has(s.sourceDeliverable));
+
+        if (missingSections.length > 0) {
+            onStream(`Phase 2: Generating ${missingSections.length} remaining sections individually...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const sectionSchema: any = {
+                type: 'OBJECT',
+                properties: {
+                    sectionNumber: { type: 'INTEGER' },
+                    title: { type: 'STRING' },
+                    content: { type: 'STRING' },
+                    sourceDeliverable: { type: 'STRING' },
+                    citations: { type: 'ARRAY', items: { type: 'STRING' } },
+                    keyMetrics: { type: 'ARRAY', items: { type: 'OBJECT', properties: { label: { type: 'STRING' }, value: { type: 'STRING' }, context: { type: 'STRING' } }, required: ['label', 'value'] } },
+                    keyQuote: { type: 'OBJECT', properties: { text: { type: 'STRING' }, attribution: { type: 'STRING' }, source: { type: 'STRING' } } },
+                    evidenceGap: { type: 'STRING' },
+                },
+                required: ['sectionNumber', 'title', 'content', 'sourceDeliverable', 'citations']
+            };
+
+            let sectionNum = phase1Sections.length + 1;
+            for (const manifest of missingSections) {
+                onStream(`Writing section: ${manifest.title}...`);
+                const sectionPrompt = `You are a McKinsey-trained strategy consultant writing ONE section of a strategic research report.
+
+CONTEXT (the report's executive framework):
+DIAGNOSIS: ${diagnosis}
+GUIDING POLICY: ${guidingPolicy}
+PILLARS: ${strategicPillars.join('; ')}
+
+YOUR TASK: Write section "${manifest.title}" (sourceDeliverable: "${manifest.sourceDeliverable}").
+
+THIS SECTION MUST:
+1. Be 400-800 words of analytical prose — NOT bullet points, NOT a summary
+2. INTRODUCE and CONTEXTUALIZE the deliverable: explain what this analysis IS, what methodology was used, and what it reveals about the research subject
+3. Include keyMetrics (2-4 specific numbers from the data)
+4. Include a keyQuote (verbatim from a named source)
+5. Include 5-10 citations (real source names, not "research" or "studies")
+6. Lead with EXTERNAL research evidence, then contextualize with client documents
+7. If this is a persona section, write as an investigative profile — tell their story with evidence
+8. If this is a journey section, walk through each stage with what breaks and why
+9. If this is a gap/competitive/audit section, present findings with maturity scores and evidence
+
+DELIVERABLE DATA:
+${manifest.data}
+
+${evidenceCatalog ? 'EVIDENCE CATALOG (cite from this):\n' + evidenceCatalog.substring(0, 30000) : ''}
+
+PLAIN TEXT ONLY. No markdown. No bullet lists unless the data is inherently a list.
+Output JSON matching the section schema.`;
+
+                try {
+                    const sectionResponse = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: sectionPrompt }] },
+                        config: { responseMimeType: 'application/json', responseSchema: sectionSchema, temperature: 0.3 }
+                    }), 3, 3000, `Report Section: ${manifest.title}`);
+
+                    const sectionText = sectionResponse.text || '{}';
+                    const section = JSON.parse(tryRepairJson(sectionText));
+                    section.sectionNumber = sectionNum++;
+                    section.sourceDeliverable = manifest.sourceDeliverable;
+                    phase1Sections.push(section);
+                } catch (e) {
+                    console.warn(`[StrategicReport] Failed to generate section "${manifest.title}":`, e);
+                    // Create stub section so the report isn't missing it entirely
+                    phase1Sections.push({
+                        sectionNumber: sectionNum++,
+                        title: manifest.title,
+                        content: `This section could not be generated. The ${manifest.sourceDeliverable} deliverable data is available for review in the corresponding output tab.`,
+                        sourceDeliverable: manifest.sourceDeliverable,
+                        citations: [],
+                        evidenceGap: 'Section generation failed — review deliverable directly.'
+                    });
+                }
+            }
+        }
+
+        // Assemble final report
+        report.sections = phase1Sections;
+        onStream(`Strategic Report complete: ${phase1Sections.length} sections generated.`);
+        return { methodology: frameworkResult?.methodology || '', report };
     }
 
     async visualizeNarrative(narrativeData: StepResult_Narrative, context: DeckInputContext, outputs: OutputOption[], onStatus: (s: string) => void, onStream?: (t: string) => void): Promise<StepResult_Final> {
