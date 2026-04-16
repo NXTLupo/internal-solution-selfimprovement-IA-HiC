@@ -25,6 +25,15 @@ export interface ChatMessage {
     durationMs?: number;
 }
 
+export interface SourceReference {
+    id: string;                   // CHUNK_XXX or source::index
+    sourceName: string;           // "Higher Ed Dive", "Reddit: r/philanthropy"
+    title: string;                // Article title
+    url?: string;                 // Clickable URL
+    tier?: number;                // Credibility tier (1/2/3)
+    date?: string;                // Publication date
+}
+
 export interface ChatContext {
     corpusText: string;           // Full curated corpus (all included articles)
     themes?: any[];               // Generated themes with citations
@@ -41,6 +50,8 @@ export interface ChatContext {
     researchGoal: string;         // The user's research objective
     sourceCount: number;          // Number of data sources
     articleCount: number;         // Number of articles collected
+    sourceReferences?: SourceReference[]; // Full provenance index for citation linking
+    chunkMap?: Record<string, { sourceName: string; title: string; url?: string }>; // CHUNK_XXX resolution
 }
 
 export interface ModelConfig {
@@ -186,17 +197,35 @@ export async function sendChatMessage(
     const startTime = Date.now();
     const groundingContext = buildGroundingContext(context);
 
+    // Build source provenance index for citation rendering
+    const provenanceIndex = (context.sourceReferences || []).map(s =>
+        `[${s.id}] ${s.sourceName}: "${s.title}"${s.url ? ` URL: ${s.url}` : ''}${s.date ? ` (${s.date})` : ''}`
+    ).join('\n');
+
     const systemPrompt = `You are a research intelligence assistant grounded in a comprehensive research corpus.
 You have access to ${context.sourceCount} data sources containing ${context.articleCount} articles collected for this research.
 The research goal is: "${context.researchGoal}"
 
+CITATION FORMAT (MANDATORY — every claim must have a citation):
+When citing evidence, use this exact format: [SOURCE_NAME: "Article Title"]
+Examples:
+- [Higher Ed Dive: "Universities Struggle with Skills Gap"]
+- [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"]
+- [OpenAlex: "Experiential Learning Outcomes Study"]
+- [ERIC: "Donor Motivation and Retention Patterns"]
+- [Federal Register: "Workforce Pell Grants Final Rule"]
+
 RULES:
 - Answer ONLY from the evidence in the corpus. Do not hallucinate or invent data.
-- Cite specific sources by name (e.g., "According to Higher Ed Dive...", "A Reddit user on r/philanthropy wrote...")
+- EVERY factual claim MUST include a [SOURCE_NAME: "Article Title"] citation
+- Quote specific data: numbers, percentages, dates, dollar amounts, verbatim quotes
+- When quoting a person or post, use their exact words in quotation marks
+- When asked for "top N" items, rank by evidence strength (number of supporting sources)
+- When asked about themes, personas, or deliverables, reference the generated outputs WITH their underlying source citations
+- Include URLs when available so the user can visit the original source
 - If the corpus does not contain information to answer the question, say: "The collected data does not contain evidence for this question."
-- Use specific numbers, quotes, dates, and statistics from the sources.
-- When asked for "top N" items, rank by evidence strength (number of supporting sources).
-- When asked about themes, personas, or deliverables, reference the generated outputs.
+
+${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.length || 0} sources — cite by [SOURCE_NAME: "Title"] format) ===\n${provenanceIndex}\n=== END PROVENANCE ===\n` : ''}
 
 ${groundingContext}`;
 
@@ -298,6 +327,86 @@ async function callGemini(system: string, userMsg: string, history: ChatMessage[
     });
 
     return response.text || 'No response';
+}
+
+/**
+ * Parse chat response text and extract structured citations for rendering.
+ * Finds [SOURCE_NAME: "Article Title"] patterns and resolves them against
+ * the source provenance index to get URLs.
+ */
+export function parseChatCitations(
+    text: string,
+    sourceRefs?: SourceReference[]
+): { segments: Array<{ type: 'text' | 'citation'; content: string; sourceName?: string; title?: string; url?: string }> } {
+    const segments: Array<{ type: 'text' | 'citation'; content: string; sourceName?: string; title?: string; url?: string }> = [];
+    const citationPattern = /\[([^\]:]+):\s*"([^"]+)"\]/g;
+
+    let lastIndex = 0;
+    let match;
+
+    while ((match = citationPattern.exec(text)) !== null) {
+        // Add text before this citation
+        if (match.index > lastIndex) {
+            segments.push({ type: 'text', content: text.substring(lastIndex, match.index) });
+        }
+
+        const sourceName = match[1].trim();
+        const articleTitle = match[2].trim();
+
+        // Try to resolve URL from provenance index
+        let url: string | undefined;
+        if (sourceRefs) {
+            const ref = sourceRefs.find(r =>
+                r.sourceName.toLowerCase().includes(sourceName.toLowerCase()) ||
+                sourceName.toLowerCase().includes(r.sourceName.toLowerCase()) ||
+                (r.title && r.title.toLowerCase().includes(articleTitle.toLowerCase().substring(0, 30)))
+            );
+            if (ref?.url) url = ref.url;
+        }
+
+        segments.push({
+            type: 'citation',
+            content: match[0],
+            sourceName,
+            title: articleTitle,
+            url,
+        });
+
+        lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+        segments.push({ type: 'text', content: text.substring(lastIndex) });
+    }
+
+    // If no citations found, return the whole text as one segment
+    if (segments.length === 0) {
+        segments.push({ type: 'text', content: text });
+    }
+
+    return { segments };
+}
+
+/**
+ * Build SourceReference[] from liveSourceResults for the chat provenance index.
+ */
+export function buildSourceReferences(liveSourceResults: any[]): SourceReference[] {
+    const refs: SourceReference[] = [];
+    for (const src of liveSourceResults) {
+        for (let j = 0; j < (src.items || []).length; j++) {
+            const item = src.items[j];
+            refs.push({
+                id: `${src.sourceId}::${j}`,
+                sourceName: src.source || src.sourceId || '',
+                title: item.title || '',
+                url: item.url || '',
+                tier: src.credibilityTier || 3,
+                date: item.date || '',
+            });
+        }
+    }
+    return refs;
 }
 
 /**

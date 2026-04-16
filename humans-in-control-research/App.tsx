@@ -10,6 +10,8 @@ import LiveSourceFeed from './components/LiveSourceFeed';
 import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import type { ChatContext } from './services/corpusChatService';
+import { buildSourceReferences } from './services/corpusChatService';
+import { getChunkSourceMap } from './services/researchFabricOrchestrator';
 import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, addJourneyStagesToGraph, addPRDFeaturesToGraph, addRoadmapToGraph, addGapAnalysisToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
 import { runHeuristicAnalysis } from './services/heuristicAnalysisService';
@@ -266,6 +268,8 @@ const LiveResearchBoard = ({
                     researchGoal: researchGoal,
                     sourceCount: (liveSourceResults || []).length,
                     articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
+                    sourceReferences: buildSourceReferences(liveSourceResults || []),
+                    chunkMap: getChunkSourceMap(),
                 } as ChatContext}
             />
 
@@ -3019,6 +3023,8 @@ ${synthesisParts.join('\n')}
                               researchGoal: researchGoal,
                               sourceCount: liveSourceResults.length,
                               articleCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
+                              sourceReferences: buildSourceReferences(liveSourceResults),
+                              chunkMap: getChunkSourceMap(),
                           } as ChatContext}
                       />
                       </>

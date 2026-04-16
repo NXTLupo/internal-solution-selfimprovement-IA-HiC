@@ -13,7 +13,7 @@
  */
 
 import React, { useState, useRef, useEffect } from 'react';
-import { sendChatMessage, AVAILABLE_MODELS, ChatMessage, ChatModel, ChatContext } from '../services/corpusChatService';
+import { sendChatMessage, AVAILABLE_MODELS, ChatMessage, ChatModel, ChatContext, parseChatCitations } from '../services/corpusChatService';
 
 interface Props {
     context: ChatContext;
@@ -223,7 +223,49 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, isOpen, onToggle }) 
                             borderLeft: msg.role === 'assistant' ? `3px solid ${AVAILABLE_MODELS.find(m => m.id === msg.model)?.color || '#888'}` : 'none',
                             position: 'relative',
                         }}>
-                            {msg.content}
+                            {msg.role === 'assistant' ? (() => {
+                                const { segments } = parseChatCitations(msg.content, context.sourceReferences);
+                                return segments.map((seg, si) => {
+                                    if (seg.type === 'citation') {
+                                        return (
+                                            <span key={si} style={{ display: 'inline' }}>
+                                                {seg.url ? (
+                                                    <a
+                                                        href={seg.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        title={`${seg.sourceName}: ${seg.title}\nClick to visit source`}
+                                                        style={{
+                                                            color: '#115054', background: '#E8F4F5',
+                                                            padding: '1px 6px', borderRadius: 2,
+                                                            textDecoration: 'none', fontSize: 11,
+                                                            fontWeight: 600, cursor: 'pointer',
+                                                            borderBottom: '1px solid #00B7C3',
+                                                        }}
+                                                        onMouseEnter={e => { (e.target as HTMLElement).style.background = '#D0EEF0'; }}
+                                                        onMouseLeave={e => { (e.target as HTMLElement).style.background = '#E8F4F5'; }}
+                                                    >
+                                                        {seg.sourceName}: "{seg.title?.substring(0, 50)}{(seg.title?.length || 0) > 50 ? '...' : ''}"
+                                                        <span style={{ fontSize: 9, marginLeft: 3, color: '#00B7C3' }}>&#8599;</span>
+                                                    </a>
+                                                ) : (
+                                                    <span
+                                                        title={`${seg.sourceName}: ${seg.title}`}
+                                                        style={{
+                                                            color: '#115054', background: '#F0F0E8',
+                                                            padding: '1px 6px', borderRadius: 2,
+                                                            fontSize: 11, fontWeight: 600,
+                                                        }}
+                                                    >
+                                                        {seg.sourceName}: "{seg.title?.substring(0, 50)}{(seg.title?.length || 0) > 50 ? '...' : ''}"
+                                                    </span>
+                                                )}
+                                            </span>
+                                        );
+                                    }
+                                    return <span key={si}>{seg.content}</span>;
+                                });
+                            })() : msg.content}
                             {msg.role === 'assistant' && (
                                 <div style={{ display: 'flex', gap: 4, marginTop: 8, borderTop: '1px solid #E0E0E0', paddingTop: 6 }}>
                                     <button
