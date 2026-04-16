@@ -41,6 +41,18 @@ This file loads into every Claude agent session. All skills and subagents inheri
 4. At least 60% of cited sources must be external (not client uploads)
 5. FORBIDDEN: Opening any section with "The CLR Project Charter states..." without prior external evidence
 
+### CRITICAL: External Intelligence Diversity
+The research corpus contains TWO categories:
+- **UPLOADED CLIENT DOCUMENTS** (3-10 PDFs the user uploaded): Organizational context
+- **EXTERNAL INTELLIGENCE** (~200 articles from academic, news, government, social sources): Primary evidence base
+
+The user chose to INCLUDE these ~200 articles. They MUST be heavily represented in ALL deliverables:
+- At least 50% of themes must cite external intelligence sources
+- At least 30% of ALL citations must come from external sources
+- Uploaded documents (*.pdf, *.txt filenames) provide context — external sources provide EVIDENCE
+- If most citations reference the same 4-5 uploaded PDFs, the deliverable is FAILING
+- The validation hook WILL REJECT output dominated by client documents
+
 ## Consulting Frameworks
 
 ### Minto Pyramid Principle

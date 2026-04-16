@@ -24,9 +24,28 @@ CLIENT_DOC_PATTERNS = [
 ]
 
 
+UPLOADED_FILE_PATTERNS = [
+    re.compile(r'\.pdf$', re.I),
+    re.compile(r'\.txt$', re.I),
+    re.compile(r'\.docx?$', re.I),
+    re.compile(r'assessment.*report', re.I),
+    re.compile(r'alumni.*research', re.I),
+    re.compile(r'transcript.*summary', re.I),
+    re.compile(r'digital.*opportunity', re.I),
+    re.compile(r'notebooklm', re.I),
+    re.compile(r'pre\s*read', re.I),
+    re.compile(r'smarty\s*pants', re.I),
+    re.compile(r'ccs\s*fundraising', re.I),
+]
+
+
 def is_client_doc(source_name):
-    """Check if a source name matches a client document pattern."""
+    """Check if a source name matches a client/uploaded document pattern."""
     for pattern in CLIENT_DOC_PATTERNS:
+        if pattern.search(source_name):
+            return True
+    # Also check for uploaded file patterns (PDFs, reports, assessments)
+    for pattern in UPLOADED_FILE_PATTERNS:
         if pattern.search(source_name):
             return True
     return False

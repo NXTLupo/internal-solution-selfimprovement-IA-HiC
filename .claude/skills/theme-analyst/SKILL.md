@@ -100,10 +100,35 @@ The corpus is organized with Tier 1 sources first, Tier 2 second, Tier 3 last. Y
 - "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
 - "isCrossDocument" = true if evidence spans 2+ different source names (this should be TRUE for most themes)
 
+## CRITICAL: External Intelligence Diversity Mandate
+
+The corpus contains TWO categories of data:
+1. **UPLOADED CLIENT DOCUMENTS** (PDFs the user uploaded — typically 3-10 files)
+2. **EXTERNAL INTELLIGENCE** (200+ articles collected from academic, news, government, social, and AI sources)
+
+**The external intelligence sources are the PRIMARY evidence base.** The user chose to include ~200 articles from dozens of sources. These MUST be heavily represented in themes.
+
+### Mandatory Balance Rules
+
+- **At least 50% of themes MUST be grounded primarily in EXTERNAL intelligence** (not uploaded client PDFs)
+- **At least 30% of ALL citations across all themes must come from EXTERNAL sources** (CHUNK_XXX from intelligence_sources, not from uploaded PDF filenames)
+- **Uploaded client documents provide ORGANIZATIONAL CONTEXT** — they tell you about the client's situation. External intelligence provides EVIDENCE of broader trends, competitive dynamics, best practices, and market forces.
+- **The strongest themes WEAVE BOTH**: an external research finding corroborated by internal client data.
+
+### How to Identify Source Types
+- **Uploaded client docs**: Citations referencing filenames like "*.pdf", "*.txt" with specific document names (e.g., "Northeastern Assessment Final Report PRE READ.pdf", "CLR Project Charter.txt")
+- **External intelligence**: Citations referencing source platforms (e.g., "Higher Ed Dive", "Reddit", "OpenAlex", "ERIC", "Federal Register", "eCampus News", "arXiv", "NIST", "Hechinger Report") or CHUNK_XXX IDs from the intelligence_sources file
+
+### Example of GOOD Theme Balance
+A theme should look like: "Federal Register data shows Workforce Pell Grants expanding [EXTERNAL]. NIST awarded $3M for cybersecurity workforce development [EXTERNAL]. This aligns with the CLR Project Charter's goal of skills validation [CLIENT DOC]."
+
+NOT: "The CLR Project Charter states X [CLIENT DOC]. The Assessment Report confirms Y [CLIENT DOC]. The Transcript Summary adds Z [CLIENT DOC]." — This theme is entirely client-doc-driven and misses the external evidence.
+
 ## Anti-Patterns
 
-These will cause rejection:
+These will cause REJECTION by the quality hook:
 
+- **CLIENT-DOC DOMINANCE**: More than 70% of citations referencing uploaded PDF filenames instead of external intelligence sources. The user included ~200 external articles — USE THEM.
 - Themes derived ONLY from Reddit or social sources when academic/news data exists
 - Generating only 1-2 themes from a corpus with 100+ chunks
 - Generic theme names without specificity (e.g. "Technology" instead of a concrete finding)
@@ -112,3 +137,5 @@ These will cause rejection:
 - All themes from the same source type (e.g., all from Reddit, ignoring academic papers)
 - All citations drawn from the first 50 chunks while the corpus extends to CHUNK_300+
 - Themes that fail the cross-document test (only one source name cited)
+- **RECENCY BIAS**: Ignoring older but highly relevant academic research in favor of only recent news
+- **ECHO CHAMBER**: Multiple themes that are essentially the same finding rephrased, instead of diverse findings from different source categories

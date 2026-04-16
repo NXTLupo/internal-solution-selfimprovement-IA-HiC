@@ -675,13 +675,23 @@ CITATION REQUIREMENTS (non-negotiable):
 - "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
 - "isCrossDocument" = true if evidence spans 2+ different source names (this should be TRUE for most themes)
 
+CRITICAL — EXTERNAL INTELLIGENCE DIVERSITY MANDATE:
+The corpus contains UPLOADED CLIENT DOCUMENTS (3-10 PDFs) and EXTERNAL INTELLIGENCE (~200 articles from academic, news, government, social, AI sources).
+- At least 50% of themes MUST be grounded primarily in EXTERNAL intelligence (not uploaded PDFs)
+- At least 30% of ALL citations must come from external sources (Higher Ed Dive, Reddit, OpenAlex, ERIC, Federal Register, arXiv, NIST, etc.)
+- Uploaded documents provide organizational context. External intelligence provides evidence of trends, competition, and best practices.
+- The STRONGEST themes weave both: external finding + client context alignment
+- If you find yourself citing the same 4-5 uploaded PDFs for most themes, STOP and go read the CHUNK_XXX items from the intelligence_sources section of the corpus
+
 ANTI-PATTERNS (these will be rejected):
+- CLIENT-DOC DOMINANCE: More than 70% of citations referencing uploaded PDF filenames. The user included ~200 external articles — USE THEM.
 - Themes derived ONLY from Reddit or social sources when academic/news data exists
 - Generating only 1-2 themes from a corpus with 100+ chunks
 - Generic theme names without specificity
 - Descriptions that don't cite specific evidence
 - Missing URLs when the chunk clearly has one
 - All themes from the same source type (e.g., all from Reddit, ignoring academic papers)
+- ECHO CHAMBER: Multiple themes restating the same finding instead of diverse findings from different source categories
 
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
