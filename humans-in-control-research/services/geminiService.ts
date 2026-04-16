@@ -1012,14 +1012,32 @@ Output JSON.`;
             },
             required: ["methodology", "recommendations"]
         };
+        onStream('Phase 1: Generating strategic recommendations...');
         const result = await this.executeStep<StepResult_Recommendations>(prompt, schema, [], onStream);
         if (!result.recommendations) result.recommendations = [];
-        // Ensure actionItems exist
-        result.recommendations.forEach(r => {
-            if (!r.actionItems) r.actionItems = [];
-        });
+        result.recommendations.forEach(r => { if (!r.actionItems) r.actionItems = []; });
 
-        // Validate and auto-retry if evidence is thin
+        // Phase 1B: Enrich recommendations that have thin evidence (token exhaustion on later recs)
+        const thinRecs = result.recommendations.filter(r => !r.citations?.length || !r.evidenceBasis);
+        if (thinRecs.length > 0) {
+            onStream(`Phase 1B: Enriching ${thinRecs.length} recommendations with evidence...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            for (const rec of thinRecs) {
+                try {
+                    const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: `Enrich this recommendation with evidence from the research corpus.\n\nTitle: ${rec.title}\nDescription: ${rec.description}\nImpact: ${rec.impactLevel}\n\nProvide:\n1. citations: 2-4 source names that evidence this recommendation\n2. evidenceBasis: 1-2 sentences with specific data (numbers, quotes, names)\n3. actionItems: 4-5 specific actions (each starts with verb + WHO + WHAT + WHEN)\n\nOutput JSON with fields: citations (array of strings), evidenceBasis (string), actionItems (array of strings).` }] },
+                        config: { responseMimeType: 'application/json', temperature: 0.2 }
+                    }), 2, 2000, `Enrich rec: ${rec.title.substring(0, 30)}`);
+                    const enriched = JSON.parse(tryRepairJson(enrichResp.text || '{}'));
+                    if (enriched.citations?.length) rec.citations = enriched.citations;
+                    if (enriched.evidenceBasis) rec.evidenceBasis = enriched.evidenceBasis;
+                    if (enriched.actionItems?.length > (rec.actionItems?.length || 0)) rec.actionItems = enriched.actionItems;
+                } catch (e) { /* non-blocking enrichment */ }
+            }
+        }
+
+        // Validate
         const validation = validateDeliverableOutput(result, 'recommendations');
         if (!validation.valid && !feedback) {
             console.log(`[Validation] ${validation.failures.length} issues, auto-retrying...`);
@@ -1261,7 +1279,28 @@ Output JSON.`;
         const result = await this.executeStep<StepResult_JourneyMap>(prompt, schema, [], onStream);
         if (!result.stages) result.stages = [];
 
-        // Validate and auto-retry if evidence is thin
+        // Phase 2: Enrich stages with thin evidence (token exhaustion on later stages)
+        const thinStages = result.stages.filter(s => !s.citations?.length || !s.evidenceBasis || !s.fail_point);
+        if (thinStages.length > 0 && result.stages.length > 0) {
+            onStream(`Enriching ${thinStages.length} stages with evidence...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            for (const stage of thinStages) {
+                try {
+                    const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: `Enrich this service blueprint stage with evidence.\n\nPhase: ${stage.phase}\nCustomer Action: ${stage.customerAction}\nPain Point: ${stage.painPoint}\nEmotion: ${stage.emotion}\n\nProvide:\n1. citations: 2-4 source names evidencing this stage\n2. evidenceBasis: 1-2 sentences with specific research data\n3. fail_point: What fails at this stage, frequency, consequence\n4. technologySystems: Specific systems/platforms supporting this stage\n\nOutput JSON.` }] },
+                        config: { responseMimeType: 'application/json', temperature: 0.2 }
+                    }), 2, 2000, `Enrich stage: ${stage.phase}`);
+                    const enriched = JSON.parse(tryRepairJson(enrichResp.text || '{}'));
+                    if (enriched.citations?.length && !stage.citations?.length) stage.citations = enriched.citations;
+                    if (enriched.evidenceBasis && !stage.evidenceBasis) (stage as any).evidenceBasis = enriched.evidenceBasis;
+                    if (enriched.fail_point && !stage.fail_point) stage.fail_point = enriched.fail_point;
+                    if (enriched.technologySystems && !stage.technologySystems) stage.technologySystems = enriched.technologySystems;
+                } catch (e) { /* non-blocking */ }
+            }
+        }
+
+        // Validate
         const validation = validateDeliverableOutput(result, 'journey_map');
         if (!validation.valid && !feedback) {
             console.log(`[Validation] ${validation.failures.length} issues, auto-retrying...`);
@@ -1352,8 +1391,8 @@ Output JSON.`;
         if (!result.prd.successMetrics) result.prd.successMetrics = [];
         if (!result.prd.sections) result.prd.sections = [];
 
-        // PHASE 2: If features are empty (token exhaustion), generate them in a dedicated call
-        if (result.prd.features.length === 0) {
+        // PHASE 2: If features are empty OR undercounted (token exhaustion), generate them in a dedicated call
+        if (result.prd.features.length < 5) {
             onStream('Phase 2: Generating product features...');
             const featurePrompt = `STEP: GENERATE PRODUCT FEATURES for the PRD "${result.prd.title}".
 
@@ -1477,7 +1516,28 @@ Output JSON.`;
         if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
         if (!result.roadmap.items) result.roadmap.items = [];
 
-        // Validate and auto-retry if evidence is thin
+        // Phase 2: Enrich roadmap items with thin evidence
+        const thinItems = result.roadmap.items.filter(i => !i.citations?.length || !i.evidenceBasis);
+        if (thinItems.length > 0) {
+            onStream(`Enriching ${thinItems.length} roadmap items with evidence...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            for (const item of thinItems) {
+                try {
+                    const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: `Enrich this roadmap initiative with evidence.\n\nInitiative: ${item.initiative}\nHorizon: ${item.horizon}\nDescription: ${item.description}\n\nProvide:\n1. citations: 2-3 source names evidencing this initiative\n2. evidenceBasis: 1-2 sentences with specific data proving the need\n3. successMetric: A specific measurable target with baseline\n4. dependencies: What must happen first\n\nOutput JSON.` }] },
+                        config: { responseMimeType: 'application/json', temperature: 0.2 }
+                    }), 2, 2000, `Enrich roadmap: ${item.initiative.substring(0, 30)}`);
+                    const enriched = JSON.parse(tryRepairJson(enrichResp.text || '{}'));
+                    if (enriched.citations?.length) item.citations = enriched.citations;
+                    if (enriched.evidenceBasis) item.evidenceBasis = enriched.evidenceBasis;
+                    if (enriched.successMetric && !item.successMetric) item.successMetric = enriched.successMetric;
+                    if (enriched.dependencies && !item.dependencies) item.dependencies = enriched.dependencies;
+                } catch (e) { /* non-blocking */ }
+            }
+        }
+
+        // Validate
         const roadmapValidation = validateDeliverableOutput(result, 'roadmap');
         if (!roadmapValidation.valid && !feedback) {
             console.log(`[Validation] ${roadmapValidation.failures.length} issues, auto-retrying...`);
@@ -2295,8 +2355,46 @@ Output JSON.`;
             required: ["methodology", "analysis"]
         };
         const gapResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        const analysis = gapResult?.analysis || {};
 
-        // Validate and auto-retry if evidence is thin
+        // Phase 2: Enrich thin gaps + fill missing actions/risks
+        const gaps = analysis.gaps || [];
+        const thinGaps = gaps.filter((g: any) => !g.citations?.length || !g.evidenceBasis);
+        if (thinGaps.length > 0) {
+            onStream(`Enriching ${thinGaps.length} gaps with evidence...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            for (const gap of thinGaps) {
+                try {
+                    const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: `Enrich this capability gap with evidence.\n\nCapability: ${gap.capability}\nCurrent: ${gap.currentMaturity}/5, Target: ${gap.targetMaturity}/5\nSeverity: ${gap.severity}\nImpact: ${gap.impact}\n\nProvide:\n1. citations: 2-3 source names evidencing this gap\n2. evidenceBasis: 1-2 sentences with specific data proving the maturity assessment\n\nOutput JSON.` }] },
+                        config: { responseMimeType: 'application/json', temperature: 0.2 }
+                    }), 2, 2000, `Enrich gap: ${gap.capability.substring(0, 30)}`);
+                    const enriched = JSON.parse(tryRepairJson(enrichResp.text || '{}'));
+                    if (enriched.citations?.length) gap.citations = enriched.citations;
+                    if (enriched.evidenceBasis) gap.evidenceBasis = enriched.evidenceBasis;
+                } catch (e) { /* non-blocking */ }
+            }
+        }
+
+        // Phase 2B: Generate missing actions/risks if truncated
+        if ((analysis.prioritizedActions?.length || 0) < 3 || (analysis.riskRegister?.length || 0) < 2) {
+            onStream('Generating prioritized actions and risk register...');
+            try {
+                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const actionsResp = await withRetry(() => standaloneAi.models.generateContent({
+                    model: 'gemini-2.5-flash',
+                    contents: { parts: [{ text: `Based on these capability gaps, generate prioritized actions and a risk register.\n\nGaps: ${gaps.map((g: any) => `[${g.severity}] ${g.capability}: gap ${g.gap}`).join('; ')}\n\nProvide:\n1. prioritizedActions: 4-6 actions (action, priority, timeline, gapReference)\n2. quickWins: 2-3 items (action, impact, effort)\n3. riskRegister: 3-5 risks (risk, likelihood, impact, mitigation)\n\nOutput JSON.` }] },
+                    config: { responseMimeType: 'application/json', temperature: 0.2 }
+                }), 2, 2000, 'Gap actions/risks');
+                const actionsData = JSON.parse(tryRepairJson(actionsResp.text || '{}'));
+                if (actionsData.prioritizedActions?.length > (analysis.prioritizedActions?.length || 0)) analysis.prioritizedActions = actionsData.prioritizedActions;
+                if (actionsData.quickWins?.length > (analysis.quickWins?.length || 0)) analysis.quickWins = actionsData.quickWins;
+                if (actionsData.riskRegister?.length > (analysis.riskRegister?.length || 0)) analysis.riskRegister = actionsData.riskRegister;
+            } catch (e) { /* non-blocking */ }
+        }
+
+        // Validate
         const gapValidation = validateDeliverableOutput(gapResult, 'gap_analysis');
         if (!gapValidation.valid && !feedback) {
             console.log(`[Validation] ${gapValidation.failures.length} issues, auto-retrying...`);
@@ -2508,8 +2606,47 @@ Output JSON.`;
             required: ["methodology", "analysis"]
         };
         const compResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        const analysis = compResult?.analysis || {};
 
-        // Validate and auto-retry if evidence is thin
+        // Phase 2: Enrich thin peers + fill missing dimensions/matrix/gaps
+        const peers = analysis.peers || [];
+        const thinPeers = peers.filter((p: any) => !p.citations?.length || !p.evidenceBasis);
+        if (thinPeers.length > 0) {
+            onStream(`Enriching ${thinPeers.length} competitive peers with evidence...`);
+            const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            for (const peer of thinPeers) {
+                try {
+                    const enrichResp = await withRetry(() => standaloneAi.models.generateContent({
+                        model: 'gemini-2.5-flash',
+                        contents: { parts: [{ text: `Enrich this competitive peer with evidence.\n\nName: ${peer.name}\nPosition: ${peer.position}\nStrengths: ${(peer.strengths || []).join(', ')}\n\nProvide:\n1. citations: 2-3 source names where this peer was mentioned\n2. evidenceBasis: 1-2 sentences with specific competitive intelligence data\n3. weaknesses: 2-3 evidence-backed weaknesses (if thin)\n\nOutput JSON.` }] },
+                        config: { responseMimeType: 'application/json', temperature: 0.2 }
+                    }), 2, 2000, `Enrich peer: ${peer.name}`);
+                    const enriched = JSON.parse(tryRepairJson(enrichResp.text || '{}'));
+                    if (enriched.citations?.length) peer.citations = enriched.citations;
+                    if (enriched.evidenceBasis) peer.evidenceBasis = enriched.evidenceBasis;
+                    if (enriched.weaknesses?.length > (peer.weaknesses?.length || 0)) peer.weaknesses = enriched.weaknesses;
+                } catch (e) { /* non-blocking */ }
+            }
+        }
+
+        // Phase 2B: Generate missing benchmarkDimensions/maturityMatrix/gapSummary
+        if ((analysis.benchmarkDimensions?.length || 0) < 3 || (analysis.gapSummary?.length || 0) < 3) {
+            onStream('Generating benchmark dimensions and gap summary...');
+            try {
+                const standaloneAi = new GoogleGenAI({ apiKey: process.env.API_KEY });
+                const dimResp = await withRetry(() => standaloneAi.models.generateContent({
+                    model: 'gemini-2.5-flash',
+                    contents: { parts: [{ text: `Based on these competitive peers, generate benchmark dimensions, maturity scores, and gap summary.\n\nPeers: ${peers.map((p: any) => p.name).join(', ')}\nIndustry: ${analysis.industryContext || ''}\n\nProvide:\n1. benchmarkDimensions: 5-7 strategic dimensions (dimension, weight 0-1, description)\n2. maturityMatrix: Score each peer on each dimension (1-5)\n3. gapSummary: For each dimension: ourScore, bestInClass, gap, urgency, action\n\nOutput JSON.` }] },
+                    config: { responseMimeType: 'application/json', temperature: 0.2 }
+                }), 2, 2000, 'Competitive dimensions/matrix');
+                const dimData = JSON.parse(tryRepairJson(dimResp.text || '{}'));
+                if (dimData.benchmarkDimensions?.length > (analysis.benchmarkDimensions?.length || 0)) analysis.benchmarkDimensions = dimData.benchmarkDimensions;
+                if (dimData.maturityMatrix?.length > (analysis.maturityMatrix?.length || 0)) analysis.maturityMatrix = dimData.maturityMatrix;
+                if (dimData.gapSummary?.length > (analysis.gapSummary?.length || 0)) analysis.gapSummary = dimData.gapSummary;
+            } catch (e) { /* non-blocking */ }
+        }
+
+        // Validate
         const compValidation = validateDeliverableOutput(compResult, 'competitive_analysis');
         if (!compValidation.valid && !feedback) {
             console.log(`[Validation] ${compValidation.failures.length} issues, auto-retrying...`);
