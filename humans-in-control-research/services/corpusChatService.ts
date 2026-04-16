@@ -52,6 +52,7 @@ export interface ChatContext {
     articleCount: number;         // Number of articles collected
     sourceReferences?: SourceReference[]; // Full provenance index for citation linking
     chunkMap?: Record<string, { sourceName: string; title: string; url?: string }>; // CHUNK_XXX resolution
+    uploadedFileContents?: string; // Decoded text from uploaded PDFs/docs
 }
 
 export interface ModelConfig {
@@ -146,6 +147,15 @@ function buildGroundingContext(ctx: ChatContext): string {
         for (const s of (ctx.strategicReport.sections || [])) {
             parts.push(`\nSection ${s.sectionNumber}: ${s.title}\n${s.content?.substring(0, 500)}...`);
         }
+        parts.push('');
+    }
+
+    // Include uploaded client documents (PDFs, proposals, reports, transcripts)
+    // These are the PRIMARY organizational context — the user's own data
+    if (ctx.uploadedFileContents) {
+        parts.push(`=== UPLOADED CLIENT DOCUMENTS (the user's own organizational data — ALWAYS reference these) ===`);
+        parts.push(ctx.uploadedFileContents.substring(0, 200000)); // 200KB cap for uploaded docs
+        parts.push(`=== END CLIENT DOCUMENTS ===`);
         parts.push('');
     }
 

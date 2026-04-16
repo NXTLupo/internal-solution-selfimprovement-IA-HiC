@@ -254,6 +254,14 @@ const LiveResearchBoard = ({
                 onToggle={() => setShowCorpusChat(false)}
                 context={{
                     corpusText: corpusTextRef.current || '',
+                    uploadedFileContents: (() => {
+                        try {
+                            return files.map(f => {
+                                try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
+                                catch { return `=== FILE: ${f.name} === [binary content]\n`; }
+                            }).join('\n');
+                        } catch { return ''; }
+                    })(),
                     themes: themes?.themes,
                     personas: personas?.personas,
                     recommendations: recommendations?.recommendations,
@@ -3009,6 +3017,14 @@ ${synthesisParts.join('\n')}
                           onToggle={() => setShowCorpusChat(false)}
                           context={{
                               corpusText: corpusTextRef.current || '',
+                              uploadedFileContents: (() => {
+                                  try {
+                                      return files.map(f => {
+                                          try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
+                                          catch { return `=== FILE: ${f.name} === [binary content]\n`; }
+                                      }).join('\n');
+                                  } catch { return ''; }
+                              })(),
                               themes: result.themes,
                               personas: result.personas,
                               recommendations: result.recommendations,
