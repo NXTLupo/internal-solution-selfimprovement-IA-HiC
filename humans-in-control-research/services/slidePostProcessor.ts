@@ -735,10 +735,54 @@ function truncateAtSentence(text: string, maxChars: number): string {
     return truncated.trim() + '...';
 }
 
+/** Detect and remove repetitive/looping text where the AI repeats itself */
+function deduplicateText(text: string): string {
+    if (!text || text.length < 100) return text;
+    // Split into sentences and remove duplicates while preserving order
+    const sentences = text.split(/(?<=[.!?])\s+/);
+    const seen = new Set<string>();
+    const unique: string[] = [];
+    for (const s of sentences) {
+        // Normalize for comparison (lowercase, trim, collapse whitespace)
+        const key = s.toLowerCase().trim().replace(/\s+/g, ' ').substring(0, 80);
+        if (key.length < 10) continue; // skip tiny fragments
+        if (!seen.has(key)) {
+            seen.add(key);
+            unique.push(s);
+        }
+    }
+    return unique.join(' ').trim();
+}
+
+/** Sanitize metric values — prevent float overflow (36.000000...00) */
+function sanitizeMetricValue(value: string): string {
+    if (!value) return value;
+    // If value is a number with excessive decimal places, truncate
+    const numMatch = value.match(/^(\d+)\.0{3,}/);
+    if (numMatch) return numMatch[1];
+    // If value is just a very long number string, truncate to reasonable length
+    if (value.length > 20 && /^\d/.test(value)) return value.substring(0, 10);
+    return value;
+}
+
 /** Enforce per-field character budgets to prevent data dumps */
 function enforceContentBudgets(slide: Slide): Slide {
     const s = { ...slide };
     const layout = s.layout;
+
+    // Deduplicate all text fields (catch AI repetition loops)
+    if (s.content) s.content = s.content.map(deduplicateText);
+    if (s.narrative) s.narrative = deduplicateText(s.narrative);
+    if (s.speakerNotes) s.speakerNotes = deduplicateText(s.speakerNotes);
+    if (s.quote) s.quote = deduplicateText(s.quote);
+
+    // Sanitize metric values (prevent float overflow)
+    if (s.metrics) {
+        s.metrics = s.metrics.map(m => ({
+            ...m,
+            value: sanitizeMetricValue(m.value),
+        }));
+    }
 
     // SECTION_HEADER: force empty content fields
     if (layout === 'SECTION_HEADER') {

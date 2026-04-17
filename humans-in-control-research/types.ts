@@ -397,6 +397,7 @@ export interface AnalysisResult {
 export enum AppState {
   IDLE = 'IDLE',
   ANALYZING = 'ANALYZING',
+  WORKBENCH = 'WORKBENCH', // Chat-Driven Research Workbench (post-collection, replaces pipeline)
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR'
 }

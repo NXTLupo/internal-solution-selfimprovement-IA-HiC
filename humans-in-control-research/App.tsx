@@ -1,5 +1,5 @@
 import './tailwind.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
 import ResultsView from './components/ResultsView';
@@ -9,8 +9,10 @@ import HeuristicReportView from './components/HeuristicReportView';
 import LiveSourceFeed from './components/LiveSourceFeed';
 import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
 import CorpusChatPanel from './components/CorpusChatPanel';
+import ChatWorkbench from './components/ChatWorkbench';
 import type { ChatContext } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
+import './styles/nxt-design-system.css';
 import { getChunkSourceMap } from './services/researchFabricOrchestrator';
 import { GenAISession } from './services/geminiService';
 import { buildSourceGraph, addThemesToGraph, addPersonasToGraph, addRecommendationsToGraph, addJourneyStagesToGraph, addPRDFeaturesToGraph, addRoadmapToGraph, addGapAnalysisToGraph, KnowledgeGraph as KGType } from './services/knowledgeGraphBuilder';
@@ -189,6 +191,7 @@ const LiveResearchBoard = ({
     prioritySources, setPrioritySources,
     showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal, files,
     gapResult, techAuditResult, competitiveResult, strategicReportResult, techResult,
+    onDeliverableApproved,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
@@ -201,6 +204,7 @@ const LiveResearchBoard = ({
     showCorpusChat: boolean, setShowCorpusChat: React.Dispatch<React.SetStateAction<boolean>>,
     corpusTextRef: React.RefObject<string>, researchGoal: string,
     gapResult?: any, techAuditResult?: any, competitiveResult?: any, strategicReportResult?: any, techResult?: any,
+    onDeliverableApproved?: (type: string, data: any) => void,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
@@ -286,8 +290,10 @@ const LiveResearchBoard = ({
                     articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                     sourceReferences: buildSourceReferences(liveSourceResults || []),
                     chunkMap: getChunkSourceMap(),
+                    knowledgeGraph: knowledgeGraph,
                 } as ChatContext)}
                 context={{} as ChatContext}
+                onDeliverableApproved={onDeliverableApproved}
             />
 
             {/* Main content area — full width, scrollable */}
@@ -870,6 +876,42 @@ const App = () => {
 
         if (changed) setKnowledgeGraph(graph);
     }, [collectionPhase, liveSourceResults, themesResult, personasResult, recsResult, journeyResult, prdResult, roadmapResult, gapResult]);
+
+    // --- CHAT DELIVERABLE → KNOWLEDGE GRAPH ---
+    // When a deliverable is approved in the chat, add it directly to the KG
+    const handleChatDeliverableApproved = useCallback((type: string, data: any) => {
+        setKnowledgeGraph(prev => {
+            let graph = { ...prev, nodes: [...prev.nodes], edges: [...prev.edges] };
+            switch (type) {
+                case 'theme':
+                    graph = addThemesToGraph(graph, [data]);
+                    break;
+                case 'persona':
+                    graph = addPersonasToGraph(graph, [data]);
+                    break;
+                case 'recommendation':
+                    graph = addRecommendationsToGraph(graph, [data]);
+                    break;
+                case 'journey_stage':
+                    graph = addJourneyStagesToGraph(graph, [data]);
+                    break;
+                case 'prd_feature':
+                    graph = addPRDFeaturesToGraph(graph, [data]);
+                    break;
+                case 'roadmap_item':
+                    graph = addRoadmapToGraph(graph, [data]);
+                    break;
+                case 'gap':
+                    graph = addGapAnalysisToGraph(graph, [data]);
+                    break;
+                default:
+                    console.log(`[KG] No graph builder for type: ${type}`);
+                    return prev;
+            }
+            console.log(`[KG] Added approved ${type} to knowledge graph (${graph.nodes.length} nodes, ${graph.edges.length} edges)`);
+            return graph;
+        });
+    }, []);
 
     // --- HEURISTIC MODE STATE ---
     type AppMode = 'research' | 'heuristic';
@@ -2301,20 +2343,11 @@ ${synthesisParts.join('\n')}
                 }
             }
 
-            // STEP 1: Ingestion (with collected data merged in)
-            setStatusMessage("Reading & Contextualizing...");
-            setActiveStage(AnalysisStage.INGESTION);
-            const ingestion = await sessionRef.current.ingestContext(collectedDataFiles, handleStreamUpdate);
-            setIngestionResult(ingestion);
-
-            // Post-analysis confidence narration — explain WHY the score is what it is
-            try {
-                const { narrateConfidenceAssessment } = await import('./services/wikiNarrator');
-                const confEvents = narrateConfidenceAssessment(ingestion);
-                confEvents.forEach(e => setThinkingEvents((prev: ThinkingEvent[]) => [...prev, e]));
-            } catch (e) { /* narration optional */ }
-
-            setStatusMessage("Context verification required.");
+            // Data collection complete — the chat panel (CorpusChatPanel) stays open
+            // throughout this entire flow. Users can create deliverables via conversation
+            // at any point. The chat is the primary research interface.
+            console.log('[App] Data collection complete. Chat panel available for research.');
+            setStatusMessage("Data collected. Use the chat to explore your data and create deliverables.");
         } catch (e: any) {
             console.error(e);
             const isNetworkError = e?.message?.includes('Failed to fetch') ||
@@ -2946,6 +2979,7 @@ ${synthesisParts.join('\n')}
                                strategicReportResult={strategicReportResult}
                                techResult={techResult}
                                files={files}
+                               onDeliverableApproved={handleChatDeliverableApproved}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);
@@ -2994,6 +3028,22 @@ ${synthesisParts.join('\n')}
                                )}
                            </AnimatePresence>
                       </div>
+                  )}
+
+                  {/* WORKBENCH — Chat-Driven Research */}
+                  {appState === AppState.WORKBENCH && (
+                      <ChatWorkbench
+                          corpusText={corpusTextRef.current || ''}
+                          liveSourceResults={liveSourceResults}
+                          excludedSources={excludedSources}
+                          prioritySources={prioritySources}
+                          files={files}
+                          researchGoal={researchGoal}
+                          knowledgeGraphData={knowledgeGraph}
+                          onKnowledgeGraphUpdate={setKnowledgeGraph}
+                          onExcludeSource={(key: string) => setExcludedSources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
+                          onPrioritySource={(key: string) => setPrioritySources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
+                      />
                   )}
 
                   {/* SUCCESS / RESULTS VIEW */}
@@ -3056,8 +3106,10 @@ ${synthesisParts.join('\n')}
                               articleCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                               sourceReferences: buildSourceReferences(liveSourceResults),
                               chunkMap: getChunkSourceMap(),
+                              knowledgeGraph: knowledgeGraph,
                           } as ChatContext)}
                           context={{} as ChatContext}
+                          onDeliverableApproved={handleChatDeliverableApproved}
                       />
                       </>
                   )}

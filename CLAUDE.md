@@ -18,8 +18,8 @@ Browser → Launchpad:8000 → Agent:8500 → MCP Wrappers (8501-8507) → Core 
 - **MCP Wrappers** (`mcp-services/*/app.py`): Lightweight JSON-RPC 2.0 proxies that expose core services as tools for the agent.
 - **Core Services** (`internal-solutions-*/`): Independent apps (FastAPI, Flask, or Node/Vite) each with their own Dockerfile.
 
-### NXT Agency (External Repo)
-Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). Integrated via `docker-compose-all.yml`. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
+### NXT Agency (External Repo — Required Sibling)
+Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). **`docker compose up` will fail if this directory doesn't exist** — the compose file references `../NXT-Agency/` for build context and volume mounts. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
 
 ### Critical Files (modify with caution)
 - `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
@@ -149,9 +149,13 @@ Three wrapper styles exist in `internal-solutions-journeymapper/`:
 - **`claude_4_5_api.py` / `claude_3_7_api.py`** — Official `anthropic` SDK with `client.messages.create()`. Simpler, preferred for new code.
 
 Several services have their own `CLAUDE.md` with local dev commands:
+- `.claude/CLAUDE.md` — HiC Research output quality rules (brand colors, citation protocol, 350+ banned phrases, consulting frameworks, content budgets). Loads into every Claude Code session.
 - `internal-solutions-journeymapper/CLAUDE.md` — run commands, lint (`flake8`), type-check (`mypy`)
 - `internal-solutions-claude4-journey-mapper-v2/CLAUDE.md` — same pattern, port 8095
 - `internal-solutions-socialresearch/CLAUDE.md` — full local setup (frontend, backend, DB migrations with Alembic). **Python 3.11 required** (3.12 not supported).
+
+### Custom Agent Skills (`.claude/skills/`)
+28 prompt engineering and consulting skills available to Claude Code sessions. Used by HiC Research for deliverable generation (deck narrative, persona architecture, strategy authoring, etc.). The Vite dev server serves these at `/skills/` for runtime access. Key skills: `deck-narrative-composer`, `strategy-author`, `persona-architect`, `competitive-analyst`, `theme-analyst`, `preflight`, `qa-gate`.
 
 ### Service Code Conventions
 ```python
@@ -181,7 +185,51 @@ One service builds from a sibling directory outside this repo:
 
 Changes to this service require working in its respective repo. Only `docker-compose-all.yml` references it.
 
-The Research Generator was moved into this repo at `humans-in-control-research/` — a React 19 SPA (Vite + Gemini AI) with a Python CORS proxy (`research-proxy`). AI calls happen client-side via Gemini; the proxy handles external data API CORS. The legacy directory `internal-solutions-research-generator/` still exists but Docker builds from `humans-in-control-research/`.
+### Humans-in-Control Research (`humans-in-control-research/`)
+
+The most actively developed service. A React 19 + TypeScript + Vite 6 + Tailwind SPA that generates consulting-grade research deliverables (strategy decks, persona sets, service blueprints, competitive analyses) using multi-model AI (Gemini, Claude, OpenAI).
+
+**Flat project structure** — no `src/` directory. Components and services are at the root:
+```
+humans-in-control-research/
+├── App.tsx, index.tsx, types.ts  — app entry, type definitions
+├── components/                   — 8 React components (FileUpload, ResultsView, KnowledgeGraph, etc.)
+├── services/                     — 23 TypeScript service modules (~14K lines total)
+│   ├── aiRouter.ts               — model selection + provider routing
+│   ├── geminiService.ts          — primary AI provider (largest file)
+│   ├── anthropicService.ts       — Claude API integration
+│   ├── openaiService.ts          — OpenAI fallback
+│   ├── slidePostProcessor.ts     — defense-in-depth output sanitization (slop phrases, meta-narration, citations)
+│   ├── wikiService.ts            — wiki knowledge base read/write
+│   ├── knowledgeGraphBuilder.ts  — citation graph + knowledge visualization
+│   ├── researchFabricOrchestrator.ts — multi-source data aggregation
+│   ├── deliverableFrameworks.ts  — schema definitions for all deliverable types
+│   └── exportService.ts          — PPTX (pptxgenjs) + PDF (jspdf) export
+├── proxy/                        — Python CORS proxy (FastAPI, 1,125 lines)
+│   └── app.py                    — 200+ data sources, 8 connector types (REST, RSS, CKAN, arXiv, etc.)
+│                                   Also proxies AI API calls and provides wiki write endpoints
+├── hic-workspace/                — persistent knowledge base
+│   ├── wiki/                     — 15 topic directories (benchmarks, frameworks, evidence, synthesis, etc.)
+│   └── sources/                  — client uploads + research articles
+├── styles/                       — NXT design system CSS
+└── vite.config.ts                — custom plugins serve wiki markdown at /hic-workspace/wiki/
+                                    and agent skill files at /skills/ from ../.claude/skills/
+```
+
+**Local development:**
+```bash
+cd humans-in-control-research
+npm install && npm run dev    # Vite dev server on port 3000
+# Proxy (separate terminal):
+cd proxy && python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt && python app.py   # Port 5012
+```
+
+**Docker**: `research-generator` (container: `hic-research`, port 5011) + `research-proxy` (port 5012). The proxy volume-mounts `hic-workspace/wiki/` so wiki writes from the container persist to the host.
+
+**Output quality rules** live in `.claude/CLAUDE.md` — brand colors, citation protocol, banned phrases (350+), consulting frameworks (Minto, Rumelt, SCQA), content budgets. These load into every Claude Code session and apply to all deliverable generation.
+
+The legacy directory `internal-solutions-research-generator/` still exists but Docker builds from `humans-in-control-research/`.
 
 ### Dockerfile Patterns
 - **Layer caching**: Copy `requirements.txt`/`package.json` before source code
@@ -190,7 +238,8 @@ The Research Generator was moved into this repo at `humans-in-control-research/`
 - **CPU-only PyTorch**: Social Research Backend uses `--index-url https://download.pytorch.org/whl/cpu` to avoid CUDA bloat
 
 ### Frontend Tech Split
-- **Modern Vite services**: Character Generator, Research Generator, Social Research Frontend (React 19, TypeScript, Vite 6)
+- **HiC Research SPA**: `humans-in-control-research/` (React 19, TypeScript 5.8, Vite 6, Tailwind 3.4, pptxgenjs/jspdf for export). Flat structure — no `src/` directory.
+- **Modern Vite services**: Character Generator, Social Research Frontend (React 19, TypeScript, Vite 6)
 - **Embedded Vite frontend**: Copilot Recipe Generator has a `frontend/` subdirectory (React + Vite); build with `cd frontend && npm install && npm run build` before the FastAPI backend serves the static dist.
 - **Legacy webpack**: Journey Mapper (React 17, webpack 5, but frontend is mostly vanilla JS + HTML templates)
 - **TypeScript CLI**: Miro Generator (Node CLI with Jest tests)

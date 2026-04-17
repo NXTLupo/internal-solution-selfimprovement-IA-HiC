@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT HUMANS — Visualization Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   NXT HUMANS DESIGN SYSTEM — STARK WHITE TEMPLATE
+   Version 1.0 | April 2026
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Foundation ─── */
+  --nxt-white: #FFFFFF;
+  --nxt-off-white: #FAFAFA;
+  --nxt-paper: #F5F5F0;
+  --nxt-black: #0D0D0D;
+  --nxt-near-black: #1A1A1A;
+
+  /* ─── Brand Accents ─── */
+  --nxt-chartreuse: #B8B800;
+  --nxt-chartreuse-soft: #D4D44A;
+  --nxt-cyan: #00B7C3;
+  --nxt-teal-deep: #1A5C5E;
+
+  /* ─── Neutral Hierarchy ─── */
+  --nxt-heading: #0D0D0D;
+  --nxt-body: #333333;
+  --nxt-secondary: #666666;
+  --nxt-muted: #999999;
+  --nxt-subtle: #BBBBBB;
+  --nxt-rule: #E0E0E0;
+  --nxt-rule-light: #EEEEEE;
+  --nxt-panel: #F5F5F0;
+
+  /* ─── Semantic ─── */
+  --nxt-recommend-bg: #B8B800;
+  --nxt-recommend-text: #0D0D0D;
+  --nxt-evidence-bg: #E8F6F7;
+  --nxt-evidence-border: #00B7C3;
+  --nxt-warning-bg: #FFF8E1;
+  --nxt-warning-border: #B8B800;
+  --nxt-critical-bg: #FFF0F0;
+  --nxt-critical-border: #CC3333;
+  --nxt-positive-bg: #F0F8F0;
+  --nxt-positive-border: #4CAF50;
+
+  /* ─── Typography ─── */
+  --font-headline: 'Bebas Neue', 'Oswald', 'Impact', sans-serif;
+  --font-body: 'Archivo', 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ─── Type Scale ─── */
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 6rem;
+  --text-display: 8rem;
+
+  /* ─── Spacing ─── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+  --space-3xl: 8rem;
+
+  /* ─── Widths ─── */
+  --content-max: 1200px;
+  --sidebar-width: 48px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--nxt-body);
+  background: var(--nxt-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Brand Sidebar ─── */
+.brand-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--nxt-black);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.brand-sidebar .logo-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-headline);
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--nxt-white);
+  transform: rotate(180deg);
+}
+.brand-sidebar .dot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 6px);
+  grid-template-rows: repeat(3, 6px);
+  gap: 4px;
+}
+.brand-sidebar .dot-grid span {
+  width: 6px;
+  height: 6px;
+  background: var(--nxt-chartreuse);
+  display: block;
+}
+
+/* ─── Main Content ─── */
+.main { margin-left: var(--sidebar-width); }
+
+/* ─── Hero / Cover ─── */
+.hero {
+  background: var(--nxt-black);
+  color: var(--nxt-white);
+  padding: var(--space-3xl) var(--space-2xl) var(--space-2xl);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.hero-wordmark {
+  font-family: var(--font-headline);
+  font-size: clamp(6rem, 18vw, 16rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--nxt-white);
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  right: -5%;
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-label {
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  letter-spacing: 4px;
+  color: var(--nxt-chartreuse);
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: var(--font-headline);
+  font-size: clamp(3rem, 6vw, var(--text-display));
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--nxt-white);
+  margin-bottom: var(--space-lg);
+}
+.hero-sub {
+  font-size: var(--text-xl);
+  color: var(--nxt-subtle);
+  max-width: 700px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.hero-meta {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: var(--text-sm);
+  color: var(--nxt-muted);
+  display: flex;
+  gap: var(--space-lg);
+}
+
+/* ─── Section ─── */
+.section {
+  padding: var(--space-2xl) var(--space-2xl);
+  max-width: calc(var(--content-max) + var(--space-2xl) * 2);
+}
+.section-dark {
+  background: var(--nxt-black);
+  color: var(--nxt-white);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.section-dark .section-num { color: var(--nxt-chartreuse); }
+.section-dark h2 { color: var(--nxt-white); }
+.section-dark p { color: rgba(255,255,255,0.75); }
+.section-dark .overflow-type {
+  font-family: var(--font-headline);
+  font-size: clamp(5rem, 12vw, 12rem);
+  color: rgba(255,255,255,0.06);
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.section-num {
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  letter-spacing: 4px;
+  color: var(--nxt-muted);
+  margin-bottom: var(--space-xs);
+}
+h2 {
+  font-family: var(--font-headline);
+  font-size: var(--text-4xl);
+  line-height: 1;
+  color: var(--nxt-heading);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.02em;
+}
+h3 {
+  font-family: var(--font-headline);
+  font-size: var(--text-2xl);
+  color: var(--nxt-heading);
+  margin: var(--space-xl) 0 var(--space-md);
+  letter-spacing: 0.02em;
+}
+h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--nxt-heading);
+  margin: var(--space-lg) 0 var(--space-sm);
+}
+.lead {
+  font-size: var(--text-lg);
+  color: var(--nxt-secondary);
+  max-width: 750px;
+  margin-bottom: var(--space-xl);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ─── Split Panel ─── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: var(--space-xl) 0;
+}
+.split-text {
+  padding-right: var(--space-xl);
+  border-right: 1px solid var(--nxt-rule);
+}
+.split-evidence {
+  padding-left: var(--space-xl);
+}
+
+/* ─── Color Swatch Grid ─── */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+.swatch {
+  border: 1px solid var(--nxt-rule);
+}
+.swatch-color {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 12px;
+}
+.swatch-color span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.swatch-info {
+  padding: 10px 12px;
+  background: var(--nxt-white);
+}
+.swatch-name {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--nxt-heading);
+}
+.swatch-role {
+  font-size: var(--text-xs);
+  color: var(--nxt-secondary);
+  margin-top: 2px;
+}
+
+/* ─── Recommendation Callout ─── */
+.callout-recommend {
+  background: var(--nxt-recommend-bg);
+  color: var(--nxt-recommend-text);
+  padding: var(--space-lg) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.callout-recommend strong {
+  font-family: var(--font-headline);
+  font-size: var(--text-xl);
+  display: block;
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.02em;
+}
+.callout-recommend p { color: var(--nxt-near-black); }
+
+/* ─── Evidence Block ─── */
+.callout-evidence {
+  background: var(--nxt-evidence-bg);
+  border-left: 4px solid var(--nxt-evidence-border);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.callout-evidence .source {
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  margin-top: var(--space-sm);
+  text-align: right;
+}
+
+/* ─── Warning / Hypothesis ─── */
+.callout-warning {
+  background: var(--nxt-warning-bg);
+  border-left: 4px solid var(--nxt-warning-border);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+/* ─── Stat Callout ─── */
+.stat-callout {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+}
+.stat-number {
+  font-family: var(--font-headline);
+  font-size: var(--text-5xl);
+  line-height: 1;
+  color: var(--nxt-chartreuse);
+}
+.stat-label {
+  font-size: var(--text-base);
+  color: var(--nxt-secondary);
+  margin-top: var(--space-xs);
+}
+.stat-source {
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ─── Table ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: var(--text-sm);
+}
+thead th {
+  background: var(--nxt-black);
+  color: var(--nxt-chartreuse);
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 400;
+}
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--nxt-rule);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: var(--nxt-panel); }
+td code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  background: var(--nxt-panel);
+  padding: 2px 6px;
+  color: var(--nxt-heading);
+}
+
+/* ─── Code Block ─── */
+.code-block {
+  background: var(--nxt-near-black);
+  color: #E0E0E0;
+  padding: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+}
+.code-block .comment { color: #6A9955; }
+.code-block .prop { color: var(--nxt-cyan); }
+.code-block .val { color: var(--nxt-chartreuse-soft); }
+
+/* ─── Do / Don't Grid ─── */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.do-col, .dont-col {
+  padding: var(--space-lg);
+}
+.do-col {
+  background: var(--nxt-positive-bg);
+  border-top: 4px solid var(--nxt-positive-border);
+}
+.dont-col {
+  background: var(--nxt-critical-bg);
+  border-top: 4px solid var(--nxt-critical-border);
+}
+.do-col h4, .dont-col h4 { margin-top: 0; }
+.do-col ul, .dont-col ul {
+  list-style: none;
+  padding: 0;
+}
+.do-col li, .dont-col li {
+  padding: 6px 0;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.do-col li::before { content: "✓ "; color: var(--nxt-positive-border); font-weight: 700; }
+.dont-col li::before { content: "✗ "; color: var(--nxt-critical-border); font-weight: 700; }
+
+/* ─── Geometry Demo ─── */
+.geo-demo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+  padding: var(--space-xl);
+  background: var(--nxt-panel);
+}
+.geo-shape {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Pattern Demo Boxes ─── */
+.pattern-demo {
+  border: 1px solid var(--nxt-rule);
+  margin: var(--space-lg) 0;
+  overflow: hidden;
+}
+.pattern-label {
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  letter-spacing: 2px;
+  color: var(--nxt-muted);
+  padding: 10px 16px;
+  background: var(--nxt-panel);
+  border-bottom: 1px solid var(--nxt-rule);
+}
+.pattern-body {
+  padding: var(--space-lg);
+}
+
+/* ─── Rule / Divider ─── */
+hr {
+  border: none;
+  border-top: 1px solid var(--nxt-rule);
+  margin: var(--space-xl) 0;
+}
+.rule-accent {
+  border-top: 3px solid var(--nxt-chartreuse);
+  margin: var(--space-xl) 0 var(--space-lg);
+  width: 80px;
+}
+
+/* ─── Badge ─── */
+.badge {
+  display: inline-block;
+  font-family: var(--font-headline);
+  font-size: var(--text-xs);
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+.badge-chartreuse { background: var(--nxt-chartreuse); color: var(--nxt-black); }
+.badge-cyan { background: var(--nxt-cyan); color: var(--nxt-white); }
+.badge-black { background: var(--nxt-black); color: var(--nxt-white); }
+
+/* ─── Three-Column Feature Grid ─── */
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: var(--space-lg) 0;
+}
+.three-col > div {
+  padding: var(--space-lg);
+  border: 1px solid var(--nxt-rule);
+  margin: -0.5px;
+}
+.three-col h4 { margin-top: 0; }
+
+/* ─── Utility ─── */
+.mt-xl { margin-top: var(--space-xl); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.text-muted { color: var(--nxt-muted); }
+.text-sm { font-size: var(--text-sm); }
+.text-xs { font-size: var(--text-xs); }
+.mono { font-family: var(--font-mono); }
+.uppercase { text-transform: uppercase; letter-spacing: 2px; }
+.font-headline { font-family: var(--font-headline); }
+.nowrap { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- ═══ BRAND SIDEBAR ═══ -->
+<div class="brand-sidebar">
+  <div class="logo-text">NXT HUMANS</div>
+  <div class="dot-grid">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ═══════════════════════════════════════════
+     HERO / COVER
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-wordmark">NXT HUMANS</div>
+  <div class="hero-label">Intelligence Augmentation Suite</div>
+  <h1>VISUALIZATION<br>DESIGN SYSTEM</h1>
+  <p class="hero-sub">Stark White Template — Anti-Slop Business Flat Minimalism.<br>The complete style guide and creative brief for Humans in Control deliverables.</p>
+  <div class="hero-meta">
+    <span>Version 1.0</span>
+    <span>April 2026</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     01 — CREATIVE BRIEF
+     ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-num">SECTION 01</div>
+  <h2>CREATIVE BRIEF</h2>
+  <div class="rule-accent"></div>
+  <p class="lead">This design system governs every visual output produced by the Humans in Control research platform. It exists to ensure that AI-generated consulting deliverables are indistinguishable from work produced by a top-tier design consultancy — and instantly distinguishable from the generic, soulless output that characterizes most AI-generated content.</p>
+
+  <h3>THE PROBLEM WE'RE SOLVING</h3>
+  <p>AI-generated visual output has a recognizable aesthetic: Inter or Roboto typefaces, purple-on-white gradients, rounded card layouts, evenly distributed pastel palettes, decorative gradient blobs, and cookie-cutter component patterns. This aesthetic signals "a computer made this" as clearly as clip art signaled "a non-designer made this" in the 2000s. In consulting, where trust is the product, that signal is fatal. Clients pay for expertise, judgment, and craft. If the deliverable looks automated, the expertise feels automated.</p>
+
+  <h3>THE DESIGN PHILOSOPHY</h3>
+  <p><strong>Anti-slop business flat minimalism.</strong> This is not a decorative style — it's a discipline. Every element earns its place through function: communicating hierarchy, directing attention, establishing credibility, or making data legible. Nothing exists for decoration. The style is defined as much by what it refuses as by what it employs.</p>
+
+  <div class="three-col mt-xl">
+    <div>
+      <h4>FLAT</h4>
+      <p class="text-sm">No gradients. No drop shadows. No 3D effects. No glow. No skeuomorphism. Solid fills only. Depth is created through layering, overlap, and contrast — never through simulated light sources.</p>
+    </div>
+    <div>
+      <h4>GEOMETRIC</h4>
+      <p class="text-sm">Built from rectangles, circles, triangles, and straight lines. No organic curves, hand-drawn aesthetics, blob shapes, or wavy borders. Every shape has mathematical precision. Corners are sharp (≤4px radius only where functionally required).</p>
+    </div>
+    <div>
+      <h4>VECTOR MINIMAL</h4>
+      <p class="text-sm">The fewest elements possible to communicate the idea. Crisp at any size. No raster textures, no photographic elements mixed with illustrations, no noise/grain overlays. Negative space is a deliberate design element.</p>
+    </div>
+  </div>
+
+  <h3>THE TONE</h3>
+  <p>Authoritative without being corporate. Precise without being sterile. Bold without being aggressive. The visual tone sits at the intersection of <strong>Swiss International Style</strong> (grid discipline, typographic hierarchy, functional color) and <strong>editorial brutalism</strong> (oversized type, stark contrast, content-as-decoration). Think: if Massimo Vignelli designed consulting deliverables for a company that builds AI systems.</p>
+
+  <h3>THE AUDIENCE</h3>
+  <p>CX directors, VP-level stakeholders, C-suite executives, and product leaders at enterprise organizations. These people have seen thousands of presentations and reports. They have sophisticated visual taste and zero patience for generic design. They associate visual quality with thinking quality — if the deliverable looks lazy, they assume the analysis is lazy.</p>
+
+  <h3>THE SINGLE MOST IMPORTANT RULE</h3>
+  <div class="callout-recommend">
+    <strong>IF IT LOOKS LIKE AI MADE IT, IT'S WRONG.</strong>
+    <p>Every design decision should be tested against this question: "Would a viewer suspect this was generated by an AI tool?" If the answer is yes — or even maybe — the design has failed. Redesign until the answer is a confident no.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     02 — COLOR SYSTEM
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">COLOR</div>
+  <div class="section-num">SECTION 02</div>
+  <h2>COLOR SYSTEM</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">The palette is intentionally constrained. Three brand colors. A neutral ramp for text hierarchy. Semantic accents for functional communication. That's it. Restraint is the point — color scarcity creates impact when color appears.</p>
+</section>
+
+<section class="section">
+  <h3>BRAND COLORS</h3>
+  <p>Three colors define the NXT Humans identity. They are never used in equal proportion. Black dominates. Chartreuse and cyan are accent sparks — the fewer pixels they occupy, the more power they carry.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0D0D0D;"><span style="background:rgba(255,255,255,0.15);color:#fff;">#0D0D0D</span></div>
+      <div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-role">Primary. Headlines, sidebar, dark sections, chart bases</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#B8B800;"><span style="background:rgba(0,0,0,0.2);color:#000;">#B8B800</span></div>
+      <div class="swatch-info"><div class="swatch-name">Chartreuse</div><div class="swatch-role">Power accent. Recommendations, stats, CTAs — ≤15% of surface</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#00B7C3;"><span style="background:rgba(255,255,255,0.2);color:#fff;">#00B7C3</span></div>
+      <div class="swatch-info"><div class="swatch-name">Cyan</div><div class="swatch-role">Secondary accent. Links, data emphasis, section markers, evidence</div></div>
+    </div>
+  </div>
+
+  <h3>NEUTRAL RAMP — Text Hierarchy on White</h3>
+  <p>Six stops from near-black to near-invisible. Each has an explicit functional role. Using the wrong gray for the wrong purpose breaks the hierarchy.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0D0D0D;height:50px;"><span style="background:rgba(255,255,255,0.15);color:#fff;">#0D0D0D</span></div>
+      <div class="swatch-info"><div class="swatch-name">Heading</div><div class="swatch-role">Page titles, section heads, bold emphasis</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#333333;height:50px;"><span style="background:rgba(255,255,255,0.15);color:#fff;">#333333</span></div>
+      <div class="swatch-info"><div class="swatch-name">Body</div><div class="swatch-role">Primary body text. Dark enough for sustained reading</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#666666;height:50px;"><span style="background:rgba(255,255,255,0.15);color:#fff;">#666666</span></div>
+      <div class="swatch-info"><div class="swatch-name">Secondary</div><div class="swatch-role">Captions, subheads, supporting metadata</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#999999;height:50px;"><span style="background:rgba(255,255,255,0.2);color:#fff;">#999999</span></div>
+      <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-role">Footnotes, timestamps, source citations</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E0E0E0;height:50px;"><span style="color:#666;">#E0E0E0</span></div>
+      <div class="swatch-info"><div class="swatch-name">Rule</div><div class="swatch-role">Dividers, table borders, panel outlines</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F5F5F0;height:50px;"><span style="color:#666;">#F5F5F0</span></div>
+      <div class="swatch-info"><div class="swatch-name">Panel</div><div class="swatch-role">Content panels, alternating sections, code blocks</div></div>
+    </div>
+  </div>
+
+  <h3>SEMANTIC COLORS</h3>
+  <p>Functional color for specific communication purposes. These are never decorative — they carry meaning. A reader should be able to identify the information type (recommendation, evidence, warning, positive finding) by color alone, before reading a word.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#B8B800;height:50px;"><span style="background:rgba(0,0,0,0.2);color:#000;">#B8B800</span></div>
+      <div class="swatch-info"><div class="swatch-name">Recommendation</div><div class="swatch-role">Solid fill. Key recommendations, action items, critical findings</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E8F6F7;border-left:4px solid #00B7C3;height:50px;"><span style="color:#00706B;">#E8F6F7</span></div>
+      <div class="swatch-info"><div class="swatch-name">Evidence</div><div class="swatch-role">Light fill + cyan left border. Cited data, sourced findings, metrics</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#FFF8E1;border-left:4px solid #B8B800;height:50px;"><span style="color:#8A8A00;">#FFF8E1</span></div>
+      <div class="swatch-info"><div class="swatch-name">Warning / Hypothesis</div><div class="swatch-role">Light fill + chartreuse border. Unvalidated claims, evidence gaps</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F0F8F0;border-left:4px solid #4CAF50;height:50px;"><span style="color:#2E7D32;">#F0F8F0</span></div>
+      <div class="swatch-info"><div class="swatch-name">Positive</div><div class="swatch-role">Light fill + green border. Strengths, positive findings, what's working</div></div>
+    </div>
+  </div>
+
+  <h3>COLOR USAGE RULES</h3>
+  <table>
+    <thead><tr><th>RULE</th><th>SPECIFICATION</th><th>RATIONALE</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Chartreuse budget</strong></td><td>≤15% of total visual surface area</td><td>Scarcity creates impact. If everything is chartreuse, nothing is.</td></tr>
+      <tr><td><strong>Cyan budget</strong></td><td>≤10% of total visual surface area</td><td>Secondary accent never competes with chartreuse on the same element.</td></tr>
+      <tr><td><strong>One accent per illustration</strong></td><td>Chartreuse OR cyan — never both</td><td>Prevents visual noise. Forces clarity about what matters.</td></tr>
+      <tr><td><strong>Max 3 colors per illustration</strong></td><td>Black + one gray + one accent</td><td>Constraint breeds creativity and maintains brand cohesion.</td></tr>
+      <tr><td><strong>No background tints on primary canvas</strong></td><td>#FFFFFF only. Never cream, never light gray as primary bg.</td><td>Stark white is the brand. Any tint softens the edge.</td></tr>
+      <tr><td><strong>Functional color only in charts</strong></td><td>Neutral base + ONE highlight for the insight</td><td>Color directs attention to the conclusion, not decoration.</td></tr>
+      <tr><td><strong>Never</strong></td><td>Purple. Pink. Orange. Rainbow. Pastel sequences.</td><td>These signal "generic AI" or "generic corporate."</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     03 — TYPOGRAPHY
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">TYPE</div>
+  <div class="section-num">SECTION 03</div>
+  <h2>TYPOGRAPHY</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Typography is the primary design tool. Not color, not illustration, not layout — type. The system pairs a hyper-condensed display face with a clean humanist workhorse. The contrast between them creates the entire visual personality.</p>
+</section>
+
+<section class="section">
+  <h3>TYPE PAIRING</h3>
+
+  <div class="split">
+    <div class="split-text">
+      <h4>DISPLAY / HEADLINE</h4>
+      <p style="font-family:var(--font-headline);font-size:var(--text-3xl);color:var(--nxt-heading);line-height:1;margin:var(--space-md) 0;">BEBAS NEUE</p>
+      <p class="text-sm">Fallback stack: <code>Oswald</code> → <code>Impact</code> → <code>sans-serif</code></p>
+      <p class="text-sm" style="margin-top:var(--space-sm);">Ultra-condensed. Uppercase only. Used for page titles, section heads, stat callouts, sidebar branding, and any text intended to be read at a glance rather than studied. The narrowness is the feature — it allows oversized type to fit where it shouldn't, creating the brand's signature tension between enormity and constraint.</p>
+      <p class="text-sm" style="margin-top:var(--space-sm);"><strong>NEVER</strong> use Bebas Neue in sentence case. NEVER use it for body text. NEVER use it below 18px. It is a display face — treat it as such.</p>
+    </div>
+    <div class="split-evidence">
+      <h4>BODY / READING</h4>
+      <p style="font-family:var(--font-body);font-size:var(--text-xl);color:var(--nxt-heading);margin:var(--space-md) 0;font-weight:500;">Archivo</p>
+      <p class="text-sm">Fallback stack: <code>Source Sans Pro</code> → <code>Helvetica Neue</code> → <code>sans-serif</code></p>
+      <p class="text-sm" style="margin-top:var(--space-sm);">Grotesque sans-serif with a wide range of weights (300–700). Optimized for screen readability at body sizes. Used for paragraphs, bullets, table content, captions, and any text intended for sustained reading. Carries the analytical voice of the brand — precise, neutral, trustworthy.</p>
+      <p class="text-sm" style="margin-top:var(--space-sm);"><strong>NEVER</strong> use Archivo in all-caps for headlines. That role belongs to Bebas Neue. Archivo in all-caps reads as shouting, not as branding.</p>
+    </div>
+  </div>
+
+  <h3>MONOSPACE</h3>
+  <p><span style="font-family:var(--font-mono);color:var(--nxt-heading);">JetBrains Mono</span> — Used for code, CSS variables, technical specifications, file paths, and data labels inside charts. Fallback: <code>Fira Code</code> → <code>SF Mono</code> → <code>monospace</code>.</p>
+
+  <h3>TYPE SCALE</h3>
+  <p>Eight stops. Each has one purpose. Using the wrong size for the wrong purpose collapses the hierarchy.</p>
+
+  <table>
+    <thead><tr><th>TOKEN</th><th>SIZE</th><th>FACE</th><th>PURPOSE</th><th>EXAMPLE</th></tr></thead>
+    <tbody>
+      <tr><td><code>--text-display</code></td><td>8rem / 128px</td><td>Bebas Neue</td><td>Background watermarks, cover wordmarks</td><td style="font-family:var(--font-headline);font-size:24px;color:var(--nxt-heading);">NXT HUMANS</td></tr>
+      <tr><td><code>--text-5xl</code></td><td>4.5rem / 72px</td><td>Bebas Neue</td><td>Stat callouts, hero data points</td><td style="font-family:var(--font-headline);font-size:28px;color:var(--nxt-chartreuse);">41%</td></tr>
+      <tr><td><code>--text-4xl</code></td><td>3rem / 48px</td><td>Bebas Neue</td><td>Page titles, major section heads</td><td style="font-family:var(--font-headline);font-size:24px;color:var(--nxt-heading);">COMPETITIVE ANALYSIS</td></tr>
+      <tr><td><code>--text-2xl</code></td><td>1.75rem / 28px</td><td>Bebas Neue</td><td>Section heads, card titles</td><td style="font-family:var(--font-headline);font-size:20px;color:var(--nxt-heading);">KEY FINDINGS</td></tr>
+      <tr><td><code>--text-lg</code></td><td>1.15rem / 18px</td><td>Archivo 500</td><td>Lead paragraphs, emphasized body</td><td style="font-size:15px;font-weight:500;">CX leaders achieve 2.3× higher CLV.</td></tr>
+      <tr><td><code>--text-base</code></td><td>1rem / 16px</td><td>Archivo 400</td><td>Standard body text</td><td style="font-size:14px;">Standard analysis paragraph content.</td></tr>
+      <tr><td><code>--text-sm</code></td><td>0.8rem / 13px</td><td>Archivo 400</td><td>Captions, metadata, table cells</td><td style="font-size:12px;color:var(--nxt-secondary);">Figure 3.2 — Maturity distribution</td></tr>
+      <tr><td><code>--text-xs</code></td><td>0.7rem / 11px</td><td>Archivo 400</td><td>Source citations, footnotes, timestamps</td><td style="font-size:11px;color:var(--nxt-muted);">Source: Forrester, 2025</td></tr>
+    </tbody>
+  </table>
+
+  <h3>THE OVERSIZED HEADLINE TREATMENT</h3>
+  <p>The signature NXT Humans typographic device: headlines set so large they <strong>crop at the edges of the container</strong>. The text is intentionally too big for its box. Characters may be clipped at the right edge, bottom edge, or both. This creates visual tension — the feeling that the content is bigger than the frame containing it. It signals confidence and scale.</p>
+
+  <div class="callout-evidence">
+    <strong>Implementation rules:</strong>
+    <ul style="list-style:none;padding:0;margin-top:8px;">
+      <li style="padding:4px 0;font-size:var(--text-sm);">• Container must have <code>overflow: hidden</code></li>
+      <li style="padding:4px 0;font-size:var(--text-sm);">• Headline uses <code>line-height: 0.85–0.92</code> (tighter than normal)</li>
+      <li style="padding:4px 0;font-size:var(--text-sm);">• At minimum 50% of the headline text must be fully visible and legible</li>
+      <li style="padding:4px 0;font-size:var(--text-sm);">• Cropping happens at right and/or bottom edges only — never left or top</li>
+      <li style="padding:4px 0;font-size:var(--text-sm);">• Use for page titles and section dividers only — never for body-level content</li>
+      <li style="padding:4px 0;font-size:var(--text-sm);">• The reader should be able to infer the full text from context even if characters are clipped</li>
+    </ul>
+    <p class="source">Reference: Slides 1, 5, 6, 8, 10, 15, 17 of The Ordinary Personal Shopper Analysis deck</p>
+  </div>
+
+  <h3>BANNED TYPEFACES</h3>
+  <p>These fonts are banned from all NXT Humans output. Their presence immediately signals AI generation or generic corporate design.</p>
+
+  <table>
+    <thead><tr><th>BANNED FONT</th><th>WHY</th><th>USE INSTEAD</th></tr></thead>
+    <tbody>
+      <tr><td>Inter</td><td>Default AI artifact font. Instantly recognizable as "Claude/ChatGPT made this."</td><td>Archivo</td></tr>
+      <tr><td>Roboto</td><td>Default Android/Material Design. Signals generic, not designed.</td><td>Archivo</td></tr>
+      <tr><td>Arial</td><td>The Helvetica knock-off everyone has. Zero personality.</td><td>Archivo</td></tr>
+      <tr><td>system-ui / sans-serif (as primary)</td><td>Lazy default. Different on every machine.</td><td>Archivo</td></tr>
+      <tr><td>Space Grotesk</td><td>Trending AI-aesthetic font. Overused in generated artifacts since 2024.</td><td>Archivo</td></tr>
+      <tr><td>Poppins</td><td>Default Canva/generic SaaS font. Signals template, not custom design.</td><td>Archivo</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     04 — LAYOUT PATTERNS
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">LAYOUT</div>
+  <div class="section-num">SECTION 04</div>
+  <h2>LAYOUT PATTERNS</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Seven codified layout patterns. Every page, slide, and section in a deliverable maps to one of these. They can be combined (a page might have a Section Divider followed by a Split Panel followed by a Stat Row), but each individual section uses exactly one pattern.</p>
+</section>
+
+<section class="section">
+
+  <!-- Pattern 1 -->
+  <h3>PATTERN 1 — THE SPLIT PANEL</h3>
+  <p>The workhorse. Used for any content that pairs analysis with evidence. Left panel (~55%) contains the text: headline, body, bullets, recommendations. Right panel (~45%) contains the evidence: screenshots, charts, data tables, diagrams, or illustrations. A 1px vertical rule in <code>--nxt-rule</code> separates the panels.</p>
+
+  <div class="pattern-demo">
+    <div class="pattern-label">LIVE EXAMPLE — SPLIT PANEL</div>
+    <div class="pattern-body" style="display:grid;grid-template-columns:55% 45%;gap:0;">
+      <div style="padding-right:var(--space-lg);border-right:1px solid var(--nxt-rule);">
+        <p style="font-family:var(--font-headline);font-size:var(--text-2xl);color:var(--nxt-heading);margin-bottom:var(--space-sm);">ANALYSIS PANEL</p>
+        <p class="text-sm" style="color:var(--nxt-secondary);">Headline, body text, bullet points, and recommendations live on the left. This is where the consultant's voice speaks. Depth comes from specific observations, named frameworks, and quantified implications.</p>
+        <div style="background:var(--nxt-recommend-bg);padding:12px 16px;margin-top:var(--space-md);">
+          <p style="font-family:var(--font-headline);font-size:var(--text-base);letter-spacing:1px;color:var(--nxt-recommend-text);">RECOMMENDATION CALLOUT LIVES HERE</p>
+        </div>
+      </div>
+      <div style="padding-left:var(--space-lg);background:var(--nxt-panel);display:flex;align-items:center;justify-content:center;min-height:180px;">
+        <p style="font-family:var(--font-headline);color:var(--nxt-muted);font-size:var(--text-lg);letter-spacing:2px;">EVIDENCE<br>SCREENSHOT<br>CHART<br>DIAGRAM</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pattern 2 -->
+  <h3>PATTERN 2 — THE SECTION DIVIDER</h3>
+  <p>Full-width dark background. Oversized display type that crops at the edges. Used to separate major chapters in long deliverables. Contains only a section number/label, a title, and optionally a one-sentence summary. No body text. No data. Pure punctuation.</p>
+
+  <div class="pattern-demo">
+    <div class="pattern-label">LIVE EXAMPLE — SECTION DIVIDER</div>
+    <div class="pattern-body" style="background:var(--nxt-black);color:var(--nxt-white);padding:var(--space-xl);position:relative;overflow:hidden;min-height:160px;">
+      <p style="font-family:var(--font-headline);font-size:10rem;color:rgba(255,255,255,0.05);position:absolute;right:-20px;top:-30px;line-height:0.85;pointer-events:none;">FINDINGS</p>
+      <p style="font-family:var(--font-headline);font-size:var(--text-xs);letter-spacing:4px;color:var(--nxt-chartreuse);">SECTION 04</p>
+      <p style="font-family:var(--font-headline);font-size:var(--text-3xl);color:var(--nxt-white);margin-top:var(--space-sm);">KEY FINDINGS</p>
+    </div>
+  </div>
+
+  <!-- Pattern 3 -->
+  <h3>PATTERN 3 — THE RECOMMENDATION CALLOUT</h3>
+  <p>A solid chartreuse block that interrupts the page. Used for the single most important takeaway on any given page. Maximum one per page — if you need two, one of them isn't important enough. Bold headline text, brief supporting sentence. Black text on chartreuse background.</p>
+
+  <div class="callout-recommend">
+    <strong>REDESIGN ONBOARDING TO REDUCE TIME-TO-FIRST-VALUE FROM 14 DAYS TO 3 DAYS</strong>
+    <p>Implement progressive disclosure with contextual tooltips. Estimated effort: 2 sprints. Expected impact: 15–20% improvement in 30-day retention. (Source: Forrester TEI, 2025)</p>
+  </div>
+
+  <!-- Pattern 4 -->
+  <h3>PATTERN 4 — THE EVIDENCE BLOCK</h3>
+  <p>Light cyan tint background with a 4px cyan left border. Contains cited data, verbatim quotes, or specific metric callouts. Source attribution is required — always in <code>--text-xs</code> at the bottom-right. This block exists to make evidence a <strong>first-class visual element</strong>, not a buried footnote.</p>
+
+  <div class="callout-evidence">
+    <p><strong>41% of organizations remain at CX Maturity Level 1</strong> (Initial/Ad Hoc), with only 1% reaching Level 5 (Optimized). The median enterprise has been stuck at Level 2 for three consecutive years, suggesting that incremental improvement approaches are insufficient for meaningful maturity advancement.</p>
+    <p class="source">Source: Gartner CX Maturity Assessment, 2025</p>
+  </div>
+
+  <!-- Pattern 5 -->
+  <h3>PATTERN 5 — THE STAT ROW</h3>
+  <p>A horizontal row of 2–4 oversized statistics. Each stat has three elements: the number (Bebas Neue, <code>--text-5xl</code>, chartreuse), the label (Archivo, <code>--text-base</code>, secondary gray), and the source (Archivo, <code>--text-xs</code>, muted gray). Used to lead a section with high-impact data before the analysis explains it.</p>
+
+  <div class="pattern-demo">
+    <div class="pattern-label">LIVE EXAMPLE — STAT ROW</div>
+    <div class="pattern-body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:center;">
+      <div style="padding:var(--space-lg);border-right:1px solid var(--nxt-rule);">
+        <div class="stat-number">41%</div>
+        <div class="stat-label">at CX Maturity Level 1</div>
+        <div class="stat-source">Gartner, 2025</div>
+      </div>
+      <div style="padding:var(--space-lg);border-right:1px solid var(--nxt-rule);">
+        <div class="stat-number">$3.7T</div>
+        <div class="stat-label">annual cost of bad CX</div>
+        <div class="stat-source">Qualtrics XM, 2024</div>
+      </div>
+      <div style="padding:var(--space-lg);">
+        <div class="stat-number">2.3×</div>
+        <div class="stat-label">higher CLV for CX leaders</div>
+        <div class="stat-source">McKinsey, 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pattern 6 -->
+  <h3>PATTERN 6 — THE GRID MATRIX</h3>
+  <p>For feature comparisons, maturity assessments, and multi-dimensional scoring. Black header row with chartreuse text. Clean cell borders in <code>--nxt-rule</code>. Alternating row tinting in <code>--nxt-panel</code>. Column headers in Bebas Neue. Cell content in Archivo. Used for any information that has two axes (rows × columns).</p>
+
+  <!-- Pattern 7 -->
+  <h3>PATTERN 7 — THE COLOR-BLOCK GRID</h3>
+  <p>A 2×2 or 3-column grid where each cell has a different background color — drawn from the brand's extended palette: <code>--nxt-black</code>, <code>--nxt-chartreuse</code>, <code>--nxt-teal-deep</code>, <code>--nxt-panel</code>. Each block contains a bold headline and supporting text. Used for presenting 2–4 parallel concepts (e.g., "Three Experience Principles," "Four Gap Dimensions"). Text color inverts based on background darkness.</p>
+
+  <div class="pattern-demo">
+    <div class="pattern-label">LIVE EXAMPLE — COLOR-BLOCK GRID</div>
+    <div class="pattern-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;">
+      <div style="background:var(--nxt-black);color:var(--nxt-white);padding:var(--space-lg);">
+        <p style="font-family:var(--font-headline);font-size:var(--text-2xl);margin-bottom:var(--space-sm);">SOCIAL PROOF</p>
+        <p class="text-sm" style="color:rgba(255,255,255,0.7);">Verbatim customer evidence. Testimonials, case studies, review data.</p>
+      </div>
+      <div style="background:var(--nxt-chartreuse);color:var(--nxt-black);padding:var(--space-lg);">
+        <p style="font-family:var(--font-headline);font-size:var(--text-2xl);margin-bottom:var(--space-sm);">RECOMMENDATIONS</p>
+        <p class="text-sm">Specific, actionable items with quantified expected impact.</p>
+      </div>
+      <div style="background:var(--nxt-panel);color:var(--nxt-heading);padding:var(--space-lg);">
+        <p style="font-family:var(--font-headline);font-size:var(--text-2xl);margin-bottom:var(--space-sm);">EVIDENCE BASE</p>
+        <p class="text-sm">Cited data points with source attribution and confidence levels.</p>
+      </div>
+      <div style="background:var(--nxt-teal-deep);color:var(--nxt-white);padding:var(--space-lg);">
+        <p style="font-family:var(--font-headline);font-size:var(--text-2xl);margin-bottom:var(--space-sm);">METHODOLOGY</p>
+        <p class="text-sm" style="color:rgba(255,255,255,0.7);">Framework citations, assessment criteria, scoring rubrics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     05 — ILLUSTRATION & ICONOGRAPHY
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">ICONS</div>
+  <div class="section-num">SECTION 05</div>
+  <h2>ILLUSTRATION &<br>ICONOGRAPHY</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Every diagram, chart annotation, icon, and visual metaphor follows the flat geometric vector minimal discipline. No exceptions. No "just this once" gradients. No "small" drop shadows. The system is rigorous because rigor is what prevents the slow drift toward AI slop.</p>
+</section>
+
+<section class="section">
+  <h3>ILLUSTRATION RULES</h3>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <h4>DO — ALWAYS</h4>
+      <ul>
+        <li>Solid flat fills only — rectangles, circles, triangles, lines</li>
+        <li>ONE accent color per illustration (chartreuse OR cyan, never both)</li>
+        <li>Maximum 3 colors total: black + one gray + one accent</li>
+        <li>Crisp vector edges at any scale</li>
+        <li>Negative space as a deliberate compositional element</li>
+        <li>Geometric arrow heads: small, filled, triangular</li>
+        <li>Straight connecting lines with right-angle turns only</li>
+        <li>1–2px consistent stroke weight across an entire illustration</li>
+        <li>Labels in Archivo at <code>--text-sm</code>, placed above or right of element</li>
+        <li>Flow direction: left-to-right or top-to-bottom exclusively</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <h4>DON'T — NEVER</h4>
+      <ul>
+        <li>Gradients, gradient meshes, or gradient fills of any kind</li>
+        <li>Drop shadows, box shadows, inner shadows, or glow effects</li>
+        <li>3D effects, isometric views, or perspective transforms</li>
+        <li>Rounded blob shapes, organic curves, or wavy lines</li>
+        <li>Hand-drawn, sketchy, or whiteboard aesthetics</li>
+        <li>Duotone photo treatments or photo-illustration hybrids</li>
+        <li>Icons inside colored circles (the Notion/generic-SaaS trope)</li>
+        <li>Neon glow, lens flare, or light-source simulation</li>
+        <li>Decorative elements that don't communicate information</li>
+        <li>Diagonal flow, curved arrows, or bezier connector lines</li>
+        <li>Raster textures, noise overlays, or grain effects</li>
+        <li>Emoji or emoji-style illustration in professional deliverables</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>ICON SPECIFICATIONS</h3>
+  <table>
+    <thead><tr><th>ATTRIBUTE</th><th>SPECIFICATION</th><th>NOTES</th></tr></thead>
+    <tbody>
+      <tr><td>Style</td><td>Monoline outline OR solid geometric</td><td>Choose one per deliverable and maintain consistency</td></tr>
+      <tr><td>Stroke weight</td><td>2px at 24px base, scaled proportionally</td><td>1.5px minimum at any size. Never hairline (1px).</td></tr>
+      <tr><td>Grid</td><td>24px or 32px base grid</td><td>All icons in a set use the same grid</td></tr>
+      <tr><td>Container</td><td>None, or square/circular keyline</td><td>If using containers, all icons in the set use the same shape</td></tr>
+      <tr><td>Color on white</td><td><code>--nxt-black</code> primary, <code>--nxt-muted</code> secondary</td><td>Accent color for max 1 icon in a set (the focus icon)</td></tr>
+      <tr><td>Color on dark</td><td><code>--nxt-white</code> primary</td><td>As seen in reference deck slide 10 — white line-art on dark panels</td></tr>
+      <tr><td>Banned</td><td>Filled circles with white cut-out icons</td><td>This is the single most overused AI-generated icon pattern</td></tr>
+    </tbody>
+  </table>
+
+  <h3>DIAGRAM SPECIFICATIONS</h3>
+  <table>
+    <thead><tr><th>ELEMENT</th><th>SPECIFICATION</th></tr></thead>
+    <tbody>
+      <tr><td>Boxes (nodes)</td><td>1px <code>--nxt-rule</code> border on white, OR solid <code>--nxt-panel</code> fill with no border. Sharp corners (0px radius). Padding: 12px 16px minimum.</td></tr>
+      <tr><td>Connecting lines</td><td>Straight with right-angle turns. 1–2px weight. <code>--nxt-muted</code> color. No bezier curves.</td></tr>
+      <tr><td>Arrowheads</td><td>Small filled triangles. 6–8px wide. Same color as line.</td></tr>
+      <tr><td>Labels</td><td>Archivo <code>--text-sm</code>. Placed above or to the right. Never inside the connecting line.</td></tr>
+      <tr><td>Emphasis node</td><td>ONE node in the diagram may use <code>--nxt-chartreuse</code> border or fill to mark it as the focus. All others neutral.</td></tr>
+      <tr><td>Flow direction</td><td>Left-to-right (process flows) or top-to-bottom (hierarchies). NEVER diagonal. NEVER circular unless representing an actual cycle.</td></tr>
+      <tr><td>Annotation arrows</td><td>Used to connect analysis text to specific elements in screenshots or evidence. Thin (1px), black, with small arrowhead. Straight preferred, one bend maximum.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>THE BRAND DOT GRID</h3>
+  <p>A 3×3 grid of chartreuse circles. 6px diameter, 4px gap. Positioned at the left edge near the brand sidebar. This is the NXT Humans maker's mark — the visual equivalent of a signature. It appears on every page/slide but never in the content area. Its position is fixed: vertically centered on the left margin, adjacent to the brand sidebar.</p>
+
+  <div style="display:flex;align-items:center;gap:var(--space-lg);margin:var(--space-lg) 0;padding:var(--space-lg);background:var(--nxt-panel);">
+    <div style="display:grid;grid-template-columns:repeat(3,8px);grid-template-rows:repeat(3,8px);gap:5px;">
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+      <span style="width:8px;height:8px;background:var(--nxt-chartreuse);display:block;"></span>
+    </div>
+    <div>
+      <p class="text-sm" style="color:var(--nxt-heading);font-weight:600;">3×3 Dot Grid — Maker's Mark</p>
+      <p class="text-xs" style="color:var(--nxt-secondary);">Chartreuse (#B8B800) • 6–8px dots • 4–5px gap • Left margin position • Every page/slide</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     06 — DATA VISUALIZATION
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">DATA VIZ</div>
+  <div class="section-num">SECTION 06</div>
+  <h2>DATA VISUALIZATION</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Charts are arguments, not decorations. Every chart must make a specific claim. The title states the conclusion. The visual proves it. The source establishes credibility. If a chart doesn't change someone's mind or confirm a suspicion, it shouldn't exist.</p>
+</section>
+
+<section class="section">
+  <h3>CHART SELECTION RULES</h3>
+  <table>
+    <thead><tr><th>DATA RELATIONSHIP</th><th>CHART TYPE</th><th>NOTES</th></tr></thead>
+    <tbody>
+      <tr><td>Comparison (discrete items)</td><td>Horizontal or vertical bar</td><td>Horizontal for long labels. Sort by value, not alphabetically.</td></tr>
+      <tr><td>Change over time</td><td>Line chart</td><td>Max 4 lines. One highlighted in accent color.</td></tr>
+      <tr><td>Cumulative/waterfall</td><td>Waterfall chart</td><td>Shows how individual values contribute to a total.</td></tr>
+      <tr><td>Part-to-whole</td><td>Stacked bar or treemap</td><td><strong>NEVER pie chart.</strong> Humans compare lengths, not angles.</td></tr>
+      <tr><td>Correlation (2 variables)</td><td>Scatter plot</td><td>Add trendline only if R² > 0.5.</td></tr>
+      <tr><td>Multi-variable (3–4)</td><td>Bubble chart</td><td>X, Y axes + bubble size + optional color.</td></tr>
+      <tr><td>Multi-dimensional scoring</td><td>Spider/radar chart</td><td>Max 8 axes. Show current vs. target overlay.</td></tr>
+      <tr><td>Process/flow</td><td>Flowchart or swimlane</td><td>Uses diagram specifications above.</td></tr>
+      <tr><td>Positioning (2×2)</td><td>Quadrant/scatter</td><td>Label quadrants. Plot competitors or capabilities.</td></tr>
+      <tr><td>Maturity/scoring</td><td>Heat map</td><td>Color intensity = score. Black header. Chartreuse accent for high scores.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>CHART ANATOMY</h3>
+  <table>
+    <thead><tr><th>ELEMENT</th><th>SPECIFICATION</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Title (required)</strong></td><td>Archivo 600 weight, <code>--text-lg</code>. A <strong>complete sentence stating a conclusion</strong>: "Customer satisfaction declined 18% in Q3" — NOT "Customer Satisfaction Scores." The title IS the insight.</td></tr>
+      <tr><td>Subtitle (optional)</td><td>Archivo 400, <code>--text-sm</code>, <code>--nxt-secondary</code>. Additional context: date range, methodology note, benchmark comparison.</td></tr>
+      <tr><td>Axes</td><td>1px <code>--nxt-rule</code> lines. Labels in Archivo <code>--text-xs</code>. Y-axis starts at zero for bar charts (non-negotiable). Gridlines in <code>--nxt-rule-light</code> if needed, but prefer clean/no gridlines.</td></tr>
+      <tr><td>Data elements</td><td>Base color: <code>--nxt-muted</code> or <code>--nxt-secondary</code>. ONE element highlighted in <code>--nxt-chartreuse</code> or <code>--nxt-cyan</code> — this is the element the conclusion title refers to.</td></tr>
+      <tr><td>Legend</td><td>Inline labels preferred over separate legend box. If legend is needed, place below the chart, horizontal layout, Archivo <code>--text-xs</code>.</td></tr>
+      <tr><td><strong>Source (required)</strong></td><td>Archivo <code>--text-xs</code>, <code>--nxt-muted</code>. Bottom-right of chart area. Format: "Source: [Name], [Year]"</td></tr>
+      <tr><td>Annotation</td><td>Short callout labels pointing to specific data points. Archivo <code>--text-xs</code>, connected by 1px line with no arrowhead.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout-recommend">
+    <strong>THE PIE CHART BAN</strong>
+    <p>Pie charts are banned from all NXT Humans output. McKinsey bans them. Tufte discourages them. The reason: humans compare lengths accurately but compare angles poorly. A bar chart communicates the same part-to-whole relationship with greater precision. There are zero exceptions to this rule.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     07 — ANTI-SLOP DETECTION CHECKLIST
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">ANTI-SLOP</div>
+  <div class="section-num">SECTION 07</div>
+  <h2>ANTI-SLOP<br>DETECTION CHECKLIST</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Run this checklist against every visual output before delivery. Any "yes" answer means the output needs revision. This is the quality gate that prevents the brand from looking AI-generated.</p>
+</section>
+
+<section class="section">
+  <table>
+    <thead><tr><th>#</th><th>DETECTION SIGNAL</th><th>WHAT TO LOOK FOR</th><th>FIX</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Default font detected</strong></td><td>Inter, Roboto, Arial, Poppins, Space Grotesk, or system-ui as primary typeface</td><td>Replace with Bebas Neue (headlines) + Archivo (body)</td></tr>
+      <tr><td>2</td><td><strong>Purple gradient present</strong></td><td>Any purple-to-blue, purple-to-pink, or purple-to-white gradient</td><td>Remove entirely. Use solid fills from the brand palette.</td></tr>
+      <tr><td>3</td><td><strong>Card soup layout</strong></td><td>Grid of rounded-corner cards with even spacing, each containing an icon + title + text</td><td>Replace with Split Panel, Color-Block Grid, or table. Remove border-radius.</td></tr>
+      <tr><td>4</td><td><strong>Icons in colored circles</strong></td><td>Small icons centered inside filled circles, often in a row or grid</td><td>Remove circles. Use monoline icons on their own, or omit icons entirely.</td></tr>
+      <tr><td>5</td><td><strong>Accent line under title</strong></td><td>Short colored line/bar immediately below a heading</td><td>Remove. Use whitespace or the rule-accent pattern (80px chartreuse line) only at section level.</td></tr>
+      <tr><td>6</td><td><strong>Even color distribution</strong></td><td>3+ colors used in roughly equal amounts across the design</td><td>Establish clear dominance: white 70% / black 20% / accent ≤10%</td></tr>
+      <tr><td>7</td><td><strong>Gradient blob backgrounds</strong></td><td>Blurred gradient shapes behind content (aurora/mesh/glassmorphism)</td><td>Remove. Use solid white or solid black backgrounds only.</td></tr>
+      <tr><td>8</td><td><strong>Generic stock imagery</strong></td><td>Photographic images of people at computers, handshakes, or abstract tech patterns</td><td>Replace with screenshots of actual product, flat geometric diagrams, or nothing.</td></tr>
+      <tr><td>9</td><td><strong>Pie chart present</strong></td><td>Any pie or donut chart</td><td>Convert to horizontal bar chart showing the same data.</td></tr>
+      <tr><td>10</td><td><strong>Topic title (not conclusion)</strong></td><td>Chart title that names the topic ("Revenue by Quarter") instead of the insight</td><td>Rewrite as conclusion: "Revenue declined 12% in Q3, breaking a 4-quarter growth streak"</td></tr>
+      <tr><td>11</td><td><strong>Missing source citation</strong></td><td>Any data point, statistic, or chart without a visible source attribution</td><td>Add source in <code>--text-xs</code> at bottom-right.</td></tr>
+      <tr><td>12</td><td><strong>Rounded corners everywhere</strong></td><td>Border-radius > 4px on containers, cards, images, or buttons</td><td>Remove or reduce to ≤4px. Sharp geometry is the brand.</td></tr>
+      <tr><td>13</td><td><strong>Light body text on white</strong></td><td>Body text color lighter than #555555 on white background</td><td>Darken to #333333 (body) or #0D0D0D (headings).</td></tr>
+      <tr><td>14</td><td><strong>No type scale contrast</strong></td><td>Headlines and body text within 4px of each other in size</td><td>Headlines must be ≥2× body text size. Minimum 4 distinct size tiers.</td></tr>
+      <tr><td>15</td><td><strong>Decorative elements present</strong></td><td>Any shape, line, or image that doesn't communicate information or establish hierarchy</td><td>Remove. If the design feels empty without it, the information density is too low.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     08 — COMPLETE CSS REFERENCE
+     ═══════════════════════════════════════════ -->
+<section class="section-dark section" style="max-width:100%;padding-left:calc(var(--space-2xl) + 10px);">
+  <div class="overflow-type">CSS</div>
+  <div class="section-num">SECTION 08</div>
+  <h2>COMPLETE CSS<br>VARIABLE REFERENCE</h2>
+  <div class="rule-accent"></div>
+  <p style="max-width:700px;">Copy this block into every HTML deliverable. These variables are the single source of truth for the visual system. No magic numbers in component styles — everything references a variable.</p>
+</section>
+
+<section class="section">
+  <div class="code-block"><span class="comment">/* ═══════════════════════════════════════════════════
+   NXT HUMANS DESIGN SYSTEM — STARK WHITE TEMPLATE
+   Version 1.0 | Copy into every HTML deliverable
+   ═══════════════════════════════════════════════════ */</span>
+
+<span class="prop">:root</span> {
+  <span class="comment">/* ─── Foundation ─── */</span>
+  <span class="prop">--nxt-white</span>: <span class="val">#FFFFFF</span>;
+  <span class="prop">--nxt-off-white</span>: <span class="val">#FAFAFA</span>;
+  <span class="prop">--nxt-paper</span>: <span class="val">#F5F5F0</span>;
+  <span class="prop">--nxt-black</span>: <span class="val">#0D0D0D</span>;
+  <span class="prop">--nxt-near-black</span>: <span class="val">#1A1A1A</span>;
+
+  <span class="comment">/* ─── Brand Accents ─── */</span>
+  <span class="prop">--nxt-chartreuse</span>: <span class="val">#B8B800</span>;
+  <span class="prop">--nxt-chartreuse-soft</span>: <span class="val">#D4D44A</span>;
+  <span class="prop">--nxt-cyan</span>: <span class="val">#00B7C3</span>;
+  <span class="prop">--nxt-teal-deep</span>: <span class="val">#1A5C5E</span>;
+
+  <span class="comment">/* ─── Neutral Hierarchy ─── */</span>
+  <span class="prop">--nxt-heading</span>: <span class="val">#0D0D0D</span>;
+  <span class="prop">--nxt-body</span>: <span class="val">#333333</span>;
+  <span class="prop">--nxt-secondary</span>: <span class="val">#666666</span>;
+  <span class="prop">--nxt-muted</span>: <span class="val">#999999</span>;
+  <span class="prop">--nxt-subtle</span>: <span class="val">#BBBBBB</span>;
+  <span class="prop">--nxt-rule</span>: <span class="val">#E0E0E0</span>;
+  <span class="prop">--nxt-rule-light</span>: <span class="val">#EEEEEE</span>;
+  <span class="prop">--nxt-panel</span>: <span class="val">#F5F5F0</span>;
+
+  <span class="comment">/* ─── Semantic Accents ─── */</span>
+  <span class="prop">--nxt-recommend-bg</span>: <span class="val">#B8B800</span>;
+  <span class="prop">--nxt-recommend-text</span>: <span class="val">#0D0D0D</span>;
+  <span class="prop">--nxt-evidence-bg</span>: <span class="val">#E8F6F7</span>;
+  <span class="prop">--nxt-evidence-border</span>: <span class="val">#00B7C3</span>;
+  <span class="prop">--nxt-warning-bg</span>: <span class="val">#FFF8E1</span>;
+  <span class="prop">--nxt-warning-border</span>: <span class="val">#B8B800</span>;
+  <span class="prop">--nxt-critical-bg</span>: <span class="val">#FFF0F0</span>;
+  <span class="prop">--nxt-critical-border</span>: <span class="val">#CC3333</span>;
+  <span class="prop">--nxt-positive-bg</span>: <span class="val">#F0F8F0</span>;
+  <span class="prop">--nxt-positive-border</span>: <span class="val">#4CAF50</span>;
+
+  <span class="comment">/* ─── Typography ─── */</span>
+  <span class="prop">--font-headline</span>: <span class="val">'Bebas Neue', 'Oswald', 'Impact', sans-serif</span>;
+  <span class="prop">--font-body</span>: <span class="val">'Archivo', 'Source Sans Pro', 'Helvetica Neue', sans-serif</span>;
+  <span class="prop">--font-mono</span>: <span class="val">'JetBrains Mono', 'Fira Code', monospace</span>;
+
+  <span class="comment">/* ─── Type Scale ─── */</span>
+  <span class="prop">--text-xs</span>: <span class="val">0.7rem</span>;
+  <span class="prop">--text-sm</span>: <span class="val">0.8rem</span>;
+  <span class="prop">--text-base</span>: <span class="val">1rem</span>;
+  <span class="prop">--text-lg</span>: <span class="val">1.15rem</span>;
+  <span class="prop">--text-xl</span>: <span class="val">1.35rem</span>;
+  <span class="prop">--text-2xl</span>: <span class="val">1.75rem</span>;
+  <span class="prop">--text-3xl</span>: <span class="val">2.25rem</span>;
+  <span class="prop">--text-4xl</span>: <span class="val">3rem</span>;
+  <span class="prop">--text-5xl</span>: <span class="val">4.5rem</span>;
+  <span class="prop">--text-6xl</span>: <span class="val">6rem</span>;
+  <span class="prop">--text-display</span>: <span class="val">8rem</span>;
+
+  <span class="comment">/* ─── Spacing ─── */</span>
+  <span class="prop">--space-xs</span>: <span class="val">0.25rem</span>;
+  <span class="prop">--space-sm</span>: <span class="val">0.5rem</span>;
+  <span class="prop">--space-md</span>: <span class="val">1rem</span>;
+  <span class="prop">--space-lg</span>: <span class="val">2rem</span>;
+  <span class="prop">--space-xl</span>: <span class="val">3rem</span>;
+  <span class="prop">--space-2xl</span>: <span class="val">5rem</span>;
+  <span class="prop">--space-3xl</span>: <span class="val">8rem</span>;
+}</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CLOSING
+     ═══════════════════════════════════════════ -->
+<section class="hero" style="min-height:50vh;justify-content:center;text-align:center;padding:var(--space-3xl) var(--space-2xl);">
+  <div class="hero-wordmark" style="top:30%;font-size:clamp(5rem,14vw,12rem);opacity:0.06;left:-5%;right:-5%;">NXT HUMANS</div>
+  <p style="font-family:var(--font-headline);font-size:var(--text-sm);letter-spacing:4px;color:var(--nxt-chartreuse);">END OF DOCUMENT</p>
+  <p style="font-family:var(--font-headline);font-size:var(--text-3xl);color:var(--nxt-white);margin-top:var(--space-sm);">IF IT LOOKS LIKE AI MADE IT,<br>IT'S WRONG.</p>
+  <p style="color:var(--nxt-muted);margin-top:var(--space-lg);font-size:var(--text-sm);">NXT Humans · Intelligence Augmentation Suite · Humans in Control · v1.0 · April 2026</p>
+</section>
+
+</div><!-- .main -->
+</body>
+</html>

@@ -101,21 +101,26 @@ export const generatePortrait = async (prompt: string): Promise<string | undefin
     return undefined;
 };
 
-export const generateImage = async (prompt: string, aspectRatio: string = "16:9", refImageBase64?: string): Promise<string | undefined> => {
+export const generateImage = async (prompt: string, aspectRatio: string = "16:9", refImageBase64?: string, openPrompt: boolean = false): Promise<string | undefined> => {
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-    // Import style system (for non-portrait visuals: diagrams, charts, scenes)
-    const { getStyleById } = await import('./visualizationStyles');
-    const style = getStyleById(_activeVisStyleId);
+    let finalPrompt: string;
 
-    // Determine context from aspect ratio
-    const context = (aspectRatio === "1:1" || aspectRatio === "3:4") ? 'portrait' : 'scene';
-    const styleBase = style.promptBase[context];
-    const negativeConstraints = style.negativeConstraints;
-
-    const noTextConstraint = 'CRITICAL: Do NOT include any text, words, letters, numbers, labels, captions, or typography in this image. AI image models cannot spell. All text will be added as a separate overlay. The image must contain ZERO readable characters.';
-    const finalPrompt = `${styleBase}. Depict specifically: ${prompt}. Ensure all visual elements relate to this description. ${negativeConstraints} ${noTextConstraint}`;
+    if (openPrompt) {
+        // Open prompt mode — no NXT style restrictions. User describes whatever they want.
+        const noTextConstraint = 'Do NOT include any text, words, letters, numbers, or labels in this image.';
+        finalPrompt = `${prompt}. Professional quality, high resolution. ${noTextConstraint}`;
+    } else {
+        // NXT style mode — flat geometric business minimalism
+        const { getStyleById } = await import('./visualizationStyles');
+        const style = getStyleById(_activeVisStyleId);
+        const context = (aspectRatio === "1:1" || aspectRatio === "3:4") ? 'portrait' : 'scene';
+        const styleBase = style.promptBase[context];
+        const negativeConstraints = style.negativeConstraints;
+        const noTextConstraint = 'CRITICAL: Do NOT include any text, words, letters, numbers, labels, captions, or typography in this image. AI image models cannot spell. All text will be added as a separate overlay. The image must contain ZERO readable characters.';
+        finalPrompt = `${styleBase}. Depict specifically: ${prompt}. Ensure all visual elements relate to this description. ${negativeConstraints} ${noTextConstraint}`;
+    }
 
     const parts: any[] = [{ text: finalPrompt }];
     if (refImageBase64) {

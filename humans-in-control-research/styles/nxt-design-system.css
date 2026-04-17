@@ -1,0 +1,404 @@
+/* =========================================================
+   NXT HUMANS DESIGN SYSTEM v2.1
+   Aligned with nxthumans.com production styles
+   Font: Archivo (all weights 200-900)
+   NO Bebas Neue — headings use Archivo weight 200 (ultralight)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* --- Foundation (from nxthumans.com) --- */
+  --nxt-white: #FFFFFF;
+  --nxt-off-white: #FAFAFA;
+  --nxt-paper: #F5F5F0;
+  --nxt-black: #141414;
+  --nxt-near-black: #1A1A1A;
+
+  /* --- Brand Accents (from nxt-humans-styles.css) --- */
+  --nxt-chartreuse: #caca20;
+  --nxt-chartreuse-soft: #d8d830;
+  --nxt-chartreuse-80: rgba(202, 202, 32, 0.8);
+  --nxt-chartreuse-40: rgba(202, 202, 32, 0.4);
+  --nxt-chartreuse-20: rgba(202, 202, 32, 0.2);
+  --nxt-chartreuse-10: rgba(202, 202, 32, 0.1);
+  --nxt-cyan: #00b1eb;
+  --nxt-teal: #115054;
+  --nxt-teal-40: rgba(17, 80, 84, 0.4);
+  --nxt-purple: #5a07bf;
+
+  /* --- Neutral Hierarchy --- */
+  --nxt-heading: #141414;
+  --nxt-body: #141414;
+  --nxt-secondary: #666666;
+  --nxt-muted: #acacac;
+  --nxt-subtle: #BBBBBB;
+  --nxt-rule: #e5e5e5;
+  --nxt-rule-light: #EEEEEE;
+  --nxt-panel: #F5F5F0;
+
+  /* --- Semantic --- */
+  --nxt-recommend-bg: #caca20;
+  --nxt-recommend-text: #115054;
+  --nxt-evidence-bg: #E8F6F7;
+  --nxt-evidence-border: #00b1eb;
+  --nxt-warning-bg: #FFF8E1;
+  --nxt-warning-border: #caca20;
+  --nxt-critical-bg: #FFF0F0;
+  --nxt-critical-border: #CC3333;
+  --nxt-positive-bg: #F0F8F0;
+  --nxt-positive-border: #0CCE6B;
+  --nxt-error: #FF5A5A;
+
+  /* --- Typography: Archivo ONLY --- */
+  --font-primary: 'Archivo', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* --- Type Scale (from nxthumans.com: base 18px) --- */
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4.5rem;
+
+  /* Heading weights: 200 (ultralight) for display, 500 for sub */
+  --heading-weight: 200;
+  --subheading-weight: 500;
+  --body-weight: 300;
+  --label-weight: 700;
+
+  /* --- Spacing --- */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /* --- UI --- */
+  --border-radius: 2px;
+  --shadow: none;
+  --transition: all 0.15s ease;
+}
+
+/* =========================================================
+   NXT OUTPUT BLOCKS — Rendered inline in chat
+   ========================================================= */
+
+/* --- Stat Row --- */
+.nxt-stat-row {
+  display: grid;
+  gap: 0;
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--nxt-rule);
+}
+.nxt-stat-row[data-cols="2"] { grid-template-columns: 1fr 1fr; }
+.nxt-stat-row[data-cols="3"] { grid-template-columns: 1fr 1fr 1fr; }
+.nxt-stat-row[data-cols="4"] { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.nxt-stat-item {
+  padding: var(--space-lg);
+  text-align: center;
+  border-right: 1px solid var(--nxt-rule);
+}
+.nxt-stat-item:last-child { border-right: none; }
+
+.nxt-stat-value {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: var(--text-5xl);
+  line-height: 1;
+  color: var(--nxt-chartreuse);
+}
+.nxt-stat-label {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--nxt-secondary);
+  margin-top: var(--space-xs);
+}
+.nxt-stat-source {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  margin-top: var(--space-xs);
+}
+
+/* --- Evidence Block --- */
+.nxt-evidence-block {
+  background: var(--nxt-evidence-bg);
+  border-left: 4px solid var(--nxt-evidence-border);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  font-family: var(--font-primary);
+  font-weight: var(--body-weight);
+  font-size: var(--text-base);
+  color: var(--nxt-body);
+  line-height: 1.65;
+}
+.nxt-evidence-block .nxt-source {
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  margin-top: var(--space-sm);
+  text-align: right;
+}
+
+/* --- Recommendation Callout --- */
+.nxt-recommendation {
+  background: var(--nxt-recommend-bg);
+  color: var(--nxt-recommend-text);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.nxt-recommendation .nxt-rec-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+.nxt-recommendation .nxt-rec-body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--nxt-teal);
+}
+
+/* --- Split Panel --- */
+.nxt-split-panel {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 0;
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--nxt-rule);
+}
+.nxt-split-analysis {
+  padding: var(--space-lg);
+  border-right: 1px solid var(--nxt-rule);
+}
+.nxt-split-evidence {
+  padding: var(--space-lg);
+  background: var(--nxt-panel);
+}
+.nxt-split-panel h3 {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: var(--text-2xl);
+  color: var(--nxt-heading);
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Section Divider --- */
+.nxt-section-divider {
+  background: var(--nxt-teal);
+  color: var(--nxt-white);
+  padding: var(--space-xl);
+  margin: var(--space-lg) 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+.nxt-section-divider .nxt-overflow-type {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: clamp(5rem, 12vw, 10rem);
+  color: rgba(255,255,255,0.06);
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.nxt-section-divider .nxt-section-num {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 4px;
+  color: var(--nxt-chartreuse);
+  text-transform: uppercase;
+}
+.nxt-section-divider .nxt-section-title {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: var(--text-3xl);
+  color: var(--nxt-white);
+  margin-top: var(--space-sm);
+}
+
+/* --- Grid Matrix --- */
+.nxt-grid-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: var(--text-sm);
+  font-family: var(--font-primary);
+}
+.nxt-grid-matrix thead th {
+  background: var(--nxt-teal);
+  color: var(--nxt-chartreuse);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+.nxt-grid-matrix tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--nxt-rule);
+  vertical-align: top;
+  font-weight: 300;
+}
+.nxt-grid-matrix tbody tr:nth-child(even) td {
+  background: var(--nxt-panel);
+}
+
+/* --- Color Block Grid --- */
+.nxt-color-block-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: var(--space-lg) 0;
+}
+.nxt-color-block {
+  padding: var(--space-lg);
+}
+.nxt-color-block h4 {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-sm);
+}
+.nxt-color-block p {
+  font-size: var(--text-sm);
+  font-weight: 300;
+}
+.nxt-color-block.nxt-bg-black { background: var(--nxt-black); color: #fff; }
+.nxt-color-block.nxt-bg-black p { color: rgba(255,255,255,0.7); }
+.nxt-color-block.nxt-bg-chartreuse { background: var(--nxt-chartreuse); color: var(--nxt-teal); }
+.nxt-color-block.nxt-bg-teal { background: var(--nxt-teal); color: #fff; }
+.nxt-color-block.nxt-bg-teal p { color: rgba(255,255,255,0.7); }
+.nxt-color-block.nxt-bg-panel { background: var(--nxt-panel); color: var(--nxt-heading); }
+
+/* --- Quote Block --- */
+.nxt-quote-block {
+  border-left: 4px solid var(--nxt-chartreuse);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  background: var(--nxt-off-white);
+}
+.nxt-quote-text {
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--nxt-heading);
+  line-height: 1.7;
+}
+.nxt-quote-attribution {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  margin-top: var(--space-sm);
+}
+
+/* --- Warning Block --- */
+.nxt-warning-block {
+  background: var(--nxt-warning-bg);
+  border-left: 4px solid var(--nxt-warning-border);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.nxt-warning-block .nxt-warning-label {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--nxt-warning-border);
+  margin-bottom: var(--space-xs);
+}
+
+/* --- Comparison Table --- */
+.nxt-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: var(--text-sm);
+}
+.nxt-comparison-table thead th {
+  background: var(--nxt-teal);
+  color: var(--nxt-white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+.nxt-comparison-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--nxt-rule);
+  font-weight: 300;
+}
+.nxt-comparison-table .nxt-highlight {
+  color: var(--nxt-chartreuse);
+  font-weight: 700;
+}
+
+/* --- Pin Button --- */
+.nxt-output-wrapper {
+  position: relative;
+}
+.nxt-pin-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--nxt-teal);
+  color: var(--nxt-chartreuse);
+  border: 1px solid var(--nxt-chartreuse);
+  padding: 3px 10px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+.nxt-output-wrapper:hover .nxt-pin-btn {
+  opacity: 1;
+}
+.nxt-pin-btn.pinned {
+  opacity: 1;
+  background: var(--nxt-chartreuse);
+  color: var(--nxt-teal);
+}
+
+/* --- Image Block --- */
+.nxt-image-block {
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--nxt-rule);
+}
+.nxt-image-block img {
+  width: 100%;
+  display: block;
+}
+.nxt-image-block .nxt-image-caption {
+  padding: 8px 16px;
+  font-size: var(--text-xs);
+  color: var(--nxt-muted);
+  background: var(--nxt-panel);
+}

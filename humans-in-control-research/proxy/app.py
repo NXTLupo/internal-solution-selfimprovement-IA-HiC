@@ -1106,6 +1106,18 @@ async def wiki_append(req: WikiAppendRequest):
         logger.error(f"Wiki append failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
+@app.get("/api/wiki/list/{path:path}")
+async def wiki_list(path: str):
+    """List files in a wiki directory."""
+    safe_path = os.path.normpath(os.path.join(WIKI_BASE, path))
+    if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    if not os.path.isdir(safe_path):
+        return JSONResponse({"error": "Not a directory"}, status_code=404)
+    files = sorted([f for f in os.listdir(safe_path) if os.path.isfile(os.path.join(safe_path, f))])
+    return {"path": path, "files": files}
+
+
 @app.get("/api/wiki/read/{path:path}")
 async def wiki_read(path: str):
     """Read a wiki page. Alternative to the nginx/vite static serving."""
