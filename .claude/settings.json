@@ -44,5 +44,19 @@
     "additionalDirectories": [
       "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
     ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python d:/NXT-HUMANS_AI_CX_WORKBENCH/humans-in-control-research/hooks/validate_output.py",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
   }
 }

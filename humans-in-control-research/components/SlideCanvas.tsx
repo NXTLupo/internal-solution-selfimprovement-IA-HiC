@@ -13,18 +13,23 @@ import {
     SlideShell, PersonaCardSlide, RecommendationSlide, ThemeClusterSlide,
     CompetitiveMatrixSlide, BlockQuoteSlide, CaseStudySlide, PrinciplesSlide,
     StatRowSlide, TimelineSlide, SectionDividerFullBleed,
+    ServiceBlueprintSlide, GapMatrixSlide, ArchitectureMapSlide, PrdFeatureSlide, SystemsInventorySlide,
 } from './slideTemplates/web';
-import { exportSlideToPPTX } from './slideTemplates/pptx';
+import { exportSlideToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { TOKENS } from './slideTemplates/types';
+import { getBrand, type BrandId } from './slideTemplates/brands';
 import type {
     SlideTemplate, PersonaCardData, RecommendationData, ThemeClusterData,
     CompetitiveMatrixData, BlockQuoteData, CaseStudyData, PrinciplesData,
     StatRowData, TimelineData, SectionDividerData,
+    ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
 } from './slideTemplates/types';
 
 export interface SlideData {
     id: string;
     template: SlideTemplate;
+    /** Visual brand: 'nxt' (default) or 'nu' (Northeastern). Set by hashtag detection in the parser. */
+    brand?: BrandId;
     title: string;
     subtitle?: string;
     sources?: string[];
@@ -41,7 +46,12 @@ export interface SlideData {
     statRow?: StatRowData;
     timeline?: TimelineData;
     sectionDivider?: SectionDividerData;
-    // Legacy/fallback fields (used when template doesn't fit any of the 10)
+    serviceBlueprint?: ServiceBlueprintData;
+    gapMatrix?: GapMatrixData;
+    architectureMap?: ArchitectureMapData;
+    prdFeature?: PrdFeatureData;
+    systemsInventory?: SystemsInventoryData;
+    // Legacy/fallback fields (used when template doesn't fit any of the 15)
     body?: string;
     bullets?: string[];
     blocks?: NxtBlock[];
@@ -65,46 +75,67 @@ const SLIDE_H = TOKENS.WEB_H;
 
 function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNode {
     const sources = slide.sources || [];
+    const brand = getBrand(slide.brand);
     switch (slide.template) {
         case 'section-divider':
-            return slide.sectionDivider ? <SectionDividerFullBleed data={slide.sectionDivider} /> : null;
+            return slide.sectionDivider ? <SectionDividerFullBleed data={slide.sectionDivider} brand={brand} /> : null;
         case 'persona-card':
             return slide.persona ? (
-                <SlideShell imageUrl={slide.imageUrl} imagePanel={isGenerating ? <GeneratingOverlay /> : undefined}>
-                    <PersonaCardSlide data={slide.persona} sources={sources} hasImage={!!slide.imageUrl} />
+                <SlideShell brand={brand} imageUrl={slide.imageUrl} imagePanel={isGenerating ? <GeneratingOverlay /> : undefined}>
+                    <PersonaCardSlide data={slide.persona} sources={sources} hasImage={!!slide.imageUrl} brand={brand} />
                 </SlideShell>
             ) : null;
         case 'recommendation':
             return slide.recommendation ? (
-                <SlideShell><RecommendationSlide title={slide.title} data={slide.recommendation} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><RecommendationSlide title={slide.title} data={slide.recommendation} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'theme-cluster':
             return slide.themeCluster ? (
-                <SlideShell><ThemeClusterSlide title={slide.title} data={slide.themeCluster} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><ThemeClusterSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'competitive-matrix':
             return slide.matrix ? (
-                <SlideShell><CompetitiveMatrixSlide title={slide.title} data={slide.matrix} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><CompetitiveMatrixSlide title={slide.title} data={slide.matrix} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'block-quote':
             return slide.quote ? (
-                <SlideShell><BlockQuoteSlide data={slide.quote} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><BlockQuoteSlide data={slide.quote} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'case-study':
             return slide.caseStudy ? (
-                <SlideShell><CaseStudySlide title={slide.title} data={slide.caseStudy} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><CaseStudySlide title={slide.title} data={slide.caseStudy} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'principles':
             return slide.principles ? (
-                <SlideShell><PrinciplesSlide title={slide.title} data={slide.principles} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><PrinciplesSlide title={slide.title} data={slide.principles} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'stat-row':
             return slide.statRow ? (
-                <SlideShell><StatRowSlide title={slide.title} data={slide.statRow} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><StatRowSlide title={slide.title} data={slide.statRow} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'timeline':
             return slide.timeline ? (
-                <SlideShell><TimelineSlide title={slide.title} data={slide.timeline} sources={sources} /></SlideShell>
+                <SlideShell brand={brand}><TimelineSlide title={slide.title} data={slide.timeline} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'service-blueprint':
+            return slide.serviceBlueprint ? (
+                <SlideShell brand={brand}><ServiceBlueprintSlide title={slide.title} data={slide.serviceBlueprint} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'gap-matrix':
+            return slide.gapMatrix ? (
+                <SlideShell brand={brand}><GapMatrixSlide title={slide.title} data={slide.gapMatrix} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'architecture-map':
+            return slide.architectureMap ? (
+                <SlideShell brand={brand}><ArchitectureMapSlide title={slide.title} data={slide.architectureMap} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'prd-feature':
+            return slide.prdFeature ? (
+                <SlideShell brand={brand}><PrdFeatureSlide title={slide.title} data={slide.prdFeature} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'systems-inventory':
+            return slide.systemsInventory ? (
+                <SlideShell brand={brand}><SystemsInventorySlide title={slide.title} data={slide.systemsInventory} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         default:
             return null;
@@ -166,6 +197,7 @@ export const SlideCanvas: React.FC<Props> = ({
                 title: slide.title,
                 sources: slide.sources,
                 imageUrl: slide.imageUrl,
+                brand: getBrand(slide.brand),
                 persona: slide.persona,
                 recommendation: slide.recommendation,
                 themeCluster: slide.themeCluster,
@@ -176,6 +208,11 @@ export const SlideCanvas: React.FC<Props> = ({
                 statRow: slide.statRow,
                 timeline: slide.timeline,
                 sectionDivider: slide.sectionDivider,
+                serviceBlueprint: slide.serviceBlueprint,
+                gapMatrix: slide.gapMatrix,
+                architectureMap: slide.architectureMap,
+                prdFeature: slide.prdFeature,
+                systemsInventory: slide.systemsInventory,
             });
         } catch (e) {
             console.error('PPTX export failed:', e);
@@ -183,14 +220,92 @@ export const SlideCanvas: React.FC<Props> = ({
         setExporting(false);
     };
 
+    /**
+     * html2canvas reads bounding rects that include the preview's CSS `transform: scale()`,
+     * which collapses flex children to the same position and jumbles the output. We work
+     * around it by cloning the slide into an off-screen container rendered at the natural
+     * 960×540 with NO transform, capturing that, then cleaning up.
+     */
+    const captureSlideAtNaturalSize = async (): Promise<HTMLCanvasElement | null> => {
+        if (!slideRef.current) return null;
+        const clone = slideRef.current.cloneNode(true) as HTMLElement;
+        // Strip any inherited transform / scaling and park it off-screen at true dimensions
+        clone.style.position = 'fixed';
+        clone.style.left = '-99999px';
+        clone.style.top = '0';
+        clone.style.width = SLIDE_W + 'px';
+        clone.style.height = SLIDE_H + 'px';
+        clone.style.transform = 'none';
+        clone.style.transformOrigin = 'top left';
+        clone.style.zoom = '1';
+        clone.style.zIndex = '-1';
+        clone.style.margin = '0';
+        clone.style.padding = '0';
+        document.body.appendChild(clone);
+        try {
+            // Wait for fonts (Archivo) to finish loading so the clone captures in
+            // the correct typeface instead of a system fallback. Then give layout
+            // one frame to settle (images, flex, absolute positioning).
+            if ((document as any).fonts?.ready) {
+                try { await (document as any).fonts.ready; } catch {}
+            }
+            await new Promise(r => requestAnimationFrame(() => r(null)));
+            await new Promise(r => requestAnimationFrame(() => r(null)));
+
+            // html2canvas does NOT honor CSS `object-fit: cover` on <img> elements —
+            // it stretches images to fill the container. Pre-crop each image on a
+            // canvas so it arrives at its exact displayed dimensions with correct
+            // aspect ratio, then disable object-fit so html2canvas just blits it.
+            const imgs = Array.from(clone.querySelectorAll('img')) as HTMLImageElement[];
+            await Promise.all(imgs.map(async img => {
+                if (!img.src || img.src.startsWith('data:image/svg')) return;
+                const parent = img.parentElement;
+                if (!parent) return;
+                const rect = parent.getBoundingClientRect();
+                const w = Math.round(rect.width);
+                const h = Math.round(rect.height);
+                if (w <= 0 || h <= 0) return;
+                // Only pre-crop if the image is using cover-style display
+                const style = getComputedStyle(img);
+                if (style.objectFit !== 'cover' && !img.style.objectFit) {
+                    return; // logo or decorative image, leave alone
+                }
+                try {
+                    const cropped = await preprocessImageCover(img.src, w * 2, h * 2);
+                    img.src = cropped;
+                    img.style.objectFit = 'fill';
+                    img.style.width = w + 'px';
+                    img.style.height = h + 'px';
+                } catch {
+                    // Leave untouched on failure — slightly off-aspect is better than blank
+                }
+            }));
+            const html2canvas = (await import('html2canvas')).default;
+            const canvas = await html2canvas(clone, {
+                scale: 2,
+                backgroundColor: '#FFFFFF',
+                useCORS: true,
+                width: SLIDE_W,
+                height: SLIDE_H,
+                windowWidth: SLIDE_W,
+                windowHeight: SLIDE_H,
+                logging: false,
+            });
+            return canvas;
+        } finally {
+            document.body.removeChild(clone);
+        }
+    };
+
+    const fileBase = () => slide.title.replace(/[^a-zA-Z0-9 ]/g, '').substring(0, 40).trim().replace(/\s+/g, '_') || 'slide';
+
     const handleExportPNG = async () => {
-        if (!slideRef.current) return;
         setExporting(true);
         try {
-            const html2canvas = (await import('html2canvas')).default;
-            const canvas = await html2canvas(slideRef.current, { scale: 2, backgroundColor: '#FFFFFF', useCORS: true, width: SLIDE_W, height: SLIDE_H });
+            const canvas = await captureSlideAtNaturalSize();
+            if (!canvas) return;
             const link = document.createElement('a');
-            link.download = `${slide.title.replace(/[^a-zA-Z0-9 ]/g, '').substring(0, 40).trim().replace(/\s+/g, '_')}.png`;
+            link.download = `${fileBase()}.png`;
             link.href = canvas.toDataURL('image/png');
             link.click();
         } catch (e) { console.error('PNG export failed:', e); }
@@ -198,15 +313,14 @@ export const SlideCanvas: React.FC<Props> = ({
     };
 
     const handleExportPDF = async () => {
-        if (!slideRef.current) return;
         setExporting(true);
         try {
-            const html2canvas = (await import('html2canvas')).default;
+            const canvas = await captureSlideAtNaturalSize();
+            if (!canvas) return;
             const { jsPDF } = await import('jspdf');
-            const canvas = await html2canvas(slideRef.current, { scale: 2, backgroundColor: '#FFFFFF', useCORS: true, width: SLIDE_W, height: SLIDE_H });
             const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [13.33, 7.5] });
             pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 13.33, 7.5);
-            pdf.save(`${slide.title.replace(/[^a-zA-Z0-9 ]/g, '').substring(0, 40).trim().replace(/\s+/g, '_')}.pdf`);
+            pdf.save(`${fileBase()}.pdf`);
         } catch (e) { console.error('PDF export failed:', e); }
         setExporting(false);
     };

@@ -16,7 +16,12 @@ export type SlideTemplate =
     | 'principles'          // strategy-author
     | 'stat-row'            // benchmark-reporter
     | 'timeline'            // roadmap-builder
-    | 'section-divider';    // deck-narrative-composer
+    | 'section-divider'     // deck-narrative-composer
+    | 'service-blueprint'   // service-blueprint-mapper  (journey_stage)
+    | 'gap-matrix'          // gap-analysis-evaluator    (gap)
+    | 'architecture-map'    // tech-arch-generator       (tech_node)
+    | 'prd-feature'         // prd-compiler              (prd_feature)
+    | 'systems-inventory';  // tech-audit-inspector      (tech_audit_system)
 
 export interface PersonaCardData {
     name: string;
@@ -43,9 +48,22 @@ export interface ThemeClusterData {
 
 export interface CompetitiveMatrixData {
     columns: string[];
-    rows: Array<{ name: string; scores: number[]; note?: string }>;
+    /** Optional one-line definition per column (what each capability means) */
+    columnDefs?: string[];
+    rows: Array<{
+        name: string;
+        scores: number[];
+        /** Optional per-row evidence line (e.g. "$340M raised FY25, 12% mobile giving") */
+        note?: string;
+        /** Optional per-row source citation */
+        source?: string;
+    }>;
     scaleMax?: number;
+    /** Labels for each maturity level (e.g. ["Absent","Ad-hoc","Defined","Managed","Optimized"]) */
+    scaleLabels?: string[];
     insight?: string;
+    /** Who is the subject row — bolded and shown first */
+    subjectRow?: string;
 }
 
 export interface BlockQuoteData {
@@ -58,10 +76,20 @@ export interface BlockQuoteData {
 
 export interface CaseStudyData {
     subject: string;
+    /** Context strip under the subject name: "Private Catholic · Iowa · 800 students" */
+    subjectMeta?: string;
+    /** Elapsed time (e.g. "18 months", "Q1 2024 → Q3 2025") */
+    timeframe?: string;
+    /** Investment/resource scale (e.g. "$2.4M, 12-person team") */
+    investment?: string;
     challenge: string;
     approach: string;
     outcome: string;
     keyMetric?: { value: string; label: string };
+    /** 2-3 additional stats that corroborate the hero metric */
+    supportingMetrics?: Array<{ value: string; label: string }>;
+    /** Verbatim quote from the subject (or someone inside the case) */
+    pullQuote?: { text: string; attribution: string };
 }
 
 export interface PrinciplesData {
@@ -80,6 +108,68 @@ export interface SectionDividerData {
     number: string;
     title: string;
     subtitle?: string;
+}
+
+// === SERVICE BLUEPRINT (Bitner model, adapted for 16:9 slide) ===
+export interface ServiceBlueprintData {
+    stages: Array<{
+        phase: string;              // short phase name, e.g. "Awareness"
+        /** Duration marker for this stage (e.g. "Day 1", "Week 2-4") */
+        duration?: string;
+        /** Emotional state (e.g. "Frustrated", "Hopeful") */
+        emotion?: string;
+        customerAction: string;     // what the user does
+        frontstage: string;         // visible interaction
+        backstage: string;          // hidden process
+        support: string;            // infrastructure / data
+        painPoint?: string;         // friction at this stage
+        failPoint?: boolean;        // stage breaks entirely
+    }>;
+    keyInsight?: string;
+}
+
+// === GAP MATRIX (1-5 maturity, current vs target) ===
+export interface GapMatrixData {
+    gaps: Array<{
+        capability: string;
+        currentMaturity: number;      // 1-5
+        targetMaturity: number;       // 1-5
+        severity: 'critical' | 'high' | 'medium' | 'low';
+        impact?: string;
+    }>;
+    scaleMax?: number;                // default 5
+    insight?: string;
+}
+
+// === ARCHITECTURE MAP (C4-style layered) ===
+export interface ArchitectureMapData {
+    layers: Array<{
+        name: string;                 // e.g. "Client", "API", "Services", "Data"
+        nodes: Array<{ name: string; type?: string; description?: string }>;
+    }>;
+    flowSummary?: string;             // one-line description of data flow
+}
+
+// === PRD FEATURE CARD ===
+export interface PrdFeatureData {
+    features: Array<{
+        name: string;
+        priority: 'must' | 'should' | 'could' | 'wont';
+        userStory: string;
+        acceptanceCriteria: string[];
+    }>;
+}
+
+// === SYSTEMS INVENTORY (tech audit) ===
+export interface SystemsInventoryData {
+    systems: Array<{
+        name: string;
+        category: string;             // e.g. "CRM", "ETL", "Analytics"
+        status: 'current' | 'legacy' | 'deprecated' | 'planned';
+        risk: 'critical' | 'high' | 'medium' | 'low';
+        description?: string;
+    }>;
+    insight?: string;
 }
 
 export type TemplateData =

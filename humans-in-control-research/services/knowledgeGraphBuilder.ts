@@ -156,9 +156,12 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs by the number of themes already in the graph so repeated calls
+    // (e.g. classic batch + chat-driven additive approvals) never collide.
+    const themeOffset = nodes.filter(n => n.type === 'theme').length;
     for (let i = 0; i < themes.length; i++) {
         const theme = themes[i];
-        const themeId = `theme_${i}`;
+        const themeId = `theme_${themeOffset + i}`;
         const linkedEvidenceIds: string[] = [];
         const linkedSourceIds: string[] = [];
 
@@ -369,9 +372,11 @@ export function addPersonasToGraph(graph: KnowledgeGraph, personas: any[]): Know
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const personaOffset = nodes.filter(n => n.type === 'persona').length;
     for (let i = 0; i < personas.length; i++) {
         const persona = personas[i];
-        const personaId = `persona_${i}`;
+        const personaId = `persona_${personaOffset + i}`;
 
         nodes.push({
             id: personaId,
@@ -464,9 +469,11 @@ export function addRecommendationsToGraph(graph: KnowledgeGraph, recommendations
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const recOffset = nodes.filter(n => n.type === 'recommendation').length;
     for (let i = 0; i < recommendations.length; i++) {
         const rec = recommendations[i];
-        const recId = `rec_${i}`;
+        const recId = `rec_${recOffset + i}`;
 
         nodes.push({
             id: recId,
@@ -548,9 +555,11 @@ export function addJourneyStagesToGraph(graph: KnowledgeGraph, stages: any[]): K
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const stageOffset = nodes.filter(n => n.type === 'journey_stage').length;
     for (let i = 0; i < stages.length; i++) {
         const stage = stages[i];
-        const stageId = `stage_${i}`;
+        const stageId = `stage_${stageOffset + i}`;
         const emotionColor = stage.emotion === 'Frustrated' ? '#CC6644' : stage.emotion === 'Negative' ? '#CC6644' : stage.emotion === 'Neutral' ? '#888888' : '#00B7C3';
 
         nodes.push({
@@ -594,9 +603,11 @@ export function addPRDFeaturesToGraph(graph: KnowledgeGraph, features: any[]): K
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const featureOffset = nodes.filter(n => n.type === 'feature').length;
     for (let i = 0; i < features.length; i++) {
         const feature = features[i];
-        const featureId = `feature_${i}`;
+        const featureId = `feature_${featureOffset + i}`;
         const priorityColor = feature.priority === 'Must-have' ? '#CC6644' : feature.priority === 'Should-have' ? '#B8B800' : '#888888';
 
         nodes.push({
@@ -630,9 +641,11 @@ export function addRoadmapToGraph(graph: KnowledgeGraph, items: any[]): Knowledg
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const roadmapOffset = nodes.filter(n => n.type === 'roadmap_item').length;
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
-        const itemId = `roadmap_${i}`;
+        const itemId = `roadmap_${roadmapOffset + i}`;
         const horizonColor = item.horizon === 'Now' ? '#00B7C3' : item.horizon === 'Next' ? '#B8B800' : '#888888';
 
         nodes.push({
@@ -666,9 +679,11 @@ export function addGapAnalysisToGraph(graph: KnowledgeGraph, gaps: any[]): Knowl
     const nodes = [...graph.nodes];
     const edges = [...graph.edges];
 
+    // Offset IDs so classic batch + chat-driven additive approvals never collide
+    const gapOffset = nodes.filter(n => n.type === 'gap').length;
     for (let i = 0; i < gaps.length; i++) {
         const gap = gaps[i];
-        const gapId = `gap_${i}`;
+        const gapId = `gap_${gapOffset + i}`;
         const severityColor = gap.severity === 'critical' ? '#CC6644' : gap.severity === 'high' ? '#B8B800' : '#888888';
 
         nodes.push({

@@ -822,6 +822,24 @@ const App = () => {
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
 
+    /**
+     * Classic-mode KG auto-synthesis lifecycle tracker.
+     * After data collection completes we kick off themes → personas → recs → journey → gap →
+     * competitive generation in the BACKGROUND (non-blocking). Each stage's result flows
+     * into the existing KG-builder useEffect, populating the analytical layers of the graph
+     * exactly as classic mode did — without blocking the chat UI or restoring checkpoints.
+     *
+     *   'idle'     — ready to start (or project has been reset)
+     *   'running'  — background chain is in progress
+     *   'complete' — all stages finished (successfully or skipped)
+     *   'failed'   — chain terminated at ingestion (unrecoverable)
+     *
+     * The ref prevents double-fires across re-renders and survives StrictMode double-invocation.
+     * Chat-driven approvals via handleChatDeliverableApproved continue to add ADDITIVELY on top
+     * of whatever this background chain produces — they are complementary, not exclusive.
+     */
+    const classicKgSynthesisRef = useRef<{ status: 'idle' | 'running' | 'complete' | 'failed' }>({ status: 'idle' });
+
     // Build initial knowledge graph when data collection completes
     // B8: Rebuild knowledge graph from scratch when ANY data changes.
     // Includes all deliverable types (B7): themes, personas, recs, journey, PRD, roadmap, gaps.
@@ -1084,6 +1102,15 @@ const App = () => {
         setNarrativeResult(null);
         setExcludedSources(new Set());
         sessionRef.current = null;
+        // Reset the classic-mode KG auto-synthesis tracker so a fresh run can kick off
+        // after the next data collection. Any in-flight background chain will see
+        // status != 'running' on its next stillActive() check and will stop writing
+        // state (so its late results won't collide with the fresh project).
+        classicKgSynthesisRef.current.status = 'idle';
+        // Reset the KG-builder "already ingested" flags; otherwise stage-2+ ingestion
+        // of a new project would be skipped because these stayed true from the last run.
+        kgBuiltRef.current = { sources: false, themes: false, personas: false, recs: false, journey: false, prd: false, roadmap: false, gaps: false };
+        setKnowledgeGraph({ nodes: [], edges: [] });
     };
 
     const loadProject = async (project: SavedProject) => {
@@ -2348,6 +2375,108 @@ ${synthesisParts.join('\n')}
             // at any point. The chat is the primary research interface.
             console.log('[App] Data collection complete. Chat panel available for research.');
             setStatusMessage("Data collected. Use the chat to explore your data and create deliverables.");
+
+            // === CLASSIC-MODE KG AUTO-SYNTHESIS (background, non-blocking) ===
+            // Restores the pre-chat behavior where the knowledge graph was automatically
+            // populated with themes, personas, recommendations, journey stages, gaps, and
+            // competitive analysis after data collection. Runs in the BACKGROUND so the chat
+            // remains instantly usable. Each stage's result flows into the existing KG-builder
+            // useEffect (kgBuiltRef is the flag that prevents duplicate insertions).
+            //
+            // This path is ADDITIVE to chat-driven approvals: approved deliverables from the
+            // chat are still wired through handleChatDeliverableApproved and append on top.
+            // The two paths deliberately never touch the same state slot at the same time —
+            // this one fills the canonical *-Result state; chat approvals go directly through
+            // the graph builders without touching those state slots.
+            if (classicKgSynthesisRef.current.status === 'idle' && sessionRef.current && collectedDataFiles.length > 0) {
+                classicKgSynthesisRef.current.status = 'running';
+                const session = sessionRef.current;
+                const noop = () => { /* onStream / onStatus discard — chat is the user-facing affordance */ };
+
+                // Fire and forget — runs in parallel to the chat flow. Failures are caught per stage.
+                (async () => {
+                    try {
+                        // Ingest the curated corpus into the legacy Gemini session so downstream
+                        // synthesis stages have the source material in their chat history.
+                        // If this fails, the entire chain must bail — nothing downstream works.
+                        try {
+                            setStatusMessage("Data collected. Synthesizing knowledge graph in background — chat is available now.");
+                            await session.ingestContext(collectedDataFiles, noop);
+                        } catch (err) {
+                            console.warn('[KG Auto-Synthesis] Ingestion failed, aborting chain:', err);
+                            classicKgSynthesisRef.current.status = 'failed';
+                            return;
+                        }
+
+                        // Abort if the user reset the project mid-chain.
+                        const stillActive = () => classicKgSynthesisRef.current.status === 'running';
+
+                        // THEMES — highest priority. Needed as input for personas.
+                        let themes: any = null;
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Extracting themes for knowledge graph…");
+                                themes = await session.generateThemes(undefined, noop);
+                                if (themes && stillActive()) setThemesResult(themes);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Themes failed:', err); }
+                        }
+
+                        // PERSONAS — depends on themes
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Synthesizing personas for knowledge graph…");
+                                const personas = await session.generatePersonas(themes, undefined, noop, noop);
+                                if (personas && stillActive()) setPersonasResult(personas);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Personas failed:', err); }
+                        }
+
+                        // RECOMMENDATIONS
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Synthesizing recommendations for knowledge graph…");
+                                const recs = await session.generateRecommendations(undefined, noop);
+                                if (recs && stillActive()) setRecsResult(recs);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Recommendations failed:', err); }
+                        }
+
+                        // JOURNEY MAP
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Mapping service journey for knowledge graph…");
+                                const journey = await session.generateJourneyMap(undefined, noop);
+                                if (journey && stillActive()) setJourneyResult(journey);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Journey failed:', err); }
+                        }
+
+                        // GAP ANALYSIS
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Scoring capability gaps for knowledge graph…");
+                                const gap = await session.generateGapAnalysis(undefined, noop);
+                                if (gap && stillActive()) setGapResult(gap);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Gap analysis failed:', err); }
+                        }
+
+                        // COMPETITIVE ANALYSIS
+                        if (stillActive()) {
+                            try {
+                                setStatusMessage("Data collected. Analyzing competitive landscape for knowledge graph…");
+                                const comp = await session.generateCompetitiveAnalysis(undefined, noop);
+                                if (comp && stillActive()) setCompetitiveResult(comp);
+                            } catch (err) { console.warn('[KG Auto-Synthesis] Competitive failed:', err); }
+                        }
+
+                        if (stillActive()) {
+                            classicKgSynthesisRef.current.status = 'complete';
+                            setStatusMessage("Knowledge graph populated. Keep exploring in chat, or approve new items from chat to add to the graph.");
+                            console.log('[KG Auto-Synthesis] Background chain complete.');
+                        }
+                    } catch (err) {
+                        console.error('[KG Auto-Synthesis] Unexpected error in background chain:', err);
+                        classicKgSynthesisRef.current.status = 'failed';
+                    }
+                })();
+            }
         } catch (e: any) {
             console.error(e);
             const isNetworkError = e?.message?.includes('Failed to fetch') ||

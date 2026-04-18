@@ -21,6 +21,8 @@ import {
 import { NxtBlockRenderer, parseNxtBlocks, type NxtBlock } from './NxtOutputRenderer';
 import { DeliverableBatch, type DeliverableItem, type DeliverableType } from './DeliverableCard';
 import SlideCanvas, { type SlideData } from './SlideCanvas';
+import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/brands';
+import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 
 interface Props {
     context: ChatContext;
@@ -29,6 +31,102 @@ interface Props {
     onToggle: () => void;
     onDeliverableApproved?: (type: string, data: any) => void;
 }
+
+/**
+ * Prominent loading animation shown while the AI is reasoning or generating
+ * an image. Designed to make it unmistakable that work is in progress —
+ * pulsing ring + traveling progress bar + live elapsed timer + rotating
+ * contextual status text so the user knows the system is alive even on the
+ * longer (multi-second) Opus or Imagen calls.
+ */
+const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: string; accentColor: string }> = ({ mode, modelName, accentColor }) => {
+    const [elapsed, setElapsed] = useState(0);
+    const [phaseIdx, setPhaseIdx] = useState(0);
+
+    useEffect(() => {
+        const t = setInterval(() => setElapsed(e => e + 0.1), 100);
+        return () => clearInterval(t);
+    }, []);
+
+    const phases = mode === 'image'
+        ? ['Composing scene', 'Rendering pixels', 'Finalizing image']
+        : ['Grounding in corpus', 'Reasoning across sources', 'Composing response', 'Validating citations'];
+    useEffect(() => {
+        const t = setInterval(() => setPhaseIdx(p => (p + 1) % phases.length), 2400);
+        return () => clearInterval(t);
+    }, [phases.length]);
+
+    const label = mode === 'image' ? 'GENERATING IMAGE' : `${modelName.toUpperCase()} IS WORKING`;
+    const ringColor = mode === 'image' ? '#B8B800' : accentColor;
+
+    return (
+        <div style={{
+            padding: '20px 22px',
+            background: '#FAFAF7',
+            borderLeft: `4px solid ${ringColor}`,
+            borderTop: '1px solid #E8E8E8',
+            borderBottom: '1px solid #E8E8E8',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 18,
+            margin: '12px 0',
+            position: 'relative',
+            overflow: 'hidden',
+        }}>
+            {/* Spinning brand ring with dot pulse at center */}
+            <div style={{ width: 44, height: 44, position: 'relative', flexShrink: 0 }}>
+                <div style={{
+                    position: 'absolute', inset: 0,
+                    border: `3px solid ${ringColor}22`,
+                    borderTopColor: ringColor,
+                    borderRadius: '50%',
+                    animation: 'nxt-spin 0.9s linear infinite',
+                }} />
+                <div style={{
+                    position: 'absolute', inset: 14,
+                    background: ringColor,
+                    borderRadius: '50%',
+                    animation: 'nxt-pulse 1.4s ease-in-out infinite',
+                }} />
+            </div>
+            {/* Text block */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 800, fontSize: 13, letterSpacing: '2px', color: '#0D0D0D' }}>
+                    {label}
+                </div>
+                <div style={{ marginTop: 3, fontSize: 11, color: '#666', fontWeight: 400, fontStyle: 'italic', minHeight: 16 }}>
+                    {phases[phaseIdx]}…
+                </div>
+                {/* Traveling progress bar */}
+                <div style={{ marginTop: 10, height: 3, background: '#E8E8E8', position: 'relative', overflow: 'hidden' }}>
+                    <div style={{
+                        position: 'absolute', top: 0, bottom: 0, width: '30%',
+                        background: ringColor,
+                        animation: 'nxt-travel 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                    }} />
+                </div>
+            </div>
+            {/* Elapsed timer */}
+            <div style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 14,
+                fontWeight: 700,
+                color: ringColor,
+                fontVariantNumeric: 'tabular-nums',
+                flexShrink: 0,
+                minWidth: 56,
+                textAlign: 'right',
+            }}>
+                {elapsed.toFixed(1)}s
+            </div>
+            <style>{`
+                @keyframes nxt-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                @keyframes nxt-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.4; } }
+                @keyframes nxt-travel { 0% { left: -30%; } 100% { left: 100%; } }
+            `}</style>
+        </div>
+    );
+};
 
 const SUGGESTED_QUERIES = [
     "What are the top 15 themes learned across all data sources?",
@@ -149,15 +247,23 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         return items;
     }, []);
 
-    const parseSlideBlocks = useCallback((text: string, model?: string): SlideData[] => {
-        // Match :::slide [optional template=NAME] ... :::
-        const pattern = /:::slide(?:\s+template=([a-z-]+))?\s*\n([\s\S]*?):::/g;
+    const parseSlideBlocks = useCallback((text: string, model?: string, userQuery?: string): SlideData[] => {
+        // Brand is chosen once per call: explicit JSON `brand` > hashtag in AI text > hashtag in user query > default nxt
+        const brandFromText = detectBrandFromText(text);
+        const brandFromQuery = userQuery ? detectBrandFromText(userQuery) : null;
+        const defaultBrand: BrandId = brandFromText || brandFromQuery || 'nxt';
+
+        // Match :::slide [optional template=NAME] [optional brand=NAME] ... :::
+        const pattern = /:::slide((?:\s+[a-z]+=[a-z-]+)*)\s*\n([\s\S]*?):::/g;
         const result: SlideData[] = [];
         let match;
         while ((match = pattern.exec(text)) !== null) {
             try {
-                const fenceTemplate = (match[1] || '').toLowerCase();
+                const attrs = match[1] || '';
+                const fenceTemplate = (attrs.match(/\btemplate=([a-z-]+)/i)?.[1] || '').toLowerCase();
+                const fenceBrand = (attrs.match(/\bbrand=(nxt|nu|northeastern)/i)?.[1] || '').toLowerCase();
                 const parsed = JSON.parse(match[2].trim());
+                const brand: BrandId = (parsed.brand as BrandId) || (fenceBrand === 'nu' || fenceBrand === 'northeastern' ? 'nu' : fenceBrand === 'nxt' ? 'nxt' : defaultBrand);
                 // Resolve template: prefer fence label, then JSON `template`, then auto-detect by field
                 let template: any = fenceTemplate || parsed.template;
                 if (!template) {
@@ -171,16 +277,27 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     else if (parsed.statRow || parsed.stats) template = 'stat-row';
                     else if (parsed.timeline || parsed.phases) template = 'timeline';
                     else if (parsed.sectionDivider) template = 'section-divider';
+                    else if (parsed.serviceBlueprint || parsed.blueprint) template = 'service-blueprint';
+                    else if (parsed.gapMatrix || parsed.gaps) template = 'gap-matrix';
+                    else if (parsed.architectureMap || parsed.architecture || parsed.layers) template = 'architecture-map';
+                    else if (parsed.prdFeature || parsed.features) template = 'prd-feature';
+                    else if (parsed.systemsInventory || parsed.systems) template = 'systems-inventory';
                     else template = 'recommendation'; // safe default
                 }
                 // Normalize alternative field names
                 const themeCluster = parsed.themeCluster || (Array.isArray(parsed.themes) ? { themes: parsed.themes } : undefined);
                 const statRow = parsed.statRow || (Array.isArray(parsed.stats) ? { stats: parsed.stats } : undefined);
                 const timeline = parsed.timeline || (Array.isArray(parsed.phases) ? { phases: parsed.phases } : undefined);
+                const serviceBlueprint = parsed.serviceBlueprint || (parsed.blueprint ? parsed.blueprint : (Array.isArray(parsed.stages) ? { stages: parsed.stages } : undefined));
+                const gapMatrix = parsed.gapMatrix || (Array.isArray(parsed.gaps) ? { gaps: parsed.gaps } : undefined);
+                const architectureMap = parsed.architectureMap || parsed.architecture || (Array.isArray(parsed.layers) ? { layers: parsed.layers } : undefined);
+                const prdFeature = parsed.prdFeature || (Array.isArray(parsed.features) ? { features: parsed.features } : undefined);
+                const systemsInventory = parsed.systemsInventory || (Array.isArray(parsed.systems) ? { systems: parsed.systems } : undefined);
 
                 result.push({
                     id: `slide_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
                     template,
+                    brand,
                     title: parsed.title || 'Untitled Slide',
                     subtitle: parsed.subtitle,
                     sources: parsed.sources,
@@ -194,6 +311,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     statRow,
                     timeline,
                     sectionDivider: parsed.sectionDivider,
+                    serviceBlueprint,
+                    gapMatrix,
+                    architectureMap,
+                    prdFeature,
+                    systemsInventory,
                     body: parsed.body,
                     bullets: parsed.bullets,
                     blocks: (parsed.blocks || []).map((b: any) => ({ type: b.type, raw: JSON.stringify(b.data), data: b.data })),
@@ -264,6 +386,85 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             }
         } catch (e) { console.warn('Portrait module failed:', e); }
     }, []);
+
+    // --- Deck export (all slides in the chat) ---
+    const handleExportDeckPPTX = useCallback(async () => {
+        if (slides.length === 0) return;
+        const args = slides.map(s => ({
+            template: s.template,
+            title: s.title,
+            sources: s.sources,
+            imageUrl: s.imageUrl,
+            brand: getBrand(s.brand),
+            persona: s.persona,
+            recommendation: s.recommendation,
+            themeCluster: s.themeCluster,
+            matrix: s.matrix,
+            quote: s.quote,
+            caseStudy: s.caseStudy,
+            principles: s.principles,
+            statRow: s.statRow,
+            timeline: s.timeline,
+            sectionDivider: s.sectionDivider,
+            serviceBlueprint: s.serviceBlueprint,
+            gapMatrix: s.gapMatrix,
+            architectureMap: s.architectureMap,
+            prdFeature: s.prdFeature,
+            systemsInventory: s.systemsInventory,
+        }));
+        try { await exportDeckToPPTX(args); } catch (e) { console.error('Deck PPTX export failed:', e); }
+    }, [slides]);
+
+    const handleExportDeckPDF = useCallback(async () => {
+        if (slides.length === 0) return;
+        // Capture each slide's DOM (rendered in the chat) and compose into a multi-page PDF.
+        // Each slide element has id `slide-capture-{id}` set below.
+        try {
+            const html2canvas = (await import('html2canvas')).default;
+            const { jsPDF } = await import('jspdf');
+            const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [13.33, 7.5] });
+            if ((document as any).fonts?.ready) { try { await (document as any).fonts.ready; } catch {} }
+            for (let i = 0; i < slides.length; i++) {
+                const el = document.getElementById(`slide-capture-${slides[i].id}`);
+                if (!el) continue;
+                // Clone offscreen at natural size to avoid transform:scale() collapse
+                const clone = el.cloneNode(true) as HTMLElement;
+                clone.style.position = 'fixed';
+                clone.style.left = '-99999px';
+                clone.style.top = '0';
+                clone.style.width = '960px';
+                clone.style.height = '540px';
+                clone.style.transform = 'none';
+                clone.style.zIndex = '-1';
+                document.body.appendChild(clone);
+                try {
+                    await new Promise(r => requestAnimationFrame(() => r(null)));
+                    // Pre-crop images to honor CSS object-fit:cover (html2canvas stretches otherwise)
+                    const imgs = Array.from(clone.querySelectorAll('img')) as HTMLImageElement[];
+                    await Promise.all(imgs.map(async img => {
+                        if (!img.src || img.src.startsWith('data:image/svg')) return;
+                        const parent = img.parentElement; if (!parent) return;
+                        const rect = parent.getBoundingClientRect();
+                        const w = Math.round(rect.width), h = Math.round(rect.height);
+                        if (w <= 0 || h <= 0) return;
+                        const st = getComputedStyle(img);
+                        if (st.objectFit !== 'cover' && !img.style.objectFit) return;
+                        try {
+                            const cropped = await preprocessImageCover(img.src, w * 2, h * 2);
+                            img.src = cropped; img.style.objectFit = 'fill';
+                            img.style.width = w + 'px'; img.style.height = h + 'px';
+                        } catch {}
+                    }));
+                    const canvas = await html2canvas(clone, { scale: 2, backgroundColor: '#FFFFFF', useCORS: true, width: 960, height: 540, windowWidth: 960, windowHeight: 540, logging: false });
+                    if (i > 0) pdf.addPage([13.33, 7.5], 'landscape');
+                    pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 13.33, 7.5);
+                } finally {
+                    document.body.removeChild(clone);
+                }
+            }
+            pdf.save(`deck_${new Date().toISOString().split('T')[0]}_${slides.length}_slides.pdf`);
+        } catch (e) { console.error('Deck PDF export failed:', e); }
+    }, [slides]);
 
     const isImageRequest = (msg: string): boolean => {
         const lower = msg.toLowerCase();
@@ -340,7 +541,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // Auto-generate portraits for personas
                 generatePersonaPortraits(newDels);
             }
-            const newSlides = parseSlideBlocks(response.content, response.model);
+            const newSlides = parseSlideBlocks(response.content, response.model, query);
             if (newSlides.length > 0) {
                 setSlides(prev => [...prev, ...newSlides]);
                 // Auto-generate portraits for persona slides
@@ -535,25 +736,36 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
                             {/* Slide canvases */}
                             {msg.role === 'assistant' && msgSlides.map(slide => (
-                                <SlideCanvas key={slide.id} slide={slide}
-                                    onApprove={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'approved' as const } : x))}
-                                    onReject={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'rejected' as const } : x))}
-                                    isGeneratingVisual={generatingVisualId === slide.id}
-                                    onGenerateVisual={async (s, prompt) => {
-                                        setGeneratingVisualId(s.id);
-                                        setSlides(prev => prev.map(x => x.id === s.id ? { ...x, imagePrompt: prompt } : x));
-                                        try {
-                                            const { generateImage } = await import('../services/geminiService');
-                                            const img = await generateImage(prompt, '16:9', undefined, true);
-                                            if (img) setSlides(prev => prev.map(x => x.id === s.id ? { ...x, imageUrl: img, imagePrompt: prompt } : x));
-                                        } catch (e) {
-                                            console.warn('Visual generation failed:', e);
-                                        }
-                                        setGeneratingVisualId(null);
-                                    }}
-                                    onEditTitle={(s, t) => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, title: t } : x))}
-                                />
+                                <div key={slide.id} id={`slide-capture-${slide.id}`}>
+                                    <SlideCanvas slide={slide}
+                                        onApprove={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'approved' as const } : x))}
+                                        onReject={s => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, status: 'rejected' as const } : x))}
+                                        isGeneratingVisual={generatingVisualId === slide.id}
+                                        onGenerateVisual={async (s, prompt) => {
+                                            setGeneratingVisualId(s.id);
+                                            setSlides(prev => prev.map(x => x.id === s.id ? { ...x, imagePrompt: prompt } : x));
+                                            try {
+                                                const { generateImage } = await import('../services/geminiService');
+                                                const img = await generateImage(prompt, '16:9', undefined, true);
+                                                if (img) setSlides(prev => prev.map(x => x.id === s.id ? { ...x, imageUrl: img, imagePrompt: prompt } : x));
+                                            } catch (e) {
+                                                console.warn('Visual generation failed:', e);
+                                            }
+                                            setGeneratingVisualId(null);
+                                        }}
+                                        onEditTitle={(s, t) => setSlides(prev => prev.map(x => x.id === s.id ? { ...x, title: t } : x))}
+                                    />
+                                </div>
                             ))}
+                            {/* Export Deck bar — appears once a message produced 2+ slides */}
+                            {msg.role === 'assistant' && msgSlides.length >= 2 && (
+                                <div style={{ display: 'flex', gap: 8, marginTop: 8, padding: '8px 12px', background: '#FAFAFA', borderLeft: '3px solid #caca20', alignItems: 'center' }}>
+                                    <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#666' }}>{msgSlides.length}-slide deck</span>
+                                    <div style={{ flex: 1 }} />
+                                    <button onClick={handleExportDeckPPTX} style={{ padding: '4px 12px', background: '#caca20', color: '#0D0D0D', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PPTX</button>
+                                    <button onClick={handleExportDeckPDF} style={{ padding: '4px 12px', background: '#0D0D0D', color: '#FFF', border: 'none', fontWeight: 700, fontSize: 9, letterSpacing: '1px', textTransform: 'uppercase' as const, cursor: 'pointer' }}>Export Deck PDF</button>
+                                </div>
+                            )}
 
                             {/* Copy button */}
                             {msg.role === 'assistant' && (
@@ -567,9 +779,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 })}
 
                 {(isLoading || imageLoading) && (
-                    <div style={{ padding: '8px 12px', background: '#F5F5F0', borderLeft: `3px solid ${imageLoading ? '#B8B800' : modelConfig?.color || '#888'}`, fontSize: 10, color: '#888', fontStyle: 'italic' }}>
-                        {imageLoading ? 'Generating image...' : `${modelConfig?.name} is reasoning...`}
-                    </div>
+                    <LoadingIndicator
+                        mode={imageLoading ? 'image' : 'reasoning'}
+                        modelName={modelConfig?.name || 'AI'}
+                        accentColor={modelConfig?.color || '#B8B800'}
+                    />
                 )}
                 <div ref={messagesEndRef} />
             </div>

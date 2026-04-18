@@ -170,8 +170,52 @@ const THINKING_BUDGETS: Record<ThinkingEffort, number> = {
 // --- Deliverable Output Protocol ---
 
 const DELIVERABLE_PROTOCOL = `
-DELIVERABLE OUTPUT PROTOCOL:
-When the user asks you to CREATE a structured deliverable (personas, themes, recommendations, journey stages, etc.),
+========================================================================
+RESPONSE MODE — READ THIS FIRST ON EVERY TURN
+========================================================================
+
+Your response format is ALWAYS determined by what the user explicitly asks for. There are three modes, and the DEFAULT is plain chat.
+
+--- 1. DEFAULT: PLAIN GROUNDED CHAT (use this unless another mode is triggered) ---
+When the user asks a question, requests analysis, brainstorms, or makes any conversational request, respond as an expert research analyst:
+  - Plain prose, grounded in the corpus
+  - Cite named sources inline: e.g., "Higher Ed Dive reports that..." or "[r/NEU post, Mar 2026]"
+  - Liberal quoting — pull verbatim where possible
+  - Use light markdown for readability (bold for emphasis, short bullet lists, a header if the answer is long)
+  - Answer directly. No preamble, no "Great question".
+  - DO NOT emit :::slide, :::deliverable:, or :::nxt: fences. Answering in prose is your default contract.
+
+The knowledge graph is ALREADY being built automatically in the background (themes, personas, recs, gaps, etc. populate without you having to emit cards). So when the user asks a question, just answer — don't force structure on them.
+
+--- 2. SLIDE MODE: triggered ONLY by #slide in the user's message ---
+If and only if the user's message contains "#slide" (case-insensitive), switch to slide generation using the SLIDE OUTPUT PROTOCOL below. Optional brand hashtag:
+  - #slide #NU  → Northeastern brand (near-black + Huskies Red)
+  - #slide #NXT → NXT Humans brand (teal + chartreuse) — also the default if no brand hashtag
+  - #slide alone → NXT Humans brand
+
+Examples:
+  "#slide #NU give me a persona for Sarah Chen"     → emit one :::slide template=persona-card brand=nu
+  "#slide show the top 3 themes"                    → emit 3 :::slide template=theme-cluster blocks
+  "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
+
+NOT slide mode:
+  "Who are our customers?"           → prose answer, not a slide
+  "What themes are emerging?"        → prose summary with citations, not a slide
+  "Summarize the competitive data"   → prose analysis, not a slide
+  (unless the user adds #slide)
+
+--- 3. DELIVERABLE CARD MODE: triggered ONLY by explicit request for approvable cards ---
+If the user explicitly asks for "approvable cards", "persona cards I can approve", "pin-able deliverables", or similar phrasing that makes the approval intent explicit, emit :::deliverable:TYPE blocks per the schema below. These are interactive cards the user approves into the knowledge graph.
+
+If the user just asks "create personas" or "what themes exist" WITHOUT mentioning cards or approvals, answer in prose. The background synthesis already populates the knowledge graph — you don't need to emit cards for the KG to know about these items.
+
+--- THE RULE ---
+Structured outputs (:::slide, :::deliverable:, :::nxt:) are ALWAYS opt-in. If neither #slide nor explicit card-approval phrasing appears in the user's message, your response is PLAIN PROSE. Questions deserve answers. Conversations deserve conversation.
+
+========================================================================
+
+DELIVERABLE CARD SCHEMA (only used when user explicitly asks for cards):
+When the user asks you to CREATE approvable deliverable cards (e.g. "generate 5 persona cards I can approve"),
 output them as :::deliverable blocks so the UI can render them as inspectable, approvable cards.
 
 Format:
@@ -198,23 +242,42 @@ IMPORTANT:
 - Include verbose evidence: verbatim quotes, specific data points, named sources in every field
 - You can mix prose text with deliverable blocks (explain your reasoning, then output the blocks)
 
-SLIDE OUTPUT PROTOCOL — 10 TEMPLATES (NXT HUMANS):
+SLIDE OUTPUT PROTOCOL — 15 TEMPLATES x 2 VISUAL BRANDS:
 
 When the user asks to create a slide (or set of slides), output ONE :::slide block per slide.
 Pick the template that best matches the content. Mark it on the fence: :::slide template=NAME
 
-The 10 templates and when to use each:
+VISUAL BRAND (chosen via hashtag in the user's prompt):
+  #NXT  → NXT Humans brand — teal sidebar (#115054), chartreuse accent (#CACA20), Archivo.  DEFAULT.
+  #NU   → Northeastern University brand — near-black sidebar (#141414), Huskies Red accent (#C8102E), Archivo.
+          Use #NU only when the user requests Northeastern-branded output.
 
-1. persona-card        → user requests personas, archetypes, customer segments
-2. recommendation      → user requests strategic actions, what to do, next steps
-3. theme-cluster       → user requests themes, patterns, emerging insights (3-4 themes)
-4. competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
-5. block-quote         → user wants a single powerful verbatim quote highlighted
-6. case-study          → user requests an example, real-world case, success/failure story
-7. principles          → user requests guiding principles, design tenets, operating beliefs (3-5 items)
-8. stat-row            → user requests key metrics, numbers, "by the numbers" (3-4 stats)
-9. timeline            → user requests roadmap, phases, sequencing (3-5 phases)
-10. section-divider    → between major sections of a deck
+If the user's prompt contains #NU (or "Northeastern"), you MAY echo brand=nu on the fence:
+  :::slide template=persona-card brand=nu
+    {...}
+  :::
+Otherwise omit brand= on the fence and the renderer defaults to NXT.
+The hashtag in the user's prompt is authoritative — the parser will auto-apply the brand to every
+slide in your response even if you forget to set brand=. Do NOT mention the hashtag in the slide
+JSON itself; it's a routing directive, not content.
+
+The 15 templates and when to use each:
+
+1.  persona-card        → user requests personas, archetypes, customer segments
+2.  recommendation      → user requests strategic actions, what to do, next steps
+3.  theme-cluster       → user requests themes, patterns, emerging insights (3-4 themes)
+4.  competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
+5.  block-quote         → user wants a single powerful verbatim quote highlighted
+6.  case-study          → user requests an example, real-world case, success/failure story
+7.  principles          → user requests guiding principles, design tenets, operating beliefs (3-5 items)
+8.  stat-row            → user requests key metrics, numbers, "by the numbers" (3-4 stats)
+9.  timeline            → user requests roadmap, phases, sequencing (3-5 phases)
+10. section-divider     → between major sections of a deck
+11. service-blueprint   → user requests a service blueprint, journey map, frontstage/backstage analysis (Bitner 5-component)
+12. gap-matrix          → user requests gap analysis, maturity scoring, current-vs-target capabilities (Gartner 1-5)
+13. architecture-map    → user requests technology architecture, system diagram, C4 layers, tech stack
+14. prd-feature         → user requests product requirements, feature specs, MoSCoW breakdown
+15. systems-inventory   → user requests tech audit, systems catalog, legacy vs current state
 
 EVERY slide block carries:
 - "title": action title (complete sentence stating a conclusion with data)
@@ -270,20 +333,48 @@ Template-specific JSON shapes:
 }
 :::
 
+Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (vendor-landscape analysis) — 5 named competitors, capability defs, scaleLabels, evidence per row, subject highlighted:
+
 :::slide template=competitive-matrix
 {
-  "title": "Northeastern lags peer institutions on AI-powered donor intelligence",
-  "sources": ["CASE 2024","Gartner Higher-Ed CRM 2025","peer institution websites"],
+  "title": "Outreach trails Gong + Clari on AI-native conversational intelligence; leads on workflow breadth",
+  "sources": ["Gartner Sales Tech Magic Quadrant 2025","G2 Sales Engagement Report Spring 2025","public S-1 and 10-K filings"],
   "matrix": {
-    "columns": ["Unified CRM","AI Scoring","Mobile Giving","Predictive Outreach"],
+    "subjectRow": "Outreach",
+    "columns": ["AI-Native Call Intelligence","Workflow Automation Breadth","Forecast Accuracy","Data-Platform Openness"],
+    "columnDefs": ["Real-time transcript + coaching + deal risk","Cadences, rules, roles across GTM","MEDDIC + ML pipeline projection","API coverage, event webhooks, BYO warehouse"],
     "rows": [
-      {"name":"Northeastern","scores":[2,1,3,1]},
-      {"name":"Boston University","scores":[4,3,4,3]},
-      {"name":"NYU","scores":[5,4,5,4]},
-      {"name":"Cornell","scores":[5,5,5,5]}
+      {"name":"Outreach","scores":[3,5,3,4],"note":"Kaia GA 2024 · 4K native integrations · 78% forecast accuracy","source":"Outreach investor day 2025"},
+      {"name":"Gong","scores":[5,3,4,3],"note":"conversation-first, 600+ AI models trained on 3B minutes","source":"Gong S-1 + G2 2025"},
+      {"name":"Salesloft","scores":[3,4,3,3],"note":"Rhythm signal engine · acquired Drift Q2 2024","source":"Salesloft press release + Gartner 2025"},
+      {"name":"Clari","scores":[4,2,5,4],"note":"revenue-ops platform focus · 92% forecast accuracy on tracked deals","source":"Clari customer case studies 2025"},
+      {"name":"HubSpot Sales Hub","scores":[2,4,2,3],"note":"broad SMB reach · ConversationIQ still beta","source":"HubSpot Q4 2024 10-K"}
     ],
     "scaleMax": 5,
-    "insight": "Northeastern is one full maturity tier behind every peer on AI-driven advancement capabilities."
+    "scaleLabels": ["Absent","Basic","Defined","Managed","World-class"],
+    "insight": "Outreach owns the widest workflow surface (5/5) but loses to Gong on the strategic wedge — AI call intelligence is where ~60% of 2025 buyer RFPs start. Closing that 2-point gap is worth an estimated 14% lift in competitive win rate per Gartner's 2025 quadrant movement."
+  }
+}
+:::
+
+:::slide template=competitive-matrix
+{
+  "title": "Northeastern lags 4 named peers by one full maturity tier on AI-driven advancement",
+  "sources": ["CASE 2024","Gartner Higher-Ed CRM 2025","Cornell Advancement Annual Report","BU Philanthropy Report 2025"],
+  "matrix": {
+    "subjectRow": "Northeastern",
+    "columns": ["Unified Donor View","AI Prospect Scoring","Mobile Giving UX","Predictive Outreach"],
+    "columnDefs": ["Single profile across all CRMs + SIS + ERP","ML-based propensity + capacity scoring","Responsive giving page + wallet pay","Behavior-triggered stewardship cadence"],
+    "rows": [
+      {"name":"Northeastern University","scores":[2,1,3,1],"note":"3 Salesforce orgs, no ML pipeline, 1.2% mobile conv","source":"Northeastern CRM Assessment 2025"},
+      {"name":"Boston University","scores":[4,3,4,3],"note":"Single Blackbaud CRM + deployed EverTrue scoring","source":"BU Philanthropy Report 2025"},
+      {"name":"NYU","scores":[5,4,5,4],"note":"Salesforce AEM + Gravyty AI at mass scale","source":"NYU Advancement Disclosure 2025"},
+      {"name":"Cornell University","scores":[5,5,5,5],"note":"Unified platform post-18mo consolidation, +34% major-gift conv","source":"Cornell Advancement Annual Report 2025"},
+      {"name":"Columbia University","scores":[4,4,4,3],"note":"Custom propensity model + 44% mobile giving","source":"Columbia Advancement 2025"}
+    ],
+    "scaleMax": 5,
+    "scaleLabels": ["Absent","Ad-hoc","Defined","Managed","Optimized"],
+    "insight": "Every critical capability sits at L1-L2 for Northeastern while the peer median is L4. The largest gap is AI Prospect Scoring (-4), which is the leading indicator of major-gift conversion at Cornell and NYU."
   }
 }
 :::
@@ -302,16 +393,58 @@ Template-specific JSON shapes:
 }
 :::
 
+Example of the same case-study pattern applied to a B2B SaaS corpus — note how subjectMeta, timeframe unit, investment unit, metrics, and quote attribution all shift with the domain while the structure stays identical:
+
 :::slide template=case-study
 {
-  "title": "Cornell's 18-month CRM consolidation lifted major-gift conversion 34%",
-  "sources": ["CASE 2024","Cornell Advancement Annual Report 2025"],
+  "title": "Linear's 6-quarter GTM rebuild lifted NDR to 132% and cut CAC payback from 21 to 9 months",
+  "sources": ["Linear Series C Filing","a16z Enterprise Software Benchmarks 2025","SaaStr Annual 2024 Panel"],
+  "caseStudy": {
+    "subject": "Linear (Issue Tracking SaaS)",
+    "subjectMeta": "Series C · 210 FTE · $8M ARR → $72M ARR over study period",
+    "timeframe": "6 quarters (Q3 2023 → Q4 2024)",
+    "investment": "$3.1M program · 18-person GTM pod + Gong/Clari integration",
+    "challenge": "Self-serve signups converted to paid at 4.1%, well below PLG benchmark of 7-9%. CAC payback sat at 21 months while peers averaged 11. Expansion revenue was flat because product usage signals never reached AEs.",
+    "approach": "Rebuilt the growth stack around intent: Segment CDP pipes product events to a propensity model, top-decile accounts auto-route to Strategic AEs within 24 hours, retention team runs trigger-based outreach on adoption dips. Three-quarter rollout with two-week instrumentation sprints per phase.",
+    "outcome": "Trial-to-paid conversion rose from 4.1% to 8.7%. Net dollar retention climbed from 108% to 132%. CAC payback compressed from 21 to 9 months. Strategic-AE close rate on intent-qualified accounts hit 44% (vs 18% on unqualified).",
+    "keyMetric": {"value":"132%","label":"net dollar retention, exit Q4 2024"},
+    "supportingMetrics": [
+      {"value":"8.7%","label":"trial-to-paid conversion"},
+      {"value":"9 mo","label":"CAC payback"},
+      {"value":"44%","label":"intent-qualified close rate"},
+      {"value":"9×","label":"ARR growth"}
+    ],
+    "pullQuote": {
+      "text":"The best-performing play we shipped wasn't a sequence — it was letting product usage decide who an AE called today.",
+      "attribution":"VP RevOps, Linear (SaaStr panel Q4 2024)"
+    }
+  }
+}
+:::
+
+:::slide template=case-study
+{
+  "title": "Cornell's 18-month CRM consolidation lifted major-gift conversion 34% and reclaimed 624 officer-hours/year",
+  "sources": ["CASE 2024","Cornell Advancement Annual Report 2025","Gartner Higher-Ed CRM 2025"],
   "caseStudy": {
     "subject": "Cornell University",
-    "challenge": "Cornell's Advancement org operated 4 disconnected CRMs across colleges, blocking unified donor profiles and slowing major-gift cycle time by an average of 90 days.",
-    "approach": "Consolidated to a single Salesforce instance over 18 months, with a data-quality remediation phase before cutover and a college-by-college pilot rollout.",
-    "outcome": "Major-gift conversion rate rose 34%, cycle time dropped 90 days, and advancement-officer productivity recovered an estimated 12 hours per week per officer.",
-    "keyMetric": {"value":"+34%","label":"major-gift conversion rate, 18 months post-cutover"}
+    "subjectMeta": "Ivy League · Ithaca, NY · 26K students · $2.4B endowment",
+    "timeframe": "18 months (Q2 2023 → Q4 2024)",
+    "investment": "$7.2M program cost · 14-person program team + 3 Salesforce SIs",
+    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges — each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
+    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration — smallest college first — with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
+    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk — reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
+    "keyMetric": {"value":"+34%","label":"major-gift conversion rate, 12 months post-cutover"},
+    "supportingMetrics": [
+      {"value":"-90 days","label":"cycle time reduction"},
+      {"value":"624 hrs","label":"officer time reclaimed / year"},
+      {"value":"140K","label":"records deduped"},
+      {"value":"2.1×","label":"program-cost ROI, Year 1"}
+    ],
+    "pullQuote": {
+      "text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.",
+      "attribution":"VP Advancement Services, Cornell (CASE 2024 panel)"
+    }
   }
 }
 :::
@@ -372,12 +505,226 @@ Template-specific JSON shapes:
 }
 :::
 
+Example of the same service-blueprint pattern applied to a B2B SaaS onboarding corpus — 4 stages, duration + emotion per stage, all four lanes, keyInsight quantified:
+
+:::slide template=service-blueprint
+{
+  "title": "Two of four enterprise-onboarding stages are fail points, driving 22% of first-year churn",
+  "sources": ["Gainsight NRR Study 2025","internal customer-success interviews Q1 2026","Product analytics — Pendo, Q4 2025"],
+  "serviceBlueprint": {
+    "stages": [
+      {"phase":"Kickoff","duration":"Day 0-7","emotion":"Hopeful","customerAction":"New admin joins kickoff call, shares goals + data schema","frontstage":"CSM-led 60-min kickoff, shared Notion runbook","backstage":"Salesforce opp converts to account, success plan generated","support":"Gainsight, Notion, Salesforce","painPoint":"CSM handoff from AE loses ~30% of stated goals in translation","failPoint":false},
+      {"phase":"Data Integration","duration":"Week 2-5","emotion":"Frustrated","customerAction":"Customer eng team wires first data source","frontstage":"Integration wizard + API docs","backstage":"Webhook validation, schema inference runs in Airflow","support":"Airflow, dbt, Snowflake","painPoint":"Schema-inference fails on 38% of Oracle sources; integration takes 4× the advertised 2 weeks","failPoint":true},
+      {"phase":"First Value","duration":"Week 6-10","emotion":"Confused","customerAction":"Admin configures first report + shares with exec sponsor","frontstage":"Self-serve dashboard builder","backstage":"Query layer materialized views, RLS policies","support":"Looker-embed, Postgres","painPoint":"63% of first shared reports fail QA — execs lose trust before production rollout","failPoint":true},
+      {"phase":"Expansion","duration":"Month 3-6","emotion":"Satisfied","customerAction":"Adds second department, buys seats upsell","frontstage":"In-app expansion offer + CSM QBR","backstage":"Propensity model flags account for AE","support":"Gainsight, Salesforce, Gong","painPoint":"Expansion motion manual — CSM capacity limits trigger coverage to 40% of eligible accounts","failPoint":false}
+    ],
+    "keyInsight": "The two fail stages (Data Integration + First Value) drive 22% of Year-1 churn at a blended $180K ACV — fixing schema inference + report QA would retain an estimated $4.0M ARR annually before adding a single CSM."
+  }
+}
+:::
+
+:::slide template=service-blueprint
+{
+  "title": "Two of four journey stages are fail points, leaking 28% of first-gift intent before stewardship",
+  "sources": ["NXT Stakeholder Interviews","Northeastern CRM Assessment","Google Analytics Q1 2026"],
+  "serviceBlueprint": {
+    "stages": [
+      {"phase":"Awareness","duration":"Week 1","emotion":"Curious","customerAction":"Alum opens segmented email appeal","frontstage":"Marketing Cloud journey w/ dynamic content","backstage":"Nightly Snowflake segmentation + ML scoring","support":"Snowflake, Marketing Cloud, ML service","painPoint":"Generic segmentation — open rate stuck at 40%","failPoint":false},
+      {"phase":"Consideration","duration":"Day 1-3","emotion":"Frustrated","customerAction":"Clicks 'Give Now', waits 7s for page","frontstage":"Static landing page, no personalization","backstage":"Pardot event tracker fires once","support":"Pardot, CDN","painPoint":"7s load time, no donor recognition, 28% bounce after click","failPoint":true},
+      {"phase":"Gift","duration":"Minutes","emotion":"Confused","customerAction":"Enters card details in 4-field form","frontstage":"Legacy form, no Apple Pay / Google Pay","backstage":"Stripe tokenize → GL journal in Workday","support":"Stripe, Banner, Workday","painPoint":"Tokenization errors on 12% of mobile attempts","failPoint":true},
+      {"phase":"Stewardship","duration":"Day 1-30","emotion":"Hopeful","customerAction":"Expects personalized thank-you","frontstage":"Template email + occasional gift-officer call","backstage":"Manual CRM entry, no trigger automation","support":"Salesforce, ZoomInfo","painPoint":"Only 8% of mid-gifts ($1k-$5k) receive any stewardship","failPoint":false}
+    ],
+    "keyInsight": "The two fail stages (Consideration + Gift) drop 28% of interested alumni before a card is even charged. Fixing page speed + tokenization would unlock an estimated $1.8M in annual recovered revenue before any spend-increase."
+  }
+}
+:::
+
+:::slide template=gap-matrix
+{
+  "title": "Northeastern trails peers by one full maturity tier on every advancement capability",
+  "sources": ["Gartner Higher-Ed CRM 2025","peer institution websites","Northeastern CRM Assessment"],
+  "gapMatrix": {
+    "gaps": [
+      {"capability":"Unified Donor View","currentMaturity":2,"targetMaturity":4,"severity":"critical","impact":"blocks major-gift personalization"},
+      {"capability":"Predictive Donor Scoring","currentMaturity":1,"targetMaturity":4,"severity":"critical","impact":"officers miss 60% of ready-to-give signals"},
+      {"capability":"Mobile Giving UX","currentMaturity":3,"targetMaturity":5,"severity":"high","impact":"50% of clicks are mobile; conv rate 1.2%"},
+      {"capability":"Data Quality Governance","currentMaturity":2,"targetMaturity":4,"severity":"high","impact":"12% of donor records have duplicate IDs"},
+      {"capability":"Attribution & Reporting","currentMaturity":2,"targetMaturity":4,"severity":"medium","impact":"cannot quantify channel ROI"}
+    ],
+    "scaleMax": 5,
+    "insight": "Every critical gap is at L1-L2; peer median is L4."
+  }
+}
+:::
+
+:::slide template=architecture-map
+{
+  "title": "Four layers of technology must consolidate to enable the unified donor view",
+  "sources": ["Northeastern CRM Assessment","Stakeholder interviews"],
+  "architectureMap": {
+    "layers": [
+      {"name":"Client Tier","nodes":[
+        {"name":"Web / Mobile Giving","type":"Experience","description":"Salesforce Experience Cloud + custom React"},
+        {"name":"Officer Console","type":"Experience","description":"Salesforce Lightning"},
+        {"name":"Alumni Portal","type":"Experience","description":"Drupal + SSO"}
+      ]},
+      {"name":"API & Orchestration","nodes":[
+        {"name":"MuleSoft","type":"iPaaS","description":"Integration bus between CRMs and core systems"},
+        {"name":"Segment","type":"CDP","description":"Event collection and identity resolution"}
+      ]},
+      {"name":"Systems of Record","nodes":[
+        {"name":"Salesforce Annual Giving","type":"CRM"},
+        {"name":"Salesforce Major Gifts","type":"CRM"},
+        {"name":"Banner","type":"SIS"},
+        {"name":"Workday","type":"ERP"}
+      ]},
+      {"name":"Analytics & Data","nodes":[
+        {"name":"Snowflake","type":"Warehouse"},
+        {"name":"Tableau","type":"BI"},
+        {"name":"DataBricks","type":"ML","description":"Donor-propensity models (on hold)"}
+      ]}
+    ],
+    "flowSummary": "Gift events flow left-to-right; identity resolution happens in Segment before Salesforce writes; analytics reads from Snowflake only."
+  }
+}
+:::
+
+:::slide template=prd-feature
+{
+  "title": "Three MUST-have features unblock the unified donor view in Q3",
+  "sources": ["NXT Stakeholder Interviews","Cornell Advancement Annual Report 2025"],
+  "prdFeature": {
+    "features": [
+      {
+        "name":"Unified Donor Profile API",
+        "priority":"must",
+        "userStory":"As a major-gifts officer, I want to see every touchpoint a donor has had across all 3 Salesforce orgs on one screen so I can reference them in a prospect call without switching systems.",
+        "acceptanceCriteria":[
+          "Profile page loads in < 2s for 95% of donors",
+          "Displays giving history, event attendance, email opens, volunteer hours",
+          "Identity resolves across all 3 Salesforce orgs via Segment anonymous_id",
+          "Officer-initiated note syncs back to owning org within 30s"
+        ]
+      },
+      {
+        "name":"Predictive Propensity Score",
+        "priority":"must",
+        "userStory":"As a gift officer, I want a 0-100 propensity score on each prospect list so I can prioritize the 200 contacts most likely to give this quarter.",
+        "acceptanceCriteria":[
+          "Model retrains weekly on last 5 years of gifts",
+          "Score surfaces in Lightning side-panel",
+          "AUC-ROC > 0.78 on held-out Q4 2025 data"
+        ]
+      },
+      {
+        "name":"One-Click Stewardship Flow",
+        "priority":"must",
+        "userStory":"As a gift officer, I want to trigger a personalized thank-you within 24 hours of any gift over $1k without copying data between systems.",
+        "acceptanceCriteria":[
+          "Auto-draft email + hand-written note queue",
+          "Mobile-signable on iPad from donor event",
+          "Confirmation logged in Salesforce Activity"
+        ]
+      }
+    ]
+  }
+}
+:::
+
+:::slide template=systems-inventory
+{
+  "title": "22 advancement systems — 9 are legacy and 4 carry critical risk",
+  "sources": ["Northeastern Tech Audit 2025","CRM Assessment"],
+  "systemsInventory": {
+    "systems": [
+      {"name":"Salesforce Annual Giving","category":"CRM","status":"current","risk":"medium","description":"Primary gift intake; 8 custom objects"},
+      {"name":"Salesforce Major Gifts","category":"CRM","status":"current","risk":"high","description":"40% schema drift from Annual org"},
+      {"name":"Millennium Fundraising","category":"CRM","status":"legacy","risk":"critical","description":"20-yr old, no vendor support since 2023"},
+      {"name":"Raiser's Edge NXT","category":"CRM","status":"deprecated","risk":"critical","description":"Parallel prospect data; migration stalled"},
+      {"name":"Banner SIS","category":"SIS","status":"current","risk":"medium","description":"Student-of-record, modern API"},
+      {"name":"Workday Financials","category":"ERP","status":"current","risk":"low","description":"GL + reconciliation"},
+      {"name":"Snowflake","category":"Warehouse","status":"current","risk":"low","description":"All giving data since 2022"},
+      {"name":"Pardot","category":"Marketing","status":"legacy","risk":"high","description":"Being replaced by Marketing Cloud"}
+    ],
+    "insight": "Legacy CRMs (Millennium, Raiser's Edge) hold 18% of prospect data and represent the largest single risk to the unified donor view."
+  }
+}
+:::
+
+INTENT INFERENCE — map natural phrasing to the right template:
+
+Users will ask for deliverables in many different ways. Infer intent from synonyms rather than demanding exact keywords. Examples:
+
+| User says…                                                       | Template to use        |
+|------------------------------------------------------------------|------------------------|
+| "who are our audiences" / "customer types" / "archetypes"        | persona-card           |
+| "what should we do" / "next steps" / "play" / "prescription"     | recommendation         |
+| "what's emerging" / "key findings" / "topics" / "patterns"       | theme-cluster          |
+| "how do we stack up" / "vs peers" / "competitive landscape"      | competitive-matrix     |
+| "voice of customer" / "hero quote" / "what they said"            | block-quote            |
+| "real-world example" / "proof point" / "how X did it"            | case-study             |
+| "guiding principles" / "operating beliefs" / "design tenets"     | principles             |
+| "by the numbers" / "headline stats" / "scoreboard"               | stat-row               |
+| "rollout plan" / "milestones" / "sprint plan" / "quarters"       | timeline               |
+| "journey map" / "end-to-end flow" / "frontstage/backstage"       | service-blueprint      |
+| "where do we lag" / "shortfalls" / "weaknesses" / "behind peers" | gap-matrix             |
+| "tech stack" / "platform diagram" / "solution architecture"      | architecture-map       |
+| "feature list" / "acceptance criteria" / "MoSCoW" / "backlog"    | prd-feature            |
+| "systems inventory" / "what tools" / "sunset candidates"         | systems-inventory      |
+| chapter break between sections                                    | section-divider        |
+
+Do NOT require the user to say the template name. If a question like "what customer types do we serve?" comes in, use persona-card — don't ask "do you want a persona slide?". Infer, commit, and produce the deliverable.
+
 UNIVERSAL SLIDE RULES:
 - Title is ALWAYS a conclusion sentence containing a number, named entity, or specific claim.
 - "sources" array is REQUIRED on every slide and must contain real source names from the corpus.
 - Never invent a competitor, statistic, or quote. If the data isn't there, say so and pick a different template.
 - One template per slide block. To build a multi-slide deck, emit multiple :::slide blocks.
 - For persona-card slides the system auto-generates a portrait — describe the person specifically (age range, attire, setting).
+
+DENSITY DISCIPLINE (case-study, competitive-matrix, service-blueprint specifically):
+
+These three templates fail most often because generators produce sparse, under-evidenced content. Every time you emit one, you MUST:
+
+DOMAIN ADAPTATION — the examples below happen to be higher-ed advancement, but the PATTERN is what matters, not the vocabulary. Adapt entity types, units, scale labels, timeframes, and jargon to the domain of the ACTUAL research corpus. Translation guide:
+
+  | Slot                 | Higher ed            | B2B SaaS             | Healthcare           | Retail / DTC         | Financial services   |
+  |----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
+  | case-study subject   | University name      | Vendor / customer    | Health system        | Brand / retailer     | Bank / insurer       |
+  | subjectMeta          | endowment, students  | ARR, headcount, ICP  | beds, payer mix      | SKUs, stores, GMV    | AUM, branches, tier  |
+  | timeframe unit       | academic year / Qs   | quarters / sprints   | care episodes        | seasons / quarters   | cycles / quarters    |
+  | investment unit      | program cost         | license + services   | capital outlay       | capex + OPEX         | program + compliance |
+  | competitive columns  | Unified Donor View   | CDP, AI Scoring, etc | EHR, RCM, Analytics  | Inventory, Personal- | Core banking, KYC    |
+  | scale labels         | Absent→Optimized     | Basic→World-class    | Manual→Automated     | Manual→Predictive    | Legacy→Real-time     |
+  | blueprint stages     | Awareness→Steward    | Trial→Onboard→Renew  | Refer→Treat→Follow-up| Discover→Buy→Retain  | Prospect→KYC→Close   |
+  | blueprint metrics    | gifts, retention     | ACV, NDR, CAC        | readmit, NPS         | conv rate, AOV, LTV  | deposit growth, FTE  |
+
+The STRUCTURE (5 data vectors for case studies, 4+ named entities for matrices, 4 stages × 4 lanes for blueprints) is FIXED. Swap the surface vocabulary to whatever the corpus is about. NEVER force higher-ed framing onto a SaaS or healthcare or retail corpus, and vice versa.
+
+Then, every time you emit one, you MUST:
+
+CASE STUDY — the card has FIVE data vectors, not one:
+  1. subject + subjectMeta (industry/region/size/endowment/etc)
+  2. timeframe (explicit — "18 months", "Q2 2023 → Q4 2024")
+  3. investment (program cost + team size)
+  4. challenge + approach + outcome, each with at least one quantified detail per block
+  5. keyMetric PLUS 3-4 supportingMetrics PLUS optional pullQuote
+  Refuse to emit a case study that has only one stat. If the corpus only has one stat, pick stat-row instead.
+
+COMPETITIVE MATRIX — matrices with fewer than 4 NAMED peers are rejected:
+  1. At least 4 named competitors (never "Peer Institutions (Collective)" or "Industry Average" — those are a failure mode)
+  2. Provide a columnDefs array defining each capability in ≤60 chars
+  3. Provide scaleLabels like ["Absent","Ad-hoc","Defined","Managed","Optimized"]
+  4. For every row, provide "note" with specific evidence and "source" with a named citation
+  5. Set "subjectRow" to the client name so it highlights
+  If the corpus does not name 4+ specific peers, use stat-row or theme-cluster instead.
+
+SERVICE BLUEPRINT — maximum 4 stages on a 16:9 slide (5+ overflows):
+  1. Cap stages at 4. If the journey is longer, split across multiple slides or consolidate phases.
+  2. Every stage must include duration AND emotion (short labels: "Week 1", "Frustrated")
+  3. Every stage needs all four lanes: customerAction, frontstage, backstage, support
+  4. Mark explicit failPoint:true only on stages where the process genuinely breaks — not every stage
+  5. keyInsight must quantify the business cost of the fail points
 `;
 
 // --- Foundational Consulting Mandates ---
@@ -627,25 +974,139 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
 
 // --- Skill Manifest Matching ---
 
+// ============================================================================
+// FUZZY SKILL MATCHING
+// ============================================================================
+// Users express the same intent many ways: "who are our customers" = persona,
+// "where do we lag peers" = gap, "what's emerging" = theme. The matcher handles
+// this with four layers:
+//   1. synonym expansion (curated map: "audience" -> persona triggers)
+//   2. word-level tokenization (strip punctuation, split, stem plurals)
+//   3. exact-phrase bonus (multi-word triggers score higher than single words)
+//   4. overlap scoring (each trigger token that appears in the query contributes
+//      proportional to its length — longer = more specific = higher weight)
+
+/** Map of intent keywords → canonical trigger terms the deliverable skills use. */
+const SYNONYM_MAP: Record<string, string[]> = {
+    // persona-architect
+    audience: ['persona', 'segment'], audiences: ['persona', 'segment'],
+    user: ['persona'], users: ['persona'],
+    customer: ['persona'], customers: ['persona'],
+    buyer: ['persona'], client: ['persona'], clients: ['persona'],
+    // theme-analyst
+    topic: ['theme'], topics: ['theme'],
+    finding: ['theme'], findings: ['theme'],
+    learning: ['theme'], learnings: ['theme'],
+    motif: ['theme'], thread: ['theme'], pattern: ['theme'],
+    // strategy-author
+    suggestion: ['recommendation'], suggestions: ['recommendation'],
+    advice: ['recommendation'], advise: ['recommendation'],
+    // competitive-analyst
+    competition: ['competitive', 'competitor'],
+    rival: ['competitor'], rivals: ['competitor'],
+    // service-blueprint-mapper
+    flow: ['journey'], workflow: ['journey'],
+    steps: ['journey', 'stages'], stages: ['journey'],
+    process: ['journey'],
+    // gap-analysis-evaluator
+    shortfall: ['gap'], weakness: ['gap'], weaknesses: ['gap'],
+    deficit: ['gap'], lag: ['gap'], lags: ['gap'], lagging: ['gap'],
+    improvement: ['gap'], improvements: ['gap'],
+    // roadmap-builder
+    schedule: ['roadmap', 'timeline'],
+    milestone: ['roadmap'], milestones: ['roadmap'],
+    sprint: ['roadmap'], sprints: ['roadmap'],
+    rollout: ['roadmap', 'implementation plan'],
+    // tech-arch-generator
+    stack: ['architecture'],
+    infrastructure: ['architecture'],
+    platform: ['architecture', 'system design'],
+    // tech-audit-inspector
+    tooling: ['systems inventory', 'tech audit'],
+    tools: ['systems inventory'],
+    legacy: ['legacy systems'],
+    // prd-compiler
+    backlog: ['requirements', 'feature list'],
+    story: ['user stories'], stories: ['user stories'],
+    // evidence-curator
+    testimonial: ['quote'], testimonials: ['quote'],
+    soundbite: ['quote'], voice: ['quote', 'testimony'],
+    // case-study-analyst
+    instance: ['example'], instances: ['example'],
+    illustration: ['example'], vignette: ['example'],
+    // benchmark-reporter
+    number: ['metrics', 'statistics'], numbers: ['metrics', 'statistics'],
+    figure: ['statistics'], figures: ['statistics'],
+    facts: ['statistics', 'metrics'],
+    scoreboard: ['metrics'],
+};
+
+/** Cheap normalizer: lowercase, strip punctuation, collapse whitespace. */
+function normalize(text: string): string {
+    return text.toLowerCase().replace(/[^\w\s#-]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/** Strip simple English plurals (-s, -es, -ies) to match singular triggers. */
+function stem(word: string): string {
+    if (word.length < 4) return word;
+    if (word.endsWith('ies')) return word.slice(0, -3) + 'y';
+    if (word.endsWith('sses')) return word.slice(0, -2);
+    if (word.endsWith('es') && !word.endsWith('ses')) return word.slice(0, -2);
+    if (word.endsWith('s') && !word.endsWith('ss')) return word.slice(0, -1);
+    return word;
+}
+
+/** Expand a user query with known synonyms to widen trigger overlap. */
+function expandQuery(query: string): string {
+    const norm = normalize(query);
+    const words = norm.split(' ');
+    const extras: string[] = [];
+    for (const w of words) {
+        const mapped = SYNONYM_MAP[w] || SYNONYM_MAP[stem(w)];
+        if (mapped) extras.push(...mapped);
+    }
+    return extras.length > 0 ? `${norm} ${extras.join(' ')}` : norm;
+}
+
 /**
- * Match a user message against the skill manifest to find relevant skills.
- * Returns matched skills sorted by trigger relevance (most matches first).
+ * Match a user message against the skill manifest.
+ * Scoring:
+ *   - Exact multi-word trigger match in query: trigger.length * 2 (strong signal)
+ *   - Single-word trigger match: trigger.length
+ *   - Stemmed match: 60% of trigger.length (partial signal)
+ * Returns skills ranked by total score, highest first.
  */
 export function matchSkills(userMessage: string, manifest: SkillManifestEntry[]): SkillManifestEntry[] {
-    const lower = userMessage.toLowerCase();
+    const expanded = expandQuery(userMessage);
+    const expandedWords = new Set(expanded.split(' ').filter(w => w.length >= 2));
+    const expandedStems = new Set([...expandedWords].map(stem));
     const scored: Array<{ skill: SkillManifestEntry; score: number }> = [];
 
     for (const skill of manifest) {
         if (skill.category !== 'research-deliverable') continue;
         let score = 0;
         for (const trigger of skill.triggers) {
-            if (lower.includes(trigger.toLowerCase())) {
-                score += trigger.length; // longer triggers = more specific = higher score
+            const normTrigger = trigger.toLowerCase();
+            const triggerWords = normTrigger.split(' ').filter(w => w.length >= 2);
+
+            if (triggerWords.length > 1) {
+                // Multi-word trigger — full-phrase presence is strongest
+                if (expanded.includes(normTrigger)) {
+                    score += normTrigger.length * 2;
+                    continue;
+                }
+                // Every word from the trigger must appear as a word/stem in the query
+                const allHit = triggerWords.every(w => expandedWords.has(w) || expandedStems.has(stem(w)));
+                if (allHit) score += normTrigger.length;
+            } else {
+                // Single-word trigger
+                const w = triggerWords[0];
+                if (!w) continue;
+                if (expandedWords.has(w)) score += w.length;
+                else if (expandedStems.has(stem(w))) score += Math.round(w.length * 0.6);
             }
         }
-        if (score > 0) {
-            scored.push({ skill, score });
-        }
+        if (score > 0) scored.push({ skill, score });
     }
 
     return scored.sort((a, b) => b.score - a.score).map(s => s.skill);
@@ -763,22 +1224,29 @@ ${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.le
 ${groundingContext}
 
 === CRITICAL OUTPUT FORMAT REMINDER (re-read before responding) ===
-When the user asks for SLIDES, follow the SLIDE OUTPUT PROTOCOL above. Pick ONE of the 10 templates per slide.
-Mark the template on the fence: :::slide template=NAME
+Scan the CURRENT user message for these triggers BEFORE you respond:
 
-When the user asks for DELIVERABLES (personas, themes, recommendations, etc.), use :::deliverable:TYPE delimiters:
+  1. Contains "#slide" (case-insensitive)?
+       → SLIDE MODE: follow the SLIDE OUTPUT PROTOCOL. One :::slide block per slide.
+         Respect optional brand: #NU = Northeastern, #NXT = NXT Humans (also default).
+         Mark the template on the fence: :::slide template=NAME [brand=nu|nxt]
 
-:::deliverable:theme
-{"name": "Theme Name", "description": "...", "quote": "verbatim quote", "citations": [{"sourceName": "...", "text": "..."}]}
-:::
+  2. Contains explicit approvable-card phrasing ("card I can approve", "approvable personas",
+     "pin-able deliverables", "deliverable cards to add to the knowledge graph")?
+       → CARD MODE: emit :::deliverable:TYPE blocks per the schema above.
 
-When the user asks for VISUAL COMPONENTS (stat rows, evidence blocks, tables), use :::nxt:TYPE delimiters:
+  3. Asks for a single inline visual element (stat row, evidence callout, comparison matrix)
+     without a slide context AND with explicit "inline" or "visual block" language?
+       → VISUAL BLOCK MODE: emit a :::nxt:TYPE block.
 
-:::nxt:stat-row
-[{"value": "41%", "label": "at CX Maturity Level 1", "source": "Gartner, 2025"}]
-:::
+  4. Otherwise (the overwhelming majority of turns): PLAIN PROSE.
+       → Answer the question. Cite named sources inline. Use markdown for readability.
+       → NO fences. No :::slide. No :::deliverable:. No :::nxt:.
+       → The knowledge graph is already populated automatically — you don't need
+         to force cards just because the user asked about personas or themes.
 
-NEVER output raw JSON without these delimiters. The delimiters trigger visual rendering in the UI.
+If none of triggers 1-3 are present, mode 4 (prose) is the answer. Do not guess.
+If triggers are ambiguous (e.g., user mentions "slides" in prose without #slide), stay in prose mode and OFFER to produce slides: "Add #slide if you'd like these formatted as slides."
 
 === ANTI-HALLUCINATION REMINDER (re-read before responding) ===
 BEFORE including any URL in your response, verify it exists VERBATIM in the SOURCE PROVENANCE INDEX above. If you cannot find the exact URL, DO NOT include one — cite by source name only.

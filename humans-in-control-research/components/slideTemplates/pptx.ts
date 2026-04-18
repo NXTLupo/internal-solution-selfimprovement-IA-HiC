@@ -7,14 +7,33 @@
  */
 
 import { TOKENS } from './types';
+import { nxtBrand, type Brand } from './brands';
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
+    ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
     SlideTemplate,
 } from './types';
 
-const T = TOKENS;
-const FONT = T.FONT;
+// Default brand — used unless exportSlideToPPTX is called with an explicit brand.
+// Inside this file, every reference to `T` resolves through the active brand
+// set at the top of exportSlideToPPTX, so color values swap cleanly per brand.
+let T: Brand = nxtBrand;
+const FONT = TOKENS.FONT;
+
+// Responsive hero-number sizing identical to web.tsx so PPTX exports never
+// overflow their column when the AI emits a long value like "Steady" or "$2.4M".
+function heroPt(value: string, max = 56, min = 28, baseChars = 4): number {
+    const v = (value || '').trim();
+    if (v.length <= baseChars) return max;
+    const shrinkPerChar = (max - min) / 14;
+    return Math.max(min, Math.min(max, Math.round(max - (v.length - baseChars) * shrinkPerChar)));
+}
+function truncate(text: string | undefined, max: number): string {
+    if (!text) return '';
+    if (text.length <= max) return text;
+    return text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
+}
 
 // === IMAGE PREPROCESSOR — guarantees object-fit:cover behavior in PPTX ===
 export async function preprocessImageCover(dataUrl: string, targetW: number, targetH: number): Promise<string> {
@@ -263,11 +282,12 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     if (hasMetric && data.impactMetric) {
         const panelY = 1.5;
         const panelH = 4.5;
+        const fs = heroPt(data.impactMetric.value, 56, 26, 4);
         s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: panelH, fill: { color: T.PALE } });
         s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: 0.06, fill: { color: T.CHARTREUSE_BRIGHT } });
         s.addText('PROJECTED IMPACT', { x: rightX + 0.24, y: panelY + 0.4, w: rightW - 0.48, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3 });
-        s.addText(data.impactMetric.value, { x: rightX + 0.24, y: panelY + 0.8, w: rightW - 0.48, h: 1.3, fontSize: 64, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -4 });
-        s.addText(data.impactMetric.label, { x: rightX + 0.24, y: panelY + 2.2, w: rightW - 0.48, h: 1.0, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        s.addText(data.impactMetric.value, { x: rightX + 0.24, y: panelY + 0.8, w: rightW - 0.48, h: 1.3, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -3 });
+        s.addText(truncate(data.impactMetric.label, 100), { x: rightX + 0.24, y: panelY + 2.3, w: rightW - 0.48, h: 1.0, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
     }
     sourceFooter(s, tx, tw, sources);
 }
@@ -309,58 +329,88 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
     sourceFooter(s, tx, tw, sources);
 }
 
-// 4. COMPETITIVE MATRIX
+// 4. COMPETITIVE MATRIX (enriched: column definitions, per-row evidence, delta, scale legend, subject row highlight)
 function exportCompetitiveMatrix(s: any, slideTitle: string, data: CompetitiveMatrixData, sources: string[], geom: PanelGeom) {
-    const tx = geom.contentX + 0.48;
-    const tw = geom.contentW - 0.96;
-    let y = 0.4;
+    const tx = geom.contentX + 0.36;
+    const tw = geom.contentW - 0.72;
+    let y = 0.32;
     tag(s, tx, y, tw, 'COMPETITIVE LANDSCAPE');
-    y += 0.28;
-    title(s, tx, y, tw, slideTitle, 24);
-    y += 0.75;
+    y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.82;
 
     const max = data.scaleMax || 5;
-    const nameColW = tw * 0.20;
+    const rows = data.rows.slice(0, 7);
+    const subjectLower = (data.subjectRow || '').toLowerCase();
+    const nameColW = tw * 0.25;
     const dataW = tw - nameColW;
     const colW = dataW / data.columns.length;
-    const headerH = 0.45;
-    const rowH = 0.45;
+    const hasColDefs = !!(data.columnDefs && data.columnDefs.length === data.columns.length);
+    const headerH = hasColDefs ? 0.7 : 0.45;
+    const rowH = 0.55;
 
-    // Header row (teal)
+    // Compute best per column for delta indicator
+    const bestPerCol = data.columns.map((_, ci) => Math.max(...rows.map(r => r.scores[ci] || 0)));
+
+    // Header
     s.addShape('rect' as any, { x: tx, y, w: tw, h: headerH, fill: { color: T.TEAL } });
+    s.addText('INSTITUTION', { x: tx + 0.12, y, w: nameColW - 0.12, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle' });
     data.columns.forEach((c, i) => {
-        s.addText(c, { x: tx + nameColW + i * colW, y, w: colW, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, align: 'center', valign: 'middle', charSpacing: 1 });
+        const cx = tx + nameColW + i * colW;
+        s.addText(truncate(c, 40), { x: cx + 0.06, y: y + 0.06, w: colW - 0.12, h: 0.28, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, align: 'center', valign: 'top', charSpacing: 1 });
+        if (hasColDefs) {
+            s.addText(truncate(data.columnDefs![i], 60), { x: cx + 0.06, y: y + 0.34, w: colW - 0.12, h: headerH - 0.38, fontSize: 7, color: 'E8EDEE', fontFace: FONT, align: 'center', valign: 'top', lineSpacingMultiple: 1.3 });
+        }
     });
     y += headerH;
 
     // Data rows
-    data.rows.forEach((row, ri) => {
-        const bg = ri % 2 === 0 ? T.WHITE : T.PALE;
+    rows.forEach((row, ri) => {
+        const isSubject = subjectLower && row.name.toLowerCase().includes(subjectLower);
+        const bg = isSubject ? T.CHARTREUSE_PALE : (ri % 2 === 0 ? T.WHITE : T.PALE);
         s.addShape('rect' as any, { x: tx, y, w: tw, h: rowH, fill: { color: bg } });
         s.addShape('line' as any, { x: tx, y: y + rowH, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
-        s.addText(row.name, { x: tx + 0.12, y, w: nameColW - 0.12, h: rowH, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'middle' });
+        // Name + evidence note
+        s.addText(truncate(row.name, 48), { x: tx + 0.12, y: y + 0.06, w: nameColW - 0.18, h: 0.24, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        if (row.note) s.addText(truncate(row.note, 110), { x: tx + 0.12, y: y + 0.28, w: nameColW - 0.18, h: rowH - 0.3, fontSize: 8, color: T.MUTED, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+
         row.scores.forEach((sc, si) => {
             const cellX = tx + nameColW + si * colW;
-            // Render dot scale
             const dotSize = 0.1;
             const dotGap = 0.04;
             const totalW = max * dotSize + (max - 1) * dotGap;
             const startX = cellX + (colW - totalW) / 2;
-            const dotY = y + (rowH - dotSize) / 2;
+            const dotY = y + 0.11;
             for (let di = 0; di < max; di++) {
                 s.addShape('rect' as any, { x: startX + di * (dotSize + dotGap), y: dotY, w: dotSize, h: dotSize, fill: { color: di < sc ? T.CHARTREUSE_BRIGHT : T.RULE } });
             }
+            // Score + delta vs best
+            const delta = bestPerCol[si] - sc;
+            const txt = `${sc}/${max}${delta > 0 ? `  · -${delta}` : ''}`;
+            const txtColor = sc === bestPerCol[si] ? T.GREEN : delta >= 2 ? T.RUST : T.MUTED;
+            s.addText(txt, { x: cellX, y: y + 0.26, w: colW, h: 0.22, fontSize: 8, color: txtColor, fontFace: FONT, bold: true, align: 'center' });
         });
         y += rowH;
     });
 
-    // Insight callout
+    // Scale legend
+    if (data.scaleLabels && data.scaleLabels.length === max) {
+        y += 0.08;
+        s.addText('SCALE', { x: tx, y, w: nameColW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 2 });
+        const segW = dataW / max;
+        data.scaleLabels.forEach((lbl, i) => {
+            s.addText(`L${i + 1}  ${truncate(lbl, 16)}`, { x: tx + nameColW + i * segW, y, w: segW, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1, align: 'center' });
+        });
+        y += 0.24;
+    }
+
+    // Insight
     if (data.insight) {
-        y += 0.18;
-        const insH = 0.65;
+        y += 0.08;
+        const insH = 0.55;
         s.addShape('rect' as any, { x: tx, y, w: tw, h: insH, fill: { color: T.PALE } });
         s.addShape('rect' as any, { x: tx, y, w: 0.08, h: insH, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText(data.insight, { x: tx + 0.24, y, w: tw - 0.36, h: insH, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
+        s.addText(truncate(data.insight, 280), { x: tx + 0.24, y, w: tw - 0.36, h: insH, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
     }
     sourceFooter(s, tx, tw, sources);
 }
@@ -395,44 +445,95 @@ function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sour
     s.addText(srcLine, { x: tx, y: srcY + 0.05, w: tw, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
 }
 
-// 6. CASE STUDY
+// 6. CASE STUDY (enriched with subjectMeta / timeframe / investment / supportingMetrics / pullQuote)
 function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, sources: string[], geom: PanelGeom) {
-    const tx = geom.contentX + 0.48;
-    const tw = geom.contentW - 0.96;
-    let y = 0.4;
+    const tx = geom.contentX + 0.36;
+    const tw = geom.contentW - 0.72;
+    let y = 0.32;
     tag(s, tx, y, tw, `CASE STUDY  /  ${data.subject.toUpperCase()}`);
-    y += 0.28;
-    title(s, tx, y, tw, slideTitle, 24);
-    y += 0.85;
+    y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.75;
 
-    const hasMetric = !!data.keyMetric;
-    const leftW = hasMetric ? tw * 0.62 : tw;
-    const rightX = tx + leftW + 0.3;
-    const rightW = tw - leftW - 0.3;
+    // Subject meta strip
+    const metaParts: string[] = [];
+    if (data.subjectMeta) metaParts.push(data.subjectMeta);
+    if (data.timeframe) metaParts.push(`TIMEFRAME  ${data.timeframe}`);
+    if (data.investment) metaParts.push(`INVESTMENT  ${data.investment}`);
+    if (metaParts.length > 0) {
+        s.addShape('line' as any, { x: tx, y: y + 0.24, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(metaParts.join('      '), { x: tx, y, w: tw, h: 0.24, fontSize: 9, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
+        y += 0.34;
+    }
 
-    const blocks: Array<[string, string, string]> = [
-        ['CHALLENGE', data.challenge, T.RED],
-        ['APPROACH', data.approach, T.CYAN],
-        ['OUTCOME', data.outcome, T.GREEN],
+    const hasRight = !!(data.keyMetric || data.supportingMetrics?.length || data.pullQuote);
+    const leftW = hasRight ? tw * 0.63 : tw;
+    const rightX = tx + leftW + 0.24;
+    const rightW = tw - leftW - 0.24;
+
+    // === LEFT: three colored blocks ===
+    const blocks: Array<{ label: string; text: string; color: string; bg: string }> = [
+        { label: 'CHALLENGE', text: data.challenge, color: T.RED, bg: 'FFF5F5' },
+        { label: 'APPROACH', text: data.approach, color: T.CYAN, bg: 'F0FBFC' },
+        { label: 'OUTCOME', text: data.outcome, color: T.GREEN, bg: 'F0FBF5' },
     ];
-    const blockH = 1.4;
+    const leftBottom = 7.05;
+    const blockArea = leftBottom - y - 0.35;
+    const blockH = Math.min(1.35, blockArea / 3 - 0.06);
     let by = y;
-    blocks.forEach(([label, text, color], i) => {
-        s.addText(label, { x: tx, y: by + 0.04, w: 1.1, h: 0.22, fontSize: 9, color, fontFace: FONT, bold: true, charSpacing: 2 });
-        s.addText(text, { x: tx + 1.2, y: by, w: leftW - 1.2, h: blockH - 0.05, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
-        if (i < blocks.length - 1) {
-            s.addShape('line' as any, { x: tx, y: by + blockH, w: leftW, h: 0, line: { color: T.RULE, width: 0.5 } });
-        }
+    blocks.forEach(b => {
+        s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: blockH, fill: { color: b.bg } });
+        s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: blockH, fill: { color: b.color } });
+        s.addText(b.label, { x: tx + 0.18, y: by + 0.08, w: 1.0, h: 0.22, fontSize: 9, color: b.color, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(b.text, 280), { x: tx + 1.25, y: by + 0.06, w: leftW - 1.4, h: blockH - 0.1, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
         by += blockH + 0.08;
     });
 
-    if (hasMetric && data.keyMetric) {
+    // === RIGHT: dashboard ===
+    if (hasRight) {
         const panelY = y;
-        const panelH = blockH * 3 + 0.24;
+        const panelH = leftBottom - y - 0.25;
         s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: panelH, fill: { color: T.TEAL } });
-        s.addText('KEY OUTCOME', { x: rightX + 0.24, y: panelY + 0.4, w: rightW - 0.48, h: 0.22, fontSize: 8, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 3 });
-        s.addText(data.keyMetric.value, { x: rightX + 0.24, y: panelY + 0.8, w: rightW - 0.48, h: 1.4, fontSize: 64, color: T.WHITE, fontFace: FONT, valign: 'top', charSpacing: -4 });
-        s.addText(data.keyMetric.label, { x: rightX + 0.24, y: panelY + 2.3, w: rightW - 0.48, h: 1.5, fontSize: 11, color: 'F0F0F0', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+
+        let ry = panelY + 0.32;
+        // Hero metric
+        if (data.keyMetric) {
+            const fs = heroPt(data.keyMetric.value, 50, 24, 4);
+            s.addText('KEY OUTCOME', { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.22, fontSize: 8, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 3 });
+            ry += 0.28;
+            s.addText(data.keyMetric.value, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 1.05, fontSize: fs, color: T.WHITE, fontFace: FONT, valign: 'top', charSpacing: -3 });
+            ry += 1.0;
+            s.addText(truncate(data.keyMetric.label, 90), { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.55, fontSize: 10, color: 'F0F0F0', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            ry += 0.62;
+        }
+        // Supporting metrics (2-col grid)
+        if (data.supportingMetrics && data.supportingMetrics.length > 0) {
+            const sms = data.supportingMetrics.slice(0, 4);
+            const cols = sms.length > 1 ? 2 : 1;
+            const gapIn = 0.12;
+            const cellW = (rightW - 0.44 - (cols - 1) * gapIn) / cols;
+            const cellH = 0.55;
+            s.addShape('line' as any, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
+            ry += 0.1;
+            sms.forEach((m, i) => {
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                const cx = rightX + 0.22 + col * (cellW + gapIn);
+                const cy = ry + row * (cellH + 0.1);
+                const sz = heroPt(m.value, 22, 14, 3);
+                s.addText(m.value, { x: cx, y: cy, w: cellW, h: 0.3, fontSize: sz, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -2 });
+                s.addText(truncate(m.label, 50), { x: cx, y: cy + 0.26, w: cellW, h: 0.28, fontSize: 8, color: 'F0F0F0', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3 });
+            });
+            ry += Math.ceil(sms.length / cols) * (cellH + 0.1) + 0.1;
+        }
+        // Pull quote pinned near bottom
+        if (data.pullQuote) {
+            const qy = panelY + panelH - 0.72;
+            s.addShape('line' as any, { x: rightX + 0.22, y: qy - 0.08, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
+            s.addShape('rect' as any, { x: rightX + 0.22, y: qy, w: 0.04, h: 0.4, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${truncate(data.pullQuote.text, 120)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.4, fontSize: 9, color: 'F0F0F0', fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            s.addText(`— ${truncate(data.pullQuote.attribution, 50)}`, { x: rightX + 0.32, y: qy + 0.42, w: rightW - 0.54, h: 0.22, fontSize: 8, color: 'B0C4C5', fontFace: FONT, valign: 'top' });
+        }
     }
     sourceFooter(s, tx, tw, sources);
 }
@@ -477,9 +578,10 @@ function exportStatRow(s: any, slideTitle: string, data: StatRowData, sources: s
     stats.forEach((st, i) => {
         const cx = tx + i * colW;
         if (i > 0) s.addShape('line' as any, { x: cx, y: blockY, w: 0, h: 2.8, line: { color: T.RULE, width: 0.5 } });
-        s.addText(st.value, { x: cx + 0.24, y: blockY, w: colW - 0.36, h: 1.4, fontSize: 64, color: accents[i % accents.length], fontFace: FONT, valign: 'top', charSpacing: -4 });
-        s.addText(st.label, { x: cx + 0.24, y: blockY + 1.5, w: colW - 0.36, h: 0.7, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
-        s.addText(st.source, { x: cx + 0.24, y: blockY + 2.3, w: colW - 0.36, h: 0.3, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
+        const fs = heroPt(st.value, 56, 26, 4);
+        s.addText(st.value, { x: cx + 0.24, y: blockY, w: colW - 0.36, h: 1.4, fontSize: fs, color: accents[i % accents.length], fontFace: FONT, valign: 'top', charSpacing: -3 });
+        s.addText(truncate(st.label, 90), { x: cx + 0.24, y: blockY + 1.55, w: colW - 0.36, h: 0.7, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        s.addText(truncate(st.source, 60), { x: cx + 0.24, y: blockY + 2.35, w: colW - 0.36, h: 0.3, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
     });
     sourceFooter(s, tx, tw, sources);
 }
@@ -524,13 +626,15 @@ function exportTimeline(s: any, slideTitle: string, data: TimelineData, sources:
 // 10. SECTION DIVIDER (full bleed — overrides shell)
 function exportSectionDivider(s: any, data: SectionDividerData) {
     s.addShape('rect' as any, { x: 0, y: 0, w: T.PPTX_W, h: T.PPTX_H, fill: { color: T.TEAL } });
-    // Big number top-left
-    s.addText(data.number, { x: 0.7, y: 0.45, w: 4.5, h: 2.6, fontSize: 180, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -8 });
+    // Big number top-left — shrinks for 3+ digit section numbers (100+)
+    const numSize = heroPt(data.number, 160, 72, 2);
+    s.addText(data.number, { x: 0.7, y: 0.45, w: 4.5, h: 2.6, fontSize: numSize, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -6 });
     // SECTION label
     s.addText('SECTION', { x: 5.4, y: 0.85, w: 2.5, h: 0.25, fontSize: 10, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 4 });
     s.addShape('line' as any, { x: 5.4, y: 1.15, w: 1.1, h: 0, line: { color: T.CHARTREUSE_BRIGHT, width: 1 } });
-    // Title bottom-left
-    s.addText(data.title, { x: 0.7, y: 4.5, w: T.PPTX_W - 1.4, h: 1.9, fontSize: 56, color: T.WHITE, fontFace: FONT, bold: true, valign: 'bottom', lineSpacingMultiple: 1.05, charSpacing: -3 });
+    // Title bottom-left — size scales down for long titles
+    const titleSize = data.title.length > 40 ? 42 : data.title.length > 28 ? 50 : 56;
+    s.addText(data.title, { x: 0.7, y: 4.5, w: T.PPTX_W - 1.4, h: 1.9, fontSize: titleSize, color: T.WHITE, fontFace: FONT, bold: true, valign: 'bottom', lineSpacingMultiple: 1.05, charSpacing: -2 });
     if (data.subtitle) {
         s.addText(data.subtitle, { x: 0.7, y: 6.3, w: T.PPTX_W - 1.4, h: 0.6, fontSize: 16, color: 'A6C2C4', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
     }
@@ -542,12 +646,319 @@ function exportSectionDivider(s: any, data: SectionDividerData) {
     }
 }
 
+// === TEMPLATE EXPORTERS (11-15: classic-deliverable completions) ===
+
+// 11. SERVICE BLUEPRINT — grid with explicit heights so lanes can't collapse.
+// Capped to 4 stages. Duration + emotion strip under phase header. Per-cell truncate.
+function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBlueprintData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.32;
+    const tw = geom.contentW - 0.64;
+    let y = 0.28;
+    tag(s, tx, y, tw, 'SERVICE BLUEPRINT'); y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22); y += 0.72;
+
+    const stages = data.stages.slice(0, 4);
+    const labelW = 1.05;
+    const stageW = (tw - labelW) / stages.length;
+
+    // Reserve vertical budget
+    const sourcesY = 7.10;
+    const insightH = data.keyInsight ? 0.45 : 0;
+    const headerH = 0.34;
+    const metaH = 0.28;
+    const failH = 0.55;
+    const available = sourcesY - y - headerH - metaH - failH - insightH - 0.2;
+    const laneH = Math.max(0.52, available / 4);
+
+    const lanes: Array<{ key: string; label: string; isHero?: boolean }> = [
+        { key: 'customerAction', label: 'CUSTOMER', isHero: true },
+        { key: 'frontstage', label: 'FRONTSTAGE' },
+        { key: 'backstage', label: 'BACKSTAGE' },
+        { key: 'support', label: 'SUPPORT / DATA' },
+    ];
+    const emoji = (e?: string) => {
+        if (!e) return '';
+        const lw = e.toLowerCase();
+        if (lw.includes('frustrat') || lw.includes('confus') || lw.includes('angry')) return '😟';
+        if (lw.includes('hope') || lw.includes('excit') || lw.includes('curious')) return '🙂';
+        if (lw.includes('disappoint') || lw.includes('abandon')) return '☹️';
+        if (lw.includes('delight') || lw.includes('satisf')) return '😀';
+        return '•';
+    };
+
+    // === Phase header row (teal band) ===
+    s.addShape('rect' as any, { x: tx, y, w: tw, h: headerH, fill: { color: T.TEAL } });
+    s.addText('PHASE', { x: tx + 0.1, y, w: labelW - 0.1, h: headerH, fontSize: 8, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle' });
+    stages.forEach((st, i) => {
+        s.addText(truncate(st.phase, 26), { x: tx + labelW + i * stageW + 0.08, y, w: stageW - 0.16, h: headerH, fontSize: 11, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: -1, valign: 'middle' });
+    });
+    y += headerH;
+
+    // === Duration / emotion strip ===
+    s.addShape('rect' as any, { x: tx, y, w: tw, h: metaH, fill: { color: T.PALE } });
+    s.addText('DURATION · MOOD', { x: tx + 0.1, y, w: labelW - 0.1, h: metaH, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5, valign: 'middle' });
+    stages.forEach((st, i) => {
+        const parts: string[] = [];
+        if (st.emotion) parts.push(`${emoji(st.emotion)} ${st.emotion}`);
+        if (st.duration) parts.push(st.duration);
+        const txt = parts.join('   ·   ');
+        s.addText(txt || '—', { x: tx + labelW + i * stageW + 0.08, y, w: stageW - 0.16, h: metaH, fontSize: 8, color: T.SECONDARY, fontFace: FONT, valign: 'middle' });
+    });
+    y += metaH;
+
+    // === Lanes ===
+    lanes.forEach(lane => {
+        if (lane.isHero) s.addShape('rect' as any, { x: tx, y, w: labelW, h: laneH, fill: { color: T.PANEL } });
+        s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(lane.label, { x: tx + 0.1, y: y + 0.06, w: labelW - 0.16, h: laneH - 0.08, fontSize: 8, color: lane.isHero ? T.CHARTREUSE_BRIGHT : T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2, valign: 'top' });
+        stages.forEach((st, i) => {
+            const txt = (st as any)[lane.key] as string | undefined;
+            const cellX = tx + labelW + i * stageW;
+            if (lane.isHero) s.addShape('rect' as any, { x: cellX, y, w: stageW, h: laneH, fill: { color: T.PALE } });
+            s.addShape('line' as any, { x: cellX, y, w: 0, h: laneH, line: { color: T.RULE, width: 0.5 } });
+            s.addText(truncate(txt, 110) || '—', { x: cellX + 0.1, y: y + 0.08, w: stageW - 0.2, h: laneH - 0.12, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        });
+        y += laneH;
+    });
+
+    // === Fail points row (red top rule) ===
+    s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RED, width: 1.2 } });
+    s.addShape('rect' as any, { x: tx, y, w: labelW, h: failH, fill: { color: 'FBEAEA' } });
+    s.addText('FAIL\nPOINTS', { x: tx + 0.1, y: y + 0.06, w: labelW - 0.16, h: failH - 0.08, fontSize: 8, color: T.RED, fontFace: FONT, bold: true, charSpacing: 2, valign: 'top', lineSpacingMultiple: 1.15 });
+    stages.forEach((st, i) => {
+        const txt = st.painPoint || '—';
+        const prefix = st.failPoint ? '⚠  ' : '';
+        const cellX = tx + labelW + i * stageW;
+        if (st.failPoint) s.addShape('rect' as any, { x: cellX, y, w: stageW, h: failH, fill: { color: 'FBEAEA' } });
+        s.addShape('line' as any, { x: cellX, y, w: 0, h: failH, line: { color: T.RULE, width: 0.5 } });
+        s.addText(prefix + truncate(txt, 110), { x: cellX + 0.1, y: y + 0.08, w: stageW - 0.2, h: failH - 0.12, fontSize: 9, color: st.failPoint ? T.RED : T.BODY, fontFace: FONT, bold: !!st.failPoint, valign: 'top', lineSpacingMultiple: 1.35 });
+    });
+    y += failH + 0.08;
+
+    if (data.keyInsight) {
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: insightH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: insightH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(truncate(data.keyInsight, 260), { x: tx + 0.2, y, w: tw - 0.3, h: insightH, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 12. GAP MATRIX (maturity bars + severity badges)
+function exportGapMatrix(s: any, slideTitle: string, data: GapMatrixData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.48;
+    const tw = geom.contentW - 0.96;
+    let y = 0.4;
+    tag(s, tx, y, tw, 'MATURITY GAP ANALYSIS'); y += 0.28;
+    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+
+    const max = data.scaleMax || 5;
+    const rows = data.gaps.slice(0, 6);
+    const nameW = tw * 0.28;
+    const sevW = 0.9;
+    const barW = tw - nameW - sevW - 0.2;
+    const rowH = 0.5;
+
+    // Scale header L1..Lmax
+    const scaleY = y;
+    for (let i = 0; i < max; i++) {
+        const tickX = tx + nameW + 0.1 + (barW * (i / (max - 1)));
+        s.addText(`L${i + 1}`, { x: tickX - 0.15, y: scaleY, w: 0.3, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, align: 'center' });
+    }
+    s.addText('SEVERITY', { x: tx + nameW + 0.1 + barW + 0.1, y: scaleY, w: sevW, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1, align: 'right' });
+    y += 0.28;
+
+    const sevColor = (sev: string) => sev === 'critical' ? T.RED : sev === 'high' ? T.RUST : sev === 'medium' ? T.CHARTREUSE_BRIGHT : T.SECONDARY;
+    rows.forEach(g => {
+        s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(g.capability, { x: tx, y: y + 0.1, w: nameW, h: rowH - 0.1, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
+        // Track background
+        const barX = tx + nameW + 0.1;
+        const barY = y + 0.15;
+        const barH = 0.22;
+        s.addShape('rect' as any, { x: barX, y: barY, w: barW, h: barH, fill: { color: T.PALE } });
+        // Current bar (chartreuse)
+        const curFrac = g.currentMaturity / max;
+        s.addShape('rect' as any, { x: barX, y: barY, w: barW * curFrac, h: barH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        // Target marker (teal triangle via small rect, since native triangle isn't reliable)
+        const tgtX = barX + barW * (g.targetMaturity / max) - 0.05;
+        s.addShape('rect' as any, { x: tgtX, y: barY - 0.02, w: 0.1, h: barH + 0.04, fill: { color: T.TEAL } });
+        // Labels
+        s.addText(String(g.currentMaturity), { x: barX + 0.08, y: barY + 0.02, w: 0.3, h: 0.18, fontSize: 9, color: T.INK, fontFace: FONT, bold: true });
+        s.addText(`→ ${g.targetMaturity}`, { x: barX + barW - 0.5, y: barY + 0.02, w: 0.5, h: 0.18, fontSize: 9, color: T.TEAL, fontFace: FONT, bold: true, align: 'right' });
+        // Severity badge
+        s.addText(g.severity.toUpperCase(), { x: tx + nameW + 0.1 + barW + 0.1, y: y + 0.14, w: sevW, h: 0.22, fontSize: 9, color: sevColor(g.severity), fontFace: FONT, bold: true, charSpacing: 1, align: 'right' });
+        y += rowH;
+    });
+    // Legend + insight
+    y += 0.1;
+    s.addShape('rect' as any, { x: tx, y: y + 0.04, w: 0.14, h: 0.1, fill: { color: T.CHARTREUSE_BRIGHT } });
+    s.addText('CURRENT', { x: tx + 0.2, y, w: 0.8, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true });
+    s.addShape('rect' as any, { x: tx + 1.1, y: y + 0.02, w: 0.1, h: 0.14, fill: { color: T.TEAL } });
+    s.addText('TARGET', { x: tx + 1.25, y, w: 0.8, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true });
+    if (data.insight) {
+        s.addText(data.insight, { x: tx + 2.2, y, w: tw - 2.3, h: 0.2, fontSize: 9, color: T.INK, fontFace: FONT, align: 'right' });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 13. ARCHITECTURE MAP (C4-style layered stack)
+function exportArchitectureMap(s: any, slideTitle: string, data: ArchitectureMapData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.4;
+    const tw = geom.contentW - 0.8;
+    let y = 0.35;
+    tag(s, tx, y, tw, 'SYSTEM ARCHITECTURE'); y += 0.26;
+    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+
+    const layers = data.layers.slice(0, 5);
+    const bottomReserve = data.flowSummary ? 0.7 : 0.35;
+    const totalH = 7.05 - y - bottomReserve;
+    const layerH = totalH / layers.length;
+    const labelW = 1.4;
+
+    layers.forEach((layer, i) => {
+        const isDark = i % 2 === 0;
+        // Label column
+        s.addShape('rect' as any, { x: tx, y, w: labelW, h: layerH - 0.08, fill: { color: isDark ? T.TEAL : T.PANEL } });
+        s.addText(`LAYER ${String(i + 1).padStart(2, '0')}`, { x: tx + 0.12, y: y + 0.12, w: labelW - 0.24, h: 0.22, fontSize: 8, color: isDark ? T.CHARTREUSE_BRIGHT : T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(layer.name, { x: tx + 0.12, y: y + 0.36, w: labelW - 0.24, h: layerH - 0.48, fontSize: 12, color: isDark ? T.WHITE : T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        // Nodes (up to 6, wrap 3 per row)
+        const nodes = layer.nodes.slice(0, 6);
+        const nodeAreaX = tx + labelW + 0.12;
+        const nodeAreaW = tw - labelW - 0.12;
+        const cols = Math.min(3, Math.max(1, nodes.length));
+        const rows = Math.ceil(nodes.length / cols);
+        const nW = (nodeAreaW - (cols - 1) * 0.1) / cols;
+        const nH = (layerH - 0.08 - (rows - 1) * 0.08) / rows;
+        nodes.forEach((n, ni) => {
+            const col = ni % cols;
+            const row = Math.floor(ni / cols);
+            const nx = nodeAreaX + col * (nW + 0.1);
+            const ny = y + row * (nH + 0.08);
+            s.addShape('rect' as any, { x: nx, y: ny, w: nW, h: nH, fill: { color: T.WHITE }, line: { color: T.RULE, width: 0.5 } });
+            s.addText(n.name, { x: nx + 0.1, y: ny + 0.08, w: nW - 0.2, h: 0.26, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, charSpacing: -1 });
+            if (n.type) s.addText(n.type.toUpperCase(), { x: nx + 0.1, y: ny + 0.32, w: nW - 0.2, h: 0.18, fontSize: 7, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 1.5 });
+            if (n.description) s.addText(n.description, { x: nx + 0.1, y: ny + 0.5, w: nW - 0.2, h: nH - 0.55, fontSize: 8, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3 });
+        });
+        y += layerH;
+    });
+
+    if (data.flowSummary) {
+        const insY = 7.05 - 0.65;
+        s.addShape('rect' as any, { x: tx, y: insY, w: tw, h: 0.45, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y: insY, w: 0.08, h: 0.45, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText([
+            { text: 'FLOW:  ', options: { bold: true, fontSize: 8, color: T.SECONDARY, fontFace: FONT, charSpacing: 1 } },
+            { text: data.flowSummary, options: { fontSize: 10, color: T.INK, fontFace: FONT } },
+        ], { x: tx + 0.2, y: insY, w: tw - 0.3, h: 0.45, valign: 'middle', lineSpacingMultiple: 1.4 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 14. PRD FEATURE (3 cards with MoSCoW + story + acceptance criteria)
+function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.4;
+    const tw = geom.contentW - 0.8;
+    let y = 0.35;
+    tag(s, tx, y, tw, 'PRODUCT REQUIREMENTS'); y += 0.26;
+    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+
+    const features = data.features.slice(0, 3);
+    const cardW = (tw - 0.2 * (features.length - 1)) / features.length;
+    const cardY = y;
+    const cardH = 7.05 - cardY - 0.45;
+    const prio = (p: string) => p === 'must' ? T.RED : p === 'should' ? T.CHARTREUSE_BRIGHT : p === 'could' ? T.CYAN : T.MUTED;
+
+    features.forEach((f, i) => {
+        const cx = tx + i * (cardW + 0.2);
+        // Card background + top rule
+        s.addShape('rect' as any, { x: cx, y: cardY, w: cardW, h: cardH, fill: { color: T.WHITE }, line: { color: T.RULE, width: 0.5 } });
+        s.addShape('rect' as any, { x: cx, y: cardY, w: cardW, h: 0.08, fill: { color: prio(f.priority) } });
+        // Priority badge
+        s.addShape('rect' as any, { x: cx + 0.2, y: cardY + 0.22, w: 0.8, h: 0.24, fill: { color: prio(f.priority) } });
+        s.addText(f.priority.toUpperCase(), { x: cx + 0.2, y: cardY + 0.22, w: 0.8, h: 0.24, fontSize: 8, color: f.priority === 'should' ? T.INK : T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, align: 'center', valign: 'middle' });
+        // Name
+        s.addText(f.name, { x: cx + 0.2, y: cardY + 0.55, w: cardW - 0.4, h: 0.45, fontSize: 14, color: T.INK, fontFace: FONT, bold: true, charSpacing: -1, valign: 'top', lineSpacingMultiple: 1.2 });
+        // User story (italic)
+        s.addText(f.userStory, { x: cx + 0.2, y: cardY + 1.05, w: cardW - 0.4, h: 0.9, fontSize: 9, color: T.BODY, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
+        s.addShape('line' as any, { x: cx + 0.2, y: cardY + 2.0, w: cardW - 0.4, h: 0, line: { color: T.RULE, width: 0.5 } });
+        // Acceptance criteria header
+        s.addText('ACCEPTANCE CRITERIA', { x: cx + 0.2, y: cardY + 2.1, w: cardW - 0.4, h: 0.2, fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2 });
+        // Criteria list
+        let ay = cardY + 2.32;
+        f.acceptanceCriteria.slice(0, 5).forEach(c => {
+            s.addText([
+                { text: '✓  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
+                { text: c, options: { color: T.BODY, fontSize: 9, fontFace: FONT } },
+            ], { x: cx + 0.2, y: ay, w: cardW - 0.4, h: 0.4, valign: 'top', lineSpacingMultiple: 1.4 });
+            ay += 0.38;
+        });
+    });
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 15. SYSTEMS INVENTORY (tech audit table with status + risk badges)
+function exportSystemsInventory(s: any, slideTitle: string, data: SystemsInventoryData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.4;
+    const tw = geom.contentW - 0.8;
+    let y = 0.35;
+    tag(s, tx, y, tw, 'SYSTEMS INVENTORY'); y += 0.26;
+    title(s, tx, y, tw, slideTitle, 24); y += 0.8;
+
+    const rows = data.systems.slice(0, 8);
+    const nameW = tw * 0.40;
+    const catW = tw * 0.24;
+    const statW = tw * 0.18;
+    const riskW = tw - nameW - catW - statW;
+    const headerH = 0.42;
+    const rowH = 0.5;
+
+    // Header
+    s.addShape('rect' as any, { x: tx, y, w: tw, h: headerH, fill: { color: T.TEAL } });
+    s.addText('SYSTEM', { x: tx + 0.12, y, w: nameW - 0.12, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle' });
+    s.addText('CATEGORY', { x: tx + nameW, y, w: catW, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle' });
+    s.addText('STATUS', { x: tx + nameW + catW, y, w: statW, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle', align: 'center' });
+    s.addText('RISK', { x: tx + nameW + catW + statW, y, w: riskW, h: headerH, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, valign: 'middle', align: 'center' });
+    y += headerH;
+
+    const riskColor = (r: string) => r === 'critical' ? T.RED : r === 'high' ? T.RUST : r === 'medium' ? T.CHARTREUSE_BRIGHT : T.GREEN;
+    const statusColor = (st: string) => st === 'legacy' ? T.RUST : st === 'deprecated' ? T.RED : st === 'planned' ? T.CYAN : T.GREEN;
+
+    rows.forEach((sys, ri) => {
+        const bg = ri % 2 === 0 ? T.WHITE : T.PALE;
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: rowH, fill: { color: bg } });
+        s.addShape('line' as any, { x: tx, y: y + rowH, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        // Name + description
+        s.addText(sys.name, { x: tx + 0.12, y: y + 0.06, w: nameW - 0.24, h: 0.24, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
+        if (sys.description) s.addText(sys.description, { x: tx + 0.12, y: y + 0.28, w: nameW - 0.24, h: rowH - 0.3, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3 });
+        // Category
+        s.addText(sys.category, { x: tx + nameW, y, w: catW, h: rowH, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'middle' });
+        // Status badge
+        const sBadgeX = tx + nameW + catW + (statW - 0.9) / 2;
+        s.addShape('rect' as any, { x: sBadgeX, y: y + (rowH - 0.22) / 2, w: 0.9, h: 0.22, fill: { color: statusColor(sys.status) } });
+        s.addText(sys.status.toUpperCase(), { x: sBadgeX, y: y + (rowH - 0.22) / 2, w: 0.9, h: 0.22, fontSize: 7, color: T.WHITE, fontFace: FONT, bold: true, charSpacing: 1.5, align: 'center', valign: 'middle' });
+        // Risk badge
+        const rBadgeX = tx + nameW + catW + statW + (riskW - 0.9) / 2;
+        s.addShape('rect' as any, { x: rBadgeX, y: y + (rowH - 0.22) / 2, w: 0.9, h: 0.22, fill: { color: riskColor(sys.risk) } });
+        s.addText(sys.risk.toUpperCase(), { x: rBadgeX, y: y + (rowH - 0.22) / 2, w: 0.9, h: 0.22, fontSize: 7, color: sys.risk === 'medium' ? T.INK : T.WHITE, fontFace: FONT, bold: true, charSpacing: 1.5, align: 'center', valign: 'middle' });
+        y += rowH;
+    });
+
+    if (data.insight) {
+        y += 0.15;
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: 0.45, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: 0.45, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(data.insight, { x: tx + 0.2, y, w: tw - 0.3, h: 0.45, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
 // === MAIN DISPATCHER ===
 export interface ExportSlideArgs {
     template: SlideTemplate;
     title: string;
     sources?: string[];
     imageUrl?: string;
+    brand?: Brand;
     persona?: PersonaCardData;
     recommendation?: RecommendationData;
     themeCluster?: ThemeClusterData;
@@ -558,26 +969,28 @@ export interface ExportSlideArgs {
     statRow?: StatRowData;
     timeline?: TimelineData;
     sectionDivider?: SectionDividerData;
+    serviceBlueprint?: ServiceBlueprintData;
+    gapMatrix?: GapMatrixData;
+    architectureMap?: ArchitectureMapData;
+    prdFeature?: PrdFeatureData;
+    systemsInventory?: SystemsInventoryData;
 }
 
-export async function exportSlideToPPTX(args: ExportSlideArgs) {
-    const PptxGenJS = (await import('pptxgenjs')).default;
-    const pptx = new PptxGenJS();
-    pptx.defineLayout({ name: 'WIDE', width: T.PPTX_W, height: T.PPTX_H });
-    pptx.layout = 'WIDE' as any;
+/**
+ * Renders a single slide into an already-created PptxGenJS instance and returns.
+ * Used by both single-slide and multi-slide deck exports. Handles brand swapping
+ * so each slide can carry its own brand without polluting other slides.
+ */
+export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
+    T = args.brand || nxtBrand;
     const s = pptx.addSlide();
-
     const sources = args.sources || [];
 
-    // Section divider is full-bleed and skips the shell
     if (args.template === 'section-divider' && args.sectionDivider) {
         exportSectionDivider(s, args.sectionDivider);
-        const fn = sanitize(args.title);
-        await pptx.writeFile({ fileName: `${fn}.pptx` });
         return;
     }
 
-    // Standard shell + image (only persona uses image by default)
     const useImage = args.template === 'persona-card' && !!args.imageUrl;
     const geom = await addBaseShell(s, useImage, args.imageUrl);
 
@@ -609,10 +1022,50 @@ export async function exportSlideToPPTX(args: ExportSlideArgs) {
         case 'timeline':
             if (args.timeline) exportTimeline(s, args.title, args.timeline, sources, geom);
             break;
+        case 'service-blueprint':
+            if (args.serviceBlueprint) exportServiceBlueprint(s, args.title, args.serviceBlueprint, sources, geom);
+            break;
+        case 'gap-matrix':
+            if (args.gapMatrix) exportGapMatrix(s, args.title, args.gapMatrix, sources, geom);
+            break;
+        case 'architecture-map':
+            if (args.architectureMap) exportArchitectureMap(s, args.title, args.architectureMap, sources, geom);
+            break;
+        case 'prd-feature':
+            if (args.prdFeature) exportPrdFeature(s, args.title, args.prdFeature, sources, geom);
+            break;
+        case 'systems-inventory':
+            if (args.systemsInventory) exportSystemsInventory(s, args.title, args.systemsInventory, sources, geom);
+            break;
     }
+}
 
+export async function exportSlideToPPTX(args: ExportSlideArgs) {
+    const PptxGenJS = (await import('pptxgenjs')).default;
+    const pptx = new PptxGenJS();
+    pptx.defineLayout({ name: 'WIDE', width: TOKENS.PPTX_W, height: TOKENS.PPTX_H });
+    pptx.layout = 'WIDE' as any;
+    await renderSlideInto(pptx, args);
     const fn = sanitize(args.title);
     await pptx.writeFile({ fileName: `${fn}.pptx` });
+}
+
+/**
+ * Export an entire deck of slides into a SINGLE .pptx file, preserving slide order.
+ * Each slide can carry its own brand (mixing #NXT + #NU in one deck is supported).
+ */
+export async function exportDeckToPPTX(slides: ExportSlideArgs[], deckName?: string) {
+    if (!slides || slides.length === 0) return;
+    const PptxGenJS = (await import('pptxgenjs')).default;
+    const pptx = new PptxGenJS();
+    pptx.defineLayout({ name: 'WIDE', width: TOKENS.PPTX_W, height: TOKENS.PPTX_H });
+    pptx.layout = 'WIDE' as any;
+    // Render sequentially — image preprocessing is async and PptxGenJS serializes shape order per slide
+    for (const slide of slides) {
+        await renderSlideInto(pptx, slide);
+    }
+    const name = deckName || `deck_${new Date().toISOString().split('T')[0]}_${slides.length}_slides`;
+    await pptx.writeFile({ fileName: `${sanitize(name)}.pptx` });
 }
 
 const sanitize = (s: string) => s.replace(/[^a-zA-Z0-9 ]/g, '').substring(0, 40).trim().replace(/\s+/g, '_') || 'slide';
