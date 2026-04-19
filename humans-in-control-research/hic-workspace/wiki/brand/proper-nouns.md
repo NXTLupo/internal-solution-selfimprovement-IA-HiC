@@ -407,3 +407,100 @@
 - Advancement Marketing
 - Transition Mar
 - Diversify Philanthropic Funding Channels Address
+
+
+## Auto-extracted (2026-04-15)
+- The Aspiring Learner
+- Northeastern University
+- Northeastern University Advancement Digital Opportunity Definition
+- Roadmap Proposal
+- The Strategic Employer
+- The University Innovator
+- Program Administrator
+- The Advancement Visionary
+- Higher Ed Dive
+- The Engaged Philanthropist
+- Work Overview
+- The Academic Steward
+- Enabled Personalized Readiness Roadmaps
+- Year Students Problem
+- Comprehensive Learner Record
+- Holistic Student View Problem
+- Enhance Co
+- Matching System
+- Driven Personalization Problem
+- Program Data
+- Faceted Co
+- Outcomes Dashboard Problem
+- Business Intelligence
+- Semantic Scholar
+- Governance Framework
+- Ethical Use Policy Problem
+- Implement Personalized Donor Engagement
+- Impact Reporting Problem
+- Donor Impact Reporting Platform
+- Digital Advancement Strategy Development Process Problem
+- Promote Holistic Student Support Resources Problem
+- Enforce Comprehensive Digital Accessibility Standards Problem
+- Growing Regulatory Scrutiny
+- Digital Accessibility
+- Integrate Global Competency Tracking
+- Learner Records Problem
+- Cultivating Global Competencies Through Experiential Learning
+
+
+## Auto-extracted (2026-04-16)
+- Allison, The Overburdened Data Strategist
+- Associate Director
+- Data Strategy
+- Northeastern Advancement
+- Avery Stone Interview
+- Fundraising Report
+- Luanne, The Relationship-Focused Fundraiser
+- Sarah, The Impact-Seeking Alumna
+- Eleanor, The Disconnected Mills Alumna
+- Mills College
+- Smarty Pants Alumni Research
+- David, The Strategic Co-Op Employer
+- Clean Data Foundation Fragmented
+- The Overburdened Data Strategist
+- Automate Reporting
+- Empower Strategic Analytics Allison
+- Automated Reporting
+- Analytics Platform
+- The Relationship
+- Focused Fundraiser
+- Driven Prospect Intelligence
+- Fundraisers Luanne
+- Powered Prospect Research Agent
+- Unified Digital Alumni Hub Sarah
+- The Impact
+- Seeking Alumna
+- Digital Alumni Hub
+- Honor Mills College Legacy
+- Rebuild Trust Eleanor
+- The Disconnected Mills Alumna
+- Mills College Legacy
+- Community Engagement Program
+- Alumni Hub
+- Enhance Co
+- Op Talent Matching
+- Holistic Student Data David
+- The Strategic Co
+- Op Employer
+- Powered Co
+- Op Matching Platform
+- Holistic Student Profile
+- Skill Tracking
+- Driven Culture
+- Cultural Adoption
+- Enablement Program
+- Improve Donor Retention
+- Advanced Stewardship Northeastern
+- Driven Stewardship
+- Ethical Deployment Rapid
+- Governance Framework
+- Optimize Fundraising Performance
+- Time Data Luanne
+- Time Performance
+- Goal Tracking Dashboard

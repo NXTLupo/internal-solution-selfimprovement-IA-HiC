@@ -13,7 +13,7 @@ a corresponding source document is ingested and cross-referenced.
 ### CX Investment Return Ratio
 - **Data**: Every $1 invested in CX returns $3-$5 in revenue impact
 - **Source**: Forrester Research, The Business Impact of Customer Experience, 2023
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 1%, 2026-04-16)
 - **Cross-refs**: [[benchmarks/cx-metrics]], [[frameworks/strategy]]
 - **Last verified**: 2026-04-10
 

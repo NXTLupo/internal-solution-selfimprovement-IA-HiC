@@ -723,3 +723,184 @@ The CLR project employs a best-practice operational strategy of designing and la
 Effective planned giving programs necessitate robust operational scaffolding, including meticulous recordkeeping, structured volunteer recruitment and training, and comprehensive planned giving kits that outline various gift options. Crucially, communication in this area should be donor-centered, offering option-rich, consultative guidance to present benefits clearly for both the donor and the institution. This strategic and operational alignment is designed to improve planned-gift negotiation outcomes and integrate seamlessly with broader advancement goals to secure long-term financial support.
 - Status: priority
 - Citations: 4
+
+
+## Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N
+
+### Growing Regulatory Scrutiny on Digital Accessibility in Higher Education
+Public educational institutions, including Northeastern, face updated ADA rules that mandate robust digital accessibility across all platforms and services. This compliance requirement underscores the necessity for inclusive design, impacting everything from student portals to donor engagement systems. Failing to meet these standards can lead to legal and reputational risks, making accessibility a critical design and policy consideration.
+- Status: priority
+- Citations: 3
+
+### Federal Funding Opportunities for Community & Health Initiatives
+Significant federal funding is available annually from sources like the USDA for rural business development and health services, and HUD for Housing Preservation Grants. These funds can be leveraged by universities to support community-engaged programs, which align with the broader civic engagement and social responsibility potential of co-op and experiential learning initiatives.
+- Status: priority
+- Citations: 3
+
+### AI-Enabled Student Readiness and Experiential Learning Roadmaps
+Northeastern plans to develop an AI-enabled tool for First-Year advising to identify experiential learning opportunities, improve co-op readiness, and provide personalized roadmaps. This tool will analyze student data against employer skill requirements using LLMs, highlighting gaps and recommending relevant activities. Such initiatives are part of a broader digital transformation in higher education, leveraging AI to shape the future of teaching and learning.
+- Status: priority
+- Citations: 3
+
+### Critical Need for Robust AI Governance and Transparency
+The rapid adoption of AI in higher education outpaces effective governance, creating risks of inaccurate outputs (hallucinations), privacy breaches, and difficulty detecting AI-generated content. Implementing AI for co-op matching or student support requires strong policy, transparent data usage, and human oversight to ensure reliability and maintain trust, as exemplified by the NIST's focus on standards and Microsoft's AgentRx framework.
+- Status: priority
+- Citations: 4
+
+### Digital Infrastructure as a Strategic Growth Engine
+Robust digital infrastructure, particularly high-quality wireless networks, is identified as a strategic growth engine capable of delivering compounding returns across university operations. Conversely, weak technological capabilities risk driving students and faculty to other institutions. This highlights the importance of consistent investment in foundational technology to enhance competitiveness and overall experience.
+- Status: priority
+- Citations: 3
+
+### Donor Trust as a Stable Financial Asset Amidst Market Disruption
+Higher education institutions benefit from consistent donor trust, which helps sustain donations even amidst broader disruptions in the sector. This underscores that a well-executed advancement strategy, focused on transparency and effective stewardship, remains a reliable pathway for securing financial resources and achieving fundraising goals for the university.
+- Status: priority
+- Citations: 3
+
+### Demonstrable ROI of Co-op on Student Earning Potential
+Co-op participation significantly enhances students' post-graduation earning potential and employment outcomes. Studies show co-op graduates, particularly in engineering, achieve higher starting salaries and a greater likelihood of employment in program-related full-time jobs. This clear financial return on investment is a powerful testament to the value of experiential learning for students and a key metric for the university to highlight.
+- Status: priority
+- Citations: 3
+
+### Holistic Student Support Extends Beyond Clinical Services
+Student well-being necessitates a comprehensive approach beyond traditional counseling, addressing issues like loneliness, overwhelm, and social integration. This supports the development of broader interventions, such as 'social prescribing' and digital holistic support tools, to provide earlier and more integrated support for students' experiential and career journeys.
+- Status: priority
+- Citations: 3
+
+### User Experience and Co-Creation as Pillars of Digital Service Success
+The success of digital services in higher education, including new portals for alumni, co-op tools, or advising platforms, critically depends on a strong user experience (UX) and processes of co-creation with end-users. Incorporating feedback from stakeholders throughout the development lifecycle is essential for designing effective, engaging, and adoption-worthy systems.
+- Status: priority
+- Citations: 3
+
+### Segmenting Donors by Identity and Impact Motivation for Targeted Advancement
+Effective advancement strategies involve segmenting donors based on their identity, affiliations (e.g., women as a donor group), and motivations. Understanding these nuances allows for tailored storytelling, stewardship, and communication that resonates with specific donor groups, enhancing engagement and fundraising success. Donor organizations are also recognized as integral parts of the higher education system.
+- Status: priority
+- Citations: 3
+
+### Co-op as a Differentiated Value Proposition and Measurable Outcomes Engine
+Northeastern's co-op program is a signature differentiator, proven to enhance student employability, academic performance (GPA), and confidence. Strategically, it should be framed not merely as a job placement service, but as a comprehensive developmental ecosystem that delivers measurable outcomes across career readiness, civic engagement, and sustainability, strengthening the university's market position.
+- Status: priority
+- Citations: 4
+
+### Digital Experience as a Competitive Differentiator for Institutional Loyalty
+The quality of digital services and the overall digital experience is a critical factor influencing student and faculty retention and institutional loyalty. Investing in user-centered, accessible, mobile-first portals, strong Wi-Fi, and integrated advising systems is vital for competitive positioning and enhancing the university's appeal to prospective and current stakeholders.
+- Status: priority
+- Citations: 3
+
+### Adapting to Declining Public Confidence in Higher Education
+Despite stable donor trust, public confidence in higher education is generally declining, with increasing scrutiny on the value and cost-effectiveness of degrees. This competitive landscape requires Northeastern to proactively articulate and demonstrate its value proposition through robust outcome data and transparent reporting, especially regarding co-op and career readiness, to secure future enrollment and support.
+- Status: emerging
+- Citations: 3
+
+### Cultivating Global Competencies Through Experiential Learning
+Experiential learning programs, including co-op, offer a powerful avenue for preparing students for an increasingly globalized workforce. By emphasizing intercultural understanding, solidarity, respectful interaction, and group work in research tasks, universities can foster essential global competencies and enable students to thrive in international projects and professional communication contexts.
+- Status: emerging
+- Citations: 3
+
+### Implementing a Comprehensive Learner Record (CLR) for Student 360 View
+A critical operational need for Northeastern is the establishment of a 'Comprehensive Learner Record' or 'Student 360 view.' This integrated system would consolidate student academic data, experiential learning activities, and career progress to offer holistic insights, enable personalized support, and power AI-driven recommendations throughout their university journey.
+- Status: priority
+- Citations: 3
+
+### Structured Discovery and Roadmap Development for Digital Advancement
+Northeastern's Advancement team is adopting a multi-phase, structured approach to define its digital strategy. This includes initial stakeholder engagement, comprehensive discovery, synthesis of insights, competitive analysis, prototyping, and workshops to produce a prioritized roadmap. This methodical process aligns with recommendations for modernizing technology governance and strategy in higher education.
+- Status: priority
+- Citations: 3
+
+### Multi-Faceted Evaluation for Comprehensive Co-op Success Measurement
+To gain a holistic understanding of co-op program impact, a multi-faceted evaluation model is crucial, extending beyond simple job placement rates. This model should integrate academic outcomes, skill development, career readiness, student and employer feedback, GPA trends, participation rates, and self-assessments to provide nuanced and actionable insights for continuous improvement and strategic communication.
+- Status: priority
+- Citations: 3
+
+
+## Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N
+
+### Growing Importance of AI Governance and Ethical Use
+External sources highlight accelerating AI adoption versus lagging governance, with strong warnings against unverified outputs, hidden biases, and privacy lapses. This is critical for any AI deployment in advancement or co-op, touching on trust, safety, and privacy concerns for donors and students. This mandates careful consideration of responsible AI use and strong controls.
+- Status: skipped
+- Citations: 3
+
+### Mandates for Equitable Access and Digital Accessibility
+External academic and news sources emphasize the need for equitable placement opportunities in higher education and compliance with accessibility acts, such as the Americans with Disabilities Act (ADA). This has significant implications for how Northeastern designs its co-op access programs and digital platforms for all constituents, ensuring inclusivity across various majors and student groups.
+- Status: skipped
+- Citations: 3
+
+### Fragmented Data and Legacy Systems Hinder Data-Driven Strategy
+Northeastern's data strategy is severely hindered by fragmentation, including multiple Salesforce instances (ITS and Advancement), disconnected tools, and legacy bad data from migrations, leading to significant user trust issues. The current CRM (Ascend Salesforce) has limited reporting capabilities, forcing reliance on visualization tools like Tableau for standard reports, which adds to the operational burden and prevents advanced analytics.
+- Status: priority
+- Citations: 3
+
+### AI as a Transformative Tool for Donor Engagement and Operational Efficiency
+Northeastern leaders are increasingly recognizing AI's potential as a transformative tool. Taylor Brooks actively uses Claude for prospect strategy and information gathering, finding it a 'great time saver.' Opportunities are identified for leveraging predictive AI for 'hands-off' personalization, detecting donor intent through 'surging' signals, surfacing relevant content, and automating wealth screening to enhance engagement and streamline operations.
+- Status: priority
+- Citations: 3
+
+### Ambitious Fundraising Goals Require Scalable Data and Talent Infrastructure
+Northeastern aims to significantly increase its annual fundraising run rate from $120M to a sustainable $150M+ by the end of its campaign (2028/2029), aligning with its peer institutions that raise between $150-200M annually. Achieving this ambitious growth necessitates substantial investment in data integrity and quality, strengthening prospect management systems, and prioritizing talent recruitment, development, and adequate staffing levels within Advancement.
+- Status: priority
+- Citations: 3
+
+### Significant Opportunity in Donor Retention and Pipeline Development
+Donor retention rates at Northeastern are below industry benchmarks, with only 36% for top 1% donors (compared to a 46% benchmark) and 42% for all individual donors (compared to a 49% benchmark). The retention of newly acquired donors is particularly low (less than 20%). This indicates a critical opportunity to recapture and retain existing donors through enhanced stewardship, which is essential for achieving elevated annual run rates and long-term financial stability.
+- Status: priority
+- Citations: 3
+
+### Donor Confidence Stable Amidst Higher Ed Disruption
+Despite various disruptions in the higher education sector, donor confidence in colleges remains stable, with donation growth reflecting 'continued trust' from donors, as reported by Higher Ed Dive and the Council for Advancement and Support of Education (CASE). This external insight suggests a resilient environment for fundraising, underscoring that advancement teams can continue to raise funds by maintaining mission clarity and credibility.
+- Status: priority
+- Citations: 3
+
+### Understaffing and Reporting Burden Constrain Strategic Analytical Work
+Avery Stone's team is critically understaffed, with senior analysts spending 90.9% of their time on rote reporting and managing integrations, duties that extend beyond a typical director's role. This severe lack of bandwidth prevents the team from engaging in advanced analytics or proactive data-driven insights, despite possessing the necessary expertise, leading to missed strategic opportunities for frontline fundraisers.
+- Status: skipped
+- Citations: 3
+
+### Cultural Resistance and Credibility Gap for Data Insights
+A prevalent cultural issue in advancement is the historical tendency for frontline staff to drive decisions and perceive data teams as 'services' rather than strategic collaborators. This creates a 'credibility issue' where data-driven insights are not fully trusted or acted upon, despite analysts identifying clear trends and patterns in the data that could unlock new opportunities. Frontline staff often express a preference for insights to be 'fed to them' rather than engaging with data tools directly.
+- Status: skipped
+- Citations: 3
+
+### Alumni Desire Personalized Engagement and Lifelong Learning
+Alumni crave streamlined, personalized communication and tailored experiences, often feeling unaware of current offerings or overwhelmed by irrelevant messages. Lifelong learning strongly resonates, but they actively seek tangible, accessible, and flexible opportunities (e.g., master classes, course audits) that are specifically tailored to their career stage and individual interests. This highlights a need for more proactive, segmented engagement strategies.
+- Status: priority
+- Citations: 3
+
+### Negative Sentiment Among Mills College Alumni Post-Acquisition
+A significant segment of Mills College alumni harbors negative feelings towards Northeastern following its 2022 acquisition, primarily due to a perceived 'loss of history' and 'loss of identity.' This discontent stems from deeply rooted traditions being lost and misaligned institutional philosophies, posing a significant challenge for engagement and necessitating specific trust-building strategies focused on preserving history and fostering belonging.
+- Status: priority
+- Citations: 3
+
+### Strategic Shift Towards Centralized, Interdisciplinary Fundraising
+Northeastern has executed a strategic shift to a 'One Northeastern' model, centralizing all fundraising under the VP of Development since July 1st of the previous year. This aims to foster greater collaboration and interdisciplinary efforts among gift officers, enabling them to manage broader portfolios. This move is designed to enhance overall giving performance and accelerate progress towards ambitious campaign goals by breaking down previous college-specific silos.
+- Status: priority
+- Citations: 3
+
+### Leveraging Co-Op for Broader Institutional Goals and Storytelling
+External academic sources advocate for measuring co-op success holistically, encompassing academic outcomes, skill development, and career readiness, rather than just placement volume. A significant strategic opportunity exists to deploy co-op students in mission-critical internal projects, such as digital accessibility audits or donor communications, transforming the co-op program into a powerful asset for institutional storytelling, brand reinforcement, and advancement efforts.
+- Status: skipped
+- Citations: 3
+
+### Holistic Co-Op Success Measurement as a Differentiator
+Academic literature consistently emphasizes that co-op program success should be measured holistically, encompassing not just placement volume but also academic outcomes, skill development, career readiness, and comprehensive feedback from both students and employers. Adopting such a sophisticated framework allows Northeastern to validate the true value of its co-op model, positioning it as a key differentiator for student success and institutional reputation.
+- Status: skipped
+- Citations: 3
+
+### Adapting to Global Expansion and Brand Perceptions
+Northeastern's rapid global expansion to new campuses, while seen by some as an opportunity for increased awareness and alumni offerings, elicits mixed reactions from alumni who fear it may dilute the value of their degree. A key strategic challenge is to reinforce Northeastern's global brand promise and effectively communicate the relevance of its expanding network to the alumni community, ensuring that growth translates into positive brand perception and sustained engagement.
+- Status: skipped
+- Citations: 3
+
+### Urgent Need for Data Integrity, Quality, and Cleansing
+Inaccurate and outdated contact information in Salesforce, compounded by significant data cleanup challenges from a recent CRM migration (Ascend), is severely undermining user trust and the ability to leverage data effectively. A dedicated 'data cleansing project' is deemed essential to stabilize the data foundation, ensure a 'single source of truth' for reporting, and enable reliable, data-informed operations across Advancement.
+- Status: skipped
+- Citations: 3
+
+### Streamlining and Personalizing Communication Channels
+Alumni are currently overwhelmed by communication disparity, receiving impersonal messages from multiple senders, and perceive an imbalance towards donation requests. There is an urgent operational need to streamline communication by creating a single, dynamic digital environment that offers clarity, allows alumni control over content themes and frequency, and ensures consistent, personalized engagement to improve long-term retention and engagement.
+- Status: priority
+- Citations: 3
+
+### Standardizing Prospect Management and Donor Stewardship
+Current prospect management systems at Northeastern are not adequately scaled for unexpected growth, and donor stewardship practices are often inconsistent and transactional for lower-level donors. A key operational challenge is to strengthen and scale prospect management by creating robust, centralized systems for portfolio building and donor research, alongside developing a more relational, consistent stewardship model that blends long-term strategies with organizational agility.
+- Status: priority
+- Citations: 3

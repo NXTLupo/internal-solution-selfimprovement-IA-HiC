@@ -1,7 +1,7 @@
 ---
 title: Learned Constraints
 type: synthesis
-updated: 2026-04-15
+updated: 2026-04-16
 ---
 
 # Learned Constraints

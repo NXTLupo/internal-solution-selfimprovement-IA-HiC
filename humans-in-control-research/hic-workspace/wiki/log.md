@@ -578,3 +578,335 @@
   - recommendations: 12
   - sources: 147
 
+
+## [2026-04-15] generate | Quality score: journey_map
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: recommendations
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: gap_analysis
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 17
+  - personas: 6
+  - recommendations: 10
+  - sources: 147
+  - evidence: 739
+
+
+## [2026-04-15] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac
+  - goal: Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 17
+  - personas: 6
+  - recommendations: 10
+  - sources: 147
+
+
+## [2026-04-15] generate | Quality score: journey_map
+  - score: 70
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: recommendations
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: gap_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-15] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-15
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: recommendations
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: gap_analysis
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 85
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 50
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: recommendations
+  - score: 95
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: gap_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 70
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: recommendations
+  - score: 88
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: gap_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Quality score: competitive_analysis
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-16] generate | Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 18
+  - personas: 5
+  - recommendations: 10
+  - sources: 147
+  - evidence: 606
+
+
+## [2026-04-16] ingest | Engagement memory: create-a-comprehensive-strategy-and-roadmap-of-tac
+  - goal: Create a comprehensive strategy and roadmap of tactics for Northeastern Universi
+  - themes: 18
+  - personas: 5
+  - recommendations: 10
+  - sources: 147
+
+
+## [2026-04-16] generate | Quality score: journey_map
+  - score: 90
+  - constraints: 2
+  - date: 2026-04-16
+
+
+## [2026-04-18] generate | Quality score: journey_map
+  - score: 85
+  - constraints: 2
+  - date: 2026-04-18
+
+
+## [2026-04-18] generate | Quality score: tech_architecture
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-18
+
+
+## [2026-04-18] generate | Quality score: prd
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-18
+
+
+## [2026-04-18] generate | Quality score: roadmap
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-18
+
+
+## [2026-04-18] generate | Quality score: tech_audit
+  - score: 100
+  - constraints: 2
+  - date: 2026-04-18
+

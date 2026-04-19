@@ -204,3 +204,153 @@ Tracks output quality scores across research runs, correlated with active learne
 
 
 | 2026-04-15 | competitive_analysis | 100 | 0 constraints | none |
+
+
+| 2026-04-15 | journey_map | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | recommendations | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | gap_analysis | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | competitive_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | journey_map | 70 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | recommendations | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | gap_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-15 | competitive_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | recommendations | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | gap_analysis | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | competitive_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 85 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 50 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | recommendations | 95 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | gap_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | competitive_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 70 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | recommendations | 88 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | gap_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | competitive_analysis | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-16 | journey_map | 90 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-18 | journey_map | 85 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-18 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-18 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-18 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-18 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
