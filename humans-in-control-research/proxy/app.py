@@ -40,7 +40,14 @@ app.add_middleware(
 )
 
 TIMEOUT = 30.0
-DEFAULT_HEADERS = {"User-Agent": "NXTHumans-HiC-Research/2.0 (research@nxthumans.com)"}
+# Browser-compatible User-Agent — required by Cloudflare / Akamai / many WAF-protected
+# news sites (Chronicle, Diverse, Google News) which 403 bare custom UAs. The NXT
+# identity still propagates via mailto= params on Crossref/OpenAlex polite-pool calls.
+DEFAULT_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 NXTHumans-HiC-Research/2.0 (research@nxthumans.com)",
+    "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, application/json;q=0.8, text/html;q=0.5, */*;q=0.3",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
 # ================================================================
 # SOURCE REGISTRY — Add new sources here, no code changes needed
@@ -423,6 +430,113 @@ SOURCES = {
     "yt_lex_fridman": {"name": "Lex Fridman Podcast", "category": "Video", "type": "web_search", "tier": 2, "domain": "youtube.com/@lexfridman"},
     "yt_ai_explained": {"name": "AI Explained", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@aiexplained-official"},
     "yt_sentdex": {"name": "Sentdex", "category": "Video", "type": "web_search", "tier": 3, "domain": "youtube.com/@sentdex"},
+
+    # ------------------------------------------------------------------
+    # S3: PHILANTHROPIC & NONPROFIT DATA — US + international charity registries
+    # All entries below are free to query without signup UNLESS an api_key var is
+    # set (Every.org only). Gated sources (Candid Grants, UK Charity Commission,
+    # CharityAPI) are deliberately NOT in this registry — add them when/if keys
+    # become available. CAUTION: some of these return dataset-level metadata
+    # (via CKAN), not record-level data — useful for discovery, not line-level
+    # grantmaker lookup. That remains ProPublica territory.
+    # ------------------------------------------------------------------
+    "propublica_np": {"name": "ProPublica Nonprofit Explorer", "category": "Philanthropy", "type": "rest", "tier": 1,
+        "base_url": "https://projects.propublica.org/nonprofits/api/v2/search.json",
+        "params": {},
+        "query_param": "q", "limit_param": None, "default_limit": 25,
+        "results_path": "organizations", "total_path": "total_results"},
+    # Every.org uses path-query pattern: /v0.2/search/{query}?apiKey=...&take=...
+    # The "_query_" sentinel on query_param triggers the existing DOAJ-style
+    # handler that appends query to URL path instead of using a ?q= param.
+    "every_org": {"name": "Every.org Nonprofit Search", "category": "Philanthropy", "type": "rest", "tier": 1,
+        "base_url": "https://partners.every.org/v0.2/search",
+        "params": {"apiKey": os.getenv("EVERY_ORG_API_KEY", "")},
+        "query_param": "_query_", "limit_param": "take", "default_limit": 15,
+        "results_path": "nonprofits", "total_path": None,
+        "requires_env": "EVERY_ORG_API_KEY"},
+    "cra_t3010_ca": {"name": "CRA T3010 (Canada — Open Canada CKAN)", "category": "Philanthropy", "type": "ckan", "tier": 1,
+        "base_url": "https://open.canada.ca/data/en/api/3/action/package_search"},
+    "acnc_au": {"name": "Australian Charities (ACNC — data.gov.au CKAN)", "category": "Philanthropy", "type": "ckan", "tier": 1,
+        "base_url": "https://data.gov.au/data/api/3/action/package_search"},
+    "charities_ie": {"name": "Irish Charities Regulator (data.gov.ie CKAN)", "category": "Philanthropy", "type": "ckan", "tier": 1,
+        "base_url": "https://data.gov.ie/api/3/action/package_search"},
+    "irs_990_bulk": {"name": "IRS Form 990 S3 Bulk Index", "category": "Philanthropy", "type": "web_search", "tier": 1,
+        "domain": "s3.amazonaws.com/irs-form-990"},
+
+    # ------------------------------------------------------------------
+    # S4: PHILANTHROPY + ADVANCEMENT RSS — 16 feeds across 4 subcategories.
+    # 7 serve direct RSS; the other 9 are served via Google News site-filtered
+    # RSS (news.google.com/rss/search?q=site:X) because those publications are
+    # Cloudflare-blocked, lack public RSS, or have broken feed URLs. The
+    # Google News variant returns headlines + direct links back to the source.
+    # ------------------------------------------------------------------
+
+    # Philanthropy trade press — direct RSS
+    "chronicle_philanthropy":        {"name": "Chronicle of Philanthropy", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://www.philanthropy.com/feed"},
+    "nonprofit_times":               {"name": "The NonProfit Times", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://www.thenonprofittimes.com/feed/"},
+    "center_effective_philanthropy": {"name": "Center for Effective Philanthropy", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://cep.org/feed/"},
+
+    # Advancement / fundraising — direct RSS
+    "rnl_blog":                      {"name": "Ruffalo Noel Levitz (RNL) Blog", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://www.ruffalonl.com/blog/feed/"},
+    "gravyty_blog":                  {"name": "Gravyty (Bonterra) Blog", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://gravyty.com/feed/"},
+    "fundraiseup_blog":              {"name": "Fundraise Up Blog", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://fundraiseup.com/blog/rss.xml"},
+
+    # Higher-ed news — direct RSS
+    "university_business":           {"name": "University Business", "category": "Higher-Ed News", "type": "rss", "tier": 2,
+        "url": "https://universitybusiness.com/feed/"},
+
+    # Cloudflare-blocked / missing-RSS sources — proxied via Google News site-filter RSS
+    "chronicle_higher_ed_gnews":     {"name": "Chronicle of Higher Ed (via Google News)", "category": "Higher-Ed News", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Achronicle.com+higher+education"},
+    "diverse_higher_ed_gnews":       {"name": "Diverse Issues in Higher Ed (via Google News)", "category": "Higher-Ed News", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Adiverseeducation.com"},
+    "philanthropy_news_digest_gnews":{"name": "Philanthropy News Digest (via Google News)", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Aphilanthropynewsdigest.org"},
+    "nonprofit_quarterly_gnews":     {"name": "Nonprofit Quarterly (via Google News)", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Anonprofitquarterly.org"},
+    "ncfp_gnews":                    {"name": "National Center for Family Philanthropy (via Google News)", "category": "Philanthropy News", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Ancfp.org"},
+    "case_advancement_gnews":        {"name": "CASE Advancement News (via Google News)", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Acase.org+advancement"},
+    "higheredjobs_alumni_gnews":     {"name": "HigherEdJobs Alumni Relations (via Google News)", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Ahigheredjobs.com+alumni+advancement"},
+    "evertrue_gnews":                {"name": "EverTrue RAISE (via Google News)", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Aevertrue.com"},
+    "givecampus_gnews":              {"name": "GiveCampus Resources (via Google News)", "category": "Advancement", "type": "rss", "tier": 2,
+        "url": "https://news.google.com/rss/search?q=site%3Agivecampus.com"},
+
+    # ------------------------------------------------------------------
+    # S6: HIGHER-ED BENCHMARKING — live programmatic sources only.
+    # IPEDS bulk, CASE VSE, Giving USA, Commonfund HEPI, M+R, FEP are all
+    # PDF/annual-CSV drops — documented separately for manual ingestion.
+    # ------------------------------------------------------------------
+    "urban_education_data": {"name": "Urban Institute Education Data (IPEDS aggregation)", "category": "Education Data", "type": "rest", "tier": 1,
+        "base_url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2022/",
+        "params": {},
+        "query_param": "unitid", "limit_param": None, "default_limit": 25,
+        "results_path": "results", "total_path": "count"},
+
+    # ------------------------------------------------------------------
+    # S7: ARCHIVAL INTELLIGENCE — not exposed as search tiles; the S8
+    # scheduler calls these programmatically to snapshot institutional
+    # campaign microsites and org charts on a quarterly cadence.
+    # ------------------------------------------------------------------
+    "wayback_availability": {"name": "Wayback Machine Availability", "category": "Archival", "type": "rest", "tier": 1,
+        "base_url": "https://archive.org/wayback/available",
+        "params": {},
+        "query_param": "url", "limit_param": None, "default_limit": 1,
+        "results_path": "archived_snapshots", "total_path": None},
+    "wayback_cdx": {"name": "Wayback Machine CDX Server", "category": "Archival", "type": "rest", "tier": 1,
+        "base_url": "https://web.archive.org/cdx/search/cdx",
+        "params": {"output": "json"},
+        "query_param": "url", "limit_param": "limit", "default_limit": 25,
+        "results_path": "_passthrough_array", "total_path": None},
 }
 
 # ================================================================
@@ -433,7 +547,11 @@ async def fetch_with_retry(client: httpx.AsyncClient, url: str, params: dict = N
     headers = {**DEFAULT_HEADERS, **(headers or {})}
     for attempt in range(max_retries + 1):
         try:
-            resp = await client.get(url, params=params, headers=headers, timeout=TIMEOUT)
+            # follow_redirects=True — many RSS feeds (Chronicle of Philanthropy,
+            # Google News site-filter, several WordPress sites) respond with
+            # 301/302 to the canonical feed URL. Without this, we'd persist the
+            # redirect body (empty HTML) and feedparser would get 0 entries.
+            resp = await client.get(url, params=params, headers=headers, timeout=TIMEOUT, follow_redirects=True)
             if resp.status_code == 200:
                 return resp
             if resp.status_code in (429, 500, 502, 503, 504):
@@ -563,7 +681,7 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                         items.append({
                             "title": to_str(raw_title, str(item)[:100]),
                             "content": to_str(item.get("abstract") or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
-                            "url": (lambda u: ("https://www.reddit.com" + u) if u and u.startswith("/r/") else to_str(u))(to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink"))),
+                            "url": (lambda u: ("https://www.reddit.com" + u) if u and u.startswith("/r/") else to_str(u))(to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink") or item.get("profileUrl") or (f"https://projects.propublica.org/nonprofits/organizations/{item.get('ein')}" if item.get("ein") else ""))),
                             "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
                         })
                     else:
@@ -801,8 +919,48 @@ async def _extract_pdf_impl(url: str, max_pages: int = 30):
 
 @app.get("/api/extract-content")
 async def extract_content(url: str = Query(...)):
-    """Smart content extraction: tries PDF first, falls back to Jina web extraction."""
-    # Try PDF extraction first
+    """Smart content extraction:
+    1. YouTube URLs → yt-dlp download + OpenAI whisper-1 transcription (S5)
+    2. Everything else → PDF-first (PyPDF2), Jina Reader fallback
+    """
+    # Branch 1: YouTube URL → transcription path.
+    # Reuses the same helpers the /api/transcribe-youtube endpoint uses so the
+    # corpus-enrichment pipeline gets video transcripts as first-class documents
+    # without any caller change.
+    if _is_youtube_url(url):
+        work_dir = tempfile.mkdtemp(prefix="yt_xscribe_content_")
+        try:
+            logger.info(f"[extract-content] routing YouTube URL to whisper: {url[:70]}")
+            audio_path, metadata = _ytdlp_download_audio(url, work_dir)
+            result = _whisper_transcribe_with_chunking(audio_path)
+            transcript = result["text"]
+            return {
+                "url": url,
+                "method": "youtube_whisper",
+                "title": metadata["title"] or f"YouTube video {metadata['video_id']}",
+                "content": transcript,
+                "characters": len(transcript),
+                "duration_s": metadata["duration_s"],
+                "video_id": metadata["video_id"],
+                "channel_id": metadata["channel_id"],
+                "uploader": metadata["uploader"],
+                "chunks_total": result["chunks_total"],
+                "chunks_succeeded": result["chunks_succeeded"],
+            }
+        except Exception as e:
+            logger.warning(f"[extract-content] YouTube transcription failed for {url[:50]}: {e}; returning error")
+            return {
+                "url": url, "method": "youtube_failed",
+                "title": "", "content": "", "characters": 0,
+                "error": f"YouTube transcription failed: {str(e)[:200]}",
+            }
+        finally:
+            try:
+                shutil.rmtree(work_dir, ignore_errors=True)
+            except Exception:
+                pass
+
+    # Branch 2: PDF-first (existing behavior, unchanged).
     pdf_result = await _extract_pdf_impl(url)
     if pdf_result.get("extracted") and pdf_result.get("text"):
         return {
@@ -849,6 +1007,558 @@ async def extract_content(url: str = Query(...)):
     except Exception as e:
         logger.warning(f"Jina Reader failed for {url[:50]}: {e}")
         return {"url": url, "method": "failed", "title": "", "content": "", "error": str(e)[:200]}
+
+
+# ================================================================
+# YouTube Transcription — S5
+# yt-dlp downloads audio-only → ffmpeg chunks if >24 MB →
+# OpenAI whisper-1 transcribes each → stitched into unified transcript.
+# Feeds the research corpus as first-class documents via /api/extract-content.
+# ================================================================
+import subprocess
+import tempfile
+import shutil
+from urllib.parse import urlparse
+from fastapi import Request as _S5Request  # aliased so later `from fastapi import Request` stays cosmetic
+
+# OpenAI Whisper API rejects uploads >25 MB. Staying 1 MB under = safety margin.
+YOUTUBE_WHISPER_SIZE_LIMIT_MB = 24
+# 10-min chunks at 128 kbps MP3 ≈ 9.6 MB per chunk — comfortably under cap.
+YOUTUBE_CHUNK_DURATION_SECONDS = 600
+
+
+def _is_youtube_video_url(url: str) -> bool:
+    """True ONLY for video-playable URLs (/watch, /shorts/, /embed/, youtu.be/).
+    Deliberately excludes RSS feed URLs (/feeds/videos.xml?channel_id=...)
+    and channel browsing URLs (/channel/UC..., /@handle, /user/name) — those
+    are polling / browse targets for the S8 scheduler, not transcription
+    targets. Without this gate, a Tier 0 manifest URL for an institution's
+    YouTube channel RSS would get routed to /api/transcribe-youtube and fail
+    via yt-dlp because there's no single video to download."""
+    if not url or not isinstance(url, str):
+        return False
+    try:
+        p = urlparse(url)
+        host = (p.netloc or "").lower()
+        path = (p.path or "").lower()
+        if host == "youtu.be":
+            # https://youtu.be/<VIDEO_ID>  — the path itself is the video id
+            return bool(path.strip("/"))
+        if host.endswith("youtube.com"):
+            # Only video-playable paths. Anything else (feeds, channels, handles,
+            # playlists-as-pages) is NOT a transcription target.
+            return (
+                path.startswith("/watch")
+                or path.startswith("/shorts/")
+                or path.startswith("/embed/")
+                or path.startswith("/v/")
+            )
+        return False
+    except Exception:
+        return False
+
+
+# Backward-compat alias: earlier code (S5) used _is_youtube_url. Keep the
+# name reachable so any other caller continues to compile, but route through
+# the tightened implementation above.
+_is_youtube_url = _is_youtube_video_url
+
+
+def _ytdlp_download_audio(url: str, dest_dir: str) -> tuple:
+    """Download audio-only to dest_dir via yt-dlp; re-encode to 128 kbps MP3.
+    Returns (audio_file_path, metadata_dict). Raises on failure.
+    yt_dlp is imported lazily so the rest of the proxy works even if the
+    package install failed (graceful degradation)."""
+    import yt_dlp  # noqa: local import
+
+    ydl_opts = {
+        "format": "bestaudio/best",
+        "outtmpl": os.path.join(dest_dir, "audio.%(ext)s"),
+        "postprocessors": [{
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "mp3",
+            "preferredquality": "128",
+        }],
+        "quiet": True,
+        "no_warnings": True,
+        "noprogress": True,
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=True)
+
+    mp3_files = [f for f in os.listdir(dest_dir) if f.lower().endswith(".mp3")]
+    if not mp3_files:
+        raise RuntimeError("yt-dlp produced no mp3 output")
+
+    audio_path = os.path.join(dest_dir, mp3_files[0])
+    metadata = {
+        "title": info.get("title") or "",
+        "duration_s": info.get("duration") or 0,
+        "uploader": info.get("uploader") or "",
+        "channel_id": info.get("channel_id") or "",
+        "published": info.get("upload_date") or "",
+        "video_id": info.get("id") or "",
+        "url": info.get("webpage_url") or url,
+    }
+    return audio_path, metadata
+
+
+def _ffmpeg_chunk_audio(audio_path: str, chunk_dir: str) -> list:
+    """ffmpeg segment-split with stream-copy (no re-encode, near-instant).
+    Returns sorted list of chunk file paths. Raises on failure."""
+    chunk_pattern = os.path.join(chunk_dir, "chunk_%03d.mp3")
+    cmd = [
+        "ffmpeg", "-y", "-i", audio_path,
+        "-f", "segment",
+        "-segment_time", str(YOUTUBE_CHUNK_DURATION_SECONDS),
+        "-c", "copy",
+        "-reset_timestamps", "1",
+        chunk_pattern,
+    ]
+    result = subprocess.run(cmd, capture_output=True, timeout=180)
+    if result.returncode != 0:
+        err = (result.stderr or b"").decode("utf-8", errors="replace")[:500]
+        raise RuntimeError(f"ffmpeg chunking rc={result.returncode}: {err[:200]}")
+
+    chunks = sorted(
+        os.path.join(chunk_dir, f)
+        for f in os.listdir(chunk_dir)
+        if f.startswith("chunk_") and f.lower().endswith(".mp3")
+    )
+    if not chunks:
+        raise RuntimeError("ffmpeg produced no chunks")
+    return chunks
+
+
+def _whisper_transcribe_file(audio_path: str) -> dict:
+    """Single-shot whisper-1 call. Returns {'text', 'segments'[{start,end,text}]}.
+    Imports OpenAI lazily for graceful degradation if the SDK isn't installed."""
+    from openai import OpenAI  # noqa: local import
+
+    key = os.environ.get("OPENAI_API_KEY", "")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not configured")
+    client = OpenAI(api_key=key)
+    with open(audio_path, "rb") as f:
+        resp = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=f,
+            response_format="verbose_json",
+            timestamp_granularities=["segment"],
+        )
+    segments = []
+    for seg in (resp.segments or []):
+        segments.append({"start": seg.start, "end": seg.end, "text": seg.text})
+    return {"text": resp.text or "", "segments": segments}
+
+
+def _whisper_transcribe_with_chunking(audio_path: str) -> dict:
+    """Main dispatcher: ≤24 MB single-shot, else chunk + stitch.
+    Always returns {'text', 'segments', 'chunks_total', 'chunks_succeeded'}.
+    Partial failures are logged — one bad chunk doesn't abort the whole job."""
+    size_mb = os.path.getsize(audio_path) / (1024 * 1024)
+    logger.info(f"[YT-xscribe] audio {size_mb:.2f} MB (cap {YOUTUBE_WHISPER_SIZE_LIMIT_MB} MB)")
+
+    if size_mb <= YOUTUBE_WHISPER_SIZE_LIMIT_MB:
+        out = _whisper_transcribe_file(audio_path)
+        out["chunks_total"] = 1
+        out["chunks_succeeded"] = 1
+        return out
+
+    chunk_dir = tempfile.mkdtemp(prefix="whisper_chunks_")
+    try:
+        chunks = _ffmpeg_chunk_audio(audio_path, chunk_dir)
+        logger.info(f"[YT-xscribe] split into {len(chunks)} chunks")
+
+        combined_text = []
+        combined_segments = []
+        succeeded = 0
+        for i, chunk_path in enumerate(chunks):
+            offset_s = i * YOUTUBE_CHUNK_DURATION_SECONDS
+            try:
+                r = _whisper_transcribe_file(chunk_path)
+                combined_text.append(r["text"])
+                for seg in r["segments"]:
+                    combined_segments.append({
+                        "start": seg["start"] + offset_s,
+                        "end": seg["end"] + offset_s,
+                        "text": seg["text"],
+                    })
+                succeeded += 1
+                logger.info(f"[YT-xscribe] chunk {i+1}/{len(chunks)} OK")
+            except Exception as e:
+                logger.error(f"[YT-xscribe] chunk {i+1}/{len(chunks)} failed: {e}")
+                combined_text.append(f"[chunk {i+1} transcription failed]")
+
+        if succeeded == 0:
+            raise RuntimeError(f"All {len(chunks)} chunks failed")
+
+        return {
+            "text": " ".join(combined_text).strip(),
+            "segments": combined_segments,
+            "chunks_total": len(chunks),
+            "chunks_succeeded": succeeded,
+        }
+    finally:
+        try:
+            shutil.rmtree(chunk_dir, ignore_errors=True)
+        except Exception:
+            pass
+
+
+@app.post("/api/transcribe-youtube")
+async def transcribe_youtube_endpoint(request: _S5Request):
+    """Transcribe a YouTube video via OpenAI whisper-1 with automatic chunking.
+
+    Body: { "url": "https://youtu.be/..." }
+    Returns: {
+      "url", "method": "youtube_whisper",
+      "title", "duration_s", "video_id", "channel_id", "uploader", "published",
+      "content" (full transcript), "segments" [{start,end,text}],
+      "chunks_total", "chunks_succeeded", "characters"
+    }
+    """
+    try:
+        body = await request.json()
+        url = (body or {}).get("url", "").strip()
+    except Exception:
+        return JSONResponse({"error": "invalid JSON body"}, status_code=400)
+
+    if not url:
+        return JSONResponse({"error": "url required"}, status_code=400)
+    if not _is_youtube_url(url):
+        return JSONResponse({"error": f"not a YouTube URL: {url[:80]}"}, status_code=400)
+
+    work_dir = tempfile.mkdtemp(prefix="yt_xscribe_")
+    try:
+        logger.info(f"[YT-xscribe] download {url[:70]}")
+        audio_path, metadata = _ytdlp_download_audio(url, work_dir)
+        logger.info(f"[YT-xscribe] downloaded '{metadata['title'][:50]}' "
+                    f"({metadata['duration_s']}s)")
+
+        result = _whisper_transcribe_with_chunking(audio_path)
+        transcript = result["text"]
+
+        return {
+            "url": url,
+            "method": "youtube_whisper",
+            "title": metadata["title"],
+            "duration_s": metadata["duration_s"],
+            "video_id": metadata["video_id"],
+            "channel_id": metadata["channel_id"],
+            "uploader": metadata["uploader"],
+            "published": metadata["published"],
+            "content": transcript,
+            "segments": result["segments"],
+            "chunks_total": result["chunks_total"],
+            "chunks_succeeded": result["chunks_succeeded"],
+            "characters": len(transcript),
+        }
+    except Exception as e:
+        logger.error(f"[YT-xscribe] failed for {url[:60]}: {e}")
+        return JSONResponse(
+            {"error": f"transcription failed: {str(e)[:300]}", "url": url},
+            status_code=500,
+        )
+    finally:
+        try:
+            shutil.rmtree(work_dir, ignore_errors=True)
+        except Exception:
+            pass
+
+
+# ================================================================
+# S8: YOUTUBE CHANNEL SCHEDULER — polls 100 higher-ed advancement channel
+# RSS feeds, detects new uploads since last run, gates them by fundraising
+# keywords, and (optionally) auto-transcribes relevant videos via the S5
+# Whisper pipeline.
+#
+# Design choice: on-demand-triggered endpoint, not a running cron thread.
+# The user or external cron invokes POST /api/scheduler/poll-youtube-channels
+# whenever they want a fresh pass. This keeps state persistence simple and
+# avoids orphan threads across container restarts.
+# ================================================================
+import feedparser as _feedparser_s8  # alias so we don't shadow the existing feedparser import
+from datetime import datetime, timezone
+
+SCHEDULER_STATE_PATH = "/hic-workspace/scheduler-state.json"
+YOUTUBE_CHANNELS_PATH = "/hic-workspace/youtube-channels.json"
+INSTITUTION_MANIFEST_PATH = "/hic-workspace/institution-manifest.json"
+
+# Default keyword set that flags a new video as "fundraising-relevant" —
+# callers can override via request body. Conservative list designed to gate
+# whisper spend; NOT a general-purpose relevance filter.
+DEFAULT_FUNDRAISING_KEYWORDS = [
+    "gift", "campaign", "donor", "endowment", "commitment", "pledge",
+    "giving day", "scholarship", "bequest", "challenge", "raised",
+    "philanthropy", "advancement", "alumni", "fundraising", "matching",
+    "milestone", "anniversary", "planned giving",
+]
+
+
+def _load_scheduler_state() -> dict:
+    """Read scheduler-state.json or return an empty stub. Never raises —
+    a missing or malformed state file is treated as 'first run'."""
+    try:
+        if os.path.exists(SCHEDULER_STATE_PATH):
+            with open(SCHEDULER_STATE_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+    except Exception as e:
+        logger.warning(f"[scheduler] state load failed ({e}); treating as first run")
+    return {"version": 1, "last_poll_at": None, "channels": {}}
+
+
+def _save_scheduler_state(state: dict) -> None:
+    """Atomic-ish write: serialize to temp file, then rename. Prevents
+    partial-write corruption if the container dies mid-save."""
+    state["last_poll_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        tmp = SCHEDULER_STATE_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2)
+        os.replace(tmp, SCHEDULER_STATE_PATH)
+    except Exception as e:
+        logger.error(f"[scheduler] state save failed: {e}")
+
+
+def _load_youtube_channels() -> list:
+    """Read the 100-channel manifest produced by S0. Returns the channel
+    list; empty list if missing."""
+    try:
+        with open(YOUTUBE_CHANNELS_PATH, "r", encoding="utf-8") as f:
+            doc = json.load(f)
+            return [c for c in doc.get("channels", []) if c.get("channel_id")]
+    except Exception as e:
+        logger.warning(f"[scheduler] youtube-channels.json not readable: {e}")
+        return []
+
+
+async def _poll_single_channel(client, channel: dict, last_seen_iso: str, cached_etag: str) -> dict:
+    """Poll one channel's RSS feed. Returns a dict with the channel's UC-ID,
+    new videos since last_seen_iso, updated etag, and any error.
+
+    Tries the primary feed URL first, falls back to playlist_id endpoint on
+    404/5xx (per the S4 RSS-strategy guidance we documented)."""
+    uc = channel["channel_id"]
+    primary = channel.get("rss_feed_primary") or f"https://www.youtube.com/feeds/videos.xml?channel_id={uc}"
+    fallback = channel.get("rss_feed_fallback") or f"https://www.youtube.com/feeds/videos.xml?playlist_id=UU{uc[2:]}"
+
+    headers = dict(DEFAULT_HEADERS)
+    if cached_etag:
+        headers["If-None-Match"] = cached_etag
+
+    # Try primary → fallback
+    resp = None
+    for url in (primary, fallback):
+        try:
+            r = await client.get(url, headers=headers, timeout=15.0, follow_redirects=True)
+            if r.status_code == 304:
+                # Not modified since last poll — no new content
+                return {"channel_id": uc, "new_videos": [], "etag": cached_etag, "status": "not_modified"}
+            if r.status_code == 200 and len(r.content) > 200:
+                resp = r
+                break
+        except Exception as e:
+            logger.debug(f"[scheduler] {uc} {url[:60]} fetch err: {e}")
+            continue
+
+    if resp is None:
+        return {"channel_id": uc, "new_videos": [], "etag": cached_etag, "status": "fetch_failed"}
+
+    # Parse the Atom feed
+    try:
+        feed = _feedparser_s8.parse(resp.text)
+    except Exception as e:
+        return {"channel_id": uc, "new_videos": [], "etag": cached_etag, "status": f"parse_err:{e}"}
+
+    new_videos = []
+    last_seen_ts = _parse_iso(last_seen_iso) if last_seen_iso else None
+    for entry in feed.entries or []:
+        # YouTube Atom feeds expose published + yt:videoId
+        published = entry.get("published") or entry.get("updated") or ""
+        video_id = entry.get("yt_videoid") or entry.get("id", "").split(":")[-1]
+        if not video_id:
+            continue
+        ts = _parse_iso(published)
+        if last_seen_ts and ts and ts <= last_seen_ts:
+            continue  # already seen
+        new_videos.append({
+            "video_id": video_id,
+            "title": entry.get("title", ""),
+            "published": published,
+            "description": entry.get("summary", "")[:500],
+            "url": f"https://www.youtube.com/watch?v={video_id}",
+        })
+
+    new_etag = resp.headers.get("etag", cached_etag)
+    return {"channel_id": uc, "new_videos": new_videos, "etag": new_etag, "status": "ok"}
+
+
+def _parse_iso(s: str):
+    """Tolerant ISO-8601 parser. Returns aware datetime or None."""
+    if not s:
+        return None
+    try:
+        # feedparser sometimes gives "2024-05-01T12:34:56+00:00" — Python 3.11+ handles that.
+        if s.endswith("Z"):
+            s = s[:-1] + "+00:00"
+        return datetime.fromisoformat(s)
+    except Exception:
+        return None
+
+
+def _video_matches_keywords(title: str, description: str, keywords: list) -> list:
+    """Return the subset of keywords found in title+description (case-insensitive)."""
+    text = f"{title} {description}".lower()
+    return [kw for kw in keywords if kw.lower() in text]
+
+
+@app.post("/api/scheduler/poll-youtube-channels")
+async def scheduler_poll_youtube_channels(request: _S5Request):
+    """Poll all (or a subset of) YouTube channels from the manifest, return
+    new uploads since last poll, optionally auto-transcribe keyword matches.
+
+    Body:
+      {
+        "channel_ids":            ["UC...", "UC..."]      # optional filter
+        "institutions":           ["northeastern","harvard"]  # optional; maps to channels
+        "keywords":               ["gift","campaign",...]  # optional override
+        "auto_transcribe":        false                    # if true, transcribe keyword hits
+        "max_transcribe":         3                        # hard cap on whisper spend per poll
+        "dry_run":                false                    # if true, don't write state
+      }
+
+    Returns:
+      {
+        "polled": 97, "polled_failed": 3, "skipped_not_modified": 17,
+        "new_videos": [{...}], "transcribed": [{video_id, transcript_chars, ...}],
+        "state_updated": true, "poll_duration_s": 12.3
+      }
+    """
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+
+    channel_id_filter = set(body.get("channel_ids") or [])
+    institution_filter = set(body.get("institutions") or [])
+    keywords = body.get("keywords") or DEFAULT_FUNDRAISING_KEYWORDS
+    auto_transcribe = bool(body.get("auto_transcribe", False))
+    max_transcribe = int(body.get("max_transcribe", 3))
+    dry_run = bool(body.get("dry_run", False))
+
+    all_channels = _load_youtube_channels()
+    if not all_channels:
+        return JSONResponse({"error": "youtube-channels.json not available in /hic-workspace"}, status_code=500)
+
+    # Apply filters
+    target_channels = all_channels
+    if channel_id_filter:
+        target_channels = [c for c in target_channels if c["channel_id"] in channel_id_filter]
+    if institution_filter:
+        # Join against manifest: find channels whose institution maps to one of the filter ids
+        try:
+            with open(INSTITUTION_MANIFEST_PATH, "r", encoding="utf-8") as f:
+                manifest = json.load(f)
+        except Exception:
+            manifest = {"institutions": []}
+        inst_uc_ids = set()
+        for inst in manifest.get("institutions", []):
+            if inst.get("id") in institution_filter:
+                for yt in inst.get("sources", {}).get("youtube_channels", []):
+                    if yt.get("channel_id"):
+                        inst_uc_ids.add(yt["channel_id"])
+        target_channels = [c for c in target_channels if c["channel_id"] in inst_uc_ids]
+
+    if not target_channels:
+        return {"polled": 0, "new_videos": [], "note": "no channels after filtering"}
+
+    state = _load_scheduler_state()
+    chan_state = state.setdefault("channels", {})
+
+    t_start = time.time()
+    polled, polled_failed, skipped_not_modified = 0, 0, 0
+    all_new_videos = []
+
+    async with httpx.AsyncClient() as client:
+        for chan in target_channels:
+            uc = chan["channel_id"]
+            prev = chan_state.get(uc, {})
+            last_seen = prev.get("last_video_published", "")
+            cached_etag = prev.get("etag", "")
+
+            result = await _poll_single_channel(client, chan, last_seen, cached_etag)
+            status = result["status"]
+            if status == "ok":
+                polled += 1
+                if result["new_videos"]:
+                    # Update state to the newest video seen
+                    newest = max(result["new_videos"], key=lambda v: v["published"] or "")
+                    chan_state[uc] = {
+                        "last_video_published": newest["published"],
+                        "last_video_id": newest["video_id"],
+                        "etag": result["etag"],
+                    }
+                    # Enrich with institution metadata
+                    for v in result["new_videos"]:
+                        v["channel_id"] = uc
+                        v["institution"] = chan.get("institution", "")
+                        v["role"] = chan.get("role", "")
+                        v["focus"] = chan.get("focus", "")
+                        v["matched_keywords"] = _video_matches_keywords(v["title"], v.get("description", ""), keywords)
+                        all_new_videos.append(v)
+                else:
+                    # No new videos but refresh etag
+                    if result["etag"] != cached_etag:
+                        chan_state[uc] = {**prev, "etag": result["etag"]}
+            elif status == "not_modified":
+                skipped_not_modified += 1
+                polled += 1
+            else:
+                polled_failed += 1
+
+    # Auto-transcribe keyword hits
+    transcribed = []
+    if auto_transcribe and all_new_videos:
+        relevant = [v for v in all_new_videos if v["matched_keywords"]]
+        relevant = relevant[:max_transcribe]  # cap whisper spend
+        for v in relevant:
+            try:
+                # Reuse the S5 pipeline internally (no HTTP roundtrip back to self)
+                work_dir = tempfile.mkdtemp(prefix="yt_xscribe_sched_")
+                try:
+                    audio_path, metadata = _ytdlp_download_audio(v["url"], work_dir)
+                    tx_result = _whisper_transcribe_with_chunking(audio_path)
+                    transcribed.append({
+                        "video_id": v["video_id"],
+                        "title": v["title"],
+                        "duration_s": metadata.get("duration_s", 0),
+                        "transcript_chars": len(tx_result.get("text", "")),
+                        "chunks": f"{tx_result.get('chunks_succeeded', 0)}/{tx_result.get('chunks_total', 0)}",
+                        "matched_keywords": v["matched_keywords"],
+                    })
+                finally:
+                    try:
+                        shutil.rmtree(work_dir, ignore_errors=True)
+                    except Exception:
+                        pass
+            except Exception as e:
+                logger.warning(f"[scheduler] transcribe failed for {v['video_id']}: {e}")
+                transcribed.append({"video_id": v["video_id"], "error": str(e)[:150]})
+
+    if not dry_run:
+        _save_scheduler_state(state)
+
+    return {
+        "polled": polled,
+        "polled_failed": polled_failed,
+        "skipped_not_modified": skipped_not_modified,
+        "channels_targeted": len(target_channels),
+        "new_videos": all_new_videos,
+        "transcribed": transcribed,
+        "state_updated": not dry_run,
+        "poll_duration_s": round(time.time() - t_start, 2),
+    }
 
 
 # ================================================================
