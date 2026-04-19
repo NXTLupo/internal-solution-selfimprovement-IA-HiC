@@ -156,6 +156,78 @@ function computeFreshnessFromDate(dateStr: string): string {
  * A human researcher doesn't search "Identify emerging needs in remote work sector" --
  * they search "remote work productivity challenges 2026" or "hybrid workforce tools market size."
  */
+/**
+ * Option B refinement for CX Mesh subreddits (and TrustPilot/Play Store).
+ * For each community target, ask Gemini to produce a brief-specific 4–8 word
+ * keyword query that would surface posts RELEVANT TO THE RESEARCH GOAL within
+ * that community. Prevents the old behavior where r/neu was searched for "neu"
+ * (matches everything) or for the full 500-char goal text.
+ *
+ * Returns Record<target, refinedQuery>. Gracefully falls back to a heuristic
+ * (extract nouns from the goal) if the Gemini call fails.
+ */
+export async function refineSubredditQueries(
+    goal: string,
+    lens: AnalyticalLens,
+    subreddits: string[]
+): Promise<Record<string, string>> {
+    if (!subreddits.length) return {};
+    const goalExcerpt = goal.slice(0, 400);  // keep prompt bounded
+    const prompt = `You are optimizing Reddit search queries. For each subreddit below, generate ONE tight 4-8 keyword query that would find posts RELEVANT TO the research goal within that subreddit's community.
+
+RESEARCH GOAL: ${goalExcerpt}
+ANALYTICAL LENS: ${lens}
+
+SUBREDDITS:
+${subreddits.map(s => `- r/${s}`).join('\n')}
+
+Rules:
+- The subreddit IS the topic filter; your query narrows to goal-relevant posts
+- 4-8 keywords, no filler, no full sentences
+- Use community-native language (not formal/corporate speak)
+- NEVER return the subreddit name itself as the query
+- If the subreddit is tangential to the goal, still produce the best adjacent query
+
+Return a JSON object where each key is the subreddit name (without "r/") and the value is the query string. Example for goal "university advancement strategy":
+{"neu": "alumni giving student experience advancement", "fatfire": "philanthropy donor motivation giving back", "cscareerquestions": "bootcamp tuition ROI career outcomes"}`;
+
+    try {
+        const result = await geminiJSON<Record<string, string>>(prompt);
+        // Sanity-check — if Gemini returns the subreddit name verbatim (old bug), replace with goal snippet
+        const out: Record<string, string> = {};
+        for (const sub of subreddits) {
+            const q = (result[sub] || '').trim();
+            if (!q || q.toLowerCase() === sub.toLowerCase()) {
+                // Heuristic fallback: extract top content words from the goal
+                out[sub] = heuristicSubredditQuery(goal);
+            } else {
+                out[sub] = q;
+            }
+        }
+        return out;
+    } catch (e) {
+        console.warn('[subreddit refine] Gemini failed, using heuristic:', e);
+        const fallback: Record<string, string> = {};
+        for (const sub of subreddits) fallback[sub] = heuristicSubredditQuery(goal);
+        return fallback;
+    }
+}
+
+/** Tiny heuristic: extract the highest-signal 6 words from the research goal.
+ *  Removes stop words and returns the result as a space-joined query. */
+function heuristicSubredditQuery(goal: string): string {
+    const STOP = new Set(['the','a','an','and','or','of','to','in','for','on','at','by','with','from','as','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','can','may','might','shall','this','that','these','those','it','its','their','they','them','what','which','who','how','when','where','why','we','our','us','your','my','me','i','he','she','his','her','about','into','through','during','before','after','between','without','within','role','you','research','analyst','elite','market']);
+    const words = goal.toLowerCase().match(/[a-z]{3,}/g) || [];
+    const filtered = words.filter(w => !STOP.has(w));
+    // Take first 6 unique content words
+    const uniq: string[] = [];
+    const seen = new Set<string>();
+    for (const w of filtered) {
+        if (!seen.has(w)) { seen.add(w); uniq.push(w); if (uniq.length >= 6) break; }
+    }
+    return uniq.join(' ');
+}
+
 export async function refineSearchQueries(
     goal: string,
     lens: AnalyticalLens,
@@ -348,16 +420,31 @@ export async function generateResearchPlan(
         }
     }
 
-    // 7. CX Mesh - Subreddits
+    // 7. CX Mesh - Subreddits (Option B: AI-refined per-subreddit queries)
+    //
+    // Each subreddit gets a bespoke Gemini-generated keyword query that finds
+    // goal-relevant posts within that community. Replaces the old bug where
+    // r/neu was searched for "neu" (matches everything because members mention
+    // their school constantly). Downstream AI relevance scoring layers further
+    // filtering on top.
     if (enabledCategories.cxMesh?.subreddits?.length) {
-        for (const sub of enabledCategories.cxMesh.subreddits) {
+        const subreddits = enabledCategories.cxMesh.subreddits;
+        let refined: Record<string, string> = {};
+        try {
+            refined = await refineSubredditQueries(goal, lens, subreddits);
+        } catch {
+            // refineSubredditQueries already has internal heuristic fallback;
+            // this outer catch is just defense-in-depth.
+        }
+        for (const sub of subreddits) {
+            const q = refined[sub] || heuristicSubredditQuery(goal);
             sources.push({
                 id: `src_${id++}`,
                 type: 'subreddit',
                 name: `Reddit: r/${sub}`,
-                description: `Collect posts and comments from r/${sub}`,
-                query: sub,
-                config: { source: 'reddit', target: sub, count: 30 },
+                description: `Collect posts from r/${sub} matching: "${q}"`,
+                query: q,
+                config: { source: 'reddit', target: sub, count: 30, goalQuery: goal, refinedQuery: q },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 30,
                 enabled: true,
@@ -366,15 +453,17 @@ export async function generateResearchPlan(
     }
 
     // 7b. CX Mesh - TrustPilot
+    // Same fix as subreddits above — pass the research goal as the query so
+    // reviews are filtered for brief-relevance, not brand-name-self-match.
     if (enabledCategories.cxMesh?.trustpilot?.length) {
         for (const company of enabledCategories.cxMesh.trustpilot) {
             sources.push({
                 id: `src_${id++}`,
                 type: 'cx_mesh',
                 name: `TrustPilot: ${company}`,
-                description: `Collect reviews from TrustPilot for ${company}`,
-                query: company,
-                config: { source: 'trustpilot', target: company, count: 100 },
+                description: `Collect reviews from TrustPilot for ${company} relevant to the research goal`,
+                query: goal,
+                config: { source: 'trustpilot', target: company, count: 100, goalQuery: goal },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 45,
                 enabled: true,
@@ -389,9 +478,9 @@ export async function generateResearchPlan(
                 id: `src_${id++}`,
                 type: 'cx_mesh',
                 name: `Play Store: ${pkg}`,
-                description: `Collect app reviews for ${pkg}`,
-                query: pkg,
-                config: { source: 'playstore', target: pkg, count: 100 },
+                description: `Collect app reviews for ${pkg} relevant to the research goal`,
+                query: goal,
+                config: { source: 'playstore', target: pkg, count: 100, goalQuery: goal },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 30,
                 enabled: true,
