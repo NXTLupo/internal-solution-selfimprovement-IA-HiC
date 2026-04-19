@@ -192,6 +192,7 @@ const LiveResearchBoard = ({
     showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal, files,
     gapResult, techAuditResult, competitiveResult, strategicReportResult, techResult,
     onDeliverableApproved,
+    registryTotal,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string,
@@ -205,6 +206,7 @@ const LiveResearchBoard = ({
     corpusTextRef: React.RefObject<string>, researchGoal: string,
     gapResult?: any, techAuditResult?: any, competitiveResult?: any, strategicReportResult?: any, techResult?: any,
     onDeliverableApproved?: (type: string, data: any) => void,
+    registryTotal?: number,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
@@ -694,6 +696,7 @@ const LiveResearchBoard = ({
                         totalCollected={liveSourceResults.reduce((s, r) => s + (r.items?.length || 0), 0)}
                         totalSources={liveSourceResults.length}
                         successfulSources={liveSourceResults.filter(r => r.status === 'complete').length}
+                        registryTotal={registryTotal}
                         isCollecting={isCollectingData}
                         phase={collectionPhase}
                     />
@@ -800,12 +803,31 @@ const App = () => {
     const [enableOpenData, setEnableOpenData] = useState(false);
     const [enableAINews, setEnableAINews] = useState(false);
     const [enableAIResearch, setEnableAIResearch] = useState(false);
+    const [enablePhilanthropy, setEnablePhilanthropy] = useState(false);
     const [enableCxMesh, setEnableCxMesh] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
     const [webUrls, setWebUrls] = useState('');
     const [videoUrls, setVideoUrls] = useState('');
     const [isCollectingData, setIsCollectingData] = useState(false);
+    // Total registered connectors in the proxy — fetched once at mount, shown
+    // in the live collection header so users know "X/Y of Z total" where Z is
+    // the full registry size (currently ~186). Never hardcoded; always fresh.
+    const [registryTotal, setRegistryTotal] = useState<number>(0);
+    useEffect(() => {
+        // One-time cleanup: the `disable_institution_manifest` localStorage flag
+        // was added as an emergency escape hatch when the S2 Tier-0 prepend was
+        // over-fetching (causing Jina timeouts). That root cause is now fixed
+        // with the 24-URL / 5-institution caps in tierZeroUrlsForGoal, so the
+        // kill switch is no longer needed. Clear any lingering values so the
+        // manifest activates automatically again.
+        try { localStorage.removeItem('disable_institution_manifest'); } catch { /* no-op */ }
+
+        fetch('http://localhost:5012/api/sources')
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d && typeof d.total === 'number') setRegistryTotal(d.total); })
+            .catch(() => { /* non-fatal — counter just won't show the "of Z" suffix */ });
+    }, []);
     const [dataSourceStatus, setDataSourceStatus] = useState<string>('');
     const [collectionPhase, setCollectionPhase] = useState<string>('');
     const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
@@ -817,7 +839,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -1628,7 +1650,9 @@ const App = () => {
                 const sourceIds: string[] = [];
                 if (enableHigherEdNews || recommendedSources.enableHigherEdNews) sourceIds.push(
                     'higher_ed_dive', 'inside_higher_ed', 'edsurge', 'hechinger', 'the_conversation_edu',
-                    'campus_tech', 'ecampus', 'university_world_news', 'pie_news', 'open_campus'
+                    'campus_tech', 'ecampus', 'university_world_news', 'pie_news', 'open_campus',
+                    // S4: extended higher-ed press (3 new)
+                    'university_business', 'chronicle_higher_ed_gnews', 'diverse_higher_ed_gnews'
                 );
                 if (enableNews || recommendedSources.enableNews) sourceIds.push('gdelt');
                 if (enableAcademic || recommendedSources.enableAcademic) sourceIds.push(
@@ -1662,6 +1686,16 @@ const App = () => {
                     // AI Lab Research Web-only (7)
                     'openai_research', 'anthropic_research', 'google_research', 'nvidia_research',
                     'adobe_research', 'qualcomm_ai', 'intel_ai'
+                );
+                if (enablePhilanthropy || recommendedSources.enablePhilanthropy) sourceIds.push(
+                    // S3: philanthropic & nonprofit data registries (6)
+                    'propublica_np', 'every_org', 'cra_t3010_ca', 'acnc_au', 'charities_ie', 'irs_990_bulk',
+                    // S4: philanthropy trade press RSS (6 — 3 direct + 3 via Google News proxy)
+                    'chronicle_philanthropy', 'nonprofit_times', 'center_effective_philanthropy',
+                    'philanthropy_news_digest_gnews', 'nonprofit_quarterly_gnews', 'ncfp_gnews',
+                    // S4: advancement / fundraising RSS (7 — 3 direct + 4 via Google News proxy)
+                    'rnl_blog', 'gravyty_blog', 'fundraiseup_blog',
+                    'case_advancement_gnews', 'higheredjobs_alumni_gnews', 'evertrue_gnews', 'givecampus_gnews'
                 );
                 if (enableAIResearch || recommendedSources.enableAIResearch) sourceIds.push(
                     // AI Research arXiv API (8)
@@ -2002,12 +2036,41 @@ const App = () => {
                     ? subredditTargets.split(',').map(s => s.trim()).filter(Boolean)
                     : discoveredSubreddits;
 
+                // S2: Institution-manifest expansion — detect mentioned institutions in the
+                // research goal and prepend their first-party Tier 0 URLs (newsroom RSS, giving
+                // site, president office, 990, financial report, campaign microsite, alumni
+                // magazine, YouTube channel RSS). These are guaranteed-include sources ahead
+                // of the generic keyword-search pool.
+                //
+                // Feature-flag: set localStorage.disable_institution_manifest = '1' to disable
+                // this path if it misbehaves without a code deploy.
+                let manifestTierZeroUrls: string[] = [];
+                try {
+                    if (typeof localStorage === 'undefined' || localStorage.getItem('disable_institution_manifest') !== '1') {
+                        const { tierZeroUrlsForGoal } = await import('./services/institutionEntityExtractor');
+                        manifestTierZeroUrls = await tierZeroUrlsForGoal(researchGoal);
+                        if (manifestTierZeroUrls.length > 0) {
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[INSTITUTION MANIFEST] Detected named institutions in goal — prepending ${manifestTierZeroUrls.length} first-party (Tier 0) URLs to collection set`
+                            }]);
+                        }
+                    }
+                } catch (manifestErr) {
+                    console.warn('[institution-manifest] extraction failed (non-fatal):', manifestErr);
+                }
+
                 // Also run orchestrator for deep research + CX mesh (if enabled)
                 const plan = await generateResearchPlan(researchGoal, selectedLens, {
                     deepResearch: (enableDeepResearch || recommendedSources.enableDeepResearch) ? { mode: deepResearchMode } : undefined,
                     newsMedia: false, academic: false, economic: false, socialTrends: false, videoSearch: false,
                     videoTranscripts: videoUrls.trim() ? videoUrls.trim().split('\n').filter(u => u.trim()) : undefined,
-                    webIntelligence: webUrls.trim() ? { urls: webUrls.trim().split('\n').filter(u => u.trim()) } : undefined,
+                    webIntelligence: (webUrls.trim() || manifestTierZeroUrls.length > 0) ? {
+                        urls: [
+                            ...manifestTierZeroUrls,  // S2 Tier 0 — first-party institutional sources
+                            ...(webUrls.trim() ? webUrls.trim().split('\n').filter(u => u.trim()) : [])
+                        ]
+                    } : undefined,
                     cxMesh: enableCxMesh ? {
                         subreddits: cxSubreddits.length > 0 ? cxSubreddits : undefined,
                         trustpilot: trustpilotTargets.trim() ? trustpilotTargets.split(',').map(s => s.trim()).filter(Boolean) : undefined,
@@ -2953,7 +3016,7 @@ ${synthesisParts.join('\n')}
                                          {/* Source Toggles Grid */}
                                          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
                                              {[
-                                                 { label: 'Higher-Ed News', sublabel: '10 RSS feeds (Inside Higher Ed, EdSurge...)', state: enableHigherEdNews, setter: setEnableHigherEdNews, icon: 'fa-university' },
+                                                 { label: 'Higher-Ed News', sublabel: '13 RSS feeds (Inside Higher Ed, Chronicle, Diverse...)', state: enableHigherEdNews, setter: setEnableHigherEdNews, icon: 'fa-university' },
                                                  { label: 'Global News', sublabel: 'GDELT 65+ language monitoring', state: enableNews, setter: setEnableNews, icon: 'fa-newspaper' },
                                                  { label: 'Academic Papers', sublabel: 'OpenAlex, Crossref, Semantic Scholar, CORE', state: enableAcademic, setter: setEnableAcademic, icon: 'fa-graduation-cap' },
                                                  { label: 'Education Data', sublabel: 'College Scorecard, ERIC, IPEDS', state: enableEducationData, setter: setEnableEducationData, icon: 'fa-school' },
@@ -2965,6 +3028,7 @@ ${synthesisParts.join('\n')}
                                                  { label: 'Social Listening', sublabel: 'Reddit / TrustPilot / Play Store', state: enableCxMesh, setter: setEnableCxMesh, icon: 'fa-comments' },
                                                  { label: 'AI News & Labs', sublabel: '20 sources: MIT, IEEE, OpenAI, DeepMind...', state: enableAINews, setter: setEnableAINews, icon: 'fa-robot' },
                                                  { label: 'AI Research & Code', sublabel: 'arXiv, HuggingFace, GitHub, Policy...', state: enableAIResearch, setter: setEnableAIResearch, icon: 'fa-brain' },
+                                                 { label: 'Philanthropy', sublabel: '19 sources: 990 data + 13 RSS (Chronicle, CASE, RNL, Gravyty...)', state: enablePhilanthropy, setter: setEnablePhilanthropy, icon: 'fa-hand-holding-heart' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>
@@ -3109,6 +3173,7 @@ ${synthesisParts.join('\n')}
                                techResult={techResult}
                                files={files}
                                onDeliverableApproved={handleChatDeliverableApproved}
+                               registryTotal={registryTotal}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);

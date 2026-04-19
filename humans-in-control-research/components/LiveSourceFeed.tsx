@@ -26,6 +26,10 @@ interface Props {
     totalCollected: number;
     totalSources: number;
     successfulSources: number;
+    /** Total connectors registered in the proxy registry. Dynamic — fetched from
+     *  /api/sources at mount. Shown as "of Z" context so users can see the
+     *  registry is growing. 0 = not yet loaded (suppresses the "of Z" suffix). */
+    registryTotal?: number;
     isCollecting: boolean;
     phase: string;  // 'refining' | 'collecting' | 'filtering' | 'complete'
 }
@@ -38,7 +42,7 @@ const TIER_CONFIG: Record<number, { label: string; color: string; bg: string }> 
     3: { label: 'COMMUNITY', color: '#999999', bg: 'rgba(153, 153, 153, 0.06)' },
 };
 
-const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollected, totalSources, successfulSources, isCollecting, phase }) => {
+const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollected, totalSources, successfulSources, registryTotal = 0, isCollecting, phase }) => {
     const [expandedSource, setExpandedSource] = useState<string | null>(null);
 
     return (
@@ -63,7 +67,9 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                         </div>
                         <div className="text-center">
                             <div className="text-lg font-extralight">{successfulSources}/{totalSources}</div>
-                            <div className="text-[8px] uppercase tracking-widest opacity-70">Sources</div>
+                            <div className="text-[8px] uppercase tracking-widest opacity-70">
+                                Sources{registryTotal > 0 ? <span className="ml-1 opacity-60">· of {registryTotal} registered</span> : null}
+                            </div>
                         </div>
                     </div>
                 </div>
