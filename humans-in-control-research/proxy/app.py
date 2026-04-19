@@ -884,13 +884,19 @@ async def proxy_anthropic(request: Request):
                 headers=headers,
                 timeout=300.0,
             )
-            return JSONResponse(resp.json(), status_code=resp.status_code)
+            if resp.status_code >= 400:
+                logger.error(f"Anthropic API {resp.status_code} for model={body.get('model')}: {resp.text[:600]}")
+            try:
+                return JSONResponse(resp.json(), status_code=resp.status_code)
+            except Exception as json_err:
+                logger.error(f"Anthropic non-JSON response ({resp.status_code}): {resp.text[:600]} | json_err={json_err!r}")
+                return JSONResponse({"error": f"Anthropic returned non-JSON (status {resp.status_code}): {resp.text[:300]}"}, status_code=502)
     except httpx.TimeoutException:
         logger.error("Anthropic proxy timeout")
         return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
     except Exception as e:
-        logger.error(f"Anthropic proxy error: {e}")
-        return JSONResponse({"error": f"Anthropic proxy error: {str(e)[:200]}"}, status_code=502)
+        logger.error(f"Anthropic proxy error: type={type(e).__name__} repr={e!r}")
+        return JSONResponse({"error": f"Anthropic proxy error: {type(e).__name__}: {str(e)[:200] or repr(e)[:200]}"}, status_code=502)
 
 
 @app.post("/api/ai/gemini")
@@ -956,6 +962,8 @@ async def proxy_openai(request: Request):
 
         async with httpx.AsyncClient() as client:
             resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+            if resp.status_code >= 400:
+                logger.error(f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}")
             return JSONResponse(resp.json(), status_code=resp.status_code)
     except httpx.TimeoutException:
         logger.error("OpenAI proxy timeout")

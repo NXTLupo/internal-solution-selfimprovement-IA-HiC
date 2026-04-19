@@ -679,32 +679,76 @@ const filterRelevantItems = filterAndScoreItems;
  * Preserves source attribution for citation tracking.
  */
 /**
- * Content Enrichment: Fetch full text from top-scored items via Jina Reader.
- * Academic APIs only return titles/abstracts. This downloads the actual content
- * from the URL (landing page, open access PDF, blog post) to get the real evidence.
+ * Content Enrichment: Fetch full text from top-scored items via the proxy's
+ * /api/extract-content endpoint (PDF-first, Jina web fallback). Academic APIs
+ * return only titles + abstracts — this downloads the real article so the AI
+ * can cite specific findings instead of refusing for lack of body text.
+ *
+ * URL-based fast-path: items whose URL points to a known full-text source
+ * (DOI, Europe PMC, arXiv, PubMed Central, OpenAlex, OSF, *.pdf, etc.) are
+ * always enriched regardless of how long their abstract happens to be —
+ * because even a 2000-char Europe PMC abstract is still a tiny fraction of
+ * the 30-page paper sitting one DOI redirect away.
  */
-async function enrichTopItems(items: DataSourceItem[], maxItems: number = 30): Promise<DataSourceItem[]> {
-    // Only enrich items that have URLs and short content (likely just abstracts)
-    const needsEnrichment = items.filter(item =>
-        item.url &&
-        item.url.startsWith('http') &&
-        (item.content?.length || 0) < 300 &&  // Short content = likely just abstract/title
-        (item as any).relevanceScore >= 60     // Only enrich relevant items
-    );
+const FULL_TEXT_SOURCE_PATTERNS = [
+    /doi\.org\//i,
+    /europepmc\.org\/article/i,
+    /ncbi\.nlm\.nih\.gov\/(pmc|pubmed)/i,
+    /pmc\.ncbi\.nlm\.nih\.gov/i,
+    /arxiv\.org\/(abs|pdf)/i,
+    /openalex\.org\//i,
+    /api\.openalex\.org\//i,
+    /\.pdf($|\?)/i,
+    /osf\.io\//i,
+    /biorxiv\.org\//i,
+    /medrxiv\.org\//i,
+    /ssrn\.com\//i,
+    /researchgate\.net\/publication/i,
+    /semanticscholar\.org\/paper/i,
+];
+
+function isLikelyFullTextSource(url: string): boolean {
+    return FULL_TEXT_SOURCE_PATTERNS.some(p => p.test(url));
+}
+
+const ENRICHMENT_PER_ITEM_CAP = 30_000; // 30KB per item (was 3KB) — fits comfortably in 1M-token Claude/Gemini context
+const ENRICHMENT_RELEVANCE_FLOOR = 40;   // was 60 — let medium-relevance items through
+const ENRICHMENT_GENERIC_LENGTH_GATE = 5_000; // was 300 — abstracts run 1-3KB; only skip if item already has substantial body
+const ENRICHMENT_TOP_N = 80;            // was 30 — most modern corpora benefit from broader enrichment
+
+async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICHMENT_TOP_N): Promise<DataSourceItem[]> {
+    // Items qualify for enrichment if they have an http URL AND either:
+    //   (a) their URL points to a known full-text source (DOI/PMC/arXiv/etc) — always enrich, OR
+    //   (b) their existing content is shorter than the generic length gate.
+    // Both paths still respect the relevance floor.
+    const needsEnrichment = items.filter(item => {
+        if (!item.url || !item.url.startsWith('http')) return false;
+        if (((item as any).relevanceScore || 0) < ENRICHMENT_RELEVANCE_FLOOR) return false;
+        const len = item.content?.length || 0;
+        return isLikelyFullTextSource(item.url) || len < ENRICHMENT_GENERIC_LENGTH_GATE;
+    });
 
     if (needsEnrichment.length === 0) return items;
 
-    // Take top N by relevance score
+    // Sort by relevance, but break ties by giving full-text-source URLs priority —
+    // they yield 10-30KB of real evidence; landing-page scrapes typically yield <5KB.
     const toEnrich = needsEnrichment
-        .sort((a, b) => ((b as any).relevanceScore || 0) - ((a as any).relevanceScore || 0))
+        .sort((a, b) => {
+            const scoreDelta = ((b as any).relevanceScore || 0) - ((a as any).relevanceScore || 0);
+            if (scoreDelta !== 0) return scoreDelta;
+            const aFull = isLikelyFullTextSource(a.url!) ? 1 : 0;
+            const bFull = isLikelyFullTextSource(b.url!) ? 1 : 0;
+            return bFull - aFull;
+        })
         .slice(0, maxItems);
 
-    console.log(`Content enrichment: Fetching full text for ${toEnrich.length} top-scored items via Jina Reader`);
+    const fullTextCount = toEnrich.filter(i => isLikelyFullTextSource(i.url!)).length;
+    console.log(`Content enrichment: Fetching full text for ${toEnrich.length} items (${fullTextCount} from known full-text sources, ${toEnrich.length - fullTextCount} via web extraction)`);
 
     const PROXY = 'http://localhost:5012';
     const enriched = new Map<string, { content: string; method: string }>();
 
-    // Fetch in small batches (3 concurrent) to avoid overwhelming Jina
+    // Fetch in small batches (3 concurrent) to avoid overwhelming the proxy
     for (let i = 0; i < toEnrich.length; i += 3) {
         const batch = toEnrich.slice(i, i + 3);
         const results = await Promise.allSettled(
@@ -712,7 +756,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 30): P
                 try {
                     // Smart extraction: tries PDF download first, then Jina web extraction
                     const resp = await fetch(`${PROXY}/api/extract-content?url=${encodeURIComponent(item.url!)}`, {
-                        signal: AbortSignal.timeout(30000)
+                        signal: AbortSignal.timeout(45000) // raised from 30s — DOI redirects + PDF parsing legitimately take longer
                     });
                     if (!resp.ok) return null;
                     const data = await resp.json();
@@ -720,7 +764,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = 30): P
                     const method = data.method; // 'pdf' or 'jina'
                     if (fullContent && fullContent.length > (item.content?.length || 0)) {
                         console.log(`  Enriched "${item.title?.substring(0,40)}" via ${method} (${fullContent.length} chars)`);
-                        return { id: item.id, content: fullContent.substring(0, 3000), method };  // Cap at 3KB per item (reduced from 5KB to prevent token overflow)
+                        return { id: item.id, content: fullContent.substring(0, ENRICHMENT_PER_ITEM_CAP), method };
                     }
                     return null;
                 } catch { return null; }
