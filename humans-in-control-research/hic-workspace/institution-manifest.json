@@ -1,0 +1,2540 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-19T03:16:04Z",
+  "generator": "hic-workspace manifest generator v1",
+  "total_institutions": 30,
+  "peer_groups": {
+    "ivy_plus": [
+      "cornell",
+      "columbia",
+      "upenn",
+      "harvard",
+      "yale",
+      "princeton",
+      "mit",
+      "stanford",
+      "uchicago",
+      "duke"
+    ],
+    "ivy": [
+      "cornell",
+      "columbia",
+      "upenn",
+      "harvard",
+      "yale",
+      "princeton",
+      "brown",
+      "dartmouth"
+    ],
+    "ivy_ext": [
+      "cornell",
+      "columbia",
+      "upenn",
+      "harvard",
+      "yale",
+      "princeton",
+      "brown",
+      "dartmouth",
+      "uchicago",
+      "duke",
+      "jhu",
+      "mit",
+      "stanford",
+      "northwestern"
+    ],
+    "private_high": [
+      "northwestern",
+      "uchicago",
+      "jhu",
+      "duke",
+      "stanford",
+      "mit",
+      "cmu",
+      "nyu"
+    ],
+    "boston_private": [
+      "bu",
+      "bc",
+      "tufts",
+      "northeastern",
+      "harvard",
+      "mit"
+    ],
+    "la_tech": [
+      "stanford",
+      "cmu",
+      "georgia_tech",
+      "mit",
+      "ucla"
+    ],
+    "public_flagship": [
+      "michigan",
+      "ucla",
+      "uc_berkeley",
+      "uw",
+      "purdue",
+      "asu"
+    ],
+    "r1_stem_focused": [
+      "mit",
+      "cmu",
+      "georgia_tech",
+      "purdue",
+      "drexel",
+      "rit"
+    ],
+    "canadian_r1": [
+      "waterloo",
+      "simon_fraser"
+    ]
+  },
+  "institutions": [
+    {
+      "id": "cornell",
+      "name": "Cornell University",
+      "aliases": [
+        "Cornell",
+        "Big Red"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "15-0532082"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 190415
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "To Do the Greatest Good",
+        "goal_usd": 5000000000,
+        "launched": null,
+        "closed": "2026",
+        "microsite": "https://giving.cornell.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.cornell.edu/rss-feeds",
+        "giving": "https://giving.cornell.edu/",
+        "alumni_content": "https://alumni.cornell.edu/cornellians/",
+        "president_office": "https://president.cornell.edu/",
+        "campaign_microsite": "https://giving.cornell.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/150532082",
+        "financial_report": "https://finance.cornell.edu/annual-financial-statements",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UC30GasQLcQ8RMfXC68a5oVg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC30GasQLcQ8RMfXC68a5oVg",
+            "focus": "Alumni engagement",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC30GasQLcQ8RMfXC68a5oVg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU30GasQLcQ8RMfXC68a5oVg",
+            "uploads_playlist_id": "UU30GasQLcQ8RMfXC68a5oVg"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCfTfuTTALrsxUWjisrdOWtA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfTfuTTALrsxUWjisrdOWtA",
+            "focus": "Institution + giving",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfTfuTTALrsxUWjisrdOWtA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUfTfuTTALrsxUWjisrdOWtA",
+            "uploads_playlist_id": "UUfTfuTTALrsxUWjisrdOWtA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Affairs & Development",
+          "name": "Fred Van Sickle",
+          "linkedin": "https://www.linkedin.com/in/fred-van-sickle-09a0a336/"
+        },
+        {
+          "role": "President",
+          "name": "Michael Kotlikoff",
+          "office_url": "https://president.cornell.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "columbia",
+      "name": "Columbia University",
+      "aliases": [
+        "Columbia",
+        "CU"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "13-5598093",
+          "entity_name": "Trustees of Columbia University in the City of New York"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 190150
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Columbia Commitment",
+        "goal_usd": null,
+        "launched": null,
+        "closed": null,
+        "microsite": "https://giving.columbia.edu/our-campaign"
+      },
+      "sources": {
+        "newsroom": "https://news.columbia.edu/",
+        "giving": "https://giving.columbia.edu/",
+        "alumni_content": "https://magazine.columbia.edu/",
+        "president_office": "https://president.columbia.edu/",
+        "campaign_microsite": "https://giving.columbia.edu/our-campaign",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/135598093",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCAwMeRK9-6jrYwEazXucsGw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAwMeRK9-6jrYwEazXucsGw",
+            "focus": "Alumni engagement",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAwMeRK9-6jrYwEazXucsGw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUAwMeRK9-6jrYwEazXucsGw",
+            "uploads_playlist_id": "UUAwMeRK9-6jrYwEazXucsGw"
+          },
+          {
+            "role": "main",
+            "channel_id": "UChzhFUxUZFAQSJZ_Tp4B1fA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UChzhFUxUZFAQSJZ_Tp4B1fA",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UChzhFUxUZFAQSJZ_Tp4B1fA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUhzhFUxUZFAQSJZ_Tp4B1fA",
+            "uploads_playlist_id": "UUhzhFUxUZFAQSJZ_Tp4B1fA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "Interim EVP Alumni & Development",
+          "name": "Susan K. Feagin",
+          "office_url": "https://president.columbia.edu/administration"
+        },
+        {
+          "role": "Acting President",
+          "name": "Claire Shipman",
+          "office_url": "https://president.columbia.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "upenn",
+      "name": "University of Pennsylvania",
+      "aliases": [
+        "UPenn",
+        "Penn",
+        "University of Pennsylvania"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "23-1352685",
+          "entity_name": "Trustees of the University of Pennsylvania"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 215062
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "in_planning",
+        "name": null,
+        "goal_usd": null,
+        "launched": null,
+        "closed": null,
+        "microsite": "https://yourimpact.upenn.edu/",
+        "prior_campaign": {
+          "name": "The Power of Penn",
+          "goal_usd": 5400000000,
+          "closed": "2021"
+        }
+      },
+      "sources": {
+        "newsroom": "https://penntoday.upenn.edu/",
+        "giving": "https://giving.upenn.edu/",
+        "alumni_content": "https://thepenngazette.com/",
+        "president_office": "https://president.upenn.edu/",
+        "campaign_microsite": "https://yourimpact.upenn.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/231352685",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UC3xqGNz9ZTesZhRUs23CZug",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3xqGNz9ZTesZhRUs23CZug",
+            "focus": "Alumni + reunions",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3xqGNz9ZTesZhRUs23CZug",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU3xqGNz9ZTesZhRUs23CZug",
+            "uploads_playlist_id": "UU3xqGNz9ZTesZhRUs23CZug"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCZuzhTcxpJZ1VEJ5s9H9MdA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZuzhTcxpJZ1VEJ5s9H9MdA",
+            "focus": "Institution + campaign",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZuzhTcxpJZ1VEJ5s9H9MdA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUZuzhTcxpJZ1VEJ5s9H9MdA",
+            "uploads_playlist_id": "UUZuzhTcxpJZ1VEJ5s9H9MdA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP Development & Alumni Relations",
+          "name": "John H. Zeller",
+          "linkedin": "https://www.linkedin.com/in/john-zeller-"
+        },
+        {
+          "role": "President",
+          "name": "J. Larry Jameson",
+          "office_url": "https://president.upenn.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "harvard",
+      "name": "Harvard University",
+      "aliases": [
+        "Harvard",
+        "Harvard University",
+        "Crimson"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-2103580",
+          "entity_name": "President & Fellows of Harvard College"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 166027
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "goal_usd": null,
+        "microsite": "https://campaign.harvard.edu",
+        "prior_campaign": {
+          "name": "The Harvard Campaign",
+          "goal_usd": 9620000000,
+          "closed": "2018"
+        }
+      },
+      "sources": {
+        "newsroom_rss": "https://news.harvard.edu/gazette/feed/",
+        "giving": "https://alumni.harvard.edu/give",
+        "alumni_content": "https://www.harvardmagazine.com/",
+        "president_office": "https://www.harvard.edu/president/",
+        "campaign_microsite": "https://campaign.harvard.edu",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/42103580",
+        "financial_report": "https://finance.harvard.edu/annual-report",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UC3mC-9L_F48YtcuIZBKEH5Q",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3mC-9L_F48YtcuIZBKEH5Q",
+            "focus": "Alumni + HAA",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3mC-9L_F48YtcuIZBKEH5Q",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU3mC-9L_F48YtcuIZBKEH5Q",
+            "uploads_playlist_id": "UU3mC-9L_F48YtcuIZBKEH5Q"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCLv7Gzc3VTO6ggFlXY0sOyw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLv7Gzc3VTO6ggFlXY0sOyw",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLv7Gzc3VTO6ggFlXY0sOyw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UULv7Gzc3VTO6ggFlXY0sOyw",
+            "uploads_playlist_id": "UULv7Gzc3VTO6ggFlXY0sOyw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Affairs & Development",
+          "name": "James J. \"Jim\" Husson",
+          "linkedin": "https://www.linkedin.com/in/jhusson/"
+        },
+        {
+          "role": "President",
+          "name": "Alan Garber",
+          "office_url": "https://www.harvard.edu/president/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "yale",
+      "name": "Yale University",
+      "aliases": [
+        "Yale",
+        "Yale University",
+        "Bulldogs"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "06-0646973"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 130794
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "For Humanity",
+        "goal_usd": 7000000000,
+        "microsite": "https://forhumanity.yale.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.yale.edu/rss.xml",
+        "giving": "https://alumni.yale.edu/",
+        "alumni_content_rss": "https://yalealumnimagazine.org/articles.rss",
+        "president_office": "https://president.yale.edu/",
+        "campaign_microsite": "https://forhumanity.yale.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/60646973",
+        "financial_report": "https://your.yale.edu/work-yale/financial-management/financial-reports",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCiXF4iwr9N8y05DjUsu-3jw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCiXF4iwr9N8y05DjUsu-3jw",
+            "focus": "Alumni + YAA",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCiXF4iwr9N8y05DjUsu-3jw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUiXF4iwr9N8y05DjUsu-3jw",
+            "uploads_playlist_id": "UUiXF4iwr9N8y05DjUsu-3jw"
+          },
+          {
+            "role": "alumni",
+            "channel_id": "UCNWzRJlEC2alHfMVpVlJ-JQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNWzRJlEC2alHfMVpVlJ-JQ",
+            "focus": "Lifelong learning + donor content",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNWzRJlEC2alHfMVpVlJ-JQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUNWzRJlEC2alHfMVpVlJ-JQ",
+            "uploads_playlist_id": "UUNWzRJlEC2alHfMVpVlJ-JQ"
+          },
+          {
+            "role": "main",
+            "channel_id": "UC4dFlMwAextqD6Ya7RzrwBA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4dFlMwAextqD6Ya7RzrwBA",
+            "focus": "Institution + For Humanity",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4dFlMwAextqD6Ya7RzrwBA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU4dFlMwAextqD6Ya7RzrwBA",
+            "uploads_playlist_id": "UU4dFlMwAextqD6Ya7RzrwBA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Affairs & Development",
+          "name": "Joan E. O'Neill",
+          "linkedin": "https://www.linkedin.com/in/joan-oneill-49748b110/"
+        },
+        {
+          "role": "President",
+          "name": "Maurie McInnis",
+          "office_url": "https://president.yale.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "princeton",
+      "name": "Princeton University",
+      "aliases": [
+        "Princeton",
+        "Tigers"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "22-2711242",
+          "entity_name": "Trustees of Princeton University"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 186131
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "recently_closed",
+        "name": "Venture Forward",
+        "goal_usd": null,
+        "closed": "2025-06-30",
+        "microsite": "https://alumni.princeton.edu/venture-forward"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.princeton.edu/news/rss.xml",
+        "giving": "https://alumni.princeton.edu/",
+        "alumni_content_rss": "https://paw.princeton.edu/rss.xml",
+        "president_office": "https://president.princeton.edu/",
+        "campaign_microsite": "https://alumni.princeton.edu/venture-forward",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/222711242",
+        "financial_report": "https://finance.princeton.edu/report-treasurer",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCCwEle8QB2NiSPM-srBNn6A",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCwEle8QB2NiSPM-srBNn6A",
+            "focus": "Alumni + Annual Giving",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCwEle8QB2NiSPM-srBNn6A",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUCwEle8QB2NiSPM-srBNn6A",
+            "uploads_playlist_id": "UUCwEle8QB2NiSPM-srBNn6A"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCcBYSgQTxc126-lj_gdrO8Q",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcBYSgQTxc126-lj_gdrO8Q",
+            "focus": "Institution + Venture Forward",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcBYSgQTxc126-lj_gdrO8Q",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUcBYSgQTxc126-lj_gdrO8Q",
+            "uploads_playlist_id": "UUcBYSgQTxc126-lj_gdrO8Q"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP for Advancement",
+          "name": "Kevin J. Heaney",
+          "linkedin": "https://www.linkedin.com/in/kevin-j-heaney-b5580bbb/"
+        },
+        {
+          "role": "President",
+          "name": "Christopher Eisgruber",
+          "office_url": "https://president.princeton.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "mit",
+      "name": "Massachusetts Institute of Technology",
+      "aliases": [
+        "MIT"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-2103594"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 166683
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "microsite": "https://betterworld.mit.edu",
+        "prior_campaign": {
+          "name": "Campaign for a Better World",
+          "goal_usd": 6240000000,
+          "closed": "2021"
+        }
+      },
+      "sources": {
+        "newsroom_rss": "https://news.mit.edu/rss/feed",
+        "giving": "https://giving.mit.edu",
+        "alumni_content": "https://alum.mit.edu/slice",
+        "president_office": "https://president.mit.edu",
+        "campaign_microsite": "https://betterworld.mit.edu",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/42103594",
+        "financial_report": "https://vpf.mit.edu/about-vpf/publications",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCOLc9GES9eIMliLT_8s9w7g",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOLc9GES9eIMliLT_8s9w7g",
+            "focus": "Alumni Slice of MIT",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOLc9GES9eIMliLT_8s9w7g",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUOLc9GES9eIMliLT_8s9w7g",
+            "uploads_playlist_id": "UUOLc9GES9eIMliLT_8s9w7g"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCEBb1b_L6zDS3xTUrIALZOw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEBb1b_L6zDS3xTUrIALZOw",
+            "focus": "Institution + donor videos",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEBb1b_L6zDS3xTUrIALZOw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUEBb1b_L6zDS3xTUrIALZOw",
+            "uploads_playlist_id": "UUEBb1b_L6zDS3xTUrIALZOw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VPRD (interim)",
+          "name": "Eric Grimson",
+          "linkedin": "https://www.linkedin.com/company/mit-office-of-resource-development"
+        },
+        {
+          "role": "President",
+          "name": "Sally Kornbluth",
+          "office_url": "https://president.mit.edu"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "stanford",
+      "name": "Stanford University",
+      "aliases": [
+        "Stanford",
+        "Cardinal"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "94-1156365",
+          "entity_name": "Board of Trustees of Leland Stanford Jr. University"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 243744
+        }
+      ],
+      "fiscal_year_end": "08-31",
+      "campaign": {
+        "status": "between",
+        "name": "Uniquely Stanford (de facto)",
+        "microsite": "https://giving.stanford.edu/vision"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.stanford.edu/feed/",
+        "giving": "https://giving.stanford.edu",
+        "alumni_content": "https://stanfordmag.org",
+        "president_office": "https://president.stanford.edu",
+        "campaign_microsite": "https://giving.stanford.edu/vision",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/941156365",
+        "financial_report": "https://bondholder-information.stanford.edu/financials/annual-reports",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCNoz7zRzEcHhp3TBU6spaXA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNoz7zRzEcHhp3TBU6spaXA",
+            "focus": "Alumni + Stanford Fund",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNoz7zRzEcHhp3TBU6spaXA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUNoz7zRzEcHhp3TBU6spaXA",
+            "uploads_playlist_id": "UUNoz7zRzEcHhp3TBU6spaXA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UC-EnprmCZ3OXyAoG7vjVNCA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-EnprmCZ3OXyAoG7vjVNCA",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-EnprmCZ3OXyAoG7vjVNCA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU-EnprmCZ3OXyAoG7vjVNCA",
+            "uploads_playlist_id": "UU-EnprmCZ3OXyAoG7vjVNCA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Development (interim)",
+          "name": "Martin Shell",
+          "office_url": "https://externalrelations.stanford.edu/people/jon-denney"
+        },
+        {
+          "role": "President",
+          "name": "Jonathan Levin",
+          "office_url": "https://president.stanford.edu"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "duke",
+      "name": "Duke University",
+      "aliases": [
+        "Duke",
+        "Blue Devils"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "56-0532129"
+        },
+        {
+          "kind": "us_501c3",
+          "ein": "56-2070036",
+          "entity_name": "Duke University Health System"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 198419
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "MADE FOR THIS: The Duke Campaign",
+        "launched": "2025-02",
+        "microsite": "https://madeforthis.duke.edu"
+      },
+      "sources": {
+        "newsroom_rss": "https://today.duke.edu/rss",
+        "giving": "https://giving.duke.edu",
+        "alumni_content": "https://dukemag.duke.edu",
+        "president_office": "https://president.duke.edu",
+        "campaign_microsite": "https://madeforthis.duke.edu",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/560532129",
+        "financial_report": "https://finance.duke.edu/budget/reports",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCsPlvlENcLhdR5dze6Voevg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsPlvlENcLhdR5dze6Voevg",
+            "focus": "Alumni + MADE FOR THIS",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsPlvlENcLhdR5dze6Voevg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUsPlvlENcLhdR5dze6Voevg",
+            "uploads_playlist_id": "UUsPlvlENcLhdR5dze6Voevg"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCtXRIIGnq4rU8REt1vAuttw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtXRIIGnq4rU8REt1vAuttw",
+            "focus": "Institution + campaign",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtXRIIGnq4rU8REt1vAuttw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUtXRIIGnq4rU8REt1vAuttw",
+            "uploads_playlist_id": "UUtXRIIGnq4rU8REt1vAuttw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Engagement & Development",
+          "name": "David L. Kennedy",
+          "linkedin": "https://www.linkedin.com/in/david-kennedy-7b8037193/"
+        },
+        {
+          "role": "President",
+          "name": "Vincent Price",
+          "office_url": "https://president.duke.edu"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "jhu",
+      "name": "Johns Hopkins University",
+      "aliases": [
+        "Johns Hopkins",
+        "JHU",
+        "Hopkins"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "52-0595110"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 162928
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Rising to the Challenge",
+          "goal_usd": 6015000000,
+          "closed": "2018"
+        },
+        "microsite": "https://impact.jhu.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://hub.jhu.edu/feed/",
+        "giving": "https://giving.jhu.edu/",
+        "alumni_content": "https://hub.jhu.edu/magazine/",
+        "president_office": "https://president.jhu.edu/",
+        "campaign_microsite": "https://impact.jhu.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/520595110",
+        "financial_report": "https://finance.jhu.edu/reports-policies/financial-reports/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UC5-fY04oFVL-49ENjDE5MTw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5-fY04oFVL-49ENjDE5MTw",
+            "focus": "Alumni + Hopkins Possible",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5-fY04oFVL-49ENjDE5MTw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU5-fY04oFVL-49ENjDE5MTw",
+            "uploads_playlist_id": "UU5-fY04oFVL-49ENjDE5MTw"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCeohrwR6-fO1EMk8FkJrlzw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeohrwR6-fO1EMk8FkJrlzw",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeohrwR6-fO1EMk8FkJrlzw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUeohrwR6-fO1EMk8FkJrlzw",
+            "uploads_playlist_id": "UUeohrwR6-fO1EMk8FkJrlzw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP Development & Alumni Relations",
+          "name": "Fritz W. Schroeder",
+          "linkedin": "https://www.linkedin.com/in/fritz-schroeder-662584188/"
+        },
+        {
+          "role": "President",
+          "name": "Ronald J. Daniels",
+          "office_url": "https://president.jhu.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "uchicago",
+      "name": "University of Chicago",
+      "aliases": [
+        "UChicago",
+        "University of Chicago",
+        "Maroons"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "36-2177139"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 144050
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Inquiry and Impact",
+          "goal_usd": 5430000000,
+          "closed": "2019-12"
+        },
+        "microsite": "https://campaign.uchicago.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.uchicago.edu/rss.xml",
+        "giving": "https://alumniandfriends.uchicago.edu/",
+        "alumni_content": "https://mag.uchicago.edu/",
+        "president_office": "https://president.uchicago.edu/",
+        "campaign_microsite": "https://campaign.uchicago.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/362177139",
+        "financial_report": "https://finserv.uchicago.edu/annual-financial-report/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCN1o4ZglGj_VmDZC7sL_DOQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCN1o4ZglGj_VmDZC7sL_DOQ",
+            "focus": "Alumni + Inquiry and Impact",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCN1o4ZglGj_VmDZC7sL_DOQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUN1o4ZglGj_VmDZC7sL_DOQ",
+            "uploads_playlist_id": "UUN1o4ZglGj_VmDZC7sL_DOQ"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCGINcKuFbysZAslgL46KeOA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGINcKuFbysZAslgL46KeOA",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGINcKuFbysZAslgL46KeOA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUGINcKuFbysZAslgL46KeOA",
+            "uploads_playlist_id": "UUGINcKuFbysZAslgL46KeOA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Relations & Development",
+          "name": "Armin Afsahi",
+          "linkedin": "https://www.linkedin.com/in/arminafsahi/"
+        },
+        {
+          "role": "President",
+          "name": "Paul Alivisatos",
+          "office_url": "https://president.uchicago.edu/"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "northwestern",
+      "name": "Northwestern University",
+      "aliases": [
+        "Northwestern",
+        "NU",
+        "Wildcats"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "36-2167817"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 147767
+        }
+      ],
+      "fiscal_year_end": "08-31",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "We Will. The Campaign for Northwestern",
+          "goal_usd": 6000000000,
+          "closed": "2021-09"
+        },
+        "microsite": "https://wewill.northwestern.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.northwestern.edu/stories.xml",
+        "giving": "https://giving.northwestern.edu/",
+        "alumni_content": "https://magazine.northwestern.edu/",
+        "president_office": "https://www.northwestern.edu/president/",
+        "campaign_microsite": "https://wewill.northwestern.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/362167817",
+        "financial_report": "https://www.northwestern.edu/financial-operations/about/annual-reports/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCVAK2yKp5yATKNk1qOHZ0Mg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVAK2yKp5yATKNk1qOHZ0Mg",
+            "focus": "Alumni + We Will",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVAK2yKp5yATKNk1qOHZ0Mg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUVAK2yKp5yATKNk1qOHZ0Mg",
+            "uploads_playlist_id": "UUVAK2yKp5yATKNk1qOHZ0Mg"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCEus02YCblkR3b4mwIStjoQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEus02YCblkR3b4mwIStjoQ",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEus02YCblkR3b4mwIStjoQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUEus02YCblkR3b4mwIStjoQ",
+            "uploads_playlist_id": "UUEus02YCblkR3b4mwIStjoQ"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Alumni Relations & Development",
+          "name": "David A. Lively",
+          "linkedin": "https://www.linkedin.com/in/david-lively-2a73231a/"
+        },
+        {
+          "role": "President",
+          "name": null,
+          "office_url": "https://www.northwestern.edu/president/",
+          "note": "presidential search underway Dec 2025"
+        }
+      ],
+      "peer_group": [
+        "cornell",
+        "columbia",
+        "upenn",
+        "harvard",
+        "yale",
+        "princeton",
+        "brown",
+        "dartmouth",
+        "uchicago",
+        "duke",
+        "jhu",
+        "mit",
+        "stanford",
+        "northwestern"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "bu",
+      "name": "Boston University",
+      "aliases": [
+        "BU",
+        "Boston University",
+        "Terriers"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-2103547",
+          "entity_name": "Trustees of Boston University"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 164988
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "in_planning",
+        "name": null,
+        "prior_campaign": {
+          "name": "Choose to Be Great",
+          "goal_usd": 1850000000,
+          "closed": "2019-09"
+        },
+        "microsite": "https://www.bu.edu/campaign/"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.bu.edu/articles/feed/",
+        "giving": "https://www.bu.edu/alumni/giving/",
+        "alumni_content": "https://www.bu.edu/bostonia/",
+        "president_office": "https://www.bu.edu/president/",
+        "campaign_microsite": "https://www.bu.edu/campaign/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/42103547",
+        "financial_report": "https://ar.bu.edu/2024/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCFvRkat0yjyOEpXCF3VvV9w",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFvRkat0yjyOEpXCF3VvV9w",
+            "focus": "Alumni + giving",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFvRkat0yjyOEpXCF3VvV9w",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUFvRkat0yjyOEpXCF3VvV9w",
+            "uploads_playlist_id": "UUFvRkat0yjyOEpXCF3VvV9w"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCEVHS_MuYUyDkqIn29f4SBg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEVHS_MuYUyDkqIn29f4SBg",
+            "focus": "Institution + campaign",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEVHS_MuYUyDkqIn29f4SBg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUEVHS_MuYUyDkqIn29f4SBg",
+            "uploads_playlist_id": "UUEVHS_MuYUyDkqIn29f4SBg"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Advancement",
+          "name": "Michele Schiele",
+          "linkedin": "https://www.linkedin.com/in/michele-schiele/",
+          "note": "appointed 2025 from Stanford"
+        },
+        {
+          "role": "President",
+          "name": "Melissa Gilliam",
+          "office_url": "https://www.bu.edu/president/"
+        }
+      ],
+      "peer_group": [
+        "bu",
+        "bc",
+        "tufts",
+        "northeastern",
+        "harvard",
+        "mit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "tufts",
+      "name": "Tufts University",
+      "aliases": [
+        "Tufts",
+        "Jumbos"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-2103634",
+          "entity_name": "Trustees of Tufts College"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 168148
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "in_planning",
+        "name": null,
+        "prior_campaign": {
+          "name": "Brighter World",
+          "goal_usd": 1530000000,
+          "closed": "2023-06-30"
+        },
+        "microsite": "https://alumniandfriends.tufts.edu/brighterworld"
+      },
+      "sources": {
+        "newsroom": "https://now.tufts.edu/",
+        "giving": "https://giving.tufts.edu/",
+        "alumni_content": "https://alumniandfriends.tufts.edu",
+        "president_office": "https://www.tufts.edu/president/",
+        "campaign_microsite": "https://alumniandfriends.tufts.edu/brighterworld",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/42103634",
+        "financial_report": "https://finance.tufts.edu/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCl9z_JI4AwYFXQDS2O-gP7Q",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl9z_JI4AwYFXQDS2O-gP7Q",
+            "focus": "Alumni + Brighter World",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl9z_JI4AwYFXQDS2O-gP7Q",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUl9z_JI4AwYFXQDS2O-gP7Q",
+            "uploads_playlist_id": "UUl9z_JI4AwYFXQDS2O-gP7Q"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCPXt4ihRwQL9kUm4psLk9zA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPXt4ihRwQL9kUm4psLk9zA",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPXt4ihRwQL9kUm4psLk9zA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUPXt4ihRwQL9kUm4psLk9zA",
+            "uploads_playlist_id": "UUPXt4ihRwQL9kUm4psLk9zA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Advancement",
+          "name": "Joshua Else",
+          "office_url": "https://trustees.tufts.edu/officers/joshua-else-senior-vice-president-for-university-advancement/",
+          "note": "started Feb 5 2024 from JHU"
+        },
+        {
+          "role": "President",
+          "name": "Sunil Kumar",
+          "office_url": "https://www.tufts.edu/president/"
+        }
+      ],
+      "peer_group": [
+        "bu",
+        "bc",
+        "tufts",
+        "northeastern",
+        "harvard",
+        "mit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "bc",
+      "name": "Boston College",
+      "aliases": [
+        "BC",
+        "Boston College",
+        "Eagles"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-2103545",
+          "entity_name": "Trustees of Boston College"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 164924
+        }
+      ],
+      "fiscal_year_end": "05-31",
+      "campaign": {
+        "status": "active",
+        "name": "Soaring Higher",
+        "goal_usd": 3000000000,
+        "launched": "2023-09",
+        "microsite": "https://campaign.bc.edu/"
+      },
+      "sources": {
+        "newsroom": "https://www.bc.edu/bc-web/sites/bc-news.html",
+        "giving": "https://www.bc.edu/bc-web/offices/alumni/giving.html",
+        "alumni_content": "https://www.bc.edu/bc-web/sites/bc-magazine.html",
+        "president_office": "https://www.bc.edu/bc-web/offices/office-of-the-president.html",
+        "campaign_microsite": "https://campaign.bc.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/42103545",
+        "financial_report": "https://www.bc.edu/bc-web/offices/financial-vice-president/departments/controller.html",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCbogFv5GMyOwjqfF2mvb7qA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbogFv5GMyOwjqfF2mvb7qA",
+            "focus": "Alumni + Soaring Higher",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbogFv5GMyOwjqfF2mvb7qA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUbogFv5GMyOwjqfF2mvb7qA",
+            "uploads_playlist_id": "UUbogFv5GMyOwjqfF2mvb7qA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCxpYJz5B6tkK6RNV8JOd43g",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxpYJz5B6tkK6RNV8JOd43g",
+            "focus": "Institution + campaign",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxpYJz5B6tkK6RNV8JOd43g",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUxpYJz5B6tkK6RNV8JOd43g",
+            "uploads_playlist_id": "UUxpYJz5B6tkK6RNV8JOd43g"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Advancement",
+          "name": "Andrew Davidson",
+          "linkedin": "https://www.linkedin.com/in/andrew-davidson-6104441"
+        },
+        {
+          "role": "President",
+          "name": "Fr. William P. Leahy, S.J.",
+          "office_url": "https://www.bc.edu/bc-web/offices/office-of-the-president.html",
+          "note": "announced intent to step down June 2024"
+        }
+      ],
+      "peer_group": [
+        "bu",
+        "bc",
+        "tufts",
+        "northeastern",
+        "harvard",
+        "mit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "northeastern",
+      "name": "Northeastern University",
+      "aliases": [
+        "Northeastern",
+        "NEU",
+        "Huskies"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "04-1679980"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 167358
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Experience Powered by Northeastern",
+        "goal_usd": 1750000000,
+        "launched": "2022-10",
+        "microsite": "https://experiencepoweredby.northeastern.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.northeastern.edu/feed/",
+        "giving": "https://give.northeastern.edu/",
+        "alumni_content": "https://news.northeastern.edu/magazine/",
+        "president_office": "https://president.northeastern.edu/",
+        "campaign_microsite": "https://experiencepoweredby.northeastern.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/41679980",
+        "financial_report": "https://finance.northeastern.edu/financial-statements/",
+        "youtube_channels": [
+          {
+            "role": "main",
+            "channel_id": "UCnDo3-HsTMiEpwm9t2miwdw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnDo3-HsTMiEpwm9t2miwdw",
+            "focus": "Institution + Experience Powered",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnDo3-HsTMiEpwm9t2miwdw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUnDo3-HsTMiEpwm9t2miwdw",
+            "uploads_playlist_id": "UUnDo3-HsTMiEpwm9t2miwdw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Advancement",
+          "name": "Diane N. MacGillivray",
+          "linkedin": "https://www.linkedin.com/in/diane-macgillivray-a0121124/",
+          "note": "since 2007; led prior $1.4B Empower + current campaign"
+        },
+        {
+          "role": "President",
+          "name": "Joseph E. Aoun",
+          "office_url": "https://president.northeastern.edu/"
+        }
+      ],
+      "peer_group": [
+        "bu",
+        "bc",
+        "tufts",
+        "northeastern",
+        "harvard",
+        "mit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "usc",
+      "name": "University of Southern California",
+      "aliases": [
+        "USC",
+        "Trojans"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "95-1642394"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 123961
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "in_planning",
+        "name": null,
+        "prior_campaign": {
+          "name": "Campaign for USC",
+          "goal_usd": 7160000000,
+          "closed": "2021"
+        },
+        "microsite": "https://giving.usc.edu/campaign-for-usc/"
+      },
+      "sources": {
+        "newsroom_rss": "https://today.usc.edu/feed/",
+        "giving": "https://giving.usc.edu/",
+        "alumni_content": "https://today.usc.edu/trojan-family/",
+        "president_office": "https://president.usc.edu/",
+        "campaign_microsite": "https://giving.usc.edu/campaign-for-usc/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/951642394",
+        "financial_report": "https://comptroller.usc.edu/annual-financial-reports/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCvyBOhLs4INd7Icq90WDWaQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvyBOhLs4INd7Icq90WDWaQ",
+            "focus": "Alumni + Trojan Family",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvyBOhLs4INd7Icq90WDWaQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUvyBOhLs4INd7Icq90WDWaQ",
+            "uploads_playlist_id": "UUvyBOhLs4INd7Icq90WDWaQ"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCJDGYVOYi13IqD3CYfETe0w",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJDGYVOYi13IqD3CYfETe0w",
+            "focus": "Institution + Campaign for USC",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJDGYVOYi13IqD3CYfETe0w",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUJDGYVOYi13IqD3CYfETe0w",
+            "uploads_playlist_id": "UUJDGYVOYi13IqD3CYfETe0w"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Advancement",
+          "name": "Scott Rabenold",
+          "linkedin": "https://www.linkedin.com/in/scott-rabenold-14367440/"
+        },
+        {
+          "role": "President",
+          "name": "Beong-Soo Kim",
+          "office_url": "https://president.usc.edu/"
+        }
+      ],
+      "peer_group": [
+        "northwestern",
+        "uchicago",
+        "jhu",
+        "duke",
+        "stanford",
+        "mit",
+        "cmu",
+        "nyu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "nyu",
+      "name": "New York University",
+      "aliases": [
+        "NYU",
+        "Violets"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "13-5562308",
+          "entity_name": "New York University"
+        },
+        {
+          "kind": "us_501c3",
+          "ein": "47-2613531",
+          "entity_name": "NYU Langone Health (separate)"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 193900
+        }
+      ],
+      "fiscal_year_end": "08-31",
+      "campaign": {
+        "status": "active",
+        "name": "Momentum (financial-aid campaign)",
+        "goal_usd": 1000000000,
+        "launched": "2013",
+        "prior_campaign": {
+          "name": "Campaign for NYU",
+          "goal_usd": 3000000000,
+          "closed": "2008"
+        },
+        "microsite": "https://www.nyu.edu/about/giving/special-campaigns.html"
+      },
+      "sources": {
+        "newsroom": "https://www.nyu.edu/about/news-publications/news.html",
+        "giving": "https://www.nyu.edu/alumni/giving.html",
+        "alumni_content": "https://www.nyu.edu/alumni/news-publications.html",
+        "president_office": "https://www.nyu.edu/about/leadership-university-administration/office-of-the-president.html",
+        "campaign_microsite": "https://www.nyu.edu/about/giving/special-campaigns.html",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/135562308",
+        "financial_report": "https://www.nyu.edu/about/leadership-university-administration/office-of-the-president/office-of-the-provost/office-of-budget-and-financial-planning/financial-reports.html",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UChhA6-k-jLu80PxA3Ig-0QA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UChhA6-k-jLu80PxA3Ig-0QA",
+            "focus": "Alumni (700k+ community)",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UChhA6-k-jLu80PxA3Ig-0QA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUhhA6-k-jLu80PxA3Ig-0QA",
+            "uploads_playlist_id": "UUhhA6-k-jLu80PxA3Ig-0QA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCWbOgmmhIvrmcxKiAF8twPA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWbOgmmhIvrmcxKiAF8twPA",
+            "focus": "Institution + Momentum",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWbOgmmhIvrmcxKiAF8twPA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUWbOgmmhIvrmcxKiAF8twPA",
+            "uploads_playlist_id": "UUWbOgmmhIvrmcxKiAF8twPA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP University Development & Alumni Relations",
+          "name": "Hope O'Reilly",
+          "linkedin": "https://www.linkedin.com/in/hope-oreilly-2892772/",
+          "note": "chief fundraiser since Sept 2023"
+        },
+        {
+          "role": "President",
+          "name": "Linda G. Mills",
+          "office_url": "https://www.nyu.edu/about/leadership-university-administration/office-of-the-president.html"
+        }
+      ],
+      "peer_group": [
+        "northwestern",
+        "uchicago",
+        "jhu",
+        "duke",
+        "stanford",
+        "mit",
+        "cmu",
+        "nyu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "cmu",
+      "name": "Carnegie Mellon University",
+      "aliases": [
+        "CMU",
+        "Carnegie Mellon",
+        "Tartans"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "25-0969449"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 211440
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "recently_closed",
+        "name": "Make Possible",
+        "goal_usd": 2500000000,
+        "closed": "2025-11",
+        "microsite": "https://makepossible.cmu.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.cmu.edu/news/feeds/news.rss",
+        "giving": "https://www.cmu.edu/engage/",
+        "alumni_content": "https://www.cmu.edu/piper/",
+        "president_office": "https://www.cmu.edu/leadership/president/",
+        "campaign_microsite": "https://makepossible.cmu.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/250969449",
+        "financial_report": "https://www.cmu.edu/finance/reporting-and-incoming-funds/financial-statements.html",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCJXDKoUyZ-kyLpt1UJQOVTg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJXDKoUyZ-kyLpt1UJQOVTg",
+            "focus": "Alumni + Make Possible",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJXDKoUyZ-kyLpt1UJQOVTg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUJXDKoUyZ-kyLpt1UJQOVTg",
+            "uploads_playlist_id": "UUJXDKoUyZ-kyLpt1UJQOVTg"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCf-COwmdNelXvbj-KaMCuLw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCf-COwmdNelXvbj-KaMCuLw",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCf-COwmdNelXvbj-KaMCuLw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUf-COwmdNelXvbj-KaMCuLw",
+            "uploads_playlist_id": "UUf-COwmdNelXvbj-KaMCuLw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP University Advancement",
+          "name": "David P. Bennett",
+          "linkedin": "https://www.linkedin.com/in/david-p-bennett/",
+          "note": "started Feb 17 2025 from Howard"
+        },
+        {
+          "role": "President",
+          "name": "Farnam Jahanian",
+          "office_url": "https://www.cmu.edu/leadership/president/"
+        }
+      ],
+      "peer_group": [
+        "mit",
+        "cmu",
+        "georgia_tech",
+        "purdue",
+        "drexel",
+        "rit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "georgia_tech",
+      "name": "Georgia Institute of Technology",
+      "aliases": [
+        "Georgia Tech",
+        "GT",
+        "Yellow Jackets"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "58-6043294",
+          "entity_name": "Georgia Tech Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 139755
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Transforming Tomorrow",
+        "goal_usd": 2000000000,
+        "microsite": "https://transformingtomorrow.gatech.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.gatech.edu/rss.xml",
+        "giving": "https://development.gatech.edu/",
+        "alumni_content": "https://www.gtalumni.org/magazine",
+        "president_office": "https://president.gatech.edu/",
+        "campaign_microsite": "https://transformingtomorrow.gatech.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/586043294",
+        "financial_report": "https://www.gtf.gatech.edu/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCNwbm9JcEZcag8MNcrZW06A",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNwbm9JcEZcag8MNcrZW06A",
+            "focus": "Alumni + Transforming Tomorrow",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNwbm9JcEZcag8MNcrZW06A",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUNwbm9JcEZcag8MNcrZW06A",
+            "uploads_playlist_id": "UUNwbm9JcEZcag8MNcrZW06A"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCFkaWOGpyFBVRf5jEeD_wrA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFkaWOGpyFBVRf5jEeD_wrA",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFkaWOGpyFBVRf5jEeD_wrA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUFkaWOGpyFBVRf5jEeD_wrA",
+            "uploads_playlist_id": "UUFkaWOGpyFBVRf5jEeD_wrA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP for Development",
+          "name": "Jennifer Howe",
+          "linkedin": "https://www.linkedin.com/in/jen-howe"
+        },
+        {
+          "role": "President",
+          "name": "\u00c1ngel Cabrera",
+          "office_url": "https://president.gatech.edu/"
+        }
+      ],
+      "peer_group": [
+        "mit",
+        "cmu",
+        "georgia_tech",
+        "purdue",
+        "drexel",
+        "rit",
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "michigan",
+      "name": "University of Michigan",
+      "aliases": [
+        "Michigan",
+        "U-M",
+        "UMich",
+        "Wolverines"
+      ],
+      "identifiers": [
+        {
+          "kind": "state_instrumentality_no_990",
+          "entity_name": "The Regents of the University of Michigan"
+        },
+        {
+          "kind": "us_501c3",
+          "ein": "23-7206591",
+          "entity_name": "Alumni Association of the University of Michigan"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 170976
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Look to Michigan",
+        "launched": "2024-10-25",
+        "prior_campaign": {
+          "name": "Victors for Michigan",
+          "goal_usd": 5280000000
+        },
+        "microsite": "https://giving.umich.edu/um/look-to-michigan"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.umich.edu/feed/",
+        "giving": "https://leadersandbest.umich.edu/",
+        "alumni_content": "https://michigantoday.umich.edu/",
+        "president_office": "https://president.umich.edu/",
+        "campaign_microsite": "https://giving.umich.edu/um/look-to-michigan",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/237206591",
+        "financial_report": "https://obp.umich.edu/mandatory-reporting/budget-transparency/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCMMlvX4NH4Fj5YCBx1KxPhA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMMlvX4NH4Fj5YCBx1KxPhA",
+            "focus": "Alumni + Leaders & Best",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMMlvX4NH4Fj5YCBx1KxPhA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUMMlvX4NH4Fj5YCBx1KxPhA",
+            "uploads_playlist_id": "UUMMlvX4NH4Fj5YCBx1KxPhA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UC9JPJoeQo9ohpzZUzEsU6Og",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9JPJoeQo9ohpzZUzEsU6Og",
+            "focus": "Institution + Look to Michigan",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9JPJoeQo9ohpzZUzEsU6Og",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU9JPJoeQo9ohpzZUzEsU6Og",
+            "uploads_playlist_id": "UU9JPJoeQo9ohpzZUzEsU6Og"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP for Development",
+          "name": "Tom Baird",
+          "linkedin": "https://www.linkedin.com/in/tom-baird-9396365/"
+        },
+        {
+          "role": "Interim President",
+          "name": "Domenico Grasso",
+          "office_url": "https://president.umich.edu/",
+          "note": "interim since May 2025"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "ucla",
+      "name": "University of California, Los Angeles",
+      "aliases": [
+        "UCLA",
+        "Bruins"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "95-2250801",
+          "entity_name": "UCLA Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 110662
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Let There Be / Centennial Campaign",
+          "goal_usd": 5490000000,
+          "closed": "2019-12-31"
+        },
+        "microsite": "https://lettherebe.ucla.edu/"
+      },
+      "sources": {
+        "newsroom_rss": "https://newsroom.ucla.edu/rss/releases",
+        "giving": "https://giveto.ucla.edu/",
+        "alumni_content": "https://newsroom.ucla.edu/magazine",
+        "president_office": "https://chancellor.ucla.edu/",
+        "campaign_microsite": "https://lettherebe.ucla.edu/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/952250801",
+        "financial_report": "https://apb.ucla.edu/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCUOWA12bkRYNbbFhyNSiiCA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUOWA12bkRYNbbFhyNSiiCA",
+            "focus": "Alumni + giving stories",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUOWA12bkRYNbbFhyNSiiCA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUUOWA12bkRYNbbFhyNSiiCA",
+            "uploads_playlist_id": "UUUOWA12bkRYNbbFhyNSiiCA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCPpw6jRIL1B9nU0k7-GujOQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPpw6jRIL1B9nU0k7-GujOQ",
+            "focus": "Institution + Centennial",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPpw6jRIL1B9nU0k7-GujOQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUPpw6jRIL1B9nU0k7-GujOQ",
+            "uploads_playlist_id": "UUPpw6jRIL1B9nU0k7-GujOQ"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VC External Affairs",
+          "name": "Rhea Turteltaub",
+          "office_url": "https://externalaffairs.ucla.edu/about/vicechancellor/"
+        },
+        {
+          "role": "Chancellor",
+          "name": "Julio Frenk",
+          "office_url": "https://chancellor.ucla.edu/",
+          "note": "inaugurated June 5 2025"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "uc_berkeley",
+      "name": "University of California, Berkeley",
+      "aliases": [
+        "UC Berkeley",
+        "Berkeley",
+        "Cal"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "94-6090626",
+          "entity_name": "UC Berkeley Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 110635
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "recently_closed",
+        "name": "Light the Way",
+        "goal_usd": 7370000000,
+        "closed": "2024-02",
+        "microsite": "https://www.ucberkeleyfoundation.org/light-the-way-the-campaign-for-berkeley/"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.berkeley.edu/feed/",
+        "giving": "https://give.berkeley.edu/",
+        "alumni_content": "https://alumni.berkeley.edu/california-magazine/",
+        "president_office": "https://chancellor.berkeley.edu/",
+        "campaign_microsite": "https://www.ucberkeleyfoundation.org/light-the-way-the-campaign-for-berkeley/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/946090626",
+        "financial_report": "https://opa.berkeley.edu/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCgEcOJplmC7bN2JruEHmzKg",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgEcOJplmC7bN2JruEHmzKg",
+            "focus": "Alumni + California magazine",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgEcOJplmC7bN2JruEHmzKg",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUgEcOJplmC7bN2JruEHmzKg",
+            "uploads_playlist_id": "UUgEcOJplmC7bN2JruEHmzKg"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCwbsWIWfcOL2FiUZ2hKNJHQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwbsWIWfcOL2FiUZ2hKNJHQ",
+            "focus": "Institution + Light the Way",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwbsWIWfcOL2FiUZ2hKNJHQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUwbsWIWfcOL2FiUZ2hKNJHQ",
+            "uploads_playlist_id": "UUwbsWIWfcOL2FiUZ2hKNJHQ"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VC University Development & Alumni Relations",
+          "name": "Julie A. Lucas",
+          "linkedin": "https://www.linkedin.com/in/julie-a-lucas/",
+          "note": "started Sept 8 2025"
+        },
+        {
+          "role": "Chancellor",
+          "name": "Rich Lyons",
+          "office_url": "https://chancellor.berkeley.edu/"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "uw",
+      "name": "University of Washington",
+      "aliases": [
+        "UW",
+        "U Washington",
+        "UDub",
+        "Washington"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "94-3079432",
+          "entity_name": "UW Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 236948
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Be Boundless",
+          "goal_usd": 6300000000,
+          "closed": "2020-06"
+        },
+        "microsite": "https://www.washington.edu/boundless/"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.washington.edu/news/feed/",
+        "giving": "https://www.washington.edu/giving/",
+        "alumni_content": "https://magazine.washington.edu/",
+        "president_office": "https://www.washington.edu/president/",
+        "campaign_microsite": "https://www.washington.edu/boundless/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/943079432",
+        "financial_report": "https://www.washington.edu/opb/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCOUxKTMcxbcDzAm7dsX8wug",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOUxKTMcxbcDzAm7dsX8wug",
+            "focus": "Alumni + Be Boundless",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOUxKTMcxbcDzAm7dsX8wug",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUOUxKTMcxbcDzAm7dsX8wug",
+            "uploads_playlist_id": "UUOUxKTMcxbcDzAm7dsX8wug"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCJgq3uJ5jFCbNB06TC9BFBw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJgq3uJ5jFCbNB06TC9BFBw",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJgq3uJ5jFCbNB06TC9BFBw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUJgq3uJ5jFCbNB06TC9BFBw",
+            "uploads_playlist_id": "UUJgq3uJ5jFCbNB06TC9BFBw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP Advancement & Pres. UW Foundation",
+          "name": "Mary Gresch",
+          "linkedin": "https://www.linkedin.com/in/mary-gresch/"
+        },
+        {
+          "role": "President",
+          "name": "Robert J. Jones",
+          "office_url": "https://www.washington.edu/president/",
+          "note": "since Aug 1 2025; 34th president"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "purdue",
+      "name": "Purdue University",
+      "aliases": [
+        "Purdue",
+        "Boilermakers"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "35-1052049",
+          "entity_name": "Purdue Research Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 243780
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Victories & Heroes",
+        "goal_usd": 4000000000,
+        "launched": "2025-02-15",
+        "prior_campaign": {
+          "name": "Ever True",
+          "goal_usd": 2530000000
+        },
+        "microsite": "https://www.purdue.edu/newsroom/2025/Q1/purdue-launches-5-year-4-billion-campaign/"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.purdue.edu/newsroom/rss/",
+        "giving": "https://www.purdueforlife.org/",
+        "alumni_content": "https://www.purdueforlife.org/alumnus/",
+        "president_office": "https://www.purdue.edu/president/",
+        "campaign_microsite": "https://www.purdue.edu/newsroom/2025/Q1/purdue-launches-5-year-4-billion-campaign/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/351052049",
+        "financial_report": "https://www.purdue.edu/idata/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCG9rrqv-zhe5cR_M7oHKlRA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCG9rrqv-zhe5cR_M7oHKlRA",
+            "focus": "Alumni + Victories & Heroes",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCG9rrqv-zhe5cR_M7oHKlRA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUG9rrqv-zhe5cR_M7oHKlRA",
+            "uploads_playlist_id": "UUG9rrqv-zhe5cR_M7oHKlRA"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCOSY-LKMuJZn4HGsJZHfQDw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOSY-LKMuJZn4HGsJZHfQDw",
+            "focus": "Institution + campaign",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOSY-LKMuJZn4HGsJZHfQDw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUOSY-LKMuJZn4HGsJZHfQDw",
+            "uploads_playlist_id": "UUOSY-LKMuJZn4HGsJZHfQDw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "Former Pres/CEO Purdue for Life (successor search)",
+          "name": "Matt Folk",
+          "linkedin": "https://www.linkedin.com/in/matt-folk-a15b841/",
+          "note": "announced step-down May 2024"
+        },
+        {
+          "role": "President",
+          "name": "Mung Chiang",
+          "office_url": "https://www.purdue.edu/president/"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu",
+        "mit",
+        "cmu",
+        "georgia_tech",
+        "purdue",
+        "drexel",
+        "rit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "asu",
+      "name": "Arizona State University",
+      "aliases": [
+        "ASU",
+        "Arizona State",
+        "Sun Devils"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "86-6051042",
+          "entity_name": "ASU Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 104151
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "active",
+        "name": "Changing Futures",
+        "launched": "2025-04-06",
+        "closed": "2029-06-30",
+        "microsite": "https://news.asu.edu/20250406-university-news-time-change-future-now"
+      },
+      "sources": {
+        "newsroom_rss": "https://news.asu.edu/rss.xml",
+        "giving": "https://www.asufoundation.org/",
+        "alumni_content": "https://magazine.asu.edu/",
+        "president_office": "https://president.asu.edu/",
+        "campaign_microsite": "https://news.asu.edu/20250406-university-news-time-change-future-now",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/866051042",
+        "financial_report": "https://uoia.asu.edu/",
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCFinZGlnq21g4LnWyavqeyQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFinZGlnq21g4LnWyavqeyQ",
+            "focus": "Alumni + Changing Futures",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFinZGlnq21g4LnWyavqeyQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUFinZGlnq21g4LnWyavqeyQ",
+            "uploads_playlist_id": "UUFinZGlnq21g4LnWyavqeyQ"
+          },
+          {
+            "role": "main",
+            "channel_id": "UC027E0kdtyo0h4lLGROg-dA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC027E0kdtyo0h4lLGROg-dA",
+            "focus": "Institution + ASU Foundation",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC027E0kdtyo0h4lLGROg-dA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU027E0kdtyo0h4lLGROg-dA",
+            "uploads_playlist_id": "UU027E0kdtyo0h4lLGROg-dA"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "CEO ASU Foundation",
+          "name": "Gretchen E. Buhlig",
+          "linkedin": "https://www.linkedin.com/in/gretchen-e-buhlig-63295a50/",
+          "note": "CEO since July 2017; led Campaign ASU 2020"
+        },
+        {
+          "role": "President",
+          "name": "Michael M. Crow",
+          "office_url": "https://president.asu.edu/",
+          "note": "president since 2002"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "drexel",
+      "name": "Drexel University",
+      "aliases": [
+        "Drexel",
+        "Dragons"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "23-1352630"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 212054
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "microsite": "https://drexel.edu/ia/"
+      },
+      "sources": {
+        "newsroom_rss": "https://newsblog.drexel.edu/feed/",
+        "giving": "https://giving.drexel.edu/",
+        "alumni_content": "https://drexelmagazine.org/",
+        "president_office": "https://drexel.edu/president/",
+        "campaign_microsite": "https://drexel.edu/ia/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/231352630",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "main",
+            "channel_id": "UCWmrDUqDzI0PjXr2xYWpjYQ",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWmrDUqDzI0PjXr2xYWpjYQ",
+            "focus": "Institution + IA",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWmrDUqDzI0PjXr2xYWpjYQ",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUWmrDUqDzI0PjXr2xYWpjYQ",
+            "uploads_playlist_id": "UUWmrDUqDzI0PjXr2xYWpjYQ"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "SVP Institutional Advancement",
+          "name": null,
+          "note": "verify current occupant before outreach"
+        },
+        {
+          "role": "President",
+          "name": "John Fry / Merlo",
+          "office_url": "https://drexel.edu/president/",
+          "note": "verify"
+        }
+      ],
+      "peer_group": [
+        "mit",
+        "cmu",
+        "georgia_tech",
+        "purdue",
+        "drexel",
+        "rit"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "waterloo",
+      "name": "University of Waterloo",
+      "aliases": [
+        "Waterloo",
+        "UWaterloo",
+        "UW Waterloo"
+      ],
+      "identifiers": [
+        {
+          "kind": "cra_t3010",
+          "bn": "119260685RR0001",
+          "entity_name": "University of Waterloo"
+        }
+      ],
+      "fiscal_year_end": "04-30",
+      "campaign": {
+        "status": "in_planning",
+        "name": "Waterloo at 100 / 2057 vision",
+        "microsite": "https://uwaterloo.ca/support/"
+      },
+      "sources": {
+        "newsroom_rss": "https://uwaterloo.ca/news/rss.xml",
+        "giving": "https://uwaterloo.ca/support/",
+        "alumni_content": "https://uwaterloo.ca/magazine/",
+        "president_office": "https://uwaterloo.ca/president/",
+        "campaign_microsite": "https://uwaterloo.ca/support/",
+        "filing_t3010_url": "https://apps.cra-arc.gc.ca/ebci/hacc/srch/pub/dsplyRprtngPrd?q.srchNm=university+of+waterloo&q.stts=0007&selectedCharityBn=119260685RR0001",
+        "filing_aggregator": "https://www.charityintelligence.ca/charity-details/848-university-of-waterloo",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "alumni",
+            "channel_id": "UCEr0Pi6IKHnY1Fe9GxP393A",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEr0Pi6IKHnY1Fe9GxP393A",
+            "focus": "Alumni + giving (Canada)",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEr0Pi6IKHnY1Fe9GxP393A",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUEr0Pi6IKHnY1Fe9GxP393A",
+            "uploads_playlist_id": "UUEr0Pi6IKHnY1Fe9GxP393A"
+          },
+          {
+            "role": "main",
+            "channel_id": "UCX70KmT8XPnFbSXOP6tz0Vw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCX70KmT8XPnFbSXOP6tz0Vw",
+            "focus": "Institution",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCX70KmT8XPnFbSXOP6tz0Vw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUX70KmT8XPnFbSXOP6tz0Vw",
+            "uploads_playlist_id": "UUX70KmT8XPnFbSXOP6tz0Vw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "President",
+          "name": "Vivek Goel",
+          "office_url": "https://uwaterloo.ca/president/"
+        }
+      ],
+      "peer_group": [
+        "waterloo",
+        "simon_fraser"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "cincinnati",
+      "name": "University of Cincinnati",
+      "aliases": [
+        "Cincinnati",
+        "UC Cincinnati",
+        "Bearcats"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "31-0896555",
+          "entity_name": "UC Foundation"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 201885
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Next, Now",
+          "goal_usd": 2190000000
+        },
+        "microsite": "https://foundation.uc.edu/NextNow"
+      },
+      "sources": {
+        "newsroom": "https://www.uc.edu/news.html",
+        "giving": "https://foundation.uc.edu/",
+        "alumni_content": "https://magazine.uc.edu/",
+        "president_office": "https://www.uc.edu/about/president.html",
+        "campaign_microsite": "https://foundation.uc.edu/NextNow",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/310896555",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "main",
+            "channel_id": "UC_ktNakxjzWZqAXCPd223tw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_ktNakxjzWZqAXCPd223tw",
+            "focus": "Institution + Next, Now",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_ktNakxjzWZqAXCPd223tw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU_ktNakxjzWZqAXCPd223tw",
+            "uploads_playlist_id": "UU_ktNakxjzWZqAXCPd223tw"
+          },
+          {
+            "role": "foundation",
+            "channel_id": "UC1P9AxltYh6kPLO6Swt4Qcw",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1P9AxltYh6kPLO6Swt4Qcw",
+            "focus": "Foundation giving videos",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1P9AxltYh6kPLO6Swt4Qcw",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UU1P9AxltYh6kPLO6Swt4Qcw",
+            "uploads_playlist_id": "UU1P9AxltYh6kPLO6Swt4Qcw"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP Advancement / Pres. UC Foundation",
+          "name": "O. Richard Bundy III",
+          "linkedin": "https://www.linkedin.com/in/richard-bundy"
+        },
+        {
+          "role": "President",
+          "name": "Neville Pinto",
+          "office_url": "https://www.uc.edu/about/president.html"
+        }
+      ],
+      "peer_group": [
+        "michigan",
+        "ucla",
+        "uc_berkeley",
+        "uw",
+        "purdue",
+        "asu"
+      ],
+      "last_verified": "2026-04-19"
+    },
+    {
+      "id": "rit",
+      "name": "Rochester Institute of Technology",
+      "aliases": [
+        "RIT",
+        "Tigers"
+      ],
+      "identifiers": [
+        {
+          "kind": "us_501c3",
+          "ein": "16-0743140"
+        },
+        {
+          "kind": "ipeds_unitid",
+          "unitid": 195003
+        }
+      ],
+      "fiscal_year_end": "06-30",
+      "campaign": {
+        "status": "between",
+        "name": null,
+        "prior_campaign": {
+          "name": "Transforming RIT",
+          "goal_usd": 1059000000
+        },
+        "microsite": "https://www.rit.edu/transformingrit/"
+      },
+      "sources": {
+        "newsroom_rss": "https://www.rit.edu/news/rss.xml",
+        "giving": "https://www.rit.edu/giving/",
+        "alumni_content": "https://www.rit.edu/umagazine",
+        "president_office": "https://www.rit.edu/president",
+        "campaign_microsite": "https://www.rit.edu/transformingrit/",
+        "filing_990_url": "https://projects.propublica.org/nonprofits/organizations/160743140",
+        "financial_report": null,
+        "youtube_channels": [
+          {
+            "role": "main",
+            "channel_id": "UCVQq7AizBYo_88prjVMg1CA",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVQq7AizBYo_88prjVMg1CA",
+            "focus": "Institution + Transforming RIT",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVQq7AizBYo_88prjVMg1CA",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUVQq7AizBYo_88prjVMg1CA",
+            "uploads_playlist_id": "UUVQq7AizBYo_88prjVMg1CA"
+          },
+          {
+            "role": "alumni",
+            "channel_id": "UCeh_t5mzuQldNl2yLT4XW8g",
+            "rss_feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeh_t5mzuQldNl2yLT4XW8g",
+            "focus": "Alumni + Brick City",
+            "rss_feed_primary": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeh_t5mzuQldNl2yLT4XW8g",
+            "rss_feed_fallback": "https://www.youtube.com/feeds/videos.xml?playlist_id=UUeh_t5mzuQldNl2yLT4XW8g",
+            "uploads_playlist_id": "UUeh_t5mzuQldNl2yLT4XW8g"
+          }
+        ]
+      },
+      "key_people": [
+        {
+          "role": "VP University Advancement",
+          "name": "Phil Castleberry",
+          "note": "search LinkedIn to verify slug"
+        },
+        {
+          "role": "President",
+          "name": "David Munson",
+          "office_url": "https://www.rit.edu/president"
+        }
+      ],
+      "peer_group": [
+        "mit",
+        "cmu",
+        "georgia_tech",
+        "purdue",
+        "drexel",
+        "rit"
+      ],
+      "last_verified": "2026-04-19"
+    }
+  ],
+  "augmented_at": "2026-04-19T06:02:41Z +unitids_2026-04-19"
+}
