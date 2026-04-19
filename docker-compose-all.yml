@@ -386,12 +386,20 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - EVERY_ORG_API_KEY=${EVERY_ORG_API_KEY:-}
     volumes:
       - ./humans-in-control-research/proxy:/app
-      - ./humans-in-control-research/hic-workspace/wiki:/hic-workspace/wiki
+      # S8: mount full hic-workspace so the scheduler can read youtube-channels.json
+      # + institution-manifest.json AND write scheduler-state.json. Previously
+      # only wiki/ was exposed; the wiki path stays reachable at /hic-workspace/wiki.
+      - ./humans-in-control-research/hic-workspace:/hic-workspace
     working_dir: /app
+    # S5 note: ffmpeg needed for YouTube transcription audio chunking (>25 MB audio
+    # → segment into 10-min MP3 chunks before OpenAI whisper-1 upload).
+    # `command -v ffmpeg || ...` skips apt install on container restart if already
+    # present, keeping warm-restart cycles fast.
     command: >-
-      bash -c "pip install --no-cache-dir -r requirements.txt && python app.py"
+      bash -c "command -v ffmpeg >/dev/null 2>&1 || (apt-get update -qq && apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*); pip install --no-cache-dir -r requirements.txt && python app.py"
     networks:
       - nxt-humans-network
     container_name: research-proxy
