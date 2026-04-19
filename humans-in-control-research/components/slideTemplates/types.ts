@@ -9,7 +9,10 @@
 export type SlideTemplate =
     | 'persona-card'        // persona-architect
     | 'recommendation'      // strategy-author
-    | 'theme-cluster'       // theme-analyst
+    | 'theme-cluster'       // theme-analyst — equal-weight horizontal columns (3-4 themes)
+    | 'theme-spotlight'     // theme-analyst — hero theme + 2-3 supporting (asymmetric)
+    | 'theme-arc'           // theme-analyst — narrative chain with progression connectors
+    | 'theme-mosaic'        // theme-analyst — 2x2 inverse-checkerboard grid (4 parallel themes)
     | 'competitive-matrix'  // competitive-analyst
     | 'block-quote'         // evidence-curator
     | 'case-study'          // case-study-analyst

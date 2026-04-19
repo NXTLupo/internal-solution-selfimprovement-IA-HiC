@@ -253,6 +253,165 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
     );
 };
 
+// === 3a. THEME SPOTLIGHT — hero theme (60%) + supporting tiles (40%). ===
+// Use when one theme dominates and 2-3 corroborate it. Asymmetric, dramatic.
+export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
+    const T = resolveT(brand);
+    const all = data.themes.slice(0, 4);
+    const hero = all[0];
+    const supporting = all.slice(1, 4);
+    if (!hero) return null;
+    return (
+        <div style={{ padding: '32px 40px 22px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%' }}>
+            <div>
+                <Tag text="EMERGING THEME — SPOTLIGHT" brand={brand} />
+                <Title text={title} size={24} brand={brand} />
+            </div>
+            <div style={{ display: 'flex', gap: 24, flex: 1, minHeight: 0 }}>
+                {/* Hero — left 60% */}
+                <div style={{ flex: 3, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10, paddingRight: 18, borderRight: `1px solid ${hex(T.RULE)}` }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
+                        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 64, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.9, letterSpacing: '-0.04em' }}>01</div>
+                        <div style={{ fontWeight: 800, fontSize: 18, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, 90)}</div>
+                    </div>
+                    <div style={{ fontSize: 11, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, 360)}</div>
+                    {hero.evidence && (
+                        <div style={{ fontSize: 12, fontStyle: 'italic', color: hex(T.INK), borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 14, lineHeight: 1.5, fontWeight: 300 }}>
+                            "{truncate(hero.evidence, 260)}"
+                        </div>
+                    )}
+                    <div style={{ fontSize: 8, color: hex(T.MUTED), letterSpacing: '1.5px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 6 }}>
+                        Source: {truncate(hero.source, 80)}
+                    </div>
+                </div>
+                {/* Supporting — right 40% */}
+                <div style={{ flex: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
+                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>SUPPORTING SIGNALS</div>
+                    {supporting.map((t, i) => (
+                        <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 0', borderBottom: i < supporting.length - 1 ? `1px solid ${hex(T.RULE)}` : 'none' }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
+                                {String(i + 2).padStart(2, '0')}
+                            </div>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2, marginBottom: 3 }}>{truncate(t.name, 70)}</div>
+                                <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(t.insight, 130)}</div>
+                                <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 4, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <SourceFooter sources={sources} brand={brand} />
+        </div>
+    );
+};
+
+// === 3b. THEME ARC — narrative chain (cause → effect → resolution). ===
+// Use when themes build sequentially. Connector lines visualize causation.
+export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
+    const T = resolveT(brand);
+    const themes = data.themes.slice(0, 4);
+    return (
+        <div style={{ padding: '36px 44px 22px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%' }}>
+            <div>
+                <Tag text="THEMATIC ARC" brand={brand} />
+                <Title text={title} size={24} brand={brand} />
+            </div>
+            {/* Numbered chain — top row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginTop: 8 }}>
+                {themes.map((t, i) => (
+                    <React.Fragment key={`n-${i}`}>
+                        <div style={{ flex: 1, minWidth: 0, textAlign: 'center' as const }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 44, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, letterSpacing: '-0.03em' }}>
+                                {String(i + 1).padStart(2, '0')}
+                            </div>
+                        </div>
+                        {i < themes.length - 1 && (
+                            <div style={{ width: 34, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' as const }}>
+                                <div style={{ width: '100%', height: 1, background: hex(T.INK) }} />
+                                <div style={{ position: 'absolute' as const, right: -1, top: '50%', marginTop: -4, width: 0, height: 0, borderTop: '4px solid transparent', borderBottom: '4px solid transparent', borderLeft: `6px solid ${hex(T.INK)}` }} />
+                            </div>
+                        )}
+                    </React.Fragment>
+                ))}
+            </div>
+            {/* Theme cells — body row */}
+            <div style={{ display: 'flex', gap: 0, flex: 1, minHeight: 0, marginTop: 4 }}>
+                {themes.map((t, i) => (
+                    <React.Fragment key={`c-${i}`}>
+                        <div style={{ flex: 1, minWidth: 0, padding: '4px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            <div style={{ fontWeight: 800, fontSize: 12, color: hex(T.INK), lineHeight: 1.2, letterSpacing: '-0.01em' }}>{truncate(t.name, 64)}</div>
+                            <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
+                            {t.evidence && (
+                                <div style={{ fontSize: 9, fontStyle: 'italic', color: hex(T.INK), borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 8, lineHeight: 1.4, marginTop: 2 }}>
+                                    "{truncate(t.evidence, 120)}"
+                                </div>
+                            )}
+                            <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
+                        </div>
+                        {i < themes.length - 1 && <div style={{ width: 1, background: hex(T.RULE), margin: '8px 0' }} />}
+                    </React.Fragment>
+                ))}
+            </div>
+            <SourceFooter sources={sources} brand={brand} />
+        </div>
+    );
+};
+
+// === 3c. THEME MOSAIC — 2x2 inverse-checkerboard grid. ===
+// Use when 4 parallel themes deserve equal weight. Alternates dark/light cells
+// for designer rhythm. Cells 1 & 4 use dark surface (T.TEAL = brand sidebar
+// color), cells 2 & 3 use light surfaces.
+export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
+    const T = resolveT(brand);
+    const themes = data.themes.slice(0, 4);
+    while (themes.length < 4) themes.push({ name: '', insight: '', evidence: '', source: '' });
+
+    const surfaces = [
+        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
+        { bg: T.WHITE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
+        { bg: T.PALE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
+        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
+    ];
+
+    return (
+        <div style={{ padding: '24px 32px 16px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                    <Tag text="THEMATIC MOSAIC" brand={brand} />
+                    <Title text={title} size={20} brand={brand} />
+                </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 6, flex: 1, minHeight: 0 }}>
+                {themes.map((t, i) => {
+                    const sf = surfaces[i];
+                    if (!t.name) return <div key={i} style={{ background: hex(sf.bg) }} />;
+                    return (
+                        <div key={i} style={{ background: hex(sf.bg), padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 6, overflow: 'hidden' }}>
+                            <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 32, color: hex(sf.accent), lineHeight: 1, letterSpacing: '-0.03em' }}>
+                                    {String(i + 1).padStart(2, '0')}
+                                </div>
+                                <div style={{ fontWeight: 800, fontSize: 12, color: hex(sf.fg), lineHeight: 1.15, letterSpacing: '-0.01em', flex: 1 }}>{truncate(t.name, 70)}</div>
+                            </div>
+                            <div style={{ fontSize: 9, color: hex(sf.body), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
+                            {t.evidence && (
+                                <div style={{ fontSize: 9, fontStyle: 'italic', color: hex(sf.fg), borderLeft: `2px solid ${hex(sf.accent)}`, paddingLeft: 8, lineHeight: 1.4 }}>
+                                    "{truncate(t.evidence, 100)}"
+                                </div>
+                            )}
+                            <div style={{ fontSize: 7, color: hex(sf.muted), letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 4 }}>
+                                {truncate(t.source, 50)}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <SourceFooter sources={sources} brand={brand} />
+        </div>
+    );
+};
+
 // === 4. COMPETITIVE MATRIX (competitive-analyst) ===
 // Expanded density: column definitions under each header, per-row evidence line,
 // scale legend at bottom (Absent → Optimized), subject row highlighted.

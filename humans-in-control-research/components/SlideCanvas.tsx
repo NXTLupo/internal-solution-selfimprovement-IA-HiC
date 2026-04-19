@@ -11,6 +11,7 @@ import React, { useState, useRef } from 'react';
 import { NxtBlockRenderer, type NxtBlock } from './NxtOutputRenderer';
 import {
     SlideShell, PersonaCardSlide, RecommendationSlide, ThemeClusterSlide,
+    ThemeSpotlightSlide, ThemeArcSlide, ThemeMosaicSlide,
     CompetitiveMatrixSlide, BlockQuoteSlide, CaseStudySlide, PrinciplesSlide,
     StatRowSlide, TimelineSlide, SectionDividerFullBleed,
     ServiceBlueprintSlide, GapMatrixSlide, ArchitectureMapSlide, PrdFeatureSlide, SystemsInventorySlide,
@@ -92,6 +93,18 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
         case 'theme-cluster':
             return slide.themeCluster ? (
                 <SlideShell brand={brand}><ThemeClusterSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'theme-spotlight':
+            return slide.themeCluster ? (
+                <SlideShell brand={brand}><ThemeSpotlightSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'theme-arc':
+            return slide.themeCluster ? (
+                <SlideShell brand={brand}><ThemeArcSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+            ) : null;
+        case 'theme-mosaic':
+            return slide.themeCluster ? (
+                <SlideShell brand={brand}><ThemeMosaicSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
             ) : null;
         case 'competitive-matrix':
             return slide.matrix ? (

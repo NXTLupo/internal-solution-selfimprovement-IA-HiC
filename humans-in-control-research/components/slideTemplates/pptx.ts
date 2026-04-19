@@ -272,9 +272,11 @@ function exportRecommendation(s: any, slideTitle: string, data: RecommendationDa
     const acts = data.supportingActions.slice(0, 5);
     let ay = y;
     acts.forEach((a, i) => {
-        s.addText(String(i + 1).padStart(2, '0'), { x: tx, y: ay, w: 0.5, h: 0.45, fontSize: 26, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -2 });
-        s.addText(a.name, { x: tx + 0.55, y: ay, w: leftW - 0.55, h: 0.22, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
-        s.addText(a.description, { x: tx + 0.55, y: ay + 0.22, w: leftW - 0.55, h: 0.5, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        // Width 0.7" (was 0.5") prevents "01" from wrapping to stacked "0" + "1" at 26pt.
+        // Kept charSpacing at 0 for the same reason — negative tracking at this width also triggered wrap.
+        s.addText(String(i + 1).padStart(2, '0'), { x: tx, y: ay, w: 0.7, h: 0.45, fontSize: 26, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top' });
+        s.addText(a.name, { x: tx + 0.75, y: ay, w: leftW - 0.75, h: 0.22, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
+        s.addText(a.description, { x: tx + 0.75, y: ay + 0.22, w: leftW - 0.75, h: 0.5, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
         ay += 0.65;
     });
 
@@ -325,6 +327,159 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
             cy += 0.75;
         }
         s.addText(th.source, { x: cx + 0.08, y: blockY + blockH - 0.22, w: colW - 0.16, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
+    });
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 3a. THEME SPOTLIGHT (hero theme + supporting tiles)
+function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.4;
+    const tw = geom.contentW - 0.8;
+    let y = 0.34;
+    tag(s, tx, y, tw, 'EMERGING THEME — SPOTLIGHT');
+    y += 0.26;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.78;
+
+    const all = data.themes.slice(0, 4);
+    const hero = all[0];
+    const supporting = all.slice(1, 4);
+    if (!hero) { sourceFooter(s, tx, tw, sources); return; }
+
+    const heroW = tw * 0.6 - 0.2;
+    const supW = tw * 0.4 - 0.2;
+    const supX = tx + heroW + 0.4;
+    const blockH = 7.5 - y - 0.55;
+
+    // Divider
+    s.addShape('line' as any, { x: tx + heroW + 0.2, y, w: 0, h: blockH, line: { color: T.RULE, width: 0.5 } });
+
+    // Hero number 01
+    s.addText('01', { x: tx, y, w: 1.0, h: 0.85, fontSize: 60, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -3 });
+    // Hero name
+    s.addText(truncate(hero.name, 90), { x: tx + 1.05, y: y + 0.18, w: heroW - 1.05, h: 0.65, fontSize: 16, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.15 });
+    let hy = y + 0.95;
+    // Insight
+    s.addText(truncate(hero.insight, 360), { x: tx, y: hy, w: heroW, h: 1.6, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
+    hy += 1.7;
+    if (hero.evidence) {
+        s.addShape('rect' as any, { x: tx, y: hy, w: 0.04, h: 1.0, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(`"${truncate(hero.evidence, 260)}"`, { x: tx + 0.16, y: hy, w: heroW - 0.16, h: 1.1, fontSize: 11, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
+    }
+    s.addText(`Source: ${truncate(hero.source, 80)}`, { x: tx, y: y + blockH - 0.28, w: heroW, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
+
+    // Supporting heading
+    s.addText('SUPPORTING SIGNALS', { x: supX, y, w: supW, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2.5 });
+    let sy = y + 0.32;
+    const supItemH = (blockH - 0.32) / Math.max(supporting.length, 1);
+    supporting.forEach((t, i) => {
+        const itemY = sy + i * supItemH;
+        s.addText(String(i + 2).padStart(2, '0'), { x: supX, y: itemY, w: 0.5, h: 0.4, fontSize: 20, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -1 });
+        s.addText(truncate(t.name, 70), { x: supX + 0.55, y: itemY, w: supW - 0.55, h: 0.32, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        s.addText(truncate(t.insight, 130), { x: supX + 0.55, y: itemY + 0.34, w: supW - 0.55, h: 0.6, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        s.addText(truncate(t.source, 50), { x: supX + 0.55, y: itemY + supItemH - 0.24, w: supW - 0.55, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        if (i < supporting.length - 1) {
+            s.addShape('line' as any, { x: supX, y: itemY + supItemH - 0.06, w: supW, h: 0, line: { color: T.RULE, width: 0.5 } });
+        }
+    });
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 3b. THEME ARC (numbered chain with progression connectors)
+function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.44;
+    const tw = geom.contentW - 0.88;
+    let y = 0.4;
+    tag(s, tx, y, tw, 'THEMATIC ARC');
+    y += 0.26;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.85;
+
+    const themes = data.themes.slice(0, 4);
+    const n = themes.length;
+    if (n === 0) { sourceFooter(s, tx, tw, sources); return; }
+
+    const arrowW = 0.4;
+    const totalArrows = arrowW * Math.max(n - 1, 0);
+    const cellW = (tw - totalArrows) / n;
+
+    // Numbered chain row
+    themes.forEach((_, i) => {
+        const cx = tx + i * (cellW + arrowW);
+        s.addText(String(i + 1).padStart(2, '0'), { x: cx, y, w: cellW, h: 0.7, fontSize: 40, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, align: 'center', valign: 'top', charSpacing: -2 });
+        if (i < n - 1) {
+            const ax = cx + cellW;
+            const ay = y + 0.32;
+            s.addShape('line' as any, { x: ax + 0.04, y: ay, w: arrowW - 0.16, h: 0, line: { color: T.INK, width: 0.75, endArrowType: 'triangle' as any } });
+        }
+    });
+
+    // Body row
+    const bodyY = y + 0.85;
+    const bodyH = 7.5 - bodyY - 0.55;
+    themes.forEach((t, i) => {
+        const cx = tx + i * (cellW + arrowW);
+        let cy = bodyY;
+        s.addText(truncate(t.name, 64), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 0.42, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        cy += 0.5;
+        s.addText(truncate(t.insight, 180), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        cy += 1.45;
+        if (t.evidence) {
+            s.addShape('rect' as any, { x: cx + 0.06, y: cy, w: 0.03, h: 0.7, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${truncate(t.evidence, 120)}"`, { x: cx + 0.14, y: cy, w: cellW - 0.2, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+        }
+        s.addText(truncate(t.source, 50), { x: cx + 0.06, y: bodyY + bodyH - 0.22, w: cellW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        if (i < n - 1) {
+            s.addShape('line' as any, { x: cx + cellW + arrowW / 2, y: bodyY + 0.1, w: 0, h: bodyH - 0.2, line: { color: T.RULE, width: 0.5 } });
+        }
+    });
+    sourceFooter(s, tx, tw, sources);
+}
+
+// 3c. THEME MOSAIC (2x2 inverse-checkerboard)
+function exportThemeMosaic(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.32;
+    const tw = geom.contentW - 0.64;
+    let y = 0.28;
+    tag(s, tx, y, tw, 'THEMATIC MOSAIC');
+    y += 0.24;
+    title(s, tx, y, tw, slideTitle, 20);
+    y += 0.7;
+
+    const themes = data.themes.slice(0, 4);
+    while (themes.length < 4) themes.push({ name: '', insight: '', evidence: '', source: '' });
+
+    // Surface palette mirrors web ThemeMosaicSlide
+    const surfaces = [
+        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
+        { bg: T.WHITE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
+        { bg: T.PALE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
+        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
+    ];
+
+    const gap = 0.08;
+    const gridH = 7.5 - y - 0.5;
+    const cellW = (tw - gap) / 2;
+    const cellH = (gridH - gap) / 2;
+
+    themes.forEach((t, i) => {
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const cx = tx + col * (cellW + gap);
+        const cy = y + row * (cellH + gap);
+        const sf = surfaces[i];
+
+        s.addShape('rect' as any, { x: cx, y: cy, w: cellW, h: cellH, fill: { color: sf.bg } });
+        if (!t.name) return;
+
+        s.addText(String(i + 1).padStart(2, '0'), { x: cx + 0.18, y: cy + 0.16, w: 0.6, h: 0.5, fontSize: 28, color: sf.accent, fontFace: FONT, valign: 'top', charSpacing: -2 });
+        s.addText(truncate(t.name, 70), { x: cx + 0.85, y: cy + 0.22, w: cellW - 1.0, h: 0.4, fontSize: 12, color: sf.fg, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        s.addText(truncate(t.insight, 180), { x: cx + 0.18, y: cy + 0.78, w: cellW - 0.36, h: 0.9, fontSize: 9, color: sf.body, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        if (t.evidence) {
+            s.addShape('rect' as any, { x: cx + 0.18, y: cy + 1.7, w: 0.03, h: 0.5, fill: { color: sf.accent } });
+            s.addText(`"${truncate(t.evidence, 100)}"`, { x: cx + 0.25, y: cy + 1.7, w: cellW - 0.43, h: 0.55, fontSize: 9, color: sf.fg, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+        }
+        s.addText(truncate(t.source, 50), { x: cx + 0.18, y: cy + cellH - 0.26, w: cellW - 0.36, h: 0.2, fontSize: 7, color: sf.muted, fontFace: FONT, bold: true, charSpacing: 1.2 });
     });
     sourceFooter(s, tx, tw, sources);
 }
@@ -1003,6 +1158,15 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
             break;
         case 'theme-cluster':
             if (args.themeCluster) exportThemeCluster(s, args.title, args.themeCluster, sources, geom);
+            break;
+        case 'theme-spotlight':
+            if (args.themeCluster) exportThemeSpotlight(s, args.title, args.themeCluster, sources, geom);
+            break;
+        case 'theme-arc':
+            if (args.themeCluster) exportThemeArc(s, args.title, args.themeCluster, sources, geom);
+            break;
+        case 'theme-mosaic':
+            if (args.themeCluster) exportThemeMosaic(s, args.title, args.themeCluster, sources, geom);
             break;
         case 'competitive-matrix':
             if (args.matrix) exportCompetitiveMatrix(s, args.title, args.matrix, sources, geom);
