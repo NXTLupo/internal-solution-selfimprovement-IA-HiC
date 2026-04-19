@@ -119,7 +119,7 @@ export async function analyzeText(
 ): Promise<string> {
     const result = await withRetry(() => callOpenAI({
         model,
-        max_tokens: maxTokens,
+        max_completion_tokens: maxTokens,
         temperature,
         messages: [
             { role: 'system', content: systemPrompt },
@@ -143,7 +143,7 @@ export async function analyzeTextJSON<T>(
 ): Promise<T> {
     const result = await withRetry(() => callOpenAI({
         model,
-        max_tokens: maxTokens,
+        max_completion_tokens: maxTokens,
         temperature,
         response_format: { type: 'json_object' },
         messages: [
@@ -188,7 +188,7 @@ export async function analyzeVision<T>(
 
     const result = await withRetry(() => callOpenAI({
         model,
-        max_tokens: maxTokens,
+        max_completion_tokens: maxTokens,
         temperature,
         response_format: { type: 'json_object' },
         messages: [
@@ -212,7 +212,7 @@ export async function checkApiKey(): Promise<boolean> {
     try {
         await callOpenAI({
             model: 'gpt-5.4-mini',
-            max_tokens: 10,
+            max_completion_tokens: 10,
             messages: [{ role: 'user', content: 'ping' }]
         });
         return true;

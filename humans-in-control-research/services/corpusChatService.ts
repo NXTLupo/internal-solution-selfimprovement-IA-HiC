@@ -17,7 +17,7 @@
  * - Full corpus grounding (no 500KB cap for Claude 4.7)
  */
 
-export type ChatModel = 'claude-opus-4-7' | 'claude-sonnet-4-6' | 'gemini-2.5-flash' | 'gpt-5.4-mini';
+export type ChatModel = 'claude-opus-4-7' | 'gemini-2.5-flash' | 'gpt-5.4';
 
 export interface ChatMessage {
     id: string;
@@ -134,26 +134,15 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         maxCorpusChars: 900000, // Claude 4.7 also has 1M context — no truncation
     },
     {
-        id: 'claude-sonnet-4-6',
-        name: 'Claude Sonnet 4.6',
-        provider: 'anthropic',
-        description: 'Fast reasoning with structured output. 200K context window.',
-        contextWindow: '200K tokens',
-        strengths: 'Speed, structured JSON, concise answers',
-        color: '#CC6644',
-        available: true,
-        maxCorpusChars: 500000,
-    },
-    {
-        id: 'gpt-5.4-mini',
-        name: 'GPT-5.4 Mini',
+        id: 'gpt-5.4',
+        name: 'GPT-5.4',
         provider: 'openai',
-        description: 'Strict JSON schema compliance. 128K context window.',
-        contextWindow: '128K tokens',
-        strengths: 'Schema adherence, grid matrices, comparison tables',
+        description: 'Flagship reasoning model. Strict JSON schema compliance. 1M+ context window — full corpus grounding.',
+        contextWindow: '1M tokens',
+        strengths: 'Schema adherence, deep reasoning, large-corpus synthesis',
         color: '#00B7C3',
         available: true,
-        maxCorpusChars: 250000,
+        maxCorpusChars: 900000,
     },
 ];
 
@@ -242,7 +231,7 @@ IMPORTANT:
 - Include verbose evidence: verbatim quotes, specific data points, named sources in every field
 - You can mix prose text with deliverable blocks (explain your reasoning, then output the blocks)
 
-SLIDE OUTPUT PROTOCOL — 15 TEMPLATES x 2 VISUAL BRANDS:
+SLIDE OUTPUT PROTOCOL — 18 TEMPLATES x 2 VISUAL BRANDS:
 
 When the user asks to create a slide (or set of slides), output ONE :::slide block per slide.
 Pick the template that best matches the content. Mark it on the fence: :::slide template=NAME
@@ -261,11 +250,16 @@ The hashtag in the user's prompt is authoritative — the parser will auto-apply
 slide in your response even if you forget to set brand=. Do NOT mention the hashtag in the slide
 JSON itself; it's a routing directive, not content.
 
-The 15 templates and when to use each:
+The 18 templates and when to use each (when the user requests multiple slides on themes,
+ROTATE through theme-cluster, theme-spotlight, theme-arc, and theme-mosaic instead of
+repeating the same layout — variety reads as designerly, repetition reads as templated):
 
 1.  persona-card        → user requests personas, archetypes, customer segments
 2.  recommendation      → user requests strategic actions, what to do, next steps
-3.  theme-cluster       → user requests themes, patterns, emerging insights (3-4 themes)
+3.  theme-cluster       → equal-weight horizontal columns (3-4 themes, parallel weight, default theme layout)
+3a. theme-spotlight     → ONE dominant theme + 2-3 supporting (asymmetric 60/40 hero layout — use when one theme leads)
+3b. theme-arc           → narrative chain of 3-4 themes with progression arrows (use when themes build sequentially: cause → effect → response)
+3c. theme-mosaic        → 2x2 inverse-checkerboard of 4 parallel themes (alternating dark/light cells — gallery rhythm; use for 4 equal themes with strong visual punch)
 4.  competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
 5.  block-quote         → user wants a single powerful verbatim quote highlighted
 6.  case-study          → user requests an example, real-world case, success/failure story
@@ -282,6 +276,89 @@ The 15 templates and when to use each:
 EVERY slide block carries:
 - "title": action title (complete sentence stating a conclusion with data)
 - "sources": ["Named Source 1", "Named Source 2", ...]   ← always required, never empty
+
+CONTENT BUDGETS (write to fit, do NOT submit copy that will be truncated):
+The slide canvas is fixed at 960x540. Every text slot has a hard character
+budget. The renderer DOES truncate overflow, but truncation is ugly — it
+looks unprofessional and breaks reader trust. Treat these budgets as
+contractual: they are the design, not a suggestion.
+
+Universal slots:
+- title:                  120 chars  (one complete sentence, action-titled)
+- sources[i]:             40  chars per source name
+
+theme-cluster (4 equal columns):
+- themeCluster.themes[i].name:      55 chars  (sentence-style headline)
+- themeCluster.themes[i].insight:  180 chars  (1-2 tight sentences)
+- themeCluster.themes[i].evidence: 120 chars  (verbatim or paraphrased)
+- themeCluster.themes[i].source:    45 chars
+
+theme-spotlight (1 hero + 3 supporting):
+- HERO themes[0].name:      85 chars
+- HERO themes[0].insight:  340 chars  (room for full paragraph here)
+- HERO themes[0].evidence: 240 chars
+- HERO themes[0].source:    75 chars
+- SUPPORTING themes[1..3].name:    65 chars
+- SUPPORTING themes[1..3].insight: 120 chars  (1 sentence MAX)
+- SUPPORTING themes[1..3].source:    45 chars
+  (Supporting tiles do NOT render evidence — omit it. Put your strongest
+  verbatim quote on the HERO theme only, where it has room to breathe.)
+
+theme-arc (4 themes in narrative chain):
+- themeCluster.themes[i].name:      60 chars
+- themeCluster.themes[i].insight:  170 chars
+- themeCluster.themes[i].evidence: 110 chars
+- themeCluster.themes[i].source:    45 chars
+
+theme-mosaic (2x2 grid):
+- themeCluster.themes[i].name:      65 chars
+- themeCluster.themes[i].insight:  170 chars
+- themeCluster.themes[i].evidence:  95 chars
+- themeCluster.themes[i].source:    45 chars
+
+stat-row:
+- statRow.stats[i].value:  10 chars  (e.g. "$2.4M", "47%", "3x")
+- statRow.stats[i].label:  60 chars
+- statRow.stats[i].source: 45 chars
+
+block-quote:
+- quote.text:        240 chars  (PICK A SHORTER VERBATIM EXCERPT if longer)
+- quote.attribution:  60 chars
+- quote.role:         50 chars
+- quote.source:       60 chars
+- quote.context:     150 chars
+
+recommendation:
+- recommendation.actionTitle:  140 chars
+- recommendation.rationale:    400 chars
+- recommendation.supportingActions[i].name:        45 chars
+- recommendation.supportingActions[i].description: 220 chars
+- recommendation.impactMetric.value:                12 chars
+- recommendation.impactMetric.label:                90 chars
+
+case-study:
+- caseStudy.subject:        60 chars
+- caseStudy.subjectMeta:    80 chars
+- caseStudy.challenge:     280 chars
+- caseStudy.approach:      280 chars
+- caseStudy.outcome:       280 chars
+- caseStudy.pullQuote.text: 180 chars
+- caseStudy.keyMetric.value:  12 chars
+- caseStudy.keyMetric.label:  90 chars
+
+CONTENT-FITTING RULES:
+1. PARAPHRASE TO FIT. If a verbatim quote is 220 chars but the slot is 100,
+   pick a SHORTER verbatim excerpt from the same source — never copy a
+   200-char quote into a 100-char slot expecting truncation to handle it.
+2. Insights compress, evidence stays verbatim. Insights are your prose; you
+   can rewrite them tighter. Evidence quotes are sacred — find shorter ones,
+   don't paraphrase them.
+3. Action titles before topic labels. "Trust erodes 18 months before contact"
+   beats "Trust erosion timing."
+4. If you cannot say it within budget without losing the meaning, the wrong
+   template was picked. Switch templates: use theme-spotlight (more room per
+   theme) instead of theme-mosaic (small cells).
+5. Do not pad to fill the budget either. Concise reads better than verbose.
 
 Template-specific JSON shapes:
 
@@ -328,6 +405,55 @@ Template-specific JSON shapes:
       {"name":"Co-op scarcity is breaking the experiential promise","insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU"},
       {"name":"Tuition skepticism is eroding future donor base","insight":"The cohort Advancement must convert is entering alumni status already disillusioned with ROI.","evidence":"Most Gen Z graduates now think college was waste of money.","source":"r/highereducation"},
       {"name":"Political posture is now a giving variable","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins more than 320 university leaders in joint statement.","source":"r/NEU"}
+    ]
+  }
+}
+:::
+
+THEME VARIANTS — same themeCluster JSON shape, different layout. Pick the one that fits the data:
+
+theme-spotlight: ONE dominant theme + 2-3 supporting. First theme in the array becomes the hero with full evidence quote and large numeral; the rest stack as supporting tiles. Use when one finding clearly leads the others.
+:::slide template=theme-spotlight
+{
+  "title": "Trust erosion before contact dominates the dataset — 3 corroborating signals follow",
+  "sources": ["r/NEU","Higher Ed Dive","CASE 2024"],
+  "themeCluster": {
+    "themes": [
+      {"name":"Co-op scarcity is breaking the experiential promise","insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition. This signal recurs in 47 of 312 sampled posts (15%) and is the single most-cited grievance across all r/NEU threads in the dataset.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU"},
+      {"name":"Tuition skepticism is eroding the future donor base","insight":"The cohort Advancement must convert is entering alumni status already disillusioned with ROI.","evidence":"Most Gen Z graduates now think college was waste of money.","source":"r/highereducation"},
+      {"name":"Political posture is now a giving variable","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins 320 university leaders in joint statement.","source":"r/NEU"}
+    ]
+  }
+}
+:::
+
+theme-arc: 3-4 themes that build sequentially (cause → effect → response). Numbered chain across the top with arrows; each cell shows progression in the argument. Use for narrative themes (e.g., "what happened, why it matters, what's next").
+:::slide template=theme-arc
+{
+  "title": "From signal to spend: how alumni sentiment is reshaping the giving funnel",
+  "sources": ["r/NEU","CASE 2024","NXT Stakeholder Interview","Northeastern Assessment"],
+  "themeCluster": {
+    "themes": [
+      {"name":"Disillusionment forms during enrollment","insight":"The grievance starts inside the experiential gap, not at graduation.","evidence":"No TA. No RA. No co-ops.","source":"r/NEU"},
+      {"name":"Sentiment leaks into alumni status","insight":"Skepticism follows the cohort into year-one giving.","evidence":"Gen Z think college was waste of money.","source":"r/highereducation"},
+      {"name":"Politics becomes a wedge","insight":"University statements convert sentiment into stop-gift signals.","evidence":"320 university leaders in joint statement.","source":"r/NEU"},
+      {"name":"Advancement loses the contact moment","insight":"By the time mailers go out, trust is already gone.","evidence":"40% of officer time on data reconciliation.","source":"NXT Stakeholder Interview"}
+    ]
+  }
+}
+:::
+
+theme-mosaic: exactly 4 parallel themes of equal weight. Renders as a 2x2 grid with alternating dark/light cells (cells 1 and 4 are inverted onto the brand sidebar color, cells 2 and 3 are light). Use when the four themes are co-equal and you want strong visual rhythm — gallery-wall feel.
+:::slide template=theme-mosaic
+{
+  "title": "Four parallel pressures on the advancement funnel — equal weight, different surfaces",
+  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","NXT Interviews"],
+  "themeCluster": {
+    "themes": [
+      {"name":"Experiential promise is breaking","insight":"Co-op scarcity recurs as the top grievance across r/NEU threads.","evidence":"No TA. No RA. No co-ops.","source":"r/NEU"},
+      {"name":"Tuition ROI is in question","insight":"Gen Z arrives in alumni status already skeptical of value.","evidence":"College was waste of money.","source":"r/highereducation"},
+      {"name":"Politics is a giving variable","insight":"University posture directly moves giving behavior.","evidence":"320 university leaders sign joint statement.","source":"r/NEU"},
+      {"name":"Data fragmentation eats the team","insight":"Three CRM orgs consume 40% of officer time.","evidence":"I'd never know Andrew works with Rob.","source":"NXT Stakeholder Interview"}
     ]
   }
 }
@@ -1370,9 +1496,9 @@ async function callOpenAI(system: string, userMsg: string, history: ChatMessage[
             'x-openai-endpoint': 'chat',
         },
         body: JSON.stringify({
-            model: 'gpt-5.4-mini',
+            model: 'gpt-5.4',
             messages,
-            max_tokens: 16000,
+            max_completion_tokens: 16000,
             temperature: 0.2,
         }),
     });

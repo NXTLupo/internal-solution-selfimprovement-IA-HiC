@@ -76,7 +76,7 @@ export const openaiAdapter: ProviderAdapter = {
                 },
             ],
             temperature: request.temperature ?? 0.3,
-            max_tokens: request.maxTokens || 8000,
+            max_completion_tokens: request.maxTokens || 8000,
         });
 
         return {
@@ -145,7 +145,7 @@ export const openaiAdapter: ProviderAdapter = {
                 { role: 'system', content: request.systemPrompt },
                 { role: 'user', content },
             ],
-            max_tokens: request.maxTokens || 8000,
+            max_completion_tokens: request.maxTokens || 8000,
         });
 
         return {
