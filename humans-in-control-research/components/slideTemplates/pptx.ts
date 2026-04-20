@@ -35,6 +35,14 @@ function truncate(text: string | undefined, max: number): string {
     return text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
 }
 
+/** Extract quote text + source from a theme-like object. Prefers the new
+ *  `quotes[]` array (first element) over the legacy singular `evidence`. */
+function themeQuotes(t: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string }> }): Array<{ text: string; source?: string; attribution?: string }> {
+    if (t.quotes && t.quotes.length > 0) return t.quotes;
+    if (t.evidence) return [{ text: t.evidence, source: t.source }];
+    return [];
+}
+
 // === IMAGE PREPROCESSOR — guarantees object-fit:cover behavior in PPTX ===
 export async function preprocessImageCover(dataUrl: string, targetW: number, targetH: number): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -321,9 +329,10 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
         cy += 0.5;
         s.addText(th.insight, { x: cx + 0.08, y: cy, w: colW - 0.16, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
         cy += 1.45;
-        if (th.evidence) {
+        const clusterQs = themeQuotes(th);
+        if (clusterQs.length > 0) {
             s.addShape('rect' as any, { x: cx + 0.08, y: cy, w: 0.03, h: 0.7, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${th.evidence}"`, { x: cx + 0.16, y: cy, w: colW - 0.24, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+            s.addText(`"${truncate(clusterQs[0].text, 140)}"`, { x: cx + 0.16, y: cy, w: colW - 0.24, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
             cy += 0.75;
         }
         s.addText(th.source, { x: cx + 0.08, y: blockY + blockH - 0.22, w: colW - 0.16, h: 0.2, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
@@ -362,9 +371,10 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     // Insight
     s.addText(truncate(hero.insight, 360), { x: tx, y: hy, w: heroW, h: 1.6, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
     hy += 1.7;
-    if (hero.evidence) {
+    const heroQs = themeQuotes(hero);
+    if (heroQs.length > 0) {
         s.addShape('rect' as any, { x: tx, y: hy, w: 0.04, h: 1.0, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText(`"${truncate(hero.evidence, 260)}"`, { x: tx + 0.16, y: hy, w: heroW - 0.16, h: 1.1, fontSize: 11, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
+        s.addText(`"${truncate(heroQs[0].text, 260)}"`, { x: tx + 0.16, y: hy, w: heroW - 0.16, h: 1.1, fontSize: 11, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
     }
     s.addText(`Source: ${truncate(hero.source, 80)}`, { x: tx, y: y + blockH - 0.28, w: heroW, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
 
@@ -374,10 +384,16 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     const supItemH = (blockH - 0.32) / Math.max(supporting.length, 1);
     supporting.forEach((t, i) => {
         const itemY = sy + i * supItemH;
+        const supQs = themeQuotes(t);
         s.addText(String(i + 2).padStart(2, '0'), { x: supX, y: itemY, w: 0.5, h: 0.4, fontSize: 20, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -1 });
         s.addText(truncate(t.name, 70), { x: supX + 0.55, y: itemY, w: supW - 0.55, h: 0.32, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
-        s.addText(truncate(t.insight, 130), { x: supX + 0.55, y: itemY + 0.34, w: supW - 0.55, h: 0.6, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
-        s.addText(truncate(t.source, 50), { x: supX + 0.55, y: itemY + supItemH - 0.24, w: supW - 0.55, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        s.addText(truncate(t.insight, 110), { x: supX + 0.55, y: itemY + 0.34, w: supW - 0.55, h: 0.5, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        // Quote line for supporting theme — fixes the long-standing gap
+        if (supQs.length > 0) {
+            s.addShape('rect' as any, { x: supX + 0.55, y: itemY + 0.86, w: 0.03, h: 0.5, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${truncate(supQs[0].text, 120)}"`, { x: supX + 0.65, y: itemY + 0.86, w: supW - 0.65, h: 0.5, fontSize: 8, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+        }
+        s.addText(truncate(t.source, 50), { x: supX + 0.55, y: itemY + supItemH - 0.22, w: supW - 0.55, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
         if (i < supporting.length - 1) {
             s.addShape('line' as any, { x: supX, y: itemY + supItemH - 0.06, w: supW, h: 0, line: { color: T.RULE, width: 0.5 } });
         }
@@ -424,9 +440,10 @@ function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sour
         cy += 0.5;
         s.addText(truncate(t.insight, 180), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
         cy += 1.45;
-        if (t.evidence) {
+        const arcQs = themeQuotes(t);
+        if (arcQs.length > 0) {
             s.addShape('rect' as any, { x: cx + 0.06, y: cy, w: 0.03, h: 0.7, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${truncate(t.evidence, 120)}"`, { x: cx + 0.14, y: cy, w: cellW - 0.2, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            s.addText(`"${truncate(arcQs[0].text, 120)}"`, { x: cx + 0.14, y: cy, w: cellW - 0.2, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
         }
         s.addText(truncate(t.source, 50), { x: cx + 0.06, y: bodyY + bodyH - 0.22, w: cellW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
         if (i < n - 1) {
@@ -475,9 +492,10 @@ function exportThemeMosaic(s: any, slideTitle: string, data: ThemeClusterData, s
         s.addText(String(i + 1).padStart(2, '0'), { x: cx + 0.18, y: cy + 0.16, w: 0.6, h: 0.5, fontSize: 28, color: sf.accent, fontFace: FONT, valign: 'top', charSpacing: -2 });
         s.addText(truncate(t.name, 70), { x: cx + 0.85, y: cy + 0.22, w: cellW - 1.0, h: 0.4, fontSize: 12, color: sf.fg, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
         s.addText(truncate(t.insight, 180), { x: cx + 0.18, y: cy + 0.78, w: cellW - 0.36, h: 0.9, fontSize: 9, color: sf.body, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
-        if (t.evidence) {
+        const mosaicQs = themeQuotes(t);
+        if (mosaicQs.length > 0) {
             s.addShape('rect' as any, { x: cx + 0.18, y: cy + 1.7, w: 0.03, h: 0.5, fill: { color: sf.accent } });
-            s.addText(`"${truncate(t.evidence, 100)}"`, { x: cx + 0.25, y: cy + 1.7, w: cellW - 0.43, h: 0.55, fontSize: 9, color: sf.fg, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            s.addText(`"${truncate(mosaicQs[0].text, 100)}"`, { x: cx + 0.25, y: cy + 1.7, w: cellW - 0.43, h: 0.55, fontSize: 9, color: sf.fg, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
         }
         s.addText(truncate(t.source, 50), { x: cx + 0.18, y: cy + cellH - 0.26, w: cellW - 0.36, h: 0.2, fontSize: 7, color: sf.muted, fontFace: FONT, bold: true, charSpacing: 1.2 });
     });

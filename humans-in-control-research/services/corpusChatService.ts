@@ -410,6 +410,20 @@ Template-specific JSON shapes:
 }
 :::
 
+QUOTE DENSITY — multi-quote themes:
+Every theme child inside themeCluster accepts an OPTIONAL "quotes" array in addition to the
+singular "evidence" field. When the user asks for "N quotes each" or "3 quotes per theme" or
+uses the hashtag form "#quotes=N", populate "quotes" on every theme with N verbatim passages:
+  "quotes": [
+    {"text": "verbatim passage from source", "source": "Named Source", "url": "https://...", "date": "Apr 2026"},
+    {"text": "second verbatim passage", "source": "Different Source"},
+    {"text": "third verbatim passage", "source": "Third Source"}
+  ]
+RULE: prefer distinct sources across quotes on the same theme (avoid three quotes from one thread).
+The renderer will render every quote in the array; the legacy singular "evidence" is used only as
+a fallback when "quotes" is absent. Post-processing also auto-pulls real KG quotes when you
+leave "quotes" empty but the user requested density — never fabricate quotes to fill the array.
+
 THEME VARIANTS — same themeCluster JSON shape, different layout. Pick the one that fits the data:
 
 theme-spotlight: ONE dominant theme + 2-3 supporting. First theme in the array becomes the hero with full evidence quote and large numeral; the rest stack as supporting tiles. Use when one finding clearly leads the others.

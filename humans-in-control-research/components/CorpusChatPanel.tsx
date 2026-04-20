@@ -23,6 +23,7 @@ import { DeliverableBatch, type DeliverableItem, type DeliverableType } from './
 import SlideCanvas, { type SlideData } from './SlideCanvas';
 import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/brands';
 import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
+import { detectQuoteDensity, enrichSlideWithQuotes } from '../services/quoteExtractor';
 
 interface Props {
     context: ChatContext;
@@ -253,6 +254,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         const brandFromQuery = userQuery ? detectBrandFromText(userQuery) : null;
         const defaultBrand: BrandId = brandFromText || brandFromQuery || 'nxt';
 
+        // Detect "N quotes each" / "#quotes=N" in the user message so we can
+        // deterministically enrich every emitted slide with real corpus quotes
+        // pulled from the KG — no fabrication, full source attribution.
+        const quoteDirective = userQuery ? detectQuoteDensity(userQuery) : null;
+        const liveCtx = getContext ? getContext() : context;
+        const kg = liveCtx?.knowledgeGraph;
+
         // Match :::slide [optional template=NAME] [optional brand=NAME] ... :::
         const pattern = /:::slide((?:\s+[a-z]+=[a-z-]+)*)\s*\n([\s\S]*?):::/g;
         const result: SlideData[] = [];
@@ -286,6 +294,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 }
                 // Normalize alternative field names
                 const themeCluster = parsed.themeCluster || (Array.isArray(parsed.themes) ? { themes: parsed.themes } : undefined);
+
+                // Deterministic quote enrichment: if the user asked for N quotes
+                // and this slide has a theme cluster, pull real verbatim quotes
+                // from the KG for every theme missing enough quotes.
+                if (quoteDirective && themeCluster && kg && kg.nodes.length > 0) {
+                    enrichSlideWithQuotes({ themeCluster }, kg, quoteDirective);
+                }
                 const statRow = parsed.statRow || (Array.isArray(parsed.stats) ? { stats: parsed.stats } : undefined);
                 const timeline = parsed.timeline || (Array.isArray(parsed.phases) ? { phases: parsed.phases } : undefined);
                 const serviceBlueprint = parsed.serviceBlueprint || (parsed.blueprint ? parsed.blueprint : (Array.isArray(parsed.stages) ? { stages: parsed.stages } : undefined));
@@ -324,7 +339,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             } catch {}
         }
         return result;
-    }, []);
+    }, [context, getContext]);
 
     // --- Deliverable approval ---
     const handleApproveDeliverable = useCallback((item: DeliverableItem) => {

@@ -114,6 +114,72 @@ const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources,
     ) : null;
 };
 
+/**
+ * QuoteStack — renders either a singular `evidence` quote OR a variable-length
+ * `quotes[]` array with consistent styling. The caller controls size/tone via
+ * the `size` prop ('hero' | 'body' | 'compact'). This is the primitive that
+ * makes multi-quote density work across every theme template.
+ */
+interface QuoteLike { text: string; source?: string; attribution?: string; date?: string; }
+const QuoteStack: React.FC<{
+    /** Either a single legacy `evidence` string or an array of full quote objects */
+    quotes: QuoteLike[];
+    size?: 'hero' | 'body' | 'compact';
+    brand?: Brand;
+    /** Override accent color (e.g. for dark-surface mosaic cells) */
+    accent?: string;
+    /** Override text color for dark surfaces */
+    ink?: string;
+    /** Max characters per quote before truncation */
+    maxChars?: number;
+}> = ({ quotes, size = 'body', brand, accent, ink, maxChars }) => {
+    const T = resolveT(brand);
+    const sizing = size === 'hero'
+        ? { fs: 12, lh: 1.5, pad: 14, border: 3, gap: 8, attrFs: 8, attrMt: 4 }
+        : size === 'compact'
+        ? { fs: 9, lh: 1.4, pad: 8, border: 2, gap: 5, attrFs: 7, attrMt: 3 }
+        : { fs: 10, lh: 1.45, pad: 10, border: 2, gap: 6, attrFs: 8, attrMt: 3 };
+    const borderColor = accent || hex(T.CHARTREUSE_BRIGHT);
+    const textColor = ink || hex(T.INK);
+    const attrColor = accent || hex(T.MUTED);
+    const visible = quotes.filter(q => q && q.text);
+    if (visible.length === 0) return null;
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: sizing.gap, width: '100%', minWidth: 0 }}>
+            {visible.map((q, i) => (
+                <div key={i} style={{ minWidth: 0 }}>
+                    <div style={{
+                        fontSize: sizing.fs, fontStyle: 'italic', color: textColor,
+                        borderLeft: `${sizing.border}px solid ${borderColor}`,
+                        paddingLeft: sizing.pad, lineHeight: sizing.lh, fontWeight: 300,
+                    }}>
+                        "{truncate(q.text, maxChars || (size === 'hero' ? 240 : 160))}"
+                    </div>
+                    {(q.source || q.attribution) && (
+                        <div style={{
+                            fontSize: sizing.attrFs, color: attrColor,
+                            marginTop: sizing.attrMt, paddingLeft: sizing.pad,
+                            letterSpacing: '1.2px', textTransform: 'uppercase' as const, fontWeight: 700,
+                        }}>
+                            {q.attribution ? `${q.attribution}${q.source ? ' · ' + q.source : ''}` : q.source}
+                            {q.date ? `, ${q.date}` : ''}
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
+    );
+};
+
+/** Normalize legacy `evidence` + `source` into the QuoteLike[] shape the stack
+ *  expects. If `quotes[]` is provided, it takes precedence and the singular
+ *  evidence is ignored. */
+function resolveThemeQuotes(theme: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string; date?: string }> }): QuoteLike[] {
+    if (theme.quotes && theme.quotes.length > 0) return theme.quotes;
+    if (theme.evidence) return [{ text: theme.evidence, source: theme.source }];
+    return [];
+}
+
 // === 1. PERSONA CARD (persona-architect) ===
 export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: string[]; hasImage: boolean; brand?: Brand }> = ({ data, sources = [], hasImage, brand }) => {
     const T = resolveT(brand);
@@ -239,12 +305,10 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
                         </div>
                         <div style={{ fontWeight: 800, fontSize: 12, color: hex(T.INK), lineHeight: 1.22, letterSpacing: '-0.01em' }}>{truncate(t.name, 60)}</div>
                         <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 200)}</div>
-                        {t.evidence && (
-                            <div style={{ fontSize: 9, fontStyle: 'italic', color: hex(T.INK), borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 8, lineHeight: 1.4 }}>
-                                "{truncate(t.evidence, 140)}"
-                            </div>
+                        <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={130} />
+                        {(!t.quotes || t.quotes.length === 0) && (
+                            <div style={{ fontSize: 8, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6 }}>{truncate(t.source, 50)}</div>
                         )}
-                        <div style={{ fontSize: 8, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6 }}>{truncate(t.source, 50)}</div>
                     </div>
                 ))}
             </div>
@@ -275,14 +339,7 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
                         <div style={{ fontWeight: 800, fontSize: 18, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, 90)}</div>
                     </div>
                     <div style={{ fontSize: 11, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, 360)}</div>
-                    {hero.evidence && (
-                        <div style={{ fontSize: 12, fontStyle: 'italic', color: hex(T.INK), borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 14, lineHeight: 1.5, fontWeight: 300 }}>
-                            "{truncate(hero.evidence, 260)}"
-                        </div>
-                    )}
-                    <div style={{ fontSize: 8, color: hex(T.MUTED), letterSpacing: '1.5px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 6 }}>
-                        Source: {truncate(hero.source, 80)}
-                    </div>
+                    <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={240} />
                 </div>
                 {/* Supporting — right 40% */}
                 <div style={{ flex: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -292,10 +349,10 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
                             <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
                                 {String(i + 2).padStart(2, '0')}
                             </div>
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                                <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2, marginBottom: 3 }}>{truncate(t.name, 70)}</div>
+                            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                                <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2 }}>{truncate(t.name, 70)}</div>
                                 <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(t.insight, 130)}</div>
-                                <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 4, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
+                                <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={120} />
                             </div>
                         </div>
                     ))}
@@ -342,12 +399,10 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
                         <div style={{ flex: 1, minWidth: 0, padding: '4px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
                             <div style={{ fontWeight: 800, fontSize: 12, color: hex(T.INK), lineHeight: 1.2, letterSpacing: '-0.01em' }}>{truncate(t.name, 64)}</div>
                             <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
-                            {t.evidence && (
-                                <div style={{ fontSize: 9, fontStyle: 'italic', color: hex(T.INK), borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 8, lineHeight: 1.4, marginTop: 2 }}>
-                                    "{truncate(t.evidence, 120)}"
-                                </div>
+                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={110} />
+                            {(!t.quotes || t.quotes.length === 0) && (
+                                <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
                             )}
-                            <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
                         </div>
                         {i < themes.length - 1 && <div style={{ width: 1, background: hex(T.RULE), margin: '8px 0' }} />}
                     </React.Fragment>
@@ -395,14 +450,12 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
                                 <div style={{ fontWeight: 800, fontSize: 12, color: hex(sf.fg), lineHeight: 1.15, letterSpacing: '-0.01em', flex: 1 }}>{truncate(t.name, 70)}</div>
                             </div>
                             <div style={{ fontSize: 9, color: hex(sf.body), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
-                            {t.evidence && (
-                                <div style={{ fontSize: 9, fontStyle: 'italic', color: hex(sf.fg), borderLeft: `2px solid ${hex(sf.accent)}`, paddingLeft: 8, lineHeight: 1.4 }}>
-                                    "{truncate(t.evidence, 100)}"
+                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} accent={hex(sf.accent)} ink={hex(sf.fg)} maxChars={100} />
+                            {(!t.quotes || t.quotes.length === 0) && (
+                                <div style={{ fontSize: 7, color: hex(sf.muted), letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 4 }}>
+                                    {truncate(t.source, 50)}
                                 </div>
                             )}
-                            <div style={{ fontSize: 7, color: hex(sf.muted), letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 4 }}>
-                                {truncate(t.source, 50)}
-                            </div>
                         </div>
                     );
                 })}

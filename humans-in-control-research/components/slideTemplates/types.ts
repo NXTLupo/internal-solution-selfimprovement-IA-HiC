@@ -45,8 +45,34 @@ export interface RecommendationData {
     impactMetric?: { value: string; label: string };
 }
 
+/** A single pulled quote — verbatim text + full attribution. Used anywhere a
+ *  theme / persona / case study needs variable quote density. */
+export interface SlideQuote {
+    text: string;
+    source: string;
+    /** Optional: who said it inside the source (author, role, etc.) */
+    attribution?: string;
+    /** Optional: where it lives (URL for citation link-out) */
+    url?: string;
+    /** Optional: context tag (e.g. "ON NON-CASH GIVING GROWTH") */
+    context?: string;
+    /** Optional: publication/collection date for provenance */
+    date?: string;
+}
+
 export interface ThemeClusterData {
-    themes: Array<{ name: string; insight: string; evidence: string; source: string }>;
+    themes: Array<{
+        name: string;
+        insight: string;
+        /** Singular verbatim quote. Backward-compatible with older slide JSON. */
+        evidence?: string;
+        source: string;
+        /** Multi-quote block. When present, the renderer stacks ALL of these
+         *  as attributed quotes below the insight line. Use this when the user
+         *  asks for N quotes per theme or when you want to show convergent
+         *  evidence from multiple sources. */
+        quotes?: SlideQuote[];
+    }>;
 }
 
 export interface CompetitiveMatrixData {
