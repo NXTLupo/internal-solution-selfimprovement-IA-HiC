@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NXT HUMANS — Humans in Control QA &amp; Test Documentation</title>
+<title>NXT HUMANS — Humans in Control Documentation</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -11,6 +11,7 @@
   --nxt-black: #0D0D0D;
   --nxt-chartreuse: #B8B800;
   --nxt-cyan: #00B7C3;
+  --nxt-teal: #115054;
   --nxt-negative: #CC6644;
   --nxt-heading: #0D0D0D;
   --nxt-body: #333333;
@@ -42,29 +43,35 @@ th { background: var(--nxt-black); color: white; text-align: left; padding: 10px
 td { padding: 10px 14px; border-bottom: 1px solid var(--nxt-rule); vertical-align: top; }
 tr:hover td { background: #FAFAFA; }
 .badge { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
-.badge-pass { background: #E8F5E9; color: #2E7D32; }
-.badge-fail { background: #FFEBEE; color: #C62828; }
-.badge-partial { background: #FFF8E1; color: #F57F17; }
-.badge-blocked { background: #E3F2FD; color: #1565C0; }
-.badge-critical { background: #C62828; color: white; }
-.badge-high { background: #E65100; color: white; }
-.badge-medium { background: #F57F17; color: white; }
-.badge-low { background: #1565C0; color: white; }
+.badge-live { background: #E8F5E9; color: #2E7D32; }
+.badge-new { background: var(--nxt-chartreuse); color: var(--nxt-black); }
+.badge-beta { background: #FFF8E1; color: #F57F17; }
+.badge-info { background: #E3F2FD; color: #1565C0; }
+.badge-teal { background: var(--nxt-teal); color: white; }
+.badge-cyan { background: var(--nxt-cyan); color: var(--nxt-black); }
+.badge-tier1 { background: var(--nxt-black); color: white; }
+.badge-tier2 { background: #444; color: white; }
+.badge-tier3 { background: transparent; color: #999; border: 1px dashed #CCC; }
 .status-card { background: var(--nxt-panel); border-left: 3px solid var(--nxt-chartreuse); padding: 16px; margin: 16px 0; border-radius: 0 2px 2px 0; }
-.status-card.fail { border-left-color: var(--nxt-error); }
-.status-card.warn { border-left-color: var(--nxt-negative); }
-.status-card.info { border-left-color: var(--nxt-cyan); }
+.status-card.cyan { border-left-color: var(--nxt-cyan); }
+.status-card.teal { border-left-color: var(--nxt-teal); }
+.status-card.rust { border-left-color: var(--nxt-negative); }
 .nav { position: sticky; top: 0; background: white; border-bottom: 1px solid var(--nxt-rule); padding: 12px 0; margin-bottom: 24px; z-index: 50; }
 .nav a { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--nxt-muted); text-decoration: none; margin-right: 16px; }
 .nav a:hover { color: var(--nxt-heading); }
-.toc { background: var(--nxt-panel); padding: 24px; margin: 24px 0; border-radius: 2px; }
-.toc a { display: block; font-size: 13px; color: var(--nxt-secondary); text-decoration: none; padding: 4px 0; }
+.toc { background: var(--nxt-panel); padding: 24px; margin: 24px 0; border-radius: 2px; column-count: 2; column-gap: 24px; }
+.toc a { display: block; font-size: 13px; color: var(--nxt-secondary); text-decoration: none; padding: 4px 0; break-inside: avoid; }
 .toc a:hover { color: var(--nxt-heading); }
-.metric-row { display: flex; gap: 16px; margin: 16px 0; }
-.metric { flex: 1; background: var(--nxt-panel); padding: 16px; text-align: center; border-top: 3px solid var(--nxt-chartreuse); }
+.metric-row { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+.metric { flex: 1; min-width: 140px; background: var(--nxt-panel); padding: 16px; text-align: center; border-top: 3px solid var(--nxt-chartreuse); }
+.metric.cyan { border-top-color: var(--nxt-cyan); }
+.metric.teal { border-top-color: var(--nxt-teal); }
 .metric .value { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--nxt-heading); line-height: 1; }
 .metric .label { font-size: 10px; color: var(--nxt-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-.test-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--nxt-cyan); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.diagram { background: var(--nxt-black); color: #ddd; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5; white-space: pre; overflow-x: auto; margin: 16px 0; border-radius: 2px; }
+.kbd { background: white; border: 1px solid var(--nxt-rule); padding: 2px 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; border-radius: 2px; box-shadow: 0 1px 0 rgba(0,0,0,0.1); }
+.accent-rule { width: 60px; height: 3px; background: var(--nxt-chartreuse); margin: 32px 0 16px; }
 </style>
 </head>
 <body>
@@ -75,594 +82,608 @@ tr:hover td { background: #FAFAFA; }
 <div class="main">
 
 <h1>Humans in Control</h1>
-<div class="subtitle">QA, Testing &amp; Implementation Status Documentation &mdash; v2.0 &mdash; April 15, 2026</div>
+<div class="subtitle">Operator Documentation &mdash; v3.0 &mdash; April 20, 2026</div>
+
+<p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
+Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>) and a chat workbench for interactive exploration.
+</p>
 
 <div class="metric-row">
-  <div class="metric"><div class="value">10</div><div class="label">Deliverables</div></div>
-  <div class="metric"><div class="value">14</div><div class="label">Pipeline Stages</div></div>
-  <div class="metric"><div class="value">100+</div><div class="label">Data Sources</div></div>
-  <div class="metric"><div class="value">3</div><div class="label">AI Models</div></div>
-  <div class="metric" style="border-top-color: var(--nxt-negative);"><div class="value">12</div><div class="label">Known Issues</div></div>
+  <div class="metric"><div class="value">313</div><div class="label">Data sources</div></div>
+  <div class="metric cyan"><div class="value">26</div><div class="label">Source categories</div></div>
+  <div class="metric teal"><div class="value">30</div><div class="label">Institutions</div></div>
+  <div class="metric"><div class="value">100</div><div class="label">YouTube channels</div></div>
+  <div class="metric cyan"><div class="value">17</div><div class="label">Agent skills</div></div>
+  <div class="metric teal"><div class="value">74</div><div class="label">Wiki pages</div></div>
+  <div class="metric"><div class="value">10</div><div class="label">Deliverable types</div></div>
 </div>
 
 <div class="toc">
-  <strong style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--nxt-muted);">Table of Contents</strong>
-  <a href="#architecture">1. System Architecture</a>
-  <a href="#pipeline">2. Pipeline Flow &amp; Stages</a>
-  <a href="#deliverables">3. Deliverable Specifications</a>
-  <a href="#curation">4. Source Curation System</a>
-  <a href="#evidence">5. Evidence &amp; Citation Pipeline</a>
-  <a href="#deck">6. Strategy Deck Pipeline</a>
-  <a href="#wiki">7. Wiki Self-Improvement Engine</a>
-  <a href="#export">8. Export &amp; Rendering</a>
-  <a href="#functional-tests">9. Functional Test Cases</a>
-  <a href="#integration-tests">10. Integration Test Cases</a>
-  <a href="#uat">11. UAT Scenarios</a>
-  <a href="#known-issues">12. Known Issues &amp; Unfinished Work</a>
-  <a href="#nonfunctional">13. Non-Functional Requirements</a>
-  <a href="#components">14. Component Inventory</a>
+  <strong style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--nxt-muted); column-span: all; display: block; margin-bottom: 8px;">Table of Contents</strong>
+  <a href="#what">1. What Humans in Control does</a>
+  <a href="#quickstart">2. Operator quickstart</a>
+  <a href="#architecture">3. System architecture</a>
+  <a href="#state-machine">4. App state machine</a>
+  <a href="#data-fabric">5. The research data fabric</a>
+  <a href="#institutions">6. Institution-aware collection</a>
+  <a href="#analyst-desk">7. The Analyst Desk</a>
+  <a href="#inference">8. Inference affordances</a>
+  <a href="#chat-workbench">9. Chat workbench &amp; corpus Q&amp;A</a>
+  <a href="#deliverables">10. Deliverables</a>
+  <a href="#skills">11. Agent skill manifest</a>
+  <a href="#wiki">12. Wiki knowledge base</a>
+  <a href="#models">13. Model routing</a>
+  <a href="#proxy">14. Python proxy &amp; services</a>
+  <a href="#export">15. Export</a>
+  <a href="#brand">16. NXT brand system</a>
+  <a href="#ops">17. Operations &amp; troubleshooting</a>
+  <a href="#glossary">18. Glossary</a>
 </div>
 
-<!-- ============================================================ -->
-<h2 id="architecture">1. System Architecture</h2>
+<h2 id="what">1. What Humans in Control does</h2>
 
-<h3>Technology Stack</h3>
+<p>Humans in Control (HiC) is designed for a specific operator: a strategist or consultant who needs to go from a research brief to a defensible, evidence-cited deliverable in hours instead of weeks. It treats collection as a <strong>data fabric problem</strong> (not a search problem), treats synthesis as a <strong>multi-model agentic problem</strong> (not a single-prompt problem), and treats the final artifact as a <strong>knowledge graph</strong> that the user can navigate, not a static document.</p>
+
+<div class="status-card cyan">
+<strong>Core claim.</strong> Every output element &mdash; themes, personas, barriers, recommendations &mdash; is traceable back to a named source, a tier, and a verbatim quote. The wiki/synthesis engine enforces this at generation time, and the validation layer rejects outputs dominated by any single source or uploaded document.
+</div>
+
+<h3>Three modes</h3>
 <table>
-  <tr><th>Layer</th><th>Technology</th><th>Version</th></tr>
-  <tr><td>Frontend</td><td>React + TypeScript + Vite</td><td>React 19.2, Vite 6.2, TS 5.8</td></tr>
-  <tr><td>Styling</td><td>Tailwind CSS + Inline Styles</td><td>Tailwind 3.4</td></tr>
-  <tr><td>AI Primary</td><td>Google Gemini (gemini-2.5-flash)</td><td>@google/genai 1.49</td></tr>
-  <tr><td>AI Secondary</td><td>Claude (claude-sonnet-4-6), OpenAI (gpt-5.4-mini)</td><td>Via proxy</td></tr>
-  <tr><td>Image Gen</td><td>Imagen 4 (via Gemini)</td><td>gemini-2.5-flash-image</td></tr>
-  <tr><td>Video Gen</td><td>VEO 3.1 (via Gemini)</td><td>veo-3.1-generate</td></tr>
-  <tr><td>Proxy</td><td>Python CORS proxy</td><td>Port 5012</td></tr>
-  <tr><td>Export</td><td>PptxGenJS, html2canvas, jsPDF</td><td>3.12, 1.4.1, 2.5.1</td></tr>
-  <tr><td>Graph</td><td>D3.js (force-directed)</td><td>v7+</td></tr>
-  <tr><td>Animations</td><td>Framer Motion</td><td>11.0</td></tr>
-  <tr><td>Container</td><td>Docker (multi-stage Node build)</td><td>Port 5011</td></tr>
+  <thead><tr><th>Mode</th><th>Trigger</th><th>Experience</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Research</strong></td><td>Upload brief + collect data</td><td>Full pipeline: data fabric, themes, personas, journeys, recommendations, optional deck</td></tr>
+    <tr><td><strong>UX Evaluation</strong></td><td>Heuristic Brief Intake</td><td>8-dimension heuristic audit across usability, conversational AI, agentic commerce, social, geo, trust, accessibility, visual design</td></tr>
+    <tr><td><strong>Chat to Data</strong></td><td>Post-collection, any time</td><td>Multi-turn Q&amp;A over the corpus + all generated deliverables, with live citations</td></tr>
+  </tbody>
 </table>
 
-<h3>Data Flow</h3>
-<pre>
-User Uploads + Research Goal
-       |
-  Data Collection (100+ sources via proxy:5012)
-       |
-  Source Curation (include/exclude/priority toggles)
-       |
-  Filtered Corpus (base64 text file)
-       |
-  Gemini Chat Session (ingestion -> themes -> personas -> ...)
-       |
-  10 Deliverables (each with citations[] + evidenceBasis)
-       |
-  Strategic Report (full whitepaper from all deliverables + raw sources)
-       |
-  Strategy Deck (content blocks -> layout resolver -> adaptive renderer)
-       |
-  Export (PDF, PPTX, HTML, JSON, CSV)
-</pre>
+<h2 id="quickstart">2. Operator quickstart</h2>
 
-<!-- ============================================================ -->
-<h2 id="pipeline">2. Pipeline Flow &amp; Stages</h2>
-
-<table>
-  <tr><th>#</th><th>Stage</th><th>Checkpoint?</th><th>Generates</th><th>Key File</th></tr>
-  <tr><td>0</td><td>Configuration</td><td>No</td><td>Research goal, output selection, file uploads, data source toggles</td><td>App.tsx</td></tr>
-  <tr><td>1</td><td>Data Collection</td><td>No (live feed)</td><td>liveSourceResults[] (100-1500 items from 15-25 sources)</td><td>researchFabricOrchestrator.ts, dataSourceConnectors.ts</td></tr>
-  <tr><td>2</td><td>Source Curation</td><td>Inline</td><td>excludedSources Set, prioritySources Set</td><td>App.tsx (SOURCE DETAIL panel)</td></tr>
-  <tr><td>3</td><td>Ingestion</td><td>Yes</td><td>Confidence score, summary, key stakeholders, data types</td><td>geminiService.ts: ingestContext()</td></tr>
-  <tr><td>4</td><td>Themes</td><td>Yes</td><td>12-25 themes with citations[], isCrossDocument, status</td><td>geminiService.ts: generateThemes()</td></tr>
-  <tr><td>5</td><td>Personas</td><td>Yes</td><td>3-8 personas with evidence arrays (motivations, painPoints, opportunities)</td><td>geminiService.ts: generatePersonas()</td></tr>
-  <tr><td>6a</td><td>Journey Map</td><td>Yes</td><td>5-8 service blueprint stages with citations[], evidenceBasis</td><td>geminiService.ts: generateJourneyMap()</td></tr>
-  <tr><td>6b</td><td>Tech Architecture</td><td>Yes</td><td>Nodes, flows, 10 sections with citations per node</td><td>geminiService.ts: generateTechArchitecture()</td></tr>
-  <tr><td>6c</td><td>PRD</td><td>Yes</td><td>16 sections + features with citations[], evidenceBasis per feature</td><td>geminiService.ts: generatePRD()</td></tr>
-  <tr><td>6d</td><td>Roadmap</td><td>Yes</td><td>NOW/NEXT/LATER items with citations[], evidenceBasis</td><td>geminiService.ts: generateRoadmap()</td></tr>
-  <tr><td>6e</td><td>Recommendations</td><td>Yes</td><td>Strategic recs with citations[], evidenceBasis + 15-section strategy doc</td><td>geminiService.ts: generateRecommendations()</td></tr>
-  <tr><td>6f</td><td>Gap Analysis</td><td>Yes</td><td>Capability gaps with citations[], evidenceBasis + risk register</td><td>geminiService.ts: generateGapAnalysis()</td></tr>
-  <tr><td>6g</td><td>Tech Audit</td><td>Yes</td><td>Systems inventory + integration map with citations[], evidenceBasis</td><td>geminiService.ts: generateTechAudit()</td></tr>
-  <tr><td>6h</td><td>Competitive</td><td>Yes</td><td>Peers, maturity matrix, gap summary with citations[], evidenceBasis</td><td>geminiService.ts: generateCompetitiveAnalysis()</td></tr>
-  <tr><td>7</td><td>Strategic Report</td><td>Yes (editable)</td><td>12-18 section whitepaper with keyMetrics, keyQuote, citations per section</td><td>geminiService.ts: generateStrategicReport()</td></tr>
-  <tr><td>8</td><td>Deck Structure</td><td>Yes</td><td>15-30 slide outlines with sourceDeliverable, personaRef</td><td>geminiService.ts: generateDeckStructure()</td></tr>
-  <tr><td>9</td><td>Deck Narrative</td><td>Yes</td><td>Content blocks per slide -> resolveLayout() -> Slide objects</td><td>geminiService.ts: generateNarrative(), layoutResolver.ts</td></tr>
-  <tr><td>10</td><td>Final Visualization</td><td>Yes</td><td>Persona images injected, post-processing, slop correction</td><td>geminiService.ts: visualizeNarrative()</td></tr>
-</table>
-
-<!-- ============================================================ -->
-<h2 id="deliverables">3. Deliverable Specifications</h2>
-
-<h3>Evidence Fields Per Deliverable</h3>
-<table>
-  <tr><th>Deliverable</th><th>Type</th><th>citations[] in Type?</th><th>Schema Requires?</th><th>Rendering Shows?</th></tr>
-  <tr><td>Themes</td><td>Theme</td><td><span class="badge badge-pass">Full Citation[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">Full display</span></td></tr>
-  <tr><td>Personas</td><td>Persona</td><td><span class="badge badge-pass">EvidenceItem[]</span></td><td><span class="badge badge-pass">Required (quote+source)</span></td><td><span class="badge badge-pass">Full display</span></td></tr>
-  <tr><td>Journey Map</td><td>ServiceBlueprintStage</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Recommendations</td><td>StrategicRecommendation</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>PRD</td><td>PRDFeature</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Roadmap</td><td>RoadmapItem</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Gap Analysis</td><td>GapItem</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Tech Audit</td><td>SystemRecord</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Competitive</td><td>CompetitorProfile</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-  <tr><td>Tech Architecture</td><td>TechnicalArchitecture</td><td><span class="badge badge-pass">citations[]</span></td><td><span class="badge badge-pass">Required (per node)</span></td><td><span class="badge badge-pass">EvidenceBlock</span></td></tr>
-</table>
-
-<!-- ============================================================ -->
-<h2 id="curation">4. Source Curation System</h2>
-
-<h3>Architecture</h3>
-<p>The curation system implements the "Humans in Control" principle: users control which evidence reaches every deliverable.</p>
-
-<h4>State Management</h4>
-<ul>
-  <li><code>excludedSources: Set&lt;string&gt;</code> — Keys: <code>"sourceId::articleIndex"</code> or <code>"kg::nodeId"</code></li>
-  <li><code>prioritySources: Set&lt;string&gt;</code> — Same key format, marks articles for mandatory citation</li>
-  <li>Default state: ALL articles INCLUDED (only excluded items tracked)</li>
-</ul>
-
-<h4>Filtering Pipeline</h4>
 <ol>
-  <li><strong>At Ingestion</strong>: Corpus text filtered by excludedSources before <code>ingestContext()</code> — excluded articles never reach the Gemini chat session</li>
-  <li><strong>At Report</strong>: <code>liveSourceResults</code> filtered into <code>curatedSources</code> before <code>generateStrategicReport()</code></li>
-  <li><strong>Evidence Catalog</strong>: ALL included articles injected (no per-source caps). Priority articles sort first.</li>
-  <li><strong>KG Exclusion</strong>: <code>kg::nodeId</code> keys matched via full title + 40-char prefix (dual strategy)</li>
+  <li><strong>Enter a research goal.</strong> Be specific about the institution, outcome, and audience. The Brief Parser reads it, extracts named entities, and seeds query refinement.</li>
+  <li><strong>Upload source documents.</strong> PDFs, plain text, CSV, JSON. These become <em>client context</em> &mdash; they shape personas and organizational framing but never dominate the citation base.</li>
+  <li><strong>Select data sources.</strong> Toggle categories (Higher-Ed News, Academic Literature, Reddit Communities, Philanthropy, etc.). Defaults are picked by Analytical Lens (general_cx, fundraising, student_learner, digital_product, enterprise_tech, custom).</li>
+  <li><strong>Click <em>Collect Data</em>.</strong> The data fabric fans out, refines per-source queries, scores relevance across all 313 connectors, and runs tri-model parallel analysis (Gemini + Claude + OpenAI) on the top-ranked items.</li>
+  <li><strong>Land in the Analyst Desk.</strong> Themes auto-populate as a treemap. Personas, barriers, recommendations, and journeys fill in progressively &mdash; the top status strip shows which stage is actively inferring.</li>
+  <li><strong>Inspect with breadcrumbs.</strong> Click any theme tile to see its cited evidence, linked sources, personas, and recommendations. Click a source chip to <strong>reverse-pivot</strong> the treemap &mdash; seeing only themes that source drives.</li>
+  <li><strong>Refine via Chat to Data.</strong> Ask follow-ups. Every answer is grounded in corpus text with inline citations.</li>
+  <li><strong>Export.</strong> PPTX deck, PDF, or pin individual outputs to the Output Board.</li>
 </ol>
 
-<h4>Priority Citation Enforcement</h4>
+<h2 id="architecture">3. System architecture</h2>
+
+<div class="diagram">Browser (React 19 / TypeScript / Vite 6)
+  │
+  ├── AppState machine: IDLE → ANALYZING → WORKBENCH → SUCCESS
+  │
+  ├── Services (27 modules, ~14K lines)
+  │   • researchFabricOrchestrator  — collection + corpus assembly
+  │   • dataSourceConnectors         — 313-source registry
+  │   • aiRouter + geminiService + anthropicService + openaiService
+  │   • knowledgeGraphBuilder        — sources → themes → personas → recs
+  │   • corpusChatService            — multi-turn Q&A over corpus
+  │   • wikiService + wikiNarrator   — project memory + quality narratives
+  │   • institutionManifest + institutionEntityExtractor
+  │   • slidePostProcessor + exportService
+  │
+  ├── Components (21 files)
+  │   • AnalystDeskKnowledgeGraph  ← PRIMARY KG VIEW
+  │   • ResearchKnowledgeGraph     ← classic radial (toggle)
+  │   • ChatWorkbench / CorpusChatPanel
+  │   • AnalysisCheckpoint / LiveSourceFeed / FileUpload
+  │   • ResultsView / HeuristicReportView / OutputBoard
+  │   • SlideCanvas (+ 12 block types)
+  │
+  ▼
+Python FastAPI proxy (localhost:5012)
+  │
+  ├── /api/sources            — 313 registered connectors
+  ├── /api/search/{id}        — single-source query
+  ├── /api/multi-search       — parallel collection
+  ├── /api/extract-content    — Jina Reader fallback
+  ├── /api/extract-pdf        — pypdf / pdfplumber
+  ├── /api/transcribe-youtube — yt-dlp → ffmpeg chunks → Whisper
+  ├── /api/scheduler/*        — background YouTube channel polling
+  ├── /api/ai/{anthropic,openai,gemini}
+  ├── /api/wiki/*             — read/write project memory
+  │
+  ▼
+hic-workspace/
+  ├── wiki/                    74 markdown knowledge pages
+  ├── skill-manifest.json      17 agent skills
+  ├── institution-manifest.json 30 higher-ed institutions
+  ├── youtube-channels.json    100 channels with ETag polling state
+  ├── scheduler-state.json     runtime state
+  └── sources/                 uploaded document archive</div>
+
+<h3>Service ports (Docker Compose)</h3>
+<table>
+  <thead><tr><th>Service</th><th>Container</th><th>Port</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td>Research Generator</td><td><code>hic-research</code></td><td>5011</td><td>Nginx serving the built React bundle</td></tr>
+    <tr><td>Research Proxy</td><td><code>research-proxy</code></td><td>5012</td><td>FastAPI: data connectors, AI proxying, wiki I/O</td></tr>
+  </tbody>
+</table>
+
+<h2 id="state-machine">4. App state machine</h2>
+
+<p>The top-level UI is a state machine with four render branches. <code>AppState</code> is defined in <code>types.ts</code>.</p>
+
+<table>
+  <thead><tr><th>AppState</th><th>What the user sees</th></tr></thead>
+  <tbody>
+    <tr><td><code>IDLE</code></td><td>Brief intake, file upload, source selector, analytical lens picker, project loader</td></tr>
+    <tr><td><code>ANALYZING</code></td><td>Live Research Board: streaming source feed, collection phase indicator, running narrative events, the Analyst Desk or classic radial KG, and checkpoint modals (Analysis Checkpoint) for each human-in-the-loop stage</td></tr>
+    <tr><td><code>WORKBENCH</code></td><td>Chat Workbench: free-form multi-turn Q&amp;A over the corpus, with knowledge graph side panel and output pinning</td></tr>
+    <tr><td><code>SUCCESS</code></td><td>Results View (research) or Heuristic Report View (UX evaluation). Corpus Chat Panel toggle available.</td></tr>
+  </tbody>
+</table>
+
+<h3>Analysis stages inside <code>ANALYZING</code></h3>
+<p>Each stage corresponds to a deliverable type and gates on human approval or edit:</p>
 <ul>
-  <li>Priority articles marked with <code>*** PRIORITY CITATION ***</code> in evidence catalog</li>
-  <li>Report prompt mandates: "You MUST cite EVERY priority-flagged article by name"</li>
-  <li>No post-generation validation that priority articles were actually cited (see Known Issues)</li>
+  <li><code>DATA_REVIEW</code> &mdash; approve / exclude sources before ingestion</li>
+  <li><code>INGESTION</code> &mdash; context check (data types, key stakeholders)</li>
+  <li><code>THEMES</code> &mdash; cross-document theme verification</li>
+  <li><code>PERSONAS</code> &mdash; Cooper 3-tier goals + JTBD framework</li>
+  <li><code>JOURNEY_MAP</code>, <code>PRD</code>, <code>ROADMAP</code>, <code>TECH_ARCH</code>, <code>RECOMMENDATIONS</code>, <code>GAP_ANALYSIS</code>, <code>TECH_AUDIT_STAGE</code>, <code>COMPETITIVE_ANALYSIS</code> &mdash; dynamic branches per selected outputs</li>
+  <li><code>STRATEGIC_REPORT</code> &mdash; McKinsey-format synthesis across all selected deliverables</li>
+  <li><code>DECK_STRUCTURE</code> / <code>NARRATIVE</code> / <code>FINAL</code> &mdash; deck outline, copy + speaker notes, visual generation</li>
 </ul>
 
-<!-- ============================================================ -->
-<h2 id="evidence">5. Evidence &amp; Citation Pipeline</h2>
+<h2 id="data-fabric">5. The research data fabric</h2>
 
-<h3>Evidence Injection into Strategic Report</h3>
+<p>The fabric has four layers. Each layer is a circuit breaker &mdash; a failure at one layer degrades gracefully instead of halting the run.</p>
+
+<div class="diagram">Brief → Query Fabric → Connector Registry → Relevance Scorer → Content Enrichment
+         (Gemini-refined       (313 sources         (multi-model            (Jina Reader / PDF
+          per-source queries)   in 26 categories)   AI ranking)             / known full-text
+                                                                            fast path)</div>
+
+<h3>Source registry (live from <code>/api/sources</code>, 2026-04-20)</h3>
+
 <table>
-  <tr><th>Aspect</th><th>Implementation</th></tr>
-  <tr><td>Articles per source</td><td>ALL included articles (no cap). Previously limited to 10-15.</td></tr>
-  <tr><td>Content depth</td><td>T1 Academic: 2000 chars, T2 News: 1500 chars, T3 Social: 3000 chars</td></tr>
-  <tr><td>Sort order</td><td>Priority articles FIRST, then by relevance score descending</td></tr>
-  <tr><td>Citation resolution</td><td>[CHUNK_XXX] resolved to "SourceName: ArticleTitle" via chunk map</td></tr>
-  <tr><td>Minimum sources</td><td>Prompt mandates 20+ distinct named sources per report</td></tr>
+  <thead><tr><th>Category</th><th>Count</th><th>Representative sources</th></tr></thead>
+  <tbody>
+    <tr><td>University Advancement</td><td>44</td><td>Harvard Gazette, Yale News, Princeton, NC State, Penn State, UT Austin, Clemson, ASU (+36 others)</td></tr>
+    <tr><td>AI Lab Blogs</td><td>27</td><td>OpenAI, DeepMind, Anthropic, Meta AI, Google AI, HuggingFace, Mistral, Cohere, Allen AI, Apple ML</td></tr>
+    <tr><td>Reddit Communities</td><td>26</td><td>r/AskAcademia, r/Professors, r/Bogleheads, r/ChubbyFIRE, r/EstatePlanning, r/Harvard, r/berkeley</td></tr>
+    <tr><td>AI News</td><td>25</td><td>MIT Tech Review, IEEE Spectrum, VentureBeat, TechCrunch, Ars Technica, Synced Review</td></tr>
+    <tr><td>Trade Press &amp; Think Tanks</td><td>24</td><td>SSIR, Bridgespan, Candid, Bloomerang, Classy, Virtuous, Qgiv, OneCause, Philanthropy Daily, CEP</td></tr>
+    <tr><td>Government Data</td><td>23</td><td>College Scorecard, IRS 990 bulk, ProPublica Nonprofit Explorer, NSF HERD, NACUBO, Giving USA, SHEF</td></tr>
+    <tr><td>Alumni Engagement</td><td>15</td><td>Hivebrite, PeopleGrove, Mentor Collective, ThankView, GivingTuesday, 5 fundraising podcasts</td></tr>
+    <tr><td>Higher-Ed News</td><td>13</td><td>Higher Ed Dive, Inside Higher Ed, EdSurge, Hechinger, Campus Technology</td></tr>
+    <tr><td>AI Models &amp; Datasets</td><td>13</td><td>HuggingFace models / datasets, DataCite, Zenodo, Kaggle, OpenML, Papers with Code</td></tr>
+    <tr><td>AI Conferences</td><td>12</td><td>NeurIPS, ICML, ICLR, CVPR, ACL, EMNLP, KDD, AAAI, IJCAI, PMLR</td></tr>
+    <tr><td>Open Data Portals</td><td>11</td><td>Data.gov, Data.gov.uk, Data.gov.au, open.canada.ca, NYC, Chicago, SF, LA, Texas, EU Data Portal</td></tr>
+    <tr><td>AI Research</td><td>10</td><td>OpenAI Research, Anthropic Research, Google Research, NVIDIA, Adobe, Qualcomm, Intel</td></tr>
+    <tr><td>AI Policy &amp; Ethics</td><td>10</td><td>Stanford HAI, OECD AI, EFF, Ada Lovelace Institute, AI Now, CSET Georgetown, Partnership on AI, UNESCO, NIST</td></tr>
+    <tr><td>Academic Literature</td><td>8</td><td>OpenAlex, Semantic Scholar, Crossref, DOAJ, Europe PMC, CORE</td></tr>
+    <tr><td>Video / AI Communities / Advancement</td><td>29 combined</td><td>YouTube transcription, arXiv Sanity, Hugging Face forums, PyTorch forums, advancement research pages</td></tr>
+    <tr><td>Economic / Philanthropy / Education</td><td>21 combined</td><td>FRED, BLS, World Bank, IMF, OECD, Every.org, CRA T3010, ACNC, IRS 990 bulk, Urban Education Data</td></tr>
+    <tr><td>Archival / Web Intelligence / News</td><td>5 combined</td><td>Wayback Machine (availability + CDX), Jina Reader, GDELT</td></tr>
+  </tbody>
 </table>
 
-<h3>Deterministic Slide Enrichment</h3>
-<p>After AI generates content blocks and layout resolution runs, a deterministic enrichment step injects report data directly into slides:</p>
+<h3>Connector types</h3>
+<p>Eight dispatch types are resolved by the proxy based on the source record:</p>
+<ol>
+  <li><strong>REST</strong> &mdash; JSON APIs (OpenAlex, Crossref, GitHub, ProPublica, College Scorecard, Federal Register, SEC EDGAR, Every.org, CRA T3010)</li>
+  <li><strong>RSS / Atom</strong> &mdash; news, university newsrooms, AI blogs, Reddit <code>.rss</code>, podcasts</li>
+  <li><strong>CKAN Action API</strong> &mdash; open data catalogs</li>
+  <li><strong>Socrata SODA</strong> &mdash; municipal portals (NYC, Chicago, SF, LA, Texas)</li>
+  <li><strong>arXiv Atom</strong> &mdash; category-prefixed search across CS.AI, CS.LG, CS.CL, CS.CV, CS.RO, CS.IR, CS.HC, stat.ML</li>
+  <li><strong>Jina Reader</strong> &mdash; generic web content extraction, used as enrichment fallback</li>
+  <li><strong>Web search</strong> &mdash; Google site-filter via news RSS (used when direct connectors are blocked)</li>
+  <li><strong>YouTube transcription</strong> &mdash; yt-dlp audio download → ffmpeg 30-min chunks → Whisper batch</li>
+</ol>
+
+<h3>Query refinement (Option B)</h3>
+<p>Rather than running the raw research goal literally against each source, the fabric uses Gemini to produce <strong>per-source refined queries</strong>. Example: for Reddit subreddit <code>r/bogleheads</code>, the refined query might be <em>"QCD university endowment bequest"</em> instead of the literal subreddit name. This was introduced after observing that naive literal queries produced Reddit results like searching <em>"neu"</em> inside r/NEU.</p>
+
+<h3>Content enrichment fast-path</h3>
+<p>Top-ranked items are enriched with full text via Jina Reader. URLs matching known full-text patterns (DOI, PMC, arXiv, ProPublica nonprofit profiles) bypass the length gate and are fetched directly. The enrichment summary reports both items-fetched and items-passing-quality-gate; a low pass-rate indicates a connector returning RSS blurbs rather than articles.</p>
+
+<h2 id="institutions">6. Institution-aware collection</h2>
+
+<p>When the research brief names one or more of the 30 manifest institutions, the fabric automatically prepends a bounded set of <strong>Tier 0 sources</strong> &mdash; first-party URLs that belong to those institutions.</p>
+
+<h3>Institution manifest</h3>
+<p>Each of 30 institutions in <code>hic-workspace/institution-manifest.json</code> carries:</p>
 <ul>
-  <li>Empty metrics[] &rarr; filled from report section keyMetrics</li>
-  <li>Empty quote &rarr; filled from report section keyQuote</li>
-  <li>Empty sources[] &rarr; filled from report section citations</li>
-  <li>Short content labels (&lt;40 chars) &rarr; replaced with report section evidence sentences</li>
+  <li>Polymorphic identifiers: US 501(c)(3) EIN, CRA T3010 (Canadian), state instrumentality, IPEDS UNITID</li>
+  <li>Campaign microsite URLs, 990 aggregator pages, financial report pages, newsroom URLs</li>
+  <li>Primary &amp; fallback YouTube RSS feeds (channel_id + uploads-playlist UU-transform)</li>
+  <li>Key people (president, CAO, CFO) when publicly disclosed</li>
+  <li>Peer group assignments across 9 groups: Ivy, Ivy+, Ivy Extended, private high-tier, Boston private, LA tech, public flagship, R1 STEM, custom</li>
 </ul>
 
-<!-- ============================================================ -->
-<h2 id="deck">6. Strategy Deck Pipeline</h2>
+<h3>Tier 0 prepend (capacity-bounded)</h3>
+<p>The extractor (<code>services/institutionEntityExtractor.ts</code>) uses 4-tier fuzzy matching with word-boundary gates for short aliases (so "BU" does not match inside "ABOUT"). It returns the best-confidence institutions, capped at <code>MAX_INSTITUTIONS = 4</code>, then builds a prioritized URL set capped at <code>MAX_TIER0_URLS = 12</code>:</p>
 
-<h3>Content-Block Architecture</h3>
-<p>The AI declares WHAT to communicate using 12 content block types. The layout resolver determines HOW to present it.</p>
-
-<h4>12 Content Block Types</h4>
 <table>
-  <tr><th>Block Type</th><th>Purpose</th><th>Maps To</th></tr>
-  <tr><td>hero_stat</td><td>Headline number</td><td>metrics[]</td></tr>
-  <tr><td>evidence_bullets</td><td>Research findings with sources</td><td>content[]</td></tr>
-  <tr><td>metric_cards</td><td>KPI data points</td><td>metrics[]</td></tr>
-  <tr><td>quote_block</td><td>Verbatim quote with provenance</td><td>quote + sources[]</td></tr>
-  <tr><td>persona_card</td><td>Persona reference (image auto-injected)</td><td>personaName/Role/Quote</td></tr>
-  <tr><td>problem_statement</td><td>Challenge with evidence</td><td>problemStat</td></tr>
-  <tr><td>solution_points</td><td>Actionable solutions</td><td>solutionPoints[]</td></tr>
-  <tr><td>data_grid</td><td>Mixed data for bento layout</td><td>bentoCells[]</td></tr>
-  <tr><td>journey_strip</td><td>Service blueprint stage</td><td>content[]</td></tr>
-  <tr><td>comparison_row</td><td>Gap/competitive comparison</td><td>bentoCells[]</td></tr>
-  <tr><td>narrative_text</td><td>Analytical prose</td><td>narrative</td></tr>
-  <tr><td>section_label</td><td>Section divider</td><td>(SECTION_HEADER layout)</td></tr>
+  <thead><tr><th>Priority</th><th>Source kind</th><th>Rationale</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>990 / T3010 filings</td><td>Dense financial data, ProPublica &amp; CRA-parsed</td></tr>
+    <tr><td>2</td><td>Filing aggregator (Charity Intelligence, etc.)</td><td>Pre-processed historical data</td></tr>
+    <tr><td>3</td><td>Financial report landing page</td><td>Often hosts PDF audited statements</td></tr>
+    <tr><td>4</td><td>Campaign microsite</td><td>Strategic narrative</td></tr>
+    <tr><td>5</td><td>Alumni content (HTML magazine)</td><td>Donor &amp; program coverage</td></tr>
+    <tr><td>6</td><td>Newsroom (HTML, no RSS)</td><td>Operational updates</td></tr>
+    <tr><td>7&ndash;8</td><td>Giving / president-office pages</td><td>Often marketing boilerplate</td></tr>
+  </tbody>
 </table>
 
-<h4>Adaptive Slide Renderer</h4>
-<p>Body slides use ONE adaptive renderer (not rigid archetype templates). The renderer shows whatever content exists:</p>
+<p>RSS feeds (newsroom, alumni, YouTube) are <strong>excluded</strong> from the Tier 0 URL set because Jina Reader cannot extract readable prose from RSS. Those feeds are polled separately by the scheduler.</p>
+
+<h3>YouTube scheduler</h3>
+<p><code>youtube-channels.json</code> holds 100 resolved UC-IDs with primary + fallback RSS feeds. The <code>/api/scheduler/poll-youtube-channels</code> endpoint is ETag-aware, persists state atomically to <code>scheduler-state.json</code>, and transcribes new videos via yt-dlp + ffmpeg + OpenAI Whisper when their metadata matches fundraising / advancement keywords.</p>
+
+<h2 id="analyst-desk">7. The Analyst Desk</h2>
+
+<p>The Analyst Desk is the primary knowledge graph view &mdash; a Newsmap-inspired treemap dashboard. Dark mode is the newsmap aesthetic; Light mode is a stark, typographic variant. Toggle between them at the top of the desk.</p>
+
+<h3>Layout</h3>
+<div class="diagram">┌─────────────────────────────────────────────────────────────────┐
+│ STATUS STRIP  (pulsing dot + stage label + live narrative event)  │  ← only when inferring
+├─────────────────────────────────────────────────────────────────┤
+│ BREADCRUMB ›  Theme › Source › Evidence                [DESK|RADIAL] [DARK|LIGHT] [EXPAND]│
+├─────────────────────────────────────────────────────────────────┤
+│  18 │  6 │  99 │ 572 │ 10 │  0 │  0                              │  ← metric tiles
+│THEMES│PERS│ SRC │ EV │RECS│BARS│JRN                              │     (active tile pulses,
+├─────────────────────────────────────────────────────────────────┤     click to filter)
+│                                      │                          │
+│     THEME TREEMAP                    │    DETAIL PANEL         │
+│    (tile area = evidence count)      │    • cited quote        │
+│    • darker tone = thin theme        │    • evidence list      │
+│    • rust = concentration risk       │      with link-outs ↗    │
+│    • selected tile inverts           │    • source chips        │
+│                                      │      (click to pivot)   │
+│                                      │    • persona portraits  │
+│                                      │    • recs + barriers    │
+├─────────────────────────────────────────────────────────────────┤
+│ LINKAGE STRIP   [portraits]  [barriers]  [journeys]  [recs]      │
+└─────────────────────────────────────────────────────────────────┘</div>
+
+<h3>Interactions</h3>
 <ul>
-  <li>Left side: title, evidence points, problem stat, solution points, quote, persona card</li>
-  <li>Right data panel: only appears IF metrics, bento cells, or right-side quote exist</li>
-  <li>Full-width when no data panel data exists</li>
+  <li><strong>Click a theme tile</strong> → detail panel fills with quotes, evidence link-outs, linked personas, and recommendations. Breadcrumb updates.</li>
+  <li><strong>Click a source chip</strong> → reverse-pivot the treemap. Only themes that source drives stay opaque; others dim. Active pivot is shown in the breadcrumb row with a <em>clear</em> button.</li>
+  <li><strong>Click a metric tile</strong> → filter the main area to show all nodes of that type (personas as portrait grid, sources as tier-sorted cards, etc.).</li>
+  <li><strong>Click a linkage strip chip</strong> → jump to that node; 2-hop dim shows related nodes.</li>
+  <li><strong>Click evidence link ↗</strong> → open the source URL in a new tab.</li>
+  <li><strong>× on a source chip</strong> → exclude that source from future analysis (persisted in <code>excludedSources</code> Set).</li>
 </ul>
 
-<h3>Post-Processing Pipeline</h3>
+<h3>Themed variants</h3>
 <table>
-  <tr><th>Step</th><th>Function</th><th>Auto-Corrects?</th></tr>
-  <tr><td>Markdown stripping</td><td>stripSlideMarkdown()</td><td>Yes</td></tr>
-  <tr><td>Citation resolution</td><td>resolveCitations()</td><td>Yes</td></tr>
-  <tr><td>CHUNK sweep</td><td>Regex removal</td><td>Yes</td></tr>
-  <tr><td>Meta-narration</td><td>removeMetaNarration() (19 patterns)</td><td>Yes</td></tr>
-  <tr><td>Placeholder resolution</td><td>resolvePlaceholders()</td><td>Yes</td></tr>
-  <tr><td>SaaS CTA detection</td><td>detectSaasCTAs()</td><td>No (flags only)</td></tr>
-  <tr><td>Topic title check</td><td>isTopicTitle()</td><td>No (flags only)</td></tr>
-  <tr><td>Depth validation</td><td>validateSlideDepth() (3-layer)</td><td>No (flags only)</td></tr>
-  <tr><td>Hallucination guard</td><td>Fabricated stat detection</td><td>No (flags only)</td></tr>
-  <tr><td>Visual prompt sanitization</td><td>sanitizeVisualPrompt()</td><td>Yes</td></tr>
-  <tr><td>Slop correction</td><td>350+ banned phrases</td><td>Yes (removes)</td></tr>
-  <tr><td>Content budgets</td><td>enforceContentBudgets()</td><td>Yes (truncates at sentence boundary)</td></tr>
+  <thead><tr><th>Theme</th><th>Base</th><th>Accent</th><th>Selection</th><th>Typography feel</th></tr></thead>
+  <tbody>
+    <tr><td>Dark (default)</td><td><code>#0D0D0D</code></td><td><code>#B8B800</code> chartreuse</td><td>Black tile with chartreuse ink</td><td>Chartreuse-on-black newsmap</td></tr>
+    <tr><td>Light</td><td><code>#FFFFFF</code></td><td><code>#9A9A00</code> shifted dark</td><td>Deep black tile with <code>#CACA20</code> ink</td><td>Stark white, high-contrast, typographic</td></tr>
+  </tbody>
 </table>
 
-<h4>Content Budget Limits</h4>
+<p>Persona portraits are retained in both themes with an editorial grayscale pass (<code>filter: grayscale contrast brightness</code>). Theme choice persists in <code>localStorage('kg_theme')</code>.</p>
+
+<h3>Responsive sizing</h3>
+<p>Default height is <code>min(88vh, 1100px)</code> with a 640px floor. The EXPAND button switches to <code>100dvh</code> (dynamic viewport height, so it respects mobile browser chrome). The <code>height</code> prop accepts any CSS length string in addition to pixel numbers. The internal treemap uses a <code>ResizeObserver</code>, so resizing the browser re-tiles in real time.</p>
+
+<h3>Classic radial graph</h3>
+<p>The legacy radial graph (<code>components/ResearchKnowledgeGraph.tsx</code>) is still available via the RADIAL toggle. It uses a 3-zone d3 force simulation (center = themes/personas/recs, ring 1 = sources, ring 2 = evidence). Useful when you want to see the full provenance chain in one gesture.</p>
+
+<h2 id="inference">8. Inference affordances</h2>
+
+<p>The pipeline runs many stages asynchronously after data collection. The Analyst Desk surfaces what's happening at any moment through five coordinated affordances:</p>
+
 <table>
-  <tr><th>Field</th><th>Max Chars</th><th>Truncation</th></tr>
-  <tr><td>title</td><td>120</td><td>Sentence boundary</td></tr>
-  <tr><td>content[i]</td><td>200</td><td>Sentence boundary</td></tr>
-  <tr><td>quote</td><td>250</td><td>Sentence boundary</td></tr>
-  <tr><td>narrative</td><td>400</td><td>Sentence boundary</td></tr>
-  <tr><td>speakerNotes</td><td>600</td><td>Sentence boundary</td></tr>
-  <tr><td>bentoCells[i].text</td><td>100</td><td>Sentence boundary</td></tr>
-  <tr><td>solutionPoints[i].desc</td><td>150</td><td>Sentence boundary</td></tr>
+  <thead><tr><th>Affordance</th><th>Where</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>Top status strip</td><td>Above metric tiles, only when running</td><td>Pulsing dot + stage label ("Synthesizing personas") + live narrative event + animated marching-dash stripe</td></tr>
+    <tr><td>Pulsing metric tile</td><td>Tile matching the active stage</td><td>Animated border, <code>INFERRING</code> micro-label, count becomes <code>…</code> when zero</td></tr>
+    <tr><td>Skeleton treemap</td><td>When themes are empty and themes stage is active</td><td>12 shimmering placeholder tiles with staggered animation delays</td></tr>
+    <tr><td>Filter empty state</td><td>When type filter hits a zero count</td><td>Live-pulsing dot + <em>"Inferring &mdash; results will appear here"</em> while running; static helper text when idle</td></tr>
+    <tr><td>Stage-to-tile map</td><td>Internal routing table</td><td>THEMES→Themes, PERSONAS→Personas, JOURNEY_MAP→Journeys, RECOMMENDATIONS→Recs, GAP_ANALYSIS→Barriers, INGESTION→Evidence, DATA_REVIEW→Sources</td></tr>
+  </tbody>
 </table>
 
-<!-- ============================================================ -->
-<h2 id="wiki">7. Wiki Self-Improvement Engine</h2>
+<p>Downstream stages (PRD, Roadmap, Deck, Narrative, Final) don't drive a specific tile &mdash; they surface only in the top status strip, since they are downstream synthesis products not graph nodes.</p>
 
-<h3>Cross-Session Learning</h3>
+<h2 id="chat-workbench">9. Chat workbench &amp; corpus Q&amp;A</h2>
+
+<p>After data collection completes, the app can enter <code>WORKBENCH</code> mode for free-form interaction with the corpus. The Chat Workbench (and the side-panel variant <code>CorpusChatPanel</code>) offer multi-turn Q&amp;A backed by:</p>
+
 <ul>
-  <li><strong>Edit Capture</strong>: Every user edit logged via <code>logEdit(stage, field, original, edited)</code></li>
-  <li><strong>Pattern Detection</strong>: After 5+ similar edits, constraint auto-approved (e.g., "persona quotes &lt; 200 chars")</li>
-  <li><strong>Constraint Injection</strong>: <code>getActiveConstraints()</code> injected into report + deck generation prompts</li>
-  <li><strong>Wiki Export</strong>: <code>exportConstraintsToWiki()</code> persists to <code>wiki/synthesis/learned-constraints.md</code></li>
-  <li><strong>Engagement Memory</strong>: <code>saveEngagementMemory()</code> caches results per goal slug for cross-session recall</li>
+  <li><strong>Full corpus context</strong> &mdash; all collected source items, relevance-ranked, chunked, with a source provenance map</li>
+  <li><strong>All generated deliverables</strong> &mdash; themes, personas, journeys, recommendations are injected as context for grounded follow-ups</li>
+  <li><strong>Live citation resolution</strong> &mdash; <code>citationResolver.ts</code> ties every response back to specific chunks, producing inline footnotes</li>
+  <li><strong>Skill manifest routing</strong> &mdash; trigger-keyword matching against the 17-skill registry; matching skills inject their framework instructions plus wiki companion pages into the request context</li>
+  <li><strong>Additive graph updates</strong> &mdash; requesting a new persona in chat calls <code>addPersonasToGraph</code>, extending the KG live</li>
 </ul>
 
-<h3>Wiki Integration Points</h3>
+<h3>Supported providers</h3>
 <table>
-  <tr><th>Phase</th><th>Wiki Input</th><th>Wiki Output</th></tr>
-  <tr><td>Pre-Generation</td><td>Frameworks, anti-patterns, benchmarks, evidence, constraints</td><td>&mdash;</td></tr>
-  <tr><td>Report Generation</td><td>Learned constraints + engagement memory</td><td>Report archived</td></tr>
-  <tr><td>Deck Narrative</td><td>Learned constraints + engagement memory</td><td>&mdash;</td></tr>
-  <tr><td>Post-Run</td><td>&mdash;</td><td>Sources, themes, evidence, curation decisions archived</td></tr>
+  <thead><tr><th>Provider</th><th>Model</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td>Anthropic</td><td><code>claude-opus-4-7</code> (1M context)</td><td>Strategic synthesis, long-corpus reasoning, deliverable authoring</td></tr>
+    <tr><td>Google</td><td><code>gemini-2.5-flash</code></td><td>Fast query refinement, relevance scoring, image generation</td></tr>
+    <tr><td>OpenAI</td><td><code>gpt-5.4</code> family</td><td>Structured output, grid matrices, comparison tables (uses <code>max_completion_tokens</code>)</td></tr>
+  </tbody>
 </table>
 
-<!-- ============================================================ -->
-<h2 id="export">8. Export &amp; Rendering</h2>
+<h2 id="deliverables">10. Deliverables</h2>
 
-<h3>Export Formats</h3>
+<p>Ten research deliverable schemas are defined in <code>services/deliverableFrameworks.ts</code>. Each enforces required citations and an evidence basis, and each has a corresponding agent skill (see §11).</p>
+
 <table>
-  <tr><th>Format</th><th>Implementation</th><th>Notes</th></tr>
-  <tr><td>PDF</td><td>html2canvas (scale 1.5) + jsPDF</td><td>JPEG 0.85 for light slides, PNG for dark</td></tr>
-  <tr><td>PPTX</td><td>PptxGenJS with 7 archetype renderers</td><td>16:9, NXT brand colors, footnote strips</td></tr>
-  <tr><td>HTML Report</td><td>exportStrategicReportHTML()</td><td>NXT-branded whitepaper with TOC, citations, metrics</td></tr>
-  <tr><td>JSON</td><td>Full result object (images stripped)</td><td>For data portability</td></tr>
-  <tr><td>CSV</td><td>Per-tab export</td><td>Personas, features, roadmap items, etc.</td></tr>
+  <thead><tr><th>Deliverable</th><th>Schema root</th><th>Framework</th><th>Output element</th></tr></thead>
+  <tbody>
+    <tr><td>Themes</td><td><code>Theme</code></td><td>6-Lens Thematic Analysis</td><td>Treemap tile, <code>Citation[]</code></td></tr>
+    <tr><td>Personas</td><td><code>Persona</code></td><td>JTBD + Cooper Goal Hierarchy</td><td>Portrait card with quote &amp; source</td></tr>
+    <tr><td>Journey Map</td><td><code>ServiceBlueprintStage</code></td><td>Bitner 5-Component Blueprint</td><td>Stage band with emotion + evidence</td></tr>
+    <tr><td>Recommendations</td><td><code>StrategicRecommendation</code></td><td>Rumelt's Kernel + Minto Pyramid</td><td>Action title with measurable outcome</td></tr>
+    <tr><td>PRD</td><td><code>PRDFeature</code></td><td>SVPG / Cagan Framework</td><td>Feature spec with why / what / how</td></tr>
+    <tr><td>Roadmap</td><td><code>RoadmapItem</code></td><td>Now / Next / Later</td><td>Strategic sequence (no Gantt)</td></tr>
+    <tr><td>Gap Analysis</td><td><code>GapItem</code></td><td>Gartner 1-5 Maturity</td><td>Deficiency with target state</td></tr>
+    <tr><td>Tech Audit</td><td><code>SystemRecord</code></td><td>COBIT / TEI</td><td>System inventory with risk rating</td></tr>
+    <tr><td>Competitive Analysis</td><td><code>CompetitorProfile</code></td><td>Porter's Forces / Blue Ocean</td><td>Peer matrix with capability score</td></tr>
+    <tr><td>Tech Architecture</td><td><code>TechnicalArchitecture</code></td><td>C4 Model (Context &amp; Containers)</td><td>10-section node and edge map</td></tr>
+  </tbody>
 </table>
 
-<!-- ============================================================ -->
-<h2 id="functional-tests">9. Functional Test Cases</h2>
+<h3>Citation mandates (enforced at generation time)</h3>
+<div class="status-card rust">
+<strong>Evidence hierarchy.</strong> At least 60% of cited sources in any deliverable must be external (not client uploads). At least 50% of themes must cite external intelligence. If most citations reference the same 4&ndash;5 uploaded PDFs, the validation layer rejects the output. This is a hard gate, not a warning.
+</div>
 
-<h3>TC-001: Research Pipeline — Happy Path</h3>
+<p>Related rules defined in <code>.claude/CLAUDE.md</code> and enforced throughout:</p>
+<ul>
+  <li><strong>No meta-narration.</strong> 19 regex patterns block greetings ("Good morning"), framework announcements ("In this section we will"), and structural narration.</li>
+  <li><strong>No slop phrases.</strong> 350+ banned phrases in 14 categories: corporate clichés ("paradigm shift"), AI slop ("in today's rapidly evolving landscape"), hedge words, false profundity ("unprecedented transformative").</li>
+  <li><strong>Action titles.</strong> Every slide / section title must be a complete sentence with data &mdash; no topic labels.</li>
+  <li><strong>Liberal quoting.</strong> Verbatim quotes with <code>[SOURCE_NAME: "Article Title"]</code> citations, never generic "research shows" framing.</li>
+</ul>
+
+<h2 id="skills">11. Agent skill manifest</h2>
+
+<p><code>hic-workspace/skill-manifest.json</code> lists 17 specialized agent skills. Each skill has trigger keywords, wiki companion pages, preferred model, thinking effort, and execution context (primary vs. subagent).</p>
+
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Enter research goal + upload 2 PDFs</td><td>Goal text captured, files shown in grid</td></tr>
-  <tr><td>2</td><td>Select outputs: Personas, Strategy Deck, Journey Map, Recommendations</td><td>4 checkboxes selected</td></tr>
-  <tr><td>3</td><td>Enable News + Academic sources</td><td>Source toggles green</td></tr>
-  <tr><td>4</td><td>Click "Collect Data &amp; Initialize"</td><td>Live source feed shows collection progress</td></tr>
-  <tr><td>5</td><td>Wait for collection complete</td><td>Source pills appear, item counts shown</td></tr>
-  <tr><td>6</td><td>Click a source pill</td><td>SOURCE DETAIL panel opens with article list</td></tr>
-  <tr><td>7</td><td>Toggle 3 articles to "Excluded"</td><td>Articles grayed out, excluded count updates</td></tr>
-  <tr><td>8</td><td>Flag 2 articles as "Priority"</td><td>Gold star appears, prioritySources updated</td></tr>
-  <tr><td>9</td><td>Approve Ingestion checkpoint</td><td>Themes generation starts</td></tr>
-  <tr><td>10</td><td>Review themes, mark 2 as Priority, 1 as Skip</td><td>Theme statuses update</td></tr>
-  <tr><td>11</td><td>Approve each deliverable checkpoint in sequence</td><td>Pipeline advances through all stages</td></tr>
-  <tr><td>12</td><td>At Strategic Report checkpoint, verify evidence depth</td><td>Report has 12+ sections, keyMetrics, keyQuotes, named citations</td></tr>
-  <tr><td>13</td><td>Toggle 2 report sections "Skip in Deck"</td><td>Sections dimmed</td></tr>
-  <tr><td>14</td><td>Approve report, review deck structure</td><td>sourceDeliverable + personaRef badges visible per slide</td></tr>
-  <tr><td>15</td><td>Approve narrative, view final results</td><td>Slides render with metrics, quotes, source pills</td></tr>
-  <tr><td>16</td><td>Export PDF, PPTX, HTML Report</td><td>Files download, PDF &lt; 40MB</td></tr>
+  <thead><tr><th>Skill</th><th>Framework</th><th>Model</th></tr></thead>
+  <tbody>
+    <tr><td><code>persona-architect</code></td><td>JTBD + Cooper Goal Hierarchy</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>strategy-author</code></td><td>Rumelt's Kernel (Diagnosis / Guiding Policy / Coherent Actions)</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>competitive-analyst</code></td><td>Porter's Forces / Blue Ocean</td><td>Gemini 2.5 Flash</td></tr>
+    <tr><td><code>service-blueprint-mapper</code></td><td>Bitner service blueprint, 16:9 adapted</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>tech-arch-generator</code></td><td>C4 Model, 10-section node &amp; edge</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>prd-compiler</code></td><td>SVPG / Cagan Framework</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>roadmap-builder</code></td><td>Now / Next / Later</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>gap-analysis-evaluator</code></td><td>Gartner 1-5 Maturity</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>tech-audit-inspector</code></td><td>COBIT / TEI</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>theme-analyst</code></td><td>6-Lens Thematic Analysis</td><td>Gemini 2.5 Flash</td></tr>
+    <tr><td><code>strategic-report-writer</code></td><td>McKinsey format + Rumelt + Minto</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>evidence-curator</code></td><td>Verbatim quote selection + attribution</td><td>Gemini 2.5 Flash</td></tr>
+    <tr><td><code>case-study-analyst</code></td><td>Structured real-world example (5 data vectors)</td><td>Claude Opus 4.7</td></tr>
+    <tr><td><code>benchmark-reporter</code></td><td>Hero-metric extraction</td><td>Gemini 2.5 Flash</td></tr>
+    <tr><td><code>deck-narrative-composer</code></td><td>Content-block narrative, 12 block types</td><td>Claude Opus 4.7</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-002: Source Curation — Excluded Articles Must Not Appear</h3>
+<h3>Runtime skill routing</h3>
+<ol>
+  <li>Manifest loads once at workbench init</li>
+  <li>On each user message, the chat service keyword-matches against all skill triggers</li>
+  <li>Matched skill's <code>SKILL.md</code> + <code>wikiCompanions</code> are pre-fetched and injected into the request context</li>
+  <li>The AI receives specialized framework instructions alongside the corpus</li>
+  <li>Response quality is enforced by the framework, not by generic prompting</li>
+</ol>
+
+<h2 id="wiki">12. Wiki knowledge base</h2>
+
+<p>The <code>hic-workspace/wiki/</code> directory is the project's persistent memory &mdash; 74 markdown pages organized across 14 topic directories. The Vite dev plugin serves these at <code>/hic-workspace/wiki/</code>, and the proxy mounts the whole directory for read/write access.</p>
+
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Collect data with 5+ sources</td><td>Sources collected</td></tr>
-  <tr><td>2</td><td>Exclude ALL articles from one source (e.g., Reddit)</td><td>Source header shows "Excluded"</td></tr>
-  <tr><td>3</td><td>Run full pipeline</td><td>Pipeline completes</td></tr>
-  <tr><td>4</td><td>Search report text for excluded source name</td><td>Excluded source NOT cited in report</td></tr>
-  <tr><td>5</td><td>Check theme citations</td><td>No theme cites excluded source</td></tr>
+  <thead><tr><th>Directory</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>frameworks/</code></td><td>Methodological guides: personas, strategy, blueprint, PRD, roadmap, competitive analysis, gap analysis, tech audit, tech architecture</td></tr>
+    <tr><td><code>anti-patterns/</code></td><td>Learned failure modes per deliverable type</td></tr>
+    <tr><td><code>benchmarks/</code></td><td>CX metrics, financial impact, maturity models, technology adoption, competitive intel</td></tr>
+    <tr><td><code>brand/</code></td><td>NXT brand guidelines: color, voice, asset registry</td></tr>
+    <tr><td><code>evidence/</code></td><td>Curated source samples by tier: CX maturity, digital transformation, research findings</td></tr>
+    <tr><td><code>engagements/</code></td><td>Prior research projects + outcomes (engagement memory)</td></tr>
+    <tr><td><code>exemplars/</code></td><td>Gold-standard output examples for each deliverable type</td></tr>
+    <tr><td><code>industries/</code></td><td>Vertical-specific prompts and source recommendations</td></tr>
+    <tr><td><code>methodologies/</code></td><td>Research method playbooks: research-fabric, analytical-lenses</td></tr>
+    <tr><td><code>sources/</code></td><td>Source evaluation guides + archived uploaded documents</td></tr>
+    <tr><td><code>sources-registry/</code></td><td>Detailed connector configs and per-source best practices</td></tr>
+    <tr><td><code>synthesis/</code></td><td>Cross-cutting insight patterns; includes <code>learned-constraints.md</code></td></tr>
+    <tr><td><code>social-intelligence/</code></td><td>Social listening patterns</td></tr>
+    <tr><td><code>deep-research/</code></td><td>Exemplars of iterative inquiry</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-003: Source Curation — Priority Articles Must Be Cited</h3>
+<h3>Self-improvement loop</h3>
+<div class="status-card cyan">
+<strong>Learned constraints.</strong> User edits at checkpoints are logged. After 5+ similar edits on a deliverable type, the system auto-approves a constraint and appends it to <code>wiki/synthesis/learned-constraints.md</code>. Approved constraints are injected into subsequent generation prompts across all future engagements.
+</div>
+
+<p><strong>Engagement memory:</strong> On a new research brief, <code>wikiService</code> searches prior engagements via semantic keyword overlap. Matching prior runs have their insights surfaced so the new run builds on them instead of repeating.</p>
+
+<h2 id="models">13. Model routing</h2>
+
+<p>The <code>aiRouter.ts</code> module picks a provider per task. Defaults can be overridden via the Model Preferences panel.</p>
+
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Flag 3 specific articles as Priority</td><td>Gold stars visible</td></tr>
-  <tr><td>2</td><td>Run pipeline through Strategic Report</td><td>Report generated</td></tr>
-  <tr><td>3</td><td>Search report for each priority article's title/source</td><td>All 3 articles cited by name in report</td></tr>
+  <thead><tr><th>Task</th><th>Primary model</th><th>Fallback</th></tr></thead>
+  <tbody>
+    <tr><td>Brief parsing / query refinement</td><td><code>gemini-2.5-flash</code></td><td><code>claude-haiku-4-5</code></td></tr>
+    <tr><td>Relevance scoring</td><td><code>gemini-2.5-flash</code></td><td>&mdash;</td></tr>
+    <tr><td>Theme extraction (tri-model)</td><td>Gemini + Claude + OpenAI in parallel</td><td>Single-model fallback on any failure</td></tr>
+    <tr><td>Strategy / recommendation authoring</td><td><code>claude-opus-4-7</code></td><td><code>claude-sonnet-4-6</code></td></tr>
+    <tr><td>Structured output (grids, tables)</td><td><code>gpt-5.4-mini</code></td><td><code>claude-opus-4-7</code></td></tr>
+    <tr><td>Corpus chat</td><td><code>claude-opus-4-7</code> (1M context)</td><td><code>gemini-2.5-flash</code></td></tr>
+    <tr><td>Persona portrait generation</td><td><code>gemini-2.5-flash-image</code></td><td>&mdash;</td></tr>
+    <tr><td>Scene video (Final stage)</td><td><code>veo-3.1-fast-generate-preview</code></td><td>&mdash;</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-004: Evidence Display in Output Tabs</h3>
+<h3>Adaptive thinking</h3>
+<p>Claude Opus 4.7 requests include a thinking budget (8000 / 16000 / 32000 tokens) scaled by skill complexity. Skills tagged <code>thinkingEffort: max</code> in the manifest get the largest budget.</p>
+
+<h3>Model ID reference</h3>
+<ul>
+  <li><code>claude-opus-4-7</code> &mdash; 1M context, prompt caching up to 90% cost savings, supports extended thinking</li>
+  <li><code>claude-sonnet-4-6</code> &mdash; fast reasoning (does <strong>not</strong> support assistant-message prefill)</li>
+  <li><code>claude-haiku-4-5-20251001</code> &mdash; lightweight tasks (this one <strong>requires</strong> the date suffix)</li>
+  <li><code>gemini-2.5-flash</code> &mdash; fast, cheap, image-capable</li>
+  <li><code>gpt-5.4-mini</code> / <code>gpt-5.4</code> &mdash; strict JSON; uses <code>max_completion_tokens</code> not <code>max_tokens</code></li>
+</ul>
+
+<h2 id="proxy">14. Python proxy &amp; services</h2>
+
+<p>The FastAPI proxy (<code>humans-in-control-research/proxy/app.py</code>, ~2000 LOC) is the single trust boundary that talks to external APIs. It handles CORS, retries, rate limiting, and translates browser requests into upstream calls.</p>
+
+<h3>Endpoints</h3>
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Generate full pipeline</td><td>All deliverables created</td></tr>
-  <tr><td>2</td><td>Navigate to Recommendations tab</td><td>Each recommendation shows EvidenceBlock with citations + evidenceBasis</td></tr>
-  <tr><td>3</td><td>Navigate to Roadmap tab</td><td>Each item shows EvidenceBlock</td></tr>
-  <tr><td>4</td><td>Navigate to PRD tab</td><td>Each feature shows EvidenceBlock</td></tr>
-  <tr><td>5</td><td>Navigate to Gap Analysis tab</td><td>Each gap shows EvidenceBlock</td></tr>
-  <tr><td>6</td><td>Navigate to Competitive tab</td><td>Each peer shows EvidenceBlock</td></tr>
-  <tr><td>7</td><td>Navigate to Tech Audit tab</td><td>Each system shows EvidenceBlock</td></tr>
-  <tr><td>8</td><td>Navigate to Journey tab</td><td>Each stage shows EvidenceBlock in detail view</td></tr>
-  <tr><td>9</td><td>Navigate to Tech Arch tab</td><td>Each node shows EvidenceBlock</td></tr>
+  <thead><tr><th>Method</th><th>Path</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td>GET</td><td><code>/health</code></td><td>Heartbeat</td></tr>
+    <tr><td>GET</td><td><code>/api/sources</code></td><td>List all 313 sources with tier + category</td></tr>
+    <tr><td>GET</td><td><code>/api/search/{source_id}</code></td><td>Query a single connector</td></tr>
+    <tr><td>GET</td><td><code>/api/multi-search</code></td><td>Parallel search across N sources</td></tr>
+    <tr><td>GET</td><td><code>/api/extract-content</code></td><td>Jina Reader + BeautifulSoup fallback; routes YouTube video URLs to transcription</td></tr>
+    <tr><td>GET</td><td><code>/api/extract-pdf</code></td><td>pypdf + pdfplumber text extraction</td></tr>
+    <tr><td>POST</td><td><code>/api/transcribe-youtube</code></td><td>yt-dlp download → ffmpeg chunk → Whisper batch</td></tr>
+    <tr><td>POST</td><td><code>/api/scheduler/poll-youtube-channels</code></td><td>ETag-aware channel polling with keyword-gated transcription</td></tr>
+    <tr><td>POST</td><td><code>/api/ai/anthropic</code></td><td>Claude API proxy (auth, streaming)</td></tr>
+    <tr><td>POST</td><td><code>/api/ai/openai</code></td><td>OpenAI API proxy</td></tr>
+    <tr><td>POST</td><td><code>/api/ai/gemini</code></td><td>Gemini API proxy</td></tr>
+    <tr><td>GET</td><td><code>/api/ai/status</code></td><td>Provider key presence check</td></tr>
+    <tr><td>GET/POST</td><td><code>/api/wiki/*</code></td><td>Wiki read / write / append</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-005: Checkpoint Editing</h3>
+<h3>PDF enrichment fast-path</h3>
+<p>URLs matching DOI, PubMed Central, arXiv PDF, or ProPublica nonprofit profile patterns bypass the normal content-length gate and are fetched directly. Per-item cap is 30KB of text; global floor is 40 items and ceiling is 80.</p>
+
+<h3>YouTube transcription</h3>
+<p>Triggered when <code>/api/extract-content</code> detects a YouTube video URL (must match <code>/watch</code>, <code>/shorts/</code>, <code>/embed/</code>, <code>/v/</code>, or <code>youtu.be/</code> &mdash; feed and channel URLs are filtered out). The proxy:</p>
+<ol>
+  <li>Uses <code>yt-dlp</code> to download audio-only (bestaudio, 128kbps MP3)</li>
+  <li>Probes duration; chunks with ffmpeg stream-copy at a 24MB threshold</li>
+  <li>Sends each chunk to OpenAI Whisper (<code>whisper-1</code>)</li>
+  <li>Concatenates transcript segments</li>
+</ol>
+<p>Installed on first boot via <code>docker-compose-all.yml</code> command hook (<code>apt-get install ffmpeg</code> + <code>pip install yt-dlp openai</code>).</p>
+
+<h2 id="export">15. Export</h2>
+
+<p>Three export paths:</p>
+<ul>
+  <li><strong>PPTX</strong> &mdash; <code>exportService.ts</code> using <code>pptxgenjs</code>. Each pinned output or slide renders through the 12-block SlideCanvas system; speaker notes, footnotes, and attribution blocks are embedded. Brand colors and typography come from <code>visualizationStyles.ts</code>.</li>
+  <li><strong>PDF</strong> &mdash; <code>html2canvas</code> + <code>jspdf</code>. The Output Board (or Results View) is rendered into a paginated PDF with NXT layout.</li>
+  <li><strong>Output Board (HTML)</strong> &mdash; pinned outputs arranged in sequence, self-contained HTML with inline CSS, suitable for client share or archive.</li>
+</ul>
+
+<h3>Pin workflow</h3>
+<p>In the Chat Workbench, every NXT visual block the AI produces gets a Pin button. Pinned outputs collect in the right-hand panel and can be dragged to reorder before export.</p>
+
+<h2 id="brand">16. NXT brand system</h2>
+
+<p>The NXT design system lives in <code>styles/nxt-design-system.css</code> and is enforced across every visual surface, including exported PPTX and PDF.</p>
+
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>At Themes checkpoint, edit a theme description</td><td>Text updates, "hasEdits" flag true</td></tr>
-  <tr><td>2</td><td>Approve with edits</td><td>Edited data persists to next stage</td></tr>
-  <tr><td>3</td><td>At Report checkpoint, edit section content</td><td>Textarea auto-sizes, content updates</td></tr>
-  <tr><td>4</td><td>Toggle section "Skip in Deck"</td><td>Section dims, includeInDeck=false</td></tr>
-  <tr><td>5</td><td>At Structure checkpoint, reorder slides</td><td>Slide numbers update</td></tr>
-  <tr><td>6</td><td>Delete a slide</td><td>Slide removed, remaining renumbered</td></tr>
-  <tr><td>7</td><td>Change slide layout dropdown</td><td>Layout updates in structure</td></tr>
+  <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>--nxt-black</code></td><td>#0D0D0D</td><td>Dark surfaces, sidebar, selected tiles</td></tr>
+    <tr><td><code>--nxt-chartreuse</code></td><td>#B8B800 / #CACA20</td><td>Primary accent, lime highlights</td></tr>
+    <tr><td><code>--nxt-cyan</code></td><td>#00B7C3</td><td>Data panels, secondary accent</td></tr>
+    <tr><td><code>--nxt-teal</code></td><td>#115054</td><td>Tier 1 sources, headers</td></tr>
+    <tr><td><code>--nxt-negative</code></td><td>#CC6644</td><td>Problems, warnings, concentration risk</td></tr>
+    <tr><td><code>--nxt-success</code></td><td>#0CCE6B</td><td>Approved items</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-006: Deck Narrative — Content Block Generation</h3>
+<h3>Typography</h3>
+<ul>
+  <li><strong>Body</strong>: Archivo 300&ndash;500</li>
+  <li><strong>Display</strong>: Bebas Neue (section headers, metric values, treemap tile labels)</li>
+  <li><strong>Mono</strong>: JetBrains Mono (citations, evidence quotes, code)</li>
+  <li>Border radius capped at 2&ndash;4px; no decorative shadows; no gradients</li>
+  <li>Banned display fonts: Inter, Roboto, Arial, Poppins, Space Grotesk</li>
+</ul>
+
+<h3>Source tier visual encoding</h3>
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Approve deck structure</td><td>Narrative generation starts</td></tr>
-  <tr><td>2</td><td>At Narrative checkpoint, verify slide has metrics</td><td>Metric cards visible with numbers + labels</td></tr>
-  <tr><td>3</td><td>Verify slide has source citations</td><td>Teal source pill tags visible</td></tr>
-  <tr><td>4</td><td>Verify persona slide has persona card</td><td>Persona name, role, image shown</td></tr>
-  <tr><td>5</td><td>Approve narrative, view final slides</td><td>Adaptive renderer shows content without broken templates</td></tr>
+  <thead><tr><th>Tier</th><th>Badge</th><th>Visual</th><th>Examples</th></tr></thead>
+  <tbody>
+    <tr><td>Tier 1</td><td><span class="badge badge-tier1">T1</span></td><td>Solid black</td><td>OpenAlex, Crossref, IRS 990, College Scorecard, NSF HERD</td></tr>
+    <tr><td>Tier 2</td><td><span class="badge badge-tier2">T2</span></td><td>Dark gray</td><td>Higher Ed Dive, SSIR, Candid, VentureBeat</td></tr>
+    <tr><td>Tier 3</td><td><span class="badge badge-tier3">T3</span></td><td>Dashed outline</td><td>Reddit subreddits, niche community blogs</td></tr>
+  </tbody>
 </table>
 
-<h3>TC-007: Knowledge Graph Curation</h3>
+<h2 id="ops">17. Operations &amp; troubleshooting</h2>
+
+<h3>Startup</h3>
+<pre>docker compose -f docker-compose-all.yml up -d research-generator research-proxy</pre>
+<p>App at <code>http://localhost:5011</code>. Proxy at <code>http://localhost:5012</code>.</p>
+
+<h3>Verify registry</h3>
+<pre>curl -s http://localhost:5012/api/sources | jq '.total'
+# expected: 313</pre>
+
+<h3>Common issues</h3>
 <table>
-  <tr><th>Step</th><th>Action</th><th>Expected</th></tr>
-  <tr><td>1</td><td>Open Knowledge Graph</td><td>D3 force graph renders with source, theme, persona nodes</td></tr>
-  <tr><td>2</td><td>Click a source node</td><td>Detail panel shows node metadata</td></tr>
-  <tr><td>3</td><td>Exclude a source via KG toggle</td><td>"kg::nodeId" added to excludedSources</td></tr>
-  <tr><td>4</td><td>Run pipeline</td><td>Excluded source's articles filtered from corpus</td></tr>
+  <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+  <tbody>
+    <tr><td>Stale bundle 404 (e.g. <code>deliverableFrameworks-xxxx.js</code>)</td><td>Browser has cached index.html pointing at a retired chunk</td><td>Hard refresh (Ctrl+Shift+R)</td></tr>
+    <tr><td>Jina timeout flood during collection</td><td>Tier 0 prepend exceeded cap or included RSS kinds</td><td>Already gated to 12 URLs / 4 institutions and excludes <code>*_rss</code> kinds</td></tr>
+    <tr><td>Reddit queries hitting subreddit name literally</td><td>Old path without refined queries</td><td>Now resolved by <code>refineSubredditQueries()</code></td></tr>
+    <tr><td>Personas / recs / journeys count stays at 0 after collection</td><td>Stage hasn't run yet &mdash; each deliverable generates asynchronously</td><td>Watch the status strip; the matching tile pulses while inferring</td></tr>
+    <tr><td>Skills load multiple times in console</td><td>Skill fetcher calls instead of memoizing &mdash; performance, not correctness</td><td>Known &mdash; consider <code>Map</code>-based memo in <code>wikiService.loadSkill()</code></td></tr>
+    <tr><td>404 on <code>/api/wiki/read/engagements/&lt;slug&gt;.md</code></td><td>No prior engagement for this goal yet &mdash; 404 is expected</td><td>Harmless; memory fills in after first completed run</td></tr>
+    <tr><td>OpenAI 400 on gpt-5.4 family</td><td><code>max_tokens</code> rejected; requires <code>max_completion_tokens</code></td><td>Already patched in <code>openaiService.ts</code>, <code>corpusChatService.callOpenAI</code>, and <code>providers/openaiAdapter.ts</code></td></tr>
+  </tbody>
 </table>
 
-<!-- ============================================================ -->
-<h2 id="integration-tests">10. Integration Test Cases</h2>
+<h3>Dependencies</h3>
+<p>Required API keys in root <code>.env</code>: <code>ANTHROPIC_API_KEY</code>, <code>OPENAI_API_KEY</code>, <code>GEMINI_API_KEY</code> (shared with API_KEY). Optional: <code>EVERY_ORG_API_KEY</code> for philanthropy connectors.</p>
 
-<h3>IT-001: Proxy Data Collection</h3>
-<table>
-  <tr><th>Test</th><th>Endpoint</th><th>Expected</th></tr>
-  <tr><td>Health check</td><td>GET http://localhost:5012/health</td><td>200 OK</td></tr>
-  <tr><td>Search GDELT</td><td>GET /api/search/gdelt?q=higher+education&amp;limit=5</td><td>JSON with items[], credibilityTier</td></tr>
-  <tr><td>Search OpenAlex</td><td>GET /api/search/openalex?q=AI+education&amp;limit=5</td><td>JSON with items[], T1 tier</td></tr>
-  <tr><td>Multi-search</td><td>GET /api/multi-search?q=test&amp;sources=gdelt,openalex</td><td>Array of results per source</td></tr>
-  <tr><td>Timeout</td><td>Request with 45s timeout</td><td>AbortError if exceeded</td></tr>
-  <tr><td>Retry</td><td>Simulate 503 response</td><td>Retries 3x with 1.5s/3s/4.5s backoff</td></tr>
-</table>
+<h3>Container rebuild (after frontend code change)</h3>
+<pre>docker compose -f docker-compose-all.yml up -d --build research-generator</pre>
 
-<h3>IT-002: Gemini API Integration</h3>
-<table>
-  <tr><th>Test</th><th>Operation</th><th>Expected</th></tr>
-  <tr><td>Chat session create</td><td>new GenAISession(goal, ...)</td><td>Session created, system instruction set</td></tr>
-  <tr><td>Ingest context</td><td>ingestContext(files)</td><td>Returns confidence score, stakeholders</td></tr>
-  <tr><td>Stream response</td><td>sendMessageStream()</td><td>Chunks received, fullText assembled</td></tr>
-  <tr><td>Schema validation</td><td>responseMimeType: "application/json"</td><td>Response matches schema</td></tr>
-  <tr><td>Retry on 503</td><td>withRetry() with transient error</td><td>Retries 3x with exponential backoff</td></tr>
-  <tr><td>JSON repair</td><td>tryRepairJson() on malformed response</td><td>Valid JSON returned</td></tr>
-</table>
+<h3>Proxy restart (after proxy code change)</h3>
+<pre>docker compose -f docker-compose-all.yml restart research-proxy</pre>
 
-<h3>IT-003: Tri-Model Analysis</h3>
-<table>
-  <tr><th>Test</th><th>Scenario</th><th>Expected</th></tr>
-  <tr><td>All 3 succeed</td><td>Gemini + Claude + OpenAI respond</td><td>Synthesis from all 3</td></tr>
-  <tr><td>Claude fails</td><td>Claude returns error</td><td>Synthesis from Gemini + OpenAI only</td></tr>
-  <tr><td>All fail</td><td>All models return errors</td><td>Graceful degradation, original corpus used</td></tr>
-  <tr><td>Timeout</td><td>Model exceeds dynamic timeout</td><td>AbortError caught, fallback to others</td></tr>
-</table>
-
-<!-- ============================================================ -->
-<h2 id="uat">11. UAT Scenarios</h2>
-
-<h3>UAT-001: End-to-End Research Quality</h3>
-<div class="status-card">
-  <strong>Scenario</strong>: A user conducts research on "Higher Education CX Strategy" with 5 uploaded documents and 10+ data sources enabled.
-  <br><strong>Acceptance Criteria</strong>:
-  <ul>
-    <li>Report cites 20+ distinct named sources (not "research" or "intelligence_sources")</li>
-    <li>Report includes at least 3 case studies with named institutions</li>
-    <li>Report includes verbatim social evidence (Reddit/forum quotes)</li>
-    <li>Every deliverable tab shows EvidenceBlock with citations and evidence basis</li>
-    <li>Deck slides have source citation pills visible</li>
-    <li>Excluded articles do NOT appear in any output</li>
-    <li>Priority articles ARE cited in the report</li>
-  </ul>
-</div>
-
-<h3>UAT-002: Source Curation Control</h3>
-<div class="status-card">
-  <strong>Scenario</strong>: User excludes all Tier 3 (community) sources, keeps only T1 + T2.
-  <br><strong>Acceptance Criteria</strong>:
-  <ul>
-    <li>No Reddit, forum, or community source cited in report or deck</li>
-    <li>Themes grounded exclusively in academic + news sources</li>
-    <li>Persona evidence arrays cite only T1/T2 sources</li>
-  </ul>
-</div>
-
-<h3>UAT-003: Deck Visual Quality</h3>
-<div class="status-card">
-  <strong>Scenario</strong>: User generates a strategy deck and exports as PDF.
-  <br><strong>Acceptance Criteria</strong>:
-  <ul>
-    <li>No blank/empty slide panels</li>
-    <li>Every body slide has at least 2 evidence points or metrics</li>
-    <li>Slide titles are conclusion sentences (not topic labels)</li>
-    <li>No meta-narration ("Good morning", "We will present")</li>
-    <li>PDF size &lt; 40MB</li>
-    <li>PPTX renders all archetypes correctly</li>
-  </ul>
-</div>
-
-<h3>UAT-004: Self-Improvement Learning</h3>
-<div class="status-card">
-  <strong>Scenario</strong>: User runs 2 analyses. In session 1, they consistently shorten persona quotes. In session 2, the system should auto-apply the constraint.
-  <br><strong>Acceptance Criteria</strong>:
-  <ul>
-    <li>Session 1: edits logged, pattern detected after 5+ edits</li>
-    <li>Session 1: constraint auto-approved ("persona quotes &lt; X chars")</li>
-    <li>Session 2: constraint loaded from wiki on startup</li>
-    <li>Session 2: persona quotes generated shorter without user intervention</li>
-  </ul>
-</div>
-
-<!-- ============================================================ -->
-<h2 id="known-issues">12. Known Issues &amp; Unfinished Work</h2>
-
-<p>This section documents all known defects, partially implemented features, and unfinished instructions from the product owner.</p>
-
-<h3>Critical Issues</h3>
-
-<div class="status-card fail">
-  <strong><span class="badge badge-critical">CRITICAL</span> KI-001: Strategy Deck Output Quality</strong>
-  <p>The deck output (PDF/PPTX) still does not consistently reflect the depth of collected research data. While the content-block system and report-first architecture are implemented, the AI sometimes generates thin content blocks that result in slides with minimal evidence. The deterministic enrichment step helps but cannot fully compensate for thin AI output.</p>
-  <p><strong>Root Cause</strong>: Gemini 2.5 Flash may produce minimal content blocks when given a complex 12-type schema. The per-slide report section matching can miss sections due to sourceDeliverable mismatches.</p>
-  <p><strong>Workaround</strong>: Deterministic enrichment injects report metrics/quotes/citations into thin slides. Users should review at Narrative checkpoint and provide feedback to regenerate.</p>
-  <p><strong>Status</strong>: Partially mitigated. Needs further prompt engineering on the narrative generation prompt.</p>
-</div>
-
-<div class="status-card fail">
-  <strong><span class="badge badge-critical">CRITICAL</span> KI-002: PPTX Export Still Uses Old Archetype Renderers</strong>
-  <p>The HTML renderer was replaced with an adaptive renderer, but the PPTX export in <code>exportService.ts</code> still uses the old 7 rigid archetype renderers. This means PPTX output may have broken templates (empty data panels, mismatched layouts) even when the HTML preview looks correct.</p>
-  <p><strong>Status</strong>: PPTX export not updated to match adaptive renderer. Needs complete rewrite of PPTX slide generation.</p>
-</div>
-
-<div class="status-card fail">
-  <strong><span class="badge badge-critical">CRITICAL</span> KI-003: No Validation That Priority Articles Were Actually Cited</strong>
-  <p>The prompt says "MUST cite every priority article" but there is no post-generation validation. The AI may ignore priority flags. No error or warning is shown to the user if priority articles are missing from the report.</p>
-  <p><strong>Status</strong>: Unimplemented. Needs post-generation scan of report text for priority article titles.</p>
-</div>
-
-<h3>High Issues</h3>
-
-<div class="status-card warn">
-  <strong><span class="badge badge-high">HIGH</span> KI-004: Deliverable Evidence Still Depends on AI Compliance</strong>
-  <p>While Gemini schemas now REQUIRE citations[] and evidenceBasis as fields, the AI may return empty arrays or generic strings. There is no post-generation validation that these fields are actually populated with real source names.</p>
-  <p><strong>Status</strong>: Schema enforcement in place but no content validation layer.</p>
-</div>
-
-<div class="status-card warn">
-  <strong><span class="badge badge-high">HIGH</span> KI-005: Persona Enrichment Uses Standalone Call Without Full Corpus</strong>
-  <p>Persona enrichment deliberately uses a standalone Gemini call (not the chat session) to avoid context contamination. This means the persona AI only sees the roster + theme citations (up to 20 evidence quotes), NOT the full 500KB+ research corpus. Personas may have thinner evidence than themes.</p>
-  <p><strong>Status</strong>: By design (prevents context pollution), but limits evidence depth. Theme evidence injection added as mitigation.</p>
-</div>
-
-<div class="status-card warn">
-  <strong><span class="badge badge-high">HIGH</span> KI-006: 500KB Corpus Cap at Ingestion</strong>
-  <p>The research corpus text has a hard 500KB cap in <code>mergeResultsToCorpus()</code>. With 500-1500 collected items, lower-relevance items get truncated from the corpus. These truncated items still appear in the Knowledge Graph (which reads raw data) but don't reach theme/persona generation.</p>
-  <p><strong>Status</strong>: Known design trade-off. Report generation bypasses this via direct rawSources injection.</p>
-</div>
-
-<div class="status-card warn">
-  <strong><span class="badge badge-high">HIGH</span> KI-007: Report Checkpoint Textarea Sizing</strong>
-  <p>Report section textareas use <code>rows={Math.ceil(content.length / 90)}</code> which is an approximation. Very long sections may still require scrolling. No auto-resize on user input (only initial sizing).</p>
-  <p><strong>Status</strong>: Partially fixed. Could benefit from ResizeObserver or onInput auto-height.</p>
-</div>
-
-<h3>Medium Issues</h3>
-
-<div class="status-card info">
-  <strong><span class="badge badge-medium">MEDIUM</span> KI-008: No Dedicated Themes Output Tab</strong>
-  <p>Themes are the foundational deliverable but have no dedicated tab in ResultsView. They're visible in the checkpoint and referenced in the knowledge graph, but users cannot view/export themes as a standalone output.</p>
-  <p><strong>Status</strong>: Unimplemented. Themes tab in ResultsView needed.</p>
-</div>
-
-<div class="status-card info">
-  <strong><span class="badge badge-medium">MEDIUM</span> KI-009: Competitive Analysis Missing Benchmark Dimensions + Maturity Matrix in Rendering</strong>
-  <p>The competitive analysis generates benchmarkDimensions[], maturityMatrix[], and gapSummary[] but only peers are rendered in the output tab. The full competitive positioning data is generated but hidden.</p>
-  <p><strong>Status</strong>: Partially rendered. Needs maturity matrix table + gap summary visualization.</p>
-</div>
-
-<div class="status-card info">
-  <strong><span class="badge badge-medium">MEDIUM</span> KI-010: Priority Sources Not Persisted to localStorage</strong>
-  <p>excludedSources is persisted to localStorage but prioritySources is not. Priority flags are lost on page refresh.</p>
-  <p><strong>Status</strong>: Unimplemented.</p>
-</div>
-
-<div class="status-card info">
-  <strong><span class="badge badge-medium">MEDIUM</span> KI-011: D3 Knowledge Graph Not Keyboard Accessible</strong>
-  <p>The force-directed graph uses D3 SVG elements with no ARIA attributes or keyboard navigation. Screen readers cannot interpret the graph structure.</p>
-  <p><strong>Status</strong>: Known accessibility gap. Detail panel is accessible; graph is not.</p>
-</div>
-
-<div class="status-card info">
-  <strong><span class="badge badge-medium">MEDIUM</span> KI-012: Tech Architecture Sections Not Rendered in Output Tab</strong>
-  <p>Tech Architecture generates 10 sections (current state, future state, data arch, security, etc.) but the output tab only shows the node diagram and basic node details. The rich section content is hidden.</p>
-  <p><strong>Status</strong>: Unimplemented in rendering.</p>
-</div>
-
-<!-- ============================================================ -->
-<h2 id="nonfunctional">13. Non-Functional Requirements</h2>
-
-<h3>Performance</h3>
-<table>
-  <tr><th>Metric</th><th>Target</th><th>Current</th><th>Status</th></tr>
-  <tr><td>Data collection (15 sources)</td><td>&lt; 120s</td><td>60-180s</td><td><span class="badge badge-partial">Variable</span></td></tr>
-  <tr><td>Full pipeline (all 10 deliverables)</td><td>&lt; 10min</td><td>8-15min</td><td><span class="badge badge-partial">Variable</span></td></tr>
-  <tr><td>PDF export</td><td>&lt; 30s</td><td>15-45s</td><td><span class="badge badge-partial">Variable</span></td></tr>
-  <tr><td>PDF file size</td><td>&lt; 40MB</td><td>20-35MB</td><td><span class="badge badge-pass">Pass</span></td></tr>
-  <tr><td>PPTX export</td><td>&lt; 10s</td><td>3-8s</td><td><span class="badge badge-pass">Pass</span></td></tr>
-  <tr><td>Knowledge graph render (500 nodes)</td><td>&lt; 2s</td><td>1-3s</td><td><span class="badge badge-pass">Pass</span></td></tr>
-</table>
-
-<h3>Reliability</h3>
-<table>
-  <tr><th>Scenario</th><th>Handling</th></tr>
-  <tr><td>Gemini 503/overloaded</td><td>Exponential backoff retry (3 attempts, 2-5s base delay)</td></tr>
-  <tr><td>Network disconnect mid-stream</td><td>Full step retry (up to 5 attempts)</td></tr>
-  <tr><td>Proxy timeout</td><td>45s AbortSignal, 3 retries with 1.5s-4.5s backoff</td></tr>
-  <tr><td>Malformed JSON response</td><td>tryRepairJson() with bracket balancing, markdown stripping</td></tr>
-  <tr><td>localStorage quota exceeded</td><td>Remove oldest projects, then strip images, then warn</td></tr>
-  <tr><td>Wiki write failure</td><td>Non-blocking try/catch, analysis continues</td></tr>
-  <tr><td>Tri-model partial failure</td><td>Continue with available models (graceful degradation)</td></tr>
-</table>
-
-<h3>Security</h3>
-<table>
-  <tr><th>Concern</th><th>Status</th></tr>
-  <tr><td>API keys in environment variables</td><td><span class="badge badge-pass">Pass</span> — Keys injected via Vite define, not in source</td></tr>
-  <tr><td>No user authentication</td><td><span class="badge badge-partial">N/A</span> — Single-user local deployment</td></tr>
-  <tr><td>CORS proxy</td><td><span class="badge badge-pass">Pass</span> — Proxy on localhost only</td></tr>
-  <tr><td>File upload validation</td><td><span class="badge badge-partial">Partial</span> — No max file size enforcement</td></tr>
-</table>
-
-<!-- ============================================================ -->
-<h2 id="components">14. Component Inventory</h2>
+<h2 id="glossary">18. Glossary</h2>
 
 <table>
-  <tr><th>Component</th><th>Lines</th><th>Props</th><th>State Vars</th><th>Purpose</th></tr>
-  <tr><td>App.tsx</td><td>~2900</td><td>0</td><td>45+</td><td>Root orchestrator: pipeline, state, routing</td></tr>
-  <tr><td>AnalysisCheckpoint.tsx</td><td>~2450</td><td>5</td><td>23</td><td>14 checkpoint renderers (edit/approve/feedback)</td></tr>
-  <tr><td>ResultsView.tsx</td><td>~2350</td><td>4</td><td>19</td><td>10 output tabs + export (PDF/PPTX/JSON/CSV)</td></tr>
-  <tr><td>ResearchKnowledgeGraph.tsx</td><td>~1020</td><td>5</td><td>3</td><td>D3 force-directed knowledge graph</td></tr>
-  <tr><td>FileUpload.tsx</td><td>~140</td><td>2</td><td>2</td><td>Drag &amp; drop file upload with DOCX extraction</td></tr>
-  <tr><td>LiveSourceFeed.tsx</td><td>~200</td><td>7</td><td>1</td><td>Real-time data collection progress</td></tr>
-  <tr><td>HeuristicBriefIntake.tsx</td><td>~300</td><td>2</td><td>10</td><td>UX heuristic evaluation form (8 dimensions)</td></tr>
-  <tr><td>HeuristicReportView.tsx</td><td>~23200</td><td>2</td><td>N/A</td><td>UX heuristic report viewer</td></tr>
-</table>
-
-<h3>Service Inventory</h3>
-<table>
-  <tr><th>Service</th><th>Functions</th><th>Purpose</th></tr>
-  <tr><td>geminiService.ts</td><td>20+</td><td>All AI generation (themes, personas, journey, PRD, roadmap, recs, gap, audit, competitive, report, deck)</td></tr>
-  <tr><td>layoutResolver.ts</td><td>2</td><td>Content-block to archetype resolution + field mapping</td></tr>
-  <tr><td>slidePostProcessor.ts</td><td>15+</td><td>Validation, correction, content budgets, slop detection</td></tr>
-  <tr><td>exportService.ts</td><td>5+</td><td>PPTX, HTML report, JSON export</td></tr>
-  <tr><td>wikiService.ts</td><td>10+</td><td>Wiki CRUD, banned phrases, quality gates, framework loading</td></tr>
-  <tr><td>promptImprovementEngine.ts</td><td>10+</td><td>Edit logging, pattern detection, constraint management</td></tr>
-  <tr><td>researchFabricOrchestrator.ts</td><td>8+</td><td>Data collection, corpus assembly, query refinement</td></tr>
-  <tr><td>dataSourceConnectors.ts</td><td>100+</td><td>Unified proxy connector factory for 100+ data sources</td></tr>
-  <tr><td>deepResearchService.ts</td><td>6+</td><td>3-mode live web research (quick/focused/deep)</td></tr>
-  <tr><td>knowledgeGraphBuilder.ts</td><td>10+</td><td>Incremental KG construction from deliverables</td></tr>
-  <tr><td>aiRouter.ts</td><td>5+</td><td>Multi-model routing, JSON repair</td></tr>
-  <tr><td>heuristicAnalysisService.ts</td><td>2</td><td>8-dimension UX evaluation</td></tr>
-  <tr><td>cxIntegrationService.ts</td><td>10+</td><td>Reddit/TrustPilot/Play Store collection + topic modeling</td></tr>
+  <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Analyst Desk</strong></td><td>The primary KG view: a Newsmap-style treemap + detail panel + linkage strip dashboard</td></tr>
+    <tr><td><strong>Analytical Lens</strong></td><td>A pre-tuned preset (general_cx, fundraising, student_learner, digital_product, enterprise_tech, custom) that picks default sources and prompt segments</td></tr>
+    <tr><td><strong>Breadcrumb</strong></td><td>Top-of-desk path showing drill-through context: <em>Theme → Source → Evidence</em></td></tr>
+    <tr><td><strong>Chat to Data</strong></td><td>Multi-turn Q&amp;A over the collected corpus, with live citations and additive graph updates</td></tr>
+    <tr><td><strong>Connector</strong></td><td>A single entry in the source registry; carries type, URL, credibility tier, category</td></tr>
+    <tr><td><strong>Credibility tier</strong></td><td>1 = academic / government; 2 = established news / industry; 3 = community / UGC. Drives visual encoding and citation weighting.</td></tr>
+    <tr><td><strong>Data fabric</strong></td><td>The collection layer: query fabric + connector registry + relevance scorer + enrichment</td></tr>
+    <tr><td><strong>Evidence gap</strong></td><td>An explicit flag when evidence is insufficient; never silently omit</td></tr>
+    <tr><td><strong>IPEDS UNITID</strong></td><td>6-digit federal identifier for US higher-ed institutions; used to query Urban Institute Education Data</td></tr>
+    <tr><td><strong>Reverse-pivot</strong></td><td>Click any source chip to re-filter the treemap, showing only themes that source drives</td></tr>
+    <tr><td><strong>Skill manifest</strong></td><td>17-entry routing table matching user intents to framework-specific prompt bundles</td></tr>
+    <tr><td><strong>Source concentration risk</strong></td><td>% of a theme's evidence coming from a single source. Tiles render in rust when concentration ≥ 70%.</td></tr>
+    <tr><td><strong>Thin theme</strong></td><td>A theme with &lt; 3 linked evidence nodes; rendered with reduced opacity</td></tr>
+    <tr><td><strong>Tier 0 source</strong></td><td>First-party URL belonging to a named institution &mdash; prepended when the brief names that institution</td></tr>
+    <tr><td><strong>Tri-model analysis</strong></td><td>Parallel theme extraction via Gemini + Claude + OpenAI; majority-vote on claim support</td></tr>
+  </tbody>
 </table>
 
 <hr style="margin: 48px 0; border: none; border-top: 1px solid var(--nxt-rule);">
 <p style="font-size: 11px; color: var(--nxt-muted); text-align: center;">
   NXT HUMANS Intelligence Augmentation Suite &mdash; Humans in Control Research Platform<br>
-  Generated April 15, 2026 &mdash; Branch: Humans-in-Control-Overhaul-04.14.2026
+  v3.0 &mdash; April 20, 2026 &mdash; Branch: Humans-in-Control-Reimagined
 </p>
 
 </div>
