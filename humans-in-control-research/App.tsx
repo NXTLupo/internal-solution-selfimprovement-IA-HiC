@@ -8,6 +8,7 @@ import HeuristicBriefIntake from './components/HeuristicBriefIntake';
 import HeuristicReportView from './components/HeuristicReportView';
 import LiveSourceFeed from './components/LiveSourceFeed';
 import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
+import AnalystDeskKnowledgeGraph from './components/AnalystDeskKnowledgeGraph';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import ChatWorkbench from './components/ChatWorkbench';
 import type { ChatContext } from './services/corpusChatService';
@@ -183,7 +184,7 @@ const MethodologyModal = ({ outputId, onClose }: { outputId: OutputOption, onClo
 // --- LIVE RESEARCH BOARD COMPONENT ---
 const LiveResearchBoard = ({
     ingestion, themes, personas, journeyMap, prd, roadmap, techArch, recommendations, structure,
-    events, currentStatus,
+    events, currentStatus, activeStage,
     onEdit,
     isCollectingData, collectionPhase, liveSourceResults, liveRefinedQueries,
     knowledgeGraph,
@@ -195,7 +196,7 @@ const LiveResearchBoard = ({
     registryTotal,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
-    events: ThinkingEvent[], currentStatus: string,
+    events: ThinkingEvent[], currentStatus: string, activeStage?: AnalysisStage,
     onEdit: (stage: AnalysisStage) => void,
     isCollectingData?: boolean, collectionPhase?: string, liveSourceResults?: any[], liveRefinedQueries?: Record<string, string>,
     knowledgeGraph?: KGType,
@@ -210,6 +211,16 @@ const LiveResearchBoard = ({
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
+    const [kgView, setKgView] = useState<'analyst' | 'classic'>(() => {
+        try { return (localStorage.getItem('kg_view_mode') as 'analyst' | 'classic') || 'analyst'; }
+        catch { return 'analyst'; }
+    });
+    useEffect(() => { try { localStorage.setItem('kg_view_mode', kgView); } catch {} }, [kgView]);
+    const [kgTheme, setKgTheme] = useState<'dark' | 'light'>(() => {
+        try { return (localStorage.getItem('kg_theme') as 'dark' | 'light') || 'dark'; }
+        catch { return 'dark'; }
+    });
+    useEffect(() => { try { localStorage.setItem('kg_theme', kgTheme); } catch {} }, [kgTheme]);
     const [reasoningOpen, setReasoningOpen] = useState(false);
     const [selectedSourceIdx, setSelectedSourceIdx] = useState<number | null>(null);
 
@@ -334,24 +345,94 @@ const LiveResearchBoard = ({
                         }`}
                         style={kgExpanded ? { marginLeft: '48px' } : {}}
                     >
-                        {/* Expand/Collapse toggle */}
-                        <button
-                            onClick={() => setKgExpanded(!kgExpanded)}
-                            style={{
-                                position: 'absolute', top: kgExpanded ? '12px' : '8px', right: kgExpanded ? '16px' : '8px', zIndex: 30,
-                                background: '#0D0D0D', color: '#B8B800', border: '1px solid #333',
-                                padding: '4px 10px', fontSize: '10px', fontFamily: "'Bebas Neue',sans-serif",
-                                letterSpacing: '2px', cursor: 'pointer', borderRadius: '2px',
-                            }}
-                        >
-                            {kgExpanded ? 'COLLAPSE' : 'EXPAND'}
-                        </button>
-                        <ResearchKnowledgeGraph
-                            graph={knowledgeGraph}
-                            height={kgExpanded ? (typeof window !== 'undefined' ? window.innerHeight - 4 : 900) : 600}
-                            excludedSources={excludedSources}
-                            setExcludedSources={setExcludedSources}
-                        />
+                        {/* View + expand toggles */}
+                        <div style={{
+                            position: 'absolute',
+                            top: kgExpanded ? '12px' : '8px',
+                            right: kgExpanded ? '16px' : '8px',
+                            zIndex: 30,
+                            display: 'flex', gap: 6,
+                        }}>
+                            <div style={{ display: 'flex', border: '1px solid #333', borderRadius: '2px', overflow: 'hidden' }}>
+                                <button
+                                    onClick={() => setKgView('analyst')}
+                                    title="Analyst Desk — dashboard view"
+                                    style={{
+                                        background: kgView === 'analyst' ? '#B8B800' : '#0D0D0D',
+                                        color: kgView === 'analyst' ? '#0D0D0D' : '#B8B800',
+                                        border: 'none', padding: '4px 10px', fontSize: '10px',
+                                        fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
+                                    }}
+                                >DESK</button>
+                                <button
+                                    onClick={() => setKgView('classic')}
+                                    title="Classic radial graph"
+                                    style={{
+                                        background: kgView === 'classic' ? '#B8B800' : '#0D0D0D',
+                                        color: kgView === 'classic' ? '#0D0D0D' : '#B8B800',
+                                        border: 'none', padding: '4px 10px', fontSize: '10px',
+                                        fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
+                                    }}
+                                >RADIAL</button>
+                            </div>
+                            {kgView === 'analyst' && (
+                                <div style={{ display: 'flex', border: '1px solid #333', borderRadius: '2px', overflow: 'hidden' }}>
+                                    <button
+                                        onClick={() => setKgTheme('dark')}
+                                        title="Dark mode"
+                                        style={{
+                                            background: kgTheme === 'dark' ? '#B8B800' : '#0D0D0D',
+                                            color: kgTheme === 'dark' ? '#0D0D0D' : '#B8B800',
+                                            border: 'none', padding: '4px 10px', fontSize: '10px',
+                                            fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
+                                        }}
+                                    >DARK</button>
+                                    <button
+                                        onClick={() => setKgTheme('light')}
+                                        title="Stark white, high-contrast mode"
+                                        style={{
+                                            background: kgTheme === 'light' ? '#B8B800' : '#0D0D0D',
+                                            color: kgTheme === 'light' ? '#0D0D0D' : '#B8B800',
+                                            border: 'none', padding: '4px 10px', fontSize: '10px',
+                                            fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
+                                        }}
+                                    >LIGHT</button>
+                                </div>
+                            )}
+                            <button
+                                onClick={() => setKgExpanded(!kgExpanded)}
+                                style={{
+                                    background: '#0D0D0D', color: '#B8B800', border: '1px solid #333',
+                                    padding: '4px 10px', fontSize: '10px', fontFamily: "'Bebas Neue',sans-serif",
+                                    letterSpacing: '2px', cursor: 'pointer', borderRadius: '2px',
+                                }}
+                            >
+                                {kgExpanded ? 'COLLAPSE' : 'EXPAND'}
+                            </button>
+                        </div>
+                        {kgView === 'analyst' ? (
+                            <AnalystDeskKnowledgeGraph
+                                graph={knowledgeGraph}
+                                height={kgExpanded ? '100dvh' : 'min(88vh, 1100px)'}
+                                minHeight={kgExpanded ? undefined : 640}
+                                excludedSources={excludedSources}
+                                setExcludedSources={setExcludedSources}
+                                theme={kgTheme}
+                                activity={{
+                                    activeStage: activeStage && activeStage !== AnalysisStage.IDLE ? activeStage : undefined,
+                                    currentStatus: currentStatus || undefined,
+                                    lastEvent: events && events.length ? (events[events.length - 1] as any)?.message || (events[events.length - 1] as any)?.label : undefined,
+                                    isRunning: !!(isCollectingData || (activeStage && activeStage !== AnalysisStage.IDLE) || (currentStatus && currentStatus.includes('...'))),
+                                }}
+                            />
+                        ) : (
+                            <ResearchKnowledgeGraph
+                                graph={knowledgeGraph}
+                                height={kgExpanded ? (typeof window !== 'undefined' ? window.innerHeight - 4 : 900) : 600}
+                                excludedSources={excludedSources}
+                                setExcludedSources={setExcludedSources}
+                            />
+                        )}
                     </motion.div>
                 )}
 
@@ -3153,6 +3234,7 @@ ${synthesisParts.join('\n')}
                                structure={structureResult}
                                events={thinkingEvents}
                                currentStatus={statusMessage}
+                               activeStage={activeStage}
                                isCollectingData={isCollectingData}
                                collectionPhase={collectionPhase}
                                liveSourceResults={liveSourceResults}
