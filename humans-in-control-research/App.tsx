@@ -9,6 +9,7 @@ import HeuristicReportView from './components/HeuristicReportView';
 import LiveSourceFeed from './components/LiveSourceFeed';
 import ResearchKnowledgeGraph from './components/ResearchKnowledgeGraph';
 import AnalystDeskKnowledgeGraph from './components/AnalystDeskKnowledgeGraph';
+import WikiArchiveBrowser from './components/WikiArchiveBrowser';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import ChatWorkbench from './components/ChatWorkbench';
 import type { ChatContext } from './services/corpusChatService';
@@ -296,6 +297,10 @@ const LiveResearchBoard = ({
     });
     useEffect(() => { try { localStorage.setItem('kg_size', kgSize); } catch {} }, [kgSize]);
     const [kgViewMenuOpen, setKgViewMenuOpen] = useState(false);
+    // 2026-04-21 — Wiki Archive Browser overlay. Lets the operator inspect
+    // every archived article/transcript/upload directly, independent of the
+    // theme→evidence drill-down chain. Opened from the VIEW popover.
+    const [wikiBrowserOpen, setWikiBrowserOpen] = useState(false);
     const [reasoningOpen, setReasoningOpen] = useState(false);
     const [selectedSourceIdx, setSelectedSourceIdx] = useState<number | null>(null);
 
@@ -512,6 +517,25 @@ const LiveResearchBoard = ({
                                                     </PopoverRow>
                                                 </>
                                             )}
+                                            {/* Wiki browser trigger — peer to the desk/radial views */}
+                                            <div style={{ borderTop: '1px solid #333', paddingTop: 8, marginTop: 4 }}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => { setKgViewMenuOpen(false); setWikiBrowserOpen(true); }}
+                                                    style={{
+                                                        width: '100%',
+                                                        background: '#0B3A3D', color: '#B8B800',
+                                                        border: '1px solid #B8B800',
+                                                        padding: '8px 10px',
+                                                        fontSize: 11, letterSpacing: 1.5, fontWeight: 700,
+                                                        textTransform: 'uppercase',
+                                                        fontFamily: "'Bebas Neue', sans-serif",
+                                                        cursor: 'pointer',
+                                                        textAlign: 'left' as const,
+                                                    }}
+                                                    title="Browse every archived article, transcript, and upload in the wiki"
+                                                >⌘ BROWSE WIKI ARCHIVE ↗</button>
+                                            </div>
                                         </div>
                                     </>
                                 )}
@@ -952,6 +976,12 @@ const LiveResearchBoard = ({
                 )}
             </div>
             )}
+            {/* Wiki Archive Browser — opened from the VIEW popover above.
+                Mounted here (inside LiveResearchBoard) because wikiBrowserOpen
+                state lives in this component's closure. The overlay is
+                position:fixed so it escapes the KG/treemap stacking context
+                regardless of where it's rendered in the tree. */}
+            <WikiArchiveBrowser isOpen={wikiBrowserOpen} onClose={() => setWikiBrowserOpen(false)} />
         </div>
     );
 };
@@ -2331,11 +2361,58 @@ const App = () => {
                     console.warn('[institution-manifest] extraction failed (non-fatal):', manifestErr);
                 }
 
+                // 2026-04-21 — LENS-AWARE YOUTUBE AUTO-DISCOVERY.
+                // When YouTube is enabled, pick the right channels for the active
+                // lens (higher-ed advancement channels for fundraising briefs, AI
+                // channels for tech briefs, etc.), ask Gemini for 3-5 targeted
+                // search queries, fan out to each channel's RSS via the proxy,
+                // score videos by keyword overlap, and add the top N URLs to
+                // videoTranscripts so they flow through the Video Transcriber
+                // connector. Non-blocking: failures fall back to manual videoUrls.
+                let discoveredVideoUrls: string[] = [];
+                if (enableYouTube || recommendedSources.enableYouTube) {
+                    try {
+                        const { pickYouTubeChannelIdsForLens } = await import('./services/youtubeChannelRegistry');
+                        const { suggestVideoQueries, discoverVideosByChannels } = await import('./services/youtubeDiscovery');
+                        setDataSourceStatus('YouTube: selecting channels and generating queries…');
+                        const [channelIds, querySuggest] = await Promise.all([
+                            pickYouTubeChannelIdsForLens(selectedLens, { limit: 12 }),
+                            suggestVideoQueries(researchGoal, selectedLens),
+                        ]);
+                        if (channelIds.length > 0) {
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[YOUTUBE DISCOVERY] Lens "${selectedLens}" selected ${channelIds.length} channels; AI suggested ${querySuggest.queries.length} queries${querySuggest.rationale ? ` — ${querySuggest.rationale}` : ''}`
+                            }]);
+                            setDataSourceStatus(`YouTube: scanning ${channelIds.length} channels for relevant videos…`);
+                            const discoveryResult = await discoverVideosByChannels({
+                                channelIds,
+                                goal: researchGoal,
+                                queries: querySuggest.queries,
+                                limitPerChannel: 8,
+                                maxResults: 6,   // cap transcription cost: 6 videos × ~$0.05 avg = $0.30/run
+                                minRelevance: 3,
+                            });
+                            discoveredVideoUrls = (discoveryResult.videos || []).map(v => v.url);
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[YOUTUBE DISCOVERY] Scanned ${discoveryResult.total_videos_scanned} videos across ${discoveryResult.total_channels_queried} channels → ${discoveredVideoUrls.length} queued for transcription`
+                            }]);
+                        }
+                    } catch (ytErr) {
+                        console.warn('[YouTubeDiscovery] auto-discovery failed (non-fatal):', ytErr);
+                    }
+                }
+
+                // Combine manually-entered video URLs with auto-discovered ones
+                const manualVideoUrls = videoUrls.trim() ? videoUrls.trim().split('\n').filter(u => u.trim()) : [];
+                const allVideoUrls = Array.from(new Set([...manualVideoUrls, ...discoveredVideoUrls]));
+
                 // Also run orchestrator for deep research + CX mesh (if enabled)
                 const plan = await generateResearchPlan(researchGoal, selectedLens, {
                     deepResearch: (enableDeepResearch || recommendedSources.enableDeepResearch) ? { mode: deepResearchMode } : undefined,
                     newsMedia: false, academic: false, economic: false, socialTrends: false, videoSearch: false,
-                    videoTranscripts: videoUrls.trim() ? videoUrls.trim().split('\n').filter(u => u.trim()) : undefined,
+                    videoTranscripts: allVideoUrls.length > 0 ? allVideoUrls : undefined,
                     webIntelligence: (webUrls.trim() || manifestTierZeroUrls.length > 0) ? {
                         urls: [
                             ...manifestTierZeroUrls,  // S2 Tier 0 — first-party institutional sources

@@ -974,3 +974,19 @@
   - constraints: 2
   - date: 2026-04-21
 
+
+## [2026-04-21] generate | Identify named university case studies from 2025 and 2026, specifically related 
+  - themes: 34
+  - personas: 0
+  - recommendations: 0
+  - sources: 169
+  - evidence: 860
+
+
+## [2026-04-21] ingest | Engagement memory: identify-named-university-case-studies-from-2025-a
+  - goal: Identify named university case studies from 2025 and 2026, specifically related 
+  - themes: 34
+  - personas: 0
+  - recommendations: 0
+  - sources: 169
+

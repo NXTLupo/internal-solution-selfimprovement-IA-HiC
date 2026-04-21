@@ -2676,6 +2676,176 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
     }
 
 
+# ================================================================
+# YOUTUBE DISCOVER BY CHANNELS  (Phase 1-retrofit 2026-04-21)
+# ================================================================
+# The in-session YouTube pipeline previously hit 5 hardcoded AI-focused
+# channels regardless of the research topic. For a higher-ed-advancement
+# brief that's zero signal. This endpoint accepts a list of channel_ids
+# (provided by the client-side youtubeChannelRegistry which picks by lens)
+# plus the research goal, fans out to each channel's RSS feed, scores every
+# recent video by keyword overlap with the goal + AI-suggested queries, and
+# returns the top N video URLs ready for Whisper transcription.
+#
+# Non-blocking: per-channel failures are logged but don't kill the response.
+# Bounded: concurrency limited, per-channel limit_per_channel default 10,
+# total max_results default 15.
+
+import re as _re_yt_discover
+from concurrent.futures import ThreadPoolExecutor as _Executor_yt_discover
+
+class YouTubeDiscoverRequest(BaseModel):
+    channel_ids: _List_wiki_index[str]
+    goal: str = ""
+    queries: Optional[_List_wiki_index[str]] = None
+    limit_per_channel: Optional[int] = 10
+    max_results: Optional[int] = 15
+    min_relevance: Optional[float] = 3.0
+
+_YT_RSS_PRIMARY = "https://www.youtube.com/feeds/videos.xml?channel_id={cid}"
+_YT_RSS_FALLBACK = "https://www.youtube.com/feeds/videos.xml?playlist_id=UU{cid_body}"
+
+_STOPWORDS_YT = set([
+    'the','and','for','that','this','with','from','have','has','are','was','were',
+    'but','not','their','them','they','into','than','which','what','when','where',
+    'also','been','being','about','more','most','some','over','between','through',
+    'across','within','your','you','can','how','why','will','should','could'
+])
+
+def _tokenize_yt(text: str) -> set:
+    """Lowercase tokenize to 4+ char words, stopword-filtered."""
+    if not text:
+        return set()
+    words = _re_yt_discover.findall(r"[a-zA-Z][a-zA-Z0-9]+", text.lower())
+    return set(w for w in words if len(w) >= 4 and w not in _STOPWORDS_YT)
+
+def _score_video(title: str, description: str, goal_tokens: set, query_tokens_list: list) -> tuple:
+    """Score a video against the goal + suggested queries.
+    Returns (score 0-10, matched_queries[]).
+    Title matches weighted 2x body matches."""
+    title_tokens = _tokenize_yt(title)
+    desc_tokens = _tokenize_yt(description or "")
+    score = 0.0
+    # Goal keyword overlap
+    goal_title_hits = len(goal_tokens & title_tokens)
+    goal_desc_hits = len(goal_tokens & desc_tokens)
+    score += goal_title_hits * 1.5 + goal_desc_hits * 0.5
+    # Query-specific bonuses
+    matched_queries = []
+    for i, qtoks in enumerate(query_tokens_list):
+        if not qtoks:
+            continue
+        q_title_hits = len(qtoks & title_tokens)
+        q_desc_hits = len(qtoks & desc_tokens)
+        if q_title_hits > 0 or q_desc_hits >= 2:
+            matched_queries.append(i)
+            score += q_title_hits * 2.0 + q_desc_hits * 0.3
+    # Cap at 10
+    return (min(10.0, score), matched_queries)
+
+def _fetch_channel_videos(channel_id: str, limit: int) -> dict:
+    """Fetch latest N videos from a YouTube channel via RSS.
+    Tries primary feed first, then fallback (UU-transformed playlist).
+    Returns { videos: [...], status: 'ok'|'err', error: str }."""
+    urls_to_try = [
+        _YT_RSS_PRIMARY.format(cid=channel_id),
+    ]
+    # Fallback: UC -> UU playlist feed
+    if channel_id.startswith('UC'):
+        urls_to_try.append(_YT_RSS_FALLBACK.format(cid_body=channel_id[2:]))
+    last_err = ""
+    for url in urls_to_try:
+        try:
+            with httpx.Client(timeout=8.0, follow_redirects=True) as client:
+                resp = client.get(url)
+                if resp.status_code != 200:
+                    last_err = f"HTTP {resp.status_code}"
+                    continue
+                feed = _feedparser_s8.parse(resp.text)
+                videos = []
+                for entry in (feed.entries or [])[:limit]:
+                    video_id = entry.get('yt_videoid') or (entry.get('id', '').split(':')[-1])
+                    if not video_id:
+                        continue
+                    videos.append({
+                        'video_id': video_id,
+                        'url': f"https://www.youtube.com/watch?v={video_id}",
+                        'title': entry.get('title', '') or '',
+                        'channel_id': channel_id,
+                        'channel_title': getattr(feed.feed, 'title', '') or '',
+                        'published': entry.get('published') or entry.get('updated') or '',
+                        'description': (entry.get('summary') or '')[:1000],
+                    })
+                return {'videos': videos, 'status': 'ok'}
+        except Exception as e:
+            last_err = str(e)[:100]
+            continue
+    return {'videos': [], 'status': 'err', 'error': last_err}
+
+
+@app.post("/api/youtube/discover-by-channels")
+async def youtube_discover_by_channels(req: YouTubeDiscoverRequest):
+    """Fan out to N YouTube channel RSS feeds, score videos by goal+query
+    relevance, return the top M ranked.
+    Typical use: client picks channels by lens, then calls this to pre-filter
+    before enqueuing Whisper transcription (expensive — we don't want to
+    transcribe every video from every channel)."""
+    channel_ids = [c for c in (req.channel_ids or []) if isinstance(c, str) and c.strip()]
+    if not channel_ids:
+        return {'total_channels_queried': 0, 'total_videos_scanned': 0, 'videos': [], 'errors': ['no channel_ids provided']}
+
+    limit_per_channel = max(1, min(25, req.limit_per_channel or 10))
+    max_results = max(1, min(50, req.max_results or 15))
+    min_rel = max(0.0, float(req.min_relevance or 3.0))
+
+    goal_tokens = _tokenize_yt(req.goal or "")
+    query_tokens_list = [_tokenize_yt(q) for q in (req.queries or [])]
+
+    # Fan out with bounded concurrency (threadpool — synchronous RSS fetch).
+    # 6-way parallelism matches the orchestrator's proxy-concurrency ceiling.
+    all_videos = []
+    errors = []
+    with _Executor_yt_discover(max_workers=6) as ex:
+        futures = {ex.submit(_fetch_channel_videos, cid, limit_per_channel): cid for cid in channel_ids}
+        for fut in futures:
+            cid = futures[fut]
+            try:
+                result = fut.result(timeout=10)
+                if result.get('status') == 'ok':
+                    all_videos.extend(result.get('videos', []))
+                else:
+                    errors.append(f"{cid}: {result.get('error', 'unknown')}")
+            except Exception as e:
+                errors.append(f"{cid}: {str(e)[:80]}")
+
+    # Score every video
+    scored = []
+    for v in all_videos:
+        score, matched = _score_video(v.get('title', ''), v.get('description', ''), goal_tokens, query_tokens_list)
+        if score < min_rel:
+            continue
+        scored.append({
+            'video_id': v['video_id'],
+            'url': v['url'],
+            'title': v['title'],
+            'channel_id': v['channel_id'],
+            'channel_title': v.get('channel_title', ''),
+            'published': v.get('published', ''),
+            'score': round(score, 2),
+            'matched_queries': [(req.queries or [])[i] for i in matched if i < len(req.queries or [])],
+        })
+    scored.sort(key=lambda x: x['score'], reverse=True)
+    top = scored[:max_results]
+
+    logger.info(f"[YT-Discover] queried {len(channel_ids)} channels, scanned {len(all_videos)} videos, returning {len(top)} above relevance threshold {min_rel}")
+    return {
+        'total_channels_queried': len(channel_ids),
+        'total_videos_scanned': len(all_videos),
+        'videos': top,
+        'errors': errors,
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))

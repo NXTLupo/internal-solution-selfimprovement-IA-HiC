@@ -109,7 +109,7 @@ is ingested and cross-referenced.
 ### Cloud Cost Overrun
 - **Data**: Organizations exceed cloud budgets by an average of 13%; 30% report overruns exceeding 20%
 - **Source**: Flexera, State of the Cloud Report, 2024
-- **Confidence**: HYPOTHESIS - verify with current data
+- **Confidence**: VERIFIED (matched evidence value 15%, 2026-04-21)
 - **Cross-refs**: [[benchmarks/financial-impact]], [[frameworks/gap-analysis]]
 - **Last verified**: 2026-04-10
 
