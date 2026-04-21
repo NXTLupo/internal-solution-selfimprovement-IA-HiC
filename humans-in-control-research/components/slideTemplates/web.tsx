@@ -14,6 +14,7 @@ import type {
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
     ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
 } from './types';
+import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
 
 // Renderers fall back to the nxt brand when no brand prop is supplied.
 // When a brand is supplied, we use its token values so `T.TEAL` semantic slots
@@ -120,7 +121,44 @@ const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources,
  * the `size` prop ('hero' | 'body' | 'compact'). This is the primitive that
  * makes multi-quote density work across every theme template.
  */
-interface QuoteLike { text: string; source?: string; attribution?: string; date?: string; }
+interface QuoteLike { text: string; source?: string; attribution?: string; date?: string; role?: string; }
+
+/**
+ * Smart quote truncation — NEVER cut mid-clause. Prefer sentence boundaries,
+ * then clause boundaries (comma), then word boundaries. A quote that exceeds
+ * the soft maxChars but ends cleanly at a sentence is preferred over a hard
+ * truncation with "..." ellipsis. Returns the cleanest full-sentence chunk
+ * that fits within ~1.3× the soft max.
+ */
+function smartQuoteClip(text: string, maxChars: number): string {
+    if (!text) return '';
+    const t = text.trim();
+    if (t.length <= maxChars) return t;
+    const hardMax = Math.round(maxChars * 1.3);
+    // Try cutting at the last sentence boundary before hardMax.
+    const slice = t.slice(0, hardMax);
+    const lastSentence = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
+    if (lastSentence > maxChars * 0.5) return t.slice(0, lastSentence + 1).trim();
+    // No sentence boundary — fall back to last comma/clause before maxChars.
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > maxChars * 0.6) return t.slice(0, lastClause).trim() + '.';
+    // Last resort — cut at word boundary with ellipsis. The slidePostProcessor
+    // warns when this happens; it means the source had no natural break.
+    const lastSpace = slice.lastIndexOf(' ');
+    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim() + '…';
+}
+
+/** Clean a single quote if it came from a transcript source. Returns the
+ *  cleaned quote, or null to indicate the quote is entirely narration/filler. */
+function prepQuote(q: QuoteLike): QuoteLike | null {
+    if (!q || !q.text) return null;
+    const isTranscript = looksLikeTranscriptSource(q.source) || looksLikeTranscriptSource(q.attribution);
+    if (!isTranscript) return q;
+    const cleaned = cleanTranscriptQuote(q.text);
+    if (!cleaned) return null;
+    return { ...q, text: cleaned };
+}
+
 const QuoteStack: React.FC<{
     /** Either a single legacy `evidence` string or an array of full quote objects */
     quotes: QuoteLike[];
@@ -130,20 +168,24 @@ const QuoteStack: React.FC<{
     accent?: string;
     /** Override text color for dark surfaces */
     ink?: string;
-    /** Max characters per quote before truncation */
+    /** Soft max characters per quote — smart-clipped at sentence boundary */
     maxChars?: number;
 }> = ({ quotes, size = 'body', brand, accent, ink, maxChars }) => {
     const T = resolveT(brand);
     const sizing = size === 'hero'
         ? { fs: 12, lh: 1.5, pad: 14, border: 3, gap: 8, attrFs: 8, attrMt: 4 }
         : size === 'compact'
-        ? { fs: 9, lh: 1.4, pad: 8, border: 2, gap: 5, attrFs: 7, attrMt: 3 }
-        : { fs: 10, lh: 1.45, pad: 10, border: 2, gap: 6, attrFs: 8, attrMt: 3 };
+        ? { fs: 9, lh: 1.45, pad: 8, border: 2, gap: 5, attrFs: 7, attrMt: 3 }
+        : { fs: 10, lh: 1.5, pad: 10, border: 2, gap: 6, attrFs: 8, attrMt: 3 };
     const borderColor = accent || hex(T.CHARTREUSE_BRIGHT);
     const textColor = ink || hex(T.INK);
     const attrColor = accent || hex(T.MUTED);
-    const visible = quotes.filter(q => q && q.text);
+    // Clean transcript quotes AND filter anything the cleaner rejected.
+    const visible = quotes
+        .map(prepQuote)
+        .filter((q): q is QuoteLike => !!(q && q.text));
     if (visible.length === 0) return null;
+    const softMax = maxChars || (size === 'hero' ? 280 : size === 'compact' ? 140 : 200);
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: sizing.gap, width: '100%', minWidth: 0 }}>
             {visible.map((q, i) => (
@@ -153,15 +195,16 @@ const QuoteStack: React.FC<{
                         borderLeft: `${sizing.border}px solid ${borderColor}`,
                         paddingLeft: sizing.pad, lineHeight: sizing.lh, fontWeight: 300,
                     }}>
-                        "{truncate(q.text, maxChars || (size === 'hero' ? 240 : 160))}"
+                        "{smartQuoteClip(q.text, softMax)}"
                     </div>
-                    {(q.source || q.attribution) && (
+                    {(q.source || q.attribution || q.role) && (
                         <div style={{
                             fontSize: sizing.attrFs, color: attrColor,
                             marginTop: sizing.attrMt, paddingLeft: sizing.pad,
                             letterSpacing: '1.2px', textTransform: 'uppercase' as const, fontWeight: 700,
+                            lineHeight: 1.35,
                         }}>
-                            {q.attribution ? `${q.attribution}${q.source ? ' · ' + q.source : ''}` : q.source}
+                            {[q.attribution, q.role, q.source].filter(Boolean).join(' · ')}
                             {q.date ? `, ${q.date}` : ''}
                         </div>
                     )}
@@ -174,7 +217,7 @@ const QuoteStack: React.FC<{
 /** Normalize legacy `evidence` + `source` into the QuoteLike[] shape the stack
  *  expects. If `quotes[]` is provided, it takes precedence and the singular
  *  evidence is ignored. */
-function resolveThemeQuotes(theme: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string; date?: string }> }): QuoteLike[] {
+function resolveThemeQuotes(theme: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string; date?: string; role?: string }> }): QuoteLike[] {
     if (theme.quotes && theme.quotes.length > 0) return theme.quotes;
     if (theme.evidence) return [{ text: theme.evidence, source: theme.source }];
     return [];
@@ -245,43 +288,86 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
 // === 2. RECOMMENDATION (strategy-author) ===
 export const RecommendationSlide: React.FC<{ title: string; data: RecommendationData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
+    const hasGrid = !!(data.impactGrid && (data.impactGrid.baseline || data.impactGrid.target || data.impactGrid.timeframe || data.impactGrid.owner));
+    const hasEvidence = !!(data.evidence && data.evidence.length > 0);
     return (
-    <div style={{ padding: '40px 56px 28px', display: 'flex', flexDirection: 'column', gap: 18, height: '100%' }}>
-        <Tag text="STRATEGIC RECOMMENDATION" brand={brand} />
-        <Title text={title} size={32} brand={brand} />
-        <div style={{ display: 'flex', gap: 40, flex: 1 }}>
-            <div style={{ flex: 2, display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 700, fontSize: 16, color: hex(T.INK), lineHeight: 1.3, borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 14 }}>
+    <div style={{ padding: '28px 40px 16px', display: 'flex', flexDirection: 'column', gap: 12, height: '100%' }}>
+        <div>
+            <Tag text="STRATEGIC RECOMMENDATION" brand={brand} />
+            <Title text={title} size={24} brand={brand} />
+        </div>
+        <div style={{ display: 'flex', gap: 22, flex: 1, minHeight: 0 }}>
+            {/* LEFT — action + supporting actions + evidence strip */}
+            <div style={{ flex: 2, display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
+                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 700, fontSize: 15, color: hex(T.INK), lineHeight: 1.3, borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 12 }}>
                     {data.actionTitle}
                 </div>
                 {data.rationale && (
-                    <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.6, fontWeight: 300 }}>{data.rationale}</div>
+                    <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(data.rationale, 360)}</div>
                 )}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 4 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 2 }}>
                     {data.supportingActions.slice(0, 5).map((a, i) => (
-                        <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 28, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 32 }}>
+                        <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
                                 {String(i + 1).padStart(2, '0')}
                             </div>
-                            <div style={{ flex: 1 }}>
-                                <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), marginBottom: 2 }}>{a.name}</div>
-                                <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{a.description}</div>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{ fontWeight: 700, fontSize: 10.5, color: hex(T.INK), marginBottom: 2, letterSpacing: '-0.005em' }}>{a.name}</div>
+                                <div style={{ fontSize: 9.5, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{truncate(a.description, 220)}</div>
                             </div>
                         </div>
                     ))}
                 </div>
+                {/* EVIDENCE STRIP — transcript/corpus quotes that justify the action */}
+                {hasEvidence && (
+                    <div style={{ marginTop: 'auto', paddingTop: 8, borderTop: `1px solid ${hex(T.RULE)}` }}>
+                        <div style={{ fontSize: 7.5, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 6 }}>EVIDENCE</div>
+                        <QuoteStack quotes={(data.evidence || []).slice(0, 2)} size="compact" brand={brand} maxChars={180} />
+                    </div>
+                )}
             </div>
-            {data.impactMetric && (() => {
+            {/* RIGHT — 4-cell impact grid OR legacy hero number */}
+            {hasGrid ? (
+                <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 18, display: 'flex', flexDirection: 'column', gap: 12, borderTop: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, overflow: 'hidden' }}>
+                    <div style={{ fontSize: 8, fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY) }}>PROJECTED IMPACT</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, flex: 1 }}>
+                        {[
+                            { k: 'BASELINE', v: data.impactGrid?.baseline, color: T.MUTED },
+                            { k: 'TARGET', v: data.impactGrid?.target, color: T.TEAL },
+                            { k: 'TIMEFRAME', v: data.impactGrid?.timeframe, color: T.CYAN },
+                            { k: 'OWNER', v: data.impactGrid?.owner, color: T.CHARTREUSE_BRIGHT },
+                        ].map(c => (
+                            <div key={c.k} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                                <div style={{ fontSize: 7, letterSpacing: '2px', color: hex(c.color), fontWeight: 800, textTransform: 'uppercase' as const }}>{c.k}</div>
+                                <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.3, fontWeight: 700 }}>{c.v ? truncate(c.v, 60) : '—'}</div>
+                            </div>
+                        ))}
+                    </div>
+                    {data.impactMetric && (
+                        <div style={{ marginTop: 'auto', paddingTop: 10, borderTop: `1px solid ${hex(T.RULE)}` }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: heroNumberSize(data.impactMetric.value, { max: 38, min: 20, baseChars: 4 }), color: hex(T.TEAL), lineHeight: 1, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{data.impactMetric.value}</div>
+                            <div style={{ fontSize: 9, color: hex(T.SECONDARY), marginTop: 4, lineHeight: 1.35 }}>{truncate(data.impactMetric.label, 80)}</div>
+                        </div>
+                    )}
+                </div>
+            ) : data.impactMetric && (() => {
                 const mSize = heroNumberSize(data.impactMetric.value, { max: 60, min: 30, baseChars: 4 });
                 return (
-                    <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 24, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, overflow: 'hidden' }}>
-                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: hex(T.SECONDARY), marginBottom: 8 }}>PROJECTED IMPACT</div>
+                    <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: 22, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderTop: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, overflow: 'hidden' }}>
+                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>PROJECTED IMPACT</div>
                         <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: mSize, color: hex(T.TEAL), lineHeight: 1.0, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{data.impactMetric.value}</div>
-                        <div style={{ fontSize: 11, color: hex(T.INK), marginTop: 10, lineHeight: 1.35, fontWeight: 500 }}>{truncate(data.impactMetric.label, 100)}</div>
+                        <div style={{ fontSize: 10, color: hex(T.INK), marginTop: 10, lineHeight: 1.35, fontWeight: 500 }}>{truncate(data.impactMetric.label, 100)}</div>
                     </div>
                 );
             })()}
         </div>
+        {/* IMPLICATION line */}
+        {data.implication && (
+            <div style={{ fontSize: 10, color: hex(T.INK), fontWeight: 600, borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8 }}>
+                <span style={{ letterSpacing: '1.5px', fontSize: 7.5, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>IMPLICATION</span>
+                {truncate(data.implication, 260)}
+            </div>
+        )}
         <SourceFooter sources={sources} brand={brand} />
     </div>
     );
@@ -328,50 +414,75 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
     const hero = all[0];
     const supporting = all.slice(1, 4);
     if (!hero) return null;
-    // If the AI failed to provide supporting themes, degrade to a hero-only
-    // layout instead of showing an empty 40% panel. A one-theme spotlight is
-    // acceptable; a 40% white void is not.
     const hasSupporting = supporting.length > 0;
     if (!hasSupporting) {
         console.warn(`[ThemeSpotlight] rendering hero-only — AI supplied ${all.length} theme(s), minimum 3 required for full spotlight layout`);
     }
     return (
-        <div style={{ padding: '32px 40px 22px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%' }}>
+        <div style={{ padding: '28px 36px 18px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%' }}>
             <div>
                 <Tag text={hasSupporting ? "EMERGING THEME — SPOTLIGHT" : "EMERGING THEME"} brand={brand} />
-                <Title text={title} size={24} brand={brand} />
+                <Title text={title} size={22} brand={brand} />
             </div>
-            <div style={{ display: 'flex', gap: 24, flex: 1, minHeight: 0 }}>
+            <div style={{ display: 'flex', gap: 22, flex: 1, minHeight: 0 }}>
                 {/* Hero — 60% when supporting present, 100% otherwise */}
                 <div style={{
                     flex: hasSupporting ? 3 : 1,
                     minWidth: 0,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 10,
+                    gap: 9,
                     paddingRight: hasSupporting ? 18 : 0,
                     borderRight: hasSupporting ? `1px solid ${hex(T.RULE)}` : 'none',
                 }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-                        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 64, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.9, letterSpacing: '-0.04em' }}>01</div>
-                        <div style={{ fontWeight: 800, fontSize: hasSupporting ? 18 : 22, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, hasSupporting ? 90 : 140)}</div>
+                        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 56, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.9, letterSpacing: '-0.04em' }}>01</div>
+                        <div style={{ fontWeight: 800, fontSize: hasSupporting ? 17 : 22, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, hasSupporting ? 90 : 140)}</div>
                     </div>
-                    <div style={{ fontSize: hasSupporting ? 11 : 13, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, hasSupporting ? 360 : 600)}</div>
-                    <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={hasSupporting ? 240 : 360} />
+                    <div style={{ fontSize: hasSupporting ? 10.5 : 12, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, hasSupporting ? 420 : 600)}</div>
+                    <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={hasSupporting ? 280 : 400} />
+                    {/* PATTERN SIGNAL — cross-source pattern callout under the hero quote */}
+                    {data.patternSignal && (
+                        <div style={{
+                            marginTop: 4,
+                            background: hex(T.PALE),
+                            padding: '9px 12px 10px',
+                            borderLeft: `3px solid ${hex(T.CYAN)}`,
+                        }}>
+                            <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.CYAN), marginBottom: 3 }}>PATTERN SIGNAL</div>
+                            <div style={{ fontSize: 10, color: hex(T.INK), lineHeight: 1.5, fontWeight: 400 }}>{truncate(data.patternSignal, 260)}</div>
+                        </div>
+                    )}
+                    {/* IMPLICATION — per-hero-theme implication line */}
+                    {hero.implication && (
+                        <div style={{
+                            fontSize: 10, color: hex(T.INK), fontWeight: 600,
+                            borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8, marginTop: 'auto',
+                        }}>
+                            <span style={{ letterSpacing: '1.5px', fontSize: 7.5, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 800, marginRight: 8 }}>IMPLICATION</span>
+                            {truncate(hero.implication, 220)}
+                        </div>
+                    )}
                 </div>
-                {/* Supporting panel — ONLY rendered when at least one supporting theme exists */}
+                {/* Supporting panel — 2-sentence signals */}
                 {hasSupporting && (
                     <div style={{ flex: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
-                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>SUPPORTING SIGNALS</div>
+                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 6 }}>SUPPORTING SIGNALS</div>
                         {supporting.map((t, i) => (
                             <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 0', borderBottom: i < supporting.length - 1 ? `1px solid ${hex(T.RULE)}` : 'none' }}>
-                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
+                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 26 }}>
                                     {String(i + 2).padStart(2, '0')}
                                 </div>
                                 <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                                    <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2 }}>{truncate(t.name, 70)}</div>
-                                    <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(t.insight, 130)}</div>
-                                    <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={120} />
+                                    <div style={{ fontWeight: 700, fontSize: 10.5, color: hex(T.INK), lineHeight: 1.2, letterSpacing: '-0.005em' }}>{truncate(t.name, 80)}</div>
+                                    {/* 2-sentence mini-finding instead of one thin line */}
+                                    <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{truncate(t.insight, 220)}</div>
+                                    <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={160} />
+                                    {t.signal && (
+                                        <div style={{ fontSize: 7.5, letterSpacing: '1.5px', color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 800, textTransform: 'uppercase' as const, marginTop: 2 }}>
+                                            SIGNAL · {truncate(t.signal, 60)}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -389,22 +500,22 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
     const T = resolveT(brand);
     const themes = data.themes.slice(0, 4);
     return (
-        <div style={{ padding: '36px 44px 22px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%' }}>
+        <div style={{ padding: '30px 40px 18px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%' }}>
             <div>
                 <Tag text="THEMATIC ARC" brand={brand} />
-                <Title text={title} size={24} brand={brand} />
+                <Title text={title} size={22} brand={brand} />
             </div>
             {/* Numbered chain — top row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginTop: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginTop: 4 }}>
                 {themes.map((t, i) => (
                     <React.Fragment key={`n-${i}`}>
                         <div style={{ flex: 1, minWidth: 0, textAlign: 'center' as const }}>
-                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 44, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, letterSpacing: '-0.03em' }}>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 40, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, letterSpacing: '-0.03em' }}>
                                 {String(i + 1).padStart(2, '0')}
                             </div>
                         </div>
                         {i < themes.length - 1 && (
-                            <div style={{ width: 34, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' as const }}>
+                            <div style={{ width: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' as const }}>
                                 <div style={{ width: '100%', height: 1, background: hex(T.INK) }} />
                                 <div style={{ position: 'absolute' as const, right: -1, top: '50%', marginTop: -4, width: 0, height: 0, borderTop: '4px solid transparent', borderBottom: '4px solid transparent', borderLeft: `6px solid ${hex(T.INK)}` }} />
                             </div>
@@ -412,74 +523,144 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
                     </React.Fragment>
                 ))}
             </div>
-            {/* Theme cells — body row */}
-            <div style={{ display: 'flex', gap: 0, flex: 1, minHeight: 0, marginTop: 4 }}>
+            {/* Theme cells — body row with expanded density */}
+            <div style={{ display: 'flex', gap: 0, flex: 1, minHeight: 0, marginTop: 2 }}>
                 {themes.map((t, i) => (
                     <React.Fragment key={`c-${i}`}>
-                        <div style={{ flex: 1, minWidth: 0, padding: '4px 12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-                            <div style={{ fontWeight: 800, fontSize: 12, color: hex(T.INK), lineHeight: 1.2, letterSpacing: '-0.01em' }}>{truncate(t.name, 64)}</div>
-                            <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
-                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={110} />
-                            {(!t.quotes || t.quotes.length === 0) && (
-                                <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 'auto', paddingTop: 6, fontWeight: 600 }}>{truncate(t.source, 50)}</div>
+                        <div style={{ flex: 1, minWidth: 0, padding: '4px 10px', display: 'flex', flexDirection: 'column', gap: 5 }}>
+                            <div style={{ fontWeight: 800, fontSize: 11.5, color: hex(T.INK), lineHeight: 1.2, letterSpacing: '-0.01em' }}>{truncate(t.name, 70)}</div>
+                            {/* Expanded 2-3 sentence description */}
+                            <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 280)}</div>
+                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={140} />
+                            {/* SIGNAL metric tag — concrete proof the step is real */}
+                            {t.signal && (
+                                <div style={{
+                                    marginTop: 'auto',
+                                    borderTop: `1px solid ${hex(T.RULE)}`,
+                                    paddingTop: 5,
+                                    fontSize: 7.5,
+                                    letterSpacing: '1.5px',
+                                    color: hex(T.CHARTREUSE_BRIGHT),
+                                    fontWeight: 800,
+                                    textTransform: 'uppercase' as const,
+                                    lineHeight: 1.35,
+                                }}>
+                                    SIGNAL · <span style={{ color: hex(T.INK), letterSpacing: '0.3px', textTransform: 'none' as const, fontWeight: 700 }}>{truncate(t.signal, 56)}</span>
+                                </div>
                             )}
                         </div>
-                        {i < themes.length - 1 && <div style={{ width: 1, background: hex(T.RULE), margin: '8px 0' }} />}
+                        {i < themes.length - 1 && <div style={{ width: 1, background: hex(T.RULE), margin: '6px 0' }} />}
                     </React.Fragment>
                 ))}
             </div>
+            {/* Optional cross-step pattern signal */}
+            {data.patternSignal && (
+                <div style={{ fontSize: 9.5, color: hex(T.INK), background: hex(T.PALE), padding: '7px 12px', borderLeft: `3px solid ${hex(T.CYAN)}`, lineHeight: 1.5 }}>
+                    <span style={{ fontSize: 7.5, letterSpacing: '2px', color: hex(T.CYAN), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>PATTERN</span>
+                    {truncate(data.patternSignal, 240)}
+                </div>
+            )}
             <SourceFooter sources={sources} brand={brand} />
         </div>
     );
 };
 
-// === 3c. THEME MOSAIC — 2x2 inverse-checkerboard grid. ===
-// Use when 4 parallel themes deserve equal weight. Alternates dark/light cells
-// for designer rhythm. Cells 1 & 4 use dark surface (T.TEAL = brand sidebar
-// color), cells 2 & 3 use light surfaces.
+// === 3c. THEME MOSAIC — 2x2 ivory grid with hairline rules. ===
+// REDESIGNED 2026-04-21: the original black-and-white inverse-checkerboard
+// read as stark/off-brand. Replaced with a uniform ivory (PALE) surface for
+// all four cells, separated by hairline rules (RULE), with a single
+// chartreuse accent bar on the PRIMARY cell (index 0) to denote priority.
+// The primary cell earns its visual weight through the accent bar and
+// slightly bolder number, not through surface inversion.
 export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
     const themes = data.themes.slice(0, 4);
     while (themes.length < 4) themes.push({ name: '', insight: '', evidence: '', source: '' });
 
-    const surfaces = [
-        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
-        { bg: T.WHITE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
-        { bg: T.PALE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
-        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
-    ];
-
     return (
-        <div style={{ padding: '24px 32px 16px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16 }}>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                    <Tag text="THEMATIC MOSAIC" brand={brand} />
-                    <Title text={title} size={20} brand={brand} />
-                </div>
+        <div style={{ padding: '22px 30px 14px', display: 'flex', flexDirection: 'column', gap: 8, height: '100%' }}>
+            <div>
+                <Tag text="THEMATIC MOSAIC" brand={brand} />
+                <Title text={title} size={20} brand={brand} />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 6, flex: 1, minHeight: 0 }}>
+            {/* 2x2 grid — uniform ivory, hairline rules, one chartreuse accent on primary */}
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gridTemplateRows: '1fr 1fr',
+                gap: 0,
+                flex: 1,
+                minHeight: 0,
+                background: hex(T.PALE),
+                border: `1px solid ${hex(T.RULE)}`,
+            }}>
                 {themes.map((t, i) => {
-                    const sf = surfaces[i];
-                    if (!t.name) return <div key={i} style={{ background: hex(sf.bg) }} />;
+                    if (!t.name) return <div key={i} style={{
+                        borderRight: i % 2 === 0 ? `1px solid ${hex(T.RULE)}` : 'none',
+                        borderBottom: i < 2 ? `1px solid ${hex(T.RULE)}` : 'none',
+                    }} />;
+                    const isPrimary = i === 0;
                     return (
-                        <div key={i} style={{ background: hex(sf.bg), padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 6, overflow: 'hidden' }}>
+                        <div key={i} style={{
+                            padding: '14px 18px 12px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 6,
+                            overflow: 'hidden',
+                            // Hairline rules between cells (no line on outer edges)
+                            borderRight: i % 2 === 0 ? `1px solid ${hex(T.RULE)}` : 'none',
+                            borderBottom: i < 2 ? `1px solid ${hex(T.RULE)}` : 'none',
+                            // Chartreuse accent bar on the PRIMARY cell only
+                            borderTop: isPrimary ? `3px solid ${hex(T.CHARTREUSE_BRIGHT)}` : '3px solid transparent',
+                            position: 'relative' as const,
+                        }}>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 32, color: hex(sf.accent), lineHeight: 1, letterSpacing: '-0.03em' }}>
+                                <div style={{
+                                    fontFamily: `'${T.FONT}', sans-serif`,
+                                    fontWeight: isPrimary ? 300 : 200,
+                                    fontSize: 32,
+                                    color: hex(T.CHARTREUSE_BRIGHT),
+                                    lineHeight: 1,
+                                    letterSpacing: '-0.03em',
+                                }}>
                                     {String(i + 1).padStart(2, '0')}
                                 </div>
-                                <div style={{ fontWeight: 800, fontSize: 12, color: hex(sf.fg), lineHeight: 1.15, letterSpacing: '-0.01em', flex: 1 }}>{truncate(t.name, 70)}</div>
+                                <div style={{
+                                    fontWeight: 800,
+                                    fontSize: 12,
+                                    color: hex(T.INK),
+                                    lineHeight: 1.15,
+                                    letterSpacing: '-0.01em',
+                                    flex: 1,
+                                }}>{truncate(t.name, 80)}</div>
                             </div>
-                            <div style={{ fontSize: 9, color: hex(sf.body), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 180)}</div>
-                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} accent={hex(sf.accent)} ink={hex(sf.fg)} maxChars={100} />
-                            {(!t.quotes || t.quotes.length === 0) && (
-                                <div style={{ fontSize: 7, color: hex(sf.muted), letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700, marginTop: 'auto', paddingTop: 4 }}>
-                                    {truncate(t.source, 50)}
+                            {/* 2-3 sentence insight instead of the old 1-line */}
+                            <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>{truncate(t.insight, 240)}</div>
+                            <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={140} />
+                            {t.signal && (
+                                <div style={{
+                                    marginTop: 'auto',
+                                    paddingTop: 5,
+                                    fontSize: 7.5,
+                                    letterSpacing: '1.5px',
+                                    color: hex(T.CHARTREUSE_BRIGHT),
+                                    fontWeight: 800,
+                                    textTransform: 'uppercase' as const,
+                                }}>
+                                    SIGNAL · <span style={{ color: hex(T.INK), letterSpacing: '0.3px', textTransform: 'none' as const, fontWeight: 700 }}>{truncate(t.signal, 52)}</span>
                                 </div>
                             )}
                         </div>
                     );
                 })}
             </div>
+            {/* Optional cross-theme pattern footer */}
+            {data.patternSignal && (
+                <div style={{ fontSize: 9.5, color: hex(T.INK), background: hex(T.WHITE), padding: '7px 12px', borderLeft: `3px solid ${hex(T.CYAN)}`, lineHeight: 1.5 }}>
+                    <span style={{ fontSize: 7.5, letterSpacing: '2px', color: hex(T.CYAN), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>PATTERN</span>
+                    {truncate(data.patternSignal, 240)}
+                </div>
+            )}
             <SourceFooter sources={sources} brand={brand} />
         </div>
     );
@@ -564,28 +745,70 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
     );
 };
 
-// === 5. BLOCK QUOTE (evidence-curator) ===
+// === 5. BLOCK QUOTE (evidence-curator) — denser with context + corroborating data ===
 export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[]; brand?: Brand }> = ({ data, sources = [], brand }) => {
     const T = resolveT(brand);
+    const hasSidebar = !!(data.corroboratingData && data.corroboratingData.length > 0);
+    // Quote body gets a little smaller when the sidebar is present so both fit.
+    const quoteText = data.text || '';
+    const qLen = quoteText.length;
+    const baseQuoteSize = hasSidebar
+        ? (qLen > 340 ? 15 : qLen > 220 ? 18 : qLen > 140 ? 20 : 22)
+        : (qLen > 280 ? 18 : qLen > 180 ? 22 : qLen > 110 ? 26 : 28);
     return (
-    <div style={{ padding: '56px 72px 40px', display: 'flex', flexDirection: 'column', gap: 20, height: '100%', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 24, left: 52, fontFamily: 'Georgia, serif', fontSize: 120, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.7, fontWeight: 700, opacity: 0.85 }}>"</div>
+    <div style={{ padding: '34px 48px 20px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 14, left: 28, fontFamily: 'Georgia, serif', fontSize: 100, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.7, fontWeight: 700, opacity: 0.6 }}>"</div>
         {data.context && (
-            <div style={{ fontSize: 9, color: hex(T.SECONDARY), fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' }}>{truncate(data.context, 80)}</div>
+            <div style={{ fontSize: 9, color: hex(T.SECONDARY), fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, marginLeft: 46 }}>{truncate(data.context, 90)}</div>
         )}
-        {/* Quote size scales with length so a 400-char quote doesn't overflow the canvas */}
-        <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 300, fontSize: data.text.length > 280 ? 18 : data.text.length > 180 ? 22 : data.text.length > 110 ? 26 : 28, color: hex(T.INK), lineHeight: 1.4, fontStyle: 'italic', letterSpacing: '-0.005em', maxWidth: '92%' }}>
-            {truncate(data.text, 420)}
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 8 }}>
-            <div style={{ width: 48, height: 1, background: hex(T.CHARTREUSE_BRIGHT) }} />
-            <div>
-                <div style={{ fontWeight: 700, fontSize: 13, color: hex(T.INK) }}>{data.attribution}</div>
-                {data.role && <div style={{ fontSize: 10, color: hex(T.SECONDARY), marginTop: 2 }}>{data.role}</div>}
+        <div style={{ display: 'flex', gap: 28, flex: 1, minHeight: 0 }}>
+            {/* LEFT — hero quote + context paragraph + attribution */}
+            <div style={{ flex: hasSidebar ? 2 : 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 300, fontSize: baseQuoteSize, color: hex(T.INK), lineHeight: 1.35, fontStyle: 'italic' as const, letterSpacing: '-0.005em' }}>
+                    {smartQuoteClip(quoteText, hasSidebar ? 460 : 520)}
+                </div>
+                {/* CONTEXT paragraph — 3-4 sentences of who/when/why */}
+                {data.contextParagraph && (
+                    <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.6, fontWeight: 300, paddingLeft: 14, borderLeft: `1px solid ${hex(T.RULE)}` }}>
+                        {truncate(data.contextParagraph, 480)}
+                    </div>
+                )}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 'auto' }}>
+                    <div style={{ width: 40, height: 1, background: hex(T.CHARTREUSE_BRIGHT) }} />
+                    <div>
+                        <div style={{ fontWeight: 700, fontSize: 12, color: hex(T.INK) }}>{data.attribution}</div>
+                        {data.role && <div style={{ fontSize: 10, color: hex(T.SECONDARY), marginTop: 2 }}>{data.role}</div>}
+                    </div>
+                </div>
             </div>
+            {/* RIGHT — CORROBORATING DATA sidebar */}
+            {hasSidebar && (
+                <div style={{ flex: 1, minWidth: 0, background: hex(T.PALE), padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 14, borderTop: `3px solid ${hex(T.CYAN)}`, overflow: 'hidden' }}>
+                    <div style={{ fontSize: 8, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.CYAN) }}>CORROBORATING DATA</div>
+                    {(data.corroboratingData || []).slice(0, 3).map((d, i) => {
+                        const sz = heroNumberSize(d.value, { max: 30, min: 18, baseChars: 4 });
+                        return (
+                            <div key={i} style={{ borderTop: i > 0 ? `1px solid ${hex(T.RULE)}` : 'none', paddingTop: i > 0 ? 10 : 0 }}>
+                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 300, fontSize: sz, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, letterSpacing: '-0.03em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{d.value}</div>
+                                <div style={{ fontSize: 9.5, color: hex(T.INK), marginTop: 4, lineHeight: 1.4, fontWeight: 500 }}>{truncate(d.label, 100)}</div>
+                                {d.source && (
+                                    <div style={{ fontSize: 7.5, letterSpacing: '1.2px', color: hex(T.MUTED), marginTop: 3, textTransform: 'uppercase' as const, fontWeight: 700 }}>{truncate(d.source, 40)}</div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
         </div>
-        <div style={{ fontSize: 9, color: hex(T.MUTED), marginTop: 'auto', borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8 }}>
-            Source: {data.source}{sources && sources.length > 0 ? `  |  ${sources.join('  |  ')}` : ''}
+        {/* IMPLICATION line */}
+        {data.implication && (
+            <div style={{ fontSize: 10, color: hex(T.INK), fontWeight: 600, paddingTop: 6 }}>
+                <span style={{ letterSpacing: '1.5px', fontSize: 7.5, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>IMPLICATION</span>
+                {truncate(data.implication, 260)}
+            </div>
+        )}
+        <div style={{ fontSize: 9, color: hex(T.MUTED), borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 8 }}>
+            Source: {data.source}{sources && sources.length > 0 ? `  |  ${sources.filter(s => s !== data.source).join('  |  ')}` : ''}
         </div>
     </div>
     );
@@ -596,55 +819,64 @@ export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[
 // Right column (35%): dashboard with hero metric + supporting metrics + optional quote
 export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
-    const hasRightPanel = !!(data.keyMetric || data.supportingMetrics?.length || data.pullQuote);
+    const hasRightPanel = !!(data.keyMetric || data.supportingMetrics?.length || data.pullQuote || data.comparables?.length);
     return (
-    <div style={{ padding: '28px 36px 18px', display: 'flex', flexDirection: 'column', gap: 12, height: '100%', overflow: 'hidden' }}>
+    <div style={{ padding: '22px 32px 14px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%', overflow: 'hidden' }}>
         <div>
             <Tag text={`CASE STUDY  /  ${data.subject.toUpperCase()}`} brand={brand} />
-            <Title text={title} size={24} brand={brand} />
+            <Title text={title} size={22} brand={brand} />
         </div>
         {/* Subject meta strip — industry / region / size / timeframe / investment */}
         {(data.subjectMeta || data.timeframe || data.investment) && (
-            <div style={{ display: 'flex', gap: 24, fontSize: 9, fontWeight: 500, color: hex(T.SECONDARY), letterSpacing: '0.5px', paddingBottom: 8, borderBottom: `1px solid ${hex(T.RULE)}`, flexWrap: 'wrap' as const }}>
-                {data.subjectMeta && <span>{truncate(data.subjectMeta, 80)}</span>}
+            <div style={{ display: 'flex', gap: 22, fontSize: 9, fontWeight: 500, color: hex(T.SECONDARY), letterSpacing: '0.5px', paddingBottom: 6, borderBottom: `1px solid ${hex(T.RULE)}`, flexWrap: 'wrap' as const }}>
+                {data.subjectMeta && <span>{truncate(data.subjectMeta, 90)}</span>}
                 {data.timeframe && <span><strong style={{ color: hex(T.INK), letterSpacing: '1.5px', textTransform: 'uppercase' as const, fontSize: 8 }}>TIMEFRAME</strong>  {truncate(data.timeframe, 40)}</span>}
                 {data.investment && <span><strong style={{ color: hex(T.INK), letterSpacing: '1.5px', textTransform: 'uppercase' as const, fontSize: 8 }}>INVESTMENT</strong>  {truncate(data.investment, 40)}</span>}
             </div>
         )}
-        <div style={{ display: 'flex', gap: 18, flex: 1, minHeight: 0 }}>
-            {/* LEFT — Challenge / Approach / Outcome narrative */}
+        <div style={{ display: 'flex', gap: 16, flex: 1, minHeight: 0 }}>
+            {/* LEFT — Challenge / Approach / Outcome narrative (denser) */}
             <div style={{ flex: hasRightPanel ? 1.9 : 1, display: 'flex', flexDirection: 'column', minWidth: 0, gap: 0 }}>
                 {[
                     { label: 'CHALLENGE', text: data.challenge, color: T.RED, bg: 'FFF5F5' },
                     { label: 'APPROACH', text: data.approach, color: T.CYAN, bg: 'F0FBFC' },
                     { label: 'OUTCOME', text: data.outcome, color: T.GREEN, bg: 'F0FBF5' },
                 ].map((b, i) => (
-                    <div key={i} style={{ display: 'flex', gap: 14, padding: '11px 14px', background: i % 2 === 0 ? hex(T.WHITE) : hex(T.PALE), borderLeft: `3px solid ${hex(b.color)}`, marginBottom: 6, minWidth: 0, flex: 1 }}>
-                        <div style={{ width: 84, flexShrink: 0 }}>
+                    <div key={i} style={{ display: 'flex', gap: 12, padding: '9px 12px', background: i % 2 === 0 ? hex(T.WHITE) : hex(T.PALE), borderLeft: `3px solid ${hex(b.color)}`, marginBottom: 4, minWidth: 0, flex: 1 }}>
+                        <div style={{ width: 76, flexShrink: 0 }}>
                             <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', color: hex(b.color), textTransform: 'uppercase' as const }}>{b.label}</div>
                         </div>
-                        <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300, flex: 1, minWidth: 0 }}>{truncate(b.text, 260)}</div>
+                        <div style={{ fontSize: 10, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300, flex: 1, minWidth: 0 }}>{truncate(b.text, 340)}</div>
                     </div>
                 ))}
+                {/* LESSON FOR ADVANCEMENT — footer row synthesizing the takeaway */}
+                {data.lesson && (
+                    <div style={{ display: 'flex', gap: 12, padding: '9px 12px', background: hex(T.PALE), borderLeft: `3px solid ${hex(T.CHARTREUSE_BRIGHT)}`, marginTop: 2, minWidth: 0 }}>
+                        <div style={{ width: 76, flexShrink: 0 }}>
+                            <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '2px', color: hex(T.CHARTREUSE_BRIGHT), textTransform: 'uppercase' as const }}>LESSON</div>
+                        </div>
+                        <div style={{ fontSize: 10, color: hex(T.INK), lineHeight: 1.5, fontWeight: 500, flex: 1, minWidth: 0 }}>{truncate(data.lesson, 280)}</div>
+                    </div>
+                )}
             </div>
-            {/* RIGHT — Metrics dashboard + optional pull quote */}
+            {/* RIGHT — Metrics dashboard + comparables + optional pull quote */}
             {hasRightPanel && (
-                <div style={{ flex: 1, minWidth: 0, background: hex(T.TEAL), padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: 14, overflow: 'hidden' }}>
+                <div style={{ flex: 1, minWidth: 0, background: hex(T.TEAL), padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 10, overflow: 'hidden' }}>
                     {data.keyMetric && (() => {
-                        const mSize = heroNumberSize(data.keyMetric.value, { max: 52, min: 26, baseChars: 4 });
+                        const mSize = heroNumberSize(data.keyMetric.value, { max: 46, min: 22, baseChars: 4 });
                         return (
                             <div>
-                                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.CHARTREUSE_BRIGHT), marginBottom: 6 }}>KEY OUTCOME</div>
+                                <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, color: hex(T.CHARTREUSE_BRIGHT), marginBottom: 4 }}>KEY OUTCOME</div>
                                 <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: mSize, color: hex(T.WHITE), lineHeight: 1.0, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{data.keyMetric.value}</div>
-                                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.85)', marginTop: 6, lineHeight: 1.35, fontWeight: 400 }}>{truncate(data.keyMetric.label, 90)}</div>
+                                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.85)', marginTop: 5, lineHeight: 1.35, fontWeight: 400 }}>{truncate(data.keyMetric.label, 90)}</div>
                             </div>
                         );
                     })()}
-                    {/* Supporting metrics — small grid below hero */}
+                    {/* Supporting metrics */}
                     {data.supportingMetrics && data.supportingMetrics.length > 0 && (
-                        <div style={{ display: 'grid', gridTemplateColumns: data.supportingMetrics.length > 1 ? '1fr 1fr' : '1fr', gap: 10, borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 12 }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: data.supportingMetrics.length > 1 ? '1fr 1fr' : '1fr', gap: 8, borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 9 }}>
                             {data.supportingMetrics.slice(0, 4).map((m, i) => {
-                                const sz = heroNumberSize(m.value, { max: 26, min: 16, baseChars: 4 });
+                                const sz = heroNumberSize(m.value, { max: 24, min: 14, baseChars: 4 });
                                 return (
                                     <div key={i}>
                                         <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 300, fontSize: sz, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>{m.value}</div>
@@ -654,13 +886,27 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                             })}
                         </div>
                     )}
-                    {/* Pull quote — verbatim testimony pinned to bottom */}
+                    {/* COMPARABLES strip — 2-3 other orgs with adjacent results */}
+                    {data.comparables && data.comparables.length > 0 && (
+                        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 9 }}>
+                            <div style={{ fontSize: 7.5, fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase' as const, color: hex(T.CHARTREUSE_BRIGHT), marginBottom: 5 }}>COMPARABLES</div>
+                            {data.comparables.slice(0, 3).map((c, i) => (
+                                <div key={i} style={{ marginBottom: 5, paddingBottom: 4, borderBottom: i < Math.min(data.comparables!.length, 3) - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
+                                    <div style={{ fontSize: 9, color: hex(T.WHITE), fontWeight: 700, lineHeight: 1.25 }}>{truncate(c.name, 48)}</div>
+                                    <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.75)', lineHeight: 1.35, fontWeight: 300, marginTop: 2 }}>{truncate(c.outcome, 80)}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                    {/* Pull quote — full sentence preferred, role shown */}
                     {data.pullQuote && (
-                        <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 12 }}>
-                            <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.9)', fontStyle: 'italic' as const, lineHeight: 1.45, borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 10, fontWeight: 300 }}>
-                                "{truncate(data.pullQuote.text, 140)}"
+                        <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 10 }}>
+                            <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.92)', fontStyle: 'italic' as const, lineHeight: 1.5, borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}`, paddingLeft: 9, fontWeight: 300 }}>
+                                "{smartQuoteClip(data.pullQuote.text, 200)}"
                             </div>
-                            <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.6)', marginTop: 6, paddingLeft: 12 }}>— {truncate(data.pullQuote.attribution, 60)}</div>
+                            <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.7)', marginTop: 5, paddingLeft: 11, lineHeight: 1.4 }}>
+                                — {data.pullQuote.attribution}{data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}
+                            </div>
                         </div>
                     )}
                 </div>
@@ -705,25 +951,53 @@ export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?
     const stats = data.stats.slice(0, 4);
     const accents = [T.CHARTREUSE_BRIGHT, T.CYAN, T.RUST, T.TEAL];
     return (
-        <div style={{ padding: '40px 48px 24px', display: 'flex', flexDirection: 'column', gap: 18, height: '100%', overflow: 'hidden' }}>
+        <div style={{ padding: '28px 38px 16px', display: 'flex', flexDirection: 'column', gap: 10, height: '100%', overflow: 'hidden' }}>
             <div>
                 <Tag text="BY THE NUMBERS" brand={brand} />
-                <Title text={title} size={28} brand={brand} />
+                <Title text={title} size={22} brand={brand} />
             </div>
-            <div style={{ display: 'flex', gap: 0, flex: 1, alignItems: 'stretch' }}>
+            {/* Stat cells — each now carries meaning + matters interpretation */}
+            <div style={{ display: 'flex', gap: 0, alignItems: 'stretch', flex: data.convergentInsight ? 'none' : 1 }}>
                 {stats.map((s, i) => {
-                    const size = heroNumberSize(s.value, { max: 60, min: 30, baseChars: 4 });
+                    const size = heroNumberSize(s.value, { max: 50, min: 24, baseChars: 4 });
                     return (
-                        <div key={i} style={{ flex: 1, minWidth: 0, padding: '16px 18px', borderLeft: i > 0 ? `1px solid ${hex(T.RULE)}` : 'none', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 12, overflow: 'hidden' }}>
+                        <div key={i} style={{ flex: 1, minWidth: 0, padding: '12px 16px 14px', borderLeft: i > 0 ? `1px solid ${hex(T.RULE)}` : 'none', display: 'flex', flexDirection: 'column', gap: 7, overflow: 'hidden' }}>
                             <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: size, color: hex(accents[i % accents.length]), lineHeight: 1.0, letterSpacing: '-0.035em', whiteSpace: 'nowrap' as const, overflow: 'hidden' as const, textOverflow: 'ellipsis' as const }}>
                                 {s.value}
                             </div>
-                            <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.35, fontWeight: 500 }}>{truncate(s.label, 90)}</div>
-                            <div style={{ fontSize: 8, color: hex(T.MUTED), marginTop: 'auto', letterSpacing: '0.5px' }}>{truncate(s.source, 60)}</div>
+                            <div style={{ fontSize: 10.5, color: hex(T.INK), lineHeight: 1.35, fontWeight: 600 }}>{truncate(s.label, 100)}</div>
+                            {/* WHAT IT MEANS */}
+                            {s.meaning && (
+                                <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300, paddingTop: 3, borderTop: `1px solid ${hex(T.RULE)}` }}>
+                                    <span style={{ fontSize: 7, letterSpacing: '1.5px', color: hex(T.SECONDARY), fontWeight: 800, marginRight: 6, textTransform: 'uppercase' as const }}>MEANS</span>
+                                    {truncate(s.meaning, 160)}
+                                </div>
+                            )}
+                            {/* WHY IT MATTERS NOW */}
+                            {s.matters && (
+                                <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300 }}>
+                                    <span style={{ fontSize: 7, letterSpacing: '1.5px', color: hex(accents[i % accents.length]), fontWeight: 800, marginRight: 6, textTransform: 'uppercase' as const }}>MATTERS</span>
+                                    {truncate(s.matters, 160)}
+                                </div>
+                            )}
+                            <div style={{ fontSize: 7.5, color: hex(T.MUTED), marginTop: 'auto', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700, paddingTop: 4 }}>{truncate(s.source, 60)}</div>
                         </div>
                     );
                 })}
             </div>
+            {/* CONVERGENT INSIGHT row — fills the dead bottom with synthesis across stats */}
+            {data.convergentInsight && (
+                <div style={{ background: hex(T.PALE), padding: '12px 18px', borderLeft: `4px solid ${hex(T.CHARTREUSE_BRIGHT)}`, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <div style={{ fontSize: 8, fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.CHARTREUSE_BRIGHT) }}>CONVERGENT INSIGHT</div>
+                    <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.55, fontWeight: 400 }}>{truncate(data.convergentInsight, 320)}</div>
+                    {data.patternSignal && (
+                        <div style={{ fontSize: 9.5, color: hex(T.BODY), lineHeight: 1.5, fontWeight: 300, marginTop: 2, paddingTop: 6, borderTop: `1px solid ${hex(T.RULE)}` }}>
+                            <span style={{ fontSize: 7.5, letterSpacing: '2px', color: hex(T.CYAN), fontWeight: 800, marginRight: 8, textTransform: 'uppercase' as const }}>PATTERN</span>
+                            {truncate(data.patternSignal, 240)}
+                        </div>
+                    )}
+                </div>
+            )}
             <SourceFooter sources={sources} brand={brand} />
         </div>
     );

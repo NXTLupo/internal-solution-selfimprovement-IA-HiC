@@ -142,7 +142,15 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
         if (parsed.length === 0) return fallbackSuggestions(phase, state, maxSuggestions);
         return parsed.slice(0, maxSuggestions);
     } catch (err: any) {
-        console.warn('[dynamicPromptSuggestions] failed, using fallback:', err?.message || err);
+        // Abort errors are EXPECTED — they fire when the component's state
+        // fingerprint changes and a new effect run cancels the in-flight
+        // fetch. Logging them as warnings floods the console with noise on
+        // a rapidly-updating workbench. Real failures (network, bad JSON)
+        // still log.
+        const isAbort = err?.name === 'AbortError' || /aborted/i.test(err?.message || '');
+        if (!isAbort) {
+            console.warn('[dynamicPromptSuggestions] failed, using fallback:', err?.message || err);
+        }
         return fallbackSuggestions(phase, state, maxSuggestions);
     }
 }

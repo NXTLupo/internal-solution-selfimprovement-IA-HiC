@@ -1,5 +1,20 @@
 [
   {
+    "id": "nxt-visual-renderer",
+    "name": "NXT Visual Renderer",
+    "description": "NXT Humans Design System v3.0 — canonical layout, density, and quote-handling contract for the 18 web slide templates + PPTX export. Render-contract: always loaded alongside any content skill when slide intent is detected. Covers NXT and NU brand variants — colors resolve per brand, layout geometry is shared. Option B density upgrade: per-template IMPLICATION, full-sentence smart-clipped quotes with role attribution, plus template-specific extensions (PATTERN SIGNAL, per-theme SIGNAL, MEANS/MATTERS, CONVERGENT INSIGHT, LESSON, COMPARABLES, IMPACT GRID, EVIDENCE strip, CONTEXT PARAGRAPH, CORROBORATING DATA).",
+    "category": "render-contract",
+    "triggers": ["slide", "slides", "deck", "presentation", "#slide", "theme-spotlight", "theme-arc", "theme-mosaic", "theme-cluster", "case-study", "case study", "recommendation", "stat-row", "stat row", "by the numbers", "block-quote", "pull quote", "persona-card", "competitive-matrix", "service-blueprint", "gap-matrix", "timeline", "section divider"],
+    "wikiCompanions": [],
+    "benchmarks": [],
+    "skillReferences": ["references/web-layouts.md", "references/anti-slop-rules.md"],
+    "outputTypes": ["theme-spotlight", "theme-arc", "theme-mosaic", "theme-cluster", "case-study", "recommendation", "stat-row", "block-quote", "persona-card", "competitive-matrix"],
+    "bestModel": "claude-opus-4-7",
+    "thinkingEffort": "high",
+    "executionContext": "primary",
+    "path": "/skills/nxt-visual-renderer/SKILL.md"
+  },
+  {
     "id": "persona-architect",
     "name": "Persona Architect",
     "description": "JTBD + Cooper Goal Hierarchy. Reject generic demographics. Synthesize behavioral archetypes exclusively from raw corpus data. Must include verbatim user quotes directly mapped to Pain Points and Motivations.",

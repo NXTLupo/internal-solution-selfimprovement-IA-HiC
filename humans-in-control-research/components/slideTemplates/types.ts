@@ -43,6 +43,19 @@ export interface RecommendationData {
     rationale?: string;
     supportingActions: Array<{ name: string; description: string }>;
     impactMetric?: { value: string; label: string };
+    /** 4-cell impact grid — replaces the lone hero number with a full frame.
+     *  Renderer falls back to impactMetric when this isn't supplied. */
+    impactGrid?: {
+        baseline?: string;    // e.g. "6% mobile giving today"
+        target?: string;      // e.g. "15% by Q3 2026"
+        timeframe?: string;   // e.g. "9 months"
+        owner?: string;       // e.g. "Advancement Services"
+    };
+    /** 2-3 transcript / corpus quotes that directly justify the action.
+     *  Rendered as an EVIDENCE strip beneath the action title. */
+    evidence?: SlideQuote[];
+    /** One-sentence implication line tying the action to the research objective. */
+    implication?: string;
 }
 
 /** A single pulled quote — verbatim text + full attribution. Used anywhere a
@@ -72,7 +85,17 @@ export interface ThemeClusterData {
          *  asks for N quotes per theme or when you want to show convergent
          *  evidence from multiple sources. */
         quotes?: SlideQuote[];
+        /** One-sentence implication tying this theme to the research objective. */
+        implication?: string;
+        /** SIGNAL metric tag — a single concrete number or named entity that
+         *  proves the theme is real (e.g. "50% mobile giving by 2025" or
+         *  "Central Pennsylvania Food Bank: 10% wallet adoption"). Used by
+         *  theme-arc and theme-cluster to tag each step. */
+        signal?: string;
     }>;
+    /** Cross-theme pattern callout. Rendered under the hero quote on
+     *  theme-spotlight, below the arc on theme-arc, as a footer on mosaic. */
+    patternSignal?: string;
 }
 
 export interface CompetitiveMatrixData {
@@ -101,6 +124,18 @@ export interface BlockQuoteData {
     role?: string;
     source: string;
     context?: string;
+    /** 3-4 sentence paragraph setting up WHO said this, WHEN, and WHY it
+     *  matters to the research objective. Rendered under the quote. */
+    contextParagraph?: string;
+    /** 2-3 supporting data points from OTHER sources that corroborate the
+     *  quote. Rendered as a right-side CORROBORATING DATA strip. */
+    corroboratingData?: Array<{
+        value: string;         // "50%"
+        label: string;         // "rise in mobile giving by 2025"
+        source?: string;       // "Fundraise Up benchmarks"
+    }>;
+    /** One-sentence implication line. */
+    implication?: string;
 }
 
 export interface CaseStudyData {
@@ -118,7 +153,19 @@ export interface CaseStudyData {
     /** 2-3 additional stats that corroborate the hero metric */
     supportingMetrics?: Array<{ value: string; label: string }>;
     /** Verbatim quote from the subject (or someone inside the case) */
-    pullQuote?: { text: string; attribution: string };
+    pullQuote?: { text: string; attribution: string; role?: string };
+    /** LESSON FOR ADVANCEMENT — 1-2 sentence generalization of the takeaway,
+     *  rendered as a footer row under the C/A/O blocks. */
+    lesson?: string;
+    /** COMPARABLES strip — 2-3 other orgs that achieved similar results.
+     *  Rendered as a compact strip on the right panel. */
+    comparables?: Array<{
+        name: string;
+        outcome: string;       // "8.5% wallet adoption in 12 months"
+        source?: string;
+    }>;
+    /** One-sentence implication line tying the case to the research objective. */
+    implication?: string;
 }
 
 export interface PrinciplesData {
@@ -126,7 +173,20 @@ export interface PrinciplesData {
 }
 
 export interface StatRowData {
-    stats: Array<{ value: string; label: string; source: string }>;
+    stats: Array<{
+        value: string;
+        label: string;
+        source: string;
+        /** "What this means" — 1 sentence of interpretation */
+        meaning?: string;
+        /** "Why it matters now" — 1 sentence of urgency/implication */
+        matters?: string;
+    }>;
+    /** CONVERGENT INSIGHT — synthesis across all three stats, rendered
+     *  as a full-width row below the stat cells to fill the dead space. */
+    convergentInsight?: string;
+    /** Optional pattern callout under the convergent insight */
+    patternSignal?: string;
 }
 
 export interface TimelineData {

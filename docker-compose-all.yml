@@ -370,6 +370,16 @@ services:
       - "${RESEARCH_GENERATOR_PORT:-5011}:5011"
     environment:
       - NODE_ENV=production
+    volumes:
+      # 2026-04-21 — hot-reload for skill .md files. nginx serves /skills/
+      # from this volume mount; editing a SKILL.md or references/*.md in
+      # .claude/skills/ on the host is picked up by the next chat request
+      # without an image rebuild. (Code changes to web.tsx/services/*.ts
+      # still require `docker compose up -d --build research-generator`.)
+      - ./.claude/skills:/usr/share/nginx/html/skills:ro
+      # hic-workspace (wiki + manifest JSONs) also live-reloads so manifest
+      # edits take effect without rebuild.
+      - ./humans-in-control-research/hic-workspace:/usr/share/nginx/html/hic-workspace:ro
     networks:
       - nxt-humans-network
     container_name: hic-research

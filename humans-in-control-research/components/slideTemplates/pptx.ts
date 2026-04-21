@@ -14,6 +14,7 @@ import type {
     ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
     SlideTemplate,
 } from './types';
+import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
 
 // Default brand — used unless exportSlideToPPTX is called with an explicit brand.
 // Inside this file, every reference to `T` resolves through the active brand
@@ -35,12 +36,50 @@ function truncate(text: string | undefined, max: number): string {
     return text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
 }
 
+/** Smart quote truncation — no mid-clause cuts. Mirrors web.tsx's smartQuoteClip.
+ *  Prefers sentence boundaries, then clause, then word. Tolerates 1.3× soft max. */
+function smartQuoteClip(text: string, maxChars: number): string {
+    if (!text) return '';
+    const t = text.trim();
+    if (t.length <= maxChars) return t;
+    const hardMax = Math.round(maxChars * 1.3);
+    const slice = t.slice(0, hardMax);
+    const lastSentence = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
+    if (lastSentence > maxChars * 0.5) return t.slice(0, lastSentence + 1).trim();
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > maxChars * 0.6) return t.slice(0, lastClause).trim() + '.';
+    const lastSpace = slice.lastIndexOf(' ');
+    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim() + '…';
+}
+
+/** Clean a quote object — runs the transcript cleaner for transcript-sourced
+ *  quotes, passes others through. Returns null if nothing substantive remains. */
+function prepQuote<Q extends { text: string; source?: string; attribution?: string }>(q: Q): Q | null {
+    if (!q || !q.text) return null;
+    const isTranscript = looksLikeTranscriptSource(q.source) || looksLikeTranscriptSource(q.attribution);
+    if (!isTranscript) return q;
+    const cleaned = cleanTranscriptQuote(q.text);
+    if (!cleaned) return null;
+    return { ...q, text: cleaned };
+}
+
 /** Extract quote text + source from a theme-like object. Prefers the new
- *  `quotes[]` array (first element) over the legacy singular `evidence`. */
-function themeQuotes(t: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string }> }): Array<{ text: string; source?: string; attribution?: string }> {
-    if (t.quotes && t.quotes.length > 0) return t.quotes;
-    if (t.evidence) return [{ text: t.evidence, source: t.source }];
-    return [];
+ *  `quotes[]` array (first element) over the legacy singular `evidence`.
+ *  Every returned quote runs through prepQuote so transcript disfluencies +
+ *  video-intro narration get stripped before rendering. */
+function themeQuotes(t: { evidence?: string; source?: string; quotes?: Array<{ text: string; source?: string; attribution?: string; role?: string }> }): Array<{ text: string; source?: string; attribution?: string; role?: string }> {
+    const raw: Array<{ text: string; source?: string; attribution?: string; role?: string }> =
+        t.quotes && t.quotes.length > 0 ? t.quotes
+        : t.evidence ? [{ text: t.evidence, source: t.source }]
+        : [];
+    return raw.map(prepQuote).filter((q): q is NonNullable<typeof q> => !!(q && q.text));
+}
+
+/** Build a speaker attribution string combining attribution + role + source. */
+function attributionLine(q: { attribution?: string; role?: string; source?: string; date?: string }): string {
+    const parts = [q.attribution, q.role, q.source].filter(Boolean) as string[];
+    const head = parts.join(' · ');
+    return q.date ? `${head}, ${q.date}` : head;
 }
 
 // === IMAGE PREPROCESSOR — guarantees object-fit:cover behavior in PPTX ===
@@ -254,51 +293,103 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
 
 // 2. RECOMMENDATION
 function exportRecommendation(s: any, slideTitle: string, data: RecommendationData, sources: string[], geom: PanelGeom) {
-    const tx = geom.contentX + 0.56;
-    const tw = geom.contentW - 1.12;
-    let y = 0.4;
+    const tx = geom.contentX + 0.42;
+    const tw = geom.contentW - 0.84;
+    let y = 0.36;
 
     tag(s, tx, y, tw, 'STRATEGIC RECOMMENDATION');
-    y += 0.28;
-    title(s, tx, y, tw, slideTitle, 32);
-    y += 0.95;
+    y += 0.26;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.74;
 
+    const hasGrid = !!(data.impactGrid && (data.impactGrid.baseline || data.impactGrid.target || data.impactGrid.timeframe || data.impactGrid.owner));
     const hasMetric = !!data.impactMetric;
-    const leftW = hasMetric ? tw * 0.62 : tw;
-    const rightX = tx + leftW + 0.4;
-    const rightW = tw - leftW - 0.4;
+    const hasRight = hasGrid || hasMetric;
+    const hasEvidence = !!(data.evidence && data.evidence.length > 0);
+    const leftW = hasRight ? tw * 0.62 : tw;
+    const rightX = tx + leftW + 0.32;
+    const rightW = tw - leftW - 0.32;
 
     // Action title (left, with chartreuse rule)
-    s.addShape('rect' as any, { x: tx, y, w: 0.04, h: 0.6, fill: { color: T.CHARTREUSE_BRIGHT } });
-    s.addText(data.actionTitle, { x: tx + 0.18, y, w: leftW - 0.18, h: 0.6, fontSize: 16, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.25 });
-    y += 0.7;
+    s.addShape('rect' as any, { x: tx, y, w: 0.04, h: 0.55, fill: { color: T.CHARTREUSE_BRIGHT } });
+    s.addText(data.actionTitle, { x: tx + 0.18, y, w: leftW - 0.18, h: 0.55, fontSize: 15, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.25 });
+    y += 0.65;
     if (data.rationale) {
-        s.addText(data.rationale, { x: tx, y, w: leftW, h: 0.7, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
-        y += 0.8;
+        s.addText(truncate(data.rationale, 360), { x: tx, y, w: leftW, h: 0.7, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
+        y += 0.78;
     }
     // Numbered actions
     const acts = data.supportingActions.slice(0, 5);
     let ay = y;
     acts.forEach((a, i) => {
-        // Width 0.7" (was 0.5") prevents "01" from wrapping to stacked "0" + "1" at 26pt.
-        // Kept charSpacing at 0 for the same reason — negative tracking at this width also triggered wrap.
-        s.addText(String(i + 1).padStart(2, '0'), { x: tx, y: ay, w: 0.7, h: 0.45, fontSize: 26, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top' });
-        s.addText(a.name, { x: tx + 0.75, y: ay, w: leftW - 0.75, h: 0.22, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
-        s.addText(a.description, { x: tx + 0.75, y: ay + 0.22, w: leftW - 0.75, h: 0.5, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
-        ay += 0.65;
+        s.addText(String(i + 1).padStart(2, '0'), { x: tx, y: ay, w: 0.7, h: 0.4, fontSize: 22, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top' });
+        s.addText(a.name, { x: tx + 0.72, y: ay, w: leftW - 0.72, h: 0.22, fontSize: 10.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
+        s.addText(truncate(a.description, 220), { x: tx + 0.72, y: ay + 0.22, w: leftW - 0.72, h: 0.48, fontSize: 9.5, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        ay += 0.6;
     });
 
-    // Impact metric (right column)
-    if (hasMetric && data.impactMetric) {
-        const panelY = 1.5;
-        const panelH = 4.5;
-        const fs = heroPt(data.impactMetric.value, 56, 26, 4);
+    // EVIDENCE strip at bottom of left column
+    if (hasEvidence) {
+        const evY = 5.65;
+        s.addShape('line' as any, { x: tx, y: evY - 0.06, w: leftW, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText('EVIDENCE', { x: tx, y: evY, w: leftW, h: 0.2, fontSize: 7.5, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2.5 });
+        let ey = evY + 0.24;
+        (data.evidence || []).slice(0, 2).map(prepQuote).filter(Boolean).forEach(ev => {
+            if (!ev) return;
+            s.addShape('rect' as any, { x: tx, y: ey, w: 0.03, h: 0.42, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${smartQuoteClip(ev.text, 180)}"`, { x: tx + 0.12, y: ey, w: leftW - 0.12, h: 0.42, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            const attr = attributionLine(ev);
+            if (attr) s.addText(attr, { x: tx + 0.12, y: ey + 0.44, w: leftW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
+            ey += 0.72;
+        });
+    }
+
+    // RIGHT panel — 4-cell impact grid OR legacy hero number
+    if (hasRight) {
+        const panelY = 1.4;
+        const panelH = 4.6;
         s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: panelH, fill: { color: T.PALE } });
         s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: 0.06, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText('PROJECTED IMPACT', { x: rightX + 0.24, y: panelY + 0.4, w: rightW - 0.48, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3 });
-        s.addText(data.impactMetric.value, { x: rightX + 0.24, y: panelY + 0.8, w: rightW - 0.48, h: 1.3, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -3 });
-        s.addText(truncate(data.impactMetric.label, 100), { x: rightX + 0.24, y: panelY + 2.3, w: rightW - 0.48, h: 1.0, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        s.addText('PROJECTED IMPACT', { x: rightX + 0.22, y: panelY + 0.32, w: rightW - 0.44, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3 });
+
+        if (hasGrid) {
+            const gridY = panelY + 0.74;
+            const cellW = (rightW - 0.5) / 2;
+            const cellH = 1.0;
+            const cells = [
+                { k: 'BASELINE', v: data.impactGrid?.baseline, color: T.MUTED },
+                { k: 'TARGET', v: data.impactGrid?.target, color: T.TEAL },
+                { k: 'TIMEFRAME', v: data.impactGrid?.timeframe, color: T.CYAN },
+                { k: 'OWNER', v: data.impactGrid?.owner, color: T.CHARTREUSE_BRIGHT },
+            ];
+            cells.forEach((c, i) => {
+                const cx = rightX + 0.22 + (i % 2) * (cellW + 0.12);
+                const cy = gridY + Math.floor(i / 2) * (cellH + 0.12);
+                s.addText(c.k, { x: cx, y: cy, w: cellW, h: 0.2, fontSize: 7, color: c.color, fontFace: FONT, bold: true, charSpacing: 2 });
+                s.addText(c.v ? truncate(c.v, 60) : '—', { x: cx, y: cy + 0.24, w: cellW, h: cellH - 0.3, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.3 });
+            });
+            // Optional hero number below grid
+            if (data.impactMetric) {
+                const mY = panelY + panelH - 1.0;
+                s.addShape('line' as any, { x: rightX + 0.22, y: mY - 0.05, w: rightW - 0.44, h: 0, line: { color: T.RULE, width: 0.5 } });
+                const fs = heroPt(data.impactMetric.value, 32, 18, 4);
+                s.addText(data.impactMetric.value, { x: rightX + 0.22, y: mY, w: rightW - 0.44, h: 0.5, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -2 });
+                s.addText(truncate(data.impactMetric.label, 80), { x: rightX + 0.22, y: mY + 0.54, w: rightW - 0.44, h: 0.38, fontSize: 9, color: T.SECONDARY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            }
+        } else if (data.impactMetric) {
+            const fs = heroPt(data.impactMetric.value, 56, 26, 4);
+            s.addText(data.impactMetric.value, { x: rightX + 0.22, y: panelY + 0.74, w: rightW - 0.44, h: 1.3, fontSize: fs, color: T.TEAL, fontFace: FONT, valign: 'top', charSpacing: -3 });
+            s.addText(truncate(data.impactMetric.label, 100), { x: rightX + 0.22, y: panelY + 2.2, w: rightW - 0.44, h: 1.0, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        }
     }
+
+    // IMPLICATION footer
+    if (data.implication) {
+        s.addShape('line' as any, { x: tx, y: 6.62, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText('IMPLICATION', { x: tx, y: 6.7, w: 1.2, h: 0.2, fontSize: 7.5, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(data.implication, 260), { x: tx + 1.24, y: 6.7, w: tw - 1.24, h: 0.4, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
+    }
+
     sourceFooter(s, tx, tw, sources);
 }
 
@@ -340,15 +431,15 @@ function exportThemeCluster(s: any, slideTitle: string, data: ThemeClusterData, 
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3a. THEME SPOTLIGHT (hero theme + supporting tiles)
+// 3a. THEME SPOTLIGHT (hero + supporting tiles) — v3.2 DENSIFIED
 function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.4;
     const tw = geom.contentW - 0.8;
     let y = 0.34;
     tag(s, tx, y, tw, 'EMERGING THEME — SPOTLIGHT');
     y += 0.26;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.78;
+    title(s, tx, y, tw, slideTitle, 20);
+    y += 0.72;
 
     const all = data.themes.slice(0, 4);
     const hero = all[0];
@@ -363,37 +454,59 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     // Divider
     s.addShape('line' as any, { x: tx + heroW + 0.2, y, w: 0, h: blockH, line: { color: T.RULE, width: 0.5 } });
 
-    // Hero number 01
-    s.addText('01', { x: tx, y, w: 1.0, h: 0.85, fontSize: 60, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -3 });
-    // Hero name
-    s.addText(truncate(hero.name, 90), { x: tx + 1.05, y: y + 0.18, w: heroW - 1.05, h: 0.65, fontSize: 16, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.15 });
-    let hy = y + 0.95;
-    // Insight
-    s.addText(truncate(hero.insight, 360), { x: tx, y: hy, w: heroW, h: 1.6, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
+    // Hero number 01 + name
+    s.addText('01', { x: tx, y, w: 0.95, h: 0.8, fontSize: 54, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -3 });
+    s.addText(truncate(hero.name, 90), { x: tx + 1.0, y: y + 0.18, w: heroW - 1.0, h: 0.6, fontSize: 15, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.15 });
+    let hy = y + 0.88;
+    // Insight (expanded)
+    s.addText(truncate(hero.insight, 420), { x: tx, y: hy, w: heroW, h: 1.6, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
     hy += 1.7;
+    // Hero quote — smart-clipped, transcript-cleaned
     const heroQs = themeQuotes(hero);
     if (heroQs.length > 0) {
+        const heroQuoteText = smartQuoteClip(heroQs[0].text, 280);
         s.addShape('rect' as any, { x: tx, y: hy, w: 0.04, h: 1.0, fill: { color: T.CHARTREUSE_BRIGHT } });
-        s.addText(`"${truncate(heroQs[0].text, 260)}"`, { x: tx + 0.16, y: hy, w: heroW - 0.16, h: 1.1, fontSize: 11, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
+        s.addText(`"${heroQuoteText}"`, { x: tx + 0.14, y: hy, w: heroW - 0.14, h: 1.05, fontSize: 11, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.5 });
+        const heroAttr = attributionLine(heroQs[0]);
+        if (heroAttr) s.addText(heroAttr, { x: tx + 0.14, y: hy + 1.08, w: heroW - 0.14, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        hy += 1.4;
     }
-    s.addText(`Source: ${truncate(hero.source, 80)}`, { x: tx, y: y + blockH - 0.28, w: heroW, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
+    // PATTERN SIGNAL callout
+    if (data.patternSignal) {
+        s.addShape('rect' as any, { x: tx, y: hy, w: heroW, h: 0.6, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y: hy, w: 0.04, h: 0.6, fill: { color: T.CYAN } });
+        s.addText('PATTERN SIGNAL', { x: tx + 0.14, y: hy + 0.06, w: heroW - 0.28, h: 0.2, fontSize: 7.5, color: T.CYAN, fontFace: FONT, bold: true, charSpacing: 2.5 });
+        s.addText(truncate(data.patternSignal, 260), { x: tx + 0.14, y: hy + 0.26, w: heroW - 0.28, h: 0.34, fontSize: 9, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        hy += 0.7;
+    }
+    // IMPLICATION line (hero)
+    if (hero.implication) {
+        s.addText('IMPLICATION', { x: tx, y: y + blockH - 0.54, w: 1.2, h: 0.2, fontSize: 7.5, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(hero.implication, 220), { x: tx + 1.24, y: y + blockH - 0.54, w: heroW - 1.24, h: 0.4, fontSize: 9, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.4 });
+    } else {
+        s.addText(`Source: ${truncate(hero.source, 80)}`, { x: tx, y: y + blockH - 0.26, w: heroW, h: 0.2, fontSize: 7.5, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.5 });
+    }
 
-    // Supporting heading
+    // Supporting signals — 2-sentence insight + SIGNAL metric per tile
     s.addText('SUPPORTING SIGNALS', { x: supX, y, w: supW, h: 0.22, fontSize: 8, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2.5 });
     let sy = y + 0.32;
     const supItemH = (blockH - 0.32) / Math.max(supporting.length, 1);
     supporting.forEach((t, i) => {
         const itemY = sy + i * supItemH;
         const supQs = themeQuotes(t);
-        s.addText(String(i + 2).padStart(2, '0'), { x: supX, y: itemY, w: 0.5, h: 0.4, fontSize: 20, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -1 });
-        s.addText(truncate(t.name, 70), { x: supX + 0.55, y: itemY, w: supW - 0.55, h: 0.32, fontSize: 11, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
-        s.addText(truncate(t.insight, 110), { x: supX + 0.55, y: itemY + 0.34, w: supW - 0.55, h: 0.5, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
-        // Quote line for supporting theme — fixes the long-standing gap
+        s.addText(String(i + 2).padStart(2, '0'), { x: supX, y: itemY, w: 0.5, h: 0.4, fontSize: 18, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -1 });
+        s.addText(truncate(t.name, 80), { x: supX + 0.55, y: itemY, w: supW - 0.55, h: 0.3, fontSize: 10.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        s.addText(truncate(t.insight, 220), { x: supX + 0.55, y: itemY + 0.32, w: supW - 0.55, h: 0.6, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
         if (supQs.length > 0) {
-            s.addShape('rect' as any, { x: supX + 0.55, y: itemY + 0.86, w: 0.03, h: 0.5, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${truncate(supQs[0].text, 120)}"`, { x: supX + 0.65, y: itemY + 0.86, w: supW - 0.65, h: 0.5, fontSize: 8, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+            s.addShape('rect' as any, { x: supX + 0.55, y: itemY + 0.94, w: 0.03, h: 0.45, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${smartQuoteClip(supQs[0].text, 160)}"`, { x: supX + 0.63, y: itemY + 0.94, w: supW - 0.63, h: 0.45, fontSize: 8, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
         }
-        s.addText(truncate(t.source, 50), { x: supX + 0.55, y: itemY + supItemH - 0.22, w: supW - 0.55, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        // SIGNAL metric tag
+        if (t.signal) {
+            s.addText(`SIGNAL · ${truncate(t.signal, 60)}`, { x: supX + 0.55, y: itemY + supItemH - 0.28, w: supW - 0.55, h: 0.2, fontSize: 7, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        } else {
+            s.addText(truncate(t.source, 50), { x: supX + 0.55, y: itemY + supItemH - 0.22, w: supW - 0.55, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        }
         if (i < supporting.length - 1) {
             s.addShape('line' as any, { x: supX, y: itemY + supItemH - 0.06, w: supW, h: 0, line: { color: T.RULE, width: 0.5 } });
         }
@@ -401,104 +514,146 @@ function exportThemeSpotlight(s: any, slideTitle: string, data: ThemeClusterData
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3b. THEME ARC (numbered chain with progression connectors)
+// 3b. THEME ARC (numbered chain with progression connectors) — v3.2 DENSIFIED
 function exportThemeArc(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.44;
     const tw = geom.contentW - 0.88;
-    let y = 0.4;
+    let y = 0.36;
     tag(s, tx, y, tw, 'THEMATIC ARC');
-    y += 0.26;
-    title(s, tx, y, tw, slideTitle, 22);
-    y += 0.85;
+    y += 0.24;
+    title(s, tx, y, tw, slideTitle, 20);
+    y += 0.72;
 
     const themes = data.themes.slice(0, 4);
     const n = themes.length;
     if (n === 0) { sourceFooter(s, tx, tw, sources); return; }
 
-    const arrowW = 0.4;
+    const arrowW = 0.36;
     const totalArrows = arrowW * Math.max(n - 1, 0);
     const cellW = (tw - totalArrows) / n;
 
     // Numbered chain row
     themes.forEach((_, i) => {
         const cx = tx + i * (cellW + arrowW);
-        s.addText(String(i + 1).padStart(2, '0'), { x: cx, y, w: cellW, h: 0.7, fontSize: 40, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, align: 'center', valign: 'top', charSpacing: -2 });
+        s.addText(String(i + 1).padStart(2, '0'), { x: cx, y, w: cellW, h: 0.6, fontSize: 36, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, align: 'center', valign: 'top', charSpacing: -2 });
         if (i < n - 1) {
             const ax = cx + cellW;
-            const ay = y + 0.32;
-            s.addShape('line' as any, { x: ax + 0.04, y: ay, w: arrowW - 0.16, h: 0, line: { color: T.INK, width: 0.75, endArrowType: 'triangle' as any } });
+            const ay = y + 0.28;
+            s.addShape('line' as any, { x: ax + 0.04, y: ay, w: arrowW - 0.12, h: 0, line: { color: T.INK, width: 0.75, endArrowType: 'triangle' as any } });
         }
     });
 
-    // Body row
-    const bodyY = y + 0.85;
-    const bodyH = 7.5 - bodyY - 0.55;
+    // Body row — expanded insight, SIGNAL tag per step
+    const bodyY = y + 0.75;
+    const patternFooterH = data.patternSignal ? 0.7 : 0;
+    const bodyH = 7.5 - bodyY - 0.52 - patternFooterH;
     themes.forEach((t, i) => {
         const cx = tx + i * (cellW + arrowW);
         let cy = bodyY;
-        s.addText(truncate(t.name, 64), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 0.42, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
-        cy += 0.5;
-        s.addText(truncate(t.insight, 180), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 1.4, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
-        cy += 1.45;
+        s.addText(truncate(t.name, 70), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 0.4, fontSize: 11.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        cy += 0.46;
+        // Expanded 2-3 sentence insight
+        s.addText(truncate(t.insight, 280), { x: cx + 0.06, y: cy, w: cellW - 0.12, h: 1.7, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        cy += 1.75;
         const arcQs = themeQuotes(t);
         if (arcQs.length > 0) {
             s.addShape('rect' as any, { x: cx + 0.06, y: cy, w: 0.03, h: 0.7, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${truncate(arcQs[0].text, 120)}"`, { x: cx + 0.14, y: cy, w: cellW - 0.2, h: 0.7, fontSize: 9, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            s.addText(`"${smartQuoteClip(arcQs[0].text, 140)}"`, { x: cx + 0.13, y: cy, w: cellW - 0.18, h: 0.7, fontSize: 8.5, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
         }
-        s.addText(truncate(t.source, 50), { x: cx + 0.06, y: bodyY + bodyH - 0.22, w: cellW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        // SIGNAL metric tag — concrete proof the step is real
+        const footerY = bodyY + bodyH - 0.22;
+        if (t.signal) {
+            s.addShape('line' as any, { x: cx + 0.06, y: footerY - 0.06, w: cellW - 0.12, h: 0, line: { color: T.RULE, width: 0.5 } });
+            s.addText(`SIGNAL · ${truncate(t.signal, 54)}`, { x: cx + 0.06, y: footerY, w: cellW - 0.12, h: 0.2, fontSize: 7, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        } else {
+            s.addText(truncate(t.source, 50), { x: cx + 0.06, y: footerY, w: cellW - 0.12, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true });
+        }
         if (i < n - 1) {
-            s.addShape('line' as any, { x: cx + cellW + arrowW / 2, y: bodyY + 0.1, w: 0, h: bodyH - 0.2, line: { color: T.RULE, width: 0.5 } });
+            s.addShape('line' as any, { x: cx + cellW + arrowW / 2, y: bodyY + 0.08, w: 0, h: bodyH - 0.18, line: { color: T.RULE, width: 0.5 } });
         }
     });
+
+    // Optional cross-step PATTERN footer
+    if (data.patternSignal) {
+        const pfY = 7.5 - 0.52 - patternFooterH;
+        s.addShape('rect' as any, { x: tx, y: pfY, w: tw, h: 0.58, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y: pfY, w: 0.04, h: 0.58, fill: { color: T.CYAN } });
+        s.addText('PATTERN', { x: tx + 0.14, y: pfY + 0.08, w: 0.8, h: 0.2, fontSize: 7.5, color: T.CYAN, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(data.patternSignal, 240), { x: tx + 0.95, y: pfY + 0.08, w: tw - 1.05, h: 0.42, fontSize: 9, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+    }
     sourceFooter(s, tx, tw, sources);
 }
 
-// 3c. THEME MOSAIC (2x2 inverse-checkerboard)
+// 3c. THEME MOSAIC (2x2 grid) — v3.2 REDESIGNED
+// Killed the B&W inverse-checkerboard. All 4 cells sit on a uniform ivory
+// (PALE) surface, separated by hairline rules, with a single chartreuse
+// accent bar on the PRIMARY cell (index 0). Order intentionally.
 function exportThemeMosaic(s: any, slideTitle: string, data: ThemeClusterData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.32;
     const tw = geom.contentW - 0.64;
     let y = 0.28;
     tag(s, tx, y, tw, 'THEMATIC MOSAIC');
-    y += 0.24;
+    y += 0.22;
     title(s, tx, y, tw, slideTitle, 20);
-    y += 0.7;
+    y += 0.68;
 
     const themes = data.themes.slice(0, 4);
     while (themes.length < 4) themes.push({ name: '', insight: '', evidence: '', source: '' });
 
-    // Surface palette mirrors web ThemeMosaicSlide
-    const surfaces = [
-        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
-        { bg: T.WHITE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
-        { bg: T.PALE, fg: T.INK, accent: T.CHARTREUSE_BRIGHT, body: T.BODY, muted: T.MUTED },
-        { bg: T.TEAL, fg: T.WHITE, accent: T.CHARTREUSE_BRIGHT, body: 'F5F5F0', muted: 'BBBBBB' },
-    ];
+    const patternFooterH = data.patternSignal ? 0.58 : 0;
+    const gridH = 7.5 - y - 0.48 - patternFooterH - (patternFooterH ? 0.08 : 0);
+    const cellW = tw / 2;
+    const cellH = gridH / 2;
 
-    const gap = 0.08;
-    const gridH = 7.5 - y - 0.5;
-    const cellW = (tw - gap) / 2;
-    const cellH = (gridH - gap) / 2;
+    // Outer ivory panel
+    s.addShape('rect' as any, { x: tx, y, w: tw, h: gridH, fill: { color: T.PALE } });
+    // Hairline rules (one vertical + one horizontal split)
+    s.addShape('line' as any, { x: tx + cellW, y, w: 0, h: gridH, line: { color: T.RULE, width: 0.5 } });
+    s.addShape('line' as any, { x: tx, y: y + cellH, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
 
     themes.forEach((t, i) => {
         const col = i % 2;
         const row = Math.floor(i / 2);
-        const cx = tx + col * (cellW + gap);
-        const cy = y + row * (cellH + gap);
-        const sf = surfaces[i];
+        const cx = tx + col * cellW;
+        const cy = y + row * cellH;
 
-        s.addShape('rect' as any, { x: cx, y: cy, w: cellW, h: cellH, fill: { color: sf.bg } });
         if (!t.name) return;
 
-        s.addText(String(i + 1).padStart(2, '0'), { x: cx + 0.18, y: cy + 0.16, w: 0.6, h: 0.5, fontSize: 28, color: sf.accent, fontFace: FONT, valign: 'top', charSpacing: -2 });
-        s.addText(truncate(t.name, 70), { x: cx + 0.85, y: cy + 0.22, w: cellW - 1.0, h: 0.4, fontSize: 12, color: sf.fg, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
-        s.addText(truncate(t.insight, 180), { x: cx + 0.18, y: cy + 0.78, w: cellW - 0.36, h: 0.9, fontSize: 9, color: sf.body, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        const isPrimary = i === 0;
+        if (isPrimary) {
+            // Chartreuse accent bar on top of primary cell
+            s.addShape('rect' as any, { x: cx, y: cy, w: cellW, h: 0.05, fill: { color: T.CHARTREUSE_BRIGHT } });
+        }
+
+        const pad = 0.2;
+        const innerY = cy + (isPrimary ? 0.18 : 0.14);
+        s.addText(String(i + 1).padStart(2, '0'), { x: cx + pad, y: innerY, w: 0.6, h: 0.5, fontSize: 28, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -2 });
+        s.addText(truncate(t.name, 80), { x: cx + 0.85, y: innerY + 0.08, w: cellW - pad * 2 - 0.7, h: 0.4, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        // Expanded 2-sentence insight (was 1 sentence)
+        s.addText(truncate(t.insight, 240), { x: cx + pad, y: innerY + 0.62, w: cellW - pad * 2, h: 1.0, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
         const mosaicQs = themeQuotes(t);
         if (mosaicQs.length > 0) {
-            s.addShape('rect' as any, { x: cx + 0.18, y: cy + 1.7, w: 0.03, h: 0.5, fill: { color: sf.accent } });
-            s.addText(`"${truncate(mosaicQs[0].text, 100)}"`, { x: cx + 0.25, y: cy + 1.7, w: cellW - 0.43, h: 0.55, fontSize: 9, color: sf.fg, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            const qY = innerY + 1.66;
+            s.addShape('rect' as any, { x: cx + pad, y: qY, w: 0.03, h: 0.5, fill: { color: T.CHARTREUSE_BRIGHT } });
+            s.addText(`"${smartQuoteClip(mosaicQs[0].text, 140)}"`, { x: cx + pad + 0.1, y: qY, w: cellW - pad * 2 - 0.12, h: 0.55, fontSize: 8.5, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
         }
-        s.addText(truncate(t.source, 50), { x: cx + 0.18, y: cy + cellH - 0.26, w: cellW - 0.36, h: 0.2, fontSize: 7, color: sf.muted, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        // SIGNAL metric tag or source
+        const footerY = cy + cellH - 0.24;
+        if (t.signal) {
+            s.addText(`SIGNAL · ${truncate(t.signal, 52)}`, { x: cx + pad, y: footerY, w: cellW - pad * 2, h: 0.2, fontSize: 7, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        } else {
+            s.addText(truncate(t.source, 50), { x: cx + pad, y: footerY, w: cellW - pad * 2, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
+        }
     });
+
+    // Optional cluster PATTERN footer
+    if (data.patternSignal) {
+        const pfY = y + gridH + 0.08;
+        s.addShape('rect' as any, { x: tx, y: pfY, w: tw, h: 0.5, fill: { color: T.WHITE } });
+        s.addShape('rect' as any, { x: tx, y: pfY, w: 0.04, h: 0.5, fill: { color: T.CYAN } });
+        s.addText('PATTERN', { x: tx + 0.14, y: pfY + 0.06, w: 0.8, h: 0.2, fontSize: 7.5, color: T.CYAN, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(data.patternSignal, 240), { x: tx + 0.95, y: pfY + 0.06, w: tw - 1.05, h: 0.38, fontSize: 9, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+    }
     sourceFooter(s, tx, tw, sources);
 }
 
@@ -590,31 +745,78 @@ function exportCompetitiveMatrix(s: any, slideTitle: string, data: CompetitiveMa
 
 // 5. BLOCK QUOTE
 function exportBlockQuote(s: any, slideTitle: string, data: BlockQuoteData, sources: string[], geom: PanelGeom) {
-    const tx = geom.contentX + 0.8;
-    const tw = geom.contentW - 1.6;
-    // Massive quote glyph top-left
-    s.addText('"', { x: tx - 0.1, y: 0.18, w: 1.5, h: 1.6, fontSize: 140, color: T.CHARTREUSE_BRIGHT, fontFace: 'Georgia', bold: true, valign: 'top' });
+    const hasSidebar = !!(data.corroboratingData && data.corroboratingData.length > 0);
+    const tx = geom.contentX + 0.56;
+    const tw = geom.contentW - 1.12;
+    const leftW = hasSidebar ? tw * 0.62 : tw;
+    const rightX = tx + leftW + 0.32;
+    const rightW = tw - leftW - 0.32;
 
-    let y = 1.0;
+    // Quote glyph top-left
+    s.addText('"', { x: tx - 0.06, y: 0.12, w: 1.2, h: 1.3, fontSize: 110, color: T.CHARTREUSE_BRIGHT, fontFace: 'Georgia', bold: true, valign: 'top' });
+
+    let y = 0.82;
     if (data.context) {
-        s.addText(data.context, { x: tx, y, w: tw, h: 0.25, fontSize: 9, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3, valign: 'top' });
-        y += 0.32;
+        s.addText(truncate(data.context, 90), { x: tx + 0.5, y, w: leftW - 0.5, h: 0.25, fontSize: 9, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 3, valign: 'top' });
+        y += 0.3;
     }
-    // Quote text
-    s.addText(data.text, { x: tx, y, w: tw * 0.92, h: 3.6, fontSize: 26, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4, charSpacing: -1 });
+    // Quote text — smart-clipped, transcript-cleaned
+    const qLen = (data.text || '').length;
+    const quoteText = smartQuoteClip(data.text, hasSidebar ? 460 : 520);
+    const quoteFs = hasSidebar
+        ? (qLen > 340 ? 15 : qLen > 220 ? 18 : qLen > 140 ? 20 : 22)
+        : (qLen > 280 ? 18 : qLen > 180 ? 22 : qLen > 110 ? 26 : 28);
+    s.addText(quoteText, { x: tx, y, w: leftW, h: 2.6, fontSize: quoteFs, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4, charSpacing: -1 });
+    y += 2.7;
+
+    // CONTEXT paragraph — 3-4 sentences of who/when/why
+    if (data.contextParagraph) {
+        s.addShape('line' as any, { x: tx, y, w: 0.03, h: 1.0, fill: { color: T.RULE }, line: { color: T.RULE, width: 0.5 } });
+        s.addText(truncate(data.contextParagraph, 480), { x: tx + 0.16, y, w: leftW - 0.16, h: 1.2, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.55 });
+        y += 1.25;
+    }
 
     // Attribution
-    const attY = 5.0;
-    s.addShape('line' as any, { x: tx, y: attY + 0.18, w: 0.55, h: 0, line: { color: T.CHARTREUSE_BRIGHT, width: 1.2 } });
-    s.addText(data.attribution, { x: tx + 0.7, y: attY, w: tw - 0.7, h: 0.32, fontSize: 13, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
+    const attY = Math.max(y + 0.1, 5.4);
+    s.addShape('line' as any, { x: tx, y: attY + 0.16, w: 0.5, h: 0, line: { color: T.CHARTREUSE_BRIGHT, width: 1.2 } });
+    s.addText(data.attribution, { x: tx + 0.62, y: attY, w: leftW - 0.62, h: 0.3, fontSize: 12, color: T.INK, fontFace: FONT, bold: true, valign: 'top' });
     if (data.role) {
-        s.addText(data.role, { x: tx + 0.7, y: attY + 0.3, w: tw - 0.7, h: 0.24, fontSize: 10, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
+        s.addText(data.role, { x: tx + 0.62, y: attY + 0.28, w: leftW - 0.62, h: 0.24, fontSize: 10, color: T.SECONDARY, fontFace: FONT, valign: 'top' });
     }
 
-    // Source footer (custom — includes data.source first)
-    const srcY = 7.10;
+    // CORROBORATING DATA sidebar — 2-3 supporting stats from OTHER sources
+    if (hasSidebar) {
+        const panelY = 0.82;
+        const panelH = 5.4;
+        s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: panelH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: rightX, y: panelY, w: rightW, h: 0.06, fill: { color: T.CYAN } });
+        s.addText('CORROBORATING DATA', { x: rightX + 0.2, y: panelY + 0.22, w: rightW - 0.4, h: 0.22, fontSize: 8, color: T.CYAN, fontFace: FONT, bold: true, charSpacing: 2.5 });
+        let cy = panelY + 0.6;
+        (data.corroboratingData || []).slice(0, 3).forEach((d, i) => {
+            if (i > 0) {
+                s.addShape('line' as any, { x: rightX + 0.2, y: cy - 0.08, w: rightW - 0.4, h: 0, line: { color: T.RULE, width: 0.5 } });
+            }
+            const fs = heroPt(d.value, 28, 18, 4);
+            s.addText(d.value, { x: rightX + 0.2, y: cy, w: rightW - 0.4, h: 0.55, fontSize: fs, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, valign: 'top', charSpacing: -2 });
+            s.addText(truncate(d.label, 100), { x: rightX + 0.2, y: cy + 0.56, w: rightW - 0.4, h: 0.5, fontSize: 9.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            if (d.source) {
+                s.addText(truncate(d.source, 40), { x: rightX + 0.2, y: cy + 1.02, w: rightW - 0.4, h: 0.2, fontSize: 7, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
+            }
+            cy += 1.35;
+        });
+    }
+
+    // IMPLICATION line
+    if (data.implication) {
+        s.addText('IMPLICATION', { x: tx, y: 6.5, w: 1.2, h: 0.2, fontSize: 7.5, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(data.implication, 260), { x: tx + 1.24, y: 6.5, w: tw - 1.24, h: 0.4, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
+    }
+
+    // Source footer (deduplicated — data.source + any other sources not equal to it)
+    const srcY = 7.0;
     s.addShape('line' as any, { x: tx, y: srcY, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
-    const srcLine = `Source: ${data.source}` + (sources.length > 0 ? `  |  ${sources.join('  |  ')}` : '');
+    const uniqueOtherSources = sources.filter(s => s !== data.source);
+    const srcLine = `Source: ${data.source}` + (uniqueOtherSources.length > 0 ? `  |  ${uniqueOtherSources.join('  |  ')}` : '');
     s.addText(srcLine, { x: tx, y: srcY + 0.05, w: tw, h: 0.22, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
 }
 
@@ -644,23 +846,33 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
     const rightX = tx + leftW + 0.24;
     const rightW = tw - leftW - 0.24;
 
-    // === LEFT: three colored blocks ===
+    // === LEFT: three colored blocks + LESSON footer row ===
     const blocks: Array<{ label: string; text: string; color: string; bg: string }> = [
         { label: 'CHALLENGE', text: data.challenge, color: T.RED, bg: 'FFF5F5' },
         { label: 'APPROACH', text: data.approach, color: T.CYAN, bg: 'F0FBFC' },
         { label: 'OUTCOME', text: data.outcome, color: T.GREEN, bg: 'F0FBF5' },
     ];
     const leftBottom = 7.05;
-    const blockArea = leftBottom - y - 0.35;
-    const blockH = Math.min(1.35, blockArea / 3 - 0.06);
+    const hasLesson = !!data.lesson;
+    const lessonH = hasLesson ? 0.75 : 0;
+    const blockArea = leftBottom - y - 0.3 - lessonH;
+    const blockH = Math.min(1.3, blockArea / 3 - 0.06);
     let by = y;
     blocks.forEach(b => {
         s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: blockH, fill: { color: b.bg } });
         s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: blockH, fill: { color: b.color } });
         s.addText(b.label, { x: tx + 0.18, y: by + 0.08, w: 1.0, h: 0.22, fontSize: 9, color: b.color, fontFace: FONT, bold: true, charSpacing: 2 });
-        s.addText(truncate(b.text, 280), { x: tx + 1.25, y: by + 0.06, w: leftW - 1.4, h: blockH - 0.1, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
-        by += blockH + 0.08;
+        s.addText(truncate(b.text, 340), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: blockH - 0.1, fontSize: 10, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        by += blockH + 0.06;
     });
+
+    // LESSON FOR ADVANCEMENT — footer row synthesizing the takeaway
+    if (hasLesson) {
+        s.addShape('rect' as any, { x: tx, y: by, w: leftW, h: lessonH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y: by, w: 0.06, h: lessonH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText('LESSON', { x: tx + 0.18, y: by + 0.08, w: 1.0, h: 0.22, fontSize: 9, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+        s.addText(truncate(data.lesson, 280), { x: tx + 1.2, y: by + 0.06, w: leftW - 1.35, h: lessonH - 0.1, fontSize: 10, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.45 });
+    }
 
     // === RIGHT: dashboard ===
     if (hasRight) {
@@ -699,13 +911,29 @@ function exportCaseStudy(s: any, slideTitle: string, data: CaseStudyData, source
             });
             ry += Math.ceil(sms.length / cols) * (cellH + 0.1) + 0.1;
         }
-        // Pull quote pinned near bottom
+        // COMPARABLES strip — 2-3 peer orgs
+        if (data.comparables && data.comparables.length > 0) {
+            s.addShape('line' as any, { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
+            ry += 0.08;
+            s.addText('COMPARABLES', { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.18, fontSize: 7.5, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+            ry += 0.22;
+            data.comparables.slice(0, 3).forEach((c, i) => {
+                s.addText(truncate(c.name, 48), { x: rightX + 0.22, y: ry, w: rightW - 0.44, h: 0.2, fontSize: 9, color: T.WHITE, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.25 });
+                s.addText(truncate(c.outcome, 80), { x: rightX + 0.22, y: ry + 0.22, w: rightW - 0.44, h: 0.32, fontSize: 8, color: 'C8D4D5', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+                ry += 0.58;
+                if (i < Math.min(data.comparables!.length, 3) - 1) {
+                    s.addShape('line' as any, { x: rightX + 0.22, y: ry - 0.04, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.3, transparency: 90 } });
+                }
+            });
+        }
+        // Pull quote pinned near bottom — role included when available
         if (data.pullQuote) {
-            const qy = panelY + panelH - 0.72;
+            const qy = panelY + panelH - 0.82;
             s.addShape('line' as any, { x: rightX + 0.22, y: qy - 0.08, w: rightW - 0.44, h: 0, line: { color: 'FFFFFF', width: 0.5, transparency: 85 } });
             s.addShape('rect' as any, { x: rightX + 0.22, y: qy, w: 0.04, h: 0.4, fill: { color: T.CHARTREUSE_BRIGHT } });
-            s.addText(`"${truncate(data.pullQuote.text, 120)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.4, fontSize: 9, color: 'F0F0F0', fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
-            s.addText(`— ${truncate(data.pullQuote.attribution, 50)}`, { x: rightX + 0.32, y: qy + 0.42, w: rightW - 0.54, h: 0.22, fontSize: 8, color: 'B0C4C5', fontFace: FONT, valign: 'top' });
+            s.addText(`"${smartQuoteClip(data.pullQuote.text, 200)}"`, { x: rightX + 0.32, y: qy, w: rightW - 0.54, h: 0.45, fontSize: 9, color: 'F0F0F0', fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.4 });
+            const pqAttr = `— ${data.pullQuote.attribution}${data.pullQuote.role ? `, ${data.pullQuote.role}` : ''}`;
+            s.addText(truncate(pqAttr, 110), { x: rightX + 0.32, y: qy + 0.48, w: rightW - 0.54, h: 0.3, fontSize: 8, color: 'B0C4C5', fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
         }
     }
     sourceFooter(s, tx, tw, sources);
@@ -736,26 +964,63 @@ function exportPrinciples(s: any, slideTitle: string, data: PrinciplesData, sour
 
 // 8. STAT ROW
 function exportStatRow(s: any, slideTitle: string, data: StatRowData, sources: string[], geom: PanelGeom) {
-    const tx = geom.contentX + 0.56;
-    const tw = geom.contentW - 1.12;
-    let y = 0.4;
+    const tx = geom.contentX + 0.42;
+    const tw = geom.contentW - 0.84;
+    let y = 0.36;
     tag(s, tx, y, tw, 'BY THE NUMBERS');
-    y += 0.28;
-    title(s, tx, y, tw, slideTitle, 26);
-    y += 1.0;
+    y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22);
+    y += 0.74;
 
     const stats = data.stats.slice(0, 4);
     const accents = [T.CHARTREUSE_BRIGHT, T.CYAN, T.RUST, T.TEAL];
     const colW = tw / stats.length;
-    const blockY = y + 0.4;
+
+    const hasConvergent = !!data.convergentInsight;
+    const convergentH = hasConvergent ? (data.patternSignal ? 1.35 : 0.95) : 0;
+    const statBlockH = 7.5 - y - 0.52 - convergentH - (hasConvergent ? 0.12 : 0);
+
     stats.forEach((st, i) => {
         const cx = tx + i * colW;
-        if (i > 0) s.addShape('line' as any, { x: cx, y: blockY, w: 0, h: 2.8, line: { color: T.RULE, width: 0.5 } });
-        const fs = heroPt(st.value, 56, 26, 4);
-        s.addText(st.value, { x: cx + 0.24, y: blockY, w: colW - 0.36, h: 1.4, fontSize: fs, color: accents[i % accents.length], fontFace: FONT, valign: 'top', charSpacing: -3 });
-        s.addText(truncate(st.label, 90), { x: cx + 0.24, y: blockY + 1.55, w: colW - 0.36, h: 0.7, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
-        s.addText(truncate(st.source, 60), { x: cx + 0.24, y: blockY + 2.35, w: colW - 0.36, h: 0.3, fontSize: 8, color: T.MUTED, fontFace: FONT, valign: 'top' });
+        if (i > 0) s.addShape('line' as any, { x: cx, y, w: 0, h: statBlockH, line: { color: T.RULE, width: 0.5 } });
+        const fs = heroPt(st.value, 50, 24, 4);
+        let ly = y + 0.1;
+        s.addText(st.value, { x: cx + 0.22, y: ly, w: colW - 0.32, h: 1.1, fontSize: fs, color: accents[i % accents.length], fontFace: FONT, valign: 'top', charSpacing: -3 });
+        ly += 1.15;
+        s.addText(truncate(st.label, 100), { x: cx + 0.22, y: ly, w: colW - 0.32, h: 0.5, fontSize: 10.5, color: T.INK, fontFace: FONT, bold: true, valign: 'top', lineSpacingMultiple: 1.35 });
+        ly += 0.54;
+        // MEANS line
+        if (st.meaning) {
+            s.addShape('line' as any, { x: cx + 0.22, y: ly, w: colW - 0.32, h: 0, line: { color: T.RULE, width: 0.3 } });
+            ly += 0.05;
+            s.addText('MEANS', { x: cx + 0.22, y: ly, w: 0.6, h: 0.18, fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 1.5 });
+            s.addText(truncate(st.meaning, 160), { x: cx + 0.62, y: ly, w: colW - 0.72, h: 0.55, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45 });
+            ly += 0.6;
+        }
+        // MATTERS line
+        if (st.matters) {
+            s.addText('MATTERS', { x: cx + 0.22, y: ly, w: 0.8, h: 0.18, fontSize: 7, color: accents[i % accents.length], fontFace: FONT, bold: true, charSpacing: 1.5 });
+            s.addText(truncate(st.matters, 160), { x: cx + 0.82, y: ly, w: colW - 0.92, h: 0.55, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45 });
+            ly += 0.6;
+        }
+        // Source pinned bottom
+        s.addText(truncate(st.source, 60), { x: cx + 0.22, y: y + statBlockH - 0.26, w: colW - 0.32, h: 0.2, fontSize: 7.5, color: T.MUTED, fontFace: FONT, bold: true, charSpacing: 1.2 });
     });
+
+    // CONVERGENT INSIGHT row — synthesis across all stats
+    if (hasConvergent) {
+        const ciY = y + statBlockH + 0.12;
+        s.addShape('rect' as any, { x: tx, y: ciY, w: tw, h: convergentH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y: ciY, w: 0.08, h: convergentH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText('CONVERGENT INSIGHT', { x: tx + 0.24, y: ciY + 0.1, w: tw - 0.36, h: 0.2, fontSize: 8, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2.5 });
+        s.addText(truncate(data.convergentInsight!, 320), { x: tx + 0.24, y: ciY + 0.34, w: tw - 0.36, h: 0.55, fontSize: 11, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.5 });
+        if (data.patternSignal) {
+            s.addShape('line' as any, { x: tx + 0.24, y: ciY + 0.94, w: tw - 0.36, h: 0, line: { color: T.RULE, width: 0.3 } });
+            s.addText('PATTERN', { x: tx + 0.24, y: ciY + 1.0, w: 0.8, h: 0.18, fontSize: 7.5, color: T.CYAN, fontFace: FONT, bold: true, charSpacing: 2 });
+            s.addText(truncate(data.patternSignal, 240), { x: tx + 1.0, y: ciY + 1.0, w: tw - 1.12, h: 0.32, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.4 });
+        }
+    }
+
     sourceFooter(s, tx, tw, sources);
 }
 

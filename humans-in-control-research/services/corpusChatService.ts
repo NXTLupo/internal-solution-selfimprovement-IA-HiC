@@ -111,10 +111,18 @@ export interface SkillManifestEntry {
     id: string;
     name: string;
     description: string;
-    category: 'research-deliverable' | 'prompt-engineering';
+    /** render-contract: always loaded (alongside any triggered content skill)
+     *  when ANY trigger keyword matches. Used for layout/design contracts that
+     *  must govern every slide emission regardless of which consulting lens
+     *  produced the content. Today: nxt-visual-renderer. */
+    category: 'research-deliverable' | 'prompt-engineering' | 'render-contract';
     triggers: string[];
+    /** Wiki pages (in hic-workspace/wiki/) to load alongside SKILL.md */
     wikiCompanions: string[];
     benchmarks: string[];
+    /** References inside the skill's OWN folder (e.g. "references/web-layouts.md").
+     *  Resolved relative to the skill path, fetched from the /skills/ static route. */
+    skillReferences?: string[];
     outputTypes: string[];
     bestModel: ChatModel;
     thinkingEffort: 'max' | 'high' | 'medium';
@@ -125,7 +133,7 @@ export interface SkillManifestEntry {
 export interface SkillContext {
     skill: SkillManifestEntry;
     skillContent: string;       // Full SKILL.md content
-    companionContent: string;   // Concatenated wiki companion pages
+    companionContent: string;   // Concatenated wiki companion pages + skill references
 }
 
 // --- Model Configuration ---
@@ -282,16 +290,30 @@ The hashtag in the user's prompt is authoritative — the parser will auto-apply
 slide in your response even if you forget to set brand=. Do NOT mention the hashtag in the slide
 JSON itself; it's a routing directive, not content.
 
-The 18 templates and when to use each (when the user requests multiple slides on themes,
-ROTATE through theme-cluster, theme-spotlight, theme-arc, and theme-mosaic instead of
-repeating the same layout — variety reads as designerly, repetition reads as templated):
+NOTE ON LAYOUT SPEC LOCATION (2026-04-21 REFACTOR):
+The full per-template content budgets, JSON example shapes, titles-as-quotes ban,
+meta-narration ban, corpus meta-commentary ban, theme-count rules, quote density
+rules, and preferred quote-source priority order now live in the nxt-visual-renderer
+RENDER CONTRACT skill. That skill is auto-loaded into the system prompt by the
+matchSkills / loadSkillContext loader whenever ANY slide-intent keyword appears in
+the user message ("slide", "deck", "#slide", theme-*/case-study/recommendation/
+stat-row/block-quote etc.). Those rules and examples are authoritative over
+anything that remains inline below.
+
+SEE:
+  - /skills/nxt-visual-renderer/SKILL.md            (overview + 18-template roster)
+  - /skills/nxt-visual-renderer/references/web-layouts.md       (field budgets + JSON examples)
+  - /skills/nxt-visual-renderer/references/anti-slop-rules.md   (titles-as-quotes ban, meta-narration, etc.)
+
+A short index of the 18 templates (when to use each — the full density spec is in the
+render contract above):
 
 1.  persona-card        → user requests personas, archetypes, customer segments
 2.  recommendation      → user requests strategic actions, what to do, next steps
 3.  theme-cluster       → equal-weight horizontal columns (3-4 themes, parallel weight, default theme layout)
 3a. theme-spotlight     → ONE dominant theme + 2-3 supporting (asymmetric 60/40 hero layout — use when one theme leads)
 3b. theme-arc           → narrative chain of 3-4 themes with progression arrows (use when themes build sequentially: cause → effect → response)
-3c. theme-mosaic        → 2x2 inverse-checkerboard of 4 parallel themes (alternating dark/light cells — gallery rhythm; use for 4 equal themes with strong visual punch)
+3c. theme-mosaic        → 2x2 ivory grid of 4 parallel themes (uniform pale surface, hairline rules, chartreuse accent bar on the primary cell — restrained gallery rhythm for 4 co-equal themes)
 4.  competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
 5.  block-quote         → user wants a single powerful verbatim quote highlighted
 6.  case-study          → user requests an example, real-world case, success/failure story
@@ -305,94 +327,30 @@ repeating the same layout — variety reads as designerly, repetition reads as t
 14. prd-feature         → user requests product requirements, feature specs, MoSCoW breakdown
 15. systems-inventory   → user requests tech audit, systems catalog, legacy vs current state
 
-EVERY slide block carries:
+Universal contract (every slide):
 - "title": action title (complete sentence stating a conclusion with data)
-- "sources": ["Named Source 1", "Named Source 2", ...]   ← always required, never empty
+- "sources": [...]   ← required, never empty, deduplicated
+For per-template budgets + JSON shapes, read the render contract's
+references/web-layouts.md. The content budgets below are DEPRECATED —
+DO NOT rely on them; read the skill spec instead.
 
-CONTENT BUDGETS (write to fit, do NOT submit copy that will be truncated):
-The slide canvas is fixed at 960x540. Every text slot has a hard character
-budget. The renderer DOES truncate overflow, but truncation is ugly — it
-looks unprofessional and breaks reader trust. Treat these budgets as
-contractual: they are the design, not a suggestion.
+LEGACY CONTENT BUDGETS (kept temporarily for templates not yet migrated
+to the skill — timeline / section-divider / service-blueprint / gap-matrix /
+architecture-map / prd-feature / systems-inventory):
 
 Universal slots:
 - title:                  120 chars  (one complete sentence, action-titled)
 - sources[i]:             40  chars per source name
 
-theme-cluster (4 equal columns):
-- themeCluster.themes[i].name:      55 chars  (sentence-style headline)
-- themeCluster.themes[i].insight:  180 chars  (1-2 tight sentences)
-- themeCluster.themes[i].evidence: 120 chars  (verbatim or paraphrased)
-- themeCluster.themes[i].source:    45 chars
+(theme-cluster, theme-spotlight, theme-arc, theme-mosaic, stat-row, block-quote,
+case-study, recommendation budgets moved to the render contract spec file.)
 
-theme-spotlight (1 hero + 3 supporting):
-- HERO themes[0].name:      85 chars
-- HERO themes[0].insight:  340 chars  (room for full paragraph here)
-- HERO themes[0].evidence: 240 chars
-- HERO themes[0].source:    75 chars
-- SUPPORTING themes[1..3].name:    65 chars
-- SUPPORTING themes[1..3].insight: 120 chars  (1 sentence MAX)
-- SUPPORTING themes[1..3].source:    45 chars
-  (Supporting tiles do NOT render evidence — omit it. Put your strongest
-  verbatim quote on the HERO theme only, where it has room to breathe.)
+(Full densified field budgets for theme-spotlight, theme-arc, theme-mosaic,
+stat-row, block-quote, recommendation, and case-study live in the render-contract
+references/web-layouts.md — do not restate them here.)
 
-theme-arc (4 themes in narrative chain):
-- themeCluster.themes[i].name:      60 chars
-- themeCluster.themes[i].insight:  170 chars
-- themeCluster.themes[i].evidence: 110 chars
-- themeCluster.themes[i].source:    45 chars
-
-theme-mosaic (2x2 grid):
-- themeCluster.themes[i].name:      65 chars
-- themeCluster.themes[i].insight:  170 chars
-- themeCluster.themes[i].evidence:  95 chars
-- themeCluster.themes[i].source:    45 chars
-
-stat-row:
-- statRow.stats[i].value:  10 chars  (e.g. "$2.4M", "47%", "3x")
-- statRow.stats[i].label:  60 chars
-- statRow.stats[i].source: 45 chars
-
-block-quote:
-- quote.text:        240 chars  (PICK A SHORTER VERBATIM EXCERPT if longer)
-- quote.attribution:  60 chars
-- quote.role:         50 chars
-- quote.source:       60 chars
-- quote.context:     150 chars
-
-recommendation:
-- recommendation.actionTitle:  140 chars
-- recommendation.rationale:    400 chars
-- recommendation.supportingActions[i].name:        45 chars
-- recommendation.supportingActions[i].description: 220 chars
-- recommendation.impactMetric.value:                12 chars
-- recommendation.impactMetric.label:                90 chars
-
-case-study:
-- caseStudy.subject:        60 chars
-- caseStudy.subjectMeta:    80 chars
-- caseStudy.challenge:     280 chars
-- caseStudy.approach:      280 chars
-- caseStudy.outcome:       280 chars
-- caseStudy.pullQuote.text: 180 chars
-- caseStudy.keyMetric.value:  12 chars
-- caseStudy.keyMetric.label:  90 chars
-
-CONTENT-FITTING RULES:
-1. PARAPHRASE TO FIT. If a verbatim quote is 220 chars but the slot is 100,
-   pick a SHORTER verbatim excerpt from the same source — never copy a
-   200-char quote into a 100-char slot expecting truncation to handle it.
-2. Insights compress, evidence stays verbatim. Insights are your prose; you
-   can rewrite them tighter. Evidence quotes are sacred — find shorter ones,
-   don't paraphrase them.
-3. Action titles before topic labels. "Trust erodes 18 months before contact"
-   beats "Trust erosion timing."
-4. If you cannot say it within budget without losing the meaning, the wrong
-   template was picked. Switch templates: use theme-spotlight (more room per
-   theme) instead of theme-mosaic (small cells).
-5. Do not pad to fill the budget either. Concise reads better than verbose.
-
-Template-specific JSON shapes:
+Template-specific JSON shape examples (kept for templates not yet migrated to
+the render-contract reference file):
 
 :::slide template=persona-card
 {
@@ -414,16 +372,27 @@ Template-specific JSON shapes:
 :::slide template=recommendation
 {
   "title": "Consolidate three Salesforce instances into one to recover $2.4M annually",
-  "sources": ["Northeastern CRM Assessment", "Gartner Higher-Ed CRM Report 2025"],
+  "sources": ["Northeastern CRM Assessment", "Gartner Higher-Ed CRM Report 2025", "Cornell Advancement Annual Report 2025"],
   "recommendation": {
     "actionTitle": "Migrate Annual Giving, Major Gifts, and Reunion to a single Salesforce org by Q4",
-    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of advancement-officer time per the CRM Assessment.",
+    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of advancement-officer time per the CRM Assessment. Cornell's 18-month consolidation lifted major-gift conversion 34% — that is the pattern to follow.",
     "supportingActions": [
-      {"name":"Data audit","description":"Inventory all custom objects across the three orgs and map duplicates."},
-      {"name":"Pilot migration","description":"Migrate Reunion (smallest dataset) first to validate model and process."},
-      {"name":"Training","description":"Run 5 sessions for the 80-person advancement team before cutover."}
+      {"name":"Data audit","description":"Inventory all custom objects across the three orgs and map duplicates. Dedicated team runs this for 8 weeks before migration planning begins."},
+      {"name":"Pilot migration","description":"Migrate Reunion (smallest dataset) first to validate model and process. Two-week instrumentation sprint follows cutover."},
+      {"name":"Training","description":"Run 5 sessions for the 80-person advancement team before cutover — job-role-specific, not generic product training."}
     ],
-    "impactMetric": {"value":"$2.4M","label":"annual recovered productivity, per CRM Assessment"}
+    "impactGrid": {
+      "baseline": "40% officer time on reconciliation across 3 orgs",
+      "target": "<12% reconciliation time, single unified org",
+      "timeframe": "9 months, 3-phase cutover",
+      "owner": "VP Advancement Services + 12-person program team"
+    },
+    "impactMetric": {"value":"$2.4M","label":"annual recovered productivity"},
+    "evidence": [
+      {"text":"I wouldn't know in our database right now that Andrew, you work with Rob — that's exactly the relationship that closes a major gift.","source":"NXT Stakeholder Interview","attribution":"Major Gifts Officer"},
+      {"text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.","source":"CASE 2024 panel","attribution":"VP Advancement Services, Cornell"}
+    ],
+    "implication":"This is the unlock for every downstream Advancement initiative — prospect scoring, predictive outreach, and stewardship automation are all blocked by the fragmented data layer."
   }
 }
 :::
@@ -442,143 +411,127 @@ Template-specific JSON shapes:
 }
 :::
 
-ABSOLUTE BAN — CORPUS META-COMMENTARY:
-A slide must NEVER describe the research corpus itself. Your job is to describe the SUBJECT
-(a company, person, institution, market), not the data apparatus we used to research it.
+(Corpus-meta-commentary ban, titles-as-quotes ban, preferred-quote-source
+priority, quote-density rules, and theme-count minimums are in the render
+contract's references/anti-slop-rules.md and references/web-layouts.md — do
+not restate them here.)
 
-FORBIDDEN on every slide, every field, every template:
-  ✗ "Within this corpus..."                  ✗ "The external corpus contains..."
-  ✗ "In the corpus..."                       ✗ "The broader corpus..."
-  ✗ "The strongest quantified outcome available in the corpus"
-  ✗ "The clearest vendor source..."          ✗ "The only named case..."
-  ✗ "Most vendor evidence is..."             ✗ "Our dataset shows..."
-  ✗ "Evidence is scarce in this corpus"      ✗ "Supporting evidence in the same vendor cluster"
-  ✗ "The research corpus..."                 ✗ "Based on our collection..."
-
-These phrases are ALWAYS a sign that evidence was thin and you filled the scaffold with
-meta-commentary instead of subject content. When evidence is thin, the correct move is to:
-  1. Use the FEWER slides than planned (drop a slide rather than fake it), AND
-  2. Flag EVIDENCE GAP in the specific field that lacks support: "EVIDENCE GAP: outcome
-     not independently verified in corpus" — the renderer shows this as a badge.
-
-Case-study slides SPECIFICALLY: challenge/approach/outcome MUST name the subject and
-describe THEIR situation, not what we found in our sources. Example:
-  ✗ WRONG: "The corpus contains few named higher-ed cases with hard numbers"
-  ✓ RIGHT: "Wyoming's advancement team needed to convert wealth ratings into readiness
-            signals without expanding headcount"
-
-Block-quote slides: quote.text must be a VERBATIM passage ≥40 chars, and quote.attribution
-must be a real person, organization, or publication — never "Customer story title",
-"Source title", "Headline", or the article's title.
-
-TITLES-AS-QUOTES ARE FORBIDDEN (applies to evidence field, quotes[] array, AND themeCluster evidence):
-A quote is a sentence pulled from the BODY of an article, transcript, or post — not the headline,
-not the article title, not the webpage title. Characteristics of real quotes:
-  - Contains verbs in running prose: "We saw co-op placements fall 40% year-over-year"
-  - Often starts mid-thought, uses casual or specific language, and includes numbers or names
-  - Length ≥40 chars, typically 80-200
-What a TITLE looks like (REJECT these as quotes):
-  - Title case ("The Best Alumni Management Software Solutions in 2026")
-  - Starts with a noun phrase acting as headline
-  - No verb, or no concrete subject
-  - Appears word-for-word as the article's Title: field
-BEFORE placing any string into evidence/quotes[].text, check: does this text appear as the
-"Title:" line of any chunk in the corpus, the WIKI ARCHIVE MENU, or the TOPIC-MATCHED ARTICLE
-BODIES block? If yes, you are using a title as a quote — REJECT and find a real sentence from
-the article body instead. If the body is not in context, emit EVIDENCE GAP rather than
-substituting the headline.
-
-PREFERRED SOURCES FOR QUOTES (in priority order):
-  1. TOPIC-MATCHED ARTICLE BODIES (pre-fetched wiki bodies scoped to this question) — first pick
-  2. DEEP ARTICLE BODIES (wiki-extracted article text) — second pick
-  3. Reddit/social post BODY TEXT visible in the corpus — third pick
-  4. Academic abstract BODY (not title) — fourth pick
-  5. NEVER the article title line, NEVER the "Title:" field of a chunk, NEVER a URL slug
-
-Titles must state a CONCLUSION about the subject with data. Never use a title that describes
-the research artifact:
-  ✗ "The Wyoming case matters because named, quantified higher-ed vendor evidence is scarce in this corpus"
-  ✓ "Wyoming's donor experience program generated 6x revenue in year one"
-
-QUOTE DENSITY — multi-quote themes:
-Every theme child inside themeCluster accepts an OPTIONAL "quotes" array in addition to the
-singular "evidence" field. When the user asks for "N quotes each" or "3 quotes per theme" or
-uses the hashtag form "#quotes=N", populate "quotes" on every theme with N verbatim passages:
-  "quotes": [
-    {"text": "verbatim passage from source", "source": "Named Source", "url": "https://...", "date": "Apr 2026"},
-    {"text": "second verbatim passage", "source": "Different Source"},
-    {"text": "third verbatim passage", "source": "Third Source"}
-  ]
-RULE: prefer distinct sources across quotes on the same theme (avoid three quotes from one thread).
-The renderer will render every quote in the array; the legacy singular "evidence" is used only as
-a fallback when "quotes" is absent. Post-processing also auto-pulls real KG quotes when you
-leave "quotes" empty but the user requested density — never fabricate quotes to fill the array.
-
-THEME COUNT REQUIREMENT (HARD RULE — NON-NEGOTIABLE):
-Every theme-multi template has a MINIMUM required number of themes in themeCluster.themes[]:
-  - theme-cluster:   MINIMUM 3 themes, maximum 4 (equal horizontal columns)
-  - theme-spotlight: MINIMUM 3 themes (1 hero + 2 supporting); 4 is better (1 hero + 3 supporting)
-  - theme-arc:       EXACTLY 3 or 4 themes (progression chain; 2 is too short, 5+ is too crowded)
-  - theme-mosaic:    EXACTLY 4 themes (2x2 grid; any other count breaks the layout)
-If you cannot surface the required number of themes from the corpus, you MUST choose a different
-template. For a single-theme finding, use block-quote or case-study. For 2 themes, use comparison
-or split-panel. NEVER emit a theme-multi template with fewer than 3 themes — the empty supporting
-slots render as visible white rectangles with no content ("gaping holes"). This is a rendering
-failure, not a valid design choice.
-
-If the user explicitly requests theme-spotlight/arc/mosaic but the corpus only supports 1-2 themes,
-emit the closest single-theme template (block-quote or case-study) and add a prose sentence above
-the block explaining the choice: "The corpus surfaces one dominant theme on this question — a
-spotlight requires 3 distinct themes, so I'm emitting a block-quote instead."
-
-THEME VARIANTS — same themeCluster JSON shape, different layout. Pick the one that fits the data:
-
-theme-spotlight: ONE dominant theme + 2-3 supporting. First theme in the array becomes the hero with full evidence quote and large numeral; the rest stack as supporting tiles. Use when one finding clearly leads the others.
 :::slide template=theme-spotlight
 {
   "title": "Trust erosion before contact dominates the dataset — 3 corroborating signals follow",
-  "sources": ["r/NEU","Higher Ed Dive","CASE 2024"],
+  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","r/highereducation"],
   "themeCluster": {
     "themes": [
-      {"name":"Co-op scarcity is breaking the experiential promise","insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition. This signal recurs in 47 of 312 sampled posts (15%) and is the single most-cited grievance across all r/NEU threads in the dataset.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU"},
-      {"name":"Tuition skepticism is eroding the future donor base","insight":"The cohort Advancement must convert is entering alumni status already disillusioned with ROI.","evidence":"Most Gen Z graduates now think college was waste of money.","source":"r/highereducation"},
-      {"name":"Political posture is now a giving variable","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins 320 university leaders in joint statement.","source":"r/NEU"}
-    ]
+      {
+        "name":"Co-op scarcity is breaking the experiential promise",
+        "insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition. This signal recurs in 47 of 312 sampled posts (15%) and is the single most-cited grievance across r/NEU threads in the last 12 months.",
+        "evidence":"Two years. No TA. No RA. No co-ops. No internships. The whole reason I picked Northeastern is gone and nobody will answer me on what's happening.",
+        "source":"r/NEU",
+        "implication":"Advancement cannot ask the cohort for donations in 10 years if the experiential promise breaks during enrollment."
+      },
+      {
+        "name":"Tuition skepticism is eroding the future donor base",
+        "insight":"The cohort Advancement must convert enters alumni status already disillusioned with ROI. Gen Z cohort data shows 54% of graduates skeptical of degree value vs 22% for Millennials at the same career stage.",
+        "evidence":"Most Gen Z graduates now think college was a waste of money.",
+        "source":"r/highereducation",
+        "signal":"54% Gen Z ROI skepticism (vs 22% Millennial)"
+      },
+      {
+        "name":"Political posture is now a giving variable",
+        "insight":"Public university statements directly shape whether alumni open or close their wallets. CASE 2024 tracked a 12-point swing in giving intent tied to institutional political statements across 14 surveyed schools.",
+        "evidence":"President Aoun joins more than 320 university leaders in a joint statement — I'm canceling my monthly pledge until I see what this means.",
+        "source":"r/NEU",
+        "signal":"12-pt giving-intent swing per political statement"
+      }
+    ],
+    "patternSignal":"Three independent signals converge on one mechanism: trust leaks during enrollment, compounds through graduation, and Advancement never sees it because the data layer cannot assemble a unified donor view."
   }
 }
 :::
 
-theme-arc: 3-4 themes that build sequentially (cause → effect → response). Numbered chain across the top with arrows; each cell shows progression in the argument. Use for narrative themes (e.g., "what happened, why it matters, what's next").
 :::slide template=theme-arc
 {
-  "title": "From signal to spend: how alumni sentiment is reshaping the giving funnel",
-  "sources": ["r/NEU","CASE 2024","NXT Stakeholder Interview","Northeastern Assessment"],
+  "title": "Donor trust breaks in three sequential stages — enrollment, graduation, alumni",
+  "sources": ["r/NEU","CASE 2024","Higher Ed Dive","Gartner Higher-Ed CRM 2025"],
   "themeCluster": {
     "themes": [
-      {"name":"Disillusionment forms during enrollment","insight":"The grievance starts inside the experiential gap, not at graduation.","evidence":"No TA. No RA. No co-ops.","source":"r/NEU"},
-      {"name":"Sentiment leaks into alumni status","insight":"Skepticism follows the cohort into year-one giving.","evidence":"Gen Z think college was waste of money.","source":"r/highereducation"},
-      {"name":"Politics becomes a wedge","insight":"University statements convert sentiment into stop-gift signals.","evidence":"320 university leaders in joint statement.","source":"r/NEU"},
-      {"name":"Advancement loses the contact moment","insight":"By the time mailers go out, trust is already gone.","evidence":"40% of officer time on data reconciliation.","source":"NXT Stakeholder Interview"}
-    ]
+      {
+        "name":"Experiential promise breaks at enrollment",
+        "insight":"Students arrive expecting co-ops and internships; 15% of r/NEU threads cite their absence as the defining disappointment of year one.",
+        "evidence":"Two years. No TA. No RA. No co-ops. No internships.",
+        "source":"r/NEU",
+        "signal":"47 of 312 r/NEU posts cite experiential gap"
+      },
+      {
+        "name":"ROI skepticism crystallizes at graduation",
+        "insight":"By the time students graduate, 54% already believe their degree was not worth the cost, locking in a skeptical posture before Advancement ever makes first contact.",
+        "evidence":"Most Gen Z graduates now think college was a waste of money.",
+        "source":"r/highereducation",
+        "signal":"54% Gen Z ROI skepticism (vs 22% Millennial)"
+      },
+      {
+        "name":"Alumni disengagement hardens within 5 years",
+        "insight":"Disengaged alumni do not return. CASE 2024 shows participation declines 12% per migration event, and recovery takes 7-10 years when it happens at all.",
+        "evidence":"Participation is now at 14%, down from 19% pre-migration.",
+        "source":"CASE 2024",
+        "signal":"-12% participation per platform migration"
+      },
+      {
+        "name":"Advancement loses visibility before it can act",
+        "insight":"Three separate Salesforce instances mean Advancement cannot see these signals until they surface as giving declines — by which point the trust has already left the building.",
+        "evidence":"I wouldn't know in our database that Andrew works with Rob.",
+        "source":"NXT Stakeholder Interview",
+        "signal":"3 disconnected orgs, zero cross-college visibility"
+      }
+    ],
+    "patternSignal":"Trust erosion is not one event — it is a four-stage cascade. Advancement today sees only stage four, and only as a lagging indicator."
   }
 }
 :::
 
-theme-mosaic: exactly 4 parallel themes of equal weight. Renders as a 2x2 grid with alternating dark/light cells (cells 1 and 4 are inverted onto the brand sidebar color, cells 2 and 3 are light). Use when the four themes are co-equal and you want strong visual rhythm — gallery-wall feel.
 :::slide template=theme-mosaic
 {
-  "title": "Four parallel pressures on the advancement funnel — equal weight, different surfaces",
-  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","NXT Interviews"],
+  "title": "Four parallel advancement frictions — each isolated, together compounding",
+  "sources": ["NXT Interview","CASE 2024","Gartner 2025","Cornell Annual Report 2025"],
   "themeCluster": {
     "themes": [
-      {"name":"Experiential promise is breaking","insight":"Co-op scarcity recurs as the top grievance across r/NEU threads.","evidence":"No TA. No RA. No co-ops.","source":"r/NEU"},
-      {"name":"Tuition ROI is in question","insight":"Gen Z arrives in alumni status already skeptical of value.","evidence":"College was waste of money.","source":"r/highereducation"},
-      {"name":"Politics is a giving variable","insight":"University posture directly moves giving behavior.","evidence":"320 university leaders sign joint statement.","source":"r/NEU"},
-      {"name":"Data fragmentation eats the team","insight":"Three CRM orgs consume 40% of officer time.","evidence":"I'd never know Andrew works with Rob.","source":"NXT Stakeholder Interview"}
-    ]
+      {
+        "name":"Data Fragmentation",
+        "insight":"Three Salesforce orgs prevent a single donor view. Officers reconcile 40% of their week manually.",
+        "evidence":"I spend 40% of my time reconciling data across three CRMs.",
+        "source":"NXT Interview",
+        "signal":"40% officer time on reconciliation"
+      },
+      {
+        "name":"Prospect Blindness",
+        "insight":"No ML propensity model means high-capacity donors go un-scored. Peer schools run this at L4 maturity; Northeastern sits at L1.",
+        "evidence":"We have the data, we just cannot see it across the three systems we are running.",
+        "source":"NXT Interview",
+        "signal":"L1 maturity vs peer median L4"
+      },
+      {
+        "name":"Mobile Giving Gap",
+        "insight":"1.2% mobile conversion vs Columbia at 44%. The giving page was not rebuilt after the last platform migration.",
+        "evidence":"Mobile conversion sits at 1.2% — Columbia runs 44% on a rebuilt responsive page.",
+        "source":"Gartner 2025",
+        "signal":"1.2% vs 44% peer mobile conversion"
+      },
+      {
+        "name":"Stewardship Latency",
+        "insight":"Behavior-triggered outreach does not exist. Cadences are manual and batched monthly — peers run trigger-based daily.",
+        "evidence":"Within six months we stopped asking do we know this donor.",
+        "source":"Cornell Annual Report 2025",
+        "signal":"0 triggered touchpoints; peers run 12+/quarter"
+      }
+    ],
+    "patternSignal":"All four frictions share one upstream cause: the data layer. Fix the unified donor view and every downstream Advancement capability becomes accessible."
   }
 }
 :::
+
+(All densified field budgets — character limits and required fields — are
+restated in references/web-layouts.md. The render contract auto-loads
+when slide intent is detected and acts as the authoritative spec.)
 
 Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (vendor-landscape analysis) — 5 named competitors, capability defs, scaleLabels, evidence per row, subject highlighted:
 
@@ -629,13 +582,20 @@ Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (ven
 :::slide template=block-quote
 {
   "title": "The advancement system that exists vs. the one staff describe",
-  "sources": ["NXT Stakeholder Interview"],
+  "sources": ["NXT Stakeholder Interview","CASE 2024","Gartner Higher-Ed CRM 2025"],
   "quote": {
-    "text": "I wouldn't know in our database right now that Andrew, you work with Rob — and that's exactly the relationship that closes a major gift.",
+    "text": "I wouldn't know in our database right now that Andrew, you work with Rob — and that's exactly the relationship that closes a major gift. We have the data, we just can't see it across the three systems we're running.",
     "attribution": "Anonymous Major Gifts Officer",
     "role": "20-year veteran, Northeastern Advancement",
     "source": "NXT Stakeholder Interview, March 2026",
-    "context": "ON DATA FRAGMENTATION"
+    "context": "ON DATA FRAGMENTATION",
+    "contextParagraph":"This quote comes from a stakeholder interview conducted during the March 2026 CRM assessment. The officer is describing how three siloed Salesforce instances — one per college — prevent even basic relationship mapping across donor households. This is the single most-cited friction point across 14 stakeholder interviews.",
+    "corroboratingData": [
+      {"value":"40%","label":"of officer time spent on manual data reconciliation","source":"NXT Interview"},
+      {"value":"-12%","label":"alumni participation since the last platform migration","source":"CASE 2024"},
+      {"value":"L1","label":"Northeastern maturity tier vs. peer median of L4","source":"Gartner 2025"}
+    ],
+    "implication":"Consolidating to a unified donor view is a prerequisite to every other advancement initiative — prospect scoring, predictive outreach, and stewardship automation all assume a single system of record."
   }
 }
 :::
@@ -690,8 +650,16 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
     ],
     "pullQuote": {
       "text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.",
-      "attribution":"VP Advancement Services, Cornell (CASE 2024 panel)"
-    }
+      "attribution":"VP Advancement Services, Cornell",
+      "role":"17-year Advancement veteran, CASE 2024 panelist"
+    },
+    "lesson": "Consolidation pays back fastest when the smallest college migrates first — it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
+    "comparables": [
+      {"name":"BU Advancement (2022)","outcome":"Consolidated 3 orgs → 1 in 14 months; 28% major-gift conversion lift","source":"CASE 2024"},
+      {"name":"NYU (2023)","outcome":"Unified 6 colleges into single Salesforce org; +$18M annual giving year-over-year","source":"NYU Annual Report 2024"},
+      {"name":"Michigan (2024)","outcome":"2.4× officer productivity post-consolidation, 12-month program","source":"Gartner Higher-Ed CRM 2025"}
+    ],
+    "implication":"The pattern holds across every peer case: consolidation is not a CRM project — it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
   }
 }
 :::
@@ -718,10 +686,30 @@ Example of the same case-study pattern applied to a B2B SaaS corpus — note how
   "sources": ["Northeastern CRM Assessment","NXT Stakeholder Interview","CASE 2024"],
   "statRow": {
     "stats": [
-      {"value":"40%","label":"of officer time spent reconciling data across CRMs","source":"NXT Stakeholder Interview"},
-      {"value":"3","label":"separate Salesforce instances in production","source":"Northeastern CRM Assessment"},
-      {"value":"-12%","label":"alumni participation rate since platform migration","source":"CASE 2024"}
-    ]
+      {
+        "value":"40%",
+        "label":"of officer time spent reconciling data across CRMs",
+        "meaning":"Front-line fundraisers burn nearly half their week on manual record merging instead of donor conversations.",
+        "matters":"Every reclaimed hour compounds: peer schools freed 600+ hrs/officer/year and moved major-gift close-rates 30%+.",
+        "source":"NXT Stakeholder Interview"
+      },
+      {
+        "value":"3",
+        "label":"separate Salesforce instances in production",
+        "meaning":"Three disconnected orgs means prospect work at one college is invisible to every other college.",
+        "matters":"Cornell consolidated 4 → 1 and unlocked 34% conversion lift in 18 months — the window is closing as peers move.",
+        "source":"Northeastern CRM Assessment"
+      },
+      {
+        "value":"-12%",
+        "label":"alumni participation decline since platform migration",
+        "meaning":"Participation is the leading indicator of major-gift pipeline 7-10 years out, and it is moving the wrong direction.",
+        "matters":"Without action the cohort Advancement must convert in the next decade will enter alumni status already disengaged.",
+        "source":"CASE 2024"
+      }
+    ],
+    "convergentInsight":"Three independent signals — officer time, system fragmentation, and participation decline — all point to the same root cause: Advancement is operating a platform, not a unified donor system. Fix the platform and the other two metrics move together.",
+    "patternSignal":"Peer institutions (Cornell, BU, NYU) that closed this gap in 12-18 months posted 30%+ major-gift conversion lifts within the first post-cutover year."
   }
 }
 :::
@@ -1421,7 +1409,11 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
     const scored: Array<{ skill: SkillManifestEntry; score: number }> = [];
 
     for (const skill of manifest) {
-        if (skill.category !== 'research-deliverable') continue;
+        // Include content skills (research-deliverable) AND render contracts.
+        // render-contract skills like nxt-visual-renderer load alongside any
+        // triggered content skill so every slide emission follows the layout
+        // spec regardless of which consulting lens produced the content.
+        if (skill.category !== 'research-deliverable' && skill.category !== 'render-contract') continue;
         let score = 0;
         for (const trigger of skill.triggers) {
             const normTrigger = trigger.toLowerCase();
@@ -1451,16 +1443,36 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
 }
 
 /**
- * Fetch a skill's SKILL.md content and its wiki companion pages.
- * Uses the Vite dev server /skills/ route and wiki fetch path.
+ * Fetch a skill's SKILL.md content, its in-folder references, and its wiki
+ * companions + benchmarks. Uses the Vite dev server /skills/ route and wiki
+ * fetch path.
+ *
+ * Caching: results memoize in _skillContextCache keyed by skill.id — so the
+ * first slide request pays the fetch latency (~10-30ms), every subsequent
+ * request in the same session is a map lookup.
  */
+const _skillContextCache = new Map<string, SkillContext>();
+
 export async function loadSkillContext(skill: SkillManifestEntry): Promise<SkillContext> {
+    const cached = _skillContextCache.get(skill.id);
+    if (cached) return cached;
+
     const fetches: Promise<string>[] = [];
 
     // Fetch the SKILL.md
     fetches.push(
         fetch(skill.path).then(r => r.ok ? r.text() : '').catch(() => '')
     );
+
+    // Fetch skill-folder references (e.g. "references/web-layouts.md").
+    // Resolved relative to the skill path — skill.path is "/skills/<id>/SKILL.md"
+    // and references live under "/skills/<id>/<ref>".
+    const skillFolder = skill.path.replace(/\/SKILL\.md$/i, '');
+    for (const ref of (skill.skillReferences || [])) {
+        fetches.push(
+            fetch(`${skillFolder}/${ref}`).then(r => r.ok ? r.text() : '').catch(() => '')
+        );
+    }
 
     // Fetch wiki companions
     for (const companion of skill.wikiCompanions) {
@@ -1480,7 +1492,9 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     const skillContent = results[0];
     const companionContent = results.slice(1).filter(Boolean).join('\n\n---\n\n');
 
-    return { skill, skillContent, companionContent };
+    const ctx = { skill, skillContent, companionContent };
+    _skillContextCache.set(skill.id, ctx);
+    return ctx;
 }
 
 // --- Main Send Function ---
@@ -1495,17 +1509,26 @@ export async function sendChatMessage(
 ): Promise<ChatMessage> {
     const startTime = Date.now();
 
-    // Skill matching: find relevant skills from manifest
+    // Skill matching: find relevant skills from manifest.
+    // Load at MOST one content skill (research-deliverable) and ALWAYS load
+    // every matching render-contract skill alongside it. Render contracts are
+    // layout/design specs that must govern slide emission regardless of which
+    // consulting lens produced the content.
     let skillContext: SkillContext | null = null;
+    let renderContracts: SkillContext[] = [];
     let skillUsed: string | undefined;
     if (context.skillManifest?.length) {
         const matched = matchSkills(userMessage, context.skillManifest);
-        if (matched.length > 0) {
-            const topSkill = matched[0];
-            skillContext = await loadSkillContext(topSkill);
-            skillUsed = topSkill.id;
-            // Auto-select best model if user hasn't explicitly chosen
-            // (Only upgrade, never downgrade — if user picked Opus, don't switch to Flash)
+        const topContentSkill = matched.find(s => s.category === 'research-deliverable') || null;
+        const matchedContracts = matched.filter(s => s.category === 'render-contract');
+
+        if (topContentSkill) {
+            skillContext = await loadSkillContext(topContentSkill);
+            skillUsed = topContentSkill.id;
+        }
+        if (matchedContracts.length > 0) {
+            renderContracts = await Promise.all(matchedContracts.map(loadSkillContext));
+            console.log(`[chat] render contracts active: ${renderContracts.map(c => c.skill.id).join(', ')}`);
         }
     }
 
@@ -1542,10 +1565,22 @@ export async function sendChatMessage(
         `[${s.id}] ${s.sourceName}: "${s.title}"${s.url ? ` URL: ${s.url}` : ''}${s.date ? ` (${s.date})` : ''}`
     ).join('\n');
 
-    // Build skill-aware system prompt
+    // Build skill-aware system prompt.
+    // Render contracts come FIRST so the AI internalizes the layout rules
+    // before it sees the content skill's methodology. One render contract
+    // block per matched render-contract skill; no cap (there's only one
+    // today: nxt-visual-renderer).
     let skillInstructions = '';
+    for (const rc of renderContracts) {
+        skillInstructions += `
+=== RENDER CONTRACT: ${rc.skill.name} ===
+${rc.skillContent}
+${rc.companionContent ? `\n=== RENDER CONTRACT REFERENCES ===\n${rc.companionContent}\n=== END REFERENCES ===\n` : ''}
+=== END RENDER CONTRACT ===
+`;
+    }
     if (skillContext) {
-        skillInstructions = `
+        skillInstructions += `
 === ACTIVE SKILL: ${skillContext.skill.name} ===
 ${skillContext.skillContent}
 === END SKILL ===
