@@ -413,6 +413,34 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
     { phrase: 'perhaps', severity: 'medium' },
     { phrase: "it's possible", severity: 'medium' },
     { phrase: 'may or may not', severity: 'medium' },
+    // HIGH severity: corpus meta-commentary — the AI is describing the research
+    // apparatus instead of the subject. Catches cases where thin evidence
+    // caused the model to paraphrase its own dataset into the slide.
+    { phrase: 'within this corpus', severity: 'high' },
+    { phrase: 'in the corpus', severity: 'high' },
+    { phrase: 'in this corpus', severity: 'high' },
+    { phrase: 'the external corpus', severity: 'high' },
+    { phrase: 'the broader corpus', severity: 'high' },
+    { phrase: 'the research corpus', severity: 'high' },
+    { phrase: 'the available corpus', severity: 'high' },
+    { phrase: 'the collected corpus', severity: 'high' },
+    { phrase: 'corpus contains very few', severity: 'high' },
+    { phrase: 'the corpus contains', severity: 'high' },
+    { phrase: 'the vendor corpus', severity: 'high' },
+    { phrase: 'the strongest quantified outcome available', severity: 'high' },
+    { phrase: 'the strongest named', severity: 'high' },
+    { phrase: 'the clearest vendor source', severity: 'high' },
+    { phrase: 'the clearest named', severity: 'high' },
+    { phrase: 'the only named case', severity: 'high' },
+    { phrase: 'supporting evidence in the same vendor cluster', severity: 'high' },
+    { phrase: 'corpus cluster shows', severity: 'high' },
+    { phrase: 'is scarce in this corpus', severity: 'high' },
+    { phrase: 'evidence is scarce in this', severity: 'high' },
+    { phrase: 'our dataset shows', severity: 'high' },
+    { phrase: 'based on our collection', severity: 'high' },
+    { phrase: 'the dataset contains', severity: 'high' },
+    { phrase: 'most vendor material is', severity: 'high' },
+    { phrase: 'most vendor evidence', severity: 'high' },
 ];
 
 export interface AntiPatternViolation {

@@ -319,44 +319,64 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
 
 // === 3a. THEME SPOTLIGHT — hero theme (60%) + supporting tiles (40%). ===
 // Use when one theme dominates and 2-3 corroborate it. Asymmetric, dramatic.
+// 2026-04-21: gracefully degrades when the AI only supplied one theme — hero
+// expands to fill the slide and the supporting panel is hidden entirely
+// rather than rendering an empty white rectangle ("gaping hole").
 export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
     const all = data.themes.slice(0, 4);
     const hero = all[0];
     const supporting = all.slice(1, 4);
     if (!hero) return null;
+    // If the AI failed to provide supporting themes, degrade to a hero-only
+    // layout instead of showing an empty 40% panel. A one-theme spotlight is
+    // acceptable; a 40% white void is not.
+    const hasSupporting = supporting.length > 0;
+    if (!hasSupporting) {
+        console.warn(`[ThemeSpotlight] rendering hero-only — AI supplied ${all.length} theme(s), minimum 3 required for full spotlight layout`);
+    }
     return (
         <div style={{ padding: '32px 40px 22px', display: 'flex', flexDirection: 'column', gap: 14, height: '100%' }}>
             <div>
-                <Tag text="EMERGING THEME — SPOTLIGHT" brand={brand} />
+                <Tag text={hasSupporting ? "EMERGING THEME — SPOTLIGHT" : "EMERGING THEME"} brand={brand} />
                 <Title text={title} size={24} brand={brand} />
             </div>
             <div style={{ display: 'flex', gap: 24, flex: 1, minHeight: 0 }}>
-                {/* Hero — left 60% */}
-                <div style={{ flex: 3, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10, paddingRight: 18, borderRight: `1px solid ${hex(T.RULE)}` }}>
+                {/* Hero — 60% when supporting present, 100% otherwise */}
+                <div style={{
+                    flex: hasSupporting ? 3 : 1,
+                    minWidth: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 10,
+                    paddingRight: hasSupporting ? 18 : 0,
+                    borderRight: hasSupporting ? `1px solid ${hex(T.RULE)}` : 'none',
+                }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
                         <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 64, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 0.9, letterSpacing: '-0.04em' }}>01</div>
-                        <div style={{ fontWeight: 800, fontSize: 18, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, 90)}</div>
+                        <div style={{ fontWeight: 800, fontSize: hasSupporting ? 18 : 22, color: hex(T.INK), lineHeight: 1.15, letterSpacing: '-0.015em' }}>{truncate(hero.name, hasSupporting ? 90 : 140)}</div>
                     </div>
-                    <div style={{ fontSize: 11, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, 360)}</div>
-                    <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={240} />
+                    <div style={{ fontSize: hasSupporting ? 11 : 13, color: hex(T.BODY), lineHeight: 1.55, fontWeight: 300 }}>{truncate(hero.insight, hasSupporting ? 360 : 600)}</div>
+                    <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={hasSupporting ? 240 : 360} />
                 </div>
-                {/* Supporting — right 40% */}
-                <div style={{ flex: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>SUPPORTING SIGNALS</div>
-                    {supporting.map((t, i) => (
-                        <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 0', borderBottom: i < supporting.length - 1 ? `1px solid ${hex(T.RULE)}` : 'none' }}>
-                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
-                                {String(i + 2).padStart(2, '0')}
+                {/* Supporting panel — ONLY rendered when at least one supporting theme exists */}
+                {hasSupporting && (
+                    <div style={{ flex: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
+                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, color: hex(T.SECONDARY), marginBottom: 8 }}>SUPPORTING SIGNALS</div>
+                        {supporting.map((t, i) => (
+                            <div key={i} style={{ display: 'flex', gap: 10, padding: '10px 0', borderBottom: i < supporting.length - 1 ? `1px solid ${hex(T.RULE)}` : 'none' }}>
+                                <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 200, fontSize: 22, color: hex(T.CHARTREUSE_BRIGHT), lineHeight: 1, flexShrink: 0, width: 28 }}>
+                                    {String(i + 2).padStart(2, '0')}
+                                </div>
+                                <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                                    <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2 }}>{truncate(t.name, 70)}</div>
+                                    <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(t.insight, 130)}</div>
+                                    <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={120} />
+                                </div>
                             </div>
-                            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                                <div style={{ fontWeight: 700, fontSize: 11, color: hex(T.INK), lineHeight: 1.2 }}>{truncate(t.name, 70)}</div>
-                                <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300 }}>{truncate(t.insight, 130)}</div>
-                                <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={120} />
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
             </div>
             <SourceFooter sources={sources} brand={brand} />
         </div>

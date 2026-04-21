@@ -21,8 +21,9 @@
  * treemap to highlight which themes that source contributes to.
  */
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { KGNode, KnowledgeGraph } from '../services/knowledgeGraphBuilder';
+import WikiArticleViewer from './WikiArticleViewer';
 
 declare const d3: any;
 
@@ -174,6 +175,26 @@ const STAGE_LABEL: Record<string, string> = {
     FINAL: 'Finalizing assets',
 };
 
+// --- ADAPTIVE SIZING ---
+// Three height presets the user can cycle through. Each resolves to a
+// viewport-aware CSS length. Defaults live in the root component.
+export type DeskSize = 'snug' | 'tall' | 'full';
+const SIZE_PRESETS: Record<DeskSize, { height: string; minHeight: string; label: string; tooltip: string }> = {
+    snug: { height: 'min(72vh, 860px)', minHeight: '560px', label: 'SNUG', tooltip: 'Compact — fits alongside tile grid' },
+    tall: { height: 'min(115vh, 1500px)', minHeight: '820px', label: 'TALL', tooltip: 'Expanded — prioritizes treemap readability' },
+    full: { height: '100dvh', minHeight: '100dvh', label: 'FULL', tooltip: 'Fills the viewport (same as EXPAND)' },
+};
+
+/** Pick a sensible default size based on viewport width and theme count.
+ *  Tablets and narrow windows default to snug; wide desktops to tall. */
+function pickDefaultSize(themeCount: number): DeskSize {
+    if (typeof window === 'undefined') return 'tall';
+    const vw = window.innerWidth;
+    if (vw < 1100) return 'snug';
+    if (themeCount >= 14) return 'tall';
+    return 'tall';
+}
+
 export interface PipelineActivity {
     activeStage?: string;       // AnalysisStage value, e.g. 'PERSONAS'
     currentStatus?: string;     // short status line, e.g. "Claude Opus · 342 chunks"
@@ -184,10 +205,18 @@ export interface PipelineActivity {
 interface Props {
     graph: KnowledgeGraph;
     onNodeClick?: (node: KGNode) => void;
-    /** Accepts a pixel number or any CSS length ('85vh', '100%', etc.). */
+    /** Accepts a pixel number or any CSS length ('85vh', '100%', etc.).
+     *  When `size` is provided, `height`/`minHeight` are ignored.
+     *  Kept for backward compatibility with existing call sites. */
     height?: number | string;
     /** Optional min-height floor so very short viewports don't cramp the desk. */
     minHeight?: number | string;
+    /** Preferred adaptive size — overrides height/minHeight when provided.
+     *  'snug' fits alongside other content; 'tall' prioritizes treemap
+     *  readability; 'full' uses 100dvh (viewport-fill). */
+    size?: DeskSize;
+    /** Optional setter so the desk can self-cycle size via the toggle pill. */
+    onSizeChange?: (s: DeskSize) => void;
     excludedSources?: Set<string>;
     setExcludedSources?: React.Dispatch<React.SetStateAction<Set<string>>>;
     theme?: DeskTheme;
@@ -271,7 +300,7 @@ function shortLabel(s: string | undefined, n = 48): string {
 
 // --- SUBCOMPONENTS ---
 
-const MetricTile: React.FC<{ label: string; count: number; accent: string; onClick?: () => void; active?: boolean; inferring?: boolean }> = ({ label, count, accent, onClick, active, inferring }) => {
+const MetricTile: React.FC<{ label: string; count: number; accent: string; onClick?: () => void; active?: boolean; inferring?: boolean; compact?: boolean }> = ({ label, count, accent, onClick, active, inferring, compact }) => {
     const t = useTokens();
     const pulseAnim = t.theme === 'light' ? 'ad-pulse-border-light' : 'ad-pulse-border';
     return (
@@ -282,12 +311,12 @@ const MetricTile: React.FC<{ label: string; count: number; accent: string; onCli
                 background: active ? accent : t.panel,
                 color: active ? (t.theme === 'light' ? '#FFFFFF' : t.bg) : t.text,
                 border: `1px solid ${active ? accent : (inferring ? accent : t.line)}`,
-                padding: '14px 18px',
+                padding: compact ? '10px 12px' : '14px 18px',
                 textAlign: 'left',
                 cursor: onClick ? 'pointer' : 'default',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 4,
+                gap: compact ? 2 : 4,
                 transition: 'background 120ms, color 120ms',
                 fontFamily: 'Archivo, sans-serif',
                 minWidth: 0,
@@ -297,7 +326,7 @@ const MetricTile: React.FC<{ label: string; count: number; accent: string; onCli
         >
             <span style={{
                 fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 36,
+                fontSize: compact ? 26 : 36,
                 lineHeight: 1,
                 letterSpacing: 1,
                 color: active ? (t.theme === 'light' ? '#FFFFFF' : t.bg) : accent,
@@ -323,6 +352,123 @@ const MetricTile: React.FC<{ label: string; count: number; accent: string; onCli
                 )}
             </span>
         </button>
+    );
+};
+
+/**
+ * CorpusCompositionBar (X.1) — horizontal strip above the treemap showing
+ * the extraction-depth distribution of the current evidence pool. Turns
+ * Phase 1.6's per-node `extractionDepth` classifications into an operator
+ * dashboard: "5 🎬 · 12 📑 · 47 📄 · 188 📰 · 9 ⌘" tells you instantly
+ * whether your corpus has teeth or is RSS-blurb shallow.
+ *
+ * Also renders a thin proportional stacked bar underneath the counts so the
+ * RATIO of deep → shallow is visible without math. Pure presentational —
+ * no network, no state.
+ */
+const CorpusCompositionBar: React.FC<{ evidence: KGNode[] }> = ({ evidence }) => {
+    const t = useTokens();
+    const counts = useMemo(() => {
+        const c = { transcript: 0, pdf_extracted: 0, full_text: 0, snippet: 0, headline: 0, dataset: 0 };
+        let archived = 0;
+        let totalChars = 0;
+        let totalSeconds = 0;
+        for (const n of evidence) {
+            const d = (n.extractionDepth || 'headline') as keyof typeof c;
+            if (d in c) c[d]++;
+            if (n.wikiPath) archived++;
+            if (typeof n.contentLength === 'number') totalChars += n.contentLength;
+            if (typeof n.metadata?.duration_sec === 'number') totalSeconds += n.metadata.duration_sec;
+        }
+        return { ...c, archived, totalChars, totalSeconds, total: evidence.length };
+    }, [evidence]);
+
+    // Palette per depth — deep extractions use tokens' accent colors, shallow use muted.
+    const deepColor = t.theme === 'light' ? t.text : t.lime;
+    const depths: Array<{ key: keyof typeof counts; glyph: string; label: string; color: string; strong: boolean }> = [
+        { key: 'transcript',    glyph: '🎬', label: 'TRANSCRIPTS', color: deepColor,   strong: true },
+        { key: 'pdf_extracted', glyph: '📑', label: 'PDFs',         color: deepColor,   strong: true },
+        { key: 'full_text',     glyph: '📄', label: 'FULL-TEXT',    color: deepColor,   strong: true },
+        { key: 'dataset',       glyph: '📊', label: 'DATASETS',     color: t.tealMid,   strong: true },
+        { key: 'snippet',       glyph: '📰', label: 'SNIPPETS',     color: t.muted,     strong: false },
+        { key: 'headline',      glyph: '•',  label: 'HEADLINES',    color: t.muted,     strong: false },
+    ];
+
+    // Proportional bar segments (ignore empty categories)
+    const segments = depths.map(d => ({ ...d, count: counts[d.key] as number })).filter(d => d.count > 0);
+    const barTotal = segments.reduce((s, d) => s + d.count, 0) || 1;
+
+    const charsLabel = counts.totalChars > 0
+        ? (counts.totalChars >= 1_000_000 ? `${(counts.totalChars / 1_000_000).toFixed(1)}M` : `${Math.round(counts.totalChars / 1000)}K`)
+        : '';
+    const audioLabel = counts.totalSeconds > 0
+        ? `${Math.round(counts.totalSeconds / 60)} min audio`
+        : '';
+
+    return (
+        <div style={{
+            borderBottom: `1px solid ${t.theme === 'light' ? t.hairline : t.line}`,
+            padding: '8px 16px',
+            background: t.theme === 'light' ? t.panelAlt : '#0F0F0F',
+            display: 'flex', alignItems: 'center', gap: 18, flexWrap: 'wrap',
+        }}>
+            <span style={{
+                fontFamily: "'Bebas Neue', sans-serif", fontSize: 11, letterSpacing: 2,
+                color: t.muted, textTransform: 'uppercase' as const,
+            }}>CORPUS</span>
+            {/* Counts row */}
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+                {depths.map(d => {
+                    const n = counts[d.key] as number;
+                    if (n === 0) return null;
+                    return (
+                        <span
+                            key={d.key}
+                            title={`${n} ${d.label.toLowerCase()} in corpus`}
+                            style={{
+                                display: 'inline-flex', alignItems: 'center', gap: 5,
+                                fontSize: 11, letterSpacing: 0.4,
+                                color: t.text,
+                                fontWeight: d.strong ? 700 : 400,
+                            }}
+                        >
+                            <span style={{ fontSize: 13 }} aria-hidden>{d.glyph}</span>
+                            <span style={{ color: d.color, fontWeight: 700 }}>{n}</span>
+                            <span style={{ color: t.muted, fontSize: 9, letterSpacing: 1.5, textTransform: 'uppercase' as const }}>{d.label}</span>
+                        </span>
+                    );
+                })}
+                {counts.archived > 0 && (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 10, color: t.tealMid, letterSpacing: 1 }} title="Persisted to wiki archive — reusable across engagements">
+                        ⌘ {counts.archived} ARCHIVED
+                    </span>
+                )}
+                {charsLabel && (
+                    <span style={{ fontSize: 10, color: t.muted, letterSpacing: 0.5 }} title="Total chars of extracted content in corpus">
+                        {charsLabel} chars
+                    </span>
+                )}
+                {audioLabel && (
+                    <span style={{ fontSize: 10, color: t.muted, letterSpacing: 0.5 }} title="Total transcribed audio duration">
+                        {audioLabel}
+                    </span>
+                )}
+            </div>
+            {/* Proportional ratio bar */}
+            <div style={{ flex: 1, minWidth: 120, maxWidth: 300, display: 'flex', height: 6, border: `1px solid ${t.theme === 'light' ? t.hairline : t.line}`, overflow: 'hidden' }}>
+                {segments.map(seg => (
+                    <div
+                        key={seg.key}
+                        title={`${seg.label}: ${seg.count} (${Math.round((seg.count / barTotal) * 100)}%)`}
+                        style={{
+                            flex: seg.count / barTotal,
+                            background: seg.color,
+                            opacity: seg.strong ? 1 : 0.45,
+                        }}
+                    />
+                ))}
+            </div>
+        </div>
     );
 };
 
@@ -514,6 +660,13 @@ const ThemeTreemap: React.FC<{
                 const borderWidth = isSelected ? 2 : 1;
                 const showLabel = tile.w > 60 && tile.h > 28;
                 const showCount = tile.w > 80 && tile.h > 50;
+                // Responsive type curve: narrow tiles get smaller type and tighter
+                // letter-spacing so long words like "DONOR" don't overflow the tile
+                // width and get clipped by the parent overflow:hidden. Ceiling 32px,
+                // floor 11px, slope tuned so a 60px tile lands at ~13px font.
+                const labelFs = Math.min(32, Math.max(11, tile.w / 9));
+                const labelLs = tile.w < 110 ? 0 : 0.5;
+                const labelLineClamp = Math.max(1, Math.floor((tile.h - (showCount ? 28 : 16)) / (labelFs * 1.1)));
                 return (
                     <button
                         key={n.id}
@@ -540,13 +693,23 @@ const ThemeTreemap: React.FC<{
                         {showLabel && (
                             <span style={{
                                 fontFamily: "'Bebas Neue', sans-serif",
-                                fontSize: Math.min(34, Math.max(14, tile.w / 8)),
-                                lineHeight: 1.05,
-                                letterSpacing: 0.5,
+                                fontSize: labelFs,
+                                lineHeight: 1.1,
+                                letterSpacing: labelLs,
                                 display: '-webkit-box',
-                                WebkitLineClamp: Math.max(1, Math.floor(tile.h / 26)),
+                                WebkitLineClamp: labelLineClamp,
                                 WebkitBoxOrient: 'vertical' as any,
                                 overflow: 'hidden',
+                                // Word-break fallbacks so long words (DONOR, ADVANCEMENT) wrap
+                                // instead of overflowing the tile width and being clipped by
+                                // the parent. 'anywhere' is the modern one; 'break-word' is
+                                // the legacy fallback. Combined with maxWidth they guarantee
+                                // every glyph stays inside the tile.
+                                overflowWrap: 'anywhere',
+                                wordBreak: 'break-word',
+                                hyphens: 'auto',
+                                maxWidth: '100%',
+                                minWidth: 0,
                             }}>{n.label}</span>
                         )}
                         {showCount && (
@@ -580,7 +743,8 @@ const DetailPanel: React.FC<{
     onSelectNode: (n: KGNode) => void;
     onPivotSource: (n: KGNode | null) => void;
     pivotSource: KGNode | null;
-}> = ({ node, graph, excludedSources, setExcludedSources, onSelectNode, onPivotSource, pivotSource }) => {
+    onOpenArchive?: (wikiPath: string) => void;
+}> = ({ node, graph, excludedSources, setExcludedSources, onSelectNode, onPivotSource, pivotSource, onOpenArchive }) => {
     const t = useTokens();
     if (!node) {
         return (
@@ -753,7 +917,7 @@ const DetailPanel: React.FC<{
                                             {shortLabel(quote, 260)}
                                         </div>
                                     )}
-                                    <div style={{ marginTop: 6, fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: t.muted, display: 'flex', gap: 12 }}>
+                                    <div style={{ marginTop: 6, fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: t.muted, display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
                                         {src && (
                                             <button
                                                 type="button"
@@ -763,9 +927,50 @@ const DetailPanel: React.FC<{
                                                 {src.label}
                                             </button>
                                         )}
+                                        {/* Extraction depth badge — makes it visibly evident when
+                                            evidence is a full-text article, PDF, or transcript vs a
+                                            headline blurb. Phase 1.6 surfaces the classification the
+                                            orchestrator wrote onto the evidence node. */}
+                                        {ev.extractionDepth && (() => {
+                                            const depth = ev.extractionDepth;
+                                            const glyph = depth === 'transcript' ? '🎬' : depth === 'pdf_extracted' ? '📑' : depth === 'full_text' ? '📄' : depth === 'dataset' ? '📊' : depth === 'snippet' ? '📰' : '•';
+                                            const labelMap: Record<string, string> = { transcript: 'TRANSCRIPT', pdf_extracted: 'PDF', full_text: 'FULL TEXT', dataset: 'DATASET', snippet: 'SNIPPET', headline: 'HEADLINE' };
+                                            const isDeep = depth === 'full_text' || depth === 'pdf_extracted' || depth === 'transcript';
+                                            const kchars = ev.contentLength ? ` · ${ev.contentLength >= 1000 ? `${Math.round(ev.contentLength / 1000)}k` : ev.contentLength} chars` : '';
+                                            return (
+                                                <span
+                                                    title={ev.wikiPath ? `${labelMap[depth]}${kchars} · archived at wiki/${ev.wikiPath}` : `${labelMap[depth]}${kchars}`}
+                                                    style={{
+                                                        display: 'inline-flex', alignItems: 'center', gap: 4,
+                                                        padding: '2px 6px',
+                                                        fontSize: 9, letterSpacing: 1.2,
+                                                        fontWeight: 700,
+                                                        color: isDeep ? (t.theme === 'light' ? t.text : t.lime) : t.muted,
+                                                        border: `1px ${isDeep ? 'solid' : 'dashed'} ${isDeep ? (t.theme === 'light' ? t.text : t.lime) : t.muted}`,
+                                                        background: 'transparent',
+                                                    }}
+                                                >
+                                                    <span aria-hidden>{glyph}</span>{labelMap[depth]}{kchars}
+                                                </span>
+                                            );
+                                        })()}
                                         {ev.tier && <span>T{ev.tier}</span>}
                                         {ev.relevanceScore !== undefined && <span>rel {Math.round(ev.relevanceScore)}</span>}
                                         {ev.freshnessScore !== undefined && <span>fresh {Math.round(ev.freshnessScore)}</span>}
+                                        {ev.wikiPath && (
+                                            <button
+                                                type="button"
+                                                onClick={(e) => { e.stopPropagation(); onOpenArchive?.(ev.wikiPath!); }}
+                                                title={`Open archived wiki article: ${ev.wikiPath}`}
+                                                style={{
+                                                    color: t.tealMid, fontSize: 9, letterSpacing: 0.5,
+                                                    background: 'transparent',
+                                                    border: `1px solid ${t.tealMid}`,
+                                                    padding: '2px 6px', cursor: 'pointer',
+                                                    fontFamily: 'inherit', fontWeight: 700,
+                                                }}
+                                            >⌘ READ ARCHIVED ↗</button>
+                                        )}
                                     </div>
                                 </div>
                             );
@@ -935,6 +1140,9 @@ const LinkageStrip: React.FC<{
     onSelect: (n: KGNode) => void;
 }> = ({ selected, graph, personas, barriers, recs, journeys, onSelect }) => {
     const t = useTokens();
+    // S3.3: which group is expanded to show all chips (popover). null = none.
+    const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+    const LINKAGE_MAX_VISIBLE = 6;
     const activeIds = useMemo(() => {
         if (!selected) return new Set<string>();
         const s = new Set<string>();
@@ -950,13 +1158,24 @@ const LinkageStrip: React.FC<{
 
     const renderGroup = (label: string, nodes: KGNode[], accent: string, portrait = false) => {
         if (!nodes.length) return null;
+        const isExpanded = expandedGroup === label;
+        const hasOverflow = nodes.length > LINKAGE_MAX_VISIBLE;
+        const visible = isExpanded ? nodes : nodes.slice(0, LINKAGE_MAX_VISIBLE);
+        const overflowCount = nodes.length - LINKAGE_MAX_VISIBLE;
         return (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0 }}>
-                <div style={{ fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: t.muted, fontWeight: 700, fontFamily: 'Archivo, sans-serif' }}>
-                    {label} <span style={{ color: accent }}>{nodes.length}</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: t.muted, fontWeight: 700, fontFamily: 'Archivo, sans-serif' }}>
+                    <span>{label} <span style={{ color: accent }}>{nodes.length}</span></span>
+                    {isExpanded && (
+                        <button
+                            type="button"
+                            onClick={() => setExpandedGroup(null)}
+                            style={{ marginLeft: 'auto', background: 'none', border: 'none', color: t.muted, cursor: 'pointer', fontSize: 9, letterSpacing: 1.5, fontFamily: 'Archivo, sans-serif', padding: 0, textTransform: 'uppercase' }}
+                        >collapse</button>
+                    )}
                 </div>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
-                    {nodes.slice(0, 18).map(n => {
+                    {visible.map(n => {
                         const isSelected = selected?.id === n.id;
                         const isActive = !selected || activeIds.has(n.id);
                         if (portrait && n.type === 'persona') {
@@ -988,6 +1207,25 @@ const LinkageStrip: React.FC<{
                             >{shortLabel(n.label, 36)}</button>
                         );
                     })}
+                    {hasOverflow && !isExpanded && (
+                        <button
+                            type="button"
+                            onClick={() => setExpandedGroup(label)}
+                            title={`Show all ${nodes.length} ${label.toLowerCase()}`}
+                            style={{
+                                background: 'transparent',
+                                color: accent,
+                                border: `1px dashed ${accent}`,
+                                padding: '6px 10px',
+                                fontSize: 10,
+                                letterSpacing: 0.4,
+                                cursor: 'pointer',
+                                fontFamily: 'Archivo, sans-serif',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                            }}
+                        >+{overflowCount} more</button>
+                    )}
                 </div>
             </div>
         );
@@ -1012,12 +1250,34 @@ const LinkageStrip: React.FC<{
 };
 
 // --- ROOT COMPONENT ---
-const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height = 'min(88vh, 1100px)', minHeight = 640, excludedSources, setExcludedSources, theme = 'dark', activity }) => {
+const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height, minHeight, size, onSizeChange, excludedSources, setExcludedSources, theme = 'dark', activity }) => {
     const t = theme === 'light' ? LIGHT : DARK;
     useEffect(() => { ensureKeyframes(); }, []);
     const [selected, setSelected] = useState<KGNode | null>(null);
     const [pivotSource, setPivotSource] = useState<KGNode | null>(null);
     const [typeFilter, setTypeFilter] = useState<string | null>(null);
+    // Phase 1-retrofit (2026-04-20) — WIKI ARTICLE BROWSER
+    // When set, the WikiArticleViewer overlay renders on top of the desk
+    // and fetches the body so the user can verify the AI has the full text.
+    const [viewerWikiPath, setViewerWikiPath] = useState<string | null>(null);
+    // Internal size state used only if the parent doesn't pass `size` — keeps
+    // the toggle functional for standalone mounts while letting App.tsx take
+    // authority over persistence when it wants to.
+    const themeCountEarly = useMemo(() => graph.nodes.filter(n => n.type === 'theme').length, [graph]);
+    const [internalSize, setInternalSize] = useState<DeskSize>(() => size || pickDefaultSize(themeCountEarly));
+    const effectiveSize: DeskSize = size || internalSize;
+    const sizeSetter = useCallback((s: DeskSize) => {
+        if (onSizeChange) onSizeChange(s);
+        else setInternalSize(s);
+    }, [onSizeChange]);
+    // Resolve effective height: explicit height prop wins (backward compat);
+    // otherwise use the active size preset.
+    const resolvedHeight = height != null
+        ? (typeof height === 'number' ? `${height}px` : height)
+        : SIZE_PRESETS[effectiveSize].height;
+    const resolvedMinHeight = minHeight != null
+        ? (typeof minHeight === 'number' ? `${minHeight}px` : minHeight)
+        : SIZE_PRESETS[effectiveSize].minHeight;
 
     const activeStageKey: DeskStageKey | null = activity?.activeStage ? (STAGE_TO_DESK[activity.activeStage] || null) : null;
     const stageLabel = activity?.activeStage ? (STAGE_LABEL[activity.activeStage] || activity.activeStage) : '';
@@ -1067,20 +1327,28 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
     const crumbs = selected ? buildBreadcrumbs(selected, graph) : [];
 
     return (
+        <>
         <ThemeCtx.Provider value={t}>
         <ActivityCtx.Provider value={{ activeStageKey, isRunning: !!isRunning }}>
         <div
             style={{
                 width: '100%',
-                height: typeof height === 'number' ? `${height}px` : height,
-                minHeight: typeof minHeight === 'number' ? `${minHeight}px` : minHeight,
+                height: resolvedHeight,
+                minHeight: resolvedMinHeight,
                 background: t.bg,
                 color: t.text,
                 display: 'grid',
-                gridTemplateRows: isRunning ? 'auto auto auto 1fr auto' : 'auto auto 1fr auto',
+                // Rows: [inferring strip] breadcrumb, metrics, [composition], treemap+detail, linkage
+                // The composition row (X.1) is `auto` — collapses to 0 when no evidence yet.
+                gridTemplateRows: isRunning ? 'auto auto auto auto 1fr auto' : 'auto auto auto 1fr auto',
                 fontFamily: 'Archivo, sans-serif',
                 border: `1px solid ${t.line}`,
                 overflow: 'hidden',
+                // S3.5 collision guard: contain layout/size so treemap growth
+                // can't push sibling content. The parent wrapper (App.tsx) still
+                // sizes the card; this just ensures internal overflow stays
+                // inside this box.
+                contain: 'layout size',
             }}
         >
             {/* Row 0 — pipeline status strip (only when running) */}
@@ -1179,29 +1447,51 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                         <button type="button" onClick={() => setPivotSource(null)} style={{ background: 'none', border: `1px solid ${t.line}`, color: t.text, padding: '4px 8px', cursor: 'pointer', fontSize: 10, letterSpacing: 1, fontFamily: 'Archivo, sans-serif' }}>clear</button>
                     </span>
                 )}
+                {/* SNUG/TALL/FULL moved to the parent VIEW popover — keeping
+                    only the breadcrumb + pivot indicator in this row eliminates
+                    the 3-pill-cluster that collided with the right-edge
+                    flyout rail. sizeSetter still called from props when the
+                    parent passes `onSizeChange`. */}
             </div>
 
-            {/* Row 2 — metric tiles */}
+            {/* Row 2 — metric tiles. S3.6: grid auto-fits so SNUG mode can
+                break to two rows without CSS changes; tiles downsize via
+                their own internal breakpoint. */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(136px, 1fr))',
+                gridTemplateColumns: effectiveSize === 'snug'
+                    ? 'repeat(auto-fit, minmax(112px, 1fr))'
+                    : 'repeat(auto-fit, minmax(136px, 1fr))',
                 gap: 1,
                 background: t.theme === 'light' ? t.line : t.line,
                 padding: '1px 0',
             }}>
-                <MetricTile label="Themes" count={themes.length} accent={t.lime} active={typeFilter === 'theme'} inferring={activeStageKey === 'themes'} onClick={() => setTypeFilter(typeFilter === 'theme' ? null : 'theme')} />
-                <MetricTile label="Personas" count={personas.length} accent={t.tealMid} active={typeFilter === 'persona'} inferring={activeStageKey === 'personas'} onClick={() => setTypeFilter(typeFilter === 'persona' ? null : 'persona')} />
-                <MetricTile label="Sources" count={sources.length} accent={t.text} active={typeFilter === 'source'} inferring={activeStageKey === 'sources'} onClick={() => setTypeFilter(typeFilter === 'source' ? null : 'source')} />
-                <MetricTile label="Evidence" count={evidence.length} accent={t.muted} inferring={activeStageKey === 'evidence'} />
-                <MetricTile label="Recs" count={recs.length} accent={t.tealMid} active={typeFilter === 'recommendation'} inferring={activeStageKey === 'recs'} onClick={() => setTypeFilter(typeFilter === 'recommendation' ? null : 'recommendation')} />
-                <MetricTile label="Barriers" count={barriers.length} accent={t.rust} active={typeFilter === 'gap'} inferring={activeStageKey === 'barriers'} onClick={() => setTypeFilter(typeFilter === 'gap' ? null : 'gap')} />
-                <MetricTile label="Journeys" count={journeys.length} accent={t.tealMid} active={typeFilter === 'journey_stage'} inferring={activeStageKey === 'journeys'} onClick={() => setTypeFilter(typeFilter === 'journey_stage' ? null : 'journey_stage')} />
+                <MetricTile label="Themes" count={themes.length} accent={t.lime} active={typeFilter === 'theme'} inferring={activeStageKey === 'themes'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'theme' ? null : 'theme')} />
+                <MetricTile label="Personas" count={personas.length} accent={t.tealMid} active={typeFilter === 'persona'} inferring={activeStageKey === 'personas'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'persona' ? null : 'persona')} />
+                <MetricTile label="Sources" count={sources.length} accent={t.text} active={typeFilter === 'source'} inferring={activeStageKey === 'sources'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'source' ? null : 'source')} />
+                <MetricTile label="Evidence" count={evidence.length} accent={t.muted} inferring={activeStageKey === 'evidence'} compact={effectiveSize === 'snug'} />
+                <MetricTile label="Recs" count={recs.length} accent={t.tealMid} active={typeFilter === 'recommendation'} inferring={activeStageKey === 'recs'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'recommendation' ? null : 'recommendation')} />
+                <MetricTile label="Barriers" count={barriers.length} accent={t.rust} active={typeFilter === 'gap'} inferring={activeStageKey === 'barriers'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'gap' ? null : 'gap')} />
+                <MetricTile label="Journeys" count={journeys.length} accent={t.tealMid} active={typeFilter === 'journey_stage'} inferring={activeStageKey === 'journeys'} compact={effectiveSize === 'snug'} onClick={() => setTypeFilter(typeFilter === 'journey_stage' ? null : 'journey_stage')} />
             </div>
+
+            {/* CORPUS COMPOSITION BAR (X.1) — shows extraction depth distribution
+                so the operator can see at a glance what the wiki archive holds.
+                Counts drive confidence: "47 full-text + 12 PDFs + 5 transcripts"
+                reads very differently from "188 headlines". Only renders when
+                there's actual evidence in the graph. */}
+            {evidence.length > 0 && <CorpusCompositionBar evidence={evidence} />}
 
             {/* Row 3 — treemap + detail panel */}
             <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1.8fr) minmax(360px, 0.9fr)',
+                // S3.7: dense treemaps (many themes) get more horizontal space so
+                // tiles stay legible. Sparse treemaps give the detail panel more room.
+                gridTemplateColumns: themes.length > 15
+                    ? 'minmax(0, 2.4fr) minmax(320px, 0.9fr)'
+                    : themes.length < 6
+                        ? 'minmax(0, 1.4fr) minmax(360px, 1fr)'
+                        : 'minmax(0, 1.8fr) minmax(360px, 0.9fr)',
                 minHeight: 0,
             }}>
                 <div style={{ position: 'relative', minHeight: 0, background: t.bg, overflow: 'hidden' }}>
@@ -1228,6 +1518,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                     onSelectNode={handleSelect}
                     onPivotSource={setPivotSource}
                     pivotSource={pivotSource}
+                    onOpenArchive={setViewerWikiPath}
                 />
             </div>
 
@@ -1244,6 +1535,14 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
         </div>
         </ActivityCtx.Provider>
         </ThemeCtx.Provider>
+        {/* Wiki article viewer overlay — opened by the ⌘ READ ARCHIVED button
+            on any archived evidence node. Lives at the top level so its
+            fixed-position overlay escapes the desk's stacking context. */}
+        <WikiArticleViewer
+            wikiPath={viewerWikiPath}
+            onClose={() => setViewerWikiPath(null)}
+        />
+        </>
     );
 };
 

@@ -27,6 +27,7 @@
 
 import type { KGNode, KnowledgeGraph } from './knowledgeGraphBuilder';
 import type { SlideQuote } from '../components/slideTemplates/types';
+import { fetchWikiArticles, type WikiArticleBody } from './wikiIndexService';
 
 // --- TUNING CONSTANTS ---
 const MIN_QUOTE_CHARS = 40;
@@ -377,4 +378,239 @@ export function enrichSlideWithQuotes(slide: any, graph: KnowledgeGraph, directi
         }
     }
     return slide;
+}
+
+// --- WIKI-BACKED QUOTE BACKFILL (2026-04-20) -----------------------------
+// Deterministic fallback: walks every theme in every slide, detects
+// evidence fields that look like article titles (not body sentences), and
+// replaces them with real sentences pulled from the wiki archive. This is
+// the safety net that runs EVEN IF the AI emits a headline as a "quote" —
+// we overwrite with ground truth from the archive.
+
+/** Heuristic: does this string look like an article title/headline rather
+ *  than a body sentence? Title signatures: Title Case, minimal verbs,
+ *  common headline patterns like "How X did Y", "N Ways to Z", etc. */
+function looksLikeTitle(text: string | undefined): boolean {
+    if (!text) return true;
+    const s = text.trim();
+    if (s.length < 40) return true;                       // too short to be a real quote
+    // Headline heuristic 1: no terminal punctuation AND no internal comma/dash
+    if (!/[.!?]/.test(s) && !/[,;:—-]/.test(s)) return true;
+    // Headline heuristic 2: majority of words capitalized (>60%)
+    // Exclude stopwords/connectives ("to", "a", "for", "and", etc.) which legitimately
+    // stay lowercase even in Title-Case titles — so we check proper words only.
+    const TITLE_STOPWORDS = new Set(['a','an','the','of','in','on','at','to','for','and','or','but','with','by','as','is','are','was','were']);
+    const words = s.split(/\s+/).filter(w => w.length > 1);
+    const titleWords = words.filter(w => !TITLE_STOPWORDS.has(w.toLowerCase().replace(/[^a-z]/g, '')));
+    if (titleWords.length >= 4) {
+        const capped = titleWords.filter(w => /^[A-Z]/.test(w)).length;
+        if (capped / titleWords.length > 0.6) return true;
+    }
+    // Headline heuristic 3: article/Reddit-title patterns ending in ? or !,
+    // starting with a question word, under 120 chars. These are almost always
+    // post titles rather than body sentences. Apostrophes ("What's") and
+    // parens ("(with full AI features)") are common in titles — do NOT use
+    // their presence to disqualify.
+    if (/^(how|why|what|when|which|who|where|is|are|can|should|does|do|the\s+best|top\s+\d|\d+\s+ways)\b/i.test(s)) {
+        if (s.length < 140) return true;
+    }
+    // Headline heuristic 4: "<Thing>: <Longer Thing>" colon-split titles
+    // ("From Go-Live to Growth Driver: A CRM Maturity Framework for Advancement Teams")
+    // These read as body sentences to the old detector because the colon added
+    // internal punctuation, but they are structurally titles — short clause
+    // before colon, noun-phrase-heavy clause after.
+    const colonSplit = s.split(/:\s+/);
+    if (colonSplit.length === 2 && s.length < 160) {
+        const before = colonSplit[0];
+        const after = colonSplit[1];
+        // No verbs in the "after" part often signals a title — check for
+        // common verb endings / modals instead of full NLP. If the after-part
+        // has no lowercase verbs like "is/are/was/were/has/had/will/does/can",
+        // it's likely a title subtitle.
+        if (!/\b(is|are|was|were|has|had|will|does|can|could|should|might|may|shows|found|reports|says|argues|claims|suggests|indicates|reveals|notes)\b/i.test(after)
+            && before.length < 80) {
+            return true;
+        }
+    }
+    // Headline heuristic 5: ends with ? AND is short AND has few verbs
+    if (/\?\s*$/.test(s) && s.length < 100) {
+        return true;
+    }
+    return false;
+}
+
+/** Extract 1-3 body sentences from a fetched wiki article, skipping the
+ *  article's own title line. Picks sentences that have verbs and concrete
+ *  language. Falls back to first paragraph if nothing else qualifies. */
+function extractBodySentences(article: WikiArticleBody, maxSentences: number = 3): string[] {
+    const body = article.content || '';
+    // Strip a leading line that matches the article title (case-insensitive)
+    const titleLower = (article.title || '').toLowerCase().trim();
+    let text = body;
+    if (titleLower.length > 10) {
+        const firstLineEnd = text.indexOf('\n');
+        if (firstLineEnd > 0) {
+            const firstLine = text.substring(0, firstLineEnd).toLowerCase().trim();
+            if (firstLine === titleLower || firstLine.includes(titleLower) || titleLower.includes(firstLine)) {
+                text = text.substring(firstLineEnd + 1);
+            }
+        }
+    }
+    // Sentence split on .!? followed by whitespace
+    const sentences = text
+        .replace(/\s+/g, ' ')
+        .split(/(?<=[.!?])\s+/)
+        .map(s => s.trim())
+        // Filter for length AND reject anything that looks like a title itself.
+        // This is critical: wiki article bodies sometimes begin with the
+        // article's headline restated as a sentence, or with subsection
+        // headers like "Conclusion" or "Methodology". Without this filter the
+        // backfill happily replaces a title-quote with ANOTHER title-quote.
+        .filter(s => s.length >= 60 && s.length <= 260 && !looksLikeTitle(s));
+    // Score: prefer sentences with numbers, quote marks, or named entities.
+    // Also reward "sentence-like" linguistic features (contains a verb form).
+    const scored = sentences.map(s => {
+        let score = 0;
+        if (/\d/.test(s)) score += 2;                     // numbers are concrete
+        if (/["'"']/.test(s)) score += 1;                 // quoted speech
+        if (/\b[A-Z][a-z]+\s+[A-Z]/.test(s)) score += 1;  // proper noun pairs (names/orgs)
+        if (s.length > 80 && s.length < 200) score += 1;  // ideal length
+        // Verb presence bumps the score — a verb-bearing sentence is prose,
+        // not a heading.
+        if (/\b(is|are|was|were|has|had|will|shows|found|reports|says|argues|claims|suggests|indicates|reveals|notes|describes|means|requires)\b/i.test(s)) score += 1;
+        return { s, score };
+    });
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, maxSentences).map(x => x.s);
+}
+
+/** For each theme whose evidence looks like a title (or is missing),
+ *  fetch wiki articles matching the theme name/insight and replace
+ *  evidence/quotes with real body sentences. Mutates slide in place.
+ *  Returns true if any change was made. */
+interface BackfillStats {
+    totalThemes: number;
+    needingBackfill: number;   // themes where evidence looked like a title
+    wikiHitsPass1: number;     // themes that got quotes from min-800 query
+    wikiHitsPass2: number;     // themes that got quotes from relaxed min-200 retry
+    noMatchAnywhere: number;   // themes the wiki archive couldn't serve at all
+}
+
+async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, stats: BackfillStats): Promise<boolean> {
+    if (!themeCluster || !Array.isArray(themeCluster.themes)) return false;
+    let changed = false;
+    // Process themes in parallel to keep latency bounded
+    await Promise.all(themeCluster.themes.map(async (t: any) => {
+        stats.totalThemes++;
+        // Decide whether THIS theme needs backfill
+        const hasQuoteArray = Array.isArray(t.quotes) && t.quotes.length > 0;
+        const quotesLookReal = hasQuoteArray && t.quotes.every((q: any) => !looksLikeTitle(q?.text));
+        const evidenceLooksLikeTitle = looksLikeTitle(t.evidence);
+        if (quotesLookReal && !evidenceLooksLikeTitle) return;    // healthy; skip
+        stats.needingBackfill++;
+
+        // Query strategy: combine theme name + insight, fall back to the user's
+        // original message if the theme name is too generic
+        const themeQuery = [t.name, t.insight].filter(Boolean).join(' ').trim();
+        const query = themeQuery.length >= 12 ? themeQuery : fallbackQuery;
+        if (!query || query.length < 8) { stats.noMatchAnywhere++; return; }
+
+        // Pass 1: strict — only meaty archive entries (≥800 chars). Gives us
+        // real body prose when the archive is populated properly.
+        let articles = await fetchWikiArticles({
+            query,
+            limit: 3,
+            maxCharsPerArticle: 8_000,
+            minChars: 800,
+        });
+        let hitPass = 1;
+
+        // Pass 2: relax the minChars floor so a partially-populated archive
+        // (headline-heavy) still gives us something to work with. Short but
+        // real body snippets beat an article headline-as-quote every time.
+        if (!articles || articles.length === 0) {
+            articles = await fetchWikiArticles({
+                query,
+                limit: 3,
+                maxCharsPerArticle: 8_000,
+                minChars: 200,
+            });
+            hitPass = 2;
+        }
+
+        if (!articles || articles.length === 0) {
+            stats.noMatchAnywhere++;
+            return;
+        }
+
+        const pulled: SlideQuote[] = [];
+        for (const art of articles) {
+            const sents = extractBodySentences(art, 1);
+            if (sents.length === 0) continue;
+            pulled.push({
+                text: sents[0],
+                source: art.source || 'Source',
+                url: art.url,
+                date: art.date,
+            });
+            if (pulled.length >= 3) break;
+        }
+        if (pulled.length > 0) {
+            t.quotes = pulled;
+            // Keep the legacy `evidence` field pointing at the top quote so
+            // older renderers that haven't adopted QuoteStack still show a
+            // real sentence rather than a title.
+            t.evidence = pulled[0].text;
+            t.source = pulled[0].source;
+            changed = true;
+            if (hitPass === 1) stats.wikiHitsPass1++;
+            else stats.wikiHitsPass2++;
+        } else {
+            stats.noMatchAnywhere++;
+        }
+    }));
+    return changed;
+}
+
+/**
+ * Backfill all slides in a batch by pulling real body sentences from the
+ * wiki archive wherever a theme's evidence/quotes look like titles. This
+ * is the async companion to enrichSlideWithQuotes — call it AFTER the
+ * slides have been parsed and added to state, then update state again
+ * with the enriched versions.
+ *
+ * Non-blocking by contract: wiki fetch failures return the slides
+ * unchanged. A slide with real KG-extracted quotes is untouched.
+ *
+ * @param slides  parsed slide array
+ * @param userMessage  original user query (used as fallback when theme
+ *                     names are too generic to form a good query)
+ * @returns a new slides array with themeCluster quotes backfilled
+ *          where needed. Other slide shapes are passed through unchanged.
+ */
+export async function backfillSlidesFromWiki(slides: any[], userMessage: string): Promise<any[]> {
+    if (!Array.isArray(slides) || slides.length === 0) return slides;
+    // Shallow-clone so React treats this as a state change
+    const out = slides.map(s => ({ ...s, themeCluster: s.themeCluster ? { ...s.themeCluster, themes: s.themeCluster.themes?.map((t: any) => ({ ...t })) } : s.themeCluster }));
+    let anyChanged = false;
+    const stats: BackfillStats = { totalThemes: 0, needingBackfill: 0, wikiHitsPass1: 0, wikiHitsPass2: 0, noMatchAnywhere: 0 };
+    // Sequential across slides to avoid stampeding the proxy; each slide's
+    // themes run in parallel internally.
+    for (const slide of out) {
+        if (!slide.themeCluster) continue;
+        const changed = await backfillThemeCluster(slide.themeCluster, userMessage, stats);
+        if (changed) anyChanged = true;
+    }
+    // Always log the outcome — ZERO matches is as informative as full matches
+    // ("wiki archive is headline-heavy for these themes — re-run collection").
+    const summary = `[slides] wiki backfill: ${stats.needingBackfill}/${stats.totalThemes} themes flagged, ${stats.wikiHitsPass1} upgraded (strict), ${stats.wikiHitsPass2} upgraded (relaxed), ${stats.noMatchAnywhere} no-match`;
+    if (stats.needingBackfill === 0) {
+        console.log(`${summary} — nothing to do`);
+    } else if (anyChanged) {
+        console.log(summary);
+    } else {
+        console.warn(`${summary} — archive lacks body text for these topics; run a fresh collection to populate wiki with enriched bodies`);
+    }
+    if (!anyChanged) return slides;     // nothing to update, return original ref
+    return out;
 }

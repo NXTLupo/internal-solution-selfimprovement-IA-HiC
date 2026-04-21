@@ -82,11 +82,15 @@ tr:hover td { background: #FAFAFA; }
 <div class="main">
 
 <h1>Humans in Control</h1>
-<div class="subtitle">Operator Documentation &mdash; v3.0 &mdash; April 20, 2026</div>
+<div class="subtitle">Operator Documentation &mdash; v3.1 &mdash; April 20, 2026</div>
 
 <p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
-Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>) and a chat workbench for interactive exploration.
+Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench, and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
 </p>
+
+<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
+<strong>v3.1 focus (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Earlier versions forced every collected item through a single in-prompt corpus capped at 500KB, producing headline-heavy context (4 full-text / 357 snippets / 288 headlines on a typical run). v3.1 treats the wiki archive as the canonical store: every article, transcript, and upload persists with full body text, a <code>/api/wiki/index</code> endpoint exposes a lightweight metadata menu, and the chat service pre-fetches topic-matched bodies per turn. Claude additionally has a native <code>fetch_wiki_articles</code> tool so it can pull specific articles mid-reasoning. The Analyst Desk now has a <strong>&#8984; READ ARCHIVED</strong> button on every archived evidence node that opens a full article viewer &mdash; you can verify with one click that the AI actually has the body it&rsquo;s citing from.
+</div>
 
 <div class="metric-row">
   <div class="metric"><div class="value">313</div><div class="label">Data sources</div></div>
@@ -95,7 +99,8 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <div class="metric"><div class="value">100</div><div class="label">YouTube channels</div></div>
   <div class="metric cyan"><div class="value">17</div><div class="label">Agent skills</div></div>
   <div class="metric teal"><div class="value">74</div><div class="label">Wiki pages</div></div>
-  <div class="metric"><div class="value">10</div><div class="label">Deliverable types</div></div>
+  <div class="metric"><div class="value">300</div><div class="label">Items enriched / run</div></div>
+  <div class="metric cyan"><div class="value">1</div><div class="label">Native AI tool</div></div>
 </div>
 
 <div class="toc">
@@ -282,8 +287,20 @@ hic-workspace/
 <h3>Query refinement (Option B)</h3>
 <p>Rather than running the raw research goal literally against each source, the fabric uses Gemini to produce <strong>per-source refined queries</strong>. Example: for Reddit subreddit <code>r/bogleheads</code>, the refined query might be <em>"QCD university endowment bequest"</em> instead of the literal subreddit name. This was introduced after observing that naive literal queries produced Reddit results like searching <em>"neu"</em> inside r/NEU.</p>
 
-<h3>Content enrichment fast-path</h3>
-<p>Top-ranked items are enriched with full text via Jina Reader. URLs matching known full-text patterns (DOI, PMC, arXiv, ProPublica nonprofit profiles) bypass the length gate and are fetched directly. The enrichment summary reports both items-fetched and items-passing-quality-gate; a low pass-rate indicates a connector returning RSS blurbs rather than articles.</p>
+<h3>Content enrichment (v3.1 &mdash; widened to 300 items, wiki-first archival)</h3>
+<p>After relevance scoring, <code>enrichTopItems()</code> walks the scored corpus and fetches full body text for every item whose content length is below <code>ENRICHMENT_GENERIC_LENGTH_GATE = 5,000</code> chars OR whose URL matches a known full-text pattern (DOI, Europe PMC, arXiv, ProPublica, <code>*.pdf</code>, OSF, SSRN, etc.). Earlier builds capped this loop at 80 items; v3.1 raises the cap to <strong>300</strong> and lifts concurrency from 3 to 6 &mdash; this was the core fix after the 2026-04-20 audit showed 96% of evidence nodes were headline-only.</p>
+
+<ul>
+  <li><strong>Dedup check first.</strong> Before fetching, the enricher calls <code>GET /api/wiki/check-article?url=...</code>. A wiki cache hit returns the stored body &mdash; no re-extraction. This works across engagements, not just within one session.</li>
+  <li><strong>Visible failure telemetry.</strong> Every non-200 response is logged with title + URL + status code (<code>Enrich FAIL &hellip; &rarr; HTTP 504 @ &hellip;</code>). Every timeout / fetch exception is logged with the error name. Failures used to be swallowed by <code>Promise.allSettled</code>; now they&rsquo;re auditable.</li>
+  <li><strong>Post-enrichment residual archival.</strong> Items that <em>skipped</em> enrichment because their body was already &ge; 5KB (Reddit <code>selftext</code>, long academic abstracts, YouTube transcripts) are written to the wiki archive in a second pass. The orchestrator attaches the resulting <code>wikiPath</code> to each item, so the KG builder can classify extraction depth correctly (<code>full_text</code> / <code>snippet</code> / <code>headline</code>).</li>
+  <li><strong>Per-item cap.</strong> <code>ENRICHMENT_PER_ITEM_CAP = 30,000</code> chars fits comfortably inside a 1M-token Claude Opus 4.7 context.</li>
+</ul>
+
+<p>The enrichment summary line now reads: <code>Content enrichment: 247/298 items enriched (cached: 12, freshly extracted: 235, persisted to wiki: 235, failed: 38, non-200: 13)</code> followed by <code>Wiki residual archival: 184/192 persisted</code>. Low pass-rate indicates a connector returning thin RSS descriptions; concrete numbers let you decide whether to exclude the source.</p>
+
+<h3>Video Transcriber connector (v3.1 &mdash; wire-fix)</h3>
+<p>Every user-supplied YouTube URL under <code>videoTranscripts</code> resolves to a source with <code>config: { connector: 'Video Transcriber' }</code>. Before v3.1 no connector of that name existed &mdash; every such source threw <em>"Unknown connector"</em> and was silently dropped by <code>Promise.allSettled</code>. v3.1 ships <code>videoTranscriberConnector</code> in <code>dataSourceConnectors.ts</code>: it POSTs the URL to <code>/api/transcribe-youtube</code> (6-minute timeout for long videos), the proxy downloads audio via yt-dlp, Whisper-transcribes in chunks, and auto-persists the transcript to <code>wiki/transcripts/{channel}/{hash}.md</code>. The connector returns a single <code>DataSourceItem</code> with the full transcript as <code>content</code>; downstream enrichment leaves it alone since length already exceeds the gate.</p>
 
 <h2 id="institutions">6. Institution-aware collection</h2>
 
@@ -353,8 +370,12 @@ hic-workspace/
   <li><strong>Click a metric tile</strong> → filter the main area to show all nodes of that type (personas as portrait grid, sources as tier-sorted cards, etc.).</li>
   <li><strong>Click a linkage strip chip</strong> → jump to that node; 2-hop dim shows related nodes.</li>
   <li><strong>Click evidence link ↗</strong> → open the source URL in a new tab.</li>
+  <li><strong>&#8984; READ ARCHIVED ↗ button</strong> → <span class="badge badge-new">v3.1</span> every evidence node with a <code>wikiPath</code> shows this button alongside its extraction-depth chip. Clicking it opens the <code>WikiArticleViewer</code> overlay (full-screen modal): title, source, date, extraction method, tier, char count, wikiPath, and the complete extracted body text. This is the accountability surface &mdash; verify in one click that the AI actually has the full article body it&rsquo;s citing from, not just a headline. ESC or the CLOSE button dismisses.</li>
   <li><strong>× on a source chip</strong> → exclude that source from future analysis (persisted in <code>excludedSources</code> Set).</li>
 </ul>
+
+<h3>Corpus composition bar</h3>
+<p>Above the theme treemap, a compact strip reports the split of extraction depths across all collected items: <em>N full-text &middot; N snippets &middot; N headlines &middot; NK chars</em>. This was added after the v3.1 audit as a first-look health metric &mdash; if <em>headlines</em> dominates, the AI is working from titles alone and slide quality will suffer. The strip is sourced from each KG evidence node&rsquo;s <code>extractionDepth</code> + <code>contentLength</code> fields, classified by <code>buildSourceGraph()</code> based on <code>extractionMethod</code> and enriched-flag.</p>
 
 <h3>Themed variants</h3>
 <table>
@@ -400,15 +421,43 @@ hic-workspace/
   <li><strong>Live citation resolution</strong> &mdash; <code>citationResolver.ts</code> ties every response back to specific chunks, producing inline footnotes</li>
   <li><strong>Skill manifest routing</strong> &mdash; trigger-keyword matching against the 17-skill registry; matching skills inject their framework instructions plus wiki companion pages into the request context</li>
   <li><strong>Additive graph updates</strong> &mdash; requesting a new persona in chat calls <code>addPersonasToGraph</code>, extending the KG live</li>
+  <li><strong>Wiki-as-RAG retrieval</strong> <span class="badge badge-new">v3.1</span> &mdash; topic-matched article bodies pre-fetched per turn, plus a native <code>fetch_wiki_articles</code> tool Claude can call mid-reasoning (see &sect;12 for the full pipeline)</li>
 </ul>
+
+<h3>Grounding context layers (order of injection)</h3>
+<p>Each chat turn&rsquo;s system prompt assembles context in this order, so Claude sees the most important evidence first:</p>
+<ol>
+  <li><strong>Consulting mandates</strong> &mdash; Minto Pyramid, Rumelt&rsquo;s Kernel, SCR/SCQA, anti-slop rules</li>
+  <li><strong>Anti-hallucination rules</strong> &mdash; no fabricated URLs / stats / quotes, cite verbatim, TITLES-AS-QUOTES ARE FORBIDDEN</li>
+  <li><strong>On-demand wiki retrieval directive</strong> <span class="badge badge-new">v3.1</span> &mdash; when and how to call <code>fetch_wiki_articles</code></li>
+  <li><strong>Skill manifest</strong> &mdash; available skills + the matched skill&rsquo;s <code>SKILL.md</code> + wiki companions</li>
+  <li><strong>Source provenance index</strong> &mdash; named sources with titles + URLs for citation reconstruction</li>
+  <li><strong>Verified source archive</strong> &mdash; wiki-persisted sources with confirmed URLs (never fabricate outside this set)</li>
+  <li><strong>Deep article bodies</strong> &mdash; wiki-extracted full-text loaded via KG <code>wikiPath</code> refs</li>
+  <li><strong>Wiki archive menu</strong> <span class="badge badge-new">v3.1</span> &mdash; lightweight metadata catalog so Claude knows what else is callable via the tool</li>
+  <li><strong>Topic-matched article bodies</strong> <span class="badge badge-new">v3.1</span> &mdash; pre-fetched per-message bodies (see below)</li>
+  <li><strong>Raw research corpus</strong> &mdash; chunked evidence with <code>[CHUNK_NNN]</code> ids, capped at 500KB</li>
+</ol>
+
+<h3>Wiki pre-fetch (non-blocking, per-turn)</h3>
+<p>Before building the grounding context, <code>sendChatMessage()</code> runs a best-effort keyword match of the user&rsquo;s message against the wiki archive via <code>prefetchArticlesForMessage()</code> &mdash; pulls up to 6 articles (12KB each, min 500 chars) in a 6-second budget. Hits get formatted into a <em>TOPIC-MATCHED ARTICLE BODIES</em> block near the top of the prompt. Failures (proxy down, no matches, short message) silently skip the block; chat proceeds with the rest of the context intact. Gated on <code>userMessage.trim().length &ge; 12</code> and only runs when the caller hasn&rsquo;t already supplied a block.</p>
+
+<h3>Native tool-use loop (Claude-family models)</h3>
+<p>Claude models additionally get the <code>fetch_wiki_articles</code> tool defined natively. During reasoning Claude can emit <code>tool_use</code> blocks; the client (<code>callAnthropic()</code>) executes each call against the wiki archive and echoes a <code>tool_result</code> block back into the conversation. The loop iterates until <code>stop_reason !== 'tool_use'</code>, capped at <code>MAX_TOOL_ITER = 5</code>. Multiple tool calls per turn run in parallel. Per-call timeout is 18s; failures return <code>is_error: true</code> tool_results so Claude keeps reasoning instead of the chat crashing.</p>
+
+<div class="status-card cyan">
+<strong>Tool schema.</strong> <code>fetch_wiki_articles({ query?, ids?, wikiPaths?, source?, kind?, minChars?, limit?, maxCharsPerArticle? })</code>. Returns up to 15 articles with real body text. The tool description instructs Claude to call it <em>before</em> flagging EVIDENCE GAP, <em>before</em> using an article title as a quote, and when asked for verbatim quotes per theme. Never more than 2&ndash;3 calls per turn.
+</div>
+
+<p>Tool loop logging lands in the browser console as <code>[chat.tools] iter N: Claude called M tools: fetch_wiki_articles, ...</code> so you can audit what the model actually pulled.</p>
 
 <h3>Supported providers</h3>
 <table>
-  <thead><tr><th>Provider</th><th>Model</th><th>Best for</th></tr></thead>
+  <thead><tr><th>Provider</th><th>Model</th><th>Best for</th><th>Tool use</th></tr></thead>
   <tbody>
-    <tr><td>Anthropic</td><td><code>claude-opus-4-7</code> (1M context)</td><td>Strategic synthesis, long-corpus reasoning, deliverable authoring</td></tr>
-    <tr><td>Google</td><td><code>gemini-2.5-flash</code></td><td>Fast query refinement, relevance scoring, image generation</td></tr>
-    <tr><td>OpenAI</td><td><code>gpt-5.4</code> family</td><td>Structured output, grid matrices, comparison tables (uses <code>max_completion_tokens</code>)</td></tr>
+    <tr><td>Anthropic</td><td><code>claude-opus-4-7</code> (1M context)</td><td>Strategic synthesis, long-corpus reasoning, deliverable authoring</td><td><span class="badge badge-live">Native</span></td></tr>
+    <tr><td>Google</td><td><code>gemini-2.5-flash</code></td><td>Fast query refinement, relevance scoring, image generation</td><td>Pre-fetch only</td></tr>
+    <tr><td>OpenAI</td><td><code>gpt-5.4</code> family</td><td>Structured output, grid matrices, comparison tables (uses <code>max_completion_tokens</code>)</td><td>Pre-fetch only</td></tr>
   </tbody>
 </table>
 
@@ -440,10 +489,21 @@ hic-workspace/
 <p>Related rules defined in <code>.claude/CLAUDE.md</code> and enforced throughout:</p>
 <ul>
   <li><strong>No meta-narration.</strong> 19 regex patterns block greetings ("Good morning"), framework announcements ("In this section we will"), and structural narration.</li>
-  <li><strong>No slop phrases.</strong> 350+ banned phrases in 14 categories: corporate clichés ("paradigm shift"), AI slop ("in today's rapidly evolving landscape"), hedge words, false profundity ("unprecedented transformative").</li>
+  <li><strong>No slop phrases.</strong> 350+ banned phrases in 14 categories: corporate clich&eacute;s ("paradigm shift"), AI slop ("in today's rapidly evolving landscape"), hedge words, false profundity ("unprecedented transformative").</li>
   <li><strong>Action titles.</strong> Every slide / section title must be a complete sentence with data &mdash; no topic labels.</li>
   <li><strong>Liberal quoting.</strong> Verbatim quotes with <code>[SOURCE_NAME: "Article Title"]</code> citations, never generic "research shows" framing.</li>
+  <li><strong>TITLES-AS-QUOTES ARE FORBIDDEN.</strong> <span class="badge badge-new">v3.1</span> Quotes must be sentences pulled from article <em>body</em> text &mdash; never the headline, article title, or webpage title. The prompt provides heuristics (Title Case majority, no internal punctuation, matches a chunk's "Title:" line) and ranks preferred quote sources: TOPIC-MATCHED ARTICLE BODIES first, DEEP ARTICLE BODIES second, social post bodies third, academic abstract bodies fourth.</li>
 </ul>
+
+<h3>Slide quote backfill <span class="badge badge-new">v3.1</span></h3>
+<p>Even with the title-ban directive, the AI sometimes still emits a headline as the <code>evidence</code> field. <code>backfillSlidesFromWiki()</code> runs after <code>parseSlideBlocks</code> and before final state update:</p>
+<ol>
+  <li>For each theme in a <code>themeCluster</code>, the <code>looksLikeTitle()</code> heuristic checks the <code>evidence</code> / <code>quotes[].text</code> strings: &lt; 40 chars, no internal punctuation, majority-Title-Case, or clickbait patterns (<em>"How X did Y"</em>, <em>"N Ways to..."</em>) flag it as a title.</li>
+  <li>Title-shaped themes trigger a <code>fetchWikiArticles({ query: theme.name + theme.insight, limit: 3, minChars: 800 })</code> call against the wiki archive.</li>
+  <li><code>extractBodySentences()</code> scores sentences in each returned body by presence of numbers, quoted speech, named entities, and ideal length (80&ndash;200 chars), then picks the top-scored sentence as a real quote.</li>
+  <li><code>theme.quotes</code> and <code>theme.evidence</code> are replaced; slides re-render with real body sentences a second or two after the initial render.</li>
+</ol>
+<p>Failures (proxy down, no matches, empty bodies) leave slides untouched &mdash; the caller&rsquo;s original output still renders.</p>
 
 <h2 id="skills">11. Agent skill manifest</h2>
 
@@ -510,6 +570,56 @@ hic-workspace/
 
 <p><strong>Engagement memory:</strong> On a new research brief, <code>wikiService</code> searches prior engagements via semantic keyword overlap. Matching prior runs have their insights surfaced so the new run builds on them instead of repeating.</p>
 
+<h3>Wiki-as-RAG retrieval architecture <span class="badge badge-new">v3.1</span></h3>
+
+<p>v3.1 reframes the wiki from a reference library into the <strong>canonical corpus store</strong>. The in-context prompt is always capped by the AI&rsquo;s context window; the wiki can hold hundreds of articles per engagement. A lightweight metadata index gives the AI a menu of what&rsquo;s available; a retrieval endpoint (or native tool call) returns real bodies on demand.</p>
+
+<h4>Archive layout</h4>
+<pre>/hic-workspace/wiki/
+  articles/{source-slug}/{url_hash}.md      ← web articles via Jina / PDF (full body + YAML frontmatter)
+  transcripts/{channel-slug}/{video_hash}.md ← YouTube Whisper transcripts
+  uploads/{engagement-slug}/{doc_hash}.md    ← user-uploaded PDFs / docs</pre>
+
+<p>URL hash is a stable 10-char blake2b digest of the canonical URL (lowercase, trailing-slash stripped, UTM params removed), enabling cross-engagement dedup. Each file begins with a YAML frontmatter block: <code>url</code>, <code>url_hash</code>, <code>kind</code>, <code>source</code>, <code>title</code>, <code>author</code>, <code>date</code>, <code>tier</code>, <code>method</code> (<code>pdf</code> / <code>jina</code> / <code>whisper</code> / <code>source-native</code> / <code>upload</code>), <code>chars</code>, <code>extracted_at</code>, and kind-specific fields (<code>channel</code> + <code>duration_sec</code> for transcripts, <code>engagement</code> + <code>page_count</code> for uploads).</p>
+
+<h4>Pipeline stages</h4>
+<table>
+  <thead><tr><th>Stage</th><th>Mechanism</th><th>Where</th></tr></thead>
+  <tbody>
+    <tr><td>1. Enrichment archival</td><td>Every enriched article written via <code>POST /api/wiki/write-article</code> with full body</td><td><code>enrichTopItems()</code> in <code>researchFabricOrchestrator.ts</code></td></tr>
+    <tr><td>2. Residual archival</td><td>Items with pre-existing &ge; 500-char bodies (Reddit selftext, abstracts) written after enrichment</td><td>Same, post-loop</td></tr>
+    <tr><td>3. Transcript archival</td><td>Whisper transcript written automatically on successful transcription</td><td><code>/api/transcribe-youtube</code></td></tr>
+    <tr><td>4. Upload archival</td><td>Parsed PDF / DOCX body written when user attaches files</td><td><code>archiveUploadedDocs()</code> in <code>wikiService.ts</code></td></tr>
+    <tr><td>5. Metadata index build</td><td>Walks <code>articles/</code> + <code>transcripts/</code> + <code>uploads/</code>, parses frontmatter, 30s mtime-invalidated cache</td><td><code>GET /api/wiki/index</code></td></tr>
+    <tr><td>6. Per-turn pre-fetch</td><td>Keyword-match user message against index, pull top-6 bodies (12KB each)</td><td><code>prefetchArticlesForMessage()</code> in <code>wikiIndexService.ts</code></td></tr>
+    <tr><td>7. Native tool retrieval</td><td>Claude emits <code>tool_use</code> block &rarr; client calls <code>fetchWikiArticles()</code> &rarr; returns <code>tool_result</code></td><td><code>callAnthropic()</code> tool-use loop</td></tr>
+    <tr><td>8. Slide quote backfill</td><td>Post-parse async pass replaces title-shaped quotes with real body sentences</td><td><code>backfillSlidesFromWiki()</code> in <code>quoteExtractor.ts</code></td></tr>
+    <tr><td>9. User verification</td><td>&#8984; READ ARCHIVED button &rarr; <code>GET /api/wiki/read-article/{path}</code> &rarr; <code>WikiArticleViewer</code> overlay</td><td>Analyst Desk evidence nodes</td></tr>
+  </tbody>
+</table>
+
+<h4>Retrieval endpoint surface</h4>
+<table>
+  <thead><tr><th>Endpoint</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>POST /api/wiki/write-article</code></td><td>Persist an extracted article / transcript / upload; returns <code>wikiPath</code></td></tr>
+    <tr><td><code>GET /api/wiki/check-article?url=...</code></td><td>Dedup check: does the wiki already hold &ge; 500 chars for this URL?</td></tr>
+    <tr><td><code>GET /api/wiki/read-article/{hash_or_path}</code></td><td>Read a specific article by hash or full path; returns raw markdown with frontmatter</td></tr>
+    <tr><td><code>GET /api/wiki/index</code></td><td>Metadata index: <code>{id, title, url, source, date, kind, chars, mtime, summary, wikiPath}</code> per entry. Params: <code>summary_len</code>, <code>limit</code>, <code>kind</code>, <code>source</code>, <code>min_chars</code>, <code>force_rebuild</code></td></tr>
+    <tr><td><code>POST /api/wiki/fetch-articles</code></td><td>Retrieval tool: pass <code>{ids, wikiPaths, query, source, kind, minChars, limit, maxCharsPerArticle}</code>, receive up to 15 articles with full body text</td></tr>
+  </tbody>
+</table>
+
+<h4>Index cache semantics</h4>
+<p>The index endpoint maintains an in-memory cache with 30-second TTL. On each call, the cache validator scans the wiki tree&rsquo;s mtimes; any newer file triggers a rebuild. This keeps the index fresh across enrichment runs without paying the walk cost on every call. Force rebuild via <code>?force_rebuild=1</code>. Typical index size: ~500 entries at ~400 bytes each &asymp; 200KB, comfortable for an in-context menu.</p>
+
+<h4>Scoring (keyword search)</h4>
+<p>When a request passes <code>query</code> (not explicit <code>ids</code>), the endpoint tokenizes the query (&ge; 3 chars, stopword-filtered), then scores each index entry: <code>3.0 &times; title hits + 1.0 &times; summary hits + 0.5 &times; source hits</code>. No vector store, no embeddings &mdash; at a 500-article scale, keyword overlap is sufficient. The response includes the full body (trimmed to <code>maxCharsPerArticle</code>), so Claude sees real text in its <code>tool_result</code>.</p>
+
+<div class="status-card rust">
+<strong>Why not vector search?</strong> For the corpus sizes HiC targets (up to ~20,000 articles across engagements), keyword overlap over titles + 200-char summaries ranks comparably to a cheap embedding model while staying entirely synchronous and deterministic. If future engagements push past that scale, the index builder can add embedding columns without changing the retrieval contract.
+</div>
+
 <h2 id="models">13. Model routing</h2>
 
 <p>The <code>aiRouter.ts</code> module picks a provider per task. Defaults can be overridden via the Model Preferences panel.</p>
@@ -554,18 +664,24 @@ hic-workspace/
     <tr><td>GET</td><td><code>/api/multi-search</code></td><td>Parallel search across N sources</td></tr>
     <tr><td>GET</td><td><code>/api/extract-content</code></td><td>Jina Reader + BeautifulSoup fallback; routes YouTube video URLs to transcription</td></tr>
     <tr><td>GET</td><td><code>/api/extract-pdf</code></td><td>pypdf + pdfplumber text extraction</td></tr>
-    <tr><td>POST</td><td><code>/api/transcribe-youtube</code></td><td>yt-dlp download → ffmpeg chunk → Whisper batch</td></tr>
+    <tr><td>POST</td><td><code>/api/parse-upload</code></td><td>Parse base64-encoded user uploads (PDF via pypdf, DOCX/XLSX/PPTX via regex text-stream extraction); returns decoded text</td></tr>
+    <tr><td>POST</td><td><code>/api/transcribe-youtube</code></td><td>yt-dlp download &rarr; ffmpeg chunk &rarr; Whisper batch; auto-archives transcript to <code>wiki/transcripts/</code></td></tr>
     <tr><td>POST</td><td><code>/api/scheduler/poll-youtube-channels</code></td><td>ETag-aware channel polling with keyword-gated transcription</td></tr>
-    <tr><td>POST</td><td><code>/api/ai/anthropic</code></td><td>Claude API proxy (auth, streaming)</td></tr>
+    <tr><td>POST</td><td><code>/api/ai/anthropic</code></td><td>Claude API proxy (auth, streaming, forwards <code>tools</code> / <code>tool_result</code> blocks natively)</td></tr>
     <tr><td>POST</td><td><code>/api/ai/openai</code></td><td>OpenAI API proxy</td></tr>
     <tr><td>POST</td><td><code>/api/ai/gemini</code></td><td>Gemini API proxy</td></tr>
     <tr><td>GET</td><td><code>/api/ai/status</code></td><td>Provider key presence check</td></tr>
-    <tr><td>GET/POST</td><td><code>/api/wiki/*</code></td><td>Wiki read / write / append</td></tr>
+    <tr><td>POST</td><td><code>/api/wiki/write-article</code></td><td>Persist article / transcript / upload with frontmatter; returns <code>wikiPath</code></td></tr>
+    <tr><td>GET</td><td><code>/api/wiki/read-article/{hash_or_path}</code></td><td>Read wiki article by 10-char URL hash or full path</td></tr>
+    <tr><td>GET</td><td><code>/api/wiki/check-article?url=...</code></td><td>Dedup check for a URL across all engagements</td></tr>
+    <tr><td>GET</td><td><code>/api/wiki/index</code> <span class="badge badge-new">v3.1</span></td><td>Metadata index of every archived article / transcript / upload (30s mtime-invalidated cache)</td></tr>
+    <tr><td>POST</td><td><code>/api/wiki/fetch-articles</code> <span class="badge badge-new">v3.1</span></td><td>RAG retrieval &mdash; pull full bodies by ids, wikiPaths, or keyword query</td></tr>
+    <tr><td>GET/POST</td><td><code>/api/wiki/read</code>, <code>/api/wiki/write</code>, <code>/api/wiki/append</code></td><td>Legacy wiki-page CRUD for frameworks / benchmarks / engagements</td></tr>
   </tbody>
 </table>
 
 <h3>PDF enrichment fast-path</h3>
-<p>URLs matching DOI, PubMed Central, arXiv PDF, or ProPublica nonprofit profile patterns bypass the normal content-length gate and are fetched directly. Per-item cap is 30KB of text; global floor is 40 items and ceiling is 80.</p>
+<p>URLs matching DOI, PubMed Central, arXiv PDF, ProPublica nonprofit profile, OSF, SSRN, and Research Gate patterns bypass the content-length gate and are fetched directly via PyPDF2 stream. Per-item cap is 30KB of text. As of v3.1 the enrichment ceiling is <strong>300 items per run</strong> (previously 80) with 6-way concurrency &mdash; this is the single-biggest lever for shifting corpus composition from "headlines" to "full_text".</p>
 
 <h3>YouTube transcription</h3>
 <p>Triggered when <code>/api/extract-content</code> detects a YouTube video URL (must match <code>/watch</code>, <code>/shorts/</code>, <code>/embed/</code>, <code>/v/</code>, or <code>youtu.be/</code> &mdash; feed and channel URLs are filtered out). The proxy:</p>
@@ -677,13 +793,23 @@ hic-workspace/
     <tr><td><strong>Thin theme</strong></td><td>A theme with &lt; 3 linked evidence nodes; rendered with reduced opacity</td></tr>
     <tr><td><strong>Tier 0 source</strong></td><td>First-party URL belonging to a named institution &mdash; prepended when the brief names that institution</td></tr>
     <tr><td><strong>Tri-model analysis</strong></td><td>Parallel theme extraction via Gemini + Claude + OpenAI; majority-vote on claim support</td></tr>
+    <tr><td><strong>Wiki-as-RAG</strong> <span class="badge badge-new">v3.1</span></td><td>Architecture where the wiki archive is the canonical full-body corpus store; the in-context prompt carries only a metadata menu + pre-fetched topic-matched bodies, with Claude able to pull more via the <code>fetch_wiki_articles</code> native tool.</td></tr>
+    <tr><td><strong>Wiki metadata index</strong></td><td>Lightweight catalog of every archived article: id (10-char url_hash), title, source, date, kind, char count, wikiPath, 200-char summary. Served by <code>GET /api/wiki/index</code>.</td></tr>
+    <tr><td><strong>Pre-fetch layer</strong></td><td>Best-effort keyword match of the user&rsquo;s message against the wiki index before each chat turn; pulls up to 6 matching bodies and injects them into the prompt. Non-blocking &mdash; failures degrade gracefully.</td></tr>
+    <tr><td><strong>Tool-use loop</strong></td><td>The <code>callAnthropic()</code> iteration that executes <code>tool_use</code> blocks from Claude, echoes <code>tool_result</code> back, and repeats until <code>stop_reason !== 'tool_use'</code>. Capped at 5 iterations, 18s per tool call.</td></tr>
+    <tr><td><strong>URL hash</strong></td><td>10-char blake2b digest of the canonical URL (lowercase, UTM-stripped, trailing-slash-stripped). Stable across sessions; used as the wiki file stem and the <code>id</code> field of index entries.</td></tr>
+    <tr><td><strong>Residual archival</strong></td><td>The second archival pass after enrichment: every item with &ge; 500 chars of pre-existing body (Reddit selftext, long abstracts) that was skipped by enrichment gets written to the wiki anyway.</td></tr>
+    <tr><td><strong>Slide quote backfill</strong></td><td>Post-parse async pass that detects title-shaped <code>evidence</code> / <code>quotes[].text</code> on slides and replaces them with real body sentences pulled from the wiki. Runs via <code>backfillSlidesFromWiki()</code>.</td></tr>
+    <tr><td><strong>WikiArticleViewer</strong></td><td>Full-screen overlay component that fetches <code>GET /api/wiki/read-article/{path}</code> and renders the article&rsquo;s body + frontmatter metadata. Opened by the &#8984; READ ARCHIVED button on evidence nodes.</td></tr>
+    <tr><td><strong>Video Transcriber connector</strong></td><td>The connector named <em>"Video Transcriber"</em> in <code>ALL_CONNECTORS</code>; wraps <code>/api/transcribe-youtube</code> and returns full transcripts as <code>DataSourceItem</code>. Prior to v3.1 the connector was missing, so every user-supplied YouTube URL failed silently.</td></tr>
   </tbody>
 </table>
 
 <hr style="margin: 48px 0; border: none; border-top: 1px solid var(--nxt-rule);">
 <p style="font-size: 11px; color: var(--nxt-muted); text-align: center;">
   NXT HUMANS Intelligence Augmentation Suite &mdash; Humans in Control Research Platform<br>
-  v3.0 &mdash; April 20, 2026 &mdash; Branch: Humans-in-Control-Reimagined
+  v3.1 &mdash; April 20, 2026 &mdash; Branch: Humans-in-Control-Reimagined<br>
+  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.1 changelog:</span> wiki-as-RAG architecture, Video Transcriber connector fix, enrichment cap 80&rarr;300, <code>/api/wiki/index</code> + <code>/api/wiki/fetch-articles</code> endpoints, native <code>fetch_wiki_articles</code> tool for Claude, topic-matched article pre-fetch, slide quote backfill from wiki, &#8984; READ ARCHIVED button with <code>WikiArticleViewer</code> overlay, TITLES-AS-QUOTES ban enforced in prompt + deterministic post-processor.
 </p>
 
 </div>

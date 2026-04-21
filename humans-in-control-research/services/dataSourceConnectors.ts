@@ -163,6 +163,78 @@ export const gdeltConnector = createProxyConnector('gdelt', 'GDELT', 'News & Med
 // --- Video ---
 export const youtubeSearchConnector = createProxyConnector('youtube', 'YouTube Search', 'Video', 'Video search via Invidious');
 
+// --- Video Transcriber (custom — POST /api/transcribe-youtube, not search-based) ---
+// The research orchestrator pushes sources with config.connector === 'Video Transcriber'
+// for every user-supplied YouTube URL. Before this connector existed, those sources
+// silently failed with "Unknown connector" — Promise.allSettled swallowed the reject
+// and zero transcripts ever reached the corpus. This connector calls the Whisper
+// transcription endpoint (which also auto-persists the full transcript to the wiki),
+// unwraps the response, and returns a single DataSourceItem with the full transcript
+// in `content`. Downstream enrichment leaves it alone (content.length >> 5000).
+export const videoTranscriberConnector: DataSourceConnector = {
+    id: 'video_transcriber',
+    name: 'Video Transcriber',
+    category: 'Video',
+    description: 'Whisper-based transcription for user-supplied YouTube URLs',
+    async query(params: DataSourceQuery): Promise<DataSourceResult> {
+        const start = Date.now();
+        const url = (params.query || '').trim();
+        // Whisper transcription on a 30-60 min video can legitimately take 2-4 min.
+        // The proxy chunks 25MB segments; generous ceiling prevents spurious aborts.
+        const TRANSCRIBE_TIMEOUT_MS = 6 * 60 * 1000;
+
+        if (!url || !/^https?:\/\//i.test(url)) {
+            console.warn(`[Video Transcriber] invalid URL: "${url.substring(0, 80)}"`);
+            return { source: 'Video Transcriber', category: 'Video', items: [], totalAvailable: 0, query: url, durationMs: Date.now() - start };
+        }
+
+        try {
+            const resp = await fetch(`${PROXY}/api/transcribe-youtube`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url }),
+                signal: AbortSignal.timeout(TRANSCRIBE_TIMEOUT_MS),
+            });
+            if (!resp.ok) {
+                const err = await resp.text().catch(() => '');
+                console.warn(`[Video Transcriber] proxy returned ${resp.status} for ${url.substring(0, 80)}: ${err.substring(0, 200)}`);
+                return { source: 'Video Transcriber', category: 'Video', items: [], totalAvailable: 0, query: url, durationMs: Date.now() - start };
+            }
+            const data = await resp.json();
+            const transcript = (data?.content || '').trim();
+            if (!transcript || transcript.length < 200) {
+                console.warn(`[Video Transcriber] empty/short transcript for ${url.substring(0, 80)} (${transcript.length} chars)`);
+                return { source: 'Video Transcriber', category: 'Video', items: [], totalAvailable: 0, query: url, durationMs: Date.now() - start };
+            }
+            const videoId = data.video_id || '';
+            const title = data.title || `YouTube transcript — ${videoId || url.substring(0, 50)}`;
+            const uploader = data.uploader || data.channel_id || 'YouTube';
+            const item: DataSourceItem = {
+                id: `video_transcriber_${videoId || Date.now()}`,
+                title,
+                content: transcript,
+                url,
+                date: data.published || undefined,
+                sourceType: 'social',
+                sourceName: `YouTube: ${uploader}`,
+                credibilityTier: 2,
+            };
+            console.log(`[Video Transcriber] transcribed "${title.substring(0, 60)}" (${transcript.length} chars, wiki: ${data.wikiPath || 'none'})`);
+            return {
+                source: 'Video Transcriber',
+                category: 'Video',
+                items: [item],
+                totalAvailable: 1,
+                query: url,
+                durationMs: Date.now() - start,
+            };
+        } catch (e: any) {
+            console.warn(`[Video Transcriber] failed for ${url.substring(0, 80)}:`, e?.message || e);
+            return { source: 'Video Transcriber', category: 'Video', items: [], totalAvailable: 0, query: url, durationMs: Date.now() - start };
+        }
+    },
+};
+
 // --- Web Intelligence ---
 export const jinaReaderConnector = createProxyConnector('jina', 'Jina Reader', 'Web Intelligence', 'Extract content from any URL');
 
@@ -365,7 +437,7 @@ export const ALL_CONNECTORS: DataSourceConnector[] = [
     // Social/Tech
     hackerNewsConnector,
     // Video
-    youtubeSearchConnector, youtubeAiConnector,
+    youtubeSearchConnector, youtubeAiConnector, videoTranscriberConnector,
     // Web
     jinaReaderConnector,
     // AI News (21)

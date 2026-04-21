@@ -580,6 +580,163 @@ The AI ingestion pipeline reads these as PRIORITY 1 sources.
     }
 }
 
+// --- PHASE 1.4: ARCHIVE UPLOADED DOCS AS WIKI ARTICLES ---
+
+/** A single uploaded document with parsed text content. Used by
+ *  `archiveUploadedDocs` to persist each file body to its own wiki file
+ *  for cross-engagement recall, slide grounding, and chat lazy-loading. */
+export interface UploadedDoc {
+    name: string;
+    mimeType?: string;
+    /** Parsed plain-text body. For PDFs this is the pypdf-extracted text;
+     *  for .txt/.md/.csv/.json it's the decoded base64 content. */
+    content: string;
+}
+
+/** Decode base64 safely; returns empty string on malformed input. */
+function _safeB64Decode(b64: string): string {
+    try {
+        if (typeof atob === 'function') return atob(b64);
+        return Buffer.from(b64, 'base64').toString('utf-8');
+    } catch {
+        return '';
+    }
+}
+
+/** Best-effort text extraction from a FileUpload object. Accepts either
+ *  { data: base64 } (current FileUpload shape) or pre-parsed text via
+ *  content/text fields. Binary formats (PDF/DOCX) need upstream parsing —
+ *  they return empty and the caller should skip the wiki write. */
+export function extractTextFromUpload(f: any): string {
+    if (!f) return '';
+    // Preferred path: proxy-parsed text populated by FileUpload background parse.
+    // Works for PDFs (PyPDF2), DOCX/XLSX (office-regex), text files (decode).
+    if (typeof f.parsedText === 'string' && f.parsedText.length > 40) return f.parsedText;
+    // Legacy pre-parsed fields
+    if (typeof f.content === 'string' && f.content.length > 40) return f.content;
+    if (typeof f.text === 'string' && f.text.length > 40) return f.text;
+    // Decode base64 for text-like MIME types (fallback when parser hasn't run yet)
+    const mime = (f.mimeType || f.type || '').toLowerCase();
+    const ext = ((f.name || '').split('.').pop() || '').toLowerCase();
+    const isText = mime.startsWith('text/') || mime === 'application/json' || mime === 'application/xml' || mime === 'text/csv'
+        || ext === 'txt' || ext === 'md' || ext === 'json' || ext === 'csv' || ext === 'xml';
+    if (isText && typeof f.data === 'string') {
+        const decoded = _safeB64Decode(f.data);
+        if (decoded.length > 40) return decoded;
+    }
+    return '';
+}
+
+/**
+ * Archive every uploaded document's body as its own wiki article.
+ *
+ * Each file lands at `wiki/uploads/{engagement-slug}/{hash}.md` via the
+ * proxy's `/api/wiki/write-article` endpoint, with frontmatter capturing
+ * filename, MIME type, upload date, engagement context, and char count.
+ * Binaries without parseable text are skipped — they'll be wiki'd later
+ * when the orchestrator runs them through `/api/extract-pdf`.
+ *
+ * Returns the count of files successfully archived.
+ */
+export async function archiveUploadedDocs(files: any[], researchGoal: string): Promise<number> {
+    if (!Array.isArray(files) || files.length === 0) return 0;
+    const engagementSlug = researchGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40) || 'misc';
+    let archived = 0;
+    for (const f of files) {
+        if (!f || !f.name) continue;
+        const text = extractTextFromUpload(f);
+        if (!text || text.length < 40) continue;
+        try {
+            // Synthetic URL so the hash + frontmatter have a stable canonical
+            // reference. upload://{engagement}/{filename} is readable and
+            // guaranteed unique across engagements.
+            const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
+            const resp = await fetch(`${PROXY_BASE}/api/wiki/write-article`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    url: syntheticUrl,
+                    content: text,
+                    source: f.name,
+                    title: f.name,
+                    tier: 1, // Client uploads are Tier 1 context
+                    method: 'upload',
+                    kind: 'upload',
+                    engagement: engagementSlug,
+                }),
+            });
+            if (resp.ok) {
+                archived++;
+            }
+        } catch (e) {
+            console.warn(`[WikiService] Upload archive failed for ${f.name}:`, e);
+        }
+    }
+    if (archived > 0) {
+        console.log(`[WikiService] Archived ${archived}/${files.length} uploaded document bodies to wiki/uploads/${engagementSlug}/`);
+    }
+    return archived;
+}
+
+// --- PHASE 1.5: ARCHIVE SYNTHESIS OUTPUTS AS WIKI FILES ---
+
+/** Synthesis deliverable type names. One folder per type under wiki/synthesis/. */
+export type SynthesisKind = 'themes' | 'personas' | 'recommendations' | 'barriers' | 'journeys' | 'prd' | 'roadmap' | 'tech-arch' | 'gap-analysis' | 'tech-audit' | 'competitive' | 'strategic-report';
+
+/** Serialize a structured synthesis artifact to markdown with YAML frontmatter.
+ *  The resulting file is both human-readable and machine-parseable so future
+ *  runs can semantically match engagements and reuse prior insights. */
+function _serializeSynthesis(kind: SynthesisKind, data: any): string {
+    // For array-of-items deliverables (themes, personas, recs, etc.),
+    // render each item as its own markdown section.
+    const items: any[] = Array.isArray(data) ? data : (data?.themes || data?.personas || data?.recommendations || data?.items || data?.gaps || data?.features || data?.phases || data?.stages || data?.systems || data?.layers || data?.rows || []);
+    if (Array.isArray(items) && items.length > 0) {
+        return items.map((it: any, i: number) => {
+            const name = it.name || it.label || it.title || it.capability || `${kind.slice(0, -1)} ${i + 1}`;
+            const body = Object.entries(it)
+                .filter(([k, v]) => v != null && k !== 'name' && k !== 'label' && k !== 'title')
+                .map(([k, v]) => `**${k}:** ${typeof v === 'string' ? v : JSON.stringify(v)}`)
+                .join('\n\n');
+            return `## ${name}\n\n${body}`;
+        }).join('\n\n---\n\n');
+    }
+    // Fallback for unstructured synthesis — dump JSON.
+    return '```json\n' + JSON.stringify(data, null, 2) + '\n```';
+}
+
+/**
+ * Archive a synthesis output (themes, personas, recs, etc.) to the wiki
+ * so the chat, future engagements, and the self-improvement loop can
+ * read the exact structured artifact that was approved.
+ *
+ * Path: wiki/synthesis/{engagement-slug}/{kind}-{timestamp}.md
+ */
+export async function archiveSynthesisOutput(kind: SynthesisKind, data: any, researchGoal: string): Promise<string | null> {
+    if (!data) return null;
+    const engagementSlug = (researchGoal || 'untitled').toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40) || 'misc';
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
+    const body = _serializeSynthesis(kind, data);
+    const frontmatter = `---
+kind: synthesis
+synthesis_kind: ${kind}
+engagement: "${engagementSlug}"
+goal: "${(researchGoal || '').replace(/"/g, '\\"').substring(0, 200)}"
+created: ${new Date().toISOString()}
+---`;
+    const content = `${frontmatter}\n\n# ${kind.toUpperCase().replace('-', ' ')} — ${ts}\n\n${body}\n`;
+    const path = `synthesis/${engagementSlug}/${kind}-${ts}.md`;
+    try {
+        const ok = await writeWikiPage(path, content);
+        if (ok) {
+            console.log(`[WikiService] Archived synthesis ${kind} → wiki/${path}`);
+            return path;
+        }
+    } catch (e) {
+        console.warn(`[WikiService] Synthesis archive failed for ${kind}:`, e);
+    }
+    return null;
+}
+
 // --- ENGAGEMENT MEMORY (P6-07) ---
 
 /**
@@ -731,6 +888,200 @@ export async function loadEngagementMemory(goalSlug: string, fullGoal?: string):
     }
 
     return null;
+}
+
+// --- PHASE 1.9: CROSS-ENGAGEMENT MEMORY MATCHING ---
+
+/** Stopwords excluded from semantic keyword overlap. Prevents "the", "and",
+ *  etc. from driving false matches. */
+const _ENGAGEMENT_STOPWORDS = new Set([
+    'the', 'and', 'for', 'that', 'this', 'with', 'from', 'have', 'has', 'are',
+    'was', 'were', 'but', 'not', 'their', 'them', 'they', 'into', 'than',
+    'which', 'what', 'when', 'where', 'also', 'been', 'being', 'about', 'more',
+    'most', 'some', 'over', 'between', 'through', 'across', 'within',
+    'research', 'analysis', 'project', 'create', 'develop', 'comprehensive',
+    'strategy', 'roadmap', 'identify', 'assess', 'evaluate',
+]);
+
+function _extractGoalKeywords(goal: string, minLen = 5): Set<string> {
+    const out = new Set<string>();
+    for (const raw of (goal || '').toLowerCase().split(/\W+/)) {
+        if (raw.length < minLen) continue;
+        if (_ENGAGEMENT_STOPWORDS.has(raw)) continue;
+        out.add(raw);
+    }
+    return out;
+}
+
+export interface PriorEngagementMatch {
+    /** Canonical engagement slug (directory name under wiki/synthesis/) */
+    engagement: string;
+    /** Keyword-overlap count with the current goal — sort key */
+    score: number;
+    /** Overlapping keywords, for transparency + UI display */
+    matchedTerms: string[];
+    /** Paths under wiki/ for each synthesis artifact in this engagement */
+    synthesisPaths: string[];
+    /** Path to the top-level engagement memo (if present) */
+    engagementPath?: string;
+    /** Short preview extracted from the engagement memo */
+    preview?: string;
+}
+
+/**
+ * Phase 1.9 — find prior engagements whose topic / goal overlaps with the
+ * current research goal. Scans both:
+ *   - wiki/engagements/*.md (legacy single-file engagement memos)
+ *   - wiki/synthesis/{engagement-slug}/*.md (new per-artifact synthesis files)
+ *
+ * Returns ranked matches so the brief-intake UI can offer "review N prior
+ * runs?" and the chat grounding context can inject relevant prior insights.
+ *
+ * All matching is local (proxy calls only), bounded, and safe to call
+ * speculatively on every goal-change keystroke.
+ */
+export async function findPriorEngagementMatches(goal: string, opts: { limit?: number; minScore?: number } = {}): Promise<PriorEngagementMatch[]> {
+    const limit = opts.limit ?? 5;
+    const minScore = opts.minScore ?? 2;
+    const goalWords = _extractGoalKeywords(goal);
+    if (goalWords.size === 0) return [];
+
+    // Discover both directories in parallel
+    const [engagementsResp, synthesisResp] = await Promise.all([
+        fetch(`${PROXY_BASE}/api/wiki/list/engagements`).catch(() => null),
+        fetch(`${PROXY_BASE}/api/wiki/list/synthesis`).catch(() => null),
+    ]);
+
+    const engagementFiles: string[] = engagementsResp?.ok ? await engagementsResp.json().then((d: any) => (d.files || d || []).map((f: any) => typeof f === 'string' ? f : f.name)).catch(() => []) : [];
+    const synthesisBuckets: string[] = synthesisResp?.ok ? await synthesisResp.json().then((d: any) => (d.files || d || [])).catch(() => []) : [];
+
+    // Score by keyword overlap with the filename slug.
+    // engagementFiles are flat .md files; synthesisBuckets are subdirectory names.
+    type Candidate = { slug: string; score: number; matched: string[]; engagementPath?: string; synthesisDir?: string };
+    const byEngagement = new Map<string, Candidate>();
+
+    const scoreSlug = (slug: string): { score: number; matched: string[] } => {
+        const slugWords = slug.replace(/\.md$/, '').split('-').filter(w => w.length >= 4);
+        const matched: string[] = [];
+        for (const gw of goalWords) {
+            if (slugWords.some(sw => sw.includes(gw) || gw.includes(sw))) matched.push(gw);
+        }
+        return { score: matched.length, matched };
+    };
+
+    for (const file of engagementFiles) {
+        if (!file.endsWith('.md')) continue;
+        const slug = file.replace(/\.md$/, '');
+        const { score, matched } = scoreSlug(slug);
+        if (score < minScore) continue;
+        byEngagement.set(slug, { slug, score, matched, engagementPath: `engagements/${file}` });
+    }
+    for (const bucket of synthesisBuckets) {
+        if (typeof bucket !== 'string' || bucket.startsWith('.')) continue;
+        const { score, matched } = scoreSlug(bucket);
+        if (score < minScore) continue;
+        const existing = byEngagement.get(bucket);
+        if (existing) {
+            existing.score = Math.max(existing.score, score);
+            existing.synthesisDir = bucket;
+        } else {
+            byEngagement.set(bucket, { slug: bucket, score, matched, synthesisDir: bucket });
+        }
+    }
+
+    // Rank + take top N
+    const ranked = Array.from(byEngagement.values()).sort((a, b) => b.score - a.score).slice(0, limit);
+
+    // For each top candidate, list synthesis files in its bucket
+    const matches: PriorEngagementMatch[] = [];
+    for (const c of ranked) {
+        const paths: string[] = [];
+        if (c.synthesisDir) {
+            try {
+                const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/synthesis/${c.synthesisDir}`);
+                if (listResp.ok) {
+                    const d = await listResp.json();
+                    const files: string[] = (d.files || d || []).filter((f: any) => typeof f === 'string' && f.endsWith('.md'));
+                    for (const f of files) paths.push(`synthesis/${c.synthesisDir}/${f}`);
+                }
+            } catch { /* skip */ }
+        }
+        let preview: string | undefined;
+        if (c.engagementPath) {
+            try {
+                const r = await fetch(`${PROXY_BASE}/api/wiki/read/${c.engagementPath}`);
+                if (r.ok) {
+                    const d = await r.json();
+                    const body = (d.content || '').replace(/^---[\s\S]*?---/, '').trim();
+                    preview = body.substring(0, 300);
+                }
+            } catch { /* skip */ }
+        }
+        matches.push({
+            engagement: c.slug,
+            score: c.score,
+            matchedTerms: c.matched,
+            synthesisPaths: paths,
+            engagementPath: c.engagementPath,
+            preview,
+        });
+    }
+    return matches;
+}
+
+/**
+ * Phase 1.9 — stitch matched prior-engagement synthesis files into a
+ * single labeled markdown block. Used by the chat grounding context so
+ * the LLM can surface reusable insights from prior runs.
+ *
+ * Bounded: maxChars total, maxFiles per engagement, preserves frontmatter
+ * (minus the YAML) so kind + engagement tags survive into the prompt.
+ */
+export async function loadPriorSynthesisBundle(matches: PriorEngagementMatch[], opts: { maxChars?: number; maxFilesPerEngagement?: number } = {}): Promise<string> {
+    if (!matches.length) return '';
+    const maxChars = opts.maxChars ?? 40_000;
+    const maxFiles = opts.maxFilesPerEngagement ?? 4;
+    const blocks: string[] = [];
+    let total = 0;
+    for (const m of matches) {
+        const header = `### Prior engagement: ${m.engagement} (score=${m.score}, matched=${m.matchedTerms.join(', ')})`;
+        blocks.push(header);
+        total += header.length + 2;
+        // Engagement memo preview
+        if (m.engagementPath) {
+            try {
+                const r = await fetch(`${PROXY_BASE}/api/wiki/read/${m.engagementPath}`);
+                if (r.ok) {
+                    const d = await r.json();
+                    const body = (d.content || '').replace(/^---[\s\S]*?---\n*/, '').trim().substring(0, 2000);
+                    if (body) {
+                        blocks.push(body);
+                        total += body.length + 2;
+                    }
+                }
+            } catch { /* skip */ }
+        }
+        // Synthesis files
+        const toLoad = m.synthesisPaths.slice(0, maxFiles);
+        for (const path of toLoad) {
+            if (total >= maxChars) break;
+            try {
+                const r = await fetch(`${PROXY_BASE}/api/wiki/read/${path}`);
+                if (!r.ok) continue;
+                const d = await r.json();
+                const body = (d.content || '').replace(/^---[\s\S]*?---\n*/, '').trim();
+                if (!body) continue;
+                const trimmed = body.substring(0, Math.max(1000, maxChars - total - 200));
+                blocks.push(`#### ${path}\n${trimmed}`);
+                total += trimmed.length + path.length + 8;
+                if (total >= maxChars) break;
+            } catch { /* skip */ }
+        }
+        blocks.push('---');
+        total += 4;
+        if (total >= maxChars) break;
+    }
+    return blocks.join('\n\n');
 }
 
 // --- QUALITY SCORE PERSISTENCE (P6-05) ---

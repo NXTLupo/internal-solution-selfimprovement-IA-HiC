@@ -23,7 +23,8 @@ import { DeliverableBatch, type DeliverableItem, type DeliverableType } from './
 import SlideCanvas, { type SlideData } from './SlideCanvas';
 import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/brands';
 import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
-import { detectQuoteDensity, enrichSlideWithQuotes } from '../services/quoteExtractor';
+import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
+import { validateSlide } from '../services/slideValidator';
 
 interface Props {
     context: ChatContext;
@@ -309,6 +310,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 const prdFeature = parsed.prdFeature || (Array.isArray(parsed.features) ? { features: parsed.features } : undefined);
                 const systemsInventory = parsed.systemsInventory || (Array.isArray(parsed.systems) ? { systems: parsed.systems } : undefined);
 
+                // Run post-parse validation to detect corpus meta-commentary,
+                // empty block-quotes, case-study fields that don't mention the
+                // subject, etc. Advisory — the slide still renders, but the
+                // EVIDENCE GAP badge is shown.
+                const validation = validateSlide({
+                    title: parsed.title,
+                    caseStudy: parsed.caseStudy,
+                    quote: parsed.quote,
+                    themeCluster,
+                });
                 result.push({
                     id: `slide_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
                     template,
@@ -334,6 +345,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     body: parsed.body,
                     bullets: parsed.bullets,
                     blocks: (parsed.blocks || []).map((b: any) => ({ type: b.type, raw: JSON.stringify(b.data), data: b.data })),
+                    evidenceGap: validation.evidenceGap ? { summary: validation.gapSummary, issues: validation.issues.filter(i => i.severity === 'gap') } : undefined,
                     status: 'draft', model, timestamp: Date.now(),
                 });
             } catch {}
@@ -561,6 +573,27 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 setSlides(prev => [...prev, ...newSlides]);
                 // Auto-generate portraits for persona slides
                 generatePersonaSlidePortraits(newSlides);
+                // Phase 1-retrofit (2026-04-20) — WIKI-BACKED QUOTE BACKFILL.
+                // Walks every theme across the new slides; wherever the AI
+                // emitted a title-shaped evidence string (instead of a real
+                // body sentence), pulls matching articles from the wiki
+                // archive and replaces with verbatim body text. Non-blocking
+                // and idempotent — the slides already render with the AI's
+                // original output; this updates state with improved quotes
+                // a second later. Failures leave slides untouched.
+                (async () => {
+                    try {
+                        const backfilled = await backfillSlidesFromWiki(newSlides, query);
+                        if (backfilled !== newSlides) {
+                            setSlides(prev => prev.map(s => {
+                                const match = backfilled.find(b => b.id === s.id);
+                                return match || s;
+                            }));
+                        }
+                    } catch (err: any) {
+                        console.warn('[slides] wiki quote backfill skipped:', err?.message || err);
+                    }
+                })();
             }
         }
 

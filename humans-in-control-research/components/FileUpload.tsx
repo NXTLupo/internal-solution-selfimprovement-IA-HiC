@@ -3,6 +3,53 @@ import React, { useRef, useState } from 'react';
 import mammoth from 'mammoth';
 import { FileUpload as FileUploadType } from '../types';
 
+/**
+ * Background pass that POSTs every uploaded file to /api/parse-upload and
+ * re-invokes onFilesSelected with the resulting text attached as
+ * `parsedText`. Provider-agnostic: once this completes, chat (Claude /
+ * OpenAI / Gemini) all see the uploaded PDF/DOCX/etc. body as plain text
+ * via ChatContext.uploadedFileContents. Wiki archive and corpus ingestion
+ * pick it up the same way.
+ */
+async function parseFilesInBackground(
+    files: FileUploadType[],
+    onFilesSelected: (files: FileUploadType[]) => void,
+): Promise<void> {
+    const PROXY = 'http://localhost:5012';
+    const results = await Promise.all(files.map(async (f) => {
+        // Skip re-parsing text files the FileReader already decoded into
+        // UTF-8-safe base64 (they decode losslessly in the chat callback).
+        const ext = (f.name.split('.').pop() || '').toLowerCase();
+        const isAlreadyText = ext === 'txt' || ext === 'md' || ext === 'json' || ext === 'csv' || f.type === 'text/plain';
+        if (isAlreadyText) return f;
+        try {
+            const resp = await fetch(`${PROXY}/api/parse-upload`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filename: f.name, base64: f.data, mimeType: f.type }),
+                signal: AbortSignal.timeout(45_000),
+            });
+            if (!resp.ok) return f;
+            const data = await resp.json();
+            if (data.text && typeof data.text === 'string' && data.text.length >= 40) {
+                console.log(`[FileUpload] Parsed ${f.name} → ${data.text.length} chars via ${data.method} (${data.pages ? data.pages + ' pages' : ''})`);
+                return {
+                    ...f,
+                    parsedText: data.text,
+                    parsedPages: data.pages,
+                    parseMethod: data.method,
+                } as FileUploadType;
+            }
+        } catch (e) {
+            console.warn(`[FileUpload] Parse failed for ${f.name}:`, e);
+        }
+        return f;
+    }));
+    // Push the enriched array back to the parent so downstream callers
+    // (chat context, wiki archive, corpus ingestion) see parsedText.
+    onFilesSelected(results);
+}
+
 interface Props {
   onFilesSelected: (files: FileUploadType[]) => void;
   isLoading: boolean;
@@ -68,7 +115,14 @@ const FileUpload: React.FC<Props> = ({ onFilesSelected, isLoading }) => {
       await promise;
     }
 
+    // Auto-parse every file to text via the proxy so every downstream
+    // surface (chat regardless of provider, wiki archive, slide
+    // generation, corpus ingestion) can read the body without provider-
+    // specific multimodal hacks. Non-blocking UX: files are handed off
+    // to the parent immediately with parsedText undefined, then a
+    // post-parse pass updates each entry when the proxy responds.
     onFilesSelected(processedFiles);
+    parseFilesInBackground(processedFiles, onFilesSelected).catch(() => {});
   };
 
   const handleDrag = (e: React.DragEvent) => {

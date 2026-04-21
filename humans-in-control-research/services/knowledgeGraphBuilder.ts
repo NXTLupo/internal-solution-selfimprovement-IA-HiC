@@ -17,6 +17,12 @@
 
 // --- TYPES ---
 
+/** Extraction depth classification — drives the evidence badges in the
+ *  Analyst Desk detail panel. 'headline'/'snippet' = RSS-level text;
+ *  'full_text'/'pdf_extracted'/'transcript' = deep extraction worth
+ *  citing in a slide or deliverable. */
+export type ExtractionDepth = 'headline' | 'snippet' | 'full_text' | 'pdf_extracted' | 'transcript' | 'dataset';
+
 export interface KGNode {
     id: string;
     type: 'source' | 'evidence' | 'theme' | 'persona' | 'recommendation' | 'journey_stage' | 'feature' | 'roadmap_item' | 'gap';
@@ -36,6 +42,11 @@ export interface KGNode {
     evidenceCount?: number;       // Theme: how many evidence nodes link to it
     sourceConcentration?: number; // Theme: % of evidence from single source (0-1)
     dominantSource?: string;      // Theme: name of most-cited source
+    // v3 fields — wiki-as-memory (Phase 1.6)
+    wikiPath?: string;            // Relative path under wiki/ (e.g. 'articles/chronicle/abc123.md')
+    extractionDepth?: ExtractionDepth;  // How much content was actually extracted
+    contentLength?: number;       // Chars of extracted content available in wiki
+    extractionMethod?: string;    // 'jina' | 'pypdf' | 'whisper' | 'rss' | 'api' | 'upload' | 'wiki-cache'
 }
 
 export interface KGEdge {
@@ -123,6 +134,23 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
             const relevance = item.relevanceScore || 50;
             const evSize = Math.max(6, Math.min(16, Math.round(6 + (relevance / 100) * 10))); // 6-16px
             const enriched = !!(item as any).enriched;
+            // Phase 1.6 — classify extraction depth from the orchestrator's
+            // enrichment metadata. `wikiPath` comes from the enrichment
+            // step (Phase 1.2) and the full content is stored under that
+            // path in the wiki archive for lazy loading by chat / slides.
+            const extractionMethod: string | undefined = (item as any).extractionMethod;
+            const wikiPath: string | undefined = (item as any).wikiPath;
+            const contentLen = item.content?.length || 0;
+            let extractionDepth: ExtractionDepth = 'headline';
+            if (extractionMethod === 'whisper' || extractionMethod === 'transcript') {
+                extractionDepth = 'transcript';
+            } else if (extractionMethod === 'pypdf' || extractionMethod === 'pdf') {
+                extractionDepth = 'pdf_extracted';
+            } else if (enriched || contentLen >= 3000) {
+                extractionDepth = 'full_text';
+            } else if (contentLen >= 300) {
+                extractionDepth = 'snippet';
+            }
             nodes.push({
                 id: evidenceId,
                 type: 'evidence',
@@ -135,7 +163,11 @@ export function buildSourceGraph(sourceResults: any[]): KnowledgeGraph {
                 size: evSize,
                 parentSourceId: sourceId,
                 isOrphan: true, // Starts as orphan; cleared when linked to a theme
-                metadata: { content: item.content?.substring(0, 300), date: item.date, enriched, relevance },
+                wikiPath,
+                extractionDepth,
+                contentLength: contentLen || undefined,
+                extractionMethod,
+                metadata: { content: item.content?.substring(0, 300), date: item.date, enriched, relevance, wikiPath, extractionDepth, contentLength: contentLen },
             });
             edges.push({
                 source: sourceId,

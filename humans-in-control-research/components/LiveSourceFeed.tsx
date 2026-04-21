@@ -94,6 +94,26 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                         const isExpanded = expandedSource === src.sourceId;
                         const hasItems = src.items && src.items.length > 0;
 
+                        // X.4 — extraction depth breakdown per source. Classifies each
+                        // item by actual content length + `enriched` flag + `extractionMethod`
+                        // and renders compact depth pips so the operator can see which
+                        // sources yield real body text vs RSS blurbs.
+                        const depth = { full: 0, pdf: 0, transcript: 0, snippet: 0, headline: 0, archived: 0 };
+                        if (hasItems) {
+                            for (const it of src.items) {
+                                const method = (it as any).extractionMethod;
+                                const enriched = !!(it as any).enriched;
+                                const len = (it.content || '').length;
+                                if ((it as any).wikiPath) depth.archived++;
+                                if (method === 'whisper' || method === 'transcript') depth.transcript++;
+                                else if (method === 'pypdf' || method === 'pdf') depth.pdf++;
+                                else if (enriched || len >= 3000) depth.full++;
+                                else if (len >= 300) depth.snippet++;
+                                else depth.headline++;
+                            }
+                        }
+                        const hasDeep = depth.full + depth.pdf + depth.transcript > 0;
+
                         return (
                             <motion.div
                                 key={src.sourceId}
@@ -148,6 +168,38 @@ const LiveSourceFeed: React.FC<Props> = ({ sources, refinedQueries, totalCollect
                                 {src.query && (
                                     <div className="px-3 pb-1 text-[9px] text-[var(--text-tertiary)] italic truncate">
                                         Query: "{src.query}"
+                                    </div>
+                                )}
+
+                                {/* X.4 — extraction depth strip. Shows how many items
+                                    from this source yielded full-text / PDF / transcript
+                                    extractions vs RSS headlines. A source with 12 items
+                                    of which 10 are full-text is high-signal; one with 15
+                                    all-headlines is shallow — the operator can tell at
+                                    a glance. Only rendered when the source has items. */}
+                                {hasItems && (
+                                    <div className="px-3 pb-2 flex items-center gap-2 flex-wrap" style={{ fontSize: 9 }}>
+                                        {depth.transcript > 0 && (
+                                            <span title={`${depth.transcript} YouTube transcript(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>🎬 {depth.transcript}</span>
+                                        )}
+                                        {depth.pdf > 0 && (
+                                            <span title={`${depth.pdf} PDF(s) extracted`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>📑 {depth.pdf}</span>
+                                        )}
+                                        {depth.full > 0 && (
+                                            <span title={`${depth.full} full-text article(s) extracted via Jina`} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm" style={{ background: '#0D0D0D', color: '#B8B800', fontWeight: 700, letterSpacing: 0.5 }}>📄 {depth.full}</span>
+                                        )}
+                                        {depth.snippet > 0 && (
+                                            <span title={`${depth.snippet} snippet(s) — partial body`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#666', border: '1px dashed #DDD', letterSpacing: 0.5 }}>📰 {depth.snippet}</span>
+                                        )}
+                                        {depth.headline > 0 && (
+                                            <span title={`${depth.headline} headline-only (RSS blurb)`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#999', border: '1px dashed #DDD', letterSpacing: 0.5 }}>• {depth.headline}</span>
+                                        )}
+                                        {depth.archived > 0 && (
+                                            <span title={`${depth.archived} item(s) persisted to wiki archive`} className="inline-flex items-center gap-1 px-1.5 py-0.5" style={{ color: '#00B7C3', fontWeight: 600, letterSpacing: 0.5 }}>⌘ {depth.archived}</span>
+                                        )}
+                                        {!hasDeep && depth.headline + depth.snippet > 3 && (
+                                            <span className="text-[var(--text-tertiary)] italic" title="No deep extractions yet — items are headline-level only">shallow</span>
+                                        )}
                                     </div>
                                 )}
 

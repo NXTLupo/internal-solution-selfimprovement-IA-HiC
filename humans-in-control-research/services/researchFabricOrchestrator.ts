@@ -800,10 +800,51 @@ function isLikelyFullTextSource(url: string): boolean {
     return FULL_TEXT_SOURCE_PATTERNS.some(p => p.test(url));
 }
 
+// Hosts where Jina / web extraction reliably FAILS or times out. Items from
+// these domains already arrive with their body text from their native
+// connector (Reddit selftext, tweet text, etc.) — re-extracting them via
+// Jina just burns 45s per item and returns nothing. We exclude them from
+// the enrichment filter below; they still participate in residual wiki
+// archival using whatever body the connector produced.
+const JINA_BLOCKED_HOSTS = [
+    /reddit\.com/i,
+    /redd\.it/i,
+    /twitter\.com/i,
+    /x\.com\//i,
+    /t\.co\//i,
+    /instagram\.com/i,
+    /discord\.com/i,
+    /discord\.gg/i,
+    /facebook\.com/i,
+    /linkedin\.com/i,
+    /tiktok\.com/i,
+    /mastodon\./i,
+    /bsky\.app/i,
+];
+
+function isJinaBlockedUrl(url: string): boolean {
+    return JINA_BLOCKED_HOSTS.some(p => p.test(url));
+}
+
 const ENRICHMENT_PER_ITEM_CAP = 30_000; // 30KB per item (was 3KB) — fits comfortably in 1M-token Claude/Gemini context
 const ENRICHMENT_RELEVANCE_FLOOR = 40;   // was 60 — let medium-relevance items through
 const ENRICHMENT_GENERIC_LENGTH_GATE = 5_000; // was 300 — abstracts run 1-3KB; only skip if item already has substantial body
-const ENRICHMENT_TOP_N = 80;            // was 30 — most modern corpora benefit from broader enrichment
+// Phase 1-retrofit (2026-04-20): the wiki is the canonical RAG store — we archive EVERYTHING
+// and rely on metadata retrieval to pull bodies on demand. The 80-item cap that used to sit
+// here meant 96% of collected items stayed as headlines (the user's audit caught this:
+// "4 full-text · 357 snippets · 288 headlines"). Raised to 300 so a typical ~500-item scored
+// corpus gets nearly full-body coverage, with the wiki catching anything the in-context
+// window can't hold. Concurrency bumped from 3 → 6 to keep wall-clock reasonable.
+const ENRICHMENT_TOP_N = 300;
+// Split concurrency (2026-04-21): cache checks hit local proxy only and are
+// cheap (4-6s each), so we run them 8-wide. Jina web extraction goes to an
+// external rate-limited service and bursts above 3 reliably trip its throttle
+// AND create 45-second timeout pileups (observed: 20+ consecutive timeouts on
+// Reddit / slow institutional URLs). Keeping Jina at 3 matches the pre-v3.1
+// behavior Jina tolerated, while still doubling throughput overall because
+// the cache phase runs separately at 8.
+const CACHE_CHECK_CONCURRENCY = 8;
+const JINA_EXTRACT_CONCURRENCY = 3;
 
 async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICHMENT_TOP_N): Promise<DataSourceItem[]> {
     // Items qualify for enrichment if they have an http URL AND either:
@@ -813,6 +854,11 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     const needsEnrichment = items.filter(item => {
         if (!item.url || !item.url.startsWith('http')) return false;
         if (((item as any).relevanceScore || 0) < ENRICHMENT_RELEVANCE_FLOOR) return false;
+        // Skip Reddit/Twitter/Discord/etc. — the native connector already
+        // returned the selftext/body, and Jina can't scrape these anyway.
+        // (Unless the URL is ALSO a known full-text source, which no social
+        // URL matches, but keep the guard order safe.)
+        if (isJinaBlockedUrl(item.url) && !isLikelyFullTextSource(item.url)) return false;
         const len = item.content?.length || 0;
         return isLikelyFullTextSource(item.url) || len < ENRICHMENT_GENERIC_LENGTH_GATE;
     });
@@ -835,45 +881,249 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     console.log(`Content enrichment: Fetching full text for ${toEnrich.length} items (${fullTextCount} from known full-text sources, ${toEnrich.length - fullTextCount} via web extraction)`);
 
     const PROXY = 'http://localhost:5012';
-    const enriched = new Map<string, { content: string; method: string }>();
+    // 2026-04-21 — Map keyed by ITEM REFERENCE (not string id) to defeat the
+    // prior collision bug: different items occasionally shared item.id strings
+    // across connector code paths (e.g. Tier 0 URLs plus CX-mesh items plus
+    // connector-factory items producing overlapping "cx_0", "jina_0", etc.),
+    // and the old Map<string, ...> silently overwrote them on set(). Object
+    // identity is guaranteed unique per item, so this cannot collide.
+    const enriched = new Map<DataSourceItem, { content: string; method: string; wikiPath?: string }>();
+    let cachedHits = 0;     // Phase 1.7: how many we skipped via wiki dedup
+    let wikiWrites = 0;     // Phase 1.2: how many we persisted after extraction
+    let collisionWarnings = 0; // diagnostic: count if we ever try to set the same item twice
 
-    // Fetch in small batches (3 concurrent) to avoid overwhelming the proxy
-    for (let i = 0; i < toEnrich.length; i += 3) {
-        const batch = toEnrich.slice(i, i + 3);
+    /**
+     * Check the wiki archive for an already-extracted copy of this URL.
+     * Returns the cached content + wikiPath on hit, null on miss / error.
+     * Failures are silent — we fall through to the normal fetch path.
+     */
+    async function checkWikiCache(url: string): Promise<{ content: string; wikiPath: string } | null> {
+        try {
+            const check = await fetch(`${PROXY}/api/wiki/check-article?url=${encodeURIComponent(url)}`, {
+                signal: AbortSignal.timeout(4000),
+            });
+            if (!check.ok) return null;
+            const data = await check.json();
+            if (!data.cached || !data.wikiPath) return null;
+            // Cached — fetch the full body from wiki
+            const read = await fetch(`${PROXY}/api/wiki/read-article/${encodeURIComponent(data.wikiPath)}`, {
+                signal: AbortSignal.timeout(6000),
+            });
+            if (!read.ok) return null;
+            const readData = await read.json();
+            if (!readData.content) return null;
+            // Strip the YAML frontmatter + header block so just the body comes through.
+            // Frontmatter is ---\n...\n---\n; header is "# Title\n\nSource: ...\n\n"
+            const stripped = readData.content
+                .replace(/^---\n[\s\S]*?\n---\n\n?/, '')
+                .replace(/^#\s+[^\n]+\n\n?/, '')
+                .replace(/^Source:\s+\[[^\]]+\]\([^)]+\)\n\n?/, '')
+                .trim();
+            if (stripped.length < 500) return null;
+            return { content: stripped, wikiPath: data.wikiPath };
+        } catch {
+            return null;
+        }
+    }
+
+    /**
+     * Persist an extracted article to the wiki. Returns the wikiPath on
+     * success or null on failure. Non-blocking — enrichment still succeeds
+     * if the write fails.
+     */
+    async function writeWikiArticle(item: DataSourceItem, content: string, method: string, source: string): Promise<string | null> {
+        try {
+            const resp = await fetch(`${PROXY}/api/wiki/write-article`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    url: item.url,
+                    content,
+                    source: source || undefined,
+                    title: item.title || undefined,
+                    date: (item as any).date || (item as any).publicationDate || undefined,
+                    tier: (item as any).credibilityTier || undefined,
+                    method,
+                    kind: 'article',
+                }),
+                signal: AbortSignal.timeout(8000),
+            });
+            if (!resp.ok) return null;
+            const data = await resp.json();
+            return data.wikiPath || null;
+        } catch {
+            return null;
+        }
+    }
+
+    let enrichFailures = 0;
+    let enrichNon200 = 0;
+
+    // ===== PHASE 1 — Wiki cache checks (local proxy, cheap, 8-wide) =====
+    // This pass ONLY asks the proxy "do you already have this URL archived?"
+    // and loads the body if so. No Jina traffic. Cache checks are ~4-6s each
+    // and don't hit external rate limits, so we run them wide.
+    const cacheMisses: DataSourceItem[] = [];
+    for (let i = 0; i < toEnrich.length; i += CACHE_CHECK_CONCURRENCY) {
+        const batch = toEnrich.slice(i, i + CACHE_CHECK_CONCURRENCY);
+        const results = await Promise.allSettled(
+            batch.map(async (item) => {
+                const cached = await checkWikiCache(item.url!);
+                return cached ? { item, cached } : { item, cached: null };
+            })
+        );
+        for (const r of results) {
+            if (r.status !== 'fulfilled' || !r.value) continue;
+            const { item, cached } = r.value;
+            if (cached) {
+                cachedHits++;
+                console.log(`  Wiki cache HIT "${item.title?.substring(0, 40)}" (${cached.content.length} chars, ${cached.wikiPath})`);
+                if (enriched.has(item)) collisionWarnings++;
+                enriched.set(item, {
+                    content: cached.content.substring(0, ENRICHMENT_PER_ITEM_CAP),
+                    method: 'wiki-cache',
+                    wikiPath: cached.wikiPath,
+                });
+            } else {
+                cacheMisses.push(item);
+            }
+        }
+    }
+    if (cachedHits > 0) {
+        console.log(`[Enrich] Phase 1 (cache): ${cachedHits}/${toEnrich.length} items served from wiki archive. ${cacheMisses.length} require fresh extraction.`);
+    }
+
+    // ===== PHASE 2 — Jina / PDF extraction for cache misses (3-wide) =====
+    // Jina is an external rate-limited service. Empirically bursts above 3
+    // parallel requests trigger throttle → 45-second timeout pileups
+    // (observed 2026-04-21: 20+ consecutive timeouts after a 6-wide burst).
+    // Keeping this strict at 3 prevents the pileup and actually delivers
+    // more successful extractions per run despite lower concurrency.
+    for (let i = 0; i < cacheMisses.length; i += JINA_EXTRACT_CONCURRENCY) {
+        const batch = cacheMisses.slice(i, i + JINA_EXTRACT_CONCURRENCY);
         const results = await Promise.allSettled(
             batch.map(async (item) => {
                 try {
                     // Smart extraction: tries PDF download first, then Jina web extraction
                     const resp = await fetch(`${PROXY}/api/extract-content?url=${encodeURIComponent(item.url!)}`, {
-                        signal: AbortSignal.timeout(45000) // raised from 30s — DOI redirects + PDF parsing legitimately take longer
+                        signal: AbortSignal.timeout(45000)
                     });
-                    if (!resp.ok) return null;
+                    if (!resp.ok) {
+                        enrichNon200++;
+                        console.warn(`  Enrich FAIL "${item.title?.substring(0, 50)}" → HTTP ${resp.status} @ ${item.url?.substring(0, 80)}`);
+                        return null;
+                    }
                     const data = await resp.json();
                     const fullContent = data.content;
                     const method = data.method; // 'pdf' or 'jina'
                     if (fullContent && fullContent.length > (item.content?.length || 0)) {
                         console.log(`  Enriched "${item.title?.substring(0,40)}" via ${method} (${fullContent.length} chars)`);
-                        return { id: item.id, content: fullContent.substring(0, ENRICHMENT_PER_ITEM_CAP), method };
+                        const capped = fullContent.substring(0, ENRICHMENT_PER_ITEM_CAP);
+                        const wikiPath = await writeWikiArticle(item, capped, method, (item as any).sourceName || '');
+                        if (wikiPath) wikiWrites++;
+                        return { item, content: capped, method, wikiPath: wikiPath || undefined };
                     }
                     return null;
-                } catch { return null; }
+                } catch (err: any) {
+                    enrichFailures++;
+                    const errMsg = err?.name === 'TimeoutError' ? 'timeout' : (err?.message || 'unknown').substring(0, 100);
+                    console.warn(`  Enrich ERR "${item.title?.substring(0, 50)}" → ${errMsg}`);
+                    return null;
+                }
             })
         );
-
         for (const r of results) {
-            if (r.status === 'fulfilled' && r.value) {
-                enriched.set(r.value.id, { content: r.value.content, method: r.value.method || 'web' });
+            if (r.status === 'fulfilled' && r.value && r.value.item) {
+                if (enriched.has(r.value.item)) collisionWarnings++;
+                enriched.set(r.value.item, {
+                    content: r.value.content,
+                    method: r.value.method || 'web',
+                    wikiPath: (r.value as any).wikiPath,
+                });
             }
         }
     }
 
-    console.log(`Content enrichment: ${enriched.size}/${toEnrich.length} items enriched with full text`);
+    // Honest summary: the Map is keyed by item reference, so enriched.size is
+    // now the TRUE count of unique items that received content (previously the
+    // Map was keyed by string id and silently collapsed collisions, producing
+    // "freshly extracted: -9" nonsense like "6/35 items enriched" when 17 had
+    // actually succeeded). cachedHits and freshlyExtracted are counted
+    // independently from their own logic branches.
+    const freshlyExtracted = Math.max(0, enriched.size - cachedHits);
+    console.log(`Content enrichment: ${enriched.size}/${toEnrich.length} items enriched (cached: ${cachedHits}, freshly extracted: ${freshlyExtracted}, persisted to wiki: ${wikiWrites}, failed: ${enrichFailures}, non-200: ${enrichNon200})`);
+    if (collisionWarnings > 0) {
+        console.warn(`[Enrich] ${collisionWarnings} unexpected item-reference collisions during set() — investigate if >0`);
+    }
 
-    // Replace short content with full content for enriched items
+    // Phase 1-retrofit (2026-04-20) — WIKI-FIRST ARCHIVAL FOR EVERYTHING.
+    // Items that skipped enrichment (already have >5KB body from Reddit/API)
+    // or whose URL wasn't enrichable (social posts with no http URL, transcripts)
+    // still carry real content we want queryable via the wiki later. Archive
+    // them now — purely additive, does NOT alter the in-memory `items`
+    // passed downstream to theme/persona/challenge/recommendation generation.
+    // enriched is keyed by item reference, so membership check is direct.
+    const residualToArchive = items.filter(item => {
+        if (enriched.has(item)) return false;                         // already in wiki via enrichment
+        const len = (item.content || '').length;
+        if (len < 500) return false;                                  // pure headlines — skip (future: on-demand extraction tool)
+        if (((item as any).relevanceScore || 0) < 30) return false;  // noise — drop
+        return true;
+    });
+    if (residualToArchive.length > 0) {
+        console.log(`Wiki residual archival: writing ${residualToArchive.length} items that bypassed enrichment (pre-existing body >=500 chars)`);
+        let residualWrites = 0;
+        // Bounded concurrency; this is fire-and-forget for the active session
+        // but we do await so the wiki is populated BEFORE the caller returns
+        // and the metadata index builder (next phase) has real files to scan.
+        // Residual archival writes to local proxy only — use cache-check
+        // concurrency (8-wide), not Jina-extract concurrency.
+        for (let i = 0; i < residualToArchive.length; i += CACHE_CHECK_CONCURRENCY) {
+            const batch = residualToArchive.slice(i, i + CACHE_CHECK_CONCURRENCY);
+            const writes = await Promise.allSettled(
+                batch.map(async (item) => {
+                    // Use the item's own URL if present; otherwise synthesize a
+                    // stable pseudo-URL so blake2b hashing produces a
+                    // deterministic wiki path per session+item.
+                    const stableUrl = item.url
+                        || `hic://residual/${(item as any).sourceName || 'source'}/${encodeURIComponent(item.id)}`;
+                    const pseudoItem = { ...item, url: stableUrl };
+                    const wp = await writeWikiArticle(
+                        pseudoItem as DataSourceItem,
+                        (item.content || '').substring(0, ENRICHMENT_PER_ITEM_CAP),
+                        (item as any).extractionMethod || 'source-native',
+                        (item as any).sourceName || ''
+                    );
+                    return wp ? { id: item.id, wikiPath: wp } : null;
+                })
+            );
+            for (const w of writes) {
+                if (w.status === 'fulfilled' && w.value) {
+                    residualWrites++;
+                    // Attach wikiPath so KG builder + retrieval layer can reference it.
+                    // Safe mutation — `items` is our locally-scoped collection.
+                    const target = items.find(it => it.id === w.value!.id);
+                    if (target) (target as any).wikiPath = w.value.wikiPath;
+                }
+            }
+        }
+        console.log(`Wiki residual archival: ${residualWrites}/${residualToArchive.length} persisted`);
+    }
+
+    // Replace short content with full content for enriched items. Also attach
+    // the wikiPath so downstream KG builders can reference the archive copy.
+    // Lookup is by item reference (not id), so no collisions — every item
+    // that was successfully enriched in this pass gets its body swapped in.
     return items.map(item => {
-        const enrichment = enriched.get(item.id);
+        const enrichment = enriched.get(item);
         if (enrichment) {
-            return { ...item, content: (enrichment as any).content || enrichment, enriched: true, extractionMethod: (enrichment as any).method || 'web' } as any;
+            return {
+                ...item,
+                content: enrichment.content,
+                enriched: true,
+                extractionMethod: enrichment.method || 'web',
+                wikiPath: enrichment.wikiPath,
+            } as any;
         }
         return item;
     });

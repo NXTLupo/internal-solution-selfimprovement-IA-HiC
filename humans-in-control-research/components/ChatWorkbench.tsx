@@ -206,16 +206,25 @@ export const ChatWorkbench: React.FC<Props> = ({
     }, []);
 
     const buildContext = useCallback((): ChatContext => {
+        // Provider-agnostic file content — reads proxy-parsed body text when
+        // the FileUpload background parser has populated parsedText (PDFs
+        // via PyPDF2, DOCX via office-regex). Falls back to text-file base64
+        // decode for .txt/.json/.csv etc. Claude/OpenAI/Gemini chat all see
+        // the same extracted text — no multimodal dependency.
         const uploadedFileContents = (() => {
             try {
-                return files.map(f => {
+                return files.map((f: any) => {
+                    if (f.parsedText && typeof f.parsedText === 'string' && f.parsedText.length > 40) {
+                        const meta = [f.parseMethod && `method=${f.parseMethod}`, f.parsedPages && `pages=${f.parsedPages}`, `chars=${f.parsedText.length}`].filter(Boolean).join(', ');
+                        return `=== FILE: ${f.name} (${meta}) ===\n${f.parsedText}\n`;
+                    }
                     const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
-                        f.name.endsWith('.json') || f.name.endsWith('.csv');
+                        f.name.endsWith('.json') || f.name.endsWith('.csv') || f.name.endsWith('.md');
                     if (isText) {
                         try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
                         catch { return `=== FILE: ${f.name} === [decode error]\n`; }
                     }
-                    return `=== FILE: ${f.name} === [PDF -- content in research corpus]\n`;
+                    return `=== FILE: ${f.name} === [parsing in progress]\n`;
                 }).join('\n');
             } catch { return ''; }
         })();

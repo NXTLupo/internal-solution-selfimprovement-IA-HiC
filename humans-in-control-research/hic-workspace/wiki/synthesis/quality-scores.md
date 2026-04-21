@@ -354,3 +354,27 @@ Tracks output quality scores across research runs, correlated with active learne
 
 
 | 2026-04-18 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-20 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-20 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-20 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-20 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-21 | tech_architecture | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-21 | prd | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-21 | roadmap | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |
+
+
+| 2026-04-21 | tech_audit | 100 | 2 constraints | "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field. |

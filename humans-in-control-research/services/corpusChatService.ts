@@ -69,6 +69,29 @@ export interface ChatContext {
     wikiMethodologies?: string;
     wikiEngagement?: string;
     wikiSourceArchive?: string; // Full source archive from wiki with verified URLs
+    /** Phase 1.8 — deep extracted article bodies loaded from wiki via wikiPath.
+     *  Pre-built by the caller (App.tsx / ChatWorkbench) so buildGroundingContext
+     *  just concatenates it. Claude Opus 4.7's 1M context makes this trivial
+     *  to include up to ~800KB of real article text. Each block is separated
+     *  by a source-labeled header for citation reconstruction. */
+    wikiArticleBodies?: string;
+    /** Phase 1.9 — synthesis outputs from prior engagements that semantically
+     *  match the current research goal. Gives the LLM context about reusable
+     *  prior insights so it doesn't re-synthesize the same findings. */
+    priorEngagementInsights?: string;
+    /** Phase 1-retrofit (2026-04-20) — wiki metadata index (titles, sources,
+     *  dates, char counts, wikiPaths, 200-char summaries). This is the
+     *  AI's menu of what's available in the wiki archive. Small (<100KB
+     *  for most engagements); the AI uses it to decide which articles to
+     *  request bodies for via the retrieval tool. Typically pre-built
+     *  once per workbench session by the caller. */
+    wikiIndexMenu?: string;
+    /** Phase 1-retrofit — pre-fetched article bodies for THIS specific
+     *  message, pulled by keyword-matching the user's question against the
+     *  wiki index. Purely additive: absent means "no pre-fetch happened"
+     *  (proxy down, short message, or caller opted out) and the rest of
+     *  the grounding context still works exactly as before. */
+    prefetchedArticlesBlock?: string;
     skillManifest?: SkillManifestEntry[];
     nxtDesignSystemRules?: string;
 }
@@ -410,6 +433,64 @@ Template-specific JSON shapes:
 }
 :::
 
+ABSOLUTE BAN — CORPUS META-COMMENTARY:
+A slide must NEVER describe the research corpus itself. Your job is to describe the SUBJECT
+(a company, person, institution, market), not the data apparatus we used to research it.
+
+FORBIDDEN on every slide, every field, every template:
+  ✗ "Within this corpus..."                  ✗ "The external corpus contains..."
+  ✗ "In the corpus..."                       ✗ "The broader corpus..."
+  ✗ "The strongest quantified outcome available in the corpus"
+  ✗ "The clearest vendor source..."          ✗ "The only named case..."
+  ✗ "Most vendor evidence is..."             ✗ "Our dataset shows..."
+  ✗ "Evidence is scarce in this corpus"      ✗ "Supporting evidence in the same vendor cluster"
+  ✗ "The research corpus..."                 ✗ "Based on our collection..."
+
+These phrases are ALWAYS a sign that evidence was thin and you filled the scaffold with
+meta-commentary instead of subject content. When evidence is thin, the correct move is to:
+  1. Use the FEWER slides than planned (drop a slide rather than fake it), AND
+  2. Flag EVIDENCE GAP in the specific field that lacks support: "EVIDENCE GAP: outcome
+     not independently verified in corpus" — the renderer shows this as a badge.
+
+Case-study slides SPECIFICALLY: challenge/approach/outcome MUST name the subject and
+describe THEIR situation, not what we found in our sources. Example:
+  ✗ WRONG: "The corpus contains few named higher-ed cases with hard numbers"
+  ✓ RIGHT: "Wyoming's advancement team needed to convert wealth ratings into readiness
+            signals without expanding headcount"
+
+Block-quote slides: quote.text must be a VERBATIM passage ≥40 chars, and quote.attribution
+must be a real person, organization, or publication — never "Customer story title",
+"Source title", "Headline", or the article's title.
+
+TITLES-AS-QUOTES ARE FORBIDDEN (applies to evidence field, quotes[] array, AND themeCluster evidence):
+A quote is a sentence pulled from the BODY of an article, transcript, or post — not the headline,
+not the article title, not the webpage title. Characteristics of real quotes:
+  - Contains verbs in running prose: "We saw co-op placements fall 40% year-over-year"
+  - Often starts mid-thought, uses casual or specific language, and includes numbers or names
+  - Length ≥40 chars, typically 80-200
+What a TITLE looks like (REJECT these as quotes):
+  - Title case ("The Best Alumni Management Software Solutions in 2026")
+  - Starts with a noun phrase acting as headline
+  - No verb, or no concrete subject
+  - Appears word-for-word as the article's Title: field
+BEFORE placing any string into evidence/quotes[].text, check: does this text appear as the
+"Title:" line of any chunk in the corpus, the WIKI ARCHIVE MENU, or the TOPIC-MATCHED ARTICLE
+BODIES block? If yes, you are using a title as a quote — REJECT and find a real sentence from
+the article body instead. If the body is not in context, emit EVIDENCE GAP rather than
+substituting the headline.
+
+PREFERRED SOURCES FOR QUOTES (in priority order):
+  1. TOPIC-MATCHED ARTICLE BODIES (pre-fetched wiki bodies scoped to this question) — first pick
+  2. DEEP ARTICLE BODIES (wiki-extracted article text) — second pick
+  3. Reddit/social post BODY TEXT visible in the corpus — third pick
+  4. Academic abstract BODY (not title) — fourth pick
+  5. NEVER the article title line, NEVER the "Title:" field of a chunk, NEVER a URL slug
+
+Titles must state a CONCLUSION about the subject with data. Never use a title that describes
+the research artifact:
+  ✗ "The Wyoming case matters because named, quantified higher-ed vendor evidence is scarce in this corpus"
+  ✓ "Wyoming's donor experience program generated 6x revenue in year one"
+
 QUOTE DENSITY — multi-quote themes:
 Every theme child inside themeCluster accepts an OPTIONAL "quotes" array in addition to the
 singular "evidence" field. When the user asks for "N quotes each" or "3 quotes per theme" or
@@ -423,6 +504,23 @@ RULE: prefer distinct sources across quotes on the same theme (avoid three quote
 The renderer will render every quote in the array; the legacy singular "evidence" is used only as
 a fallback when "quotes" is absent. Post-processing also auto-pulls real KG quotes when you
 leave "quotes" empty but the user requested density — never fabricate quotes to fill the array.
+
+THEME COUNT REQUIREMENT (HARD RULE — NON-NEGOTIABLE):
+Every theme-multi template has a MINIMUM required number of themes in themeCluster.themes[]:
+  - theme-cluster:   MINIMUM 3 themes, maximum 4 (equal horizontal columns)
+  - theme-spotlight: MINIMUM 3 themes (1 hero + 2 supporting); 4 is better (1 hero + 3 supporting)
+  - theme-arc:       EXACTLY 3 or 4 themes (progression chain; 2 is too short, 5+ is too crowded)
+  - theme-mosaic:    EXACTLY 4 themes (2x2 grid; any other count breaks the layout)
+If you cannot surface the required number of themes from the corpus, you MUST choose a different
+template. For a single-theme finding, use block-quote or case-study. For 2 themes, use comparison
+or split-panel. NEVER emit a theme-multi template with fewer than 3 themes — the empty supporting
+slots render as visible white rectangles with no content ("gaping holes"). This is a rendering
+failure, not a valid design choice.
+
+If the user explicitly requests theme-spotlight/arc/mosaic but the corpus only supports 1-2 themes,
+emit the closest single-theme template (block-quote or case-study) and add a prose sentence above
+the block explaining the choice: "The corpus surfaces one dominant theme on this question — a
+spotlight requires 3 distinct themes, so I'm emitting a block-quote instead."
 
 THEME VARIANTS — same themeCluster JSON shape, different layout. Pick the one that fits the data:
 
@@ -1099,6 +1197,51 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push(`=== END SOURCE INDEX ===`);
     }
 
+    // Phase 1.8 — deep article bodies (wiki archive, lazy-loaded). These
+    // come pre-concatenated from the caller which pulled them by wikiPath
+    // from evidence nodes. Insert them BEFORE the raw corpus so the LLM
+    // sees the full-text extractions first when it reasons.
+    if (ctx.wikiArticleBodies && ctx.wikiArticleBodies.length > 200) {
+        parts.push(`=== DEEP ARTICLE BODIES (from wiki archive — verbatim extracted text) ===`);
+        parts.push(ctx.wikiArticleBodies);
+        parts.push(`=== END DEEP ARTICLES ===`);
+    }
+
+    // Phase 1-retrofit (2026-04-20) — WIKI INDEX MENU. Lightweight catalog
+    // of every archived article/transcript/upload. The AI uses this to
+    // decide which bodies to request via the retrieval tool. Injected
+    // AFTER deep bodies so the model sees "here's what you already have
+    // full text for, and here's the menu of everything else".
+    if (ctx.wikiIndexMenu && ctx.wikiIndexMenu.length > 50) {
+        parts.push(`=== WIKI ARCHIVE MENU (metadata only — request full bodies via retrieval tool if needed) ===`);
+        parts.push(ctx.wikiIndexMenu);
+        parts.push(`=== END WIKI MENU ===`);
+    }
+
+    // Phase 1-retrofit — PRE-FETCHED ARTICLE BODIES for this specific
+    // user message. The caller keyword-matched the question against the
+    // wiki index and pulled top-N bodies. Insert them near the top so the
+    // AI treats them as primary evidence when it writes the response.
+    // This is the fast-path RAG: no tool call needed, real text is
+    // already in the prompt.
+    if (ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200) {
+        parts.push(`=== TOPIC-MATCHED ARTICLE BODIES (pre-fetched from wiki for THIS question) ===`);
+        parts.push(ctx.prefetchedArticlesBlock);
+        parts.push(`=== END TOPIC-MATCHED ARTICLES ===`);
+    }
+
+    // Phase 1.9 — prior-engagement memory. Synthesis artifacts from previous
+    // research runs that semantically match the current goal. Gives the LLM
+    // "memory" across engagements so it builds on prior findings rather than
+    // re-synthesizing. Explicit directive to cite provenance so the user
+    // knows when an insight is reused vs newly synthesized.
+    if (ctx.priorEngagementInsights && ctx.priorEngagementInsights.length > 200) {
+        parts.push(`=== PRIOR ENGAGEMENT INSIGHTS (synthesis from previous related research runs) ===`);
+        parts.push(`When reusing any finding below, cite it as [prior engagement: <slug>] so the operator sees reuse vs fresh synthesis.`);
+        parts.push(ctx.priorEngagementInsights);
+        parts.push(`=== END PRIOR INSIGHTS ===`);
+    }
+
     // Raw corpus — model-specific cap
     if (ctx.corpusText) {
         const corpus = ctx.corpusText.length > maxCorpus
@@ -1110,6 +1253,52 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
     }
 
     return parts.join('\n');
+}
+
+/**
+ * Phase 1.8 helper — lazy-load full article bodies from the wiki archive
+ * for every evidence node in the graph that carries a wikiPath. Stitches
+ * them into a single labeled block the chat grounding context can consume.
+ *
+ * - Bounded: up to `maxArticles` articles, up to `perArticleChars` chars each
+ * - Prioritized: prefers transcripts + PDFs + full_text over snippets
+ * - Safe: network failures per-article are swallowed; best-effort concat
+ */
+export async function loadWikiArticleBodies(
+    graph: { nodes: any[] } | undefined,
+    opts: { maxArticles?: number; perArticleChars?: number; proxyBase?: string } = {}
+): Promise<string> {
+    if (!graph || !Array.isArray(graph.nodes)) return '';
+    const maxArticles = opts.maxArticles ?? 40;
+    const perArticleChars = opts.perArticleChars ?? 8000;
+    const proxyBase = opts.proxyBase ?? 'http://localhost:5012';
+    // Pick evidence nodes that have a wikiPath
+    const withPath = graph.nodes.filter((n: any) => n.type === 'evidence' && n.wikiPath);
+    if (withPath.length === 0) return '';
+    // Priority order: transcript > pdf_extracted > full_text > others
+    const depthRank: Record<string, number> = { transcript: 1, pdf_extracted: 2, full_text: 3 };
+    withPath.sort((a: any, b: any) => {
+        const ra = depthRank[a.extractionDepth] ?? 9;
+        const rb = depthRank[b.extractionDepth] ?? 9;
+        if (ra !== rb) return ra - rb;
+        return (b.relevanceScore || 0) - (a.relevanceScore || 0);
+    });
+    const picked = withPath.slice(0, maxArticles);
+    const blocks: string[] = [];
+    await Promise.all(picked.map(async (n: any) => {
+        try {
+            const resp = await fetch(`${proxyBase}/api/wiki/read-article/${encodeURIComponent(n.wikiPath)}`);
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const body = (data.content || '').replace(/^---\n[\s\S]*?\n---\n\n?/, '').trim();
+            if (body.length < 100) return;
+            const trimmed = body.length > perArticleChars ? body.substring(0, perArticleChars) + '\n[...truncated...]' : body;
+            const sourceLabel = n.metadata?.sourceName || n.label || 'Source';
+            const depth = n.extractionDepth || 'article';
+            blocks.push(`--- ${sourceLabel} (${depth.toUpperCase()}, wiki/${n.wikiPath}) ---\n${trimmed}`);
+        } catch { /* swallow */ }
+    }));
+    return blocks.join('\n\n');
 }
 
 // --- Skill Manifest Matching ---
@@ -1311,6 +1500,32 @@ export async function sendChatMessage(
         }
     }
 
+    // Phase 1-retrofit (2026-04-20) — WIKI PRE-FETCH. If the caller hasn't
+    // already populated prefetchedArticlesBlock, best-effort pull the top
+    // keyword-matching article bodies from the wiki archive. Non-blocking
+    // by design: proxy outage or slow wiki returns an empty block and the
+    // rest of the grounding context still carries the chat. Gated on the
+    // user message having enough substance (≥12 chars) and no prior block
+    // already present — keeps double-loading at zero.
+    if (!context.prefetchedArticlesBlock && userMessage && userMessage.trim().length >= 12) {
+        try {
+            const { prefetchArticlesForMessage, formatArticlesAsCorpusBlock } = await import('./wikiIndexService');
+            const prefetchedArticles = await Promise.race([
+                prefetchArticlesForMessage(userMessage, { limit: 6, maxCharsPerArticle: 12_000, minChars: 500 }),
+                new Promise<any[]>(resolve => setTimeout(() => resolve([]), 6000)),
+            ]);
+            if (prefetchedArticles && prefetchedArticles.length > 0) {
+                const block = formatArticlesAsCorpusBlock(prefetchedArticles, 80_000);
+                if (block.length > 200) {
+                    context = { ...context, prefetchedArticlesBlock: block };
+                    console.log(`[chat] wiki pre-fetch: injected ${prefetchedArticles.length} article bodies (${Math.round(block.length / 1024)}KB)`);
+                }
+            }
+        } catch (err: any) {
+            console.warn('[chat] wiki pre-fetch skipped:', err?.message || err);
+        }
+    }
+
     const groundingContext = buildGroundingContext(context, model);
 
     // Build provenance index for citation rendering
@@ -1356,6 +1571,16 @@ ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - When quoting, use EXACT words from the corpus. Do not paraphrase and present it as a quote.
 - If the corpus does not contain enough evidence to answer the question, say explicitly: "The collected data contains limited evidence on this topic. Here is what was found:" and cite ONLY what actually exists.
 - When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 — never pad to reach the requested number.
+
+ON-DEMAND WIKI RETRIEVAL (Claude tool use — available only to Claude models):
+You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE flagging EVIDENCE GAP, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
+
+  - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 6) to pull 6 real bodies, then select the 3 best quotes.
+  - Need a specific peer institution's outcome? Call fetch_wiki_articles(query: "<peer name> <topic>", source: "<outlet>") to retrieve the article body.
+  - Building a case study slide? Call fetch_wiki_articles(query: "<subject> <vendor> <outcome>", kind: "article") to get the case study body, then write from it.
+  - Never call more than 2-3 times per turn. Be specific in your queries.
+
+When tool results return empty or error, THEN flag EVIDENCE GAP — the archive genuinely doesn't have it. Do NOT use tool failures as an excuse to fabricate.
 ${DELIVERABLE_PROTOCOL}
 ${manifestSummary}
 ${skillInstructions}
@@ -1433,14 +1658,113 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
 // --- Provider Implementations ---
 
+// --- NATIVE TOOL-USE LOOP (2026-04-20) ---------------------------------
+// Claude gets a single tool, `fetch_wiki_articles`, which lets it pull
+// full article bodies from the wiki archive mid-reasoning. The loop
+// iterates up to MAX_TOOL_ITER times; each time Claude emits a `tool_use`
+// block, we execute the call against the existing /api/wiki/fetch-articles
+// endpoint and echo the result back as a `tool_result` block. When Claude
+// finishes thinking (stop_reason !== 'tool_use'), we extract the final
+// text and return.
+//
+// Safety guarantees:
+//   - Tools are OPT-IN per call via callAnthropic(..., { enableTools })
+//     and we default to TRUE only for models in the Claude family.
+//   - If the wiki archive is empty (index returns nothing), we omit the
+//     tool entirely so Claude can't call it, preserving existing behavior.
+//   - MAX_TOOL_ITER = 5 caps runaway loops.
+//   - Every tool call has an 18-second timeout; a failing call returns a
+//     tool_result with is_error=true so Claude sees the failure and keeps
+//     reasoning instead of the whole chat crashing.
+//   - The loop is completely transparent to callers: callAnthropic still
+//     returns a final string; the sole difference is the string may have
+//     drawn on real body text pulled during the loop.
+
+const MAX_TOOL_ITER = 5;
+const TOOL_CALL_TIMEOUT_MS = 18_000;
+
+const FETCH_WIKI_ARTICLES_TOOL = {
+    name: 'fetch_wiki_articles',
+    description: `Retrieve FULL article bodies from the wiki archive on demand. Use this to pull verbatim text for quotes, specific data points, named entities, or any claim that needs body evidence.
+
+The archive contains every article, transcript, and uploaded document collected during this research session. When the in-prompt corpus shows only headlines or snippets for a topic, CALL THIS TOOL to get the real body text.
+
+Good times to call:
+  - The user asked for N verbatim quotes and you only see article titles in the in-prompt corpus
+  - You're about to write EVIDENCE GAP but it's possible the archive has body text the prompt didn't include
+  - You need to cite a specific named competitor, case study, or peer institution
+  - You need timestamped or dated text (transcripts, news articles)
+
+Returns: array of articles with title, source, url, date, and body text (up to maxCharsPerArticle chars each). Never returns titles-only.`,
+    input_schema: {
+        type: 'object',
+        properties: {
+            query: { type: 'string', description: 'Keyword search over article titles + summaries + sources. Use 3-8 concrete terms — names, entities, topics. Example: "Wyoming EverTrue donor experience revenue"' },
+            ids: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: specific article IDs (10-char url_hash values from the WIKI ARCHIVE MENU). Use this when you already know which articles you want.' },
+            wikiPaths: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: direct wiki paths (e.g. "articles/higher-ed-dive/ab12cd34ef.md"). Rarely needed; prefer ids or query.' },
+            source: { type: 'string', description: 'OPTIONAL: substring filter on source name. Example: "Higher Ed Dive", "Reddit r/MBA", "EverTrue"' },
+            kind: { type: 'string', enum: ['article', 'transcript', 'upload'], description: 'OPTIONAL: restrict to articles, YouTube transcripts, or uploaded client documents.' },
+            minChars: { type: 'number', description: 'OPTIONAL: skip entries shorter than this many body chars. Default 500 (filters out archive stubs).' },
+            limit: { type: 'number', description: 'Max articles to return. Default 5, hard max 15. Keep small — body text is verbose.' },
+            maxCharsPerArticle: { type: 'number', description: 'Max body chars per article. Default 8000, hard max 20000.' },
+        },
+    },
+};
+
+/** Execute the fetch_wiki_articles tool by calling the existing client
+ *  wrapper. Returns a compact text block for the tool_result `content`
+ *  field so Claude sees it as standard text in the conversation.
+ *  Timeouts and fetch errors surface as `(error: ...)` inside the
+ *  returned string; the caller decides whether to mark is_error. */
+async function executeFetchWikiArticlesTool(input: any): Promise<string> {
+    try {
+        const { fetchWikiArticles } = await import('./wikiIndexService');
+        const abort = new AbortController();
+        const timer = setTimeout(() => abort.abort(), TOOL_CALL_TIMEOUT_MS);
+        let articles: any[] = [];
+        try {
+            articles = await fetchWikiArticles({
+                ids: Array.isArray(input?.ids) ? input.ids.slice(0, 15) : undefined,
+                wikiPaths: Array.isArray(input?.wikiPaths) ? input.wikiPaths.slice(0, 15) : undefined,
+                query: typeof input?.query === 'string' ? input.query : undefined,
+                source: typeof input?.source === 'string' ? input.source : undefined,
+                kind: typeof input?.kind === 'string' ? input.kind : undefined,
+                minChars: typeof input?.minChars === 'number' ? input.minChars : 500,
+                limit: Math.max(1, Math.min(15, Number(input?.limit) || 5)),
+                maxCharsPerArticle: Math.max(500, Math.min(20_000, Number(input?.maxCharsPerArticle) || 8000)),
+            });
+        } finally { clearTimeout(timer); }
+        if (!articles || articles.length === 0) {
+            return 'No articles matched. Try a different query, broader terms, or omit the source filter.';
+        }
+        const totalChars = articles.reduce((s, a) => s + (a.content?.length || 0), 0);
+        const header = `Found ${articles.length} article${articles.length === 1 ? '' : 's'} (total ${Math.round(totalChars / 1024)}KB body text):\n\n`;
+        const blocks = articles.map((a, i) => {
+            const meta = [
+                `id=${a.id || '?'}`,
+                a.source ? `source=${a.source}` : '',
+                a.date ? `date=${a.date}` : '',
+                a.kind && a.kind !== 'article' ? `kind=${a.kind}` : '',
+                `${a.chars || a.content?.length || 0} chars`,
+            ].filter(Boolean).join(' | ');
+            return `[${i + 1}] ${meta}\nTitle: ${a.title || '(untitled)'}\n${a.url ? `URL: ${a.url}\n` : ''}WikiPath: ${a.wikiPath}\nBody:\n${a.content || '(empty body)'}`;
+        });
+        return header + blocks.join('\n\n---\n\n');
+    } catch (err: any) {
+        const msg = err?.name === 'AbortError' ? `timeout after ${TOOL_CALL_TIMEOUT_MS}ms` : (err?.message || 'unknown error');
+        return `(error fetching wiki articles: ${msg})`;
+    }
+}
+
 async function callAnthropic(
     system: string,
     userMsg: string,
     history: ChatMessage[],
     model: ChatModel = 'claude-opus-4-7',
     thinkingEffort: ThinkingEffort = 'medium',
+    opts: { enableTools?: boolean } = {},
 ): Promise<string> {
-    const messages = [
+    const messages: any[] = [
         ...history.filter(m => m.role !== 'system').map(m => ({
             role: m.role as 'user' | 'assistant',
             content: m.content
@@ -1455,42 +1779,92 @@ async function callAnthropic(
         medium: 'low',
     };
 
-    const body: any = {
-        model,
-        max_tokens: 32000,
-        system,
-        messages,
-        thinking: {
-            type: 'adaptive',
-        },
-        output_config: {
-            effort: effortMap[thinkingEffort] || 'medium',
-        },
-    };
+    // Tool use is enabled by default for Claude (the primary reasoning engine).
+    // Caller can force off via opts.enableTools === false.
+    const enableTools = opts.enableTools !== false;
 
-    const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-    });
+    // Iterative tool-use loop. Each iteration sends the current conversation
+    // to Anthropic; if Claude emits tool_use blocks, we execute them, append
+    // tool_result blocks, and loop. Loop ends when Claude finishes with
+    // stop_reason !== 'tool_use' (end_turn / max_tokens / stop_sequence).
+    let iter = 0;
+    let lastTextResponse = '';
+    while (iter < MAX_TOOL_ITER) {
+        iter++;
+        const body: any = {
+            model,
+            max_tokens: 32000,
+            system,
+            messages,
+            thinking: { type: 'adaptive' },
+            output_config: { effort: effortMap[thinkingEffort] || 'medium' },
+        };
+        if (enableTools) {
+            body.tools = [FETCH_WIKI_ARTICLES_TOOL];
+        }
 
-    if (!resp.ok) {
-        const errorData = await resp.json().catch(() => ({}));
-        throw new Error(`Anthropic API error ${resp.status}: ${errorData.error?.message || JSON.stringify(errorData).substring(0, 200)}`);
-    }
+        const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
 
-    const data = await resp.json();
+        if (!resp.ok) {
+            const errorData = await resp.json().catch(() => ({}));
+            throw new Error(`Anthropic API error ${resp.status}: ${errorData.error?.message || JSON.stringify(errorData).substring(0, 200)}`);
+        }
 
-    // Extract text blocks (skip thinking blocks)
-    if (Array.isArray(data.content)) {
-        return data.content
-            .filter((block: any) => block.type === 'text')
-            .map((block: any) => block.text)
+        const data = await resp.json();
+        const contentBlocks: any[] = Array.isArray(data.content) ? data.content : [];
+
+        // Always update the running text answer so we have something to return
+        // even if the loop terminates unexpectedly.
+        lastTextResponse = contentBlocks
+            .filter((b: any) => b.type === 'text')
+            .map((b: any) => b.text)
             .join('');
+
+        // If Claude isn't asking for tools, we're done.
+        if (data.stop_reason !== 'tool_use') {
+            return lastTextResponse || data.content?.[0]?.text || 'No response';
+        }
+
+        // Collect tool_use blocks and execute them. Claude can emit multiple
+        // tool calls in a single turn; run them in parallel for speed.
+        const toolUseBlocks = contentBlocks.filter((b: any) => b.type === 'tool_use');
+        if (toolUseBlocks.length === 0) {
+            // Defensive: stop_reason claimed tool_use but no blocks present.
+            return lastTextResponse || 'No response';
+        }
+
+        console.log(`[chat.tools] iter ${iter}: Claude called ${toolUseBlocks.length} tool${toolUseBlocks.length === 1 ? '' : 's'}: ${toolUseBlocks.map(b => b.name).join(', ')}`);
+
+        const toolResults = await Promise.all(
+            toolUseBlocks.map(async (tu: any) => {
+                if (tu.name !== FETCH_WIKI_ARTICLES_TOOL.name) {
+                    return { type: 'tool_result', tool_use_id: tu.id, content: `Unknown tool: ${tu.name}`, is_error: true };
+                }
+                try {
+                    const result = await executeFetchWikiArticlesTool(tu.input || {});
+                    const isError = result.startsWith('(error');
+                    return { type: 'tool_result', tool_use_id: tu.id, content: result, ...(isError ? { is_error: true } : {}) };
+                } catch (err: any) {
+                    return { type: 'tool_result', tool_use_id: tu.id, content: `Tool execution error: ${err?.message || 'unknown'}`, is_error: true };
+                }
+            })
+        );
+
+        // Append the assistant's full content array (preserving thinking +
+        // text + tool_use in order) followed by the user's tool_result block.
+        messages.push({ role: 'assistant', content: contentBlocks });
+        messages.push({ role: 'user', content: toolResults });
+        // Loop continues — next iteration sends the augmented conversation.
     }
-    return data.content?.[0]?.text || 'No response';
+
+    // Hit iteration cap. Return whatever text was last produced; the response
+    // may be incomplete but it's better than throwing.
+    console.warn(`[chat.tools] iteration cap ${MAX_TOOL_ITER} reached; returning last partial response`);
+    return lastTextResponse || 'The reasoning loop hit its iteration cap. Try asking a more focused question.';
 }
 
 async function callOpenAI(system: string, userMsg: string, history: ChatMessage[]): Promise<string> {

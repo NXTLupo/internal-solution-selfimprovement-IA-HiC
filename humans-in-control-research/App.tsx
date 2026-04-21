@@ -181,6 +181,72 @@ const MethodologyModal = ({ outputId, onClose }: { outputId: OutputOption, onClo
     );
 };
 
+/**
+ * Build the uploadedFileContents context string used by the chat grounding
+ * context. Emits real body text for every file — text files decoded from
+ * base64, PDFs/DOCX/XLSX from the proxy-parsed `parsedText` field populated
+ * by FileUpload's background parse. Fixes the longstanding bug where the
+ * chat's context falsely claimed `[PDF — content in corpus]` when no PDF
+ * text actually reached the chat. Provider-agnostic: Claude/OpenAI/Gemini
+ * all receive the extracted text as plain text.
+ */
+function buildUploadedFileContents(files: any[]): string {
+    if (!Array.isArray(files) || files.length === 0) return '';
+    try {
+        return files.map((f: any) => {
+            // Prefer proxy-parsed text (PDFs/DOCX) when available.
+            if (f.parsedText && typeof f.parsedText === 'string' && f.parsedText.length > 40) {
+                const meta = [
+                    f.parseMethod ? `method=${f.parseMethod}` : '',
+                    f.parsedPages ? `pages=${f.parsedPages}` : '',
+                    `chars=${f.parsedText.length}`,
+                ].filter(Boolean).join(', ');
+                return `=== FILE: ${f.name} (${meta}) ===\n${f.parsedText}\n`;
+            }
+            // Fallback for text-like files that didn't hit the parser path
+            const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
+                f.name.endsWith('.json') || f.name.endsWith('.csv') ||
+                f.name.endsWith('.md') || f.name.endsWith('.xml');
+            if (isText) {
+                try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
+                catch { return `=== FILE: ${f.name} === [decode error]\n`; }
+            }
+            // Binary file without parsedText yet — parse is still running
+            return `=== FILE: ${f.name} === [parsing in progress — retry in a moment]\n`;
+        }).join('\n');
+    } catch { return ''; }
+}
+
+// --- VIEW POPOVER PRIMITIVES ---
+// Small composable helpers for the consolidated VIEW popover that groups
+// Layout + Theme + Size together (previously three separate pill clusters
+// that collided with the right-edge flyout rail).
+const PopoverRow: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ fontSize: 9, color: '#999', letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: "'Bebas Neue',sans-serif", minWidth: 52 }}>
+            {label}
+        </div>
+        <div style={{ display: 'flex', border: '1px solid #333', overflow: 'hidden', borderRadius: 2 }}>
+            {children}
+        </div>
+    </div>
+);
+const PopoverSeg: React.FC<{ active: boolean; onClick: () => void; children: React.ReactNode }> = ({ active, onClick, children }) => (
+    <button
+        onClick={onClick}
+        style={{
+            background: active ? '#B8B800' : 'transparent',
+            color: active ? '#0D0D0D' : '#F5F5F0',
+            border: 'none',
+            padding: '4px 10px',
+            fontSize: 10,
+            fontFamily: "'Bebas Neue',sans-serif",
+            letterSpacing: 1.5,
+            cursor: 'pointer',
+        }}
+    >{children}</button>
+);
+
 // --- LIVE RESEARCH BOARD COMPONENT ---
 const LiveResearchBoard = ({
     ingestion, themes, personas, journeyMap, prd, roadmap, techArch, recommendations, structure,
@@ -221,6 +287,15 @@ const LiveResearchBoard = ({
         catch { return 'dark'; }
     });
     useEffect(() => { try { localStorage.setItem('kg_theme', kgTheme); } catch {} }, [kgTheme]);
+    // S3.2: adaptive desk size. 'snug' fits alongside content, 'tall' prioritizes
+    // treemap readability (default on desktop), 'full' uses 100dvh. EXPAND button
+    // temporarily forces 'full' while active.
+    const [kgSize, setKgSize] = useState<'snug' | 'tall' | 'full'>(() => {
+        try { return (localStorage.getItem('kg_size') as 'snug' | 'tall' | 'full') || 'tall'; }
+        catch { return 'tall'; }
+    });
+    useEffect(() => { try { localStorage.setItem('kg_size', kgSize); } catch {} }, [kgSize]);
+    const [kgViewMenuOpen, setKgViewMenuOpen] = useState(false);
     const [reasoningOpen, setReasoningOpen] = useState(false);
     const [selectedSourceIdx, setSelectedSourceIdx] = useState<number | null>(null);
 
@@ -229,42 +304,85 @@ const LiveResearchBoard = ({
     }, [events]);
 
     return (
-        <div className="w-full max-w-[90rem] mx-auto pb-24 animate-fade-in h-[85vh] relative">
+        <div className="w-full max-w-[90rem] mx-auto pb-24 pr-14 animate-fade-in h-[85vh] relative">
 
-            {/* Reasoning Stream flyout toggle button — fixed position */}
-            <button
-                onClick={() => setReasoningOpen(!reasoningOpen)}
+            {/* RIGHT-EDGE FLYOUT RAIL.
+                Previously: REASONING and CHAT TO DATA were individually
+                fixed-positioned at right:12, top:80/116. They collided
+                visually with the Analyst Desk's own top-right controls
+                (VIEW / EXPAND) because both occupied the same corner.
+                Now: a single vertical rail flush to the viewport right
+                edge, with the two triggers stacked. When a panel is open,
+                the active trigger shifts inward so it abuts the panel.
+                The rail stays clear of the desk's controls because the
+                desk card max-width respects the rail's 44px reservation. */}
+            <div
                 style={{
-                    position: 'fixed', right: reasoningOpen ? 396 : 12, top: 80, zIndex: 60,
-                    background: '#0D0D0D', color: reasoningOpen ? '#888' : '#B8B800',
-                    border: '1px solid #333', padding: '6px 14px', fontSize: 9,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif", fontWeight: 700,
-                    letterSpacing: '2px', textTransform: 'uppercase' as const,
-                    cursor: 'pointer', borderRadius: 2, transition: 'right 0.3s ease',
+                    position: 'fixed',
+                    right: reasoningOpen ? 396 : (showCorpusChat ? 432 : 0),
+                    top: 72,
+                    zIndex: 60,
+                    display: 'flex', flexDirection: 'column', gap: 2,
+                    transition: 'right 0.3s ease',
+                    pointerEvents: 'none', // let children opt in
                 }}
             >
-                {reasoningOpen ? 'CLOSE' : isCollectingData ? 'SOURCES' : 'REASONING'}
-                {!reasoningOpen && (isCollectingData || currentStatus.includes('...')) && (
-                    <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#B8B800', marginLeft: 6, animation: 'pulse 1.5s infinite' }} />
-                )}
-            </button>
-
-            {/* Chat to Your Data toggle button */}
-            {(liveSourceResults.length > 0 || collectionPhase === 'complete') && (
                 <button
-                    onClick={() => { setShowCorpusChat(!showCorpusChat); if (!showCorpusChat) setReasoningOpen(false); }}
+                    onClick={() => setReasoningOpen(!reasoningOpen)}
+                    title={reasoningOpen ? 'Close reasoning stream' : 'Open reasoning stream'}
                     style={{
-                        position: 'fixed', right: showCorpusChat ? 432 : 12, top: 116, zIndex: 60,
-                        background: showCorpusChat ? '#115054' : '#0D0D0D', color: showCorpusChat ? '#FFFFFF' : '#00B7C3',
-                        border: '1px solid #333', padding: '6px 14px', fontSize: 9,
-                        fontFamily: "'Helvetica Neue', Arial, sans-serif", fontWeight: 700,
-                        letterSpacing: '2px', textTransform: 'uppercase' as const,
-                        cursor: 'pointer', borderRadius: 2, transition: 'right 0.3s ease',
+                        pointerEvents: 'auto',
+                        background: reasoningOpen ? '#1a1a1a' : '#0D0D0D',
+                        color: reasoningOpen ? '#888' : '#B8B800',
+                        border: '1px solid #333',
+                        borderRight: reasoningOpen ? '1px solid #333' : 'none',
+                        padding: '8px 12px',
+                        fontSize: 9,
+                        fontFamily: "'Helvetica Neue', Arial, sans-serif",
+                        fontWeight: 700,
+                        letterSpacing: '2px',
+                        textTransform: 'uppercase' as const,
+                        cursor: 'pointer',
+                        borderRadius: '2px 0 0 2px',
+                        minWidth: 44,
+                        textAlign: 'left' as const,
+                        display: 'inline-flex', alignItems: 'center', gap: 6,
                     }}
                 >
-                    {showCorpusChat ? 'CLOSE CHAT' : 'CHAT TO DATA'}
+                    <span aria-hidden style={{ fontSize: 12, lineHeight: 1 }}>◧</span>
+                    <span>{reasoningOpen ? 'CLOSE' : isCollectingData ? 'SOURCES' : 'REASONING'}</span>
+                    {!reasoningOpen && (isCollectingData || currentStatus.includes('...')) && (
+                        <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#B8B800', animation: 'pulse 1.5s infinite' }} />
+                    )}
                 </button>
-            )}
+                {(liveSourceResults.length > 0 || collectionPhase === 'complete') && (
+                    <button
+                        onClick={() => { setShowCorpusChat(!showCorpusChat); if (!showCorpusChat) setReasoningOpen(false); }}
+                        title={showCorpusChat ? 'Close chat' : 'Open chat-to-data panel'}
+                        style={{
+                            pointerEvents: 'auto',
+                            background: showCorpusChat ? '#115054' : '#0D0D0D',
+                            color: showCorpusChat ? '#FFFFFF' : '#00B7C3',
+                            border: '1px solid #333',
+                            borderRight: showCorpusChat ? '1px solid #333' : 'none',
+                            padding: '8px 12px',
+                            fontSize: 9,
+                            fontFamily: "'Helvetica Neue', Arial, sans-serif",
+                            fontWeight: 700,
+                            letterSpacing: '2px',
+                            textTransform: 'uppercase' as const,
+                            cursor: 'pointer',
+                            borderRadius: '2px 0 0 2px',
+                            minWidth: 44,
+                            textAlign: 'left' as const,
+                            display: 'inline-flex', alignItems: 'center', gap: 6,
+                        }}
+                    >
+                        <span aria-hidden style={{ fontSize: 12, lineHeight: 1 }}>◪</span>
+                        <span>{showCorpusChat ? 'CLOSE CHAT' : 'CHAT TO DATA'}</span>
+                    </button>
+                )}
+            </div>
 
             {/* Corpus Chat Panel */}
             <CorpusChatPanel
@@ -272,21 +390,7 @@ const LiveResearchBoard = ({
                 onToggle={() => setShowCorpusChat(false)}
                 getContext={() => ({
                     corpusText: corpusTextRef.current || '',
-                    uploadedFileContents: (() => {
-                        try {
-                            return files.map(f => {
-                                // Only decode text-based files (TXT, JSON, CSV, converted DOCX)
-                                // PDFs are binary — their content is in corpusTextRef from ingestion
-                                const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
-                                    f.name.endsWith('.json') || f.name.endsWith('.csv');
-                                if (isText) {
-                                    try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
-                                    catch { return `=== FILE: ${f.name} === [decode error]\n`; }
-                                }
-                                return `=== FILE: ${f.name} === [PDF — content available in research corpus below]\n`;
-                            }).join('\n');
-                        } catch { return ''; }
-                    })(),
+                    uploadedFileContents: buildUploadedFileContents(files),
                     themes: themes?.themes,
                     personas: personas?.personas,
                     recommendations: recommendations?.recommendations,
@@ -338,83 +442,102 @@ const LiveResearchBoard = ({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className={`bg-[var(--card-bg)] border border-[var(--border-primary)] shadow-sm relative overflow-hidden transition-all duration-300 mb-6 ${
+                        className={`bg-[var(--card-bg)] border border-[var(--border-primary)] shadow-sm relative overflow-hidden transition-all duration-300 ${
                             kgExpanded
                                 ? 'fixed inset-0 z-50 rounded-none border-none m-0'
-                                : 'rounded'
+                                : 'rounded mb-10'
                         }`}
                         style={kgExpanded ? { marginLeft: '48px' } : {}}
                     >
-                        {/* View + expand toggles */}
+                        {/* Consolidated VIEW popover + EXPAND icon.
+                            Replaces the stacked cluster of DESK/RADIAL + DARK/LIGHT +
+                            EXPAND pills that was colliding with the right-edge
+                            flyout triggers (REASONING / CHAT TO DATA). One compact
+                            control opens a popover with all view settings; EXPAND
+                            stays as a standalone icon button because it's the
+                            most-used shortcut. */}
                         <div style={{
                             position: 'absolute',
                             top: kgExpanded ? '12px' : '8px',
                             right: kgExpanded ? '16px' : '8px',
                             zIndex: 30,
-                            display: 'flex', gap: 6,
+                            display: 'flex', gap: 6, alignItems: 'flex-start',
                         }}>
-                            <div style={{ display: 'flex', border: '1px solid #333', borderRadius: '2px', overflow: 'hidden' }}>
+                            <div style={{ position: 'relative' }}>
                                 <button
-                                    onClick={() => setKgView('analyst')}
-                                    title="Analyst Desk — dashboard view"
+                                    onClick={() => setKgViewMenuOpen(o => !o)}
+                                    title="View settings — layout, theme, size"
                                     style={{
-                                        background: kgView === 'analyst' ? '#B8B800' : '#0D0D0D',
-                                        color: kgView === 'analyst' ? '#0D0D0D' : '#B8B800',
-                                        border: 'none', padding: '4px 10px', fontSize: '10px',
-                                        fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
+                                        background: kgViewMenuOpen ? '#B8B800' : '#0D0D0D',
+                                        color: kgViewMenuOpen ? '#0D0D0D' : '#B8B800',
+                                        border: '1px solid #333',
+                                        padding: '4px 10px', fontSize: '10px',
+                                        fontFamily: "'Bebas Neue',sans-serif",
+                                        letterSpacing: '2px', cursor: 'pointer',
+                                        borderRadius: '2px',
+                                        display: 'inline-flex', alignItems: 'center', gap: 6,
                                     }}
-                                >DESK</button>
-                                <button
-                                    onClick={() => setKgView('classic')}
-                                    title="Classic radial graph"
-                                    style={{
-                                        background: kgView === 'classic' ? '#B8B800' : '#0D0D0D',
-                                        color: kgView === 'classic' ? '#0D0D0D' : '#B8B800',
-                                        border: 'none', padding: '4px 10px', fontSize: '10px',
-                                        fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
-                                    }}
-                                >RADIAL</button>
+                                >
+                                    <span style={{ fontSize: 13, lineHeight: 1 }}>⊞</span> VIEW
+                                </button>
+                                {kgViewMenuOpen && (
+                                    <>
+                                        {/* backdrop to catch outside-click */}
+                                        <div
+                                            onClick={() => setKgViewMenuOpen(false)}
+                                            style={{ position: 'fixed', inset: 0, zIndex: 29 }}
+                                        />
+                                        <div style={{
+                                            position: 'absolute', top: 'calc(100% + 4px)', right: 0,
+                                            background: '#0D0D0D', border: '1px solid #333',
+                                            padding: 10, zIndex: 31,
+                                            display: 'flex', flexDirection: 'column', gap: 10,
+                                            minWidth: 220,
+                                            boxShadow: '0 4px 12px rgba(0,0,0,0.35)',
+                                        }}>
+                                            <PopoverRow label="Layout">
+                                                <PopoverSeg active={kgView === 'analyst'} onClick={() => setKgView('analyst')}>Desk</PopoverSeg>
+                                                <PopoverSeg active={kgView === 'classic'} onClick={() => setKgView('classic')}>Radial</PopoverSeg>
+                                            </PopoverRow>
+                                            {kgView === 'analyst' && (
+                                                <>
+                                                    <PopoverRow label="Theme">
+                                                        <PopoverSeg active={kgTheme === 'dark'} onClick={() => setKgTheme('dark')}>Dark</PopoverSeg>
+                                                        <PopoverSeg active={kgTheme === 'light'} onClick={() => setKgTheme('light')}>Light</PopoverSeg>
+                                                    </PopoverRow>
+                                                    <PopoverRow label="Size">
+                                                        <PopoverSeg active={kgSize === 'snug'} onClick={() => setKgSize('snug')}>Snug</PopoverSeg>
+                                                        <PopoverSeg active={kgSize === 'tall'} onClick={() => setKgSize('tall')}>Tall</PopoverSeg>
+                                                        <PopoverSeg active={kgSize === 'full'} onClick={() => setKgSize('full')}>Full</PopoverSeg>
+                                                    </PopoverRow>
+                                                </>
+                                            )}
+                                        </div>
+                                    </>
+                                )}
                             </div>
-                            {kgView === 'analyst' && (
-                                <div style={{ display: 'flex', border: '1px solid #333', borderRadius: '2px', overflow: 'hidden' }}>
-                                    <button
-                                        onClick={() => setKgTheme('dark')}
-                                        title="Dark mode"
-                                        style={{
-                                            background: kgTheme === 'dark' ? '#B8B800' : '#0D0D0D',
-                                            color: kgTheme === 'dark' ? '#0D0D0D' : '#B8B800',
-                                            border: 'none', padding: '4px 10px', fontSize: '10px',
-                                            fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
-                                        }}
-                                    >DARK</button>
-                                    <button
-                                        onClick={() => setKgTheme('light')}
-                                        title="Stark white, high-contrast mode"
-                                        style={{
-                                            background: kgTheme === 'light' ? '#B8B800' : '#0D0D0D',
-                                            color: kgTheme === 'light' ? '#0D0D0D' : '#B8B800',
-                                            border: 'none', padding: '4px 10px', fontSize: '10px',
-                                            fontFamily: "'Bebas Neue',sans-serif", letterSpacing: '2px', cursor: 'pointer',
-                                        }}
-                                    >LIGHT</button>
-                                </div>
-                            )}
                             <button
-                                onClick={() => setKgExpanded(!kgExpanded)}
+                                onClick={() => {
+                                    const next = !kgExpanded;
+                                    setKgExpanded(next);
+                                    if (!next && kgSize === 'full') setKgSize('tall');
+                                }}
+                                title={kgExpanded ? 'Collapse' : 'Expand to fill viewport'}
                                 style={{
                                     background: '#0D0D0D', color: '#B8B800', border: '1px solid #333',
-                                    padding: '4px 10px', fontSize: '10px', fontFamily: "'Bebas Neue',sans-serif",
-                                    letterSpacing: '2px', cursor: 'pointer', borderRadius: '2px',
+                                    padding: '4px 10px', fontSize: '12px', fontFamily: "'Bebas Neue',sans-serif",
+                                    letterSpacing: '1px', cursor: 'pointer', borderRadius: '2px',
+                                    minWidth: 34, lineHeight: 1,
                                 }}
                             >
-                                {kgExpanded ? 'COLLAPSE' : 'EXPAND'}
+                                {kgExpanded ? '⤡' : '⤢'}
                             </button>
                         </div>
                         {kgView === 'analyst' ? (
                             <AnalystDeskKnowledgeGraph
                                 graph={knowledgeGraph}
-                                height={kgExpanded ? '100dvh' : 'min(88vh, 1100px)'}
-                                minHeight={kgExpanded ? undefined : 640}
+                                size={kgExpanded ? 'full' : kgSize}
+                                onSizeChange={(s) => { setKgSize(s); if (s === 'full') setKgExpanded(true); else if (kgExpanded) setKgExpanded(false); }}
                                 excludedSources={excludedSources}
                                 setExcludedSources={setExcludedSources}
                                 theme={kgTheme}
@@ -916,6 +1039,50 @@ const App = () => {
     const [prioritySources, setPrioritySources] = useState<Set<string>>(new Set());
     const [liveRefinedQueries, setLiveRefinedQueries] = useState<Record<string, string>>({});
     const [knowledgeGraph, setKnowledgeGraph] = useState<KGType>({ nodes: [], edges: [] });
+    // Phase 1.9 — prior-engagement matches + loaded synthesis bundle.
+    // Refreshes when the research goal settles; surfaces in the brief intake
+    // UI as "N prior engagements matched" and feeds the chat grounding context.
+    const [priorEngagementMatches, setPriorEngagementMatches] = useState<any[]>([]);
+    const [priorEngagementInsights, setPriorEngagementInsights] = useState<string>('');
+    useEffect(() => {
+        const goal = (researchGoal || '').trim();
+        if (goal.length < 12) { setPriorEngagementMatches([]); setPriorEngagementInsights(''); return; }
+        const handle = setTimeout(async () => {
+            try {
+                const { findPriorEngagementMatches, loadPriorSynthesisBundle } = await import('./services/wikiService');
+                const matches = await findPriorEngagementMatches(goal, { limit: 5, minScore: 2 });
+                setPriorEngagementMatches(matches);
+                if (matches.length > 0) {
+                    const bundle = await loadPriorSynthesisBundle(matches, { maxChars: 40000, maxFilesPerEngagement: 4 });
+                    setPriorEngagementInsights(bundle);
+                    console.log(`[EngagementMemory] ${matches.length} prior engagement(s) matched — loaded ${Math.round(bundle.length / 1000)}KB of synthesis context`);
+                } else {
+                    setPriorEngagementInsights('');
+                }
+            } catch (e) { console.warn('[EngagementMemory] lookup failed:', e); }
+        }, 800);
+        return () => clearTimeout(handle);
+    }, [researchGoal]);
+    // Phase 1.8 — cache of deep article bodies loaded from the wiki archive,
+    // keyed by the set of wikiPaths in the current KG. Refreshes when new
+    // evidence nodes with wikiPath arrive. Injected into chat grounding
+    // context so the LLM sees full extracted text, not 300-char snippets.
+    const [wikiArticleBodies, setWikiArticleBodies] = useState<string>('');
+    useEffect(() => {
+        const pathCount = knowledgeGraph.nodes.filter((n: any) => n.type === 'evidence' && n.wikiPath).length;
+        if (pathCount === 0) { if (wikiArticleBodies) setWikiArticleBodies(''); return; }
+        // Debounced lazy-load: wait 600ms after the last graph change so we
+        // don't refetch during rapid additive approvals.
+        const handle = setTimeout(async () => {
+            try {
+                const { loadWikiArticleBodies } = await import('./services/corpusChatService');
+                const bodies = await loadWikiArticleBodies(knowledgeGraph, { maxArticles: 40, perArticleChars: 8000 });
+                setWikiArticleBodies(bodies);
+                if (bodies) console.log(`[WikiArchive] Loaded ${pathCount} deep article bodies (${Math.round(bodies.length / 1000)}KB) for chat grounding`);
+            } catch (e) { console.warn('[WikiArchive] lazy-load failed:', e); }
+        }, 600);
+        return () => clearTimeout(handle);
+    }, [knowledgeGraph.nodes.length]);
     const kgBuiltRef = useRef<{ sources: boolean; themes: boolean; personas: boolean; recs: boolean; journey: boolean; prd: boolean; roadmap: boolean; gaps: boolean }>({ sources: false, themes: false, personas: false, recs: false, journey: false, prd: false, roadmap: false, gaps: false });
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
@@ -1001,6 +1168,26 @@ const App = () => {
     // --- CHAT DELIVERABLE → KNOWLEDGE GRAPH ---
     // When a deliverable is approved in the chat, add it directly to the KG
     const handleChatDeliverableApproved = useCallback((type: string, data: any) => {
+        // Phase 1.5: persist the approved synthesis artifact to the wiki
+        // archive. Map the chat `type` label to a SynthesisKind folder and
+        // store each approved item as its own markdown file. Non-blocking —
+        // wiki failures don't affect the KG update.
+        const kindMap: Record<string, string> = {
+            theme: 'themes', persona: 'personas', recommendation: 'recommendations',
+            journey_stage: 'journeys', prd_feature: 'prd', roadmap_item: 'roadmap',
+            gap: 'gap-analysis', feature: 'prd', tech_node: 'tech-arch',
+            tech_audit_system: 'tech-audit', competitive_peer: 'competitive',
+            strategic_report: 'strategic-report',
+        };
+        const synthesisKind = kindMap[type];
+        if (synthesisKind) {
+            (async () => {
+                try {
+                    const { archiveSynthesisOutput } = await import('./services/wikiService');
+                    await archiveSynthesisOutput(synthesisKind as any, data, researchGoal);
+                } catch (e) { /* non-blocking */ }
+            })();
+        }
         setKnowledgeGraph(prev => {
             let graph = { ...prev, nodes: [...prev.nodes], edges: [...prev.edges] };
             switch (type) {
@@ -1032,7 +1219,7 @@ const App = () => {
             console.log(`[KG] Added approved ${type} to knowledge graph (${graph.nodes.length} nodes, ${graph.edges.length} edges)`);
             return graph;
         });
-    }, []);
+    }, [researchGoal]);
 
     // --- HEURISTIC MODE STATE ---
     type AppMode = 'research' | 'heuristic';
@@ -1675,10 +1862,13 @@ const App = () => {
         // --- PRE-PHASE: Auto-detect lens + auto-enable data sources BEFORE collection ---
         const documentNames = files.map((f: FileType) => f.name);
 
-        // A12: Seed wiki with uploaded document catalog
+        // A12: Seed wiki with uploaded document catalog + Phase 1.4: archive
+        // full document bodies to wiki/uploads/ so chat + slides + future
+        // engagements can recall them without re-reading the binary blobs.
         try {
-            const { seedWikiFromUploads } = await import('./services/wikiService');
+            const { seedWikiFromUploads, archiveUploadedDocs } = await import('./services/wikiService');
             await seedWikiFromUploads(documentNames, researchGoal);
+            await archiveUploadedDocs(files, researchGoal);
         } catch { /* non-blocking */ }
 
         const lensResult = detectAnalyticalLens(researchGoal, documentNames);
@@ -2242,7 +2432,30 @@ const App = () => {
                     proxyCorpus = sections.join('\n');
                 }
 
-                let fullCorpus = [corpus, proxyCorpus].filter(c => c.trim()).join('\n\n');
+                // Prepend uploaded-document text so the extracted client PDFs/DOCX/XLSX
+                // are a first-class part of the corpus every downstream stage sees
+                // (tri-model analysis, theme extraction, knowledge graph building).
+                // Reads the FileUpload-populated `parsedText` field — which at this
+                // point should have resolved for every uploaded file, since the user
+                // uploaded before clicking Collect Data. If the parse is still in
+                // flight for some reason, the file is skipped (not fabricated).
+                let uploadedCorpus = '';
+                try {
+                    const uploadedBlocks: string[] = [];
+                    for (const f of (files as any[]) || []) {
+                        const text = (f as any).parsedText;
+                        if (typeof text === 'string' && text.length >= 40) {
+                            const meta = [(f as any).parseMethod && `method=${(f as any).parseMethod}`, (f as any).parsedPages && `pages=${(f as any).parsedPages}`, `chars=${text.length}`].filter(Boolean).join(', ');
+                            uploadedBlocks.push(`\n=== UPLOADED DOCUMENT: ${f.name} (${meta}) ===\n${text}\n`);
+                        }
+                    }
+                    if (uploadedBlocks.length > 0) {
+                        uploadedCorpus = uploadedBlocks.join('\n');
+                        console.log(`[Corpus] Prepended ${uploadedBlocks.length} uploaded document(s) — ${Math.round(uploadedCorpus.length / 1024)}KB of client material`);
+                    }
+                } catch (e) { console.warn('[Corpus] Upload prepend failed:', e); }
+
+                let fullCorpus = [uploadedCorpus, corpus, proxyCorpus].filter(c => c.trim()).join('\n\n');
                 const totalItems = executionResult.totalItems + proxyResults.reduce((s, r) => s + (r.items?.length || 0), 0);
                 const totalSources = executionResult.successfulSources + proxyResults.filter(r => r.items?.length > 0).length;
 
@@ -2999,12 +3212,37 @@ ${synthesisParts.join('\n')}
                                 <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-8 shadow-none mb-12">
                                      <div className="mb-8">
                                          <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Research Goal</label>
-                                         <input 
-                                             value={researchGoal} 
+                                         <input
+                                             value={researchGoal}
                                              onChange={(e) => setResearchGoal(e.target.value)}
                                              className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-4 text-lg font-medium focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all"
                                              placeholder="e.g. Understand the pain points of remote workers..."
                                          />
+                                         {/* Phase 1.9 — prior engagement match hint. Appears when the
+                                             current goal semantically overlaps with wiki/engagements
+                                             or wiki/synthesis from a prior run. Gives the operator a
+                                             chance to reuse prior insights instead of starting cold. */}
+                                         {priorEngagementMatches.length > 0 && (
+                                             <div style={{ marginTop: 10, padding: '10px 14px', background: '#F5F5F0', border: '1px solid #D4D4B8', borderLeft: '3px solid #B8B800', fontSize: 12, fontFamily: 'Archivo, sans-serif', color: '#333' }}>
+                                                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 }}>
+                                                     <span style={{ fontFamily: "'Bebas Neue',sans-serif", letterSpacing: 2, fontSize: 13, color: '#115054' }}>ENGAGEMENT MEMORY</span>
+                                                     <span style={{ color: '#666', fontSize: 11 }}>
+                                                         {priorEngagementMatches.length} prior {priorEngagementMatches.length === 1 ? 'engagement' : 'engagements'} overlap{priorEngagementMatches.length === 1 ? 's' : ''} with this goal — insights will be available to chat {priorEngagementInsights ? `(${Math.round(priorEngagementInsights.length / 1000)}KB loaded)` : ''}
+                                                     </span>
+                                                 </div>
+                                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                                     {priorEngagementMatches.slice(0, 5).map((m: any) => (
+                                                         <span
+                                                             key={m.engagement}
+                                                             title={`Score ${m.score} · matched: ${m.matchedTerms.join(', ')}${m.synthesisPaths.length ? ' · ' + m.synthesisPaths.length + ' synthesis files' : ''}`}
+                                                             style={{ padding: '3px 8px', background: '#0D0D0D', color: '#B8B800', fontSize: 10, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 0.3, borderRadius: 2, cursor: 'help' }}
+                                                         >
+                                                             {m.engagement.substring(0, 30)}{m.engagement.length > 30 ? '…' : ''} · {m.score}
+                                                         </span>
+                                                     ))}
+                                                 </div>
+                                             </div>
+                                         )}
                                      </div>
                                      
                                      {/* Research method, analytical lens, visualization style, and design system are all
@@ -3353,19 +3591,7 @@ ${synthesisParts.join('\n')}
                           onToggle={() => setShowCorpusChat(false)}
                           getContext={() => ({
                               corpusText: corpusTextRef.current || '',
-                              uploadedFileContents: (() => {
-                                  try {
-                                      return files.map(f => {
-                                          const isText = f.type === 'text/plain' || f.name.endsWith('.txt') ||
-                                              f.name.endsWith('.json') || f.name.endsWith('.csv');
-                                          if (isText) {
-                                              try { return `=== FILE: ${f.name} ===\n${decodeURIComponent(escape(atob(f.data)))}\n`; }
-                                              catch { return `=== FILE: ${f.name} === [decode error]\n`; }
-                                          }
-                                          return `=== FILE: ${f.name} === [PDF — content in corpus]\n`;
-                                      }).join('\n');
-                                  } catch { return ''; }
-                              })(),
+                              uploadedFileContents: buildUploadedFileContents(files),
                               themes: result.themes,
                               personas: result.personas,
                               recommendations: result.recommendations,
@@ -3383,6 +3609,8 @@ ${synthesisParts.join('\n')}
                               sourceReferences: buildSourceReferences(liveSourceResults),
                               chunkMap: getChunkSourceMap(),
                               knowledgeGraph: knowledgeGraph,
+                              wikiArticleBodies: wikiArticleBodies,
+                              priorEngagementInsights: priorEngagementInsights,
                           } as ChatContext)}
                           context={{} as ChatContext}
                           onDeliverableApproved={handleChatDeliverableApproved}

@@ -4,6 +4,18 @@ export interface FileUpload {
   type: string;
   size: number;
   data: string; // Base64
+  /** Plain-text extraction from the uploaded file, populated by
+   *  /api/parse-upload after the browser reads the file. Provider-
+   *  agnostic — consumed by chat context, wiki archive, corpus
+   *  ingestion, slide generation. For text files this is the decoded
+   *  base64; for PDFs it's PyPDF2 output; for DOCX/XLSX it's regex
+   *  text-stream extraction. Undefined while parsing is in flight. */
+  parsedText?: string;
+  /** Number of pages parsed (PDFs only). */
+  parsedPages?: number;
+  /** Parse method that produced parsedText: 'pypdf' | 'decode' |
+   *  'office-regex' | 'fallback-regex' | 'unsupported'. */
+  parseMethod?: string;
 }
 
 // ================================================================

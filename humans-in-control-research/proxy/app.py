@@ -1059,6 +1059,131 @@ async def _extract_pdf_impl(url: str, max_pages: int = 30):
         return {"url": url, "extracted": False, "error": str(e)[:200], "text": ""}
 
 
+# ================================================================
+# UPLOADED-FILE PARSING — provider-agnostic text extraction from
+# client-uploaded documents (PDF / DOCX / XLSX / PPTX / text). Called
+# once per file after browser upload so the parsed body is available
+# to every downstream surface: Claude/OpenAI/Gemini chat, slide
+# generation, wiki archive, and corpus ingestion.
+#
+# Why a separate endpoint: /api/extract-pdf takes a URL only (reaches
+# out to a remote server). Uploaded files arrive as base64 bytes in
+# the browser — no URL to fetch. This endpoint accepts the raw bytes
+# directly and routes to the same parser family.
+# ================================================================
+
+# Pydantic BaseModel is imported later at the wiki-endpoints section; we
+# need it at module scope here so the model class can be defined before
+# the later import executes. Redundant import is a no-op in Python.
+from pydantic import BaseModel as _BaseModel_parse
+class ParseUploadRequest(_BaseModel_parse):
+    filename: str
+    base64: str
+    mimeType: Optional[str] = ""
+
+def _parse_pdf_bytes(raw: bytes, max_pages: int = 80) -> dict:
+    """Extract text from PDF bytes using PyPDF2. Returns {text, pages, totalPages, method}."""
+    try:
+        from PyPDF2 import PdfReader
+        import io as _io
+        reader = PdfReader(_io.BytesIO(raw))
+        total = len(reader.pages)
+        chunks = []
+        for i in range(min(total, max_pages)):
+            try:
+                t = reader.pages[i].extract_text() or ""
+                if t.strip():
+                    chunks.append(f"[Page {i+1}]\n{t.strip()}")
+            except Exception:
+                # Occasional malformed pages — skip without failing the whole parse
+                continue
+        text = "\n\n".join(chunks)
+        return {"text": text[:120_000], "pages": len(chunks), "totalPages": total, "method": "pypdf"}
+    except ImportError:
+        return {"text": "", "error": "PyPDF2 not installed", "method": "pypdf"}
+    except Exception as e:
+        return {"text": "", "error": str(e)[:200], "method": "pypdf"}
+
+def _parse_office_bytes(raw: bytes) -> dict:
+    """Text-stream extraction from DOCX/XLSX/PPTX bytes. These are zipped XML —
+    a regex pass over printable ASCII captures most document text when pypdf
+    doesn't apply. Mirrors the approach already working in geminiService.ts."""
+    try:
+        # Decode as latin-1 (byte-preserving) and strip non-printables
+        import re as _re
+        text = raw.decode("latin-1", errors="ignore")
+        # Collapse binary noise, strip XML tags, clean whitespace
+        text = _re.sub(r"[^\x20-\x7E\n\r\t]+", " ", text)
+        text = _re.sub(r"<[^>]+>", " ", text)
+        text = _re.sub(r"\s{2,}", " ", text).strip()
+        # Keep only sequences that look like real words
+        blocks = _re.findall(r"[A-Za-z][A-Za-z0-9\s,.;:!?'\-]{40,}", text)
+        body = " ".join(blocks)[:120_000]
+        words = [w for w in body.split() if len(w) > 3]
+        return {"text": body if len(words) > 30 else "", "method": "office-regex"}
+    except Exception as e:
+        return {"text": "", "error": str(e)[:200], "method": "office-regex"}
+
+@app.post("/api/parse-upload")
+async def parse_upload(req: ParseUploadRequest):
+    """Parse an uploaded file (provided as base64) to plain text.
+    Routes by extension/MIME:
+      .pdf                         → PyPDF2
+      .txt/.md/.csv/.json/.xml     → direct UTF-8 / latin-1 decode
+      .docx/.xlsx/.pptx/.doc/.xls  → office regex text extraction
+      other                        → returns empty text + 'unsupported'
+    Never raises — always returns a result dict so the frontend can
+    attach the outcome to FileType without exception handling."""
+    import base64 as _b64
+    fn = (req.filename or "").strip()
+    mime = (req.mimeType or "").lower()
+    ext = fn.rsplit(".", 1)[-1].lower() if "." in fn else ""
+
+    if not req.base64:
+        return {"filename": fn, "text": "", "error": "no base64 payload", "method": "none"}
+
+    try:
+        raw = _b64.b64decode(req.base64, validate=False)
+    except Exception as e:
+        return {"filename": fn, "text": "", "error": f"base64 decode failed: {e}", "method": "none"}
+
+    if not raw:
+        return {"filename": fn, "text": "", "error": "empty payload", "method": "none"}
+
+    # 1. PDF (by extension, MIME, or magic bytes)
+    is_pdf = ext == "pdf" or "pdf" in mime or (len(raw) >= 5 and raw[:5] == b"%PDF-")
+    if is_pdf:
+        out = _parse_pdf_bytes(raw)
+        logger.info(f"[parse-upload] PDF {fn} → {len(out.get('text') or '')} chars ({out.get('pages', 0)} pages)")
+        return {"filename": fn, **out, "bytes": len(raw)}
+
+    # 2. Plain text / json / csv / markdown / xml
+    text_exts = {"txt", "md", "markdown", "csv", "json", "xml", "log", "tsv", "yaml", "yml"}
+    is_text_mime = mime.startswith("text/") or mime in {"application/json", "application/xml", "text/csv"}
+    if ext in text_exts or is_text_mime:
+        try:
+            decoded = raw.decode("utf-8")
+        except UnicodeDecodeError:
+            decoded = raw.decode("latin-1", errors="replace")
+        logger.info(f"[parse-upload] TEXT {fn} → {len(decoded)} chars")
+        return {"filename": fn, "text": decoded[:200_000], "method": "decode", "bytes": len(raw)}
+
+    # 3. Office documents (DOCX/XLSX/PPTX/DOC/XLS/PPT)
+    office_exts = {"docx", "xlsx", "pptx", "doc", "xls", "ppt", "odt", "ods", "odp"}
+    is_office_mime = "officedocument" in mime or "ms-excel" in mime or "msword" in mime or "powerpoint" in mime
+    if ext in office_exts or is_office_mime:
+        out = _parse_office_bytes(raw)
+        logger.info(f"[parse-upload] OFFICE {fn} → {len(out.get('text') or '')} chars")
+        return {"filename": fn, **out, "bytes": len(raw)}
+
+    # 4. Fallback — best-effort regex on raw bytes
+    out = _parse_office_bytes(raw)
+    if out.get("text"):
+        logger.info(f"[parse-upload] FALLBACK {fn} (ext={ext}, mime={mime}) → {len(out['text'])} chars")
+        return {"filename": fn, **out, "bytes": len(raw), "method": "fallback-regex"}
+    return {"filename": fn, "text": "", "error": f"unsupported format (ext={ext}, mime={mime})", "method": "unsupported", "bytes": len(raw)}
+
+
 @app.get("/api/extract-content")
 async def extract_content(url: str = Query(...)):
     """Smart content extraction:
@@ -1381,6 +1506,29 @@ async def transcribe_youtube_endpoint(request: _S5Request):
         result = _whisper_transcribe_with_chunking(audio_path)
         transcript = result["text"]
 
+        # Phase 1.3 — persist transcript to wiki archive. Non-blocking:
+        # wiki failure doesn't break the transcription response.
+        wiki_path_out: Optional[str] = None
+        if transcript and len(transcript) >= 200:
+            try:
+                req_obj = WikiArticleWriteRequest(
+                    url=url,
+                    content=transcript,
+                    source=metadata.get("uploader") or "YouTube",
+                    title=metadata.get("title"),
+                    date=metadata.get("published"),
+                    tier=2,
+                    method="whisper",
+                    kind="transcript",
+                    channel=metadata.get("uploader") or metadata.get("channel_id"),
+                    duration_sec=int(metadata.get("duration_s") or 0) or None,
+                )
+                write_resp = await wiki_write_article(req_obj)
+                if isinstance(write_resp, dict) and write_resp.get("wikiPath"):
+                    wiki_path_out = write_resp["wikiPath"]
+            except Exception as wiki_err:
+                logger.warning(f"[YT-xscribe] wiki write failed for {url[:60]}: {wiki_err}")
+
         return {
             "url": url,
             "method": "youtube_whisper",
@@ -1395,6 +1543,7 @@ async def transcribe_youtube_endpoint(request: _S5Request):
             "chunks_total": result["chunks_total"],
             "chunks_succeeded": result["chunks_succeeded"],
             "characters": len(transcript),
+            "wikiPath": wiki_path_out,
         }
     except Exception as e:
         logger.error(f"[YT-xscribe] failed for {url[:60]}: {e}")
@@ -1671,13 +1820,42 @@ async def scheduler_poll_youtube_channels(request: _S5Request):
                 try:
                     audio_path, metadata = _ytdlp_download_audio(v["url"], work_dir)
                     tx_result = _whisper_transcribe_with_chunking(audio_path)
+                    transcript_text = tx_result.get("text", "") or ""
+                    # Phase 1.3 — persist transcript to wiki archive so chat +
+                    # slide generators + future engagements can recall it.
+                    # In-process call to the wiki-write helper (no HTTP loop).
+                    wiki_path_out: Optional[str] = None
+                    if transcript_text and len(transcript_text) >= 200:
+                        try:
+                            # Resolve channel metadata for this video (fresh lookup —
+                            # we're outside the poll loop that iterated `chan`).
+                            src_chan = next((c for c in target_channels if c.get("channel_id") == v.get("channel_id")), None)
+                            src_name = (src_chan or {}).get("title") or v.get("institution") or 'YouTube'
+                            req_obj = WikiArticleWriteRequest(
+                                url=v["url"],
+                                content=transcript_text,
+                                source=src_name,
+                                title=v["title"],
+                                date=v.get("published") or None,
+                                tier=2,
+                                method="whisper",
+                                kind="transcript",
+                                channel=v.get("institution") or v.get("channel_id"),
+                                duration_sec=int(metadata.get("duration_s") or 0) or None,
+                            )
+                            write_resp = await wiki_write_article(req_obj)
+                            if isinstance(write_resp, dict) and write_resp.get("wikiPath"):
+                                wiki_path_out = write_resp["wikiPath"]
+                        except Exception as wiki_err:
+                            logger.warning(f"[scheduler] transcript wiki write failed for {v['video_id']}: {wiki_err}")
                     transcribed.append({
                         "video_id": v["video_id"],
                         "title": v["title"],
                         "duration_s": metadata.get("duration_s", 0),
-                        "transcript_chars": len(tx_result.get("text", "")),
+                        "transcript_chars": len(transcript_text),
                         "chunks": f"{tx_result.get('chunks_succeeded', 0)}/{tx_result.get('chunks_total', 0)}",
                         "matched_keywords": v["matched_keywords"],
+                        "wikiPath": wiki_path_out,
                     })
                 finally:
                     try:
@@ -1988,6 +2166,514 @@ async def wiki_read(path: str):
         return JSONResponse({"error": "Not found"}, status_code=404)
     with open(safe_path, "r", encoding="utf-8") as f:
         return {"path": path, "content": f.read()}
+
+
+# ================================================================
+# WIKI ARTICLE ARCHIVE — Phase 1.1 (wiki-as-persistent-corpus-memory)
+# ================================================================
+# Every extracted article, transcript, PDF, or uploaded doc lands here as a
+# deterministically-addressed markdown file with YAML frontmatter. Evidence
+# nodes in the KG carry the resulting wikiPath so renderers, chat, and
+# slide generators can load full content on demand — no more 300-char
+# truncated snippets.
+#
+# Path convention:
+#   articles/{source-slug}/{url-hash}.md     — web articles via Jina/PDF
+#   transcripts/{channel-slug}/{video-hash}.md — YouTube transcripts
+#   uploads/{engagement-slug}/{doc-hash}.md  — user-uploaded documents
+#
+# URL hash is a short (10 char) blake2b of the canonical URL — stable across
+# sessions, allows cross-engagement dedup without storing the full URL in
+# the path.
+
+import hashlib
+import re as _re_wiki
+
+ARTICLE_MIN_CHARS_FOR_DEDUP = 500  # Skip re-fetch if cached content ≥ this
+
+def _wiki_slug(text: str, max_len: int = 48) -> str:
+    """Slug-ify a string for wiki directory names. Lowercase, hyphenated,
+    alphanumeric only, capped to max_len."""
+    s = _re_wiki.sub(r'[^a-z0-9]+', '-', (text or '').lower()).strip('-')
+    return (s[:max_len] or 'unknown').rstrip('-')
+
+def _url_hash(url: str) -> str:
+    """Stable short hash of a canonical URL — blake2b 10-char digest.
+    Canonicalization: lowercase scheme/host, strip trailing slash, drop
+    common tracking params, preserve path + meaningful query."""
+    if not url:
+        return 'unknown'
+    u = url.strip().lower()
+    # Strip common tracking params
+    for param in ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'ref', 'fbclid', 'gclid']:
+        u = _re_wiki.sub(rf'[?&]{param}=[^&]*', '', u)
+    u = u.rstrip('/').rstrip('?').rstrip('&')
+    return hashlib.blake2b(u.encode('utf-8'), digest_size=5).hexdigest()
+
+class WikiArticleWriteRequest(BaseModel):
+    """Schema for writing an extracted article to the wiki archive.
+    All fields except url + content are metadata that drives the frontmatter."""
+    url: str
+    content: str
+    source: Optional[str] = None         # Human-readable source name (e.g. "Chronicle of Philanthropy")
+    title: Optional[str] = None
+    author: Optional[str] = None
+    date: Optional[str] = None           # Publication date (any ISO-ish format)
+    tier: Optional[int] = None           # Credibility tier 1/2/3
+    method: Optional[str] = None         # 'jina' | 'pypdf' | 'whisper' | 'rss' | 'api' | 'upload'
+    kind: Optional[str] = 'article'      # 'article' | 'transcript' | 'pdf' | 'upload'
+    engagement: Optional[str] = None     # Optional engagement slug for uploads/ namespace
+    channel: Optional[str] = None        # For transcripts — channel/institution name
+    duration_sec: Optional[int] = None   # For transcripts
+    page_count: Optional[int] = None     # For PDFs
+
+def _article_wiki_path(kind: str, source: str, engagement: Optional[str], channel: Optional[str], h: str) -> str:
+    """Build the canonical wiki path for an article based on its kind."""
+    if kind == 'transcript':
+        bucket = _wiki_slug(channel or source or 'unknown-channel')
+        return f"transcripts/{bucket}/{h}.md"
+    if kind == 'upload':
+        bucket = _wiki_slug(engagement or 'misc')
+        return f"uploads/{bucket}/{h}.md"
+    # Default: article
+    bucket = _wiki_slug(source or 'unknown-source')
+    return f"articles/{bucket}/{h}.md"
+
+def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: str, chars: int) -> str:
+    """Build YAML frontmatter for a wiki article. Kept minimal + stable so
+    downstream readers can rely on the shape."""
+    def esc(v):
+        if v is None:
+            return ''
+        s = str(v).replace('"', '\\"').replace('\n', ' ')
+        return f'"{s}"'
+    lines = [
+        '---',
+        f'url: {esc(req.url)}',
+        f'url_hash: {esc(h)}',
+        f'kind: {esc(req.kind or "article")}',
+        f'source: {esc(req.source or "")}',
+        f'title: {esc(req.title or "")}',
+        f'author: {esc(req.author or "")}',
+        f'date: {esc(req.date or "")}',
+        f'tier: {req.tier if req.tier is not None else ""}',
+        f'method: {esc(req.method or "")}',
+        f'extracted_at: {esc(datetime.now(timezone.utc).isoformat())}',
+        f'chars: {chars}',
+    ]
+    if req.channel:
+        lines.append(f'channel: {esc(req.channel)}')
+    if req.engagement:
+        lines.append(f'engagement: {esc(req.engagement)}')
+    if req.duration_sec is not None:
+        lines.append(f'duration_sec: {req.duration_sec}')
+    if req.page_count is not None:
+        lines.append(f'page_count: {req.page_count}')
+    lines.append('---')
+    return '\n'.join(lines)
+
+@app.post("/api/wiki/write-article")
+async def wiki_write_article(req: WikiArticleWriteRequest):
+    """Persist an extracted article/transcript/PDF/upload to the wiki archive.
+    Returns the canonical wikiPath the caller should attach to evidence nodes.
+    Overwrites if the hash already exists (latest extraction wins)."""
+    if not req.url or not req.content:
+        return JSONResponse({"error": "url + content required"}, status_code=400)
+    if len(req.content) < 40:
+        return JSONResponse({"error": f"content too short ({len(req.content)} chars); min 40"}, status_code=400)
+    h = _url_hash(req.url)
+    path_rel = _article_wiki_path(req.kind or 'article', req.source or '', req.engagement, req.channel, h)
+    safe_path = os.path.normpath(os.path.join(WIKI_BASE, path_rel))
+    if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    try:
+        os.makedirs(os.path.dirname(safe_path), exist_ok=True)
+        chars = len(req.content)
+        frontmatter = _build_article_frontmatter(req, h, path_rel, chars)
+        body = f"{frontmatter}\n\n# {req.title or req.source or 'Untitled'}\n\n"
+        if req.url:
+            body += f"Source: [{req.source or req.url}]({req.url})\n\n"
+        body += req.content.strip() + "\n"
+        with open(safe_path, "w", encoding="utf-8") as f:
+            f.write(body)
+        logger.info(f"Wiki article write: {path_rel} ({chars} chars, kind={req.kind})")
+        return {
+            "status": "ok",
+            "wikiPath": path_rel,
+            "urlHash": h,
+            "chars": chars,
+            "kind": req.kind or 'article',
+        }
+    except Exception as e:
+        logger.error(f"Wiki article write failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/wiki/read-article/{hash_or_path:path}")
+async def wiki_read_article(hash_or_path: str):
+    """Read a wiki article. Accepts either a full wikiPath
+    (articles/source/hash.md) or just the hash — in which case we search
+    known article subdirectories."""
+    # Direct path
+    if hash_or_path.endswith('.md') or '/' in hash_or_path:
+        safe_path = os.path.normpath(os.path.join(WIKI_BASE, hash_or_path))
+        if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
+            return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+        if not os.path.exists(safe_path):
+            return JSONResponse({"error": "Not found", "wikiPath": hash_or_path}, status_code=404)
+        with open(safe_path, "r", encoding="utf-8") as f:
+            return {"wikiPath": hash_or_path, "content": f.read()}
+
+    # Hash-only lookup: walk articles/, transcripts/, uploads/ for {hash}.md
+    h = hash_or_path
+    for namespace in ('articles', 'transcripts', 'uploads'):
+        ns_root = os.path.join(WIKI_BASE, namespace)
+        if not os.path.isdir(ns_root):
+            continue
+        for bucket in os.listdir(ns_root):
+            candidate = os.path.join(ns_root, bucket, f"{h}.md")
+            if os.path.exists(candidate):
+                rel = os.path.relpath(candidate, WIKI_BASE).replace(os.sep, '/')
+                with open(candidate, "r", encoding="utf-8") as f:
+                    return {"wikiPath": rel, "content": f.read()}
+    return JSONResponse({"error": "Hash not found", "urlHash": h}, status_code=404)
+
+@app.get("/api/wiki/check-article")
+async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP):
+    """Dedup check: does the wiki already hold ≥ min_chars of extracted
+    content for this URL? Orchestrator calls this before Jina/PDF fetch
+    to skip redundant re-extraction across engagements."""
+    if not url:
+        return JSONResponse({"error": "url required"}, status_code=400)
+    h = _url_hash(url)
+    # Walk the same three namespaces as read-article
+    for namespace in ('articles', 'transcripts', 'uploads'):
+        ns_root = os.path.join(WIKI_BASE, namespace)
+        if not os.path.isdir(ns_root):
+            continue
+        for bucket in os.listdir(ns_root):
+            candidate = os.path.join(ns_root, bucket, f"{h}.md")
+            if os.path.exists(candidate):
+                size = os.path.getsize(candidate)
+                # Rough char estimate — bytes ≈ chars for markdown
+                if size >= min_chars:
+                    rel = os.path.relpath(candidate, WIKI_BASE).replace(os.sep, '/')
+                    return {
+                        "cached": True,
+                        "wikiPath": rel,
+                        "urlHash": h,
+                        "bytes": size,
+                    }
+                # File exists but too small — treat as not cached so caller re-fetches
+                return {"cached": False, "urlHash": h, "reason": "below_min_chars", "bytes": size}
+    return {"cached": False, "urlHash": h}
+
+
+# ================================================================
+# WIKI METADATA INDEX + RETRIEVAL  (Phase 1-retrofit 2026-04-20)
+# ================================================================
+# The wiki archive holds FULL article/transcript/upload bodies — hundreds
+# of thousands of characters per engagement. We cannot jam all of it into
+# every AI prompt; that's the context-window cliff the earlier design
+# tried (and failed) to climb by cramming truncated corpora.
+#
+# Instead: a lightweight metadata index (title, url, source, date, charCount,
+# short summary, wikiPath) gives the model a complete menu of what's
+# available. When it needs body text, it calls /api/wiki/fetch-articles with
+# ids or a keyword query and gets real bodies back inline. This is the
+# classical RAG pattern, implemented against the existing wiki archive
+# without any vector store — a simple keyword search over frontmatter +
+# summary is sufficient at our scale (≤20k articles per engagement).
+
+import json as _json_wiki_index
+from time import time as _now_wiki_index
+from typing import List as _List_wiki_index  # List not in module-level typing import
+
+_WIKI_INDEX_CACHE: dict = {"built_at": 0.0, "entries": [], "mtime_scan": 0.0}
+_WIKI_INDEX_TTL_SEC = 30  # rebuild if older than this AND any wiki file is newer
+
+def _parse_wiki_frontmatter(text: str) -> dict:
+    """Extract the YAML-ish frontmatter from a wiki article. Returns a dict
+    of key→string. Tolerates missing fields, malformed lines, and absent
+    frontmatter (returns empty dict)."""
+    if not text.startswith('---'):
+        return {}
+    end = text.find('\n---', 3)
+    if end < 0:
+        return {}
+    block = text[3:end]
+    out: dict = {}
+    for line in block.splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        if ':' not in line:
+            continue
+        key, _, val = line.partition(':')
+        key = key.strip()
+        val = val.strip().strip('"').strip("'")
+        if key:
+            out[key] = val
+    return out
+
+def _extract_wiki_body(text: str, max_chars: int = 200) -> str:
+    """Strip frontmatter + h1 + Source:[]()  and return the first max_chars of the body.
+    Matches the stripping logic in researchFabricOrchestrator.checkWikiCache."""
+    body = text
+    if body.startswith('---'):
+        end = body.find('\n---\n', 3)
+        if end > 0:
+            body = body[end + 5:]
+    body = _re_wiki.sub(r'^#\s+[^\n]+\n+', '', body.lstrip(), count=1)
+    body = _re_wiki.sub(r'^Source:\s+\[[^\]]+\]\([^)]+\)\n+', '', body, count=1)
+    body = body.strip()
+    if max_chars <= 0:
+        return body
+    return body[:max_chars]
+
+def _walk_wiki_archive():
+    """Yield (abs_path, rel_path, mtime) for every .md file under the
+    articles/, transcripts/, uploads/ namespaces. Skips dotfiles and dirs."""
+    for namespace in ('articles', 'transcripts', 'uploads'):
+        ns_root = os.path.join(WIKI_BASE, namespace)
+        if not os.path.isdir(ns_root):
+            continue
+        for bucket in os.listdir(ns_root):
+            if bucket.startswith('.'):
+                continue
+            bucket_dir = os.path.join(ns_root, bucket)
+            if not os.path.isdir(bucket_dir):
+                continue
+            for fname in os.listdir(bucket_dir):
+                if not fname.endswith('.md') or fname.startswith('.'):
+                    continue
+                abs_path = os.path.join(bucket_dir, fname)
+                try:
+                    mtime = os.path.getmtime(abs_path)
+                except OSError:
+                    continue
+                rel = os.path.relpath(abs_path, WIKI_BASE).replace(os.sep, '/')
+                yield abs_path, rel, mtime
+
+def _build_wiki_index(summary_len: int = 200) -> list:
+    """Walk the wiki archive and construct the metadata index. Each entry
+    is a dict safe for JSON serialization and small enough to fit 10,000
+    entries into a ~3MB payload."""
+    entries: list = []
+    for abs_path, rel, mtime in _walk_wiki_archive():
+        try:
+            with open(abs_path, 'r', encoding='utf-8') as f:
+                text = f.read()
+        except Exception as e:
+            logger.warning(f"Wiki index: failed to read {rel}: {e}")
+            continue
+        fm = _parse_wiki_frontmatter(text)
+        summary = _extract_wiki_body(text, max_chars=summary_len)
+        chars_from_fm = 0
+        try:
+            chars_from_fm = int(fm.get('chars', '0') or '0')
+        except ValueError:
+            chars_from_fm = 0
+        entry = {
+            'id': fm.get('url_hash') or rel.rsplit('/', 1)[-1].replace('.md', ''),
+            'wikiPath': rel,
+            'kind': fm.get('kind') or 'article',
+            'url': fm.get('url') or '',
+            'title': fm.get('title') or '',
+            'source': fm.get('source') or '',
+            'date': fm.get('date') or '',
+            'author': fm.get('author') or '',
+            'tier': fm.get('tier') or '',
+            'method': fm.get('method') or '',
+            'channel': fm.get('channel') or '',
+            'engagement': fm.get('engagement') or '',
+            'chars': chars_from_fm or max(0, len(text) - 400),
+            'mtime': mtime,
+            'summary': summary,
+        }
+        entries.append(entry)
+    # Sort newest first by mtime — AI sees most recent collections at top
+    entries.sort(key=lambda e: e.get('mtime', 0), reverse=True)
+    return entries
+
+def _get_wiki_index_cached(summary_len: int = 200, force_rebuild: bool = False) -> list:
+    """Return the cached wiki index, rebuilding if TTL expired, forced, or
+    any file under the archive has changed since the last build."""
+    global _WIKI_INDEX_CACHE
+    now = _now_wiki_index()
+    age = now - _WIKI_INDEX_CACHE.get('built_at', 0.0)
+    if not force_rebuild and age < _WIKI_INDEX_TTL_SEC and _WIKI_INDEX_CACHE.get('entries'):
+        # Quick mtime scan — if any file is newer than cache, rebuild
+        newest = _WIKI_INDEX_CACHE.get('mtime_scan', 0.0)
+        stale = False
+        for _abs, _rel, mtime in _walk_wiki_archive():
+            if mtime > newest:
+                stale = True
+                break
+        if not stale:
+            return _WIKI_INDEX_CACHE['entries']
+    entries = _build_wiki_index(summary_len=summary_len)
+    max_mtime = max((e.get('mtime', 0.0) for e in entries), default=0.0)
+    _WIKI_INDEX_CACHE = {
+        'built_at': now,
+        'mtime_scan': max_mtime,
+        'entries': entries,
+    }
+    return entries
+
+@app.get("/api/wiki/index")
+async def wiki_index_endpoint(
+    summary_len: int = 200,
+    limit: int = 0,
+    kind: Optional[str] = None,
+    source: Optional[str] = None,
+    min_chars: int = 0,
+    force_rebuild: int = 0,
+):
+    """Return the wiki metadata index — the lightweight menu the AI routes
+    against. Query params filter by kind/source/min_chars. summary_len
+    controls how many body chars are included per entry (0 = omit).
+    The index itself is cached for ~30s with file-mtime invalidation."""
+    try:
+        entries = _get_wiki_index_cached(summary_len=summary_len, force_rebuild=bool(force_rebuild))
+    except Exception as e:
+        logger.error(f"Wiki index build failed: {e}")
+        return JSONResponse({"error": str(e), "entries": []}, status_code=500)
+
+    filtered = entries
+    if kind:
+        filtered = [e for e in filtered if e.get('kind') == kind]
+    if source:
+        s = source.lower()
+        filtered = [e for e in filtered if s in (e.get('source') or '').lower()]
+    if min_chars > 0:
+        filtered = [e for e in filtered if int(e.get('chars') or 0) >= min_chars]
+    if limit > 0:
+        filtered = filtered[:limit]
+
+    return {
+        'total': len(entries),
+        'returned': len(filtered),
+        'built_at': _WIKI_INDEX_CACHE.get('built_at'),
+        'entries': filtered,
+    }
+
+
+class WikiFetchArticlesRequest(BaseModel):
+    """AI-callable retrieval. Either pass explicit ids/wikiPaths, OR pass a
+    keyword `query` that the proxy keyword-matches against title + summary +
+    source. `limit` caps how many bodies come back; `maxCharsPerArticle`
+    caps each body's length so the aggregate response stays bounded."""
+    ids: Optional[_List_wiki_index[str]] = None                 # url_hash values
+    wikiPaths: Optional[_List_wiki_index[str]] = None           # direct paths
+    query: Optional[str] = None                     # keyword search
+    kind: Optional[str] = None                      # filter: article|transcript|upload
+    source: Optional[str] = None                    # substring match on source name
+    minChars: Optional[int] = 0
+    limit: Optional[int] = 10
+    maxCharsPerArticle: Optional[int] = 20_000      # 20KB default — plenty for most quotes
+
+
+def _score_article_for_query(entry: dict, query_tokens: list) -> float:
+    """Simple keyword overlap scoring — title hits worth more than summary."""
+    if not query_tokens:
+        return 0.0
+    title = (entry.get('title') or '').lower()
+    summary = (entry.get('summary') or '').lower()
+    source = (entry.get('source') or '').lower()
+    score = 0.0
+    for tok in query_tokens:
+        if tok in title:
+            score += 3.0
+        if tok in summary:
+            score += 1.0
+        if tok in source:
+            score += 0.5
+    return score
+
+
+@app.post("/api/wiki/fetch-articles")
+async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
+    """Return full article bodies matching the request. This is the AI's
+    retrieval primitive: it sees metadata via /api/wiki/index, then calls
+    this endpoint with ids or a query to get real text for citation."""
+    try:
+        entries = _get_wiki_index_cached(summary_len=0)
+    except Exception as e:
+        logger.error(f"Wiki fetch-articles: index build failed: {e}")
+        return JSONResponse({"error": str(e), "articles": []}, status_code=500)
+
+    limit = max(1, min(50, req.limit or 10))
+    max_chars = max(500, min(50_000, req.maxCharsPerArticle or 20_000))
+
+    # Direct id/path lookup takes precedence over query
+    selected: list = []
+    used_paths: set = set()
+    if req.ids:
+        id_set = set(req.ids)
+        for e in entries:
+            if e.get('id') in id_set and e.get('wikiPath') not in used_paths:
+                selected.append(e)
+                used_paths.add(e.get('wikiPath'))
+    if req.wikiPaths:
+        path_set = set(req.wikiPaths)
+        for e in entries:
+            if e.get('wikiPath') in path_set and e.get('wikiPath') not in used_paths:
+                selected.append(e)
+                used_paths.add(e.get('wikiPath'))
+
+    # Query-based retrieval (if no direct ids matched enough)
+    if len(selected) < limit and req.query:
+        q = req.query.strip().lower()
+        query_tokens = [t for t in _re_wiki.split(r'\W+', q) if len(t) >= 3]
+        candidates = entries
+        if req.kind:
+            candidates = [e for e in candidates if e.get('kind') == req.kind]
+        if req.source:
+            s = req.source.lower()
+            candidates = [e for e in candidates if s in (e.get('source') or '').lower()]
+        if req.minChars and req.minChars > 0:
+            candidates = [e for e in candidates if int(e.get('chars') or 0) >= req.minChars]
+        scored = [(e, _score_article_for_query(e, query_tokens)) for e in candidates]
+        scored = [(e, s) for (e, s) in scored if s > 0 and e.get('wikiPath') not in used_paths]
+        scored.sort(key=lambda es: es[1], reverse=True)
+        for e, _s in scored[: limit - len(selected)]:
+            selected.append(e)
+            used_paths.add(e.get('wikiPath'))
+
+    # If still nothing selected and no direct ids given, fall back to newest
+    if not selected and not req.ids and not req.wikiPaths and not req.query:
+        selected = entries[:limit]
+
+    # Read bodies and assemble response
+    articles = []
+    for e in selected[:limit]:
+        safe_path = os.path.normpath(os.path.join(WIKI_BASE, e.get('wikiPath') or ''))
+        if not safe_path.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(safe_path):
+            continue
+        try:
+            with open(safe_path, 'r', encoding='utf-8') as f:
+                raw = f.read()
+        except Exception as err:
+            logger.warning(f"Wiki fetch-articles: read fail {e.get('wikiPath')}: {err}")
+            continue
+        body = _extract_wiki_body(raw, max_chars=max_chars)
+        articles.append({
+            'id': e.get('id'),
+            'wikiPath': e.get('wikiPath'),
+            'url': e.get('url'),
+            'title': e.get('title'),
+            'source': e.get('source'),
+            'date': e.get('date'),
+            'kind': e.get('kind'),
+            'tier': e.get('tier'),
+            'chars': len(body),
+            'content': body,
+        })
+    return {
+        'total_matched': len(selected),
+        'returned': len(articles),
+        'articles': articles,
+    }
 
 
 if __name__ == "__main__":
