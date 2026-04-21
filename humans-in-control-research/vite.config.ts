@@ -50,6 +50,13 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        // Docker on Windows — inotify events don't propagate through WSL2
+        // volume mounts, so HMR silently fails and a stale bundle is served.
+        // Polling guarantees file-change detection at the cost of a bit of CPU.
+        watch: {
+          usePolling: true,
+          interval: 500,
+        },
       },
       plugins: [react(), wikiStaticPlugin()],
       define: {

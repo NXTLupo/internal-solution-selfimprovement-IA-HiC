@@ -396,6 +396,8 @@ const LiveResearchBoard = ({
                 getContext={() => ({
                     corpusText: corpusTextRef.current || '',
                     uploadedFileContents: buildUploadedFileContents(files),
+                    uploadedFiles: files,           // 2026-04-21 — for Dynamic Prompt Chips (per-doc questions)
+                    liveSourceResults: liveSourceResults,  // 2026-04-21 — for mid-collection chip suggestions
                     themes: themes?.themes,
                     personas: personas?.personas,
                     recommendations: recommendations?.recommendations,
@@ -614,8 +616,14 @@ const LiveResearchBoard = ({
                     </motion.div>
                 )}
 
-                {/* TILES GRID — secondary elements below the graph */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                {/* TILES GRID — RETIRED 2026-04-21. The Context/Themes/Personas/
+                    Blueprint/PRD/Roadmap/Tech-Arch/Strategy/Deck tiles all
+                    redirected into the legacy tabbed-output editors which have
+                    been superseded by the Analyst Desk + Chat Workbench. The
+                    tiles broke the UI flow and offered no navigation value
+                    beyond the Analyst Desk metric bar directly above. Kept
+                    the surrounding div structure to preserve downstream layout. */}
+                <div className="hidden" style={{ display: 'none' }}>
 
                     {/* INGESTION TILE */}
                     {ingestion && (
@@ -3686,6 +3694,8 @@ ${synthesisParts.join('\n')}
                           getContext={() => ({
                               corpusText: corpusTextRef.current || '',
                               uploadedFileContents: buildUploadedFileContents(files),
+                              uploadedFiles: files,           // 2026-04-21 — Dynamic Prompt Chips
+                              liveSourceResults: liveSourceResults,  // 2026-04-21 — Dynamic Prompt Chips
                               themes: result.themes,
                               personas: result.personas,
                               recommendations: result.recommendations,

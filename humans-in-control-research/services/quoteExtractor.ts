@@ -496,42 +496,69 @@ interface BackfillStats {
     noMatchAnywhere: number;   // themes the wiki archive couldn't serve at all
 }
 
+// Tokenize text into content words (lowercase, ≥4 chars, not a stopword).
+// Used to compute keyword overlap between a candidate sentence and a theme.
+const BACKFILL_STOPWORDS = new Set([
+    'this','that','these','those','with','from','have','will','been','were','was',
+    'they','their','them','there','which','would','could','should','about','into',
+    'through','between','some','most','many','such','other','than','also','only',
+    'then','when','where','what','whom','whose','while','being','does','doing',
+    'over','under','above','below','after','before','same','more','like','just',
+    'each','even','both','used','using','make','makes','made','need','needs',
+]);
+function contentTokens(s: string): Set<string> {
+    const out = new Set<string>();
+    const lower = (s || '').toLowerCase();
+    const matches = lower.match(/[a-z][a-z0-9-]{3,}/g) || [];
+    for (const tok of matches) {
+        if (!BACKFILL_STOPWORDS.has(tok)) out.add(tok);
+    }
+    return out;
+}
+function normalizeForDedup(s: string): string {
+    return (s || '').toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+}
+
 async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, stats: BackfillStats): Promise<boolean> {
     if (!themeCluster || !Array.isArray(themeCluster.themes)) return false;
     let changed = false;
+
+    // Cluster-level dedup — prevents the SAME sentence appearing across
+    // multiple themes on one slide (the "Mary Washington bequest" bug was a
+    // single PDF chunk dominating wiki search across themes).
+    const clusterSeen = new Set<string>();
+
     // Process themes in parallel to keep latency bounded
     await Promise.all(themeCluster.themes.map(async (t: any) => {
         stats.totalThemes++;
-        // Decide whether THIS theme needs backfill
         const hasQuoteArray = Array.isArray(t.quotes) && t.quotes.length > 0;
         const quotesLookReal = hasQuoteArray && t.quotes.every((q: any) => !looksLikeTitle(q?.text));
         const evidenceLooksLikeTitle = looksLikeTitle(t.evidence);
         if (quotesLookReal && !evidenceLooksLikeTitle) return;    // healthy; skip
         stats.needingBackfill++;
 
-        // Query strategy: combine theme name + insight, fall back to the user's
-        // original message if the theme name is too generic
         const themeQuery = [t.name, t.insight].filter(Boolean).join(' ').trim();
         const query = themeQuery.length >= 12 ? themeQuery : fallbackQuery;
         if (!query || query.length < 8) { stats.noMatchAnywhere++; return; }
 
-        // Pass 1: strict — only meaty archive entries (≥800 chars). Gives us
-        // real body prose when the archive is populated properly.
+        // Theme anchor tokens — candidate sentences must share ≥2 content
+        // tokens with the theme or they're likely off-topic noise from an
+        // article that merely keyword-matched the search index.
+        const themeAnchor = contentTokens(themeQuery);
+        const MIN_ANCHOR_OVERLAP = 2;
+
         let articles = await fetchWikiArticles({
             query,
-            limit: 3,
+            limit: 6,                    // was 3 — give more candidates after relevance filter
             maxCharsPerArticle: 8_000,
             minChars: 800,
         });
         let hitPass = 1;
 
-        // Pass 2: relax the minChars floor so a partially-populated archive
-        // (headline-heavy) still gives us something to work with. Short but
-        // real body snippets beat an article headline-as-quote every time.
         if (!articles || articles.length === 0) {
             articles = await fetchWikiArticles({
                 query,
-                limit: 3,
+                limit: 6,
                 maxCharsPerArticle: 8_000,
                 minChars: 200,
             });
@@ -543,29 +570,51 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
             return;
         }
 
-        const pulled: SlideQuote[] = [];
+        // Collect candidate sentences from all matching articles, score each
+        // by keyword overlap with the theme anchor. Reject sentences with
+        // <MIN_ANCHOR_OVERLAP tokens in common — those are unrelated noise.
+        type Candidate = { text: string; source: string; url?: string; date?: string; overlap: number };
+        const candidates: Candidate[] = [];
         for (const art of articles) {
-            const sents = extractBodySentences(art, 1);
-            if (sents.length === 0) continue;
-            pulled.push({
-                text: sents[0],
-                source: art.source || 'Source',
-                url: art.url,
-                date: art.date,
-            });
+            const sents = extractBodySentences(art, 3);    // was 1 — pull more per article
+            for (const sent of sents) {
+                const sentTokens = contentTokens(sent);
+                let overlap = 0;
+                for (const tok of sentTokens) if (themeAnchor.has(tok)) overlap++;
+                candidates.push({
+                    text: sent,
+                    source: art.source || 'Source',
+                    url: art.url,
+                    date: art.date,
+                    overlap,
+                });
+            }
+        }
+
+        candidates.sort((a, b) => b.overlap - a.overlap);
+        const pulled: SlideQuote[] = [];
+        const localSeen = new Set<string>();
+        for (const c of candidates) {
+            if (c.overlap < MIN_ANCHOR_OVERLAP) break;     // sorted; remaining are also below threshold
+            const norm = normalizeForDedup(c.text);
+            if (!norm || localSeen.has(norm) || clusterSeen.has(norm)) continue;
+            localSeen.add(norm);
+            clusterSeen.add(norm);
+            pulled.push({ text: c.text, source: c.source, url: c.url, date: c.date });
             if (pulled.length >= 3) break;
         }
+
         if (pulled.length > 0) {
             t.quotes = pulled;
-            // Keep the legacy `evidence` field pointing at the top quote so
-            // older renderers that haven't adopted QuoteStack still show a
-            // real sentence rather than a title.
             t.evidence = pulled[0].text;
             t.source = pulled[0].source;
             changed = true;
             if (hitPass === 1) stats.wikiHitsPass1++;
             else stats.wikiHitsPass2++;
         } else {
+            // Archive had candidates but NONE were topic-relevant. Leaving
+            // the AI's original evidence/quotes beats injecting noise — a
+            // wrong quote reads as authoritative slop.
             stats.noMatchAnywhere++;
         }
     }));

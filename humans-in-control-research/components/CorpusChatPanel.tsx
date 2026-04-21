@@ -25,6 +25,7 @@ import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/br
 import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
 import { validateSlide } from '../services/slideValidator';
+import DynamicPromptChips from './DynamicPromptChips';
 
 interface Props {
     context: ChatContext;
@@ -130,18 +131,11 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
     );
 };
 
-const SUGGESTED_QUERIES = [
-    "What are the top 15 themes learned across all data sources?",
-    "What are the key personas across all collected data?",
-    "What are the most cited pain points across all sources?",
-    "Summarize the competitive landscape based on collected intelligence",
-    "What are the top 5 strategic recommendations and their evidence?",
-    "What do Reddit users say about this topic? Quote them directly.",
-    "Which academic papers are most relevant and what do they conclude?",
-    "What capability gaps were identified and how severe are they?",
-    "What case studies or real-world examples appear in the data?",
-    "Create a stat row showing the 3 most impactful findings with sources.",
-];
+// 2026-04-21 — SUGGESTED_QUERIES (static list) was retired. The welcome
+// screen and the above-input guidance strip now both source their
+// suggestions from DynamicPromptChips which calls suggestPrompts() —
+// state-aware on uploaded docs / live sources / knowledge graph themes.
+// See services/dynamicPromptSuggestions.ts.
 
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -694,20 +688,36 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     </div>
                 )}
 
-                {showSuggestions && messages.length === 0 && (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#B8B800' }}>Suggested</div>
-                        {SUGGESTED_QUERIES.slice(0, maximized ? 10 : 5).map((q, i) => (
-                            <button key={i} onClick={() => handleSend(q)} style={{
-                                textAlign: 'left', padding: '8px 10px', background: '#FAFAFA',
-                                border: '1px solid #E8E8E8', cursor: 'pointer', fontSize: 10, color: '#444', lineHeight: 1.4,
+                {/* Welcome-state dynamic suggestions — replaces the former
+                    static SUGGESTED_QUERIES list. Chip set reflects current
+                    state: uploaded documents + research goal (pre-collection),
+                    live source feed (mid-collection), or emerged themes/
+                    personas (post-collection). Clicking a chip populates the
+                    input (does not auto-send) so the researcher can tweak. */}
+                {showSuggestions && messages.length === 0 && (() => {
+                    // CRITICAL: the `context` prop is passed as {} by App.tsx at the
+                    // welcome-state mount site. ALL live state lives in getContext().
+                    // If we read from `context` directly, state is always empty and
+                    // chips render blank forever. Call getContext() to get the real
+                    // researchGoal, uploadedFiles, liveSourceResults, and KG.
+                    const live: any = getContext ? getContext() : context;
+                    return (
+                        <DynamicPromptChips
+                            state={{
+                                researchGoal: live.researchGoal || '',
+                                uploadedFiles: live.uploadedFiles || [],
+                                liveSourceResults: live.liveSourceResults || [],
+                                knowledgeGraph: live.knowledgeGraph,
                             }}
-                            onMouseEnter={e => { (e.target as HTMLElement).style.borderColor = '#B8B800'; }}
-                            onMouseLeave={e => { (e.target as HTMLElement).style.borderColor = '#E8E8E8'; }}
-                            >{q}</button>
-                        ))}
-                    </div>
-                )}
+                            onSelect={(text) => {
+                                setInput(text);
+                                setTimeout(() => inputRef.current?.focus(), 0);
+                            }}
+                            max={maximized ? 8 : 5}
+                            compact={true}
+                        />
+                    );
+                })()}
 
                 {messages.map(msg => {
                     // Find deliverables/slides associated with this message
@@ -835,6 +845,31 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 )}
                 <div ref={messagesEndRef} />
             </div>
+
+            {/* Dynamic prompt suggestions — persistent above-input variant.
+                Only rendered AFTER the first message so it doesn't duplicate
+                the welcome-state version shown when messages.length === 0.
+                Acts as a pivot helper: "I'm in a conversation but want to
+                jump to the next high-leverage question." */}
+            {messages.length > 0 && (() => {
+                const live: any = getContext ? getContext() : context;
+                return (
+                    <DynamicPromptChips
+                        state={{
+                            researchGoal: live.researchGoal || '',
+                            uploadedFiles: live.uploadedFiles || [],
+                            liveSourceResults: live.liveSourceResults || [],
+                            knowledgeGraph: live.knowledgeGraph,
+                        }}
+                        onSelect={(text) => {
+                            setInput(text);
+                            setTimeout(() => inputRef.current?.focus(), 0);
+                        }}
+                        max={4}
+                        compact={false}
+                    />
+                );
+            })()}
 
             {/* Input */}
             <div style={{ padding: '10px 16px 14px', borderTop: '1px solid #E8E8E8', background: '#FAFAFA' }}>

@@ -59,6 +59,15 @@ export interface ChatContext {
     sourceReferences?: SourceReference[];
     chunkMap?: Record<string, { sourceName: string; title: string; url?: string }>;
     uploadedFileContents?: string;
+    /** 2026-04-21 — individual uploaded file objects (name + parsedText).
+     *  Kept as an array (not just concatenated text) so the Dynamic Prompt
+     *  Chips can generate per-document questions like
+     *  "Summarize CASE VSE 2025 key findings". Safe to omit; pre-collection
+     *  suggestions fall back to generic prompts. */
+    uploadedFiles?: Array<{ name: string; parsedText?: string }>;
+    /** 2026-04-21 — live source feed passed through so the Dynamic Prompt
+     *  Chips can ask about the RETURNING SOURCES mid-collection. */
+    liveSourceResults?: Array<{ source?: string; items?: Array<{ title?: string; sourceName?: string }>; status?: string }>;
     // Knowledge Graph state — the AI must understand the graph structure
     knowledgeGraph?: { nodes: any[]; edges: any[]; stats?: any };
     // Tiered knowledge (loaded by ChatWorkbench)
