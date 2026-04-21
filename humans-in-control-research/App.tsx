@@ -2410,9 +2410,15 @@ const App = () => {
                     }));
                 }
 
-                // Merge orchestrator results into corpus
+                // Merge orchestrator results into corpus.
+                // 2026-04-21 — uploaded client docs are now converted to
+                // DataSourceItem[] and injected as a synthetic "Client Uploads"
+                // source so they appear in the Analyst Desk treemap and their
+                // chunks become evidence nodes in the KG.
                 setDataSourceStatus('AI filtering results for relevance...');
-                const corpus = await mergeResultsToCorpus(executionResult, researchGoal);
+                const { uploadsToDataSourceItems } = await import('./services/wikiService');
+                const uploadedCorpusItems = uploadsToDataSourceItems(files, researchGoal);
+                const corpus = await mergeResultsToCorpus(executionResult, researchGoal, uploadedCorpusItems);
 
                 // Also merge proxy multi-search results
                 let proxyCorpus = '';
@@ -3279,7 +3285,18 @@ ${synthesisParts.join('\n')}
                                                    })}
                                               </div>
                                           </div>
-                                          <FileUpload onFilesSelected={(newFiles) => setFiles(prev => [...prev, ...newFiles])} isLoading={false} />
+                                          <FileUpload onFilesSelected={(newFiles) => setFiles(prev => {
+                                              // Merge-by-name. FileUpload fires onFilesSelected TWICE per batch:
+                                              // once on initial drop (metadata only) and a second time after the
+                                              // background PDF/DOCX parser attaches `parsedText`. A pure append
+                                              // like `[...prev, ...newFiles]` double-recorded every upload and
+                                              // is what caused "Seeded wiki with 4 uploaded records" for 2 actual
+                                              // files (2026-04-21 audit). Keying by filename makes the second
+                                              // call replace the first with its enriched copy.
+                                              const byName = new Map<string, FileType>(prev.map(f => [f.name, f]));
+                                              for (const nf of newFiles) byName.set(nf.name, nf);
+                                              return Array.from(byName.values());
+                                          })} isLoading={false} />
                                           {/* Show uploaded files */}
                                           {files.length > 0 && (
                                               <div className="mt-2 p-3 bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)]">

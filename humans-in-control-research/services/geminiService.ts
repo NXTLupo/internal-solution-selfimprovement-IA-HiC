@@ -628,7 +628,7 @@ Output JSON.`;
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
-METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses simultaneously. Every lens MUST produce at least 1 theme if ANY evidence exists:
+METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. The lenses are a HEURISTIC for where to look — NOT a quota. SKIP any lens that lacks strong multi-source evidence. It is FAR better to return 4 specific, evidence-rich themes than 12 themes padded with meta-complaints about the corpus itself.
 
 1. POLICY & REGULATORY: Government actions, legislation, compliance requirements, regulatory shifts
 2. TECHNOLOGY & INNOVATION: Tools, platforms, AI adoption, digital transformation, emerging tech
@@ -636,6 +636,31 @@ METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses s
 4. STAKEHOLDER & HUMAN: People impacts, workforce, demographics, equity, culture, sentiment
 5. STRATEGIC & COMPETITIVE: Market position, competition, partnerships, differentiation, growth
 6. OPERATIONAL & PROCESS: Workflows, efficiency, service delivery, infrastructure, best practices
+
+META-THEMES ARE FORBIDDEN (HARD RULE — NON-NEGOTIABLE):
+A theme describes a PATTERN OR FINDING FROM THE EVIDENCE. A meta-theme complains about the evidence itself. Meta-themes are INSTANTLY REJECTED.
+
+FORBIDDEN theme names (these will be filtered out post-generation):
+  ✗ "General higher education news lacking advancement focus"
+  ✗ "Pervasive lack of quantified advancement case studies"
+  ✗ "Insufficient data for specific advancement modernization benchmarking"
+  ✗ "Anecdotal criticism of industry conferences for productivity"
+  ✗ "Marketing claims versus quantified institutional outcomes" (if it describes what the corpus lacks, not what it shows)
+  ✗ "Limited evidence on X" / "Scarcity of data on Y" / "Absence of Z"
+  ✗ "Corpus dominated by [source type]" / "Underrepresentation of [topic]"
+
+A meta-theme contains these patterns — reject before emission:
+  • "lack of", "lacking", "absence of", "scarcity of", "insufficient", "missing", "limited evidence"
+  • "anecdotal", "unquantified", "dominant headlines without body", "pervasive gaps"
+  • "[X] news lacking [Y]", "[X] claims versus [Y] outcomes" (when contrasting corpus-provided vs corpus-missing)
+  • References to the corpus, dataset, sources, or evidence base as the subject of the theme
+
+ACCEPTABLE alternatives when a lens has thin evidence:
+  • Skip the lens entirely (fewer themes is better than slop themes)
+  • Report it as an EVIDENCE GAP in a deliberate callout — NOT as a theme
+  • Request more data via the retrieval tool before manufacturing a theme
+
+If you cannot find 4+ evidence-rich themes without padding, output fewer themes and add a single "evidenceGap" field at the top level listing the research questions you couldn't ground in real data.
 
 SOURCE DIVERSITY REQUIREMENT (critical):
 Your corpus contains evidence from MULTIPLE source types. ALL sources start with EQUAL credibility — their value is determined by what they actually contribute to the research objective, not by where they came from. The corpus includes:
@@ -731,6 +756,45 @@ Output JSON.`;
         };
         const result = await this.executeStep<StepResult_Themes>(prompt, schema, [], onStream);
         if (!result.themes) result.themes = [];
+        // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
+        // but models still occasionally manufacture them when evidence is thin.
+        // This filter catches themes whose NAME describes what the corpus LACKS
+        // rather than what it shows — "General higher ed news lacking
+        // advancement focus", "Pervasive lack of quantified case studies",
+        // "Insufficient data for X benchmarking", etc. Filtered themes are
+        // dropped and logged; they never reach the KG or any deliverable.
+        const META_THEME_PATTERNS: RegExp[] = [
+            /\black(ing)?\s+(of\s+)?\b/i,
+            /\babsence\s+of\b/i,
+            /\bscarcity\s+of\b/i,
+            /\binsufficient\s+/i,
+            /\blimited\s+(evidence|data|coverage)\b/i,
+            /\bpervasive\s+(lack|gap|absence)\b/i,
+            /\bunderrepresent/i,
+            /\bunquantified\b/i,
+            /\banecdotal\b/i,
+            /\b(news|sources|corpus|coverage)\s+(lacking|missing|dominated)\b/i,
+            /\bevidence\s+gap\b/i,
+            /\bheadlines?\s+(without|lacking|instead\s+of)\s+body\b/i,
+            /\bclaims?\s+versus\s+(quantified|measured|actual)\s+(outcome|impact|result)/i,
+        ];
+        const isMetaTheme = (t: any): boolean => {
+            const text = `${t?.name || ''} ${t?.description || ''}`.trim();
+            if (!text) return false;
+            return META_THEME_PATTERNS.some(p => p.test(text));
+        };
+        const beforeCount = result.themes.length;
+        const rejected: string[] = [];
+        result.themes = result.themes.filter((t: any) => {
+            if (isMetaTheme(t)) {
+                rejected.push(t.name || '(unnamed)');
+                return false;
+            }
+            return true;
+        });
+        if (rejected.length > 0) {
+            console.warn(`[Themes] Rejected ${rejected.length}/${beforeCount} meta-themes (complaints about the corpus, not findings): ${rejected.map(n => `"${n}"`).join(', ')}`);
+        }
         return result;
     }
 

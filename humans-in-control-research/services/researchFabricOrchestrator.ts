@@ -1236,12 +1236,28 @@ Be specific. Cite item numbers. Extract statistics, percentages, and named entit
     return `\n=== TRI-MODEL PARALLEL ANALYSIS ===\nThree reasoning models each analyzed a different subset of the enriched evidence.\nModels: ${modelConfigs.filter((_, i) => results[i].status === 'fulfilled' && (results[i] as any).value).map(c => c.name).join(', ')}\n${summaries.join('\n')}\n=== END TRI-MODEL ANALYSIS ===\n`;
 }
 
-export async function mergeResultsToCorpus(executionResult: ResearchExecutionResult, researchGoal?: string): Promise<string> {
+export async function mergeResultsToCorpus(
+    executionResult: ResearchExecutionResult,
+    researchGoal?: string,
+    uploadedItems?: DataSourceItem[],
+): Promise<string> {
     const sections: string[] = [];
 
     // Collect all items from all sources, then filter in one batch for efficiency
     const allItems: DataSourceItem[] = [];
     const sourceRanges: { name: string; start: number; count: number }[] = [];
+
+    // Inject uploaded client documents as a synthetic "Client Uploads" source
+    // so they appear as first-class source tiles in the Analyst Desk treemap
+    // and as evidence nodes linked to any themes citing their text. They arrive
+    // pre-enriched (parsed body is already in `content`) with relevanceScore=100
+    // so the scorer won't filter them out. Placed FIRST so chunk IDs for client
+    // docs occupy CHUNK_001..CHUNK_NN — makes citation resolution intuitive.
+    if (uploadedItems && uploadedItems.length > 0) {
+        sourceRanges.push({ name: 'Client Uploads', start: allItems.length, count: uploadedItems.length });
+        allItems.push(...uploadedItems);
+        console.log(`[Corpus] Injected ${uploadedItems.length} client upload(s) as first-class corpus items`);
+    }
 
     for (const source of executionResult.sources) {
         if (source.status !== 'completed' || source.items.length === 0) continue;

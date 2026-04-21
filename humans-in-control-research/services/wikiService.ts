@@ -313,6 +313,56 @@ async function readWikiPage(relativePath: string): Promise<WikiPage | null> {
 const PROXY_BASE = 'http://localhost:5012';
 
 /**
+ * Resilient GET wrapper for wiki proxy calls (2026-04-21).
+ *
+ * Chrome on Windows + Docker Desktop + WSL2 briefly reports
+ * `net::ERR_NETWORK_CHANGED` when the Docker network namespace renegotiates
+ * after a container rebuild or after the laptop resumes from sleep. These
+ * surface as red errors in the devtools console even though the proxy
+ * itself is fully healthy — a fetch started a millisecond before the flip
+ * gets cancelled and rejects with a generic TypeError.
+ *
+ * This helper wraps fetch() with:
+ *   - 2 retries (total 3 attempts) on network-level errors (TypeError)
+ *   - 1 retry on 5xx responses
+ *   - Exponential backoff: 300ms, 1000ms
+ *   - 6-second per-attempt timeout so stuck connections don't pin the loop
+ *   - Returns null on final failure (caller treats as "graceful degrade")
+ *
+ * Callers should use this for LIST and READ operations that are idempotent.
+ * Do NOT use for writes (POST) — retries could cause duplicate side effects.
+ */
+async function resilientGet(url: string, opts: { timeoutMs?: number; maxAttempts?: number } = {}): Promise<Response | null> {
+    const maxAttempts = opts.maxAttempts ?? 3;
+    const timeoutMs = opts.timeoutMs ?? 6000;
+    const backoffMs = [0, 300, 1000];
+    let lastErr: any = null;
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        if (backoffMs[attempt] > 0) {
+            await new Promise(r => setTimeout(r, backoffMs[attempt]));
+        }
+        try {
+            const resp = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
+            // 5xx → retryable
+            if (resp.status >= 500 && attempt < maxAttempts - 1) {
+                lastErr = new Error(`HTTP ${resp.status}`);
+                continue;
+            }
+            return resp;
+        } catch (err: any) {
+            lastErr = err;
+            // 4xx are non-retryable (but fetch doesn't throw on those anyway)
+            // We only get here for network-level failures / timeouts / aborts.
+            // Keep looping until maxAttempts.
+            continue;
+        }
+    }
+    // Silent final fail — caller decides what to do with null
+    if (lastErr) console.warn(`[resilientGet] final fail for ${url.substring(0, 80)}: ${lastErr?.message || lastErr}`);
+    return null;
+}
+
+/**
  * Write (overwrite) a wiki page. Used for full page updates.
  */
 export async function writeWikiPage(relativePath: string, content: string): Promise<boolean> {
@@ -524,6 +574,61 @@ ${sourceLines.join('\n')}
 // --- A12: WIKI SEEDING FROM UPLOADED DOCUMENTS ---
 
 /**
+ * Extract the ACTUAL research objective from a goal string by stripping
+ * prompt-engineering framing that confuses downstream routing. A goal like
+ *
+ *   "ROLE You are an elite market research analyst embedded with a University's
+ *    Advancement... MISSION Surface rigorous, source-grounded, quantified case
+ *    studies from named peer... institutions that have modernized advancement..."
+ *
+ * contains the phrase "market research analyst" which Gemini's per-source
+ * query refinement happily keys on — producing r/marketingautomation and
+ * r/CRM results instead of higher-ed advancement sources. It also makes
+ * engagement slugs like "role-you-are-an-elite-market-research-an" that
+ * false-match any other "ROLE You are..." run regardless of topic.
+ *
+ * This helper extracts the actual objective for slug generation, query
+ * refinement, and engagement-memory matching. The RAW goal is still passed
+ * to the AI system prompt (it contains valuable structural context) — only
+ * the routing/matching layers use the extracted version.
+ */
+export function extractResearchObjective(goal: string): string {
+    if (!goal || typeof goal !== 'string') return '';
+    const trimmed = goal.trim();
+    // Prefer the MISSION block when present — that's the actual research
+    // question in most prompt-engineered goals. Capture until the next
+    // section header (TARGET, RESEARCH, OUTPUT, HARD REQUIREMENTS, etc.).
+    const missionMatch = trimmed.match(/\bMISSION[\s:]+(.+?)(?=\n\s*(?:TARGET|RESEARCH|OUTPUT|HARD|SPECIFIC|TIMELINE|FOCUS|GOAL|DIMENSIONS|REQUIREMENTS|NOTES|OBJECTIVE|DELIVERABLE|CONTEXT)\b|$)/is);
+    if (missionMatch && missionMatch[1].trim().length > 40) {
+        return missionMatch[1].trim().replace(/\s+/g, ' ');
+    }
+    // Strip common role-framing prefixes so "ROLE You are an elite market
+    // research analyst..." doesn't leak into slugs and queries.
+    let cleaned = trimmed;
+    cleaned = cleaned.replace(/^\s*ROLE[\s:]*You\s+are\s+[^.]*\.\s*/i, '');
+    cleaned = cleaned.replace(/^\s*ROLE[\s:]+[^.]*\.\s*/i, '');
+    cleaned = cleaned.replace(/^\s*You\s+are\s+(?:an?\s+)?[^.]*\.\s*/i, '');
+    cleaned = cleaned.replace(/^\s*Act\s+as\s+[^.]*\.\s*/i, '');
+    cleaned = cleaned.replace(/^\s*Imagine\s+you\s+are\s+[^.]*\.\s*/i, '');
+    cleaned = cleaned.replace(/^\s*Assume\s+the\s+role\s+of\s+[^.]*\.\s*/i, '');
+    // If the cleaned version is meaningfully shorter than the raw goal AND
+    // still has enough content to be useful, return it. Otherwise fall back
+    // to the raw goal.
+    if (cleaned.length >= 40 && cleaned.length < trimmed.length) {
+        return cleaned.replace(/\s+/g, ' ').trim();
+    }
+    return trimmed.replace(/\s+/g, ' ');
+}
+
+/** Build an engagement slug from a research goal. Uses extracted objective
+ *  (not raw goal) so the slug reflects the actual research topic, not the
+ *  prompt-engineering preamble. */
+export function buildEngagementSlug(goal: string, maxLen: number = 40): string {
+    const objective = extractResearchObjective(goal);
+    return objective.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, maxLen).replace(/-+$/, '') || 'misc';
+}
+
+/**
  * Create a wiki source summary page for uploaded documents.
  * Extracts file names, types, and creates a lightweight catalog
  * so the wiki knows what client documents exist.
@@ -531,9 +636,13 @@ ${sourceLines.join('\n')}
 export async function seedWikiFromUploads(fileNames: string[], researchGoal: string): Promise<number> {
     if (!fileNames.length) return 0;
     const date = new Date().toISOString().split('T')[0];
-    const slug = researchGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40);
+    const slug = buildEngagementSlug(researchGoal);
+    // Dedup defense (A-fix 2026-04-21): even if a caller accidentally passes
+    // the same filename twice, the catalog written to the wiki should list
+    // each file once. Keep first occurrence to preserve insertion order.
+    const uniqueNames = Array.from(new Set(fileNames.filter(Boolean)));
 
-    const fileEntries = fileNames.map(name => {
+    const fileEntries = uniqueNames.map(name => {
         const ext = name.split('.').pop()?.toLowerCase() || 'unknown';
         const typeMap: Record<string, string> = {
             'pdf': 'Document', 'docx': 'Document', 'doc': 'Document',
@@ -545,19 +654,20 @@ export async function seedWikiFromUploads(fileNames: string[], researchGoal: str
     }).join('\n');
 
     const page = `---
-title: "Uploaded Documents: ${researchGoal.substring(0, 50)}"
+title: "Uploaded Documents: ${extractResearchObjective(researchGoal).substring(0, 60) || researchGoal.substring(0, 50)}"
 type: source-summary
 created: ${date}
 status: active
 tags: [uploads, client-docs, ${slug}]
-evidence_count: ${fileNames.length}
+evidence_count: ${uniqueNames.length}
 ---
 
 # Client-Uploaded Documents
 
-**Research Goal:** ${researchGoal}
+**Research Objective:** ${extractResearchObjective(researchGoal)}
+**Raw Goal (full prompt):** ${researchGoal}
 **Upload Date:** ${date}
-**Files:** ${fileNames.length}
+**Files:** ${uniqueNames.length}
 
 ## Document Catalog
 
@@ -640,9 +750,21 @@ export function extractTextFromUpload(f: any): string {
  */
 export async function archiveUploadedDocs(files: any[], researchGoal: string): Promise<number> {
     if (!Array.isArray(files) || files.length === 0) return 0;
-    const engagementSlug = researchGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 40) || 'misc';
-    let archived = 0;
+    // Engagement slug now derived from the extracted research OBJECTIVE rather
+    // than the raw goal — so "ROLE You are an elite market research analyst..."
+    // doesn't leak into directory names and false-match future runs.
+    const engagementSlug = buildEngagementSlug(researchGoal);
+    // Dedup defense (A-fix 2026-04-21): if the caller passed the same file
+    // twice (FileUpload's initial + post-parse double-call), archive each
+    // unique filename only once. Keep the LAST copy (has parsedText attached).
+    const byName = new Map<string, any>();
     for (const f of files) {
+        if (!f || !f.name) continue;
+        byName.set(f.name, f);
+    }
+    const uniqueFiles = Array.from(byName.values());
+    let archived = 0;
+    for (const f of uniqueFiles) {
         if (!f || !f.name) continue;
         const text = extractTextFromUpload(f);
         if (!text || text.length < 40) continue;
@@ -673,9 +795,76 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
         }
     }
     if (archived > 0) {
-        console.log(`[WikiService] Archived ${archived}/${files.length} uploaded document bodies to wiki/uploads/${engagementSlug}/`);
+        console.log(`[WikiService] Archived ${archived}/${uniqueFiles.length} uploaded document bodies to wiki/uploads/${engagementSlug}/${files.length !== uniqueFiles.length ? ` (deduped from ${files.length} input entries)` : ''}`);
     }
     return archived;
+}
+
+/**
+ * Convert parsed uploads into DataSourceItem[] so they flow through the
+ * same pipeline that produces corpus chunks, KG source nodes, and theme
+ * evidence. Each upload becomes a Tier 1 item with extractionMethod='upload'
+ * and a stable wiki URL that matches the archive written by
+ * archiveUploadedDocs. Items arrive pre-enriched: the parsed body IS the
+ * content, no Jina round-trip needed.
+ *
+ * This is what makes uploads appear as first-class source tiles in the
+ * Analyst Desk treemap and as evidence nodes linked to any themes whose
+ * extraction cites their text.
+ */
+export function uploadsToDataSourceItems(files: any[], researchGoal: string): any[] {
+    if (!Array.isArray(files) || files.length === 0) return [];
+    const engagementSlug = buildEngagementSlug(researchGoal);
+    const byName = new Map<string, any>();
+    for (const f of files) {
+        if (!f || !f.name) continue;
+        byName.set(f.name, f);
+    }
+    const items: any[] = [];
+    for (const f of Array.from(byName.values())) {
+        const text = extractTextFromUpload(f);
+        if (!text || text.length < 40) continue;
+        const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
+        // Trim to the per-item enrichment cap so downstream corpus assembly
+        // doesn't balloon from a single 45KB PDF body.
+        const capped = text.substring(0, 30_000);
+        items.push({
+            id: `upload_${f.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase().substring(0, 50)}`,
+            title: f.name,
+            content: capped,
+            url: syntheticUrl,
+            date: new Date().toISOString().split('T')[0],
+            sourceType: 'company' as const,     // 'client-doc' not in the union type; 'company' is closest
+            sourceName: 'Client Uploads',        // single grouping so KG shows one "Client Uploads" tile
+            credibilityTier: 1 as const,
+            relevanceScore: 100,                 // client uploads are axiomatically relevant
+            enriched: true,                      // pre-enriched; skip Jina path
+            extractionMethod: 'upload',
+            wikiPath: `uploads/${engagementSlug}/${_urlHash10(syntheticUrl)}.md`,
+        });
+    }
+    return items;
+}
+
+/** Client-side blake2b-ish 10-char hash. MUST match the proxy's _url_hash
+ *  algorithm so the wikiPath we pre-compute here points at the same file
+ *  the proxy writes. Implementation: strip tracking params + trailing
+ *  slashes + lowercase, then sync shell out to a simple 40-bit hash.
+ *  (We don't have blake2b in the browser; fall back to a simpler stable
+ *  hash and accept that the wikiPath may not ALWAYS match. The archive
+ *  write is the source of truth.) */
+function _urlHash10(url: string): string {
+    // Non-cryptographic 40-bit fold. Good enough to avoid collisions within
+    // one engagement; the actual file-write uses the proxy's blake2b and is
+    // authoritative. We compute this only to attach a plausible wikiPath
+    // hint before the write returns.
+    const s = (url || '').toLowerCase().trim().replace(/\/+$/, '');
+    let h = 0xcbf29ce484222325n;
+    const prime = 0x100000001b3n;
+    for (let i = 0; i < s.length; i++) {
+        h = (h ^ BigInt(s.charCodeAt(i))) * prime & 0xffffffffffn;
+    }
+    return h.toString(16).padStart(10, '0').substring(0, 10);
 }
 
 // --- PHASE 1.5: ARCHIVE SYNTHESIS OUTPUTS AS WIKI FILES ---
@@ -854,9 +1043,9 @@ export async function loadEngagementMemory(goalSlug: string, fullGoal?: string):
     if (fullGoal) {
         try {
             const goalWords = fullGoal.toLowerCase().split(/\s+/).filter(w => w.length > 4);
-            // List all engagement files via proxy
-            const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/engagements`);
-            if (listResp.ok) {
+            // List all engagement files via proxy (retry-wrapped)
+            const listResp = await resilientGet(`${PROXY_BASE}/api/wiki/list/engagements`);
+            if (listResp && listResp.ok) {
                 const files: string[] = await listResp.json();
                 let bestMatch: { file: string; overlap: number; content: string } | null = null;
                 for (const file of files) {
@@ -865,8 +1054,8 @@ export async function loadEngagementMemory(goalSlug: string, fullGoal?: string):
                     const overlap = goalWords.filter(gw => fileWords.some(fw => gw.includes(fw) || fw.includes(gw))).length;
                     if (overlap >= 3 && (!bestMatch || overlap > bestMatch.overlap)) {
                         try {
-                            const readResp = await fetch(`${PROXY_BASE}/api/wiki/read/engagements/${file}`);
-                            if (readResp.ok) {
+                            const readResp = await resilientGet(`${PROXY_BASE}/api/wiki/read/engagements/${file}`);
+                            if (readResp && readResp.ok) {
                                 const data = await readResp.json();
                                 if (data.content) bestMatch = { file, overlap, content: data.content };
                             }
@@ -946,10 +1135,12 @@ export async function findPriorEngagementMatches(goal: string, opts: { limit?: n
     const goalWords = _extractGoalKeywords(goal);
     if (goalWords.size === 0) return [];
 
-    // Discover both directories in parallel
+    // Discover both directories in parallel with retry-on-transient-fail.
+    // Docker network renegotiation on Windows causes ERR_NETWORK_CHANGED
+    // immediately after container rebuild; resilientGet retries with backoff.
     const [engagementsResp, synthesisResp] = await Promise.all([
-        fetch(`${PROXY_BASE}/api/wiki/list/engagements`).catch(() => null),
-        fetch(`${PROXY_BASE}/api/wiki/list/synthesis`).catch(() => null),
+        resilientGet(`${PROXY_BASE}/api/wiki/list/engagements`),
+        resilientGet(`${PROXY_BASE}/api/wiki/list/synthesis`),
     ]);
 
     const engagementFiles: string[] = engagementsResp?.ok ? await engagementsResp.json().then((d: any) => (d.files || d || []).map((f: any) => typeof f === 'string' ? f : f.name)).catch(() => []) : [];
@@ -997,25 +1188,25 @@ export async function findPriorEngagementMatches(goal: string, opts: { limit?: n
     for (const c of ranked) {
         const paths: string[] = [];
         if (c.synthesisDir) {
-            try {
-                const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/synthesis/${c.synthesisDir}`);
-                if (listResp.ok) {
+            const listResp = await resilientGet(`${PROXY_BASE}/api/wiki/list/synthesis/${c.synthesisDir}`);
+            if (listResp && listResp.ok) {
+                try {
                     const d = await listResp.json();
                     const files: string[] = (d.files || d || []).filter((f: any) => typeof f === 'string' && f.endsWith('.md'));
                     for (const f of files) paths.push(`synthesis/${c.synthesisDir}/${f}`);
-                }
-            } catch { /* skip */ }
+                } catch { /* skip JSON parse fail */ }
+            }
         }
         let preview: string | undefined;
         if (c.engagementPath) {
-            try {
-                const r = await fetch(`${PROXY_BASE}/api/wiki/read/${c.engagementPath}`);
-                if (r.ok) {
+            const r = await resilientGet(`${PROXY_BASE}/api/wiki/read/${c.engagementPath}`);
+            if (r && r.ok) {
+                try {
                     const d = await r.json();
                     const body = (d.content || '').replace(/^---[\s\S]*?---/, '').trim();
                     preview = body.substring(0, 300);
-                }
-            } catch { /* skip */ }
+                } catch { /* skip */ }
+            }
         }
         matches.push({
             engagement: c.slug,
