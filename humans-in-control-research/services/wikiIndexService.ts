@@ -135,7 +135,11 @@ export async function fetchWikiArticles(params: WikiFetchArticlesParams): Promis
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(params),
-            signal: AbortSignal.timeout(20000),
+            // 45s accommodates proxy-saturation windows during active
+            // collection (up to 10 parallel wiki write + embed calls can
+            // queue the semantic search behind them). Previously 20s,
+            // which timed out on user clicks mid-collection.
+            signal: AbortSignal.timeout(45_000),
         });
         if (!resp.ok) {
             console.warn(`[wikiIndex] fetch-articles failed: HTTP ${resp.status}`);
@@ -177,6 +181,85 @@ function renderArticleBlock(a: WikiArticleBody): string {
     const dateLine = a.date ? `Date: ${a.date}\n` : '';
     const sourceLine = a.source ? `Source: ${a.source}\n` : '';
     return `Title: ${a.title || '(untitled)'}\n${sourceLine}${dateLine}${urlLine}WikiPath: ${a.wikiPath}\nContent:\n${a.content}`;
+}
+
+/**
+ * Semantic-neighbor exploration for the dynamic prompt chip system.
+ * Returns archive articles bucketed by cosine similarity to the goal.
+ * Non-blocking — all failure modes return empty buckets.
+ */
+export interface WikiExploreNeighbor {
+    id: string;
+    title: string;
+    source: string;
+    kind: string;
+    date?: string;
+    wikiPath?: string;
+    summary?: string;
+    similarity: number;
+}
+export interface WikiExploreConceptsResponse {
+    goal_preview?: string;
+    total_indexed?: number;
+    candidates_scored?: number;
+    strong: WikiExploreNeighbor[];        // cosine >= 0.60
+    adjacent: WikiExploreNeighbor[];      // 0.35 <= cosine < 0.60
+    weak: WikiExploreNeighbor[];          // 0.25 <= cosine < 0.35
+    reason?: string;
+}
+// Per-session cache for exploreConcepts. The dynamic-prompt-chip layer
+// re-fires suggestPrompts on every state tick during mid-collection —
+// 11 identical calls in a single collection burn 11 OpenAI query-embed
+// requests + 11 proxy round-trips for the same goal. Cache by
+// goal+limit+minSim+kind with a 5-min TTL. The archive itself changes
+// slowly (sub-minute between writes at most), so 5 min is safe.
+const EXPLORE_CACHE_TTL_MS = 5 * 60 * 1000;
+interface ExploreCacheEntry { expires: number; data: WikiExploreConceptsResponse }
+const _exploreCache = new Map<string, ExploreCacheEntry>();
+
+export async function exploreConcepts(
+    goal: string,
+    opts: { limit?: number; minSim?: number; kind?: string; signal?: AbortSignal; bypassCache?: boolean } = {},
+): Promise<WikiExploreConceptsResponse> {
+    const empty: WikiExploreConceptsResponse = { strong: [], adjacent: [], weak: [] };
+    if (!goal || goal.trim().length < 8) return empty;
+
+    const cacheKey = `${goal.trim()}|${opts.limit ?? 8}|${opts.minSim ?? 0.25}|${opts.kind || ''}`;
+    if (!opts.bypassCache) {
+        const cached = _exploreCache.get(cacheKey);
+        if (cached && cached.expires > Date.now()) return cached.data;
+    }
+
+    try {
+        const resp = await fetch(`${PROXY}/api/wiki/explore-concepts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                goal,
+                limit: opts.limit ?? 8,
+                minSim: opts.minSim ?? 0.25,
+                kind: opts.kind,
+            }),
+            signal: opts.signal || AbortSignal.timeout(12_000),
+        });
+        if (!resp.ok) return empty;
+        const data = await resp.json();
+        const result: WikiExploreConceptsResponse = {
+            goal_preview: data.goal_preview,
+            total_indexed: data.total_indexed,
+            candidates_scored: data.candidates_scored,
+            strong: data.strong || [],
+            adjacent: data.adjacent || [],
+            weak: data.weak || [],
+            reason: data.reason,
+        };
+        _exploreCache.set(cacheKey, { expires: Date.now() + EXPLORE_CACHE_TTL_MS, data: result });
+        return result;
+    } catch (e: any) {
+        const isAbort = e?.name === 'AbortError' || /aborted/i.test(e?.message || '');
+        if (!isAbort) console.warn('[exploreConcepts] error:', e?.message || e);
+        return empty;
+    }
 }
 
 /**

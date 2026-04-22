@@ -763,25 +763,27 @@ Output JSON.`;
         // advancement focus", "Pervasive lack of quantified case studies",
         // "Insufficient data for X benchmarking", etc. Filtered themes are
         // dropped and logged; they never reach the KG or any deliverable.
-        const META_THEME_PATTERNS: RegExp[] = [
-            /\black(ing)?\s+(of\s+)?\b/i,
-            /\babsence\s+of\b/i,
-            /\bscarcity\s+of\b/i,
-            /\binsufficient\s+/i,
-            /\blimited\s+(evidence|data|coverage)\b/i,
-            /\bpervasive\s+(lack|gap|absence)\b/i,
-            /\bunderrepresent/i,
-            /\bunquantified\b/i,
-            /\banecdotal\b/i,
-            /\b(news|sources|corpus|coverage)\s+(lacking|missing|dominated)\b/i,
-            /\bevidence\s+gap\b/i,
-            /\bheadlines?\s+(without|lacking|instead\s+of)\s+body\b/i,
-            /\bclaims?\s+versus\s+(quantified|measured|actual)\s+(outcome|impact|result)/i,
-        ];
+        // 2026-04-22 TIGHTENED. Prior version triggered on bare "insufficient",
+        // "limited coverage", "anecdotal" — which match legitimate domain
+        // findings ("International Fundraising Constraints" was false-rejected
+        // because its description contained "limited coverage"). Discriminator:
+        // a theme is meta ONLY if a lack-word CO-OCCURS with an explicit
+        // corpus-reference term within a ~80-char window. "Donors lack trust"
+        // is a finding. "The corpus lacks donor data" is meta.
+        const CORPUS_REFERENCE = /\b(the\s+)?(corpus|research\s+(corpus|sources?|articles?|data|evidence)|collected\s+(data|articles?|evidence|sources?)|this\s+(dataset|research|sample|universe)|our\s+(sources?|data|corpus)|the\s+(dataset|sample|articles?|feeds?)|sample\s+size|source\s+coverage|the\s+available\s+(evidence|data|articles?))\b/i;
+        const LACK_WORD = /\b(lack(s|ing|ed)?|absence|scarcity|insufficient|limited|sparse|meager|thin|absent|missing|paucity|underrepresent\w*|unquantified|anecdotal|headlines?\s+without\s+body|evidence\s+gap)\b/i;
         const isMetaTheme = (t: any): boolean => {
             const text = `${t?.name || ''} ${t?.description || ''}`.trim();
             if (!text) return false;
-            return META_THEME_PATTERNS.some(p => p.test(text));
+            if (!LACK_WORD.test(text) || !CORPUS_REFERENCE.test(text)) return false;
+            // Proximity check — the two patterns must co-occur within 80 chars
+            for (const lackMatch of text.matchAll(new RegExp(LACK_WORD.source, 'gi'))) {
+                const idx = lackMatch.index ?? -1;
+                if (idx < 0) continue;
+                const window = text.substring(Math.max(0, idx - 80), Math.min(text.length, idx + (lackMatch[0]?.length || 0) + 80));
+                if (CORPUS_REFERENCE.test(window)) return true;
+            }
+            return false;
         };
         const beforeCount = result.themes.length;
         const rejected: string[] = [];

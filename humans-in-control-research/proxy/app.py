@@ -589,6 +589,63 @@ SOURCES = {
     "wvu_today": {"name": "WVU Today", "category": "University Advancement", "type": "web_search", "tier": 2, "domain": "wvutoday.wvu.edu"},
     "pittsburgh_pittwire": {"name": "Pittwire (University of Pittsburgh)", "category": "University Advancement", "type": "web_search", "tier": 2, "domain": "pitt.edu/pittwire"},
 
+    # -- University Newsrooms — Wave 1 additions (2026-04-21 gap-analysis fill) --
+    # These close the highest-priority newsroom gaps identified vs. the
+    # 198-resource Advancement universe. Northeastern Global News is critical
+    # for the current engagement (client home institution). All use Google News
+    # site-filter RSS rather than guessed WordPress feed URLs — proven in this
+    # registry (see case_advancement_gnews, evertrue_gnews) and avoids 404s
+    # from fabricated /feed/ endpoints.
+    "northeastern_global_news_gnews": {"name": "Northeastern Global News", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.northeastern.edu"},
+    "columbia_news_gnews":            {"name": "Columbia News", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.columbia.edu"},
+    "northwestern_now_gnews":         {"name": "Northwestern Now", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.northwestern.edu"},
+    "emory_news_gnews":               {"name": "Emory News Center", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.emory.edu"},
+    "washu_source_gnews":             {"name": "The Source (Washington University in St. Louis)", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Asource.wustl.edu"},
+    "cornell_chronicle_gnews":        {"name": "Cornell Chronicle", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.cornell.edu"},
+    "stanford_news_gnews":            {"name": "Stanford News", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.stanford.edu"},
+    "brown_news_gnews":               {"name": "Brown University News", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Anews.brown.edu"},
+    "dartmouth_news_gnews":           {"name": "Dartmouth News", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Ahome.dartmouth.edu"},
+    "jhu_hub_gnews":                  {"name": "Johns Hopkins Hub", "category": "University Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Ahub.jhu.edu"},
+
+    # -- Alumni Magazines (new category, 2026-04-21) --
+    # Issue-cadenced publications — distinct value class from rolling newsrooms.
+    # Carry reunion culture, stewardship tone, board language, and named-donor
+    # stories that newsrooms typically don't surface. Doc flags these as
+    # spot-verified 2026-current with public issue pages. Use web_search
+    # (Gemini-grounded) because issue-based pubs don't map cleanly to RSS.
+    "princeton_alumni_weekly":  {"name": "Princeton Alumni Weekly", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "paw.princeton.edu"},
+    "yale_alumni_magazine":     {"name": "Yale Alumni Magazine", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "yalealumnimagazine.com"},
+    "columbia_college_today":   {"name": "Columbia College Today", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "college.columbia.edu/cct"},
+    "dartmouth_alumni_mag":     {"name": "Dartmouth Alumni Magazine", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "dartmouthalumnimagazine.com"},
+    "virginia_magazine":        {"name": "Virginia Magazine (UVA)", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "uvamagazine.org"},
+    "harvard_magazine":         {"name": "Harvard Magazine", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "harvardmagazine.com"},
+    "stanford_magazine":        {"name": "Stanford Magazine", "category": "Alumni Magazines", "type": "web_search", "tier": 1, "domain": "stanfordmag.org"},
+
+    # -- Advancement Sector/Benchmark — Wave 1 additions (2026-04-21) --
+    # These close the benchmark gap vs. what we previously only got through
+    # weak Google News proxies (CASE, EverTrue, etc.). Direct primary-source
+    # coverage of advancement strategy, donor benchmarks, and sector research.
+    "eab_advancement_blog":      {"name": "EAB Advancement Blog", "category": "Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Aeab.com+advancement"},
+    "ccs_insights":              {"name": "CCS Fundraising Insights", "category": "Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Accsfundraising.com"},
+    "kindsight_resources":       {"name": "Kindsight Resource Hub", "category": "Advancement", "type": "web_search", "tier": 2, "domain": "kindsight.io/resources"},
+    "blackbaud_engage_highered": {"name": "Blackbaud ENGAGE Higher Education", "category": "Advancement", "type": "rss", "tier": 1,
+        "url": "https://news.google.com/rss/search?q=site%3Acommunity.blackbaud.com+higher+education"},
+    "indiana_lilly_philanthropy": {"name": "Indiana University Lilly Family School of Philanthropy", "category": "Advancement", "type": "web_search", "tier": 1, "domain": "philanthropy.iupui.edu"},
+    "lake_institute_faith_giving": {"name": "Lake Institute on Faith & Giving", "category": "Advancement", "type": "web_search", "tier": 2, "domain": "lakeinstitute.org"},
+    "fund_raising_school":        {"name": "The Fund Raising School (Indiana University)", "category": "Advancement", "type": "web_search", "tier": 2, "domain": "philanthropy.iupui.edu/professional-development/the-fund-raising-school"},
+
     # -- Reddit Communities (26) --
     "reddit_askacademia": {"name": "Reddit: r/AskAcademia", "category": "Reddit Communities", "type": "rss", "tier": 1, "url": "https://www.reddit.com/r/AskAcademia/.rss"},
     "reddit_gradschool": {"name": "Reddit: r/GradSchool", "category": "Reddit Communities", "type": "rss", "tier": 1, "url": "https://www.reddit.com/r/GradSchool/.rss"},
@@ -2297,12 +2354,25 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
         with open(safe_path, "w", encoding="utf-8") as f:
             f.write(body)
         logger.info(f"Wiki article write: {path_rel} ({chars} chars, kind={req.kind})")
+
+        # Auto-embed the new article for semantic retrieval. Failures are
+        # logged but never surface — the write is already durable, and the
+        # embedding can be rebuilt later via POST /api/wiki/embed-backfill.
+        embed_entry = {
+            "title": req.title or "",
+            "source": req.source or "",
+            "date": req.date or "",
+            "summary": req.content[:EMBED_BODY_CHARS] if req.content else "",
+        }
+        embedded = _embed_and_cache_article(h, embed_entry, body=req.content[:EMBED_BODY_CHARS] if req.content else "")
+
         return {
             "status": "ok",
             "wikiPath": path_rel,
             "urlHash": h,
             "chars": chars,
             "kind": req.kind or 'article',
+            "embedded": embedded,
         }
     except Exception as e:
         logger.error(f"Wiki article write failed: {e}")
@@ -2621,7 +2691,12 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
                 selected.append(e)
                 used_paths.add(e.get('wikiPath'))
 
-    # Query-based retrieval (if no direct ids matched enough)
+    # Query-based retrieval (if no direct ids matched enough).
+    # Blended scoring: keyword hits (title=3, summary=1, source=0.5) plus
+    # semantic cosine × 10 so a strong concept match outranks a weak lexical
+    # hit. If embeddings aren't configured or the query embed call fails,
+    # we transparently fall back to keyword-only. Both layers filter on
+    # kind/source/minChars, so neither path bypasses the user's constraints.
     if len(selected) < limit and req.query:
         q = req.query.strip().lower()
         query_tokens = [t for t in _re_wiki.split(r'\W+', q) if len(t) >= 3]
@@ -2633,10 +2708,30 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             candidates = [e for e in candidates if s in (e.get('source') or '').lower()]
         if req.minChars and req.minChars > 0:
             candidates = [e for e in candidates if int(e.get('chars') or 0) >= req.minChars]
-        scored = [(e, _score_article_for_query(e, query_tokens)) for e in candidates]
-        scored = [(e, s) for (e, s) in scored if s > 0 and e.get('wikiPath') not in used_paths]
-        scored.sort(key=lambda es: es[1], reverse=True)
-        for e, _s in scored[: limit - len(selected)]:
+
+        # Semantic pass (optional, non-blocking on failure)
+        sem_scores = _semantic_scores_for_query(
+            req.query,
+            [c.get("id") for c in candidates if c.get("id")],
+        )
+
+        scored: list = []
+        for e in candidates:
+            if e.get('wikiPath') in used_paths:
+                continue
+            kw = _score_article_for_query(e, query_tokens)
+            sem = sem_scores.get(e.get("id") or "", 0.0)
+            total = kw + (sem * 10.0)
+            # Require either a keyword hit or a meaningful semantic hit
+            # (cosine > 0.3 filters out near-random matches)
+            if kw > 0 or sem > 0.3:
+                scored.append((e, total, kw, sem))
+        scored.sort(key=lambda t: t[1], reverse=True)
+        logger.info(
+            f"Wiki retrieval: query={req.query[:60]!r} candidates={len(candidates)} "
+            f"scored={len(scored)} semantic_hits={len(sem_scores)}"
+        )
+        for e, _total, _kw, _sem in scored[: limit - len(selected)]:
             selected.append(e)
             used_paths.add(e.get('wikiPath'))
 
@@ -2673,6 +2768,519 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         'total_matched': len(selected),
         'returned': len(articles),
         'articles': articles,
+    }
+
+
+# ================================================================
+# WIKI SEMANTIC EMBEDDINGS  (Phase 1-retrofit 2026-04-21)
+# ================================================================
+# Keyword scoring (_score_article_for_query) is fast but brittle: a query
+# for "donor retention" misses an article titled "alumni participation
+# decline" because no token overlaps. We layer semantic retrieval on top
+# using OpenAI text-embedding-3-small (1536-dim, $0.02/M tok):
+#
+#   - At write-article time, embed title + source + date + first 1200 chars
+#     of body. Vector is cached by url_hash in a single sidecar JSON file.
+#   - At fetch-articles time, embed the query once, cosine-sim against the
+#     cached vectors, blend with the existing keyword score.
+#   - One sidecar file is fast to load (~1.5KB × N articles), atomic to
+#     write (tmp-then-rename), and survives proxy restarts.
+#   - No external vector store. At our scale (<20k articles per engagement)
+#     a pure-Python cosine scan over all vectors is <10ms per query.
+#
+# Degrades gracefully: if OPENAI_API_KEY is missing or the API call fails,
+# retrieval falls back to pure keyword scoring — nothing breaks.
+
+# --- Provider registry ----------------------------------------------------
+# Anthropic has NO native embedding endpoint (confirmed at the Anthropic
+# docs; their recommended partner is Voyage AI). OpenAI and Gemini both
+# ship dedicated embedding APIs; Voyage is included here so teams that
+# want the "Anthropic ecosystem" answer have a drop-in option. Cached
+# vectors are tagged with the provider+model+dim used to produce them, so
+# switching providers forces a transparent re-embed rather than mixing
+# incompatible vector spaces.
+EMBED_PROVIDERS = {
+    "openai": {
+        "model": "text-embedding-3-small",
+        "dim": 1536,
+        "url": "https://api.openai.com/v1/embeddings",
+        "key_env": "OPENAI_API_KEY",
+        "batch": 96,
+    },
+    "openai-large": {
+        "model": "text-embedding-3-large",
+        "dim": 3072,
+        "url": "https://api.openai.com/v1/embeddings",
+        "key_env": "OPENAI_API_KEY",
+        "batch": 96,
+    },
+    "gemini": {
+        # Google's current-gen embedding model. 768 dims by default; still
+        # small and fast. batchEmbedContents is the bulk endpoint.
+        "model": "text-embedding-004",
+        "dim": 768,
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:batchEmbedContents",
+        "key_env": "GEMINI_API_KEY",
+        "batch": 100,
+    },
+    "voyage": {
+        # Anthropic's recommended partner. voyage-3 is the current flagship.
+        "model": "voyage-3",
+        "dim": 1024,
+        "url": "https://api.voyageai.com/v1/embeddings",
+        "key_env": "VOYAGE_API_KEY",
+        "batch": 128,
+    },
+}
+
+EMBED_PROVIDER = os.environ.get("EMBED_PROVIDER", "openai").lower()
+if EMBED_PROVIDER not in EMBED_PROVIDERS:
+    logger.warning(f"Unknown EMBED_PROVIDER={EMBED_PROVIDER!r}, defaulting to openai")
+    EMBED_PROVIDER = "openai"
+
+EMBED_MODEL = EMBED_PROVIDERS[EMBED_PROVIDER]["model"]
+EMBED_DIM = EMBED_PROVIDERS[EMBED_PROVIDER]["dim"]
+EMBED_MAX_TEXT_CHARS = 8000       # ~2K tokens — safely under most providers' caps
+EMBED_BODY_CHARS = 1200           # body excerpt included in the embed text
+EMBED_BATCH = EMBED_PROVIDERS[EMBED_PROVIDER]["batch"]
+EMBED_FILE = os.path.join(WIKI_BASE, ".embeddings.json")
+_EMBEDDINGS_CACHE: dict = {"by_id": {}, "loaded": False, "dim": EMBED_DIM, "provider": EMBED_PROVIDER, "model": EMBED_MODEL}
+
+
+def _load_embeddings() -> dict:
+    """Load the embeddings sidecar into memory on first access. Returns the
+    mutable by_id map so callers can append directly (persist via _save).
+    If the sidecar was produced by a different provider/model/dim than the
+    currently configured one, the in-memory cache starts empty (so callers
+    backfill cleanly) — the old file is preserved on disk until the next
+    save overwrites it."""
+    if _EMBEDDINGS_CACHE.get("loaded"):
+        return _EMBEDDINGS_CACHE["by_id"]
+    try:
+        if os.path.exists(EMBED_FILE):
+            with open(EMBED_FILE, "r", encoding="utf-8") as f:
+                data = _json_wiki_index.load(f)
+            prev_provider = (data.get("provider") or "").lower()
+            prev_model = data.get("model") or ""
+            prev_dim = int(data.get("dim") or 0)
+            same_space = (
+                (prev_provider == EMBED_PROVIDER or not prev_provider)
+                and (prev_model == EMBED_MODEL or not prev_model)
+                and (prev_dim == EMBED_DIM or prev_dim == 0)
+            )
+            if same_space:
+                _EMBEDDINGS_CACHE["by_id"] = data.get("embeddings", {}) or {}
+                _EMBEDDINGS_CACHE["dim"] = prev_dim or EMBED_DIM
+                logger.info(
+                    f"Wiki embeddings loaded: {len(_EMBEDDINGS_CACHE['by_id'])} vectors "
+                    f"(provider={EMBED_PROVIDER}, model={EMBED_MODEL}, dim={EMBED_DIM})"
+                )
+            else:
+                logger.warning(
+                    f"Wiki embeddings sidecar was produced by "
+                    f"provider={prev_provider or '?'}/model={prev_model or '?'}/dim={prev_dim or '?'} "
+                    f"but current config is provider={EMBED_PROVIDER}/model={EMBED_MODEL}/dim={EMBED_DIM}. "
+                    f"Starting with empty cache — run POST /api/wiki/embed-backfill to re-embed."
+                )
+                _EMBEDDINGS_CACHE["by_id"] = {}
+        else:
+            _EMBEDDINGS_CACHE["by_id"] = {}
+    except Exception as e:
+        logger.warning(f"Wiki embeddings load failed: {e}")
+        _EMBEDDINGS_CACHE["by_id"] = {}
+    _EMBEDDINGS_CACHE["loaded"] = True
+    return _EMBEDDINGS_CACHE["by_id"]
+
+
+def _save_embeddings() -> None:
+    """Persist the in-memory embeddings to disk atomically (tmp + rename)."""
+    by_id = _EMBEDDINGS_CACHE.get("by_id", {})
+    payload = {
+        "provider": EMBED_PROVIDER,
+        "model": EMBED_MODEL,
+        "dim": _EMBEDDINGS_CACHE.get("dim", EMBED_DIM),
+        "count": len(by_id),
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "embeddings": by_id,
+    }
+    tmp = EMBED_FILE + ".tmp"
+    try:
+        os.makedirs(os.path.dirname(EMBED_FILE), exist_ok=True)
+        with open(tmp, "w", encoding="utf-8") as f:
+            _json_wiki_index.dump(payload, f)
+        os.replace(tmp, EMBED_FILE)
+    except Exception as e:
+        logger.warning(f"Wiki embeddings save failed: {e}")
+
+
+def _embed_via_openai(texts: list, cfg: dict) -> list:
+    """OpenAI + OpenAI-compatible providers. Both text-embedding-3-small
+    and -large use the same wire format."""
+    from openai import OpenAI  # lazy import — SDK already required for Whisper
+    key = os.environ.get(cfg["key_env"], "")
+    if not key:
+        raise RuntimeError(f"{cfg['key_env']} not configured")
+    client = OpenAI(api_key=key)
+    resp = client.embeddings.create(model=cfg["model"], input=texts)
+    return [d.embedding for d in resp.data]
+
+
+def _embed_via_gemini(texts: list, cfg: dict) -> list:
+    """Google Gemini batchEmbedContents. Uses direct REST to avoid adding
+    a SDK dep — the proxy already has httpx."""
+    key = os.environ.get(cfg["key_env"], "")
+    if not key:
+        raise RuntimeError(f"{cfg['key_env']} not configured")
+    url = f"{cfg['url']}?key={key}"
+    body = {
+        "requests": [
+            {
+                "model": f"models/{cfg['model']}",
+                "content": {"parts": [{"text": t}]},
+                "taskType": "RETRIEVAL_DOCUMENT",
+            }
+            for t in texts
+        ]
+    }
+    with httpx.Client(timeout=60.0) as c:
+        r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+    if r.status_code >= 400:
+        raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
+    data = r.json()
+    embeddings = data.get("embeddings") or []
+    return [e.get("values") or [] for e in embeddings]
+
+
+def _embed_via_voyage(texts: list, cfg: dict) -> list:
+    """Voyage AI — Anthropic's recommended embedding partner. Uses direct
+    REST (no SDK) to avoid a dep just for one endpoint."""
+    key = os.environ.get(cfg["key_env"], "")
+    if not key:
+        raise RuntimeError(f"{cfg['key_env']} not configured")
+    body = {"model": cfg["model"], "input": texts, "input_type": "document"}
+    with httpx.Client(timeout=60.0) as c:
+        r = c.post(
+            cfg["url"],
+            json=body,
+            headers={
+                "Authorization": f"Bearer {key}",
+                "Content-Type": "application/json",
+            },
+        )
+    if r.status_code >= 400:
+        raise RuntimeError(f"Voyage embed HTTP {r.status_code}: {r.text[:300]}")
+    data = r.json()
+    return [d.get("embedding") or [] for d in (data.get("data") or [])]
+
+
+_EMBED_DISPATCH = {
+    "openai": _embed_via_openai,
+    "openai-large": _embed_via_openai,
+    "gemini": _embed_via_gemini,
+    "voyage": _embed_via_voyage,
+}
+
+
+def _embed_texts(texts: list, task_type: str = "document") -> list:
+    """Batch-embed strings via the currently configured provider. Returns a
+    list of float lists (dim=EMBED_DIM). Raises on API failure — callers
+    should catch and fall back to keyword scoring.
+
+    task_type: 'document' when embedding wiki content for storage,
+               'query'    when embedding a user question for retrieval.
+               Gemini uses RETRIEVAL_DOCUMENT vs RETRIEVAL_QUERY taskType.
+    """
+    if not texts:
+        return []
+    cfg = EMBED_PROVIDERS[EMBED_PROVIDER]
+    trimmed = [(t or " ")[:EMBED_MAX_TEXT_CHARS] for t in texts]
+
+    # Gemini differentiates document vs query via taskType — inject it here
+    if EMBED_PROVIDER == "gemini" and task_type == "query":
+        key = os.environ.get(cfg["key_env"], "")
+        if not key:
+            raise RuntimeError(f"{cfg['key_env']} not configured")
+        url = f"{cfg['url']}?key={key}"
+        body = {
+            "requests": [
+                {
+                    "model": f"models/{cfg['model']}",
+                    "content": {"parts": [{"text": t}]},
+                    "taskType": "RETRIEVAL_QUERY",
+                }
+                for t in trimmed
+            ]
+        }
+        with httpx.Client(timeout=60.0) as c:
+            r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+        if r.status_code >= 400:
+            raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
+        embeddings = (r.json().get("embeddings") or [])
+        return [e.get("values") or [] for e in embeddings]
+
+    # Voyage also has separate input_type for queries
+    if EMBED_PROVIDER == "voyage" and task_type == "query":
+        key = os.environ.get(cfg["key_env"], "")
+        if not key:
+            raise RuntimeError(f"{cfg['key_env']} not configured")
+        body = {"model": cfg["model"], "input": trimmed, "input_type": "query"}
+        with httpx.Client(timeout=60.0) as c:
+            r = c.post(
+                cfg["url"],
+                json=body,
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            )
+        if r.status_code >= 400:
+            raise RuntimeError(f"Voyage embed HTTP {r.status_code}: {r.text[:300]}")
+        return [d.get("embedding") or [] for d in (r.json().get("data") or [])]
+
+    # Default path: document embedding via dispatch table
+    fn = _EMBED_DISPATCH.get(EMBED_PROVIDER)
+    if not fn:
+        raise RuntimeError(f"No embed dispatch for provider={EMBED_PROVIDER}")
+    return fn(trimmed, cfg)
+
+
+def _build_embed_text(entry: dict, body: str = "") -> str:
+    """The string actually sent to the embedding API per article. Title
+    carries the most semantic signal; source + date disambiguate; a short
+    body excerpt catches the articles whose titles are generic."""
+    title = (entry.get("title") or "").strip()
+    source = (entry.get("source") or "").strip()
+    date = (entry.get("date") or "").strip()
+    excerpt = (body or entry.get("summary") or "").strip()[:EMBED_BODY_CHARS]
+    parts = []
+    if title:
+        parts.append(title)
+    if source or date:
+        parts.append(f"{source} {date}".strip())
+    if excerpt:
+        parts.append(excerpt)
+    return "\n\n".join(parts) or "(empty)"
+
+
+def _cosine(a: list, b: list) -> float:
+    """Pure-Python cosine similarity. ~5μs per pair at 1536-dim, so a full
+    scan of a 300-article archive is ~1.5ms — no numpy required."""
+    if not a or not b or len(a) != len(b):
+        return 0.0
+    dot = 0.0
+    na = 0.0
+    nb = 0.0
+    for x, y in zip(a, b):
+        dot += x * y
+        na += x * x
+        nb += y * y
+    if na <= 0.0 or nb <= 0.0:
+        return 0.0
+    return dot / ((na ** 0.5) * (nb ** 0.5))
+
+
+def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool:
+    """Embed one article and persist. Safe to call from write-article —
+    failures log but never raise (so article write still succeeds)."""
+    if not url_hash:
+        return False
+    try:
+        vec = _embed_texts([_build_embed_text(entry, body)], task_type="document")[0]
+        by_id = _load_embeddings()
+        by_id[url_hash] = vec
+        _save_embeddings()
+        return True
+    except Exception as e:
+        logger.warning(f"Embed failed for {url_hash[:10]}: {e}")
+        return False
+
+
+def _semantic_scores_for_query(query: str, candidate_ids: list) -> dict:
+    """Embed a single query and return a dict {url_hash: cosine_similarity}
+    over the given candidate ids. Empty dict on any failure — keyword
+    scoring then carries retrieval alone."""
+    q = (query or "").strip()
+    if not q or not candidate_ids:
+        return {}
+    by_id = _load_embeddings()
+    if not by_id:
+        return {}
+    try:
+        qvec = _embed_texts([q], task_type="query")[0]
+    except Exception as e:
+        logger.warning(f"Query embed failed, semantic scoring disabled this turn: {e}")
+        return {}
+    scores: dict = {}
+    for cid in candidate_ids:
+        vec = by_id.get(cid)
+        if not vec:
+            continue
+        scores[cid] = _cosine(qvec, vec)
+    return scores
+
+
+@app.post("/api/wiki/embed-backfill")
+async def wiki_embed_backfill(limit: int = 0, force: int = 0):
+    """One-shot embed everything in the archive that doesn't have a vector
+    yet (or all of it, if force=1). Batches of 64. Returns counts.
+    Call this once after enabling embeddings to vectorize the existing wiki.
+
+    Query params:
+      limit:  cap how many articles to embed this call (0 = unlimited)
+      force:  1 → re-embed even if a vector already exists
+    """
+    try:
+        entries = _get_wiki_index_cached(summary_len=0)
+    except Exception as e:
+        return JSONResponse({"error": f"index build failed: {e}"}, status_code=500)
+
+    by_id = _load_embeddings()
+    work: list = []
+    for e in entries:
+        h = e.get("id")
+        if not h:
+            continue
+        if not force and h in by_id:
+            continue
+        work.append(e)
+        if limit > 0 and len(work) >= limit:
+            break
+
+    if not work:
+        return {"embedded": 0, "already_indexed": len(by_id), "total_articles": len(entries)}
+
+    success = 0
+    failed = 0
+    for start in range(0, len(work), EMBED_BATCH):
+        chunk = work[start:start + EMBED_BATCH]
+        texts: list = []
+        for e in chunk:
+            body_excerpt = ""
+            wp = e.get("wikiPath") or ""
+            safe = os.path.normpath(os.path.join(WIKI_BASE, wp))
+            if safe.startswith(os.path.normpath(WIKI_BASE)) and os.path.exists(safe):
+                try:
+                    with open(safe, "r", encoding="utf-8") as f:
+                        body_excerpt = _extract_wiki_body(f.read(), max_chars=EMBED_BODY_CHARS)
+                except Exception:
+                    pass
+            texts.append(_build_embed_text(e, body_excerpt))
+        try:
+            vecs = _embed_texts(texts)
+            for e, vec in zip(chunk, vecs):
+                by_id[e["id"]] = vec
+            success += len(chunk)
+        except Exception as ex:
+            logger.warning(f"Embed batch {start}-{start + len(chunk)} failed: {ex}")
+            failed += len(chunk)
+
+    _save_embeddings()
+    return {
+        "embedded": success,
+        "failed": failed,
+        "total_indexed": len(by_id),
+        "total_articles": len(entries),
+    }
+
+
+class WikiExploreConceptsRequest(BaseModel):
+    """Semantic-neighbor exploration for the dynamic prompt chip system.
+    Given a research goal (or any query text), returns archive neighbors
+    bucketed by similarity band so the caller can phrase chips that
+    reference real archive content without fabricating."""
+    goal: str
+    limit: Optional[int] = 8           # cap per-band output
+    minSim: Optional[float] = 0.25     # floor for "adjacent" band
+    kind: Optional[str] = None         # filter: article|transcript|upload
+
+
+@app.post("/api/wiki/explore-concepts")
+async def wiki_explore_concepts(req: WikiExploreConceptsRequest):
+    """Return the archive's semantic neighborhood of a goal, bucketed:
+
+        strong    — cosine >= 0.60   → "Archive already covers this; review before collecting"
+        adjacent  — 0.35 <= cosine < 0.60 → "Overlooked-but-close angle to explore"
+        weak      — 0.25 <= cosine < 0.35 → surfaced only if strong+adjacent is thin
+
+    Returned articles carry {id, title, source, summary, similarity} so the
+    chip generator can reference them by name. Degrades gracefully: if
+    embeddings are unavailable or the query embed fails, returns empty
+    buckets — callers already handle the empty-result case.
+    """
+    goal = (req.goal or "").strip()
+    if len(goal) < 8:
+        return {"strong": [], "adjacent": [], "weak": [], "total_indexed": 0, "reason": "goal_too_short"}
+
+    try:
+        entries = _get_wiki_index_cached(summary_len=200)
+    except Exception as e:
+        return JSONResponse({"error": f"index build failed: {e}", "strong": [], "adjacent": [], "weak": []}, status_code=500)
+
+    by_id = _load_embeddings()
+    if not by_id:
+        return {"strong": [], "adjacent": [], "weak": [], "total_indexed": 0, "reason": "no_embeddings"}
+
+    # Optional kind filter first (cheaper than computing cosines we'll discard)
+    pool = entries
+    if req.kind:
+        pool = [e for e in pool if e.get("kind") == req.kind]
+
+    try:
+        qvec = _embed_texts([goal], task_type="query")[0]
+    except Exception as e:
+        logger.warning(f"explore-concepts: query embed failed: {e}")
+        return {"strong": [], "adjacent": [], "weak": [], "total_indexed": len(by_id), "reason": "query_embed_failed"}
+
+    scored: list = []
+    for e in pool:
+        vec = by_id.get(e.get("id") or "")
+        if not vec:
+            continue
+        sim = _cosine(qvec, vec)
+        if sim < (req.minSim or 0.25):
+            continue
+        scored.append({
+            "id": e.get("id"),
+            "title": e.get("title") or "",
+            "source": e.get("source") or "",
+            "kind": e.get("kind") or "",
+            "date": e.get("date") or "",
+            "wikiPath": e.get("wikiPath") or "",
+            "summary": (e.get("summary") or "")[:200],
+            "similarity": round(sim, 4),
+        })
+    scored.sort(key=lambda x: x["similarity"], reverse=True)
+
+    cap = max(1, min(20, req.limit or 8))
+    strong = [s for s in scored if s["similarity"] >= 0.60][:cap]
+    adjacent = [s for s in scored if 0.35 <= s["similarity"] < 0.60][:cap]
+    weak = [s for s in scored if 0.25 <= s["similarity"] < 0.35][:cap]
+
+    return {
+        "goal_preview": goal[:120],
+        "total_indexed": len(by_id),
+        "candidates_scored": len(scored),
+        "strong": strong,
+        "adjacent": adjacent,
+        "weak": weak,
+    }
+
+
+@app.get("/api/wiki/embed-status")
+async def wiki_embed_status():
+    """Quick health check — how many articles have vectors vs total."""
+    by_id = _load_embeddings()
+    try:
+        entries = _get_wiki_index_cached(summary_len=0)
+        total = len(entries)
+        indexed_ids = set(by_id.keys())
+        missing = sum(1 for e in entries if e.get("id") and e["id"] not in indexed_ids)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+    return {
+        "model": EMBED_MODEL,
+        "dim": _EMBEDDINGS_CACHE.get("dim", EMBED_DIM),
+        "indexed": len(by_id),
+        "total_articles": total,
+        "missing": missing,
+        "coverage": round(100.0 * (total - missing) / total, 1) if total > 0 else 0.0,
     }
 
 

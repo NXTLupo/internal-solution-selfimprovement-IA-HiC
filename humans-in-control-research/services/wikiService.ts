@@ -633,6 +633,52 @@ export function buildEngagementSlug(goal: string, maxLen: number = 40): string {
  * Extracts file names, types, and creates a lightweight catalog
  * so the wiki knows what client documents exist.
  */
+/**
+ * Normalize an uploaded filename for display + LLM prompt safety.
+ *
+ * Root cause of the 2026-04-22 repetition-collapse incident: stakeholder
+ * interview exports shared a 60+ char boilerplate suffix
+ * (" - NU Advancement Engagement _ NXT Humans Stakeholder Interview_anonymized.txt").
+ * Across 8 files that pattern repeated verbatim in the document catalog and
+ * in individual upload wiki records, creating a strong attractor in the
+ * corpus that caused Gemini Flash to enter repetition collapse on multiple
+ * synthesis steps (strategy-author, gap-analysis, service-blueprint).
+ * RepetitionGuard fired at 26x / 31x / 54x — salvaged only 1 recommendation
+ * and 0 barriers from a rich 599-evidence corpus.
+ *
+ * Fix: strip the shared suffix at ingestion time so only the distinguishing
+ * signal (speaker name, document topic) enters the prompt. Original filename
+ * stays in the frontmatter as {originalName} for provenance.
+ */
+export function normalizeUploadedFilename(raw: string): { display: string; type: string; original: string } {
+    const ext = raw.split('.').pop()?.toLowerCase() || 'unknown';
+    const typeMap: Record<string, string> = {
+        'pdf': 'Document', 'docx': 'Document', 'doc': 'Document',
+        'pptx': 'Presentation', 'ppt': 'Presentation',
+        'xlsx': 'Spreadsheet', 'xls': 'Spreadsheet', 'csv': 'Data',
+        'txt': 'Text', 'json': 'Data', 'md': 'Text',
+    };
+    const type = typeMap[ext] || 'File';
+
+    let display = raw
+        .replace(/\.(pdf|docx?|pptx?|xlsx?|csv|txt|json|md)$/i, '')
+        // "Speaker Name - <engagement> Stakeholder Interview_anonymized"
+        .replace(/\s*-\s*[^-]+Stakeholder Interview(_anonymized)?$/i, ' — Stakeholder Interview')
+        // "_ NXT Humans" / "_ NU Advancement" style brand/engagement tags
+        .replace(/\s*_\s*(NXT Humans[^_]*|NU Advancement[^_]*|NXT\s+[A-Z][^_]*|Northeastern\s+Advancement[^_]*)/gi, '')
+        // generic "_anonymized", "_redacted", "_final" suffixes
+        .replace(/_(anonymized|redacted|final|draft|v\d+|copy)\b/gi, '')
+        // trailing "FINAL" / "DRAFT" tokens
+        .replace(/\s+(FINAL|DRAFT|COPY)\s*$/, '')
+        // collapse repeated separators and whitespace
+        .replace(/[\s\-_]{2,}/g, ' ')
+        .trim();
+
+    if (display.length > 100) display = display.substring(0, 97) + '…';
+    if (!display) display = raw;
+    return { display, type, original: raw };
+}
+
 export async function seedWikiFromUploads(fileNames: string[], researchGoal: string): Promise<number> {
     if (!fileNames.length) return 0;
     const date = new Date().toISOString().split('T')[0];
@@ -643,14 +689,8 @@ export async function seedWikiFromUploads(fileNames: string[], researchGoal: str
     const uniqueNames = Array.from(new Set(fileNames.filter(Boolean)));
 
     const fileEntries = uniqueNames.map(name => {
-        const ext = name.split('.').pop()?.toLowerCase() || 'unknown';
-        const typeMap: Record<string, string> = {
-            'pdf': 'Document', 'docx': 'Document', 'doc': 'Document',
-            'pptx': 'Presentation', 'ppt': 'Presentation',
-            'xlsx': 'Spreadsheet', 'xls': 'Spreadsheet', 'csv': 'Data',
-            'txt': 'Text', 'json': 'Data',
-        };
-        return `- **${name}** (${typeMap[ext] || 'File'})`;
+        const { display, type } = normalizeUploadedFilename(name);
+        return `- **${display}** (${type})`;
     }).join('\n');
 
     const page = `---
@@ -769,9 +809,12 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
         const text = extractTextFromUpload(f);
         if (!text || text.length < 40) continue;
         try {
-            // Synthetic URL so the hash + frontmatter have a stable canonical
-            // reference. upload://{engagement}/{filename} is readable and
-            // guaranteed unique across engagements.
+            // Synthetic URL uses the ORIGINAL filename so hashes stay stable
+            // across re-runs (no drift between engagements). But the SOURCE
+            // and TITLE that land in frontmatter + embedding text get the
+            // normalized display name — this is what the LLM sees in prompts
+            // and what the attractor phrase had to be stripped from.
+            const { display: normalizedName } = normalizeUploadedFilename(f.name);
             const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
             const resp = await fetch(`${PROXY_BASE}/api/wiki/write-article`, {
                 method: 'POST',
@@ -779,8 +822,8 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
                 body: JSON.stringify({
                     url: syntheticUrl,
                     content: text,
-                    source: f.name,
-                    title: f.name,
+                    source: normalizedName,
+                    title: normalizedName,
                     tier: 1, // Client uploads are Tier 1 context
                     method: 'upload',
                     kind: 'upload',

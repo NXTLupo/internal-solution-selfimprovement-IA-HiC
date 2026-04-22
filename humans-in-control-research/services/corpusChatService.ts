@@ -115,7 +115,7 @@ export interface SkillManifestEntry {
      *  when ANY trigger keyword matches. Used for layout/design contracts that
      *  must govern every slide emission regardless of which consulting lens
      *  produced the content. Today: nxt-visual-renderer. */
-    category: 'research-deliverable' | 'prompt-engineering' | 'render-contract';
+    category: 'research-deliverable' | 'prompt-engineering' | 'render-contract' | 'retrieval-enhancer';
     triggers: string[];
     /** Wiki pages (in hic-workspace/wiki/) to load alongside SKILL.md */
     wikiCompanions: string[];
@@ -1409,11 +1409,16 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
     const scored: Array<{ skill: SkillManifestEntry; score: number }> = [];
 
     for (const skill of manifest) {
-        // Include content skills (research-deliverable) AND render contracts.
-        // render-contract skills like nxt-visual-renderer load alongside any
-        // triggered content skill so every slide emission follows the layout
-        // spec regardless of which consulting lens produced the content.
-        if (skill.category !== 'research-deliverable' && skill.category !== 'render-contract') continue;
+        // Include content skills (research-deliverable), render contracts,
+        // AND retrieval enhancers. Render contracts govern layout; retrieval
+        // enhancers (wiki-query-expander, wiki-reranker, wiki-synthesizer)
+        // teach Claude how to exploit the semantic embedding layer — query
+        // variant expansion, cross-encoder reranking, multi-angle synthesis.
+        if (
+            skill.category !== 'research-deliverable'
+            && skill.category !== 'render-contract'
+            && skill.category !== 'retrieval-enhancer'
+        ) continue;
         let score = 0;
         for (const trigger of skill.triggers) {
             const normTrigger = trigger.toLowerCase();
@@ -1511,16 +1516,19 @@ export async function sendChatMessage(
 
     // Skill matching: find relevant skills from manifest.
     // Load at MOST one content skill (research-deliverable) and ALWAYS load
-    // every matching render-contract skill alongside it. Render contracts are
-    // layout/design specs that must govern slide emission regardless of which
-    // consulting lens produced the content.
+    // every matching render-contract AND retrieval-enhancer skill alongside
+    // it. Render contracts govern slide layout; retrieval enhancers teach
+    // Claude how to exploit the semantic embedding layer (query variant
+    // expansion, cross-encoder reranking, multi-angle synthesis).
     let skillContext: SkillContext | null = null;
     let renderContracts: SkillContext[] = [];
+    let retrievalEnhancers: SkillContext[] = [];
     let skillUsed: string | undefined;
     if (context.skillManifest?.length) {
         const matched = matchSkills(userMessage, context.skillManifest);
         const topContentSkill = matched.find(s => s.category === 'research-deliverable') || null;
         const matchedContracts = matched.filter(s => s.category === 'render-contract');
+        const matchedEnhancers = matched.filter(s => s.category === 'retrieval-enhancer');
 
         if (topContentSkill) {
             skillContext = await loadSkillContext(topContentSkill);
@@ -1529,6 +1537,10 @@ export async function sendChatMessage(
         if (matchedContracts.length > 0) {
             renderContracts = await Promise.all(matchedContracts.map(loadSkillContext));
             console.log(`[chat] render contracts active: ${renderContracts.map(c => c.skill.id).join(', ')}`);
+        }
+        if (matchedEnhancers.length > 0) {
+            retrievalEnhancers = await Promise.all(matchedEnhancers.map(loadSkillContext));
+            console.log(`[chat] retrieval enhancers active: ${retrievalEnhancers.map(c => c.skill.id).join(', ')}`);
         }
     }
 
@@ -1588,6 +1600,17 @@ ${skillContext.skillContent}
 === SKILL WIKI CONTEXT ===
 ${skillContext.companionContent}
 === END SKILL WIKI ===
+`;
+    }
+    // Retrieval enhancers come AFTER content/render skills so they frame
+    // HOW the AI should call fetch_wiki_articles on top of whatever
+    // content skill is active. Multiple can stack (expand -> rerank ->
+    // synthesize) when the user's question triggers all three.
+    for (const re of retrievalEnhancers) {
+        skillInstructions += `
+=== RETRIEVAL ENHANCER: ${re.skill.name} ===
+${re.skillContent}
+=== END RETRIEVAL ENHANCER ===
 `;
     }
 

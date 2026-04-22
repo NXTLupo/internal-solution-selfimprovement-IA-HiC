@@ -52,36 +52,45 @@ export async function loadSkillPrompt(deliverableType: string): Promise<string> 
     if (!skillDir) return '';
 
     try {
-        // In browser context, fetch the skill file from the project root
-        // The skills are at /.claude/skills/{name}/SKILL.md relative to project root
-        // Try multiple paths since the serving context varies
+        // The canonical nginx-served route is /skills/{name}/SKILL.md (backed
+        // by the docker-compose volume mount of .claude/skills). The dotted
+        // /.claude/ prefix is legacy — nginx serves the SPA index.html for
+        // that path via the catch-all, which returned HTTP 200 + 5115 bytes
+        // of HTML and fooled earlier code into logging "Loaded" on a
+        // garbage payload. Order canonical route first, AND validate the
+        // response body looks like a SKILL.md (frontmatter or heading) before
+        // accepting it.
         const paths = [
+            `/skills/${skillDir}/SKILL.md`,
             `/.claude/skills/${skillDir}/SKILL.md`,
             `../.claude/skills/${skillDir}/SKILL.md`,
-            `/skills/${skillDir}/SKILL.md`,
         ];
 
         for (const path of paths) {
             try {
                 const resp = await fetch(path);
-                if (resp.ok) {
-                    let content = await resp.text();
-                    // Strip YAML frontmatter (--- ... ---)
-                    content = content.replace(/^---[\s\S]*?---\s*/, '');
-                    console.log(`[Skills] Loaded ${skillDir} SKILL.md (${content.length} chars)`);
-                    return content;
-                }
+                if (!resp.ok) continue;
+                const raw = await resp.text();
+                // Reject HTML — SPA catch-all returns index.html with 200
+                if (/^\s*<!DOCTYPE|^\s*<html/i.test(raw)) continue;
+                // Accept only a real SKILL.md (leading frontmatter or markdown heading)
+                if (!/^---\s*\n/.test(raw) && !/^\s*#\s/.test(raw)) continue;
+                const content = raw.replace(/^---[\s\S]*?---\s*/, '');
+                console.log(`[Skills] Loaded ${skillDir} SKILL.md (${content.length} chars) via ${path}`);
+                return content;
             } catch { /* try next path */ }
         }
 
-        // Fallback: try reading via the wiki proxy endpoint
+        // Fallback: try reading via the proxy endpoint
         try {
             const proxyResp = await fetch(`http://localhost:5012/api/file?path=.claude/skills/${skillDir}/SKILL.md`);
             if (proxyResp.ok) {
-                let content = await proxyResp.text();
-                content = content.replace(/^---[\s\S]*?---\s*/, '');
-                console.log(`[Skills] Loaded ${skillDir} via proxy (${content.length} chars)`);
-                return content;
+                const raw = await proxyResp.text();
+                if (!/^\s*<!DOCTYPE|^\s*<html/i.test(raw) && (/^---\s*\n/.test(raw) || /^\s*#\s/.test(raw))) {
+                    const content = raw.replace(/^---[\s\S]*?---\s*/, '');
+                    console.log(`[Skills] Loaded ${skillDir} via proxy (${content.length} chars)`);
+                    return content;
+                }
             }
         } catch { /* proxy unavailable */ }
 

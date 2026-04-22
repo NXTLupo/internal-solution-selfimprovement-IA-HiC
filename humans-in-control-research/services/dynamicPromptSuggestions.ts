@@ -122,7 +122,26 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
         return fallbackSuggestions(phase, state, maxSuggestions);
     }
 
-    const prompt = buildPromptForPhase(phase, objective, state, maxSuggestions);
+    // Embeddings-backed neighbor lookup — gives the chip generator real
+    // archive titles/sources that semantically match the goal so chips
+    // reference actual content instead of generic phrasing. Non-blocking:
+    // if the proxy is slow or embeddings are empty, neighbors = empty and
+    // buildPromptForPhase emits its normal prompt without the archive block.
+    let neighbors: { strong: any[]; adjacent: any[]; weak: any[] } = { strong: [], adjacent: [], weak: [] };
+    try {
+        const { exploreConcepts } = await import('./wikiIndexService');
+        const result = await Promise.race([
+            exploreConcepts(objective, { limit: 6, minSim: 0.3, signal: opts.signal }),
+            new Promise<any>(resolve => setTimeout(() => resolve({ strong: [], adjacent: [], weak: [] }), 4000)),
+        ]);
+        neighbors = result;
+        const found = (neighbors.strong?.length || 0) + (neighbors.adjacent?.length || 0);
+        if (found > 0) {
+            console.log(`[DynamicPromptChips] archive neighbors: ${neighbors.strong?.length || 0} strong + ${neighbors.adjacent?.length || 0} adjacent (${(result as any).total_indexed || 0} vectors indexed)`);
+        }
+    } catch { /* non-blocking */ }
+
+    const prompt = buildPromptForPhase(phase, objective, state, maxSuggestions, neighbors);
 
     try {
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
@@ -155,7 +174,38 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
     }
 }
 
-function buildPromptForPhase(phase: CollectionPhase, objective: string, state: SuggestionState, n: number): string {
+function renderNeighborsBlock(neighbors: { strong: any[]; adjacent: any[]; weak: any[] } | undefined): string {
+    if (!neighbors) return '';
+    const strong = neighbors.strong || [];
+    const adjacent = neighbors.adjacent || [];
+    const hasAny = strong.length > 0 || adjacent.length > 0;
+    if (!hasAny) return '';
+
+    const fmt = (n: any) => {
+        const src = n.source || '?';
+        const ttl = (n.title || '').substring(0, 90);
+        const sim = typeof n.similarity === 'number' ? ` (sim ${n.similarity.toFixed(2)})` : '';
+        return `  - [${src}] ${ttl}${sim}`;
+    };
+    let block = `\nARCHIVE NEIGHBORS (semantically matched to the goal via OpenAI/Gemini embeddings — REFERENCE THESE SPECIFIC TITLES IN YOUR SUGGESTIONS):\n`;
+    if (strong.length > 0) {
+        block += `\nSTRONG MATCHES (archive already covers this — suggest a review/drill-in question):\n${strong.map(fmt).join('\n')}\n`;
+    }
+    if (adjacent.length > 0) {
+        block += `\nADJACENT-BUT-CLOSE (overlooked angles — suggest exploring why this neighbor matters to the goal):\n${adjacent.map(fmt).join('\n')}\n`;
+    }
+    block += `
+NEIGHBOR-GROUNDING RULES:
+- At least 2 of your ${'${n}'.replace(/\$\{n\}/, '')} suggestions MUST reference a specific title or source from the lists above by NAME
+- When citing a STRONG match, phrase as drill-in: "What does [TITLE] say about [ASPECT]?" or "Pull everything [SOURCE] has on [ASPECT]"
+- When citing an ADJACENT match, phrase as lateral exploration: "Why might [TITLE] be relevant to [GOAL CONCEPT]?" or "Compare [ADJACENT TITLE] against [GOAL ASPECT]"
+- Never invent a title — use only titles from the lists above
+- Never say "the archive contains..." — just ask about specific titles directly
+`;
+    return block;
+}
+
+function buildPromptForPhase(phase: CollectionPhase, objective: string, state: SuggestionState, n: number, neighbors?: { strong: any[]; adjacent: any[]; weak: any[] }): string {
     const base = `You are a senior consulting partner coaching a researcher on what to ASK their data next. Your job: propose ${n} high-leverage questions the researcher should ask the AI chat right now.
 
 Each suggestion must be:
@@ -282,7 +332,13 @@ RETURN STRICT JSON ONLY:
   ]
 }`;
 
-    return base + stateBlock + outputFmt;
+    // Semantic archive-neighbors block — empty string when wiki has no
+    // embeddings yet OR no articles cleared the similarity floor. When
+    // populated, it steers the chip generator toward specific titles in
+    // the archive rather than generic phrasing.
+    const neighborsBlock = renderNeighborsBlock(neighbors);
+
+    return base + stateBlock + neighborsBlock + outputFmt;
 }
 
 function parseSuggestionsFromResponse(text: string): PromptSuggestion[] {
