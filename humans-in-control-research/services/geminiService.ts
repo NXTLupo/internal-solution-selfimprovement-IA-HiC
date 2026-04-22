@@ -293,6 +293,18 @@ export class GenAISession {
     private goal: string;
     private approach: string;
     private selectedOutputs: OutputOption[];
+    // 2026-04-22 — stored for Claude fallback path (see executeStepViaClaude).
+    // Gemini Flash repetition-collapses on structured JSON when the corpus
+    // contains any repeated token pattern (filenames, port numbers like 8080,
+    // dollar figures, etc.). The RepetitionGuard truncates at 20K chars,
+    // leaving downstream JSON parsing to salvage fragments — often yielding
+    // 0-1 items instead of the evidence-warranted count. Claude Opus 4.7 does
+    // not have this failure mode on long structured output, so synthesis
+    // steps (themes, personas, recommendations, gap analysis, service
+    // blueprint) route to it via the proxy.
+    private systemInstructionCached: string = '';
+    private accumulatedContext: Array<{ label: string; payload: string }> = [];
+    private corpusContextCached: string = '';
 
     constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '', wikiKnowledge: string = '') {
         if (!process.env.API_KEY) throw new Error("API Key Missing");
@@ -392,6 +404,8 @@ ${wikiKnowledge}
                 temperature: 0.1, // Low temperature for higher structural stability
             }
         });
+        // Cache for the Claude fallback path
+        this.systemInstructionCached = systemInstruction;
     }
 
     async updateContext(contextLabel: string, data: any): Promise<void> {
@@ -421,6 +435,14 @@ ${wikiKnowledge}
         }
         const prompt = `CONTEXT UPDATE: The user has reviewed/edited the ${contextLabel}. Summary of current state (use as ground truth for future steps):\n\n${contextPayload}`;
         await withRetry(() => this.chatSession.sendMessage({ message: prompt }), 3, 1000, "Context Update");
+        // Mirror into accumulated context for Claude fallback path. Keep only
+        // the latest snapshot per label (newer updates supersede older ones).
+        const existing = this.accumulatedContext.findIndex(c => c.label === contextLabel);
+        if (existing >= 0) {
+            this.accumulatedContext[existing] = { label: contextLabel, payload: contextPayload };
+        } else {
+            this.accumulatedContext.push({ label: contextLabel, payload: contextPayload });
+        }
     }
 
     async restore(
@@ -754,7 +776,7 @@ Output JSON.`;
             },
             required: ["methodology", "themes"]
         };
-        const result = await this.executeStep<StepResult_Themes>(prompt, schema, [], onStream);
+        const result = await this.executeStepResilient<StepResult_Themes>(prompt, schema, [], onStream, 'Themes');
         if (!result.themes) result.themes = [];
         // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
         // but models still occasionally manufacture them when evidence is thin.
@@ -836,7 +858,7 @@ Output JSON.`;
             required: ["methodology", "personas"]
         };
 
-        const roster = await this.executeStep<{ methodology: string; personas: any[] }>(rosterPrompt, rosterSchema, [], onStream);
+        const roster = await this.executeStepResilient<{ methodology: string; personas: any[] }>(rosterPrompt, rosterSchema, [], onStream, 'Personas');
         if (!roster.personas || roster.personas.length === 0) {
             roster.personas = [{ name: 'Primary Stakeholder', role: 'Key decision maker', demographics: '', quote: '', coreTension: '' }];
         }
@@ -1084,7 +1106,7 @@ Output JSON.`;
             required: ["methodology", "recommendations"]
         };
         onStream('Phase 1: Generating strategic recommendations...');
-        const result = await this.executeStep<StepResult_Recommendations>(prompt, schema, [], onStream);
+        const result = await this.executeStepResilient<StepResult_Recommendations>(prompt, schema, [], onStream, 'Recommendations');
         if (!result.recommendations) result.recommendations = [];
         result.recommendations.forEach(r => { if (!r.actionItems) r.actionItems = []; });
 
@@ -1347,7 +1369,7 @@ Output JSON.`;
             },
             required: ["methodology", "stages"]
         };
-        const result = await this.executeStep<StepResult_JourneyMap>(prompt, schema, [], onStream);
+        const result = await this.executeStepResilient<StepResult_JourneyMap>(prompt, schema, [], onStream, 'ServiceBlueprint');
         if (!result.stages) result.stages = [];
 
         // Phase 2: Enrich stages with thin evidence (token exhaustion on later stages)
@@ -2425,7 +2447,7 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        const gapResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        const gapResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'GapAnalysis');
         const analysis = gapResult?.analysis || {};
 
         // Phase 2: Enrich thin gaps + fill missing actions/risks
@@ -2676,7 +2698,7 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        const compResult = await this.executeStep<any>(prompt, schema, [], onStream);
+        const compResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'CompetitiveAnalysis');
         const analysis = compResult?.analysis || {};
 
         // Phase 2: Enrich thin peers + fill missing dimensions/matrix/gaps
@@ -3331,6 +3353,76 @@ Output JSON matching the section schema.`;
         return { methodology: narrativeData.methodology, videoScript: [], slides: slidesWithImages, recommendations: context.recommendations || [] };
     }
 
+    /**
+     * Claude-backed synthesis fallback. Used when Gemini Flash repetition-
+     * collapses on long structured JSON (filenames, port numbers, dollar
+     * figures — any repeated token can trigger the attractor loop that the
+     * RepetitionGuard catches). Claude Opus 4.7 does not have this failure
+     * mode.
+     *
+     * Context reconstitution: Gemini's chatSession carries the ingested
+     * corpus + prior stage results in its stateful history. Claude is
+     * stateless, so we pass the cached systemInstruction + all accumulated
+     * updateContext() payloads (themes/personas/etc.) as the system prompt.
+     * The step's own prompt becomes the user message. Schema is described
+     * in-prompt since Claude's messages API doesn't accept Gemini-style
+     * responseSchema.
+     */
+    /**
+     * Gemini-first, Claude-fallback step runner. Use this for synthesis
+     * steps (themes/personas/recs/gap/blueprint) that repetition-collapse
+     * on Gemini Flash. If Gemini succeeds, behavior is identical to
+     * executeStep. If RepetitionGuard fires, transparently retries via
+     * Claude Opus 4.7 with accumulated context from prior stages.
+     */
+    private async executeStepResilient<T>(
+        prompt: string,
+        schema: Schema,
+        parts: any[],
+        onStream: (t: string) => void,
+        stepLabel: string,
+    ): Promise<T> {
+        try {
+            return await this.executeStep<T>(prompt, schema, parts, onStream);
+        } catch (err: any) {
+            if (err?.code === 'RepetitionCollapse') {
+                console.warn(`[${stepLabel}] Gemini repetition-collapsed on "${err.sample}" (×${err.occurrences}). Falling back to Claude.`);
+                return await this.executeStepViaClaude<T>(prompt, schema, onStream, stepLabel);
+            }
+            throw err;
+        }
+    }
+
+    private async executeStepViaClaude<T>(prompt: string, schema: Schema, onStream: (t: string) => void, stepLabel: string = 'synthesis'): Promise<T> {
+        const { analyzeTextJSON } = await import('./anthropicService');
+
+        // Build the accumulated context block — prior stage outputs the
+        // synthesis step depends on.
+        const contextBlock = this.accumulatedContext.length > 0
+            ? '\n\n=== ACCUMULATED CONTEXT FROM PRIOR STAGES ===\n' +
+              this.accumulatedContext.map(c => `--- ${c.label} ---\n${c.payload}`).join('\n\n') +
+              '\n=== END ACCUMULATED CONTEXT ===\n'
+            : '';
+
+        // Describe the JSON schema in prompt form for Claude.
+        const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
+
+        const systemPromptForClaude = this.systemInstructionCached + contextBlock;
+        const userPromptForClaude = prompt + schemaDescription;
+
+        onStream(`[${stepLabel}] Gemini repetition-collapsed. Retrying via Claude Opus 4.7...`);
+        console.warn(`[Claude Fallback] ${stepLabel}: routing to claude-opus-4-7 (system=${Math.round(systemPromptForClaude.length / 1024)}KB, user=${Math.round(userPromptForClaude.length / 1024)}KB)`);
+
+        const result = await analyzeTextJSON<T>(
+            systemPromptForClaude,
+            userPromptForClaude,
+            'claude-opus-4-7',
+            32_000,
+            0.2,
+        );
+        return result;
+    }
+
     private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void): Promise<T> {
         // Retry the entire step (including streaming) to handle mid-stream network failures
         // like ERR_NETWORK_CHANGED, which kill the stream after sendMessageStream succeeds
@@ -3373,13 +3465,30 @@ Output JSON matching the section schema.`;
                                         if (secondIdx > firstIdx) {
                                             fullText = fullText.substring(0, secondIdx);
                                         }
-                                        break; // Stop reading the stream
+                                        // Throw a typed error so synthesis methods can catch and
+                                        // retry via Claude. The salvaged prefix is attached to the
+                                        // error so the caller has a fallback signal. The old
+                                        // behavior (parse the salvaged fragment) remains available
+                                        // for callers that don't opt into Claude fallback.
+                                        const repErr: any = new Error('RepetitionCollapse');
+                                        repErr.code = 'RepetitionCollapse';
+                                        repErr.salvaged = fullText;
+                                        repErr.sample = sample.substring(0, 30);
+                                        repErr.occurrences = occurrences;
+                                        throw repErr;
                                     }
                                 }
                             }
                         }
                     }
                 } catch (streamError: any) {
+                    // RepetitionCollapse must propagate to the caller so the
+                    // synthesis method can retry via Claude. Don't let it get
+                    // treated as a network error and retry on the same Gemini
+                    // path (which will just collapse again).
+                    if (streamError?.code === 'RepetitionCollapse') {
+                        throw streamError;
+                    }
                     const isNetworkError = streamError?.message?.includes('Failed to fetch') ||
                         streamError?.message?.includes('NETWORK') ||
                         streamError?.message?.includes('network') ||
@@ -3419,6 +3528,12 @@ Output JSON matching the section schema.`;
                     throw new Error(`Failed to parse Gemini response: ${e instanceof Error ? e.message : 'Unknown Error'}`);
                 }
             } catch (stepError: any) {
+                // RepetitionCollapse propagates up — it needs to reach the
+                // synthesis method for Claude-fallback routing. Don't retry
+                // on the Gemini path for this error class.
+                if (stepError?.code === 'RepetitionCollapse') {
+                    throw stepError;
+                }
                 lastError = stepError;
                 const isNetworkError = stepError?.message?.includes('Failed to fetch') ||
                     stepError?.message?.includes('NETWORK') ||

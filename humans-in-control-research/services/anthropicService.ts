@@ -120,16 +120,23 @@ export async function analyzeText(
     maxTokens: number = 16000,
     temperature: number = 0.1
 ): Promise<string> {
-    const result = await withRetry(() => callAnthropic({
+    // Claude Opus 4.7+ deprecated the `temperature` parameter — passing it
+    // returns HTTP 400 "temperature is deprecated for this model". Older
+    // models (4.6 and earlier) still accept it. Strip the param for any
+    // model whose id indicates >=4.7.
+    const supportsTemperature = !/claude-opus-4-7|claude-opus-4-[89]|claude-opus-[5-9]/i.test(model);
+    const request: any = {
         model,
         max_tokens: maxTokens,
         system: systemPrompt,
-        temperature,
         messages: [{
             role: 'user',
             content: [{ type: 'text', text: userPrompt }]
         }]
-    }), 3, 2000, `Claude ${model} text analysis`);
+    };
+    if (supportsTemperature) request.temperature = temperature;
+
+    const result = await withRetry(() => callAnthropic(request), 3, 2000, `Claude ${model} text analysis`);
 
     const textBlock = result.content.find(b => b.type === 'text');
     return textBlock?.text || '';
@@ -196,13 +203,16 @@ export async function analyzeVision<T>(
     // Add the analysis prompt
     content.push({ type: 'text', text: userPrompt });
 
-    const result = await withRetry(() => callAnthropic({
+    // See analyzeText for rationale — Opus 4.7+ deprecated temperature
+    const supportsTemperature = !/claude-opus-4-7|claude-opus-4-[89]|claude-opus-[5-9]/i.test(model);
+    const visionReq: any = {
         model,
         max_tokens: maxTokens,
         system: systemPrompt,
-        temperature,
         messages: [{ role: 'user', content }]
-    }), 3, 3000, `Claude ${model} vision analysis`);
+    };
+    if (supportsTemperature) visionReq.temperature = temperature;
+    const result = await withRetry(() => callAnthropic(visionReq), 3, 3000, `Claude ${model} vision analysis`);
 
     const textBlock = result.content.find(b => b.type === 'text');
     const raw = textBlock?.text || '{}';
