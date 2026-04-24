@@ -37,7 +37,7 @@ This spec covers **Sub-project 1: the Design Desk Framework + two pilot artifact
 
 | Category | Hashtags | Notes |
 |----------|----------|-------|
-| Content (singular, one per artifact) | `#persona`, `#journey`, `#blueprint`, `#arch`, `#prd`, `#roadmap`, `#strategy`, `#gap`, `#audit`, `#compete` | Drives which artifact type to generate |
+| Content (singular, one per artifact) | `#persona`, `#journey`, `#blueprint`, `#arch`, `#prd`, `#roadmap`, `#strategy`, `#gap`, `#audit`, `#compete`, `#org` | Drives which artifact type to generate |
 | View (single artifact) | `#slide` | Produces one slide projection of the preceding artifact |
 | Composition (multi) | `#slides` | Produces a deck — every content hashtag in the prompt gets a slide projection |
 | Brand | `#NXT` (default), `#NU` | Styles the output; if absent defaults to `#NXT` |
@@ -95,12 +95,13 @@ Chat and canvas are bound: the AI sees the current artifact state on every turn 
 
 ### 5.2 Out of Scope (Follow-on Specs)
 
-1. Other eight artifact types: blueprint, arch, prd, roadmap, strategy, gap, audit, compete — each a separate spec.
-2. `#slides` deck composition beyond simple "one slide per content hashtag, in order given" — richer narrative composition (cover, section dividers, closing) deferred.
-3. Operation-based or tool-use mutation models — framework v1 uses full-state rewrites; later artifacts may opt in.
-4. Multi-user collaboration, real-time sync.
-5. Artifact persistence across sessions (in-memory only for v1).
-6. Integration with the Knowledge Graph — approved artifacts do not auto-commit to KG in v1 (follow-on).
+1. Other eight artifact types from the original list: blueprint, arch, prd, roadmap, strategy, gap, audit, compete — each a separate spec.
+2. **`#org` — organizational flow chart artifact** (confirmed 2026-04-24). Hashtag namespace is locked in this spec but implementation is deferred. Planned direction: [reactflow](https://reactflow.dev/) (MIT) with a hierarchical layout (`dagre` auto-layout) and **fully custom NXT-styled node primitives + iconography** — no default reactflow chrome. Interactive canvas with chat-driven mutation on the same pattern as `#journey`. Commercial `@yworks/react-yfiles-orgchart` evaluated and rejected (paid yFiles-for-HTML dependency). The org-chart spec inherits all framework rules from this spec: flat NXT visual language, DESIGN.md grounding, artifact-first precedence, PDF/PNG/PPTX export.
+3. `#slides` deck composition beyond simple "one slide per content hashtag, in order given" — richer narrative composition (cover, section dividers, closing) deferred.
+4. Operation-based or tool-use mutation models — framework v1 uses full-state rewrites; later artifacts may opt in.
+5. Multi-user collaboration, real-time sync.
+6. Artifact persistence across sessions (in-memory only for v1).
+7. Integration with the Knowledge Graph — approved artifacts do not auto-commit to KG in v1 (follow-on).
 
 ## 6. Architecture
 
