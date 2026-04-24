@@ -73,4 +73,27 @@ describe('generateArtifact', () => {
         expect(r.ok).toBe(false);
         if (!r.ok) expect(r.error).toMatch(/not yet supported/);
     });
+
+    it('dispatches to org-chart generator', async () => {
+        const orgChartFixture = await import('../__fixtures__/orgChart.valid.json');
+        (anthropicService.analyzeText as any).mockResolvedValue(JSON.stringify(orgChartFixture.default ?? orgChartFixture));
+        const r = await generateArtifact({
+            content: 'org', brand: 'nu', userPrompt: 'advancement division',
+            designMdRaw: 's', corpusText: 's', currentArtifact: null,
+        });
+        expect(r.ok).toBe(true);
+        if (r.ok) expect(r.artifact.type).toBe('org');
+    });
+
+    it('rejects org-chart with invalid rootIds reference', async () => {
+        const orgChartFixture = await import('../__fixtures__/orgChart.valid.json');
+        const src = orgChartFixture.default ?? orgChartFixture;
+        const bad = { ...src, rootIds: ['ghost'] };
+        (anthropicService.analyzeText as any).mockResolvedValue(JSON.stringify(bad));
+        const r = await generateArtifact({
+            content: 'org', brand: 'nu', userPrompt: 'x',
+            designMdRaw: 's', corpusText: 's', currentArtifact: null,
+        });
+        expect(r.ok).toBe(false);
+    });
 });
