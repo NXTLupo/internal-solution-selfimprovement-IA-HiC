@@ -1,0 +1,18 @@
+{
+    "id": "o_1",
+    "type": "org",
+    "brand": "nu",
+    "title": "Advancement Division — Reporting Structure",
+    "nodes": [
+        { "id": "n1", "name": "Alice Thompson", "title": "VP Advancement", "department": "Advancement", "directReports": ["n2", "n3"], "iconKey": "person" },
+        { "id": "n2", "name": "Ben Rivera", "title": "Director, Major Gifts", "department": "Advancement", "directReports": ["n4", "n5"], "iconKey": "person" },
+        { "id": "n3", "name": "Carol Nguyen", "title": "Director, Alumni Relations", "department": "Advancement", "directReports": [], "iconKey": "person" },
+        { "id": "n4", "name": "VACANT", "title": "Senior Gift Officer", "department": "Major Gifts", "directReports": [], "iconKey": "vacant" },
+        { "id": "n5", "name": "Dana Park", "title": "Gift Officer", "department": "Major Gifts", "directReports": [], "iconKey": "person" }
+    ],
+    "rootIds": ["n1"],
+    "citations": [{ "label": "Advancement org chart, FY25 Q1", "source": "NU HR, 2025" }],
+    "layout": { "direction": "TB", "nodes": { "n1": { "x": 200, "y": 0 }, "n2": { "x": 100, "y": 120 }, "n3": { "x": 300, "y": 120 }, "n4": { "x": 50, "y": 240 }, "n5": { "x": 150, "y": 240 } } },
+    "createdAt": 1714000000000,
+    "updatedAt": 1714000000000
+}
