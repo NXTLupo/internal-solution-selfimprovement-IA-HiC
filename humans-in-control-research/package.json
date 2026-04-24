@@ -14,7 +14,7 @@
   "dependencies": {
     "@dagrejs/dagre": "^3.0.0",
     "@google/genai": "^1.49.0",
-    "fossflow-lib": "github:stan-smith/FossFLOW#master",
+    "fossflow": "^1.0.5",
     "framer-motion": "11.0.0",
     "html2canvas": "1.4.1",
     "jspdf": "2.5.1",
