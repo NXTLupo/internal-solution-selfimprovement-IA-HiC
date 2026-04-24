@@ -1,0 +1,16 @@
+{
+    "id": "p_1",
+    "type": "persona",
+    "brand": "nu",
+    "name": "Sarah Chen",
+    "role": "First-generation junior developer",
+    "goals": ["Land first full-time dev role", "Pay off student debt within 5 years"],
+    "painPoints": ["No family connections in tech", "Rejects without feedback"],
+    "jtbd": "When I apply to jobs, I want to know where my application stands, so that I can pivot without wasting weeks.",
+    "quotes": [
+        { "text": "I sent 73 applications and got 2 interviews.", "source": "Reddit: r/cscareerquestions" }
+    ],
+    "citations": [{ "label": "Application volume", "source": "Higher Ed Dive, 2025" }],
+    "createdAt": 1714000000000,
+    "updatedAt": 1714000000000
+}
