@@ -12,6 +12,7 @@ import AnalystDeskKnowledgeGraph from './components/AnalystDeskKnowledgeGraph';
 import WikiArchiveBrowser from './components/WikiArchiveBrowser';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import ChatWorkbench from './components/ChatWorkbench';
+import { DesignDesk } from './design-desk';
 import type { ChatContext } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
 import './styles/nxt-design-system.css';
@@ -3295,6 +3296,25 @@ ${synthesisParts.join('\n')}
                                          >
                                              UX Heuristic Analysis
                                          </button>
+                                         {process.env.DESIGN_DESK_ENABLED === 'true' && (
+                                             <button
+                                                 onClick={() => setAppState(AppState.DESIGN_DESK)}
+                                                 style={{
+                                                     padding: '6px 14px',
+                                                     fontSize: 10,
+                                                     fontWeight: 700,
+                                                     letterSpacing: 2,
+                                                     textTransform: 'uppercase',
+                                                     border: '1px solid #B8B800',
+                                                     color: '#0D0D0D',
+                                                     background: '#FAFAF7',
+                                                     cursor: 'pointer',
+                                                     marginLeft: 8,
+                                                 }}
+                                             >
+                                                 Design Desk
+                                             </button>
+                                         )}
                                      </div>
                                 </div>
 
@@ -3727,6 +3747,25 @@ ${synthesisParts.join('\n')}
                           screenshots={heuristicScreenshots}
                           onReset={resetHeuristic}
                       />
+                  )}
+
+                  {/* DESIGN DESK — standalone artifact canvas (feature-flagged) */}
+                  {appState === AppState.DESIGN_DESK && (
+                      <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+                          <button
+                              onClick={() => setAppState(AppState.IDLE)}
+                              style={{
+                                  position: 'absolute', top: 16, left: 16, zIndex: 1000,
+                                  padding: '4px 10px', fontSize: 9, fontWeight: 700,
+                                  letterSpacing: 2, textTransform: 'uppercase',
+                                  background: '#FFFFFF', border: '1px solid #0D0D0D',
+                                  color: '#0D0D0D', cursor: 'pointer',
+                              }}
+                          >
+                              {'←'} Back
+                          </button>
+                          <DesignDesk corpusText={result ? JSON.stringify(result).slice(0, 80000) : ''} />
+                      </div>
                   )}
              </div>
 

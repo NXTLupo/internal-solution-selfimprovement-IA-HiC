@@ -411,7 +411,8 @@ export enum AppState {
   ANALYZING = 'ANALYZING',
   WORKBENCH = 'WORKBENCH', // Chat-Driven Research Workbench (post-collection, replaces pipeline)
   SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
+  DESIGN_DESK = 'DESIGN_DESK',
 }
 
 // --- NEW TYPES FOR HUMAN-IN-THE-LOOP FLOW ---
