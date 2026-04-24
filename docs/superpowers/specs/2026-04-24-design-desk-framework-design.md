@@ -11,13 +11,13 @@
 
 Today HiC Research generates 10 artifact types via a checkbox-driven pipeline that runs after data collection and synthesis. The AI chat surface can emit slides (`:::slide` blocks) but not full artifacts, and chat-emitted slides use a legacy `NxtBlock[]` format rather than the strongly-typed slide-template system. Journey maps and architecture diagrams are currently flattened into slide templates or documents — neither form does justice to spatial artifacts. The NXT design system is implicit and scattered across `.claude/CLAUDE.md`, `wiki/brand/*.md`, and code conventions, so each generation model (Gemini, Claude, OpenAI) interprets it differently.
 
-The **Design Desk** is a new top-level tab alongside Analyst Desk and AI Chat where users can chat their way to publication-ready artifacts — both document-shaped (persona, gap, strategy, etc.) and diagram-shaped (journey, architecture). The AI can mutate the active artifact through chat turns. Flat NXT design language is applied consistently by grounding every AI call in a formal `DESIGN.md` spec. Diagram-shaped artifacts render via an embedded FossFLOW canvas skinned to NXT brand. All artifacts export to PDF (exact proportions), PNG, or PPTX.
+The **Design Desk** is a new top-level tab alongside Analyst Desk and AI Chat where users can chat their way to publication-ready artifacts — document-shaped (persona, gap, strategy, etc.), isometric-diagram-shaped (journey, architecture), and hierarchy-shaped (organizational chart). The AI can mutate the active artifact through chat turns. Flat NXT design language is applied consistently by grounding every AI call in a formal `DESIGN.md` spec. Isometric-diagram artifacts render via an embedded FossFLOW canvas; hierarchy artifacts render via reactflow with a dagre auto-layout and fully custom NXT-styled node primitives. All artifacts export to PDF (exact proportions), PNG, or PPTX.
 
-This spec covers **Sub-project 1: the Design Desk Framework + two pilot artifacts (Persona, Journey)**. The remaining eight artifact types are out of scope here; each will have its own design spec once the framework is proven.
+This spec covers **Sub-project 1: the Design Desk Framework + three pilot artifacts (Persona, Journey, OrgChart)**. The remaining eight artifact types are out of scope here; each will have its own design spec once the framework is proven.
 
 ## 2. Goals
 
-1. Prove the Design Desk paradigm end-to-end with two pilots (one document-shaped, one diagram-shaped).
+1. Prove the Design Desk paradigm end-to-end with three pilots — one per artifact shape (document, isometric diagram, hierarchy).
 2. Formalize the NXT design system as `DESIGN.md` so every AI generation reads a single source of truth.
 3. Establish the hashtag grammar as the canonical way to request artifacts and slide projections.
 4. Establish the artifact store + chat-canvas binding model that all future artifacts will plug into.
@@ -56,16 +56,18 @@ This spec covers **Sub-project 1: the Design Desk Framework + two pilot artifact
 | `#persona #NU #slide ...` | Persona artifact + one slide projection in NU brand |
 | `#journey #NXT show the application-to-enrollment journey` | One journey artifact rendered in FossFLOW, NXT brand |
 | `#journey #NXT #slide ...` | Journey artifact + a slide projection (rasterized canvas embedded) |
-| `#persona #journey #strategy #NU #slides build a first-gen retention deck` | Three artifacts (persona, journey, strategy) + a deck of slide projections |
+| `#org #NU map the advancement division reporting structure` | One org-chart artifact rendered in reactflow (custom NXT nodes), NU brand |
+| `#org #NU #slide ...` | Org-chart artifact + a slide projection (rasterized canvas embedded) |
+| `#persona #journey #org #NU #slides build a first-gen retention deck` | Three artifacts (persona, journey, org-chart) + a deck of slide projections |
 
 ### 4.3 The Design Desk Tab
 
 A new tab sits alongside the existing Analyst Desk and AI Chat. Layout when the tab is open:
 - **Left pane (~40%)**: Chat input + conversation history. Same model-selector chrome as the existing CorpusChatPanel.
-- **Right pane (~60%)**: Active artifact viewer. For diagram artifacts, the FossFLOW canvas. For document artifacts, the flat NXT document template.
+- **Right pane (~60%)**: Active artifact viewer. Routes by artifact shape: FossFLOW canvas for isometric-diagram artifacts (journey, arch), reactflow canvas with custom NXT node primitives for hierarchy artifacts (org), flat NXT document template for document artifacts (persona).
 - **Top strip of the right pane**: Artifact tabs (one per generated artifact in the current session), brand toggle, export menu (PDF / PNG / PPTX).
 
-Chat and canvas are bound: the AI sees the current artifact state on every turn and can replace it. Users can also edit the canvas directly (FossFLOW's built-in tools for diagram artifacts, inline field edits for document artifacts).
+Chat and canvas are bound: the AI sees the current artifact state on every turn and can replace it. Users can also edit the canvas directly (FossFLOW's built-in tools for isometric diagrams, reactflow's drag/edit for hierarchies, inline field edits for document artifacts).
 
 ### 4.4 Interaction Patterns
 
@@ -86,22 +88,25 @@ Chat and canvas are bound: the AI sees the current artifact state on every turn 
 3. **Hashtag parser** — pure function: `parseHashtags(userText) → { content[], view, composition, brand }`.
 4. **Artifact store** — Zustand store holding `{ artifacts, activeArtifactId, history }`, with undo/redo.
 5. **`FossflowCanvas` component** — embeds `fossflow-lib`, overrides icons + colors using DESIGN.md tokens.
-6. **`NxtDocViewer` component** — flat NXT React document renderer for document-shaped artifacts; reads DESIGN.md tokens.
-7. **`DesignMdLoader` service** — loads `DESIGN.md` at boot (or per-session), parses frontmatter tokens, exposes both the raw Markdown (for AI prompts) and structured tokens (for renderers).
-8. **Chat ↔ artifact binding** — generation service that sees current artifact state, emits a full replacement artifact, swaps it in the store.
-9. **Export pipeline** — PDF (exact proportions), PNG (per-artifact), PPTX (reuses existing `pptxgenjs` export pattern; adds rasterization path for FossFLOW canvases).
-10. **Pilot: Persona** — document-shaped; end-to-end including slide projection.
-11. **Pilot: Journey** — diagram-shaped, FossFLOW-rendered; end-to-end including slide projection.
+6. **`OrgChartCanvas` component** — reactflow + dagre auto-layout with fully custom NXT-styled node primitives and iconography (no default reactflow chrome); drag/collapse/zoom interactions.
+7. **`NxtDocViewer` component** — flat NXT React document renderer for document-shaped artifacts; reads DESIGN.md tokens.
+8. **`DesignMdLoader` service** — loads `DESIGN.md` at boot (or per-session), parses frontmatter tokens, exposes both the raw Markdown (for AI prompts) and structured tokens (for renderers).
+9. **Chat ↔ artifact binding** — generation service that sees current artifact state, emits a full replacement artifact, swaps it in the store.
+10. **Export pipeline** — PDF (exact proportions), PNG (per-artifact), PPTX (reuses existing `pptxgenjs` export pattern; adds rasterization path for canvas-backed artifacts).
+11. **Pilot: Persona** — document-shaped; end-to-end including slide projection.
+12. **Pilot: Journey** — isometric-diagram-shaped, FossFLOW-rendered; end-to-end including slide projection.
+13. **Pilot: OrgChart** — hierarchy-shaped, reactflow-rendered with custom NXT nodes; end-to-end including slide projection. Selectable from the checkbox pipeline on the main page as a new `ORG_CHART` `OutputOption` (pre-generated after synthesis) AND creatable on-demand via `#org` in chat.
 
 ### 5.2 Out of Scope (Follow-on Specs)
 
 1. Other eight artifact types from the original list: blueprint, arch, prd, roadmap, strategy, gap, audit, compete — each a separate spec.
-2. **`#org` — organizational flow chart artifact** (confirmed 2026-04-24). Hashtag namespace is locked in this spec but implementation is deferred. Planned direction: [reactflow](https://reactflow.dev/) (MIT) with a hierarchical layout (`dagre` auto-layout) and **fully custom NXT-styled node primitives + iconography** — no default reactflow chrome. Interactive canvas with chat-driven mutation on the same pattern as `#journey`. Commercial `@yworks/react-yfiles-orgchart` evaluated and rejected (paid yFiles-for-HTML dependency). The org-chart spec inherits all framework rules from this spec: flat NXT visual language, DESIGN.md grounding, artifact-first precedence, PDF/PNG/PPTX export.
-3. `#slides` deck composition beyond simple "one slide per content hashtag, in order given" — richer narrative composition (cover, section dividers, closing) deferred.
-4. Operation-based or tool-use mutation models — framework v1 uses full-state rewrites; later artifacts may opt in.
-5. Multi-user collaboration, real-time sync.
-6. Artifact persistence across sessions (in-memory only for v1).
-7. Integration with the Knowledge Graph — approved artifacts do not auto-commit to KG in v1 (follow-on).
+2. `#slides` deck composition beyond simple "one slide per content hashtag, in order given" — richer narrative composition (cover, section dividers, closing) deferred.
+3. Operation-based or tool-use mutation models — framework v1 uses full-state rewrites; later artifacts may opt in.
+4. Multi-user collaboration, real-time sync.
+5. Artifact persistence across sessions (in-memory only for v1).
+6. Integration with the Knowledge Graph — approved artifacts do not auto-commit to KG in v1 (follow-on).
+
+**Note on `#org` library choice**: reactflow (MIT) was selected over the commercial `@yworks/react-yfiles-orgchart` which depends on a paid yFiles-for-HTML license. Node primitives and iconography are fully custom (not reactflow defaults) — the NXT flat visual language applies to every element the user sees.
 
 ## 6. Architecture
 
@@ -123,8 +128,9 @@ The AI emits a complete new artifact JSON on every chat turn that mutates state.
 |-----------|---------------|--------------|
 | `DesignDesk.tsx` | Top-level tab layout; hosts chat + canvas panes | designDeskStore, child components |
 | `DesignDeskChat.tsx` | Left pane: chat input, history, model selector | designDeskStore, hashtag parser, chatToArtifact |
-| `ArtifactViewer.tsx` | Right pane: routes to FossflowCanvas or NxtDocViewer by artifact type | designDeskStore |
+| `ArtifactViewer.tsx` | Right pane: routes to FossflowCanvas, OrgChartCanvas, or NxtDocViewer by artifact type | designDeskStore |
 | `FossflowCanvas.tsx` | Embeds fossflow-lib; translates JourneyArtifact ↔ FossFLOW internal schema; NXT-skins icons/colors | fossflow-lib, DesignMdLoader |
+| `OrgChartCanvas.tsx` | reactflow + dagre auto-layout; translates OrgChartArtifact ↔ reactflow schema; renders fully-custom NXT node primitives + iconography | reactflow, @dagrejs/dagre, DesignMdLoader |
 | `NxtDocViewer.tsx` | Flat NXT document template; renders PersonaArtifact; inline edit fields | DesignMdLoader |
 | `designDeskStore.ts` | Zustand: `{ artifacts, activeArtifactId, history, addArtifact, replaceArtifact, undo, redo }` | Zustand |
 | `hashtagParser.ts` | Pure: extracts content/view/composition/brand from user text | none |
@@ -172,7 +178,32 @@ type JourneyArtifact = {
   updatedAt: number;
 };
 
-type Artifact = PersonaArtifact | JourneyArtifact; // union grows per spec
+type OrgChartArtifact = {
+  id: string;
+  type: 'org';
+  brand: BrandId;
+  title: string;
+  nodes: {
+    id: string;
+    name: string;                          // person name (or placeholder "VACANT")
+    title: string;                          // role title
+    department?: string;                    // optional department tag
+    directReports: string[];                // ids of children (defines the hierarchy)
+    location?: string;                      // optional city / region
+    email?: string;                         // optional contact
+    iconKey?: 'person' | 'vacant' | 'team' | 'external';
+  }[];
+  rootIds: string[];                        // top-level nodes (usually one CEO-equivalent)
+  citations: { label: string; source: string }[];
+  layout?: {                                // dagre produces this; persisted for stable rendering
+    nodes: Record<string, { x: number; y: number }>;
+    direction: 'TB' | 'LR';                 // top-to-bottom or left-to-right
+  };
+  createdAt: number;
+  updatedAt: number;
+};
+
+type Artifact = PersonaArtifact | JourneyArtifact | OrgChartArtifact; // union grows per spec
 ```
 
 ### 6.4 Data Flow
@@ -187,7 +218,7 @@ type Artifact = PersonaArtifact | JourneyArtifact; // union grows per spec
 4. Provider (Claude Opus 4.7 default for generation; configurable) returns full artifact JSON.
 5. Artifact JSON validated against the Zod schema for its type. Invalid → error surfaced in chat, store unchanged.
 6. Valid → `designDeskStore.replaceArtifact(id, newArtifact)`. Previous artifact pushed to history for undo.
-7. `ArtifactViewer` re-renders (FossflowCanvas for journey, NxtDocViewer for persona).
+7. `ArtifactViewer` re-renders (FossflowCanvas for journey, OrgChartCanvas for org, NxtDocViewer for persona).
 8. If `#slide` in the prompt: after the artifact is committed, `chatToArtifact` runs a second call to produce a slide projection (rasterized canvas for diagrams; template data for docs) and stores it as a sibling artifact.
 9. If `#slides` in the prompt: steps 3-8 run once per content hashtag.
 
@@ -240,6 +271,7 @@ The loader parses frontmatter into a tokens object (for renderers) and exposes t
 - **Unknown content hashtag**: chat responds with a friendly message listing valid hashtags.
 - **Invalid AI-emitted artifact JSON**: schema validation fails → chat surfaces `"Couldn't parse the artifact. Try again?"`, nothing changes in the store.
 - **FossFLOW render error**: fallback to a list view of the journey stages with a "canvas unavailable" badge; user can still export as a text-shaped artifact.
+- **reactflow render error**: fallback to an indented tree list of the org-chart nodes with a "canvas unavailable" badge; user can still read the hierarchy and export as text.
 - **`DESIGN.md` missing or malformed at boot**: fail loudly (error banner across the Design Desk) — this is load-bearing; silent fallback would cause design drift.
 - **Export failures**: per-format error surfaced in the export menu; other formats remain available.
 - **Large corpora / slow generation**: reuse the existing `LoadingIndicator` with phased status text.
@@ -253,7 +285,8 @@ The repo has no formal test suite. Validation plan:
 3. **Manual end-to-end**:
    - `#persona #NU` → verify persona renders in NxtDocViewer, fields populated, citations resolved.
    - `#journey #NXT` → verify FossFLOW renders, stages have NXT-styled icons and palette.
-   - Chat-edit each ("add pain point about financial aid" / "add an escalation branch after step 3") → verify state updates, undo restores.
+   - `#org #NU` → verify reactflow renders, nodes use custom NXT primitives (no reactflow default chrome), dagre auto-layout is clean, drag/collapse works.
+   - Chat-edit each ("add pain point about financial aid" / "add an escalation branch after step 3" / "add a new direct report under the CTO named Alex") → verify state updates, undo restores.
    - Export PDF from each → verify exact proportions match the on-screen canvas.
    - Export PNG → verify resolution is publication-grade (≥ 2× pixel ratio).
    - Export PPTX → open in PowerPoint, verify slide looks clean, fonts render (embedded or fallback declared).
@@ -261,7 +294,7 @@ The repo has no formal test suite. Validation plan:
 
 ## 9. Rollout
 
-Phase 1: Land the framework + both pilots behind a `DESIGN_DESK_ENABLED` flag.
+Phase 1: Land the framework + all three pilots (persona, journey, org-chart) behind a `DESIGN_DESK_ENABLED` flag.
 Phase 2: Dogfood internally (the user is the primary user); iterate on UX and the `DESIGN.md` spec itself.
 Phase 3: Remove the feature flag; begin per-artifact specs for the remaining eight.
 
@@ -289,7 +322,8 @@ New code lives under a new directory tree at `humans-in-control-research/design-
 
 - A new user can type `#persona #NU` and receive a flat-NXT persona document in <20 seconds with publication-ready quality.
 - A new user can type `#journey #NXT` and receive an isometric journey diagram in FossFLOW, NXT-branded, in <30 seconds.
-- A user can modify either artifact via chat ("add X") and the canvas updates atomically.
-- Both artifacts export to PDF, PNG, and PPTX with exact proportions.
+- A new user can type `#org #NU` and receive a hierarchy diagram in reactflow with fully-custom NXT node primitives (no default reactflow chrome visible), dagre auto-layout, <30 seconds.
+- A user can modify any of the three artifacts via chat ("add X") and the canvas updates atomically.
+- All three artifacts export to PDF, PNG, and PPTX with exact proportions.
 - Running the same prompt across Claude, Gemini, and GPT produces artifacts that visually match within design-system tolerance — proving `DESIGN.md` grounding works.
 - The framework is thin enough that adding a new artifact type (beyond the pilots) requires only: new Zod schema, new renderer, new generation prompt, new export hook.
