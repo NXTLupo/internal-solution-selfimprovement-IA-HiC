@@ -1,0 +1,19 @@
+{
+    "id": "j_1",
+    "type": "journey",
+    "brand": "nxt",
+    "title": "Application-to-Enrollment",
+    "stages": [
+        { "id": "s1", "label": "Awareness", "emotion": "neutral", "touchpoints": ["Google"], "painPoints": [], "opportunities": ["SEO"] },
+        { "id": "s2", "label": "Application", "emotion": "negative", "touchpoints": ["Portal"], "painPoints": ["50 required fields"], "opportunities": ["Reduce to 12"] },
+        { "id": "s3", "label": "Enrollment", "emotion": "positive", "touchpoints": ["Onboarding"], "painPoints": [], "opportunities": [] }
+    ],
+    "connections": [
+        { "from": "s1", "to": "s2", "label": "click apply" },
+        { "from": "s2", "to": "s3" }
+    ],
+    "layout": { "nodes": { "s1": { "x": 0, "y": 0 }, "s2": { "x": 200, "y": 0 }, "s3": { "x": 400, "y": 0 } } },
+    "citations": [{ "label": "Portal abandonment 62%", "source": "Higher Ed Dive, 2025" }],
+    "createdAt": 1714000000000,
+    "updatedAt": 1714000000000
+}
