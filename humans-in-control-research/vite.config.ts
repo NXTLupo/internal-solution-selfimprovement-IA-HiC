@@ -44,6 +44,30 @@ function wikiStaticPlugin(): Plugin {
     };
 }
 
+/**
+ * Vite plugin to serve humans-in-control-research/DESIGN.md at the /DESIGN.md
+ * URL path in dev. In production the Dockerfile copies DESIGN.md into nginx's
+ * static root. Consumed by design-desk/services/designMdLoader.ts.
+ */
+function designMdPlugin(): Plugin {
+    return {
+        name: 'design-md-server',
+        configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+                if (req.url !== '/DESIGN.md') return next();
+                const file = path.resolve(__dirname, 'DESIGN.md');
+                if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+                    res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+                    res.setHeader('Access-Control-Allow-Origin', '*');
+                    fs.createReadStream(file).pipe(res);
+                    return;
+                }
+                next();
+            });
+        },
+    };
+}
+
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
@@ -58,7 +82,7 @@ export default defineConfig(({ mode }) => {
           interval: 500,
         },
       },
-      plugins: [react(), wikiStaticPlugin()],
+      plugins: [react(), wikiStaticPlugin(), designMdPlugin()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

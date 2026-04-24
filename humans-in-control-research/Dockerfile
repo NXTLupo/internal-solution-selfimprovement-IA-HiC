@@ -15,6 +15,8 @@ RUN npm run build
 # Stage 2: Serve with Nginx (proper MIME types, zero caching)
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
+# Copy DESIGN.md so designMdLoader can fetch it at /DESIGN.md in production
+COPY DESIGN.md /usr/share/nginx/html/DESIGN.md
 # Copy wiki knowledge layer so wikiService can fetch pages at runtime
 COPY hic-workspace/wiki /usr/share/nginx/html/hic-workspace/wiki
 # Copy manifest JSONs (skill routing, institution registry, YouTube channels).
