@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ship the Design Desk — a new top-level tab in HiC Research where users chat their way to publication-ready flat-NXT artifacts (persona + journey pilots) grounded in a formal `DESIGN.md` spec, with chat-driven canvas editing, FossFLOW for diagrams, and PDF/PNG/PPTX export.
+**Goal:** Ship the Design Desk — a new top-level tab in HiC Research where users chat their way to publication-ready flat-NXT artifacts (persona + journey + org-chart pilots) grounded in a formal `DESIGN.md` spec, with chat-driven canvas editing, FossFLOW for isometric diagrams, reactflow + dagre + custom NXT node primitives for hierarchies, and PDF/PNG/PPTX export.
 
-**Architecture:** A new isolated tree under `humans-in-control-research/design-desk/`. Zustand store holds typed artifact JSON. AI generates via full-state rewrites (Approach 1 — AI emits a complete artifact each turn; store swaps with undo stack). DESIGN.md is parsed at boot into structured tokens + raw Markdown; tokens drive renderer styling, raw Markdown is injected into every generation prompt. FossFLOW for diagram artifacts, flat-NXT React templates for document artifacts. Feature-flagged behind `VITE_DESIGN_DESK_ENABLED` until validated.
+**Architecture:** A new isolated tree under `humans-in-control-research/design-desk/`. Zustand store holds typed artifact JSON. AI generates via full-state rewrites (Approach 1 — AI emits a complete artifact each turn; store swaps with undo stack). DESIGN.md is parsed at boot into structured tokens + raw Markdown; tokens drive renderer styling, raw Markdown is injected into every generation prompt. Three renderers: FossFLOW for isometric-diagram artifacts (journey), reactflow for hierarchy artifacts (org-chart) with fully custom NXT node primitives and iconography, flat-NXT React templates for document artifacts (persona). Feature-flagged behind `VITE_DESIGN_DESK_ENABLED` until validated.
 
-**Tech Stack:** React 19, TypeScript 5.8, Vite 6, Tailwind 3.4, Zod (new), Zustand (new), Vitest (new), `fossflow-lib` (new), existing `pptxgenjs` / `jspdf` / `html2canvas` / `framer-motion`. Claude Opus 4.7 as default generator (reuses existing `aiRouter` + `anthropicService`).
+**Tech Stack:** React 19, TypeScript 5.8, Vite 6, Tailwind 3.4, Zod (new), Zustand (new), Vitest (new), `fossflow-lib` (new), `reactflow` (new), `@dagrejs/dagre` (new), existing `pptxgenjs` / `jspdf` / `html2canvas` / `framer-motion`. Claude Opus 4.7 as default generator (reuses existing `aiRouter` + `anthropicService`).
 
 **Spec:** [docs/superpowers/specs/2026-04-24-design-desk-framework-design.md](../specs/2026-04-24-design-desk-framework-design.md)
 
@@ -23,11 +23,6 @@ humans-in-control-research/
 │   ├── DesignDesk.tsx                     # Top-level tab — layout shell
 │   ├── DesignDeskChat.tsx                 # Left pane — chat
 │   ├── ArtifactViewer.tsx                 # Right pane router
-│   ├── components/
-│   │   ├── NxtDocViewer.tsx               # Document artifact renderer (persona)
-│   │   ├── FossflowCanvas.tsx             # Diagram artifact renderer (journey)
-│   │   ├── ExportMenu.tsx                 # PDF/PNG/PPTX dropdown
-│   │   └── FeatureFlag.tsx                # Guard component
 │   ├── store/
 │   │   ├── designDeskStore.ts             # Zustand store
 │   │   └── designDeskStore.test.ts
@@ -42,13 +37,24 @@ humans-in-control-research/
 │   │   ├── personaArtifact.ts             # Zod schema
 │   │   ├── personaArtifact.test.ts
 │   │   ├── journeyArtifact.ts             # Zod schema
-│   │   └── journeyArtifact.test.ts
+│   │   ├── journeyArtifact.test.ts
+│   │   ├── orgChartArtifact.ts            # Zod schema
+│   │   └── orgChartArtifact.test.ts
 │   ├── prompts/
 │   │   ├── personaPrompt.ts               # Generation prompt
-│   │   └── journeyPrompt.ts               # Generation prompt
+│   │   ├── journeyPrompt.ts               # Generation prompt
+│   │   └── orgChartPrompt.ts              # Generation prompt
+│   ├── components/
+│   │   ├── NxtDocViewer.tsx               # Document artifact renderer (persona)
+│   │   ├── FossflowCanvas.tsx             # Isometric diagram renderer (journey)
+│   │   ├── OrgChartCanvas.tsx             # Hierarchy renderer (org-chart, reactflow)
+│   │   ├── OrgChartNode.tsx               # Custom NXT-styled reactflow node
+│   │   ├── ExportMenu.tsx
+│   │   └── FeatureFlag.tsx
 │   └── __fixtures__/
 │       ├── persona.valid.json             # Test fixtures
-│       └── journey.valid.json
+│       ├── journey.valid.json
+│       └── orgChart.valid.json
 ├── App.tsx                                # MODIFY — add DESIGN_DESK AppState + nav
 ├── types.ts                               # MODIFY — extend AppState enum
 ├── package.json                           # MODIFY — add deps
@@ -894,6 +900,178 @@ git commit -m "feat(design-desk): journey artifact Zod schema + fixture + 5 test
 
 ---
 
+## Task 5b: OrgChart artifact schema (Zod)
+
+**Files:**
+- Create: `humans-in-control-research/design-desk/schemas/orgChartArtifact.ts`
+- Test: `humans-in-control-research/design-desk/schemas/orgChartArtifact.test.ts`
+- Create: `humans-in-control-research/design-desk/__fixtures__/orgChart.valid.json`
+
+- [ ] **Step 1: Write the failing tests**
+
+```ts
+// humans-in-control-research/design-desk/schemas/orgChartArtifact.test.ts
+import { describe, it, expect } from 'vitest';
+import { validateOrgChartArtifact } from './orgChartArtifact';
+import validFixture from '../__fixtures__/orgChart.valid.json';
+
+describe('OrgChartArtifactSchema', () => {
+    it('accepts a well-formed org chart', () => {
+        expect(validateOrgChartArtifact(validFixture).ok).toBe(true);
+    });
+
+    it('rejects org chart with no nodes', () => {
+        const bad = { ...validFixture, nodes: [] };
+        expect(validateOrgChartArtifact(bad).ok).toBe(false);
+    });
+
+    it('rejects org chart with empty rootIds', () => {
+        const bad = { ...validFixture, rootIds: [] };
+        expect(validateOrgChartArtifact(bad).ok).toBe(false);
+    });
+
+    it('rejects directReports referencing nonexistent node id', () => {
+        const bad = {
+            ...validFixture,
+            nodes: validFixture.nodes.map((n: any, i: number) =>
+                i === 0 ? { ...n, directReports: ['nonexistent'] } : n,
+            ),
+        };
+        expect(validateOrgChartArtifact(bad).ok).toBe(false);
+    });
+
+    it('rejects rootIds referencing nonexistent node id', () => {
+        const bad = { ...validFixture, rootIds: ['ghost'] };
+        expect(validateOrgChartArtifact(bad).ok).toBe(false);
+    });
+
+    it('rejects invalid iconKey value', () => {
+        const bad = {
+            ...validFixture,
+            nodes: validFixture.nodes.map((n: any, i: number) =>
+                i === 0 ? { ...n, iconKey: 'robot' } : n,
+            ),
+        };
+        expect(validateOrgChartArtifact(bad).ok).toBe(false);
+    });
+
+    it('accepts org chart without explicit layout (dagre will auto-layout)', () => {
+        const { layout, ...rest } = validFixture as any;
+        expect(validateOrgChartArtifact(rest).ok).toBe(true);
+    });
+});
+```
+
+- [ ] **Step 2: Create the fixture**
+
+```json
+// humans-in-control-research/design-desk/__fixtures__/orgChart.valid.json
+{
+    "id": "o_1",
+    "type": "org",
+    "brand": "nu",
+    "title": "Advancement Division — Reporting Structure",
+    "nodes": [
+        { "id": "n1", "name": "Alice Thompson", "title": "VP Advancement", "department": "Advancement", "directReports": ["n2", "n3"], "iconKey": "person" },
+        { "id": "n2", "name": "Ben Rivera", "title": "Director, Major Gifts", "department": "Advancement", "directReports": ["n4", "n5"], "iconKey": "person" },
+        { "id": "n3", "name": "Carol Nguyen", "title": "Director, Alumni Relations", "department": "Advancement", "directReports": [], "iconKey": "person" },
+        { "id": "n4", "name": "VACANT", "title": "Senior Gift Officer", "department": "Major Gifts", "directReports": [], "iconKey": "vacant" },
+        { "id": "n5", "name": "Dana Park", "title": "Gift Officer", "department": "Major Gifts", "directReports": [], "iconKey": "person" }
+    ],
+    "rootIds": ["n1"],
+    "citations": [{ "label": "Advancement org chart, FY25 Q1", "source": "NU HR, 2025" }],
+    "layout": { "direction": "TB", "nodes": { "n1": { "x": 200, "y": 0 }, "n2": { "x": 100, "y": 120 }, "n3": { "x": 300, "y": 120 }, "n4": { "x": 50, "y": 240 }, "n5": { "x": 150, "y": 240 } } },
+    "createdAt": 1714000000000,
+    "updatedAt": 1714000000000
+}
+```
+
+- [ ] **Step 3: Run tests to verify they fail**
+
+```bash
+npm run test -- orgChartArtifact
+```
+
+Expected: 7 failures (module not found).
+
+- [ ] **Step 4: Implement the schema**
+
+```ts
+// humans-in-control-research/design-desk/schemas/orgChartArtifact.ts
+import { z } from 'zod';
+import { BrandSchema, type ValidationResult } from './personaArtifact';
+
+export const OrgNodeSchema = z.object({
+    id: z.string().min(1),
+    name: z.string().min(1),
+    title: z.string().min(1),
+    department: z.string().optional(),
+    directReports: z.array(z.string()).default([]),
+    location: z.string().optional(),
+    email: z.string().optional(),
+    iconKey: z.enum(['person', 'vacant', 'team', 'external']).optional(),
+});
+
+export const OrgChartArtifactSchema = z.object({
+    id: z.string().min(1),
+    type: z.literal('org'),
+    brand: BrandSchema,
+    title: z.string().min(1),
+    nodes: z.array(OrgNodeSchema).min(1),
+    rootIds: z.array(z.string().min(1)).min(1),
+    citations: z.array(z.object({
+        label: z.string().min(1),
+        source: z.string().min(1),
+    })).default([]),
+    layout: z.object({
+        nodes: z.record(z.string(), z.object({ x: z.number(), y: z.number() })),
+        direction: z.enum(['TB', 'LR']),
+    }).optional(),
+    createdAt: z.number(),
+    updatedAt: z.number(),
+}).superRefine((val, ctx) => {
+    const ids = new Set(val.nodes.map(n => n.id));
+    for (const rootId of val.rootIds) {
+        if (!ids.has(rootId)) {
+            ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['rootIds'], message: `rootIds entry "${rootId}" references nonexistent node` });
+        }
+    }
+    for (const node of val.nodes) {
+        for (const reportId of node.directReports) {
+            if (!ids.has(reportId)) {
+                ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['nodes'], message: `node "${node.id}" has directReport "${reportId}" that doesn't exist` });
+            }
+        }
+    }
+});
+
+export type OrgChartArtifact = z.infer<typeof OrgChartArtifactSchema>;
+
+export function validateOrgChartArtifact(input: unknown): ValidationResult<OrgChartArtifact> {
+    const r = OrgChartArtifactSchema.safeParse(input);
+    if (r.success) return { ok: true, value: r.data };
+    const firstIssue = r.error.issues[0];
+    return { ok: false, error: `${firstIssue.path.join('.')}: ${firstIssue.message}` };
+}
+```
+
+- [ ] **Step 5: Run tests to verify they pass**
+
+```bash
+npm run test -- orgChartArtifact
+```
+
+Expected: 7 passes.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add humans-in-control-research/design-desk/schemas/orgChartArtifact.ts humans-in-control-research/design-desk/schemas/orgChartArtifact.test.ts humans-in-control-research/design-desk/__fixtures__/orgChart.valid.json
+git commit -m "feat(design-desk): org-chart artifact Zod schema + fixture + 7 tests (incl. directReport/rootId cross-reference validation)"
+```
+
+---
+
 ## Task 6: Artifact store (Zustand)
 
 **Files:**
@@ -907,8 +1085,9 @@ git commit -m "feat(design-desk): journey artifact Zod schema + fixture + 5 test
 // humans-in-control-research/design-desk/types.ts
 import type { PersonaArtifact } from './schemas/personaArtifact';
 import type { JourneyArtifact } from './schemas/journeyArtifact';
+import type { OrgChartArtifact } from './schemas/orgChartArtifact';
 
-export type Artifact = PersonaArtifact | JourneyArtifact;
+export type Artifact = PersonaArtifact | JourneyArtifact | OrgChartArtifact;
 export type ArtifactType = Artifact['type'];
 ```
 
@@ -1431,6 +1610,180 @@ git commit -m "feat(design-desk): journey prompt + chatToArtifact dispatch tests
 
 ---
 
+## Task 8b: OrgChart generation prompt + chatToArtifact dispatch wiring
+
+**Files:**
+- Create: `humans-in-control-research/design-desk/prompts/orgChartPrompt.ts`
+- Modify: `humans-in-control-research/design-desk/services/chatToArtifact.ts`
+- Modify: `humans-in-control-research/design-desk/services/chatToArtifact.test.ts`
+
+- [ ] **Step 1: Write the org-chart generation prompt**
+
+```ts
+// humans-in-control-research/design-desk/prompts/orgChartPrompt.ts
+import type { OrgChartArtifact } from '../schemas/orgChartArtifact';
+import type { BrandHashtag } from '../services/hashtagParser';
+
+export function buildOrgChartPrompt(args: {
+    designMdRaw: string;
+    corpusText: string;
+    currentArtifact: OrgChartArtifact | null;
+    userPrompt: string;
+    brand: BrandHashtag;
+}): string {
+    const mode = args.currentArtifact ? 'REVISE' : 'CREATE';
+    const currentBlock = args.currentArtifact
+        ? `\nCURRENT ORG CHART (revise this — emit a new full object, keep id unchanged):\n${JSON.stringify(args.currentArtifact, null, 2)}\n`
+        : '';
+
+    return `You are generating an ORGANIZATIONAL CHART ARTIFACT for the NXT Humans Design Desk.
+
+DESIGN SYSTEM (authoritative — obey all rules):
+${args.designMdRaw}
+
+RESEARCH CORPUS (use for grounding and citations):
+${args.corpusText.slice(0, 60000)}
+
+${currentBlock}
+MODE: ${mode}
+BRAND: ${args.brand}
+USER PROMPT: ${args.userPrompt}
+
+OUTPUT CONTRACT — respond with ONLY a single JSON object, no prose, no markdown fences:
+
+{
+  "id": "${args.currentArtifact?.id ?? 'o_<timestamp>'}",
+  "type": "org",
+  "brand": "${args.brand}",
+  "title": "<action-title: what org or division this chart represents>",
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "<person full name, or \\"VACANT\\" if the role is unfilled>",
+      "title": "<role title>",
+      "department": "<optional department/team>",
+      "directReports": ["<child node id>", ...],
+      "location": "<optional city/region>",
+      "email": "<optional email>",
+      "iconKey": "person|vacant|team|external"
+    }
+  ],
+  "rootIds": ["<id of top-level node(s)>"],
+  "citations": [{ "label": "<fact>", "source": "<named source>" }],
+  "createdAt": ${Date.now()},
+  "updatedAt": ${Date.now()}
+}
+
+RULES:
+- nodes[].id values MUST be unique. directReports and rootIds MUST reference ids that exist in nodes[].
+- Every node's directReports is an array (possibly empty for leaf nodes).
+- rootIds typically has ONE entry (a CEO/president/head) but may have multiple for federated structures.
+- Use iconKey "vacant" when name is "VACANT" (an unfilled role). Use "team" for collective nodes ("Engineering Team"). Use "external" for partners/vendors/contractors. Use "person" for named individuals (default).
+- Keep the hierarchy shallow when the corpus supports it — overcomplex trees hurt readability.
+- Plain text only; no markdown, no asterisks, no emoji.
+- Citations must reference NAMED sources from the corpus — no generic "research" or "data".`;
+}
+```
+
+- [ ] **Step 2: Update chatToArtifact.ts to dispatch to org-chart**
+
+Open `humans-in-control-research/design-desk/services/chatToArtifact.ts`. Update the dispatch and imports:
+
+Add near the top with the other schema imports:
+```ts
+import { validateOrgChartArtifact, type OrgChartArtifact } from '../schemas/orgChartArtifact';
+import { buildOrgChartPrompt } from '../prompts/orgChartPrompt';
+```
+
+In the `generateArtifact` function, replace the dispatch `if/else if/else` block with this three-way:
+
+```ts
+    let prompt: string;
+    if (args.content === 'persona') {
+        prompt = buildPersonaPrompt({
+            designMdRaw: args.designMdRaw,
+            corpusText: args.corpusText,
+            currentArtifact: args.currentArtifact?.type === 'persona' ? args.currentArtifact : null,
+            userPrompt: args.userPrompt,
+            brand: args.brand,
+        });
+    } else if (args.content === 'journey') {
+        prompt = buildJourneyPrompt({
+            designMdRaw: args.designMdRaw,
+            corpusText: args.corpusText,
+            currentArtifact: args.currentArtifact?.type === 'journey' ? args.currentArtifact : null,
+            userPrompt: args.userPrompt,
+            brand: args.brand,
+        });
+    } else if (args.content === 'org') {
+        prompt = buildOrgChartPrompt({
+            designMdRaw: args.designMdRaw,
+            corpusText: args.corpusText,
+            currentArtifact: args.currentArtifact?.type === 'org' ? args.currentArtifact : null,
+            userPrompt: args.userPrompt,
+            brand: args.brand,
+        });
+    } else {
+        return { ok: false, error: `Content type "${args.content}" is not yet supported in the framework pilot (persona + journey + org only)` };
+    }
+```
+
+And replace the `validator` line to select by type:
+
+```ts
+    const validator =
+        args.content === 'persona' ? validatePersonaArtifact :
+        args.content === 'journey' ? validateJourneyArtifact :
+        validateOrgChartArtifact;
+```
+
+- [ ] **Step 3: Add dispatch tests for org-chart**
+
+Append to `humans-in-control-research/design-desk/services/chatToArtifact.test.ts`, inside the existing `describe('generateArtifact', ...)` block, before the closing `});`:
+
+```ts
+    it('dispatches to org-chart generator', async () => {
+        const orgChartFixture = await import('../__fixtures__/orgChart.valid.json');
+        (anthropicService.callClaude as any).mockResolvedValue(JSON.stringify(orgChartFixture.default ?? orgChartFixture));
+        const r = await generateArtifact({
+            content: 'org', brand: 'nu', userPrompt: 'advancement division',
+            designMdRaw: 's', corpusText: 's', currentArtifact: null,
+        });
+        expect(r.ok).toBe(true);
+        if (r.ok) expect(r.artifact.type).toBe('org');
+    });
+
+    it('rejects org-chart with invalid directReport reference', async () => {
+        const orgChartFixture = await import('../__fixtures__/orgChart.valid.json');
+        const bad = { ...(orgChartFixture.default ?? orgChartFixture), rootIds: ['ghost'] };
+        (anthropicService.callClaude as any).mockResolvedValue(JSON.stringify(bad));
+        const r = await generateArtifact({
+            content: 'org', brand: 'nu', userPrompt: 'x',
+            designMdRaw: 's', corpusText: 's', currentArtifact: null,
+        });
+        expect(r.ok).toBe(false);
+    });
+```
+
+Also update the existing `'rejects unsupported content type'` test. Change `content: 'gap' as any` → `content: 'blueprint' as any` (since 'org' is now supported).
+
+- [ ] **Step 4: Run tests to verify they pass**
+
+```bash
+npm run test -- chatToArtifact
+```
+
+Expected: 8 passes (6 original + 2 new org dispatch tests). If a test fails with a fixture-shape error, verify the JSON import syntax works in vitest; Vitest 4 may require `vite.config.ts` to have `assetsInclude: ['**/*.json']` or use `import orgChartFixture from '../__fixtures__/orgChart.valid.json' assert { type: 'json' };`.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add humans-in-control-research/design-desk/prompts/orgChartPrompt.ts humans-in-control-research/design-desk/services/chatToArtifact.ts humans-in-control-research/design-desk/services/chatToArtifact.test.ts
+git commit -m "feat(design-desk): org-chart generation prompt + chatToArtifact dispatch + 2 tests"
+```
+
+---
+
 ## Task 9: NxtDocViewer — persona renderer
 
 **Files:**
@@ -1689,6 +2042,252 @@ git commit -m "feat(design-desk): FossflowCanvas wrapper + fallback list view fo
 
 ---
 
+## Task 10b: OrgChartCanvas — hierarchy renderer (reactflow + dagre + custom NXT nodes)
+
+**Files:**
+- Create: `humans-in-control-research/design-desk/components/OrgChartNode.tsx`
+- Create: `humans-in-control-research/design-desk/components/OrgChartCanvas.tsx`
+
+- [ ] **Step 1: Install reactflow and dagre**
+
+```bash
+cd humans-in-control-research
+npm install --legacy-peer-deps reactflow @dagrejs/dagre
+```
+
+Verify `package.json` now lists `reactflow` and `@dagrejs/dagre` under `dependencies`.
+
+- [ ] **Step 2: Implement the custom NXT-styled node**
+
+```tsx
+// humans-in-control-research/design-desk/components/OrgChartNode.tsx
+import React from 'react';
+import { Handle, Position } from 'reactflow';
+import type { DesignTokens } from '../services/designMdLoader';
+
+// Minimalistic flat NXT iconography — inline SVGs, NO external icon library.
+const icons = {
+    person: (color: string) => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="6" r="3" stroke={color} strokeWidth="1.5" />
+            <path d="M3 17c0-3.5 3-6 7-6s7 2.5 7 6" stroke={color} strokeWidth="1.5" />
+        </svg>
+    ),
+    vacant: (color: string) => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="6" r="3" stroke={color} strokeWidth="1.5" strokeDasharray="2 2" />
+            <path d="M3 17c0-3.5 3-6 7-6s7 2.5 7 6" stroke={color} strokeWidth="1.5" strokeDasharray="2 2" />
+        </svg>
+    ),
+    team: (color: string) => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="6" cy="7" r="2.5" stroke={color} strokeWidth="1.5" />
+            <circle cx="14" cy="7" r="2.5" stroke={color} strokeWidth="1.5" />
+            <path d="M2 16c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke={color} strokeWidth="1.5" />
+            <path d="M10 16c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke={color} strokeWidth="1.5" />
+        </svg>
+    ),
+    external: (color: string) => (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="14" height="14" stroke={color} strokeWidth="1.5" fill="none" />
+            <path d="M7 10l3 3 5-5" stroke={color} strokeWidth="1.5" fill="none" />
+        </svg>
+    ),
+};
+
+export interface OrgChartNodeData {
+    name: string;
+    title: string;
+    department?: string;
+    iconKey: 'person' | 'vacant' | 'team' | 'external';
+    tokens: DesignTokens;
+    brand: 'nxt' | 'nu';
+}
+
+export const OrgChartNode: React.FC<{ data: OrgChartNodeData }> = ({ data }) => {
+    const palette = data.tokens.brands[data.brand] as Record<string, string>;
+    const primary = palette.primary ?? '#0D0D0D';
+    const accent = palette.accent ?? '#B8B800';
+    const iconColor = data.iconKey === 'vacant' ? '#999' : primary;
+
+    return (
+        <div style={{
+            background: '#FFFFFF',
+            color: primary,
+            border: `1px solid ${primary}`,
+            borderLeft: `4px solid ${accent}`,
+            padding: '10px 14px',
+            minWidth: 180,
+            maxWidth: 240,
+            fontFamily: "'Archivo', sans-serif",
+            borderRadius: 2,
+        }}>
+            <Handle type="target" position={Position.Top} style={{ background: primary, width: 6, height: 6, border: 'none' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                {icons[data.iconKey](iconColor)}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                        lineHeight: 1.2,
+                        color: data.iconKey === 'vacant' ? '#999' : primary,
+                        fontStyle: data.iconKey === 'vacant' ? 'italic' : 'normal',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                    }}>{data.name}</div>
+                    <div style={{ fontSize: 10, fontWeight: 500, color: '#444', marginTop: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{data.title}</div>
+                    {data.department && (
+                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: accent, marginTop: 3 }}>
+                            {data.department}
+                        </div>
+                    )}
+                </div>
+            </div>
+            <Handle type="source" position={Position.Bottom} style={{ background: primary, width: 6, height: 6, border: 'none' }} />
+        </div>
+    );
+};
+```
+
+- [ ] **Step 3: Implement the canvas with dagre layout**
+
+```tsx
+// humans-in-control-research/design-desk/components/OrgChartCanvas.tsx
+import React, { useMemo } from 'react';
+import ReactFlow, { Background, Controls, type Node, type Edge, type NodeTypes } from 'reactflow';
+import dagre from '@dagrejs/dagre';
+import 'reactflow/dist/style.css';
+import type { OrgChartArtifact } from '../schemas/orgChartArtifact';
+import type { DesignTokens } from '../services/designMdLoader';
+import { OrgChartNode, type OrgChartNodeData } from './OrgChartNode';
+
+const NODE_TYPES: NodeTypes = { orgNode: OrgChartNode };
+const NODE_W = 220;
+const NODE_H = 78;
+
+function autoLayout(artifact: OrgChartArtifact, direction: 'TB' | 'LR'): Record<string, { x: number; y: number }> {
+    const g = new dagre.graphlib.Graph();
+    g.setDefaultEdgeLabel(() => ({}));
+    g.setGraph({ rankdir: direction, nodesep: 40, ranksep: 80 });
+    for (const n of artifact.nodes) g.setNode(n.id, { width: NODE_W, height: NODE_H });
+    for (const n of artifact.nodes) for (const c of n.directReports) g.setEdge(n.id, c);
+    dagre.layout(g);
+    const result: Record<string, { x: number; y: number }> = {};
+    for (const n of artifact.nodes) {
+        const p = g.node(n.id);
+        result[n.id] = { x: p.x - NODE_W / 2, y: p.y - NODE_H / 2 };
+    }
+    return result;
+}
+
+interface Props {
+    artifact: OrgChartArtifact;
+    tokens: DesignTokens;
+    onLayoutChange?: (layout: OrgChartArtifact['layout']) => void;
+}
+
+export const OrgChartCanvas: React.FC<Props> = ({ artifact, tokens, onLayoutChange }) => {
+    const direction = artifact.layout?.direction ?? 'TB';
+    const positions = useMemo(
+        () => artifact.layout?.nodes ?? autoLayout(artifact, direction),
+        [artifact, direction],
+    );
+
+    const nodes: Node[] = useMemo(() => artifact.nodes.map(n => ({
+        id: n.id,
+        type: 'orgNode',
+        position: positions[n.id] ?? { x: 0, y: 0 },
+        data: {
+            name: n.name,
+            title: n.title,
+            department: n.department,
+            iconKey: n.iconKey ?? (n.name === 'VACANT' ? 'vacant' : 'person'),
+            tokens,
+            brand: artifact.brand,
+        } satisfies OrgChartNodeData,
+    })), [artifact, positions, tokens]);
+
+    const edges: Edge[] = useMemo(() => {
+        const out: Edge[] = [];
+        for (const n of artifact.nodes) {
+            for (const c of n.directReports) {
+                const palette = tokens.brands[artifact.brand] as Record<string, string>;
+                out.push({
+                    id: `${n.id}->${c}`,
+                    source: n.id,
+                    target: c,
+                    type: 'smoothstep',
+                    style: { stroke: palette.primary ?? '#0D0D0D', strokeWidth: 1 },
+                });
+            }
+        }
+        return out;
+    }, [artifact, tokens]);
+
+    const handleNodeDragStop = (_: any, node: Node) => {
+        if (!onLayoutChange) return;
+        const nextPositions = { ...positions, [node.id]: node.position };
+        onLayoutChange({ direction, nodes: nextPositions });
+    };
+
+    // Reactflow error fallback: if reactflow fails to load, render an indented tree.
+    try {
+        return (
+            <div data-artifact-id={artifact.id} data-artifact-type="org" style={{ width: '100%', height: '100%', background: '#FFFFFF' }}>
+                <ReactFlow
+                    nodes={nodes}
+                    edges={edges}
+                    nodeTypes={NODE_TYPES}
+                    onNodeDragStop={handleNodeDragStop}
+                    fitView
+                    fitViewOptions={{ padding: 0.2 }}
+                    proOptions={{ hideAttribution: true }}
+                >
+                    <Background gap={24} size={1} color="#EEE" />
+                    <Controls showInteractive={false} />
+                </ReactFlow>
+            </div>
+        );
+    } catch {
+        return <OrgChartFallback artifact={artifact} />;
+    }
+};
+
+const OrgChartFallback: React.FC<{ artifact: OrgChartArtifact }> = ({ artifact }) => {
+    const byId = new Map(artifact.nodes.map(n => [n.id, n]));
+    const renderNode = (id: string, depth: number): React.ReactNode => {
+        const n = byId.get(id);
+        if (!n) return null;
+        return (
+            <div key={id} style={{ marginLeft: depth * 20, padding: '6px 0', borderLeft: depth > 0 ? '1px solid #eee' : 'none' }}>
+                <strong>{n.name}</strong> — {n.title}
+                {n.department && <span style={{ color: '#888' }}> ({n.department})</span>}
+                {n.directReports.map(c => renderNode(c, depth + 1))}
+            </div>
+        );
+    };
+    return (
+        <div style={{ padding: 24, fontFamily: "'Archivo', sans-serif" }}>
+            <div style={{ background: '#FFF3CD', padding: 12, marginBottom: 16, fontSize: 12 }}>
+                reactflow canvas unavailable — fallback tree view
+            </div>
+            <h1 style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{artifact.title}</h1>
+            {artifact.rootIds.map(id => renderNode(id, 0))}
+        </div>
+    );
+};
+```
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add humans-in-control-research/package.json humans-in-control-research/package-lock.json humans-in-control-research/design-desk/components/OrgChartNode.tsx humans-in-control-research/design-desk/components/OrgChartCanvas.tsx
+git commit -m "feat(design-desk): OrgChartCanvas — reactflow + dagre + custom NXT flat node primitives + iconography"
+```
+
+---
+
 ## Task 11: ArtifactViewer + ExportMenu
 
 **Files:**
@@ -1807,6 +2406,7 @@ import React, { useRef } from 'react';
 import { useDesignDeskStore } from './store/designDeskStore';
 import { NxtDocViewer } from './components/NxtDocViewer';
 import { FossflowCanvas } from './components/FossflowCanvas';
+import { OrgChartCanvas } from './components/OrgChartCanvas';
 import { ExportMenu } from './components/ExportMenu';
 import type { DesignTokens } from './services/designMdLoader';
 
@@ -1862,6 +2462,7 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
             <div ref={viewerRef} style={{ flex: 1, overflow: 'auto', background: '#FFFFFF' }}>
                 {active.type === 'persona' && <NxtDocViewer artifact={active} tokens={tokens} onFieldEdit={handleFieldEdit} />}
                 {active.type === 'journey' && <FossflowCanvas artifact={active} tokens={tokens} onLayoutChange={(layout) => replaceArtifact({ ...active, layout, updatedAt: Date.now() })} />}
+                {active.type === 'org' && <OrgChartCanvas artifact={active} tokens={tokens} onLayoutChange={(layout) => replaceArtifact({ ...active, layout, updatedAt: Date.now() })} />}
             </div>
         </div>
     );
@@ -1945,9 +2546,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText }) => 
 
         setBusy(true);
         for (const contentTag of parsed.content) {
-            if (contentTag !== 'persona' && contentTag !== 'journey') {
+            if (contentTag !== 'persona' && contentTag !== 'journey' && contentTag !== 'org') {
                 setMessages(prev => [...prev, { id: `s_${Date.now()}_${contentTag}`, role: 'system', timestamp: Date.now(),
-                    content: `#${contentTag} is out of scope for the framework pilot. Only #persona and #journey are supported in v1.` }]);
+                    content: `#${contentTag} is out of scope for the framework pilot. Only #persona, #journey, and #org are supported in v1.` }]);
                 continue;
             }
             const res = await generateArtifact({
@@ -2173,9 +2774,11 @@ cd humans-in-control-research && npm run dev
 4. Type `#persona #NU a first-generation junior developer`. Expected: persona appears in the right pane within ~20s.
 5. Export PNG — a PNG file should download matching what's on screen.
 6. Type `#journey #NXT applying to enrollment`. Expected: a journey renders in FossFLOW (or in the fallback list view).
-7. Type `add a pain point about financial aid` (no hashtags, with persona active). Expected: persona regenerates with the new pain point.
+7. Type `#org #NU map the advancement division reporting structure`. Expected: an org chart renders in reactflow with custom NXT nodes (white card + chartreuse/red left border + flat inline icon); dagre auto-layout; no default reactflow node chrome visible.
+8. Type `add a new direct report under the VP named Alex Rivera, Director of Analytics` (no hashtags, with org active). Expected: org chart regenerates with a new node connected correctly.
+9. Type `add a pain point about financial aid` (no hashtags, with persona active). Expected: persona regenerates with the new pain point.
 
-If step 6 produces the fallback (not FossFLOW), that's still a success at the plan level — verify the fallback message appears and the journey data is shown as a list. FossFLOW integration tuning is Task 15.
+If step 6 produces the fallback (not FossFLOW), that's still a success at the plan level — verify the fallback message appears and the journey data is shown as a list. FossFLOW integration tuning is Task 15. Same principle applies to step 7: if reactflow fails to load, the indented-tree fallback is acceptable for the pilot — note it as a concern.
 
 - [ ] **Step 4: Commit**
 
