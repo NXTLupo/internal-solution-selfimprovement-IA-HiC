@@ -12,6 +12,7 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@dagrejs/dagre": "^3.0.0",
     "@google/genai": "^1.49.0",
     "fossflow-lib": "github:stan-smith/FossFLOW#master",
     "framer-motion": "11.0.0",
@@ -21,6 +22,7 @@
     "pptxgenjs": "3.12.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "reactflow": "^11.11.4",
     "yaml": "^2.8.3",
     "zod": "^4.3.6",
     "zustand": "^5.0.12"
