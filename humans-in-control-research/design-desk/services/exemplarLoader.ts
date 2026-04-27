@@ -1,0 +1,76 @@
+/**
+ * Exemplar loader — loads the canonical 1920x1080 HTML exemplar for a given
+ * (kind, brand) pair plus the matching brand-style and diagram-illustrator
+ * skill markdown. The exemplar HTML is the visual ground truth — the model
+ * adapts content but preserves the frame, typography, atmospheric treatment.
+ *
+ * Vite ?raw imports bundle the file content as a string at build time. After
+ * editing any exemplar HTML or SKILL.md, a Docker rebuild is required (no
+ * HMR in production).
+ */
+
+import type { FreeformKind } from '../schemas/freeformArtifact';
+import type { BrandHashtag } from './hashtagParser';
+
+import bpNuHtml from '../../styles/01-service-blueprint-NU.html?raw';
+import bpNxtHtml from '../../styles/02-service-blueprint-NXT.html?raw';
+import archNuHtml from '../../styles/03-architecture-NU.html?raw';
+import archNxtHtml from '../../styles/04-architecture-NXT.html?raw';
+import orgNuHtml from '../../styles/05-org-chart-NU.html?raw';
+import orgNxtHtml from '../../styles/06-org-chart-NXT.html?raw';
+import roadmapNuHtml from '../../styles/07-roadmap-NU.html?raw';
+import roadmapNxtHtml from '../../styles/08-roadmap-NXT.html?raw';
+
+import nxtBrandSkill from '../../exemplar-skills/brands/nxt-style/SKILL.md?raw';
+import nuBrandSkill from '../../exemplar-skills/brands/nu-style/SKILL.md?raw';
+
+import orgSkill from '../../exemplar-skills/diagrams/org-illustrator/SKILL.md?raw';
+import journeySkill from '../../exemplar-skills/diagrams/journey-illustrator/SKILL.md?raw';
+import archSkill from '../../exemplar-skills/diagrams/arch-illustrator/SKILL.md?raw';
+import roadmapSkill from '../../exemplar-skills/diagrams/roadmap-illustrator/SKILL.md?raw';
+import blueprintSkill from '../../exemplar-skills/diagrams/blueprint-illustrator/SKILL.md?raw';
+
+const EXEMPLARS: Record<FreeformKind, Record<BrandHashtag, string>> = {
+    org:       { nu: orgNuHtml,     nxt: orgNxtHtml     },
+    arch:      { nu: archNuHtml,    nxt: archNxtHtml    },
+    roadmap:   { nu: roadmapNuHtml, nxt: roadmapNxtHtml },
+    // Journey + blueprint share the service-blueprint exemplar; semantic
+    // difference (current vs future state) lives in the diagram skill.
+    blueprint: { nu: bpNuHtml,      nxt: bpNxtHtml      },
+    journey:   { nu: bpNuHtml,      nxt: bpNxtHtml      },
+};
+
+const BRAND_SKILLS: Record<BrandHashtag, string> = {
+    nxt: nxtBrandSkill,
+    nu:  nuBrandSkill,
+};
+
+const DIAGRAM_SKILLS: Record<FreeformKind, string> = {
+    org:       orgSkill,
+    journey:   journeySkill,
+    arch:      archSkill,
+    roadmap:   roadmapSkill,
+    blueprint: blueprintSkill,
+};
+
+export interface ExemplarBundle {
+    exemplarHtml: string;
+    brandSkill: string;
+    diagramSkill: string;
+}
+
+export function loadExemplar(kind: FreeformKind, brand: BrandHashtag): ExemplarBundle {
+    const kindMap = EXEMPLARS[kind];
+    if (!kindMap) throw new Error(`exemplarLoader: unknown kind "${kind}"`);
+    const exemplarHtml = kindMap[brand];
+    if (!exemplarHtml) throw new Error(`exemplarLoader: unknown brand "${brand}"`);
+    const brandSkill = BRAND_SKILLS[brand];
+    const diagramSkill = DIAGRAM_SKILLS[kind];
+    if (!brandSkill || brandSkill.trim().length === 0) {
+        throw new Error(`exemplarLoader: brand skill not authored — add content to .claude/skills/brands/${brand}-style/SKILL.md`);
+    }
+    if (!diagramSkill || diagramSkill.trim().length === 0) {
+        throw new Error(`exemplarLoader: diagram skill not authored — add content to .claude/skills/diagrams/${kind}-illustrator/SKILL.md`);
+    }
+    return { exemplarHtml, brandSkill, diagramSkill };
+}

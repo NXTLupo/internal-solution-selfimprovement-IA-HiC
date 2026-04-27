@@ -13,6 +13,7 @@ import WikiArchiveBrowser from './components/WikiArchiveBrowser';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import ChatWorkbench from './components/ChatWorkbench';
 import { DesignDesk } from './design-desk';
+import { saveDesignContext } from './design-desk/services/designContext';
 import type { ChatContext } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
 import './styles/nxt-design-system.css';
@@ -109,6 +110,12 @@ const METHODOLOGY_INFO: Record<OutputOption, MethodInfo> = {
         role: "Market Intelligence Analyst",
         description: "Benchmarks against peers across key dimensions, produces a maturity matrix, and identifies competitive gaps with actionable responses.",
         steps: ["Ingestion", "Themes", "Competitive Analysis"]
+    },
+    'ORG_CHART': {
+        title: "Organizational Chart",
+        role: "Organizational Designer",
+        description: "Maps the reporting structure and relationships within an organization. Identifies hierarchy, vacant roles, departments, and functional handoffs — rendered as an interactive flat-NXT diagram that can be edited in the Design Desk.",
+        steps: ["Ingestion", "Themes", "Org Chart"]
     }
 };
 
@@ -261,6 +268,7 @@ const LiveResearchBoard = ({
     showCorpusChat, setShowCorpusChat, corpusTextRef, researchGoal, files,
     gapResult, techAuditResult, competitiveResult, strategicReportResult, techResult,
     onDeliverableApproved,
+    onOpenDesignDesk,
     registryTotal,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
@@ -275,6 +283,7 @@ const LiveResearchBoard = ({
     corpusTextRef: React.RefObject<string>, researchGoal: string,
     gapResult?: any, techAuditResult?: any, competitiveResult?: any, strategicReportResult?: any, techResult?: any,
     onDeliverableApproved?: (type: string, data: any) => void,
+    onOpenDesignDesk?: () => void,
     registryTotal?: number,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
@@ -419,6 +428,7 @@ const LiveResearchBoard = ({
                 } as ChatContext)}
                 context={{} as ChatContext}
                 onDeliverableApproved={onDeliverableApproved}
+                onOpenDesignDesk={onOpenDesignDesk}
             />
 
             {/* Main content area — full width, scrollable */}
@@ -998,6 +1008,27 @@ const LiveResearchBoard = ({
 // --- MAIN APP COMPONENT ---
 const App = () => {
     const [appState, setAppState] = useState<AppState>(AppState.IDLE);
+
+    /**
+     * Open the Design Desk in a NEW BROWSER WINDOW. Per user direction
+     * (2026-04-25): the user must NEVER be taken off the Analyst Desk /
+     * AI Chat view. The Designer is its own window so the analyst surface
+     * stays put. Artifacts are shared via localStorage (designDeskStore
+     * persistence + cross-window storage event listener).
+     */
+    const openDesignDeskWindow = useCallback(() => {
+        const w = 1600;
+        const h = 1000;
+        const left = Math.max(0, Math.floor((window.screen.availWidth - w) / 2));
+        const top = Math.max(0, Math.floor((window.screen.availHeight - h) / 2));
+        const features = `width=${w},height=${h},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no,resizable=yes`;
+        const popup = window.open('?designer=1', 'nxt-design-desk', features);
+        if (!popup) {
+            alert('Design Desk window was blocked. Allow pop-ups for this site, then click the button again.');
+        } else {
+            popup.focus();
+        }
+    }, []);
     const [files, setFiles] = useState<FileType[]>([]);
     const [statusMessage, setStatusMessage] = useState("");
     const [activeStage, setActiveStage] = useState<AnalysisStage>(AnalysisStage.IDLE);
@@ -1025,8 +1056,10 @@ const App = () => {
     const [gapResult, setGapResult] = useState<any>(null);
     const [techAuditResult, setTechAuditResult] = useState<any>(null);
     const [competitiveResult, setCompetitiveResult] = useState<any>(null);
+    const [orgChartResult, setOrgChartResult] = useState<any>(null);
     const [synthesisResult, setSynthesisResult] = useState<any>(null);
     const [strategicReportResult, setStrategicReportResult] = useState<any>(null);
+    const [artifactNotifications, setArtifactNotifications] = useState<Array<{id: string; type: string; label: string; timestamp: number}>>([]);
     const [selectedLens, setSelectedLens] = useState<AnalyticalLens>('general_cx');
     const [lensAutoDetected, setLensAutoDetected] = useState(false);
     const selectedVisStyle = DEFAULT_STYLE_ID;
@@ -1131,6 +1164,20 @@ const App = () => {
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
 
+    // Push design context (themes/personas/journey/uploads) to localStorage whenever
+    // the analysis result changes, so the Designer chat (in-tab AND popup window)
+    // has full corpus + structured-intelligence access. corpusText is pushed at the
+    // sites where corpusTextRef is updated (since refs don't trigger effects).
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        saveDesignContext({
+            uploadedFileContents: buildUploadedFileContents(files),
+            themes: result?.themes,
+            personas: result?.personas,
+            journeyStages: (result as any)?.journeyMap ?? (result as any)?.journeyStages,
+        });
+    }, [result, files]);
+
     /**
      * Classic-mode KG auto-synthesis lifecycle tracker.
      * After data collection completes we kick off themes → personas → recs → journey → gap →
@@ -1202,7 +1249,7 @@ const App = () => {
         }
 
         if (changed) setKnowledgeGraph(graph);
-    }, [collectionPhase, liveSourceResults, themesResult, personasResult, recsResult, journeyResult, prdResult, roadmapResult, gapResult]);
+    }, [collectionPhase, liveSourceResults, themesResult, personasResult, recsResult, journeyResult, prdResult, roadmapResult, gapResult, orgChartResult]);
 
     // --- CHAT DELIVERABLE → KNOWLEDGE GRAPH ---
     // When a deliverable is approved in the chat, add it directly to the KG
@@ -1350,7 +1397,8 @@ const App = () => {
             recommendations: recsResult,
             synthesis: synthesisResult,
             structure: structureResult,
-            narrative: narrativeResult
+            narrative: narrativeResult,
+            orgChart: orgChartResult
         };
 
         const saveToStorage = (projects: SavedProject[]) => {
@@ -1425,6 +1473,7 @@ const App = () => {
         setGapResult(null);
         setTechAuditResult(null);
         setCompetitiveResult(null);
+        setOrgChartResult(null);
         setSynthesisResult(null);
         setStrategicReportResult(null);
         setStructureResult(null);
@@ -1608,6 +1657,28 @@ const App = () => {
              return;
         }
 
+        // 6e. ORG CHART
+        if (selectedOutputs.includes('ORG_CHART') && !orgChartResult) {
+             setStatusMessage("Generating Org Chart...");
+             const orgResponse = await sessionRef.current.generateOrgChart(undefined, handleStreamUpdate);
+             setOrgChartResult(orgResponse.orgChart);
+             // Auto-populate Design Desk so the user can see + edit the pre-made artifact
+             try {
+                 const mod = await import('./design-desk/store/designDeskStore');
+                 mod.useDesignDeskStore.getState().addArtifact(orgResponse.orgChart);
+             } catch (e) { /* non-blocking */ }
+             setArtifactNotifications(prev => [...prev, {
+                 id: `notif_${Date.now()}`,
+                 type: 'org',
+                 label: `Org chart ready: ${orgResponse.orgChart?.title || 'Untitled'}`,
+                 timestamp: Date.now(),
+             }]);
+             const orgText = (orgResponse.orgChart?.nodes || []).map((n: any) => `${n.name} ${n.title} ${n.department || ''}`).join(' ');
+             auditGeneratedOutput(orgText, 'org_chart');
+             setStatusMessage("Org Chart Generated");
+             return;
+        }
+
         // 6d. CROSS-CUTTING SYNTHESIS (only when both PERSONAS and STRATEGIC_RECS are selected)
         if (selectedOutputs.includes('PERSONAS') && selectedOutputs.includes('STRATEGIC_RECS') && !synthesisResult && personasResult && recsResult) {
              setStatusMessage("Synthesizing Cross-Cutting Insights...");
@@ -1728,6 +1799,7 @@ const App = () => {
                  techAudit: techAuditResult?.audit,
                  competitiveAnalysis: competitiveResult?.analysis,
                  crossCuttingSynthesis: synthesisResult?.insights,
+                 orgChart: orgChartResult,
              };
 
              // G-02: Resolve ALL raw citations — [CHUNK_XXX], [FILE N], placeholder baselines
@@ -1897,6 +1969,16 @@ const App = () => {
 
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
+        // Immediate visible status. Without this, the user stares at an empty
+        // Research Assembly Board for 13–25s while wiki seeding + PDF archiving
+        // run before any setStatusMessage call would normally fire. The
+        // gradient "Processing Active" bar is keyed on currentStatus.includes('...'),
+        // so we set it here to keep the UI alive from t=0.
+        setStatusMessage("Initializing research workspace...");
+        setThinkingEvents([{
+            type: 'PHASE',
+            content: '[BOOT] Workspace warming up. Lens detection + wiki seeding + uploaded-document archival begin now.',
+        }]);
 
         // --- PRE-PHASE: Auto-detect lens + auto-enable data sources BEFORE collection ---
         const documentNames = files.map((f: FileType) => f.name);
@@ -1905,8 +1987,18 @@ const App = () => {
         // full document bodies to wiki/uploads/ so chat + slides + future
         // engagements can recall them without re-reading the binary blobs.
         try {
+            setStatusMessage("Seeding wiki from uploaded documents...");
             const { seedWikiFromUploads, archiveUploadedDocs } = await import('./services/wikiService');
+            setThinkingEvents(prev => [...prev, {
+                type: 'PHASE',
+                content: `[WIKI] Cataloging ${documentNames.length} uploaded document${documentNames.length === 1 ? '' : 's'} into the engagement workspace.`,
+            }]);
             await seedWikiFromUploads(documentNames, researchGoal);
+            setStatusMessage("Archiving uploaded document bodies...");
+            setThinkingEvents(prev => [...prev, {
+                type: 'PHASE',
+                content: '[WIKI] Archiving full document bodies for retrieval (this is the slow step on large PDF uploads).',
+            }]);
             await archiveUploadedDocs(files, researchGoal);
         } catch { /* non-blocking */ }
 
@@ -2687,6 +2779,7 @@ ${synthesisParts.join('\n')}
 
                 if (fullCorpus.trim().length > 0) {
                     corpusTextRef.current = fullCorpus; // Store for citation resolver
+                    saveDesignContext({ corpusText: fullCorpus }); // Designer chat (popup + in-tab) reads this
                     const base64Corpus = btoa(unescape(encodeURIComponent(fullCorpus)));
                     collectedDataFiles.push({
                         name: `intelligence_sources_${Date.now()}.txt`,
@@ -2806,6 +2899,7 @@ ${synthesisParts.join('\n')}
 
                 if (filteredCorpus.trim().length > 0) {
                     corpusTextRef.current = filteredCorpus;
+                    saveDesignContext({ corpusText: filteredCorpus });
                     const base64 = btoa(unescape(encodeURIComponent(filteredCorpus)));
                     // Replace intelligence_sources file with filtered version
                     collectedDataFiles = collectedDataFiles.filter((f: any) => !f.name.startsWith('intelligence_sources_'));
@@ -3298,7 +3392,7 @@ ${synthesisParts.join('\n')}
                                          </button>
                                          {process.env.DESIGN_DESK_ENABLED === 'true' && (
                                              <button
-                                                 onClick={() => setAppState(AppState.DESIGN_DESK)}
+                                                 onClick={openDesignDeskWindow}
                                                  style={{
                                                      padding: '6px 14px',
                                                      fontSize: 10,
@@ -3364,12 +3458,13 @@ ${synthesisParts.join('\n')}
                                           <div className="flex-1">
                                               <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mb-2">Output Artifacts</label>
                                               <div className="grid grid-cols-2 gap-2">
-                                                   {(['PERSONAS', 'STRATEGY_DECK', 'JOURNEY_MAP', 'TECH_ARCH', 'PRD', 'ROADMAP', 'STRATEGIC_RECS', 'GAP_ANALYSIS', 'TECH_AUDIT', 'COMPETITIVE_ANALYSIS'] as OutputOption[]).map(opt => {
+                                                   {(['PERSONAS', 'STRATEGY_DECK', 'JOURNEY_MAP', 'TECH_ARCH', 'PRD', 'ROADMAP', 'STRATEGIC_RECS', 'GAP_ANALYSIS', 'TECH_AUDIT', 'COMPETITIVE_ANALYSIS', 'ORG_CHART'] as OutputOption[]).map(opt => {
                                                        const labels: Record<string, string> = {
                                                            'PERSONAS': 'Personas', 'STRATEGY_DECK': 'Deck',
                                                            'JOURNEY_MAP': 'Blueprint', 'TECH_ARCH': 'Architecture', 'PRD': 'PRD',
                                                            'ROADMAP': 'Roadmap', 'STRATEGIC_RECS': 'Strategy',
                                                            'GAP_ANALYSIS': 'Gap Analysis', 'TECH_AUDIT': 'Tech Audit', 'COMPETITIVE_ANALYSIS': 'Competitive',
+                                                           'ORG_CHART': 'Org Chart',
                                                        };
                                                        return (
                                                        <button
@@ -3615,6 +3710,7 @@ ${synthesisParts.join('\n')}
                                techResult={techResult}
                                files={files}
                                onDeliverableApproved={handleChatDeliverableApproved}
+                               onOpenDesignDesk={openDesignDeskWindow}
                                registryTotal={registryTotal}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
@@ -3679,67 +3775,29 @@ ${synthesisParts.join('\n')}
                           onKnowledgeGraphUpdate={setKnowledgeGraph}
                           onExcludeSource={(key: string) => setExcludedSources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
                           onPrioritySource={(key: string) => setPrioritySources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
+                          artifactNotifications={artifactNotifications}
+                          onDismissNotification={(id) => setArtifactNotifications(prev => prev.filter(n => n.id !== id))}
+                          onOpenDesignDesk={openDesignDeskWindow}
                       />
                   )}
 
-                  {/* SUCCESS / RESULTS VIEW */}
+                  {/* SUCCESS / RESULTS VIEW — user stays on Analyst Desk / AI Chat; artifacts surface via notifications + Design Desk */}
                   {appState === AppState.SUCCESS && result && appMode === 'research' && (
-                      <>
-                      <ResultsView
-                          result={result}
-                          onReset={handleReset}
-                          onSave={handleSaveProject}
-                          onEdit={(stage) => {
-                              setActiveStage(stage);
-                              setStatusMessage("Editing Data");
-                          }}
+                      <ChatWorkbench
+                          corpusText={corpusTextRef.current || ''}
+                          liveSourceResults={liveSourceResults}
+                          excludedSources={excludedSources}
+                          prioritySources={prioritySources}
+                          files={files}
+                          researchGoal={researchGoal}
+                          knowledgeGraphData={knowledgeGraph}
+                          onKnowledgeGraphUpdate={setKnowledgeGraph}
+                          onExcludeSource={(key: string) => setExcludedSources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
+                          onPrioritySource={(key: string) => setPrioritySources(prev => { const next = new Set(prev); next.has(key) ? next.delete(key) : next.add(key); return next; })}
+                          artifactNotifications={artifactNotifications}
+                          onDismissNotification={(id) => setArtifactNotifications(prev => prev.filter(n => n.id !== id))}
+                          onOpenDesignDesk={openDesignDeskWindow}
                       />
-                      {/* Chat to Your Data — persists in results dashboard */}
-                      <button
-                          onClick={() => setShowCorpusChat(!showCorpusChat)}
-                          style={{
-                              position: 'fixed', right: showCorpusChat ? 432 : 12, top: 80, zIndex: 60,
-                              background: showCorpusChat ? '#115054' : '#0D0D0D', color: showCorpusChat ? '#FFFFFF' : '#00B7C3',
-                              border: '1px solid #333', padding: '6px 14px', fontSize: 9,
-                              fontFamily: "'Helvetica Neue', Arial, sans-serif", fontWeight: 700,
-                              letterSpacing: '2px', textTransform: 'uppercase' as const,
-                              cursor: 'pointer', borderRadius: 2, transition: 'right 0.3s ease',
-                          }}
-                      >
-                          {showCorpusChat ? 'CLOSE CHAT' : 'CHAT TO DATA'}
-                      </button>
-                      <CorpusChatPanel
-                          isOpen={showCorpusChat}
-                          onToggle={() => setShowCorpusChat(false)}
-                          getContext={() => ({
-                              corpusText: corpusTextRef.current || '',
-                              uploadedFileContents: buildUploadedFileContents(files),
-                              uploadedFiles: files,           // 2026-04-21 — Dynamic Prompt Chips
-                              liveSourceResults: liveSourceResults,  // 2026-04-21 — Dynamic Prompt Chips
-                              themes: result.themes,
-                              personas: result.personas,
-                              recommendations: result.recommendations,
-                              journeyStages: result.journeyMap?.stages,
-                              prd: result.prd,
-                              roadmap: result.roadmap,
-                              gapAnalysis: result.gapAnalysis,
-                              techAudit: result.techAudit,
-                              competitiveAnalysis: result.competitiveAnalysis,
-                              techArchitecture: result.techArchitecture,
-                              strategicReport: result.strategicReport,
-                              researchGoal: researchGoal,
-                              sourceCount: liveSourceResults.length,
-                              articleCount: liveSourceResults.reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
-                              sourceReferences: buildSourceReferences(liveSourceResults),
-                              chunkMap: getChunkSourceMap(),
-                              knowledgeGraph: knowledgeGraph,
-                              wikiArticleBodies: wikiArticleBodies,
-                              priorEngagementInsights: priorEngagementInsights,
-                          } as ChatContext)}
-                          context={{} as ChatContext}
-                          onDeliverableApproved={handleChatDeliverableApproved}
-                      />
-                      </>
                   )}
                   {appState === AppState.SUCCESS && heuristicReport && appMode === 'heuristic' && (
                       <HeuristicReportView
@@ -3764,7 +3822,7 @@ ${synthesisParts.join('\n')}
                           >
                               {'←'} Back
                           </button>
-                          <DesignDesk corpusText={result ? JSON.stringify(result).slice(0, 80000) : ''} />
+                          <DesignDesk corpusText={corpusTextRef.current || ''} />
                       </div>
                   )}
              </div>

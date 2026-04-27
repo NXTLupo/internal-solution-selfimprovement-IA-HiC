@@ -1406,6 +1406,108 @@ Output JSON.`;
         return result;
     }
 
+    /**
+     * Generate an organizational chart artifact matching the OrgChartArtifact
+     * shape from design-desk/schemas/orgChartArtifact.ts. The shape is
+     * returned inside { orgChart } so App.tsx can hand it to ResultsView and
+     * (via the Design Desk handoff) push it into the designDeskStore.
+     *
+     * Structure mirrors generateJourneyMap:
+     *   - prompt references themes/corpus already in the chat session history
+     *   - Gemini Schema enforces JSON shape
+     *   - executeStepResilient handles Gemini→Claude repetition-collapse fallback
+     */
+    async generateOrgChart(feedback: string | undefined, onStream: (t: string) => void): Promise<{ orgChart: any }> {
+        const now = Date.now();
+        const prompt = `STEP: ORGANIZATIONAL CHART. You are an organizational designer. Based on the research corpus and themes already reviewed in this session, identify the organizational structure described or implied — reporting lines, departments, key roles, vacancies if mentioned.
+
+If the corpus describes a specific organization, map what it says explicitly.
+If the corpus does NOT describe a specific org, infer a plausible structure from the themes, personas, and research context. NEVER return an empty nodes array.
+
+ORG CHART REQUIREMENTS:
+- nodes: 5-25 node objects. Each node has:
+    id: unique stable string like "n1", "n2" (MUST be unique across all nodes)
+    name: person name, or the literal string "VACANT" for unfilled roles
+    title: role/job title (e.g. "VP of Advancement", "Director of Annual Giving")
+    department: optional department or division name
+    directReports: array of node ids this node supervises (empty array if leaf)
+    iconKey: one of "person" | "vacant" | "team" | "external"
+      - "vacant" for roles marked VACANT
+      - "team" for collective/group nodes ("Data Science Team")
+      - "external" for partners, vendors, board members outside the org
+      - "person" for individuals (default)
+- rootIds: array of ids for top-level nodes (usually 1 entry; multiple allowed for federated structures)
+- INTEGRITY: Every id in rootIds MUST exist in nodes[]. Every id in any directReports[] MUST exist in nodes[]. No dangling references.
+- citations: 2-6 evidence objects. Each has label (fact being cited, e.g. "CRO reports to CEO") and source (named source like "Higher Ed Dive" or the uploaded document name).
+- title: Action-title describing the org/division (e.g. "University Advancement — 12 roles, 2 vacancies in major gifts").
+
+OUTPUT CONSTANTS (must be exactly as specified):
+- id: "o_${now}"
+- type: "org"
+- brand: "nxt"
+- createdAt: ${now}
+- updatedAt: ${now}
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Plain text only in every string. No markdown, no emoji. Output JSON.`;
+
+        const schema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                id: { type: Type.STRING },
+                type: { type: Type.STRING },
+                brand: { type: Type.STRING },
+                title: { type: Type.STRING },
+                nodes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                    id: { type: Type.STRING },
+                    name: { type: Type.STRING },
+                    title: { type: Type.STRING },
+                    department: { type: Type.STRING },
+                    directReports: { type: Type.ARRAY, items: { type: Type.STRING } },
+                    iconKey: { type: Type.STRING },
+                }, required: ["id", "name", "title", "directReports"] } },
+                rootIds: { type: Type.ARRAY, items: { type: Type.STRING } },
+                citations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                    label: { type: Type.STRING },
+                    source: { type: Type.STRING },
+                }, required: ["label", "source"] } },
+                createdAt: { type: Type.NUMBER },
+                updatedAt: { type: Type.NUMBER },
+            },
+            required: ["id", "type", "brand", "title", "nodes", "rootIds", "createdAt", "updatedAt"],
+        };
+
+        const result = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'OrgChart');
+
+        // Defensive post-processing: the schema cannot enforce referential
+        // integrity, so we repair dangling references before returning.
+        const nodeIds = new Set<string>((result?.nodes || []).map((n: any) => n.id));
+        for (const n of (result?.nodes || [])) {
+            n.directReports = Array.isArray(n.directReports) ? n.directReports.filter((id: string) => nodeIds.has(id)) : [];
+            if (!n.iconKey) {
+                n.iconKey = (typeof n.name === 'string' && n.name.trim().toUpperCase() === 'VACANT') ? 'vacant' : 'person';
+            }
+        }
+        result.rootIds = Array.isArray(result.rootIds) ? result.rootIds.filter((id: string) => nodeIds.has(id)) : [];
+        if (result.rootIds.length === 0 && result.nodes?.length) {
+            // Fallback: pick nodes that no one reports to as roots
+            const reportedSet = new Set<string>();
+            for (const n of result.nodes) for (const r of (n.directReports || [])) reportedSet.add(r);
+            result.rootIds = result.nodes.filter((n: any) => !reportedSet.has(n.id)).map((n: any) => n.id);
+            if (result.rootIds.length === 0) result.rootIds = [result.nodes[0].id];
+        }
+        // Hard-set the constants the prompt already asks for (defensive in case
+        // the model deviates on type/brand literals).
+        result.id = result.id || `o_${now}`;
+        result.type = 'org';
+        result.brand = 'nxt';
+        if (!Array.isArray(result.citations)) result.citations = [];
+        result.createdAt = result.createdAt || now;
+        result.updatedAt = now;
+
+        return { orgChart: result };
+    }
+
     async generatePRD(feedback: string | undefined, onStream: (t: string) => void): Promise<StepResult_PRD> {
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('PRD'); } catch (e) { /* skill unavailable */ }

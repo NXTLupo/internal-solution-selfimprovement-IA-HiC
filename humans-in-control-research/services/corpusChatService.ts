@@ -29,6 +29,11 @@ export interface ChatMessage {
     durationMs?: number;
     imageData?: string; // base64 image for inline rendering
     skillUsed?: string; // which skill was activated for this response
+    /** When the chat is delivering a pre-made Design Desk artifact, this holds a reference. */
+    deliveredArtifactId?: string;
+    deliveredArtifactType?: 'persona' | 'journey' | 'org';
+    /** When true, the artifact is rendered inside a 16:9 NXT slide frame (triggered by #slide / #slides). */
+    deliveredAsSlide?: boolean;
 }
 
 export interface SourceReference {

@@ -82,14 +82,22 @@ tr:hover td { background: #FAFAFA; }
 <div class="main">
 
 <h1>Humans in Control</h1>
-<div class="subtitle">Operator Documentation &mdash; v3.1 &mdash; April 20, 2026</div>
+<div class="subtitle">Operator Documentation &mdash; v3.3 &mdash; April 27, 2026</div>
 
 <p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
-Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench, and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
+Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench (the <strong>Analyst Chat</strong>), a hashtag-driven artifact authoring surface (the <strong>Design Desk</strong>), and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
 </p>
 
 <div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v3.1 focus (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Earlier versions forced every collected item through a single in-prompt corpus capped at 500KB, producing headline-heavy context (4 full-text / 357 snippets / 288 headlines on a typical run). v3.1 treats the wiki archive as the canonical store: every article, transcript, and upload persists with full body text, a <code>/api/wiki/index</code> endpoint exposes a lightweight metadata menu, and the chat service pre-fetches topic-matched bodies per turn. Claude additionally has a native <code>fetch_wiki_articles</code> tool so it can pull specific articles mid-reasoning. The Analyst Desk now has a <strong>&#8984; READ ARCHIVED</strong> button on every archived evidence node that opens a full article viewer &mdash; you can verify with one click that the AI actually has the body it&rsquo;s citing from.
+<strong>v3.3 focus (2026-04-27) &mdash; Design Desk + Freeform HTML artifacts + IndexedDB sync.</strong> v3.3 ships a dedicated Designer window (opened in a new browser window, never replaces the Analyst Desk) that renders consulting-grade 1920&times;1080 HTML artifacts using brand-locked exemplars (NU red/violet or NXT chartreuse/black). Trigger any artifact from the Analyst Chat with a hashtag command (<code>#org #NU</code>, <code>#journey #slide</code>, etc.). Five kinds route through the new freeform HTML pipeline (org, journey, arch, roadmap, blueprint); persona keeps the legacy SlideCanvas + PPTX export path. Cross-window sync now uses <strong>BroadcastChannel</strong> as the primary transport with <strong>IndexedDB</strong> for storage (replaces the localStorage path that was hitting Chrome's 5MB origin quota). PPTX export of freeform artifacts uses px&rarr;slide-pt downscaling and z-order stacking so text and image align natively in PowerPoint.
+</div>
+
+<div class="status-card cyan">
+<strong>v3.2 (2026-04-21) &mdash; Densified slides + Skill refactor.</strong> Reduced slide whitespace, denser theme cluster grids, sharper visual hierarchy. Skill manifest split-out so each skill SKILL.md loads independently rather than as one monolithic prompt. Reasoning Stream gained a Brain Status indicator and constraint visibility per checkpoint.
+</div>
+
+<div class="status-card" style="border-left-color: var(--nxt-cyan);">
+<strong>v3.1 (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Earlier versions forced every collected item through a single in-prompt corpus capped at 500KB, producing headline-heavy context (4 full-text / 357 snippets / 288 headlines on a typical run). v3.1 treats the wiki archive as the canonical store: every article, transcript, and upload persists with full body text, a <code>/api/wiki/index</code> endpoint exposes a lightweight metadata menu, and the chat service pre-fetches topic-matched bodies per turn. Claude additionally has a native <code>fetch_wiki_articles</code> tool so it can pull specific articles mid-reasoning. The Analyst Desk has a <strong>&#8984; READ ARCHIVED</strong> button on every archived evidence node that opens a full article viewer &mdash; you can verify with one click that the AI actually has the body it&rsquo;s citing from.
 </div>
 
 <div class="metric-row">
@@ -100,29 +108,34 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <div class="metric cyan"><div class="value">17</div><div class="label">Agent skills</div></div>
   <div class="metric teal"><div class="value">74</div><div class="label">Wiki pages</div></div>
   <div class="metric"><div class="value">300</div><div class="label">Items enriched / run</div></div>
-  <div class="metric cyan"><div class="value">1</div><div class="label">Native AI tool</div></div>
+  <div class="metric cyan"><div class="value">11</div><div class="label">Hashtag commands</div></div>
+  <div class="metric teal"><div class="value">5</div><div class="label">Freeform kinds</div></div>
+  <div class="metric"><div class="value">2</div><div class="label">Brand exemplars (NU / NXT)</div></div>
 </div>
 
 <div class="toc">
   <strong style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--nxt-muted); column-span: all; display: block; margin-bottom: 8px;">Table of Contents</strong>
   <a href="#what">1. What Humans in Control does</a>
   <a href="#quickstart">2. Operator quickstart</a>
-  <a href="#architecture">3. System architecture</a>
-  <a href="#state-machine">4. App state machine</a>
-  <a href="#data-fabric">5. The research data fabric</a>
-  <a href="#institutions">6. Institution-aware collection</a>
-  <a href="#analyst-desk">7. The Analyst Desk</a>
-  <a href="#inference">8. Inference affordances</a>
-  <a href="#chat-workbench">9. Chat workbench &amp; corpus Q&amp;A</a>
-  <a href="#deliverables">10. Deliverables</a>
-  <a href="#skills">11. Agent skill manifest</a>
-  <a href="#wiki">12. Wiki knowledge base</a>
-  <a href="#models">13. Model routing</a>
-  <a href="#proxy">14. Python proxy &amp; services</a>
-  <a href="#export">15. Export</a>
-  <a href="#brand">16. NXT brand system</a>
-  <a href="#ops">17. Operations &amp; troubleshooting</a>
-  <a href="#glossary">18. Glossary</a>
+  <a href="#hashtags">3. Hashtag command system <span class="badge badge-new">NEW</span></a>
+  <a href="#architecture">4. System architecture</a>
+  <a href="#state-machine">5. App state machine</a>
+  <a href="#data-fabric">6. The research data fabric</a>
+  <a href="#institutions">7. Institution-aware collection</a>
+  <a href="#analyst-desk">8. The Analyst Desk</a>
+  <a href="#inference">9. Inference affordances</a>
+  <a href="#chat-workbench">10. Chat workbench &amp; corpus Q&amp;A</a>
+  <a href="#design-desk">11. Design Desk &amp; Designer window <span class="badge badge-new">NEW</span></a>
+  <a href="#freeform">12. Freeform HTML artifacts <span class="badge badge-new">NEW</span></a>
+  <a href="#deliverables">13. Deliverables</a>
+  <a href="#skills">14. Agent skill manifest</a>
+  <a href="#wiki">15. Wiki knowledge base</a>
+  <a href="#models">16. Model routing</a>
+  <a href="#proxy">17. Python proxy &amp; services</a>
+  <a href="#export">18. Export</a>
+  <a href="#brand">19. NXT brand system</a>
+  <a href="#ops">20. Operations &amp; troubleshooting</a>
+  <a href="#glossary">21. Glossary</a>
 </div>
 
 <h2 id="what">1. What Humans in Control does</h2>
@@ -156,7 +169,78 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <li><strong>Export.</strong> PPTX deck, PDF, or pin individual outputs to the Output Board.</li>
 </ol>
 
-<h2 id="architecture">3. System architecture</h2>
+<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v3.3</span></h2>
+
+<p>The Analyst Chat (and the Designer Chat) accept inline hashtag commands that route a request through a deliverable-specific generation pipeline rather than the conversational chat path. This is the fastest way to ask for an artifact: type the hashtag(s), describe what you want, hit send.</p>
+
+<div class="status-card cyan">
+<strong>Anatomy of a hashtag command.</strong> <code>#&lt;content&gt; #&lt;brand&gt; #&lt;view&gt; &lt;your prompt text&gt;</code>. Order doesn&rsquo;t matter; case doesn&rsquo;t matter. Plurals and common variants are auto-mapped to the canonical singular (<code>#orgs</code> &rarr; <code>#org</code>, <code>#personas</code> &rarr; <code>#persona</code>). Hashtags are stripped from the prompt before it reaches the model, so you don&rsquo;t need to phrase around them. Brand defaults to <code>#nxt</code> if none specified.
+</div>
+
+<h3>Content hashtags (11 deliverable kinds)</h3>
+<table>
+  <thead><tr><th style="width: 100px;">Hashtag</th><th>Plurals / aliases</th><th>Pipeline</th><th>What you get</th></tr></thead>
+  <tbody>
+    <tr><td><code>#persona</code></td><td><code>#personas</code></td><td><span class="badge badge-cyan">Legacy SlideCanvas</span></td><td>Cooper 3-tier persona card with portrait, JTBD, behavioral &amp; aspirational goals, evidence quote, source citation. Renders inline in chat with <strong>Export Deck PDF / PPTX</strong> toolbar (the original v3.2 path &mdash; intentionally not routed through the Designer).</td></tr>
+    <tr><td><code>#journey</code></td><td><code>#journeys</code></td><td><span class="badge badge-teal">Freeform HTML</span></td><td>Current-state journey map with 4&ndash;9 lifecycle stages, emotion bands, touchpoints, pain points, opportunities, verbatim quotes &mdash; rendered as a 1920&times;1080 brand-locked HTML slide.</td></tr>
+    <tr><td><code>#blueprint</code></td><td><code>#blueprints</code></td><td><span class="badge badge-teal">Freeform HTML</span></td><td>Future-state service blueprint with Customer Action / Frontstage / Backstage / Support lanes, fail-points, evidence quotes for each redesign decision.</td></tr>
+    <tr><td><code>#org</code></td><td><code>#orgs</code>, <code>#orgchart</code>, <code>#orgcharts</code></td><td><span class="badge badge-teal">Freeform HTML</span></td><td>Hierarchy or radial org chart on a 1808&times;820 SVG viewBox &mdash; up to 6 nodes per row, banded clusters when teams exceed row capacity, vacancy markers, reporting lines as <code>&lt;line&gt;</code> elements.</td></tr>
+    <tr><td><code>#arch</code></td><td><code>#arches</code></td><td><span class="badge badge-teal">Freeform HTML</span></td><td>Technical architecture diagram with system / component boxes, tier or zone bands, data-flow arrows annotated with protocol / freq / payload, datastore icons distinguished from services, external integrations on the periphery.</td></tr>
+    <tr><td><code>#roadmap</code></td><td><code>#roadmaps</code></td><td><span class="badge badge-teal">Freeform HTML</span></td><td>Now / Next / Later or quarter-based roadmap with phase columns, owner assignments, dependency markers, status indicators (committed / planned / aspirational).</td></tr>
+    <tr><td><code>#prd</code></td><td><code>#prds</code></td><td><span class="badge badge-info">Pipeline</span></td><td>SVPG / Cagan-format PRD feature spec with why / what / how blocks, success metrics, risks, citations.</td></tr>
+    <tr><td><code>#strategy</code></td><td><code>#strategies</code></td><td><span class="badge badge-info">Pipeline</span></td><td>Rumelt&rsquo;s Kernel strategy memo: Diagnosis / Guiding Policy / Coherent Actions, with Minto-pyramid action titles.</td></tr>
+    <tr><td><code>#gap</code></td><td>&mdash;</td><td><span class="badge badge-info">Pipeline</span></td><td>Gartner 1&ndash;5 maturity gap analysis with current state, target state, deficiency narrative, evidence.</td></tr>
+    <tr><td><code>#audit</code></td><td><code>#audits</code></td><td><span class="badge badge-info">Pipeline</span></td><td>COBIT / TEI tech audit: system inventory with risk rating, lifecycle stage, owner, integration map.</td></tr>
+    <tr><td><code>#compete</code></td><td><code>#competes</code>, <code>#competitives</code>, <code>#competitors</code></td><td><span class="badge badge-info">Pipeline</span></td><td>Porter&rsquo;s Forces / Blue Ocean competitive matrix with peer institution capability scoring.</td></tr>
+  </tbody>
+</table>
+
+<h3>Brand hashtags</h3>
+<table>
+  <thead><tr><th style="width: 100px;">Hashtag</th><th>Brand identity</th><th>Visual signature</th></tr></thead>
+  <tbody>
+    <tr><td><code>#nxt</code> <em>(default)</em></td><td>NXT Humans</td><td>Chartreuse <code>#B8B800</code> on near-black <code>#0D0D0D</code>; Bebas Neue display + Archivo body + JetBrains Mono code; minimal radius; atmospheric violet/red overlays at low opacity.</td></tr>
+    <tr><td><code>#nu</code></td><td>Northeastern University</td><td>NU red <code>#C8102E</code> + violet accents <code>#6E54E0</code> on cream paper <code>#FAF8F4</code>; same type system; brand seal in top band; grain overlay.</td></tr>
+  </tbody>
+</table>
+
+<h3>View &amp; composition modifiers</h3>
+<table>
+  <thead><tr><th style="width: 100px;">Hashtag</th><th>Behavior</th></tr></thead>
+  <tbody>
+    <tr><td><code>#slide</code></td><td>Single-slide view: render the artifact inside a 16:9 NXT slide frame at 1920&times;1080. Useful when you want one polished slide per artifact for export.</td></tr>
+    <tr><td><code>#slides</code></td><td>Multi-slide composition: when multiple content hashtags are passed in one prompt, lay them out as a sequence inside a deck-style frame. Treated as a composition modifier, NOT a plural of <code>#slide</code>.</td></tr>
+  </tbody>
+</table>
+
+<h3>Worked examples</h3>
+<table>
+  <thead><tr><th style="width: 380px;">Command</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td><code>#org #NU advancement leadership</code></td><td>Generates an NU-branded org chart of the advancement division using names from your uploads + corpus, on the 1808&times;820 SVG viewBox.</td></tr>
+    <tr><td><code>#journey current-state prospect lifecycle</code></td><td>Generates an NXT-branded journey map (default brand). Lifecycle stages, emotion bands, evidence quotes pulled from corpus.</td></tr>
+    <tr><td><code>#blueprint #NU future-state donor onboarding</code></td><td>NU-branded service blueprint of the redesigned donor onboarding flow; lanes + fail-points + evidence-quoted design choices.</td></tr>
+    <tr><td><code>#arch #slide advancement data systems</code></td><td>NXT-branded technical architecture diagram, single-slide framed for export.</td></tr>
+    <tr><td><code>#roadmap #NU 18-month CRM consolidation</code></td><td>NU-branded roadmap, Now/Next/Later columns with owners and dependencies.</td></tr>
+    <tr><td><code>#persona #NU 5 personas focused on annual giving donors</code></td><td>Generates 5 NU-branded persona cards (multi-artifact). Each has portrait, JTBD, goals, quote. Renders with the original Export Deck PDF/PPTX toolbar.</td></tr>
+    <tr><td><code>#org #journey #blueprint #slides full advancement workshop pack</code></td><td>Three artifacts in one turn, laid out as a 3-slide deck composition.</td></tr>
+  </tbody>
+</table>
+
+<h3>What happens after you send</h3>
+<ol>
+  <li><strong>Hashtag parser</strong> (<code>design-desk/services/hashtagParser.ts</code>) extracts content / brand / view tokens, maps plural aliases, removes hashtags from the prompt.</li>
+  <li><strong>Routing decision.</strong> If the parsed content tags are all in the deliverable set, the message bypasses the conversational chat path and routes through the deliverable pipeline. If only <code>#persona</code> is in the set, it routes through the legacy SlideCanvas path. If five-kind freeform tags are present, it routes through the new freeform HTML pipeline (see &sect;12).</li>
+  <li><strong>Multi-artifact loop.</strong> Each content hashtag generates one artifact. Each one is added to the design store via <code>addArtifact(...)</code> and broadcast to the Designer window in real time.</li>
+  <li><strong>Inline render.</strong> The Analyst Chat shows each generated artifact directly below the user message, with delivery copy ("Generated #org via gemini-2.5-flash: 'NU Advancement Leadership Chart'. Rendered below.").</li>
+  <li><strong>Designer pickup.</strong> If the Designer window is open, BroadcastChannel pushes the artifact to it instantly &mdash; the Designer auto-switches to the newest artifact. If the Designer is closed when generation happens, opening it later auto-selects the most recent artifact.</li>
+</ol>
+
+<div class="status-card rust">
+<strong>Hashtag tips.</strong> (1) For best results, ALWAYS include a brand hashtag &mdash; the brand picks the exemplar HTML that the model inherits. (2) Don&rsquo;t mix plural and singular forms of the same kind in one prompt; the parser dedupes content tags but plurals + originals look like one tag to the user. (3) <code>#persona</code> intentionally does NOT open in the Designer; it lives in the Analyst Chat with PPTX/PDF deck export. (4) Unknown hashtags pass through to the prompt cleaner as ignored and are listed in <code>parsed.unknown</code> for diagnostic purposes.
+</div>
+
+<h2 id="architecture">4. System architecture</h2>
 
 <div class="diagram">Browser (React 19 / TypeScript / Vite 6)
   │
@@ -211,7 +295,7 @@ hic-workspace/
   </tbody>
 </table>
 
-<h2 id="state-machine">4. App state machine</h2>
+<h2 id="state-machine">5. App state machine</h2>
 
 <p>The top-level UI is a state machine with four render branches. <code>AppState</code> is defined in <code>types.ts</code>.</p>
 
@@ -237,7 +321,7 @@ hic-workspace/
   <li><code>DECK_STRUCTURE</code> / <code>NARRATIVE</code> / <code>FINAL</code> &mdash; deck outline, copy + speaker notes, visual generation</li>
 </ul>
 
-<h2 id="data-fabric">5. The research data fabric</h2>
+<h2 id="data-fabric">6. The research data fabric</h2>
 
 <p>The fabric has four layers. Each layer is a circuit breaker &mdash; a failure at one layer degrades gracefully instead of halting the run.</p>
 
@@ -302,7 +386,7 @@ hic-workspace/
 <h3>Video Transcriber connector (v3.1 &mdash; wire-fix)</h3>
 <p>Every user-supplied YouTube URL under <code>videoTranscripts</code> resolves to a source with <code>config: { connector: 'Video Transcriber' }</code>. Before v3.1 no connector of that name existed &mdash; every such source threw <em>"Unknown connector"</em> and was silently dropped by <code>Promise.allSettled</code>. v3.1 ships <code>videoTranscriberConnector</code> in <code>dataSourceConnectors.ts</code>: it POSTs the URL to <code>/api/transcribe-youtube</code> (6-minute timeout for long videos), the proxy downloads audio via yt-dlp, Whisper-transcribes in chunks, and auto-persists the transcript to <code>wiki/transcripts/{channel}/{hash}.md</code>. The connector returns a single <code>DataSourceItem</code> with the full transcript as <code>content</code>; downstream enrichment leaves it alone since length already exceeds the gate.</p>
 
-<h2 id="institutions">6. Institution-aware collection</h2>
+<h2 id="institutions">7. Institution-aware collection</h2>
 
 <p>When the research brief names one or more of the 30 manifest institutions, the fabric automatically prepends a bounded set of <strong>Tier 0 sources</strong> &mdash; first-party URLs that belong to those institutions.</p>
 
@@ -337,7 +421,7 @@ hic-workspace/
 <h3>YouTube scheduler</h3>
 <p><code>youtube-channels.json</code> holds 100 resolved UC-IDs with primary + fallback RSS feeds. The <code>/api/scheduler/poll-youtube-channels</code> endpoint is ETag-aware, persists state atomically to <code>scheduler-state.json</code>, and transcribes new videos via yt-dlp + ffmpeg + OpenAI Whisper when their metadata matches fundraising / advancement keywords.</p>
 
-<h2 id="analyst-desk">7. The Analyst Desk</h2>
+<h2 id="analyst-desk">8. The Analyst Desk</h2>
 
 <p>The Analyst Desk is the primary knowledge graph view &mdash; a Newsmap-inspired treemap dashboard. Dark mode is the newsmap aesthetic; Light mode is a stark, typographic variant. Toggle between them at the top of the desk.</p>
 
@@ -394,7 +478,7 @@ hic-workspace/
 <h3>Classic radial graph</h3>
 <p>The legacy radial graph (<code>components/ResearchKnowledgeGraph.tsx</code>) is still available via the RADIAL toggle. It uses a 3-zone d3 force simulation (center = themes/personas/recs, ring 1 = sources, ring 2 = evidence). Useful when you want to see the full provenance chain in one gesture.</p>
 
-<h2 id="inference">8. Inference affordances</h2>
+<h2 id="inference">9. Inference affordances</h2>
 
 <p>The pipeline runs many stages asynchronously after data collection. The Analyst Desk surfaces what's happening at any moment through five coordinated affordances:</p>
 
@@ -411,7 +495,7 @@ hic-workspace/
 
 <p>Downstream stages (PRD, Roadmap, Deck, Narrative, Final) don't drive a specific tile &mdash; they surface only in the top status strip, since they are downstream synthesis products not graph nodes.</p>
 
-<h2 id="chat-workbench">9. Chat workbench &amp; corpus Q&amp;A</h2>
+<h2 id="chat-workbench">10. Chat workbench &amp; corpus Q&amp;A</h2>
 
 <p>After data collection completes, the app can enter <code>WORKBENCH</code> mode for free-form interaction with the corpus. The Chat Workbench (and the side-panel variant <code>CorpusChatPanel</code>) offer multi-turn Q&amp;A backed by:</p>
 
@@ -461,7 +545,119 @@ hic-workspace/
   </tbody>
 </table>
 
-<h2 id="deliverables">10. Deliverables</h2>
+<h2 id="design-desk">11. Design Desk &amp; Designer window <span class="badge badge-new">v3.3</span></h2>
+
+<p>The Design Desk is a dedicated artifact authoring surface that runs in its own browser window. The user must NEVER be taken off the Analyst Desk / Analyst Chat to view or edit an artifact &mdash; the Designer is a separate window opened via <code>window.open('?designer=1')</code>. Both windows talk to the same shared store via BroadcastChannel + IndexedDB.</p>
+
+<h3>Layout</h3>
+<div class="diagram">┌─────────────────────────────────────────────────────────────────┐
+│ NXT HUMANS / DESIGN DESK   Chat + canvas · Ctrl+\ to toggle     │
+│                            [CLEAR OLDER] [MAXIMIZE CANVAS] [×]  │
+├──────────────┬──────────────────────────────────────────────────┤
+│              │                                                  │
+│  CHAT PANEL  │              CANVAS                              │
+│  (collapsib- │   • Active artifact rendered at 1920×1080        │
+│   le, 360px) │   • Brand frame (NU red / NXT chartreuse)        │
+│              │   • Atmospheric overlays + grain                 │
+│   #org #NU   │   • Top-band brand mark + title + meta           │
+│   advance-   │   • Diagram zone (full SVG / lane / tree)        │
+│   ment       │   • Bottom-band voice + footnote                 │
+│   ───────    │                                                  │
+│   "Generated │   ┌──── ARTIFACT TABS (when >1) ────┐           │
+│    #org via  │   │ org · journey · arch ·  +new   │           │
+│    flash..." │   └─────────────────────────────────┘           │
+│              │                                                  │
+│              │   [PNG] [PDF] [PPTX]  ← export buttons          │
+└──────────────┴──────────────────────────────────────────────────┘</div>
+
+<h3>How to open it</h3>
+<ul>
+  <li>Click <strong>Open in Designer</strong> on any freeform artifact rendered in the Analyst Chat &mdash; opens (or focuses) the Designer popup with that artifact selected.</li>
+  <li>Click the <strong>DESIGN DESK</strong> button in the Analyst chrome &mdash; opens the Designer with whatever artifacts are already in the store.</li>
+  <li>The popup is sized 1600&times;1000 by default and centered on the primary screen. Allow pop-ups for <code>localhost:5011</code> if your browser blocks it.</li>
+</ul>
+
+<h3>Cross-window sync architecture</h3>
+<p>v3.3 ships a three-layer sync architecture (replaces the pure-localStorage approach that hit Chrome&rsquo;s 5MB origin quota when other writers like <code>designContext.ts</code> and <code>nxt_saved_projects</code> filled the bucket).</p>
+
+<table>
+  <thead><tr><th>Layer</th><th>Mechanism</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1. Realtime sync</strong> <span class="badge badge-new">primary</span></td><td><code>BroadcastChannel('designDeskStore.v1.sync')</code></td><td>Posts on every store mutation; peers receive the full state immediately. No quota, no payload-size limit.</td></tr>
+    <tr><td><strong>2. Persistence</strong></td><td>IndexedDB (<code>designDeskStore</code> / <code>state</code> / <code>singleton</code>)</td><td>Survives page reloads. Effectively unlimited quota (~50% of free disk). Replaces the legacy <code>localStorage['designDeskStore.v1']</code> entry, which is auto-migrated and cleared on first boot.</td></tr>
+    <tr><td><strong>3. Reconciliation backstop</strong></td><td><code>window.addEventListener('focus', ...)</code> &rarr; re-read IDB</td><td>When the Designer window gains focus, it re-reads IDB and merges in anything missed by BroadcastChannel.</td></tr>
+  </tbody>
+</table>
+
+<h3>Designer chrome controls</h3>
+<table>
+  <thead><tr><th>Control</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td><strong>CLEAR OLDER</strong></td><td>Drops every artifact in the store except the most recent one. Confirmation dialog. Useful when accumulated drafts clutter the tabs strip.</td></tr>
+    <tr><td><strong>MAXIMIZE CANVAS</strong> / <strong>SHOW CHAT</strong></td><td>Toggle the chat panel. Hotkey: <span class="kbd">Ctrl</span>+<span class="kbd">\</span>.</td></tr>
+    <tr><td><strong>CLOSE WINDOW</strong></td><td>Closes the Designer popup. Hotkey: <span class="kbd">Esc</span>.</td></tr>
+    <tr><td><strong>Artifact tabs</strong></td><td>Click any artifact tab to switch the canvas to it. Active artifact persists across both windows.</td></tr>
+    <tr><td><strong>Export buttons</strong></td><td>Below the canvas: PNG (raster), PDF (high-DPI raster + frame), PPTX (text + image with z-order stacking; see &sect;18).</td></tr>
+  </tbody>
+</table>
+
+<h3>Designer chat (in-popup)</h3>
+<p>The Designer&rsquo;s left chat panel is a thin wrapper over the same hashtag pipeline used by the Analyst Chat. It accepts revision instructions for the active artifact (<em>"add Sarah Johnson reporting to the SVP"</em>, <em>"recolor lane 2 to NU red"</em>) and uses the freeform pipeline&rsquo;s revision mode (passes the existing artifact into the prompt as <code>currentArtifact</code> &mdash; the model preserves unchanged content and applies your intent, then writes a NEW version into the store via <code>replaceArtifact()</code>).</p>
+
+<div class="status-card cyan">
+<strong>Why it&rsquo;s a separate window.</strong> The user&rsquo;s explicit direction (2026-04-25): never replace the Analyst Desk / Analyst Chat with the Designer. The strategist&rsquo;s primary surface is research synthesis; the Designer is a satellite for visual artifact polishing. Keeping them in separate OS windows means you can park the Designer on a second monitor while the Analyst stays on the primary.
+</div>
+
+<h2 id="freeform">12. Freeform HTML artifacts <span class="badge badge-new">v3.3</span></h2>
+
+<p>Five artifact kinds (org, journey, arch, roadmap, blueprint) route through the freeform-HTML generation pipeline. The model emits the BODY content of an HTML slide, the pipeline splices it into a brand-locked HTML shell (head + complete <code>&lt;style&gt;</code> block + body open/close), sanitizes, validates, and stores. The result renders as a complete 1920&times;1080 slide that exactly matches the brand exemplar visually.</p>
+
+<h3>Why this exists</h3>
+<p>The legacy slide system (<code>persona-card</code>, <code>theme-cluster</code>, <code>service-blueprint</code>, etc. in <code>slideTemplates/</code>) is great for structured data but constrains visual flexibility &mdash; every persona card has the same layout. Org charts, journey maps, and tech architecture diagrams need DIY composition: arbitrary SVG, custom positioning, brand-specific atmospheric overlays. The freeform pipeline gives the model full HTML/CSS/SVG authoring control inside a brand-locked shell so the output looks like a hand-designed consulting slide, not a templated card.</p>
+
+<h3>Pipeline stages</h3>
+<table>
+  <thead><tr><th>Stage</th><th>What happens</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1. Hashtag parse</strong></td><td><code>#org #NU</code> &rarr; <code>{ kind: 'org', brand: 'nu' }</code> &rarr; routed to freeform pipeline.</td></tr>
+    <tr><td><strong>2. Exemplar load</strong></td><td><code>loadExemplar(kind, brand)</code> reads the matching <code>styles/0X-&lt;kind&gt;-&lt;BRAND&gt;.html</code> file via Vite <code>?raw</code> import. 8 exemplars total: blueprint NU/NXT, arch NU/NXT, org NU/NXT, roadmap NU/NXT. Journey reuses the blueprint exemplar (semantic difference lives in the kind&rsquo;s SKILL.md).</td></tr>
+    <tr><td><strong>3. Skill load</strong></td><td>Loads <code>brands/&lt;brand&gt;-style/SKILL.md</code> + <code>diagrams/&lt;kind&gt;-illustrator/SKILL.md</code> for prompt grounding.</td></tr>
+    <tr><td><strong>4. Shell split</strong></td><td><code>splitExemplarShell()</code> finds the <code>&lt;body&gt;</code> open/close, splits the HTML into <code>{ before, sampleBody, after }</code>. The model sees only <code>sampleBody</code> as the structural reference.</td></tr>
+    <tr><td><strong>5. Prompt build</strong></td><td>Three-hammer prompt (top + middle + bottom) that says: emit ONLY the body content, NOT the shell. Per-kind body construction guidance + brand skill + corpus + (if revision) currentArtifact.html. Hard rules: max 6 same-tier nodes per row, reuse the exemplar&rsquo;s SVG viewBox unchanged, every opened tag must be closed.</td></tr>
+    <tr><td><strong>6. Model call</strong></td><td>Routes to the user-selected provider (Gemini 2.5 Flash, Claude Opus 4.7, or GPT-5.4). Output budget 32K tokens, temperature 0.4.</td></tr>
+    <tr><td><strong>7. Parse</strong></td><td><code>parseFreeformOutput()</code> extracts the <code>:::nxt:freeform</code> JSON header + body content from the model output. Validates header shape.</td></tr>
+    <tr><td><strong>8. Completeness check</strong></td><td><code>checkBodyContentCompleteness()</code> asserts: body length &ge; 200 chars, no shell tags accidentally included, <code>.stage</code> / <code>.slide-frame</code> classes present, balanced <code>&lt;div&gt;</code> tags. Strict &mdash; no fallbacks. Failures surface as user-visible errors so the user can re-run with a more capable model.</td></tr>
+    <tr><td><strong>9. Splice</strong></td><td><code>shell.before + parsed.html + shell.after</code> reconstitutes the full HTML document with intact CSS, fonts, atmospherics.</td></tr>
+    <tr><td><strong>10. Sanitize</strong></td><td><code>sanitizeFreeformHtml()</code> removes any <code>&lt;script&gt;</code>, on-* event attributes, javascript: URLs.</td></tr>
+    <tr><td><strong>11. Validate</strong></td><td>Zod-validated against <code>FreeformArtifactSchema</code>: <code>{ id, type:'freeform', kind, brand, title, html, citations[], createdAt, updatedAt }</code>.</td></tr>
+    <tr><td><strong>12. Store</strong></td><td><code>useDesignDeskStore.addArtifact(artifact)</code> &rarr; in-memory state + IDB write + BroadcastChannel post.</td></tr>
+    <tr><td><strong>13. Render</strong></td><td>Inline preview in Analyst Chat AND Designer canvas. Sandboxed iframe with <code>allow-same-origin</code> only (script execution blocked).</td></tr>
+  </tbody>
+</table>
+
+<h3>The brand-locked shell</h3>
+<p>Each exemplar HTML file (<code>styles/0X-*.html</code>) is a complete 1920&times;1080 slide hand-designed in NXT or NU brand. The <code>&lt;head&gt;</code> contains every Google Font import + the entire <code>&lt;style&gt;</code> block (CSS variables, atmospheric overlays, <code>.stage / .slide-frame / .slide / .frame / .top-band</code> grid, brand mark / seal / wordmark, eyebrow / h1 / lede typography, diagram zone styling, bottom-band layout). The model never sees or re-emits this. Server-side splicing guarantees that even if the model truncates output, the resulting document still has complete brand CSS.</p>
+
+<h3>The body the model emits</h3>
+<p>The model is shown the original exemplar&rsquo;s body content as a structural reference. It replicates the structure (<code>.stage &gt; .slide-frame &gt; .slide &gt; .frame &gt; .top-band</code>) but adapts the TEXT inside elements: title, role labels, names, body copy, quotes, citations, stat values, dates. It scales dimensionality by cloning structural elements (4 swimlanes &rarr; 7 swimlanes if corpus warrants, etc.). Per-kind hard rules in the prompt (e.g., for org charts: SVG viewBox 0 0 1808 820, max 6 nodes per row at 220&ndash;280px width, render reporting lines as <code>&lt;line&gt;</code> elements not HTML borders).</p>
+
+<h3>Multi-artifact in one prompt</h3>
+<p>When you send <code>#org #journey #blueprint full advancement workshop pack</code>, the freeform pipeline runs three sequential generations &mdash; org first, then journey, then blueprint. Each writes to the store as it completes. The Designer auto-switches to the latest. Inline previews stack in the chat in delivery order.</p>
+
+<h3>Artifact storage shape</h3>
+<pre>{
+  id: "f_1777306929521",
+  type: "freeform",
+  kind: "arch" | "org" | "journey" | "roadmap" | "blueprint",
+  brand: "nxt" | "nu",
+  title: "NU Advancement Data Architecture",
+  html: "&lt;!DOCTYPE html&gt;...&lt;body&gt;...&lt;/body&gt;&lt;/html&gt;",
+  citations: [{ label: "Diane McGillivray, SVP", source: "NU_Stakeholder_Map.txt" }, ...],
+  createdAt: 1777306929521,
+  updatedAt: 1777306929521
+}</pre>
+
+<h2 id="deliverables">13. Deliverables</h2>
 
 <p>Ten research deliverable schemas are defined in <code>services/deliverableFrameworks.ts</code>. Each enforces required citations and an evidence basis, and each has a corresponding agent skill (see §11).</p>
 
@@ -505,7 +701,7 @@ hic-workspace/
 </ol>
 <p>Failures (proxy down, no matches, empty bodies) leave slides untouched &mdash; the caller&rsquo;s original output still renders.</p>
 
-<h2 id="skills">11. Agent skill manifest</h2>
+<h2 id="skills">14. Agent skill manifest</h2>
 
 <p><code>hic-workspace/skill-manifest.json</code> lists 17 specialized agent skills. Each skill has trigger keywords, wiki companion pages, preferred model, thinking effort, and execution context (primary vs. subagent).</p>
 
@@ -539,7 +735,7 @@ hic-workspace/
   <li>Response quality is enforced by the framework, not by generic prompting</li>
 </ol>
 
-<h2 id="wiki">12. Wiki knowledge base</h2>
+<h2 id="wiki">15. Wiki knowledge base</h2>
 
 <p>The <code>hic-workspace/wiki/</code> directory is the project's persistent memory &mdash; 74 markdown pages organized across 14 topic directories. The Vite dev plugin serves these at <code>/hic-workspace/wiki/</code>, and the proxy mounts the whole directory for read/write access.</p>
 
@@ -620,7 +816,7 @@ hic-workspace/
 <strong>Why not vector search?</strong> For the corpus sizes HiC targets (up to ~20,000 articles across engagements), keyword overlap over titles + 200-char summaries ranks comparably to a cheap embedding model while staying entirely synchronous and deterministic. If future engagements push past that scale, the index builder can add embedding columns without changing the retrieval contract.
 </div>
 
-<h2 id="models">13. Model routing</h2>
+<h2 id="models">16. Model routing</h2>
 
 <p>The <code>aiRouter.ts</code> module picks a provider per task. Defaults can be overridden via the Model Preferences panel.</p>
 
@@ -650,7 +846,7 @@ hic-workspace/
   <li><code>gpt-5.4-mini</code> / <code>gpt-5.4</code> &mdash; strict JSON; uses <code>max_completion_tokens</code> not <code>max_tokens</code></li>
 </ul>
 
-<h2 id="proxy">14. Python proxy &amp; services</h2>
+<h2 id="proxy">17. Python proxy &amp; services</h2>
 
 <p>The FastAPI proxy (<code>humans-in-control-research/proxy/app.py</code>, ~2000 LOC) is the single trust boundary that talks to external APIs. It handles CORS, retries, rate limiting, and translates browser requests into upstream calls.</p>
 
@@ -693,19 +889,38 @@ hic-workspace/
 </ol>
 <p>Installed on first boot via <code>docker-compose-all.yml</code> command hook (<code>apt-get install ffmpeg</code> + <code>pip install yt-dlp openai</code>).</p>
 
-<h2 id="export">15. Export</h2>
+<h2 id="export">18. Export</h2>
 
-<p>Three export paths:</p>
+<p>Four distinct export paths, depending on the artifact type:</p>
+
+<h3>1. Deliverable deck export (legacy SlideCanvas path)</h3>
+<p><code>exportService.ts</code> using <code>pptxgenjs</code>. Each pinned output or slide renders through the 12-block SlideCanvas system (<code>persona-card</code>, <code>theme-cluster</code>, <code>recommendation</code>, <code>service-blueprint</code>, etc.); speaker notes, footnotes, and attribution blocks are embedded. Brand colors and typography come from <code>visualizationStyles.ts</code>. This is the path that <code>#persona</code> hashtag artifacts use, plus all canonical research deliverables.</p>
+
+<h3>2. Output Board (PDF / HTML)</h3>
+<p><code>html2canvas</code> + <code>jspdf</code>. The Output Board (or Results View) is rendered into a paginated PDF with NXT layout. HTML export emits a self-contained file with inline CSS, suitable for client share or archive.</p>
+
+<h3>3. Freeform artifact export (Designer window) <span class="badge badge-new">v3.3</span></h3>
+<p>Each freeform artifact has three single-click exports rendered from the live HTML iframe:</p>
 <ul>
-  <li><strong>PPTX</strong> &mdash; <code>exportService.ts</code> using <code>pptxgenjs</code>. Each pinned output or slide renders through the 12-block SlideCanvas system; speaker notes, footnotes, and attribution blocks are embedded. Brand colors and typography come from <code>visualizationStyles.ts</code>.</li>
-  <li><strong>PDF</strong> &mdash; <code>html2canvas</code> + <code>jspdf</code>. The Output Board (or Results View) is rendered into a paginated PDF with NXT layout.</li>
-  <li><strong>Output Board (HTML)</strong> &mdash; pinned outputs arranged in sequence, self-contained HTML with inline CSS, suitable for client share or archive.</li>
+  <li><strong>PNG</strong> &mdash; <code>html-to-image</code> renders the iframe contents at 1920&times;1080 native resolution. Single image, no compression artifacts.</li>
+  <li><strong>PDF</strong> &mdash; PNG embedded in a single 16:9 PDF page via <code>jsPDF</code>. Useful for printable handouts.</li>
+  <li><strong>PPTX</strong> &mdash; structured slide:
+    <ol>
+      <li>Background image of the rendered slide (PNG via <code>html-to-image</code>) is added FIRST as a full-bleed shape.</li>
+      <li>Every text run from the source HTML is collected synchronously (so async rendering doesn&rsquo;t race the image), with computed font size + position transformed via <code>pxToSlidePt()</code>: <code>px &times; 0.75 &times; SOURCE_TO_SLIDE_SCALE</code> where the scale factor maps the 1920px source width to PowerPoint&rsquo;s 13.333" slide width.</li>
+      <li>Text frames are added LAST, so they sit on top of the image in PowerPoint by default. Editors can right-click any text frame and Send-to-Back to reveal the underlying image equivalent &mdash; giving them an editable text layer over a visual layer that exactly matches what they see in the Designer.</li>
+    </ol>
+  </li>
 </ul>
 
-<h3>Pin workflow</h3>
-<p>In the Chat Workbench, every NXT visual block the AI produces gets a Pin button. Pinned outputs collect in the right-hand panel and can be dragged to reorder before export.</p>
+<div class="status-card cyan">
+<strong>Why text + image stacked.</strong> A pure-image PPTX can&rsquo;t be edited in PowerPoint. A pure-text PPTX loses the SVG / atmospheric / brand visuals. Stacking text frames over the image gives editors both: <em>visual fidelity</em> (the image matches what was on screen) and <em>editability</em> (every label is a real text frame they can re-style).
+</div>
 
-<h2 id="brand">16. NXT brand system</h2>
+<h3>4. Pin workflow (Chat Workbench)</h3>
+<p>In the Chat Workbench, every NXT visual block the AI produces gets a Pin button. Pinned outputs collect in the right-hand panel and can be dragged to reorder before export through path 1 or 2.</p>
+
+<h2 id="brand">19. NXT brand system</h2>
 
 <p>The NXT design system lives in <code>styles/nxt-design-system.css</code> and is enforced across every visual surface, including exported PPTX and PDF.</p>
 
@@ -740,7 +955,7 @@ hic-workspace/
   </tbody>
 </table>
 
-<h2 id="ops">17. Operations &amp; troubleshooting</h2>
+<h2 id="ops">20. Operations &amp; troubleshooting</h2>
 
 <h3>Startup</h3>
 <pre>docker compose -f docker-compose-all.yml up -d research-generator research-proxy</pre>
@@ -761,8 +976,40 @@ hic-workspace/
     <tr><td>Skills load multiple times in console</td><td>Skill fetcher calls instead of memoizing &mdash; performance, not correctness</td><td>Known &mdash; consider <code>Map</code>-based memo in <code>wikiService.loadSkill()</code></td></tr>
     <tr><td>404 on <code>/api/wiki/read/engagements/&lt;slug&gt;.md</code></td><td>No prior engagement for this goal yet &mdash; 404 is expected</td><td>Harmless; memory fills in after first completed run</td></tr>
     <tr><td>OpenAI 400 on gpt-5.4 family</td><td><code>max_tokens</code> rejected; requires <code>max_completion_tokens</code></td><td>Already patched in <code>openaiService.ts</code>, <code>corpusChatService.callOpenAI</code>, and <code>providers/openaiAdapter.ts</code></td></tr>
+    <tr><td>Hashtag artifact (org / journey / arch / roadmap / blueprint) doesn&rsquo;t appear in the Designer popup</td><td>Pre-v3.3: localStorage quota exhausted by other writers (<code>designContext.ts</code>, <code>nxt_saved_projects</code>); the artifact write silently failed</td><td><span class="badge badge-new">v3.3</span> Migrated to IndexedDB + BroadcastChannel. If the issue persists, check the Designer console for <code>[designDeskStore] cross-window sync REGISTERED</code> &mdash; if missing, the popup is loading a stale bundle. Hard-refresh the popup.</td></tr>
+    <tr><td>Designer console shows <code>QUOTA EXCEEDED</code></td><td>Hitting the legacy localStorage path on a stale bundle</td><td>Hard-refresh; the new bundle uses IDB and the legacy localStorage entry is auto-migrated and removed on first boot.</td></tr>
+    <tr><td>Designer popup blocked by browser</td><td>Pop-up blocker active</td><td>Click the blocked-popup notice in the address bar &rarr; <em>Always allow pop-ups from localhost:5011</em>.</td></tr>
+    <tr><td>Freeform output rejected: "INCOMPLETE BODY CONTENT: unbalanced &lt;div&gt; tags"</td><td>Model truncated the response mid-element (Gemini 2.5 Flash hits this on dense org charts)</td><td>Switch model to Claude Opus 4.7 (1M context) or simplify the prompt. The pipeline is intentionally fail-loud &mdash; no fallbacks, so you see truncation rather than getting a malformed render.</td></tr>
+    <tr><td>Anthropic 502 from <code>/api/ai/anthropic</code></td><td>Upstream Anthropic 503 (provider degradation) passed through by the proxy as 502</td><td>Not a proxy bug. Wait for provider recovery, or switch to OpenAI / Gemini in the model picker.</td></tr>
+    <tr><td>"Blocked script execution in 'about:srcdoc'..." in Designer console</td><td>Sandboxed iframe rejecting the exemplar&rsquo;s <code>fitSlide()</code> script</td><td>Expected. The iframe runs <code>allow-same-origin</code> only, no <code>allow-scripts</code> &mdash; this is a security choice. The slide still renders; only the auto-fit script is blocked.</td></tr>
+    <tr><td>Blank screen for ~25 seconds when starting research</td><td>Wiki seeding + upload archival run before the first source loads</td><td>Already addressed: immediate status messages + thinking events fire BEFORE the awaits, so the user sees activity within ~100ms.</td></tr>
   </tbody>
 </table>
+
+<h3>Console diagnostic markers (v3.3)</h3>
+<p>The store now logs every cross-window sync event verbosely. If the Designer isn&rsquo;t receiving artifacts, search the console for these markers in this order:</p>
+<ol>
+  <li><code>[designDeskStore] cross-window sync REGISTERED</code> &mdash; should appear ONCE per window. If missing, the script never executed.</li>
+  <li><code>[designDeskStore] boot hydrate from IndexedDB: N artifact(s)</code> &mdash; should appear after the registration line. If missing, IDB read failed.</li>
+  <li><code>[designDeskStore] persist#K — BroadcastChannel post SUCCESS</code> (writer side, e.g. Analyst window).</li>
+  <li><code>[designDeskStore] BroadcastChannel received N artifact(s)</code> (peer side, e.g. Designer window).</li>
+  <li><code>[designDeskStore] merge applied via BroadcastChannel</code> (peer side, after merge).</li>
+</ol>
+<p>If 1&ndash;3 fire but 4&ndash;5 don&rsquo;t, the BroadcastChannel post never reached the peer (other window closed, different origin). If 4 fires but 5 doesn&rsquo;t, the merge handler threw &mdash; check the next line for the error.</p>
+
+<h3>Reset the artifact store</h3>
+<pre># From browser DevTools console (in any HiC window):
+indexedDB.deleteDatabase('designDeskStore');
+localStorage.removeItem('designDeskStore.v1');  // legacy key
+location.reload();</pre>
+
+<h3>Reset all HiC localStorage (designContext + saved projects + KG prefs)</h3>
+<pre># From browser DevTools console:
+Object.keys(localStorage).filter(k =&gt;
+  k.startsWith('nxt') || k.startsWith('hic_') || k.startsWith('kg_') || k.startsWith('designDesk')
+).forEach(k =&gt; localStorage.removeItem(k));
+indexedDB.deleteDatabase('designDeskStore');
+location.reload();</pre>
 
 <h3>Dependencies</h3>
 <p>Required API keys in root <code>.env</code>: <code>ANTHROPIC_API_KEY</code>, <code>OPENAI_API_KEY</code>, <code>GEMINI_API_KEY</code> (shared with API_KEY). Optional: <code>EVERY_ORG_API_KEY</code> for philanthropy connectors.</p>
@@ -773,7 +1020,7 @@ hic-workspace/
 <h3>Proxy restart (after proxy code change)</h3>
 <pre>docker compose -f docker-compose-all.yml restart research-proxy</pre>
 
-<h2 id="glossary">18. Glossary</h2>
+<h2 id="glossary">21. Glossary</h2>
 
 <table>
   <thead><tr><th>Term</th><th>Definition</th></tr></thead>
@@ -802,14 +1049,33 @@ hic-workspace/
     <tr><td><strong>Slide quote backfill</strong></td><td>Post-parse async pass that detects title-shaped <code>evidence</code> / <code>quotes[].text</code> on slides and replaces them with real body sentences pulled from the wiki. Runs via <code>backfillSlidesFromWiki()</code>.</td></tr>
     <tr><td><strong>WikiArticleViewer</strong></td><td>Full-screen overlay component that fetches <code>GET /api/wiki/read-article/{path}</code> and renders the article&rsquo;s body + frontmatter metadata. Opened by the &#8984; READ ARCHIVED button on evidence nodes.</td></tr>
     <tr><td><strong>Video Transcriber connector</strong></td><td>The connector named <em>"Video Transcriber"</em> in <code>ALL_CONNECTORS</code>; wraps <code>/api/transcribe-youtube</code> and returns full transcripts as <code>DataSourceItem</code>. Prior to v3.1 the connector was missing, so every user-supplied YouTube URL failed silently.</td></tr>
+    <tr><td><strong>Hashtag command</strong> <span class="badge badge-new">v3.3</span></td><td>Inline directive that routes a chat message through a deliverable-specific generation pipeline. Form: <code>#&lt;content&gt; #&lt;brand&gt; #&lt;view&gt; &lt;prompt&gt;</code>. 11 content tags, 2 brand tags, 2 view modifiers. Plurals auto-mapped (<code>#orgs</code> &rarr; <code>#org</code>).</td></tr>
+    <tr><td><strong>Design Desk</strong> <span class="badge badge-new">v3.3</span></td><td>Dedicated artifact authoring surface that opens in a separate browser window via <code>window.open('?designer=1')</code>. Has its own chat panel + 1920&times;1080 canvas + export buttons. Never replaces the Analyst Desk.</td></tr>
+    <tr><td><strong>Designer window</strong> <span class="badge badge-new">v3.3</span></td><td>The browser pop-up that hosts the Design Desk. Identified by <code>?designer=1</code> in the URL. Receives every store mutation in real time via BroadcastChannel.</td></tr>
+    <tr><td><strong>Freeform HTML artifact</strong> <span class="badge badge-new">v3.3</span></td><td>Artifact emitted as a complete HTML document that renders at 1920&times;1080 in a sandboxed iframe. Five kinds (org / journey / arch / roadmap / blueprint) use this pipeline; persona stays on the legacy SlideCanvas path.</td></tr>
+    <tr><td><strong>Brand-locked shell</strong> <span class="badge badge-new">v3.3</span></td><td>The HTML head + <code>&lt;style&gt;</code> block + body open/close splice that wraps every freeform artifact. Hand-designed in NU or NXT brand. The model sees only the body content, never the shell &mdash; truncation can&rsquo;t corrupt brand CSS because the shell is preserved server-side.</td></tr>
+    <tr><td><strong>Exemplar</strong> <span class="badge badge-new">v3.3</span></td><td>The reference 1920&times;1080 HTML file (one per kind&times;brand pair, 8 total) that the freeform pipeline studies. The model adapts content but inherits the structural skeleton + brand treatment.</td></tr>
+    <tr><td><strong>Splice</strong> <span class="badge badge-new">v3.3</span></td><td>The freeform pipeline&rsquo;s server-side step where <code>shell.before + model_body + shell.after</code> reconstructs a full document. Eliminates token-cap truncation as a brand-CSS risk.</td></tr>
+    <tr><td><strong>Designer Store</strong> <span class="badge badge-new">v3.3</span></td><td>The Zustand-backed artifact store (<code>useDesignDeskStore</code>) shared by both windows. Persisted to IndexedDB; synced via BroadcastChannel + storage events + focus reconciliation.</td></tr>
+    <tr><td><strong>BroadcastChannel sync</strong> <span class="badge badge-new">v3.3</span></td><td>The primary cross-window transport in v3.3. Channel name <code>designDeskStore.v1.sync</code>. Posts the full state on every mutation; peers apply via <code>applyIncomingState()</code>.</td></tr>
+    <tr><td><strong>IndexedDB designDeskStore</strong> <span class="badge badge-new">v3.3</span></td><td>Database <code>designDeskStore</code> &rarr; object store <code>state</code> &rarr; record key <code>singleton</code>. Holds <code>{ artifacts, activeArtifactId }</code>. Replaces the legacy localStorage entry, which is auto-migrated on first boot.</td></tr>
+    <tr><td><strong>Focus reconciliation</strong> <span class="badge badge-new">v3.3</span></td><td>Backstop sync layer: every time a window gains focus, it re-reads IndexedDB and merges in any artifacts the BroadcastChannel might have missed. Catches the rare case where the peer was closed when the broadcast fired.</td></tr>
+    <tr><td><strong>Body completeness check</strong> <span class="badge badge-new">v3.3</span></td><td><code>checkBodyContentCompleteness()</code> &mdash; rejects freeform output that has unbalanced <code>&lt;div&gt;</code> tags, missing <code>.stage</code> / <code>.slide-frame</code> classes, or accidentally-included shell tags. Strict, no fallbacks; surfaces truncation as a user-visible error so the user can re-run with a more capable model.</td></tr>
+    <tr><td><strong>Layout discipline</strong> <span class="badge badge-new">v3.3</span></td><td>Hard rules baked into the org chart prompt + SKILL.md: max 6 same-tier nodes per row at 220&ndash;280px, reuse exemplar SVG viewBox (<code>0 0 1808 820</code>) unchanged, render reporting lines as <code>&lt;line&gt;</code> elements, group teams into band cards when they exceed row capacity. Anything that overflows the 1920&times;1080 frame is rejected.</td></tr>
+    <tr><td><strong>pxToSlidePt scaling</strong> <span class="badge badge-new">v3.3</span></td><td>The freeform PPTX exporter&rsquo;s coordinate conversion: <code>px &times; 0.75 &times; SOURCE_TO_SLIDE_SCALE</code>, where the scale factor is <code>13.333" / 20"</code> (PowerPoint slide width / source HTML width at 96dpi). Maps source pixels to PowerPoint points so font sizes and positions land where they look in the Designer.</td></tr>
   </tbody>
 </table>
 
 <hr style="margin: 48px 0; border: none; border-top: 1px solid var(--nxt-rule);">
 <p style="font-size: 11px; color: var(--nxt-muted); text-align: center;">
   NXT HUMANS Intelligence Augmentation Suite &mdash; Humans in Control Research Platform<br>
-  v3.1 &mdash; April 20, 2026 &mdash; Branch: Humans-in-Control-Reimagined<br>
-  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.1 changelog:</span> wiki-as-RAG architecture, Video Transcriber connector fix, enrichment cap 80&rarr;300, <code>/api/wiki/index</code> + <code>/api/wiki/fetch-articles</code> endpoints, native <code>fetch_wiki_articles</code> tool for Claude, topic-matched article pre-fetch, slide quote backfill from wiki, &#8984; READ ARCHIVED button with <code>WikiArticleViewer</code> overlay, TITLES-AS-QUOTES ban enforced in prompt + deterministic post-processor.
+  v3.3 &mdash; April 27, 2026 &mdash; Branch: HiC-enriched<br>
+  <br>
+  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.3 changelog (April 27, 2026):</span> Design Desk popup window with realtime cross-window sync, freeform HTML artifact pipeline (org / journey / arch / roadmap / blueprint), full hashtag command system (11 content tags + 2 brands + slide modifiers), brand-locked exemplar shells (NU red/violet, NXT chartreuse/black) with server-side splice, IndexedDB-backed designDeskStore (replaces 5MB-capped localStorage), BroadcastChannel as primary cross-window transport, focus-reconciliation backstop, freeform PPTX export with px&rarr;slide-pt downscale + z-order text-over-image stacking, persona artifacts intentionally kept on legacy SlideCanvas path with original Export Deck PPTX/PDF toolbar, instant-feedback status messages eliminating the 25s blank-screen gap at research kickoff, org chart layout discipline (1808&times;820 SVG viewBox, max 6 nodes per row, banded clusters when teams exceed row capacity).<br>
+  <br>
+  <span style="color: var(--nxt-cyan); font-weight: 700;">v3.2 (April 21, 2026):</span> Densified slide layouts, skill manifest split-out, Reasoning Stream brain-status indicator, constraint visibility per checkpoint.<br>
+  <br>
+  <span style="color: var(--nxt-teal); font-weight: 700;">v3.1 (April 20, 2026):</span> Wiki-as-RAG architecture, Video Transcriber connector fix, enrichment cap 80&rarr;300, <code>/api/wiki/index</code> + <code>/api/wiki/fetch-articles</code> endpoints, native <code>fetch_wiki_articles</code> tool for Claude, topic-matched article pre-fetch, slide quote backfill from wiki, &#8984; READ ARCHIVED button with <code>WikiArticleViewer</code> overlay, TITLES-AS-QUOTES ban enforced in prompt + deterministic post-processor.
 </p>
 
 </div>

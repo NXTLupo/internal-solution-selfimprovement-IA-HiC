@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NXT Humans · NU Co-op Organization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nx-black: #0D0D0D;
+    --nx-graphite: #2A2A2A;
+    --nx-stone: #5C5C5C;
+    --nx-mist: #9A9A9A;
+    --nx-fog: #BFBFBF;
+    --nx-line: #E8E8E8;
+    --nx-paper: #FAFAFA;
+    --nx-mist-bg: #F4F4F4;
+    --nx-white: #FFFFFF;
+    --nx-chart: #B8B800;
+    --nx-chart-deep: #8A8A00;
+    --nx-cyan: #00B7C3;
+    --violet-deep: #4F3FB8;
+    --violet: #6E54E0;
+    --violet-pale: #B488F0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1A1A1A; font-family: 'Archivo', sans-serif; color: var(--nx-black); -webkit-font-smoothing: antialiased; width: 100%; height: 100%; overflow: hidden; }
+  .stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .slide-frame { width: 1920px; height: 1080px; transform-origin: center center; flex-shrink: 0; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .slide { width: 1920px; height: 1080px; background: var(--nx-white); position: relative; overflow: hidden; }
+
+  .atmos-violet-tr { position: absolute; top: -250px; right: -250px; width: 700px; height: 700px; background: radial-gradient(circle at center, rgba(110,84,224,0.12) 0%, transparent 65%); pointer-events: none; filter: blur(20px); }
+  .atmos-red-bl { position: absolute; bottom: -350px; left: -250px; width: 700px; height: 700px; background: radial-gradient(circle at center, rgba(0,183,195,0.05) 0%, transparent 55%); pointer-events: none; filter: blur(30px); }
+  .grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); opacity: 0.022; pointer-events: none; mix-blend-mode: multiply; }
+
+  .frame { position: relative; width: 100%; height: 100%; padding: 32px 72px; display: grid; grid-template-rows: auto 1fr auto; gap: 16px; }
+
+  .top-band { display: grid; grid-template-columns: auto 1fr auto; gap: 48px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--nx-black); }
+  .brand-mark { display: flex; align-items: center; gap: 14px; }
+  .seal { width: 42px; height: 42px; background: var(--nx-black); color: var(--nx-white); display: grid; place-items: center; font-weight: 900; font-size: 14px; letter-spacing: 0.02em; border-radius: 3px; }
+  .wordmark { font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.1; }
+  .wordmark .sub { display: block; font-weight: 400; color: var(--nx-stone); font-size: 9.5px; letter-spacing: 0.18em; margin-top: 4px; }
+  .title-zone { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; padding: 0 32px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--nx-black); font-weight: 500; margin-bottom: 6px; white-space: nowrap; }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--nx-black); }
+  .eyebrow::after { content: ""; width: 5px; height: 5px; background: var(--nx-chart); display: inline-block; margin-left: 4px; }
+  h1 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -0.03em; color: var(--nx-black); white-space: nowrap; }
+  h1 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: var(--nx-black); letter-spacing: -0.01em; border-bottom: 3px solid var(--nx-chart); padding-bottom: 1px; }
+  .lede { font-size: 12px; line-height: 1.5; color: var(--nu-graphite); font-weight: 400; max-width: 70ch; }
+  .lede b { font-weight: 700; color: var(--nx-black); }
+  .meta { display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; color: var(--nu-stone); text-transform: uppercase; text-align: right; white-space: nowrap; }
+  .meta b { color: var(--nx-black); font-weight: 500; }
+
+  .diagram-zone { position: relative; width: 100%; height: 100%; }
+  .diagram-canvas { position: relative; width: 100%; height: 100%; }
+  .diagram-canvas svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .bottom-band { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 28px; align-items: center; padding-top: 14px; border-top: 1px solid var(--nx-black); }
+  .voice-prose { padding-right: 16px; }
+  .voice-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); margin-bottom: 6px; font-weight: 500; }
+  .voice-prose p { font-size: 11.5px; line-height: 1.5; color: var(--nu-graphite); font-weight: 400; }
+  .voice-prose p b { color: var(--nx-black); font-weight: 700; }
+  .voice-prose p em { font-family: 'Fraunces', serif; font-style: italic; color: var(--nu-red); font-weight: 400; }
+
+  .stat-tile { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
+  .stat-tile.featured { padding: 12px 14px; background: linear-gradient(135deg, var(--nx-black) 0%, #2A2A2A 100%); border-radius: 5px; color: var(--nx-white); }
+  .stat-icon-tile { width: 36px; height: 36px; border-radius: 9px; background: linear-gradient(135deg, var(--violet-pale) 0%, var(--violet) 100%); box-shadow: 0 3px 10px rgba(110,84,224,0.22); display: grid; place-items: center; flex-shrink: 0; }
+  .stat-icon-tile.red { background: linear-gradient(135deg, #D0D000 0%, var(--nx-chart) 100%); box-shadow: 0 3px 10px rgba(184,184,0,0.3); }
+  .stat-icon-tile.featured-light { background: rgba(255,255,255,0.18); box-shadow: none; }
+  .stat-body { display: flex; flex-direction: column; min-width: 0; }
+  .stat-num { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.04em; line-height: 0.95; color: var(--nx-black); }
+  .stat-num .unit { font-size: 18px; color: var(--nu-red); font-weight: 700; }
+  .stat-tile.featured .stat-num, .stat-tile.featured .stat-num .unit { color: var(--nu-white); }
+  .stat-label { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nx-black); margin-top: 2px; line-height: 1.2; }
+  .stat-tile.featured .stat-label { color: var(--nu-white); }
+  .stat-desc { font-size: 10px; color: var(--nu-stone); line-height: 1.3; margin-top: 2px; }
+  .stat-tile.featured .stat-desc { color: rgba(255,255,255,0.85); }
+
+  .footnote { position: absolute; bottom: 8px; left: 56px; right: 56px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: var(--nx-mist); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="slide-frame" id="slideFrame">
+    <div class="slide">
+      <div class="atmos-violet-tr"></div>
+      <div class="atmos-red-bl"></div>
+      <div class="grain"></div>
+
+      <div class="frame">
+
+        <header class="top-band">
+          <div class="brand-mark">
+            <div class="seal">NXT</div>
+            <div class="wordmark">
+              NXT Humans
+              <span class="sub">Service Design Practice · Higher-Ed Engagement</span>
+            </div>
+          </div>
+          <div class="title-zone">
+            <div>
+              <div class="eyebrow">Organization · Optimized State</div>
+              <h1>Who runs <em>the match</em>.</h1>
+            </div>
+            <p class="lede">
+              <b>84 FTEs · 6 verticals · 6 shared services</b>. The dean sits over the
+              org; coordinators are the front line — span ratio held at 1:45 students.
+              Shared services run as a horizontal backbone underneath.
+            </p>
+          </div>
+          <div class="meta">
+            <div><b>CLIENT</b> · NORTHEASTERN · <b>NU-001</b></div>
+            <div><b>HEADCOUNT</b> · 84 · <b>06 / 08</b></div>
+          </div>
+        </header>
+
+        <section class="diagram-zone">
+          <div class="diagram-canvas">
+            <svg viewBox="0 0 1808 820" preserveAspectRatio="xMidYMid meet">
+
+              <!--
+                ZONES (820 tall):
+                  L1 Dean       y=10–80
+                  L2 Verticals  y=140–220
+                  L3 Coords     y=270–390
+                  Shared bb     y=440–540
+                  Governance    y=580–700
+                  Footnote band y=720–820
+              -->
+
+              <!-- L1 DEAN -->
+              <g>
+                <rect x="804" y="10" width="200" height="70" fill="#0D0D0D" rx="4"/>
+                <text x="820" y="32" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">L1 · DEAN</text>
+                <text x="820" y="53" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Dr. Sarah Chen</text>
+                <text x="820" y="70" font-family="Archivo, sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">Dean, Co-op &amp; Career</text>
+              </g>
+
+              <line x1="904" y1="80" x2="904" y2="120" stroke="#0D0D0D" stroke-width="2"/>
+              <line x1="200" y1="120" x2="1608" y2="120" stroke="#0D0D0D" stroke-width="2"/>
+
+              <g stroke="#0D0D0D" stroke-width="2">
+                <line x1="200" y1="120" x2="200" y2="140"/>
+                <line x1="480" y1="120" x2="480" y2="140"/>
+                <line x1="760" y1="120" x2="760" y2="140"/>
+                <line x1="1048" y1="120" x2="1048" y2="140"/>
+                <line x1="1328" y1="120" x2="1328" y2="140"/>
+                <line x1="1608" y1="120" x2="1608" y2="140"/>
+              </g>
+
+              <!-- L2 VERTICALS -->
+              <g>
+                <rect x="120" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="136" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="136" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Engineering &amp; Tech</text>
+                <text x="136" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Marcus Patel · 14 FTE</text>
+              </g>
+              <g>
+                <rect x="400" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="416" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="416" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Business &amp; Finance</text>
+                <text x="416" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Jen Okonkwo · 11 FTE</text>
+              </g>
+              <g>
+                <rect x="680" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="696" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="696" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Health Sciences</text>
+                <text x="696" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Dr. Aiden Ross · 9 FTE</text>
+              </g>
+              <g>
+                <rect x="968" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="984" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="984" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Arts, Media &amp; Design</text>
+                <text x="984" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Devon Whitley · 8 FTE</text>
+              </g>
+              <g>
+                <rect x="1248" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="1264" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="1264" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Sciences &amp; Research</text>
+                <text x="1264" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Dr. Liu Wei · 10 FTE</text>
+              </g>
+              <g>
+                <rect x="1528" y="140" width="220" height="80" fill="#FFFFFF" stroke="#0D0D0D" stroke-width="1.8" rx="3"/>
+                <text x="1544" y="162" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">L2 · DIRECTOR</text>
+                <text x="1544" y="183" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Global Programs</text>
+                <text x="1544" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Priya Krishnan · 7 FTE</text>
+              </g>
+
+              <g stroke="#0D0D0D" stroke-width="1.5">
+                <line x1="230" y1="220" x2="230" y2="270"/>
+                <line x1="510" y1="220" x2="510" y2="270"/>
+                <line x1="790" y1="220" x2="790" y2="270"/>
+                <line x1="1078" y1="220" x2="1078" y2="270"/>
+                <line x1="1358" y1="220" x2="1358" y2="270"/>
+                <line x1="1638" y1="220" x2="1638" y2="270"/>
+              </g>
+
+              <!-- L3 COORD POOLS -->
+              <g>
+                <rect x="120" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="136" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="136" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D" font-weight="400">Devon · Aisha · Mike</text>
+                <text x="136" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D" font-weight="400">Carlos · Kim · Tara · +6</text>
+                <text x="136" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">12 coords · 540 students</text>
+              </g>
+              <g>
+                <rect x="400" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="416" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="416" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Tom · Rachel · James</text>
+                <text x="416" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Linda · Omar · +4</text>
+                <text x="416" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">9 coords · 410 students</text>
+              </g>
+              <g>
+                <rect x="680" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="696" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="696" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Maria · David · Sara</text>
+                <text x="696" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Brian · Hana · +2</text>
+                <text x="696" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">7 coords · 320 students</text>
+              </g>
+              <g>
+                <rect x="968" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="984" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="984" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Maya · Alex · Jordan</text>
+                <text x="984" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Nia · +2</text>
+                <text x="984" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">6 coords · 280 students</text>
+              </g>
+              <g>
+                <rect x="1248" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="1264" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="1264" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Wei · Sofia · Daniel</text>
+                <text x="1264" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Elena · Raj · +3</text>
+                <text x="1264" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">8 coords · 380 students</text>
+              </g>
+              <g>
+                <rect x="1528" y="270" width="220" height="120" fill="#FAFAFA" stroke="#00B7C3" stroke-width="1.5" rx="3"/>
+                <text x="1544" y="294" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3" font-weight="500">L3 · COORDINATORS</text>
+                <text x="1544" y="316" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Priya (lead) · Yuki</text>
+                <text x="1544" y="334" font-family="Archivo, sans-serif" font-size="11" fill="#0D0D0D">Carlos M. · Aaliyah</text>
+                <text x="1544" y="372" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">4 coords · 180 students</text>
+              </g>
+
+              <!-- SHARED SERVICES BACKBONE -->
+              <line x1="80" y1="430" x2="1768" y2="430" stroke="#5C5C5C" stroke-width="1" stroke-dasharray="4,4"/>
+              <text x="80" y="421" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.6" fill="#0D0D0D" font-weight="700">SHARED SERVICES BACKBONE</text>
+              <text x="320" y="421" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#5C5C5C">Reports to Dean · serves all 6 verticals</text>
+
+              <g>
+                <rect x="80" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="96" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · OPS</text>
+                <text x="96" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Employer Relations</text>
+                <text x="96" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Janet Brooks · 8 FTE</text>
+                <text x="96" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">Pipeline · accounts · partnerships</text>
+              </g>
+              <g>
+                <rect x="360" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="376" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · DATA</text>
+                <text x="376" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Analytics &amp; Outcomes</text>
+                <text x="376" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Dr. Tom Reilly · 5 FTE</text>
+                <text x="376" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">BI · cohort metrics · equity</text>
+              </g>
+              <g>
+                <rect x="640" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="656" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · TECH</text>
+                <text x="656" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Platform Engineering</text>
+                <text x="656" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Anika Shah · 6 FTE</text>
+                <text x="656" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">NUworks · matching · integrations</text>
+              </g>
+              <g>
+                <rect x="920" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="936" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · STUDENT</text>
+                <text x="936" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Career Design Studio</text>
+                <text x="936" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Lucas Park · 7 FTE</text>
+                <text x="936" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">Coaching · resume · interview</text>
+              </g>
+              <g>
+                <rect x="1200" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="1216" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · ACADEMIC</text>
+                <text x="1216" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Faculty Liaisons</text>
+                <text x="1216" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Prof. Helen Park · 4 FTE</text>
+                <text x="1216" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">Curriculum · credit · debrief</text>
+              </g>
+              <g>
+                <rect x="1480" y="450" width="240" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="1496" y="472" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SHARED · COMPLIANCE</text>
+                <text x="1496" y="492" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">Compliance &amp; Visa</text>
+                <text x="1496" y="510" font-family="Archivo, sans-serif" font-size="11" fill="#BFBFBF">Lead: Naomi Chen · 4 FTE</text>
+                <text x="1496" y="528" font-family="Archivo, sans-serif" font-size="10" fill="#BFBFBF">FERPA · CPT/OPT · contracts</text>
+              </g>
+
+              <!-- GOVERNANCE -->
+              <line x1="0" y1="590" x2="1808" y2="590" stroke="#0D0D0D" stroke-width="1"/>
+              <text x="0" y="613" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.6" fill="#0D0D0D" font-weight="700">GOVERNANCE</text>
+
+              <g>
+                <rect x="0" y="630" width="380" height="100" fill="#FAFAFA" stroke="#0D0D0D" stroke-width="1.5" rx="3"/>
+                <text x="16" y="654" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C" font-weight="500">EXECUTIVE STEERING</text>
+                <text x="16" y="675" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Co-op Steering Committee</text>
+                <text x="16" y="693" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">Provost · CFO · Dean · 3 faculty reps</text>
+                <text x="16" y="715" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#0D0D0D">QUARTERLY · STRATEGY · BUDGET</text>
+              </g>
+              <g>
+                <rect x="412" y="630" width="380" height="100" fill="#FAFAFA" stroke="#0D0D0D" stroke-width="1.5" rx="3"/>
+                <text x="428" y="654" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C" font-weight="500">EMPLOYER ADVISORY</text>
+                <text x="428" y="675" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Industry Partner Council</text>
+                <text x="428" y="693" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">12 named partners · rotating chair</text>
+                <text x="428" y="715" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#0D0D0D">SEMESTERLY · DEMAND · FEEDBACK</text>
+              </g>
+              <g>
+                <rect x="824" y="630" width="380" height="100" fill="#FAFAFA" stroke="#0D0D0D" stroke-width="1.5" rx="3"/>
+                <text x="840" y="654" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C" font-weight="500">STUDENT VOICE</text>
+                <text x="840" y="675" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Student Advisory Board</text>
+                <text x="840" y="693" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">8 students · 1 per major area</text>
+                <text x="840" y="715" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#0D0D0D">MONTHLY · UX · FRICTION REPORTS</text>
+              </g>
+              <g>
+                <rect x="1236" y="630" width="572" height="100" fill="#0D0D0D" rx="3"/>
+                <text x="1252" y="654" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#B8B800" font-weight="500">SPAN-OF-CONTROL TARGETS</text>
+                <text x="1252" y="678" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">1 coordinator : 45 students</text>
+                <text x="1252" y="698" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="-0.2">1 director : 7–14 coordinators</text>
+                <text x="1252" y="720" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="rgba(255,255,255,0.85)">REVIEWED QUARTERLY · LOAD-BALANCED</text>
+              </g>
+
+            </svg>
+          </div>
+        </section>
+
+        <section class="bottom-band">
+          <div class="voice-prose">
+            <div class="voice-eyebrow">Org principle</div>
+            <p>
+              <em>Span discipline</em> over hierarchy depth. The dean delegates to six
+              vertical directors; coordinators carry the relationship with students.
+              Shared services run as a <b>horizontal backbone</b> — not nested in any vertical.
+            </p>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile red">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">84</div>
+              <div class="stat-label">Total FTEs</div>
+              <div class="stat-desc">42 coords + 42 specialists</div>
+            </div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">6</div>
+              <div class="stat-label">Verticals</div>
+              <div class="stat-desc">Eng · Bus · Health · AMD · Sci · Global</div>
+            </div>
+          </div>
+          <div class="stat-tile featured">
+            <div class="stat-icon-tile featured-light">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">1<span class="unit">:45</span></div>
+              <div class="stat-label">Span Ratio · Coord:Students</div>
+              <div class="stat-desc">Reviewed quarterly</div>
+            </div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">3.2<span class="unit">k</span></div>
+              <div class="stat-label">Students · annual</div>
+              <div class="stat-desc">Active in co-op</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footnote">
+        <div><b style="color:#5C5C5C">NXT Humans</b> · Build smarter. Move faster. Win sooner.</div>
+        <div>16:9 · 1920 × 1080</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function fitSlide() {
+    const frame = document.getElementById('slideFrame');
+    const stage = frame.parentElement;
+    const padding = 32;
+    const availW = stage.clientWidth - padding;
+    const availH = stage.clientHeight - padding;
+    const scale = Math.min(availW / 1920, availH / 1080);
+    frame.style.transform = `scale(${scale})`;
+  }
+  fitSlide();
+  window.addEventListener('resize', fitSlide);
+</script>
+</body>
+</html>

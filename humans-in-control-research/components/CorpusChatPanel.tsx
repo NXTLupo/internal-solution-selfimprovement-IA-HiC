@@ -26,6 +26,28 @@ import { exportDeckToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { detectQuoteDensity, enrichSlideWithQuotes, backfillSlidesFromWiki } from '../services/quoteExtractor';
 import { validateSlide } from '../services/slideValidator';
 import DynamicPromptChips from './DynamicPromptChips';
+// --- Design Desk artifact delivery (hashtag interception) ---
+import { parseHashtags } from '../design-desk/services/hashtagParser';
+import { useDesignDeskStore } from '../design-desk/store/designDeskStore';
+import { loadDesignMd, type DesignTokens } from '../design-desk/services/designMdLoader';
+import { generateArtifact } from '../design-desk/services/chatToArtifact';
+import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
+import type { FreeformKind } from '../design-desk/schemas/freeformArtifact';
+
+// Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
+// inheritance, iframe-isolated render). All other kinds remain on the legacy
+// structured pipeline.
+const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set(['org', 'journey', 'arch', 'roadmap', 'blueprint']);
+import { exportPdf, exportPng, exportPptx } from '../design-desk/services/artifactExporter';
+import { toPng } from 'html-to-image';
+import { jsPDF } from 'jspdf';
+import { NxtDocViewer } from '../design-desk/components/NxtDocViewer';
+import { FreeformViewer } from '../design-desk/components/FreeformViewer';
+import { OrgChartCanvas } from '../design-desk/components/OrgChartCanvas';
+import { FossflowCanvas } from '../design-desk/components/FossflowCanvas';
+import type { PersonaArtifact } from '../design-desk/schemas/personaArtifact';
+import type { JourneyArtifact } from '../design-desk/schemas/journeyArtifact';
+import type { OrgChartArtifact } from '../design-desk/schemas/orgChartArtifact';
 
 interface Props {
     context: ChatContext;
@@ -33,6 +55,10 @@ interface Props {
     isOpen: boolean;
     onToggle: () => void;
     onDeliverableApproved?: (type: string, data: any) => void;
+    /** Optional callback to switch the parent App into the Design Desk view.
+     *  When provided, inline-rendered artifact previews show an "Open in Designer"
+     *  button that activates the artifact and triggers this callback. */
+    onOpenDesignDesk?: () => void;
 }
 
 /**
@@ -131,13 +157,519 @@ const LoadingIndicator: React.FC<{ mode: 'reasoning' | 'image'; modelName: strin
     );
 };
 
+/**
+ * Inline renderer for a pre-made Design Desk artifact embedded in a chat
+ * reply. Activated by the hashtag interception path in handleSend() when the
+ * user types `#persona`, `#journey`, or `#org`. Pulls the artifact from the
+ * Zustand store, loads DESIGN.md tokens once, and delegates rendering to the
+ * existing viewer components at a capped height.
+ */
+/**
+ * SlideProjection — renders an artifact inside an exact 16:9 NXT slide frame.
+ * The frame itself (header + body + footer) is the rasterization target, so
+ * PNG/PDF/PPTX exports come out un-stretched.
+ */
+const SlideProjection: React.FC<{
+    artifact: any;
+    artifactType: 'persona' | 'journey' | 'org';
+    tokens: DesignTokens;
+    title: string;
+    subtitle?: string;
+    primary: string;
+    accent: string;
+    slideW: number;
+    slideH: number;
+    onOpenDesignDesk?: () => void;
+    onClosePanel?: () => void;
+    onActivate?: () => void;
+}> = ({ artifact, artifactType, tokens, title, subtitle, primary, accent, slideW, slideH, onOpenDesignDesk, onClosePanel, onActivate }) => {
+    const slideRef = useRef<HTMLDivElement>(null);
+    const [busy, setBusy] = useState<null | 'pdf' | 'png' | 'pptx'>(null);
+
+    /**
+     * Capture the live SlideProjection DOM at native 1920x1080 (upscaling from
+     * the 800x450 preview via pixelRatio: 2.4) so the exported file matches
+     * exactly what the user sees in the chat. The previous path used
+     * artifactExporter.ts which renders a fresh off-screen NxtDocViewer — that
+     * doc is centered at maxWidth 960px and produced massive whitespace + a
+     * redundant title bar in the export. Capturing the slide's actual rendered
+     * frame fixes both problems.
+     *
+     * For PPTX: the captured image is the background; a DOM walk of the same
+     * slideRef extracts text nodes with their bounding boxes, font, and color
+     * to overlay as native PowerPoint text frames (editable, searchable).
+     */
+    const NATIVE_W = 1920;
+    const NATIVE_H = 1080;
+    const PDF_W_IN = 13.333;
+    const PDF_H_IN = 7.5;
+
+    const captureSlideAsPng = async (): Promise<string> => {
+        const node = slideRef.current;
+        if (!node) throw new Error('Slide DOM not mounted yet');
+        // Wait for fonts so the captured raster uses the correct typography
+        try { await (document as any).fonts?.ready; } catch { /* non-fatal */ }
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const ratio = NATIVE_W / slideW;   // 1920 / 800 = 2.4
+        return toPng(node, {
+            width: slideW,
+            height: slideH,
+            canvasWidth: NATIVE_W,
+            canvasHeight: NATIVE_H,
+            pixelRatio: ratio,
+            backgroundColor: '#FFFFFF',
+            cacheBust: true,
+            skipFonts: true,
+            filter: (n: Node) => {
+                if (n instanceof HTMLLinkElement && n.rel === 'stylesheet') return false;
+                return true;
+            },
+        });
+    };
+
+    interface TextRunSpec {
+        text: string;
+        rect: { x: number; y: number; w: number; h: number };
+        fontFamily: string;
+        fontSize: number;
+        fontWeight: number;
+        color: string;
+        align: 'left' | 'center' | 'right';
+    }
+
+    const rgbToHex = (s: string): string => {
+        const m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (!m) return '000000';
+        return [+m[1], +m[2], +m[3]].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+    };
+    const pxToPt = (px: number): number => Math.round(px * 0.75 * 100) / 100;
+
+    const collectTextRuns = (): TextRunSpec[] => {
+        const node = slideRef.current;
+        if (!node) return [];
+        const slideRect = node.getBoundingClientRect();
+        const out: TextRunSpec[] = [];
+        const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+        let n: Node | null;
+        while ((n = walker.nextNode())) {
+            const text = (n.nodeValue ?? '').replace(/\s+/g, ' ').trim();
+            if (!text) continue;
+            const parent = n.parentElement;
+            if (!parent) continue;
+            if (['STYLE', 'SCRIPT', 'NOSCRIPT'].includes(parent.tagName)) continue;
+            const range = document.createRange();
+            range.selectNode(n);
+            const rect = range.getBoundingClientRect();
+            // px in preview coords, scale to native 1920x1080
+            if (rect.width < 8 || rect.height < 6) continue;
+            const cs = window.getComputedStyle(parent);
+            if (cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity || '1') < 0.05) continue;
+            const fontSize = parseFloat(cs.fontSize) || 14;
+            const fontWeight = parseInt(cs.fontWeight, 10) || 400;
+            const align = (cs.textAlign === 'center' || cs.textAlign === 'right') ? cs.textAlign as 'center' | 'right' : 'left';
+            const scale = NATIVE_W / slideW;
+            out.push({
+                text,
+                rect: {
+                    x: (rect.x - slideRect.x) * scale,
+                    y: (rect.y - slideRect.y) * scale,
+                    w: rect.width * scale,
+                    h: rect.height * scale,
+                },
+                fontFamily: (cs.fontFamily || 'Archivo').split(',')[0].replace(/['"]/g, '').trim(),
+                fontSize: fontSize * scale,
+                fontWeight: isNaN(fontWeight) ? 400 : fontWeight,
+                color: cs.color || 'rgb(0,0,0)',
+                align,
+            });
+        }
+        return out;
+    };
+
+    const runExport = async (fmt: 'pdf' | 'png' | 'pptx') => {
+        setBusy(fmt);
+        try {
+            if (fmt === 'png') {
+                const dataUrl = await captureSlideAsPng();
+                const a = document.createElement('a');
+                a.href = dataUrl;
+                a.download = `${artifactType}-${(artifact as any).id ?? Date.now()}.png`;
+                a.click();
+                return;
+            }
+            if (fmt === 'pdf') {
+                const dataUrl = await captureSlideAsPng();
+                const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [PDF_W_IN, PDF_H_IN] });
+                pdf.addImage(dataUrl, 'PNG', 0, 0, PDF_W_IN, PDF_H_IN);
+                pdf.save(`${artifactType}-${(artifact as any).id ?? Date.now()}.pdf`);
+                return;
+            }
+            // PPTX: image background + vector-text overlay
+            const dataUrl = await captureSlideAsPng();
+            const runs = collectTextRuns();
+            const { default: PptxGenJS } = await import('pptxgenjs');
+            const pptx = new PptxGenJS();
+            pptx.defineLayout({ name: 'NXT_16x9', width: PDF_W_IN, height: PDF_H_IN });
+            pptx.layout = 'NXT_16x9';
+            const s = pptx.addSlide();
+            s.addImage({ data: dataUrl, x: 0, y: 0, w: PDF_W_IN, h: PDF_H_IN });
+            for (const r of runs) {
+                s.addText(r.text, {
+                    x: (r.rect.x / NATIVE_W) * PDF_W_IN,
+                    y: (r.rect.y / NATIVE_H) * PDF_H_IN,
+                    w: (r.rect.w / NATIVE_W) * PDF_W_IN,
+                    h: (r.rect.h / NATIVE_H) * PDF_H_IN,
+                    fontFace: r.fontFamily,
+                    fontSize: pxToPt(r.fontSize),
+                    color: rgbToHex(r.color),
+                    bold: r.fontWeight >= 700,
+                    align: r.align,
+                    valign: 'top',
+                    margin: 0,
+                    fill: { type: 'none' as any },
+                });
+            }
+            await pptx.writeFile({ fileName: `${artifactType}-${(artifact as any).id ?? Date.now()}.pptx` });
+        } catch (e) {
+            console.error(`[SlideProjection] ${fmt} export failed`, e);
+            alert(`Export failed: ${(e as Error).message}`);
+        } finally {
+            setBusy(null);
+        }
+    };
+
+    const handleOpen = () => {
+        onActivate?.();
+        onClosePanel?.();
+        onOpenDesignDesk?.();
+    };
+
+    const headerH = 64;
+    const footerH = 32;
+    const bodyH = slideH - headerH - footerH;
+
+    return (
+        <div style={{ marginTop: 10 }}>
+            {/* The slide itself — exactly 16:9, rasterized for export */}
+            <div
+                ref={slideRef}
+                style={{
+                    width: slideW,
+                    height: slideH,
+                    background: '#FFFFFF',
+                    border: `1px solid ${primary}`,
+                    boxSizing: 'border-box',
+                    fontFamily: "'Archivo', sans-serif",
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
+                }}
+            >
+                {/* Header band */}
+                <div style={{
+                    height: headerH,
+                    padding: '10px 18px 8px',
+                    borderBottom: `4px solid ${accent}`,
+                    background: '#FFFFFF',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                }}>
+                    <div style={{
+                        fontSize: 9, fontWeight: 700, letterSpacing: 2.5,
+                        textTransform: 'uppercase', color: accent, marginBottom: 2,
+                    }}>
+                        #{artifactType} / {artifact.brand.toUpperCase()} — Slide
+                    </div>
+                    <div style={{
+                        fontFamily: "'Bebas Neue', sans-serif",
+                        fontSize: 18, lineHeight: 1.1, color: primary,
+                        letterSpacing: '0.02em',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                    }}>
+                        {title}
+                    </div>
+                </div>
+                {/* Body — artifact rendered to fill the remaining height */}
+                <div style={{ flex: 1, height: bodyH, background: '#FFFFFF', overflow: 'hidden', position: 'relative' }}>
+                    {artifactType === 'persona' && artifact.type === 'persona' && (
+                        <div style={{ height: '100%', overflow: 'auto' }}>
+                            <NxtDocViewer artifact={artifact as PersonaArtifact} tokens={tokens} />
+                        </div>
+                    )}
+                    {artifactType === 'journey' && artifact.type === 'journey' && (
+                        <FossflowCanvas artifact={artifact as JourneyArtifact} tokens={tokens} />
+                    )}
+                    {artifactType === 'org' && artifact.type === 'org' && (
+                        <OrgChartCanvas artifact={artifact as OrgChartArtifact} tokens={tokens} />
+                    )}
+                </div>
+                {/* Footer band */}
+                <div style={{
+                    height: footerH,
+                    padding: '0 18px',
+                    background: primary,
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexShrink: 0,
+                }}>
+                    <span style={{ fontSize: 9, letterSpacing: 1.5, textTransform: 'uppercase', fontFamily: "'JetBrains Mono', monospace", color: accent }}>
+                        NXT Humans / Design Desk
+                    </span>
+                    {subtitle && (
+                        <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.6)', fontFamily: "'JetBrains Mono', monospace" }}>
+                            {subtitle.slice(0, 60)}
+                        </span>
+                    )}
+                </div>
+            </div>
+            {/* Action bar (NOT part of the rasterized slide) */}
+            <div style={{
+                marginTop: 6,
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                gap: 8,
+                width: slideW,
+            }}>
+                {(['pdf', 'png', 'pptx'] as const).map(f => (
+                    <button
+                        key={f}
+                        onClick={() => runExport(f)}
+                        disabled={busy !== null}
+                        style={{
+                            padding: '4px 10px', fontSize: 9, fontWeight: 700,
+                            letterSpacing: 1.5, textTransform: 'uppercase',
+                            border: '1px solid #0D0D0D', background: busy === f ? '#F0F0E8' : '#FFFFFF',
+                            color: '#0D0D0D', cursor: busy === null ? 'pointer' : 'wait', borderRadius: 2,
+                            fontFamily: "'Archivo', sans-serif",
+                        }}
+                    >
+                        {busy === f ? '...' : `Export ${f.toUpperCase()}`}
+                    </button>
+                ))}
+                {onOpenDesignDesk && (
+                    <button
+                        onClick={handleOpen}
+                        style={{
+                            padding: '4px 10px', fontSize: 9, fontWeight: 700,
+                            letterSpacing: 1.5, textTransform: 'uppercase',
+                            border: `1px solid ${accent}`, background: '#FAFAF7',
+                            color: '#0D0D0D', cursor: 'pointer', borderRadius: 2,
+                            fontFamily: "'Archivo', sans-serif",
+                        }}
+                    >
+                        Edit on Canvas
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+};
+
+const InlineArtifactPreview: React.FC<{
+    artifactId: string;
+    artifactType: 'persona' | 'journey' | 'org';
+    asSlide?: boolean;
+    onOpenDesignDesk?: () => void;
+    onClosePanel?: () => void;
+}> = ({ artifactId, artifactType, asSlide, onOpenDesignDesk, onClosePanel }) => {
+    const artifact = useDesignDeskStore(s => s.artifacts.find(a => a.id === artifactId));
+    const setActiveArtifact = useDesignDeskStore(s => s.setActiveArtifact);
+    const [tokens, setTokens] = useState<DesignTokens | null>(null);
+
+    useEffect(() => {
+        loadDesignMd('/DESIGN.md').then(r => setTokens(r.tokens)).catch(() => {});
+    }, []);
+
+    if (!artifact) {
+        // Pull current ids via getState() (NOT a hook with array selector — array
+        // selectors return a new reference each render and create an infinite loop
+        // because Zustand's default equality is Object.is).
+        const ids = useDesignDeskStore.getState().artifacts.map(a => a.id);
+        console.warn(`[InlineArtifactPreview] Artifact NOT FOUND. Looking for id=${artifactId} (type=${artifactType}). Store currently has ${ids.length} ids:`, ids);
+        return <div style={{ padding: 12, color: '#CC6644', fontSize: 12 }}>Artifact no longer in store (id={artifactId}).</div>;
+    }
+    if (!tokens) return <div style={{ padding: 12, color: '#888', fontSize: 12 }}>Loading design tokens...</div>;
+
+    const palette = (tokens.brands[artifact.brand] ?? {}) as Record<string, string>;
+    const primary = palette.primary ?? '#0D0D0D';
+    const accent = palette.accent ?? '#B8B800';
+
+    const handleOpen = () => {
+        setActiveArtifact(artifact.id);
+        onClosePanel?.();
+        onOpenDesignDesk?.();
+    };
+
+    // Freeform-HTML artifacts (org/journey/arch/roadmap/blueprint) carry their own
+    // 1920x1080 slide chrome inside the exemplar HTML. Render via FreeformViewer
+    // at the chat preview size (800x450 → scaled iframe) without external slide
+    // chrome, otherwise the slide would be wrapped in another slide.
+    if ((artifact as any).type === 'freeform') {
+        return (
+            <div style={{ marginTop: 10, border: `1px solid ${primary}`, background: '#1A1A1A' }}>
+                <div style={{ width: 800, height: 450, position: 'relative' }}>
+                    <FreeformViewer artifact={artifact as any} />
+                </div>
+                <div style={{ padding: '6px 10px', borderTop: `1px solid ${primary}`, background: '#0D0D0D', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 10, color: accent, fontFamily: "'JetBrains Mono', monospace" }}>
+                        #{(artifact as any).kind} / {artifact.brand.toUpperCase()} {asSlide ? '— Slide' : ''}
+                    </span>
+                    <ArtifactExportButtons artifact={artifact as any} onOpenDesignDesk={onOpenDesignDesk} handleOpen={handleOpen} />
+                </div>
+            </div>
+        );
+    }
+
+    // Slide projection: exact 16:9 NXT slide frame so PPTX/PDF exports come out
+    // un-distorted. The container itself is 16:9 (800x450); header + footer are
+    // overlay bands so the rasterized slide is the full 16:9 surface.
+    if (asSlide) {
+        const title = (artifact as any).title ?? (artifact as any).name ?? 'Untitled';
+        const subtitle = artifactType === 'persona'
+            ? (artifact as any).role
+            : `${artifact.brand.toUpperCase()} / #${artifactType}`;
+        const slideW = 800;
+        const slideH = 450; // 16:9
+        return (
+            <SlideProjection
+                artifact={artifact}
+                artifactType={artifactType}
+                tokens={tokens}
+                title={title}
+                subtitle={subtitle}
+                primary={primary}
+                accent={accent}
+                slideW={slideW}
+                slideH={slideH}
+                onOpenDesignDesk={onOpenDesignDesk}
+                onClosePanel={onClosePanel}
+                onActivate={() => setActiveArtifact(artifact.id)}
+            />
+        );
+    }
+
+    // Default (artifact-only) preview
+    return (
+        <div style={{
+            marginTop: 10,
+            border: '1px solid #E0E0E0',
+            background: '#FFFFFF',
+            overflow: 'hidden',
+        }}>
+            <div style={{ height: 420, overflow: 'auto', background: '#FFFFFF' }}>
+                {artifactType === 'persona' && artifact.type === 'persona' && (
+                    <NxtDocViewer artifact={artifact as PersonaArtifact} tokens={tokens} />
+                )}
+                {artifactType === 'journey' && artifact.type === 'journey' && (
+                    <FossflowCanvas artifact={artifact as JourneyArtifact} tokens={tokens} />
+                )}
+                {artifactType === 'org' && artifact.type === 'org' && (
+                    <OrgChartCanvas artifact={artifact as OrgChartArtifact} tokens={tokens} />
+                )}
+            </div>
+            <div style={{ padding: '6px 10px', borderTop: '1px solid #E0E0E0', background: '#FAFAFA', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                <span style={{ fontSize: 10, color: '#888', fontFamily: "'JetBrains Mono', monospace" }}>
+                    #{artifactType} / {artifact.brand.toUpperCase()}
+                </span>
+                {onOpenDesignDesk && (
+                    <button
+                        onClick={handleOpen}
+                        style={{
+                            padding: '4px 10px', fontSize: 9, fontWeight: 700,
+                            letterSpacing: 1.5, textTransform: 'uppercase',
+                            border: '1px solid #B8B800', background: '#FFFFFF',
+                            color: '#0D0D0D', cursor: 'pointer', borderRadius: 2,
+                            fontFamily: "'Archivo', sans-serif",
+                        }}
+                    >
+                        Open in Designer
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+};
+
+/**
+ * Inline export action bar shared by the freeform preview and the legacy
+ * persona/journey/org preview in the Analyst Desk AI Chat. Lives next to
+ * "Open in Designer" so the user can export PDF/PNG/PPTX without leaving the
+ * chat. The artifactExporter routes freeform artifacts through their own
+ * iframe-capture path; non-freeform artifacts use the existing NxtDocViewer /
+ * canvas-based exporters.
+ */
+const ArtifactExportButtons: React.FC<{
+    artifact: any;
+    onOpenDesignDesk?: () => void;
+    handleOpen: () => void;
+    variant?: 'dark' | 'light';
+}> = ({ artifact, onOpenDesignDesk, handleOpen, variant = 'dark' }) => {
+    const [busy, setBusy] = useState<null | 'png' | 'pdf' | 'pptx'>(null);
+    const isLight = variant === 'light';
+
+    const run = async (kind: 'png' | 'pdf' | 'pptx') => {
+        if (busy) return;
+        setBusy(kind);
+        try {
+            if (kind === 'png') await exportPng(artifact);
+            else if (kind === 'pdf') await exportPdf(artifact);
+            else await exportPptx(artifact);
+        } catch (e: any) {
+            console.error(`[InlineExport] ${kind} failed:`, e);
+            alert(`${kind.toUpperCase()} export failed: ${e?.message ?? e}`);
+        } finally {
+            setBusy(null);
+        }
+    };
+
+    const btnBase: React.CSSProperties = {
+        padding: '4px 10px', fontSize: 9, fontWeight: 700, letterSpacing: 1.5,
+        textTransform: 'uppercase', cursor: busy ? 'wait' : 'pointer', borderRadius: 2,
+        fontFamily: "'Archivo', sans-serif", border: '1px solid',
+        background: isLight ? '#FFFFFF' : 'transparent',
+        color: isLight ? '#0D0D0D' : '#FFFFFF',
+        borderColor: isLight ? '#B8B800' : '#555',
+    };
+
+    return (
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            <button onClick={() => run('pdf')} disabled={!!busy} style={btnBase}>
+                {busy === 'pdf' ? 'PDF…' : 'Export PDF'}
+            </button>
+            <button onClick={() => run('png')} disabled={!!busy} style={btnBase}>
+                {busy === 'png' ? 'PNG…' : 'Export PNG'}
+            </button>
+            <button onClick={() => run('pptx')} disabled={!!busy} style={btnBase}>
+                {busy === 'pptx' ? 'PPTX…' : 'Export PPTX'}
+            </button>
+            {onOpenDesignDesk && (
+                <button
+                    onClick={handleOpen}
+                    style={{ ...btnBase, background: isLight ? '#FFFFFF' : '#FFFFFF', color: '#0D0D0D', borderColor: '#B8B800' }}
+                >
+                    Open in Designer
+                </button>
+            )}
+        </div>
+    );
+};
+
 // 2026-04-21 — SUGGESTED_QUERIES (static list) was retired. The welcome
 // screen and the above-input guidance strip now both source their
 // suggestions from DynamicPromptChips which calls suggestPrompts() —
 // state-aware on uploaded docs / live sources / knowledge graph themes.
 // See services/dynamicPromptSuggestions.ts.
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved }) => {
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
     const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-2.5-flash');
@@ -519,6 +1051,198 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setIsLoading(true);
         setShowSuggestions(false);
 
+        // --- Design Desk artifact delivery interception ---
+        // If the message contains ONLY content hashtags in {persona, journey, org},
+        // short-circuit the LLM call and deliver the matching pre-made artifact
+        // from useDesignDeskStore. Other hashtags (#slide, #gap, #strategy, etc.)
+        // continue to sendChatMessage unchanged.
+        const parsed = parseHashtags(query);
+        // Persona is INTENTIONALLY EXCLUDED from this routing — user explicitly
+        // wants persona slides to render through the original AI chat path
+        // (SlideCanvas + persona-card template + Export Deck PPTX/PDF), exactly
+        // as they did before the Design Desk integration. The 5 diagram kinds
+        // (org, journey, arch, roadmap, blueprint) route through the freeform-HTML
+        // pipeline so they inherit the user's NU/NXT exemplar treatment.
+        const DELIVERABLE_TAGS = ['journey', 'org', 'arch', 'roadmap', 'blueprint'] as const;
+        const LABEL_MAP: Record<string, string> = {
+            journey: 'JOURNEY_MAP',
+            org: 'ORG_CHART',
+            arch: 'ARCHITECTURE',
+            roadmap: 'ROADMAP',
+            blueprint: 'SERVICE_BLUEPRINT',
+        };
+        const allDeliverable = parsed.content.length > 0 &&
+            parsed.content.every(c => (DELIVERABLE_TAGS as readonly string[]).includes(c));
+
+        if (allDeliverable) {
+            const artifacts = useDesignDeskStore.getState().artifacts;
+            const brand = parsed.brand; // 'nxt' | 'nu'
+            const deliveryMessages: ChatMessage[] = [];
+
+            // Lazy-load DESIGN.md once per send (no-op if already cached at the module level via loadDesignMd's fetch cache).
+            let designMdRaw = '';
+            try {
+                const dm = await loadDesignMd('/DESIGN.md');
+                designMdRaw = dm.rawMarkdown;
+            } catch { /* design md optional; generators will run with empty grounding if needed */ }
+
+            const liveCtx = getContext ? getContext() : context;
+            // Combine ALL evidence the chat has access to, not just the search-source corpus.
+            // Uploaded file contents (client PDFs/docs) often hold the names and reporting-line
+            // detail the model needs for deliverables like #org. Building the combined text
+            // here ensures the generator sees everything the chat itself sees.
+            const combinedCorpusParts: string[] = [];
+            if (liveCtx?.uploadedFileContents && typeof liveCtx.uploadedFileContents === 'string' && liveCtx.uploadedFileContents.length > 40) {
+                combinedCorpusParts.push('=== CLIENT UPLOADS ===\n' + liveCtx.uploadedFileContents);
+            }
+            if (liveCtx?.corpusText) {
+                combinedCorpusParts.push('=== EXTERNAL RESEARCH CORPUS ===\n' + liveCtx.corpusText);
+            }
+            // Themes / personas / journey context — surface any structured intelligence the
+            // synthesis pipeline already produced so on-demand generation can reuse it.
+            if (liveCtx?.themes) combinedCorpusParts.push('=== THEMES ===\n' + JSON.stringify(liveCtx.themes).slice(0, 30000));
+            if (liveCtx?.personas) combinedCorpusParts.push('=== PERSONAS ===\n' + JSON.stringify(liveCtx.personas).slice(0, 30000));
+            if (liveCtx?.journeyStages) combinedCorpusParts.push('=== JOURNEY ===\n' + JSON.stringify(liveCtx.journeyStages).slice(0, 30000));
+            const corpusText = combinedCorpusParts.join('\n\n');
+
+            // Honor #slide / #slides view modifier. When present, every delivered
+            // artifact in this turn is rendered inside a 16:9 NXT slide frame.
+            const asSlide = parsed.view === 'slide' || parsed.composition === 'slides';
+            const slideTag = asSlide ? ' #slide' : '';
+
+            // Pre-made artifact lookup is ONLY appropriate when the user typed a bare
+            // hashtag request with no qualifying context (e.g., "#persona #NU"). The
+            // moment the user adds prompt text — a source filter, a topic narrowing,
+            // a "from chronicle_higher_ed not from northeasterndocs", or anything else —
+            // we MUST re-generate so the new context shapes the artifact. Otherwise the
+            // chat silently serves a stale cached artifact that ignores the new ask.
+            const userHasSpecificContext = !!parsed.cleanPrompt && parsed.cleanPrompt.trim().length >= 4;
+
+            for (const tag of parsed.content) {
+                // 1) Check for pre-made matching artifact. Prefer brand match; fall back to any brand.
+                //    Only short-circuit to the cached artifact when the request is a BARE hashtag
+                //    delivery — any prompt text means the user wants a fresh generation against
+                //    that prompt + the current corpus.
+                const matches = artifacts.filter(a => a.type === tag);
+                const brandMatch = matches.filter(a => a.brand === brand);
+                const picked = !userHasSpecificContext
+                    ? (brandMatch.length > 0 ? brandMatch : matches).slice(-1)[0]
+                    : undefined;
+
+                if (picked) {
+                    const label = (picked as any).title ?? (picked as any).name ?? 'Untitled';
+                    deliveryMessages.push({
+                        id: `msg_${Date.now()}_${tag}`,
+                        role: 'assistant',
+                        content: asSlide
+                            ? `Delivering your pre-made #${tag}${slideTag} as a slide: "${label}".`
+                            : `Delivering your pre-made #${tag} artifact: "${label}". Open the Design Desk to edit it on the canvas.`,
+                        timestamp: Date.now(),
+                        deliveredArtifactId: picked.id,
+                        deliveredArtifactType: tag as 'persona' | 'journey' | 'org',
+                        deliveredAsSlide: asSlide,
+                    });
+                    useDesignDeskStore.getState().setActiveArtifact(picked.id);
+                } else {
+                    // 2) No pre-made artifact → generate on demand inline.
+                    //    Diagram kinds (org, journey, arch, roadmap, blueprint) go through
+                    //    the freeform-HTML pipeline using the user's NU/NXT exemplars.
+                    //    Persona stays on the legacy structured pipeline.
+                    if (FREEFORM_KINDS.has(tag as FreeformKind)) {
+                        const ff = await generateFreeformArtifact({
+                            kind: tag as FreeformKind,
+                            brand,
+                            userPrompt: parsed.cleanPrompt || query,
+                            corpus: corpusText,
+                            currentArtifact: null,
+                            model: selectedModel as any,
+                        });
+                        if (ff.ok) {
+                            useDesignDeskStore.getState().addArtifact(ff.artifact);
+                            useDesignDeskStore.getState().setActiveArtifact(ff.artifact.id);
+                            // Diagnostic: log the store state right after add so we can confirm
+                            // the artifact actually landed in the store and has the expected id.
+                            const _afterAdd = useDesignDeskStore.getState();
+                            console.info(`[Freeform/store] added ${(ff.artifact as any).kind}/${ff.artifact.brand} id=${ff.artifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
+                                _afterAdd.artifacts.find(a => a.id === ff.artifact.id) ? 'YES' : 'NO',
+                                'Active id:', _afterAdd.activeArtifactId);
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_gen`,
+                                role: 'assistant',
+                                content: asSlide
+                                    ? `Generated #${tag}${slideTag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered as a 1920x1080 slide below using the ${brand.toUpperCase()} exemplar.`
+                                    : `Generated #${tag} via ${ff.modelUsed}: "${ff.artifact.title}". Rendered below. Open the Design Desk to edit it on the canvas.`,
+                                model: ff.modelUsed,
+                                timestamp: Date.now(),
+                                deliveredArtifactId: ff.artifact.id,
+                                deliveredArtifactType: tag as any,
+                                deliveredAsSlide: asSlide,
+                            });
+                        } else {
+                            const ffErr = ff as { ok: false; error: string; rawResponse?: string; modelUsed?: any };
+                            if (ffErr.rawResponse) console.warn(`[Freeform] ${tag} generation failed:`, ffErr.error, '\nRaw:', ffErr.rawResponse);
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_err`,
+                                role: 'assistant',
+                                content: `Freeform generation failed for #${tag}${ffErr.modelUsed ? ` via ${ffErr.modelUsed}` : ''}: ${ffErr.error}\n(See browser console for raw output.)`,
+                                model: ffErr.modelUsed,
+                                timestamp: Date.now(),
+                            });
+                        }
+                        continue; // skip the legacy chatToArtifact path
+                    }
+                    // Legacy structured pipeline (persona only now)
+                    const genResult = await generateArtifact({
+                        content: tag,
+                        brand,
+                        userPrompt: parsed.cleanPrompt || query,
+                        designMdRaw,
+                        corpusText,
+                        currentArtifact: null,
+                        model: selectedModel as any, // user-selected chat model drives generation
+                    });
+
+                    if (genResult.ok) {
+                        // Multi-artifact case: model emitted a JSON array (e.g., "generate 5 personas").
+                        // chatToArtifact normalized + validated each — we just iterate and add all.
+                        const all = (genResult as any).artifacts as any[] | undefined;
+                        const list = (all && all.length > 0) ? all : [genResult.artifact];
+                        list.forEach((created: any, idx: number) => {
+                            useDesignDeskStore.getState().addArtifact(created);
+                            // Last one becomes active so the canvas opens to it
+                            if (idx === list.length - 1) useDesignDeskStore.getState().setActiveArtifact(created.id);
+                            const label = created.title ?? created.name ?? 'Untitled';
+                            const countLabel = list.length > 1 ? ` (${idx + 1} of ${list.length})` : '';
+                            deliveryMessages.push({
+                                id: `msg_${Date.now()}_${tag}_gen_${idx}`,
+                                role: 'assistant',
+                                content: asSlide
+                                    ? `Generated #${tag}${slideTag}${countLabel} via ${genResult.modelUsed}: "${label}". Rendered as a slide below.`
+                                    : `Generated #${tag}${countLabel} via ${genResult.modelUsed}: "${label}". Rendered below. Open the Design Desk to edit it on the canvas.`,
+                                model: genResult.modelUsed,
+                                timestamp: Date.now(),
+                                deliveredArtifactId: created.id,
+                                deliveredArtifactType: tag as 'persona' | 'journey' | 'org',
+                                deliveredAsSlide: asSlide,
+                            });
+                        });
+                    } else {
+                        deliveryMessages.push({
+                            id: `msg_${Date.now()}_${tag}_err`,
+                            role: 'assistant',
+                            content: `Generation failed for #${tag}${genResult.modelUsed ? ` via ${genResult.modelUsed}` : ''}: ${genResult.error}${genResult.rawResponse ? `\n\nModel output: ${genResult.rawResponse.slice(0, 200)}...` : ''}`,
+                            model: genResult.modelUsed,
+                            timestamp: Date.now(),
+                        });
+                    }
+                }
+            }
+
+            setMessages(prev => [...prev, ...deliveryMessages]);
+            setIsLoading(false);
+            return;
+        }
+
         if (isImageRequest(query)) {
             const response = await handleImageGeneration(query);
             setMessages(prev => [...prev, response]);
@@ -778,6 +1502,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                         <img src={msg.imageData} alt="Generated" style={{ width: '100%', display: 'block' }} />
                                         <div style={{ padding: '4px 8px', fontSize: 8, color: '#999', background: '#F5F5F0' }}>Generated via Imagen 4</div>
                                     </div>
+                                )}
+                                {/* Inline pre-made Design Desk artifact (hashtag delivery) */}
+                                {msg.deliveredArtifactId && msg.deliveredArtifactType && (
+                                    <InlineArtifactPreview
+                                        artifactId={msg.deliveredArtifactId}
+                                        artifactType={msg.deliveredArtifactType}
+                                        asSlide={msg.deliveredAsSlide}
+                                        onOpenDesignDesk={onOpenDesignDesk}
+                                        onClosePanel={onToggle}
+                                    />
                                 )}
                             </div>
 

@@ -20,6 +20,32 @@ const CONTENT: Set<string> = new Set([
     'persona', 'journey', 'blueprint', 'arch',
     'prd', 'roadmap', 'strategy', 'gap', 'audit', 'compete', 'org',
 ]);
+
+/**
+ * Plural-form aliases — users naturally type `#journeys`, `#personas`, `#orgs`
+ * when they want one of those artifact types. Map them back to the canonical
+ * singular content hashtag. Note: `slides` is a composition modifier (separate
+ * meaning) and is NOT treated as a plural of `slide`. `gaps` not aliased to
+ * `gap` because gap-analysis is the artifact name, not a count of gaps —
+ * keeping it singular avoids ambiguity. `orgs` is included because users may
+ * say "the orgs" or "org chart" interchangeably.
+ */
+const CONTENT_PLURAL_ALIASES: Record<string, string> = {
+    personas: 'persona',
+    journeys: 'journey',
+    blueprints: 'blueprint',
+    arches: 'arch',
+    prds: 'prd',
+    roadmaps: 'roadmap',
+    strategies: 'strategy',
+    audits: 'audit',
+    competitives: 'compete',
+    competes: 'compete',
+    competitors: 'compete',
+    orgs: 'org',
+    orgcharts: 'org',
+    orgchart: 'org',
+};
 const BRANDS: Set<string> = new Set(['nxt', 'nu']);
 const VIEW_SINGLE = 'slide';
 const VIEW_MULTI = 'slides';
@@ -34,7 +60,9 @@ export function parseHashtags(input: string): ParsedHashtags {
 
     const tokens = Array.from(input.matchAll(/#([a-zA-Z]+)/g));
     for (const match of tokens) {
-        const tag = match[1].toLowerCase();
+        const rawTag = match[1].toLowerCase();
+        // Map plural/alternate forms to the canonical singular content hashtag.
+        const tag = CONTENT_PLURAL_ALIASES[rawTag] ?? rawTag;
         let consumed = false;
         if (CONTENT.has(tag)) {
             if (!content.includes(tag as ContentHashtag)) content.push(tag as ContentHashtag);

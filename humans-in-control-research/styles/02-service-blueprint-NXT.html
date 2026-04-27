@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NXT Humans · NU Co-op Service Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nx-black: #0D0D0D;
+    --nx-graphite: #2A2A2A;
+    --nx-stone: #5C5C5C;
+    --nx-mist: #9A9A9A;
+    --nx-fog: #BFBFBF;
+    --nx-line: #E8E8E8;
+    --nx-paper: #FAFAFA;
+    --nx-mist-bg: #F4F4F4;
+    --nx-white: #FFFFFF;
+    --nx-chart: #B8B800;
+    --nx-chart-deep: #8A8A00;
+    --nx-cyan: #00B7C3;
+    --nx-cyan-deep: #008891;
+
+    --violet-deep: #4F3FB8;
+    --violet: #6E54E0;
+    --violet-soft: #9B7FE8;
+    --violet-pale: #B488F0;
+    --violet-mist: #DBC9F5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    color: var(--nx-black);
+    -webkit-font-smoothing: antialiased;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .slide-frame { width: 1920px; height: 1080px; transform-origin: center center; flex-shrink: 0; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .slide {
+    width: 1920px; height: 1080px;
+    background: var(--nx-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* atmospheric washes — pulled back */
+  .atmos-violet-tr {
+    position: absolute;
+    top: -250px; right: -250px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle at center,
+      rgba(110, 84, 224, 0.12) 0%,
+      rgba(180, 136, 240, 0.05) 35%,
+      transparent 65%);
+    pointer-events: none;
+    filter: blur(20px);
+  }
+  .atmos-red-bl {
+    position: absolute;
+    bottom: -350px; left: -250px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle at center,
+      rgba(0, 183, 195, 0.05) 0%,
+      transparent 55%);
+    pointer-events: none;
+    filter: blur(30px);
+  }
+  .grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.022;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  /* ============ FRAME ============
+     Slim top band (~110px), enormous diagram (840px+), slim bottom band (~110px)
+  */
+  .frame {
+    position: relative;
+    width: 100%; height: 100%;
+    padding: 32px 72px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 16px;
+  }
+
+  /* ============ TOP BAND ============ */
+  .top-band {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 48px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--nx-black);
+  }
+  .brand-mark { display: flex; align-items: center; gap: 14px; }
+  .seal {
+    width: 42px; height: 42px;
+    background: var(--nx-black);
+    color: var(--nx-white);
+    display: grid; place-items: center;
+    font-weight: 900; font-size: 14px;
+    letter-spacing: 0.02em;
+    border-radius: 3px;
+  }
+  .wordmark {
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .wordmark .sub {
+    display: block; font-weight: 400;
+    color: var(--nx-stone); font-size: 9.5px;
+    letter-spacing: 0.18em; margin-top: 4px;
+  }
+
+  .title-zone {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 0 32px;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--nx-black);
+    font-weight: 500;
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--nx-black); }
+  .eyebrow::after { content: ""; width: 5px; height: 5px; background: var(--nx-chart); display: inline-block; margin-left: 4px; }
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 32px;
+    line-height: 1; letter-spacing: -0.03em;
+    color: var(--nx-black);
+    white-space: nowrap;
+  }
+  h1 em {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 400;
+    color: var(--nx-black);
+    letter-spacing: -0.01em;
+    border-bottom: 3px solid var(--nx-chart);
+    padding-bottom: 1px;
+  }
+  .lede {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--nu-graphite);
+    font-weight: 400;
+    max-width: 70ch;
+  }
+  .lede b { font-weight: 700; color: var(--nx-black); }
+
+  .meta {
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.16em;
+    color: var(--nu-stone); text-transform: uppercase;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .meta b { color: var(--nx-black); font-weight: 500; }
+
+  /* ============ DIAGRAM ZONE — DOMINANT ============ */
+  .diagram-zone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .diagram-canvas {
+    position: relative;
+    flex: 1;
+    width: 100%;
+  }
+  .diagram-canvas svg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* ============ BOTTOM BAND — SLIM STAT STRIP ============ */
+  .bottom-band {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.1fr 1fr;
+    gap: 28px;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--nx-black);
+  }
+
+  .voice-prose {
+    padding-right: 16px;
+  }
+  .voice-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nu-stone);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .voice-prose p {
+    font-size: 11.5px; line-height: 1.5;
+    color: var(--nu-graphite);
+    font-weight: 400;
+  }
+  .voice-prose p b { color: var(--nx-black); font-weight: 700; }
+  .voice-prose p em { font-family: 'Fraunces', serif; font-style: italic; color: var(--nu-red); font-weight: 400; }
+
+  .stat-tile {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+    position: relative;
+  }
+  .stat-tile.featured {
+    padding: 12px 14px;
+    background: linear-gradient(135deg, var(--nx-black) 0%, #2A2A2A 100%);
+    border-radius: 5px;
+    color: var(--nx-white);
+  }
+
+  .stat-icon-tile {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--violet-pale) 0%, var(--violet) 100%);
+    box-shadow: 0 3px 10px rgba(110, 84, 224, 0.22);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .stat-icon-tile.red {
+    background: linear-gradient(135deg, #D0D000 0%, var(--nx-chart) 100%);
+    box-shadow: 0 3px 10px rgba(184, 184, 0, 0.3);
+  }
+  .stat-icon-tile.featured-light {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: none;
+  }
+
+  .stat-body {
+    display: flex; flex-direction: column;
+    min-width: 0;
+  }
+  .stat-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800; font-size: 32px;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: var(--nx-black);
+  }
+  .stat-num .unit {
+    font-size: 18px; color: var(--nu-red);
+    font-weight: 700;
+  }
+  .stat-tile.featured .stat-num,
+  .stat-tile.featured .stat-num .unit { color: var(--nu-white); }
+
+  .stat-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700; font-size: 9.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--nx-black);
+    margin-top: 2px;
+    line-height: 1.2;
+  }
+  .stat-tile.featured .stat-label { color: var(--nu-white); }
+
+  .stat-desc {
+    font-size: 10px;
+    color: var(--nu-stone);
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+  .stat-tile.featured .stat-desc { color: rgba(255,255,255,0.85); }
+
+  /* ============ FOOTNOTE ============ */
+  .footnote {
+    position: absolute;
+    bottom: 8px; left: 56px; right: 56px;
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px; letter-spacing: 0.14em;
+    color: var(--nx-mist);
+    text-transform: uppercase;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="slide-frame" id="slideFrame">
+    <div class="slide">
+
+      <div class="atmos-violet-tr"></div>
+      <div class="atmos-red-bl"></div>
+      <div class="grain"></div>
+
+      <div class="frame">
+
+        <!-- ============ SLIM TOP BAND ============ -->
+        <header class="top-band">
+          <div class="brand-mark">
+            <div class="seal">NXT</div>
+            <div class="wordmark">
+              NXT Humans
+              <span class="sub">Service Design Practice · Higher-Ed Engagement</span>
+            </div>
+          </div>
+
+          <div class="title-zone">
+            <div>
+              <div class="eyebrow">Service Blueprint · Optimized State</div>
+              <h1>The choreography of <em>real work</em>.</h1>
+            </div>
+            <p class="lede">
+              Three persona lanes routed as transit infrastructure — <b>Student, Coordinator, Employer</b>.
+              Phase 03 is where all three converge into a single brokered match. Every station carries
+              a mechanism. Every handoff carries an SLA.
+            </p>
+          </div>
+
+          <div class="meta">
+            <div><b>CLIENT</b> · NORTHEASTERN · <b>NU-001</b></div>
+            <div><b>STATE</b> · OPTIMIZED · <b>02 / 08</b></div>
+          </div>
+        </header>
+
+        <!-- ============ DIAGRAM ZONE — DOMINANT ============ -->
+        <section class="diagram-zone">
+          <div class="diagram-canvas">
+            <svg viewBox="0 0 1808 820" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="phase-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#B8B800" stop-opacity="0.08"/>
+                  <stop offset="100%" stop-color="#6E54E0" stop-opacity="0.06"/>
+                </linearGradient>
+                <linearGradient id="confluence-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#B8B800" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#8A8A00" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+
+              <!--
+                CANVAS BUDGET (1808 × 820):
+
+                VERTICAL ZONES:
+                  y=0–60      Phase headers
+                  y=70        Header divider
+                  y=80–140    Systems band (60 tall)
+                  y=150       Band divider
+                  y=180       Student trunk
+                  y=200–230   Student labels
+                  y=350       Coord trunk
+                  y=370–400   Coord labels
+                  y=460–490   Employer labels (above trunk)
+                  y=500       Employer trunk
+                  y=560       Lane separator
+                  y=585–680   Persona quote band
+                  y=700–820   Reserved for visual emphasis (phase 03 zone tail)
+
+                HORIZONTAL PHASES:
+                  P01 center: 220  (range 60-360)
+                  P02 center: 540  (range 360-720)
+                  P03 center: 920  (range 720-1120) [featured]
+                  P04 center: 1300 (range 1120-1480)
+                  P05 center: 1640 (range 1480-1808)
+              -->
+
+              <!-- Phase 03 highlight band (subtle vertical gradient) -->
+              <rect x="720" y="0" width="400" height="820" fill="url(#phase-highlight)"/>
+
+              <!-- Phase divider hairlines -->
+              <g stroke="#E8E8E8" stroke-width="1">
+                <line x1="360" y1="0" x2="360" y2="780"/>
+                <line x1="720" y1="0" x2="720" y2="780"/>
+                <line x1="1120" y1="0" x2="1120" y2="780"/>
+                <line x1="1480" y1="0" x2="1480" y2="780"/>
+              </g>
+
+              <!-- Phase headers -->
+              <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5C5C5C">
+                <text x="220"  y="22" text-anchor="middle">PHASE 01 · WK 01–02</text>
+                <text x="540"  y="22" text-anchor="middle">PHASE 02 · WK 03–05</text>
+                <text x="920"  y="22" text-anchor="middle" fill="#0D0D0D" font-weight="500">PHASE 03 · WK 06–08</text>
+                <text x="1300" y="22" text-anchor="middle">PHASE 04 · WK 09–32</text>
+                <text x="1640" y="22" text-anchor="middle">PHASE 05 · WK 33–34</text>
+              </g>
+              <g font-family="Archivo, sans-serif" font-size="26" font-weight="800" letter-spacing="-0.7" fill="#0D0D0D">
+                <text x="220"  y="55" text-anchor="middle">Discover</text>
+                <text x="540"  y="55" text-anchor="middle">Prepare</text>
+                <text x="920"  y="55" text-anchor="middle" fill="#0D0D0D"><tspan font-family="Fraunces, serif" font-style="italic" font-weight="400">Apply &amp; Match</tspan></text>
+                <text x="1300" y="55" text-anchor="middle">Work Term</text>
+                <text x="1640" y="55" text-anchor="middle">Reflect</text>
+              </g>
+              <line x1="852" y1="64" x2="988" y2="64" stroke="#B8B800" stroke-width="3"/>
+              <line x1="0" y1="70" x2="1808" y2="70" stroke="#0D0D0D" stroke-width="1.5"/>
+
+              <!-- Systems band -->
+              <text x="0" y="100" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#0D0D0D" font-weight="700">SYSTEMS</text>
+              <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.7">
+                <text x="220"  y="100" text-anchor="middle" fill="#0D0D0D" font-weight="500">NUworks · Banner · Salesforce</text>
+                <text x="220"  y="120" text-anchor="middle" fill="#5C5C5C">Self-assessment · cohort assign</text>
+
+                <text x="540"  y="100" text-anchor="middle" fill="#0D0D0D" font-weight="500">Big Interview · Resume Parser</text>
+                <text x="540"  y="120" text-anchor="middle" fill="#5C5C5C">SLA monitor · pipeline builder</text>
+
+                <text x="920"  y="100" text-anchor="middle" fill="#0D0D0D" font-weight="700">Matching v3 · DocuSign · Equity</text>
+                <text x="920"  y="120" text-anchor="middle" fill="#0D0D0D">Offer orchestration engine</text>
+
+                <text x="1300" y="100" text-anchor="middle" fill="#0D0D0D" font-weight="500">Workday · Slack · OGS Visa</text>
+                <text x="1300" y="120" text-anchor="middle" fill="#5C5C5C">Pulse-bot · timesheet sync</text>
+
+                <text x="1640" y="100" text-anchor="middle" fill="#0D0D0D" font-weight="500">Tableau · Banner · Alumni</text>
+                <text x="1640" y="120" text-anchor="middle" fill="#5C5C5C">Outcomes BI · cohort rollup</text>
+              </g>
+              <line x1="0" y1="155" x2="1808" y2="155" stroke="#E8E8E8" stroke-width="1"/>
+
+              <!-- ============================================
+                   TRUNK LINES
+                   ============================================ -->
+              <line x1="160" y1="220" x2="1740" y2="220" stroke="#0D0D0D" stroke-width="5" stroke-linecap="round"/>
+              <line x1="160" y1="380" x2="1740" y2="380" stroke="#00B7C3" stroke-width="5" stroke-linecap="round"/>
+              <line x1="540" y1="540" x2="1740" y2="540" stroke="#4A4A4A" stroke-width="5" stroke-linecap="round"/>
+
+              <!-- Lane labels -->
+              <g>
+                <text x="0" y="218" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">PERSONA A</text>
+                <text x="0" y="232" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#0D0D0D" letter-spacing="-0.3">STUDENT</text>
+                <text x="84" y="232" font-family="Archivo, sans-serif" font-size="13" font-weight="400" fill="#5C5C5C">· Maya</text>
+
+                <text x="0" y="378" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#00B7C3" font-weight="500">PERSONA B</text>
+                <text x="0" y="392" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#00B7C3" letter-spacing="-0.3">COORDINATOR</text>
+                <text x="124" y="392" font-family="Archivo, sans-serif" font-size="13" font-weight="400" fill="#5C5C5C">· Devon</text>
+
+                <text x="0" y="538" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">PERSONA C</text>
+                <text x="0" y="552" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#0D0D0D" letter-spacing="-0.3">EMPLOYER</text>
+              </g>
+
+              <!-- HANDOFFS -->
+              <g stroke="#0D0D0D" stroke-width="2" stroke-linecap="round">
+                <line x1="220" y1="220" x2="220" y2="380"/>
+                <line x1="440" y1="220" x2="440" y2="380"/>
+                <line x1="1240" y1="220" x2="1240" y2="540"/>
+                <line x1="1400" y1="220" x2="1400" y2="540"/>
+                <line x1="1580" y1="380" x2="1580" y2="540"/>
+                <line x1="1700" y1="220" x2="1700" y2="380"/>
+              </g>
+              <line x1="640" y1="380" x2="640" y2="540" stroke="#00B7C3" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- CONFLUENCE SPINE — gradient red -->
+              <line x1="920" y1="220" x2="920" y2="540" stroke="url(#confluence-grad)" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- ============================================
+                   STUDENT STATIONS (y=220, labels y=200-230 above)
+                   Wait - they need to be BELOW the trunk to avoid systems band
+                   Actually labels go y=240-270 below the trunk
+                   ============================================ -->
+
+              <g>
+                <circle cx="220" cy="220" r="9" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="220" y="258" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Self-assess</text>
+                <text x="220" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">S·01</text>
+              </g>
+              <g>
+                <circle cx="440" cy="220" r="9" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="440" y="258" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Resume submit</text>
+                <text x="440" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">S·02</text>
+              </g>
+              <g>
+                <circle cx="920" cy="220" r="13" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="920" y="262" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Apply</text>
+                <text x="920" y="278" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#0D0D0D" letter-spacing="1.4" font-weight="700">S·03 · JUNCTION</text>
+              </g>
+              <g>
+                <circle cx="1240" cy="220" r="9" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="1240" y="258" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Onboard</text>
+                <text x="1240" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">S·04</text>
+              </g>
+              <g>
+                <circle cx="1400" cy="220" r="9" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="1400" y="258" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Mid-term pulse</text>
+                <text x="1400" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">S·05</text>
+              </g>
+              <g>
+                <circle cx="1700" cy="220" r="9" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="1700" y="258" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Reflect</text>
+                <text x="1700" y="273" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">S·06</text>
+              </g>
+
+              <!-- ============================================
+                   COORDINATOR STATIONS (y=380, labels below y=420-450)
+                   ============================================ -->
+
+              <g>
+                <circle cx="220" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="220" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Cohort intake</text>
+                <text x="220" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·01</text>
+              </g>
+              <g>
+                <circle cx="440" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="440" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">48hr review</text>
+                <text x="440" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·02</text>
+              </g>
+              <g>
+                <circle cx="640" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="640" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Curate</text>
+                <text x="640" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·03</text>
+              </g>
+              <!-- BROKER -->
+              <g>
+                <circle cx="920" cy="380" r="17" fill="#B8B800" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="920" y="423" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="900" fill="#0D0D0D" letter-spacing="-0.2">Broker</text>
+                <text x="920" y="439" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#0D0D0D" letter-spacing="1.4" font-weight="500">C·04 · CONFLUENCE</text>
+              </g>
+              <g>
+                <circle cx="1400" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="1400" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">3-way pulse</text>
+                <text x="1400" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·05</text>
+              </g>
+              <g>
+                <circle cx="1580" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="1580" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Eval close</text>
+                <text x="1580" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·06</text>
+              </g>
+              <g>
+                <circle cx="1700" cy="380" r="9" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="1700" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Reflection</text>
+                <text x="1700" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">C·07</text>
+              </g>
+
+              <!-- ============================================
+                   EMPLOYER STATIONS (y=540, labels ABOVE y=500-525)
+                   ============================================ -->
+
+              <g>
+                <text x="640" y="510" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Post matched</text>
+                <text x="640" y="524" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">E·01</text>
+                <circle cx="640" cy="540" r="9" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.5"/>
+              </g>
+              <g>
+                <text x="920" y="506" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Interview</text>
+                <text x="920" y="520" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#0D0D0D" letter-spacing="1.4" font-weight="700">E·02 · JUNCTION</text>
+                <circle cx="920" cy="540" r="13" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.5"/>
+              </g>
+              <g>
+                <text x="1240" y="510" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Mentor</text>
+                <text x="1240" y="524" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">E·03</text>
+                <circle cx="1240" cy="540" r="9" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.5"/>
+              </g>
+              <g>
+                <text x="1400" y="510" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Feedback</text>
+                <text x="1400" y="524" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">E·04</text>
+                <circle cx="1400" cy="540" r="9" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.5"/>
+              </g>
+              <g>
+                <text x="1580" y="510" text-anchor="middle" font-family="Archivo, sans-serif" font-size="12" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Return offer</text>
+                <text x="1580" y="524" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">E·05</text>
+                <circle cx="1580" cy="540" r="9" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.5"/>
+              </g>
+
+              <!-- Lane separator -->
+              <line x1="0" y1="600" x2="1808" y2="600" stroke="#E8E8E8" stroke-width="1"/>
+
+              <!-- ============================================
+                   PERSONA QUOTES BAND (y=620–760)
+                   Editorial typography, pull-quote treatment with serif italic
+                   ============================================ -->
+
+              <g>
+                <line x1="0" y1="630" x2="0" y2="760" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="18" y="650" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">VOICE OF STUDENT</text>
+                <text x="18" y="664" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#0D0D0D" font-weight="700">MAYA · S·03</text>
+                <text x="18" y="700" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">"The shortlist felt personal —</text>
+                <text x="18" y="722" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">six roles that knew me, not</text>
+                <text x="18" y="744" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">a wall of postings."</text>
+              </g>
+
+              <g>
+                <line x1="630" y1="630" x2="630" y2="760" stroke="#00B7C3" stroke-width="2.5"/>
+                <text x="648" y="650" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#00B7C3" font-weight="500">VOICE OF COORDINATOR</text>
+                <text x="648" y="664" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#0D0D0D" font-weight="700">DEVON · C·04</text>
+                <text x="648" y="700" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">"I'm the broker, not the</text>
+                <text x="648" y="722" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">bottleneck. The system pages me</text>
+                <text x="648" y="744" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">before the student notices."</text>
+              </g>
+
+              <g>
+                <line x1="1240" y1="630" x2="1240" y2="760" stroke="#4A4A4A" stroke-width="2.5"/>
+                <text x="1258" y="650" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">VOICE OF EMPLOYER</text>
+                <text x="1258" y="664" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#0D0D0D" font-weight="700">HIRING MGR · E·02</text>
+                <text x="1258" y="700" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">"Matched candidates arrive</text>
+                <text x="1258" y="722" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">pre-screened. Time-to-hire fell</text>
+                <text x="1258" y="744" font-family="Fraunces, serif" font-size="18" font-style="italic" font-weight="400" fill="#0D0D0D">from six weeks to ten days."</text>
+              </g>
+
+            </svg>
+          </div>
+        </section>
+
+        <!-- ============ SLIM BOTTOM BAND ============ -->
+        <section class="bottom-band">
+          <div class="voice-prose">
+            <div class="voice-eyebrow">Synthesis</div>
+            <p>
+              Optimization replaces information overload with <b>fit-scored matching</b>.
+              The <em>broker pages</em> the coordinator before friction compounds. Time-to-hire
+              compressed from six weeks to ten days.
+            </p>
+          </div>
+
+          <div class="stat-tile">
+            <div class="stat-icon-tile red">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">96<span class="unit">%</span></div>
+              <div class="stat-label">Placement Rate</div>
+              <div class="stat-desc">▲ from 87% (v4.6)</div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <polyline points="12 7 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">48<span class="unit">h</span></div>
+              <div class="stat-label">Resume Review SLA</div>
+              <div class="stat-desc">▼ from 7-day queue</div>
+            </div>
+          </div>
+
+          <div class="stat-tile featured">
+            <div class="stat-icon-tile featured-light">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 7v6c0 5 3.5 9.5 9 11 5.5-1.5 9-6 9-11V7l-9-5z"/>
+              </svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">6</div>
+              <div class="stat-label">Curated Roles · Confluence Protocol</div>
+              <div class="stat-desc">Was 12–20 unranked postings</div>
+            </div>
+          </div>
+
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">73<span class="unit">%</span></div>
+              <div class="stat-label">Return-Offer Rate</div>
+              <div class="stat-desc">▲ from 54% (v4.6)</div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+      <div class="footnote">
+        <div><b style="color:#5C5C5C">NXT Humans</b> · Build smarter. Move faster. Win sooner.</div>
+        <div>16:9 · 1920 × 1080</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function fitSlide() {
+    const frame = document.getElementById('slideFrame');
+    const stage = frame.parentElement;
+    const padding = 32;
+    const availW = stage.clientWidth - padding;
+    const availH = stage.clientHeight - padding;
+    const scale = Math.min(availW / 1920, availH / 1080);
+    frame.style.transform = `scale(${scale})`;
+  }
+  fitSlide();
+  window.addEventListener('resize', fitSlide);
+</script>
+
+</body>
+</html>

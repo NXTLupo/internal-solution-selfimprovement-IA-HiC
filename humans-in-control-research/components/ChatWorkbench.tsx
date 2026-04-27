@@ -144,12 +144,16 @@ interface Props {
     onKnowledgeGraphUpdate?: (kg: KGType) => void;
     onExcludeSource?: (key: string) => void;
     onPrioritySource?: (key: string) => void;
+    artifactNotifications?: Array<{id: string; type: string; label: string; timestamp: number}>;
+    onDismissNotification?: (id: string) => void;
+    onOpenDesignDesk?: () => void;
 }
 
 export const ChatWorkbench: React.FC<Props> = ({
     corpusText, liveSourceResults, excludedSources, prioritySources,
     files, researchGoal, knowledgeGraphData, onKnowledgeGraphUpdate,
     onExcludeSource, onPrioritySource,
+    artifactNotifications, onDismissNotification, onOpenDesignDesk,
 }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
@@ -568,6 +572,49 @@ export const ChatWorkbench: React.FC<Props> = ({
                         )}
                     </div>
                 </div>
+
+                {/* Artifact Notifications — surface generated artifacts without leaving chat */}
+                {(artifactNotifications && artifactNotifications.length > 0) && (
+                    <div style={{
+                        padding: '10px 16px',
+                        background: '#FAFAF7',
+                        borderBottom: '2px solid #B8B800',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 6,
+                    }}>
+                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: '#666' }}>
+                            Artifacts Ready
+                        </div>
+                        {artifactNotifications.map(n => (
+                            <div key={n.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '4px 0' }}>
+                                <div style={{ fontSize: 12, color: '#0D0D0D', flex: 1 }}>
+                                    <span style={{ fontFamily: "'JetBrains Mono', monospace", background: '#0D0D0D', color: '#B8B800', padding: '1px 6px', fontSize: 10, marginRight: 8 }}>
+                                        #{n.type}
+                                    </span>
+                                    {n.label} — try <code style={{ fontFamily: "'JetBrains Mono', monospace", background: '#F0F0E8', padding: '1px 4px' }}>#{n.type}</code> in chat
+                                </div>
+                                <button
+                                    onClick={() => onOpenDesignDesk && onOpenDesignDesk()}
+                                    style={{
+                                        padding: '4px 10px', fontSize: 9, fontWeight: 700, letterSpacing: 1.5,
+                                        textTransform: 'uppercase', border: '1px solid #B8B800',
+                                        background: '#FFFFFF', color: '#0D0D0D', cursor: 'pointer', borderRadius: 2,
+                                    }}>
+                                    Open in Designer
+                                </button>
+                                <button
+                                    onClick={() => onDismissNotification && onDismissNotification(n.id)}
+                                    style={{
+                                        padding: '4px 8px', fontSize: 12, border: 'none',
+                                        background: 'transparent', color: '#888', cursor: 'pointer',
+                                    }}>
+                                    ×
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 {/* Model Selector */}
                 <div style={{

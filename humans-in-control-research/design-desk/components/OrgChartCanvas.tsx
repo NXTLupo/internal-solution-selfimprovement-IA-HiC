@@ -10,7 +10,9 @@ const NODE_TYPES: NodeTypes = { orgNode: OrgChartNode };
 const NODE_W = 220;
 const NODE_H = 78;
 
-function autoLayout(artifact: OrgChartArtifact, direction: 'TB' | 'LR'): Record<string, { x: number; y: number }> {
+type LayoutDirection = 'TB' | 'LR' | 'BT' | 'RL' | 'radial';
+
+function dagreLayout(artifact: OrgChartArtifact, direction: 'TB' | 'LR' | 'BT' | 'RL'): Record<string, { x: number; y: number }> {
     const g = new dagre.graphlib.Graph();
     g.setDefaultEdgeLabel(() => ({}));
     g.setGraph({ rankdir: direction, nodesep: 40, ranksep: 80 });
@@ -25,6 +27,68 @@ function autoLayout(artifact: OrgChartArtifact, direction: 'TB' | 'LR'): Record<
     return result;
 }
 
+/**
+ * Radial layout: roots at center, BFS levels placed on concentric rings.
+ * Each ring's circumference scales with the number of nodes on it so labels
+ * don't overlap. Used when the user asks for "radial" / "concentric" /
+ * "circle" layout via the Designer chat.
+ */
+function radialLayout(artifact: OrgChartArtifact): Record<string, { x: number; y: number }> {
+    const level: Record<string, number> = {};
+    const queue: { id: string; lvl: number }[] = artifact.rootIds.map(id => ({ id, lvl: 0 }));
+    while (queue.length > 0) {
+        const { id, lvl } = queue.shift()!;
+        if (level[id] !== undefined) continue;
+        level[id] = lvl;
+        const node = artifact.nodes.find(n => n.id === id);
+        if (!node) continue;
+        for (const c of node.directReports) queue.push({ id: c, lvl: lvl + 1 });
+    }
+
+    const byLevel: Record<number, string[]> = {};
+    const maxLevel = Math.max(0, ...Object.values(level));
+    for (const n of artifact.nodes) {
+        const lvl = level[n.id] ?? maxLevel + 1;
+        (byLevel[lvl] ??= []).push(n.id);
+    }
+
+    const result: Record<string, { x: number; y: number }> = {};
+    const minStep = NODE_W + 60; // arc length per node minimum to prevent overlap
+    let cx = 1200;
+    let cy = 800;
+
+    Object.keys(byLevel).map(Number).sort((a, b) => a - b).forEach(lvl => {
+        const ids = byLevel[lvl];
+        if (lvl === 0) {
+            if (ids.length === 1) {
+                result[ids[0]] = { x: cx - NODE_W / 2, y: cy - NODE_H / 2 };
+            } else {
+                const r = Math.max(180, (minStep * ids.length) / (2 * Math.PI));
+                ids.forEach((id, i) => {
+                    const a = (i / ids.length) * Math.PI * 2 - Math.PI / 2;
+                    result[id] = { x: cx + Math.cos(a) * r - NODE_W / 2, y: cy + Math.sin(a) * r - NODE_H / 2 };
+                });
+            }
+            return;
+        }
+        // Outer rings: radius scales with both level and the count on the ring
+        const minRadius = 280 * lvl;
+        const circumferenceNeeded = minStep * ids.length;
+        const radius = Math.max(minRadius, circumferenceNeeded / (2 * Math.PI));
+        ids.forEach((id, i) => {
+            const a = (i / ids.length) * Math.PI * 2 - Math.PI / 2;
+            result[id] = { x: cx + Math.cos(a) * radius - NODE_W / 2, y: cy + Math.sin(a) * radius - NODE_H / 2 };
+        });
+    });
+
+    return result;
+}
+
+function autoLayout(artifact: OrgChartArtifact, direction: LayoutDirection): Record<string, { x: number; y: number }> {
+    if (direction === 'radial') return radialLayout(artifact);
+    return dagreLayout(artifact, direction);
+}
+
 interface Props {
     artifact: OrgChartArtifact;
     tokens: DesignTokens;
@@ -32,11 +96,21 @@ interface Props {
 }
 
 export const OrgChartCanvas: React.FC<Props> = ({ artifact, tokens, onLayoutChange }) => {
-    const direction = artifact.layout?.direction ?? 'TB';
-    const positions = useMemo(
-        () => artifact.layout?.nodes ?? autoLayout(artifact, direction),
-        [artifact, direction],
-    );
+    const direction = (artifact.layout?.direction ?? 'TB') as LayoutDirection;
+    // When direction !== 'TB' default OR user has overridden positions, the layout
+    // function decides. Crucially: if direction is 'radial' OR if the stored
+    // positions don't match the current node set, recompute. This makes a
+    // direction-only revision (model emits new direction, omits positions) actually
+    // re-flow on screen instead of reusing stale TB positions.
+    const positions = useMemo(() => {
+        const stored = artifact.layout?.nodes;
+        if (stored && direction !== 'radial') {
+            const storedIds = new Set(Object.keys(stored));
+            const allCovered = artifact.nodes.every(n => storedIds.has(n.id));
+            if (allCovered) return stored;
+        }
+        return autoLayout(artifact, direction);
+    }, [artifact, direction]);
 
     const nodes: Node[] = useMemo(() => artifact.nodes.map(n => ({
         id: n.id,

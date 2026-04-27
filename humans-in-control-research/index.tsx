@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { DesignDesk } from './design-desk';
 
 // ================================================================
 // BUNDLE VERSION BANNER — v3.2 "Densified Slide System + Skill Refactor"
@@ -54,8 +55,23 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
+
+// Standalone Design Desk window: when launched via window.open('?designer=1'),
+// render only the Design Desk fullscreen — no analyst desk chrome, no IDLE landing.
+// The artifact list is shared with the parent window via localStorage
+// (designDeskStore hydrates on boot AND listens for storage events).
+const isDesignerWindow = new URLSearchParams(window.location.search).get('designer') === '1';
+
 root.render(
   <React.StrictMode>
-    <App />
+    {isDesignerWindow ? (
+      <DesignDesk
+        corpusText=""
+        standalone
+        onClose={() => { try { window.close(); } catch { /* some browsers block */ } }}
+      />
+    ) : (
+      <App />
+    )}
   </React.StrictMode>
 );

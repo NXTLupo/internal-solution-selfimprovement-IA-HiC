@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NXT Humans · NU Co-op Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nx-black: #0D0D0D;
+    --nx-graphite: #2A2A2A;
+    --nx-stone: #5C5C5C;
+    --nx-mist: #9A9A9A;
+    --nx-fog: #BFBFBF;
+    --nx-line: #E8E8E8;
+    --nx-paper: #FAFAFA;
+    --nx-mist-bg: #F4F4F4;
+    --nx-white: #FFFFFF;
+    --nx-chart: #B8B800;
+    --nx-chart-deep: #8A8A00;
+    --nx-cyan: #00B7C3;
+    --violet-deep: #4F3FB8;
+    --violet: #6E54E0;
+    --violet-pale: #B488F0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1A1A1A; font-family: 'Archivo', sans-serif; color: var(--nx-black); -webkit-font-smoothing: antialiased; width: 100%; height: 100%; overflow: hidden; }
+  .stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .slide-frame { width: 1920px; height: 1080px; transform-origin: center center; flex-shrink: 0; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .slide { width: 1920px; height: 1080px; background: var(--nx-white); position: relative; overflow: hidden; }
+
+  .atmos-violet-tr { position: absolute; top: -250px; right: -250px; width: 700px; height: 700px; background: radial-gradient(circle at center, rgba(110,84,224,0.12) 0%, transparent 65%); pointer-events: none; filter: blur(20px); }
+  .atmos-red-bl { position: absolute; bottom: -350px; left: -250px; width: 700px; height: 700px; background: radial-gradient(circle at center, rgba(0,183,195,0.05) 0%, transparent 55%); pointer-events: none; filter: blur(30px); }
+  .grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"); opacity: 0.022; pointer-events: none; mix-blend-mode: multiply; }
+
+  .frame { position: relative; width: 100%; height: 100%; padding: 32px 72px; display: grid; grid-template-rows: auto 1fr auto; gap: 16px; }
+
+  .top-band { display: grid; grid-template-columns: auto 1fr auto; gap: 48px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--nx-black); }
+  .brand-mark { display: flex; align-items: center; gap: 14px; }
+  .seal { width: 42px; height: 42px; background: var(--nx-black); color: var(--nx-white); display: grid; place-items: center; font-weight: 900; font-size: 14px; letter-spacing: 0.02em; border-radius: 3px; }
+  .wordmark { font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.1; }
+  .wordmark .sub { display: block; font-weight: 400; color: var(--nx-stone); font-size: 9.5px; letter-spacing: 0.18em; margin-top: 4px; }
+  .title-zone { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; padding: 0 32px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--nx-black); font-weight: 500; margin-bottom: 6px; white-space: nowrap; }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--nx-black); }
+  .eyebrow::after { content: ""; width: 5px; height: 5px; background: var(--nx-chart); display: inline-block; margin-left: 4px; }
+  h1 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -0.03em; color: var(--nx-black); white-space: nowrap; }
+  h1 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: var(--nx-black); letter-spacing: -0.01em; border-bottom: 3px solid var(--nx-chart); padding-bottom: 1px; }
+  .lede { font-size: 12px; line-height: 1.5; color: var(--nu-graphite); font-weight: 400; max-width: 70ch; }
+  .lede b { font-weight: 700; color: var(--nx-black); }
+  .meta { display: flex; flex-direction: column; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; color: var(--nu-stone); text-transform: uppercase; text-align: right; white-space: nowrap; }
+  .meta b { color: var(--nx-black); font-weight: 500; }
+
+  .diagram-zone { position: relative; width: 100%; height: 100%; }
+  .diagram-canvas { position: relative; width: 100%; height: 100%; }
+  .diagram-canvas svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .bottom-band { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 28px; align-items: center; padding-top: 14px; border-top: 1px solid var(--nx-black); }
+  .voice-prose { padding-right: 16px; }
+  .voice-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nu-stone); margin-bottom: 6px; font-weight: 500; }
+  .voice-prose p { font-size: 11.5px; line-height: 1.5; color: var(--nu-graphite); font-weight: 400; }
+  .voice-prose p b { color: var(--nx-black); font-weight: 700; }
+  .voice-prose p em { font-family: 'Fraunces', serif; font-style: italic; color: var(--nu-red); font-weight: 400; }
+
+  .stat-tile { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
+  .stat-tile.featured { padding: 12px 14px; background: linear-gradient(135deg, var(--nx-black) 0%, #2A2A2A 100%); border-radius: 5px; color: var(--nx-white); }
+  .stat-icon-tile { width: 36px; height: 36px; border-radius: 9px; background: linear-gradient(135deg, var(--violet-pale) 0%, var(--violet) 100%); box-shadow: 0 3px 10px rgba(110,84,224,0.22); display: grid; place-items: center; flex-shrink: 0; }
+  .stat-icon-tile.red { background: linear-gradient(135deg, #D0D000 0%, var(--nx-chart) 100%); box-shadow: 0 3px 10px rgba(184,184,0,0.3); }
+  .stat-icon-tile.featured-light { background: rgba(255,255,255,0.18); box-shadow: none; }
+  .stat-body { display: flex; flex-direction: column; min-width: 0; }
+  .stat-num { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.04em; line-height: 0.95; color: var(--nx-black); }
+  .stat-num .unit { font-size: 18px; color: var(--nu-red); font-weight: 700; }
+  .stat-tile.featured .stat-num, .stat-tile.featured .stat-num .unit { color: var(--nu-white); }
+  .stat-label { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nx-black); margin-top: 2px; line-height: 1.2; }
+  .stat-tile.featured .stat-label { color: var(--nu-white); }
+  .stat-desc { font-size: 10px; color: var(--nu-stone); line-height: 1.3; margin-top: 2px; }
+  .stat-tile.featured .stat-desc { color: rgba(255,255,255,0.85); }
+
+  .footnote { position: absolute; bottom: 8px; left: 56px; right: 56px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: var(--nx-mist); text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="slide-frame" id="slideFrame">
+    <div class="slide">
+      <div class="atmos-violet-tr"></div>
+      <div class="atmos-red-bl"></div>
+      <div class="grain"></div>
+
+      <div class="frame">
+
+        <header class="top-band">
+          <div class="brand-mark">
+            <div class="seal">NXT</div>
+            <div class="wordmark">
+              NXT Humans
+              <span class="sub">Service Design Practice · Higher-Ed Engagement</span>
+            </div>
+          </div>
+          <div class="title-zone">
+            <div>
+              <div class="eyebrow">Roadmap · 18-Month Horizon</div>
+              <h1>The path to <em>v5.0</em>.</h1>
+            </div>
+            <p class="lede">
+              Six quarters · four tracks · 26 milestones. <b>Q4 '27 is the launch quarter</b> —
+              every prior milestone earns its place by retiring a risk before the v5.0 ship date.
+              KPIs trend monotonically across the horizon.
+            </p>
+          </div>
+          <div class="meta">
+            <div><b>CLIENT</b> · NORTHEASTERN · <b>NU-001</b></div>
+            <div><b>HORIZON</b> · 18 MO · <b>08 / 08</b></div>
+          </div>
+        </header>
+
+        <section class="diagram-zone">
+          <div class="diagram-canvas">
+            <svg viewBox="0 0 1808 820" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="launch-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#B8B800" stop-opacity="0.12"/>
+                  <stop offset="100%" stop-color="#6E54E0" stop-opacity="0.08"/>
+                </linearGradient>
+                <linearGradient id="confluence-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#B8B800" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#8A8A00" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+
+              <!--
+                CANVAS BUDGET (1808 × 820):
+                  Quarter headers   y=10–60
+                  Header divider    y=70
+                  Track 1 Platform  y=90–200    trunk y=140
+                  Track 2 Service   y=210–320   trunk y=260
+                  Track 3 Org       y=330–440   trunk y=380
+                  Track 4 Outcomes  y=450–560   trunk y=500
+                  KPI section       y=580–800
+
+                X COLUMNS (6 quarters):
+                  Q3'26 center: 320  range 160-480
+                  Q4'26 center: 540  range 480-620... actually let me space evenly across 1808
+                  
+                Available x: 160 (lane label) to 1808 = 1648 wide
+                6 quarters → 274.67 each, centers at 160 + (k+0.5)*274.67:
+                  Q3'26: 297
+                  Q4'26: 572
+                  Q1'27: 846
+                  Q2'27: 1121
+                  Q3'27: 1395
+                  Q4'27: 1670  [LAUNCH — featured]
+              -->
+
+              <!-- Q4'27 LAUNCH highlight band -->
+              <rect x="1534" y="0" width="274" height="560" fill="url(#launch-grad)"/>
+
+              <!-- Quarter dividers -->
+              <g stroke="#E8E8E8" stroke-width="1">
+                <line x1="434" y1="0" x2="434" y2="560"/>
+                <line x1="709" y1="0" x2="709" y2="560"/>
+                <line x1="983" y1="0" x2="983" y2="560"/>
+                <line x1="1258" y1="0" x2="1258" y2="560"/>
+                <line x1="1534" y1="0" x2="1534" y2="560"/>
+              </g>
+
+              <!-- Quarter headers -->
+              <g font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5C5C5C">
+                <text x="297" y="22" text-anchor="middle">Q3 · 2026</text>
+                <text x="572" y="22" text-anchor="middle">Q4 · 2026</text>
+                <text x="846" y="22" text-anchor="middle">Q1 · 2027</text>
+                <text x="1121" y="22" text-anchor="middle">Q2 · 2027</text>
+                <text x="1395" y="22" text-anchor="middle">Q3 · 2027</text>
+                <text x="1670" y="22" text-anchor="middle" fill="#0D0D0D" font-weight="500">Q4 · 2027 · LAUNCH</text>
+              </g>
+              <g font-family="Archivo, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.6" fill="#0D0D0D">
+                <text x="297"  y="55" text-anchor="middle">Stabilize</text>
+                <text x="572"  y="55" text-anchor="middle">Instrument</text>
+                <text x="846"  y="55" text-anchor="middle">Curate</text>
+                <text x="1121" y="55" text-anchor="middle">Scale</text>
+                <text x="1395" y="55" text-anchor="middle">Federate</text>
+                <text x="1670" y="55" text-anchor="middle" fill="#0D0D0D"><tspan font-family="Fraunces, serif" font-style="italic" font-weight="400">v5.0 Launch</tspan></text>
+              </g>
+              <line x1="1612" y1="64" x2="1728" y2="64" stroke="#B8B800" stroke-width="3"/>
+              <line x1="0" y1="70" x2="1808" y2="70" stroke="#0D0D0D" stroke-width="1.5"/>
+
+              <!-- TRUNK LINES (4 tracks) -->
+              <line x1="160" y1="140" x2="1750" y2="140" stroke="#0D0D0D" stroke-width="4" stroke-linecap="round"/>
+              <line x1="160" y1="260" x2="1750" y2="260" stroke="#00B7C3" stroke-width="4" stroke-linecap="round"/>
+              <line x1="160" y1="380" x2="1750" y2="380" stroke="#4A4A4A" stroke-width="4" stroke-linecap="round"/>
+              <line x1="160" y1="500" x2="1750" y2="500" stroke="#0D0D0D" stroke-width="4" stroke-linecap="round"/>
+
+              <!-- Track labels -->
+              <g>
+                <text x="0" y="138" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">TRACK 01</text>
+                <text x="0" y="154" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#0D0D0D" letter-spacing="-0.3">PLATFORM</text>
+                <text x="84" y="154" font-family="Archivo, sans-serif" font-size="11" font-weight="400" fill="#5C5C5C">· tech</text>
+
+                <text x="0" y="258" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#00B7C3" font-weight="500">TRACK 02</text>
+                <text x="0" y="274" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#00B7C3" letter-spacing="-0.3">SERVICE</text>
+                <text x="74" y="274" font-family="Archivo, sans-serif" font-size="11" font-weight="400" fill="#5C5C5C">· experience</text>
+
+                <text x="0" y="378" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">TRACK 03</text>
+                <text x="0" y="394" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#0D0D0D" letter-spacing="-0.3">ORGANIZATION</text>
+                <text x="120" y="394" font-family="Archivo, sans-serif" font-size="11" font-weight="400" fill="#5C5C5C">· people</text>
+
+                <text x="0" y="498" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.8" fill="#5C5C5C" font-weight="500">TRACK 04</text>
+                <text x="0" y="514" font-family="Archivo, sans-serif" font-size="14" font-weight="800" fill="#0D0D0D" letter-spacing="-0.3">OUTCOMES</text>
+                <text x="84" y="514" font-family="Archivo, sans-serif" font-size="11" font-weight="400" fill="#5C5C5C">· KPIs</text>
+              </g>
+
+              <!-- ============================================
+                   PLATFORM (y=140, labels below y=170-200)
+                   ============================================ -->
+              <g>
+                <circle cx="297" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="297" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Matching v3 GA</text>
+                <text x="297" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·01</text>
+              </g>
+              <g>
+                <circle cx="430" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="430" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Equity audit live</text>
+                <text x="430" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·02</text>
+              </g>
+              <g>
+                <circle cx="640" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="640" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Telemetry pipeline</text>
+                <text x="640" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·03</text>
+              </g>
+              <g>
+                <circle cx="846" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="846" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Vector recall v2</text>
+                <text x="846" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·04</text>
+              </g>
+              <g>
+                <circle cx="1121" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1121" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Multi-AZ failover</text>
+                <text x="1121" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·05</text>
+              </g>
+              <g>
+                <circle cx="1330" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1330" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">API v3 federate</text>
+                <text x="1330" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·06</text>
+              </g>
+              <g>
+                <circle cx="1460" cy="140" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1460" y="178" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Load test 5×</text>
+                <text x="1460" y="193" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">P·07</text>
+              </g>
+              <g>
+                <circle cx="1670" cy="140" r="13" fill="url(#confluence-grad)" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="1670" y="183" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">v5.0 ship</text>
+                <text x="1670" y="198" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#0D0D0D" letter-spacing="1.4" font-weight="700">P·08 · LAUNCH</text>
+              </g>
+
+              <!-- ============================================
+                   SERVICE (y=260, labels below y=290-320)
+                   ============================================ -->
+              <g>
+                <circle cx="297" cy="260" r="8" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.2"/>
+                <text x="297" y="298" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">SLA pager v1</text>
+                <text x="297" y="313" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">S·01</text>
+              </g>
+              <g>
+                <circle cx="572" cy="260" r="8" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.2"/>
+                <text x="572" y="298" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Pulse-bot rollout</text>
+                <text x="572" y="313" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">S·02</text>
+              </g>
+              <g>
+                <circle cx="846" cy="260" r="13" fill="#00B7C3" stroke="#0D0D0D" stroke-width="2.5"/>
+                <text x="846" y="303" text-anchor="middle" font-family="Archivo, sans-serif" font-size="13" font-weight="900" fill="#00B7C3" letter-spacing="-0.2">Curation playbook</text>
+                <text x="846" y="318" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4" font-weight="500">S·03 · KEYSTONE</text>
+              </g>
+              <g>
+                <circle cx="1121" cy="260" r="8" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.2"/>
+                <text x="1121" y="298" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">3-way pulse GA</text>
+                <text x="1121" y="313" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">S·04</text>
+              </g>
+              <g>
+                <circle cx="1395" cy="260" r="8" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.2"/>
+                <text x="1395" y="298" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Reflection loop</text>
+                <text x="1395" y="313" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">S·05</text>
+              </g>
+              <g>
+                <circle cx="1670" cy="260" r="8" fill="#FAF8F4" stroke="#00B7C3" stroke-width="2.2"/>
+                <text x="1670" y="298" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Confluence GA</text>
+                <text x="1670" y="313" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#00B7C3" letter-spacing="1.4">S·06</text>
+              </g>
+
+              <!-- ============================================
+                   ORGANIZATION (y=380)
+                   ============================================ -->
+              <g>
+                <circle cx="297" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="297" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Span audit</text>
+                <text x="297" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·01</text>
+              </g>
+              <g>
+                <circle cx="572" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="572" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Coord training v2</text>
+                <text x="572" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·02</text>
+              </g>
+              <g>
+                <circle cx="780" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="780" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Shared svc charter</text>
+                <text x="780" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·03</text>
+              </g>
+              <g>
+                <circle cx="1050" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="1050" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Hire +12 coords</text>
+                <text x="1050" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·04</text>
+              </g>
+              <g>
+                <circle cx="1330" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="1330" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Federation MoU</text>
+                <text x="1330" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·05</text>
+              </g>
+              <g>
+                <circle cx="1670" cy="380" r="8" fill="#FAF8F4" stroke="#4A4A4A" stroke-width="2.2"/>
+                <text x="1670" y="418" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">All-hands launch</text>
+                <text x="1670" y="433" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">O·06</text>
+              </g>
+
+              <!-- ============================================
+                   OUTCOMES (y=500)
+                   ============================================ -->
+              <g>
+                <circle cx="297" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="297" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Baseline KPI lock</text>
+                <text x="297" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·01</text>
+              </g>
+              <g>
+                <circle cx="572" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="572" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">SLA dashboard</text>
+                <text x="572" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·02</text>
+              </g>
+              <g>
+                <circle cx="846" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="846" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Equity baseline</text>
+                <text x="846" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·03</text>
+              </g>
+              <g>
+                <circle cx="1121" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1121" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">96% placement</text>
+                <text x="1121" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·04</text>
+              </g>
+              <g>
+                <circle cx="1395" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1395" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">12h SLA proven</text>
+                <text x="1395" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·05</text>
+              </g>
+              <g>
+                <circle cx="1670" cy="500" r="8" fill="#FAF8F4" stroke="#0D0D0D" stroke-width="2.2"/>
+                <text x="1670" y="538" text-anchor="middle" font-family="Archivo, sans-serif" font-size="11.5" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">98% · 7d ship</text>
+                <text x="1670" y="553" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C" letter-spacing="1.4">B·06</text>
+              </g>
+
+              <!-- DEPENDENCY LINES (cross-track dashed) -->
+              <g stroke="#5C5C5C" stroke-width="1" stroke-dasharray="3,3" fill="none">
+                <line x1="297" y1="148" x2="297" y2="252"/>
+                <line x1="430" y1="148" x2="572" y2="252"/>
+                <line x1="846" y1="268" x2="846" y2="492"/>
+                <line x1="1121" y1="148" x2="1121" y2="492"/>
+                <line x1="780" y1="372" x2="846" y2="268"/>
+                <line x1="1050" y1="372" x2="1121" y2="268"/>
+              </g>
+
+              <!-- ============================================
+                   KPI TRAJECTORY SECTION (y=580–800)
+                   ============================================ -->
+              <line x1="0" y1="580" x2="1808" y2="580" stroke="#0D0D0D" stroke-width="1"/>
+              <text x="0" y="603" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.6" fill="#0D0D0D" font-weight="700">KPI TRAJECTORY · MONOTONIC IMPROVEMENT</text>
+              <text x="320" y="603" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#5C5C5C">Each quarter retires a risk · no metric regresses</text>
+
+              <!--
+                KPI sub-canvas: y=620–800
+                Three KPIs as horizontal sparkline cards:
+                  Card 1: Placement Rate    y=620–705
+                  Card 2: SLA / Time-to-hire y=620-705 (right)
+                  Or use 3 stacked rows
+                
+                Use 3-column horizontal layout, 6 quarter columns matching the trunks above
+              -->
+
+              <!-- KPI 1: Placement Rate -->
+              <g>
+                <text x="0" y="640" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">KPI 01</text>
+                <text x="0" y="655" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Placement</text>
+                <text x="0" y="671" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">% students placed</text>
+
+                <!-- Sparkline: 96 → 96 → 96.5 → 97 → 97.5 → 98 -->
+                <line x1="160" y1="660" x2="1750" y2="660" stroke="#E8E8E8" stroke-width="1"/>
+                <polyline points="297,655 572,655 846,650 1121,645 1395,640 1670,635" fill="none" stroke="#0D0D0D" stroke-width="2.5"/>
+                <g fill="#0D0D0D">
+                  <circle cx="297" cy="655" r="4"/>
+                  <circle cx="572" cy="655" r="4"/>
+                  <circle cx="846" cy="650" r="4"/>
+                  <circle cx="1121" cy="645" r="4"/>
+                  <circle cx="1395" cy="640" r="4"/>
+                </g>
+                <circle cx="1670" cy="635" r="6" fill="#B8B800" stroke="#0D0D0D" stroke-width="2"/>
+                <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C">
+                  <text x="297" y="685" text-anchor="middle">96%</text>
+                  <text x="572" y="685" text-anchor="middle">96%</text>
+                  <text x="846" y="685" text-anchor="middle">96.5%</text>
+                  <text x="1121" y="685" text-anchor="middle">97%</text>
+                  <text x="1395" y="685" text-anchor="middle">97.5%</text>
+                  <text x="1670" y="685" text-anchor="middle" fill="#8A8A00" font-weight="700">98%</text>
+                </g>
+              </g>
+
+              <!-- KPI 2: SLA -->
+              <g>
+                <text x="0" y="724" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#00B7C3">KPI 02</text>
+                <text x="0" y="739" font-family="Archivo, sans-serif" font-size="13" font-weight="800" fill="#0D0D0D" letter-spacing="-0.2">Resume SLA</text>
+                <text x="0" y="755" font-family="Archivo, sans-serif" font-size="11" fill="#5C5C5C">hours to review</text>
+
+                <!-- 48 → 36 → 24 → 18 → 14 → 12 -->
+                <line x1="160" y1="744" x2="1750" y2="744" stroke="#E8E8E8" stroke-width="1"/>
+                <polyline points="297,725 572,732 846,740 1121,748 1395,756 1670,762" fill="none" stroke="#00B7C3" stroke-width="2.5"/>
+                <g fill="#00B7C3">
+                  <circle cx="297" cy="725" r="4"/>
+                  <circle cx="572" cy="732" r="4"/>
+                  <circle cx="846" cy="740" r="4"/>
+                  <circle cx="1121" cy="748" r="4"/>
+                  <circle cx="1395" cy="756" r="4"/>
+                </g>
+                <circle cx="1670" cy="762" r="6" fill="#00B7C3" stroke="#0D0D0D" stroke-width="2"/>
+                <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C">
+                  <text x="297" y="775" text-anchor="middle">48h</text>
+                  <text x="572" y="775" text-anchor="middle">36h</text>
+                  <text x="846" y="775" text-anchor="middle">24h</text>
+                  <text x="1121" y="775" text-anchor="middle">18h</text>
+                  <text x="1395" y="775" text-anchor="middle">14h</text>
+                  <text x="1670" y="775" text-anchor="middle" fill="#00B7C3" font-weight="700">12h</text>
+                </g>
+              </g>
+
+              <!-- KPI 3: Time-to-hire as horizontal text (single row at bottom) -->
+              <g>
+                <text x="0" y="803" font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="1.6" fill="#5C5C5C">KPI 03</text>
+                <text x="80" y="803" font-family="Archivo, sans-serif" font-size="11" font-weight="700" fill="#0D0D0D" letter-spacing="-0.1">Time-to-hire</text>
+                <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="#5C5C5C">
+                  <text x="297" y="803" text-anchor="middle">10d</text>
+                  <text x="572" y="803" text-anchor="middle">9d</text>
+                  <text x="846" y="803" text-anchor="middle">9d</text>
+                  <text x="1121" y="803" text-anchor="middle">8d</text>
+                  <text x="1395" y="803" text-anchor="middle">7.5d</text>
+                  <text x="1670" y="803" text-anchor="middle" fill="#8A8A00" font-weight="700">7d</text>
+                </g>
+              </g>
+
+            </svg>
+          </div>
+        </section>
+
+        <section class="bottom-band">
+          <div class="voice-prose">
+            <div class="voice-eyebrow">Roadmap principle</div>
+            <p>
+              Every quarter <em>retires a risk</em>. Stabilize precedes Instrument; Instrument
+              precedes Curate; nothing scales until the curve bends. <b>Q4 '27 is launch</b>,
+              not a deadline — earned by 25 retired risks before it.
+            </p>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile red">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">26</div>
+              <div class="stat-label">Milestones · 18 Mo</div>
+              <div class="stat-desc">P·8 + S·6 + O·6 + B·6</div>
+            </div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Parallel Tracks</div>
+              <div class="stat-desc">Platform · service · org · KPIs</div>
+            </div>
+          </div>
+          <div class="stat-tile featured">
+            <div class="stat-icon-tile featured-light">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5 3.5 9.5 9 11 5.5-1.5 9-6 9-11V7l-9-5z"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">v5.0</div>
+              <div class="stat-label">Launch · Q4 2027</div>
+              <div class="stat-desc">Confluence Protocol · 8 risks retired</div>
+            </div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-icon-tile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="stat-body">
+              <div class="stat-num">3<span class="unit">/3</span></div>
+              <div class="stat-label">KPIs Trending Up</div>
+              <div class="stat-desc">Placement · SLA · time-to-hire</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footnote">
+        <div><b style="color:#5C5C5C">NXT Humans</b> · Build smarter. Move faster. Win sooner.</div>
+        <div>16:9 · 1920 × 1080</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function fitSlide() {
+    const frame = document.getElementById('slideFrame');
+    const stage = frame.parentElement;
+    const padding = 32;
+    const availW = stage.clientWidth - padding;
+    const availH = stage.clientHeight - padding;
+    const scale = Math.min(availW / 1920, availH / 1080);
+    frame.style.transform = `scale(${scale})`;
+  }
+  fitSlide();
+  window.addEventListener('resize', fitSlide);
+</script>
+</body>
+</html>
