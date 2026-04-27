@@ -20,7 +20,6 @@ import { toPng } from 'html-to-image';
 import type { Artifact } from '../types';
 import type { DesignTokens } from './designMdLoader';
 import { OrgChartCanvas } from '../components/OrgChartCanvas';
-import { FossflowCanvas } from '../components/FossflowCanvas';
 import { NxtDocViewer } from '../components/NxtDocViewer';
 
 // ============================================================
@@ -280,9 +279,6 @@ async function captureArtifactBodyAtNative(
             if (artifact.type === 'persona') {
                 return React.createElement(NxtDocViewer, { artifact: artifact as any, tokens });
             }
-            if (artifact.type === 'journey') {
-                return React.createElement(FossflowCanvas, { artifact: artifact as any, tokens });
-            }
             if (artifact.type === 'org') {
                 return React.createElement(OrgChartCanvas, { artifact: artifact as any, tokens });
             }
@@ -291,7 +287,7 @@ async function captureArtifactBodyAtNative(
 
         root.render(element);
 
-        // Wait for the React tree + reactflow / fossflow / persona doc to fully lay out.
+        // Wait for the React tree + reactflow / persona doc to fully lay out.
         // Reactflow needs more time than 300ms — dagre layout + node measure + fit-view
         // can each take a frame. Wait long enough for two paint cycles.
         await waitForLayout(600);

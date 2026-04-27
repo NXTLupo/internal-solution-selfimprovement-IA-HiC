@@ -44,7 +44,6 @@ import { jsPDF } from 'jspdf';
 import { NxtDocViewer } from '../design-desk/components/NxtDocViewer';
 import { FreeformViewer } from '../design-desk/components/FreeformViewer';
 import { OrgChartCanvas } from '../design-desk/components/OrgChartCanvas';
-import { FossflowCanvas } from '../design-desk/components/FossflowCanvas';
 import type { PersonaArtifact } from '../design-desk/schemas/personaArtifact';
 import type { JourneyArtifact } from '../design-desk/schemas/journeyArtifact';
 import type { OrgChartArtifact } from '../design-desk/schemas/orgChartArtifact';
@@ -402,9 +401,6 @@ const SlideProjection: React.FC<{
                             <NxtDocViewer artifact={artifact as PersonaArtifact} tokens={tokens} />
                         </div>
                     )}
-                    {artifactType === 'journey' && artifact.type === 'journey' && (
-                        <FossflowCanvas artifact={artifact as JourneyArtifact} tokens={tokens} />
-                    )}
                     {artifactType === 'org' && artifact.type === 'org' && (
                         <OrgChartCanvas artifact={artifact as OrgChartArtifact} tokens={tokens} />
                     )}
@@ -568,9 +564,6 @@ const InlineArtifactPreview: React.FC<{
             <div style={{ height: 420, overflow: 'auto', background: '#FFFFFF' }}>
                 {artifactType === 'persona' && artifact.type === 'persona' && (
                     <NxtDocViewer artifact={artifact as PersonaArtifact} tokens={tokens} />
-                )}
-                {artifactType === 'journey' && artifact.type === 'journey' && (
-                    <FossflowCanvas artifact={artifact as JourneyArtifact} tokens={tokens} />
                 )}
                 {artifactType === 'org' && artifact.type === 'org' && (
                     <OrgChartCanvas artifact={artifact as OrgChartArtifact} tokens={tokens} />

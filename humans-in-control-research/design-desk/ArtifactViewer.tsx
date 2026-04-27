@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useDesignDeskStore } from './store/designDeskStore';
 import { NxtDocViewer } from './components/NxtDocViewer';
-import { FossflowCanvas } from './components/FossflowCanvas';
 import { OrgChartCanvas } from './components/OrgChartCanvas';
 import { FreeformViewer } from './components/FreeformViewer';
 import { ExportMenu } from './components/ExportMenu';
@@ -165,7 +164,6 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
             {/* Canvas area */}
             <div ref={viewerRef} style={{ flex: 1, overflow: 'auto', background: '#FFFFFF', minHeight: 0 }}>
                 {active.type === 'persona' && <NxtDocViewer artifact={active} tokens={tokens} onFieldEdit={handleFieldEdit as any} />}
-                {active.type === 'journey' && <FossflowCanvas artifact={active} tokens={tokens} onLayoutChange={(layout) => replaceArtifact({ ...active, layout, updatedAt: Date.now() })} />}
                 {active.type === 'org' && <OrgChartCanvas artifact={active} tokens={tokens} onLayoutChange={(layout) => replaceArtifact({ ...active, layout, updatedAt: Date.now() })} />}
                 {(active as any).type === 'freeform' && <FreeformViewer artifact={active as any} />}
             </div>

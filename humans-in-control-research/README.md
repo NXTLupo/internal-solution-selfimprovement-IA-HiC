@@ -200,7 +200,6 @@ humans-in-control-research/
 │   ├── components/
 │   │   ├── FreeformViewer.tsx       — sandboxed iframe for freeform HTML
 │   │   ├── OrgChartCanvas.tsx
-│   │   ├── FossflowCanvas.tsx       — legacy journey rendering
 │   │   ├── NxtDocViewer.tsx         — persona doc renderer
 │   │   ├── OrgChartNode.tsx
 │   │   └── ExportMenu.tsx
