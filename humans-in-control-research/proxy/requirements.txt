@@ -10,3 +10,7 @@ openai>=1.14.0
 python-pptx==1.0.2
 fonttools==4.62.1
 lxml>=5.0.0
+# Wiki chunked-embedding store (Phase 2): per-chunk vectors in sqlite-vec,
+# tiktoken for cl100k_base token counts (matches text-embedding-3-small)
+sqlite-vec>=0.1.9
+tiktoken>=0.12.0
