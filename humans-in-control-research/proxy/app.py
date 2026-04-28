@@ -736,6 +736,227 @@ SOURCES = {
     "amy_eisenstein_blog": {"name": "Amy Eisenstein Blog", "category": "Alumni Engagement", "type": "rss", "tier": 2, "url": "https://amyeisenstein.com/feed/"},
     "joan_garry_blog": {"name": "Joan Garry Nonprofit Leadership Blog", "category": "Alumni Engagement", "type": "rss", "tier": 2, "url": "https://blog.joangarry.com/feed/"},
     "kivi_nonprofit_marketing_guide": {"name": "Kivi's Nonprofit Communications Blog", "category": "Alumni Engagement", "type": "rss", "tier": 1, "url": "https://www.nonprofitmarketingguide.com/feed/"},
+
+    # --- Retail News (35 sources, added 2026-04-28) ---
+    "retail_dive": {"name": "Retail Dive", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retaildive.com/feeds/news/"},
+    "retail_dive_marketing": {"name": "Retail Dive: Marketing", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retaildive.com/topic/marketing/feed/"},
+    "retail_dive_tech": {"name": "Retail Dive: Tech", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retaildive.com/topic/technology/feed/"},
+    "retail_wire": {"name": "Retail Wire", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retailwire.com/feed/"},
+    "retail_touchpoints": {"name": "Retail TouchPoints", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retailtouchpoints.com/feed"},
+    "chain_store_age": {"name": "Chain Store Age", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://chainstoreage.com/rss.xml"},
+    "ris_news": {"name": "RIS News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://risnews.com/rss.xml"},
+    "total_retail": {"name": "Total Retail", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.mytotalretail.com/feed/"},
+    "retail_week_uk": {"name": "Retail Week (UK)", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retail-week.com/feeds/feed.rss"},
+    "the_robin_report": {"name": "The Robin Report", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://therobinreport.com/feed/"},
+    "retail_cx": {"name": "Retail Customer Experience", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.retailcustomerexperience.com/rss/"},
+    "retail_insider": {"name": "Retail Insider", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://retail-insider.com/feed/"},
+    "retail_minded": {"name": "Retail Minded", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://retailminded.com/feed/"},
+    "retail_doctor": {"name": "The Retail Doctor (Bob Phibbs)", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://retaildoc.com/blog/rss.xml"},
+    "nrf_blog": {"name": "NRF Blog", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://nrf.com/rss.xml"},
+    "nrf_smart_brief": {"name": "NRF Smart Brief", "category": "Retail News", "type": "web_search", "tier": 2, "domain": "smartbrief.com/nrf"},
+    "modern_retail": {"name": "Modern Retail", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.modernretail.co/feed/"},
+    "glossy": {"name": "Glossy", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.glossy.co/feed/"},
+    "digiday": {"name": "Digiday", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://digiday.com/feed/"},
+    "vogue_business": {"name": "Vogue Business", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.voguebusiness.com/feed"},
+    "business_of_fashion": {"name": "Business of Fashion", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.businessoffashion.com/arc/outboundfeeds/rss/"},
+    "fashion_united": {"name": "Fashion United", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://fashionunited.com/feed"},
+    "wwd": {"name": "Women's Wear Daily", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://wwd.com/feed/"},
+    "sourcing_journal": {"name": "Sourcing Journal", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://sourcingjournal.com/feed/"},
+    "footwear_news": {"name": "Footwear News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://footwearnews.com/feed/"},
+    "supermarket_news": {"name": "Supermarket News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.supermarketnews.com/rss.xml"},
+    "progressive_grocer": {"name": "Progressive Grocer", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://progressivegrocer.com/rss.xml"},
+    "grocery_dive": {"name": "Grocery Dive", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.grocerydive.com/feeds/news/"},
+    "csp_daily_news": {"name": "CSP Daily News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.cspdailynews.com/rss-feeds"},
+    "convenience_store_news": {"name": "Convenience Store News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://csnews.com/rss.xml"},
+    "drug_store_news": {"name": "Drug Store News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://drugstorenews.com/rss.xml"},
+    "home_furnishings_news": {"name": "Home Furnishings News", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://hfndigital.com/feed/"},
+    "dc_velocity": {"name": "DC Velocity (Logistics)", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.dcvelocity.com/rss"},
+    "logistics_management": {"name": "Logistics Management", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.logisticsmgmt.com/rss/all_articles"},
+    "license_global": {"name": "License Global", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.licenseglobal.com/rss.xml"},
+
+    # --- Ecommerce (20 sources, added 2026-04-28) ---
+    "shopify_blog": {"name": "Shopify Retail Blog", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.shopify.com/blog.atom"},
+    "bigcommerce_blog": {"name": "BigCommerce Blog", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.bigcommerce.com/blog/feed/"},
+    "practical_ecommerce": {"name": "Practical Ecommerce", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.practicalecommerce.com/feed"},
+    "ecommerce_bytes": {"name": "EcommerceBytes", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.ecommercebytes.com/new/index.rss"},
+    "digital_commerce_360": {"name": "Digital Commerce 360", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.digitalcommerce360.com/feed/"},
+    "emarketer": {"name": "eMarketer", "category": "Ecommerce", "type": "rss", "tier": 1, "url": "https://www.emarketer.com/rss"},
+    "marketplace_pulse": {"name": "Marketplace Pulse", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.marketplacepulse.com/rss.xml"},
+    "techcrunch_commerce": {"name": "TechCrunch Commerce", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://techcrunch.com/category/commerce/feed/"},
+    "klaviyo_blog": {"name": "Klaviyo Blog", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.klaviyo.com/blog/feed"},
+    "recharge_blog": {"name": "Recharge Blog", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://rechargepayments.com/blog/feed/"},
+    "yotpo_blog": {"name": "Yotpo Blog", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.yotpo.com/blog/feed/"},
+    "common_thread_co": {"name": "Common Thread Collective", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://commonthreadco.com/blogs/coachs-corner.atom"},
+    "two_pm": {"name": "2PM Newsletter", "category": "Ecommerce", "type": "web_search", "tier": 2, "domain": "2pml.com"},
+    "lean_luxe": {"name": "Lean Luxe", "category": "Ecommerce", "type": "web_search", "tier": 2, "domain": "leanluxe.com"},
+    "future_commerce": {"name": "Future Commerce", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://futurecommerce.com/feed.xml"},
+    "pipe_candy": {"name": "Pipe Candy DTC Insights", "category": "Ecommerce", "type": "web_search", "tier": 2, "domain": "pipecandy.com/blog"},
+    "forrester_retail": {"name": "Forrester Retail Blog", "category": "Ecommerce", "type": "rss", "tier": 1, "url": "https://www.forrester.com/blogs/category/retail/feed/"},
+    "better_lemonade_stand": {"name": "A Better Lemonade Stand", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://www.abetterlemonadestand.com/blog/feed/"},
+    "andrew_faris": {"name": "Andrew Faris (eCom Insiders)", "category": "Ecommerce", "type": "web_search", "tier": 2, "domain": "andrewfaris.com"},
+    "internet_retailing_uk": {"name": "Internet Retailing (UK)", "category": "Ecommerce", "type": "rss", "tier": 2, "url": "https://internetretailing.net/feed"},
+
+    # --- Digital Marketing (25 sources, added 2026-04-28) ---
+    "hubspot_marketing": {"name": "HubSpot Marketing Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://blog.hubspot.com/marketing/rss.xml"},
+    "martech_org": {"name": "MarTech.org", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://martech.org/feed/"},
+    "marketing_profs": {"name": "MarketingProfs", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.marketingprofs.com/rss/all-content-rss.xml"},
+    "marketing_week": {"name": "Marketing Week", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.marketingweek.com/feed/"},
+    "marketing_brew": {"name": "Marketing Brew", "category": "Digital Marketing", "type": "web_search", "tier": 2, "domain": "marketingbrew.com"},
+    "marketing_dive": {"name": "Marketing Dive", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.marketingdive.com/feeds/news/"},
+    "adweek": {"name": "Adweek", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.adweek.com/feed/"},
+    "ad_age": {"name": "Ad Age", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://adage.com/rss.xml"},
+    "campaign_live": {"name": "Campaign Live", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.campaignlive.com/rss/all"},
+    "the_drum": {"name": "The Drum", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.thedrum.com/rss.xml"},
+    "clickz": {"name": "ClickZ", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.clickz.com/feed/"},
+    "search_engine_land": {"name": "Search Engine Land", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://searchengineland.com/feed"},
+    "search_engine_journal": {"name": "Search Engine Journal", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.searchenginejournal.com/feed/"},
+    "search_engine_watch": {"name": "Search Engine Watch", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.searchenginewatch.com/feed/"},
+    "moz_blog": {"name": "Moz Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://moz.com/posts/rss/"},
+    "ahrefs_blog": {"name": "Ahrefs Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://ahrefs.com/blog/feed/"},
+    "semrush_blog": {"name": "Semrush Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.semrush.com/blog/feed/"},
+    "neil_patel": {"name": "Neil Patel Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://neilpatel.com/feed/"},
+    "backlinko": {"name": "Backlinko", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://backlinko.com/feed"},
+    "copyblogger": {"name": "Copyblogger", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://copyblogger.com/feed/"},
+    "content_marketing_inst": {"name": "Content Marketing Institute", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://contentmarketinginstitute.com/feed/"},
+    "convince_convert": {"name": "Convince & Convert", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.convinceandconvert.com/feed/"},
+    "seths_blog": {"name": "Seth's Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://seths.blog/feed/"},
+    "wordstream": {"name": "WordStream Blog", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.wordstream.com/blog/feed"},
+    "marketing_ai_inst": {"name": "Marketing AI Institute", "category": "Digital Marketing", "type": "rss", "tier": 2, "url": "https://www.marketingaiinstitute.com/blog/rss.xml"},
+
+    # --- Social Marketing (25 sources, added 2026-04-28) ---
+    "social_media_today": {"name": "Social Media Today", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.socialmediatoday.com/feeds/news/"},
+    "social_media_examiner": {"name": "Social Media Examiner", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.socialmediaexaminer.com/feed/"},
+    "hootsuite_blog": {"name": "Hootsuite Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://blog.hootsuite.com/feed/"},
+    "buffer_resources": {"name": "Buffer Resources", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://buffer.com/resources/rss/"},
+    "sprout_social": {"name": "Sprout Social Insights", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://sproutsocial.com/insights/feed/"},
+    "later_blog": {"name": "Later Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://later.com/blog/feed/"},
+    "agorapulse_blog": {"name": "Agorapulse Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.agorapulse.com/blog/feed/"},
+    "socialpilot_blog": {"name": "SocialPilot Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.socialpilot.co/blog/feed"},
+    "jeff_bullas": {"name": "Jeff Bullas", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.jeffbullas.com/feed/"},
+    "mari_smith": {"name": "Mari Smith", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "marismith.com/blog"},
+    "brian_solis": {"name": "Brian Solis", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.briansolis.com/feed/"},
+    "meta_business_news": {"name": "Meta for Business", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "facebook.com/business/news"},
+    "tiktok_newsroom": {"name": "TikTok Newsroom", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "newsroom.tiktok.com"},
+    "tiktok_business_blog": {"name": "TikTok for Business Insights", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "tiktok.com/business/en-US/blog"},
+    "linkedin_marketing": {"name": "LinkedIn Marketing Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.linkedin.com/business/marketing/blog/rss"},
+    "youtube_creators": {"name": "YouTube Creators Blog", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://blog.youtube/rss/"},
+    "pinterest_newsroom": {"name": "Pinterest Newsroom", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "newsroom.pinterest.com"},
+    "snap_newsroom": {"name": "Snap Inc. Newsroom", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "newsroom.snap.com"},
+    "influencer_marketing_hub": {"name": "Influencer Marketing Hub", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://influencermarketinghub.com/feed/"},
+    "tubefilter": {"name": "Tubefilter", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.tubefilter.com/feed/"},
+    "passionfruit_creators": {"name": "Passionfruit", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "passionfru.it"},
+    "information_creator": {"name": "The Information: Creator Economy", "category": "Social Marketing", "type": "web_search", "tier": 1, "domain": "theinformation.com/topics/creator-economy"},
+    "mediapost": {"name": "Mediapost", "category": "Social Marketing", "type": "rss", "tier": 2, "url": "https://www.mediapost.com/rss/all/"},
+    "nyu_creator_economy": {"name": "NYU Creator Economy Center", "category": "Social Marketing", "type": "web_search", "tier": 1, "domain": "stern.nyu.edu/experience-stern/about/departments-centers-initiatives/centers-of-research/fubon-center"},
+    "digiday_social": {"name": "Digiday: Social", "category": "Social Marketing", "type": "web_search", "tier": 2, "domain": "digiday.com/social"},
+
+    # --- Consumer Insights (20 sources, added 2026-04-28) ---
+    "pew_internet_tech": {"name": "Pew Internet & Tech", "category": "Consumer Insights", "type": "rss", "tier": 1, "url": "https://www.pewresearch.org/internet/feed/"},
+    "pew_consumer": {"name": "Pew Research (general)", "category": "Consumer Insights", "type": "rss", "tier": 1, "url": "https://www.pewresearch.org/feed/"},
+    "mckinsey_retail": {"name": "McKinsey: Retail", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "mckinsey.com/industries/retail/our-insights"},
+    "mckinsey_marketing": {"name": "McKinsey: Marketing & Sales", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "mckinsey.com/capabilities/growth-marketing-and-sales"},
+    "bcg_retail": {"name": "BCG: Retail", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "bcg.com/industries/retail"},
+    "bain_retail": {"name": "Bain: Retail", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "bain.com/industry-expertise/retail"},
+    "deloitte_consumer": {"name": "Deloitte: Consumer", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "deloitte.com/us/en/insights/industry/retail-distribution.html"},
+    "deloitte_digital": {"name": "Deloitte Digital", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "deloittedigital.com/us/en/insights.html"},
+    "pwc_consumer": {"name": "PwC Consumer Insights", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "pwc.com/gx/en/industries/consumer-markets.html"},
+    "accenture_retail": {"name": "Accenture: Retail", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "accenture.com/us-en/industries/retail-index"},
+    "gartner_marketing": {"name": "Gartner: Marketing", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "gartner.com/en/marketing"},
+    "gartner_retail": {"name": "Gartner: Retail Industry", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "gartner.com/en/industries/retail"},
+    "statista_topics": {"name": "Statista (free charts)", "category": "Consumer Insights", "type": "web_search", "tier": 2, "domain": "statista.com/topics"},
+    "think_with_google": {"name": "Think with Google", "category": "Consumer Insights", "type": "rss", "tier": 2, "url": "https://www.thinkwithgoogle.com/intl/en-us/feed/"},
+    "google_trends": {"name": "Google Trends", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "trends.google.com/trends"},
+    "pew_social_media": {"name": "Pew Social Media Reports", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "pewresearch.org/topic/internet-technology/platforms-services/social-media"},
+    "ypulse": {"name": "YPulse (Gen Z/Millennial)", "category": "Consumer Insights", "type": "web_search", "tier": 2, "domain": "ypulse.com/blog"},
+    "mintel_insights": {"name": "Mintel Insights", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "mintel.com/insights"},
+    "kantar_insights": {"name": "Kantar Insights", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "kantar.com/inspiration"},
+    "nielsen_iq": {"name": "NielsenIQ Insights", "category": "Consumer Insights", "type": "web_search", "tier": 1, "domain": "nielseniq.com/global/en/insights"},
+
+    # --- Retail Tech (15 sources, added 2026-04-28) ---
+    "retail_tech_review": {"name": "Retail Technology Review", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://www.retailtechnologyreview.com/rss"},
+    "retail_tech_innovation": {"name": "Retail Tech Innovation Hub", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://retailtechinnovationhub.com/home?format=rss"},
+    "retail_tech_insights": {"name": "Retail Tech Insights (CIOReview)", "category": "Retail Tech", "type": "web_search", "tier": 2, "domain": "retail.cioreview.com"},
+    "retailnext_blog": {"name": "RetailNext Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://retailnext.net/en/blog/feed/"},
+    "square_retail_blog": {"name": "Square Retail Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://squareup.com/us/en/the-bottom-line/feed.xml"},
+    "lightspeed_blog": {"name": "Lightspeed Retail Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://www.lightspeedhq.com/blog/feed/"},
+    "ncr_voyix": {"name": "NCR Voyix Insights", "category": "Retail Tech", "type": "web_search", "tier": 2, "domain": "ncrvoyix.com/insights"},
+    "salesforce_commerce": {"name": "Salesforce Commerce Cloud Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://www.salesforce.com/news/feed/"},
+    "adobe_xc_blog": {"name": "Adobe Experience Cloud Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://blog.adobe.com/en/topics/experience-cloud.feed"},
+    "microsoft_retail_blog": {"name": "Microsoft Retail Blog", "category": "Retail Tech", "type": "web_search", "tier": 2, "domain": "microsoft.com/en-us/industry/blog/retail"},
+    "google_cloud_retail": {"name": "Google Cloud Retail Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://cloud.google.com/blog/topics/retail/rss"},
+    "aws_retail_blog": {"name": "AWS Retail Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://aws.amazon.com/blogs/industries/category/industries/retail/feed/"},
+    "ibm_retail_blog": {"name": "IBM Retail Blog", "category": "Retail Tech", "type": "web_search", "tier": 2, "domain": "ibm.com/blog/category/retail"},
+    "oracle_retail_blog": {"name": "Oracle Retail Blog", "category": "Retail Tech", "type": "rss", "tier": 2, "url": "https://blogs.oracle.com/retail/rss"},
+    "sap_retail": {"name": "SAP Retail Insights", "category": "Retail Tech", "type": "web_search", "tier": 2, "domain": "sap.com/insights/industries/retail.html"},
+
+    # --- Retail Economic Data (15 sources, added 2026-04-28) ---
+    "census_marts": {"name": "Census Monthly Retail Trade", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.census.gov/data/timeseries/eits/marts"},
+    "census_economic": {"name": "Census Economic Indicators", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.census.gov/data.html"},
+    "census_qsr": {"name": "Census Quarterly E-commerce", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.census.gov/data/timeseries/eits/qsr"},
+    "bea_retail": {"name": "BEA (Bureau of Economic Analysis)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "apps.bea.gov/api"},
+    "bls_retail": {"name": "BLS CPI/Wages (retail)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.bls.gov/publicAPI/v2"},
+    "fred_retail": {"name": "FRED (St. Louis Fed)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "fred.stlouisfed.org/docs/api/fred"},
+    "data_gov_retail": {"name": "Data.gov: Retail Datasets", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "catalog.data.gov/dataset?q=retail"},
+    "api_data_gov": {"name": "api.data.gov (federal gateway)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.data.gov"},
+    "commerce_gov_api": {"name": "Commerce.gov Content API", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.commerce.gov/api"},
+    "usda_ers": {"name": "USDA Economic Research", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "ers.usda.gov/developer"},
+    "uk_ons_retail": {"name": "UK ONS Retail Sales", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "api.ons.gov.uk"},
+    "eurostat_retail": {"name": "Eurostat Retail Trade", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "ec.europa.eu/eurostat/web/retail-trade/data/database"},
+    "oecd_retail": {"name": "OECD Data API (retail)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "data.oecd.org/api"},
+    "worldbank_consumption": {"name": "World Bank: Consumption", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "data.worldbank.org"},
+    "imf_retail": {"name": "IMF Data API (retail)", "category": "Retail Economic Data", "type": "web_search", "tier": 1, "domain": "imf.org/en/Data"},
+
+    # --- Search Trends (10 sources, added 2026-04-28) ---
+    "pytrends": {"name": "Google Trends (pytrends)", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "trends.google.com"},
+    "wiki_pageviews": {"name": "Wikipedia Pageviews API", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "wikimedia.org/api/rest_v1"},
+    "duckduckgo_ia": {"name": "DuckDuckGo Instant Answer", "category": "Search Trends", "type": "web_search", "tier": 2, "domain": "api.duckduckgo.com"},
+    "newsapi_org": {"name": "NewsAPI.org", "category": "Search Trends", "type": "web_search", "tier": 2, "domain": "newsapi.org"},
+    "gdelt_global": {"name": "GDELT Global News", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "api.gdeltproject.org"},
+    "guardian_open": {"name": "Guardian Open Platform", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "open-platform.theguardian.com"},
+    "nyt_article_search": {"name": "NYT Article Search", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "developer.nytimes.com/apis"},
+    "youtube_data_api": {"name": "YouTube Data API", "category": "Search Trends", "type": "web_search", "tier": 2, "domain": "developers.google.com/youtube/v3"},
+    "bing_web_search": {"name": "Bing Web Search", "category": "Search Trends", "type": "web_search", "tier": 2, "domain": "microsoft.com/en-us/bing/apis/bing-web-search-api"},
+    "common_crawl": {"name": "Common Crawl", "category": "Search Trends", "type": "web_search", "tier": 1, "domain": "commoncrawl.org/the-data/get-started"},
+
+    # --- Social Sentiment (10 sources, added 2026-04-28) ---
+    "reddit_json_api": {"name": "Reddit JSON API", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "reddit.com"},
+    "pushshift": {"name": "Reddit Pushshift", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "api.pushshift.io"},
+    "hacker_news_api": {"name": "Hacker News API", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "hacker-news.firebaseio.com"},
+    "mastodon_public": {"name": "Mastodon Public Timeline", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "mastodon.social/api/v1/timelines/public"},
+    "bluesky_at_proto": {"name": "Bluesky AT Protocol", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "docs.bsky.app"},
+    "product_hunt": {"name": "Product Hunt API", "category": "Social Sentiment", "type": "web_search", "tier": 2, "domain": "api.producthunt.com/v2/docs"},
+    "indie_hackers": {"name": "Indie Hackers", "category": "Social Sentiment", "type": "rss", "tier": 2, "url": "https://www.indiehackers.com/feed.xml"},
+    "twitter_x_api": {"name": "Twitter/X API (limited)", "category": "Social Sentiment", "type": "web_search", "tier": 3, "domain": "developer.x.com"},
+    "threads_public": {"name": "Threads (public web)", "category": "Social Sentiment", "type": "web_search", "tier": 3, "domain": "threads.net"},
+    "tiktok_display_api": {"name": "TikTok Display API", "category": "Social Sentiment", "type": "web_search", "tier": 3, "domain": "developers.tiktok.com/doc/display-api-overview"},
+
+    # --- Reddit Retail (25 sources, added 2026-04-28) ---
+    "reddit_retail": {"name": "r/retail", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/retail.rss"},
+    "reddit_ecommerce": {"name": "r/ecommerce", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/ecommerce.rss"},
+    "reddit_shopify": {"name": "r/shopify", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/shopify.rss"},
+    "reddit_amazon_seller": {"name": "r/AmazonSeller", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/AmazonSeller.rss"},
+    "reddit_fba": {"name": "r/FulfillmentByAmazon", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/FulfillmentByAmazon.rss"},
+    "reddit_dropship": {"name": "r/dropship", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/dropship.rss"},
+    "reddit_woocommerce": {"name": "r/woocommerce", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/woocommerce.rss"},
+    "reddit_etsy_sellers": {"name": "r/EtsySellers", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/EtsySellers.rss"},
+    "reddit_dtc_marketing": {"name": "r/DTCMarketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/DTCMarketing.rss"},
+    "reddit_marketing": {"name": "r/marketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/marketing.rss"},
+    "reddit_digital_marketing": {"name": "r/digital_marketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/digital_marketing.rss"},
+    "reddit_digital_marketing2": {"name": "r/DigitalMarketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/DigitalMarketing.rss"},
+    "reddit_seo": {"name": "r/SEO", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/SEO.rss"},
+    "reddit_bigseo": {"name": "r/bigseo", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/bigseo.rss"},
+    "reddit_techseo": {"name": "r/TechSEO", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/TechSEO.rss"},
+    "reddit_ppc": {"name": "r/PPC", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/PPC.rss"},
+    "reddit_facebook_ads": {"name": "r/FacebookAds", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/FacebookAds.rss"},
+    "reddit_socialmedia": {"name": "r/socialmedia", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/socialmedia.rss"},
+    "reddit_smm": {"name": "r/SocialMediaMarketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/SocialMediaMarketing.rss"},
+    "reddit_content_marketing": {"name": "r/contentmarketing", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/contentmarketing.rss"},
+    "reddit_advertising": {"name": "r/advertising", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/advertising.rss"},
+    "reddit_copywriting": {"name": "r/copywriting", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/copywriting.rss"},
+    "reddit_entrepreneur": {"name": "r/Entrepreneur", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/Entrepreneur.rss"},
+    "reddit_smallbusiness": {"name": "r/smallbusiness", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/smallbusiness.rss"},
+    "reddit_buyitforlife": {"name": "r/BuyItForLife", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/BuyItForLife.rss"},
+
 }
 
 # ================================================================
@@ -2691,13 +2912,51 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
                 selected.append(e)
                 used_paths.add(e.get('wikiPath'))
 
-    # Query-based retrieval (if no direct ids matched enough).
-    # Blended scoring: keyword hits (title=3, summary=1, source=0.5) plus
-    # semantic cosine × 10 so a strong concept match outranks a weak lexical
-    # hit. If embeddings aren't configured or the query embed call fails,
-    # we transparently fall back to keyword-only. Both layers filter on
-    # kind/source/minChars, so neither path bypasses the user's constraints.
+    # Query-based retrieval. Two-tier:
+    #   Tier 1: chunked retrieval against `wiki/.vectors.db` (Phase 2). Embeds
+    #     the query once, searches per-chunk vectors, groups by article. The
+    #     matched chunk text + section is carried back so the LLM sees the
+    #     precise passage, not just the article preamble.
+    #   Tier 2 (fallback): legacy keyword + (sem × 10) blend over the
+    #     `.embeddings.json` sidecar (one vector per article, built from
+    #     title + first 1200 chars only).
+    # Tier 1 activates only if the chunk store file exists; otherwise Tier 2
+    # runs unchanged.
+    matched_chunks_by_path: dict = {}  # wiki_path -> [chunk dicts] for response enrichment
+
     if len(selected) < limit and req.query:
+        chunked_results = _search_chunked_articles(
+            req.query,
+            kind=req.kind,
+            source=req.source,
+            limit=limit - len(selected),
+            chunks_per_article=3,
+        )
+        if chunked_results is not None:
+            # Re-score each chunk-store hit by mapping back to the wiki index entry
+            # (so we keep the response shape stable: id, title, source, date, etc.).
+            wiki_path_to_entry = {e.get("wikiPath"): e for e in entries}
+            for r in chunked_results:
+                wp = r.get("wiki_path")
+                if not wp or wp in used_paths:
+                    continue
+                e = wiki_path_to_entry.get(wp)
+                if not e:
+                    # Stale chunk store entry (file deleted between embed-time
+                    # and now) — skip silently.
+                    continue
+                if req.minChars and req.minChars > 0 and int(e.get('chars') or 0) < req.minChars:
+                    continue
+                selected.append(e)
+                used_paths.add(wp)
+                matched_chunks_by_path[wp] = r.get("chunks", [])
+            logger.info(
+                f"Wiki retrieval (chunked): query={req.query[:60]!r} "
+                f"chunked_hits={len(chunked_results)} selected_so_far={len(selected)}"
+            )
+
+    if len(selected) < limit and req.query and not matched_chunks_by_path:
+        # Tier 2 fallback (chunk store unavailable or zero hits)
         q = req.query.strip().lower()
         query_tokens = [t for t in _re_wiki.split(r'\W+', q) if len(t) >= 3]
         candidates = entries
@@ -2752,7 +3011,7 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             logger.warning(f"Wiki fetch-articles: read fail {e.get('wikiPath')}: {err}")
             continue
         body = _extract_wiki_body(raw, max_chars=max_chars)
-        articles.append({
+        article_dict = {
             'id': e.get('id'),
             'wikiPath': e.get('wikiPath'),
             'url': e.get('url'),
@@ -2763,11 +3022,19 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             'tier': e.get('tier'),
             'chars': len(body),
             'content': body,
-        })
+        }
+        # Phase 2 enrichment: if the chunk store surfaced this article, carry
+        # the matched chunks (precise passages with section context) so the
+        # LLM can cite the right paragraph instead of re-reading the whole body.
+        chunks = matched_chunks_by_path.get(e.get('wikiPath'))
+        if chunks:
+            article_dict['matched_chunks'] = chunks
+        articles.append(article_dict)
     return {
         'total_matched': len(selected),
         'returned': len(articles),
         'articles': articles,
+        'retrieval_mode': 'chunked' if matched_chunks_by_path else ('legacy' if req.query else 'direct'),
     }
 
 
@@ -3078,18 +3345,117 @@ def _cosine(a: list, b: list) -> float:
 
 def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool:
     """Embed one article and persist. Safe to call from write-article —
-    failures log but never raise (so article write still succeeds)."""
+    failures log but never raise (so article write still succeeds).
+
+    Dual-writes: legacy `.embeddings.json` (single vector for backward compat)
+    AND chunked `.vectors.db` (per-chunk vectors for tail-content retrieval).
+    Either tier failing independently is non-fatal."""
     if not url_hash:
         return False
+
+    legacy_ok = False
     try:
         vec = _embed_texts([_build_embed_text(entry, body)], task_type="document")[0]
         by_id = _load_embeddings()
         by_id[url_hash] = vec
         _save_embeddings()
-        return True
+        legacy_ok = True
     except Exception as e:
-        logger.warning(f"Embed failed for {url_hash[:10]}: {e}")
-        return False
+        logger.warning(f"Legacy embed failed for {url_hash[:10]}: {e}")
+
+    # Phase 2: also chunk + embed for the new store. Skipped silently if
+    # wiki_chunker / wiki_vector_store aren't importable (back-compat).
+    try:
+        store = _get_chunk_store()
+        if store is not None and body:
+            from wiki_chunker import chunk_markdown
+            chunks = chunk_markdown(body)
+            if chunks:
+                texts = []
+                for c in chunks:
+                    sec = c.get("section", "")
+                    texts.append(f"{sec}\n\n{c['text']}" if sec else c["text"])
+                vectors = _embed_texts(texts, task_type="document")
+                wiki_path = entry.get("wikiPath") or ""
+                store.upsert_article_chunks(
+                    article_id=wiki_path or url_hash,
+                    wiki_path=wiki_path,
+                    chunks=chunks,
+                    embeddings=vectors,
+                    article_metadata={
+                        "url": entry.get("url", ""),
+                        "title": entry.get("title", ""),
+                        "source": entry.get("source", ""),
+                        "kind": entry.get("kind", ""),
+                        "tier": int(entry.get("tier", 0) or 0),
+                        "date": entry.get("date", ""),
+                        "chars": int(entry.get("chars", 0) or 0),
+                    },
+                )
+    except Exception as e:
+        logger.warning(f"Chunk store embed failed for {url_hash[:10]}: {e}")
+
+    return legacy_ok
+
+
+# ================================================================
+# CHUNKED VECTOR STORE  (Phase 2, 2026-04-28)
+# ================================================================
+# Replaces the single-vector-per-article `.embeddings.json` sidecar with a
+# per-chunk sqlite-vec store at `wiki/.vectors.db`. Articles are split into
+# ~512-token chunks (markdown-aware: h2/h3 → paragraph → token-window) at
+# ingestion; each chunk gets its own embedding. Retrieval returns top chunks
+# grouped by article along with the matched passage.
+#
+# Why: a 60K-token research synthesis used to be represented by a single
+# vector built from the first 1200 chars + title. The other 99% of the
+# document was unsearchable. Chunking restores tail-content addressability.
+#
+# Activation: if `wiki/.vectors.db` exists and `wiki_vector_store` is
+# importable, fetch-articles uses chunk retrieval. Otherwise falls back
+# transparently to the legacy `.embeddings.json` keyword+semantic blend.
+
+CHUNK_STORE_PATH = os.path.join(WIKI_BASE, ".vectors.db")
+_chunk_store_singleton = None
+
+
+def _get_chunk_store():
+    """Lazy initializer. Returns a VectorStore or None if unavailable."""
+    global _chunk_store_singleton
+    if _chunk_store_singleton is not None:
+        return _chunk_store_singleton if _chunk_store_singleton is not False else None
+    try:
+        if not os.path.exists(CHUNK_STORE_PATH):
+            _chunk_store_singleton = False
+            return None
+        from wiki_vector_store import VectorStore
+        _chunk_store_singleton = VectorStore(CHUNK_STORE_PATH, dim=1536)
+        logger.info(f"Chunked retrieval enabled: {CHUNK_STORE_PATH} stats={_chunk_store_singleton.count()}")
+        return _chunk_store_singleton
+    except Exception as e:
+        logger.warning(f"Chunk store unavailable, using legacy retrieval: {e}")
+        _chunk_store_singleton = False
+        return None
+
+
+def _search_chunked_articles(query: str, kind: str | None, source: str | None,
+                              limit: int, chunks_per_article: int = 3) -> list[dict] | None:
+    """Embed the query, search the chunk store, return article-level results
+    enriched with matched chunks. None if chunk store unavailable / fails."""
+    store = _get_chunk_store()
+    if store is None:
+        return None
+    try:
+        qvec = _embed_texts([query.strip()], task_type="query")[0]
+    except Exception as e:
+        logger.warning(f"Query embed failed for chunked retrieval, falling back: {e}")
+        return None
+    try:
+        return store.search_articles(qvec, limit=limit, kind=kind, source=source,
+                                     chunks_per_article=chunks_per_article)
+    except Exception as e:
+        logger.warning(f"Chunk store search failed, falling back: {e}")
+        return None
 
 
 def _semantic_scores_for_query(query: str, candidate_ids: list) -> dict:
@@ -3274,9 +3640,33 @@ async def wiki_embed_status():
         missing = sum(1 for e in entries if e.get("id") and e["id"] not in indexed_ids)
     except Exception as e:
         return JSONResponse({"error": str(e)}, status_code=500)
+    # Phase 2 chunk store status
+    chunk_status = {"available": False, "articles": 0, "chunks": 0, "by_kind": {}}
+    store = _get_chunk_store()
+    if store is not None:
+        try:
+            c = store.count()
+            chunk_status = {
+                "available": True,
+                "articles": c.get("articles", 0),
+                "chunks": c.get("chunks", 0),
+                "by_kind": c.get("by_kind", {}),
+                "db_path": CHUNK_STORE_PATH,
+                "db_size_bytes": os.path.getsize(CHUNK_STORE_PATH) if os.path.exists(CHUNK_STORE_PATH) else 0,
+            }
+        except Exception as e:
+            chunk_status["error"] = str(e)
     return {
         "model": EMBED_MODEL,
         "dim": _EMBEDDINGS_CACHE.get("dim", EMBED_DIM),
+        "legacy": {
+            "indexed": len(by_id),
+            "total_articles": total,
+            "missing": missing,
+            "coverage": round(100.0 * (total - missing) / total, 1) if total > 0 else 0.0,
+        },
+        "chunked": chunk_status,
+        # Backward-compat aliases (some clients read these flat):
         "indexed": len(by_id),
         "total_articles": total,
         "missing": missing,
@@ -3452,6 +3842,49 @@ async def youtube_discover_by_channels(req: YouTubeDiscoverRequest):
         'videos': top,
         'errors': errors,
     }
+
+
+# ================================================================
+# Chunked-embedding rebuild (Phase 2)
+# ================================================================
+
+@app.post("/api/wiki/embed-rebuild")
+async def wiki_embed_rebuild(scopes: str = "articles,transcripts,uploads,sources",
+                              limit: int = 0, dry_run: int = 0):
+    """Re-chunk and re-embed wiki content into `wiki/.vectors.db`.
+
+    Idempotent: skips articles already indexed with matching chunk count.
+    Use `force=1` (TODO) or delete `.vectors.db` to do a full rebuild.
+
+    Query params:
+      scopes: comma-separated subdirectories under wiki/ to scan
+              (default: articles,transcripts,uploads,sources)
+      limit:  cap how many articles to embed this call (0 = unlimited)
+      dry_run: 1 → walk + chunk but don't embed or write
+    """
+    api_key = os.environ.get("OPENAI_API_KEY", "")
+    if not api_key and not dry_run:
+        return JSONResponse({"error": "OPENAI_API_KEY missing"}, status_code=500)
+    try:
+        from wiki_embed_backfill import backfill
+        from pathlib import Path
+        scope_list = [s.strip() for s in scopes.split(",") if s.strip()]
+        result = backfill(
+            wiki_root=Path(WIKI_BASE),
+            db_path=CHUNK_STORE_PATH,
+            api_key=api_key,
+            scopes=scope_list,
+            limit=limit if limit > 0 else None,
+            dry_run=bool(dry_run),
+            verbose=False,
+        )
+        # Re-init the cached singleton to pick up the new file
+        global _chunk_store_singleton
+        _chunk_store_singleton = None
+        return result
+    except Exception as e:
+        logger.exception("embed-rebuild failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
 
 
 # ================================================================
