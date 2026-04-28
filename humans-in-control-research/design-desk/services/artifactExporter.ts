@@ -21,6 +21,20 @@ import type { Artifact } from '../types';
 import type { DesignTokens } from './designMdLoader';
 import { OrgChartCanvas } from '../components/OrgChartCanvas';
 import { NxtDocViewer } from '../components/NxtDocViewer';
+import {
+    walkDocumentToSpecs,
+    SLIDE_W_IN,
+    SLIDE_H_IN,
+    type RenderSpec,
+    type RectSpec,
+    type OvalSpec,
+    type LineSpec,
+    type TextSpec,
+    type PathSpec,
+    type GradientSpec,
+    type ImageSpec,
+    type PathPoint,
+} from './domToPptx';
 
 // ============================================================
 // FREEFORM EXPORT PATH
@@ -73,72 +87,10 @@ async function captureFreeformAtNative(artifactId: string): Promise<string> {
     });
 }
 
-interface TextRunSpec {
-    text: string;
-    rect: { x: number; y: number; w: number; h: number };
-    fontFamily: string;
-    fontSize: number;
-    fontWeight: number;
-    color: string;
-    align: 'left' | 'center' | 'right';
-}
-
-function rgbStringToHex(s: string): string {
-    const m = s.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-    if (!m) return '000000';
-    return [+m[1], +m[2], +m[3]].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
-}
-
-// Slide geometry — kept here so the px→pt conversion can account for the
-// source→slide downscale. The iframe viewport is 1920px wide, which at 96dpi is
-// 20" wide. The PPTX slide is 13.333" wide (16:9 widescreen). Everything in the
-// rasterized background image is downscaled by 13.333/20 = 0.6667× when shown
-// on the slide. The vector text overlay must apply the SAME downscale to its
-// font sizes — otherwise glyphs come out 1.5× too tall, overflow their frames,
-// and wrap/duplicate over the image text. (This was the visible bug.)
-const SLIDE_W_IN = 13.333;
-const SLIDE_H_IN = 7.5;
-const SOURCE_W_IN_AT_96DPI = FREEFORM_NATIVE_W / 96; // 20"
-const SOURCE_TO_SLIDE_SCALE = SLIDE_W_IN / SOURCE_W_IN_AT_96DPI; // ~0.6667
-
-function pxToSlidePt(px: number): number {
-    // px * 0.75 = standard screen-DPI px→pt; then downscale by source→slide ratio.
-    return Math.round(px * 0.75 * SOURCE_TO_SLIDE_SCALE * 100) / 100;
-}
-
-function collectFreeformTextRuns(iframe: HTMLIFrameElement): TextRunSpec[] {
-    const doc = iframe.contentDocument;
-    if (!doc) return [];
-    const out: TextRunSpec[] = [];
-    const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_TEXT);
-    let n: Node | null;
-    while ((n = walker.nextNode())) {
-        const text = (n.nodeValue ?? '').replace(/\s+/g, ' ').trim();
-        if (!text) continue;
-        const parent = n.parentElement;
-        if (!parent) continue;
-        if (['STYLE', 'SCRIPT', 'NOSCRIPT'].includes(parent.tagName)) continue;
-        const range = doc.createRange();
-        range.selectNode(n);
-        const rect = range.getBoundingClientRect();
-        if (rect.width < 8 || rect.height < 6) continue;
-        const cs = (doc.defaultView ?? window).getComputedStyle(parent);
-        if (cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity || '1') < 0.05) continue;
-        const fontSize = parseFloat(cs.fontSize) || 14;
-        const fontWeight = parseInt(cs.fontWeight, 10) || 400;
-        const align = (cs.textAlign === 'center' || cs.textAlign === 'right') ? cs.textAlign as 'center' | 'right' : 'left';
-        out.push({
-            text,
-            rect: { x: rect.x, y: rect.y, w: rect.width, h: rect.height },
-            fontFamily: (cs.fontFamily || 'Archivo').split(',')[0].replace(/['"]/g, '').trim(),
-            fontSize,
-            fontWeight: isNaN(fontWeight) ? 400 : fontWeight,
-            color: cs.color || 'rgb(0,0,0)',
-            align,
-        });
-    }
-    return out;
-}
+// Slide geometry helpers (`SLIDE_W_IN`, `SLIDE_H_IN`, `pxToSlidePt`) and the
+// text-run / DOM-walker logic now live in `domToPptx.ts`. PNG/PDF still need
+// the rasterized capture (no editable shapes there); only the PPTX path
+// switched to native-primitive emission.
 
 async function exportFreeformPng(artifact: Artifact): Promise<void> {
     const dataUrl = await captureFreeformAtNative(artifact.id);
@@ -160,45 +112,391 @@ async function exportFreeformPptx(artifact: Artifact): Promise<void> {
     if (!iframe) throw new Error(`freeform export: iframe not found for artifact ${artifact.id}`);
     await waitForIframeReady(iframe);
 
-    // Collect text runs FIRST, synchronously, while the iframe is in a known
-    // ready state. Then capture the image. Doing the async toPng first allowed
-    // a window where the iframe could reflow (font load, srcDoc change from a
-    // concurrent revision, etc.) so the image and overlay came from different
-    // states — visible as ghosted-double text in the exported deck.
-    const runs = collectFreeformTextRuns(iframe);
-    const dataUrl = await captureFreeformAtNative(artifact.id);
+    // NATIVE-PPTX path (HiC-PPTX-Native). Walk the rendered DOM and emit a
+    // stream of RenderSpecs for every visible element. Each spec maps to a
+    // native PPTX primitive: rect / oval / line / text / customGeom path /
+    // gradient. NO rasterization of the slide as a whole — every box, line,
+    // node, label, and atmospheric overlay is editable in PowerPoint.
+    //
+    // Skip the .grain overlay (it's a tiny SVG noise pattern that's purely
+    // decorative; converting its individual tiles would inflate the PPTX
+    // significantly without visual benefit).
+    // Skip purely decorative atmospheric layers — they exist to add visual
+    // depth in the canvas preview but PPTX exports are intentionally flat
+    // clean minimal (per user direction). Skipping them produces smaller
+    // files and cleaner native-shape output. Iconography (<use> elements)
+    // is preserved via rasterizeElement → small embedded PNG per icon.
+    const specs = await walkDocumentToSpecs(iframe, {
+        skipSelectors: [
+            '.grain',           // SVG noise pattern
+            '.atmos-violet-tr', // top-right radial blob
+            '.atmos-red-bl',    // bottom-left radial blob
+            '.atmos-teal-bl',   // teal blob (NXT exemplar)
+            '.atmos-yellow-tr', // chartreuse blob (NXT exemplar)
+            '[class*="atmos-"]',// safety net for any other atmos-* layer
+        ],
+        // Rasterize SVG <use> icons + any HTML element with unsupported
+        // CSS (filter, backdrop-filter, mix-blend-mode, clip-path,
+        // non-identity transform). Each is captured at native pixel density
+        // and embedded as an Image; the rest of the slide stays editable.
+        rasterizeElement: async (el) => {
+            try {
+                const rect = el.getBoundingClientRect();
+                if (rect.width < 1 || rect.height < 1) return null;
+                const w = Math.max(8, Math.round(rect.width));
+                const h = Math.max(8, Math.round(rect.height));
+                return await toPng(el, {
+                    width: w,
+                    height: h,
+                    canvasWidth: w * 2,
+                    canvasHeight: h * 2,
+                    pixelRatio: 2,
+                    backgroundColor: undefined,
+                    cacheBust: true,
+                    skipFonts: true,
+                });
+            } catch (err) {
+                console.warn('[exportFreeformPptx] rasterizeElement failed', err);
+                return null;
+            }
+        },
+    });
 
-    const { default: PptxGenJS } = await import('pptxgenjs');
-    const pptx = new PptxGenJS();
-    pptx.defineLayout({ name: 'NXT_16x9', width: SLIDE_W_IN, height: SLIDE_H_IN });
-    pptx.layout = 'NXT_16x9';
-    const slide = pptx.addSlide();
+    // POST RenderSpec[] to the proxy, which renders OOXML directly via
+    // python-pptx + lxml and embeds EOT-wrapped brand fonts (Archivo, Fraunces,
+    // Inter, JetBrains Mono). This bypasses PptxGenJS entirely — every OOXML
+    // bug we fought (empty <a:ln></a:ln>, charSpacing units, malformed
+    // custGeom, theme drop shadows, font substitution to Arial) is gone.
+    // The walker stays — only the backend emit changes.
+    const PROXY_BASE = 'http://localhost:5012';
+    const filename = `${(artifact as any).kind ?? 'freeform'}-${artifact.id}.pptx`;
 
-    // Z-ORDER: text frames go FIRST so the image is rendered on top of them.
-    // pptxgenjs writes elements in addition order, so later additions sit
-    // visually higher in PowerPoint. Putting the rasterized image last means
-    // it occludes the vector overlay → user sees a clean rendered slide. The
-    // text frames remain editable: in PowerPoint, click the image, "Send to
-    // Back", and the editable glyphs appear underneath. Without this, the
-    // overlay sat on top of the image and produced the visible double-render.
-    for (const r of runs) {
-        slide.addText(r.text, {
-            x: (r.rect.x / FREEFORM_NATIVE_W) * SLIDE_W_IN,
-            y: (r.rect.y / FREEFORM_NATIVE_H) * SLIDE_H_IN,
-            w: (r.rect.w / FREEFORM_NATIVE_W) * SLIDE_W_IN,
-            h: (r.rect.h / FREEFORM_NATIVE_H) * SLIDE_H_IN,
-            fontFace: r.fontFamily,
-            fontSize: pxToSlidePt(r.fontSize),
-            color: rgbStringToHex(r.color),
-            bold: r.fontWeight >= 700,
-            align: r.align,
-            valign: 'top',
-            margin: 0,
-            fill: { type: 'none' as any },
-        });
+    if ((window as any).__NXT_PPTX_DEBUG__) {
+        console.info('[exportFreeformPptx] full spec dump:', JSON.parse(JSON.stringify(specs)));
     }
-    slide.addImage({ data: dataUrl, x: 0, y: 0, w: SLIDE_W_IN, h: SLIDE_H_IN });
-    await pptx.writeFile({ fileName: `${(artifact as any).kind ?? 'freeform'}-${artifact.id}.pptx` });
+
+    const response = await fetch(`${PROXY_BASE}/api/export-pptx`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ specs, filename }),
+        signal: AbortSignal.timeout(60_000),
+    });
+    if (!response.ok) {
+        const errText = await response.text().catch(() => response.statusText);
+        throw new Error(`PPTX export failed (${response.status}): ${errText}`);
+    }
+
+    const renderCounts = response.headers.get('X-Render-Counts');
+    console.info(
+        `[exportFreeformPptx] specs walked=${specs.length} | proxy rendered=${renderCounts} | artifact=${artifact.id}`,
+    );
+
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// ============================================================================
+// RenderSpec → PPTX primitive emitters
+// ============================================================================
+
+function alphaToTransparency(alpha: number | undefined): number {
+    // PPTX transparency: 0 = fully opaque, 100 = fully transparent.
+    // Our alpha: 0..1. transparency = (1 - alpha) * 100.
+    if (alpha === undefined || alpha >= 0.99) return 0;
+    if (alpha <= 0.01) return 100;
+    return Math.round((1 - alpha) * 100);
+}
+
+/**
+ * Per-spec-type emit toggles. Used to isolate which spec type produces
+ * invalid OOXML when PowerPoint shows the "found a problem with content"
+ * repair dialog. Toggle individual flags via `window.__NXT_EMIT_TOGGLES__`
+ * in the browser console BEFORE clicking export, e.g.:
+ *   window.__NXT_EMIT_TOGGLES__ = { rect: false, oval: false, line: false, path: false, text: true };
+ * Defaults: everything on. Gradients/images stay off (per user direction +
+ * empty data URL).
+ */
+function emitSpec(pptx: any, slide: any, spec: RenderSpec): void {
+    const toggles = (window as any).__NXT_EMIT_TOGGLES__ ?? {};
+    switch (spec.type) {
+        case 'rect':     if (toggles.rect !== false) emitRect(pptx, slide, spec); return;
+        case 'oval':     if (toggles.oval !== false) emitOval(pptx, slide, spec); return;
+        case 'line':     if (toggles.line !== false) emitLine(pptx, slide, spec); return;
+        case 'text':     if (toggles.text !== false) emitText(slide, spec); return;
+        case 'path':     if (toggles.path !== false) emitPath(pptx, slide, spec); return;
+        case 'gradient': /* always off — per user direction */ return;
+        case 'image':    if (toggles.image !== false) emitImage(slide, spec); return;
+    }
+}
+
+// Slide bounds — anything outside these dimensions is clipped or skipped.
+const SLIDE_MAX_X = SLIDE_W_IN;
+const SLIDE_MAX_Y = SLIDE_H_IN;
+
+/** Validate a hex color string. PptxGenJS expects exactly 6 hex chars, no #. */
+function validHex(hex: string | undefined): hex is string {
+    if (!hex) return false;
+    return /^[0-9A-F]{6}$/i.test(hex);
+}
+
+/** Returns true if the spec falls completely outside the slide bounds. */
+function outOfBounds(x: number, y: number, w: number, h: number): boolean {
+    if (x > SLIDE_MAX_X || y > SLIDE_MAX_Y) return true;
+    if (x + w < 0 || y + h < 0) return true;
+    return false;
+}
+
+/**
+ * Build a fill object. Mirrors the LEGACY pattern from `exportPptx` (which
+ * works) — every shape gets a fill, even if it's `{ type: 'none' }` for
+ * "transparent". Empty/undefined fill objects produce malformed OOXML in
+ * PptxGenJS 3.12.x, triggering PowerPoint's "found a problem with content"
+ * repair dialog.
+ */
+function buildFill(hex: string | undefined, alpha: number | undefined): any {
+    if (!validHex(hex)) return { type: 'none' };
+    const t = alphaToTransparency(alpha);
+    return t > 0 ? { color: hex, transparency: t } : { color: hex };
+}
+
+/**
+ * Build a line object. Always returns a line — `{ width: 0 }` for "no border"
+ * matches the legacy pattern. Omitting `line` entirely produces malformed
+ * OOXML (the legacy `exportPptx` always passes both fill AND line, even
+ * with width=0 for borderless shapes).
+ */
+function buildLine(hex: string | undefined, width: number | undefined, dash?: string): any {
+    if (!validHex(hex) || !width || width <= 0) {
+        return { color: 'FFFFFF', width: 0 };
+    }
+    const out: any = { color: hex, width };
+    if (dash && dash !== 'solid') out.dashType = dash;
+    return out;
+}
+
+function emitRect(pptx: any, slide: any, s: RectSpec): void {
+    if (s.w < 0.01 || s.h < 0.01) return;
+    if (outOfBounds(s.x, s.y, s.w, s.h)) return;
+    if (!validHex(s.fillHex) && !validHex(s.strokeHex)) return; // nothing visible
+
+    const fill = buildFill(s.fillHex, s.fillAlpha);
+    const line = buildLine(s.strokeHex, s.strokeWidth, s.dash);
+    const shapeName = (s.rxIn && s.rxIn > 0.01) ? 'roundRect' : 'rect';
+    const opts: any = {
+        x: s.x, y: s.y, w: s.w, h: s.h,
+        fill,
+        line,
+    };
+    if (s.rxIn && shapeName === 'roundRect') opts.rectRadius = s.rxIn;
+    slide.addShape(shapeName, opts);
+}
+
+function emitOval(pptx: any, slide: any, s: OvalSpec): void {
+    if (s.w < 0.01 || s.h < 0.01) return;
+    if (outOfBounds(s.x, s.y, s.w, s.h)) return;
+    if (!validHex(s.fillHex) && !validHex(s.strokeHex)) return;
+
+    const fill = buildFill(s.fillHex, s.fillAlpha);
+    const line = buildLine(s.strokeHex, s.strokeWidth);
+    slide.addShape('ellipse', {
+        x: s.x, y: s.y, w: s.w, h: s.h,
+        fill,
+        line,
+    });
+}
+
+function emitLine(pptx: any, slide: any, s: LineSpec): void {
+    if (!validHex(s.strokeHex) || !s.strokeWidth || s.strokeWidth <= 0) return;
+    if (Math.abs(s.w) < 0.001 && Math.abs(s.h) < 0.001) return;
+    if (outOfBounds(s.x, s.y, Math.abs(s.w), Math.abs(s.h))) return;
+
+    const lineOpts: any = { color: s.strokeHex, width: s.strokeWidth };
+    if (s.dash && s.dash !== 'solid') lineOpts.dashType = s.dash;
+    if (s.arrowStart) lineOpts.beginArrowType = 'triangle';
+    if (s.arrowEnd) lineOpts.endArrowType = 'triangle';
+
+    slide.addShape('line', {
+        x: s.x, y: s.y, w: s.w, h: s.h,
+        line: lineOpts,
+    });
+}
+
+// Text sanitization moved to domToPptx.ts (sanitizeForXml + buildRun) so it
+// runs ONCE per run during the walk, not per emit. The function below is
+// orphaned dead code left in place to avoid touching control-character
+// literals that confuse the editing machinery; the build's tree-shaker
+// removes it from the final bundle.
+function _unused_sanitizeText(s: string): string {
+    return s
+        .replace(/﻿/g, '')           // BOM
+        .replace(/[​-‏]/g, '')  // zero-width spaces, RTL/LTR marks
+        .replace(/[‪-‮]/g, '')  // bidi formatting
+        .replace(/[ --]/g, '') // control chars
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function emitText(slide: any, s: TextSpec): void {
+    if (!s.runs || s.runs.length === 0) return;
+    if (s.w < 0.01 || s.h < 0.01) return;
+    if (outOfBounds(s.x, s.y, s.w, s.h)) return;
+
+    // Clamp coordinates to slide bounds.
+    const x = Math.max(0, Math.min(s.x, SLIDE_W_IN - 0.05));
+    const y = Math.max(0, Math.min(s.y, SLIDE_H_IN - 0.05));
+    const w = Math.min(s.w, SLIDE_W_IN - x);
+    const h = Math.min(s.h, SLIDE_H_IN - y);
+
+    // Build PptxGenJS multi-run text array. For a frame with 1 run this is
+    // identical to a single-string addText. For inline-formatted text (h1
+    // with em, p with b inserts) each run carries its own style — italic
+    // Fraunces phrases, bold inserts, smaller sub-lines all retain fidelity.
+    const runArray: any[] = [];
+    for (const r of s.runs) {
+        if (!r.text) continue;
+        if (!validHex(r.colorHex)) continue;
+        if (!r.fontSizePt || r.fontSizePt < 1 || r.fontSizePt > 200) continue;
+        const runOpts: any = {
+            fontFace: r.fontFamily || 'Archivo',
+            fontSize: r.fontSizePt,
+            color: r.colorHex,
+            bold: r.fontWeight >= 600,
+        };
+        if (r.italic) runOpts.italic = true;
+        if (r.underline) runOpts.underline = { style: 'sng' };
+        if (r.charSpacing && r.charSpacing > 0 && r.charSpacing < 1000) {
+            runOpts.charSpacing = r.charSpacing;
+        }
+        runArray.push({ text: r.text, options: runOpts });
+    }
+    if (runArray.length === 0) return;
+
+    // CRITICAL: explicit `line` + `fill` together (legacy pattern). Without
+    // an explicit line option PptxGenJS emits empty `<a:ln></a:ln>` —
+    // invalid OOXML that triggers the repair dialog at high frame counts.
+    const frameOpts: any = {
+        x, y, w, h,
+        align: s.align,
+        valign: s.valign,
+        margin: 0,
+        fill: { type: 'none' },
+        line: { color: 'FFFFFF', width: 0 },
+        wrap: false,
+        autoFit: false,
+    };
+    slide.addText(runArray, frameOpts);
+}
+
+/**
+ * Emit a path as a sequence of native PPTX line segments. We deliberately
+ * avoid `custGeom` (PptxGenJS support is incomplete and produces invalid
+ * OOXML in 3.12.x — PowerPoint shows a "found a problem with content"
+ * repair dialog). The line-segment fallback is robust and keeps every
+ * segment editable in PowerPoint. Curves are sampled into a polyline.
+ */
+function emitPath(pptx: any, slide: any, s: PathSpec): void {
+    if (s.w < 0.01 || s.h < 0.01 || s.points.length === 0) return;
+    if (!s.strokeHex || !s.strokeWidth || s.strokeWidth <= 0) return;
+
+    const lineOpts = { color: s.strokeHex, width: s.strokeWidth };
+    const abs = s.points.map(p => normalizedPointToAbs(p, s));
+
+    // Per-curve-segment sample count. Lower = fewer micro-line shapes (we
+    // were emitting 8 per Bezier × ~30 Beziers per glyph = 240+ lines per
+    // icon, blowing up the slide to 500+ shapes and triggering PowerPoint's
+    // repair dialog on the malformed content). 4 is enough for visual
+    // smoothness on the brand seal at 1920×1080.
+    const CURVE_SAMPLES = 4;
+
+    let prev: { x: number; y: number } | null = null;
+    let subStart: { x: number; y: number } | null = null;
+    for (const p of abs) {
+        if (p.type === 'move') {
+            prev = { x: p.x, y: p.y };
+            subStart = { x: p.x, y: p.y };
+        } else if (p.type === 'line' && prev) {
+            emitLineSegment(slide, prev, { x: p.x, y: p.y }, lineOpts);
+            prev = { x: p.x, y: p.y };
+        } else if ((p.type === 'curve' || p.type === 'quadratic') && prev) {
+            const samples = sampleCurve(prev, p, CURVE_SAMPLES);
+            for (let i = 0; i < samples.length - 1; i++) {
+                emitLineSegment(slide, samples[i], samples[i + 1], lineOpts);
+            }
+            prev = { x: p.x, y: p.y };
+        } else if (p.type === 'close' && prev && subStart) {
+            emitLineSegment(slide, prev, subStart, lineOpts);
+            prev = { x: subStart.x, y: subStart.y };
+        }
+    }
+}
+
+function emitLineSegment(slide: any, from: { x: number; y: number }, to: { x: number; y: number }, lineOpts: any): void {
+    const dx = to.x - from.x;
+    const dy = to.y - from.y;
+    if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) return; // zero-length segment
+    slide.addShape('line', {
+        x: from.x, y: from.y,
+        w: dx, h: dy, // sign preserves direction; pure horizontal/vertical = 0
+        line: lineOpts,
+    });
+}
+
+type AbsPoint =
+    | { type: 'move'; x: number; y: number }
+    | { type: 'line'; x: number; y: number }
+    | { type: 'curve'; x: number; y: number; cx1: number; cy1: number; cx2: number; cy2: number }
+    | { type: 'quadratic'; x: number; y: number; cx: number; cy: number }
+    | { type: 'close' };
+
+function normalizedPointToAbs(p: PathPoint, s: PathSpec): AbsPoint {
+    const ax = (n: number) => s.x + n * s.w;
+    const ay = (n: number) => s.y + n * s.h;
+    if (p.type === 'close') return { type: 'close' };
+    if (p.type === 'move') return { type: 'move', x: ax(p.x), y: ay(p.y) };
+    if (p.type === 'line') return { type: 'line', x: ax(p.x), y: ay(p.y) };
+    if (p.type === 'curve') return { type: 'curve', x: ax(p.x), y: ay(p.y), cx1: ax(p.cx1), cy1: ay(p.cy1), cx2: ax(p.cx2), cy2: ay(p.cy2) };
+    return { type: 'quadratic', x: ax(p.x), y: ay(p.y), cx: ax(p.cx), cy: ay(p.cy) };
+}
+
+function sampleCurve(start: { x: number; y: number }, end: AbsPoint, samples: number): Array<{ x: number; y: number }> {
+    const out: Array<{ x: number; y: number }> = [{ x: start.x, y: start.y }];
+    if (end.type === 'curve') {
+        for (let i = 1; i <= samples; i++) {
+            const t = i / samples;
+            const omt = 1 - t;
+            const x = omt * omt * omt * start.x + 3 * omt * omt * t * end.cx1 + 3 * omt * t * t * end.cx2 + t * t * t * end.x;
+            const y = omt * omt * omt * start.y + 3 * omt * omt * t * end.cy1 + 3 * omt * t * t * end.cy2 + t * t * t * end.y;
+            out.push({ x, y });
+        }
+    } else if (end.type === 'quadratic') {
+        for (let i = 1; i <= samples; i++) {
+            const t = i / samples;
+            const omt = 1 - t;
+            const x = omt * omt * start.x + 2 * omt * t * end.cx + t * t * end.x;
+            const y = omt * omt * start.y + 2 * omt * t * end.cy + t * t * end.y;
+            out.push({ x, y });
+        }
+    }
+    return out;
+}
+
+function emitGradient(pptx: any, slide: any, s: GradientSpec): void {
+    // Per user direction: NO gradients. Flat clean minimal aesthetic.
+    // GradientSpec is no longer emitted by the walker but the dispatcher
+    // handler stays for completeness; this is a no-op.
+    void pptx; void slide; void s;
+}
+
+function emitImage(slide: any, s: ImageSpec): void {
+    if (!s.dataUrl) return; // Rasterization failed — silently drop
+    slide.addImage({ data: s.dataUrl, x: s.x, y: s.y, w: s.w, h: s.h });
 }
 
 const EXPORT_W = 1920;
@@ -417,6 +715,7 @@ async function composeFullSlideImage(artifact: Artifact, tokens: DesignTokens): 
 }
 
 export async function exportPng(artifact: Artifact, tokens: DesignTokens): Promise<void> {
+    if ((artifact as any).type === 'slide') return exportSlideSpecPng(artifact as any);
     if ((artifact as any).type === 'freeform') return exportFreeformPng(artifact);
     const dataUrl = await composeFullSlideImage(artifact, tokens);
     const a = document.createElement('a');
@@ -426,6 +725,7 @@ export async function exportPng(artifact: Artifact, tokens: DesignTokens): Promi
 }
 
 export async function exportPdf(artifact: Artifact, tokens: DesignTokens): Promise<void> {
+    if ((artifact as any).type === 'slide') return exportSlideSpecPdf(artifact as any);
     if ((artifact as any).type === 'freeform') return exportFreeformPdf(artifact);
     const dataUrl = await composeFullSlideImage(artifact, tokens);
     const pdfW = 13.333;
@@ -435,7 +735,62 @@ export async function exportPdf(artifact: Artifact, tokens: DesignTokens): Promi
     pdf.save(`${artifact.type}-${artifact.id}.pdf`);
 }
 
+/**
+ * SlideSpec → native PPTX. Schema-valid by construction. NO DOM walking.
+ * Reads the typed spec the model produced and emits one PPTX primitive per
+ * spec object — text frames stay multi-run, shapes stay native, lines stay
+ * directional with arrowheads.
+ */
+async function exportSlideSpecPptx(artifact: any): Promise<void> {
+    const { exportSlideSpecToPptx } = await import('./slidePptxEmitter');
+    const fileName = `${artifact.kind ?? 'slide'}-${artifact.id}.pptx`;
+    await exportSlideSpecToPptx(artifact.spec, fileName);
+}
+
+async function exportSlideSpecPng(artifact: any): Promise<void> {
+    // For PNG/PDF we still rasterize the canvas preview (DOM-based) since
+    // visual fidelity to the brand chrome (atmospherics, grain, ::before
+    // rules) is what the user sees. PPTX path bypasses the DOM entirely.
+    const container = document.querySelector(`[data-slide-viewer][data-artifact-id="${CSS.escape(artifact.id)}"]`);
+    if (!container) throw new Error('SlideSpec viewer not mounted; cannot rasterize.');
+    const target = container.querySelector('div > div > div') as HTMLElement | null;
+    if (!target) throw new Error('SlideSpec inner canvas not found.');
+    const dataUrl = await toPng(target, {
+        width: 1920, height: 1080,
+        canvasWidth: 3840, canvasHeight: 2160,
+        pixelRatio: 2,
+        backgroundColor: '#FFFFFF',
+        cacheBust: true,
+        skipFonts: true,
+        style: { transform: 'none' },
+    });
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = `${artifact.kind ?? 'slide'}-${artifact.id}.png`;
+    a.click();
+}
+
+async function exportSlideSpecPdf(artifact: any): Promise<void> {
+    const container = document.querySelector(`[data-slide-viewer][data-artifact-id="${CSS.escape(artifact.id)}"]`);
+    if (!container) throw new Error('SlideSpec viewer not mounted; cannot rasterize.');
+    const target = container.querySelector('div > div > div') as HTMLElement | null;
+    if (!target) throw new Error('SlideSpec inner canvas not found.');
+    const dataUrl = await toPng(target, {
+        width: 1920, height: 1080,
+        canvasWidth: 3840, canvasHeight: 2160,
+        pixelRatio: 2,
+        backgroundColor: '#FFFFFF',
+        cacheBust: true,
+        skipFonts: true,
+        style: { transform: 'none' },
+    });
+    const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [13.333, 7.5] });
+    pdf.addImage(dataUrl, 'PNG', 0, 0, 13.333, 7.5);
+    pdf.save(`${artifact.kind ?? 'slide'}-${artifact.id}.pdf`);
+}
+
 export async function exportPptx(artifact: Artifact, tokens: DesignTokens): Promise<void> {
+    if ((artifact as any).type === 'slide') return exportSlideSpecPptx(artifact);
     if ((artifact as any).type === 'freeform') return exportFreeformPptx(artifact);
     const { default: PptxGenJS } = await import('pptxgenjs');
     const pptx = new PptxGenJS();
