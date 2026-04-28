@@ -3454,6 +3454,58 @@ async def youtube_discover_by_channels(req: YouTubeDiscoverRequest):
     }
 
 
+# ================================================================
+# PPTX export — RenderSpec[] → native editable PowerPoint
+# ================================================================
+
+@app.post("/api/export-pptx")
+async def export_pptx(payload: dict):
+    """Convert a list of RenderSpec objects into a native editable .pptx.
+
+    Request body: {
+      "specs": [ ...RenderSpec[] from design-desk/services/domToPptx.ts walkDocumentToSpecs() ... ],
+      "filename": "freeform-org-NU.pptx"  (optional)
+    }
+
+    Response: binary .pptx as application/vnd.openxmlformats-officedocument.presentationml.presentation
+    """
+    import tempfile
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+    from pptx_export import render_specs_to_pptx
+
+    specs = payload.get("specs") or []
+    if not isinstance(specs, list):
+        raise HTTPException(status_code=400, detail="payload.specs must be a list")
+    if len(specs) == 0:
+        raise HTTPException(status_code=400, detail="payload.specs is empty — nothing to render")
+
+    filename = payload.get("filename") or "freeform-export.pptx"
+    if not filename.endswith(".pptx"):
+        filename = filename + ".pptx"
+
+    out_dir = tempfile.mkdtemp(prefix="hic-pptx-")
+    out_path = os.path.join(out_dir, filename)
+
+    try:
+        result = render_specs_to_pptx(specs, out_path)
+    except Exception as e:
+        logger.exception("PPTX render failed")
+        raise HTTPException(status_code=500, detail=f"PPTX render failed: {type(e).__name__}: {e}")
+
+    logger.info(
+        "exported pptx: %s | rendered=%s | skipped=%s | total=%d | size=%d",
+        out_path, result["rendered"], result["skipped"], result["total_specs"], result["file_size"],
+    )
+
+    return FileResponse(
+        out_path,
+        media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        filename=filename,
+        headers={"X-Render-Counts": json.dumps(result["rendered"])},
+    )
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))

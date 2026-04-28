@@ -6,3 +6,7 @@ PyPDF2==3.0.1
 # S5 YouTube transcription stack — same version ranges as sibling video-analyzer service
 yt-dlp>=2025.5.22
 openai>=1.14.0
+# PPTX export pipeline (RenderSpec → native editable PowerPoint with embedded fonts)
+python-pptx==1.0.2
+fonttools==4.62.1
+lxml>=5.0.0
