@@ -1081,6 +1081,17 @@ const App = () => {
     const [enableAIResearch, setEnableAIResearch] = useState(false);
     const [enablePhilanthropy, setEnablePhilanthropy] = useState(false);
     const [enableCxMesh, setEnableCxMesh] = useState(false);
+    // 2026-04-28: Retail / Digital Marketing / Social Marketing source families (200 sources, 10 categories)
+    const [enableRetailNews, setEnableRetailNews] = useState(false);
+    const [enableEcommerce, setEnableEcommerce] = useState(false);
+    const [enableDigitalMarketing, setEnableDigitalMarketing] = useState(false);
+    const [enableSocialMarketing, setEnableSocialMarketing] = useState(false);
+    const [enableConsumerInsights, setEnableConsumerInsights] = useState(false);
+    const [enableRetailTech, setEnableRetailTech] = useState(false);
+    const [enableRetailEconData, setEnableRetailEconData] = useState(false);
+    const [enableSearchTrends, setEnableSearchTrends] = useState(false);
+    const [enableSocialSentiment, setEnableSocialSentiment] = useState(false);
+    const [enableRedditRetail, setEnableRedditRetail] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
     const [webUrls, setWebUrls] = useState('');
@@ -1159,7 +1170,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -2128,6 +2139,76 @@ const App = () => {
                     'youtube', 'youtube_ai',
                     'yt_two_minute_papers', 'yt_yannic_kilcher', 'yt_lex_fridman',
                     'yt_ai_explained', 'yt_sentdex'
+                );
+                // 2026-04-28: Retail / Digital Marketing / Social Marketing source families (10 categories, 200 sources)
+                if (enableRetailNews) sourceIds.push(
+                    'retail_dive', 'retail_dive_marketing', 'retail_dive_tech', 'retail_wire',
+                    'retail_touchpoints', 'chain_store_age', 'ris_news', 'total_retail', 'retail_week_uk',
+                    'the_robin_report', 'retail_cx', 'retail_insider', 'retail_minded', 'retail_doctor',
+                    'nrf_blog', 'nrf_smart_brief', 'modern_retail', 'glossy', 'digiday', 'vogue_business',
+                    'business_of_fashion', 'fashion_united', 'wwd', 'sourcing_journal', 'footwear_news',
+                    'supermarket_news', 'progressive_grocer', 'grocery_dive', 'csp_daily_news',
+                    'convenience_store_news', 'drug_store_news', 'home_furnishings_news', 'dc_velocity',
+                    'logistics_management', 'license_global'
+                );
+                if (enableEcommerce) sourceIds.push(
+                    'shopify_blog', 'bigcommerce_blog', 'practical_ecommerce', 'ecommerce_bytes',
+                    'digital_commerce_360', 'emarketer', 'marketplace_pulse', 'techcrunch_commerce',
+                    'klaviyo_blog', 'recharge_blog', 'yotpo_blog', 'common_thread_co', 'two_pm', 'lean_luxe',
+                    'future_commerce', 'pipe_candy', 'forrester_retail', 'better_lemonade_stand',
+                    'andrew_faris', 'internet_retailing_uk'
+                );
+                if (enableDigitalMarketing) sourceIds.push(
+                    'hubspot_marketing', 'martech_org', 'marketing_profs', 'marketing_week',
+                    'marketing_brew', 'marketing_dive', 'adweek', 'ad_age', 'campaign_live', 'the_drum',
+                    'clickz', 'search_engine_land', 'search_engine_journal', 'search_engine_watch',
+                    'moz_blog', 'ahrefs_blog', 'semrush_blog', 'neil_patel', 'backlinko', 'copyblogger',
+                    'content_marketing_inst', 'convince_convert', 'seths_blog', 'wordstream',
+                    'marketing_ai_inst'
+                );
+                if (enableSocialMarketing) sourceIds.push(
+                    'social_media_today', 'social_media_examiner', 'hootsuite_blog', 'buffer_resources',
+                    'sprout_social', 'later_blog', 'agorapulse_blog', 'socialpilot_blog', 'jeff_bullas',
+                    'mari_smith', 'brian_solis', 'meta_business_news', 'tiktok_newsroom',
+                    'tiktok_business_blog', 'linkedin_marketing', 'youtube_creators', 'pinterest_newsroom',
+                    'snap_newsroom', 'influencer_marketing_hub', 'tubefilter', 'passionfruit_creators',
+                    'information_creator', 'mediapost', 'nyu_creator_economy', 'digiday_social'
+                );
+                if (enableConsumerInsights) sourceIds.push(
+                    'pew_internet_tech', 'pew_consumer', 'mckinsey_retail', 'mckinsey_marketing',
+                    'bcg_retail', 'bain_retail', 'deloitte_consumer', 'deloitte_digital', 'pwc_consumer',
+                    'accenture_retail', 'gartner_marketing', 'gartner_retail', 'statista_topics',
+                    'think_with_google', 'google_trends', 'pew_social_media', 'ypulse', 'mintel_insights',
+                    'kantar_insights', 'nielsen_iq'
+                );
+                if (enableRetailTech) sourceIds.push(
+                    'retail_tech_review', 'retail_tech_innovation', 'retail_tech_insights',
+                    'retailnext_blog', 'square_retail_blog', 'lightspeed_blog', 'ncr_voyix',
+                    'salesforce_commerce', 'adobe_xc_blog', 'microsoft_retail_blog', 'google_cloud_retail',
+                    'aws_retail_blog', 'ibm_retail_blog', 'oracle_retail_blog', 'sap_retail'
+                );
+                if (enableRetailEconData) sourceIds.push(
+                    'census_marts', 'census_economic', 'census_qsr', 'bea_retail', 'bls_retail',
+                    'fred_retail', 'data_gov_retail', 'api_data_gov', 'commerce_gov_api', 'usda_ers',
+                    'uk_ons_retail', 'eurostat_retail', 'oecd_retail', 'worldbank_consumption', 'imf_retail'
+                );
+                if (enableSearchTrends) sourceIds.push(
+                    'pytrends', 'wiki_pageviews', 'duckduckgo_ia', 'newsapi_org', 'gdelt_global',
+                    'guardian_open', 'nyt_article_search', 'youtube_data_api', 'bing_web_search',
+                    'common_crawl'
+                );
+                if (enableSocialSentiment) sourceIds.push(
+                    'reddit_json_api', 'pushshift', 'hacker_news_api', 'mastodon_public', 'bluesky_at_proto',
+                    'product_hunt', 'indie_hackers', 'twitter_x_api', 'threads_public', 'tiktok_display_api'
+                );
+                if (enableRedditRetail) sourceIds.push(
+                    'reddit_retail', 'reddit_ecommerce', 'reddit_shopify', 'reddit_amazon_seller',
+                    'reddit_fba', 'reddit_dropship', 'reddit_woocommerce', 'reddit_etsy_sellers',
+                    'reddit_dtc_marketing', 'reddit_marketing', 'reddit_digital_marketing',
+                    'reddit_digital_marketing2', 'reddit_seo', 'reddit_bigseo', 'reddit_techseo',
+                    'reddit_ppc', 'reddit_facebook_ads', 'reddit_socialmedia', 'reddit_smm',
+                    'reddit_content_marketing', 'reddit_advertising', 'reddit_copywriting',
+                    'reddit_entrepreneur', 'reddit_smallbusiness', 'reddit_buyitforlife'
                 );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
@@ -3565,6 +3646,17 @@ ${synthesisParts.join('\n')}
                                                  { label: 'AI News & Labs', sublabel: '20 sources: MIT, IEEE, OpenAI, DeepMind...', state: enableAINews, setter: setEnableAINews, icon: 'fa-robot' },
                                                  { label: 'AI Research & Code', sublabel: 'arXiv, HuggingFace, GitHub, Policy...', state: enableAIResearch, setter: setEnableAIResearch, icon: 'fa-brain' },
                                                  { label: 'Philanthropy', sublabel: '19 sources: 990 data + 13 RSS (Chronicle, CASE, RNL, Gravyty...)', state: enablePhilanthropy, setter: setEnablePhilanthropy, icon: 'fa-hand-holding-heart' },
+                                                 // 2026-04-28: Retail / Digital Marketing / Social Marketing source families (200 sources)
+                                                 { label: 'Retail News', sublabel: '35 sources: Retail Dive, RIS, Modern Retail, WWD, Sourcing Journal...', state: enableRetailNews, setter: setEnableRetailNews, icon: 'fa-store' },
+                                                 { label: 'eCommerce & D2C', sublabel: '20 sources: Shopify, BigCommerce, Future Commerce, Klaviyo, 2PM...', state: enableEcommerce, setter: setEnableEcommerce, icon: 'fa-shopping-cart' },
+                                                 { label: 'Digital Marketing', sublabel: '25 sources: HubSpot, MarTech, Adweek, Search Engine Land, Moz, Ahrefs...', state: enableDigitalMarketing, setter: setEnableDigitalMarketing, icon: 'fa-bullseye' },
+                                                 { label: 'Social Media Marketing', sublabel: '25 sources: Social Media Today, Hootsuite, Sprout Social, Buffer, Influencer Hub...', state: enableSocialMarketing, setter: setEnableSocialMarketing, icon: 'fa-share-nodes' },
+                                                 { label: 'Consumer Insights', sublabel: '20 sources: Pew, McKinsey, BCG, Bain, Deloitte, Gartner, Statista, Think w/ Google...', state: enableConsumerInsights, setter: setEnableConsumerInsights, icon: 'fa-chart-pie' },
+                                                 { label: 'Retail Tech', sublabel: '15 sources: RetailNext, Square, Lightspeed, Salesforce Commerce, Adobe, AWS Retail...', state: enableRetailTech, setter: setEnableRetailTech, icon: 'fa-microchip' },
+                                                 { label: 'Retail Economic Data', sublabel: '15 gov sources: Census MARTS, BEA, BLS CPI, FRED retail, USDA, ONS, Eurostat, OECD...', state: enableRetailEconData, setter: setEnableRetailEconData, icon: 'fa-chart-line' },
+                                                 { label: 'Search & Trends APIs', sublabel: '10 APIs: GDELT, NewsAPI, Guardian, NYT, Wikipedia pageviews, DuckDuckGo, Common Crawl...', state: enableSearchTrends, setter: setEnableSearchTrends, icon: 'fa-magnifying-glass' },
+                                                 { label: 'Social & Sentiment', sublabel: '10 APIs: Reddit JSON, Pushshift, Hacker News, Mastodon, Bluesky, Product Hunt, Threads...', state: enableSocialSentiment, setter: setEnableSocialSentiment, icon: 'fa-comment-dots' },
+                                                 { label: 'Reddit: Retail/Marketing', sublabel: '25 subreddits: r/retail, r/ecommerce, r/SEO, r/PPC, r/DTCMarketing, r/Entrepreneur...', state: enableRedditRetail, setter: setEnableRedditRetail, icon: 'fa-reddit' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>
