@@ -79,11 +79,20 @@ Return STRICT JSON only:
         //   3. tryRepairJson before JSON.parse covers the rare case where
         //      the proxy passes an older Gemini response shape or strips
         //      something unexpected in transit.
+        // 2026-04-29 — Upgraded gemini-2.5-flash -> gemini-3.1-pro-preview.
+        // Flash gave generic entity extraction ("Higher education", "Donor
+        // advancement"). Pro produces specific, citation-grade entities
+        // ("CASE Conference 2026", "EverTrue alumni engagement", "Slate CRM
+        // higher-ed implementation") that meaningfully improve YouTube
+        // channel selection downstream. Cost is negligible (~150 tokens
+        // output × <30 runs/day) and latency stays in the 2-4s range
+        // since this is a single-shot structured-JSON call, not analytical
+        // reasoning.
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                model: 'gemini-2.5-flash',
+                model: 'gemini-3.1-pro-preview',
                 contents: prompt,
                 config: {
                     temperature: 0.3,
