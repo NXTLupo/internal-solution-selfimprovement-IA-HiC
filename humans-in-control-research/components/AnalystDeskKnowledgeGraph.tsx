@@ -1488,38 +1488,7 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
     const stageLabel = activity?.activeStage ? (STAGE_LABEL[activity.activeStage] || activity.activeStage) : '';
     const isRunning = !!activity?.isRunning || (activity?.activeStage && activity.activeStage !== 'IDLE');
 
-    const allThemes = useMemo(() => graph.nodes.filter(n => n.type === 'theme'), [graph]);
-
-    // 2026-04-29 — Source-stratified bucket filter. When themes carry a
-    // `bucket` tag (from generateThemesStratified), the user can filter the
-    // theme grid by source perspective — see ALL social themes, ALL upload
-    // themes, etc. — instead of getting one merged top-N that anchors on the
-    // loudest source bucket.
-    const bucketCounts = useMemo<Record<string, number>>(() => {
-        const out: Record<string, number> = {};
-        for (const t of allThemes) {
-            const b = (t.metadata as any)?.bucket;
-            if (b) out[b] = (out[b] || 0) + 1;
-        }
-        return out;
-    }, [allThemes]);
-    const bucketLabels = useMemo<Record<string, string>>(() => {
-        const out: Record<string, string> = {};
-        for (const t of allThemes) {
-            const b = (t.metadata as any)?.bucket;
-            const lbl = (t.metadata as any)?.bucketLabel;
-            if (b && lbl && !out[b]) out[b] = lbl;
-        }
-        return out;
-    }, [allThemes]);
-    const hasBuckets = Object.keys(bucketCounts).length >= 2;
-    const [bucketFilter, setBucketFilter] = useState<string | null>(null);
-
-    const themes = useMemo(() => {
-        if (!bucketFilter) return allThemes;
-        return allThemes.filter(t => (t.metadata as any)?.bucket === bucketFilter);
-    }, [allThemes, bucketFilter]);
-
+    const themes = useMemo(() => graph.nodes.filter(n => n.type === 'theme'), [graph]);
     const personas = useMemo(() => graph.nodes.filter(n => n.type === 'persona'), [graph]);
     const sources = useMemo(() => graph.nodes.filter(n => n.type === 'source'), [graph]);
     const evidence = useMemo(() => graph.nodes.filter(n => n.type === 'evidence'), [graph]);
@@ -1717,55 +1686,6 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 reads very differently from "188 headlines". Only renders when
                 there's actual evidence in the graph. */}
             {evidence.length > 0 && <CorpusCompositionBar evidence={evidence} />}
-
-            {/* SOURCE-PERSPECTIVE TAB STRIP (2026-04-29) — only renders when
-                themes carry bucket tags (post-stratified-extraction). Lets the
-                analyst pivot the theme grid to a single source perspective:
-                client uploads, industry news, social/practitioner, YouTube,
-                retail/marketing, government, academic, wiki archive. Defeats
-                the unified-pass anchoring problem where all themes ended up
-                being internal/operational. */}
-            {hasBuckets && (
-                <div style={{
-                    display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 8, marginBottom: 4,
-                    padding: '6px 8px', background: t.bg, borderTop: `1px solid ${t.border}`,
-                    borderBottom: `1px solid ${t.border}`, alignItems: 'center',
-                }}>
-                    <span style={{
-                        fontSize: 9, fontWeight: 700, color: t.muted, letterSpacing: 1.5,
-                        textTransform: 'uppercase', marginRight: 8,
-                    }}>Source Perspective</span>
-                    <button
-                        onClick={() => setBucketFilter(null)}
-                        style={{
-                            padding: '4px 10px', fontSize: 11, fontWeight: 600,
-                            background: !bucketFilter ? t.lime : 'transparent',
-                            color: !bucketFilter ? t.bg : t.text,
-                            border: `1px solid ${!bucketFilter ? t.lime : t.border}`,
-                            borderRadius: 2, cursor: 'pointer', letterSpacing: 0.3,
-                        }}
-                    >ALL {allThemes.length}</button>
-                    {Object.entries(bucketCounts)
-                        .sort((a, b) => b[1] - a[1])
-                        .map(([bucket, count]) => {
-                            const active = bucketFilter === bucket;
-                            const label = bucketLabels[bucket] || bucket;
-                            return (
-                                <button
-                                    key={bucket}
-                                    onClick={() => setBucketFilter(active ? null : bucket)}
-                                    style={{
-                                        padding: '4px 10px', fontSize: 11, fontWeight: 600,
-                                        background: active ? t.tealMid : 'transparent',
-                                        color: active ? '#fff' : t.text,
-                                        border: `1px solid ${active ? t.tealMid : t.border}`,
-                                        borderRadius: 2, cursor: 'pointer', letterSpacing: 0.3,
-                                    }}
-                                >{label} {count}</button>
-                            );
-                        })}
-                </div>
-            )}
 
             {/* Row 3 — treemap + detail panel */}
             <div style={{

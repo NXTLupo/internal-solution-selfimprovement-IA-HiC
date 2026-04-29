@@ -401,10 +401,6 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
                 temporalArc: (theme as any).temporalArc,
                 goalAlignment: (theme as any).goalAlignment,
                 implications: (theme as any).implications,
-                // 2026-04-29 Source-stratified extraction — pass through the
-                // bucket tag so the Analyst Desk can render tab-strip filtering.
-                bucket: (theme as any).bucket,
-                bucketLabel: (theme as any).bucketLabel,
             },
         });
     }
