@@ -771,7 +771,16 @@ const DetailPanel: React.FC<{
     }
 
     const accent = nodeAccent(node, t);
-    const linkedEvidence = themeEvidence(node, graph).slice(0, 24);
+    // 2026-04-28: previously capped at .slice(0, 24) which silently hid every
+    // evidence beyond #24 even when a theme had 80+ supporting passages —
+    // making themes look thinner than they were and burying cross-source
+    // corroboration. Now the panel shows ALL evidence with a paginated
+    // expand/collapse: first EVIDENCE_INITIAL_PAGE on load, full list when
+    // the user clicks "Show all". No data is hidden by default.
+    const allEvidence = themeEvidence(node, graph);
+    const [evidenceExpanded, setEvidenceExpanded] = useState(false);
+    const EVIDENCE_INITIAL_PAGE = 12;
+    const linkedEvidence = evidenceExpanded ? allEvidence : allEvidence.slice(0, EVIDENCE_INITIAL_PAGE);
     const linkedSources = themeSources(node, graph);
     const linkedPersonas = neighborsByType(node, graph, ['persona']);
     const linkedRecs = neighborsByType(node, graph, ['recommendation']);
@@ -849,12 +858,181 @@ const DetailPanel: React.FC<{
                 </div>
             )}
 
+            {/* Goal-alignment badge — surfaces how directly this theme answers the
+                research objective (Tier C goalAlignment 0..100). High-alignment
+                themes get a teal badge; tangential themes get a muted one. */}
+            {node.type === 'theme' && typeof node.metadata?.goalAlignment === 'number' && (
+                <div style={{ padding: '10px 22px 0' }}>
+                    <span style={{
+                        display: 'inline-block',
+                        padding: '3px 8px',
+                        fontSize: 9,
+                        letterSpacing: 1.6,
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        background: 'transparent',
+                        border: `1px solid ${node.metadata.goalAlignment >= 70 ? t.lime : node.metadata.goalAlignment >= 40 ? t.tealMid : t.muted}`,
+                        color: node.metadata.goalAlignment >= 70 ? t.lime : node.metadata.goalAlignment >= 40 ? t.tealMid : t.muted,
+                    }}>
+                        Goal alignment {Math.round(node.metadata.goalAlignment)}/100
+                    </span>
+                </div>
+            )}
+
             {/* Description */}
             {(node.metadata?.description || node.metadata?.bio || node.metadata?.role) && (
                 <div style={{ padding: '14px 22px', fontSize: 13, lineHeight: 1.65, color: t.muted, borderBottom: `1px solid ${divider}` }}>
                     {node.metadata?.role && <div style={{ color: t.tealMid, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 6 }}>{node.metadata.role}</div>}
                     {shortLabel(node.metadata?.description || node.metadata?.bio, 700)}
                 </div>
+            )}
+
+            {/* ──────────────────────────────────────────────────────────────
+                Tier C multi-faceted theme rendering. Each block reads from
+                node.metadata.* fields populated by the new theme schema in
+                geminiService.ts. Sections only render if their data exists,
+                so non-theme nodes (sources, personas, recs) are unaffected.
+                ────────────────────────────────────────────────────────────── */}
+
+            {/* Sub-themes — distinct mechanisms inside the umbrella theme */}
+            {node.type === 'theme' && Array.isArray(node.metadata?.subThemes) && node.metadata.subThemes.length > 0 && (
+                <DetailSection label={`Sub-themes (${node.metadata.subThemes.length})`}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                        {node.metadata.subThemes.map((sub: any, i: number) => (
+                            <div key={i} style={{
+                                borderLeft: `3px solid ${t.tealMid}`,
+                                paddingLeft: 12,
+                                paddingTop: 4,
+                                paddingBottom: 4,
+                            }}>
+                                <div style={{ fontSize: 13, fontWeight: 700, color: t.text, marginBottom: 4 }}>
+                                    {sub.name}
+                                </div>
+                                {sub.description && (
+                                    <div style={{ fontSize: 12, lineHeight: 1.55, color: t.muted }}>
+                                        {sub.description}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </DetailSection>
+            )}
+
+            {/* Organizing dimensions — analytical axes that explain how the theme varies */}
+            {node.type === 'theme' && Array.isArray(node.metadata?.dimensions) && node.metadata.dimensions.length > 0 && (
+                <DetailSection label="Dimensions">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                        {node.metadata.dimensions.map((dim: any, i: number) => (
+                            <div key={i}>
+                                <div style={{ fontSize: 10, letterSpacing: 1.8, textTransform: 'uppercase', color: t.tealMid, fontWeight: 700, marginBottom: 5 }}>
+                                    {dim.axis}
+                                </div>
+                                {Array.isArray(dim.values) && dim.values.length > 0 && (
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                        {dim.values.map((v: string, j: number) => (
+                                            <span key={j} style={{
+                                                fontSize: 11,
+                                                padding: '3px 8px',
+                                                background: 'transparent',
+                                                border: `1px solid ${t.muted}`,
+                                                color: t.text,
+                                                fontFamily: "'JetBrains Mono', monospace",
+                                            }}>{v}</span>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </DetailSection>
+            )}
+
+            {/* Contradictions — conflicting evidence the corpus contains */}
+            {node.type === 'theme' && Array.isArray(node.metadata?.contradictions) && node.metadata.contradictions.length > 0 && (
+                <DetailSection label={`Contradictions (${node.metadata.contradictions.length})`}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                        {node.metadata.contradictions.map((c: any, i: number) => (
+                            <div key={i} style={{
+                                padding: 12,
+                                background: t.panelAlt,
+                                borderLeft: `3px solid ${t.rust}`,
+                            }}>
+                                <div style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', color: t.rust, fontWeight: 700, marginBottom: 6 }}>
+                                    Conflicting evidence
+                                </div>
+                                <div style={{ fontSize: 12, lineHeight: 1.55, color: t.text, marginBottom: 6 }}>
+                                    <b>Claim:</b> {c.claim}
+                                </div>
+                                <div style={{ fontSize: 12, lineHeight: 1.55, color: t.text, marginBottom: 6 }}>
+                                    <b>Counter:</b> {c.counterClaim}
+                                </div>
+                                {c.resolution && (
+                                    <div style={{ fontSize: 11, lineHeight: 1.55, color: t.muted, fontStyle: 'italic', marginTop: 6 }}>
+                                        Synthesis: {c.resolution}
+                                    </div>
+                                )}
+                                {((Array.isArray(c.sources) && c.sources.length > 0) || (Array.isArray(c.counterSources) && c.counterSources.length > 0)) && (
+                                    <div style={{ marginTop: 8, fontSize: 9, letterSpacing: 1.4, color: t.muted, textTransform: 'uppercase' }}>
+                                        {Array.isArray(c.sources) && c.sources.length > 0 && <>Claim sources: {c.sources.join(' · ')}</>}
+                                        {Array.isArray(c.counterSources) && c.counterSources.length > 0 && (
+                                            <> {Array.isArray(c.sources) && c.sources.length > 0 ? ' | ' : ''}Counter sources: {c.counterSources.join(' · ')}</>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </DetailSection>
+            )}
+
+            {/* Temporal arc — how this theme has evolved over time */}
+            {node.type === 'theme' && node.metadata?.temporalArc && (() => {
+                const arc = node.metadata.temporalArc;
+                const hasContent = arc.pre2024 || arc.in2024_2025 || arc.in2025_2026 || arc.forwardSignal;
+                if (!hasContent) return null;
+                const periods: { key: string; label: string; text: string }[] = [
+                    { key: 'pre2024', label: 'Pre-2024', text: arc.pre2024 },
+                    { key: 'in2024_2025', label: '2024-2025', text: arc.in2024_2025 },
+                    { key: 'in2025_2026', label: '2025-2026', text: arc.in2025_2026 },
+                    { key: 'forwardSignal', label: 'Forward signal', text: arc.forwardSignal },
+                ].filter(p => p.text);
+                return (
+                    <DetailSection label="Temporal arc">
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                            {periods.map(p => (
+                                <div key={p.key} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                                    <div style={{
+                                        flexShrink: 0,
+                                        width: 90,
+                                        fontSize: 9,
+                                        letterSpacing: 1.6,
+                                        textTransform: 'uppercase',
+                                        fontWeight: 700,
+                                        color: t.tealMid,
+                                        paddingTop: 2,
+                                    }}>
+                                        {p.label}
+                                    </div>
+                                    <div style={{ flex: 1, fontSize: 12, lineHeight: 1.55, color: t.text }}>
+                                        {p.text}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </DetailSection>
+                );
+            })()}
+
+            {/* Implications — consultant-grade verbs to act on */}
+            {node.type === 'theme' && Array.isArray(node.metadata?.implications) && node.metadata.implications.length > 0 && (
+                <DetailSection label={`Implications (${node.metadata.implications.length})`}>
+                    <ol style={{ margin: 0, paddingLeft: 20, fontSize: 12, lineHeight: 1.6, color: t.text }}>
+                        {node.metadata.implications.map((imp: string, i: number) => (
+                            <li key={i} style={{ marginBottom: 8 }}>{imp}</li>
+                        ))}
+                    </ol>
+                </DetailSection>
             )}
 
             {/* Persona portraits for this node */}
@@ -871,9 +1049,9 @@ const DetailPanel: React.FC<{
                 </DetailSection>
             )}
 
-            {/* Evidence list */}
+            {/* Evidence list (paginated — see EVIDENCE_INITIAL_PAGE above) */}
             {linkedEvidence.length > 0 && (
-                <DetailSection label={`Evidence (${linkedEvidence.length})`}>
+                <DetailSection label={`Evidence (${evidenceExpanded || allEvidence.length <= EVIDENCE_INITIAL_PAGE ? allEvidence.length : `${linkedEvidence.length} of ${allEvidence.length}`})`}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                         {linkedEvidence.map(ev => {
                             const src = ev.parentSourceId ? graph.nodes.find(n => n.id === ev.parentSourceId) : null;
@@ -976,6 +1154,33 @@ const DetailPanel: React.FC<{
                             );
                         })}
                     </div>
+                    {/* Expand / collapse — surfaces evidence beyond the
+                        EVIDENCE_INITIAL_PAGE without forcing the user to live
+                        in a 24-item ceiling that masks how thoroughly the theme
+                        is supported. */}
+                    {allEvidence.length > EVIDENCE_INITIAL_PAGE && (
+                        <button
+                            type="button"
+                            onClick={() => setEvidenceExpanded(v => !v)}
+                            style={{
+                                marginTop: 12,
+                                padding: '8px 14px',
+                                background: 'transparent',
+                                border: `1px solid ${t.tealMid}`,
+                                color: t.tealMid,
+                                fontSize: 10,
+                                letterSpacing: 1.6,
+                                fontWeight: 700,
+                                fontFamily: 'Archivo, sans-serif',
+                                textTransform: 'uppercase',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            {evidenceExpanded
+                                ? `↑ Show first ${EVIDENCE_INITIAL_PAGE}`
+                                : `↓ Show all ${allEvidence.length} evidence items`}
+                        </button>
+                    )}
                 </DetailSection>
             )}
 

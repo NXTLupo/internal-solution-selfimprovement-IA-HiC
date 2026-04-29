@@ -390,6 +390,17 @@ export function addThemesToGraph(graph: KnowledgeGraph, themes: any[]): Knowledg
                 status: theme.status,
                 linkedEvidence: linkedEvidenceIds.length,
                 linkedSources: [...new Set(linkedSourceIds)].length,
+                // 2026-04-28 Tier C — multi-faceted theme structure passes through
+                // to KG metadata so the analyst desk can render sub-themes,
+                // dimensions, contradictions, temporal arc, goal alignment, and
+                // implications. Optional fields — older themes lacking these
+                // fields render exactly as before (the UI guards each section).
+                subThemes: (theme as any).subThemes,
+                dimensions: (theme as any).dimensions,
+                contradictions: (theme as any).contradictions,
+                temporalArc: (theme as any).temporalArc,
+                goalAlignment: (theme as any).goalAlignment,
+                implications: (theme as any).implications,
             },
         });
     }

@@ -305,6 +305,16 @@ export class GenAISession {
     private systemInstructionCached: string = '';
     private accumulatedContext: Array<{ label: string; payload: string }> = [];
     private corpusContextCached: string = '';
+    // 2026-04-29 — Two-pass theme architecture (consulting-grade).
+    // Pass 1 BREADTH calls Gemini 3.1 Pro outside the chat session (one-shot)
+    // for a fresh, unanchored corpus pass. We cache the original ingestion
+    // file parts so the Pro call can re-feed the same corpus (binaries +
+    // text) into a separate context window. Pass 2 DEPTH then fans out to
+    // Claude Opus 4.7 per-theme — those calls don't need the corpus, only
+    // the breadth-theme payload (name/description/quote/citations).
+    private corpusFileParts: any[] = [];
+    private corpusUploadedFileCount: number = 0;
+    private corpusHasIntelligence: boolean = false;
 
     constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '', wikiKnowledge: string = '') {
         if (!process.env.API_KEY) throw new Error("API Key Missing");
@@ -633,6 +643,14 @@ Output JSON.`;
             required: ["methodology", "summary", "dataTypesIdentified", "keyStakeholders", "documents", "confidenceScore"]
         };
 
+        // Cache corpus parts for the two-pass theme architecture. The
+        // chat session keeps them in its history (Flash, Pass-1 fallback);
+        // the cached parts let us re-feed the same corpus into a one-shot
+        // Gemini 3.1 Pro call (Pass-1 BREADTH) without re-parsing files.
+        this.corpusFileParts = fileParts;
+        this.corpusUploadedFileCount = uploadedFileCount;
+        this.corpusHasIntelligence = hasIntelligenceCorpus;
+
         const result = await this.executeStep<StepResult_Ingestion>(prompt, schema, fileParts, onStream);
         // Ensure arrays exist to prevent runtime errors
         if (!result.dataTypesIdentified) result.dataTypesIdentified = [];
@@ -646,11 +664,140 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('THEMES'); } catch (e) { /* skill unavailable */ }
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
+        // Tier B1 + B2 (2026-04-28) — multi-angle, cross-engagement archive
+        // augmentation BEFORE constructing the theme prompt.
+        //
+        // The chat session's accumulated context only contains THIS engagement's
+        // collected items; the wiki contains every prior engagement's archived
+        // intelligence indexed in the chunked vector store. Goal-blended retrieval
+        // (Phase 2.5) surfaces archive content the LLM would otherwise never see.
+        //
+        // B2 — multi-angle: instead of one goal-only retrieval, decompose the
+        // goal into 3-4 conceptual angles and fetch goal-fit chunks per angle
+        // in parallel. Dedupe by article_id, concatenate into the archive block.
+        // Effect: each angle hits a different semantic neighborhood, so total
+        // archive coverage is ~2-3x what a single retrieval would surface.
+        let archiveBlock = '';
+        try {
+            const { fetchWikiArticles } = await import('./wikiIndexService');
+
+            // Generate 3-4 research angles from the goal. Falls back to
+            // [goal] on any failure — we still get B1's behavior.
+            let angles: string[] = [];
+            try {
+                const angleResp = await this.ai.models.generateContent({
+                    model: 'gemini-2.5-flash',
+                    contents: `Given the research goal below, generate 3-4 DISTINCT conceptual angles
+that together cover the goal's full semantic neighborhood. Each angle should
+be a 4-10 keyword search query that would surface a different facet of the
+research. Different angles must explore DIFFERENT aspects (not paraphrases
+of each other).
+
+GOAL: "${this.goal}"
+
+Return ONLY a JSON array of strings. Example:
+["alumni engagement digital channels 2025 2026",
+ "donor lifecycle CRM technology higher education",
+ "philanthropic giving Gen Z behavioral trends",
+ "advancement operations workflow automation"]
+
+NO commentary, NO markdown, JUST the JSON array.`,
+                    config: { temperature: 0.4 },  // slight diversity for angle variety
+                });
+                let txt = angleResp.text || '[]';
+                if (txt.includes('```json')) txt = txt.split('```json')[1].split('```')[0].trim();
+                else if (txt.includes('```')) txt = txt.split('```')[1].split('```')[0].trim();
+                const parsed = JSON.parse(txt);
+                if (Array.isArray(parsed)) {
+                    angles = parsed.filter(s => typeof s === 'string' && s.trim().length > 0).slice(0, 4);
+                }
+            } catch (e: any) {
+                console.warn('[generateThemes] angle generation failed, falling back to single-angle goal:', e?.message || e);
+            }
+            if (angles.length === 0) angles = [this.goal];
+            console.log(`[generateThemes] multi-angle retrieval: ${angles.length} angles`,
+                angles.map(a => a.slice(0, 60)));
+
+            // Fetch goal-fit chunks per angle in parallel. Each angle is the
+            // primary query; the engagement goal biases ranking via Phase 2.5
+            // blended retrieval (weight 0.40 — angle dominates, goal scaffolds).
+            const PER_ANGLE_LIMIT = angles.length === 1 ? 30 : 14;
+            const perAngleResults = await Promise.all(
+                angles.map(angle => Promise.race([
+                    fetchWikiArticles({
+                        query: angle,
+                        engagementGoal: this.goal,
+                        goalBlendWeight: angles.length === 1 ? 1.0 : 0.40,
+                        limit: PER_ANGLE_LIMIT,
+                        maxCharsPerArticle: 7000,
+                        minChars: 500,
+                    }),
+                    new Promise<any[]>(resolve => setTimeout(() => resolve([]), 8000)),
+                ]).catch(() => [] as any[]))
+            );
+
+            // Dedupe by article_id (or wikiPath). Best score across angles wins.
+            const byId: Record<string, any> = {};
+            for (const arr of perAngleResults) {
+                if (!Array.isArray(arr)) continue;
+                for (const a of arr) {
+                    const key = a.id || a.wikiPath;
+                    if (!key) continue;
+                    if (!byId[key]) byId[key] = a;
+                }
+            }
+            const archived = Object.values(byId);
+
+            if (archived.length > 0) {
+                const blocks: string[] = [];
+                let totalChars = 0;
+                const ARCHIVE_BUDGET = 120_000;  // ~30K tokens
+                for (let i = 0; i < archived.length; i++) {
+                    const a: any = archived[i];
+                    const matched = Array.isArray(a.matched_chunks) && a.matched_chunks.length > 0
+                        ? a.matched_chunks.map((c: any) => c.text).join('\n---\n')
+                        : (a.content || '').slice(0, 7000);
+                    if (!matched.trim()) continue;
+                    const header = `[ARCHIVE_${String(i + 1).padStart(3, '0')}] ${a.title || a.source || 'Untitled'}` +
+                        `${a.source ? ` · Source: ${a.source}` : ''}` +
+                        `${a.date ? ` · ${a.date}` : ''}` +
+                        `${a.url ? `\nURL: ${a.url}` : ''}`;
+                    const block = `${header}\n${matched}\n`;
+                    if (totalChars + block.length > ARCHIVE_BUDGET) break;
+                    blocks.push(block);
+                    totalChars += block.length;
+                }
+                if (blocks.length > 0) {
+                    archiveBlock = `=== CROSS-ENGAGEMENT WIKI ARCHIVE — goal-fit passages from ${angles.length} research angles ===
+The following ${blocks.length} passages were retrieved from prior engagements'
+archived research via ${angles.length}-angle parallel goal-fit retrieval (Phase 2.5
+blended embedding). They span the corpus's full semantic neighborhood for
+this research objective and represent SIGNAL the in-session collection alone
+would not surface.
+
+Treat these chunks as FIRST-CLASS EVIDENCE — they are part of the corpus you
+analyze. They have ARCHIVE_NNN identifiers (cite as sourceFile) distinct from
+the in-session CHUNK_NNN identifiers.
+
+ANGLES THAT INFORMED THIS RETRIEVAL:
+${angles.map((a, i) => `  ${i + 1}. ${a}`).join('\n')}
+
+${blocks.join('\n')}
+=== END WIKI ARCHIVE ===
+
+`;
+                    console.log(`[generateThemes] archive: ${blocks.length} passages, ${(totalChars / 1024).toFixed(1)}KB across ${angles.length} angles`);
+                }
+            }
+        } catch (err: any) {
+            console.warn('[generateThemes] archive augmentation skipped:', err?.message || err);
+        }
+
+        const prompt = `${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
-METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. The lenses are a HEURISTIC for where to look — NOT a quota. SKIP any lens that lacks strong multi-source evidence. It is FAR better to return 4 specific, evidence-rich themes than 12 themes padded with meta-complaints about the corpus itself.
+METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. The lenses are a HEURISTIC for where to look — NOT a quota. EVERY lens that has multi-source evidence MUST yield themes. The corpus you receive is large; expect to find SUBSTANTIAL theme breadth across all six lenses. Aggregating distinct findings into umbrella themes is LAZY — split them apart.
 
 1. POLICY & REGULATORY: Government actions, legislation, compliance requirements, regulatory shifts
 2. TECHNOLOGY & INNOVATION: Tools, platforms, AI adoption, digital transformation, emerging tech
@@ -682,7 +829,7 @@ ACCEPTABLE alternatives when a lens has thin evidence:
   • Report it as an EVIDENCE GAP in a deliberate callout — NOT as a theme
   • Request more data via the retrieval tool before manufacturing a theme
 
-If you cannot find 4+ evidence-rich themes without padding, output fewer themes and add a single "evidenceGap" field at the top level listing the research questions you couldn't ground in real data.
+HARD FLOOR: 12 themes minimum is REQUIRED for any corpus over 200 chunks. If you stop short of 12, you have NOT analyzed the full corpus — go back, scan the chunks you skipped, and find more themes. Output below floor will be rejected and you will be re-prompted with explicit instructions to extract more.
 
 SOURCE DIVERSITY REQUIREMENT (critical):
 Your corpus contains evidence from MULTIPLE source types. ALL sources start with EQUAL credibility — their value is determined by what they actually contribute to the research objective, not by where they came from. The corpus includes:
@@ -700,13 +847,19 @@ EVIDENCE EVALUATION RULES:
 - Every theme MUST cite sources from at least 2 DIFFERENT source names (not just Reddit + Reddit)
 - After extracting themes, mentally rank which sources ACTUALLY contributed the most — that's the real credibility assessment
 
-EXTRACTION RULES:
+EXTRACTION RULES — CORPUS-DENSITY BASED, NO HARD CEILING:
 - Analyze EVERY chunk in the corpus — client docs, intelligence sources, AND social data
 - Each chunk may support MULTIPLE themes. A single source can contribute to 3-5 themes.
 - Name themes specifically (BAD: "Technology". GOOD: "AI-Powered Donor Matching Platforms Reshape Fundraising")
 - Description: 3-5 sentences with specific data points, statistics, names, dates from the evidence
-- Minimum: Generate at least 12 themes. With a corpus of 500+ chunks, generate 15-25 themes.
-- Maximum: No cap. If the evidence supports 30 themes, generate 30.
+- Floor: 12 themes minimum (the analyst expects breadth across the 6 lenses).
+- Target density: roughly ONE theme per 25-30 chunks of evidence the corpus contains.
+    • 200-chunk corpus -> 8-10 themes per lens that has support, ~12-20 themes total
+    • 500-chunk corpus -> 18-25 themes total
+    • 1000-chunk corpus -> 35-45 themes total
+    • 2000+-chunk corpus -> 60-90 themes total
+- NO CEILING. If the corpus is rich enough to ground 50 distinct themes with ≥3 multi-source citations each, generate 50. If 80, generate 80. The downstream merge pass dedupes near-duplicates.
+- Concreteness test (each theme must pass): "Could two unrelated insights both fit under this theme?" If YES, split into two themes. If NO, keep.
 - Mark each theme as "priority" (strong multi-source evidence), "emerging" (moderate, 1-2 source types), or "weak" (single source type)
 
 MANDATORY SOURCE COVERAGE — READ THE ENTIRE CORPUS:
@@ -745,6 +898,42 @@ ANTI-PATTERNS (these will be rejected):
 - All themes from the same source type (e.g., all from Reddit, ignoring academic papers)
 - ECHO CHAMBER: Multiple themes restating the same finding instead of diverse findings from different source categories
 
+PASS 1 OF 2 — BREADTH ONLY. THIS IS THE BREADTH PASS.
+
+You are running the BREADTH stage of a two-pass consulting-grade theme architecture.
+A separate DEPTH pass will run AFTER yours, fanning out per-theme to a different model
+to populate sub-themes, organizing dimensions, contradictions, temporal arcs, and
+implications. Your job in this pass is ONLY to maximize the count of distinct,
+well-cited, evidence-grounded themes — NOT to enrich any single theme.
+
+ONLY EMIT THESE FIELDS PER THEME:
+  • name (specific, finding-grade — not a category label)
+  • description (3-5 sentences with named entities, dates, statistics from the evidence)
+  • quote (the single best verbatim quote, 10-30 words copy-pasted from a chunk)
+  • citations[] (3+ entries spanning 2+ source names — sourceFile, text, url, sourceName, author, publicationDate)
+  • isCrossDocument (true if 2+ different source names support the theme)
+  • status ("priority" | "emerging" | "weak")
+  • goalAlignment (INTEGER 0..100 — how directly the theme answers the research goal:
+       100 = the theme IS what's being asked about
+        80 = primary mechanism / driver
+        60 = essential context but not the headline
+        40 = adjacent / useful for triangulation
+        20 = tangential.
+       Be HONEST — this score gates depth enrichment downstream.)
+
+DO NOT POPULATE depth fields (sub-themes, dimensions, contradictions, temporal arc,
+implications). Those are owned by Pass 2. If you spend time on them you under-deliver
+on breadth — the only metric that defines this pass's success.
+
+BREADTH MAXIMIZATION RULES:
+  • Re-read the ENTIRE corpus end-to-end (CHUNK_001 through the highest CHUNK_NNN).
+  • Each chunk may support multiple themes. A single source can contribute to 3-5 themes.
+  • If you can split an umbrella theme into 2-4 specific sub-patterns that each have
+    their own multi-source citation backing, SPLIT IT. The Pass 2 model will recombine
+    if appropriate; under-splitting cannot be recovered.
+  • The corpus's own chunk count drives the floor (see EXTRACTION RULES above).
+    1077 chunks => 35-45 themes minimum.
+
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {
@@ -768,7 +957,14 @@ Output JSON.`;
                                 publicationDate: { type: Type.STRING }
                             }, required: ["sourceFile", "text"] } },
                             isCrossDocument: { type: Type.BOOLEAN },
-                            status: { type: Type.STRING }
+                            status: { type: Type.STRING },
+                            // 2026-04-29 — Two-pass architecture. Only goalAlignment
+                            // stays in the breadth schema (cheap integer scoring during
+                            // breadth extraction). Tier C depth fields (subThemes,
+                            // dimensions, contradictions, temporalArc, implications)
+                            // are populated in Pass 2 by Claude Opus 4.7 via
+                            // _enrichThemesDepth, fanning out per-theme in parallel.
+                            goalAlignment: { type: Type.NUMBER },
                         },
                         required: ["name", "description", "quote", "citations", "isCrossDocument"]
                     }
@@ -776,7 +972,12 @@ Output JSON.`;
             },
             required: ["methodology", "themes"]
         };
-        const result = await this.executeStepResilient<StepResult_Themes>(prompt, schema, [], onStream, 'Themes');
+        // 2026-04-29 — TWO-PASS CONSULTING-GRADE THEME ARCHITECTURE.
+        // Pass 1 BREADTH: Gemini 3.1 Pro one-shot on the cached corpus parts,
+        // breadth-only schema (no depth fields), fresh context window with
+        // no chat-history anchoring. Falls back to chat-session Flash (with
+        // its own Claude-fallback) if the Pro call fails for any reason.
+        const result = await this._runBreadthPass(prompt, schema, onStream);
         if (!result.themes) result.themes = [];
         // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
         // but models still occasionally manufacture them when evidence is thin.
@@ -819,7 +1020,430 @@ Output JSON.`;
         if (rejected.length > 0) {
             console.warn(`[Themes] Rejected ${rejected.length}/${beforeCount} meta-themes (complaints about the corpus, not findings): ${rejected.map(n => `"${n}"`).join(', ')}`);
         }
+
+        // 2026-04-29 — BREADTH FLOOR ENFORCEMENT. If theme extraction comes
+        // back below the corpus-density floor (12 themes for any non-trivial
+        // corpus), re-prompt the LLM with explicit feedback that it under-
+        // extracted. The model gets one retry with stronger instructions.
+        // This catches cases where: (a) Gemini repetition-collapsed and the
+        // Claude fallback under-extracted, (b) the LLM grouped too aggressively,
+        // (c) earlier prompt anchors snuck through.
+        const BREADTH_FLOOR = 12;
+        const themeCount = result.themes.length;
+        if (themeCount < BREADTH_FLOOR && !feedback) {
+            console.warn(
+                `[Themes] BREADTH FLOOR VIOLATION — only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
+                `Re-prompting with under-extraction feedback.`
+            );
+            const reprompt = `Your previous theme extraction returned only ${themeCount} themes from a substantial corpus.
+That is BELOW the breadth floor of ${BREADTH_FLOOR} for any non-trivial corpus and is UNACCEPTABLE for consulting-grade analysis.
+
+You under-extracted. Likely causes:
+  • You aggregated distinct findings into umbrella themes (e.g., one "AI in Higher Ed"
+    theme covering what should be 4-6 distinct AI sub-patterns).
+  • You stopped reading after the first ~100 chunks and missed the rest of the corpus.
+  • You over-invested depth in too few themes instead of generating breadth.
+
+Re-do the analysis. SPECIFIC INSTRUCTIONS:
+  1. Re-read the corpus FROM CHUNK_001 through the LAST chunk. Do not stop early.
+  2. Each previous theme: split it into 2-4 distinct sub-themes if the evidence
+     supports it. "AI in Fundraising" -> "AI-driven wealth screening", "AI summarization
+     of donor history", "AI personalization in email campaigns", etc.
+  3. Find AT LEAST ${Math.max(BREADTH_FLOOR + 5, themeCount * 3)} distinct themes this pass.
+  4. Each theme can have THINNER depth (subThemes/dimensions/contradictions/temporalArc/
+     implications fields can be empty) — BREADTH OVER DEPTH this round.
+  5. The hard floor is ${BREADTH_FLOOR}. You will be re-prompted again if you under-extract.
+
+Now extract the FULL theme set.`;
+            try {
+                const retry = await this._runBreadthPass(reprompt, schema, onStream, 'Themes-Retry');
+                if (Array.isArray(retry?.themes) && retry.themes.length > themeCount) {
+                    console.log(`[Themes] Retry produced ${retry.themes.length} themes (was ${themeCount})`);
+                    // Apply meta-theme filter to retry result too
+                    retry.themes = retry.themes.filter((t: any) => !isMetaTheme(t));
+                    result.themes = retry.themes;
+                    if (retry.methodology) result.methodology = retry.methodology;
+                } else {
+                    console.warn(`[Themes] Retry did not improve count (${retry?.themes?.length ?? 0} vs ${themeCount}). Keeping original.`);
+                }
+            } catch (retryErr: any) {
+                console.warn('[Themes] Retry failed, keeping original count:', retryErr?.message || retryErr);
+            }
+        }
+
+        // 2026-04-29 — PASS 2 DEPTH ENRICHMENT.
+        // Each breadth theme is enriched in parallel via Claude Opus 4.7 with
+        // its own context: theme name + description + cited quotes. Opus
+        // populates subThemes / dimensions / contradictions / temporalArc /
+        // implications per theme. Themes whose enrichment fails are returned
+        // with breadth-only fields (the deliverable still works without depth).
+        // Concurrency is throttled (BATCH_SIZE) to stay under per-minute API
+        // limits. Cost: ~$0.30-0.40 per theme on Opus 4.7.
+        if (result.themes.length > 0) {
+            try {
+                onStream(`[Themes] Pass 2: Enriching ${result.themes.length} themes with depth analysis (Claude Opus 4.7, parallel)...`);
+                console.log(`[Themes] Pass 2 DEPTH starting: ${result.themes.length} themes via Claude Opus 4.7`);
+                const enriched = await this._enrichThemesDepth(result.themes as any[], onStream);
+                result.themes = enriched as any;
+                const enrichedCount = enriched.filter((t: any) => Array.isArray(t.subThemes) && t.subThemes.length > 0).length;
+                console.log(`[Themes] Pass 2 DEPTH complete: ${enrichedCount}/${enriched.length} themes received full enrichment`);
+                onStream(`[Themes] Pass 2 complete: ${enrichedCount}/${enriched.length} themes enriched`);
+            } catch (depthErr: any) {
+                console.warn('[Themes] Pass 2 depth enrichment failed, returning breadth-only themes:', depthErr?.message || depthErr);
+            }
+        }
+
+        // Tier C2 (2026-04-28) — persist the theme synthesis to the wiki so
+        // it becomes searchable archive evidence for future engagements. The
+        // wiki is HiC's compounding knowledge layer; theme syntheses are the
+        // highest-density artifact this app produces. Written as a markdown
+        // article with kind=synthesis under wiki/synthesis/, indexed by the
+        // chunked vector store on next embed pass.
+        try {
+            await this._persistThemesToWiki(result);
+        } catch (err: any) {
+            console.warn('[Themes] wiki persistence skipped:', err?.message || err);
+        }
+
         return result;
+    }
+
+    /**
+     * 2026-04-29 — PASS 1 BREADTH RUNNER.
+     *
+     * Two-pass theme architecture, breadth pass. Tries Gemini 3.1 Pro one-shot
+     * with the cached corpus parts. Pro gives us:
+     *   - 1M-token context (the entire corpus fits — no MAX_CORPUS_CHARS clipping
+     *     for breadth analysis, unlike Flash via chatSession which compresses
+     *     accumulated context as it grows)
+     *   - No chat-history anchoring (fresh analytical pass — the chatSession's
+     *     prior ingestion summary biases Flash toward the summary's framing)
+     *   - Stronger long-form structured-JSON output than Flash on this prompt
+     *
+     * Fallback chain: Pro → chatSession Flash (with executeStepResilient's
+     * built-in Claude fallback for repetition collapse). Any error from the
+     * Pro call routes us to the chat path, so behavior is never worse than
+     * the previous single-pass implementation.
+     */
+    private async _runBreadthPass(prompt: string, schema: Schema, onStream: (t: string) => void, label: string = 'Themes'): Promise<StepResult_Themes> {
+        // Step 1: try Gemini 3.1 Pro one-shot with the cached corpus parts.
+        if (this.corpusFileParts && this.corpusFileParts.length > 0) {
+            try {
+                onStream(`[${label}] Pass 1 BREADTH via Gemini 3.1 Pro (1M context, fresh corpus pass)...`);
+                console.log(`[${label}] Pass 1 BREADTH: Gemini 3.1 Pro one-shot with ${this.corpusFileParts.length} corpus parts`);
+                const proResult = await withRetry(async () => {
+                    const result: any = await this.ai.models.generateContentStream({
+                        model: 'gemini-3.1-pro-preview',
+                        contents: [{ role: 'user', parts: [...this.corpusFileParts, { text: prompt }] }],
+                        config: {
+                            responseMimeType: 'application/json',
+                            responseSchema: schema,
+                            temperature: 0.2,
+                            systemInstruction: this.systemInstructionCached,
+                        } as any,
+                    });
+                    const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
+                    let fullText = '';
+                    for await (const chunk of stream) {
+                        const text = chunk.text;
+                        if (text) {
+                            fullText += text;
+                            onStream(fullText);
+                        }
+                    }
+                    return fullText;
+                }, 2, 3000, `Gemini 3.1 Pro ${label} BREADTH`);
+
+                const cleaned = tryRepairJson(proResult);
+                const parsed = JSON.parse(cleaned) as StepResult_Themes;
+                if ((parsed as any)?._error) {
+                    throw new Error(`Gemini Pro returned non-JSON text: ${(parsed as any)._raw?.substring(0, 60)}`);
+                }
+                if (!parsed || typeof parsed !== 'object' || !Array.isArray((parsed as any).themes)) {
+                    throw new Error('Gemini Pro returned malformed themes payload');
+                }
+                console.log(`[${label}] Pass 1 BREADTH (Pro) returned ${(parsed as any).themes.length} themes`);
+                return parsed;
+            } catch (proErr: any) {
+                console.warn(`[${label}] Pass 1 Pro failed, falling back to chat-session Flash → Claude chain:`, proErr?.message || proErr);
+                onStream(`[${label}] Pro unavailable. Falling back to Flash → Claude...`);
+            }
+        }
+
+        // Step 2: fall back to existing chat-session path. executeStepResilient
+        // has its own Claude-Opus-4.7 fallback for repetition collapse, so this
+        // is the same Flash→Claude chain that shipped previously.
+        return await this.executeStepResilient<StepResult_Themes>(prompt, schema, [], onStream, label);
+    }
+
+    /**
+     * 2026-04-29 — PASS 2 DEPTH ENRICHMENT.
+     *
+     * Per-theme parallel fan-out to Claude Opus 4.7. Each theme gets its own
+     * context (name, description, citations, research goal) and Opus emits
+     * the depth fields: subThemes, dimensions, contradictions, temporalArc,
+     * implications. The breadth fields (name/description/quote/citations/
+     * isCrossDocument/status/goalAlignment) pass through untouched.
+     *
+     * Concurrency: BATCH_SIZE in flight at once. With 30 themes × ~$0.35 each,
+     * a typical run costs ~$10 in depth enrichment — keep within budget by
+     * either lowering BATCH_SIZE for rate limiting or by gating enrichment
+     * to top-N themes by goalAlignment if cost becomes a concern.
+     *
+     * Failure isolation: a single failed theme does NOT block the others. The
+     * failed theme returns with its breadth fields only.
+     */
+    private async _enrichThemesDepth(themes: any[], onStream: (t: string) => void): Promise<any[]> {
+        const BATCH_SIZE = 5;
+        const enriched: any[] = new Array(themes.length);
+        let completed = 0;
+
+        for (let i = 0; i < themes.length; i += BATCH_SIZE) {
+            const batch = themes.slice(i, i + BATCH_SIZE);
+            const results = await Promise.all(batch.map((theme, batchIdx) => {
+                const absoluteIdx = i + batchIdx;
+                return this._enrichSingleThemeDepth(theme, absoluteIdx)
+                    .then(depthFields => {
+                        completed += 1;
+                        onStream(`[Themes] Enriched ${completed}/${themes.length}: ${(theme.name || '').slice(0, 60)}`);
+                        return { ...theme, ...depthFields };
+                    })
+                    .catch(err => {
+                        completed += 1;
+                        console.warn(`[Themes] Depth enrichment failed for theme ${absoluteIdx} ("${(theme.name || '').slice(0, 50)}"):`, err?.message || err);
+                        // Return breadth-only theme so deliverable still works
+                        return { ...theme, subThemes: [], dimensions: [], contradictions: [], implications: [] };
+                    });
+            }));
+            for (let k = 0; k < results.length; k++) {
+                enriched[i + k] = results[k];
+            }
+        }
+        return enriched;
+    }
+
+    /**
+     * Single-theme Opus 4.7 depth call. Uses anthropicService.analyzeTextJSON
+     * (same path as the existing executeStepViaClaude fallback) so we inherit
+     * its CORS-safe proxy routing and JSON repair.
+     */
+    private async _enrichSingleThemeDepth(theme: any, idx: number): Promise<{
+        subThemes: any[]; dimensions: any[]; contradictions: any[];
+        temporalArc?: any; implications: string[];
+    }> {
+        const { analyzeTextJSON } = await import('./anthropicService');
+        const citations = Array.isArray(theme.citations) ? theme.citations : [];
+
+        // Build per-citation context for Opus. Each citation contributes its
+        // verbatim quote, source name, and date — enough for Opus to reason
+        // about temporal arc, contradictions, and dimensional variance without
+        // needing the full chunk body.
+        const citationLines = citations.slice(0, 30).map((c: any, ci: number) => {
+            const src = c.sourceName || c.sourceFile || '(unattributed)';
+            const date = c.publicationDate ? ` · ${c.publicationDate}` : '';
+            const author = c.author ? ` · ${c.author}` : '';
+            const quote = (c.text || '').replace(/\s+/g, ' ').slice(0, 280);
+            return `  [${ci}] ${src}${author}${date}\n      "${quote}"`;
+        }).join('\n');
+
+        const sysPrompt = `You are a senior research analyst at a top-tier consulting firm (McKinsey/BCG/Deloitte caliber) performing DEPTH analysis on a strategic theme that has already been extracted by a separate breadth-extraction model. Your job is to populate the analytical depth fields a senior partner would expect on a polished consulting deliverable: sub-pattern decomposition, organizing axes, named contradictions, temporal arc, and concrete consultant-grade implications.
+
+You will receive ONE theme with its name, description, primary quote, and citations. You will return a JSON object with five depth fields. You DO NOT modify any of the breadth fields. You DO NOT invent citations beyond what was given.
+
+OUTPUT JSON SCHEMA — return EXACTLY this shape:
+{
+  "subThemes": [
+    { "name": "string", "description": "1-2 sentences", "citationIndices": [0, 2] }
+    // 2-5 entries. citationIndices reference into the parent citations[] array.
+  ],
+  "dimensions": [
+    { "axis": "string (the organizing axis)", "values": ["concrete value 1", "concrete value 2", "..."] }
+    // 2-4 entries. Examples of axes: institution_size, channel, donor_segment,
+    // geography, timeframe, role, decision_maker_seniority, technology_maturity.
+  ],
+  "contradictions": [
+    { "claim": "string", "counterClaim": "string", "sources": ["sourceName"], "counterSources": ["sourceName"], "resolution": "1-sentence synthesis or 'unresolved'" }
+    // 0-3 entries. Empty array if no genuine contradiction in evidence.
+  ],
+  "temporalArc": {
+    "pre2024": "1 sentence on prior state (omit field if no historical evidence)",
+    "in2024_2025": "what shifted",
+    "in2025_2026": "current state with citation reference",
+    "forwardSignal": "1 sentence on near-future direction the evidence implies"
+  },
+  "implications": [
+    "Verb-led sentence. Specific. Quantified where possible. Time-boxed where the evidence supports it."
+    // 2-4 entries. BAD: "Organizations should consider AI adoption". GOOD: "Pilot AI-summarized donor history in 1-2 gift officer pods within Q3, gating expansion on response-rate lift vs control."
+  ]
+}
+
+CRITICAL RULES:
+- NEVER fabricate sources, dates, or statistics not present in the citations.
+- NEVER write meta-commentary about the corpus, the dataset, or this analysis itself.
+- NEVER use the banned phrases (paradigm shift, game-changer, holistic approach,
+  cutting-edge, leverage synergies, robust solution, seamless integration, in today's
+  rapidly evolving landscape, it's important to note, at the end of the day, deep dive
+  as filler, low-hanging fruit, etc.).
+- subThemes are DISTINCT mechanisms / verbs / sub-patterns inside the umbrella theme.
+  If the umbrella is "AI-driven donor matching reshapes major-gift workflows", sub-themes
+  are concrete sub-patterns like "wealth-screening models replace manual prospect research",
+  "predictive next-best-action queues for gift officers", "AI-summarized donor history
+  in CRM record views" — NOT generic restatements of the umbrella.
+- dimensions are EXPLICIT ANALYTICAL AXES with concrete values found in the evidence,
+  NOT a flat tag list. Each axis is a way the theme varies.
+- contradictions are GENUINE conflicts in the evidence, not rhetorical foils.
+- implications are SPECIFIC, ACTIONABLE, and CONSULTANT-GRADE — verbs with quantification
+  or time-boxing where the evidence supports it.
+
+Return ONLY the JSON object — no preamble, no markdown fences, no trailing prose.`;
+
+        const userPrompt = `RESEARCH GOAL: "${this.goal}"
+
+THEME #${idx + 1}: ${theme.name}
+
+DESCRIPTION: ${theme.description}
+
+PRIMARY QUOTE: "${theme.quote || ''}"
+
+GOAL ALIGNMENT (breadth model's score): ${theme.goalAlignment ?? 'unscored'} / 100
+
+CITATIONS (${citations.length} total, indices 0-based):
+${citationLines || '  (no citations attached)'}
+
+Now produce the depth JSON object per the schema in your system instructions.`;
+
+        const depth = await analyzeTextJSON<any>(
+            sysPrompt,
+            userPrompt,
+            'claude-opus-4-7',
+            8000,
+            0.2,
+        );
+
+        // Defensive defaults — Opus may omit empty arrays
+        return {
+            subThemes: Array.isArray(depth?.subThemes) ? depth.subThemes : [],
+            dimensions: Array.isArray(depth?.dimensions) ? depth.dimensions : [],
+            contradictions: Array.isArray(depth?.contradictions) ? depth.contradictions : [],
+            temporalArc: depth?.temporalArc && typeof depth.temporalArc === 'object' ? depth.temporalArc : undefined,
+            implications: Array.isArray(depth?.implications) ? depth.implications.filter((i: any) => typeof i === 'string') : [],
+        };
+    }
+
+    /** Tier C2 wiki persistence — synthesizes the theme output into a markdown
+     * article and POSTs it to /api/wiki/write-article. Uses kind="synthesis"
+     * so the chunked store auto-embeds it on next backfill. The article is
+     * goal-aligned (relevanceScore=100, engagementGoal=this.goal) so future
+     * goal-blended retrieval surfaces it preferentially. */
+    private async _persistThemesToWiki(result: StepResult_Themes): Promise<void> {
+        if (!result?.themes || result.themes.length === 0) return;
+        const PROXY = (process.env.VITE_PROXY_URL as string) || 'http://localhost:5012';
+        const ts = new Date().toISOString();
+        const slug = this.goal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+        const isoDate = ts.slice(0, 10);
+
+        // Render each theme as a markdown section. The chunker will split on
+        // h2/h3 boundaries so each theme becomes its own retrievable chunk
+        // (or a small handful of chunks for theme bodies that exceed 512 tok).
+        const lines: string[] = [];
+        lines.push(`# Theme Synthesis — ${this.goal}\n`);
+        lines.push(`Generated: ${ts}`);
+        lines.push(`Themes: ${result.themes.length}`);
+        if (result.methodology) lines.push(`\n## Methodology\n\n${result.methodology}`);
+
+        for (let i = 0; i < result.themes.length; i++) {
+            const theme: any = result.themes[i];
+            lines.push(`\n## ${i + 1}. ${theme.name || 'Untitled'}`);
+            if (typeof theme.goalAlignment === 'number') {
+                lines.push(`*Goal alignment: ${Math.round(theme.goalAlignment)}/100 · status: ${theme.status || 'unspecified'}*\n`);
+            } else if (theme.status) {
+                lines.push(`*status: ${theme.status}*\n`);
+            }
+            if (theme.description) lines.push(theme.description);
+            if (theme.quote) lines.push(`\n> "${theme.quote}"`);
+
+            if (Array.isArray(theme.subThemes) && theme.subThemes.length > 0) {
+                lines.push(`\n### Sub-themes`);
+                for (const sub of theme.subThemes) {
+                    lines.push(`- **${sub.name}** — ${sub.description || ''}`);
+                }
+            }
+
+            if (Array.isArray(theme.dimensions) && theme.dimensions.length > 0) {
+                lines.push(`\n### Dimensions`);
+                for (const dim of theme.dimensions) {
+                    const vals = Array.isArray(dim.values) && dim.values.length > 0
+                        ? ` — ${dim.values.join(', ')}` : '';
+                    lines.push(`- **${dim.axis}**${vals}`);
+                }
+            }
+
+            if (Array.isArray(theme.contradictions) && theme.contradictions.length > 0) {
+                lines.push(`\n### Contradictions`);
+                for (const c of theme.contradictions) {
+                    lines.push(`- **Claim:** ${c.claim}`);
+                    lines.push(`  **Counter:** ${c.counterClaim}`);
+                    if (c.resolution) lines.push(`  **Synthesis:** ${c.resolution}`);
+                }
+            }
+
+            if (theme.temporalArc) {
+                const arc = theme.temporalArc;
+                const periods = [
+                    arc.pre2024 && `**Pre-2024:** ${arc.pre2024}`,
+                    arc.in2024_2025 && `**2024-2025:** ${arc.in2024_2025}`,
+                    arc.in2025_2026 && `**2025-2026:** ${arc.in2025_2026}`,
+                    arc.forwardSignal && `**Forward signal:** ${arc.forwardSignal}`,
+                ].filter(Boolean);
+                if (periods.length > 0) {
+                    lines.push(`\n### Temporal arc\n\n${periods.join('  \n')}`);
+                }
+            }
+
+            if (Array.isArray(theme.implications) && theme.implications.length > 0) {
+                lines.push(`\n### Implications`);
+                for (let j = 0; j < theme.implications.length; j++) {
+                    lines.push(`${j + 1}. ${theme.implications[j]}`);
+                }
+            }
+
+            if (Array.isArray(theme.citations) && theme.citations.length > 0) {
+                lines.push(`\n### Citations (${theme.citations.length})`);
+                for (const cit of theme.citations) {
+                    const sourceName = cit.sourceName || cit.sourceFile || 'unknown';
+                    const text = (cit.text || '').slice(0, 200);
+                    const url = cit.url ? ` ([source](${cit.url}))` : '';
+                    lines.push(`- *${sourceName}* — "${text}"${url}`);
+                }
+            }
+        }
+
+        const body = lines.join('\n');
+        const url = `nxt://synthesis/themes/${slug}/${ts}`;  // synthetic URL — unique per run
+
+        try {
+            await fetch(`${PROXY}/api/wiki/write-article`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    url,
+                    content: body,
+                    source: 'HiC Theme Synthesis',
+                    title: `Theme Synthesis (${result.themes.length} themes) — ${this.goal.slice(0, 80)}`,
+                    date: isoDate,
+                    tier: 1,                      // synthesis is highest-fidelity content
+                    method: 'synthesis',
+                    kind: 'synthesis',
+                    relevanceScore: 100,           // goal-perfect by construction
+                    relevanceReason: 'Theme synthesis directly addresses the engagement goal',
+                    engagementGoal: this.goal,
+                }),
+                signal: AbortSignal.timeout(10_000),
+            });
+            console.log(`[Themes] Persisted synthesis to wiki (kind=synthesis, ${result.themes.length} themes, ${(body.length / 1024).toFixed(1)}KB)`);
+        } catch (err: any) {
+            console.warn('[Themes] wiki POST failed:', err?.message || err);
+        }
     }
 
     async generatePersonas(themesInput: any | undefined, feedback: string | undefined, onStream: (t: string) => void, onStatus: (s: string) => void): Promise<StepResult_Personas> {
