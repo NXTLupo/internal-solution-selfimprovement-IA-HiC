@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { parseHashtags } from './services/hashtagParser';
 import { generateArtifact, type GenerateResult, type GenerateError } from './services/chatToArtifact';
 import { generateFreeformArtifact } from './services/chatToFreeform';
+import { generateSlideSpec } from './services/chatToSlideSpec';
 import type { FreeformKind } from './schemas/freeformArtifact';
 
 const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set(['org', 'journey', 'arch', 'roadmap', 'blueprint']);
+
 import { useDesignDeskStore } from './store/designDeskStore';
 import type { DesignTokens } from './services/designMdLoader';
 import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type DesignContext } from './services/designContext';
@@ -196,6 +198,29 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             // Revision path — route by active artifact's type. Freeform artifacts
             // (org/journey/arch/roadmap/blueprint) go through chatToFreeform; persona
             // remains on the legacy structured pipeline.
+            // SlideSpec revision path (feature-flagged)
+            if ((active as any).type === 'slide') {
+                const ss = await generateSlideSpec({
+                    kind: (active as any).kind as FreeformKind,
+                    brand: active.brand,
+                    userPrompt: parsed.cleanPrompt,
+                    corpus,
+                    currentArtifact: active as any,
+                    model: 'claude-opus-4-7',
+                });
+                if (ss.ok) {
+                    replaceArtifact(ss.artifact as any);
+                    setMessages(prev => [...prev, { id: `s_${Date.now()}`, role: 'system', timestamp: Date.now(),
+                        content: `Updated ${ss.artifact.kind}: ${ss.artifact.title}` }]);
+                } else {
+                    const ssErr = ss as { ok: false; error: string; rawResponse?: string };
+                    if (ssErr.rawResponse) console.warn(`[SlideSpec] revision failed:`, ssErr.error, '\nRaw:', ssErr.rawResponse);
+                    setMessages(prev => [...prev, { id: `s_${Date.now()}_err`, role: 'system', timestamp: Date.now(),
+                        content: `SlideSpec revision failed: ${ssErr.error}\n(See browser console for raw output.)` }]);
+                }
+                setBusy(false);
+                return;
+            }
             if ((active as any).type === 'freeform') {
                 const ff = await generateFreeformArtifact({
                     kind: (active as any).kind as FreeformKind,
@@ -203,7 +228,13 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
-                    model: 'gemini-2.5-flash',
+                    // Designer revisions need to re-emit the FULL body content
+                    // with edits applied. Gemini 2.5 Flash truncates dense
+                    // diagrams mid-element ("INCOMPLETE BODY CONTENT: 17 divs
+                    // opened, 12 closed"). Opus 4.7 has 1M-context + much
+                    // higher output token capacity, so revisions complete
+                    // even on architecture diagrams with 30+ system boxes.
+                    model: 'claude-opus-4-7',
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -238,7 +269,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: null,
-                    model: 'gemini-2.5-flash',
+                    model: 'claude-opus-4-7',
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);

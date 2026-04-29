@@ -137,7 +137,17 @@ function perKindGuidance(kind: FreeformKind): string {
                 `touchpoint annotations, observed pain points, noted opportunities\n` +
                 `        • Verbatim quotes from the corpus where evidence supports them, attributed to named sources\n` +
                 `        • Connector lines between stages\n` +
-                `        Frame everything as observed reality — what IS today, not what should be.\n`;
+                `        Frame everything as observed reality — what IS today, not what should be.\n\n` +
+                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
+                `        • Lane height ≥120px when labels are 2 lines; lane line at vertical CENTER of band.\n` +
+                `        • Labels positioned at band_top + 18px (above-line) OR band_bottom − 18px (below-line) — NEVER overlapping the line itself.\n` +
+                `        • 36px exclusion zone above AND below every horizontal lane line. NO text bounding box may intersect [Y−36, Y+36].\n` +
+                `        • Stage column width = 1840px / N stages. Min 200px, max 320px. If N×200 > 1840, USE 2-row layout (top: stages 1..N/2, bottom: stages N/2+1..N).\n` +
+                `        • Multi-line labels MUST be ≤ 2 lines. Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px.\n` +
+                `        • When >4 milestones share a lane, STAGGER labels above/below in alternating zigzag (even-index above, odd-index below).\n` +
+                `        • Pain-point chips live in a dedicated row ABOVE the lanes — NEVER inside a lane band.\n` +
+                `        • Verbatim quotes capped at 200 chars; truncate with "…" + attribution intact.\n` +
+                `        • DO NOT inherit the exemplar's exact Y coordinates if your label lengths differ from the exemplar's. RECOMPUTE Y offsets when label height grows.\n`;
 
         case 'arch':
             return `        TECHNICAL ARCHITECTURE body must contain:\n` +
@@ -147,7 +157,19 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Tier or zone bands (presentation / application / data / external) if exemplar uses them\n` +
                 `        • External actors and integrations on the periphery\n` +
                 `        • Datastore icons distinguished from service components\n` +
-                `        Use real system names from the corpus. Do not invent components.\n`;
+                `        Use real system names from the corpus. Do not invent components.\n\n` +
+                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
+                `        • 4 tier bands max (presentation / application / data / integration). Each band 180px tall, 24px gap.\n` +
+                `        • System box: 220–280px wide × 70–90px tall. NO box smaller than 220×70.\n` +
+                `        • Max 6 system boxes per tier band horizontally. If more, USE 2 ROWS within the tier (compress to 60px tall each).\n` +
+                `        • Connectors are 2px-stroke <line> or <path> between explicit (x1,y1)→(x2,y2) points. Connectors NEVER cross THROUGH a system box — route around with a midpoint.\n` +
+                `        • Every arrow has an explicit head at its receiving end. Bidirectional arrows have heads at both ends in DIFFERENT colors.\n` +
+                `        • Annotation labels at midpoint with 12px perpendicular offset. Background fill required if connector passes near other geometry.\n` +
+                `        • 30px exclusion zone perpendicular to every connector and tier divider. NO text bounding box intersects this zone.\n` +
+                `        • Datastore icons MUST use cylinder shape from exemplar. Service icons MUST use rounded-rect shape. NEVER swap.\n` +
+                `        • Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px. System box labels capped at 22 chars; annotations at 18 chars.\n` +
+                `        • Density: ≤8 systems = full annotation; 8–15 = standard; 15–30 = cluster grouping ("Marketing Stack — 5 systems"); 30+ = top-N + appendix footnote.\n` +
+                `        • DO NOT inherit the exemplar's exact coordinates when your system count differs. RECOMPUTE positions.\n`;
 
         case 'roadmap':
             return `        ROADMAP body must contain:\n` +
@@ -158,7 +180,20 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Workstream rows if the exemplar uses Gantt-style layout\n` +
                 `        • Dependency markers between milestones if the corpus describes them\n` +
                 `        • Status indicators (committed / planned / aspirational) per item\n` +
-                `        Use real dates from the corpus or mark as TBD/tentative. Do not invent timelines.\n`;
+                `        Use real dates from the corpus or mark as TBD/tentative. Do not invent timelines.\n\n` +
+                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
+                `        • Phase columns equal width unless durations differ by >20%. Min 280px, max 520px per phase.\n` +
+                `        • Phase header band 60px tall at body top, contains phase name + duration + status pill.\n` +
+                `        • Phase divider drawn FIRST (2px vertical, full body height) so phase content paints over it.\n` +
+                `        • Status pills MUST be visually distinct: committed = solid accent fill; planned = outlined accent; aspirational = dashed gray. Reader distinguishes at a glance — NEVER use text alone.\n` +
+                `        • Gantt: workstream rows ≥48px tall when bars carry labels. NEVER compress below 32px.\n` +
+                `        • Today-marker: full body height, 2px dashed rust line, labeled "TODAY" at top.\n` +
+                `        • Milestone diamond 18×18px centered on date column.\n` +
+                `        • Bar text inside-the-bar IF bar ≥240px wide; otherwise outside with 8px gap on whichever side has more whitespace.\n` +
+                `        • 24px exclusion zone perpendicular to every phase divider. NO text bounding box may intersect.\n` +
+                `        • Hard char caps: 22 chars/line at 11.5px (milestone callouts, bar labels); 18/line at 14px (initiative names); 14/line at 16px (phase names).\n` +
+                `        • Density: ≤6 phases or ≤8 workstreams = full annotation; 6–12 / 8–16 = standard; 12–20 / 16–25 = cluster initiatives by capability; 20+ / 25+ = top-N + appendix footnote.\n` +
+                `        • DO NOT inherit the exemplar's coordinates when your phase count differs. RECOMPUTE column widths.\n`;
 
         case 'blueprint':
             return `        SERVICE BLUEPRINT body must contain (FUTURE-state framing):\n` +
@@ -170,7 +205,20 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Vertical step columns showing the time progression of the journey\n` +
                 `        • Fail-point markers and emotion-intensity treatments where the redesign addresses pain\n` +
                 `        • Evidence quotes citing the diagnosis that drove each design choice\n` +
-                `        Frame everything as proposed redesign — what SHOULD BE post-analysis. Justify changes with corpus evidence.\n`;
+                `        Frame everything as proposed redesign — what SHOULD BE post-analysis. Justify changes with corpus evidence.\n\n` +
+                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
+                `        • Four canonical lanes (Customer Action / Frontstage / Backstage / Support Processes). When fewer warranted, OMIT — never combine.\n` +
+                `        • Lane height ≥130px (blueprint lanes carry MORE annotation than journey lanes).\n` +
+                `        • Lane line at vertical CENTER of band. Step boxes / action callouts at band_top + 20px (above-line) OR band_bottom − 20px (below-line) — NEVER overlapping the line itself.\n` +
+                `        • Step column width = 1840px / N steps. Min 220px, max 320px. If N×220 > 1840, USE 2-row layout with 30px gutter.\n` +
+                `        • Vertical "line of visibility" between Frontstage and Backstage: 2px dashed, full body height, drawn FIRST.\n` +
+                `        • Vertical "line of internal interaction" between Backstage and Support Processes: 2px dotted, full body height.\n` +
+                `        • Fail-point markers + emotion bands in dedicated row ABOVE the lanes — NEVER inside a lane band.\n` +
+                `        • 40px exclusion zone perpendicular to every lane line and step divider. NO text bounding box may intersect.\n` +
+                `        • Multi-line labels MUST be ≤ 2 lines. Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px.\n` +
+                `        • Stagger fail-point markers above/below line of visibility in zigzag when >3 share a step column.\n` +
+                `        • Verbatim diagnosis quotes capped at 200 chars; truncate with "…" + attribution intact.\n` +
+                `        • DO NOT inherit the exemplar's exact coordinates when your label lengths differ. RECOMPUTE Y offsets.\n`;
     }
 }
 
@@ -260,7 +308,12 @@ function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string;
         `8. NO markdown code fences around the :::nxt:freeform block\n` +
         `9. EVERYTHING fits inside 1920×1080. If the exemplar uses an inline <svg viewBox="...">, REUSE THAT viewBox unchanged — do not swap SVG for flex/grid <div> rows that overflow when item count grows.\n` +
         `10. Maximum 6 same-tier items per row. If the corpus needs 12, render two rows of 6, NOT one row of 12 with crushed 80px-wide cards.\n` +
-        `11. If text would not fit inside a card at the exemplar's box dimensions, EITHER (a) shrink all cards in that row proportionally so text still reads, OR (b) group items into a band/cluster card with a count-and-leader summary instead of one tiny card per item.\n`);
+        `11. If text would not fit inside a card at the exemplar's box dimensions, EITHER (a) shrink all cards in that row proportionally so text still reads, OR (b) group items into a band/cluster card with a count-and-leader summary instead of one tiny card per item.\n` +
+        `12. TEXT-vs-LINE CLEARANCE: every horizontal connector / lane line at y=Y has a 36px exclusion zone above AND below. NO text bounding box may intersect [Y−36, Y+36]. When labels need more than that, position them above_band_top + 18px or below_band_bottom − 18px and ENLARGE the band rather than overlapping the line.\n` +
+        `13. MULTI-LINE LABELS ≤ 2 LINES. Hard char caps per line based on font size: 22 chars at 11.5px, 18 at 14px, 14 at 16px. If your content exceeds, TRUNCATE with "…" or escalate to a band-card "{N} items — see appendix".\n` +
+        `14. ZIGZAG STAGGER: when more than 4 milestones / step boxes / nodes share a single horizontal line, alternate label position above and below the line (even-index above, odd-index below). NEVER stack 5+ labels on the same side.\n` +
+        `15. RECOMPUTE COORDINATES. The exemplar's exact x/y values reflect the EXEMPLAR's content lengths. Your content has different lengths. RECALCULATE offsets so labels still clear lines and boxes still don't overlap their neighbors. Inherit the STRUCTURE (which classes go where), NOT the literal coordinates.\n` +
+        `16. TRUNCATION CAPS: action title ≤100 chars (complete sentence), lede ≤280 chars, verbatim quote ≤200 chars (with "…" + attribution intact), stage/step/phase labels ≤24 chars.\n`);
 
     sections.push(`\n=== OUTPUT CONTRACT ===\n` +
         `Return EXACTLY one block of this form, with no preamble, no markdown fences, no trailing prose:\n\n` +

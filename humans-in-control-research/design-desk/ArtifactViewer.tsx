@@ -3,6 +3,7 @@ import { useDesignDeskStore } from './store/designDeskStore';
 import { NxtDocViewer } from './components/NxtDocViewer';
 import { OrgChartCanvas } from './components/OrgChartCanvas';
 import { FreeformViewer } from './components/FreeformViewer';
+import { SlideSpecViewer } from './components/SlideSpecViewer';
 import { ExportMenu } from './components/ExportMenu';
 import type { DesignTokens } from './services/designMdLoader';
 
@@ -166,6 +167,14 @@ export const ArtifactViewer: React.FC<Props> = ({ tokens }) => {
                 {active.type === 'persona' && <NxtDocViewer artifact={active} tokens={tokens} onFieldEdit={handleFieldEdit as any} />}
                 {active.type === 'org' && <OrgChartCanvas artifact={active} tokens={tokens} onLayoutChange={(layout) => replaceArtifact({ ...active, layout, updatedAt: Date.now() })} />}
                 {(active as any).type === 'freeform' && <FreeformViewer artifact={active as any} />}
+                {(active as any).type === 'slide' && (
+                    <SlideSpecViewer
+                        spec={(active as any).spec}
+                        brand={(active as any).brand}
+                        artifactId={active.id}
+                        artifactKind={(active as any).kind}
+                    />
+                )}
             </div>
         </div>
     );

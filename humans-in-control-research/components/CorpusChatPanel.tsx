@@ -43,6 +43,7 @@ import { toPng } from 'html-to-image';
 import { jsPDF } from 'jspdf';
 import { NxtDocViewer } from '../design-desk/components/NxtDocViewer';
 import { FreeformViewer } from '../design-desk/components/FreeformViewer';
+import { SlideSpecViewer } from '../design-desk/components/SlideSpecViewer';
 import { OrgChartCanvas } from '../design-desk/components/OrgChartCanvas';
 import type { PersonaArtifact } from '../design-desk/schemas/personaArtifact';
 import type { JourneyArtifact } from '../design-desk/schemas/journeyArtifact';
@@ -518,6 +519,30 @@ const InlineArtifactPreview: React.FC<{
                 <div style={{ padding: '6px 10px', borderTop: `1px solid ${primary}`, background: '#0D0D0D', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                     <span style={{ fontSize: 10, color: accent, fontFamily: "'JetBrains Mono', monospace" }}>
                         #{(artifact as any).kind} / {artifact.brand.toUpperCase()} {asSlide ? '— Slide' : ''}
+                    </span>
+                    <ArtifactExportButtons artifact={artifact as any} onOpenDesignDesk={onOpenDesignDesk} handleOpen={handleOpen} />
+                </div>
+            </div>
+        );
+    }
+
+    // SlideSpec artifacts — typed JSON rendered via SlideSpecViewer.
+    // Native PPTX export (no DOM walking, no repair dialog).
+    if ((artifact as any).type === 'slide') {
+        const slideArt = artifact as any;
+        return (
+            <div style={{ marginTop: 10, border: `1px solid ${primary}`, background: '#1A1A1A' }}>
+                <div style={{ width: 800, height: 450, position: 'relative' }}>
+                    <SlideSpecViewer
+                        spec={slideArt.spec}
+                        brand={slideArt.brand}
+                        artifactId={slideArt.id}
+                        artifactKind={slideArt.kind}
+                    />
+                </div>
+                <div style={{ padding: '6px 10px', borderTop: `1px solid ${primary}`, background: '#0D0D0D', color: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 10, color: accent, fontFamily: "'JetBrains Mono', monospace" }}>
+                        #{slideArt.kind} / {slideArt.brand.toUpperCase()} — SlideSpec
                     </span>
                     <ArtifactExportButtons artifact={artifact as any} onOpenDesignDesk={onOpenDesignDesk} handleOpen={handleOpen} />
                 </div>
@@ -1153,8 +1178,6 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         if (ff.ok) {
                             useDesignDeskStore.getState().addArtifact(ff.artifact);
                             useDesignDeskStore.getState().setActiveArtifact(ff.artifact.id);
-                            // Diagnostic: log the store state right after add so we can confirm
-                            // the artifact actually landed in the store and has the expected id.
                             const _afterAdd = useDesignDeskStore.getState();
                             console.info(`[Freeform/store] added ${(ff.artifact as any).kind}/${ff.artifact.brand} id=${ff.artifact.id}. Store now has ${_afterAdd.artifacts.length} artifacts. Found by id?`,
                                 _afterAdd.artifacts.find(a => a.id === ff.artifact.id) ? 'YES' : 'NO',
