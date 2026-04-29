@@ -2,19 +2,19 @@
 url: "https://reddit.com/r/nonprofit/comments/1ooi9io/do_you_need_to_be_rich_to_be_an_effective/"
 url_hash: "c7bab0c1a1"
 kind: "article"
-source: "reddit: Nonprofit"
+source: "reddit: nonprofit"
 title: "Do you need to be rich to be an effective Development Director?"
 author: ""
 date: "2025-11-04T20:24:59.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-04-21T05:07:40.275198+00:00"
+extracted_at: "2026-04-28T05:33:49.602126+00:00"
 chars: 1560
 ---
 
 # Do you need to be rich to be an effective Development Director?
 
-Source: [reddit: Nonprofit](https://reddit.com/r/nonprofit/comments/1ooi9io/do_you_need_to_be_rich_to_be_an_effective/)
+Source: [reddit: nonprofit](https://reddit.com/r/nonprofit/comments/1ooi9io/do_you_need_to_be_rich_to_be_an_effective/)
 
 I (34F) been in Development for 10 years. I grew up very solidly middle class, and still feel middle class. I make a relatively decent wage and usually have money left over for some luxuries. But I also rent an apartment and share a car with my husband. I'm often taking the bus to meetings -- I can manage but my city's transit infrastructure is not robust. Most of my work clothes are thrifted, but sharp. I have friends at varying income levels, those who do own homes live in relatively lower-income suburbs. I like to think I'm doing pretty good, but still think my lifestyle is on par with a majority of the population.
 
