@@ -964,7 +964,14 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         return isLikelyFullTextSource(item.url) || len < ENRICHMENT_GENERIC_LENGTH_GATE;
     });
 
-    if (needsEnrichment.length === 0) return items;
+    // 2026-04-29 — DO NOT early-return when needsEnrichment is empty.
+    // Previously the function bailed here, which silently skipped the
+    // residual wiki archival step at the bottom. Now that RSS body
+    // expansion (Tier 1: trafilatura) gives most items full 10KB bodies
+    // BEFORE this function runs, almost nothing needs enrichment — and
+    // the early return was sending everything past the wiki without
+    // archiving it. Let the enrichment loop be a no-op when toEnrich
+    // is empty; residual archival below will pick up the full-body items.
 
     // Sort by relevance, but break ties by giving full-text-source URLs priority —
     // they yield 10-30KB of real evidence; landing-page scrapes typically yield <5KB.
@@ -979,7 +986,11 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
         .slice(0, maxItems);
 
     const fullTextCount = toEnrich.filter(i => isLikelyFullTextSource(i.url!)).length;
-    console.log(`Content enrichment: Fetching full text for ${toEnrich.length} items (${fullTextCount} from known full-text sources, ${toEnrich.length - fullTextCount} via web extraction)`);
+    if (toEnrich.length > 0) {
+        console.log(`Content enrichment: Fetching full text for ${toEnrich.length} items (${fullTextCount} from known full-text sources, ${toEnrich.length - fullTextCount} via web extraction)`);
+    } else {
+        console.log(`Content enrichment: skipped (all ${items.length} items already have full body via RSS expansion). Residual wiki archival will handle persistence.`);
+    }
 
     const PROXY = 'http://localhost:5012';
     // 2026-04-21 — Map keyed by ITEM REFERENCE (not string id) to defeat the
