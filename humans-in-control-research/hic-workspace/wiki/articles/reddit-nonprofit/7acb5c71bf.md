@@ -2,19 +2,19 @@
 url: "https://reddit.com/r/nonprofit/comments/1s8gviq/grant_writing_is_just_rewriting_the_same/"
 url_hash: "7acb5c71bf"
 kind: "article"
-source: "reddit: nonprofit"
+source: "reddit: Nonprofit"
 title: "Grant writing is just rewriting the same information 40 different ways and I'm losing my mind"
 author: ""
 date: "2026-03-31T07:42:04.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-04-28T05:33:48.123638+00:00"
+extracted_at: "2026-04-29T18:57:22.897138+00:00"
 chars: 1627
 ---
 
 # Grant writing is just rewriting the same information 40 different ways and I'm losing my mind
 
-Source: [reddit: nonprofit](https://reddit.com/r/nonprofit/comments/1s8gviq/grant_writing_is_just_rewriting_the_same/)
+Source: [reddit: Nonprofit](https://reddit.com/r/nonprofit/comments/1s8gviq/grant_writing_is_just_rewriting_the_same/)
 
 Development director at a small environmental nonprofit. team of 12, budget around $800k. I write or manage every grant we submit which is 35-40 per year.
 
