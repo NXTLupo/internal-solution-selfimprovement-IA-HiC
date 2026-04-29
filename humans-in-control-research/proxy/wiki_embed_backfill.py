@@ -207,6 +207,13 @@ def backfill(
             continue
         ordered_embs = [per_article[i] for i in range(len(p["chunks"]))]
 
+        # Phase 2.5: surface goal-fit metadata if frontmatter carries it
+        rel_raw = p["frontmatter"].get("relevance")
+        try:
+            rel_score = int(rel_raw) if rel_raw not in (None, "") else None
+        except (TypeError, ValueError):
+            rel_score = None
+
         meta = {
             "url": p["frontmatter"].get("url", ""),
             "title": p["frontmatter"].get("title", ""),
@@ -215,6 +222,8 @@ def backfill(
             "tier": int(p["frontmatter"].get("tier", "0") or 0),
             "date": p["frontmatter"].get("date", ""),
             "chars": int(p["frontmatter"].get("chars", "0") or 0),
+            "relevance_score": rel_score,
+            "engagement_goal": p["frontmatter"].get("engagement_goal") or None,
         }
         store.upsert_article_chunks(
             p["article_id"], p["wiki_path"], p["chunks"], ordered_embs, meta,

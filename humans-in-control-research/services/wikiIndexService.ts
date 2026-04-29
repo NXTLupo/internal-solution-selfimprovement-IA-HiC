@@ -54,6 +54,12 @@ export interface WikiFetchArticlesParams {
     minChars?: number;
     limit?: number;               // default 10, max 50
     maxCharsPerArticle?: number;  // default 20000, max 50000
+    // Phase 2.5 (2026-04-28): goal-blended retrieval — when present, the proxy
+    // blends the chat-question embedding with the engagement goal embedding,
+    // strengthening recall of previously archived content aligned with the
+    // broader engagement context (not just the narrow chat question).
+    engagementGoal?: string;      // original research goal text
+    goalBlendWeight?: number;     // 0..1, default 0.30 server-side
 }
 
 export interface WikiArticleBody {
@@ -273,15 +279,23 @@ export async function prefetchArticlesForMessage(message: string, opts: {
     maxCharsPerArticle?: number;
     minChars?: number;
     kind?: string;
+    engagementGoal?: string;       // Phase 2.5: blends with chat question for retrieval
+    goalBlendWeight?: number;      // Phase 2.5: 0..1, default 0.30 (chat dominates, goal biases)
 } = {}): Promise<WikiArticleBody[]> {
     const trimmed = (message || '').trim();
     if (trimmed.length < 8) return [];
-    // Use the raw message as the query — proxy tokenizes and scores server-side
+    // Use the raw message as the query — proxy tokenizes and scores server-side.
+    // engagementGoal (when provided) biases the retrieval embedding toward
+    // archive content relevant to the broader engagement context. Strengthens
+    // recall of articles graded high-relevance at collection time but only
+    // weakly cosine-matched to a narrow chat question.
     return fetchWikiArticles({
         query: trimmed,
         limit: opts.limit ?? 6,
         maxCharsPerArticle: opts.maxCharsPerArticle ?? 12_000,
         minChars: opts.minChars ?? 500,
         kind: opts.kind,
+        engagementGoal: opts.engagementGoal,
+        goalBlendWeight: opts.goalBlendWeight,
     });
 }

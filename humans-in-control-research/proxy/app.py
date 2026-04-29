@@ -2504,6 +2504,14 @@ class WikiArticleWriteRequest(BaseModel):
     channel: Optional[str] = None        # For transcripts — channel/institution name
     duration_sec: Optional[int] = None   # For transcripts
     page_count: Optional[int] = None     # For PDFs
+    # Phase 2.5 (2026-04-28): goal-fit metadata for blended retrieval ranking.
+    # When the orchestrator collects this article against a research goal, it
+    # scores 0–100 via Gemini relevance grader; persisting that score lets the
+    # chunk store rank high-goal-fit articles' chunks above low-goal-fit ones
+    # for the same query similarity.
+    relevanceScore: Optional[int] = None        # 0..100; None = unknown / not graded
+    relevanceReason: Optional[str] = None       # 1-sentence Gemini grader reason
+    engagementGoal: Optional[str] = None        # original goal text this article was collected for
 
 def _article_wiki_path(kind: str, source: str, engagement: Optional[str], channel: Optional[str], h: str) -> str:
     """Build the canonical wiki path for an article based on its kind."""
@@ -2547,6 +2555,13 @@ def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: s
         lines.append(f'duration_sec: {req.duration_sec}')
     if req.page_count is not None:
         lines.append(f'page_count: {req.page_count}')
+    # Phase 2.5: goal-fit metadata for blended retrieval ranking
+    if req.relevanceScore is not None:
+        lines.append(f'relevance: {int(req.relevanceScore)}')
+    if req.relevanceReason:
+        lines.append(f'relevance_reason: {esc(req.relevanceReason)}')
+    if req.engagementGoal:
+        lines.append(f'engagement_goal: {esc(req.engagementGoal)}')
     lines.append('---')
     return '\n'.join(lines)
 
@@ -2853,7 +2868,14 @@ class WikiFetchArticlesRequest(BaseModel):
     """AI-callable retrieval. Either pass explicit ids/wikiPaths, OR pass a
     keyword `query` that the proxy keyword-matches against title + summary +
     source. `limit` caps how many bodies come back; `maxCharsPerArticle`
-    caps each body's length so the aggregate response stays bounded."""
+    caps each body's length so the aggregate response stays bounded.
+
+    Phase 2.5 (2026-04-28): `engagementGoal` strengthens recall of previously
+    archived content by blending the chat-question embedding with the original
+    research goal embedding. Effect: even a narrow chat question retrieves
+    articles relevant to the broader engagement context, surfacing high-goal-fit
+    archive content that pure question-cosine would miss.
+    """
     ids: Optional[_List_wiki_index[str]] = None                 # url_hash values
     wikiPaths: Optional[_List_wiki_index[str]] = None           # direct paths
     query: Optional[str] = None                     # keyword search
@@ -2862,6 +2884,8 @@ class WikiFetchArticlesRequest(BaseModel):
     minChars: Optional[int] = 0
     limit: Optional[int] = 10
     maxCharsPerArticle: Optional[int] = 20_000      # 20KB default — plenty for most quotes
+    engagementGoal: Optional[str] = None            # original engagement goal for context blend
+    goalBlendWeight: Optional[float] = 0.30         # 0..1; portion of engagement goal in retrieval embedding
 
 
 def _score_article_for_query(entry: dict, query_tokens: list) -> float:
@@ -2931,6 +2955,8 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             source=req.source,
             limit=limit - len(selected),
             chunks_per_article=3,
+            engagement_goal=req.engagementGoal,
+            goal_blend_weight=req.goalBlendWeight if req.goalBlendWeight is not None else 0.30,
         )
         if chunked_results is not None:
             # Re-score each chunk-store hit by mapping back to the wiki index entry
@@ -3390,6 +3416,11 @@ def _embed_and_cache_article(url_hash: str, entry: dict, body: str = "") -> bool
                         "tier": int(entry.get("tier", 0) or 0),
                         "date": entry.get("date", ""),
                         "chars": int(entry.get("chars", 0) or 0),
+                        # Phase 2.5: pass goal-fit metadata if attached (entry
+                        # carries `relevance` from the article frontmatter via
+                        # _get_wiki_index_cached → _read_frontmatter mapping).
+                        "relevance_score": entry.get("relevance"),
+                        "engagement_goal": entry.get("engagement_goal"),
                     },
                 )
     except Exception as e:
@@ -3438,18 +3469,57 @@ def _get_chunk_store():
         return None
 
 
+def _blend_embeddings(query_vec: list, goal_vec: list, goal_weight: float) -> list:
+    """Linearly blend two unit-normalized embeddings, then re-normalize.
+    goal_weight ∈ [0, 1]: portion of the goal embedding in the blend.
+    Used by chunked retrieval to surface archive content aligned with the
+    broader engagement context, not just the narrow chat question."""
+    import math
+    w_q = max(0.0, min(1.0, 1.0 - goal_weight))
+    w_g = max(0.0, min(1.0, goal_weight))
+    blended = [w_q * q + w_g * g for q, g in zip(query_vec, goal_vec)]
+    norm = math.sqrt(sum(x * x for x in blended)) or 1.0
+    return [x / norm for x in blended]
+
+
 def _search_chunked_articles(query: str, kind: str | None, source: str | None,
-                              limit: int, chunks_per_article: int = 3) -> list[dict] | None:
-    """Embed the query, search the chunk store, return article-level results
-    enriched with matched chunks. None if chunk store unavailable / fails."""
+                              limit: int, chunks_per_article: int = 3,
+                              engagement_goal: str | None = None,
+                              goal_blend_weight: float = 0.30) -> list[dict] | None:
+    """Embed the query (optionally blended with the engagement goal), search
+    the chunk store, return article-level results enriched with matched chunks.
+    None if chunk store unavailable / fails.
+
+    Phase 2.5: when engagement_goal is provided, the retrieval embedding is
+    weighted blend of the chat question (1 - goal_blend_weight) and the original
+    research goal (goal_blend_weight). Default weight 0.30 — chat question
+    dominates, but goal context biases ranking toward archive content
+    relevant to the broader engagement.
+    """
     store = _get_chunk_store()
     if store is None:
         return None
+    q = (query or "").strip()
+    if not q:
+        return None
     try:
-        qvec = _embed_texts([query.strip()], task_type="query")[0]
+        qvec = _embed_texts([q], task_type="query")[0]
     except Exception as e:
         logger.warning(f"Query embed failed for chunked retrieval, falling back: {e}")
         return None
+
+    # Optional engagement-goal blend
+    if engagement_goal and goal_blend_weight and goal_blend_weight > 0.001:
+        try:
+            gvec = _embed_texts([engagement_goal.strip()], task_type="query")[0]
+            qvec = _blend_embeddings(qvec, gvec, goal_blend_weight)
+            logger.info(
+                f"[chunked retrieval] blended embedding: query={q[:60]!r} "
+                f"goal={engagement_goal[:60]!r} weight={goal_blend_weight:.2f}"
+            )
+        except Exception as e:
+            logger.warning(f"Goal embed failed, retrieval falls back to query-only embedding: {e}")
+
     try:
         return store.search_articles(qvec, limit=limit, kind=kind, source=source,
                                      chunks_per_article=chunks_per_article)

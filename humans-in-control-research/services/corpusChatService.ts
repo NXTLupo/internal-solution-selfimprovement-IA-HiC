@@ -1559,8 +1559,20 @@ export async function sendChatMessage(
     if (!context.prefetchedArticlesBlock && userMessage && userMessage.trim().length >= 12) {
         try {
             const { prefetchArticlesForMessage, formatArticlesAsCorpusBlock } = await import('./wikiIndexService');
+            // Phase 2.5 (2026-04-28): pass the original engagement goal so the
+            // proxy blends its embedding with the chat question. Strengthens
+            // recall of archive content the user collected for this engagement
+            // but a narrow chat question wouldn't otherwise surface.
+            const engagementGoal = (context as any)?.researchGoal
+                || (context as any)?.goal
+                || (context as any)?.brief
+                || undefined;
             const prefetchedArticles = await Promise.race([
-                prefetchArticlesForMessage(userMessage, { limit: 6, maxCharsPerArticle: 12_000, minChars: 500 }),
+                prefetchArticlesForMessage(userMessage, {
+                    limit: 6, maxCharsPerArticle: 12_000, minChars: 500,
+                    engagementGoal,
+                    goalBlendWeight: 0.30,
+                }),
                 new Promise<any[]>(resolve => setTimeout(() => resolve([]), 6000)),
             ]);
             if (prefetchedArticles && prefetchedArticles.length > 0) {

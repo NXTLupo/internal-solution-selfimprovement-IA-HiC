@@ -228,6 +228,99 @@ function heuristicSubredditQuery(goal: string): string {
     return uniq.join(' ');
 }
 
+// ============================================================================
+// HALLUCINATION GUARD (2026-04-28) — Phase 2.5 fidelity check
+// ============================================================================
+// The LLM rewrites the goal into source-specific keywords. Without a guardrail,
+// it can drift — adding angles ("luxury experience", "subscription model") that
+// the user didn't intend. We check each refined query for fidelity to the
+// original goal: a fraction of its content tokens must overlap with the goal's
+// content tokens. If overlap is below FIDELITY_THRESHOLD, we reject the rewrite
+// for that source and fall back to the verbatim goal.
+
+const QUERY_FIDELITY_STOP_WORDS = new Set([
+    'the','and','or','of','in','to','for','on','at','by','with','an','a',
+    'is','are','was','were','be','been','being','this','that','these','those',
+    'it','its','from','into','about','as','if','than','then','but','not',
+    'can','could','should','would','may','might','must','will','shall',
+    'how','what','why','when','where','who','which','do','does','did','done',
+]);
+
+// Regex: split on any non-alphanumeric (keeps numbers like "2025" as tokens)
+const QUERY_TOKEN_RE = /[a-z0-9]+/g;
+
+function extractQueryTokens(s: string): Set<string> {
+    if (!s) return new Set();
+    const lower = s.toLowerCase();
+    const matches = lower.match(QUERY_TOKEN_RE) || [];
+    const out = new Set<string>();
+    for (const t of matches) {
+        if (t.length < 3) continue;
+        if (QUERY_FIDELITY_STOP_WORDS.has(t)) continue;
+        // Allow numerics through (years, model versions, etc.)
+        out.add(t);
+    }
+    return out;
+}
+
+/** Fraction of refined query's content tokens that came from the original goal.
+ * 1.0 = every token in refined is in goal (perfect fidelity, possibly redundant).
+ * 0.0 = no overlap (LLM hallucinated entire query). */
+function queryFidelityScore(goal: string, refined: string): number {
+    const g = extractQueryTokens(goal);
+    const r = extractQueryTokens(refined);
+    if (r.size === 0) return 0;
+    let overlap = 0;
+    for (const t of r) if (g.has(t)) overlap++;
+    return overlap / r.size;
+}
+
+const FIDELITY_THRESHOLD = 0.35;  // ≥35% of refined tokens must come from goal
+const MIN_GOAL_TOKEN_OVERLAP = 1; // refined must include ≥1 goal token
+
+/** Validates each refined query against the original goal. Replaces low-fidelity
+ * rewrites with the verbatim goal so the proxy hits the source with content
+ * the user actually authored. Logs each rejection so quality drift is visible. */
+function validateRefinedQueries(
+    goal: string,
+    refined: Record<string, string>,
+): { validated: Record<string, string>; rejected: string[] } {
+    const goalTokens = extractQueryTokens(goal);
+    const validated: Record<string, string> = {};
+    const rejected: string[] = [];
+
+    for (const [source, query] of Object.entries(refined)) {
+        if (!query || typeof query !== 'string') {
+            validated[source] = goal;
+            rejected.push(`${source}: empty/invalid -> fallback`);
+            continue;
+        }
+        const queryTokens = extractQueryTokens(query);
+        const overlap = [...queryTokens].filter(t => goalTokens.has(t)).length;
+        const fidelity = queryFidelityScore(goal, query);
+
+        if (overlap < MIN_GOAL_TOKEN_OVERLAP || fidelity < FIDELITY_THRESHOLD) {
+            validated[source] = goal;
+            rejected.push(
+                `${source}: fidelity=${fidelity.toFixed(2)} overlap=${overlap}/${queryTokens.size} ` +
+                `(refined was: ${JSON.stringify(query.slice(0, 80))})`,
+            );
+        } else {
+            validated[source] = query;
+        }
+    }
+
+    if (rejected.length > 0) {
+        console.warn(
+            `[refineSearchQueries] hallucination guard: ${rejected.length}/${Object.keys(refined).length} ` +
+            `queries below fidelity threshold ${FIDELITY_THRESHOLD}, replaced with goal verbatim:\n  ` +
+            rejected.join('\n  '),
+        );
+    }
+
+    return { validated, rejected };
+}
+
 export async function refineSearchQueries(
     goal: string,
     lens: AnalyticalLens,
@@ -243,16 +336,24 @@ DATA SOURCES TO GENERATE QUERIES FOR: ${sourceList}
 Return a JSON object where each key is the source name and the value is the optimized search query string. Example:
 {"GDELT": "remote work technology adoption enterprise 2025 2026", "OpenAlex": "hybrid workforce productivity digital collaboration tools", "Hacker News": "remote work tools startups"}
 
-Rules:
+CRITICAL FIDELITY RULES — do NOT introduce concepts the goal does not contain:
 - Each query: 4-8 keywords, no filler words
-- For news sources: include year references (2025, 2026) to get recent content
-- For academic sources: use field-specific terminology
-- For economic sources: use indicator-relevant terms (GDP, employment, market size)
+- AT LEAST ONE keyword in each query MUST appear in the original goal
+- Do NOT invent industries, brands, geographies, or stakeholders not in the goal
+- Year references (2025, 2026) are allowed; treat as goal-aligned
+- Synonyms for goal terms are OK; tangential adjacencies are NOT
+- For news sources: include year references for recent content
+- For academic sources: use field-specific terminology of the goal's domain
+- For economic sources: use indicator-relevant terms tied to the goal
 - For social sources: use community language, not formal terms`;
 
     try {
         const result = await geminiJSON<Record<string, string>>(prompt);
-        return result;
+        // Phase 2.5 hallucination guard — validate every refined query against
+        // the original goal. Low-fidelity rewrites get replaced with the goal
+        // verbatim so we don't query sources with concepts the user didn't ask.
+        const { validated } = validateRefinedQueries(goal, result || {});
+        return validated;
     } catch (e) {
         console.warn('Query refinement failed, using research goal as fallback:', e);
         const fallback: Record<string, string> = {};
@@ -1348,10 +1449,22 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
 
     let corpus = header + (triModelSynthesis ? triModelSynthesis + '\n\n' : '') + sections.join('\n');
 
-    // CORPUS SIZE GUARD: Gemini 2.5 Flash can handle ~1M tokens input but the combined
-    // corpus + system prompt + wiki knowledge + uploaded files can exceed limits.
-    // Cap the corpus at 500KB (~125K tokens) to leave room for everything else.
-    const MAX_CORPUS_CHARS = 500_000;
+    // CORPUS SIZE GUARD (raised 2026-04-29). Gemini 2.5 Flash supports a 1M-
+    // token input window — that's roughly 3.5MB of text. The previous 500KB
+    // cap was sized for Claude's 200K-token window and was strangling the
+    // theme synthesis: a 1077-chunk corpus was being truncated to ~20 chunks,
+    // producing only 4 themes regardless of prompt instructions.
+    //
+    // New cap: 2.5MB. Matches the Gemini config in App.tsx:2786
+    // (maxChars: 2_500_000). Leaves ~30% headroom for system prompt + wiki
+    // knowledge + uploaded files within Gemini's actual budget.
+    //
+    // Claude fallback path: if Gemini repetition-collapses, the orchestrator
+    // routes to Claude. Claude has a 200K-token (~600KB) limit, so the
+    // fallback layer applies its own tighter truncation downstream — that
+    // logic is unchanged. Don't pre-truncate for Claude here; doing so
+    // strangles Gemini for a tail-case fallback that may not even trigger.
+    const MAX_CORPUS_CHARS = 2_500_000;
     if (corpus.length > MAX_CORPUS_CHARS) {
         console.warn(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB exceeds ${MAX_CORPUS_CHARS / 1024}KB limit. Truncating low-relevance items.`);
         // Truncate from the end (lowest-relevance items are last since we sort by relevance)
@@ -1362,6 +1475,8 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
             corpus = corpus.substring(0, lastChunkEnd);
         }
         corpus += '\n\n[CORPUS TRUNCATED — lowest-relevance items omitted to fit context window]\n';
+    } else {
+        console.log(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB (under ${MAX_CORPUS_CHARS / 1024}KB cap — full corpus passed to LLM)`);
     }
 
     // Store chunk map for downstream citation resolution

@@ -102,6 +102,16 @@ class VectorStore:
             conn.execute("CREATE INDEX IF NOT EXISTS idx_chunks_kind ON articles(kind)")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_chunks_source ON articles(source)")
 
+            # Phase 2.5 migration: relevance_score + engagement_goal columns on
+            # the articles table. ALTER TABLE is idempotent-safe via PRAGMA check.
+            existing_cols = {
+                r[1] for r in conn.execute("PRAGMA table_info(articles)").fetchall()
+            }
+            if "relevance_score" not in existing_cols:
+                conn.execute("ALTER TABLE articles ADD COLUMN relevance_score INTEGER")
+            if "engagement_goal" not in existing_cols:
+                conn.execute("ALTER TABLE articles ADD COLUMN engagement_goal TEXT")
+
     # ------------------------------------------------------------------
     # Mutation
     # ------------------------------------------------------------------
@@ -129,12 +139,21 @@ class VectorStore:
             # Replace any prior rows for this article (stale chunks from re-embeds)
             self._delete_article_inner(conn, article_id)
 
+            relevance_score = meta.get("relevance_score")
+            if relevance_score is not None:
+                try:
+                    relevance_score = max(0, min(100, int(relevance_score)))
+                except (TypeError, ValueError):
+                    relevance_score = None
+            engagement_goal = meta.get("engagement_goal") or None
+
             conn.execute(
                 """
                 INSERT INTO articles (
                     article_id, wiki_path, url, title, source, kind, tier, date,
-                    chars, last_indexed_at, chunk_count, metadata_json
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    chars, last_indexed_at, chunk_count, metadata_json,
+                    relevance_score, engagement_goal
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     article_id,
@@ -149,8 +168,11 @@ class VectorStore:
                     now,
                     len(chunks),
                     json.dumps({k: v for k, v in meta.items() if k not in {
-                        "url", "title", "source", "kind", "tier", "date", "chars"
+                        "url", "title", "source", "kind", "tier", "date", "chars",
+                        "relevance_score", "engagement_goal",
                     }}, ensure_ascii=False),
+                    relevance_score,
+                    engagement_goal,
                 ),
             )
 
@@ -230,13 +252,14 @@ class VectorStore:
         # vec0 doesn't support post-filtering directly — we over-fetch then filter
         # in app code. At our scale this is fine; switch to vec0 metadata if
         # we ever cross 100K chunks.
-        overfetch = max(limit * 4, 50)
+        overfetch = max(limit * 8, 100)
         rows = conn.execute(
             """
             SELECT
                 c.chunk_rowid, c.article_id, c.chunk_idx, c.section, c.text,
                 c.char_start, c.char_end, c.token_count,
                 a.wiki_path, a.url, a.title, a.source, a.kind, a.tier, a.date, a.chars,
+                a.relevance_score,
                 v.distance
             FROM chunks_vec v
             JOIN chunks c ON c.chunk_rowid = v.rowid
@@ -253,6 +276,7 @@ class VectorStore:
             (chunk_rowid, article_id, chunk_idx, section, text,
              char_start, char_end, token_count,
              wiki_path, url, title, source_field, kind_field, tier_field, date_field, chars_field,
+             relevance_score,
              distance) = r
 
             if kind and kind_field != kind:
@@ -263,6 +287,28 @@ class VectorStore:
                 continue
             if article_id in exclude:
                 continue
+
+            # Cosine similarity ≈ 1 - L2/2 for unit-norm OpenAI embeddings.
+            cosine_score = max(0.0, 1.0 - (distance ** 2) / 2.0)
+
+            # Phase 2.5: blend cosine with the article's goal-fit relevance.
+            # Articles graded 0–100 by Gemini against the original engagement
+            # goal at collection time. Unknown / pre-Phase-2.5 articles get a
+            # neutral default so their chunks aren't penalized vs. graded ones.
+            #
+            # Mapping: 0–100 -> [0.6, 1.0] linear. A 100-relevance article
+            # keeps its chunk's full cosine; a 0-relevance article's chunk
+            # is multiplied by 0.6 (40% penalty). This re-ranks WITHIN the
+            # top-`overfetch` set, so we don't drop content — we just sort
+            # high-goal-fit chunks above low-goal-fit ones at equal cosine.
+            if relevance_score is None:
+                relevance_factor = 0.85  # neutral default for ungraded articles
+                rscore_out = None
+            else:
+                rscore_out = int(relevance_score)
+                relevance_factor = 0.6 + 0.4 * (rscore_out / 100.0)
+
+            blended = cosine_score * relevance_factor
 
             out.append({
                 "chunk_rowid": chunk_rowid,
@@ -282,14 +328,15 @@ class VectorStore:
                 "date": date_field or "",
                 "chars": chars_field or 0,
                 "distance": distance,
-                # Cosine similarity ≈ 1 - L2/2 for unit-norm vectors. OpenAI
-                # embeddings are L2-normalized, so this conversion is exact.
-                "score": max(0.0, 1.0 - (distance ** 2) / 2.0),
+                "cosine_score": cosine_score,
+                "relevance_score": rscore_out,
+                "score": blended,  # the load-bearing rank field
             })
-            if len(out) >= limit:
-                break
 
-        return out
+        # Re-sort by blended score (cosine alone -> cosine × relevance_factor).
+        # Cheap (Python-side over <=overfetch rows) and matches user intent.
+        out.sort(key=lambda r: r["score"], reverse=True)
+        return out[:limit]
 
     def search_articles(
         self,
