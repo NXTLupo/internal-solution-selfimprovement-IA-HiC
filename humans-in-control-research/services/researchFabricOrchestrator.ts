@@ -1045,6 +1045,15 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
      */
     async function writeWikiArticle(item: DataSourceItem, content: string, method: string, source: string): Promise<string | null> {
         try {
+            // 2026-04-29 — Timeout raised from 8s to 25s. The proxy's
+            // /api/wiki/write-article endpoint synchronously embeds the
+            // article via OpenAI (1-3s per call) before returning. With
+            // 8-wide concurrency from residual archival, some writes
+            // succeeded server-side but the client's 8s window had already
+            // expired by the time the response arrived — causing the
+            // frontend to undercount persistence (e.g. "9/46 persisted"
+            // when the proxy actually wrote ~30). 25s comfortably covers
+            // the slowest p99 OpenAI embed even under burst load.
             const resp = await fetch(`${PROXY}/api/wiki/write-article`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1058,7 +1067,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     method,
                     kind: 'article',
                 }),
-                signal: AbortSignal.timeout(8000),
+                signal: AbortSignal.timeout(25000),
             });
             if (!resp.ok) return null;
             const data = await resp.json();
