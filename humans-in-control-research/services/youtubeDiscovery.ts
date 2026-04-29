@@ -21,6 +21,7 @@
  */
 
 import { extractResearchObjective } from './wikiService';
+import { tryRepairJson } from './aiRouter';
 
 // --- AI QUERY SUGGESTION ---
 
@@ -68,13 +69,36 @@ Return STRICT JSON only:
 }`;
 
     try {
+        // 2026-04-29 — Hardening pass.
+        //   1. responseMimeType + responseSchema forces Gemini into strict
+        //      JSON mode so it self-terminates cleanly (no more "Unexpected
+        //      end of JSON input" from mid-string truncation).
+        //   2. maxOutputTokens raised 800 -> 2048 — 800 was being hit on
+        //      runs with rich namedEntities or longer rationale, producing
+        //      truncated output even WITH JSON mode.
+        //   3. tryRepairJson before JSON.parse covers the rare case where
+        //      the proxy passes an older Gemini response shape or strips
+        //      something unexpected in transit.
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 model: 'gemini-2.5-flash',
                 contents: prompt,
-                config: { temperature: 0.3, maxOutputTokens: 800 },
+                config: {
+                    temperature: 0.3,
+                    maxOutputTokens: 2048,
+                    responseMimeType: 'application/json',
+                    responseSchema: {
+                        type: 'object',
+                        properties: {
+                            queries: { type: 'array', items: { type: 'string' } },
+                            namedEntities: { type: 'array', items: { type: 'string' } },
+                            rationale: { type: 'string' },
+                        },
+                        required: ['queries', 'namedEntities'],
+                    },
+                },
             }),
             signal: AbortSignal.timeout(25_000),
         });
@@ -85,9 +109,20 @@ Return STRICT JSON only:
             || data?.text
             || '';
         if (!text) return { queries: [], namedEntities: [] };
-        // Strip ``` fences if the model added them
-        const cleaned = text.trim().replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
-        const parsed = JSON.parse(cleaned);
+        // tryRepairJson handles fences, leading prose, truncated braces,
+        // unterminated strings, and wraps non-JSON as a typed error.
+        const cleaned = tryRepairJson(text);
+        let parsed: any;
+        try {
+            parsed = JSON.parse(cleaned);
+        } catch (parseErr: any) {
+            console.warn('[YouTubeDiscovery] JSON parse failed even after repair; raw head:', text.slice(0, 200));
+            return { queries: [], namedEntities: [] };
+        }
+        if (parsed?._error) {
+            console.warn('[YouTubeDiscovery] non-JSON Gemini response:', parsed._raw?.slice(0, 120));
+            return { queries: [], namedEntities: [] };
+        }
         return {
             queries: Array.isArray(parsed.queries) ? parsed.queries.filter((q: any) => typeof q === 'string').slice(0, 5) : [],
             namedEntities: Array.isArray(parsed.namedEntities) ? parsed.namedEntities.filter((e: any) => typeof e === 'string').slice(0, 10) : [],

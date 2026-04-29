@@ -2732,12 +2732,25 @@ async def proxy_gemini(request: Request):
         config = body.get("config", {})
 
         # Build Gemini API request
+        gen_config: Dict[str, Any] = {
+            "temperature": config.get("temperature", 0.2),
+            "maxOutputTokens": config.get("maxOutputTokens", 8192),
+        }
+        # 2026-04-29 — Pass through structured-output config so callers can
+        # force strict JSON. Without this, Gemini's free-form text output
+        # often truncates mid-string under tight token budgets — the source
+        # of the long-running [YouTubeDiscovery] suggestVideoQueries
+        # "Unexpected end of JSON input" errors. responseMimeType +
+        # responseSchema put Gemini into JSON mode where it self-terminates
+        # cleanly even at the maxOutputTokens boundary.
+        if config.get("responseMimeType"):
+            gen_config["responseMimeType"] = config["responseMimeType"]
+        if config.get("responseSchema"):
+            gen_config["responseSchema"] = config["responseSchema"]
+
         gemini_body = {
             "contents": [{"parts": [{"text": contents}]}] if isinstance(contents, str) else contents,
-            "generationConfig": {
-                "temperature": config.get("temperature", 0.2),
-                "maxOutputTokens": config.get("maxOutputTokens", 8192),
-            },
+            "generationConfig": gen_config,
         }
 
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
