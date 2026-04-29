@@ -12,9 +12,9 @@ import { DesignDesk } from './design-desk';
 // skill refactor. If you don't see "v3.2" and "nxt-visual-renderer",
 // you're on a stale bundle — rebuild the container.
 // ================================================================
-const HIC_BUNDLE_VERSION = 'v3.2';
-const HIC_CODENAME = 'Densified Slides + Skill Refactor';
-const HIC_BUILD_STAMP = '2026-04-21';
+const HIC_BUNDLE_VERSION = 'v3.4';
+const HIC_CODENAME = 'Two-Pass Themes + Cause-Commerce Pack';
+const HIC_BUILD_STAMP = '2026-04-29';
 // Feature flags — these MUST all read `true` on v3.2. If any read
 // `false` (or the banner doesn't print at all), the bundle is stale.
 const HIC_FEATURES = {
@@ -40,6 +40,11 @@ const HIC_FEATURES = {
     smartQuoteClip: true,                             // no-mid-clause quote truncation in QuoteStack + block-quote + case-study
     themeMosaicIvoryRedesign: true,                   // B&W checkerboard replaced with ivory + chartreuse primary accent
     pptxDensityParity: true,                          // PPTX exporter mirrors web Option B fields
+    // v3.4 features (2026-04-29)
+    twoPassThemeArchitecture: true,                   // Pass 1 Gemini 3.1 Pro breadth + Pass 2 Opus 4.7 depth
+    rssBodyExpansion: true,                           // 3-tier (trafilatura → Jina → teaser) for all 200+ RSS feeds
+    causeCommerceSourcePack: true,                    // 153 new sources: ShoppingGives, Daffy, Bombas, TOMS, Wayfair, Klarna, Stripe Climate, Pledgeling, etc.
+    staticUrlConnector: true,                         // single-page fetch via 3-tier expansion for brand impact pages
 };
 console.log(
     `%c[NXT HiC] ${HIC_BUNDLE_VERSION} (${HIC_BUILD_STAMP}) — ${HIC_CODENAME}`,

@@ -14,3 +14,6 @@ lxml>=5.0.0
 # tiktoken for cl100k_base token counts (matches text-embedding-3-small)
 sqlite-vec>=0.1.9
 tiktoken>=0.12.0
+# RSS body expansion (2026-04-29): direct HTML fetch + trafilatura article-body
+# extraction as the primary path; Jina Reader is only the rate-limited fallback.
+trafilatura>=1.12.0

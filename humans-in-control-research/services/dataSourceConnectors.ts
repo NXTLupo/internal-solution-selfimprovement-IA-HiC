@@ -71,6 +71,16 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'AI Conferences': 'academic',
     'AI Communities': 'social',
     'AI Code': 'social',
+    // 2026-04-29 — Checkout-fundraising / cause-commerce intelligence pack
+    'Cause-Commerce Tech': 'web',
+    'Cause-Brand Impact': 'web',
+    'Donation Tech Platforms': 'web',
+    'Sustainability-at-Checkout': 'web',
+    'Philanthropy Press': 'news',
+    'Retail News': 'news',
+    'Consumer/CSR Research': 'web',
+    'Press Wires': 'news',
+    'Cause Reddit': 'social',
 };
 
 // --- GENERIC PROXY CONNECTOR FACTORY ---
@@ -407,6 +417,187 @@ const githubTrendingAiConnector = createProxyConnector('github_trending_ai', 'Gi
 const langchainDocsConnector = createProxyConnector('langchain_docs', 'LangChain Docs', 'AI Code', 'Agent/RAG framework');
 const llamaindexDocsConnector = createProxyConnector('llamaindex_docs', 'LlamaIndex Docs', 'AI Code', 'RAG framework');
 
+// ============================================================
+// CHECKOUT-FUNDRAISING / CAUSE-COMMERCE INTELLIGENCE PACK (2026-04-29)
+// 153 connectors covering checkout-charity tech, brand impact pages,
+// donation platforms, sustainability-at-checkout, philanthropy press,
+// retail/commerce additions, consumer/CSR research, government data,
+// press wires, and cause-focused subreddits.
+// ============================================================
+
+// --- Cause-Commerce Tech (23) ---
+const shoppinggivesBlogConnector = createProxyConnector('shoppinggives_blog', 'ShoppingGives Blog', 'Cause-Commerce Tech', 'ShoppingGives Blog');
+const shoppinggivesNewsConnector = createProxyConnector('shoppinggives_news', 'ShoppingGives Newsroom', 'Cause-Commerce Tech', 'ShoppingGives Newsroom');
+const pledgeToResourcesConnector = createProxyConnector('pledge_to_resources', 'Pledge.to Resources', 'Cause-Commerce Tech', 'Pledge.to Resources');
+const pledgeShopifyGiveGrowConnector = createProxyConnector('pledge_shopify_give_grow', 'Pledge Give and Grow Shopify', 'Cause-Commerce Tech', 'Pledge Give and Grow Shopify');
+const pledgelingFoundationConnector = createProxyConnector('pledgeling_foundation', 'Pledgeling Foundation', 'Cause-Commerce Tech', 'Pledgeling Foundation');
+const roundupAppConnector = createProxyConnector('roundup_app', 'RoundUp App', 'Cause-Commerce Tech', 'RoundUp App');
+const rounditupAmericaConnector = createProxyConnector('rounditup_america', 'Round It Up America', 'Cause-Commerce Tech', 'Round It Up America');
+const daffyResourcesConnector = createProxyConnector('daffy_resources', 'Daffy Resources', 'Cause-Commerce Tech', 'Daffy Resources');
+const daffyDeveloperConnector = createProxyConnector('daffy_developer', 'Daffy Developer Docs', 'Cause-Commerce Tech', 'Daffy Developer Docs');
+const daffyForWorkConnector = createProxyConnector('daffy_for_work', 'Daffy for Work', 'Cause-Commerce Tech', 'Daffy for Work');
+const givelifyBlogConnector = createProxyConnector('givelify_blog', 'Givelify Blog', 'Cause-Commerce Tech', 'Givelify Blog');
+const givelifyPressConnector = createProxyConnector('givelify_press', 'Givelify Press', 'Cause-Commerce Tech', 'Givelify Press');
+const charitybuzzConnector = createProxyConnector('charitybuzz', 'Charitybuzz', 'Cause-Commerce Tech', 'Charitybuzz');
+const charitybuzzPressConnector = createProxyConnector('charitybuzz_press', 'Charitybuzz Press', 'Cause-Commerce Tech', 'Charitybuzz Press');
+const stripeClimateConnector = createProxyConnector('stripe_climate', 'Stripe Climate', 'Cause-Commerce Tech', 'Stripe Climate');
+const frontierClimateConnector = createProxyConnector('frontier_climate', 'Frontier Climate', 'Cause-Commerce Tech', 'Frontier Climate');
+const stripeNewsroomConnector = createProxyConnector('stripe_newsroom', 'Stripe Newsroom', 'Cause-Commerce Tech', 'Stripe Newsroom');
+const klarnaNewsroomConnector = createProxyConnector('klarna_newsroom', 'Klarna Newsroom', 'Cause-Commerce Tech', 'Klarna Newsroom');
+const klarnaSustainabilityConnector = createProxyConnector('klarna_sustainability', 'Klarna Sustainability', 'Cause-Commerce Tech', 'Klarna Sustainability');
+const shopifyAppsRoundupConnector = createProxyConnector('shopify_apps_roundup', 'Shopify Round-Up Apps', 'Cause-Commerce Tech', 'Shopify Round-Up Apps');
+const shopifyEngineeringConnector = createProxyConnector('shopify_engineering', 'Shopify Engineering Blog', 'Cause-Commerce Tech', 'Shopify Engineering Blog');
+const shopifyNewsConnector = createProxyConnector('shopify_news', 'Shopify News', 'Cause-Commerce Tech', 'Shopify News');
+const salesforceOrgBlogConnector = createProxyConnector('salesforce_org_blog', 'Salesforce.org Blog', 'Cause-Commerce Tech', 'Salesforce.org Blog');
+
+// --- Cause-Brand Impact (25) ---
+const wayfairNewsConnector = createProxyConnector('wayfair_news', 'Wayfair Newsroom', 'Cause-Brand Impact', 'Wayfair Newsroom');
+const wayfairImpactConnector = createProxyConnector('wayfair_impact', 'Wayfair Social Impact', 'Cause-Brand Impact', 'Wayfair Social Impact');
+const wayfairIrConnector = createProxyConnector('wayfair_ir', 'Wayfair Investor Relations', 'Cause-Brand Impact', 'Wayfair Investor Relations');
+const bombasImpactConnector = createProxyConnector('bombas_impact', 'Bombas Impact (Bee Better)', 'Cause-Brand Impact', 'Bombas Impact (Bee Better)');
+const bombasPressConnector = createProxyConnector('bombas_press', 'Bombas Press', 'Cause-Brand Impact', 'Bombas Press');
+const tomsImpactConnector = createProxyConnector('toms_impact', 'TOMS Impact Reports', 'Cause-Brand Impact', 'TOMS Impact Reports');
+const tomsNewsConnector = createProxyConnector('toms_news', 'TOMS Newsroom', 'Cause-Brand Impact', 'TOMS Newsroom');
+const warbyBuyPairConnector = createProxyConnector('warby_buy_pair', 'Warby Parker Buy a Pair', 'Cause-Brand Impact', 'Warby Parker Buy a Pair');
+const warbyPressConnector = createProxyConnector('warby_press', 'Warby Parker Press', 'Cause-Brand Impact', 'Warby Parker Press');
+const allbirdsSustainabilityConnector = createProxyConnector('allbirds_sustainability', 'Allbirds Sustainability', 'Cause-Brand Impact', 'Allbirds Sustainability');
+const patagoniaActivismConnector = createProxyConnector('patagonia_activism', 'Patagonia Activism', 'Cause-Brand Impact', 'Patagonia Activism');
+const onepercentPlanetConnector = createProxyConnector('onepercent_planet', '1 Percent for the Planet', 'Cause-Brand Impact', '1 Percent for the Planet');
+const benjerryNewsConnector = createProxyConnector('benjerry_news', 'Ben and Jerrys Issues', 'Cause-Brand Impact', 'Ben and Jerrys Issues');
+const honestCoConnector = createProxyConnector('honest_co', 'Honest Company', 'Cause-Brand Impact', 'Honest Company');
+const lushCharityPotConnector = createProxyConnector('lush_charity_pot', 'Lush Charity Pot', 'Cause-Brand Impact', 'Lush Charity Pot');
+const bodyShopActivismConnector = createProxyConnector('body_shop_activism', 'The Body Shop Activism', 'Cause-Brand Impact', 'The Body Shop Activism');
+const cotopaxiImpactConnector = createProxyConnector('cotopaxi_impact', 'Cotopaxi Impact', 'Cause-Brand Impact', 'Cotopaxi Impact');
+const thinxImpactConnector = createProxyConnector('thinx_impact', 'Thinx Impact', 'Cause-Brand Impact', 'Thinx Impact');
+const parkerClayConnector = createProxyConnector('parker_clay', 'Parker Clay Impact', 'Cause-Brand Impact', 'Parker Clay Impact');
+const tentreeConnector = createProxyConnector('tentree', 'Tentree Impact', 'Cause-Brand Impact', 'Tentree Impact');
+const puraVidaCharityConnector = createProxyConnector('pura_vida_charity', 'Pura Vida Charity', 'Cause-Brand Impact', 'Pura Vida Charity');
+const sandCloudCharityConnector = createProxyConnector('sand_cloud_charity', 'Sand Cloud Charity', 'Cause-Brand Impact', 'Sand Cloud Charity');
+const sevenlyConnector = createProxyConnector('sevenly', 'Sevenly', 'Cause-Brand Impact', 'Sevenly');
+const newmansOwnConnector = createProxyConnector('newmans_own', 'Newmans Own Foundation', 'Cause-Brand Impact', 'Newmans Own Foundation');
+const redOrgConnector = createProxyConnector('red_org', 'Project RED', 'Cause-Brand Impact', 'Project RED');
+
+// --- Donation Tech Platforms (27) ---
+const donatestockBlogConnector = createProxyConnector('donatestock_blog', 'DonateStock Blog', 'Donation Tech Platforms', 'DonateStock Blog');
+const givingblockBlogConnector = createProxyConnector('givingblock_blog', 'The Giving Block', 'Donation Tech Platforms', 'The Giving Block');
+const engivenBlogConnector = createProxyConnector('engiven_blog', 'Engiven', 'Donation Tech Platforms', 'Engiven');
+const gofundmePressConnector = createProxyConnector('gofundme_press', 'GoFundMe Newsroom', 'Donation Tech Platforms', 'GoFundMe Newsroom');
+const donorschoosePressConnector = createProxyConnector('donorschoose_press', 'DonorsChoose Press', 'Donation Tech Platforms', 'DonorsChoose Press');
+const nfgBlogConnector = createProxyConnector('nfg_blog', 'Network for Good', 'Donation Tech Platforms', 'Network for Good');
+const fidelityCharitableInsightsConnector = createProxyConnector('fidelity_charitable_insights', 'Fidelity Charitable Insights', 'Donation Tech Platforms', 'Fidelity Charitable Insights');
+const schwabCharitableInsightsConnector = createProxyConnector('schwab_charitable_insights', 'Schwab Charitable Insights', 'Donation Tech Platforms', 'Schwab Charitable Insights');
+const vanguardCharitableInsightsConnector = createProxyConnector('vanguard_charitable_insights', 'Vanguard Charitable Insights', 'Donation Tech Platforms', 'Vanguard Charitable Insights');
+const nptrustDafReportConnector = createProxyConnector('nptrust_daf_report', 'NPTrust DAF Report', 'Donation Tech Platforms', 'NPTrust DAF Report');
+const chariotBlogConnector = createProxyConnector('chariot_blog', 'Chariot Blog', 'Donation Tech Platforms', 'Chariot Blog');
+const pledge1pctNewsConnector = createProxyConnector('pledge1pct_news', 'Pledge 1 Percent News', 'Donation Tech Platforms', 'Pledge 1 Percent News');
+const benevityBlogConnector = createProxyConnector('benevity_blog', 'Benevity Blog', 'Donation Tech Platforms', 'Benevity Blog');
+const blackbaudBlogConnector = createProxyConnector('blackbaud_blog', 'Blackbaud Blog', 'Donation Tech Platforms', 'Blackbaud Blog');
+const submittableBlogConnector = createProxyConnector('submittable_blog', 'Submittable Blog', 'Donation Tech Platforms', 'Submittable Blog');
+const percentPledgeConnector = createProxyConnector('percent_pledge', 'Percent Pledge', 'Donation Tech Platforms', 'Percent Pledge');
+const givingaBlogConnector = createProxyConnector('givinga_blog', 'Givinga Insights', 'Donation Tech Platforms', 'Givinga Insights');
+const groundswellBlogConnector = createProxyConnector('groundswell_blog', 'Groundswell Blog', 'Donation Tech Platforms', 'Groundswell Blog');
+const millieBlogConnector = createProxyConnector('millie_blog', 'Millie Giving', 'Donation Tech Platforms', 'Millie Giving');
+const doublethedonationBlogConnector = createProxyConnector('doublethedonation_blog', 'Double the Donation', 'Donation Tech Platforms', 'Double the Donation');
+const virtueImpactBlogConnector = createProxyConnector('virtue_impact_blog', 'Virtue Impact Shopify', 'Donation Tech Platforms', 'Virtue Impact Shopify');
+const dailykarmaBlogConnector = createProxyConnector('dailykarma_blog', 'DailyKarma Blog', 'Donation Tech Platforms', 'DailyKarma Blog');
+const beamImpactBlogConnector = createProxyConnector('beam_impact_blog', 'Beam Impact Blog', 'Donation Tech Platforms', 'Beam Impact Blog');
+const getchangeBlogConnector = createProxyConnector('getchange_blog', 'Change Mastercard Blog', 'Donation Tech Platforms', 'Change Mastercard Blog');
+const aspirationPressConnector = createProxyConnector('aspiration_press', 'Aspiration Press', 'Donation Tech Platforms', 'Aspiration Press');
+const acornsPressConnector = createProxyConnector('acorns_press', 'Acorns Press', 'Donation Tech Platforms', 'Acorns Press');
+const opencollectiveBlogConnector = createProxyConnector('opencollective_blog', 'OpenCollective Blog', 'Donation Tech Platforms', 'OpenCollective Blog');
+
+// --- Sustainability-at-Checkout (15) ---
+const stripeClimateCustomersConnector = createProxyConnector('stripe_climate_customers', 'Stripe Climate Customers', 'Sustainability-at-Checkout', 'Stripe Climate Customers');
+const frontierClimateNewsConnector = createProxyConnector('frontier_climate_news', 'Frontier Climate Blog', 'Sustainability-at-Checkout', 'Frontier Climate Blog');
+const ecocartBlogConnector = createProxyConnector('ecocart_blog', 'EcoCart Blog', 'Sustainability-at-Checkout', 'EcoCart Blog');
+const cloverlyBlogConnector = createProxyConnector('cloverly_blog', 'Cloverly Blog', 'Sustainability-at-Checkout', 'Cloverly Blog');
+const patchIoBlogConnector = createProxyConnector('patch_io_blog', 'Patch carbon API Blog', 'Sustainability-at-Checkout', 'Patch carbon API Blog');
+const pachamaBlogConnector = createProxyConnector('pachama_blog', 'Pachama Insights', 'Sustainability-at-Checkout', 'Pachama Insights');
+const climateNeutralBlogConnector = createProxyConnector('climate_neutral_blog', 'Climate Neutral Certified', 'Sustainability-at-Checkout', 'Climate Neutral Certified');
+const watershedBlogConnector = createProxyConnector('watershed_blog', 'Watershed Blog', 'Sustainability-at-Checkout', 'Watershed Blog');
+const persefoniBlogConnector = createProxyConnector('persefoni_blog', 'Persefoni Insights', 'Sustainability-at-Checkout', 'Persefoni Insights');
+const southPoleNewsConnector = createProxyConnector('south_pole_news', 'South Pole News', 'Sustainability-at-Checkout', 'South Pole News');
+const carbonCreditsNewsConnector = createProxyConnector('carbon_credits_news', 'Carbon Credits News', 'Sustainability-at-Checkout', 'Carbon Credits News');
+const trellisFeedConnector = createProxyConnector('trellis_feed', 'Trellis (formerly GreenBiz)', 'Sustainability-at-Checkout', 'Trellis (formerly GreenBiz)');
+const sustainableBrandsConnector = createProxyConnector('sustainable_brands', 'Sustainable Brands', 'Sustainability-at-Checkout', 'Sustainable Brands');
+const triplePunditConnector = createProxyConnector('triple_pundit', 'TriplePundit', 'Sustainability-at-Checkout', 'TriplePundit');
+const threeblMediaConnector = createProxyConnector('threebl_media', '3BL Media News', 'Sustainability-at-Checkout', '3BL Media News');
+
+// --- Philanthropy Press (16) ---
+const chroniclePhilanthropyFundraisingConnector = createProxyConnector('chronicle_philanthropy_fundraising', 'Chronicle of Philanthropy: Fundraising', 'Philanthropy Press', 'Chronicle of Philanthropy: Fundraising');
+const nonprofitTimesFeedConnector = createProxyConnector('nonprofit_times_feed', 'NonProfit Times', 'Philanthropy Press', 'NonProfit Times');
+const insidePhilanthropyConnector = createProxyConnector('inside_philanthropy', 'Inside Philanthropy', 'Philanthropy Press', 'Inside Philanthropy');
+const nonprofitQuarterlyConnector = createProxyConnector('nonprofit_quarterly', 'Nonprofit Quarterly', 'Philanthropy Press', 'Nonprofit Quarterly');
+const philanthropyNewsDigestConnector = createProxyConnector('philanthropy_news_digest', 'Philanthropy News Digest', 'Philanthropy Press', 'Philanthropy News Digest');
+const devexNewsConnector = createProxyConnector('devex_news', 'Devex', 'Philanthropy Press', 'Devex');
+const allianceMagazineConnector = createProxyConnector('alliance_magazine', 'Alliance Magazine', 'Philanthropy Press', 'Alliance Magazine');
+const forbesNonprofitCouncilConnector = createProxyConnector('forbes_nonprofit_council', 'Forbes Nonprofit Council', 'Philanthropy Press', 'Forbes Nonprofit Council');
+const ntenConnector = createProxyConnector('nten', 'NTEN', 'Philanthropy Press', 'NTEN');
+const nptechforgoodConnector = createProxyConnector('nptechforgood', 'Nonprofit Tech for Good', 'Philanthropy Press', 'Nonprofit Tech for Good');
+const globalImpactBlogConnector = createProxyConnector('global_impact_blog', 'Global Impact Greater Giving', 'Philanthropy Press', 'Global Impact Greater Giving');
+const engageForGoodConnector = createProxyConnector('engage_for_good', 'Engage for Good', 'Philanthropy Press', 'Engage for Good');
+const selfishGivingConnector = createProxyConnector('selfish_giving', 'Selfish Giving (Joe Waters)', 'Philanthropy Press', 'Selfish Giving (Joe Waters)');
+const mrBenchmarksConnector = createProxyConnector('mr_benchmarks', 'M+R Benchmarks', 'Philanthropy Press', 'M+R Benchmarks');
+const agitatorDonorvoiceConnector = createProxyConnector('agitator_donorvoice', 'The Agitator / DonorVoice', 'Philanthropy Press', 'The Agitator / DonorVoice');
+const charityNavigatorNewsConnector = createProxyConnector('charity_navigator_news', 'Charity Navigator News', 'Philanthropy Press', 'Charity Navigator News');
+
+// --- Retail News (6) ---
+const pymntsConnector = createProxyConnector('pymnts', 'PYMNTS', 'Retail News', 'PYMNTS');
+const thePaypersConnector = createProxyConnector('the_paypers', 'The Paypers', 'Retail News', 'The Paypers');
+const finextraConnector = createProxyConnector('finextra', 'Finextra', 'Retail News', 'Finextra');
+const tearsheetConnector = createProxyConnector('tearsheet', 'Tearsheet', 'Retail News', 'Tearsheet');
+const retailBrewConnector = createProxyConnector('retail_brew', 'Retail Brew', 'Retail News', 'Retail Brew');
+const businessOfHomeConnector = createProxyConnector('business_of_home', 'Business of Home', 'Retail News', 'Business of Home');
+
+// --- Consumer/CSR Research (15) ---
+const coneCommunicationsConnector = createProxyConnector('cone_communications', 'Cone Communications', 'Consumer/CSR Research', 'Cone Communications');
+const edelmanTrustConnector = createProxyConnector('edelman_trust', 'Edelman Trust Barometer', 'Consumer/CSR Research', 'Edelman Trust Barometer');
+const porterNovelliConnector = createProxyConnector('porter_novelli', 'Porter Novelli Intelligence', 'Consumer/CSR Research', 'Porter Novelli Intelligence');
+const kantarSustainabilityConnector = createProxyConnector('kantar_sustainability', 'Kantar Sustainability', 'Consumer/CSR Research', 'Kantar Sustainability');
+const mckinseySustainabilityConnector = createProxyConnector('mckinsey_sustainability', 'McKinsey Sustainability', 'Consumer/CSR Research', 'McKinsey Sustainability');
+const bcgCustomerConnector = createProxyConnector('bcg_customer', 'BCG Customer Insight', 'Consumer/CSR Research', 'BCG Customer Insight');
+const accentureLifeTrendsConnector = createProxyConnector('accenture_life_trends', 'Accenture Life Trends', 'Consumer/CSR Research', 'Accenture Life Trends');
+const pewReligionConnector = createProxyConnector('pew_religion', 'Pew Religion and Charitable Giving', 'Consumer/CSR Research', 'Pew Religion and Charitable Giving');
+const ypulseBlogConnector = createProxyConnector('ypulse_blog', 'YPulse Blog', 'Consumer/CSR Research', 'YPulse Blog');
+const morningConsultConnector = createProxyConnector('morning_consult', 'Morning Consult Brand', 'Consumer/CSR Research', 'Morning Consult Brand');
+const civicScienceConnector = createProxyConnector('civic_science', 'Civic Science Insights', 'Consumer/CSR Research', 'Civic Science Insights');
+const numeratorBlogConnector = createProxyConnector('numerator_blog', 'Numerator Insights', 'Consumer/CSR Research', 'Numerator Insights');
+const firstInsightConnector = createProxyConnector('first_insight', 'First Insight Gen Z', 'Consumer/CSR Research', 'First Insight Gen Z');
+const ibmIbvSustainabilityConnector = createProxyConnector('ibm_ibv_sustainability', 'IBM Institute Sustainability', 'Consumer/CSR Research', 'IBM Institute Sustainability');
+const wefStakeholderCapitalismConnector = createProxyConnector('wef_stakeholder_capitalism', 'WEF Stakeholder Capitalism', 'Consumer/CSR Research', 'WEF Stakeholder Capitalism');
+
+// --- Government Data (9) ---
+const irsEosConnector = createProxyConnector('irs_eos', 'IRS Tax Exempt Org Search', 'Government Data', 'IRS Tax Exempt Org Search');
+const irsCharitiesNewsConnector = createProxyConnector('irs_charities_news', 'IRS Charities Newsroom', 'Government Data', 'IRS Charities Newsroom');
+const candidApisConnector = createProxyConnector('candid_apis', 'Candid APIs', 'Government Data', 'Candid APIs');
+const nascoStateConnector = createProxyConnector('nasco_state', 'NASCO state regulators', 'Government Data', 'NASCO state regulators');
+const ncnArticlesConnector = createProxyConnector('ncn_articles', 'National Council of Nonprofits', 'Government Data', 'National Council of Nonprofits');
+const beaPceConnector = createProxyConnector('bea_pce', 'BEA Personal Consumption', 'Government Data', 'BEA Personal Consumption');
+const dataGovCharitableConnector = createProxyConnector('data_gov_charitable', 'data.gov charitable', 'Government Data', 'data.gov charitable');
+const ftcPressConnector = createProxyConnector('ftc_press', 'FTC Consumer Protection', 'Government Data', 'FTC Consumer Protection');
+const charityNavigatorMethodologyConnector = createProxyConnector('charity_navigator_methodology', 'Charity Navigator Methodology', 'Government Data', 'Charity Navigator Methodology');
+
+// --- Press Wires (7) ---
+const prnewswireRetailConnector = createProxyConnector('prnewswire_retail', 'PR Newswire Retail', 'Press Wires', 'PR Newswire Retail');
+const prnewswireTechConnector = createProxyConnector('prnewswire_tech', 'PR Newswire Technology', 'Press Wires', 'PR Newswire Technology');
+const businesswireRetailConnector = createProxyConnector('businesswire_retail', 'Business Wire Retail', 'Press Wires', 'Business Wire Retail');
+const businesswireOnlineRetailConnector = createProxyConnector('businesswire_online_retail', 'Business Wire Online Retail', 'Press Wires', 'Business Wire Online Retail');
+const globenewswireRetailConnector = createProxyConnector('globenewswire_retail', 'GlobeNewswire Retail', 'Press Wires', 'GlobeNewswire Retail');
+const csrwireConnector = createProxyConnector('csrwire', 'CSRwire', 'Press Wires', 'CSRwire');
+const justmeans3blConnector = createProxyConnector('justmeans_3bl', 'Justmeans / 3BL', 'Press Wires', 'Justmeans / 3BL');
+
+// --- Cause Reddit (10) ---
+const redditNonprofitMainConnector = createProxyConnector('reddit_nonprofit_main', 'Reddit r/nonprofit', 'Cause Reddit', 'Reddit r/nonprofit');
+const redditFundraisingConnector = createProxyConnector('reddit_fundraising', 'Reddit r/fundraising', 'Cause Reddit', 'Reddit r/fundraising');
+const redditCharitynavigatorConnector = createProxyConnector('reddit_charitynavigator', 'Reddit r/CharityNavigator', 'Cause Reddit', 'Reddit r/CharityNavigator');
+const redditEffectivealtruismConnector = createProxyConnector('reddit_effectivealtruism', 'Reddit r/EffectiveAltruism', 'Cause Reddit', 'Reddit r/EffectiveAltruism');
+const redditSocialenterpriseConnector = createProxyConnector('reddit_socialenterprise', 'Reddit r/socialenterprise', 'Cause Reddit', 'Reddit r/socialenterprise');
+const redditSustainabilityMainConnector = createProxyConnector('reddit_sustainability_main', 'Reddit r/sustainability', 'Cause Reddit', 'Reddit r/sustainability');
+const redditEthicalfashionConnector = createProxyConnector('reddit_ethicalfashion', 'Reddit r/ethicalfashion', 'Cause Reddit', 'Reddit r/ethicalfashion');
+const redditDtcmarketingConnector = createProxyConnector('reddit_dtcmarketing', 'Reddit r/DTCMarketing', 'Cause Reddit', 'Reddit r/DTCMarketing');
+const redditWayfairConnector = createProxyConnector('reddit_wayfair', 'Reddit r/wayfair', 'Cause Reddit', 'Reddit r/wayfair');
+const redditPersonalfinanceDafConnector = createProxyConnector('reddit_personalfinance_daf', 'Reddit r/personalfinance', 'Cause Reddit', 'Reddit r/personalfinance');
+
 // Video Channels (Web-only)
 const ytTwoMinPapersConnector = createProxyConnector('yt_two_minute_papers', 'Two Minute Papers', 'Video', 'Paper summaries');
 const ytYannicConnector = createProxyConnector('yt_yannic_kilcher', 'Yannic Kilcher', 'Video', 'Paper deep-dives');
@@ -484,6 +675,64 @@ export const ALL_CONNECTORS: DataSourceConnector[] = [
     githubTrendingAiConnector, langchainDocsConnector, llamaindexDocsConnector,
     // Web-only Video
     ytTwoMinPapersConnector, ytYannicConnector, ytLexFridmanConnector, ytAiExplainedConnector, ytSentdexConnector,
+    // === CHECKOUT-FUNDRAISING / CAUSE-COMMERCE INTELLIGENCE PACK (153) ===
+    // Cause-Commerce Tech (23)
+    shoppinggivesBlogConnector, shoppinggivesNewsConnector, pledgeToResourcesConnector,
+    pledgeShopifyGiveGrowConnector, pledgelingFoundationConnector, roundupAppConnector,
+    rounditupAmericaConnector, daffyResourcesConnector, daffyDeveloperConnector, daffyForWorkConnector,
+    givelifyBlogConnector, givelifyPressConnector, charitybuzzConnector, charitybuzzPressConnector,
+    stripeClimateConnector, frontierClimateConnector, stripeNewsroomConnector, klarnaNewsroomConnector,
+    klarnaSustainabilityConnector, shopifyAppsRoundupConnector, shopifyEngineeringConnector,
+    shopifyNewsConnector, salesforceOrgBlogConnector,
+    // Cause-Brand Impact (25)
+    wayfairNewsConnector, wayfairImpactConnector, wayfairIrConnector, bombasImpactConnector,
+    bombasPressConnector, tomsImpactConnector, tomsNewsConnector, warbyBuyPairConnector, warbyPressConnector,
+    allbirdsSustainabilityConnector, patagoniaActivismConnector, onepercentPlanetConnector,
+    benjerryNewsConnector, honestCoConnector, lushCharityPotConnector, bodyShopActivismConnector,
+    cotopaxiImpactConnector, thinxImpactConnector, parkerClayConnector, tentreeConnector,
+    puraVidaCharityConnector, sandCloudCharityConnector, sevenlyConnector, newmansOwnConnector,
+    redOrgConnector,
+    // Donation Tech Platforms (27)
+    donatestockBlogConnector, givingblockBlogConnector, engivenBlogConnector, gofundmePressConnector,
+    donorschoosePressConnector, nfgBlogConnector, fidelityCharitableInsightsConnector,
+    schwabCharitableInsightsConnector, vanguardCharitableInsightsConnector, nptrustDafReportConnector,
+    chariotBlogConnector, pledge1pctNewsConnector, benevityBlogConnector, blackbaudBlogConnector,
+    submittableBlogConnector, percentPledgeConnector, givingaBlogConnector, groundswellBlogConnector,
+    millieBlogConnector, doublethedonationBlogConnector, virtueImpactBlogConnector, dailykarmaBlogConnector,
+    beamImpactBlogConnector, getchangeBlogConnector, aspirationPressConnector, acornsPressConnector,
+    opencollectiveBlogConnector,
+    // Sustainability-at-Checkout (15)
+    stripeClimateCustomersConnector, frontierClimateNewsConnector, ecocartBlogConnector,
+    cloverlyBlogConnector, patchIoBlogConnector, pachamaBlogConnector, climateNeutralBlogConnector,
+    watershedBlogConnector, persefoniBlogConnector, southPoleNewsConnector, carbonCreditsNewsConnector,
+    trellisFeedConnector, sustainableBrandsConnector, triplePunditConnector, threeblMediaConnector,
+    // Philanthropy Press (16)
+    chroniclePhilanthropyFundraisingConnector, nonprofitTimesFeedConnector, insidePhilanthropyConnector,
+    nonprofitQuarterlyConnector, philanthropyNewsDigestConnector, devexNewsConnector,
+    allianceMagazineConnector, forbesNonprofitCouncilConnector, ntenConnector, nptechforgoodConnector,
+    globalImpactBlogConnector, engageForGoodConnector, selfishGivingConnector, mrBenchmarksConnector,
+    agitatorDonorvoiceConnector, charityNavigatorNewsConnector,
+    // Retail News (6)
+    pymntsConnector, thePaypersConnector, finextraConnector, tearsheetConnector, retailBrewConnector,
+    businessOfHomeConnector,
+    // Consumer/CSR Research (15)
+    coneCommunicationsConnector, edelmanTrustConnector, porterNovelliConnector,
+    kantarSustainabilityConnector, mckinseySustainabilityConnector, bcgCustomerConnector,
+    accentureLifeTrendsConnector, pewReligionConnector, ypulseBlogConnector, morningConsultConnector,
+    civicScienceConnector, numeratorBlogConnector, firstInsightConnector, ibmIbvSustainabilityConnector,
+    wefStakeholderCapitalismConnector,
+    // Government Data (9)
+    irsEosConnector, irsCharitiesNewsConnector, candidApisConnector, nascoStateConnector,
+    ncnArticlesConnector, beaPceConnector, dataGovCharitableConnector, ftcPressConnector,
+    charityNavigatorMethodologyConnector,
+    // Press Wires (7)
+    prnewswireRetailConnector, prnewswireTechConnector, businesswireRetailConnector,
+    businesswireOnlineRetailConnector, globenewswireRetailConnector, csrwireConnector, justmeans3blConnector,
+    // Cause Reddit (10)
+    redditNonprofitMainConnector, redditFundraisingConnector, redditCharitynavigatorConnector,
+    redditEffectivealtruismConnector, redditSocialenterpriseConnector, redditSustainabilityMainConnector,
+    redditEthicalfashionConnector, redditDtcmarketingConnector, redditWayfairConnector,
+    redditPersonalfinanceDafConnector,
 ];
 
 export const CONNECTORS_BY_CATEGORY: Record<string, DataSourceConnector[]> = {};

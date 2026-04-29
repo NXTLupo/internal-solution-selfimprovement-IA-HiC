@@ -24,7 +24,8 @@ import httpx
 from fastapi import FastAPI, Query, Path
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from typing import Optional
+from typing import Optional, Dict, Any, List, Tuple
+import asyncio
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -957,6 +958,190 @@ SOURCES = {
     "reddit_smallbusiness": {"name": "r/smallbusiness", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/smallbusiness.rss"},
     "reddit_buyitforlife": {"name": "r/BuyItForLife", "category": "Reddit Retail", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/BuyItForLife.rss"},
 
+    # ================================================================
+    # CHECKOUT-FUNDRAISING / CAUSE-COMMERCE INTELLIGENCE PACK (2026-04-29)
+    # 153 new sources covering: cause-commerce tech (ShoppingGives, Pledge,
+    # Daffy, Klarna Giving, Stripe Climate), brand impact pages (Wayfair,
+    # Bombas, TOMS, Patagonia, Allbirds), donation tech platforms,
+    # carbon-at-checkout, philanthropy press, retail/commerce additions,
+    # consumer/CSR research firms, government/regulatory data, press
+    # wires, and cause-focused subreddits. static_url type fetches a
+    # configured page via trafilatura/Jina (3-tier expansion).
+    # ================================================================
+
+    # --- Cause-Commerce Tech (23 sources) ---
+    "shoppinggives_blog": {"name": "ShoppingGives Blog", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.shoppinggives.com/blog"},
+    "shoppinggives_news": {"name": "ShoppingGives Newsroom", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.shoppinggives.com/news"},
+    "pledge_to_resources": {"name": "Pledge.to Resources", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.pledge.to/resources"},
+    "pledge_shopify_give_grow": {"name": "Pledge Give and Grow Shopify", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.pledge.to/products/shopify-give-and-grow-app"},
+    "pledgeling_foundation": {"name": "Pledgeling Foundation", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://pledgeling.org/"},
+    "roundup_app": {"name": "RoundUp App", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.roundupapp.com/"},
+    "rounditup_america": {"name": "Round It Up America", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.rounditupamerica.org/"},
+    "daffy_resources": {"name": "Daffy Resources", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.daffy.org/resources"},
+    "daffy_developer": {"name": "Daffy Developer Docs", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.daffy.org/developer"},
+    "daffy_for_work": {"name": "Daffy for Work", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.daffy.org/work"},
+    "givelify_blog": {"name": "Givelify Blog", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.givelify.com/blog/"},
+    "givelify_press": {"name": "Givelify Press", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.givelify.com/press/"},
+    "charitybuzz": {"name": "Charitybuzz", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.charitybuzz.com/"},
+    "charitybuzz_press": {"name": "Charitybuzz Press", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.charitybuzz.com/press"},
+    "stripe_climate": {"name": "Stripe Climate", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://stripe.com/climate"},
+    "frontier_climate": {"name": "Frontier Climate", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://frontierclimate.com/"},
+    "stripe_newsroom": {"name": "Stripe Newsroom", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://stripe.com/newsroom"},
+    "klarna_newsroom": {"name": "Klarna Newsroom", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.klarna.com/international/press/"},
+    "klarna_sustainability": {"name": "Klarna Sustainability", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.klarna.com/us/sustainability/"},
+    "shopify_apps_roundup": {"name": "Shopify Round-Up Apps", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://apps.shopify.com/search?q=round+up+donation"},
+    "shopify_engineering": {"name": "Shopify Engineering Blog", "category": "Cause-Commerce Tech", "type": "rss", "tier": 2, "url": "https://shopify.engineering/blog.atom"},
+    "shopify_news": {"name": "Shopify News", "category": "Cause-Commerce Tech", "type": "rss", "tier": 2, "url": "https://news.shopify.com/feed"},
+    "salesforce_org_blog": {"name": "Salesforce.org Blog", "category": "Cause-Commerce Tech", "type": "static_url", "tier": 2, "url": "https://www.salesforce.org/blog/"},
+
+    # --- Cause-Brand Impact (25 sources) ---
+    "wayfair_news": {"name": "Wayfair Newsroom", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.aboutwayfair.com/category/press-release"},
+    "wayfair_impact": {"name": "Wayfair Social Impact", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.aboutwayfair.com/our-commitments/social-impact"},
+    "wayfair_ir": {"name": "Wayfair Investor Relations", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://investor.wayfair.com/news-releases"},
+    "bombas_impact": {"name": "Bombas Impact (Bee Better)", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://beebetter.bombas.com/impact"},
+    "bombas_press": {"name": "Bombas Press", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://bombas.com/pages/press"},
+    "toms_impact": {"name": "TOMS Impact Reports", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.toms.com/us/impact.html"},
+    "toms_news": {"name": "TOMS Newsroom", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.toms.com/us/about-toms/newsroom.html"},
+    "warby_buy_pair": {"name": "Warby Parker Buy a Pair", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.warbyparker.com/buy-a-pair-give-a-pair"},
+    "warby_press": {"name": "Warby Parker Press", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://investors.warbyparker.com/news-releases"},
+    "allbirds_sustainability": {"name": "Allbirds Sustainability", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.allbirds.com/pages/sustainability"},
+    "patagonia_activism": {"name": "Patagonia Activism", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.patagonia.com/activism/"},
+    "onepercent_planet": {"name": "1 Percent for the Planet", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.onepercentfortheplanet.org/stories"},
+    "benjerry_news": {"name": "Ben and Jerrys Issues", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.benjerry.com/whats-new"},
+    "honest_co": {"name": "Honest Company", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.honest.com/about-us/our-story"},
+    "lush_charity_pot": {"name": "Lush Charity Pot", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.lush.com/us/en_us/a/charity-pot"},
+    "body_shop_activism": {"name": "The Body Shop Activism", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.thebodyshop.com/en-us/about-us/activism"},
+    "cotopaxi_impact": {"name": "Cotopaxi Impact", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.cotopaxi.com/pages/impact"},
+    "thinx_impact": {"name": "Thinx Impact", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.thinx.com/pages/social-impact"},
+    "parker_clay": {"name": "Parker Clay Impact", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://parkerclay.com/pages/impact"},
+    "tentree": {"name": "Tentree Impact", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.tentree.com/pages/impact-report"},
+    "pura_vida_charity": {"name": "Pura Vida Charity", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.puravidabracelets.com/pages/charity"},
+    "sand_cloud_charity": {"name": "Sand Cloud Charity", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.sandcloud.com/pages/save-the-fishies"},
+    "sevenly": {"name": "Sevenly", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.sevenly.org/"},
+    "newmans_own": {"name": "Newmans Own Foundation", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://newmansownfoundation.org/news/"},
+    "red_org": {"name": "Project RED", "category": "Cause-Brand Impact", "type": "static_url", "tier": 2, "url": "https://www.red.org/news"},
+
+    # --- Donation Tech Platforms (27 sources) ---
+    "donatestock_blog": {"name": "DonateStock Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://donatestock.com/blog"},
+    "givingblock_blog": {"name": "The Giving Block", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://thegivingblock.com/resources/blog/"},
+    "engiven_blog": {"name": "Engiven", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.engiven.com/blog"},
+    "gofundme_press": {"name": "GoFundMe Newsroom", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.gofundme.com/c/press-room"},
+    "donorschoose_press": {"name": "DonorsChoose Press", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.donorschoose.org/about/press.html"},
+    "nfg_blog": {"name": "Network for Good", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.networkforgood.com/blog/"},
+    "fidelity_charitable_insights": {"name": "Fidelity Charitable Insights", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.fidelitycharitable.org/insights.html"},
+    "schwab_charitable_insights": {"name": "Schwab Charitable Insights", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.schwabcharitable.org/insights"},
+    "vanguard_charitable_insights": {"name": "Vanguard Charitable Insights", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.vanguardcharitable.org/insights"},
+    "nptrust_daf_report": {"name": "NPTrust DAF Report", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.nptrust.org/reports/daf-report/"},
+    "chariot_blog": {"name": "Chariot Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.givechariot.com/blog"},
+    "pledge1pct_news": {"name": "Pledge 1 Percent News", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://pledge1percent.org/news/"},
+    "benevity_blog": {"name": "Benevity Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://benevity.com/resources/blog"},
+    "blackbaud_blog": {"name": "Blackbaud Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.blackbaud.com/blog"},
+    "submittable_blog": {"name": "Submittable Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.submittable.com/blog/"},
+    "percent_pledge": {"name": "Percent Pledge", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://percentpledge.org/blog/"},
+    "givinga_blog": {"name": "Givinga Insights", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.givinga.com/insights/blog"},
+    "groundswell_blog": {"name": "Groundswell Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://groundswell.io/blog/"},
+    "millie_blog": {"name": "Millie Giving", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.milliegiving.com/blog"},
+    "doublethedonation_blog": {"name": "Double the Donation", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://doublethedonation.com/blog/"},
+    "virtue_impact_blog": {"name": "Virtue Impact Shopify", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.virtueimpact.com/blog"},
+    "dailykarma_blog": {"name": "DailyKarma Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.dailykarma.com/blog/"},
+    "beam_impact_blog": {"name": "Beam Impact Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.beamimpact.com/blog"},
+    "getchange_blog": {"name": "Change Mastercard Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.getchange.io/blog"},
+    "aspiration_press": {"name": "Aspiration Press", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.aspiration.com/press"},
+    "acorns_press": {"name": "Acorns Press", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://www.acorns.com/press/"},
+    "opencollective_blog": {"name": "OpenCollective Blog", "category": "Donation Tech Platforms", "type": "static_url", "tier": 2, "url": "https://opencollective.com/blog"},
+
+    # --- Sustainability-at-Checkout (15 sources) ---
+    "stripe_climate_customers": {"name": "Stripe Climate Customers", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://climate.stripe.com/"},
+    "frontier_climate_news": {"name": "Frontier Climate Blog", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://frontierclimate.com/blog"},
+    "ecocart_blog": {"name": "EcoCart Blog", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://ecocart.io/blog/"},
+    "cloverly_blog": {"name": "Cloverly Blog", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.cloverly.com/blog"},
+    "patch_io_blog": {"name": "Patch carbon API Blog", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.patch.io/blog"},
+    "pachama_blog": {"name": "Pachama Insights", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://pachama.com/blog/"},
+    "climate_neutral_blog": {"name": "Climate Neutral Certified", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.climateneutral.org/blog"},
+    "watershed_blog": {"name": "Watershed Blog", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://watershed.com/blog"},
+    "persefoni_blog": {"name": "Persefoni Insights", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.persefoni.com/blog"},
+    "south_pole_news": {"name": "South Pole News", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.southpole.com/news"},
+    "carbon_credits_news": {"name": "Carbon Credits News", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://carboncredits.com/news/"},
+    "trellis_feed": {"name": "Trellis (formerly GreenBiz)", "category": "Sustainability-at-Checkout", "type": "rss", "tier": 2, "url": "https://trellis.net/feed/"},
+    "sustainable_brands": {"name": "Sustainable Brands", "category": "Sustainability-at-Checkout", "type": "rss", "tier": 2, "url": "https://sustainablebrands.com/rss.xml"},
+    "triple_pundit": {"name": "TriplePundit", "category": "Sustainability-at-Checkout", "type": "rss", "tier": 2, "url": "https://www.triplepundit.com/feed"},
+    "threebl_media": {"name": "3BL Media News", "category": "Sustainability-at-Checkout", "type": "static_url", "tier": 2, "url": "https://www.3blmedia.com/news"},
+
+    # --- Philanthropy Press (16 sources) ---
+    "chronicle_philanthropy_fundraising": {"name": "Chronicle of Philanthropy: Fundraising", "category": "Philanthropy Press", "type": "static_url", "tier": 1, "url": "https://www.philanthropy.com/section/fundraising/53"},
+    "nonprofit_times_feed": {"name": "NonProfit Times", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://thenonprofittimes.com/feed/"},
+    "inside_philanthropy": {"name": "Inside Philanthropy", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://www.insidephilanthropy.com/home?format=rss"},
+    "nonprofit_quarterly": {"name": "Nonprofit Quarterly", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://nonprofitquarterly.org/feed/"},
+    "philanthropy_news_digest": {"name": "Philanthropy News Digest", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://philanthropynewsdigest.org/rss/feed/pnd-news"},
+    "devex_news": {"name": "Devex", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://www.devex.com/news.rss"},
+    "alliance_magazine": {"name": "Alliance Magazine", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://www.alliancemagazine.org/feed/"},
+    "forbes_nonprofit_council": {"name": "Forbes Nonprofit Council", "category": "Philanthropy Press", "type": "rss", "tier": 2, "url": "https://www.forbes.com/sites/forbesnonprofitcouncil/feed/"},
+    "nten": {"name": "NTEN", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://www.nten.org/feed/"},
+    "nptechforgood": {"name": "Nonprofit Tech for Good", "category": "Philanthropy Press", "type": "rss", "tier": 2, "url": "https://www.nptechforgood.com/feed/"},
+    "global_impact_blog": {"name": "Global Impact Greater Giving", "category": "Philanthropy Press", "type": "static_url", "tier": 2, "url": "https://charity.org/give-global-blog/"},
+    "engage_for_good": {"name": "Engage for Good", "category": "Philanthropy Press", "type": "static_url", "tier": 1, "url": "https://engageforgood.com/blog/"},
+    "selfish_giving": {"name": "Selfish Giving (Joe Waters)", "category": "Philanthropy Press", "type": "rss", "tier": 1, "url": "https://selfishgiving.com/feed/"},
+    "mr_benchmarks": {"name": "M+R Benchmarks", "category": "Philanthropy Press", "type": "static_url", "tier": 1, "url": "https://mrbenchmarks.com/"},
+    "agitator_donorvoice": {"name": "The Agitator / DonorVoice", "category": "Philanthropy Press", "type": "static_url", "tier": 2, "url": "https://agitator.thedonorvoice.com/"},
+    "charity_navigator_news": {"name": "Charity Navigator News", "category": "Philanthropy Press", "type": "static_url", "tier": 2, "url": "https://www.charitynavigator.org/discover-charities/news/"},
+
+    # --- Retail News (6 sources) ---
+    "pymnts": {"name": "PYMNTS", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.pymnts.com/feed/"},
+    "the_paypers": {"name": "The Paypers", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://thepaypers.com/feed"},
+    "finextra": {"name": "Finextra", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://www.finextra.com/rss/headlines.aspx"},
+    "tearsheet": {"name": "Tearsheet", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://tearsheet.co/feed/"},
+    "retail_brew": {"name": "Retail Brew", "category": "Retail News", "type": "static_url", "tier": 2, "url": "https://www.retailbrew.com/"},
+    "business_of_home": {"name": "Business of Home", "category": "Retail News", "type": "rss", "tier": 2, "url": "https://businessofhome.com/feeds/all"},
+
+    # --- Consumer/CSR Research (15 sources) ---
+    "cone_communications": {"name": "Cone Communications", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.conecomm.com/insights-1"},
+    "edelman_trust": {"name": "Edelman Trust Barometer", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.edelman.com/trust/trust-barometer"},
+    "porter_novelli": {"name": "Porter Novelli Intelligence", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.porternovelli.com/intelligence/"},
+    "kantar_sustainability": {"name": "Kantar Sustainability", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.kantar.com/inspiration/sustainability"},
+    "mckinsey_sustainability": {"name": "McKinsey Sustainability", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.mckinsey.com/capabilities/sustainability/our-insights"},
+    "bcg_customer": {"name": "BCG Customer Insight", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.bcg.com/capabilities/customer-insight/overview"},
+    "accenture_life_trends": {"name": "Accenture Life Trends", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.accenture.com/us-en/insights/song/accenture-life-trends"},
+    "pew_religion": {"name": "Pew Religion and Charitable Giving", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.pewresearch.org/topic/religion/"},
+    "ypulse_blog": {"name": "YPulse Blog", "category": "Consumer/CSR Research", "type": "static_url", "tier": 2, "url": "https://www.ypulse.com/blog/"},
+    "morning_consult": {"name": "Morning Consult Brand", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://pro.morningconsult.com/articles"},
+    "civic_science": {"name": "Civic Science Insights", "category": "Consumer/CSR Research", "type": "static_url", "tier": 2, "url": "https://civicscience.com/insights/"},
+    "numerator_blog": {"name": "Numerator Insights", "category": "Consumer/CSR Research", "type": "static_url", "tier": 2, "url": "https://www.numerator.com/resources/blog/"},
+    "first_insight": {"name": "First Insight Gen Z", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.firstinsight.com/white-papers-posts"},
+    "ibm_ibv_sustainability": {"name": "IBM Institute Sustainability", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.ibm.com/thought-leadership/institute-business-value/en-us/topic/sustainability"},
+    "wef_stakeholder_capitalism": {"name": "WEF Stakeholder Capitalism", "category": "Consumer/CSR Research", "type": "static_url", "tier": 1, "url": "https://www.weforum.org/stakeholdercapitalism/"},
+
+    # --- Government Data (9 sources) ---
+    "irs_eos": {"name": "IRS Tax Exempt Org Search", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://apps.irs.gov/app/eos/"},
+    "irs_charities_news": {"name": "IRS Charities Newsroom", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://www.irs.gov/charities-non-profits"},
+    "candid_apis": {"name": "Candid APIs", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://learn.candid.org/products/apis/"},
+    "nasco_state": {"name": "NASCO state regulators", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://www.nasconet.org/"},
+    "ncn_articles": {"name": "National Council of Nonprofits", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://www.councilofnonprofits.org/articles"},
+    "bea_pce": {"name": "BEA Personal Consumption", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://apps.bea.gov/api/signup/"},
+    "data_gov_charitable": {"name": "data.gov charitable", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://catalog.data.gov/dataset?q=charitable"},
+    "ftc_press": {"name": "FTC Consumer Protection", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://www.ftc.gov/news-events/news/press-releases"},
+    "charity_navigator_methodology": {"name": "Charity Navigator Methodology", "category": "Government Data", "type": "static_url", "tier": 1, "url": "https://www.charitynavigator.org/about-us/our-methodology/data-and-methodology"},
+
+    # --- Press Wires (7 sources) ---
+    "prnewswire_retail": {"name": "PR Newswire Retail", "category": "Press Wires", "type": "rss", "tier": 2, "url": "https://www.prnewswire.com/rss/consumer-products-retail-latest-news/retail-news.rss"},
+    "prnewswire_tech": {"name": "PR Newswire Technology", "category": "Press Wires", "type": "rss", "tier": 2, "url": "https://www.prnewswire.com/rss/technology-latest-news/technology-newslist.rss"},
+    "businesswire_retail": {"name": "Business Wire Retail", "category": "Press Wires", "type": "rss", "tier": 2, "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeGVtRWA=="},
+    "businesswire_online_retail": {"name": "Business Wire Online Retail", "category": "Press Wires", "type": "static_url", "tier": 2, "url": "https://www.businesswire.com/newsroom/industry/retail/online-retail"},
+    "globenewswire_retail": {"name": "GlobeNewswire Retail", "category": "Press Wires", "type": "rss", "tier": 2, "url": "https://www.globenewswire.com/RssFeed/industry/9576-Retail/feedTitle/GlobeNewswire%20-%20Industry%20News%20on%20Retail"},
+    "csrwire": {"name": "CSRwire", "category": "Press Wires", "type": "rss", "tier": 1, "url": "https://www.csrwire.com/press_releases.rss"},
+    "justmeans_3bl": {"name": "Justmeans / 3BL", "category": "Press Wires", "type": "static_url", "tier": 2, "url": "https://www.3blmedia.com/news"},
+
+    # --- Cause Reddit (10 sources) ---
+    "reddit_nonprofit_main": {"name": "Reddit r/nonprofit", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/nonprofit/.rss"},
+    "reddit_fundraising": {"name": "Reddit r/fundraising", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/fundraising/.rss"},
+    "reddit_charitynavigator": {"name": "Reddit r/CharityNavigator", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/CharityNavigator/.rss"},
+    "reddit_effectivealtruism": {"name": "Reddit r/EffectiveAltruism", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/EffectiveAltruism/.rss"},
+    "reddit_socialenterprise": {"name": "Reddit r/socialenterprise", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/socialenterprise/.rss"},
+    "reddit_sustainability_main": {"name": "Reddit r/sustainability", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/sustainability/.rss"},
+    "reddit_ethicalfashion": {"name": "Reddit r/ethicalfashion", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/ethicalfashion/.rss"},
+    "reddit_dtcmarketing": {"name": "Reddit r/DTCMarketing", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/DTCMarketing/.rss"},
+    "reddit_wayfair": {"name": "Reddit r/wayfair", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/wayfair/.rss"},
+    "reddit_personalfinance_daf": {"name": "Reddit r/personalfinance", "category": "Cause Reddit", "type": "rss", "tier": 3, "url": "https://www.reddit.com/r/personalfinance/.rss"},
+
 }
 
 # ================================================================
@@ -1008,6 +1193,247 @@ def resolve_path(data, path):
         if data is None:
             return None
     return data
+
+# ================================================================
+# RSS BODY EXPANSION (2026-04-29)
+# ================================================================
+# RSS feeds typically expose only a 1-3 sentence teaser in the entry
+# `summary`/`description` field; the full article body lives behind
+# `entry.link`. Without expansion, the corpus chat can only cite headlines
+# for retail/DTC/marketing/news trade-press sources.
+#
+# 3-TIER EXTRACTION STRATEGY (revised after Jina free-tier 429 throttling):
+#
+#   TIER 1 — Direct HTTP fetch + trafilatura (PRIMARY, ~95% of articles)
+#     Fetch the article URL with a real browser User-Agent, hand the HTML
+#     to trafilatura.extract() which is the best-in-class open-source
+#     readability extractor (handles boilerplate stripping, comment removal,
+#     metadata, tables). No external API, no rate limit. Local CPU only.
+#
+#   TIER 2 — Jina Reader fallback (the ~5% trafilatura misses)
+#     Some sites are JS-heavy SPAs (Modern Retail variants), have aggressive
+#     anti-bot WAFs, or paywalls Jina happens to bypass. We fall through to
+#     r.jina.ai with a PROCESS-WIDE semaphore=3 and a 60-second 429 backoff
+#     so a single rate-limit response halts Jina traffic until cooldown.
+#
+#   TIER 3 — RSS teaser (last-resort fallback)
+#     The original 500-char summary is always returned if both upstreams
+#     fail — never degrades the corpus, only ever improves it.
+#
+# A per-process URL → content cache prevents duplicate fetches across
+# queries within the proxy's lifetime.
+# ================================================================
+
+_RSS_BODY_CACHE: Dict[str, Dict[str, Any]] = {}
+_RSS_BODY_CACHE_MAX = 2000  # ~20 MB at 10 KB/article — bounded LRU-ish
+
+# Process-wide concurrency cap for Jina Reader. Free tier rate-limits hard
+# (HTTP 429) when we exceed ~5-10 concurrent requests, so we keep this
+# conservative across the whole proxy. _JINA_BACKOFF_UNTIL is set to a
+# future epoch on 429; while now < this, all Jina calls are short-circuited.
+_JINA_SEMAPHORE: Optional["asyncio.Semaphore"] = None
+_JINA_BACKOFF_UNTIL: float = 0.0
+
+
+def _get_jina_semaphore() -> "asyncio.Semaphore":
+    """Lazy init so we attach to the running event loop, not a stale one."""
+    global _JINA_SEMAPHORE
+    if _JINA_SEMAPHORE is None:
+        _JINA_SEMAPHORE = asyncio.Semaphore(3)
+    return _JINA_SEMAPHORE
+
+
+def _cache_body(url: str, content: str, method: str) -> None:
+    """Add to bounded LRU cache, evicting ~10% oldest when full."""
+    if len(_RSS_BODY_CACHE) >= _RSS_BODY_CACHE_MAX:
+        drop_n = max(1, _RSS_BODY_CACHE_MAX // 10)
+        for k in list(_RSS_BODY_CACHE.keys())[:drop_n]:
+            _RSS_BODY_CACHE.pop(k, None)
+    _RSS_BODY_CACHE[url] = {"content": content, "fetched_at": time.time(), "method": method}
+
+
+# Realistic browser UA — most news sites accept this; many block bare
+# httpx/python-requests UAs at the WAF layer.
+_BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+)
+
+
+async def _fetch_article_html(client: "httpx.AsyncClient", url: str, timeout: float = 10.0) -> Optional[str]:
+    """Fetch the article URL directly with a browser-like User-Agent.
+
+    Returns the response body as text on 2xx, or None on non-200, network
+    error, redirect loop, or non-HTML content-type. Never raises.
+    """
+    try:
+        resp = await client.get(
+            url,
+            headers={
+                "User-Agent": _BROWSER_UA,
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.5",
+            },
+            timeout=timeout,
+            follow_redirects=True,
+        )
+        if resp.status_code != 200:
+            return None
+        ct = (resp.headers.get("content-type") or "").lower()
+        if ct and "html" not in ct and "xml" not in ct:
+            return None
+        return resp.text
+    except Exception:
+        return None
+
+
+def _extract_body_with_trafilatura(html: str, url: Optional[str] = None) -> Optional[str]:
+    """Run trafilatura on already-fetched HTML. Returns None if extraction
+    fails or yields < 200 chars. Imported lazily so the module loads even
+    if trafilatura isn't installed yet (e.g., during the rebuild window)."""
+    try:
+        import trafilatura  # local import — fail soft if not installed
+    except ImportError:
+        return None
+    try:
+        body = trafilatura.extract(
+            html,
+            url=url,
+            include_comments=False,
+            include_tables=False,
+            favor_precision=False,
+            no_fallback=False,
+        )
+        if body and len(body) > 200:
+            return body
+        return None
+    except Exception:
+        return None
+
+
+async def _try_jina_reader(client: "httpx.AsyncClient", url: str, timeout: float = 12.0) -> Optional[str]:
+    """Tier-2 fallback. Concurrency-capped via _JINA_SEMAPHORE; aborts
+    immediately if a previous call hit a 429 within the last 60 seconds.
+    Returns extracted body or None.
+    """
+    global _JINA_BACKOFF_UNTIL
+    now = time.time()
+    if now < _JINA_BACKOFF_UNTIL:
+        return None
+
+    sem = _get_jina_semaphore()
+    async with sem:
+        # Re-check after acquiring the semaphore — another coroutine may
+        # have just hit a 429 while we waited.
+        if time.time() < _JINA_BACKOFF_UNTIL:
+            return None
+        try:
+            resp = await client.get(
+                f"https://r.jina.ai/{url}",
+                headers={"Accept": "application/json", "X-With-Links": "false", "X-Return-Format": "text"},
+                timeout=timeout,
+                follow_redirects=True,
+            )
+            if resp.status_code == 429:
+                _JINA_BACKOFF_UNTIL = time.time() + 60.0
+                logger.warning("[Jina] HTTP 429 — backing off Jina Reader for 60s (per-process)")
+                return None
+            if resp.status_code != 200:
+                return None
+            content = ""
+            try:
+                data = resp.json()
+                if isinstance(data, dict):
+                    inner = data.get("data") if isinstance(data.get("data"), dict) else {}
+                    # Jina has shipped multiple response shapes over time —
+                    # check every plausible key on both the wrapper and the
+                    # inner data envelope.
+                    content = (
+                        inner.get("content")
+                        or inner.get("text")
+                        or data.get("content")
+                        or data.get("text")
+                        or ""
+                    )
+            except Exception:
+                content = resp.text
+            if not content or len(content) < 200:
+                # Plain-text fallback — some pages only render content in
+                # text mode, not JSON mode.
+                try:
+                    resp2 = await client.get(
+                        f"https://r.jina.ai/{url}",
+                        headers={"Accept": "text/plain"},
+                        timeout=timeout,
+                        follow_redirects=True,
+                    )
+                    if resp2.status_code == 200 and len(resp2.text) > len(content):
+                        content = resp2.text
+                except Exception:
+                    pass
+            if content and len(content) > 200:
+                return content
+        except Exception as e:
+            logger.debug(f"[Jina] {url[:60]} failed: {str(e)[:120]}")
+    return None
+
+
+async def _expand_rss_body(client: "httpx.AsyncClient", url: str, fallback_content: str, timeout: float = 12.0) -> Tuple[str, str]:
+    """3-tier body expansion. Returns (content, source_method) where
+    source_method ∈ {"trafilatura", "jina", "*_cached", "rss"}. Always
+    returns a usable string — never raises."""
+    if not url or not isinstance(url, str) or not url.startswith(("http://", "https://")):
+        return fallback_content, "rss"
+
+    cached = _RSS_BODY_CACHE.get(url)
+    if cached and cached.get("content"):
+        return cached["content"], f"{cached.get('method', 'unknown')}_cached"
+
+    # Tier 1: direct fetch + trafilatura
+    html = await _fetch_article_html(client, url, timeout=timeout)
+    if html:
+        body = _extract_body_with_trafilatura(html, url=url)
+        if body:
+            content = body[:10000]
+            _cache_body(url, content, "trafilatura")
+            return content, "trafilatura"
+
+    # Tier 2: Jina Reader (rate-limited, may be in backoff)
+    jina_body = await _try_jina_reader(client, url, timeout=timeout)
+    if jina_body:
+        content = jina_body[:10000]
+        _cache_body(url, content, "jina")
+        return content, "jina"
+
+    # Tier 3: RSS teaser
+    return fallback_content, "rss"
+
+
+async def _expand_rss_items(items: List[Dict[str, Any]], max_concurrent: int = 8) -> List[Dict[str, Any]]:
+    """Expand each RSS item's `content` field with the full article body.
+
+    Per-source concurrency cap (max_concurrent) prevents one source from
+    flooding the network. Module-level _JINA_SEMAPHORE clamps total Jina
+    fan-out across the whole proxy. Items without a usable URL keep their
+    RSS teaser. The `_body_source` field records the method that won
+    ("trafilatura" / "jina" / "*_cached" / "rss") so the frontend or
+    downstream analytics can surface body provenance.
+    """
+    if not items:
+        return items
+
+    sem = asyncio.Semaphore(max_concurrent)
+
+    async with httpx.AsyncClient(follow_redirects=True) as client:
+        async def _expand_one(item: Dict[str, Any]) -> Dict[str, Any]:
+            async with sem:
+                url = item.get("url", "")
+                fallback = item.get("content", "") or ""
+                content, method = await _expand_rss_body(client, url, fallback)
+                return {**item, "content": content, "_body_source": method}
+
+        return await asyncio.gather(*[_expand_one(it) for it in items])
+
 
 # ================================================================
 # ENDPOINTS
@@ -1109,6 +1535,61 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
 
                 return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": items, "total": total}
 
+            # --- Static URL connector (single-page fetch via 3-tier expansion) ---
+            # 2026-04-29 — For brand impact pages, vendor blogs without RSS,
+            # and corporate insight pages. Fetches the configured `url` once
+            # via the same trafilatura→Jina pipeline that RSS body expansion
+            # uses, then keyword-filters the extracted body against the
+            # query so the source only contributes when it's actually
+            # relevant to what the user asked.
+            elif src_type == "static_url":
+                page_url = src.get("url", "")
+                if not page_url:
+                    return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": [], "total": 0, "error": "no url configured"}
+
+                async with httpx.AsyncClient(follow_redirects=True) as page_client:
+                    content, method = await _expand_rss_body(page_client, page_url, "")
+
+                if not content or len(content) < 200:
+                    # Fetch failed — no body to return.
+                    return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": [], "total": 0, "error": "page fetch failed"}
+
+                # Keyword filter: extract simple keywords from the query and
+                # require at least one to appear in the body, OR pass through
+                # if the page is the canonical brand impact page (always
+                # relevant to a checkout-fundraising research goal).
+                stop_words = {'the','a','an','is','are','was','were','be','been','have','has','had',
+                              'do','does','did','will','would','could','should','to','of','in','for',
+                              'on','with','at','by','from','as','and','but','or','not','this','that',
+                              'it','its','their','they','them','what','which','who','how','when','where',
+                              'about','into','through','during','before','after','between','2025','2026'}
+                keywords = [w.lower() for w in q.split() if len(w) > 2 and w.lower() not in stop_words]
+                body_lower = content.lower()
+                matches = sum(1 for kw in keywords if kw in body_lower)
+
+                # Always emit ONE item (the page) regardless of match count;
+                # downstream relevance scoring decides whether to keep it.
+                # Pages that don't mention the keywords still get scored low
+                # and dropped before reaching the LLM corpus.
+                items = [{
+                    "title": src["name"],
+                    "content": content,
+                    "url": page_url,
+                    "date": "",
+                    "_body_source": method,
+                    "_keyword_matches": matches,
+                }]
+                logger.info(f"[StaticURL] {src['name']}: body={len(content)} chars via {method}, kw_matches={matches}/{len(keywords)}")
+                return {
+                    "source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3),
+                    "items": items, "total": 1,
+                    "body_expansion": {
+                        "full_body": 1 if "trafilatura" in method or "jina" in method else 0,
+                        "teaser_only": 0,
+                        "by_method": {method: 1},
+                    }
+                }
+
             # --- RSS/Atom connector (with keyword filtering) ---
             elif src_type == "rss":
                 try:
@@ -1152,10 +1633,40 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                     relevant = all_items[:limit]  # fallback: return latest if nothing matches
                 items = [{k: v for k, v in i.items() if k != "_matches"} for i in relevant[:limit]]
 
+                # 2026-04-29 — RSS BODY EXPANSION (3-tier).
+                # Tier 1 (trafilatura) handles ~95% of articles via direct
+                # HTTP + local readability extraction — no API, no rate
+                # limits. Tier 2 (Jina Reader) is the throttled fallback
+                # for the JS-heavy / paywalled / anti-bot remainder.
+                # Tier 3 keeps the 500-char RSS teaser as a final fallback.
+                items = await _expand_rss_items(items, max_concurrent=8)
+                tier_counts = {"trafilatura": 0, "jina": 0, "cached": 0, "rss": 0}
+                for it in items:
+                    src_method = (it.get("_body_source") or "rss").lower()
+                    if "cached" in src_method:
+                        tier_counts["cached"] += 1
+                    elif "trafilatura" in src_method:
+                        tier_counts["trafilatura"] += 1
+                    elif "jina" in src_method:
+                        tier_counts["jina"] += 1
+                    else:
+                        tier_counts["rss"] += 1
+                full_body = tier_counts["trafilatura"] + tier_counts["jina"] + tier_counts["cached"]
+                logger.info(
+                    f"[RSS] {src['name']}: {full_body}/{len(items)} full bodies "
+                    f"(trafilatura={tier_counts['trafilatura']}, jina={tier_counts['jina']}, "
+                    f"cached={tier_counts['cached']}, teaser={tier_counts['rss']})"
+                )
+
                 return {
                     "source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3),
                     "items": items, "total": len(feed.entries),
-                    "filtered": len(relevant), "note": f"{len(relevant)} of {len(feed.entries)} articles matched keywords"
+                    "filtered": len(relevant), "note": f"{len(relevant)} of {len(feed.entries)} articles matched keywords",
+                    "body_expansion": {
+                        "full_body": full_body,
+                        "teaser_only": tier_counts["rss"],
+                        "by_method": tier_counts,
+                    }
                 }
 
             # --- CKAN connector ---

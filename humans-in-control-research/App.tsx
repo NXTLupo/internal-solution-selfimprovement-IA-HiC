@@ -1092,6 +1092,17 @@ const App = () => {
     const [enableSearchTrends, setEnableSearchTrends] = useState(false);
     const [enableSocialSentiment, setEnableSocialSentiment] = useState(false);
     const [enableRedditRetail, setEnableRedditRetail] = useState(false);
+    // 2026-04-29: Checkout-Fundraising / Cause-Commerce intelligence pack (153 sources, 10 categories)
+    const [enableCauseCommerceTech, setEnableCauseCommerceTech] = useState(false);
+    const [enableCauseBrandImpact, setEnableCauseBrandImpact] = useState(false);
+    const [enableDonationPlatforms, setEnableDonationPlatforms] = useState(false);
+    const [enableClimateAtCheckout, setEnableClimateAtCheckout] = useState(false);
+    const [enablePhilanthropyPress, setEnablePhilanthropyPress] = useState(false);
+    const [enableCauseRetailNews, setEnableCauseRetailNews] = useState(false);
+    const [enableCsrResearch, setEnableCsrResearch] = useState(false);
+    const [enableCharityReg, setEnableCharityReg] = useState(false);
+    const [enablePressWires, setEnablePressWires] = useState(false);
+    const [enableCauseReddit, setEnableCauseReddit] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
     const [webUrls, setWebUrls] = useState('');
@@ -1170,7 +1181,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -2209,6 +2220,74 @@ const App = () => {
                     'reddit_ppc', 'reddit_facebook_ads', 'reddit_socialmedia', 'reddit_smm',
                     'reddit_content_marketing', 'reddit_advertising', 'reddit_copywriting',
                     'reddit_entrepreneur', 'reddit_smallbusiness', 'reddit_buyitforlife'
+                );
+                // 2026-04-29: Checkout-Fundraising / Cause-Commerce intelligence pack (153 sources, 10 categories)
+                if (enableCauseCommerceTech) sourceIds.push(
+                    'shoppinggives_blog', 'shoppinggives_news', 'pledge_to_resources',
+                    'pledge_shopify_give_grow', 'pledgeling_foundation', 'roundup_app',
+                    'rounditup_america', 'daffy_resources', 'daffy_developer', 'daffy_for_work',
+                    'givelify_blog', 'givelify_press', 'charitybuzz', 'charitybuzz_press',
+                    'stripe_climate', 'frontier_climate', 'stripe_newsroom', 'klarna_newsroom',
+                    'klarna_sustainability', 'shopify_apps_roundup', 'shopify_engineering',
+                    'shopify_news', 'salesforce_org_blog'
+                );
+                if (enableCauseBrandImpact) sourceIds.push(
+                    'wayfair_news', 'wayfair_impact', 'wayfair_ir', 'bombas_impact',
+                    'bombas_press', 'toms_impact', 'toms_news', 'warby_buy_pair', 'warby_press',
+                    'allbirds_sustainability', 'patagonia_activism', 'onepercent_planet',
+                    'benjerry_news', 'honest_co', 'lush_charity_pot', 'body_shop_activism',
+                    'cotopaxi_impact', 'thinx_impact', 'parker_clay', 'tentree',
+                    'pura_vida_charity', 'sand_cloud_charity', 'sevenly', 'newmans_own',
+                    'red_org'
+                );
+                if (enableDonationPlatforms) sourceIds.push(
+                    'donatestock_blog', 'givingblock_blog', 'engiven_blog', 'gofundme_press',
+                    'donorschoose_press', 'nfg_blog', 'fidelity_charitable_insights',
+                    'schwab_charitable_insights', 'vanguard_charitable_insights', 'nptrust_daf_report',
+                    'chariot_blog', 'pledge1pct_news', 'benevity_blog', 'blackbaud_blog',
+                    'submittable_blog', 'percent_pledge', 'givinga_blog', 'groundswell_blog',
+                    'millie_blog', 'doublethedonation_blog', 'virtue_impact_blog', 'dailykarma_blog',
+                    'beam_impact_blog', 'getchange_blog', 'aspiration_press', 'acorns_press',
+                    'opencollective_blog'
+                );
+                if (enableClimateAtCheckout) sourceIds.push(
+                    'stripe_climate_customers', 'frontier_climate_news', 'ecocart_blog',
+                    'cloverly_blog', 'patch_io_blog', 'pachama_blog', 'climate_neutral_blog',
+                    'watershed_blog', 'persefoni_blog', 'south_pole_news', 'carbon_credits_news',
+                    'trellis_feed', 'sustainable_brands', 'triple_pundit', 'threebl_media'
+                );
+                if (enablePhilanthropyPress) sourceIds.push(
+                    'chronicle_philanthropy_fundraising', 'nonprofit_times_feed', 'inside_philanthropy',
+                    'nonprofit_quarterly', 'philanthropy_news_digest', 'devex_news',
+                    'alliance_magazine', 'forbes_nonprofit_council', 'nten', 'nptechforgood',
+                    'global_impact_blog', 'engage_for_good', 'selfish_giving', 'mr_benchmarks',
+                    'agitator_donorvoice', 'charity_navigator_news'
+                );
+                if (enableCauseRetailNews) sourceIds.push(
+                    'pymnts', 'the_paypers', 'finextra', 'tearsheet', 'retail_brew',
+                    'business_of_home'
+                );
+                if (enableCsrResearch) sourceIds.push(
+                    'cone_communications', 'edelman_trust', 'porter_novelli',
+                    'kantar_sustainability', 'mckinsey_sustainability', 'bcg_customer',
+                    'accenture_life_trends', 'pew_religion', 'ypulse_blog', 'morning_consult',
+                    'civic_science', 'numerator_blog', 'first_insight', 'ibm_ibv_sustainability',
+                    'wef_stakeholder_capitalism'
+                );
+                if (enableCharityReg) sourceIds.push(
+                    'irs_eos', 'irs_charities_news', 'candid_apis', 'nasco_state',
+                    'ncn_articles', 'bea_pce', 'data_gov_charitable', 'ftc_press',
+                    'charity_navigator_methodology'
+                );
+                if (enablePressWires) sourceIds.push(
+                    'prnewswire_retail', 'prnewswire_tech', 'businesswire_retail',
+                    'businesswire_online_retail', 'globenewswire_retail', 'csrwire', 'justmeans_3bl'
+                );
+                if (enableCauseReddit) sourceIds.push(
+                    'reddit_nonprofit_main', 'reddit_fundraising', 'reddit_charitynavigator',
+                    'reddit_effectivealtruism', 'reddit_socialenterprise', 'reddit_sustainability_main',
+                    'reddit_ethicalfashion', 'reddit_dtcmarketing', 'reddit_wayfair',
+                    'reddit_personalfinance_daf'
                 );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
@@ -3657,6 +3736,17 @@ ${synthesisParts.join('\n')}
                                                  { label: 'Search & Trends APIs', sublabel: '10 APIs: GDELT, NewsAPI, Guardian, NYT, Wikipedia pageviews, DuckDuckGo, Common Crawl...', state: enableSearchTrends, setter: setEnableSearchTrends, icon: 'fa-magnifying-glass' },
                                                  { label: 'Social & Sentiment', sublabel: '10 APIs: Reddit JSON, Pushshift, Hacker News, Mastodon, Bluesky, Product Hunt, Threads...', state: enableSocialSentiment, setter: setEnableSocialSentiment, icon: 'fa-comment-dots' },
                                                  { label: 'Reddit: Retail/Marketing', sublabel: '25 subreddits: r/retail, r/ecommerce, r/SEO, r/PPC, r/DTCMarketing, r/Entrepreneur...', state: enableRedditRetail, setter: setEnableRedditRetail, icon: 'fa-reddit' },
+                                                 // 2026-04-29: Checkout-Fundraising / Cause-Commerce intelligence pack (153 sources, 10 categories)
+                                                 { label: 'Checkout-Charity Tech', sublabel: '23 sources: ShoppingGives, Pledge.to, Daffy, Givelify, Klarna Giving, Stripe Climate, Shopify Round-Up...', state: enableCauseCommerceTech, setter: setEnableCauseCommerceTech, icon: 'fa-cart-plus' },
+                                                 { label: 'Cause-Brand Impact', sublabel: '25 sources: Wayfair, Bombas, TOMS, Warby Parker, Allbirds, Patagonia, 1% for Planet, Newman\'s Own...', state: enableCauseBrandImpact, setter: setEnableCauseBrandImpact, icon: 'fa-heart' },
+                                                 { label: 'Donation Platforms', sublabel: '27 sources: GoFundMe, DonorsChoose, Benevity, Blackbaud, Fidelity Charitable, Schwab DAF, Beam, Acorns...', state: enableDonationPlatforms, setter: setEnableDonationPlatforms, icon: 'fa-hand-holding-dollar' },
+                                                 { label: 'Climate-at-Checkout', sublabel: '15 sources: Stripe Climate Customers, Frontier, EcoCart, Cloverly, Patch, Pachama, Watershed, TriplePundit...', state: enableClimateAtCheckout, setter: setEnableClimateAtCheckout, icon: 'fa-leaf' },
+                                                 { label: 'Philanthropy Press', sublabel: '16 sources: Chronicle, NonProfit Times, Inside Philanthropy, SSIR, Devex, Engage for Good, M+R Benchmarks...', state: enablePhilanthropyPress, setter: setEnablePhilanthropyPress, icon: 'fa-newspaper' },
+                                                 { label: 'Payments & Fintech Press', sublabel: '6 sources: PYMNTS, The Paypers, Finextra, Tearsheet, Retail Brew, Business of Home', state: enableCauseRetailNews, setter: setEnableCauseRetailNews, icon: 'fa-credit-card' },
+                                                 { label: 'CSR & Consumer Research', sublabel: '15 sources: Cone, Edelman, Porter Novelli, Kantar, McKinsey Sustainability, BCG, Accenture, YPulse, IBM IBV, WEF...', state: enableCsrResearch, setter: setEnableCsrResearch, icon: 'fa-chart-pie' },
+                                                 { label: 'Charity Reg & Compliance', sublabel: '9 sources: IRS Tax Exempt, ProPublica 990, Candid APIs, NASCO state regulators, Charity Navigator, FTC, BEA...', state: enableCharityReg, setter: setEnableCharityReg, icon: 'fa-balance-scale' },
+                                                 { label: 'Press Wires (Cause)', sublabel: '7 sources: PR Newswire Retail/Tech, Business Wire, GlobeNewswire, CSRwire, 3BL — pre-empt trade press by 24-48h', state: enablePressWires, setter: setEnablePressWires, icon: 'fa-bullhorn' },
+                                                 { label: 'Reddit: Cause/Nonprofit', sublabel: '10 subreddits: r/nonprofit, r/fundraising, r/EffectiveAltruism, r/ethicalfashion, r/DTCMarketing, r/wayfair...', state: enableCauseReddit, setter: setEnableCauseReddit, icon: 'fa-reddit' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>

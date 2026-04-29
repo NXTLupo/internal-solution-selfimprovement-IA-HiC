@@ -90,6 +90,8 @@ backups/
 
 # Database
 *.db
+*.db-shm
+*.db-wal
 *.sqlite3
 *.sqlite
 social-research-db-data/
