@@ -1153,13 +1153,27 @@ const App = () => {
     // UI as "N prior engagements matched" and feeds the chat grounding context.
     const [priorEngagementMatches, setPriorEngagementMatches] = useState<any[]>([]);
     const [priorEngagementInsights, setPriorEngagementInsights] = useState<string>('');
+    // 2026-04-29 — User-controlled dismissal. The keyword-overlap matcher
+    // produces false positives on goals that share generic terms (e.g.
+    // "university" + "case studies" matched a prior run with totally
+    // different intent). When dismissed, the matched engagement memory
+    // is suppressed from the wikiKnowledge prompt injection so the
+    // analysis runs cold instead of being biased by misaligned prior work.
+    const [engagementMemoryDismissed, setEngagementMemoryDismissed] = useState<boolean>(false);
+    // Reset dismissal whenever the goal changes — a new goal gets a fresh look
+    useEffect(() => { setEngagementMemoryDismissed(false); }, [researchGoal]);
     useEffect(() => {
         const goal = (researchGoal || '').trim();
         if (goal.length < 12) { setPriorEngagementMatches([]); setPriorEngagementInsights(''); return; }
         const handle = setTimeout(async () => {
             try {
                 const { findPriorEngagementMatches, loadPriorSynthesisBundle } = await import('./services/wikiService');
-                const matches = await findPriorEngagementMatches(goal, { limit: 5, minScore: 2 });
+                // 2026-04-29 — Raised minScore 2 -> 4. The prior threshold
+                // produced false matches on single shared terms like
+                // "university" or "advancement". Requiring 4+ keyword
+                // overlaps cuts the noise without hurting genuine recall —
+                // a real prior-engagement match typically shares 5-8 terms.
+                const matches = await findPriorEngagementMatches(goal, { limit: 5, minScore: 4 });
                 setPriorEngagementMatches(matches);
                 if (matches.length > 0) {
                     const bundle = await loadPriorSynthesisBundle(matches, { maxChars: 40000, maxFilesPerEngagement: 4 });
@@ -3148,16 +3162,26 @@ ${synthesisParts.join('\n')}
             }]);
         }
 
-        // P6-07: Load engagement memory for repeat clients
-        try {
-            const { loadEngagementMemory } = await import('./services/wikiService');
-            const slug = researchGoal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
-            const memory = await loadEngagementMemory(slug, researchGoal);
-            if (memory?.content) {
-                wikiKnowledge += `\n\n=== PRIOR ENGAGEMENT MEMORY ===\nA previous research run with a similar goal was found:\n${memory.content}\nUse this context to build on prior work — don't repeat the same analysis.\n=== END ENGAGEMENT MEMORY ===\n`;
-                setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[ENGAGEMENT MEMORY] Found prior research for this topic. Building on previous findings.` }]);
-            }
-        } catch (e) { /* non-blocking */ }
+        // P6-07: Load engagement memory for repeat clients.
+        // 2026-04-29 — Gated on engagementMemoryDismissed. The keyword-overlap
+        // matcher produces false positives on goals that share generic terms;
+        // when the user dismisses the engagement-memory banner, suppress the
+        // injection so the analysis runs cold instead of being biased by a
+        // misaligned prior engagement.
+        if (!engagementMemoryDismissed) {
+            try {
+                const { loadEngagementMemory } = await import('./services/wikiService');
+                const slug = researchGoal.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').substring(0, 50);
+                const memory = await loadEngagementMemory(slug, researchGoal);
+                if (memory?.content) {
+                    wikiKnowledge += `\n\n=== PRIOR ENGAGEMENT MEMORY ===\nA previous research run with a similar goal was found:\n${memory.content}\nUse this context to build on prior work — don't repeat the same analysis.\n=== END ENGAGEMENT MEMORY ===\n`;
+                    setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[ENGAGEMENT MEMORY] Found prior research for this topic. Building on previous findings.` }]);
+                }
+            } catch (e) { /* non-blocking */ }
+        } else {
+            console.log('[EngagementMemory] User dismissed — running cold without prior-engagement injection');
+            setThinkingEvents(prev => [...prev, { type: 'INSIGHT', content: `[ENGAGEMENT MEMORY] Dismissed by operator — running cold without prior-engagement context.` }]);
+        }
 
         // Create session with wiki knowledge injected into the system prompt
         sessionRef.current = new GenAISession(researchGoal, analysisApproach, selectedOutputs, lensSegment, wikiKnowledge);
@@ -3732,19 +3756,41 @@ ${synthesisParts.join('\n')}
                                              or wiki/synthesis from a prior run. Gives the operator a
                                              chance to reuse prior insights instead of starting cold. */}
                                          {priorEngagementMatches.length > 0 && (
-                                             <div style={{ marginTop: 10, padding: '10px 14px', background: '#F5F5F0', border: '1px solid #D4D4B8', borderLeft: '3px solid #B8B800', fontSize: 12, fontFamily: 'Archivo, sans-serif', color: '#333' }}>
-                                                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6 }}>
-                                                     <span style={{ fontFamily: "'Bebas Neue',sans-serif", letterSpacing: 2, fontSize: 13, color: '#115054' }}>ENGAGEMENT MEMORY</span>
-                                                     <span style={{ color: '#666', fontSize: 11 }}>
-                                                         {priorEngagementMatches.length} prior {priorEngagementMatches.length === 1 ? 'engagement' : 'engagements'} overlap{priorEngagementMatches.length === 1 ? 's' : ''} with this goal — insights will be available to chat {priorEngagementInsights ? `(${Math.round(priorEngagementInsights.length / 1000)}KB loaded)` : ''}
-                                                     </span>
+                                             <div style={{ marginTop: 10, padding: '10px 14px', background: engagementMemoryDismissed ? '#F5F5F5' : '#F5F5F0', border: `1px solid ${engagementMemoryDismissed ? '#CCC' : '#D4D4B8'}`, borderLeft: `3px solid ${engagementMemoryDismissed ? '#999' : '#B8B800'}`, fontSize: 12, fontFamily: 'Archivo, sans-serif', color: '#333', opacity: engagementMemoryDismissed ? 0.55 : 1, transition: 'opacity 0.2s ease' }}>
+                                                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 6, justifyContent: 'space-between' }}>
+                                                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
+                                                         <span style={{ fontFamily: "'Bebas Neue',sans-serif", letterSpacing: 2, fontSize: 13, color: engagementMemoryDismissed ? '#999' : '#115054' }}>
+                                                             ENGAGEMENT MEMORY{engagementMemoryDismissed ? ' — DISMISSED' : ''}
+                                                         </span>
+                                                         <span style={{ color: '#666', fontSize: 11 }}>
+                                                             {engagementMemoryDismissed
+                                                                 ? `Will run cold, ignoring ${priorEngagementMatches.length} matched prior ${priorEngagementMatches.length === 1 ? 'engagement' : 'engagements'}`
+                                                                 : `${priorEngagementMatches.length} prior ${priorEngagementMatches.length === 1 ? 'engagement' : 'engagements'} overlap${priorEngagementMatches.length === 1 ? 's' : ''} with this goal — insights will be available to chat ${priorEngagementInsights ? `(${Math.round(priorEngagementInsights.length / 1000)}KB loaded)` : ''}`}
+                                                         </span>
+                                                     </div>
+                                                     <button
+                                                         onClick={() => setEngagementMemoryDismissed(d => !d)}
+                                                         style={{
+                                                             padding: '3px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1,
+                                                             textTransform: 'uppercase',
+                                                             background: engagementMemoryDismissed ? '#B8B800' : '#0D0D0D',
+                                                             color: engagementMemoryDismissed ? '#0D0D0D' : '#B8B800',
+                                                             border: 'none', borderRadius: 2, cursor: 'pointer',
+                                                             flexShrink: 0,
+                                                         }}
+                                                         title={engagementMemoryDismissed
+                                                             ? 'Re-enable engagement memory injection for this run'
+                                                             : 'Dismiss this match — run analysis without injecting prior-engagement context'}
+                                                     >
+                                                         {engagementMemoryDismissed ? 'Restore' : 'Dismiss'}
+                                                     </button>
                                                  </div>
                                                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                                                      {priorEngagementMatches.slice(0, 5).map((m: any) => (
                                                          <span
                                                              key={m.engagement}
                                                              title={`Score ${m.score} · matched: ${m.matchedTerms.join(', ')}${m.synthesisPaths.length ? ' · ' + m.synthesisPaths.length + ' synthesis files' : ''}`}
-                                                             style={{ padding: '3px 8px', background: '#0D0D0D', color: '#B8B800', fontSize: 10, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 0.3, borderRadius: 2, cursor: 'help' }}
+                                                             style={{ padding: '3px 8px', background: '#0D0D0D', color: '#B8B800', fontSize: 10, fontFamily: "'JetBrains Mono',monospace", letterSpacing: 0.3, borderRadius: 2, cursor: 'help', textDecoration: engagementMemoryDismissed ? 'line-through' : 'none' }}
                                                          >
                                                              {m.engagement.substring(0, 30)}{m.engagement.length > 30 ? '…' : ''} · {m.score}
                                                          </span>
