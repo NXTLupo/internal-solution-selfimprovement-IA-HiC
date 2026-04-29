@@ -12,8 +12,8 @@ import { DesignDesk } from './design-desk';
 // skill refactor. If you don't see "v3.2" and "nxt-visual-renderer",
 // you're on a stale bundle — rebuild the container.
 // ================================================================
-const HIC_BUNDLE_VERSION = 'v3.4';
-const HIC_CODENAME = 'Two-Pass Themes + Cause-Commerce Pack';
+const HIC_BUNDLE_VERSION = 'v3.5';
+const HIC_CODENAME = 'Source-Aware Fidelity + 400-Source Retail Pack';
 const HIC_BUILD_STAMP = '2026-04-29';
 // Feature flags — these MUST all read `true` on v3.2. If any read
 // `false` (or the banner doesn't print at all), the bundle is stale.

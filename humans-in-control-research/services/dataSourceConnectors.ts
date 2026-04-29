@@ -81,6 +81,21 @@ const CATEGORY_SOURCE_TYPE: Record<string, DataSourceItem['sourceType']> = {
     'Consumer/CSR Research': 'web',
     'Press Wires': 'news',
     'Cause Reddit': 'social',
+    // 2026-04-29 — 400-source retail expansion pack
+    'Retail Competitive Set': 'news',
+    'Home/Furniture Trade': 'news',
+    'Retail Tech Vendors': 'web',
+    'Payments & Checkout': 'news',
+    'Retail Analysts': 'web',
+    'Supply Chain': 'news',
+    'Specialty Verticals': 'news',
+    'International Retail': 'news',
+    'Strategy Consultancies': 'web',
+    'Retail Deal Intelligence': 'news',
+    'Social Listening Pro': 'web',
+    'Brand Reddit': 'social',
+    'Retail Operator Reddit': 'social',
+    'Open Data APIs': 'government',
 };
 
 // --- GENERIC PROXY CONNECTOR FACTORY ---
@@ -598,6 +613,426 @@ const redditDtcmarketingConnector = createProxyConnector('reddit_dtcmarketing', 
 const redditWayfairConnector = createProxyConnector('reddit_wayfair', 'Reddit r/wayfair', 'Cause Reddit', 'Reddit r/wayfair');
 const redditPersonalfinanceDafConnector = createProxyConnector('reddit_personalfinance_daf', 'Reddit r/personalfinance', 'Cause Reddit', 'Reddit r/personalfinance');
 
+// ============================================================
+// 400-SOURCE RETAIL EXPANSION PACK (2026-04-29)
+// 386 connectors across 14 categories.
+// ============================================================
+
+// --- Retail Competitive Set (50) ---
+const wayfairSecConnector = createProxyConnector('wayfair_sec', 'Wayfair IR / SEC Filings', 'Retail Competitive Set', 'Wayfair IR / SEC Filings');
+const wsmIrConnector = createProxyConnector('wsm_ir', 'Williams-Sonoma IR', 'Retail Competitive Set', 'Williams-Sonoma IR');
+const rhIrConnector = createProxyConnector('rh_ir', 'RH Restoration Hardware IR', 'Retail Competitive Set', 'RH Restoration Hardware IR');
+const ikeaNewsroomConnector = createProxyConnector('ikea_newsroom', 'IKEA Newsroom', 'Retail Competitive Set', 'IKEA Newsroom');
+const ikeaAnnualConnector = createProxyConnector('ikea_annual', 'Inter IKEA annual reports', 'Retail Competitive Set', 'Inter IKEA annual reports');
+const ashleyPressConnector = createProxyConnector('ashley_press', 'Ashley Furniture press', 'Retail Competitive Set', 'Ashley Furniture press');
+const lzbIrConnector = createProxyConnector('lzb_ir', 'La-Z-Boy IR', 'Retail Competitive Set', 'La-Z-Boy IR');
+const hoftIrConnector = createProxyConnector('hoft_ir', 'Hooker Furnishings IR', 'Retail Competitive Set', 'Hooker Furnishings IR');
+const etdIrConnector = createProxyConnector('etd_ir', 'Ethan Allen IR', 'Retail Competitive Set', 'Ethan Allen IR');
+const mlknIrConnector = createProxyConnector('mlkn_ir', 'MillerKnoll IR', 'Retail Competitive Set', 'MillerKnoll IR');
+const scsIrConnector = createProxyConnector('scs_ir', 'Steelcase IR', 'Retail Competitive Set', 'Steelcase IR');
+const hniIrConnector = createProxyConnector('hni_ir', 'HNI Corp IR', 'Retail Competitive Set', 'HNI Corp IR');
+const kirkIrConnector = createProxyConnector('kirk_ir', 'Kirklands IR', 'Retail Competitive Set', 'Kirklands IR');
+const athomePressConnector = createProxyConnector('athome_press', 'At Home press', 'Retail Competitive Set', 'At Home press');
+const biglotsIrConnector = createProxyConnector('biglots_ir', 'Big Lots IR', 'Retail Competitive Set', 'Big Lots IR');
+const tuesdaymorningPressConnector = createProxyConnector('tuesdaymorning_press', 'Tuesday Morning press', 'Retail Competitive Set', 'Tuesday Morning press');
+const crateandbarrelPressConnector = createProxyConnector('crateandbarrel_press', 'Crate and Barrel press', 'Retail Competitive Set', 'Crate and Barrel press');
+const arhsIrConnector = createProxyConnector('arhs_ir', 'Arhaus IR', 'Retail Competitive Set', 'Arhaus IR');
+const loveIrConnector = createProxyConnector('love_ir', 'Lovesac IR', 'Retail Competitive Set', 'Lovesac IR');
+const fndIrConnector = createProxyConnector('fnd_ir', 'Floor and Decor IR', 'Retail Competitive Set', 'Floor and Decor IR');
+const ttshIrConnector = createProxyConnector('ttsh_ir', 'Tile Shop IR', 'Retail Competitive Set', 'Tile Shop IR');
+const llFlooringPressConnector = createProxyConnector('ll_flooring_press', 'LL Flooring press', 'Retail Competitive Set', 'LL Flooring press');
+const byonIrConnector = createProxyConnector('byon_ir', 'Beyond Inc BBBY IR', 'Retail Competitive Set', 'Beyond Inc BBBY IR');
+const tjxIrConnector = createProxyConnector('tjx_ir', 'TJX Companies IR', 'Retail Competitive Set', 'TJX Companies IR');
+const rostIrConnector = createProxyConnector('rost_ir', 'Ross Stores IR', 'Retail Competitive Set', 'Ross Stores IR');
+const burlIrConnector = createProxyConnector('burl_ir', 'Burlington Stores IR', 'Retail Competitive Set', 'Burlington Stores IR');
+const walmartIrConnector = createProxyConnector('walmart_ir', 'Walmart IR', 'Retail Competitive Set', 'Walmart IR');
+const targetIrConnector = createProxyConnector('target_ir', 'Target IR', 'Retail Competitive Set', 'Target IR');
+const costIrConnector = createProxyConnector('cost_ir', 'Costco IR', 'Retail Competitive Set', 'Costco IR');
+const amznIrConnector = createProxyConnector('amzn_ir', 'Amazon IR', 'Retail Competitive Set', 'Amazon IR');
+const hdIrConnector = createProxyConnector('hd_ir', 'Home Depot IR', 'Retail Competitive Set', 'Home Depot IR');
+const lowIrConnector = createProxyConnector('low_ir', 'Lowes IR', 'Retail Competitive Set', 'Lowes IR');
+const tscoIrConnector = createProxyConnector('tsco_ir', 'Tractor Supply IR', 'Retail Competitive Set', 'Tractor Supply IR');
+const harborfreightPressConnector = createProxyConnector('harborfreight_press', 'Harbor Freight press', 'Retail Competitive Set', 'Harbor Freight press');
+const shwIrConnector = createProxyConnector('shw_ir', 'Sherwin-Williams IR', 'Retail Competitive Set', 'Sherwin-Williams IR');
+const dgIrConnector = createProxyConnector('dg_ir', 'Dollar General IR', 'Retail Competitive Set', 'Dollar General IR');
+const dltrIrConnector = createProxyConnector('dltr_ir', 'Dollar Tree IR', 'Retail Competitive Set', 'Dollar Tree IR');
+const fiveIrConnector = createProxyConnector('five_ir', 'Five Below IR', 'Retail Competitive Set', 'Five Below IR');
+const macysIrConnector = createProxyConnector('macys_ir', 'Macys IR', 'Retail Competitive Set', 'Macys IR');
+const kssIrConnector = createProxyConnector('kss_ir', 'Kohls IR', 'Retail Competitive Set', 'Kohls IR');
+const jwnIrConnector = createProxyConnector('jwn_ir', 'Nordstrom IR', 'Retail Competitive Set', 'Nordstrom IR');
+const jcpenneyPressConnector = createProxyConnector('jcpenney_press', 'JCPenney Newsroom', 'Retail Competitive Set', 'JCPenney Newsroom');
+const belkPressConnector = createProxyConnector('belk_press', 'Belk press', 'Retail Competitive Set', 'Belk press');
+const ddsIrConnector = createProxyConnector('dds_ir', 'Dillards IR', 'Retail Competitive Set', 'Dillards IR');
+const saksPressConnector = createProxyConnector('saks_press', 'Saks press', 'Retail Competitive Set', 'Saks press');
+const neimanPressConnector = createProxyConnector('neiman_press', 'Neiman Marcus press', 'Retail Competitive Set', 'Neiman Marcus press');
+const tcsIrConnector = createProxyConnector('tcs_ir', 'Container Store IR', 'Retail Competitive Set', 'Container Store IR');
+const bollandbranchPressConnector = createProxyConnector('bollandbranch_press', 'Boll and Branch press', 'Retail Competitive Set', 'Boll and Branch press');
+const brooklinenPressConnector = createProxyConnector('brooklinen_press', 'Brooklinen press', 'Retail Competitive Set', 'Brooklinen press');
+const parachutePressConnector = createProxyConnector('parachute_press', 'Parachute Home press', 'Retail Competitive Set', 'Parachute Home press');
+
+// --- Home/Furniture Trade (39) ---
+const furnitureTodayConnector = createProxyConnector('furniture_today', 'Furniture Today', 'Home/Furniture Trade', 'Furniture Today');
+const homeNewsNowConnector = createProxyConnector('home_news_now', 'Home News Now', 'Home/Furniture Trade', 'Home News Now');
+const hfnDigitalConnector = createProxyConnector('hfn_digital', 'Home Furnishings News HFN', 'Home/Furniture Trade', 'Home Furnishings News HFN');
+const homeTextilesTodayConnector = createProxyConnector('home_textiles_today', 'Home Textiles Today', 'Home/Furniture Trade', 'Home Textiles Today');
+const furnitureNewsUkConnector = createProxyConnector('furniture_news_uk', 'Furniture News UK', 'Home/Furniture Trade', 'Furniture News UK');
+const casualLivingConnector = createProxyConnector('casual_living', 'Casual Living', 'Home/Furniture Trade', 'Casual Living');
+const bigFurnitureGroupConnector = createProxyConnector('big_furniture_group', 'Big Furniture Group', 'Home/Furniture Trade', 'Big Furniture Group');
+const designersTodayConnector = createProxyConnector('designers_today', 'Designers Today', 'Home/Furniture Trade', 'Designers Today');
+const kbbOnlineConnector = createProxyConnector('kbb_online', 'Kitchen and Bath Business', 'Home/Furniture Trade', 'Kitchen and Bath Business');
+const kbdnConnector = createProxyConnector('kbdn', 'Kitchen and Bath Design News', 'Home/Furniture Trade', 'Kitchen and Bath Design News');
+const hospitalityDesignConnector = createProxyConnector('hospitality_design', 'Hospitality Design', 'Home/Furniture Trade', 'Hospitality Design');
+const adProConnector = createProxyConnector('ad_pro', 'Architectural Digest Pro', 'Home/Furniture Trade', 'Architectural Digest Pro');
+const adMainConnector = createProxyConnector('ad_main', 'Architectural Digest', 'Home/Furniture Trade', 'Architectural Digest');
+const interiorDesignMagConnector = createProxyConnector('interior_design_mag', 'Interior Design Magazine', 'Home/Furniture Trade', 'Interior Design Magazine');
+const dezeenConnector = createProxyConnector('dezeen', 'Dezeen', 'Home/Furniture Trade', 'Dezeen');
+const wallpaperMagConnector = createProxyConnector('wallpaper_mag', 'Wallpaper', 'Home/Furniture Trade', 'Wallpaper');
+const dwellConnector = createProxyConnector('dwell', 'Dwell', 'Home/Furniture Trade', 'Dwell');
+const housebeautifulConnector = createProxyConnector('housebeautiful', 'House Beautiful', 'Home/Furniture Trade', 'House Beautiful');
+const elledecorConnector = createProxyConnector('elledecor', 'Elle Decor', 'Home/Furniture Trade', 'Elle Decor');
+const verandaConnector = createProxyConnector('veranda', 'Veranda', 'Home/Furniture Trade', 'Veranda');
+const apartmentTherapyConnector = createProxyConnector('apartment_therapy', 'Apartment Therapy', 'Home/Furniture Trade', 'Apartment Therapy');
+const remodelistaConnector = createProxyConnector('remodelista', 'Remodelista', 'Home/Furniture Trade', 'Remodelista');
+const houzzProConnector = createProxyConnector('houzz_pro', 'Houzz Pro', 'Home/Furniture Trade', 'Houzz Pro');
+const theSpruceConnector = createProxyConnector('the_spruce', 'The Spruce', 'Home/Furniture Trade', 'The Spruce');
+const curbedVoxConnector = createProxyConnector('curbed_vox', 'Curbed', 'Home/Furniture Trade', 'Curbed');
+const designboomConnector = createProxyConnector('designboom', 'DesignBoom', 'Home/Furniture Trade', 'DesignBoom');
+const designMilkConnector = createProxyConnector('design_milk', 'Design Milk', 'Home/Furniture Trade', 'Design Milk');
+const core77Connector = createProxyConnector('core77', 'Core77', 'Home/Furniture Trade', 'Core77');
+const yankoDesignConnector = createProxyConnector('yanko_design', 'Yanko Design', 'Home/Furniture Trade', 'Yanko Design');
+const ahfaNewsConnector = createProxyConnector('ahfa_news', 'AHFA news', 'Home/Furniture Trade', 'AHFA news');
+const hfaBlogConnector = createProxyConnector('hfa_blog', 'Home Furnishings Association', 'Home/Furniture Trade', 'Home Furnishings Association');
+const icfaNewsConnector = createProxyConnector('icfa_news', 'Intl Casual Furnishings Assn', 'Home/Furniture Trade', 'Intl Casual Furnishings Assn');
+const wfcaNewsConnector = createProxyConnector('wfca_news', 'World Floor Covering Assn', 'Home/Furniture Trade', 'World Floor Covering Assn');
+const asidNewsConnector = createProxyConnector('asid_news', 'ASID news', 'Home/Furniture Trade', 'ASID news');
+const iidaNewsConnector = createProxyConnector('iida_news', 'IIDA news', 'Home/Furniture Trade', 'IIDA news');
+const highpointMarketConnector = createProxyConnector('highpoint_market', 'High Point Market press', 'Home/Furniture Trade', 'High Point Market press');
+const vegasMarketConnector = createProxyConnector('vegas_market', 'Las Vegas Market press', 'Home/Furniture Trade', 'Las Vegas Market press');
+const andmoreNewsConnector = createProxyConnector('andmore_news', 'Andmore news', 'Home/Furniture Trade', 'Andmore news');
+const stumpFurnitureMaConnector = createProxyConnector('stump_furniture_ma', 'Stump and Co furniture M&A', 'Home/Furniture Trade', 'Stump and Co furniture M&A');
+
+// --- Retail Tech Vendors (35) ---
+const tostIrConnector = createProxyConnector('tost_ir', 'Toast IR', 'Retail Tech Vendors', 'Toast IR');
+const lspdIrConnector = createProxyConnector('lspd_ir', 'Lightspeed IR', 'Retail Tech Vendors', 'Lightspeed IR');
+const sqIrConnector = createProxyConnector('sq_ir', 'Square Block IR', 'Retail Tech Vendors', 'Square Block IR');
+const cloverNewsConnector = createProxyConnector('clover_news', 'Clover Fiserv news', 'Retail Tech Vendors', 'Clover Fiserv news');
+const ncrvoyixPressConnector = createProxyConnector('ncrvoyix_press', 'NCR Voyix press', 'Retail Tech Vendors', 'NCR Voyix press');
+const dieboldPressConnector = createProxyConnector('diebold_press', 'Diebold Nixdorf press', 'Retail Tech Vendors', 'Diebold Nixdorf press');
+const zbraIrConnector = createProxyConnector('zbra_ir', 'Zebra Tech IR', 'Retail Tech Vendors', 'Zebra Tech IR');
+const honeywellPssConnector = createProxyConnector('honeywell_pss', 'Honeywell PSS', 'Retail Tech Vendors', 'Honeywell PSS');
+const manhIrConnector = createProxyConnector('manh_ir', 'Manhattan Associates IR', 'Retail Tech Vendors', 'Manhattan Associates IR');
+const aptosBlogConnector = createProxyConnector('aptos_blog', 'Aptos retail blog', 'Retail Tech Vendors', 'Aptos retail blog');
+const mi9BlogConnector = createProxyConnector('mi9_blog', 'Mi9 Retail blog', 'Retail Tech Vendors', 'Mi9 Retail blog');
+const relexBlogConnector = createProxyConnector('relex_blog', 'RELEX Solutions blog', 'Retail Tech Vendors', 'RELEX Solutions blog');
+const blueyonderBlogConnector = createProxyConnector('blueyonder_blog', 'Blue Yonder blog', 'Retail Tech Vendors', 'Blue Yonder blog');
+const o9BlogConnector = createProxyConnector('o9_blog', 'o9 Solutions blog', 'Retail Tech Vendors', 'o9 Solutions blog');
+const vusionNewsConnector = createProxyConnector('vusion_news', 'VusionGroup ESL', 'Retail Tech Vendors', 'VusionGroup ESL');
+const pricerPressConnector = createProxyConnector('pricer_press', 'Pricer ESL press', 'Retail Tech Vendors', 'Pricer ESL press');
+const traxNewsConnector = createProxyConnector('trax_news', 'Trax Retail news', 'Retail Tech Vendors', 'Trax Retail news');
+const standardAiPressConnector = createProxyConnector('standard_ai_press', 'Standard AI press', 'Retail Tech Vendors', 'Standard AI press');
+const aifiNewsConnector = createProxyConnector('aifi_news', 'AiFi press', 'Retail Tech Vendors', 'AiFi press');
+const grabangoNewsConnector = createProxyConnector('grabango_news', 'Grabango', 'Retail Tech Vendors', 'Grabango');
+const trigoBlogConnector = createProxyConnector('trigo_blog', 'Trigo Retail', 'Retail Tech Vendors', 'Trigo Retail');
+const caperNewsConnector = createProxyConnector('caper_news', 'Caper Instacart', 'Retail Tech Vendors', 'Caper Instacart');
+const focalBlogConnector = createProxyConnector('focal_blog', 'Focal Systems Walmart', 'Retail Tech Vendors', 'Focal Systems Walmart');
+const pensaNewsConnector = createProxyConnector('pensa_news', 'Pensa Systems', 'Retail Tech Vendors', 'Pensa Systems');
+const bossanovaNewsConnector = createProxyConnector('bossanova_news', 'Bossa Nova Robotics', 'Retail Tech Vendors', 'Bossa Nova Robotics');
+const simbeNewsConnector = createProxyConnector('simbe_news', 'Simbe Robotics Tally', 'Retail Tech Vendors', 'Simbe Robotics Tally');
+const braincorpBlogConnector = createProxyConnector('braincorp_blog', 'Brain Corp', 'Retail Tech Vendors', 'Brain Corp');
+const ocadoNewsConnector = createProxyConnector('ocado_news', 'Ocado Technology', 'Retail Tech Vendors', 'Ocado Technology');
+const autostoreInsightsConnector = createProxyConnector('autostore_insights', 'AutoStore press', 'Retail Tech Vendors', 'AutoStore press');
+const symIrConnector = createProxyConnector('sym_ir', 'Symbotic IR', 'Retail Tech Vendors', 'Symbotic IR');
+const greyorangeBlogConnector = createProxyConnector('greyorange_blog', 'GreyOrange', 'Retail Tech Vendors', 'GreyOrange');
+const locusNewsConnector = createProxyConnector('locus_news', 'Locus Robotics', 'Retail Tech Vendors', 'Locus Robotics');
+const sixRiverConnector = createProxyConnector('six_river', '6 River Systems Shopify', 'Retail Tech Vendors', '6 River Systems Shopify');
+const berkshireGreyNewsConnector = createProxyConnector('berkshire_grey_news', 'Berkshire Grey', 'Retail Tech Vendors', 'Berkshire Grey');
+const fabricBlogConnector = createProxyConnector('fabric_blog', 'Fabric micro-fulfillment', 'Retail Tech Vendors', 'Fabric micro-fulfillment');
+
+// --- Payments & Checkout (34) ---
+const paymentsDiveConnector = createProxyConnector('payments_dive', 'Payments Dive', 'Payments & Checkout', 'Payments Dive');
+const digitalTransactionsConnector = createProxyConnector('digital_transactions', 'Digital Transactions', 'Payments & Checkout', 'Digital Transactions');
+const americanbankerPaymentsConnector = createProxyConnector('americanbanker_payments', 'American Banker Payments', 'Payments & Checkout', 'American Banker Payments');
+const glenbrookPaymentsConnector = createProxyConnector('glenbrook_payments', 'Glenbrook Payments News', 'Payments & Checkout', 'Glenbrook Payments News');
+const mobilePaymentsTodayConnector = createProxyConnector('mobile_payments_today', 'Mobile Payments Today', 'Payments & Checkout', 'Mobile Payments Today');
+const retailBankerIntlConnector = createProxyConnector('retail_banker_intl', 'Retail Banker International', 'Payments & Checkout', 'Retail Banker International');
+const adyenPressConnector = createProxyConnector('adyen_press', 'Adyen press', 'Payments & Checkout', 'Adyen press');
+const worldpayFisConnector = createProxyConnector('worldpay_fis', 'Worldpay FIS press', 'Payments & Checkout', 'Worldpay FIS press');
+const fiservPressConnector = createProxyConnector('fiserv_press', 'Fiserv press', 'Payments & Checkout', 'Fiserv press');
+const gpnIrConnector = createProxyConnector('gpn_ir', 'Global Payments IR', 'Payments & Checkout', 'Global Payments IR');
+const visaBlogConnector = createProxyConnector('visa_blog', 'Visa Business News', 'Payments & Checkout', 'Visa Business News');
+const mastercardPressConnector = createProxyConnector('mastercard_press', 'Mastercard Newsroom', 'Payments & Checkout', 'Mastercard Newsroom');
+const amexPressConnector = createProxyConnector('amex_press', 'American Express Newsroom', 'Payments & Checkout', 'American Express Newsroom');
+const discoverPressConnector = createProxyConnector('discover_press', 'Discover Newsroom', 'Payments & Checkout', 'Discover Newsroom');
+const paypalNewsroomRssConnector = createProxyConnector('paypal_newsroom_rss', 'PayPal Newsroom RSS', 'Payments & Checkout', 'PayPal Newsroom RSS');
+const afrmIrConnector = createProxyConnector('afrm_ir', 'Affirm IR', 'Payments & Checkout', 'Affirm IR');
+const afterpayBlockConnector = createProxyConnector('afterpay_block', 'Afterpay Block press', 'Payments & Checkout', 'Afterpay Block press');
+const sezlIrConnector = createProxyConnector('sezl_ir', 'Sezzle IR', 'Payments & Checkout', 'Sezzle IR');
+const zipIrConnector = createProxyConnector('zip_ir', 'Zip Co IR', 'Payments & Checkout', 'Zip Co IR');
+const splititPressConnector = createProxyConnector('splitit_press', 'Splitit press', 'Payments & Checkout', 'Splitit press');
+const shopPayEditionsConnector = createProxyConnector('shop_pay_editions', 'Shop Pay Shopify Editions', 'Payments & Checkout', 'Shop Pay Shopify Editions');
+const boltBlogConnector = createProxyConnector('bolt_blog', 'Bolt Commerce blog', 'Payments & Checkout', 'Bolt Commerce blog');
+const checkoutPressConnector = createProxyConnector('checkout_press', 'Checkout.com press', 'Payments & Checkout', 'Checkout.com press');
+const stripePressConnector = createProxyConnector('stripe_press', 'Stripe Press', 'Payments & Checkout', 'Stripe Press');
+const mqIrConnector = createProxyConnector('mq_ir', 'Marqeta IR', 'Payments & Checkout', 'Marqeta IR');
+const lithicBlogConnector = createProxyConnector('lithic_blog', 'Lithic blog', 'Payments & Checkout', 'Lithic blog');
+const plaidNewsConnector = createProxyConnector('plaid_news', 'Plaid Newsroom', 'Payments & Checkout', 'Plaid Newsroom');
+const rskdIrConnector = createProxyConnector('rskd_ir', 'Riskified IR', 'Payments & Checkout', 'Riskified IR');
+const forterBlogConnector = createProxyConnector('forter_blog', 'Forter blog', 'Payments & Checkout', 'Forter blog');
+const signifydBlogConnector = createProxyConnector('signifyd_blog', 'Signifyd blog', 'Payments & Checkout', 'Signifyd blog');
+const pazeBlogConnector = createProxyConnector('paze_blog', 'Paze CMA wallet', 'Payments & Checkout', 'Paze CMA wallet');
+const clearinghousePressConnector = createProxyConnector('clearinghouse_press', 'The Clearing House', 'Payments & Checkout', 'The Clearing House');
+const fednowNewsConnector = createProxyConnector('fednow_news', 'Federal Reserve FedNow', 'Payments & Checkout', 'Federal Reserve FedNow');
+const nilsonArchiveConnector = createProxyConnector('nilson_archive', 'Nilson Report headlines', 'Payments & Checkout', 'Nilson Report headlines');
+
+// --- Retail Analysts (27) ---
+const forresterCxIndexConnector = createProxyConnector('forrester_cx_index', 'Forrester CX Index', 'Retail Analysts', 'Forrester CX Index');
+const idcRetailConnector = createProxyConnector('idc_retail', 'IDC Retail Insights', 'Retail Analysts', 'IDC Retail Insights');
+const coresightResearchConnector = createProxyConnector('coresight_research', 'Coresight Research', 'Retail Analysts', 'Coresight Research');
+const globaldataRetailConnector = createProxyConnector('globaldata_retail', 'GlobalData Retail', 'Retail Analysts', 'GlobalData Retail');
+const wgsnInsightConnector = createProxyConnector('wgsn_insight', 'WGSN Insight', 'Retail Analysts', 'WGSN Insight');
+const mintelRetailConnector = createProxyConnector('mintel_retail', 'Mintel Retail Reports', 'Retail Analysts', 'Mintel Retail Reports');
+const euromonitorRetailConnector = createProxyConnector('euromonitor_retail', 'Euromonitor Retail', 'Retail Analysts', 'Euromonitor Retail');
+const circanaInsightsConnector = createProxyConnector('circana_insights', 'Circana NPD Insights', 'Retail Analysts', 'Circana NPD Insights');
+const niqInsightsConnector = createProxyConnector('niq_insights', 'NIQ NielsenIQ Insights', 'Retail Analysts', 'NIQ NielsenIQ Insights');
+const circanaNewsConnector = createProxyConnector('circana_news', 'Circana news/press', 'Retail Analysts', 'Circana news/press');
+const placerBlogConnector = createProxyConnector('placer_blog', 'Placer.ai blog', 'Retail Analysts', 'Placer.ai blog');
+const placerResearchConnector = createProxyConnector('placer_research', 'Placer.ai research reports', 'Retail Analysts', 'Placer.ai research reports');
+const safegraphBlogConnector = createProxyConnector('safegraph_blog', 'SafeGraph Insights', 'Retail Analysts', 'SafeGraph Insights');
+const foursquareBlogConnector = createProxyConnector('foursquare_blog', 'Foursquare Insights', 'Retail Analysts', 'Foursquare Insights');
+const earnestAnalyticsConnector = createProxyConnector('earnest_analytics', 'Earnest Analytics', 'Retail Analysts', 'Earnest Analytics');
+const secondMeasureConnector = createProxyConnector('second_measure', 'Bloomberg Second Measure', 'Retail Analysts', 'Bloomberg Second Measure');
+const yipitConnector = createProxyConnector('yipit', 'Yipit Data', 'Retail Analysts', 'Yipit Data');
+const consumerEdgeConnector = createProxyConnector('consumer_edge', 'Consumer Edge Insights', 'Retail Analysts', 'Consumer Edge Insights');
+const mScienceConnector = createProxyConnector('m_science', 'M Science', 'Retail Analysts', 'M Science');
+const adobeDeiConnector = createProxyConnector('adobe_dei', 'Adobe Digital Economy Index', 'Retail Analysts', 'Adobe Digital Economy Index');
+const salesforceShoppingIndexConnector = createProxyConnector('salesforce_shopping_index', 'Salesforce Shopping Index', 'Retail Analysts', 'Salesforce Shopping Index');
+const shopifyCommerceTrendsConnector = createProxyConnector('shopify_commerce_trends', 'Shopify Commerce Trends', 'Retail Analysts', 'Shopify Commerce Trends');
+const mastercardSpendingpulseConnector = createProxyConnector('mastercard_spendingpulse', 'Mastercard SpendingPulse', 'Retail Analysts', 'Mastercard SpendingPulse');
+const visaSmiConnector = createProxyConnector('visa_smi', 'Visa Spending Momentum Index', 'Retail Analysts', 'Visa Spending Momentum Index');
+const confBoardConsumerConnector = createProxyConnector('conf_board_consumer', 'Conference Board Consumer Confidence', 'Retail Analysts', 'Conference Board Consumer Confidence');
+const umichConsumerSurveysConnector = createProxyConnector('umich_consumer_surveys', 'U Michigan Consumer Surveys', 'Retail Analysts', 'U Michigan Consumer Surveys');
+const nrfEconomicReviewConnector = createProxyConnector('nrf_economic_review', 'NRF Monthly Economic Review', 'Retail Analysts', 'NRF Monthly Economic Review');
+
+// --- Supply Chain (25) ---
+const supplyChainDiveConnector = createProxyConnector('supply_chain_dive', 'Supply Chain Dive', 'Supply Chain', 'Supply Chain Dive');
+const freightwavesConnector = createProxyConnector('freightwaves', 'FreightWaves', 'Supply Chain', 'FreightWaves');
+const theLoadstarConnector = createProxyConnector('the_loadstar', 'The Loadstar', 'Supply Chain', 'The Loadstar');
+const americanShipperConnector = createProxyConnector('american_shipper', 'American Shipper', 'Supply Chain', 'American Shipper');
+const jocConnector = createProxyConnector('joc', 'Journal of Commerce', 'Supply Chain', 'Journal of Commerce');
+const mmhConnector = createProxyConnector('mmh', 'Modern Materials Handling', 'Supply Chain', 'Modern Materials Handling');
+const inboundLogisticsConnector = createProxyConnector('inbound_logistics', 'Inbound Logistics', 'Supply Chain', 'Inbound Logistics');
+const logisticsBureauConnector = createProxyConnector('logistics_bureau', 'Logistics Bureau', 'Supply Chain', 'Logistics Bureau');
+const mhlnewsConnector = createProxyConnector('mhlnews', 'Material Handling and Logistics', 'Supply Chain', 'Material Handling and Logistics');
+const rlaNewsConnector = createProxyConnector('rla_news', 'Reverse Logistics Association', 'Supply Chain', 'Reverse Logistics Association');
+const cscmpNewsConnector = createProxyConnector('cscmp_news', 'CSCMP news', 'Supply Chain', 'CSCMP news');
+const nptcNewsConnector = createProxyConnector('nptc_news', 'Natl Private Truck Council', 'Supply Chain', 'Natl Private Truck Council');
+const ataNewsConnector = createProxyConnector('ata_news', 'American Trucking Assn', 'Supply Chain', 'American Trucking Assn');
+const lastMileBlogConnector = createProxyConnector('last_mile_blog', 'Last Mile Experts', 'Supply Chain', 'Last Mile Experts');
+const pitneyShippingIndexConnector = createProxyConnector('pitney_shipping_index', 'Pitney Bowes Parcel Shipping Index', 'Supply Chain', 'Pitney Bowes Parcel Shipping Index');
+const project44BlogConnector = createProxyConnector('project44_blog', 'Project44 blog', 'Supply Chain', 'Project44 blog');
+const fourkitesBlogConnector = createProxyConnector('fourkites_blog', 'FourKites blog', 'Supply Chain', 'FourKites blog');
+const flexeInsightsConnector = createProxyConnector('flexe_insights', 'Flexe insights', 'Supply Chain', 'Flexe insights');
+const shipbobBlogConnector = createProxyConnector('shipbob_blog', 'ShipBob blog', 'Supply Chain', 'ShipBob blog');
+const shipstationBlogConnector = createProxyConnector('shipstation_blog', 'ShipStation blog', 'Supply Chain', 'ShipStation blog');
+const easyshipBlogConnector = createProxyConnector('easyship_blog', 'Easyship blog', 'Supply Chain', 'Easyship blog');
+const xpoIrConnector = createProxyConnector('xpo_ir', 'XPO Logistics IR', 'Supply Chain', 'XPO Logistics IR');
+const saiaIrConnector = createProxyConnector('saia_ir', 'Saia IR', 'Supply Chain', 'Saia IR');
+const wernIrConnector = createProxyConnector('wern_ir', 'Werner Enterprises IR', 'Supply Chain', 'Werner Enterprises IR');
+const chrwIrConnector = createProxyConnector('chrw_ir', 'C.H. Robinson IR', 'Supply Chain', 'C.H. Robinson IR');
+
+// --- Specialty Verticals (23) ---
+const beautyIndependentConnector = createProxyConnector('beauty_independent', 'Beauty Independent', 'Specialty Verticals', 'Beauty Independent');
+const glossyBeautyConnector = createProxyConnector('glossy_beauty', 'Glossy Beauty', 'Specialty Verticals', 'Glossy Beauty');
+const wwdBeautyConnector = createProxyConnector('wwd_beauty', 'WWD Beauty', 'Specialty Verticals', 'WWD Beauty');
+const cewNewsConnector = createProxyConnector('cew_news', 'CEW Cosmetic Executive Women', 'Specialty Verticals', 'CEW Cosmetic Executive Women');
+const happiRssConnector = createProxyConnector('happi_rss', 'Happi personal care', 'Specialty Verticals', 'Happi personal care');
+const cosmeticsBusinessConnector = createProxyConnector('cosmetics_business', 'Cosmetics Business', 'Specialty Verticals', 'Cosmetics Business');
+const chainDrugReviewConnector = createProxyConnector('chain_drug_review', 'Chain Drug Review', 'Specialty Verticals', 'Chain Drug Review');
+const pharmacyTimesConnector = createProxyConnector('pharmacy_times', 'Pharmacy Times', 'Specialty Verticals', 'Pharmacy Times');
+const shelbyReportConnector = createProxyConnector('shelby_report', 'Shelby Report grocery', 'Specialty Verticals', 'Shelby Report grocery');
+const winsightGroceryConnector = createProxyConnector('winsight_grocery', 'Winsight Grocery Business', 'Specialty Verticals', 'Winsight Grocery Business');
+const nacsOnlineConnector = createProxyConnector('nacs_online', 'NACS Convenience Online', 'Specialty Verticals', 'NACS Convenience Online');
+const petBusinessConnector = createProxyConnector('pet_business', 'Pet Business', 'Specialty Verticals', 'Pet Business');
+const petProductNewsConnector = createProxyConnector('pet_product_news', 'Pet Product News', 'Specialty Verticals', 'Pet Product News');
+const sportsoneSourceConnector = createProxyConnector('sportsone_source', 'Sporting Goods Dealer', 'Specialty Verticals', 'Sporting Goods Dealer');
+const sgbOnlineConnector = createProxyConnector('sgb_online', 'SGB Media sporting goods', 'Specialty Verticals', 'SGB Media sporting goods');
+const footwearplusConnector = createProxyConnector('footwearplus', 'Footwear Plus', 'Specialty Verticals', 'Footwear Plus');
+const toyBookConnector = createProxyConnector('toy_book', 'Toy Insider Toy Book', 'Specialty Verticals', 'Toy Insider Toy Book');
+const toyHobbyAuConnector = createProxyConnector('toy_hobby_au', 'Toy and Hobby Retailer', 'Specialty Verticals', 'Toy and Hobby Retailer');
+const hobbyMerchandiserConnector = createProxyConnector('hobby_merchandiser', 'Hobby Merchandiser', 'Specialty Verticals', 'Hobby Merchandiser');
+const kidsTodayConnector = createProxyConnector('kids_today', 'Kids Today', 'Specialty Verticals', 'Kids Today');
+const earnshawsConnector = createProxyConnector('earnshaws', 'Earnshaws kids fashion', 'Specialty Verticals', 'Earnshaws kids fashion');
+const oiaOutdoorConnector = createProxyConnector('oia_outdoor', 'Outdoor Industry Association', 'Specialty Verticals', 'Outdoor Industry Association');
+const outsideBusinessJournalConnector = createProxyConnector('outside_business_journal', 'Outside Business Journal Snews', 'Specialty Verticals', 'Outside Business Journal Snews');
+
+// --- International Retail (25) ---
+const retailWeekUkMainConnector = createProxyConnector('retail_week_uk_main', 'Retail Week UK', 'International Retail', 'Retail Week UK');
+const drapersUkConnector = createProxyConnector('drapers_uk', 'Drapers UK fashion', 'International Retail', 'Drapers UK fashion');
+const theGrocerUkConnector = createProxyConnector('the_grocer_uk', 'The Grocer UK', 'International Retail', 'The Grocer UK');
+const retailGazetteConnector = createProxyConnector('retail_gazette', 'Retail Gazette UK', 'International Retail', 'Retail Gazette UK');
+const internetRetailingEuConnector = createProxyConnector('internet_retailing_eu', 'Internet Retailing UK EU', 'International Retail', 'Internet Retailing UK EU');
+const chargedretailConnector = createProxyConnector('chargedretail', 'Chargedretail UK', 'International Retail', 'Chargedretail UK');
+const textilwirtschaftDeConnector = createProxyConnector('textilwirtschaft_de', 'TextilWirtschaft Germany', 'International Retail', 'TextilWirtschaft Germany');
+const ehiDeConnector = createProxyConnector('ehi_de', 'EHI Retail Institute Germany', 'International Retail', 'EHI Retail Institute Germany');
+const lsaConsoFrConnector = createProxyConnector('lsa_conso_fr', 'LSA Conso France', 'International Retail', 'LSA Conso France');
+const retailDetailBeneluxConnector = createProxyConnector('retail_detail_benelux', 'Retail Detail Benelux', 'International Retail', 'Retail Detail Benelux');
+const retailInsiderCaConnector = createProxyConnector('retail_insider_ca', 'Retail Insider Canada', 'International Retail', 'Retail Insider Canada');
+const canadianGrocerConnector = createProxyConnector('canadian_grocer', 'Canadian Grocer', 'International Retail', 'Canadian Grocer');
+const insideRetailAuConnector = createProxyConnector('inside_retail_au', 'Inside Retail Australia', 'International Retail', 'Inside Retail Australia');
+const insideRetailAsiaConnector = createProxyConnector('inside_retail_asia', 'Inside Retail Asia', 'International Retail', 'Inside Retail Asia');
+const cnaBusinessConnector = createProxyConnector('cna_business', 'Channel News Asia Business', 'International Retail', 'Channel News Asia Business');
+const krasiaConnector = createProxyConnector('krasia', 'KrASIA Asia tech retail', 'International Retail', 'KrASIA Asia tech retail');
+const techInAsiaConnector = createProxyConnector('tech_in_asia', 'Tech in Asia', 'International Retail', 'Tech in Asia');
+const pandailyConnector = createProxyConnector('pandaily', 'Pandaily China', 'International Retail', 'Pandaily China');
+const yicaiGlobalConnector = createProxyConnector('yicai_global', 'Yicai Global China', 'International Retail', 'Yicai Global China');
+const caixinGlobalConnector = createProxyConnector('caixin_global', 'Caixin Global', 'International Retail', 'Caixin Global');
+const nikkeiRetailConnector = createProxyConnector('nikkei_retail', 'Nikkei Asia Retail', 'International Retail', 'Nikkei Asia Retail');
+const latamIntersectConnector = createProxyConnector('latam_intersect', 'LatAm Intersect Retail', 'International Retail', 'LatAm Intersect Retail');
+const bloombergLineaConnector = createProxyConnector('bloomberg_linea', 'Bloomberg Linea LatAm', 'International Retail', 'Bloomberg Linea LatAm');
+const dcBrazilConnector = createProxyConnector('dc_brazil', 'Diario do Comercio Brazil', 'International Retail', 'Diario do Comercio Brazil');
+const retailAsiaMagConnector = createProxyConnector('retail_asia_mag', 'Retail Asia magazine', 'International Retail', 'Retail Asia magazine');
+
+// --- Strategy Consultancies (24) ---
+const kearneyConsumerConnector = createProxyConnector('kearney_consumer', 'Kearney Consumer Institute', 'Strategy Consultancies', 'Kearney Consumer Institute');
+const occStrategyConnector = createProxyConnector('occ_strategy', 'OC&C Strategy Retail', 'Strategy Consultancies', 'OC&C Strategy Retail');
+const alixpartnersRetailConnector = createProxyConnector('alixpartners_retail', 'AlixPartners Retail', 'Strategy Consultancies', 'AlixPartners Retail');
+const rsmRetailConnector = createProxyConnector('rsm_retail', 'RSM Retail Insights', 'Strategy Consultancies', 'RSM Retail Insights');
+const kpmgConsumerConnector = createProxyConnector('kpmg_consumer', 'KPMG Consumer Retail', 'Strategy Consultancies', 'KPMG Consumer Retail');
+const eyFutureConsumerConnector = createProxyConnector('ey_future_consumer', 'EY Future Consumer Index', 'Strategy Consultancies', 'EY Future Consumer Index');
+const capgeminiRetailConnector = createProxyConnector('capgemini_retail', 'Capgemini Retail Research', 'Strategy Consultancies', 'Capgemini Retail Research');
+const wiproRetailConnector = createProxyConnector('wipro_retail', 'Wipro Retail Insights', 'Strategy Consultancies', 'Wipro Retail Insights');
+const cognizantRetailConnector = createProxyConnector('cognizant_retail', 'Cognizant Retail', 'Strategy Consultancies', 'Cognizant Retail');
+const publicisSapientRetailConnector = createProxyConnector('publicis_sapient_retail', 'Publicis Sapient Retail', 'Strategy Consultancies', 'Publicis Sapient Retail');
+const materialPlusConnector = createProxyConnector('material_plus', 'LRW Material Plus', 'Strategy Consultancies', 'LRW Material Plus');
+const lippincottConnector = createProxyConnector('lippincott', 'Lippincott', 'Strategy Consultancies', 'Lippincott');
+const interbrandConnector = createProxyConnector('interbrand', 'Interbrand Best Global Brands', 'Strategy Consultancies', 'Interbrand Best Global Brands');
+const siegelGaleConnector = createProxyConnector('siegel_gale', 'Siegel+Gale Simplicity Index', 'Strategy Consultancies', 'Siegel+Gale Simplicity Index');
+const landorFitchConnector = createProxyConnector('landor_fitch', 'Landor & Fitch', 'Strategy Consultancies', 'Landor & Fitch');
+const wolffolinsConnector = createProxyConnector('wolffolins', 'Wolff Olins', 'Strategy Consultancies', 'Wolff Olins');
+const rgaFutureConnector = createProxyConnector('rga_future', 'R/GA FutureVision', 'Strategy Consultancies', 'R/GA FutureVision');
+const hugeArticlesConnector = createProxyConnector('huge_articles', 'Huge', 'Strategy Consultancies', 'Huge');
+const codeAndTheoryConnector = createProxyConnector('code_and_theory', 'Code and Theory', 'Strategy Consultancies', 'Code and Theory');
+const wpromoteBlogConnector = createProxyConnector('wpromote_blog', 'Wpromote digital marketing', 'Strategy Consultancies', 'Wpromote digital marketing');
+const tinuitiBlogConnector = createProxyConnector('tinuiti_blog', 'Tinuiti performance marketing', 'Strategy Consultancies', 'Tinuiti performance marketing');
+const ctcCoachsCornerConnector = createProxyConnector('ctc_coachs_corner', 'Common Thread Coachs Corner', 'Strategy Consultancies', 'Common Thread Coachs Corner');
+const shopifyPlusBlogConnector = createProxyConnector('shopify_plus_blog', 'Shopify Plus blog', 'Strategy Consultancies', 'Shopify Plus blog');
+const commercetoolsBlogConnector = createProxyConnector('commercetools_blog', 'commercetools blog', 'Strategy Consultancies', 'commercetools blog');
+
+// --- Retail Deal Intelligence (25) ---
+const pymntsRetailConnector = createProxyConnector('pymnts_retail', 'PYMNTS Retail', 'Retail Deal Intelligence', 'PYMNTS Retail');
+const bloombergRetailConnector = createProxyConnector('bloomberg_retail', 'Bloomberg Retail', 'Retail Deal Intelligence', 'Bloomberg Retail');
+const reutersRetailConnector = createProxyConnector('reuters_retail', 'Reuters Retail and Consumer', 'Retail Deal Intelligence', 'Reuters Retail and Consumer');
+const wsjRetailConnector = createProxyConnector('wsj_retail', 'WSJ Retail', 'Retail Deal Intelligence', 'WSJ Retail');
+const ftRetailConnector = createProxyConnector('ft_retail', 'FT Retail and Consumer', 'Retail Deal Intelligence', 'FT Retail and Consumer');
+const cnbcRetailConnector = createProxyConnector('cnbc_retail', 'CNBC Retail', 'Retail Deal Intelligence', 'CNBC Retail');
+const forbesRetailConnector = createProxyConnector('forbes_retail', 'Forbes Retail', 'Retail Deal Intelligence', 'Forbes Retail');
+const fortuneRetailConnector = createProxyConnector('fortune_retail', 'Fortune Retail', 'Retail Deal Intelligence', 'Fortune Retail');
+const crainsChicagoConnector = createProxyConnector('crains_chicago', 'Crains Chicago Retail', 'Retail Deal Intelligence', 'Crains Chicago Retail');
+const bostonGlobeBusinessConnector = createProxyConnector('boston_globe_business', 'Boston Globe Business', 'Retail Deal Intelligence', 'Boston Globe Business');
+const theInformationCommerceConnector = createProxyConnector('the_information_commerce', 'The Information Commerce', 'Retail Deal Intelligence', 'The Information Commerce');
+const axiosBusinessConnector = createProxyConnector('axios_business', 'Axios Business Retail', 'Retail Deal Intelligence', 'Axios Business Retail');
+const modernRetailDailyConnector = createProxyConnector('modern_retail_daily', 'Modern Retail Daily', 'Retail Deal Intelligence', 'Modern Retail Daily');
+const robinReportMainConnector = createProxyConnector('robin_report_main', 'Robin Report Substack', 'Retail Deal Intelligence', 'Robin Report Substack');
+const puckLaurenShermanConnector = createProxyConnector('puck_lauren_sherman', 'Puck Lauren Sherman', 'Retail Deal Intelligence', 'Puck Lauren Sherman');
+const offpricenewsConnector = createProxyConnector('offpricenews', 'Off Price News', 'Retail Deal Intelligence', 'Off Price News');
+const retaildiveBankruptcyConnector = createProxyConnector('retaildive_bankruptcy', 'RetailDIVE Bankruptcy tracker', 'Retail Deal Intelligence', 'RetailDIVE Bankruptcy tracker');
+const debtwireRetailConnector = createProxyConnector('debtwire_retail', 'Debtwire Retail', 'Retail Deal Intelligence', 'Debtwire Retail');
+const pitchbookRetailConnector = createProxyConnector('pitchbook_retail', 'PitchBook Retail', 'Retail Deal Intelligence', 'PitchBook Retail');
+const cbInsightsRetailConnector = createProxyConnector('cb_insights_retail', 'CB Insights Retail', 'Retail Deal Intelligence', 'CB Insights Retail');
+const crunchbaseRetailConnector = createProxyConnector('crunchbase_retail', 'Crunchbase News Retail', 'Retail Deal Intelligence', 'Crunchbase News Retail');
+const reorgResearchConnector = createProxyConnector('reorg_research', 'Reorg Bankruptcy Research', 'Retail Deal Intelligence', 'Reorg Bankruptcy Research');
+const mergermarketConsumerConnector = createProxyConnector('mergermarket_consumer', 'Mergermarket Consumer', 'Retail Deal Intelligence', 'Mergermarket Consumer');
+const dealstreetAsiaRetailConnector = createProxyConnector('dealstreet_asia_retail', 'DealStreetAsia Retail', 'Retail Deal Intelligence', 'DealStreetAsia Retail');
+const retailtechInnovationHubConnector = createProxyConnector('retailtech_innovation_hub', 'Retail Tech Innovation Hub RSS', 'Retail Deal Intelligence', 'Retail Tech Innovation Hub RSS');
+
+// --- Social Listening Pro (19) ---
+const tiktokCreativeCenterConnector = createProxyConnector('tiktok_creative_center', 'TikTok Creative Center', 'Social Listening Pro', 'TikTok Creative Center');
+const tiktokBusinessBlogMainConnector = createProxyConnector('tiktok_business_blog_main', 'TikTok for Business', 'Social Listening Pro', 'TikTok for Business');
+const pinterestPredictsConnector = createProxyConnector('pinterest_predicts', 'Pinterest Predicts', 'Social Listening Pro', 'Pinterest Predicts');
+const pinterestTrendsConnector = createProxyConnector('pinterest_trends', 'Pinterest Trends Tool', 'Social Listening Pro', 'Pinterest Trends Tool');
+const trustpilotBlogMainConnector = createProxyConnector('trustpilot_blog_main', 'Trustpilot Business Insights', 'Social Listening Pro', 'Trustpilot Business Insights');
+const trustpilotElectronicsConnector = createProxyConnector('trustpilot_electronics', 'Trustpilot reviews electronics', 'Social Listening Pro', 'Trustpilot reviews electronics');
+const reviewsIoBlogConnector = createProxyConnector('reviews_io_blog', 'Reviews.io blog', 'Social Listening Pro', 'Reviews.io blog');
+const yotpoInsightsBlogConnector = createProxyConnector('yotpo_insights_blog', 'Yotpo Insights', 'Social Listening Pro', 'Yotpo Insights');
+const bazaarvoiceBlogConnector = createProxyConnector('bazaarvoice_blog', 'Bazaarvoice Resources', 'Social Listening Pro', 'Bazaarvoice Resources');
+const powerreviewsInsightsConnector = createProxyConnector('powerreviews_insights', 'PowerReviews insights', 'Social Listening Pro', 'PowerReviews insights');
+const glassdoorResearchConnector = createProxyConnector('glassdoor_research', 'Glassdoor Economic Research', 'Social Listening Pro', 'Glassdoor Economic Research');
+const indeedHiringLabConnector = createProxyConnector('indeed_hiring_lab', 'Indeed Hiring Lab', 'Social Listening Pro', 'Indeed Hiring Lab');
+const linkedinWorkforceConnector = createProxyConnector('linkedin_workforce', 'LinkedIn Workforce Reports', 'Social Listening Pro', 'LinkedIn Workforce Reports');
+const comparablyNewsConnector = createProxyConnector('comparably_news', 'Comparably news', 'Social Listening Pro', 'Comparably news');
+const dataAiInsightsConnector = createProxyConnector('data_ai_insights', 'data.ai retail apps', 'Social Listening Pro', 'data.ai retail apps');
+const sensorTowerBlogConnector = createProxyConnector('sensor_tower_blog', 'Sensor Tower blog', 'Social Listening Pro', 'Sensor Tower blog');
+const apptopiaBlogConnector = createProxyConnector('apptopia_blog', 'Apptopia retail apps', 'Social Listening Pro', 'Apptopia retail apps');
+const similarwebBlogConnector = createProxyConnector('similarweb_blog', 'SimilarWeb Retail', 'Social Listening Pro', 'SimilarWeb Retail');
+const comscoreBlogConnector = createProxyConnector('comscore_blog', 'Comscore Retail Reports', 'Social Listening Pro', 'Comscore Retail Reports');
+
+// --- Brand Reddit (5) ---
+const redditBombasConnector = createProxyConnector('reddit_bombas', 'Reddit r/Bombas', 'Brand Reddit', 'Reddit r/Bombas');
+const redditAllbirdshoesConnector = createProxyConnector('reddit_allbirdshoes', 'Reddit r/AllbirdsShoes', 'Brand Reddit', 'Reddit r/AllbirdsShoes');
+const redditPatagoniaBrandConnector = createProxyConnector('reddit_patagonia_brand', 'Reddit r/Patagonia', 'Brand Reddit', 'Reddit r/Patagonia');
+const redditCostcoBrandConnector = createProxyConnector('reddit_costco_brand', 'Reddit r/Costco', 'Brand Reddit', 'Reddit r/Costco');
+const redditTargetBrandConnector = createProxyConnector('reddit_target_brand', 'Reddit r/Target', 'Brand Reddit', 'Reddit r/Target');
+
+// --- Retail Operator Reddit (25) ---
+const redditRetailmanagersConnector = createProxyConnector('reddit_retailmanagers', 'Reddit r/RetailManagers', 'Retail Operator Reddit', 'Reddit r/RetailManagers');
+const redditWalmartOpsConnector = createProxyConnector('reddit_walmart_ops', 'Reddit r/walmart', 'Retail Operator Reddit', 'Reddit r/walmart');
+const redditHomedepotConnector = createProxyConnector('reddit_homedepot', 'Reddit r/HomeDepot', 'Retail Operator Reddit', 'Reddit r/HomeDepot');
+const redditLowesConnector = createProxyConnector('reddit_lowes', 'Reddit r/Lowes', 'Retail Operator Reddit', 'Reddit r/Lowes');
+const redditIkeaConnector = createProxyConnector('reddit_ikea', 'Reddit r/IKEA', 'Retail Operator Reddit', 'Reddit r/IKEA');
+const redditHomegoodsConnector = createProxyConnector('reddit_homegoods', 'Reddit r/HomeGoods', 'Retail Operator Reddit', 'Reddit r/HomeGoods');
+const redditPotterybarnConnector = createProxyConnector('reddit_potterybarn', 'Reddit r/PotteryBarn', 'Retail Operator Reddit', 'Reddit r/PotteryBarn');
+const redditRestorationhardwareConnector = createProxyConnector('reddit_restorationhardware', 'Reddit r/restorationhardware', 'Retail Operator Reddit', 'Reddit r/restorationhardware');
+const redditAskretailConnector = createProxyConnector('reddit_askretail', 'Reddit r/AskRetail', 'Retail Operator Reddit', 'Reddit r/AskRetail');
+const redditFlippingConnector = createProxyConnector('reddit_flipping', 'Reddit r/Flipping', 'Retail Operator Reddit', 'Reddit r/Flipping');
+const redditFrugalConnector = createProxyConnector('reddit_frugal', 'Reddit r/Frugal', 'Retail Operator Reddit', 'Reddit r/Frugal');
+const redditPovertyfinanceConnector = createProxyConnector('reddit_povertyfinance', 'Reddit r/povertyfinance', 'Retail Operator Reddit', 'Reddit r/povertyfinance');
+const redditDeclutterConnector = createProxyConnector('reddit_declutter', 'Reddit r/declutter', 'Retail Operator Reddit', 'Reddit r/declutter');
+const redditMinimalismConnector = createProxyConnector('reddit_minimalism', 'Reddit r/minimalism', 'Retail Operator Reddit', 'Reddit r/minimalism');
+const redditInteriordesignConnector = createProxyConnector('reddit_interiordesign', 'Reddit r/InteriorDesign', 'Retail Operator Reddit', 'Reddit r/InteriorDesign');
+const redditMfaConnector = createProxyConnector('reddit_mfa', 'Reddit r/MaleFashionAdvice', 'Retail Operator Reddit', 'Reddit r/MaleFashionAdvice');
+const redditFfaConnector = createProxyConnector('reddit_ffa', 'Reddit r/femalefashionadvice', 'Retail Operator Reddit', 'Reddit r/femalefashionadvice');
+const redditSkincareaddictionConnector = createProxyConnector('reddit_skincareaddiction', 'Reddit r/SkincareAddiction', 'Retail Operator Reddit', 'Reddit r/SkincareAddiction');
+const redditMakeupaddictionConnector = createProxyConnector('reddit_makeupaddiction', 'Reddit r/MakeupAddiction', 'Retail Operator Reddit', 'Reddit r/MakeupAddiction');
+const redditSephoraConnector = createProxyConnector('reddit_sephora', 'Reddit r/Sephora', 'Retail Operator Reddit', 'Reddit r/Sephora');
+const redditUltaConnector = createProxyConnector('reddit_ulta', 'Reddit r/Ulta', 'Retail Operator Reddit', 'Reddit r/Ulta');
+const redditAmazonsellerOpsConnector = createProxyConnector('reddit_amazonseller_ops', 'Reddit r/AmazonSeller', 'Retail Operator Reddit', 'Reddit r/AmazonSeller');
+const redditResellersConnector = createProxyConnector('reddit_resellers', 'Reddit r/Resellers', 'Retail Operator Reddit', 'Reddit r/Resellers');
+const redditThriftstorehaulsConnector = createProxyConnector('reddit_thriftstorehauls', 'Reddit r/ThriftStoreHauls', 'Retail Operator Reddit', 'Reddit r/ThriftStoreHauls');
+const redditHomeimprovementConnector = createProxyConnector('reddit_homeimprovement', 'Reddit r/HomeImprovement', 'Retail Operator Reddit', 'Reddit r/HomeImprovement');
+
+// --- Open Data APIs (30) ---
+const osmOverpassConnector = createProxyConnector('osm_overpass', 'OpenStreetMap Overpass', 'Open Data APIs', 'OpenStreetMap Overpass');
+const overpassTurboConnector = createProxyConnector('overpass_turbo', 'Overpass Turbo', 'Open Data APIs', 'Overpass Turbo');
+const yelpFusionConnector = createProxyConnector('yelp_fusion', 'Yelp Fusion API', 'Open Data APIs', 'Yelp Fusion API');
+const googlePlacesConnector = createProxyConnector('google_places', 'Google Places API', 'Open Data APIs', 'Google Places API');
+const foursquarePlacesConnector = createProxyConnector('foursquare_places', 'Foursquare Places API', 'Open Data APIs', 'Foursquare Places API');
+const opencorporatesConnector = createProxyConnector('opencorporates', 'OpenCorporates', 'Open Data APIs', 'OpenCorporates');
+const secEdgarSearchConnector = createProxyConnector('sec_edgar_search', 'SEC EDGAR full-text search', 'Open Data APIs', 'SEC EDGAR full-text search');
+const secFinancialDataConnector = createProxyConnector('sec_financial_data', 'SEC Financial Statement Data', 'Open Data APIs', 'SEC Financial Statement Data');
+const usptoPatentApiConnector = createProxyConnector('uspto_patent_api', 'USPTO Patent Search API', 'Open Data APIs', 'USPTO Patent Search API');
+const usptoTsdrConnector = createProxyConnector('uspto_tsdr', 'USPTO TSDR Trademark API', 'Open Data APIs', 'USPTO TSDR Trademark API');
+const openfdaRecallsConnector = createProxyConnector('openfda_recalls', 'FDA Adverse Events Recalls', 'Open Data APIs', 'FDA Adverse Events Recalls');
+const cpscRecallsConnector = createProxyConnector('cpsc_recalls', 'CPSC Recalls API', 'Open Data APIs', 'CPSC Recalls API');
+const oshaSearchConnector = createProxyConnector('osha_search', 'OSHA Establishment Search', 'Open Data APIs', 'OSHA Establishment Search');
+const nlrbElectionConnector = createProxyConnector('nlrb_election', 'NLRB Election Case Search', 'Open Data APIs', 'NLRB Election Case Search');
+const blsQcewConnector = createProxyConnector('bls_qcew', 'BLS QCEW employment', 'Open Data APIs', 'BLS QCEW employment');
+const blsPpiConnector = createProxyConnector('bls_ppi', 'BLS Producer Price Index', 'Open Data APIs', 'BLS Producer Price Index');
+const blsMxpConnector = createProxyConnector('bls_mxp', 'BLS Import Export Price Indexes', 'Open Data APIs', 'BLS Import Export Price Indexes');
+const usitcDatawebConnector = createProxyConnector('usitc_dataweb', 'USITC DataWeb', 'Open Data APIs', 'USITC DataWeb');
+const cbpAceConnector = createProxyConnector('cbp_ace', 'CBP ACE import data', 'Open Data APIs', 'CBP ACE import data');
+const importgeniusBlogConnector = createProxyConnector('importgenius_blog', 'ImportGenius blog', 'Open Data APIs', 'ImportGenius blog');
+const panjivaResearchConnector = createProxyConnector('panjiva_research', 'Panjiva research', 'Open Data APIs', 'Panjiva research');
+const datasemblyBlogConnector = createProxyConnector('datasembly_blog', 'Datasembly insights', 'Open Data APIs', 'Datasembly insights');
+const oecdConsumerConfidenceConnector = createProxyConnector('oecd_consumer_confidence', 'OECD Consumer Confidence', 'Open Data APIs', 'OECD Consumer Confidence');
+const worldbankConsumptionPackConnector = createProxyConnector('worldbank_consumption_pack', 'World Bank Consumer Spending', 'Open Data APIs', 'World Bank Consumer Spending');
+const uncomtradeConnector = createProxyConnector('uncomtrade', 'UN Comtrade', 'Open Data APIs', 'UN Comtrade');
+const dataGovRetailIdxConnector = createProxyConnector('data_gov_retail_idx', 'data.gov retail datasets', 'Open Data APIs', 'data.gov retail datasets');
+const eurostatRetailPackConnector = createProxyConnector('eurostat_retail_pack', 'Eurostat Retail Trade Volume', 'Open Data APIs', 'Eurostat Retail Trade Volume');
+const onsRetailPackConnector = createProxyConnector('ons_retail_pack', 'UK ONS Retail Sales Index', 'Open Data APIs', 'UK ONS Retail Sales Index');
+const statcanRetailConnector = createProxyConnector('statcan_retail', 'Statistics Canada Retail', 'Open Data APIs', 'Statistics Canada Retail');
+const destatisRetailConnector = createProxyConnector('destatis_retail', 'Destatis German Retail', 'Open Data APIs', 'Destatis German Retail');
+
+
 // Video Channels (Web-only)
 const ytTwoMinPapersConnector = createProxyConnector('yt_two_minute_papers', 'Two Minute Papers', 'Video', 'Paper summaries');
 const ytYannicConnector = createProxyConnector('yt_yannic_kilcher', 'Yannic Kilcher', 'Video', 'Paper deep-dives');
@@ -733,6 +1168,119 @@ export const ALL_CONNECTORS: DataSourceConnector[] = [
     redditEffectivealtruismConnector, redditSocialenterpriseConnector, redditSustainabilityMainConnector,
     redditEthicalfashionConnector, redditDtcmarketingConnector, redditWayfairConnector,
     redditPersonalfinanceDafConnector,
+    // === 400-SOURCE RETAIL EXPANSION PACK (386) ===
+    // Retail Competitive Set (50)
+    wayfairSecConnector, wsmIrConnector, rhIrConnector, ikeaNewsroomConnector, ikeaAnnualConnector, 
+    ashleyPressConnector, lzbIrConnector, hoftIrConnector, etdIrConnector, mlknIrConnector, scsIrConnector, 
+    hniIrConnector, kirkIrConnector, athomePressConnector, biglotsIrConnector, tuesdaymorningPressConnector, 
+    crateandbarrelPressConnector, arhsIrConnector, loveIrConnector, fndIrConnector, ttshIrConnector, 
+    llFlooringPressConnector, byonIrConnector, tjxIrConnector, rostIrConnector, burlIrConnector, 
+    walmartIrConnector, targetIrConnector, costIrConnector, amznIrConnector, hdIrConnector, lowIrConnector, 
+    tscoIrConnector, harborfreightPressConnector, shwIrConnector, dgIrConnector, dltrIrConnector, 
+    fiveIrConnector, macysIrConnector, kssIrConnector, jwnIrConnector, jcpenneyPressConnector, 
+    belkPressConnector, ddsIrConnector, saksPressConnector, neimanPressConnector, tcsIrConnector, 
+    bollandbranchPressConnector, brooklinenPressConnector, parachutePressConnector,
+    // Home/Furniture Trade (39)
+    furnitureTodayConnector, homeNewsNowConnector, hfnDigitalConnector, homeTextilesTodayConnector, 
+    furnitureNewsUkConnector, casualLivingConnector, bigFurnitureGroupConnector, designersTodayConnector, 
+    kbbOnlineConnector, kbdnConnector, hospitalityDesignConnector, adProConnector, adMainConnector, 
+    interiorDesignMagConnector, dezeenConnector, wallpaperMagConnector, dwellConnector, 
+    housebeautifulConnector, elledecorConnector, verandaConnector, apartmentTherapyConnector, 
+    remodelistaConnector, houzzProConnector, theSpruceConnector, curbedVoxConnector, designboomConnector, 
+    designMilkConnector, core77Connector, yankoDesignConnector, ahfaNewsConnector, hfaBlogConnector, 
+    icfaNewsConnector, wfcaNewsConnector, asidNewsConnector, iidaNewsConnector, highpointMarketConnector, 
+    vegasMarketConnector, andmoreNewsConnector, stumpFurnitureMaConnector,
+    // Retail Tech Vendors (35)
+    tostIrConnector, lspdIrConnector, sqIrConnector, cloverNewsConnector, ncrvoyixPressConnector, 
+    dieboldPressConnector, zbraIrConnector, honeywellPssConnector, manhIrConnector, aptosBlogConnector, 
+    mi9BlogConnector, relexBlogConnector, blueyonderBlogConnector, o9BlogConnector, vusionNewsConnector, 
+    pricerPressConnector, traxNewsConnector, standardAiPressConnector, aifiNewsConnector, 
+    grabangoNewsConnector, trigoBlogConnector, caperNewsConnector, focalBlogConnector, pensaNewsConnector, 
+    bossanovaNewsConnector, simbeNewsConnector, braincorpBlogConnector, ocadoNewsConnector, 
+    autostoreInsightsConnector, symIrConnector, greyorangeBlogConnector, locusNewsConnector, 
+    sixRiverConnector, berkshireGreyNewsConnector, fabricBlogConnector,
+    // Payments & Checkout (34)
+    paymentsDiveConnector, digitalTransactionsConnector, americanbankerPaymentsConnector, 
+    glenbrookPaymentsConnector, mobilePaymentsTodayConnector, retailBankerIntlConnector, adyenPressConnector, 
+    worldpayFisConnector, fiservPressConnector, gpnIrConnector, visaBlogConnector, mastercardPressConnector, 
+    amexPressConnector, discoverPressConnector, paypalNewsroomRssConnector, afrmIrConnector, 
+    afterpayBlockConnector, sezlIrConnector, zipIrConnector, splititPressConnector, shopPayEditionsConnector, 
+    boltBlogConnector, checkoutPressConnector, stripePressConnector, mqIrConnector, lithicBlogConnector, 
+    plaidNewsConnector, rskdIrConnector, forterBlogConnector, signifydBlogConnector, pazeBlogConnector, 
+    clearinghousePressConnector, fednowNewsConnector, nilsonArchiveConnector,
+    // Retail Analysts (27)
+    forresterCxIndexConnector, idcRetailConnector, coresightResearchConnector, globaldataRetailConnector, 
+    wgsnInsightConnector, mintelRetailConnector, euromonitorRetailConnector, circanaInsightsConnector, 
+    niqInsightsConnector, circanaNewsConnector, placerBlogConnector, placerResearchConnector, 
+    safegraphBlogConnector, foursquareBlogConnector, earnestAnalyticsConnector, secondMeasureConnector, 
+    yipitConnector, consumerEdgeConnector, mScienceConnector, adobeDeiConnector, 
+    salesforceShoppingIndexConnector, shopifyCommerceTrendsConnector, mastercardSpendingpulseConnector, 
+    visaSmiConnector, confBoardConsumerConnector, umichConsumerSurveysConnector, nrfEconomicReviewConnector,
+    // Supply Chain (25)
+    supplyChainDiveConnector, freightwavesConnector, theLoadstarConnector, americanShipperConnector, 
+    jocConnector, mmhConnector, inboundLogisticsConnector, logisticsBureauConnector, mhlnewsConnector, 
+    rlaNewsConnector, cscmpNewsConnector, nptcNewsConnector, ataNewsConnector, lastMileBlogConnector, 
+    pitneyShippingIndexConnector, project44BlogConnector, fourkitesBlogConnector, flexeInsightsConnector, 
+    shipbobBlogConnector, shipstationBlogConnector, easyshipBlogConnector, xpoIrConnector, saiaIrConnector, 
+    wernIrConnector, chrwIrConnector,
+    // Specialty Verticals (23)
+    beautyIndependentConnector, glossyBeautyConnector, wwdBeautyConnector, cewNewsConnector, 
+    happiRssConnector, cosmeticsBusinessConnector, chainDrugReviewConnector, pharmacyTimesConnector, 
+    shelbyReportConnector, winsightGroceryConnector, nacsOnlineConnector, petBusinessConnector, 
+    petProductNewsConnector, sportsoneSourceConnector, sgbOnlineConnector, footwearplusConnector, 
+    toyBookConnector, toyHobbyAuConnector, hobbyMerchandiserConnector, kidsTodayConnector, 
+    earnshawsConnector, oiaOutdoorConnector, outsideBusinessJournalConnector,
+    // International Retail (25)
+    retailWeekUkMainConnector, drapersUkConnector, theGrocerUkConnector, retailGazetteConnector, 
+    internetRetailingEuConnector, chargedretailConnector, textilwirtschaftDeConnector, ehiDeConnector, 
+    lsaConsoFrConnector, retailDetailBeneluxConnector, retailInsiderCaConnector, canadianGrocerConnector, 
+    insideRetailAuConnector, insideRetailAsiaConnector, cnaBusinessConnector, krasiaConnector, 
+    techInAsiaConnector, pandailyConnector, yicaiGlobalConnector, caixinGlobalConnector, 
+    nikkeiRetailConnector, latamIntersectConnector, bloombergLineaConnector, dcBrazilConnector, 
+    retailAsiaMagConnector,
+    // Strategy Consultancies (24)
+    kearneyConsumerConnector, occStrategyConnector, alixpartnersRetailConnector, rsmRetailConnector, 
+    kpmgConsumerConnector, eyFutureConsumerConnector, capgeminiRetailConnector, wiproRetailConnector, 
+    cognizantRetailConnector, publicisSapientRetailConnector, materialPlusConnector, lippincottConnector, 
+    interbrandConnector, siegelGaleConnector, landorFitchConnector, wolffolinsConnector, rgaFutureConnector, 
+    hugeArticlesConnector, codeAndTheoryConnector, wpromoteBlogConnector, tinuitiBlogConnector, 
+    ctcCoachsCornerConnector, shopifyPlusBlogConnector, commercetoolsBlogConnector,
+    // Retail Deal Intelligence (25)
+    pymntsRetailConnector, bloombergRetailConnector, reutersRetailConnector, wsjRetailConnector, 
+    ftRetailConnector, cnbcRetailConnector, forbesRetailConnector, fortuneRetailConnector, 
+    crainsChicagoConnector, bostonGlobeBusinessConnector, theInformationCommerceConnector, 
+    axiosBusinessConnector, modernRetailDailyConnector, robinReportMainConnector, puckLaurenShermanConnector, 
+    offpricenewsConnector, retaildiveBankruptcyConnector, debtwireRetailConnector, pitchbookRetailConnector, 
+    cbInsightsRetailConnector, crunchbaseRetailConnector, reorgResearchConnector, 
+    mergermarketConsumerConnector, dealstreetAsiaRetailConnector, retailtechInnovationHubConnector,
+    // Social Listening Pro (19)
+    tiktokCreativeCenterConnector, tiktokBusinessBlogMainConnector, pinterestPredictsConnector, 
+    pinterestTrendsConnector, trustpilotBlogMainConnector, trustpilotElectronicsConnector, 
+    reviewsIoBlogConnector, yotpoInsightsBlogConnector, bazaarvoiceBlogConnector, 
+    powerreviewsInsightsConnector, glassdoorResearchConnector, indeedHiringLabConnector, 
+    linkedinWorkforceConnector, comparablyNewsConnector, dataAiInsightsConnector, sensorTowerBlogConnector, 
+    apptopiaBlogConnector, similarwebBlogConnector, comscoreBlogConnector,
+    // Brand Reddit (5)
+    redditBombasConnector, redditAllbirdshoesConnector, redditPatagoniaBrandConnector, 
+    redditCostcoBrandConnector, redditTargetBrandConnector,
+    // Retail Operator Reddit (25)
+    redditRetailmanagersConnector, redditWalmartOpsConnector, redditHomedepotConnector, redditLowesConnector, 
+    redditIkeaConnector, redditHomegoodsConnector, redditPotterybarnConnector, 
+    redditRestorationhardwareConnector, redditAskretailConnector, redditFlippingConnector, 
+    redditFrugalConnector, redditPovertyfinanceConnector, redditDeclutterConnector, 
+    redditMinimalismConnector, redditInteriordesignConnector, redditMfaConnector, redditFfaConnector, 
+    redditSkincareaddictionConnector, redditMakeupaddictionConnector, redditSephoraConnector, 
+    redditUltaConnector, redditAmazonsellerOpsConnector, redditResellersConnector, 
+    redditThriftstorehaulsConnector, redditHomeimprovementConnector,
+    // Open Data APIs (30)
+    osmOverpassConnector, overpassTurboConnector, yelpFusionConnector, googlePlacesConnector, 
+    foursquarePlacesConnector, opencorporatesConnector, secEdgarSearchConnector, secFinancialDataConnector, 
+    usptoPatentApiConnector, usptoTsdrConnector, openfdaRecallsConnector, cpscRecallsConnector, 
+    oshaSearchConnector, nlrbElectionConnector, blsQcewConnector, blsPpiConnector, blsMxpConnector, 
+    usitcDatawebConnector, cbpAceConnector, importgeniusBlogConnector, panjivaResearchConnector, 
+    datasemblyBlogConnector, oecdConsumerConfidenceConnector, worldbankConsumptionPackConnector, 
+    uncomtradeConnector, dataGovRetailIdxConnector, eurostatRetailPackConnector, onsRetailPackConnector, 
+    statcanRetailConnector, destatisRetailConnector,
 ];
 
 export const CONNECTORS_BY_CATEGORY: Record<string, DataSourceConnector[]> = {};

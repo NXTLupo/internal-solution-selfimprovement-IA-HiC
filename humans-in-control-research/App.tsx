@@ -1103,6 +1103,21 @@ const App = () => {
     const [enableCharityReg, setEnableCharityReg] = useState(false);
     const [enablePressWires, setEnablePressWires] = useState(false);
     const [enableCauseReddit, setEnableCauseReddit] = useState(false);
+    // 2026-04-29: 400-source retail expansion pack (14 categories, 386 sources)
+    const [enableRetailCompetitiveSet, setRetailCompetitiveSet] = useState(false);
+    const [enableHomeFurnitureTrade, setHomeFurnitureTrade] = useState(false);
+    const [enableRetailTechVendors, setRetailTechVendors] = useState(false);
+    const [enablePaymentsAndCheckout, setPaymentsAndCheckout] = useState(false);
+    const [enableRetailAnalysts, setRetailAnalysts] = useState(false);
+    const [enableSupplyChain, setSupplyChain] = useState(false);
+    const [enableSpecialtyVerticals, setSpecialtyVerticals] = useState(false);
+    const [enableInternationalRetail, setInternationalRetail] = useState(false);
+    const [enableStrategyConsultancies, setStrategyConsultancies] = useState(false);
+    const [enableRetailDealIntelligence, setRetailDealIntelligence] = useState(false);
+    const [enableSocialListeningPro, setSocialListeningPro] = useState(false);
+    const [enableBrandReddit, setBrandReddit] = useState(false);
+    const [enableRetailOperatorReddit, setRetailOperatorReddit] = useState(false);
+    const [enableOpenDataApis, setOpenDataApis] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
     const [webUrls, setWebUrls] = useState('');
@@ -1181,7 +1196,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || enableRetailCompetitiveSet || enableHomeFurnitureTrade || enableRetailTechVendors || enablePaymentsAndCheckout || enableRetailAnalysts || enableSupplyChain || enableSpecialtyVerticals || enableInternationalRetail || enableStrategyConsultancies || enableRetailDealIntelligence || enableSocialListeningPro || enableBrandReddit || enableRetailOperatorReddit || enableOpenDataApis || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -2288,6 +2303,135 @@ const App = () => {
                     'reddit_effectivealtruism', 'reddit_socialenterprise', 'reddit_sustainability_main',
                     'reddit_ethicalfashion', 'reddit_dtcmarketing', 'reddit_wayfair',
                     'reddit_personalfinance_daf'
+                );
+                // 2026-04-29: 400-source retail expansion pack (14 categories)
+                if (enableRetailCompetitiveSet) sourceIds.push(
+                    'wayfair_sec', 'wsm_ir', 'rh_ir', 'ikea_newsroom', 'ikea_annual',
+                    'ashley_press', 'lzb_ir', 'hoft_ir', 'etd_ir', 'mlkn_ir', 'scs_ir', 'hni_ir',
+                    'kirk_ir', 'athome_press', 'biglots_ir', 'tuesdaymorning_press',
+                    'crateandbarrel_press', 'arhs_ir', 'love_ir', 'fnd_ir', 'ttsh_ir',
+                    'll_flooring_press', 'byon_ir', 'tjx_ir', 'rost_ir', 'burl_ir', 'walmart_ir',
+                    'target_ir', 'cost_ir', 'amzn_ir', 'hd_ir', 'low_ir', 'tsco_ir',
+                    'harborfreight_press', 'shw_ir', 'dg_ir', 'dltr_ir', 'five_ir', 'macys_ir',
+                    'kss_ir', 'jwn_ir', 'jcpenney_press', 'belk_press', 'dds_ir', 'saks_press',
+                    'neiman_press', 'tcs_ir', 'bollandbranch_press', 'brooklinen_press',
+                    'parachute_press'
+                );
+                if (enableHomeFurnitureTrade) sourceIds.push(
+                    'furniture_today', 'home_news_now', 'hfn_digital', 'home_textiles_today',
+                    'furniture_news_uk', 'casual_living', 'big_furniture_group', 'designers_today',
+                    'kbb_online', 'kbdn', 'hospitality_design', 'ad_pro', 'ad_main',
+                    'interior_design_mag', 'dezeen', 'wallpaper_mag', 'dwell', 'housebeautiful',
+                    'elledecor', 'veranda', 'apartment_therapy', 'remodelista', 'houzz_pro',
+                    'the_spruce', 'curbed_vox', 'designboom', 'design_milk', 'core77',
+                    'yanko_design', 'ahfa_news', 'hfa_blog', 'icfa_news', 'wfca_news', 'asid_news',
+                    'iida_news', 'highpoint_market', 'vegas_market', 'andmore_news',
+                    'stump_furniture_ma'
+                );
+                if (enableRetailTechVendors) sourceIds.push(
+                    'tost_ir', 'lspd_ir', 'sq_ir', 'clover_news', 'ncrvoyix_press',
+                    'diebold_press', 'zbra_ir', 'honeywell_pss', 'manh_ir', 'aptos_blog',
+                    'mi9_blog', 'relex_blog', 'blueyonder_blog', 'o9_blog', 'vusion_news',
+                    'pricer_press', 'trax_news', 'standard_ai_press', 'aifi_news', 'grabango_news',
+                    'trigo_blog', 'caper_news', 'focal_blog', 'pensa_news', 'bossanova_news',
+                    'simbe_news', 'braincorp_blog', 'ocado_news', 'autostore_insights', 'sym_ir',
+                    'greyorange_blog', 'locus_news', 'six_river', 'berkshire_grey_news',
+                    'fabric_blog'
+                );
+                if (enablePaymentsAndCheckout) sourceIds.push(
+                    'payments_dive', 'digital_transactions', 'americanbanker_payments',
+                    'glenbrook_payments', 'mobile_payments_today', 'retail_banker_intl',
+                    'adyen_press', 'worldpay_fis', 'fiserv_press', 'gpn_ir', 'visa_blog',
+                    'mastercard_press', 'amex_press', 'discover_press', 'paypal_newsroom_rss',
+                    'afrm_ir', 'afterpay_block', 'sezl_ir', 'zip_ir', 'splitit_press',
+                    'shop_pay_editions', 'bolt_blog', 'checkout_press', 'stripe_press', 'mq_ir',
+                    'lithic_blog', 'plaid_news', 'rskd_ir', 'forter_blog', 'signifyd_blog',
+                    'paze_blog', 'clearinghouse_press', 'fednow_news', 'nilson_archive'
+                );
+                if (enableRetailAnalysts) sourceIds.push(
+                    'forrester_cx_index', 'idc_retail', 'coresight_research', 'globaldata_retail',
+                    'wgsn_insight', 'mintel_retail', 'euromonitor_retail', 'circana_insights',
+                    'niq_insights', 'circana_news', 'placer_blog', 'placer_research',
+                    'safegraph_blog', 'foursquare_blog', 'earnest_analytics', 'second_measure',
+                    'yipit', 'consumer_edge', 'm_science', 'adobe_dei',
+                    'salesforce_shopping_index', 'shopify_commerce_trends',
+                    'mastercard_spendingpulse', 'visa_smi', 'conf_board_consumer',
+                    'umich_consumer_surveys', 'nrf_economic_review'
+                );
+                if (enableSupplyChain) sourceIds.push(
+                    'supply_chain_dive', 'freightwaves', 'the_loadstar', 'american_shipper', 'joc',
+                    'mmh', 'inbound_logistics', 'logistics_bureau', 'mhlnews', 'rla_news',
+                    'cscmp_news', 'nptc_news', 'ata_news', 'last_mile_blog',
+                    'pitney_shipping_index', 'project44_blog', 'fourkites_blog', 'flexe_insights',
+                    'shipbob_blog', 'shipstation_blog', 'easyship_blog', 'xpo_ir', 'saia_ir',
+                    'wern_ir', 'chrw_ir'
+                );
+                if (enableSpecialtyVerticals) sourceIds.push(
+                    'beauty_independent', 'glossy_beauty', 'wwd_beauty', 'cew_news', 'happi_rss',
+                    'cosmetics_business', 'chain_drug_review', 'pharmacy_times', 'shelby_report',
+                    'winsight_grocery', 'nacs_online', 'pet_business', 'pet_product_news',
+                    'sportsone_source', 'sgb_online', 'footwearplus', 'toy_book', 'toy_hobby_au',
+                    'hobby_merchandiser', 'kids_today', 'earnshaws', 'oia_outdoor',
+                    'outside_business_journal'
+                );
+                if (enableInternationalRetail) sourceIds.push(
+                    'retail_week_uk_main', 'drapers_uk', 'the_grocer_uk', 'retail_gazette',
+                    'internet_retailing_eu', 'chargedretail', 'textilwirtschaft_de', 'ehi_de',
+                    'lsa_conso_fr', 'retail_detail_benelux', 'retail_insider_ca',
+                    'canadian_grocer', 'inside_retail_au', 'inside_retail_asia', 'cna_business',
+                    'krasia', 'tech_in_asia', 'pandaily', 'yicai_global', 'caixin_global',
+                    'nikkei_retail', 'latam_intersect', 'bloomberg_linea', 'dc_brazil',
+                    'retail_asia_mag'
+                );
+                if (enableStrategyConsultancies) sourceIds.push(
+                    'kearney_consumer', 'occ_strategy', 'alixpartners_retail', 'rsm_retail',
+                    'kpmg_consumer', 'ey_future_consumer', 'capgemini_retail', 'wipro_retail',
+                    'cognizant_retail', 'publicis_sapient_retail', 'material_plus', 'lippincott',
+                    'interbrand', 'siegel_gale', 'landor_fitch', 'wolffolins', 'rga_future',
+                    'huge_articles', 'code_and_theory', 'wpromote_blog', 'tinuiti_blog',
+                    'ctc_coachs_corner', 'shopify_plus_blog', 'commercetools_blog'
+                );
+                if (enableRetailDealIntelligence) sourceIds.push(
+                    'pymnts_retail', 'bloomberg_retail', 'reuters_retail', 'wsj_retail',
+                    'ft_retail', 'cnbc_retail', 'forbes_retail', 'fortune_retail',
+                    'crains_chicago', 'boston_globe_business', 'the_information_commerce',
+                    'axios_business', 'modern_retail_daily', 'robin_report_main',
+                    'puck_lauren_sherman', 'offpricenews', 'retaildive_bankruptcy',
+                    'debtwire_retail', 'pitchbook_retail', 'cb_insights_retail',
+                    'crunchbase_retail', 'reorg_research', 'mergermarket_consumer',
+                    'dealstreet_asia_retail', 'retailtech_innovation_hub'
+                );
+                if (enableSocialListeningPro) sourceIds.push(
+                    'tiktok_creative_center', 'tiktok_business_blog_main', 'pinterest_predicts',
+                    'pinterest_trends', 'trustpilot_blog_main', 'trustpilot_electronics',
+                    'reviews_io_blog', 'yotpo_insights_blog', 'bazaarvoice_blog',
+                    'powerreviews_insights', 'glassdoor_research', 'indeed_hiring_lab',
+                    'linkedin_workforce', 'comparably_news', 'data_ai_insights',
+                    'sensor_tower_blog', 'apptopia_blog', 'similarweb_blog', 'comscore_blog'
+                );
+                if (enableBrandReddit) sourceIds.push(
+                    'reddit_bombas', 'reddit_allbirdshoes', 'reddit_patagonia_brand',
+                    'reddit_costco_brand', 'reddit_target_brand'
+                );
+                if (enableRetailOperatorReddit) sourceIds.push(
+                    'reddit_retailmanagers', 'reddit_walmart_ops', 'reddit_homedepot',
+                    'reddit_lowes', 'reddit_ikea', 'reddit_homegoods', 'reddit_potterybarn',
+                    'reddit_restorationhardware', 'reddit_askretail', 'reddit_flipping',
+                    'reddit_frugal', 'reddit_povertyfinance', 'reddit_declutter',
+                    'reddit_minimalism', 'reddit_interiordesign', 'reddit_mfa', 'reddit_ffa',
+                    'reddit_skincareaddiction', 'reddit_makeupaddiction', 'reddit_sephora',
+                    'reddit_ulta', 'reddit_amazonseller_ops', 'reddit_resellers',
+                    'reddit_thriftstorehauls', 'reddit_homeimprovement'
+                );
+                if (enableOpenDataApis) sourceIds.push(
+                    'osm_overpass', 'overpass_turbo', 'yelp_fusion', 'google_places',
+                    'foursquare_places', 'opencorporates', 'sec_edgar_search',
+                    'sec_financial_data', 'uspto_patent_api', 'uspto_tsdr', 'openfda_recalls',
+                    'cpsc_recalls', 'osha_search', 'nlrb_election', 'bls_qcew', 'bls_ppi',
+                    'bls_mxp', 'usitc_dataweb', 'cbp_ace', 'importgenius_blog', 'panjiva_research',
+                    'datasembly_blog', 'oecd_consumer_confidence', 'worldbank_consumption_pack',
+                    'uncomtrade', 'data_gov_retail_idx', 'eurostat_retail_pack', 'ons_retail_pack',
+                    'statcan_retail', 'destatis_retail'
                 );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
@@ -3747,6 +3891,21 @@ ${synthesisParts.join('\n')}
                                                  { label: 'Charity Reg & Compliance', sublabel: '9 sources: IRS Tax Exempt, ProPublica 990, Candid APIs, NASCO state regulators, Charity Navigator, FTC, BEA...', state: enableCharityReg, setter: setEnableCharityReg, icon: 'fa-balance-scale' },
                                                  { label: 'Press Wires (Cause)', sublabel: '7 sources: PR Newswire Retail/Tech, Business Wire, GlobeNewswire, CSRwire, 3BL — pre-empt trade press by 24-48h', state: enablePressWires, setter: setEnablePressWires, icon: 'fa-bullhorn' },
                                                  { label: 'Reddit: Cause/Nonprofit', sublabel: '10 subreddits: r/nonprofit, r/fundraising, r/EffectiveAltruism, r/ethicalfashion, r/DTCMarketing, r/wayfair...', state: enableCauseReddit, setter: setEnableCauseReddit, icon: 'fa-reddit' },
+                                                 // 2026-04-29: 400-source retail expansion pack tiles
+                                                 { label: 'Retail Competitive Set', sublabel: '50 sources: Wayfair, Williams-Sonoma, RH, IKEA, MillerKnoll, Steelcase, Walmart, Target, Costco, Amazon, Home Depot, Lowes, Macys, Nordstrom, etc.', state: enableRetailCompetitiveSet, setter: setRetailCompetitiveSet, icon: 'fa-store' },
+                                                 { label: 'Home/Furniture Trade', sublabel: '39 sources: Furniture Today, Home News Now, HFN, Business of Home, Dezeen, Architectural Digest, Dwell, Apartment Therapy, Houzz, AHFA', state: enableHomeFurnitureTrade, setter: setHomeFurnitureTrade, icon: 'fa-couch' },
+                                                 { label: 'Retail Tech Vendors', sublabel: '35 sources: Toast, Lightspeed, Square/Block, NCR Voyix, Zebra, Manhattan Associates, Blue Yonder, AutoStore, Symbotic, AiFi, Standard AI', state: enableRetailTechVendors, setter: setRetailTechVendors, icon: 'fa-cash-register' },
+                                                 { label: 'Payments & Checkout', sublabel: '34 sources: Adyen, Worldpay, Fiserv, Visa, Mastercard, PayPal, Affirm, Klarna, Sezzle, Stripe, Marqeta, Plaid, Riskified', state: enablePaymentsAndCheckout, setter: setPaymentsAndCheckout, icon: 'fa-credit-card' },
+                                                 { label: 'Retail Analysts', sublabel: '27 sources: Forrester, Gartner, IDC, Coresight, Mintel, Euromonitor, Circana, Placer.ai, SafeGraph, Adobe DEI, Mastercard SpendingPulse, NRF', state: enableRetailAnalysts, setter: setRetailAnalysts, icon: 'fa-magnifying-glass-chart' },
+                                                 { label: 'Supply Chain', sublabel: '25 sources: Supply Chain Dive, FreightWaves, Loadstar, JoC, Modern Materials Handling, Project44, FourKites, ShipBob, XPO, C.H. Robinson', state: enableSupplyChain, setter: setSupplyChain, icon: 'fa-truck' },
+                                                 { label: 'Specialty Verticals', sublabel: '23 sources: Beauty Independent, Drug Store News, Supermarket News, Grocery Dive, CSP Daily, Pet Business, SGB, Footwear Plus, Outdoor', state: enableSpecialtyVerticals, setter: setSpecialtyVerticals, icon: 'fa-flask' },
+                                                 { label: 'International Retail', sublabel: '25 sources: Retail Week UK, Drapers, Internet Retailing UK, Retail Insider Canada, Inside Retail Asia, KrASIA, Caixin, Nikkei Asia', state: enableInternationalRetail, setter: setInternationalRetail, icon: 'fa-globe' },
+                                                 { label: 'Strategy Consultancies', sublabel: '24 sources: Kearney, OC&C, AlixPartners, KPMG, EY Future Consumer, Capgemini, Lippincott, Interbrand, Common Thread, Shopify Plus', state: enableStrategyConsultancies, setter: setStrategyConsultancies, icon: 'fa-chess' },
+                                                 { label: 'Retail Deal Intelligence', sublabel: '25 sources: PYMNTS Retail, Bloomberg, Reuters, WSJ, FT, CNBC, Forbes, Robin Report, Modern Retail Daily, PitchBook, CB Insights, Reorg', state: enableRetailDealIntelligence, setter: setRetailDealIntelligence, icon: 'fa-handshake' },
+                                                 { label: 'Social Listening Pro', sublabel: '19 sources: TikTok Creative Center, Pinterest Predicts, Trustpilot, Bazaarvoice, Glassdoor Research, Indeed Hiring Lab, Sensor Tower, SimilarWeb', state: enableSocialListeningPro, setter: setSocialListeningPro, icon: 'fa-tower-broadcast' },
+                                                 { label: 'Brand Reddit', sublabel: '5 subreddits: r/Bombas, r/AllbirdsShoes, r/Patagonia, r/Costco, r/Target', state: enableBrandReddit, setter: setBrandReddit, icon: 'fa-reddit' },
+                                                 { label: 'Retail Operator Reddit', sublabel: '25 subreddits: r/RetailManagers, r/walmart, r/HomeDepot, r/Lowes, r/IKEA, r/Sephora, r/Ulta, r/HomeImprovement', state: enableRetailOperatorReddit, setter: setRetailOperatorReddit, icon: 'fa-reddit' },
+                                                 { label: 'Open Data APIs', sublabel: '30 sources: SEC EDGAR, USPTO, OpenStreetMap, OpenCorporates, FDA Recalls, CPSC Recalls, BLS PPI, USITC DataWeb, OECD', state: enableOpenDataApis, setter: setOpenDataApis, icon: 'fa-database' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>

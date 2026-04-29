@@ -278,9 +278,38 @@ function queryFidelityScore(goal: string, refined: string): number {
 const FIDELITY_THRESHOLD = 0.35;  // ≥35% of refined tokens must come from goal
 const MIN_GOAL_TOKEN_OVERLAP = 1; // refined must include ≥1 goal token
 
+/** Tokenize a source ID for fidelity scoring. "bombas_impact" -> {bombas, impact},
+ * "wayfair_ir" -> {wayfair}. Strips generic suffixes (_blog, _press, _news, _ir,
+ * _impact, _newsroom, etc.) so the brand/entity name is what counts. */
+function extractSourceIdTokens(sourceId: string): Set<string> {
+    if (!sourceId) return new Set();
+    const GENERIC_SUFFIXES = new Set([
+        'blog','press','news','newsroom','ir','impact','feed','rss','api','docs',
+        'about','insights','resources','articles','com','co','org','io','data',
+        'main','tech','platform','site','reports','research','sub','main',
+    ]);
+    const parts = sourceId.toLowerCase().split(/[_-]+/).filter(Boolean);
+    const out = new Set<string>();
+    for (const p of parts) {
+        if (p.length < 3) continue;
+        if (GENERIC_SUFFIXES.has(p)) continue;
+        out.add(p);
+    }
+    return out;
+}
+
 /** Validates each refined query against the original goal. Replaces low-fidelity
  * rewrites with the verbatim goal so the proxy hits the source with content
- * the user actually authored. Logs each rejection so quality drift is visible. */
+ * the user actually authored. Logs each rejection so quality drift is visible.
+ *
+ * 2026-04-29 — Source-aware: the source's own name tokens (e.g. "bombas",
+ * "wayfair", "salesforce") count toward the fidelity numerator. Without this
+ * adjustment, perfectly valid source-tailored refinements like
+ * "Bombas social impact giving" scored 1/4 token overlap against a goal that
+ * never mentions Bombas, and got replaced with the verbose 250-char goal —
+ * defeating the entire point of refinement. With it, the brand name acts as
+ * a free goal-aligned token, so adding it doesn't penalize fidelity.
+ */
 function validateRefinedQueries(
     goal: string,
     refined: Record<string, string>,
@@ -295,9 +324,16 @@ function validateRefinedQueries(
             rejected.push(`${source}: empty/invalid -> fallback`);
             continue;
         }
+        // Goal tokens AUGMENTED with the source's own ID tokens for this validation.
+        // A query like "Bombas social impact giving" against source "bombas_impact"
+        // now gets credit for "bombas" being a legitimate source-scoping token.
+        const sourceTokens = extractSourceIdTokens(source);
+        const augmentedGoalTokens = new Set([...goalTokens, ...sourceTokens]);
+
         const queryTokens = extractQueryTokens(query);
-        const overlap = [...queryTokens].filter(t => goalTokens.has(t)).length;
-        const fidelity = queryFidelityScore(goal, query);
+        const overlap = [...queryTokens].filter(t => augmentedGoalTokens.has(t)).length;
+        // Fidelity score uses the same augmented set
+        const fidelity = queryTokens.size === 0 ? 0 : overlap / queryTokens.size;
 
         if (overlap < MIN_GOAL_TOKEN_OVERLAP || fidelity < FIDELITY_THRESHOLD) {
             validated[source] = goal;
