@@ -1539,5 +1539,221 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
     _chunkSourceMap = chunkMap;
     console.log(`[Corpus] Built chunk-to-source map: ${Object.keys(chunkMap).length} chunks mapped`);
 
+    // 2026-04-29 — SOURCE-STRATIFIED CORPUS for anti-anchoring theme extraction.
+    // The single-pass theme extraction was anchoring on client uploads (Northeastern
+    // FY26 plan + alumni research) and merging external evidence into the client
+    // narrative — producing 14 themes that were all "internal operations" themes.
+    // We ALSO export per-bucket corpora so the theme generator can run a separate
+    // breadth pass per source bucket, surfacing the perspectives that get dissolved
+    // in the unified pass.
+    _bucketedCorpus = buildBucketedCorpus(rangesWithRelevance, chunkMap);
+    console.log(`[Corpus] Bucketed corpus: ${Object.entries(_bucketedCorpus).map(([b, c]) => `${b}=${Math.round(c.length / 1024)}KB`).join(', ')}`);
+
     return corpus;
+}
+
+// ============================================================================
+// SOURCE-STRATIFIED THEME EXTRACTION (2026-04-29)
+// ============================================================================
+// 8 source buckets grouping the 1076 sources by analytical perspective. The
+// theme generator runs ONE breadth pass per bucket so client-upload anchoring
+// can't dissolve external evidence into the client narrative. Each bucket
+// produces its own theme set, tagged with the bucket name, and the Analyst
+// Desk lets users switch perspective via tab strip.
+// ============================================================================
+
+export type SourceBucket =
+    | 'client_uploads'      // Northeastern FY26 plan, alumni research, etc.
+    | 'industry_news'       // Higher Ed Dive, Chronicle, Philanthropy press
+    | 'academic'            // OpenAlex, arXiv, Crossref, Semantic Scholar
+    | 'social'              // Reddit, Hacker News — practitioner voice
+    | 'video_transcripts'   // YouTube + Whisper transcripts — vendor cases
+    | 'retail_marketing'    // Retail Dive, Marketing Dive, payments, retail tech
+    | 'government'          // Gov data, open data APIs, regulatory
+    | 'wiki_archive';       // Prior engagement memory + theme syntheses
+
+export const BUCKET_LABELS: Record<SourceBucket, string> = {
+    client_uploads: 'Client Uploads',
+    industry_news: 'Industry News',
+    academic: 'Academic',
+    social: 'Social/Practitioner',
+    video_transcripts: 'YouTube/Transcripts',
+    retail_marketing: 'Retail/Marketing',
+    government: 'Government/CSR',
+    wiki_archive: 'Wiki Archive',
+};
+
+/** Classify a source by its name pattern. Uses substring matching against
+ * known patterns from the 1076 configured sources. Order matters — more
+ * specific rules first. */
+export function classifyBucketFromSourceName(sourceName: string): SourceBucket {
+    const n = (sourceName || '').toLowerCase();
+
+    // Client uploads — explicit upload path
+    if (n.includes('uploaded document') || n.includes('client upload') ||
+        n.includes('client document') || n.startsWith('file ') ||
+        n.endsWith('.pdf') || n.endsWith('.docx') || n.endsWith('.txt')) return 'client_uploads';
+
+    // Wiki archive — cross-engagement memory + theme syntheses + jina-reader
+    if (n.includes('wiki archive') || n.includes('archive_') ||
+        n.includes('theme synthesis') || n.includes('hic-theme') ||
+        n.includes('engagement memory') || n.includes('jina reader')) return 'wiki_archive';
+
+    // Video transcripts — YouTube + Whisper
+    if (n.includes('youtube') || n.includes('whisper') ||
+        n.includes('two minute papers') || n.includes('lex fridman') ||
+        n.includes('yannic') || n.includes('sentdex') || n.includes('ai explained') ||
+        n.includes('uva-engagement') || n.includes('alumni-engagement') ||
+        n.includes('youtube creators') || n.includes('tubefilter')) return 'video_transcripts';
+
+    // Social — Reddit + Hacker News
+    if (n.includes('reddit r/') || n.includes('reddit:') || n.startsWith('r/') ||
+        n.includes('hacker news') || n.includes('mastodon') || n.includes('bluesky') ||
+        n.includes('product hunt') || n.includes('indie hackers') ||
+        n.includes('threads') || n.includes('discord')) return 'social';
+
+    // Academic — papers + arXiv + research portals
+    if (n.includes('arxiv') || n.includes('openalex') || n.includes('crossref') ||
+        n.includes('semantic scholar') || n.includes('doaj') ||
+        n.includes('europe pmc') || n.includes('datacite') || n.includes('zenodo') ||
+        n.includes('eric') || n.includes('paperswithcode') || n.includes('papers with code') ||
+        n.includes('openreview') || n.includes('dblp') || n.includes('neurips') ||
+        n.includes('icml') || n.includes('iclr') || n.includes('aaai') ||
+        n.includes('ijcai') || n.includes('cvpr') || n.includes('emnlp') ||
+        n.includes('kdd') || n.includes('pmlr') || n.includes('acl') ||
+        n.includes('hugging face') || n.includes('hf models') || n.includes('hf datasets') ||
+        n.includes('ai research') || n.includes('research') && (n.includes('lab') || n.includes('institute'))) return 'academic';
+
+    // Government / regulatory / open data
+    if (n.includes('irs') || n.includes('sec ') || n.includes('sec edgar') ||
+        n.includes('uspto') || n.includes('fda') || n.includes('cpsc') ||
+        n.includes('osha') || n.includes('nlrb') || n.includes('bls ') ||
+        n.includes('bea ') || n.includes('census') || n.includes('fred ') ||
+        n.includes('federal register') || n.includes('congress') ||
+        n.includes('usaspending') || n.includes('data.gov') || n.includes('data gov') ||
+        n.includes('eurostat') || n.includes('oecd') || n.includes('ons retail') ||
+        n.includes('statistics canada') || n.includes('destatis') ||
+        n.includes('world bank') || n.includes('imf ') || n.includes('un comtrade') ||
+        n.includes('cbp ') || n.includes('usitc') || n.includes('importgenius') ||
+        n.includes('panjiva') || n.includes('ftc ') || n.includes('nasco') ||
+        n.includes('charity navigator') || n.includes('candid') ||
+        n.includes('propublica') || n.includes('every.org') || n.includes('every_org')) return 'government';
+
+    // Retail / marketing / commerce / payments — broad retail-trade bucket
+    if (n.includes('retail') || n.includes('marketing') || n.includes('shopify') ||
+        n.includes('ecommerce') || n.includes('commerce') || n.includes('digiday') ||
+        n.includes('adweek') || n.includes('ad age') || n.includes('drum') ||
+        n.includes('payments') || n.includes('checkout') || n.includes('paypal') ||
+        n.includes('stripe') || n.includes('klarna') || n.includes('affirm') ||
+        n.includes('square') || n.includes('lightspeed') || n.includes('toast') ||
+        n.includes('block') || n.includes('mastercard') || n.includes('visa ') ||
+        n.includes('plaid') || n.includes('marqeta') ||
+        n.includes('furniture') || n.includes('home news') || n.includes('hfn') ||
+        n.includes('dezeen') || n.includes('architectural digest') ||
+        n.includes('apartment therapy') || n.includes('curbed') ||
+        n.includes('cosmopolitan') || n.includes('vogue') ||
+        n.includes('beauty') || n.includes('cosmetic') || n.includes('drug store') ||
+        n.includes('grocer') || n.includes('supermarket') || n.includes('convenience store') ||
+        n.includes('logistics') || n.includes('supply chain') || n.includes('freight') ||
+        n.includes('shipping') || n.includes('shipbob') || n.includes('shipstation') ||
+        n.includes('forrester') || n.includes('gartner') || n.includes('coresight') ||
+        n.includes('mintel') || n.includes('placer') || n.includes('safegraph') ||
+        n.includes('foursquare') || n.includes('earnest') || n.includes('similarweb') ||
+        n.includes('comscore') || n.includes('numerator') || n.includes('niq') ||
+        n.includes('shoppinggives') || n.includes('pledge') || n.includes('daffy') ||
+        n.includes('givelify') || n.includes('charitybuzz') || n.includes('roundup') ||
+        n.includes('benevity') || n.includes('blackbaud') || n.includes('bombas') ||
+        n.includes('toms') || n.includes('warby') || n.includes('allbirds') ||
+        n.includes('patagonia') || n.includes('wayfair') || n.includes('rh') ||
+        n.includes('williams-sonoma') || n.includes('miller') || n.includes('steelcase') ||
+        n.includes('ikea') || n.includes('walmart') || n.includes('target') ||
+        n.includes('costco') || n.includes('amazon') || n.includes('home depot') ||
+        n.includes('lowes') || n.includes('macys') || n.includes('nordstrom') ||
+        n.includes('kohls') || n.includes('dillards') || n.includes('hubspot') ||
+        n.includes('hootsuite') || n.includes('buffer') || n.includes('sprout social') ||
+        n.includes('agorapulse') || n.includes('influencer') || n.includes('seo') ||
+        n.includes('moz ') || n.includes('ahrefs') || n.includes('semrush') ||
+        n.includes('seths blog') || n.includes('mckinsey') || n.includes('bcg ') ||
+        n.includes('bain') || n.includes('deloitte') || n.includes('pwc ') ||
+        n.includes('accenture') || n.includes('kearney') || n.includes('alixpartners') ||
+        n.includes('lippincott') || n.includes('interbrand') || n.includes('kpmg') ||
+        n.includes('ey ') || n.includes('capgemini')) return 'retail_marketing';
+
+    // Industry news — higher ed / philanthropy / press wires (the residual `news` types)
+    if (n.includes('higher ed') || n.includes('inside higher') || n.includes('campus') ||
+        n.includes('hechinger') || n.includes('edsurge') || n.includes('chronicle') ||
+        n.includes('philanthropy') || n.includes('nonprofit') || n.includes('npt ') ||
+        n.includes('case ') || n.includes('rnl ') || n.includes('gravyty') ||
+        n.includes('fundraise') || n.includes('evertrue') || n.includes('givecampus') ||
+        n.includes('ssir') || n.includes('alliance magazine') || n.includes('devex') ||
+        n.includes('forbes nonprofit') || n.includes('nten') || n.includes('mr benchmarks') ||
+        n.includes('engage for good') || n.includes('selfish giving') || n.includes('gdelt') ||
+        n.includes('news') || n.includes('global news') || n.includes('reuters') ||
+        n.includes('bloomberg') || n.includes('wsj') || n.includes('financial times') ||
+        n.includes('cnbc') || n.includes('forbes') || n.includes('fortune') ||
+        n.includes('the conversation') || n.includes('university world news') ||
+        n.includes('university business') || n.includes('pie news') ||
+        n.includes('open campus') || n.includes('diverse')) return 'industry_news';
+
+    // Default: treat unknowns as retail_marketing (matches the user's primary lens)
+    return 'retail_marketing';
+}
+
+interface RangeWithRelevance {
+    name: string;
+    avgRelevance: number;
+    kept: any[];
+}
+
+let _bucketedCorpus: Record<string, string> = {};
+export function getBucketedCorpus(): Record<string, string> { return _bucketedCorpus; }
+
+function buildBucketedCorpus(
+    ranges: RangeWithRelevance[],
+    chunkMap: Record<string, ChunkSourceInfo>
+): Record<SourceBucket, string> {
+    const buckets: Record<SourceBucket, string[]> = {
+        client_uploads: [],
+        industry_news: [],
+        academic: [],
+        social: [],
+        video_transcripts: [],
+        retail_marketing: [],
+        government: [],
+        wiki_archive: [],
+    };
+
+    let chunkIdx = 0;
+    for (const range of ranges) {
+        if (range.kept.length === 0) continue;
+        const bucket = classifyBucketFromSourceName(range.name);
+        buckets[bucket].push(`\n=== SOURCE: ${range.name} (${range.kept.length} items, avg relevance: ${Math.round(range.avgRelevance)}/100) ===\n`);
+        for (const item of range.kept) {
+            chunkIdx++;
+            const chunkId = `CHUNK_${String(chunkIdx).padStart(3, '0')}`;
+            const score = (item as any).relevanceScore || '?';
+            const freshness = item.date ? `Freshness: ${computeFreshnessFromDate(item.date)}` : 'Undated';
+            const enrichedTag = (item as any).enriched ? ` | FULL TEXT (${(item as any).extractionMethod || 'web'})` : '';
+            buckets[bucket].push(
+                `[${chunkId}] Relevance: ${score}/100 | ${freshness}${enrichedTag}\n` +
+                `SOURCE: ${range.name}\n` +
+                `Title: ${item.title}\n` +
+                (item.url ? `URL: ${item.url}\n` : '') +
+                (item.date ? `Date: ${item.date}\n` : '') +
+                (item.content || '') + '\n'
+            );
+        }
+    }
+
+    const result: Record<SourceBucket, string> = {} as any;
+    const PER_BUCKET_CAP = 800_000; // ~200K tokens per bucket — fits Pro 1M context with system+prompt
+    for (const [b, lines] of Object.entries(buckets) as [SourceBucket, string[]][]) {
+        let text = lines.join('\n');
+        if (text.length > PER_BUCKET_CAP) {
+            const cut = text.lastIndexOf('\n[CHUNK_', PER_BUCKET_CAP);
+            text = (cut > PER_BUCKET_CAP * 0.7 ? text.substring(0, cut) : text.substring(0, PER_BUCKET_CAP)) + '\n[BUCKET TRUNCATED]\n';
+        }
+        result[b] = text;
+    }
+    return result;
 }

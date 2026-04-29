@@ -972,13 +972,53 @@ Output JSON.`;
             },
             required: ["methodology", "themes"]
         };
-        // 2026-04-29 — TWO-PASS CONSULTING-GRADE THEME ARCHITECTURE.
-        // Pass 1 BREADTH: Gemini 3.1 Pro one-shot on the cached corpus parts,
-        // breadth-only schema (no depth fields), fresh context window with
-        // no chat-history anchoring. Falls back to chat-session Flash (with
-        // its own Claude-fallback) if the Pro call fails for any reason.
-        const result = await this._runBreadthPass(prompt, schema, onStream);
+        // 2026-04-29 — SOURCE-STRATIFIED THEME ARCHITECTURE.
+        //
+        // If the orchestrator has built a bucketed corpus (per-source-type
+        // sub-corpora), run STRATIFIED breadth extraction: ONE Gemini 3.1 Pro
+        // pass per bucket in parallel. This defeats the client-upload anchoring
+        // bias where 14 unified themes were all internal/operational because
+        // the LLM treats client docs as gospel and external chunks as noise.
+        //
+        // Each bucket gets its own theme set tagged with `bucket: <name>` so
+        // the Analyst Desk can show "All themes" or filter by perspective.
+        //
+        // Falls through to the unified single-pass _runBreadthPass if no
+        // bucketed corpus is available (orchestrator didn't run, or all
+        // buckets empty).
+        let result: StepResult_Themes;
+        let themesByBucket: Record<string, any[]> = {};
+        let usedStratification = false;
+        try {
+            const { getBucketedCorpus } = await import('./researchFabricOrchestrator');
+            const bucketedCorpus = getBucketedCorpus();
+            const totalBuckets = Object.values(bucketedCorpus).filter(c => c && c.length >= 1024).length;
+            if (totalBuckets >= 2) {
+                const stratified = await this._runStratifiedBreadthPass(
+                    bucketedCorpus, archiveBlock, skillInstructions, feedback, onStream,
+                );
+                if (stratified.themes.length > 0) {
+                    result = { methodology: stratified.methodology, themes: stratified.themes } as StepResult_Themes;
+                    themesByBucket = stratified.themesByBucket;
+                    usedStratification = true;
+                } else {
+                    console.warn('[Themes] Stratified pass returned 0 themes, falling back to unified pass');
+                    result = await this._runBreadthPass(prompt, schema, onStream);
+                }
+            } else {
+                console.log('[Themes] Bucketed corpus has fewer than 2 active buckets — using unified pass');
+                result = await this._runBreadthPass(prompt, schema, onStream);
+            }
+        } catch (stratErr: any) {
+            console.warn('[Themes] Stratified path errored, using unified pass:', stratErr?.message || stratErr);
+            result = await this._runBreadthPass(prompt, schema, onStream);
+        }
         if (!result.themes) result.themes = [];
+        // Stash the bucket map on the result so downstream consumers (KG, UI) can use it
+        if (usedStratification) {
+            (result as any).themesByBucket = themesByBucket;
+            (result as any).stratificationUsed = true;
+        }
         // 2026-04-21 — META-THEME POST-FILTER. The prompt forbids meta-themes,
         // but models still occasionally manufacture them when evidence is thin.
         // This filter catches themes whose NAME describes what the corpus LACKS
@@ -1174,6 +1214,177 @@ Now extract the FULL theme set.`;
         // has its own Claude-Opus-4.7 fallback for repetition collapse, so this
         // is the same Flash→Claude chain that shipped previously.
         return await this.executeStepResilient<StepResult_Themes>(prompt, schema, [], onStream, label);
+    }
+
+    /**
+     * 2026-04-29 — SOURCE-STRATIFIED BREADTH PASS.
+     *
+     * Anti-anchoring fix. Single-pass theme extraction was dissolving external
+     * evidence into the client-upload narrative — producing themes that were
+     * uniformly internal/operational (Northeastern's silos, FY26 plan gaps)
+     * even when the corpus contained 1300+ external chunks. By running ONE
+     * Gemini 3.1 Pro pass per source bucket in parallel, each perspective gets
+     * extracted on its own terms before being merged.
+     *
+     * Each bucket call uses a bucket-tailored system prompt that tells the
+     * model what KIND of analysis is expected from this evidence (e.g., social
+     * data should surface practitioner sentiment, NOT executive strategy).
+     *
+     * Returns the merged theme array with each theme tagged `bucket: <name>`,
+     * plus a parallel `themesByBucket` map for the UI tab switcher.
+     *
+     * Falls through to the unified single-pass path if no bucketed corpus
+     * is available (e.g., orchestrator hasn't run, or all buckets empty).
+     */
+    private async _runStratifiedBreadthPass(
+        bucketedCorpus: Record<string, string>,
+        archiveBlock: string,
+        skillInstructions: string,
+        feedback: string | undefined,
+        onStream: (t: string) => void,
+    ): Promise<{ themes: any[]; methodology: string; themesByBucket: Record<string, any[]> }> {
+        const { BUCKET_LABELS } = await import('./researchFabricOrchestrator');
+
+        // Bucket → tailored system prompt header. Each header tells Pro what
+        // perspective to extract from THIS bucket — different buckets ask
+        // different analytical questions.
+        const BUCKET_PROMPTS: Record<string, string> = {
+            client_uploads: `You are extracting themes from CLIENT-UPLOADED DOCUMENTS ONLY (the organization's own internal materials: strategic plans, assessments, alumni research, transcripts). These represent the OPERATIONAL REALITY and INTERNAL LANGUAGE of the client. Themes here should surface: stated goals, named programs, organizational silos, named stakeholders, internal terminology, current-state pain points the client themselves describes, and explicit metrics from the client's own data. DO NOT pull in external benchmarks here — that's another bucket's job.`,
+            industry_news: `You are extracting themes from EXTERNAL INDUSTRY NEWS COVERAGE (Higher Ed Dive, Chronicle of Philanthropy, NonProfit Times, Inside Philanthropy, GDELT, press wires). These are journalist-curated trade-press signals about the SECTOR — what's happening at peer institutions, regulatory shifts, industry-wide trends, named CASE/AFP conference reveals, sector benchmark releases. Themes here should surface: peer-institution moves, sector-wide shifts, named industry events, regulatory changes, vendor announcements that matter at scale.`,
+            academic: `You are extracting themes from PEER-REVIEWED ACADEMIC LITERATURE (OpenAlex, arXiv, Crossref, Semantic Scholar, conference proceedings). These are the underlying RESEARCH FOUNDATIONS for the practical work — donor behavior models, advancement frameworks, communication theories, AI/ML papers. Themes here should surface: methodologies, theoretical frameworks, longitudinal findings, named scholars + cited research, where academic consensus exists vs. where it conflicts.`,
+            social: `You are extracting themes from SOCIAL/PRACTITIONER COMMUNITIES (Reddit, Hacker News). These are unfiltered ground-truth voices from the people who actually do the work — gift officers, alumni-relations practitioners, marketing operators. Themes here should surface: tactical playbooks practitioners actually use, vendor sentiment + complaints, surprising successes, undocumented workarounds, "this didn't work for me" counter-evidence to vendor claims.`,
+            video_transcripts: `You are extracting themes from VIDEO/PODCAST TRANSCRIPTS (YouTube, Whisper-transcribed expert interviews, vendor case studies). These contain SPOKEN, NARRATIVE evidence — the long-form insight that doesn't fit in a press release. Themes here should surface: vendor case studies with named outcomes, expert opinions with reasoning chains, controversies discussed in podcasts, methodologies explained in long form, panel-discussion debates.`,
+            retail_marketing: `You are extracting themes from RETAIL, MARKETING, PAYMENTS, AND CHECKOUT-COMMERCE TRADE PRESS (Retail Dive, Marketing Dive, Modern Retail, PYMNTS, Common Thread Collective, Shopify Editions, Klarna/Stripe newsrooms, vendor brand-impact pages). These are CROSS-DOMAIN ANALOGS — what retail and DTC commerce teach you about funnel optimization, conversion, recurring revenue, checkout-charity, brand activism that translate INTO the user's research goal. Themes here should surface: retail playbooks applicable to fundraising, vendor-feature launches, payment-rail conversion lifts, BNPL/round-up adoption signals, brand-impact case studies.`,
+            government: `You are extracting themes from GOVERNMENT, REGULATORY, AND OPEN DATA SOURCES (IRS, SEC EDGAR, Census, BLS, FDA, CPSC, USPTO, Federal Register, OECD, World Bank). These are AUTHORITATIVE THIRD-PARTY DATA. Themes here should surface: regulatory shifts (charity solicitation, commercial co-venturer, tax law), official statistics with specific numbers, recall/enforcement signals, trademark filings indicating new brand launches, tariff impacts, demographic data shaping the user's audience.`,
+            wiki_archive: `You are extracting themes from PRIOR ENGAGEMENT MEMORY + ARCHIVED THEME SYNTHESES (cross-engagement wiki content from previous research runs on related topics). These are LEARNED KNOWLEDGE that compounds across engagements. Themes here should surface: convergence with prior findings (where current research confirms past insights), new contradictions to prior work, gaps the prior research flagged that this run can now close, frameworks established in past engagements that apply here.`,
+        };
+
+        const breadthSchema: Schema = {
+            type: Type.OBJECT,
+            properties: {
+                methodology: { type: Type.STRING },
+                themes: {
+                    type: Type.ARRAY,
+                    items: {
+                        type: Type.OBJECT,
+                        properties: {
+                            name: { type: Type.STRING },
+                            description: { type: Type.STRING },
+                            quote: { type: Type.STRING },
+                            citations: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                                sourceFile: { type: Type.STRING },
+                                text: { type: Type.STRING },
+                                url: { type: Type.STRING },
+                                sourceName: { type: Type.STRING },
+                                author: { type: Type.STRING },
+                                publicationDate: { type: Type.STRING }
+                            }, required: ["sourceFile", "text"] } },
+                            isCrossDocument: { type: Type.BOOLEAN },
+                            status: { type: Type.STRING },
+                            goalAlignment: { type: Type.NUMBER },
+                        },
+                        required: ["name", "description", "quote", "citations", "isCrossDocument"]
+                    }
+                }
+            },
+            required: ["methodology", "themes"]
+        };
+
+        // Filter to buckets with at least 1KB of content (skip empty buckets)
+        const eligibleBuckets = Object.entries(bucketedCorpus)
+            .filter(([_, text]) => text && text.length >= 1024)
+            .map(([b, text]) => ({ bucket: b, text, label: BUCKET_LABELS[b as keyof typeof BUCKET_LABELS] || b }));
+
+        if (eligibleBuckets.length === 0) {
+            console.warn('[Stratified] No eligible buckets — falling back to unified pass');
+            return { themes: [], methodology: '', themesByBucket: {} };
+        }
+
+        onStream(`[Themes] STRATIFIED Pass 1: extracting from ${eligibleBuckets.length} source buckets in parallel...`);
+        console.log(`[Stratified] Buckets: ${eligibleBuckets.map(b => `${b.bucket}=${Math.round(b.text.length / 1024)}KB`).join(', ')}`);
+
+        // Per-bucket Pro call
+        const runOneBucket = async (bucket: string, text: string, label: string): Promise<any[]> => {
+            const bucketHeader = BUCKET_PROMPTS[bucket] || `You are extracting themes from the ${label} source bucket.`;
+            // Calibrate breadth floor by bucket size — larger buckets get higher floors
+            const sizeKB = text.length / 1024;
+            const floor = sizeKB > 200 ? 8 : sizeKB > 80 ? 6 : sizeKB > 30 ? 4 : 3;
+
+            const bucketPrompt = `${skillInstructions ? `=== AGENT SKILL ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}=== SOURCE BUCKET: ${label} ===
+${bucketHeader}
+
+RESEARCH OBJECTIVE: "${this.goal}"
+
+CORPUS (this bucket only):
+${text}
+
+EXTRACT ${floor}-12 themes from THIS BUCKET ONLY. Each theme must:
+  - Be grounded in evidence from this bucket's chunks (cite [CHUNK_NNN] from the corpus above)
+  - Have a finding-grade name (not a category label)
+  - Have description with named entities, quantified data points, dates
+  - Cite 3+ chunks across 2+ source names within this bucket
+  - Score goalAlignment 0-100 honestly (how directly this theme answers the goal)
+
+DO NOT manufacture themes. If the bucket has thin signal, return fewer themes (floor: ${floor}).
+
+${feedback ? 'USER FEEDBACK: ' + feedback : ''}
+Output JSON.`;
+
+            try {
+                onStream(`[${label}] extracting...`);
+                const result: any = await this.ai.models.generateContentStream({
+                    model: 'gemini-3.1-pro-preview',
+                    contents: [{ role: 'user', parts: [{ text: bucketPrompt }] }],
+                    config: {
+                        responseMimeType: 'application/json',
+                        responseSchema: breadthSchema,
+                        temperature: 0.2,
+                        systemInstruction: this.systemInstructionCached,
+                    } as any,
+                });
+                const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
+                let fullText = '';
+                for await (const chunk of stream) {
+                    const t = chunk.text;
+                    if (t) fullText += t;
+                }
+                const cleaned = tryRepairJson(fullText);
+                const parsed = JSON.parse(cleaned);
+                const themes = Array.isArray(parsed?.themes) ? parsed.themes : [];
+                // Tag each theme with its bucket so the UI can filter
+                for (const t of themes) {
+                    t.bucket = bucket;
+                    t.bucketLabel = label;
+                }
+                console.log(`[Stratified] ${label}: ${themes.length} themes extracted`);
+                return themes;
+            } catch (err: any) {
+                console.warn(`[Stratified] ${label} extraction failed:`, err?.message || err);
+                return [];
+            }
+        };
+
+        // Fan out — all buckets in parallel
+        const allBucketResults = await Promise.all(
+            eligibleBuckets.map(({ bucket, text, label }) => runOneBucket(bucket, text, label).then(themes => ({ bucket, label, themes })))
+        );
+
+        const themesByBucket: Record<string, any[]> = {};
+        const merged: any[] = [];
+        for (const { bucket, themes } of allBucketResults) {
+            themesByBucket[bucket] = themes;
+            merged.push(...themes);
+        }
+
+        const totalCounts = allBucketResults.map(r => `${r.label}=${r.themes.length}`).join(', ');
+        onStream(`[Themes] Stratified Pass 1 complete: ${merged.length} total themes across ${eligibleBuckets.length} buckets (${totalCounts})`);
+        console.log(`[Stratified] Total: ${merged.length} themes — ${totalCounts}`);
+
+        return {
+            themes: merged,
+            methodology: `Source-stratified extraction across ${eligibleBuckets.length} buckets: ${totalCounts}`,
+            themesByBucket,
+        };
     }
 
     /**
