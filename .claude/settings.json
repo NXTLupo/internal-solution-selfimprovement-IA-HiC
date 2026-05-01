@@ -51,7 +51,8 @@
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --stat)",
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH ls-files --others --exclude-standard)",
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --stat HEAD)",
-      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --name-only HEAD)"
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --name-only HEAD)",
+      "Bash(git merge *)"
     ],
     "additionalDirectories": [
       "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
