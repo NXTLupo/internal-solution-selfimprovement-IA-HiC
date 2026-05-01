@@ -1,68 +1,60 @@
 {
   "positive": [
     {
-      "point": "CompTIA CySA+ CS0-003 offers practical, scenario-based questions that test real-world skills, such as identifying phishing attacks and analyzing logs.",
+      "point": "Northeastern's co-op program is highly valued for employability and practical experience.",
       "post_refs": [
-        "1s405oy"
+        "1smehuz",
+        "1qrsmw6"
       ]
     },
     {
-      "point": "Free resources like PortSwigger Labs and PentesterLab Pro offer valuable learning opportunities for web pentesting.",
+      "point": "The Oakland campus offers knowledgeable professors with strong research backgrounds.",
       "post_refs": [
-        "1s2z2if"
+        "1rdwrug"
       ]
     },
     {
-      "point": "Security+ is considered a foundational certification that is respected in the industry and covers fundamental tech skills.",
+      "point": "Boston University's strong alumni network and research opportunities are appreciated.",
       "post_refs": [
-        "1s2bf0j"
+        "1smehuz"
       ]
     },
     {
-      "point": "Practical experience is highly valued in the cybersecurity field, often more than degrees or certifications.",
+      "point": "Northeastern's flexibility in choosing electives outside the concentration is seen as a positive aspect.",
       "post_refs": [
-        "1s2ifl1",
-        "1s3jpce"
-      ]
-    },
-    {
-      "point": "Azure certifications like AZ-500 and SC-100 are valuable for specializing in Cloud Security and align with compliance objectives.",
-      "post_refs": [
-        "1s0wqis"
+        "1qrsmw6"
       ]
     }
   ],
   "negative": [
     {
-      "point": "The CEH certification is criticized for being outdated and not worth the investment compared to other certifications.",
+      "point": "Concerns about the cost of the ABSN program and limited financial aid options.",
       "post_refs": [
-        "1s3xcgq",
-        "1s1g1v5"
+        "1qwanx4"
       ]
     },
     {
-      "point": "Free cybersecurity certifications are often not respected by employers compared to paid, well-known certifications.",
+      "point": "Worries about the Oakland campus not being as strong academically as the Boston campus for CS.",
       "post_refs": [
-        "1s3i4c6"
+        "1rdwrug"
       ]
     },
     {
-      "point": "Cybersecurity degrees are not highly regarded and may not provide a competitive edge in the job market.",
+      "point": "The AI-focused curriculum might limit job opportunities to ML/CV roles, which is a concern for those targeting data engineering.",
       "post_refs": [
-        "1s2vasi"
+        "1qrsmw6"
       ]
     },
     {
-      "point": "CrowdStrike\u2019s NG SIEM certification is criticized for lacking depth and requiring additional resources for better understanding.",
+      "point": "Skepticism about the reliability of RateMyProfessors for accurately reflecting course difficulty and teaching styles.",
       "post_refs": [
-        "1s2bs7e"
+        "1qmola4"
       ]
     },
     {
-      "point": "The job market for cybersecurity is competitive, and certifications alone may not guarantee job placement.",
+      "point": "Criticism of administrative roles being perceived as nepotistic and unproductive.",
       "post_refs": [
-        "1s2vasi",
-        "1rw4ad6"
+        "1t05kcs"
       ]
     }
   ]

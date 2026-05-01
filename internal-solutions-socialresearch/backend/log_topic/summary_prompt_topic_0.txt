@@ -1,87 +1,75 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: alumni, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: que, certification, experience, certs, oscp, security, cybersecurity
+- Top keywords: boston, oakland, campus, cs, program, students, ms
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-If OSCP is your goal, study for OSCP, and not another vendor's exam. Back in the day there wasn't a million and one trainings and we learned through blog posts, research, trial & error.
+How does the Oakland campus compare academically to Boston for CS, especially if you’re coming in with AP credits?
 
 EXAMPLE 2:
-OSCP Voucher as a Beginner So for background, I'm a first year college student with some technical background in software, web, and game development. I also currently hold Sec+, PJPT, as well as the PNPT, and soon, CySA+ (and yes I know, pls dont criticize me for chasing certs, its lowkey one of the things that give me a clear path into pursuing cybersecurity as a whole). Now I've recently seen people pass despite being beginners, and some people saying to take the CPTS first. [...]
+I'd really appreciate anything. Thanks! I had a great experience in Oakland for my CS courses. One of my profs was former research at oak ridge labs and super knowledgeable and nice. My other was a genius from IIT, and another from MIT.
 
 EXAMPLE 3:
-Good beginner and foundational certifications are:  CompTIA Security+ and ISC2 CC (also might still be free)
+* I took several ap classes and expect to skip a lot of intro courses and jump straight into CS core classes. Are those upper level/core CS classes as rigorous and available at Oakland?
 
 EXAMPLE 4:
-I wrote a very very long post about my experience in the OSCP reddit "My OSCP Journey" is the name of the post. It talks about my preparation and tips.
+CS at Northeastern Oakland. Honest takes? Hi everyone! I got admitted to Northeastern University Oakland as a Computer Science major, and I had a few questions for current students or alumni.
 
 EXAMPLE 5:
-When I first started looking into certifications, Network+ and Security+ came up a lot. Out of curiosity, I tried some practice exam questions without prior preparation and scored over 80% on Network+ and 78% on Security+. I also looked into courses for these certs, but honestly, they don’t feel that challenging, and I’d prefer something that pushes me more.
+I have gotten admit into **Northeastern University (Boston) for MS in Computer Science at Khoury College of Computer Sciences (Fall 2026)** and had a question for current students and alumni.
 
 EXAMPLE 6:
-CompTIA CySA+ without Network+ and Security+? My latest goal is to earn a security certification, and I’ve been looking at CompTIA CySA+.
+Would really appreciate insights from people who’ve taken MS CS courses at Khoury. Thanks in advance! 🙏 I've got admitted to MSAI for fall 26 aswell. Les connect
 
 EXAMPLE 7:
-What do you think? Does anyone have experience going directly for CySA+ without doing Network+ or Security+ first? Ehhhh you already have a job in security, I honestly don’t see the need for low-level certs at this stage, unless you require it for regulatory or compliance purposes. Save your money and stick with job experience, and then maybe try for the more advanced certs when the time comes.
+* Current MS AI / MS CS students at NEU
+* Alumni working in data-related roles
+* Anyone who has successfully pivoted away from their original concentration
 
 EXAMPLE 8:
-If are just starting out my recommendation would be to start with maybe the free ISC2 CC certification just to get your feet wet. Then work towards the CompTIA Sec+ certification.  If you can get access to resources like Udemy there are some good courses for most of the certifications I mention.  There are also free YouTube courses you can watch as many times as you want.  For some of the certifications there are also apps for your phone like PocketPrep (paid) and Destination Cert (free) that have large question pools for different certifications. [...]
+I recently received an admit for **MS in Artificial Intelligence** at **Northeastern University (Boston campus)** with a **Computer Vision concentration**. I’m an international student and wanted to get honest opinions from current students/alumni before making a final decision.
 
 EXAMPLE 9:
-So, to the question at hand: which cert would you suggest I focus on first? Money is a bit tight at the moment, which is why I'm trying to figure out which is the most bang for my buck as a complete beginner. I've looked at Sec+, GRCP, some of the ones from ISACA. So far I'm leaning towards Sec+, simply because it's a great foundational certificate for a number of roles. Thinking I might have to work in help desk or similar first, anyway.
+* The program is **AI-focused with a CV concentration**, but I’m worried whether this might **limit me to ML/CV roles** in the job market.
+* How flexible is NEU when it comes to **choosing electives outside the concentration** (databases, distributed systems, big data, cloud, etc.)?
+* Is it **realistic to pivot to Data Engineering roles** from this program if I consciously build the right skills, projects, and internships?
+* How helpful is NEU’s **co-op program** specifically for **data-related roles**?
+* Given the **tuition + cost of living in Boston**, do you feel the ROI is justified for so [...]
 
 EXAMPLE 10:
-I actually chose to do the OSCP with the year access/subscription to PEN200. I spent the first couple of months not really putting much time into studying and then got my head down in month 3. I sat it after about 6-7 months if I remember rightly.
+Thanks in advance — looking forward to hearing honest, unfiltered experiences. u/DueInspection3568 can you share your profile? Do you have any publications, I am in my final year looking to apply NEU boston MS AI?
 
 EXAMPLE 11:
-Any suggestions are much appreciated! I think going for something like the SEC+ would be a good pairing as that focuses on some of the more fundamentals of the tech side.  
-Yeah, I think it's going to end up being the one I go for, since we're also covering quite a bit of the material throughout the bootcamp, so it'd be easy to combine my studies. I just wanted to see if there was some other cert I might have overlooked before I spent my money!
-I honestly love to see fresh blood trying to get into the GRC side of Cybersecurity. [...]
+* Are there any meaningful networking events, internships, or startup connections available during freshman year?
 
 EXAMPLE 12:
-A bit about my background: I have a Bachelor’s degree in engineering, and I’m currently pursuing a Master’s in IT. I was interested in studying cybersecurity, but I haven’t heard great things about the cybersecurity Master's programs in my country, so I chose a broader IT path instead.
+MS CS (Khoury) — How reliable is RateMyProfessors for courses & professors? (Fall 2026 incoming) Hi everyone 👋
 
 EXAMPLE 13:
-I myself have about 20 years in GRC and over 15 years specific to Auditing and Risk.  My position does not technically require me to have but one high level management type certification so about 15 years ago I obtained the SANS GSLC.  Late last year I started looking at my career and decided I needed to start working on other certifications to validate my experience.
+* I’m curious how common it is for students to end up at places like FAANG/big tech through internships or coops.
 
 EXAMPLE 14:
-When I look at the available certifications and there are a lot of them the following to me stand out in the GRC Realm:  ISACA CISM, ISACA CISA, ISACA CRISC, ISACA CGEIT, ISC2 CGRC, EC Council CCISO.  Most of these have an experience requirement as much as 5 years.  Just so you have a frame of reference I currently hold GSLC, CISA, and as of yesterday CRISC.  I am testing for CISM in late April.  I am then working on some additional certifications over the next few months and hope to have an eye chart of certifications all related to GRC by the close of 2026. [...]
+I’m mainly trying to plan my courses smartly and understand what to expect academically, especially in the first semester.
 
 EXAMPLE 15:
-But to answer your question, you can definitely get it. I have Sec+ and CySA+, it was pretty easy so you shouldn’t have issues to be honest.
-1 year's experience as a trainee isn't really deep enough in the field to forego Security+.
-I would recommend against skipping security+, purely based off of most jobs just require it. Even if the CySA+ is a higher certification; You still have to make it past filters and some jobs; ESP DoD require Sec+ anyways.
+I’m okay with starting from scratch skill-wise if needed, but I want to make sure I’m not making a structurally bad decision by choosing this program if my end goal is Data Engineering.
 
 EXAMPLE 16:
-I had spent a significant amount of time on TryHackMe and lots of CTFs before I even started the OSCP prep which ultimately put me in a stronger position. Whilst I was still very much a 'beginner' - I had learnt how to enumerate relatively well before.
+To be very honest about my goals:  
+I’m **not planning to pursue a PhD**. My primary objective is to **land an industry role after graduation**, ideally something aligned with **Data Engineering / Data Platform / Analytics Engineering**, rather than research-heavy AI/ML roles.
 
 EXAMPLE 17:
-For work experience, I’ve been working in IT Security for about a year as a trainee. I get quite diverse tasks - often complex, project-based work that requires understanding multiple areas rather than just straightforward assignments. I’ve had exposure to several domains, but I’m most interested in moving into a SOC role. My current contract ends this summer, and I’ll either transition into a full-time SOC analyst position or look for another role, but I definitely want to stay on this path.
+3. Are there cases where a professor/course is rated very hard on RMP but turns out manageable (or vice versa)?
 
 EXAMPLE 18:
-In terms of skills, I have a solid understanding of networking and devices. My main OS is Windows (planning to switch to macOS soon), and while Linux isn’t an option as my primary system due to some software constraints, I use it almost daily. I’m comfortable with Python scripting and coding, and Bash scripting is also familiar to me.
+1. Do RMP ratings generally reflect the **actual difficulty and teaching style** of professors at Khoury?
 
 EXAMPLE 19:
-GRC cert, which to get/focus on first? Hi! As the title suggests, I'm looking at acquiring a certificate related to GRC. I am currently attending a bootcamp (I know, woe) with a GRC focus, but am trying to do as much as possible in terms of self-studies on the side, as I am of the mind that a bootcamp alone is never enough to land a relevant job in a field such as this.
+Wasn’t overwhelming but I really think if you put in effort to connect with them you’ll get a lot out of it
 
 EXAMPLE 20:
-Edit: and yes, we used to do it in 30/60/90 days.
-I did OSCP in 47 days. However I was on HTB for about a year previously. When I did it I jumped right into lab boxes and didn’t review the material until a couple weeks before the exam.
-
-EXAMPLE 21:
-I've managed to secure an internship with a GRC focus for autumn (which is great!), but I want to make sure I enter that internship feeling like I'll be able to make a really good impression, in case there's a possibility of it leading to a job later down the line. Hence, certificate.
-
-EXAMPLE 22:
-So yes it’s possible to obtain it in 3 months, however I was a software developer & I had just joined a Red Team a few months earlier.
-
-EXAMPLE 23:
-The biggest thing with GRC is there are a lot of different frameworks and standards that one may need to be familiar with.
-
-EXAMPLE 24:
-To gain more practical experience, I started working with the ELK stack using dummy data and simulations so that the environment won’t be completely new to me later.
-
-EXAMPLE 25:
-It is absolutely possible to pass in 3 months but you really have to streamline your learning and get your head down for that entire time. When I was studying for it I was aiming for about 4-6 hours a day whilst working full time and on the weekends I was dedicating as much time as possible.
+I’ve been using **RateMyProfessors (RMP)** while shortlisting courses and instructors, but I wanted to understand how **reliable and honest it actually is for Khoury**.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

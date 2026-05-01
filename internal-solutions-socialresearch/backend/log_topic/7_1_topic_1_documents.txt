@@ -1,18 +1,13 @@
 Documents for Topic 1 (showing first 3):
 
 Document 1:
-CanisterWorm malware wipes Iranian machines for no apparent reason — sophisticated attack spreads through npm packages and uses ICP canister as control surface  There's always at least that one person who hacks or deploys things just because it fits their code or they wanted the challenge / glory. 
-
-Chaotic Evil. 
-smells to me like they got influenced by the powers that would want an additional FU to Iran....
+Does @northeastern.edu email forward to the alumni inbox? Basically the title.  
+  
+Once the university migrates us to alumni status, do emails sent to our original student addresses get auto-forwarded? Or do I need to manually set up a forward/alias? The email itself doesn't change, you just lose the amenities you get with a student email....
 
 Document 2:
-Callum here, I was the original dev to sound the alarm to get PyPI to quarantine the package We made a small helper page to check dependencies against the specific unpinned package during the vulnerability window. Hope it helps [https://futuresearch.ai/tools/litellm-checker/](https://futuresearch.ai/tools/litellm-checker/)
-
-As an aside, I did a [write up](https://futuresearch.ai/blog/litellm-attack-transcript/) of how it went down. As an ML researcher with an admiration for what you guys do, I'd...
+Recommended way to transfer assignments done on canva out I'm about to switch to an alumni account and apparently I'm losing access to canva. There's a lot of projects there I'd like to keep but there's so many from different classes. Does the school offer a way to keep those? The email itself doesn't change, you just lose the amenities you get with a student email....
 
 Document 3:
-built a tool that catches supply chain attacks by analyzing runtime behavior instead of static code scanning In late 2024, the XZ Utils backdoor bypassed every static scanner out there. The malicious code was hidden inside test scripts and only activated at runtime.
-
-That's what TraceTree is for. Instead of reading code, it runs the package inside an isolated Docker sandbox, drops the network interface mid-install, and maps every syscall into a behavioral graph. A RandomForestClassifier then fla...
+Can you borrow books from Snell using the alumni card after graduation? I am pretty impressed with Snell library. It has many books and if someone requests one that it doesn't, the library obtains it from another source and makes it available. Once you graduate, can you still borrow books from Snell with the alumni card? I do know that you have a lifetime access to Snell with the alumni card but am not aware of the ability to borrow books. It would be awesome if one could. here's some more detai...
 

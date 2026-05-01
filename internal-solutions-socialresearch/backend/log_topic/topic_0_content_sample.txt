@@ -1,14 +1,13 @@
 Topic 0 - Content Sample
-Number of content items: 25
-Top words: que, certification, experience, certs, oscp, security, cybersecurity
+Number of content items: 20
+Top words: boston, oakland, campus, cs, program, students, ms
 
-Content 1 (length: 185 chars):
-If OSCP is your goal, study for OSCP, and not another vendor's exam. Back in the day there wasn't a million and one trainings and we learned through blog posts, research, trial & error.
+Content 1 (length: 114 chars):
+How does the Oakland campus compare academically to Boston for CS, especially if you’re coming in with AP credits?
 
-Content 2 (length: 1128 chars):
-OSCP Voucher as a Beginner So for background, I'm a first year college student with some technical background in software, web, and game development. I also currently hold Sec+, PJPT, as well as the PNPT, and soon, CySA+ (and yes I know, pls dont criticize me for chasing certs, its lowkey one of the things that give me a clear path into pursuing cybersecurity as a whole). Now I've recently seen people pass despite being beginners, and some people saying to take the CPTS first. But as a beginner focused on gettinf the OSCP first rather than spending a couple more getting the CPTS, is it genuinely possible to accomplish the OSCP in just about 3 months? If so, what are the tips for studying thats suggested? Is there any optimal path in going about the course material? 
-I apologize if this is a redundant or reccurring question, but even with research I'm still a bit overwhelmed by a lot of positive or negative impact the certification and course has on people who have taken it, spending months or years just preparing for it alone. Take PEN-200 first and seek supplemental material out afterwards if you want/need it.
+Content 2 (length: 236 chars):
+I'd really appreciate anything. Thanks! I had a great experience in Oakland for my CS courses. One of my profs was former research at oak ridge labs and super knowledgeable and nice. My other was a genius from IIT, and another from MIT.
 
-Content 3 (length: 108 chars):
-Good beginner and foundational certifications are:  CompTIA Security+ and ISC2 CC (also might still be free)
+Content 3 (length: 185 chars):
+* I took several ap classes and expect to skip a lot of intro courses and jump straight into CS core classes. Are those upper level/core CS classes as rigorous and available at Oakland?
 

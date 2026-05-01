@@ -1,53 +1,35 @@
 {
   "positive": [
     {
-      "point": "Development of tools like TraceTree and safe-install that analyze runtime behavior and provide sandbox isolation to catch supply chain attacks that static scanners miss.",
+      "point": "Lifetime access to Snell Library with the alumni card, which is appreciated for its extensive collection and ability to obtain books from other sources.",
       "post_refs": [
-        "1s42qfm",
-        "1s36x7y"
+        "1rfwn2s"
       ]
     },
     {
-      "point": "Community efforts in quickly identifying and escalating security threats, such as Callum's quick action on the litellm compromise and the development of tools like MUAD\u2019DIB for real-time monitoring.",
+      "point": "A 6-month grace period for alumni to use the Marino gym without needing to immediately purchase an alumni membership.",
       "post_refs": [
-        "1s3natc",
-        "1s1blbi"
-      ]
-    },
-    {
-      "point": "Implementation of organizational policies like dependency cooldowns to prevent immature packages from being used, thereby reducing operational risks.",
-      "post_refs": [
-        "1s38v9m"
+        "1r312xx"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Widespread compromise of popular tools like litellm and Trivy, leading to credential theft and persistent backdoors, highlighting the vulnerability of supply chains.",
+      "point": "Loss of access to Canva after switching to an alumni account, which is concerning for those who have many projects stored there.",
       "post_refs": [
-        "1s2gf82",
-        "1s18t30",
-        "1s2tau0"
+        "1s7g1ka"
       ]
     },
     {
-      "point": "The use of sophisticated social engineering tactics by threat groups like NICKEL ALLEY to target developers through fake job opportunities, leading to malware infections.",
+      "point": "Uncertainty about whether emails sent to the original student address are auto-forwarded to the alumni inbox, causing potential inconvenience.",
       "post_refs": [
-        "1s3zh7c",
-        "1s0kn5a"
+        "1susao3"
       ]
     },
     {
-      "point": "The ongoing issue of dependency confusion and typo-squatting attacks, where attackers exploit package management systems to distribute malicious code.",
+      "point": "Need to pay for an alumni membership to continue using the Marino gym after the grace period ends.",
       "post_refs": [
-        "1s2g1ns",
-        "1s06lcg"
-      ]
-    },
-    {
-      "point": "The architectural flaws in AI orchestration tools that allow for rapid exploitation of vulnerabilities, as seen with Langflow's repeated security issues.",
-      "post_refs": [
-        "1s0rqzd"
+        "1r312xx"
       ]
     }
   ]

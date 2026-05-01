@@ -1,102 +1,19 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+All information is based on searching keywords: alumni, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: code, packages, github, npm, malicious, supply chain, attack
+- Top keywords: alumni, email, snell, books, student, borrow books, alumni card
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Supply-chain attack using invisible code hits GitHub and other repositories  "Researchers say they’ve discovered a supply-chain attack flooding repositories with malicious packages that contain invisible code, a technique that’s flummoxing traditional defenses designed to detect such threats.
+Can you borrow books from Snell using the alumni card after graduation? I am pretty impressed with Snell library. It has many books and if someone requests one that it doesn't, the library obtains it from another source and makes it available. Once you graduate, can you still borrow books from Snell with the alumni card? I do know that you have a lifetime access to Snell with the alumni card but am not aware of the ability to borrow books. It would be awesome if one could. here's some more details and information!! it's late so i cant summarize it well but https://library.northeastern. [...]
 
 EXAMPLE 2:
-npm supply chain attacks saw a **73% increase** in 2025. Over **10,800 malicious npm packages** were detected last year alone - double the previous year. npm accounts for roughly 90% of all open-source malware. Supply chain attacks cost an estimated $60 billion globally in 2025.
+Does @northeastern.edu email forward to the alumni inbox? Basically the title.  
+  
+Once the university migrates us to alumni status, do emails sent to our original student addresses get auto-forwarded? Or do I need to manually set up a forward/alias? The email itself doesn't change, you just lose the amenities you get with a student email.
 
 EXAMPLE 3:
-The researchers, from firm Aikido Security, said Friday that they found 151 malicious packages that were uploaded to GitHub from March 3 to March 9. Such supply-chain attacks have been common for nearly a decade. They usually work by uploading malicious packages with code and names that closely resemble those of widely used code libraries, with the objective of tricking developers into mistakenly incorporating the former into their software. In some cases, these malicious packages are downloaded thousands of times.
-
-EXAMPLE 4:
-- Socket investigation: https://socket.dev/blog/north-korea-contagious-interview-campaign-338-malicious-npm-packages
-- Microsoft threat intelligence: https://www.microsoft.com/en-us/security/blog/2026/03/11/contagious-interview-malware-delivered-through-fake-developer-job-interviews/
-- The Hacker News coverage: https://thehackernews.com/2026/03/north-korean-hackers-publish-26-npm.html
-- ReversingLabs supply chain report: https://www.reversinglabs.com/blog/sscs-report-2026-takeaways
-- Victim account: https://medium. [...]
-
-EXAMPLE 5:
-The best way to protect against the scourge of supply-chain attacks is to carefully inspect packages and their dependencies before incorporating them into projects. This includes scrutinizing package names and searching for typos. If suspicions about LLM use are correct, malicious packages may increasingly appear to be legitimate, particularly when invisible unicode characters are encoding malicious payloads."
-ได้ทำการบล้อคไปบางส่วนแล้วครับ
-
-EXAMPLE 6:
-Combine this with the litellm compromise that happened literally today and you've got two independent supply chain attacks on AI tooling in the same 24 hours. The tooling ecosystem around AI agents is growing way faster than the security practices around it. We're speed-running every mistake the npm/pip ecosystem already made, except now the packages can think and act on their own.
-
-EXAMPLE 7:
-- **338+ malicious npm packages** tracked by Socket as of Feb 2026
-- **50,000+ downloads** across those packages
-- **180+ fake personas** tied to npm aliases
-- Campaign has been running since **December 2022** and is still active
-- Multiple malware families deployed: BeaverTail (JS infostealer), InvisibleFerret (Python RAT), OtterCookie (beaconing RAT)
-
-EXAMPLE 8:
-The packages Aikido found this month have adopted a newer technique: selective use of code that isn’t visible when loaded into virtually all editors, terminals, and code review interfaces. While most of the code appears in normal, readable form, malicious functions and payloads—the usual telltale signs of malice—are rendered in unicode characters that are invisible to the human eye. The tactic, which Aikido said it first spotted last year, makes manual code reviews and other traditional defenses nearly useless. Other repositories hit in these attacks include NPM and Open VSX.
-
-EXAMPLE 9:
-The catch? Buried in the `node_modules` were packages with names like `tailwind-magic`, `eslint-detector`, `next-log-patcher`, `react-ui-notify` - packages that look plausible but are actually part of a North Korean operation called **"Contagious Interview."**
-
-EXAMPLE 10:
-Poisoned community docs trick AI agents into installing malicious packages and poisoning project config. Silently. Persistently. **New attack** **vector:** community-contributed documentation registries for AI coding agents.
-
-EXAMPLE 11:
-The researchers suspect that Glassworm—the name they assigned to the attack group—is using LLMs to generate these convincingly legitimate-appearing packages. “At the scale we’re now seeing, manual crafting of 151+ bespoke code changes across different codebases simply isn’t feasible,” they explained. Fellow security firm Koi, which has also been tracking the same group, said it, too, suspects the group is using AI.
-
-EXAMPLE 12:
-Once you run `npm install`, these packages execute postinstall scripts that deploy infostealers. One person who shared their story publicly - a senior engineer - [lost their crypto wallets, SSH keys, and more](https://medium.com/@muhaimincs/i-ran-npm-install-for-a-job-interview-it-cost-me-everything-55528aacba20) after running a test project.
-
-EXAMPLE 13:
-1. **No Docker setup** - this was the first thing that felt off. Any legitimate company sending a take-home test would containerize it, or at least not require you to run raw `npm install` on your machine. If there's no sandboxing, ask yourself why.
-2. **Unknown packages** in dependencies that sound generic but aren't real established libraries
-3. **postinstall scripts** with `eval()`, `Function()`, base64-encoded strings, or calls to external domains
-4. **Urgency** - "please complete within 24-48 hours" to prevent you from investigating
-
-EXAMPLE 14:
-Since finding the new round of packages on GitHub, the researchers have found similar ones on npm and the VS Code marketplace. Aikido said the 151 packages detected are likely a small fraction spread across the campaign because many have been deleted since first being uploaded.
-
-EXAMPLE 15:
-- **Never run interview projects on your daily driver.** Use a VM, a throwaway VPS ($5 DigitalOcean droplet works), or at minimum a dev container.
-- Run `npm install --ignore-scripts` first, then inspect what's there
-- Check package scripts before installing: `npm view <package> scripts`
-- Use [Socket.dev](https://socket.dev) to scan packages before running them
-- Enable 2FA on your npm account
-- If you've already run a suspicious project: rotate all keys, check for unauthorized access, scan your system
-
-EXAMPLE 16:
-“The malicious injections don’t arrive in obviously suspicious commits,” Aikido researchers wrote. “The surrounding changes are realistic: documentation tweaks, version bumps, small refactors, and bug fixes that are stylistically consistent with each target project.”
-
-EXAMPLE 17:
-People targeted by North Korean hackers through fake job test assignments **TL;DR:** Lazarus Group (North Korea) is sending developers fake take-home coding tests where `node_modules` contain packages that install keyloggers, steal crypto wallets, SSH keys, and browser credentials. If you get a test project from a recruiter - never run it on your main machine.
-
-EXAMPLE 18:
-*Disclosure: I develop* [*LAP*](https://github.com/lap-Platform/lap)*, an open-source alternative that compiles from official API specs with no community content. The repo is fully reproducible.* This is the attack surface nobody is modeling correctly. The whole premise of these doc registries is "community knowledge makes agents better," but community contribution is exactly the vector that supply chain attacks exploit.
-
-EXAMPLE 19:
-No SECURITY.md, no disclosure process, security PRs sitting unreviewed while feature PRs merge in hours. That priority ordering tells you everything about where the industry's head is at right now.
-Yep, The Opus config thing is what surprised me most. It knows the package is sketchy but still writes it to [CLAUDE.md](http://CLAUDE.md) like it's taking notes for next time. Wrong layer of caution.
-
-EXAMPLE 20:
-* Opus resists code poisoning but modifies project config files (CLAUDE.md), creating persistence across sessions and developers via git
-
-EXAMPLE 21:
-The malicious packages are even harder to detect because of the high quality of their visible portions.
-
-EXAMPLE 22:
-1. How can we warn the community?
-2. How can we get to the people before anything bad happens?
-The attack chain here is worth spelling out: docs go into a shared registry, agents pull them as trusted context, malicious instructions get executed during setup. The agent isn't being "hacked" in the traditional sense. It's just following instructions from a source it was told to trust.
-
-EXAMPLE 23:
-**Run it yourself:** [https://github.com/mickmicksh/chub-supply-chain-poc](https://github.com/mickmicksh/chub-supply-chain-poc)
-
-EXAMPLE 24:
-[https://www.theregister.com/2026/03/25/ai\_agents\_supply\_chain\_attack\_context\_hub/](https://www.theregister.com/2026/03/25/ai_agents_supply_chain_attack_context_hub/)
-
-EXAMPLE 25:
-The mitigation that actually changes the calculus: the agent shouldn't hold production credentials when it runs those setup steps. If a poisoned doc causes the agent to pip install malicious-package, the blast radius is whatever credentials were in scope at that moment. Scoped short-lived tokens per task mean a compromised setup step can't reach your full API key inventory.
+Recommended way to transfer assignments done on canva out I'm about to switch to an alumni account and apparently I'm losing access to canva. There's a lot of projects there I'd like to keep but there's so many from different classes. Does the school offer a way to keep those? The email itself doesn't change, you just lose the amenities you get with a student email.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

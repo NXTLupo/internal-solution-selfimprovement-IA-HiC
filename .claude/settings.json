@@ -39,7 +39,19 @@
       "Bash(cp \"New Frontend Files/favicon.ico\" \"internal-solutions-research-generator/static/favicon.ico\")",
       "Bash(find /d/NXT-HUMANS_AI_CX_WORKBENCH/internal-solutions-copilot-recipe-generator/frontend -type f -name *.tsx -o -name *.ts -o -name *.jsx -o -name *.js)",
       "Bash(find D:NXT-Agencybackendagent-prompts -name *.txt -o -name *.md)",
-      "Bash(find D:NXT-Agency -path *agent* -name *.txt)"
+      "Bash(find D:NXT-Agency -path *agent* -name *.txt)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH checkout main)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH log --oneline -3)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH checkout -b HiC-Presentation-Pipeline)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH checkout HiC-PPTX-Native)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH stash list)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH stash pop)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH status --short)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH status)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --stat)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH ls-files --others --exclude-standard)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --stat HEAD)",
+      "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --name-only HEAD)"
     ],
     "additionalDirectories": [
       "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
