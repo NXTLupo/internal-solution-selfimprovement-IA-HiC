@@ -1,6 +1,11 @@
 /**
  * Provider Registry Initialization
  * Registers all available AI provider adapters.
+ *
+ * 2026-05-03 — claudeAdapter removed on this branch (HiC-Gemini-Primary).
+ * Restoring Anthropic requires re-creating providers/claudeAdapter.ts and
+ * re-registering it here, plus the corresponding /api/ai/anthropic proxy
+ * endpoint and SPA-side dispatch branches.
  */
 
 export { providerRegistry } from './ProviderAdapter';
@@ -8,13 +13,11 @@ export type { ProviderAdapter, EvidenceSpan, AnalysisResponse, StructuredRespons
 
 import { providerRegistry } from './ProviderAdapter';
 import { geminiAdapter } from './geminiAdapter';
-import { claudeAdapter } from './claudeAdapter';
 import { openaiAdapter } from './openaiAdapter';
 
-// Register all adapters
+// Register all adapters (Anthropic excluded on this branch)
 providerRegistry.register(geminiAdapter);
-providerRegistry.register(claudeAdapter);
 providerRegistry.register(openaiAdapter);
 
-// Gemini is default (works without proxy for basic calls)
+// Gemini is default
 providerRegistry.setDefault('gemini');

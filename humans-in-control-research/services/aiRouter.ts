@@ -139,19 +139,14 @@ export interface ModelInfo {
     costTier: 'budget' | 'standard' | 'premium';
 }
 
+// 2026-05-03 — Anthropic / Claude entries removed from this branch
+// (HiC-Gemini-Primary). All pipeline stages — collection, synthesis, output —
+// route exclusively through Google + OpenAI providers. The model registry,
+// task defaults, alternates, providers list, router switch, and adapter
+// imports below all assume Anthropic is unavailable. To re-enable Claude on
+// a different branch, restore the entries removed here AND restore the
+// dispatch branches in narrativeComposer.ts / corpusChatService.ts.
 export const MODEL_REGISTRY: Record<string, ModelInfo> = {
-    'claude-opus-4-6': {
-        id: 'claude-opus-4-6', provider: 'anthropic', displayName: 'Claude Opus 4.6',
-        vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
-    },
-    'claude-opus-4-7': {
-        id: 'claude-opus-4-7', provider: 'anthropic', displayName: 'Claude Opus 4.7',
-        vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
-    },
-    'claude-sonnet-4-6': {
-        id: 'claude-sonnet-4-6', provider: 'anthropic', displayName: 'Claude Sonnet 4.6',
-        vision: true, maxContext: 1_000_000, maxOutput: 64_000, costTier: 'standard'
-    },
     'gpt-5.4': {
         id: 'gpt-5.4', provider: 'openai', displayName: 'GPT-5.4',
         vision: true, maxContext: 1_050_000, maxOutput: 128_000, costTier: 'standard'
@@ -175,37 +170,42 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 };
 
 // --- TASK CATEGORIES ---
-// `narrative_composition` is the presentation-pipeline category — Opus 4.7 by
-// default, GPT-5.5 alternate. Used by services/narrativeComposer.ts for
-// #presentation #NXT/#NU directives.
+// 2026-05-03 — Defaults migrated from Anthropic to Google. Opus 4.7 cost was
+// $43/run dominated by ~363K-token system-prompt replay × 8 turns. Gemini
+// 3.1 Pro at $1.25/M input cuts per-run cost to ~$8 with no loss to source
+// coverage, theme breadth, or deliverable structure (those live in code, not
+// in the model). Anthropic is fully removed from this branch — all stages
+// route to Google or OpenAI exclusively.
 export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition';
 
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
-    research: 'claude-opus-4-6',
-    fast_generation: 'gpt-5.4-mini',
-    vision: 'claude-opus-4-6',
+    research: 'gemini-3.1-pro-preview',
+    fast_generation: 'gemini-2.5-flash',
+    vision: 'gemini-3.1-pro-preview',
     image: 'gemini-2.5-flash',     // imagen-4.0 via Gemini API, flash-image as fallback
     video: 'gemini-2.5-flash',     // veo-3.1 via Gemini API
-    narrative_composition: 'claude-opus-4-7',
+    narrative_composition: 'gemini-3.1-pro-preview',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
+// Google + OpenAI only. Gemini Pro is the cost-effective default; GPT-5.5 is
+// the premium-tier alternate for engagements where users want a different
+// model family in the loop.
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['claude-opus-4-6', 'claude-sonnet-4-6', 'gpt-5.4', 'gemini-3.1-pro-preview', 'gemini-2.5-flash'],
-    fast_generation: ['gpt-5.4-mini', 'claude-sonnet-4-6', 'gemini-2.5-flash'],
-    vision: ['claude-opus-4-6', 'gpt-5.4', 'gemini-3.1-pro-preview'],
+    research: ['gemini-3.1-pro-preview', 'gpt-5.4', 'gemini-2.5-flash'],
+    fast_generation: ['gemini-2.5-flash', 'gpt-5.4-mini'],
+    vision: ['gemini-3.1-pro-preview', 'gpt-5.4'],
     image: ['gemini-2.5-flash'],
     video: ['gemini-2.5-flash'],
-    narrative_composition: ['claude-opus-4-7', 'gpt-5.5'],
+    narrative_composition: ['gemini-3.1-pro-preview', 'gpt-5.5'],
 };
 
 // --- API KEY AVAILABILITY ---
 export function getAvailableProviders(): Set<string> {
     const providers = new Set<string>();
     if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) providers.add('google');
-    if ((process.env as any).ANTHROPIC_API_KEY) providers.add('anthropic');
     if ((process.env as any).OPENAI_API_KEY) providers.add('openai');
     return providers;
 }
@@ -219,12 +219,15 @@ export function getAvailableModels(category: TaskCategory): ModelInfo[] {
 
 // --- ROUTER ---
 
-import * as anthropicService from './anthropicService';
 import * as openaiService from './openaiService';
 
 /**
  * Route a text analysis task to the selected model.
  * Returns parsed JSON of type T.
+ *
+ * 2026-05-03 — Anthropic branch removed. Only OpenAI and Google providers
+ * are supported on this branch. Google text routing uses GenAISession
+ * directly (see geminiService.ts), so this router only handles OpenAI.
  */
 export async function routeTextAnalysis<T>(
     systemPrompt: string,
@@ -242,13 +245,11 @@ export async function routeTextAnalysis<T>(
     }
 
     switch (model.provider) {
-        case 'anthropic':
-            return anthropicService.analyzeTextJSON<T>(systemPrompt, userPrompt, modelId, maxTokens, temperature);
         case 'openai':
             return openaiService.analyzeTextJSON<T>(systemPrompt, userPrompt, modelId, maxTokens, temperature);
         case 'google':
             // Delegate to existing Gemini service (import dynamically to avoid circular deps)
-            throw new Error('Google text routing should use existing GenAISession. Use routeTextAnalysis only for Anthropic/OpenAI tasks.');
+            throw new Error('Google text routing should use existing GenAISession. Use routeTextAnalysis only for OpenAI tasks.');
         default:
             throw new Error(`Unsupported provider: ${model.provider}`);
     }
@@ -274,8 +275,6 @@ export async function routeVisionAnalysis<T>(
     }
 
     switch (model.provider) {
-        case 'anthropic':
-            return anthropicService.analyzeVision<T>(systemPrompt, userPrompt, images, modelId, maxTokens, temperature);
         case 'openai':
             return openaiService.analyzeVision<T>(systemPrompt, userPrompt, images, modelId, maxTokens, temperature);
         default:

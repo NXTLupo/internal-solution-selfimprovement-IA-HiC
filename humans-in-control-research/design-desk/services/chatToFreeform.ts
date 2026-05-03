@@ -13,11 +13,11 @@ import type { BrandHashtag } from './hashtagParser';
 import { loadExemplar } from './exemplarLoader';
 import { parseFreeformOutput } from './freeformParser';
 import { sanitizeFreeformHtml } from './freeformSanitizer';
-import { analyzeText as analyzeTextAnthropic } from '../../services/anthropicService';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-export type FreeformGenerationModel = 'gemini-2.5-flash' | 'claude-opus-4-7' | 'gpt-5.4';
+// 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary).
+export type FreeformGenerationModel = 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
 
 export interface FreeformGenerateArgs {
     kind: FreeformKind;
@@ -73,9 +73,9 @@ const TEMPERATURE = 0.4;
 
 function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
     switch (chatModel) {
-        case 'claude-opus-4-7': return 'claude-opus-4-6';
-        case 'gpt-5.4':         return 'gpt-5.4';
-        case 'gemini-2.5-flash': return 'gemini-2.5-flash';
+        case 'gpt-5.4':                return 'gpt-5.4';
+        case 'gemini-2.5-flash':       return 'gemini-2.5-flash';
+        case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
     }
 }
 
@@ -95,7 +95,6 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
 
 async function callForModel(prompt: string, model: FreeformGenerationModel): Promise<string> {
     const providerId = resolveProviderModelId(model);
-    if (model === 'claude-opus-4-7') return analyzeTextAnthropic(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     return callGemini(prompt, providerId);
 }

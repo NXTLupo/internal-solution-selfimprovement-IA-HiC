@@ -293,7 +293,7 @@ export class GenAISession {
     private goal: string;
     private approach: string;
     private selectedOutputs: OutputOption[];
-    // 2026-04-22 — stored for Claude fallback path (see executeStepViaClaude).
+    // 2026-05-03 — Stored for the GPT fallback path (see executeStepViaGPT).
     // Gemini Flash repetition-collapses on structured JSON when the corpus
     // contains any repeated token pattern (filenames, port numbers like 8080,
     // dollar figures, etc.). The RepetitionGuard truncates at 20K chars,
@@ -1081,8 +1081,8 @@ Now extract the FULL theme set.`;
         // limits. Cost: ~$0.30-0.40 per theme on Opus 4.7.
         if (result.themes.length > 0) {
             try {
-                onStream(`[Themes] Pass 2: Enriching ${result.themes.length} themes with depth analysis (Claude Opus 4.7, parallel)...`);
-                console.log(`[Themes] Pass 2 DEPTH starting: ${result.themes.length} themes via Claude Opus 4.7`);
+                onStream(`[Themes] Pass 2: Enriching ${result.themes.length} themes with depth analysis (Gemini 3.1 Pro, parallel)...`);
+                console.log(`[Themes] Pass 2 DEPTH starting: ${result.themes.length} themes via Gemini 3.1 Pro`);
                 const enriched = await this._enrichThemesDepth(result.themes as any[], onStream);
                 result.themes = enriched as any;
                 const enrichedCount = enriched.filter((t: any) => Array.isArray(t.subThemes) && t.subThemes.length > 0).length;
@@ -1165,8 +1165,8 @@ Now extract the FULL theme set.`;
                 console.log(`[${label}] Pass 1 BREADTH (Pro) returned ${(parsed as any).themes.length} themes`);
                 return parsed;
             } catch (proErr: any) {
-                console.warn(`[${label}] Pass 1 Pro failed, falling back to chat-session Flash → Claude chain:`, proErr?.message || proErr);
-                onStream(`[${label}] Pro unavailable. Falling back to Flash → Claude...`);
+                console.warn(`[${label}] Pass 1 Pro failed, falling back to chat-session Flash → GPT chain:`, proErr?.message || proErr);
+                onStream(`[${label}] Pro unavailable. Falling back to Flash → GPT...`);
             }
         }
 
@@ -1223,15 +1223,18 @@ Now extract the FULL theme set.`;
     }
 
     /**
-     * Single-theme Opus 4.7 depth call. Uses anthropicService.analyzeTextJSON
-     * (same path as the existing executeStepViaClaude fallback) so we inherit
-     * its CORS-safe proxy routing and JSON repair.
+     * Single-theme depth call.
+     *
+     * 2026-05-03 — Migrated from Claude Opus 4.7 to Gemini 3.1 Pro Preview.
+     * Same JSON schema, same prompt, ~1/8 the cost. The depth output is a
+     * structured object with subThemes, dimensions, contradictions,
+     * temporalArc, implications — all things Gemini Pro produces well in
+     * its `responseMimeType: application/json` mode.
      */
     private async _enrichSingleThemeDepth(theme: any, idx: number): Promise<{
         subThemes: any[]; dimensions: any[]; contradictions: any[];
         temporalArc?: any; implications: string[];
     }> {
-        const { analyzeTextJSON } = await import('./anthropicService');
         const citations = Array.isArray(theme.citations) ? theme.citations : [];
 
         // Build per-citation context for Opus. Each citation contributes its
@@ -1312,15 +1315,41 @@ ${citationLines || '  (no citations attached)'}
 
 Now produce the depth JSON object per the schema in your system instructions.`;
 
-        const depth = await analyzeTextJSON<any>(
-            sysPrompt,
-            userPrompt,
-            'claude-opus-4-7',
-            8000,
-            0.2,
-        );
+        // 2026-05-03 — Direct Gemini Pro call. Uses Gemini's native
+        // responseMimeType:application/json for strict JSON output. The
+        // prior Anthropic-routed implementation has been removed from this
+        // branch (HiC-Gemini-Primary).
+        let depth: any = null;
+        try {
+            const response = await withRetry<GenerateContentResponse>(
+                () => this.ai.models.generateContent({
+                    model: 'gemini-3.1-pro-preview',
+                    contents: [{
+                        role: 'user',
+                        parts: [{ text: `SYSTEM:\n${sysPrompt}\n\nUSER:\n${userPrompt}` }],
+                    }],
+                    config: {
+                        temperature: 0.2,
+                        maxOutputTokens: 8000,
+                        responseMimeType: 'application/json',
+                    } as any,
+                }),
+                3,
+                3000,
+                'Theme depth (Gemini Pro)',
+            );
+            const rawText = response.text || '';
+            try {
+                depth = JSON.parse(rawText);
+            } catch {
+                depth = JSON.parse(tryRepairJson(rawText));
+            }
+        } catch (err: any) {
+            console.warn(`[ThemeDepth] Gemini Pro depth call failed for theme ${idx}, returning empty depth:`, err?.message || err);
+            depth = null;
+        }
 
-        // Defensive defaults — Opus may omit empty arrays
+        // Defensive defaults — model may omit empty arrays
         return {
             subThemes: Array.isArray(depth?.subThemes) ? depth.subThemes : [],
             dimensions: Array.isArray(depth?.dimensions) ? depth.dimensions : [],
@@ -4112,42 +4141,49 @@ Output JSON matching the section schema.`;
             return await this.executeStep<T>(prompt, schema, parts, onStream);
         } catch (err: any) {
             if (err?.code === 'RepetitionCollapse') {
-                console.warn(`[${stepLabel}] Gemini repetition-collapsed on "${err.sample}" (×${err.occurrences}). Falling back to Claude.`);
-                return await this.executeStepViaClaude<T>(prompt, schema, onStream, stepLabel);
+                // 2026-05-03 — Repetition-collapse fallback retargeted from
+                // Claude Opus to GPT-5.5. Same recovery semantics, no Anthropic
+                // dependency. The Claude path is preserved (executeStepViaClaude
+                // below) so users on flagship engagements can opt back in via
+                // a future flag, but the default cascade is now Gemini → GPT.
+                console.warn(`[${stepLabel}] Gemini repetition-collapsed on "${err.sample}" (×${err.occurrences}). Falling back to GPT-5.5.`);
+                return await this.executeStepViaGPT<T>(prompt, schema, onStream, stepLabel);
             }
             throw err;
         }
     }
 
-    private async executeStepViaClaude<T>(prompt: string, schema: Schema, onStream: (t: string) => void, stepLabel: string = 'synthesis'): Promise<T> {
-        const { analyzeTextJSON } = await import('./anthropicService');
+    private async executeStepViaGPT<T>(prompt: string, schema: Schema, onStream: (t: string) => void, stepLabel: string = 'synthesis'): Promise<T> {
+        const { analyzeTextJSON } = await import('./openaiService');
 
-        // Build the accumulated context block — prior stage outputs the
-        // synthesis step depends on.
         const contextBlock = this.accumulatedContext.length > 0
             ? '\n\n=== ACCUMULATED CONTEXT FROM PRIOR STAGES ===\n' +
               this.accumulatedContext.map(c => `--- ${c.label} ---\n${c.payload}`).join('\n\n') +
               '\n=== END ACCUMULATED CONTEXT ===\n'
             : '';
 
-        // Describe the JSON schema in prompt form for Claude.
         const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
 
-        const systemPromptForClaude = this.systemInstructionCached + contextBlock;
-        const userPromptForClaude = prompt + schemaDescription;
+        const systemPromptForGPT = this.systemInstructionCached + contextBlock;
+        const userPromptForGPT = prompt + schemaDescription;
 
-        onStream(`[${stepLabel}] Gemini repetition-collapsed. Retrying via Claude Opus 4.7...`);
-        console.warn(`[Claude Fallback] ${stepLabel}: routing to claude-opus-4-7 (system=${Math.round(systemPromptForClaude.length / 1024)}KB, user=${Math.round(userPromptForClaude.length / 1024)}KB)`);
+        onStream(`[${stepLabel}] Gemini repetition-collapsed. Retrying via GPT-5.5...`);
+        console.warn(`[GPT Fallback] ${stepLabel}: routing to gpt-5.5 (system=${Math.round(systemPromptForGPT.length / 1024)}KB, user=${Math.round(userPromptForGPT.length / 1024)}KB)`);
 
         const result = await analyzeTextJSON<T>(
-            systemPromptForClaude,
-            userPromptForClaude,
-            'claude-opus-4-7',
+            systemPromptForGPT,
+            userPromptForGPT,
+            'gpt-5.5',
             32_000,
             0.2,
         );
         return result;
     }
+
+    // 2026-05-03 — executeStepViaClaude removed on this branch
+    // (HiC-Gemini-Primary). The repetition-collapse fallback now lives in
+    // executeStepViaGPT (above), and Anthropic is no longer reachable from
+    // the synthesis pipeline on any code path.
 
     private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void): Promise<T> {
         // Retry the entire step (including streaming) to handle mid-stream network failures

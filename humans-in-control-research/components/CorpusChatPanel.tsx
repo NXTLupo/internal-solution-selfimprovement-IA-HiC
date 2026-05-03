@@ -2,7 +2,7 @@
  * Corpus Chat Panel v2 — Persistent across all phases.
  *
  * Same chat from data collection through synthesis. Features:
- * - Multi-model: Gemini 2.5 Flash (default), Claude Opus 4.7, Sonnet 4.6, GPT-5.4 Mini
+ * - Multi-model: Gemini 3.1 Pro (default), Gemini 2.5 Flash, GPT-5.4
  * - Skill manifest matching (lazy-loads SKILL.md + wiki companions)
  * - NXT visual output rendering (:::nxt:TYPE blocks)
  * - Deliverable cards (:::deliverable:TYPE or fallback JSON detection)
@@ -765,7 +765,10 @@ const ArtifactExportButtons: React.FC<{
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-2.5-flash');
+    // 2026-05-03 — Default chat model is gemini-3.1-pro-preview.
+    // This branch (HiC-Gemini-Primary) has Anthropic / Claude fully removed —
+    // only Google and OpenAI providers are surfaced in the picker.
+    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
@@ -1687,7 +1690,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             cursor: 'pointer', transition: 'all 0.15s',
                         }}>
                         <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase', color: selectedModel === m.id ? m.color : '#888' }}>{m.provider}</div>
-                        <div style={{ fontSize: 9, fontWeight: 600, color: '#333', marginTop: 1 }}>{m.name.replace('Claude ', '').replace('Gemini ', '').replace('GPT-', '')}</div>
+                        <div style={{ fontSize: 9, fontWeight: 600, color: '#333', marginTop: 1 }}>{m.name.replace('Gemini ', '').replace('GPT-', '')}</div>
                     </button>
                 ))}
             </div>

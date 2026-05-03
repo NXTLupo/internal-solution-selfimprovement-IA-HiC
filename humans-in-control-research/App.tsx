@@ -197,7 +197,7 @@ const MethodologyModal = ({ outputId, onClose }: { outputId: OutputOption, onClo
  * base64, PDFs/DOCX/XLSX from the proxy-parsed `parsedText` field populated
  * by FileUpload's background parse. Fixes the longstanding bug where the
  * chat's context falsely claimed `[PDF — content in corpus]` when no PDF
- * text actually reached the chat. Provider-agnostic: Claude/OpenAI/Gemini
+ * text actually reached the chat. Provider-agnostic: OpenAI/Gemini
  * all receive the extracted text as plain text.
  */
 function buildUploadedFileContents(files: any[]): string {
@@ -3053,13 +3053,13 @@ const App = () => {
 
                 // ================================================================
                 // TRI-MODEL CORPUS ANALYSIS
-                // When corpus exceeds 300KB, split across Gemini/Claude/OpenAI.
+                // When corpus exceeds 300KB, split across GeminiPro/GeminiFlash/OpenAI.
                 // Each model gets a CAPACITY-PROPORTIONAL share sized to NEVER exceed
                 // its context window. No fallbacks needed — the math guarantees it fits.
                 //
-                // Model context limits (April 2026):
-                //   Gemini 2.5 Flash: 1M tokens → 3.2MB chars (80% headroom → 2.5MB safe)
-                //   Claude Sonnet 4.6: 200K tokens → 640KB chars (80% → 500KB safe)
+                // Model context limits (May 2026 — post Anthropic elimination):
+                //   Gemini 3.1 Pro:      1-2M tokens → 5MB chars (80% headroom → 2.5MB safe)
+                //   Gemini 2.5 Flash:    1M tokens → 3.2MB chars (80% headroom → 2.5MB safe)
                 //   OpenAI GPT-5.4 Mini: 128K tokens → 400KB chars (80% → 320KB safe)
                 //
                 // Split ratio: 50% Gemini / 30% Claude / 20% OpenAI
@@ -3067,7 +3067,7 @@ const App = () => {
                 // ================================================================
                 const TRIMODEL_THRESHOLD = 300_000;
                 if (fullCorpus.length > TRIMODEL_THRESHOLD) {
-                    setDataSourceStatus('Splitting corpus across Gemini, Claude, OpenAI for parallel analysis...');
+                    setDataSourceStatus('Splitting corpus across Gemini Pro, Gemini Flash, OpenAI for parallel analysis...');
                     const corpusSize = fullCorpus.length;
                     setThinkingEvents(prev => [...prev, {
                         type: 'PHASE',
@@ -3103,15 +3103,18 @@ const App = () => {
                     const split1 = findNearestBoundary(splitTargets[0]);
                     const split2 = findNearestBoundary(splitTargets[1]);
 
+                    // 2026-05-03 — Claude slice removed on this branch
+                    // (HiC-Gemini-Primary). Tri-model now uses GeminiPro +
+                    // GeminiFlash + OpenAI for triangulation diversity.
                     const parts = [
-                        fullCorpus.substring(0, split1),                    // Gemini: ~50%
-                        fullCorpus.substring(split1, split2),               // Claude: ~30%
+                        fullCorpus.substring(0, split1),                    // GeminiPro: ~50%
+                        fullCorpus.substring(split1, split2),               // GeminiFlash: ~30%
                         fullCorpus.substring(split2),                       // OpenAI: ~20%
                     ];
 
                     const models = [
-                        { name: 'Gemini', url: 'http://localhost:5012/api/ai/gemini', model: 'gemini-2.5-flash', maxChars: 2_500_000, timeout: 180_000 },
-                        { name: 'Claude', url: 'http://localhost:5012/api/ai/anthropic', model: 'claude-sonnet-4-6', maxChars: 500_000, timeout: 240_000 },
+                        { name: 'GeminiPro', url: 'http://localhost:5012/api/ai/gemini', model: 'gemini-3.1-pro-preview', maxChars: 2_500_000, timeout: 240_000 },
+                        { name: 'GeminiFlash', url: 'http://localhost:5012/api/ai/gemini', model: 'gemini-2.5-flash', maxChars: 2_500_000, timeout: 180_000 },
                         { name: 'OpenAI', url: 'http://localhost:5012/api/ai/openai', model: 'gpt-5.4-mini', maxChars: 320_000, timeout: 180_000 },
                     ];
 
@@ -3133,10 +3136,8 @@ ${safeContent}`;
 
                         const headers: Record<string, string> = { 'Content-Type': 'application/json' };
                         let body: any;
-                        if (m.name === 'Gemini') {
+                        if (m.name === 'GeminiPro' || m.name === 'GeminiFlash') {
                             body = { model: m.model, contents: prompt, config: { temperature: 0.1 } };
-                        } else if (m.name === 'Claude') {
-                            body = { model: m.model, max_tokens: 8000, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] };
                         } else {
                             body = { model: m.model, input: prompt };
                         }
@@ -3145,8 +3146,7 @@ ${safeContent}`;
                         if (!resp.ok) throw new Error(`${m.name} returned ${resp.status}: ${(await resp.text()).substring(0, 200)}`);
                         const data = await resp.json();
 
-                        if (m.name === 'Gemini') return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-                        if (m.name === 'Claude') return (data.content || []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n') || '';
+                        if (m.name === 'GeminiPro' || m.name === 'GeminiFlash') return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
                         return (data.output || []).filter((i: any) => i.type === 'message').flatMap((i: any) => (i.content || []).filter((b: any) => b.type === 'output_text').map((b: any) => b.text)).join('\n') || '';
                     };
 
@@ -3174,7 +3174,7 @@ ${safeContent}`;
 
                     fullCorpus = `=== TRI-MODEL RESEARCH SYNTHESIS ===
 Research corpus (${Math.round(corpusSize / 1024)}KB, ${totalItems} items) analyzed by ${synthesisParts.length} reasoning models in parallel.
-Split: Gemini ${Math.round(parts[0].length / 1024)}KB / Claude ${Math.round(parts[1].length / 1024)}KB / OpenAI ${Math.round(parts[2].length / 1024)}KB
+Split: GeminiPro ${Math.round(parts[0].length / 1024)}KB / GeminiFlash ${Math.round(parts[1].length / 1024)}KB / OpenAI ${Math.round(parts[2].length / 1024)}KB
 CITATION RULE: [CHUNK_XXX] references trace to original corpus items.
 ${synthesisParts.join('\n')}
 === END TRI-MODEL SYNTHESIS ===\n`;
@@ -3975,7 +3975,7 @@ ${synthesisParts.join('\n')}
                                              <div className="flex items-center gap-3 mb-2">
                                                  <button onClick={() => setEnableDeepResearch(!enableDeepResearch)} className={`w-5 h-5 rounded-sm border flex items-center justify-center text-xs ${enableDeepResearch ? 'bg-[var(--nxt-lime)] border-[var(--nxt-lime)] text-[var(--nxt-teal)]' : 'border-[var(--border-primary)] bg-white'}`}>{enableDeepResearch ? '✓' : ''}</button>
                                                  <span className="text-sm font-bold">AI Deep Research</span>
-                                                 <span className="tag">Claude / Gemini / OpenAI</span>
+                                                 <span className="tag">Gemini / OpenAI</span>
                                              </div>
                                              {enableDeepResearch && (
                                                  <div className="ml-8 flex gap-2">

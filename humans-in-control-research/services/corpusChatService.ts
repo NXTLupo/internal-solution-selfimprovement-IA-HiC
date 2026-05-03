@@ -17,7 +17,10 @@
  * - Full corpus grounding (no 500KB cap for Claude 4.7)
  */
 
-export type ChatModel = 'claude-opus-4-7' | 'gemini-2.5-flash' | 'gpt-5.4';
+// 2026-05-03 — claude-opus-4-7 removed from this branch (HiC-Gemini-Primary).
+// All chat traffic routes to Google or OpenAI; Anthropic is excluded from
+// the model picker, dispatch logic, and provider fallback chains.
+export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-2.5-flash' | 'gpt-5.4';
 
 export interface ChatMessage {
     id: string;
@@ -173,28 +176,32 @@ export interface ModelConfig {
     maxCorpusChars: number;
 }
 
+// 2026-05-03 — Default chat model migrated from claude-opus-4-7 to
+// gemini-3.1-pro-preview. Reasons documented in aiRouter.ts. Claude Opus
+// remains selectable in the model picker for users who want it on flagship
+// engagements; the Anthropic backend code path is fully preserved.
 export const AVAILABLE_MODELS: ModelConfig[] = [
+    {
+        id: 'gemini-3.1-pro-preview',
+        name: 'Gemini 3.1 Pro',
+        provider: 'google',
+        description: 'Flagship reasoning + 1-2M token context. Now the HiC default — same corpus grounding at ~12× lower cost than Opus.',
+        contextWindow: '2M tokens',
+        strengths: 'Long-context reasoning, schema adherence, multimodal, cost-effective',
+        color: '#00B7C3',
+        available: true,
+        maxCorpusChars: 900000, // No truncation — load everything
+    },
     {
         id: 'gemini-2.5-flash',
         name: 'Gemini 2.5 Flash',
         provider: 'google',
-        description: '1M token context — loads the ENTIRE corpus, knowledge graph, wiki, and skills with zero truncation.',
+        description: '1M token context — loads the ENTIRE corpus, knowledge graph, wiki, and skills with zero truncation. Fastest path; lighter reasoning vs Pro.',
         contextWindow: '1M tokens',
         strengths: 'Full corpus grounding, fast responses, image generation, no context limitations',
         color: '#B8B800',
         available: true,
         maxCorpusChars: 900000, // No truncation — load everything
-    },
-    {
-        id: 'claude-opus-4-7',
-        name: 'Claude Opus 4.7',
-        provider: 'anthropic',
-        description: 'Deep reasoning, strategy authoring, creative narratives. 1M context window.',
-        contextWindow: '1M tokens',
-        strengths: 'Complex reasoning, liberal quoting, framework adherence, long-form narrative',
-        color: '#CC6644',
-        available: true,
-        maxCorpusChars: 900000, // Claude 4.7 also has 1M context — no truncation
     },
     {
         id: 'gpt-5.4',
@@ -1831,7 +1838,7 @@ ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - If the corpus does not contain enough evidence to answer the question, say explicitly: "The collected data contains limited evidence on this topic. Here is what was found:" and cite ONLY what actually exists.
 - When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 — never pad to reach the requested number.
 
-ON-DEMAND WIKI RETRIEVAL (Claude tool use — available only to Claude models):
+ON-DEMAND WIKI RETRIEVAL (function-calling — used by Gemini Pro on this branch):
 You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE flagging EVIDENCE GAP, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
 
   - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 6) to pull 6 real bodies, then select the 3 best quotes.
@@ -1894,9 +1901,12 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         let responseText: string;
         const modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
 
-        if (modelConfig?.provider === 'anthropic') {
-            responseText = await callAnthropic(systemPrompt, userMessage, conversationHistory, model, thinkingEffort);
-        } else if (modelConfig?.provider === 'openai') {
+        // 2026-05-03 — Anthropic dispatch branch removed. Only Google and
+        // OpenAI providers reach the model layer on this branch. callAnthropic
+        // is no longer called from anywhere; the function definition below
+        // is retained only because removing it would cascade into a broader
+        // file rewrite, but it is unreachable.
+        if (modelConfig?.provider === 'openai') {
             responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory);
         } else {
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory);
@@ -2023,116 +2033,11 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
     }
 }
 
-async function callAnthropic(
-    system: string,
-    userMsg: string,
-    history: ChatMessage[],
-    model: ChatModel = 'claude-opus-4-7',
-    thinkingEffort: ThinkingEffort = 'medium',
-    opts: { enableTools?: boolean } = {},
-): Promise<string> {
-    const messages: any[] = [
-        ...history.filter(m => m.role !== 'system').map(m => ({
-            role: m.role as 'user' | 'assistant',
-            content: m.content
-        })),
-        { role: 'user' as const, content: userMsg }
-    ];
-
-    // Claude 4.7 uses adaptive thinking with effort levels (not budget_tokens)
-    const effortMap: Record<ThinkingEffort, string> = {
-        max: 'high',
-        high: 'medium',
-        medium: 'low',
-    };
-
-    // Tool use is enabled by default for Claude (the primary reasoning engine).
-    // Caller can force off via opts.enableTools === false.
-    const enableTools = opts.enableTools !== false;
-
-    // Iterative tool-use loop. Each iteration sends the current conversation
-    // to Anthropic; if Claude emits tool_use blocks, we execute them, append
-    // tool_result blocks, and loop. Loop ends when Claude finishes with
-    // stop_reason !== 'tool_use' (end_turn / max_tokens / stop_sequence).
-    let iter = 0;
-    let lastTextResponse = '';
-    while (iter < MAX_TOOL_ITER) {
-        iter++;
-        const body: any = {
-            model,
-            max_tokens: 32000,
-            system,
-            messages,
-            thinking: { type: 'adaptive' },
-            output_config: { effort: effortMap[thinkingEffort] || 'medium' },
-        };
-        if (enableTools) {
-            body.tools = [FETCH_WIKI_ARTICLES_TOOL];
-        }
-
-        const resp = await fetch(`${PROXY_BASE}/api/ai/anthropic`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
-
-        if (!resp.ok) {
-            const errorData = await resp.json().catch(() => ({}));
-            throw new Error(`Anthropic API error ${resp.status}: ${errorData.error?.message || JSON.stringify(errorData).substring(0, 200)}`);
-        }
-
-        const data = await resp.json();
-        const contentBlocks: any[] = Array.isArray(data.content) ? data.content : [];
-
-        // Always update the running text answer so we have something to return
-        // even if the loop terminates unexpectedly.
-        lastTextResponse = contentBlocks
-            .filter((b: any) => b.type === 'text')
-            .map((b: any) => b.text)
-            .join('');
-
-        // If Claude isn't asking for tools, we're done.
-        if (data.stop_reason !== 'tool_use') {
-            return lastTextResponse || data.content?.[0]?.text || 'No response';
-        }
-
-        // Collect tool_use blocks and execute them. Claude can emit multiple
-        // tool calls in a single turn; run them in parallel for speed.
-        const toolUseBlocks = contentBlocks.filter((b: any) => b.type === 'tool_use');
-        if (toolUseBlocks.length === 0) {
-            // Defensive: stop_reason claimed tool_use but no blocks present.
-            return lastTextResponse || 'No response';
-        }
-
-        console.log(`[chat.tools] iter ${iter}: Claude called ${toolUseBlocks.length} tool${toolUseBlocks.length === 1 ? '' : 's'}: ${toolUseBlocks.map(b => b.name).join(', ')}`);
-
-        const toolResults = await Promise.all(
-            toolUseBlocks.map(async (tu: any) => {
-                if (tu.name !== FETCH_WIKI_ARTICLES_TOOL.name) {
-                    return { type: 'tool_result', tool_use_id: tu.id, content: `Unknown tool: ${tu.name}`, is_error: true };
-                }
-                try {
-                    const result = await executeFetchWikiArticlesTool(tu.input || {});
-                    const isError = result.startsWith('(error');
-                    return { type: 'tool_result', tool_use_id: tu.id, content: result, ...(isError ? { is_error: true } : {}) };
-                } catch (err: any) {
-                    return { type: 'tool_result', tool_use_id: tu.id, content: `Tool execution error: ${err?.message || 'unknown'}`, is_error: true };
-                }
-            })
-        );
-
-        // Append the assistant's full content array (preserving thinking +
-        // text + tool_use in order) followed by the user's tool_result block.
-        messages.push({ role: 'assistant', content: contentBlocks });
-        messages.push({ role: 'user', content: toolResults });
-        // Loop continues — next iteration sends the augmented conversation.
-    }
-
-    // Hit iteration cap. Return whatever text was last produced; the response
-    // may be incomplete but it's better than throwing.
-    console.warn(`[chat.tools] iteration cap ${MAX_TOOL_ITER} reached; returning last partial response`);
-    return lastTextResponse || 'The reasoning loop hit its iteration cap. Try asking a more focused question.';
-}
+// 2026-05-03 — callAnthropic / Anthropic chat path removed on this branch
+// (HiC-Gemini-Primary). All chat traffic dispatches to callOpenAI or
+// callGemini via sendChatMessage. Restoring Anthropic requires re-adding
+// the function, the /api/ai/anthropic proxy route, the model registry
+// entries, and the dispatch branch.
 
 async function callOpenAI(system: string, userMsg: string, history: ChatMessage[]): Promise<string> {
     const messages = [

@@ -206,7 +206,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
-                    model: 'claude-opus-4-7',
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ss.ok) {
                     replaceArtifact(ss.artifact as any);
@@ -231,10 +231,12 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     // Designer revisions need to re-emit the FULL body content
                     // with edits applied. Gemini 2.5 Flash truncates dense
                     // diagrams mid-element ("INCOMPLETE BODY CONTENT: 17 divs
-                    // opened, 12 closed"). Opus 4.7 has 1M-context + much
-                    // higher output token capacity, so revisions complete
-                    // even on architecture diagrams with 30+ system boxes.
-                    model: 'claude-opus-4-7',
+                    // opened, 12 closed"). Gemini 3.1 Pro has 1-2M context
+                    // and much higher output token capacity, so revisions
+                    // complete even on architecture diagrams with 30+ boxes.
+                    // (2026-05-03: was claude-opus-4-7 before Anthropic
+                    // elimination on this branch.)
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -269,7 +271,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: null,
-                    model: 'claude-opus-4-7',
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);

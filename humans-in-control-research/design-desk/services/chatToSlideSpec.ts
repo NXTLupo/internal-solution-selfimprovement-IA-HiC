@@ -16,11 +16,11 @@ import { validateSlideSpec, type SlideSpec, SLIDE_W_IN, SLIDE_H_IN } from '../sc
 import type { SlideArtifact, FreeformKind } from '../schemas/slideArtifact';
 import { validateSlideArtifact } from '../schemas/slideArtifact';
 import type { BrandHashtag } from './hashtagParser';
-import { analyzeText as analyzeTextAnthropic } from '../../services/anthropicService';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-export type SlideSpecModel = 'claude-opus-4-7' | 'gpt-5.4' | 'gemini-2.5-flash';
+// 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary).
+export type SlideSpecModel = 'gpt-5.4' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview';
 
 export interface SlideSpecGenerateArgs {
     kind: FreeformKind;
@@ -46,14 +46,13 @@ const MAX_TOKENS = 32000;
 const TEMPERATURE = 0.3;
 
 function resolveProviderModelId(m: SlideSpecModel): string {
-    if (m === 'claude-opus-4-7') return 'claude-opus-4-6';
     if (m === 'gpt-5.4') return 'gpt-5.4';
+    if (m === 'gemini-3.1-pro-preview') return 'gemini-3.1-pro-preview';
     return 'gemini-2.5-flash';
 }
 
 async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
-    if (m === 'claude-opus-4-7') return analyzeTextAnthropic(SYSTEM_PROMPT, prompt, id, MAX_TOKENS, TEMPERATURE);
     if (m === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, id, MAX_TOKENS, TEMPERATURE);
     const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
     const response = await ai.models.generateContent({
@@ -261,7 +260,7 @@ function extractSlideSpecBlock(raw: string): { id?: string; kind?: string; brand
 // ---------------------------------------------------------------------------
 
 export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<SlideSpecGenerateResult> {
-    const model: SlideSpecModel = args.model ?? 'claude-opus-4-7';
+    const model: SlideSpecModel = args.model ?? 'gemini-3.1-pro-preview';
     const prompt = buildPrompt(args);
 
     let raw: string;

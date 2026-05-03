@@ -19,11 +19,11 @@ export interface ResearchConfig {
     query: string;
     maxSearches?: number;           // focused mode: 5-20, default 10
     searchContextSize?: 'low' | 'medium' | 'high';  // OpenAI
-    allowedDomains?: string[];      // Claude: restrict to these domains
-    blockedDomains?: string[];      // Claude: exclude these domains
+    allowedDomains?: string[];      // (legacy field — was Claude-only; ignored on this branch)
+    blockedDomains?: string[];      // (legacy field — was Claude-only; ignored on this branch)
     searchRegion?: string;          // OpenAI: country code for localization
-    thinkingBudget?: number;        // Claude: thinking budget tokens
-    preferredProvider?: 'gemini' | 'claude' | 'openai';  // user override
+    thinkingBudget?: number;        // (legacy Claude field; ignored on this branch)
+    preferredProvider?: 'gemini' | 'openai';  // user override
 }
 
 export interface ResearchSource {
@@ -206,107 +206,11 @@ async function geminiDeepResearch(
     };
 }
 
-// --- CLAUDE WEB SEARCH ---
-
-async function claudeWebSearch(config: ResearchConfig): Promise<ResearchResult> {
-    const start = Date.now();
-    const apiKey = (process.env as any).ANTHROPIC_API_KEY;
-    if (!apiKey) throw new Error('ANTHROPIC_API_KEY not configured');
-
-    const maxUses = config.mode === 'quick' ? 3 : (config.maxSearches || 10);
-
-    const toolDef: any = {
-        type: 'web_search_20250305',
-        name: 'web_search',
-        max_uses: maxUses,
-    };
-    if (config.allowedDomains?.length) toolDef.allowed_domains = config.allowedDomains;
-    if (config.blockedDomains?.length) toolDef.blocked_domains = config.blockedDomains;
-
-    // Structured research prompt — same pattern as Gemini grounding fix
-    const today = new Date().toISOString().split('T')[0];
-    const researchPrompt = `Date: ${today}. Research objective: "${config.query}"
-
-Search the web for authoritative evidence DIRECTLY relevant to this research objective. Every source must pass this relevance test: "Would a consultant working on this specific objective cite this in their strategy deck?"
-
-Prioritize: academic papers, government data, institutional reports, industry analyses with specific data points. Exclude: generic tech news, product announcements, marketing content, tangentially related articles.
-
-For each finding, extract the specific data point, statistic, or insight that is relevant. Cite sources.`;
-
-    const body: any = {
-        model: 'claude-opus-4-6',
-        max_tokens: 16000,
-        tools: [toolDef],
-        messages: [{ role: 'user', content: [{ type: 'text', text: researchPrompt }] }],
-    };
-
-    // Enable extended thinking for focused mode
-    if (config.mode === 'focused') {
-        body.thinking = {
-            type: 'enabled',
-            budget_tokens: config.thinkingBudget || 8000,
-        };
-    }
-
-    // Route through proxy to bypass CORS in browser
-    const proxyUrl = typeof window !== 'undefined' ? 'http://localhost:5012/api/ai/anthropic' : 'https://api.anthropic.com/v1/messages';
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (proxyUrl.includes('anthropic.com')) {
-        headers['x-api-key'] = apiKey;
-        headers['anthropic-version'] = '2023-06-01';
-    }
-    const response = await fetch(proxyUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(body),
-    });
-
-    if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`Claude web search failed: ${response.status} ${err}`);
-    }
-
-    const data = await response.json();
-    const sources: ResearchSource[] = [];
-    let content = '';
-    let searchCount = 0;
-
-    for (const block of data.content || []) {
-        if (block.type === 'web_search_tool_result') {
-            searchCount++;
-            for (const result of block.content || []) {
-                if (result.type === 'web_search_result') {
-                    sources.push({
-                        url: result.url,
-                        title: result.title,
-                        snippet: result.page_age,
-                    });
-                }
-            }
-        }
-        if (block.type === 'text') {
-            content += block.text;
-            // Extract citations from text block
-            for (const cit of block.citations || []) {
-                if (cit.type === 'web_search_result_location' && cit.cited_text) {
-                    const existing = sources.find(s => s.url === cit.url);
-                    if (existing) existing.citedText = cit.cited_text;
-                }
-            }
-        }
-    }
-
-    return {
-        mode: config.mode,
-        provider: 'claude',
-        content,
-        sources,
-        searchQueriesUsed: [`${searchCount} searches executed`],
-        estimatedCost: searchCount * 0.01,
-        durationMs: Date.now() - start,
-        status: 'completed',
-    };
-}
+// --- CLAUDE WEB SEARCH (REMOVED 2026-05-03) ---
+// claudeWebSearch and the 'claude' branch in executeResearch were removed
+// when this branch (HiC-Gemini-Primary) eliminated all Anthropic pipeline
+// paths. Web search now routes through Gemini grounding (default) or the
+// OpenAI web_search_preview tool — never through Anthropic.
 
 // --- OPENAI WEB SEARCH ---
 
@@ -399,11 +303,13 @@ export async function executeResearch(
                 }
                 return await geminiGroundedSearch(config);
 
-            case 'claude':
-                return await claudeWebSearch(config);
-
             case 'openai':
                 return await openaiWebSearch(config);
+
+            // 2026-05-03 — 'claude' branch removed on this branch
+            // (HiC-Gemini-Primary). Anthropic web search is no longer
+            // available; the 'preferredProvider' type also no longer
+            // includes 'claude'.
 
             default:
                 throw new Error(`Unknown provider: ${provider}`);
@@ -412,7 +318,7 @@ export async function executeResearch(
         console.error(`Research failed (${provider}):`, error);
 
         // Fallback to next available provider
-        const fallback = getFallbackProvider(provider);
+        const fallback = getFallbackProvider(provider) as ('gemini' | 'openai' | null);
         if (fallback && fallback !== provider) {
             console.warn(`Falling back to ${fallback}`);
             return executeResearch({ ...config, preferredProvider: fallback }, onProgress);
@@ -433,18 +339,16 @@ export async function executeResearch(
 }
 
 function getDefaultProvider(mode: ResearchMode): string {
-    // With AI proxy routes, all providers now work from browser.
-    // Route to the best provider per mode:
-    // - quick: Gemini (fastest grounded search)
-    // - focused: Claude (best document analysis + web search)
-    // - deep: Gemini (Interactions API for autonomous research)
-    if (mode === 'focused') return 'claude';
+    // 2026-05-03 — All modes default to Gemini on this branch
+    // (HiC-Gemini-Primary). Anthropic provider was removed from the cascade
+    // and from the preferredProvider type union.
     return 'gemini';
 }
 
 function getFallbackProvider(failed: string): string | null {
-    // With proxy, all providers available. Cascade: gemini -> claude -> openai
-    const cascade = ['gemini', 'claude', 'openai'];
+    // 2026-05-03 — Two-provider cascade after Anthropic elimination.
+    // gemini → openai → null. Failures past openai surface as research errors.
+    const cascade = ['gemini', 'openai'];
     const idx = cascade.indexOf(failed);
     if (idx >= 0 && idx < cascade.length - 1) return cascade[idx + 1];
     if (failed !== 'gemini') return 'gemini';
@@ -455,12 +359,11 @@ function getFallbackProvider(failed: string): string | null {
  * Check which research providers are available based on API keys.
  */
 export function getAvailableProviders(): { provider: string; modes: ResearchMode[] }[] {
+    // 2026-05-03 — Anthropic removed from the available providers list on
+    // this branch (HiC-Gemini-Primary). Only Google + OpenAI surface here.
     const results: { provider: string; modes: ResearchMode[] }[] = [];
     if ((process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY) {
         results.push({ provider: 'gemini', modes: ['quick', 'focused', 'deep'] });
-    }
-    if ((process.env as any).ANTHROPIC_API_KEY) {
-        results.push({ provider: 'claude', modes: ['quick', 'focused'] });
     }
     if ((process.env as any).OPENAI_API_KEY) {
         results.push({ provider: 'openai', modes: ['quick', 'focused'] });

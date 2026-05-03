@@ -305,7 +305,7 @@ export interface PresentationPayload {
     narrativeThesis: string;
 
     // Composer observability
-    composerModel: string;         // 'claude-opus-4-7' | 'gpt-5.5'
+    composerModel: string;         // 'gemini-3.1-pro-preview' (default) | 'gpt-5.5'
     composerToolCalls: number;
     sourceCount: {
       external: number;

@@ -6,8 +6,8 @@ import { FileUpload as FileUploadType } from '../types';
 /**
  * Background pass that POSTs every uploaded file to /api/parse-upload and
  * re-invokes onFilesSelected with the resulting text attached as
- * `parsedText`. Provider-agnostic: once this completes, chat (Claude /
- * OpenAI / Gemini) all see the uploaded PDF/DOCX/etc. body as plain text
+ * `parsedText`. Provider-agnostic: once this completes, chat (OpenAI /
+ * Gemini) all see the uploaded PDF/DOCX/etc. body as plain text
  * via ChatContext.uploadedFileContents. Wiki archive and corpus ingestion
  * pick it up the same way.
  */

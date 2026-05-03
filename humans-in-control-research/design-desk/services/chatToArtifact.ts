@@ -6,12 +6,12 @@ import { buildJourneyPrompt } from '../prompts/journeyPrompt';
 import { buildOrgChartPrompt } from '../prompts/orgChartPrompt';
 import type { Artifact } from '../types';
 import type { BrandHashtag, ContentHashtag } from './hashtagParser';
-import { analyzeText as analyzeTextAnthropic } from '../../services/anthropicService';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-/** Model id that the chat surface uses. Same union as `ChatModel` in corpusChatService. */
-export type GenerationModel = 'gemini-2.5-flash' | 'claude-opus-4-7' | 'gpt-5.4';
+/** Model id that the chat surface uses. Same union as `ChatModel` in corpusChatService.
+ * 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary). */
+export type GenerationModel = 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
 
 export interface GenerateArgs {
     content: ContentHashtag;
@@ -52,9 +52,9 @@ const TEMPERATURE = 0.2;
 /** Provider IDs the underlying SDK clients expect. The chat-side ids may differ. */
 function resolveProviderModelId(chatModel: GenerationModel): string {
     switch (chatModel) {
-        case 'claude-opus-4-7': return 'claude-opus-4-6'; // SDK currently exposes claude-opus-4-6 as the latest Opus alias
         case 'gpt-5.4': return 'gpt-5.4';
         case 'gemini-2.5-flash': return 'gemini-2.5-flash';
+        case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
     }
 }
 
@@ -75,7 +75,6 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
 
 async function callForModel(prompt: string, model: GenerationModel): Promise<string> {
     const providerId = resolveProviderModelId(model);
-    if (model === 'claude-opus-4-7') return analyzeTextAnthropic(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     return callGemini(prompt, providerId);
 }

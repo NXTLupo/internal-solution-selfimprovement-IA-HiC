@@ -213,7 +213,7 @@ export const ChatWorkbench: React.FC<Props> = ({
         // Provider-agnostic file content — reads proxy-parsed body text when
         // the FileUpload background parser has populated parsedText (PDFs
         // via PyPDF2, DOCX via office-regex). Falls back to text-file base64
-        // decode for .txt/.json/.csv etc. Claude/OpenAI/Gemini chat all see
+        // decode for .txt/.json/.csv etc. OpenAI/Gemini chat all see
         // the same extracted text — no multimodal dependency.
         const uploadedFileContents = (() => {
             try {

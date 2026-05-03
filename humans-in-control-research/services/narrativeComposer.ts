@@ -105,10 +105,15 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
     onToolCall?.(name, args, summary);
   };
 
-  const loopArgs = { systemPrompt, narrativeRequest, executor: trackedExecutor, onTool, isPackageMode };
-  const rawPayload = model === 'claude-opus-4-7'
-    ? await runAnthropicLoop(loopArgs)
-    : await runOpenAILoop(loopArgs);
+  // 2026-05-03 — Anthropic loop removed on this branch (HiC-Gemini-Primary).
+  // All composer traffic goes through runOpenAILoop, which routes to either
+  // OpenAI or Google's OpenAI-compatible endpoint based on model prefix:
+  //   gpt-*    → /api/ai/openai
+  //   gemini-* → /api/ai/gemini-compat (Google's OpenAI-format endpoint)
+  // The wire format is identical for both, so the same loop logic drives
+  // both providers. To restore Anthropic, re-add the runAnthropicLoop branch.
+  const loopArgs: LoopArgs = { systemPrompt, narrativeRequest, executor: trackedExecutor, onTool, isPackageMode, model };
+  const rawPayload = await runOpenAILoop(loopArgs);
 
   onProgress?.('Validating schema and finalizing...');
   const validated = validateAndFinalize(rawPayload, request, tracker, toolCallCount);
@@ -422,11 +427,15 @@ function getOutputSchemaText(): string {
 }
 
 // ============================================================================
-// ANTHROPIC TOOL-USE LOOP
+// COMPOSER TOOL-USE LOOP
 // ============================================================================
+// 2026-05-03 — Anthropic loop / proxy URL / message types removed on this
+// branch (HiC-Gemini-Primary). All composer traffic flows through
+// runOpenAILoop, which dispatches to OpenAI or Google's OpenAI-compatible
+// endpoint based on model prefix.
 
-const ANTHROPIC_PROXY_URL = 'http://localhost:5012/api/ai/anthropic';
 const OPENAI_PROXY_URL = 'http://localhost:5012/api/ai/openai';
+const GEMINI_OPENAI_COMPAT_PROXY_URL = 'http://localhost:5012/api/ai/gemini-compat';
 // 8 iterations × ~1.7 parallel tool calls per turn = ~14 actual tool invocations
 // in the worst case. Anything more bloats the context past the point where the
 // model can produce a clean submit_presentation payload — that was the failure
@@ -493,6 +502,12 @@ interface LoopArgs {
   onTool: (name: string, args: unknown, summary?: string) => void;
   /** When true, force-converge to submit_presentation after just 1-2 turns. */
   isPackageMode: boolean;
+  /**
+   * 2026-05-03 — Model id passed by the dispatcher. runOpenAILoop accepts
+   * either gpt-* (routed to OpenAI) or gemini-* (routed to Google's
+   * OpenAI-compatible endpoint). Optional: omitted callers default to gpt-5.5.
+   */
+  model?: string;
 }
 
 // Force-convergence threshold:
@@ -504,176 +519,6 @@ function forceSubmitAtIter(isPackageMode: boolean): number {
   return isPackageMode ? 2 : COMPOSER_FORCE_SUBMIT_AT_ITER;
 }
 
-interface AnthropicTextBlock { type: 'text'; text: string }
-interface AnthropicToolUseBlock { type: 'tool_use'; id: string; name: string; input: Record<string, unknown> }
-type AnthropicContentBlock = AnthropicTextBlock | AnthropicToolUseBlock;
-
-interface AnthropicMessage {
-  role: 'user' | 'assistant';
-  content: string | Array<AnthropicContentBlock | { type: 'tool_result'; tool_use_id: string; content: string; is_error?: boolean }>;
-}
-
-interface AnthropicResponse {
-  id: string;
-  stop_reason: 'end_turn' | 'tool_use' | 'max_tokens' | string;
-  content: AnthropicContentBlock[];
-  usage?: { input_tokens: number; output_tokens: number };
-}
-
-async function runAnthropicLoop(args: LoopArgs): Promise<unknown> {
-  const messages: AnthropicMessage[] = [
-    { role: 'user', content: args.narrativeRequest },
-  ];
-
-  let missingSubmitRetries = 0;
-  const MAX_MISSING_SUBMIT_RETRIES = 2;
-
-  // Track retrieval calls so we can enforce a minimum before submit_presentation
-  // is allowed. In research mode the user is asking for fresh evidence —
-  // letting the model jump straight to submit produces decks with 0 sources
-  // and citations fabricated from training knowledge (the failure mode the
-  // user just hit on the "competitive analysis outside of Northeastern" run).
-  const RETRIEVAL_TOOL_NAMES = new Set([
-    'search_corpus', 'extract_quotes', 'extract_stats',
-    'get_themes', 'get_personas', 'get_deliverable',
-  ]);
-  let retrievalCount = 0;
-  const MIN_RETRIEVALS_RESEARCH = 2;
-
-  const forceAt = forceSubmitAtIter(args.isPackageMode);
-  for (let iter = 0; iter < COMPOSER_MAX_ITERATIONS; iter++) {
-    // Convergence forcing has THREE phases:
-    //   1. iter 0 in research mode: force search_corpus (no submit yet) —
-    //      the model MUST retrieve before composing.
-    //   2. iter < forceAt with retrievalCount < MIN_RETRIEVALS_RESEARCH (research only):
-    //      tool_choice='any' but submit_presentation is excluded from the tool
-    //      list. Forces another retrieval turn.
-    //   3. iter >= forceAt: force submit_presentation only.
-    let toolChoice: Record<string, unknown>;
-    let availableTools = NARRATIVE_TOOLS;
-
-    if (!args.isPackageMode && iter === 0) {
-      toolChoice = { type: 'tool', name: 'search_corpus' };
-    } else if (iter >= forceAt) {
-      toolChoice = { type: 'tool', name: 'submit_presentation' };
-    } else if (!args.isPackageMode && retrievalCount < MIN_RETRIEVALS_RESEARCH) {
-      // Research mode but hasn't retrieved enough — keep submit_presentation
-      // out of the tool list so the model is forced to use a retrieval tool.
-      toolChoice = { type: 'any' };
-      availableTools = NARRATIVE_TOOLS.filter(t => t.name !== 'submit_presentation');
-    } else {
-      toolChoice = { type: 'any' };
-    }
-
-    const response = await callAnthropic({
-      model: 'claude-opus-4-7',
-      max_tokens: COMPOSER_MAX_TOKENS,
-      system: args.systemPrompt,
-      tools: availableTools.map(t => ({
-        name: t.name,
-        description: t.description,
-        input_schema: t.input_schema,
-      })),
-      tool_choice: toolChoice,
-      messages,
-    });
-
-    messages.push({ role: 'assistant', content: response.content });
-
-    if (response.stop_reason === 'tool_use') {
-      const toolUseBlocks = response.content.filter((b): b is AnthropicToolUseBlock => b.type === 'tool_use');
-
-      // Silent-mode short-circuit: if model called submit_presentation, that
-      // tool's input IS the final payload (Anthropic already parsed the JSON
-      // against the input_schema). Return immediately.
-      const submitBlock = toolUseBlocks.find(b => b.name === 'submit_presentation');
-      if (submitBlock) {
-        args.onTool('submit_presentation', { sections: (submitBlock.input as Record<string, unknown>)?.sections }, 'final payload submitted');
-        return submitBlock.input;
-      }
-
-      // Execute every retrieval tool call returned in this turn (parallel-safe)
-      const toolResultsContent: Array<{ type: 'tool_result'; tool_use_id: string; content: string; is_error?: boolean }> = [];
-      for (const tu of toolUseBlocks) {
-        const summary = await executeToolForAnthropic(args.executor, tu, args.onTool);
-        toolResultsContent.push({
-          type: 'tool_result',
-          tool_use_id: tu.id,
-          content: summary.serialized,
-          is_error: summary.isError,
-        });
-        if (RETRIEVAL_TOOL_NAMES.has(tu.name)) {
-          retrievalCount += 1;
-        }
-      }
-      messages.push({ role: 'user', content: toolResultsContent });
-      continue;
-    }
-
-    if (response.stop_reason === 'end_turn' || response.stop_reason === 'max_tokens') {
-      // Model finished without calling submit_presentation. With tool_choice='any'
-      // this should be impossible, but guard anyway. Send a corrective user
-      // message and let the next iteration force a submit.
-      if (missingSubmitRetries < MAX_MISSING_SUBMIT_RETRIES) {
-        missingSubmitRetries += 1;
-        messages.push({
-          role: 'user',
-          content: [
-            {
-              type: 'text',
-              text:
-                'You did not call the submit_presentation tool. Your task is incomplete. ' +
-                'CALL submit_presentation NOW with the full PresentationPayload as the input. ' +
-                'Do not emit any other text or call any other tool until you have submitted.',
-            },
-          ],
-        });
-        continue;
-      }
-      throw new Error(
-        `claude-opus-4-7 ended turn without calling submit_presentation after ${MAX_MISSING_SUBMIT_RETRIES} retries. ` +
-        `The model is refusing to deliver the payload via tool input.`
-      );
-    }
-
-    throw new Error(`Anthropic returned unexpected stop_reason: ${response.stop_reason}`);
-  }
-
-  throw new Error(`Composer exceeded ${COMPOSER_MAX_ITERATIONS} iterations without calling submit_presentation`);
-}
-
-async function callAnthropic(body: Record<string, unknown>): Promise<AnthropicResponse> {
-  return withRetry(async () => {
-    const res = await fetchWithTimeout(ANTHROPIC_PROXY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }, COMPOSER_REQUEST_TIMEOUT_MS);
-    if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      const err: RetriableHttpError = new Error(`Anthropic API ${res.status}: ${errText.slice(0, 300)}`);
-      err.status = res.status;
-      throw err;
-    }
-    return res.json();
-  }, 'callAnthropic');
-}
-
-async function executeToolForAnthropic(
-  executor: ToolExecutor,
-  block: AnthropicToolUseBlock,
-  onTool: LoopArgs['onTool'],
-): Promise<{ serialized: string; isError: boolean }> {
-  try {
-    const result = await dispatchTool(executor, block.name, block.input);
-    onTool(block.name, block.input, summarizeResult(block.name, result));
-    return { serialized: JSON.stringify(result), isError: false };
-  } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : String(e);
-    onTool(block.name, block.input, `error: ${msg}`);
-    return { serialized: JSON.stringify({ error: msg }), isError: true };
-  }
-}
 
 // ============================================================================
 // OPENAI TOOL-USE LOOP
@@ -752,8 +597,9 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
       toolChoice = 'required';
     }
 
+    const loopModel = args.model || 'gpt-5.5';
     const response = await callOpenAI({
-      model: 'gpt-5.5',
+      model: loopModel,
       messages,
       tools: availableTools,
       tool_choice: toolChoice,
@@ -830,15 +676,24 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
 }
 
 async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse> {
+  // Route by model prefix: gemini-* → Google OpenAI-compat endpoint,
+  // gpt-* / openai-* → OpenAI native. Wire format identical for both
+  // (chat completions + tool_calls), so the rest of runOpenAILoop is unchanged.
+  const modelStr = String(body.model || '').toLowerCase();
+  const url = modelStr.startsWith('gemini-')
+    ? GEMINI_OPENAI_COMPAT_PROXY_URL
+    : OPENAI_PROXY_URL;
+  const providerLabel = modelStr.startsWith('gemini-') ? 'Gemini-compat' : 'OpenAI';
+
   return withRetry(async () => {
-    const res = await fetchWithTimeout(OPENAI_PROXY_URL, {
+    const res = await fetchWithTimeout(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     }, COMPOSER_REQUEST_TIMEOUT_MS);
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
-      const err: RetriableHttpError = new Error(`OpenAI API ${res.status}: ${errText.slice(0, 300)}`);
+      const err: RetriableHttpError = new Error(`${providerLabel} API ${res.status}: ${errText.slice(0, 300)}`);
       err.status = res.status;
       throw err;
     }

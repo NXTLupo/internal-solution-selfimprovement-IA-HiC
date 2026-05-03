@@ -57,7 +57,8 @@
       "Bash(npx --yes -p typescript@5.8.2 tsc --noEmit --skipLibCheck --jsx react-jsx --target es2022 --module esnext --moduleResolution bundler --strict --esModuleInterop --allowSyntheticDefaultImports --resolveJsonModule --isolatedModules --lib es2022,dom,dom.iterable src/types.ts src/payloadFetcher.ts)"
     ],
     "additionalDirectories": [
-      "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
+      "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills",
+      "\\tmp"
     ]
   },
   "hooks": {

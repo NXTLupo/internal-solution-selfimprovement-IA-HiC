@@ -3100,45 +3100,29 @@ async def scheduler_poll_youtube_channels(request: _S5Request):
 
 from fastapi import Request
 
+# 2026-05-03 — /api/ai/anthropic endpoint removed on this branch
+# (HiC-Gemini-Primary). The HiC pipeline routes exclusively through
+# /api/ai/gemini, /api/ai/gemini-compat, and /api/ai/openai. Re-adding
+# Anthropic requires restoring this endpoint AND restoring the SPA-side
+# adapters (anthropicService.ts, claudeAdapter.ts), the model registry
+# entries, and the dispatch branches in the chat/composer.
+#
+# Stub left in place so that if a stale SPA bundle (cached by a browser)
+# tries to reach /api/ai/anthropic, the user gets a clear 410 Gone instead
+# of a 404 (which would silently retry).
+
 @app.post("/api/ai/anthropic")
-async def proxy_anthropic(request: Request):
-    """Proxy requests to Anthropic Claude API. Adds API key server-side."""
-    api_key = os.getenv("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        return JSONResponse({"error": "ANTHROPIC_API_KEY not configured"}, status_code=500)
-
-    try:
-        body = await request.json()
-        headers = {
-            "Content-Type": "application/json",
-            "x-api-key": api_key,
-            "anthropic-version": "2023-06-01",
-        }
-        # Forward anthropic-beta header if present
-        beta = request.headers.get("anthropic-beta")
-        if beta:
-            headers["anthropic-beta"] = beta
-
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(
-                "https://api.anthropic.com/v1/messages",
-                json=body,
-                headers=headers,
-                timeout=300.0,
+async def proxy_anthropic_removed(request: Request):
+    return JSONResponse(
+        {
+            "error": (
+                "Anthropic endpoint removed on this branch (HiC-Gemini-Primary). "
+                "Hard-refresh the SPA to pick up the bundle that routes to "
+                "/api/ai/gemini-compat or /api/ai/openai instead."
             )
-            if resp.status_code >= 400:
-                logger.error(f"Anthropic API {resp.status_code} for model={body.get('model')}: {resp.text[:600]}")
-            try:
-                return JSONResponse(resp.json(), status_code=resp.status_code)
-            except Exception as json_err:
-                logger.error(f"Anthropic non-JSON response ({resp.status_code}): {resp.text[:600]} | json_err={json_err!r}")
-                return JSONResponse({"error": f"Anthropic returned non-JSON (status {resp.status_code}): {resp.text[:300]}"}, status_code=502)
-    except httpx.TimeoutException:
-        logger.error("Anthropic proxy timeout")
-        return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
-    except Exception as e:
-        logger.error(f"Anthropic proxy error: type={type(e).__name__} repr={e!r}")
-        return JSONResponse({"error": f"Anthropic proxy error: {type(e).__name__}: {str(e)[:200] or repr(e)[:200]}"}, status_code=502)
+        },
+        status_code=410,
+    )
 
 
 @app.post("/api/ai/gemini")
@@ -3226,6 +3210,45 @@ async def proxy_openai(request: Request):
     except Exception as e:
         logger.error(f"OpenAI proxy error: {e}")
         return JSONResponse({"error": f"OpenAI proxy error: {str(e)[:200]}"}, status_code=502)
+
+
+@app.post("/api/ai/gemini-compat")
+async def proxy_gemini_openai_compat(request: Request):
+    """Proxy requests to Gemini via Google's OpenAI-compatible endpoint.
+
+    2026-05-03 — Added so the narrative composer's existing OpenAI tool-loop
+    can drive Gemini 3.1 Pro without porting the loop to Gemini's native
+    function-calling protocol. Google publishes
+    https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+    which accepts and emits OpenAI-format chat completions including
+    tool_calls — drop-in replacement at ~12× lower cost than Opus 4.7.
+
+    Request body is OpenAI chat-completions shape: { model, messages,
+    tools, tool_choice, max_tokens, ... }. The 'model' field passes through
+    unchanged (e.g. "gemini-3.1-pro-preview" or "gemini-2.5-flash").
+    """
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "GEMINI_API_KEY not configured"}, status_code=500)
+
+    try:
+        body = await request.json()
+        url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        }
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=body, headers=headers, timeout=300.0)
+            if resp.status_code >= 400:
+                logger.error(f"Gemini compat API {resp.status_code} for model={body.get('model')}: {resp.text[:600]}")
+            return JSONResponse(resp.json(), status_code=resp.status_code)
+    except httpx.TimeoutException:
+        logger.error("Gemini compat proxy timeout")
+        return JSONResponse({"error": "Gemini compat API timeout (300s)"}, status_code=504)
+    except Exception as e:
+        logger.error(f"Gemini compat proxy error: {e}")
+        return JSONResponse({"error": f"Gemini compat proxy error: {str(e)[:200]}"}, status_code=502)
 
 
 @app.get("/api/ai/status")
@@ -5081,7 +5104,7 @@ async def wiki_rerank(payload: dict):
             "source_name": "<readable source name>" },
           ...
         ],
-        "model": "claude-opus-4-7" | "gpt-5.5" | "gemini-2.5-flash" (optional, default opus)
+        "model": "gpt-5.5" | "gemini-2.5-flash" | "gemini-3.1-pro-preview" (optional, default gemini-2.5-flash)
       }
 
     Response:
@@ -5110,7 +5133,11 @@ async def wiki_rerank(payload: dict):
     goal = (payload.get("goal") or "").strip()
     question = (payload.get("question") or "").strip()
     candidates = payload.get("candidates") or []
-    model_id = payload.get("model") or "claude-opus-4-7"
+    # 2026-05-03 — Default rerank model swapped from claude-opus-4-7 to
+    # gemini-2.5-flash. Reranking 6 chunks 0-1 doesn't need Opus reasoning
+    # depth; Flash handles it correctly at ~3% of the cost. Callers can
+    # still override via the `model` field in the request body.
+    model_id = payload.get("model") or "gemini-2.5-flash"
 
     if not isinstance(candidates, list) or len(candidates) == 0:
         return JSONResponse({"error": "candidates must be a non-empty array"}, status_code=400)
@@ -5158,16 +5185,11 @@ Scoring rubric:
 Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
 """
 
-    # Call the proxy's existing AI endpoints based on model selection
+    # Call the proxy's existing AI endpoints based on model selection.
+    # 2026-05-03 — claude-* branch removed on this branch (HiC-Gemini-Primary).
+    # Reranker now routes only to /api/ai/openai or /api/ai/gemini.
     try:
-        if model_id.startswith("claude-"):
-            api_url = "/api/ai/anthropic"
-            body = {
-                "model": model_id,
-                "max_tokens": 4000,
-                "messages": [{"role": "user", "content": prompt}],
-            }
-        elif model_id.startswith("gpt-"):
+        if model_id.startswith("gpt-"):
             api_url = "/api/ai/openai"
             body = {
                 "model": model_id,
@@ -5197,12 +5219,9 @@ Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
             raise RuntimeError(f"AI endpoint {resp.status_code}: {resp.text[:200]}")
         ai_body = resp.json()
 
-        # Extract the model's JSON output
-        if model_id.startswith("claude-"):
-            content_blocks = ai_body.get("content") or []
-            text_blocks = [b.get("text", "") for b in content_blocks if isinstance(b, dict) and b.get("type") == "text"]
-            raw_text = "".join(text_blocks).strip()
-        elif model_id.startswith("gpt-"):
+        # Extract the model's JSON output.
+        # 2026-05-03 — claude-* branch removed; only gpt-* and gemini-* paths.
+        if model_id.startswith("gpt-"):
             choices = ai_body.get("choices") or []
             raw_text = (choices[0].get("message", {}).get("content") if choices else "") or ""
         else:

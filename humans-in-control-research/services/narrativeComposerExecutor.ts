@@ -220,7 +220,10 @@ async function rerankArticles(
         goal,
         question,
         candidates,
-        model: modelId || 'claude-opus-4-7',
+        // 2026-05-03 — Default rerank migrated to Gemini Flash (3% of Opus
+        // cost; same quality for chunk-relevance scoring). Caller can still
+        // override via modelId param.
+        model: modelId || 'gemini-2.5-flash',
       }),
     });
     if (!resp.ok) {
@@ -472,7 +475,7 @@ export function createNarrativeComposerExecutor(
           goalFiltered,
           goal,
           input.query,
-          /* modelId */ undefined, // proxy default = claude-opus-4-7
+          /* modelId */ undefined, // proxy default = gemini-2.5-flash (2026-05-03)
         );
 
         const finalArticles = rerankOutcome.articles.slice(0, limit);

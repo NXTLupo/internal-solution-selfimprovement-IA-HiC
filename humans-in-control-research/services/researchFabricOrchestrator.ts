@@ -1350,8 +1350,10 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
 }
 
 /**
- * TRI-MODEL PARALLEL ANALYSIS — Split enriched corpus across Gemini, Claude, OpenAI
+ * TRI-MODEL PARALLEL ANALYSIS — Split enriched corpus across two Gemini variants + OpenAI
  * Each model analyzes a third of the enriched items and produces a focused summary.
+ * (2026-05-03 — Anthropic / Claude slice removed; replaced with a Gemini Pro slice
+ * for triangulation diversity. Different training corpora, different reasoning profiles.)
  * The three summaries are merged into a unified "multi-model synthesis" that gets
  * prepended to the corpus, giving the main session diverse analytical perspectives.
  */
@@ -1364,9 +1366,13 @@ async function triModelAnalysis(enrichedItems: DataSourceItem[], researchGoal: s
     const groups: DataSourceItem[][] = [[], [], []];
     enrichedItems.forEach((item, i) => groups[i % 3].push(item));
 
+    // 2026-05-03 — Claude Sonnet slice replaced with Gemini 3.1 Pro to
+    // eliminate Anthropic dependency. Triangulation diversity preserved by
+    // running two distinct Google models (Pro + Flash) plus one OpenAI
+    // model — different training corpora, different reasoning profiles.
     const modelConfigs = [
-        { name: 'Gemini', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-2.5-flash' },
-        { name: 'Claude', endpoint: `${PROXY}/api/ai/anthropic`, model: 'claude-sonnet-4-6' },
+        { name: 'GeminiPro', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-3.1-pro-preview' },
+        { name: 'GeminiFlash', endpoint: `${PROXY}/api/ai/gemini`, model: 'gemini-2.5-flash' },
         { name: 'OpenAI', endpoint: `${PROXY}/api/ai/openai`, model: 'gpt-5.4-mini' },
     ];
 
@@ -1392,10 +1398,11 @@ Be specific. Cite item numbers. Extract statistics, percentages, and named entit
                 let body: any;
                 let headers: Record<string, string> = { 'Content-Type': 'application/json' };
 
-                if (config.name === 'Gemini') {
+                // Provider-shape switch: Gemini variants share one wire format,
+                // OpenAI uses its own. Anthropic path retained for completeness
+                // but no current TriModel slice routes through it.
+                if (config.name === 'GeminiPro' || config.name === 'GeminiFlash' || config.name === 'Gemini') {
                     body = { model: config.model, contents: prompt, config: { temperature: 0.2 } };
-                } else if (config.name === 'Claude') {
-                    body = { model: config.model, max_tokens: 4000, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] };
                 } else {
                     body = { model: config.model, input: prompt };
                 }
@@ -1414,10 +1421,8 @@ Be specific. Cite item numbers. Extract statistics, percentages, and named entit
                 const data = await resp.json();
 
                 // Extract text from different response formats
-                if (config.name === 'Gemini') {
+                if (config.name === 'GeminiPro' || config.name === 'GeminiFlash' || config.name === 'Gemini') {
                     return data.candidates?.[0]?.content?.parts?.[0]?.text || data.text || '';
-                } else if (config.name === 'Claude') {
-                    return (data.content || []).filter((b: any) => b.type === 'text').map((b: any) => b.text).join('\n') || '';
                 } else {
                     return (data.output || []).filter((i: any) => i.type === 'message')
                         .flatMap((i: any) => (i.content || []).filter((b: any) => b.type === 'output_text').map((b: any) => b.text)).join('\n') || '';

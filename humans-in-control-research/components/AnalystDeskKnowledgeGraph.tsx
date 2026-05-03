@@ -197,7 +197,7 @@ function pickDefaultSize(themeCount: number): DeskSize {
 
 export interface PipelineActivity {
     activeStage?: string;       // AnalysisStage value, e.g. 'PERSONAS'
-    currentStatus?: string;     // short status line, e.g. "Claude Opus · 342 chunks"
+    currentStatus?: string;     // short status line, e.g. "Gemini 3.1 Pro · 342 chunks"
     lastEvent?: string;         // most recent narrative event message
     isRunning?: boolean;        // any stage is actively inferring right now
 }

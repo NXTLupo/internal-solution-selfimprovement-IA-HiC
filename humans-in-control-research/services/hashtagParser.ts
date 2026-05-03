@@ -12,8 +12,15 @@
 //   #NU                      — brand: Northeastern University
 //   #dark                    — theme: dark (default)
 //   #light                   — theme: light
-//   #model=opus              — alias for claude-opus-4-7 (default)
-//   #model=gpt5.5            — use gpt-5.5 instead
+//   #model=gpt5.5            — alias for gpt-5.5 (default 2026-05-03)
+//   #model=gemini            — opt into gemini-3.1-pro-preview (currently
+//                              produces empty section data — schema bug;
+//                              kept for follow-up testing only)
+//
+// 2026-05-03 — Claude / Opus aliases removed on this branch. Only Google
+// (Gemini) and OpenAI (GPT-5.5) composer models are accepted.
+// Default flipped to GPT-5.5 because Gemini's OpenAI-compat function-calling
+// emits empty `data: {}` for sections (loose-schema serialization bug).
 //   #hero="Custom Headline." — override the composed hero title
 //   #sections=themes,personas,recs   — restrict to listed section kinds
 //   #preview                 — render but do not persist (ephemeral)
@@ -22,7 +29,7 @@
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
 
-export type ComposerModelChoice = 'claude-opus-4-7' | 'gpt-5.5';
+export type ComposerModelChoice = 'gemini-3.1-pro-preview' | 'gpt-5.5';
 
 export interface PresentationDirective {
   triggered: boolean;
@@ -110,12 +117,29 @@ function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined 
 }
 
 function parseModel(raw: string | undefined): ComposerModelChoice {
-  if (!raw) return 'claude-opus-4-7';
+  // 2026-05-03 — Composer default is GPT-5.5, NOT Gemini Pro. Reason:
+  // Gemini's OpenAI-compatible function-calling endpoint does not properly
+  // populate deeply-nested generic-object schema fields (`data: { type:
+  // 'object' }`). Gemini emits `data: {}` for every section instead of
+  // populating hero/context/themes/etc. shapes — verified against a real
+  // run where 7 sections were emitted with all data objects empty. GPT-5.5
+  // has the same OpenAI-compat protocol but native API handles loose
+  // schemas correctly. Until we add a discriminated-union schema with
+  // per-kind data shapes, composer stays on GPT-5.5.
+  //
+  // Chat, themes, and deliverable generation remain on Gemini Pro — those
+  // paths use direct Gemini calls (not function-calling), so the schema
+  // bug doesn't affect them.
+  if (!raw) return 'gpt-5.5';
   const v = raw.toLowerCase().replace(/[^a-z0-9.]/g, '');
   if (v === 'gpt55' || v === 'gpt5.5' || v === 'gpt-5.5') return 'gpt-5.5';
-  if (v === 'opus' || v === 'claude' || v === 'opus47' || v === 'claude-opus-4-7') return 'claude-opus-4-7';
-  // Unknown — fall back to default rather than reject; composer will emit a warning
-  return 'claude-opus-4-7';
+  if (v === 'gemini' || v === 'gemini31' || v === 'gemini3.1' || v === 'pro' || v === 'gemini-3-1-pro-preview' || v === 'gemini31propreview') {
+    // Allow explicit opt-in to Gemini Pro composer (will produce empty
+    // section data until the schema fix lands — for testing only).
+    return 'gemini-3.1-pro-preview';
+  }
+  // Unknown — fall back to GPT-5.5 (proven-working composer model)
+  return 'gpt-5.5';
 }
 
 /**
@@ -132,7 +156,7 @@ export function parsePresentationDirective(message: string): PresentationDirecti
       triggered: false,
       brand: 'NXT',
       theme: 'dark',
-      model: 'claude-opus-4-7',
+      model: 'gpt-5.5',
       ephemeral: false,
       alsoExportPptx: false,
       autoOpen: false,
