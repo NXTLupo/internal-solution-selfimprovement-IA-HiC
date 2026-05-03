@@ -834,10 +834,21 @@ export async function executePlan(
 }
 
 /**
- * AI-powered SCORED relevance filter using Gemini.
+ * AI-powered BODY-AWARE relevance scoring using Gemini.
+ *
+ * Previously this function only sent item titles to the model. That meant a
+ * generic title like "Quarterly update" would score low even when the body
+ * was rich with goal-relevant content, and vice versa. This version sends
+ * title + ~600-char body excerpt per item, batched to keep prompt size sane.
+ *
  * Returns items with relevanceScore (0-100) and reason attached.
- * Items below 30 are dropped. Items 30-60 flagged as tangential.
+ * NO ITEMS ARE DROPPED — scoring affects ordering only. The downstream wiki
+ * embedding + retrieval stack does the actual selection at chat time.
  */
+const SCORE_BATCH_SIZE = 25;          // items per Gemini call
+const SCORE_BATCH_CONCURRENCY = 3;    // simultaneous batches (rate-limit safety)
+const SCORE_BODY_CHARS = 600;         // body excerpt per item (title + this)
+
 async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promise<DataSourceItem[]> {
     if (items.length === 0) return items;
     if (items.length <= 3) {
@@ -845,55 +856,107 @@ async function filterAndScoreItems(items: DataSourceItem[], goal: string): Promi
         return items.map(item => ({ ...item, relevanceScore: 70 }));
     }
 
-    try {
-        const titleList = items.map((item, i) => `${i}: ${item.title}`).join('\n');
+    // Build the body-aware item line. Strip newlines to keep the prompt compact.
+    const itemLine = (item: DataSourceItem): string => {
+        const body = (item.content || '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, SCORE_BODY_CHARS);
+        const sourceTag = item.sourceName ? ` [${item.sourceName}]` : '';
+        // Title is required for context; body is the substantive signal.
+        return `TITLE: ${item.title}${sourceTag}\nBODY: ${body || '(no body — score on title only)'}`;
+    };
 
-        const prompt = `RESEARCH GOAL: "${goal}"
-
-Score each item's relevance to the research goal on a 0-100 scale.
-- 90-100: Directly addresses the research goal with specific data or analysis
-- 70-89: Closely related, provides useful context or evidence
-- 40-69: Tangentially related, might provide background
-- 0-39: Not relevant -- different topic entirely
-
-ITEMS:
-${titleList}
-
-Return JSON array of objects: [{"i": 0, "s": 85, "r": "Directly discusses university fundraising digital strategies"}]
-Where i=item index, s=score 0-100, r=one-sentence reason.
-IMPORTANT: Score EVERY item. Be STRICT on relevance.`;
-
-        const result = await geminiJSON<{i: number; s: number; r: string}[]>(prompt);
-        if (!Array.isArray(result)) return items;
-
-        // Attach scores to items
-        const scoreMap = new Map(result.map(r => [r.i, { score: r.s, reason: r.r }]));
-        const scored = items.map((item, idx) => {
-            const info = scoreMap.get(idx);
-            return {
-                ...item,
-                relevanceScore: info?.score ?? 50,
-                relevanceReason: info?.reason,
-            };
-        });
-
-        // KEEP ALL ITEMS — do NOT drop evidence before the AI analyzes it
-        // Relevance scores are attached for sorting and post-analysis scoring,
-        // but no item is excluded. The AI must see everything to perform
-        // comprehensive cross-source analysis. Confidence is computed AFTER
-        // theme extraction based on what sources actually contributed.
-        const highRelevance = scored.filter(item => (item.relevanceScore ?? 0) >= 60).length;
-        const moderate = scored.filter(item => (item.relevanceScore ?? 0) >= 30 && (item.relevanceScore ?? 0) < 60).length;
-        const lowRelevance = scored.filter(item => (item.relevanceScore ?? 0) < 30).length;
-        console.log(`AI relevance scoring: ${scored.length} items scored (${highRelevance} high, ${moderate} moderate, ${lowRelevance} low relevance) for "${goal.substring(0, 50)}..."`);
-
-        // Sort by relevance so highest-quality items appear first in corpus,
-        // but ALL items are included
-        return scored.sort((a, b) => (b.relevanceScore ?? 0) - (a.relevanceScore ?? 0));
-    } catch (e) {
-        console.warn('AI relevance scoring failed, keeping all items:', e);
-        return items.map(item => ({ ...item, relevanceScore: 50 }));
+    // Split items into batches keyed by their original global index so we
+    // can reassemble scores by index regardless of batch order.
+    type Batch = { startIdx: number; items: DataSourceItem[] };
+    const batches: Batch[] = [];
+    for (let i = 0; i < items.length; i += SCORE_BATCH_SIZE) {
+        batches.push({ startIdx: i, items: items.slice(i, i + SCORE_BATCH_SIZE) });
     }
+
+    const scoreByIdx = new Map<number, { score: number; reason: string }>();
+
+    // Process batches with bounded concurrency. Workers pull from a shared queue.
+    const queue = [...batches];
+    const workers: Promise<void>[] = [];
+    const concurrency = Math.min(SCORE_BATCH_CONCURRENCY, queue.length);
+
+    for (let w = 0; w < concurrency; w += 1) {
+        workers.push((async () => {
+            while (queue.length > 0) {
+                const batch = queue.shift();
+                if (!batch) break;
+
+                // Local indices in the prompt are 0..N-1 within this batch;
+                // we map them back to global indices via batch.startIdx.
+                const block = batch.items.map((it, j) => `--- ${j} ---\n${itemLine(it)}`).join('\n\n');
+
+                const prompt = `RESEARCH GOAL: "${goal}"
+
+You are scoring search results for relevance to the research goal. READ THE BODY EXCERPT, not just the title — a generic title can hide highly relevant content, and a flashy title can disguise off-topic content.
+
+Score on 0-100:
+- 90-100: Directly addresses the research goal with specific data, named entities, or analysis
+- 70-89: Closely related, provides useful supporting context or evidence
+- 40-69: Tangentially related, might provide background or analogous insight
+- 0-39: Not relevant — different topic entirely
+
+ITEMS (each labeled --- N --- where N is the local index 0..${batch.items.length - 1}):
+${block}
+
+Return ONLY a JSON array, one object per item:
+[{"i": 0, "s": 85, "r": "Body discusses Northeastern alumni engagement metrics"}]
+Where i=local index 0..${batch.items.length - 1}, s=score 0-100, r=one-sentence reason grounded in the body content.
+Score EVERY item in this batch. Be STRICT — if the body doesn't substantively engage with the research goal, score under 60.`;
+
+                try {
+                    const result = await geminiJSON<{ i: number; s: number; r: string }[]>(prompt);
+                    if (!Array.isArray(result)) continue;
+                    for (const r of result) {
+                        if (typeof r?.i !== 'number') continue;
+                        const globalIdx = batch.startIdx + r.i;
+                        if (globalIdx >= items.length) continue;
+                        const score = Math.max(0, Math.min(100, Number(r.s) || 0));
+                        scoreByIdx.set(globalIdx, { score, reason: String(r?.r || '').slice(0, 200) });
+                    }
+                } catch (e) {
+                    // Per-batch failure → leave that batch's items at default (50).
+                    // Other batches still proceed; we never hard-fail the whole pipeline.
+                    console.warn(`Body-aware scoring batch ${batch.startIdx}-${batch.startIdx + batch.items.length - 1} failed:`, e);
+                }
+            }
+        })());
+    }
+
+    await Promise.all(workers);
+
+    const scored = items.map((item, idx) => {
+        const info = scoreByIdx.get(idx);
+        return {
+            ...item,
+            relevanceScore: info?.score ?? 50,
+            relevanceReason: info?.reason,
+        };
+    });
+
+    // KEEP ALL ITEMS — do NOT drop evidence before the AI analyzes it
+    // Relevance scores are attached for sorting and post-analysis scoring,
+    // but no item is excluded. The AI must see everything to perform
+    // comprehensive cross-source analysis. Confidence is computed AFTER
+    // theme extraction based on what sources actually contributed.
+    const high = scored.filter(item => (item.relevanceScore ?? 0) >= 60).length;
+    const moderate = scored.filter(item => (item.relevanceScore ?? 0) >= 30 && (item.relevanceScore ?? 0) < 60).length;
+    const low = scored.filter(item => (item.relevanceScore ?? 0) < 30).length;
+    const scoredCount = scoreByIdx.size;
+    console.log(
+        `Body-aware relevance scoring: ${scoredCount}/${items.length} items scored across ${batches.length} batches ` +
+        `(${high} high, ${moderate} moderate, ${low} low) for "${goal.substring(0, 50)}..."`
+    );
+
+    // Sort by relevance so highest-quality items appear first in corpus,
+    // but ALL items are included
+    return scored.sort((a, b) => (b.relevanceScore ?? 0) - (a.relevanceScore ?? 0));
 }
 
 // Backward compat alias

@@ -144,6 +144,10 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'claude-opus-4-6', provider: 'anthropic', displayName: 'Claude Opus 4.6',
         vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
     },
+    'claude-opus-4-7': {
+        id: 'claude-opus-4-7', provider: 'anthropic', displayName: 'Claude Opus 4.7',
+        vision: true, maxContext: 1_000_000, maxOutput: 128_000, costTier: 'premium'
+    },
     'claude-sonnet-4-6': {
         id: 'claude-sonnet-4-6', provider: 'anthropic', displayName: 'Claude Sonnet 4.6',
         vision: true, maxContext: 1_000_000, maxOutput: 64_000, costTier: 'standard'
@@ -156,6 +160,10 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
         id: 'gpt-5.4-mini', provider: 'openai', displayName: 'GPT-5.4 Mini',
         vision: true, maxContext: 400_000, maxOutput: 128_000, costTier: 'budget'
     },
+    'gpt-5.5': {
+        id: 'gpt-5.5', provider: 'openai', displayName: 'GPT-5.5',
+        vision: true, maxContext: 1_200_000, maxOutput: 128_000, costTier: 'premium'
+    },
     'gemini-2.5-flash': {
         id: 'gemini-2.5-flash', provider: 'google', displayName: 'Gemini 2.5 Flash',
         vision: true, maxContext: 1_048_576, maxOutput: 65_536, costTier: 'budget'
@@ -167,7 +175,10 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 };
 
 // --- TASK CATEGORIES ---
-export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video';
+// `narrative_composition` is the presentation-pipeline category — Opus 4.7 by
+// default, GPT-5.5 alternate. Used by services/narrativeComposer.ts for
+// #presentation #NXT/#NU directives.
+export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition';
 
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'claude-opus-4-6',
@@ -175,6 +186,7 @@ export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     vision: 'claude-opus-4-6',
     image: 'gemini-2.5-flash',     // imagen-4.0 via Gemini API, flash-image as fallback
     video: 'gemini-2.5-flash',     // veo-3.1 via Gemini API
+    narrative_composition: 'claude-opus-4-7',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;
@@ -186,6 +198,7 @@ export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
     vision: ['claude-opus-4-6', 'gpt-5.4', 'gemini-3.1-pro-preview'],
     image: ['gemini-2.5-flash'],
     video: ['gemini-2.5-flash'],
+    narrative_composition: ['claude-opus-4-7', 'gpt-5.5'],
 };
 
 // --- API KEY AVAILABILITY ---

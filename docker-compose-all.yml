@@ -414,6 +414,24 @@ services:
       - nxt-humans-network
     container_name: research-proxy
 
+  # Presentation Renderer (data-driven scrolling-presentation web app)
+  # Reads PresentationPayload JSON from research-proxy, renders parallax
+  # scrolling experience with brand-resolved tokens (#NXT or #NU).
+  # Triggered by #presentation directive in HiC AI Analyst Chat.
+  presentation-renderer:
+    build:
+      context: ./internal-solutions-presentation-renderer
+      dockerfile: Dockerfile
+    ports:
+      - "${PRESENTATION_RENDERER_PORT:-5014}:4500"
+    environment:
+      - PROXY_URL=http://research-proxy:5012
+    networks:
+      - nxt-humans-network
+    container_name: presentation-renderer
+    depends_on:
+      - research-proxy
+
   # ============================================
   # NXT Agency - AI Agent Catalog + Backend
   # ============================================

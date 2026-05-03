@@ -73,6 +73,12 @@ export interface WikiArticleBody {
     tier?: string;
     chars: number;
     content: string;    // actual body text, stripped of frontmatter + header
+    // Phase 2.5+ goal-fit metadata. Article-level (set once at collection
+    // time by Gemini body-aware scoring). NOT to be confused with the
+    // retrieval-time chunk_relevance score returned by /api/wiki/rerank.
+    article_relevance?: number | null;            // 0-100, null = ungraded
+    article_relevance_reason?: string | null;
+    article_engagement_goal?: string | null;
 }
 
 export interface WikiFetchArticlesResponse {
@@ -274,6 +280,69 @@ export async function exploreConcepts(
  * a single turn's context with topic-relevant real text, WITHOUT requiring
  * the AI to call the retrieval tool directly (that's the next iteration).
  */
+/**
+ * Re-grade article-level relevance scores in the wiki against a new goal.
+ * Triggered when the user refines `researchGoal` mid-engagement so previously
+ * archived articles aren't stuck at scores graded against the old goal.
+ *
+ * Scope: only articles tagged with the OLD engagement_goal are eligible by
+ * default (uploads excluded — they're axiomatically relevant). Run in batches;
+ * the proxy bounds each call to `limit` articles.
+ *
+ * Non-blocking: returns null on any error so a regrade outage doesn't break
+ * the user-facing flow. Caller treats null as "skipped, will try later."
+ */
+export interface RegradeRelevanceResult {
+    graded: Array<{ id: string; wikiPath?: string; old_score?: number | null; new_score: number; reason?: string }>;
+    skipped: number;
+    errors: number;
+    total_eligible: number;
+    regraded_count: number;
+    dry_run: boolean;
+    elapsed_ms: number;
+}
+
+export async function regradeWikiRelevance(
+    newGoal: string,
+    opts: {
+        oldGoal?: string;
+        matchOldGoal?: boolean;
+        kindFilter?: string;
+        limit?: number;
+        dryRun?: boolean;
+        signal?: AbortSignal;
+    } = {},
+): Promise<RegradeRelevanceResult | null> {
+    if (!newGoal || newGoal.trim().length < 8) return null;
+    try {
+        const resp = await fetch(`${PROXY}/api/wiki/regrade-relevance`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                new_goal: newGoal.trim(),
+                old_goal: opts.oldGoal?.trim() || undefined,
+                match_old_goal: opts.matchOldGoal !== false,
+                kind_filter: opts.kindFilter || undefined,
+                limit: opts.limit ?? 50,
+                dry_run: opts.dryRun === true,
+            }),
+            // 5-min timeout — Gemini grading 50 articles in 25-batch chunks
+            // can take 30-90s; we want to wait it out rather than orphan the work.
+            signal: opts.signal || AbortSignal.timeout(5 * 60_000),
+        });
+        if (!resp.ok) {
+            console.warn(`[regradeWikiRelevance] HTTP ${resp.status}`);
+            return null;
+        }
+        return await resp.json();
+    } catch (e: any) {
+        if (e?.name !== 'AbortError') {
+            console.warn('[regradeWikiRelevance] error:', e?.message || e);
+        }
+        return null;
+    }
+}
+
 export async function prefetchArticlesForMessage(message: string, opts: {
     limit?: number;
     maxCharsPerArticle?: number;

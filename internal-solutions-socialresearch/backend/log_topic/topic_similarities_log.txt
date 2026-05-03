@@ -1,4 +1,0 @@
-Calculating topic similarities...
-Topic 0 top words: ['boston', 'oakland', 'campus', 'cs', 'program', 'students', 'ms', 'northeastern', 'roles', 'fall']
-Topic 1 top words: ['alumni', 'email', 'snell', 'books', 'student', 'borrow books', 'alumni card', 'library']
-Found 1 topic similarity pairs

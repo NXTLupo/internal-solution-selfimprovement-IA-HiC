@@ -1,0 +1,123 @@
+/* brand/tokens.css
+ *
+ * Brand-resolved CSS variables. App.tsx sets [data-brand="NXT"|"NU"] on <html>
+ * once at mount, and theme via [data-theme="dark"|"light"]. Geometry,
+ * typography, density rules are shared across brands — only colors swap.
+ *
+ * NXT default = dark (chartreuse + cyan + teal on near-black).
+ * NU default  = STARK WHITE (Huskies red on white per brand spec; minimal,
+ *                            editorial, gallery-style).
+ *
+ * Single source of truth in TS lives at
+ * humans-in-control-research/services/presentationTypes.ts (BRAND_TOKENS map).
+ */
+
+/* ============================================================================
+   NXT (default brand if no data-brand set) — chartreuse + cyan + teal on black
+   ============================================================================ */
+:root,
+[data-brand="NXT"] {
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #000000;
+  --text-primary: #FFFFFF;
+  --text-secondary: #D1D5DB;
+  --text-tertiary: #9CA3AF;
+  --text-quaternary: #6B7280;
+
+  --accent-primary: #B8B800;
+  --accent-secondary: #00B7C3;
+  --accent-tertiary: #115054;
+
+  --gradient-start: #B8B800;
+  --gradient-end: #00B7C3;
+
+  --border-primary: #374151;
+  --border-secondary: #1F2937;
+  --card-bg: rgba(0, 0, 0, 0.20);
+
+  --nav-dot: #374151;
+  --nav-dot-active: #B8B800;
+
+  /* Parallax shape colors — visible on dark bg */
+  --parallax-l1: rgba(184, 184, 0, 0.20);
+  --parallax-l2: rgba(0, 183, 195, 0.15);
+  --parallax-l3: rgba(17, 80, 84, 0.20);
+
+  /* Hero subtitle, footer, side-nav-label color (low contrast on bg) */
+  --muted-on-bg: #6B7280;
+}
+
+/* ============================================================================
+   NU — Northeastern University Advancement
+   STARK WHITE editorial. Huskies red as the only accent of weight.
+   Black for headlines, gray for body, red for emphasis.
+   ============================================================================ */
+[data-brand="NU"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FAFAFA;
+  --text-primary: #0A0A0A;       /* near-black headlines */
+  --text-secondary: #2E2E2E;     /* dense body */
+  --text-tertiary: #6B6B6B;      /* labels, metadata */
+  --text-quaternary: #9CA3AF;
+
+  --accent-primary: #CC0000;     /* Huskies red — the ONLY accent of weight */
+  --accent-secondary: #000000;   /* black for emphasis bars / dividers */
+  --accent-tertiary: #6B6B6B;    /* graphite for tertiary callouts */
+
+  --gradient-start: #CC0000;
+  --gradient-end: #000000;
+
+  --border-primary: #E5E5E5;     /* hairline editorial borders */
+  --border-secondary: #F0F0F0;
+  --card-bg: #FAFAFA;            /* panels are off-white, not transparent */
+
+  --nav-dot: #D4D4D4;
+  --nav-dot-active: #CC0000;
+
+  /* Parallax on white: very low opacity so it reads as paper texture, not blobs */
+  --parallax-l1: rgba(204, 0, 0, 0.04);
+  --parallax-l2: rgba(0, 0, 0, 0.025);
+  --parallax-l3: rgba(107, 107, 107, 0.025);
+
+  --muted-on-bg: #6B6B6B;
+}
+
+/* ============================================================================
+   EXPLICIT THEME OVERRIDES
+   - [data-theme="dark"] forces dark even on NU (rare; for #dark hashtag).
+   - [data-theme="light"] forces light even on NXT (rare; for #light hashtag).
+   ============================================================================ */
+
+/* Force dark over NU */
+[data-brand="NU"][data-theme="dark"] {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #000000;
+  --text-primary: #FFFFFF;
+  --text-secondary: #D1D5DB;
+  --text-tertiary: #9CA3AF;
+  --border-primary: #2A2A2A;
+  --border-secondary: #1A1A1A;
+  --card-bg: rgba(0, 0, 0, 0.30);
+  --nav-dot: #2A2A2A;
+  --parallax-l1: rgba(204, 0, 0, 0.20);
+  --parallax-l2: rgba(0, 0, 0, 0.40);
+  --parallax-l3: rgba(107, 107, 107, 0.15);
+}
+
+/* Force light over NXT */
+[data-brand="NXT"][data-theme="light"],
+:root[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --text-primary: #0D0D0D;
+  --text-secondary: #2E2E2E;
+  --text-tertiary: #6B7280;
+  --text-quaternary: #9CA3AF;
+  --border-primary: #E5E5E5;
+  --border-secondary: #F0F0F0;
+  --card-bg: #FAFAFA;
+  --nav-dot: #D4D4D4;
+  --parallax-l1: rgba(184, 184, 0, 0.06);
+  --parallax-l2: rgba(0, 183, 195, 0.04);
+  --parallax-l3: rgba(17, 80, 84, 0.04);
+}

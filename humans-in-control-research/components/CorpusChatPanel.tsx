@@ -33,6 +33,11 @@ import { loadDesignMd, type DesignTokens } from '../design-desk/services/designM
 import { generateArtifact } from '../design-desk/services/chatToArtifact';
 import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
 import type { FreeformKind } from '../design-desk/schemas/freeformArtifact';
+// --- Presentation Pipeline (#presentation #NXT/#NU narrative composer) ---
+import { parsePresentationDirective } from '../services/hashtagParser';
+import { compose as composeNarrative } from '../services/narrativeComposer';
+import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
+import { SourceCoverage } from './SourceCoverage';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
@@ -471,6 +476,76 @@ const SlideProjection: React.FC<{
     );
 };
 
+/**
+ * PresentationLaunchCard
+ *
+ * Renders an explicit "Launch" button + summary card for a completed
+ * #presentation composition. Set on a ChatMessage via `presentationUrl`
+ * by the handleSend hashtag interception path.
+ *
+ * The card itself is the deliverable surface — the URL is intentionally
+ * NOT rendered as raw text in the message body. Click → window.open in
+ * a separate tab; URL is also exposed for keyboard / right-click "copy
+ * link address".
+ */
+const PresentationLaunchCard: React.FC<{
+    url: string;
+    meta?: ChatMessage['presentationMeta'];
+}> = ({ url, meta }) => {
+    const brand = meta?.brand || 'NXT';
+    const accentColor = brand === 'NU' ? '#CC0000' : '#B8B800';
+    const handleLaunch = () => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+    return (
+        <div style={{
+            marginTop: 10,
+            border: `1px solid ${accentColor}`,
+            background: '#FFFFFF',
+            padding: '14px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+        }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: accentColor, marginBottom: 4 }}>
+                    Interactive Presentation · {brand}
+                </div>
+                {meta?.title && (
+                    <div style={{ fontSize: 12, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3, marginBottom: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {meta.title}
+                    </div>
+                )}
+                {meta?.sectionCount !== undefined && (
+                    <div style={{ fontSize: 9, color: '#666', fontFamily: 'JetBrains Mono, monospace' }}>
+                        {meta.sectionCount} sections · {meta.citationCount ?? 0} citations
+                        {meta.sourceCount && ` · ${meta.sourceCount.total} sources`}
+                    </div>
+                )}
+            </div>
+            <button
+                onClick={handleLaunch}
+                style={{
+                    padding: '10px 18px',
+                    background: accentColor,
+                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    border: 'none',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    flexShrink: 0,
+                }}
+                aria-label="Launch presentation in new window"
+            >
+                Launch ↗
+            </button>
+        </div>
+    );
+};
+
 const InlineArtifactPreview: React.FC<{
     artifactId: string;
     artifactType: 'persona' | 'journey' | 'org';
@@ -694,6 +769,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
+    const [coverageOpen, setCoverageOpen] = useState(false);
     const [skillManifest, setSkillManifest] = useState<SkillManifestEntry[]>([]);
     const [deliverables, setDeliverables] = useState<DeliverableItem[]>([]);
     const [slides, setSlides] = useState<SlideData[]>([]);
@@ -1069,6 +1145,200 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         setIsLoading(true);
         setShowSuggestions(false);
 
+        // --- #presentation interception (narrative composer) -----------------
+        // Takes priority over all other hashtag dispatch. When the user types
+        // "#presentation #NXT" or "#presentation #NU" anywhere in their message,
+        // we route to the narrative composer (Opus 4.7 by default, GPT-5.5
+        // alternate) which assembles a PresentationPayload, persists it via
+        // POST /api/presentations, and posts the link back into this chat.
+        const presDirective = parsePresentationDirective(query);
+        if (presDirective.triggered) {
+            const composingMsgId = `msg_${Date.now()}_composing`;
+            const toolCallLog: string[] = [];
+            // Initial "composing..." status message — updated as tool calls land
+            setMessages(prev => [...prev, {
+                id: composingMsgId,
+                role: 'assistant',
+                content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…`,
+                timestamp: Date.now(),
+            }]);
+
+            try {
+                const liveCtx = getContext ? getContext() : context;
+
+                // Map current chat context to the executor's session state shape
+                const executor = createNarrativeComposerExecutor({
+                    engagementGoal: liveCtx?.researchGoal || '',
+                    themes: (liveCtx?.themes as any[]) || [],
+                    personas: (liveCtx?.personas as any[]) || [],
+                    deliverables: {
+                        journey_map: liveCtx?.journeyStages,
+                        recommendations: liveCtx?.recommendations,
+                        roadmap: (liveCtx as any)?.roadmap,
+                        gap_analysis: (liveCtx as any)?.gapAnalysis,
+                        tech_arch: (liveCtx as any)?.techArchitecture,
+                        tech_audit: (liveCtx as any)?.techAudit,
+                        competitive: (liveCtx as any)?.competitiveAnalysis,
+                        prd: (liveCtx as any)?.prd,
+                        strategic_report: (liveCtx as any)?.strategicReport,
+                    },
+                });
+
+                // Engagement context for the system prompt
+                const externalCount = (liveCtx?.liveSourceResults || [])
+                    .reduce((s: number, r: any) => s + (r.items?.length || 0), 0);
+                const uploadedCount = (liveCtx?.uploadedFiles || []).length;
+                const deliverableList: string[] = [];
+                if (liveCtx?.themes) deliverableList.push(`themes (${(liveCtx.themes as any[]).length})`);
+                if (liveCtx?.personas) deliverableList.push(`personas (${(liveCtx.personas as any[]).length})`);
+                if (liveCtx?.journeyStages) deliverableList.push('journey-map');
+                if ((liveCtx as any)?.recommendations) deliverableList.push('recommendations');
+                if ((liveCtx as any)?.roadmap) deliverableList.push('roadmap');
+                if ((liveCtx as any)?.gapAnalysis) deliverableList.push('gap-analysis');
+                if ((liveCtx as any)?.techArchitecture) deliverableList.push('tech-arch');
+                if ((liveCtx as any)?.competitiveAnalysis) deliverableList.push('competitive');
+
+                // Pass the recent chat history as PRIMARY source material.
+                // The composer treats it as the authoritative narrative the user
+                // already developed in conversation — packaging it instead of
+                // re-researching from scratch. Cap at last 12 turns (excluding
+                // the just-sent #presentation message which is the directive).
+                const recentChat = messages
+                    .filter(m => m.role !== 'system')
+                    .slice(-12)
+                    .map(m => ({
+                        role: m.role as 'user' | 'assistant' | 'system',
+                        content: m.content || '',
+                    }));
+
+                // Diagnostic: log mode detection client-side so the user
+                // can see in the chat whether package mode is triggering.
+                // Threshold mirrors computePackageMode in narrativeComposer.ts.
+                const assistantMsgs = recentChat.filter(m => m.role === 'assistant');
+                const assistantChars = assistantMsgs.reduce((s, m) => s + (m.content || '').length, 0);
+                const detectedMode = assistantMsgs.length >= 1 && assistantChars >= 1500
+                    ? 'PACKAGE'
+                    : 'RESEARCH';
+                toolCallLog.push(
+                    `Mode: ${detectedMode} (${recentChat.length} prior turns, ` +
+                    `${assistantMsgs.length} analyst replies, ${assistantChars} chars)`
+                );
+                // Surface the corpus composition that the chat was built on,
+                // so the user can SEE whether external content (RSS, jina-reader,
+                // YouTube, Reddit, OpenAlex) is making it into the model's
+                // recall — not just uploads. Set in App.tsx's data-collection
+                // step on window.__hicCorpusComposition.
+                try {
+                    const comp = (window as any).__hicCorpusComposition;
+                    if (comp && typeof comp === 'object') {
+                        const total = Math.max(1, comp.totalKB || 0);
+                        const upPct = Math.round((comp.uploadedKB || 0) / total * 100);
+                        const exPct = Math.round((comp.proxyKB || 0) / total * 100);
+                        const intPct = Math.round((comp.coreCorpusKB || 0) / total * 100);
+                        toolCallLog.push(
+                            `Corpus: ${comp.totalKB}KB total · uploads ${comp.uploadedKB}KB (${upPct}%) · ` +
+                            `external RSS/jina/YouTube/Reddit/OpenAlex ${comp.proxyKB}KB (${exPct}%) · ` +
+                            `internal/wiki ${comp.coreCorpusKB}KB (${intPct}%)`
+                        );
+                    }
+                } catch { /* noop — diagnostic only */ }
+
+                // Surface category coverage — the user toggled N categories;
+                // M had content; (N-M) are CATEGORY GAPS the model must mark.
+                try {
+                    const cats = (liveCtx as any)?.activeCategories || [];
+                    if (Array.isArray(cats) && cats.length > 0) {
+                        const withContent = cats.filter((c: any) => (c?.itemCount || 0) > 0).length;
+                        const empty = cats.length - withContent;
+                        toolCallLog.push(
+                            `Categories: ${cats.length} toggled, ${withContent} have content, ${empty} CATEGORY GAPS — ` +
+                            `every category MUST be cited or marked gap by the model`
+                        );
+                    }
+                } catch { /* noop */ }
+                setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                    ...m,
+                    content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…\n\n${toolCallLog.join('\n')}`,
+                } : m));
+
+                const composeResult = await composeNarrative({
+                    narrativeRequest: presDirective.narrativeRequest,
+                    brand: presDirective.brand,
+                    theme: presDirective.theme,
+                    model: presDirective.model,
+                    heroOverride: presDirective.heroOverride,
+                    sectionFilter: presDirective.sectionFilter,
+                    engagementContext: {
+                        engagementGoal: liveCtx?.researchGoal || '',
+                        themeCount: (liveCtx?.themes as any[] || []).length,
+                        personaCount: (liveCtx?.personas as any[] || []).length,
+                        deliverableList,
+                        externalArticleCount: externalCount,
+                        uploadedDocCount: uploadedCount,
+                    },
+                    priorConversation: recentChat,
+                    executor,
+                    onToolCall: (tool, _args, summary) => {
+                        const summarySuffix = summary ? ` → ${summary}` : '';
+                        toolCallLog.push(`◯ ${tool}${summarySuffix}`);
+                        // Live-update the composing message with the running tool log
+                        setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                            ...m,
+                            content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})…\n\n${toolCallLog.slice(-12).join('\n')}`,
+                        } : m));
+                    },
+                });
+
+                // Persist payload via proxy
+                const persistRes = await fetch('http://localhost:5012/api/presentations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(composeResult.payload),
+                });
+                if (!persistRes.ok) {
+                    const errText = await persistRes.text().catch(() => '');
+                    throw new Error(`persist failed (${persistRes.status}): ${errText.slice(0, 200)}`);
+                }
+                const persistData = await persistRes.json();
+
+                // Replace the composing message with a final result. The button is
+                // rendered explicitly by the message renderer when `presentationUrl`
+                // is set on the message (see the "Launch presentation" card below).
+                const stats = composeResult.payload.meta.sourceCount;
+                const sectionCount = composeResult.payload.sections.length;
+                const finalContent = [
+                    `Built your interactive presentation on "${composeResult.payload.meta.title}".`,
+                    ``,
+                    `${sectionCount} sections · ${composeResult.payload.meta.citationCount} citations across ${stats.total} sources (${stats.external} external research, ${stats.uploaded} from your uploads, ${stats.analysis} from prior analysis).`,
+                    ``,
+                    `Composed in ${(composeResult.durationMs / 1000).toFixed(1)}s with ${composeResult.toolCallCount} tool calls.`,
+                ].join('\n');
+
+                setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                    ...m,
+                    content: finalContent,
+                    presentationUrl: persistData.url,
+                    presentationMeta: {
+                        title: composeResult.payload.meta.title,
+                        brand: composeResult.payload.meta.brand,
+                        sectionCount,
+                        citationCount: composeResult.payload.meta.citationCount,
+                        sourceCount: stats,
+                    },
+                } : m));
+            } catch (e: unknown) {
+                const errMsg = e instanceof Error ? e.message : String(e);
+                setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                    ...m,
+                    content: `Could not compose presentation: ${errMsg}\n\n` +
+                             `Tool calls completed: ${toolCallLog.length}`,
+                } : m));
+            } finally {
+                setIsLoading(false);
+            }
+            return;
+        }
+
         // --- Design Desk artifact delivery interception ---
         // If the message contains ONLY content hashtags in {persona, journey, org},
         // short-circuit the LLM call and deliver the matching pre-made artifact
@@ -1392,6 +1662,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             Export
                         </button>
                     )}
+                    <button
+                        onClick={() => setCoverageOpen(true)}
+                        title="Show which source categories have content + which are being cited in the chat"
+                        style={{ fontSize: 8, color: '#B8B800', background: 'none', border: '1px solid #B8B800', padding: '3px 8px', cursor: 'pointer', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700 }}>
+                        Coverage
+                    </button>
                     <button onClick={() => setMaximized(!maximized)} style={{ fontSize: 8, color: '#00B7C3', background: 'none', border: '1px solid #555', padding: '3px 8px', cursor: 'pointer', letterSpacing: '1px', textTransform: 'uppercase' as const, fontWeight: 700 }}>
                         {maximized ? 'Minimize' : 'Maximize'}
                     </button>
@@ -1529,6 +1805,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                         onClosePanel={onToggle}
                                     />
                                 )}
+
+                                {/* Launch button for completed #presentation runs */}
+                                {msg.presentationUrl && (
+                                    <PresentationLaunchCard
+                                        url={msg.presentationUrl}
+                                        meta={msg.presentationMeta}
+                                    />
+                                )}
                             </div>
 
                             {/* Deliverable cards */}
@@ -1637,6 +1921,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     {skillManifest.length > 0 && ` | ${skillManifest.filter(s => s.category === 'research-deliverable').length} skills`}
                 </div>
             </div>
+
+            {/* Source Coverage audit panel — slide-in diagnostic showing every
+                user-toggled category, its item count, citations in chat, and
+                CATEGORY GAP markers. Triggered by the COVERAGE button in the
+                header. Provides the visibility surface that makes every other
+                source-citation improvement testable. */}
+            <SourceCoverage
+                isOpen={coverageOpen}
+                onClose={() => setCoverageOpen(false)}
+                activeCategories={(getContext ? getContext() : context)?.activeCategories || []}
+                chatMessages={messages}
+                liveSourceResults={(getContext ? getContext() : context)?.liveSourceResults}
+            />
         </div>
     );
 };

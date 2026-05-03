@@ -3726,6 +3726,19 @@ def _build_wiki_index(summary_len: int = 200) -> list:
             chars_from_fm = int(fm.get('chars', '0') or '0')
         except ValueError:
             chars_from_fm = 0
+        # Phase 2.5+: article-level relevance score from frontmatter — the
+        # 0-100 grade Gemini assigned at collection time based on title +
+        # body excerpt. Carried through the index so retrieval consumers
+        # can distinguish article-level fit (set once) from chunk-level
+        # relevance (computed per query at retrieval time).
+        relevance_int: Optional[int] = None
+        rel_raw = fm.get('relevance')
+        if rel_raw is not None and str(rel_raw).strip() != '':
+            try:
+                relevance_int = max(0, min(100, int(str(rel_raw).strip())))
+            except (TypeError, ValueError):
+                relevance_int = None
+
         entry = {
             'id': fm.get('url_hash') or rel.rsplit('/', 1)[-1].replace('.md', ''),
             'wikiPath': rel,
@@ -3742,6 +3755,10 @@ def _build_wiki_index(summary_len: int = 200) -> list:
             'chars': chars_from_fm or max(0, len(text) - 400),
             'mtime': mtime,
             'summary': summary,
+            # Goal-fit metadata (None when frontmatter lacked the field)
+            'relevance': relevance_int,
+            'relevance_reason': fm.get('relevance_reason') or '',
+            'engagement_goal': fm.get('engagement_goal') or '',
         }
         entries.append(entry)
     # Sort newest first by mtime — AI sees most recent collections at top
@@ -3995,6 +4012,13 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             'tier': e.get('tier'),
             'chars': len(body),
             'content': body,
+            # Goal-fit metadata: article-level relevance from collection-time
+            # Gemini grading. Distinct from any retrieval-time chunk score.
+            # Null when the article was written before relevance grading
+            # was added or grading was skipped.
+            'article_relevance': e.get('relevance'),
+            'article_relevance_reason': e.get('relevance_reason') or None,
+            'article_engagement_goal': e.get('engagement_goal') or None,
         }
         # Phase 2 enrichment: if the chunk store surfaced this article, carry
         # the matched chunks (precise passages with section context) so the
@@ -4278,6 +4302,60 @@ def _embed_texts(texts: list, task_type: str = "document") -> list:
     fn = _EMBED_DISPATCH.get(EMBED_PROVIDER)
     if not fn:
         raise RuntimeError(f"No embed dispatch for provider={EMBED_PROVIDER}")
+    return fn(trimmed, cfg)
+
+
+def _embed_texts_via_provider(provider_id: str, texts: list, task_type: str = "document") -> list:
+    """Embed strings via an EXPLICIT provider, ignoring the global EMBED_PROVIDER.
+    Used by the A/B harness to score the same texts under an alternative
+    provider without disturbing the persistent vector store. Mirrors the
+    branching in _embed_texts but parameterized."""
+    if not texts:
+        return []
+    if provider_id not in EMBED_PROVIDERS:
+        raise RuntimeError(f"Unknown alternative provider: {provider_id}")
+    cfg = EMBED_PROVIDERS[provider_id]
+    trimmed = [(t or " ")[:EMBED_MAX_TEXT_CHARS] for t in texts]
+
+    if provider_id == "gemini" and task_type == "query":
+        key = os.environ.get(cfg["key_env"], "")
+        if not key:
+            raise RuntimeError(f"{cfg['key_env']} not configured")
+        url = f"{cfg['url']}?key={key}"
+        body = {
+            "requests": [
+                {
+                    "model": f"models/{cfg['model']}",
+                    "content": {"parts": [{"text": t}]},
+                    "taskType": "RETRIEVAL_QUERY",
+                }
+                for t in trimmed
+            ]
+        }
+        with httpx.Client(timeout=60.0) as c:
+            r = c.post(url, json=body, headers={"Content-Type": "application/json"})
+        if r.status_code >= 400:
+            raise RuntimeError(f"Gemini embed HTTP {r.status_code}: {r.text[:300]}")
+        return [e.get("values") or [] for e in (r.json().get("embeddings") or [])]
+
+    if provider_id == "voyage" and task_type == "query":
+        key = os.environ.get(cfg["key_env"], "")
+        if not key:
+            raise RuntimeError(f"{cfg['key_env']} not configured")
+        body = {"model": cfg["model"], "input": trimmed, "input_type": "query"}
+        with httpx.Client(timeout=60.0) as c:
+            r = c.post(
+                cfg["url"],
+                json=body,
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+            )
+        if r.status_code >= 400:
+            raise RuntimeError(f"Voyage embed HTTP {r.status_code}: {r.text[:300]}")
+        return [d.get("embedding") or [] for d in (r.json().get("data") or [])]
+
+    fn = _EMBED_DISPATCH.get(provider_id)
+    if not fn:
+        raise RuntimeError(f"No embed dispatch for provider={provider_id}")
     return fn(trimmed, cfg)
 
 
@@ -4954,6 +5032,989 @@ async def export_pptx(payload: dict):
         filename=filename,
         headers={"X-Render-Counts": json.dumps(result["rendered"])},
     )
+
+
+# ================================================================
+# WIKI RERANK — LLM-as-rerank (Stage 3 retrieval pipeline)
+# ================================================================
+# Cosine bi-encoder retrieval (Stage 1) and goal-blended ranking (Stage 2)
+# return top-K candidates that are SEMANTICALLY similar to the query. But
+# semantic similarity is not the same as relevance to the user's stated
+# research objective + current chat context. A reasoning model can read
+# both query AND each candidate body together and rank them with the
+# nuance that bi-encoder cosine misses.
+#
+# This endpoint accepts a list of {chunk_id, text, source_name} tuples
+# plus the research goal + current question, and returns them re-ordered
+# with per-item reasons. Cached by (goal, question, chunk_id_set) hash
+# so identical reranks within a session are ~free.
+
+import hashlib as _re_hashlib_rerank
+
+
+_rerank_cache: dict[str, dict] = {}
+_rerank_cache_max = 256
+
+
+def _rerank_cache_key(goal: str, question: str, chunk_ids: list[str]) -> str:
+    h = _re_hashlib_rerank.sha256()
+    h.update(goal.encode("utf-8"))
+    h.update(b"\x00")
+    h.update(question.encode("utf-8"))
+    h.update(b"\x00")
+    for cid in sorted(chunk_ids):
+        h.update(cid.encode("utf-8"))
+        h.update(b"\x00")
+    return h.hexdigest()[:32]
+
+
+@app.post("/api/wiki/rerank")
+async def wiki_rerank(payload: dict):
+    """LLM-as-rerank for retrieval candidates.
+
+    Request body:
+      {
+        "goal": "<research goal>",
+        "question": "<current chat question or task>",
+        "candidates": [
+          { "chunk_id": "<id>", "text": "<chunk body, max ~800 chars>",
+            "source_name": "<readable source name>" },
+          ...
+        ],
+        "model": "claude-opus-4-7" | "gpt-5.5" | "gemini-2.5-flash" (optional, default opus)
+      }
+
+    Response:
+      {
+        "ranked": [
+          { "chunk_id": "<id>", "score": 0.92, "reason": "<one-line>", "rank": 1 },
+          ...
+        ],
+        "cache_hit": bool,
+        "model_used": "<model id>",
+        "elapsed_ms": int
+      }
+
+    Behavior:
+      - Cached by (goal, question, chunk_ids) sha256 for the duration of the
+        proxy process.
+      - On cache hit: returns instantly with "cache_hit": true.
+      - On cache miss: calls the chosen reasoning model with all candidates,
+        receives per-chunk score+reason, persists to cache.
+      - If the model fails or returns malformed output, falls back to
+        identity ordering (input order) so retrieval never fully breaks.
+    """
+    import time as _time_rr
+
+    started = _time_rr.time()
+    goal = (payload.get("goal") or "").strip()
+    question = (payload.get("question") or "").strip()
+    candidates = payload.get("candidates") or []
+    model_id = payload.get("model") or "claude-opus-4-7"
+
+    if not isinstance(candidates, list) or len(candidates) == 0:
+        return JSONResponse({"error": "candidates must be a non-empty array"}, status_code=400)
+    if not goal and not question:
+        return JSONResponse({"error": "goal or question required"}, status_code=400)
+
+    chunk_ids = [str(c.get("chunk_id") or "") for c in candidates]
+    cache_key = _rerank_cache_key(goal, question, chunk_ids)
+
+    if cache_key in _rerank_cache:
+        cached = _rerank_cache[cache_key]
+        return {**cached, "cache_hit": True, "elapsed_ms": int((_time_rr.time() - started) * 1000)}
+
+    # Build the rerank prompt — research goal + question, then numbered
+    # candidates with body excerpts. Ask for a JSON array of scores.
+    candidate_block = "\n\n".join(
+        f"[{i}] source={c.get('source_name', 'unknown')}\n"
+        f"chunk_id={c.get('chunk_id', '?')}\n"
+        f"text: {(c.get('text') or '').replace(chr(10), ' ')[:1200]}"
+        for i, c in enumerate(candidates)
+    )
+
+    prompt = f"""You are a retrieval reranker. Score each candidate chunk for relevance to the user's research objective AND current question. Read each chunk carefully — relevance is about content match, not surface keyword overlap.
+
+RESEARCH GOAL (the user's overall objective):
+{goal or '(not specified)'}
+
+CURRENT QUESTION (what the user is asking right now):
+{question or '(not specified)'}
+
+CANDIDATES (chunks pre-selected by cosine bi-encoder):
+{candidate_block}
+
+Return a JSON array of objects, one per candidate, sorted by relevance score descending. Each object has fields:
+  - "chunk_id" (string, exactly as provided)
+  - "score" (float 0.0 to 1.0)
+  - "reason" (string, max 100 chars, why this chunk earned this score)
+
+Scoring rubric:
+  0.85-1.00: directly answers the question with specific evidence
+  0.65-0.84: closely related, provides supporting context
+  0.40-0.64: tangentially related, useful as background
+  0.00-0.39: not relevant or off-topic
+
+Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
+"""
+
+    # Call the proxy's existing AI endpoints based on model selection
+    try:
+        if model_id.startswith("claude-"):
+            api_url = "/api/ai/anthropic"
+            body = {
+                "model": model_id,
+                "max_tokens": 4000,
+                "messages": [{"role": "user", "content": prompt}],
+            }
+        elif model_id.startswith("gpt-"):
+            api_url = "/api/ai/openai"
+            body = {
+                "model": model_id,
+                "max_tokens": 4000,
+                "messages": [{"role": "user", "content": prompt}],
+                "response_format": {"type": "json_object"},
+            }
+        else:
+            api_url = "/api/ai/gemini"
+            body = {
+                "model": model_id,
+                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                "generationConfig": {"responseMimeType": "application/json"},
+            }
+
+        # Reuse the proxy's own AI adapters by invoking them in-process
+        # rather than HTTP-looping back. The simplest correct path: import
+        # the route handlers directly. They're FastAPI handlers but their
+        # bodies are plain async functions.
+        from fastapi import Request as _RR_Request
+        # To stay loosely coupled, just dispatch via httpx loopback. The
+        # proxy already accepts JSON POSTs to its AI endpoints.
+        import httpx as _RR_httpx
+        async with _RR_httpx.AsyncClient(timeout=60.0) as client:
+            resp = await client.post(f"http://127.0.0.1:{os.getenv('PORT', '5012')}{api_url}", json=body)
+        if resp.status_code != 200:
+            raise RuntimeError(f"AI endpoint {resp.status_code}: {resp.text[:200]}")
+        ai_body = resp.json()
+
+        # Extract the model's JSON output
+        if model_id.startswith("claude-"):
+            content_blocks = ai_body.get("content") or []
+            text_blocks = [b.get("text", "") for b in content_blocks if isinstance(b, dict) and b.get("type") == "text"]
+            raw_text = "".join(text_blocks).strip()
+        elif model_id.startswith("gpt-"):
+            choices = ai_body.get("choices") or []
+            raw_text = (choices[0].get("message", {}).get("content") if choices else "") or ""
+        else:
+            cands = ai_body.get("candidates") or []
+            parts = (cands[0].get("content", {}).get("parts") if cands else []) or []
+            raw_text = "".join((p.get("text", "") for p in parts)).strip()
+
+        # Strip optional markdown fences and parse
+        if raw_text.startswith("```"):
+            raw_text = raw_text.strip("`")
+            if raw_text.startswith("json"):
+                raw_text = raw_text[4:].strip()
+
+        # Tolerate a single object wrapper { "ranked": [...] }
+        parsed = json.loads(raw_text)
+        if isinstance(parsed, dict) and isinstance(parsed.get("ranked"), list):
+            parsed = parsed["ranked"]
+        if not isinstance(parsed, list):
+            raise ValueError(f"expected JSON array, got {type(parsed).__name__}")
+
+        # Normalize and sort
+        ranked = []
+        seen_ids = set()
+        for entry in parsed:
+            if not isinstance(entry, dict):
+                continue
+            cid = str(entry.get("chunk_id") or "")
+            if not cid or cid in seen_ids:
+                continue
+            seen_ids.add(cid)
+            try:
+                score = float(entry.get("score") or 0)
+            except Exception:
+                score = 0.0
+            ranked.append({
+                "chunk_id": cid,
+                "score": max(0.0, min(1.0, score)),
+                "reason": str(entry.get("reason") or "")[:200],
+            })
+
+        # Append any candidates the model dropped at score 0
+        for c in candidates:
+            cid = str(c.get("chunk_id") or "")
+            if cid and cid not in seen_ids:
+                ranked.append({"chunk_id": cid, "score": 0.0, "reason": "not in model output"})
+
+        ranked.sort(key=lambda r: r["score"], reverse=True)
+        for i, r in enumerate(ranked):
+            r["rank"] = i + 1
+
+        result = {
+            "ranked": ranked,
+            "cache_hit": False,
+            "model_used": model_id,
+            "elapsed_ms": int((_time_rr.time() - started) * 1000),
+        }
+
+        # Cache eviction: simple FIFO when over max
+        if len(_rerank_cache) >= _rerank_cache_max:
+            evict_keys = list(_rerank_cache.keys())[:max(1, _rerank_cache_max // 8)]
+            for k in evict_keys:
+                _rerank_cache.pop(k, None)
+        _rerank_cache[cache_key] = {
+            "ranked": ranked,
+            "model_used": model_id,
+        }
+
+        return result
+
+    except Exception as e:
+        logger.exception("wiki rerank failed")
+        # Fallback: identity ordering — never break retrieval just because rerank failed
+        identity_ranked = [
+            {"chunk_id": str(c.get("chunk_id") or ""),
+             "score": 1.0 - (i * 0.01),
+             "reason": "identity fallback (rerank error)",
+             "rank": i + 1}
+            for i, c in enumerate(candidates)
+        ]
+        return {
+            "ranked": identity_ranked,
+            "cache_hit": False,
+            "model_used": model_id,
+            "elapsed_ms": int((_time_rr.time() - started) * 1000),
+            "error": f"{type(e).__name__}: {str(e)[:200]}",
+        }
+
+
+# ================================================================
+# WIKI RELEVANCE REGRADE  (goal-refinement trigger)
+# ================================================================
+# When the user refines the engagement goal mid-session, the article-level
+# relevance scores in wiki frontmatter become stale (they were graded for
+# the OLD goal). This endpoint re-grades a batch of archived articles
+# against a NEW goal using the same body-aware Gemini scoring rubric the
+# SPA uses at collection time, then rewrites just the relevance fields in
+# each file's frontmatter (preserving everything else).
+#
+# Bounded scope: only articles tagged with the OLD engagement_goal are
+# eligible by default — uploads and articles with no goal tag are skipped.
+# Caller can override with engagement_filter or set match_old_goal=false.
+#
+# This is opt-in. Nothing calls it automatically except a debounced
+# effect in the SPA on `researchGoal` change.
+
+@app.post("/api/wiki/regrade-relevance")
+async def wiki_regrade_relevance(payload: dict):
+    """Re-grade a batch of wiki articles against a new engagement goal.
+
+    Request:
+      {
+        "new_goal": "<new engagement goal text>",
+        "old_goal": "<optional — match articles tagged with this goal>",
+        "match_old_goal": true,    # if false, regrade ALL eligible articles
+        "kind_filter": "article",  # optional, default any kind except 'upload'
+        "limit": 50,               # max articles to regrade this call
+        "dry_run": false           # if true, don't write — just report
+      }
+
+    Response:
+      {
+        "graded": [{"id": "...", "old_score": 50, "new_score": 80}, ...],
+        "skipped": int,
+        "errors": int,
+        "total_eligible": int,
+        "elapsed_ms": int
+      }
+
+    Behavior:
+      - Walks the wiki index, picks eligible articles (kind != upload, has
+        a body, optionally tagged with old_goal).
+      - Batches of ≤25 articles per Gemini call (matching the SPA scorer).
+      - On per-article success, rewrites the frontmatter `relevance`,
+        `relevance_reason`, and `engagement_goal` lines in place.
+      - Failures fall through silently per-article — never breaks the
+        whole batch. Cache layers (rerank, embeddings) are not touched;
+        the rerank cache key includes the goal, so it auto-busts.
+    """
+    import time as _time_rg
+    started = _time_rg.time()
+
+    new_goal = (payload.get("new_goal") or "").strip()
+    if not new_goal or len(new_goal) < 8:
+        return JSONResponse({"error": "new_goal required (min 8 chars)"}, status_code=400)
+
+    old_goal = (payload.get("old_goal") or "").strip()
+    match_old_goal = bool(payload.get("match_old_goal", True))
+    kind_filter = (payload.get("kind_filter") or "").strip() or None
+    limit = max(1, min(200, int(payload.get("limit") or 50)))
+    dry_run = bool(payload.get("dry_run", False))
+
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key and not dry_run:
+        return JSONResponse({"error": "GEMINI_API_KEY not configured"}, status_code=500)
+
+    try:
+        entries = _get_wiki_index_cached(summary_len=600)
+    except Exception as e:
+        return JSONResponse({"error": f"index build failed: {e}"}, status_code=500)
+
+    # Eligibility: skip uploads (axiomatically relevant), respect kind filter,
+    # match old_goal if requested, must have a body of meaningful size.
+    eligible: list = []
+    for e in entries:
+        kind = (e.get("kind") or "").lower()
+        if kind == "upload":
+            continue
+        if kind_filter and kind != kind_filter:
+            continue
+        if match_old_goal and old_goal:
+            if (e.get("engagement_goal") or "").strip() != old_goal:
+                continue
+        if int(e.get("chars") or 0) < 200:
+            continue
+        eligible.append(e)
+
+    total_eligible = len(eligible)
+    eligible = eligible[:limit]
+
+    graded: list = []
+    skipped = 0
+    errors = 0
+
+    BATCH_SIZE = 25
+    for batch_start in range(0, len(eligible), BATCH_SIZE):
+        batch = eligible[batch_start:batch_start + BATCH_SIZE]
+
+        # Build per-batch prompt, body excerpts capped for prompt budget
+        items_block_lines = []
+        for j, e in enumerate(batch):
+            body_path = os.path.normpath(os.path.join(WIKI_BASE, e.get("wikiPath") or ""))
+            if not body_path.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(body_path):
+                items_block_lines.append(f"--- {j} ---\nTITLE: {e.get('title','(missing)')}\nBODY: (file not found)")
+                continue
+            try:
+                with open(body_path, "r", encoding="utf-8") as f:
+                    raw = f.read()
+                body = _extract_wiki_body(raw, max_chars=600).replace("\n", " ").strip()
+            except Exception:
+                body = "(read error)"
+            src = e.get("source") or ""
+            tag = f" [{src}]" if src else ""
+            items_block_lines.append(
+                f"--- {j} ---\nTITLE: {e.get('title','(untitled)')}{tag}\nBODY: {body or '(empty body)'}"
+            )
+        items_block = "\n\n".join(items_block_lines)
+
+        prompt = (
+            f'RESEARCH GOAL: "{new_goal}"\n\n'
+            "You are scoring archived articles for relevance to a NEWLY refined research goal. "
+            "READ THE BODY EXCERPT, not just the title — a generic title can hide highly relevant content, "
+            "and a flashy title can disguise off-topic content.\n\n"
+            "Score on 0-100:\n"
+            "- 90-100: Directly addresses the research goal with specific data, named entities, or analysis\n"
+            "- 70-89: Closely related, provides useful supporting context or evidence\n"
+            "- 40-69: Tangentially related, might provide background or analogous insight\n"
+            "- 0-39: Not relevant — different topic entirely\n\n"
+            f"ITEMS (each labeled --- N --- where N is the local index 0..{len(batch)-1}):\n"
+            f"{items_block}\n\n"
+            "Return ONLY a JSON array, one object per item:\n"
+            '[{"i": 0, "s": 85, "r": "Body discusses alumni engagement metrics"}]\n'
+            f"Where i=local index 0..{len(batch)-1}, s=score 0-100, r=one-sentence reason grounded in the body.\n"
+            "Score EVERY item. Be STRICT — if the body doesn't substantively engage with the new goal, score under 60."
+        )
+
+        if dry_run:
+            for j, e in enumerate(batch):
+                graded.append({
+                    "id": e.get("id"),
+                    "wikiPath": e.get("wikiPath"),
+                    "old_score": e.get("relevance"),
+                    "new_score": None,
+                    "dry_run": True,
+                })
+            continue
+
+        # Call Gemini via the proxy's existing handler (in-process loopback)
+        try:
+            gemini_url = (
+                f"https://generativelanguage.googleapis.com/v1beta/models/"
+                f"gemini-2.5-flash:generateContent?key={api_key}"
+            )
+            gemini_body = {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "temperature": 0.2,
+                    "maxOutputTokens": 4000,
+                    "responseMimeType": "application/json",
+                },
+            }
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(gemini_url, json=gemini_body, timeout=120.0)
+            if resp.status_code != 200:
+                logger.warning(f"regrade gemini batch {batch_start} HTTP {resp.status_code}: {resp.text[:200]}")
+                errors += len(batch)
+                continue
+            ai_body = resp.json()
+            cands = ai_body.get("candidates") or []
+            parts = (cands[0].get("content", {}).get("parts") if cands else []) or []
+            raw_text = "".join((p.get("text", "") for p in parts)).strip()
+            if raw_text.startswith("```"):
+                raw_text = raw_text.strip("`")
+                if raw_text.startswith("json"):
+                    raw_text = raw_text[4:].strip()
+            parsed = json.loads(raw_text)
+            if isinstance(parsed, dict) and isinstance(parsed.get("scores"), list):
+                parsed = parsed["scores"]
+            if not isinstance(parsed, list):
+                errors += len(batch)
+                continue
+        except Exception as e:
+            logger.warning(f"regrade gemini batch {batch_start} failed: {e}")
+            errors += len(batch)
+            continue
+
+        # Apply scores by local index
+        score_by_i: dict = {}
+        for entry in parsed:
+            if not isinstance(entry, dict):
+                continue
+            try:
+                i_local = int(entry.get("i"))
+            except (TypeError, ValueError):
+                continue
+            if i_local < 0 or i_local >= len(batch):
+                continue
+            try:
+                s_val = max(0, min(100, int(entry.get("s") or 0)))
+            except (TypeError, ValueError):
+                continue
+            r_val = str(entry.get("r") or "")[:200]
+            score_by_i[i_local] = (s_val, r_val)
+
+        for j, e in enumerate(batch):
+            if j not in score_by_i:
+                skipped += 1
+                continue
+            new_score, new_reason = score_by_i[j]
+            old_score = e.get("relevance")
+            wp = e.get("wikiPath") or ""
+            file_path = os.path.normpath(os.path.join(WIKI_BASE, wp))
+            if not file_path.startswith(os.path.normpath(WIKI_BASE)) or not os.path.exists(file_path):
+                errors += 1
+                continue
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    raw = f.read()
+                updated = _replace_frontmatter_relevance(raw, new_score, new_reason, new_goal)
+                if updated != raw:
+                    with open(file_path, "w", encoding="utf-8") as f:
+                        f.write(updated)
+                graded.append({
+                    "id": e.get("id"),
+                    "wikiPath": wp,
+                    "old_score": old_score,
+                    "new_score": new_score,
+                    "reason": new_reason,
+                })
+            except Exception as ex:
+                logger.warning(f"regrade write failed for {wp}: {ex}")
+                errors += 1
+
+    # If we wrote anything, bust the wiki index cache so subsequent reads
+    # see the new relevance fields.
+    if graded and not dry_run:
+        global _WIKI_INDEX_CACHE
+        try:
+            _WIKI_INDEX_CACHE = None
+        except Exception:
+            pass
+
+    return {
+        "graded": graded,
+        "skipped": skipped,
+        "errors": errors,
+        "total_eligible": total_eligible,
+        "regraded_count": len(graded),
+        "dry_run": dry_run,
+        "elapsed_ms": int((_time_rg.time() - started) * 1000),
+    }
+
+
+# ================================================================
+# EMBEDDING A/B HARNESS  (one-shot diagnostic)
+# ================================================================
+# Compare current-provider retrieval ranking against an alternative
+# provider without disturbing the persistent vector store. Computes
+# alt-provider embeddings live for the top-K candidates surfaced by the
+# current provider, then re-ranks under the alt vectors and returns
+# divergence metrics + per-article scores.
+#
+# Useful for deciding whether to migrate (e.g., voyage-3-large vs
+# text-embedding-3-small) without committing to a full re-embed of the
+# archive. Costly per call (live embeds K bodies + 1 query) so cap K low.
+
+@app.post("/api/wiki/embed-ab")
+async def wiki_embed_ab(payload: dict):
+    """Compare retrieval ordering between the current provider and an
+    alternative provider for a given query.
+
+    Request:
+      {
+        "query": "<retrieval query>",
+        "goal": "<optional goal — informational only, not blended>",
+        "alt_provider": "openai-large" | "voyage" | "gemini" | "openai",
+        "top_k": 30,                  # candidates to compare (max 50)
+        "candidate_ids": ["..."]      # optional explicit url_hash list
+      }
+
+    Response:
+      {
+        "current": { "provider": "openai", "model": "text-embedding-3-small", "dim": 1536 },
+        "alt":     { "provider": "voyage", "model": "voyage-3", "dim": 1024 },
+        "ranking": [
+          { "id": "...", "title": "...", "source": "...",
+            "current_score": 0.81, "current_rank": 1,
+            "alt_score": 0.74, "alt_rank": 3, "rank_delta": -2 },
+          ...
+        ],
+        "metrics": {
+          "overlap_at_k": 0.7,         # Jaccard@K on top results
+          "kendall_tau": 0.55,         # rank correlation across the K candidates
+          "mean_abs_rank_delta": 2.4
+        },
+        "elapsed_ms": int
+      }
+
+    Behavior:
+      - Reads current vectors from sidecar; if empty, returns 409.
+      - Picks the candidate set: explicit candidate_ids OR top-K by current
+        provider's cosine score against the query.
+      - Re-embeds query + candidate bodies via alt_provider and scores.
+      - Computes overlap@K (Jaccard on top-min(10, K)), Kendall tau, and
+        mean absolute rank delta as decision-support metrics.
+    """
+    import time as _time_ab
+    started = _time_ab.time()
+
+    query = (payload.get("query") or "").strip()
+    if not query or len(query) < 4:
+        return JSONResponse({"error": "query required (min 4 chars)"}, status_code=400)
+
+    alt_provider = (payload.get("alt_provider") or "").strip().lower()
+    if alt_provider not in EMBED_PROVIDERS:
+        return JSONResponse(
+            {"error": f"alt_provider must be one of {list(EMBED_PROVIDERS.keys())}"},
+            status_code=400,
+        )
+    if alt_provider == EMBED_PROVIDER:
+        return JSONResponse(
+            {"error": f"alt_provider must differ from current provider ({EMBED_PROVIDER})"},
+            status_code=400,
+        )
+
+    top_k = max(5, min(50, int(payload.get("top_k") or 20)))
+
+    # Step 1: build candidate set under current provider
+    current_vectors = _load_embeddings()
+    if not current_vectors:
+        return JSONResponse({"error": "no current-provider embeddings cached"}, status_code=409)
+
+    try:
+        qvec_current = _embed_texts([query], task_type="query")[0]
+    except Exception as e:
+        return JSONResponse({"error": f"current-provider query embed failed: {e}"}, status_code=502)
+
+    explicit_ids = payload.get("candidate_ids")
+    if isinstance(explicit_ids, list) and explicit_ids:
+        candidate_ids = [str(x) for x in explicit_ids if x][:top_k]
+    else:
+        # Top-K by current cosine
+        scored = []
+        for cid, vec in current_vectors.items():
+            if not vec or len(vec) != EMBED_DIM:
+                continue
+            scored.append((cid, _cosine(qvec_current, vec)))
+        scored.sort(key=lambda t: t[1], reverse=True)
+        candidate_ids = [cid for cid, _ in scored[:top_k]]
+
+    if not candidate_ids:
+        return JSONResponse({"error": "no candidates found"}, status_code=409)
+
+    current_scores = {cid: _cosine(qvec_current, current_vectors[cid]) for cid in candidate_ids if cid in current_vectors}
+
+    # Step 2: gather candidate bodies + metadata for alt-provider embedding
+    entries_by_id: dict = {}
+    try:
+        index_entries = _get_wiki_index_cached(summary_len=600)
+    except Exception as e:
+        return JSONResponse({"error": f"index build failed: {e}"}, status_code=500)
+    for e in index_entries:
+        if e.get("id") in candidate_ids:
+            entries_by_id[e["id"]] = e
+
+    alt_input_texts: list = []
+    alt_input_ids: list = []
+    for cid in candidate_ids:
+        e = entries_by_id.get(cid)
+        if not e:
+            continue
+        # Read body to build the same embed text shape used at write time
+        body = ""
+        wp = e.get("wikiPath") or ""
+        body_path = os.path.normpath(os.path.join(WIKI_BASE, wp))
+        if body_path.startswith(os.path.normpath(WIKI_BASE)) and os.path.exists(body_path):
+            try:
+                with open(body_path, "r", encoding="utf-8") as f:
+                    raw = f.read()
+                body = _extract_wiki_body(raw, max_chars=EMBED_BODY_CHARS)
+            except Exception:
+                body = ""
+        alt_input_texts.append(_build_embed_text(e, body))
+        alt_input_ids.append(cid)
+
+    if not alt_input_texts:
+        return JSONResponse({"error": "could not assemble alt-provider input"}, status_code=409)
+
+    try:
+        # Embed candidate bodies + query via alt provider
+        alt_doc_vecs = _embed_texts_via_provider(alt_provider, alt_input_texts, task_type="document")
+        alt_qvec = _embed_texts_via_provider(alt_provider, [query], task_type="query")[0]
+    except Exception as e:
+        return JSONResponse({"error": f"alt-provider embed failed: {e}"}, status_code=502)
+
+    alt_scores: dict = {}
+    for cid, vec in zip(alt_input_ids, alt_doc_vecs):
+        if not vec:
+            continue
+        alt_scores[cid] = _cosine(alt_qvec, vec)
+
+    # Step 3: rank under each, compute deltas
+    current_ranking = sorted(current_scores.items(), key=lambda t: t[1], reverse=True)
+    alt_ranking = sorted(alt_scores.items(), key=lambda t: t[1], reverse=True)
+    current_rank_by_id = {cid: i + 1 for i, (cid, _) in enumerate(current_ranking)}
+    alt_rank_by_id = {cid: i + 1 for i, (cid, _) in enumerate(alt_ranking)}
+
+    rows: list = []
+    for cid in candidate_ids:
+        e = entries_by_id.get(cid) or {}
+        cur_rank = current_rank_by_id.get(cid)
+        alt_rank = alt_rank_by_id.get(cid)
+        rank_delta = (alt_rank - cur_rank) if (cur_rank is not None and alt_rank is not None) else None
+        rows.append({
+            "id": cid,
+            "title": e.get("title") or "",
+            "source": e.get("source") or "",
+            "current_score": round(float(current_scores.get(cid, 0.0)), 4),
+            "alt_score": round(float(alt_scores.get(cid, 0.0)), 4),
+            "current_rank": cur_rank,
+            "alt_rank": alt_rank,
+            "rank_delta": rank_delta,
+        })
+
+    # Sort rows by current rank for stable display
+    rows.sort(key=lambda r: r.get("current_rank") or 9999)
+
+    # Metrics
+    k_overlap = min(10, len(candidate_ids))
+    top_current = {cid for cid, _ in current_ranking[:k_overlap]}
+    top_alt = {cid for cid, _ in alt_ranking[:k_overlap]}
+    union = top_current | top_alt
+    overlap_at_k = (len(top_current & top_alt) / len(union)) if union else 0.0
+
+    # Kendall's tau over the candidate set (only ids ranked under both)
+    ranked_both = [cid for cid in candidate_ids if cid in current_rank_by_id and cid in alt_rank_by_id]
+    n = len(ranked_both)
+    tau: Optional[float] = None
+    if n >= 2:
+        concordant = 0
+        discordant = 0
+        for i in range(n):
+            for j in range(i + 1, n):
+                ci, cj = ranked_both[i], ranked_both[j]
+                d_cur = current_rank_by_id[ci] - current_rank_by_id[cj]
+                d_alt = alt_rank_by_id[ci] - alt_rank_by_id[cj]
+                prod = d_cur * d_alt
+                if prod > 0:
+                    concordant += 1
+                elif prod < 0:
+                    discordant += 1
+        denom = n * (n - 1) / 2
+        tau = round((concordant - discordant) / denom, 4) if denom > 0 else None
+
+    deltas = [abs(r["rank_delta"]) for r in rows if r.get("rank_delta") is not None]
+    mean_abs_delta = round(sum(deltas) / len(deltas), 2) if deltas else 0.0
+
+    return {
+        "current": {"provider": EMBED_PROVIDER, "model": EMBED_MODEL, "dim": EMBED_DIM},
+        "alt": {
+            "provider": alt_provider,
+            "model": EMBED_PROVIDERS[alt_provider]["model"],
+            "dim": EMBED_PROVIDERS[alt_provider]["dim"],
+        },
+        "ranking": rows,
+        "metrics": {
+            "overlap_at_k": round(overlap_at_k, 3),
+            "kendall_tau": tau,
+            "mean_abs_rank_delta": mean_abs_delta,
+            "k_overlap": k_overlap,
+            "n_candidates": len(candidate_ids),
+        },
+        "query": query,
+        "goal": (payload.get("goal") or "").strip() or None,
+        "elapsed_ms": int((_time_ab.time() - started) * 1000),
+    }
+
+
+def _replace_frontmatter_relevance(text: str, new_score: int, new_reason: str, new_goal: str) -> str:
+    """Surgically rewrite the relevance lines in a wiki article's YAML
+    frontmatter. Preserves all other fields and the article body verbatim.
+    Adds the lines if the article was written before relevance grading existed.
+
+    Frontmatter is the first --- ... --- block at the top of the file.
+    """
+    if not text.startswith("---"):
+        # No frontmatter — be conservative; don't synthesize one.
+        return text
+    end_marker = text.find("\n---", 3)
+    if end_marker < 0:
+        return text
+
+    fm_block = text[3:end_marker]  # between leading --- and trailing ---
+    rest = text[end_marker:]       # \n---\n...
+
+    # Rebuild fm lines, replacing or appending the three relevance fields.
+    lines = fm_block.split("\n")
+    out_lines: list = []
+    seen_relevance = False
+    seen_reason = False
+    seen_goal = False
+
+    def _yaml_quote(v: str) -> str:
+        # Match the quote style used by _build_article_frontmatter.esc()
+        return '"' + v.replace('"', '\\"') + '"'
+
+    for ln in lines:
+        stripped = ln.strip()
+        if stripped.startswith("relevance:") and not stripped.startswith("relevance_reason"):
+            out_lines.append(f"relevance: {int(new_score)}")
+            seen_relevance = True
+        elif stripped.startswith("relevance_reason:"):
+            out_lines.append(f"relevance_reason: {_yaml_quote(new_reason)}")
+            seen_reason = True
+        elif stripped.startswith("engagement_goal:"):
+            out_lines.append(f"engagement_goal: {_yaml_quote(new_goal)}")
+            seen_goal = True
+        else:
+            out_lines.append(ln)
+
+    if not seen_relevance:
+        out_lines.append(f"relevance: {int(new_score)}")
+    if not seen_reason:
+        out_lines.append(f"relevance_reason: {_yaml_quote(new_reason)}")
+    if not seen_goal:
+        out_lines.append(f"engagement_goal: {_yaml_quote(new_goal)}")
+
+    return "---" + "\n".join(out_lines) + rest
+
+
+# ================================================================
+# PRESENTATIONS — narrative-composer artifact persistence
+# ================================================================
+# Stores PresentationPayload JSON objects emitted by the narrative
+# composer (services/narrativeComposer.ts) for #presentation directives.
+# Read by the presentation-renderer service at port 5014 to render the
+# scrolling interactive experience. Payloads land at
+# wiki/presentations/{slug}.json and persist across Docker rebuilds via
+# the same volume mount used for the rest of the wiki.
+
+PRESENTATIONS_DIR = os.path.join(WIKI_BASE, "presentations")
+
+
+def _ensure_presentations_dir() -> str:
+    """Lazy-create the presentations directory under wiki/."""
+    os.makedirs(PRESENTATIONS_DIR, exist_ok=True)
+    return PRESENTATIONS_DIR
+
+
+import re as _re_for_slug
+_PRESENTATION_SLUG_RE = _re_for_slug.compile(r"^[a-z0-9][a-z0-9\-]{2,99}$")
+
+def _validate_slug(slug: str) -> bool:
+    """Slug must be URL-safe, lowercase, alphanumeric+hyphen, 3-100 chars."""
+    return bool(_PRESENTATION_SLUG_RE.match(slug))
+
+
+@app.post("/api/presentations")
+async def create_presentation(payload: dict):
+    """Persist a PresentationPayload emitted by the narrative composer.
+
+    Request body: full PresentationPayload JSON object. Must include
+    `meta.slug` (validated for URL safety) and `schemaVersion: 1`.
+
+    Response: { slug, url, sourceCount, citationCount, sectionCount }
+
+    Rejects with 400 if:
+      - slug missing or invalid format
+      - schemaVersion != 1
+      - sections array missing or wrong shape
+    """
+    if not isinstance(payload, dict):
+        return JSONResponse({"error": "payload must be a JSON object"}, status_code=400)
+
+    if payload.get("schemaVersion") != 1:
+        return JSONResponse(
+            {"error": f"schemaVersion must be 1, got {payload.get('schemaVersion')}"},
+            status_code=400,
+        )
+
+    meta = payload.get("meta") or {}
+    slug = meta.get("slug")
+    if not slug or not isinstance(slug, str):
+        return JSONResponse({"error": "meta.slug required"}, status_code=400)
+    if not _validate_slug(slug):
+        return JSONResponse(
+            {"error": "meta.slug must be lowercase alphanumeric + hyphen, 3-100 chars"},
+            status_code=400,
+        )
+
+    sections = payload.get("sections")
+    if not isinstance(sections, list) or len(sections) < 1:
+        return JSONResponse({"error": "sections must be a non-empty array"}, status_code=400)
+
+    presentations_dir = _ensure_presentations_dir()
+    out_path = os.path.join(presentations_dir, f"{slug}.json")
+    safe_path = os.path.normpath(out_path)
+    if not safe_path.startswith(os.path.normpath(presentations_dir)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+
+    # Atomic write: tmp + os.replace, same pattern as wiki embeddings cache
+    tmp_path = safe_path + ".tmp"
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, safe_path)
+    except Exception as e:
+        if os.path.exists(tmp_path):
+            try: os.remove(tmp_path)
+            except: pass
+        logger.exception("presentation write failed")
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+    citation_count = 0
+    for s in sections:
+        data = s.get("data") if isinstance(s, dict) else None
+        if isinstance(data, dict):
+            cites = data.get("citations") or []
+            if isinstance(cites, list):
+                citation_count += len(cites)
+
+    # The renderer service is at port 5014; URL host is browser-side.
+    # We return a relative-style URL so the frontend can render it
+    # against window.location.host or a configured base.
+    renderer_url = f"http://localhost:5014/p/{slug}"
+
+    logger.info(
+        "presentation created: slug=%s sections=%d citations=%d brand=%s",
+        slug, len(sections), citation_count, meta.get("brand", "?"),
+    )
+
+    return {
+        "slug": slug,
+        "url": renderer_url,
+        "wikiPath": f"presentations/{slug}.json",
+        "sectionCount": len(sections),
+        "citationCount": citation_count,
+        "sourceCount": meta.get("sourceCount") or {},
+        "brand": meta.get("brand"),
+        "generatedAt": meta.get("generatedAt"),
+    }
+
+
+@app.get("/api/presentations/{slug}")
+async def get_presentation(slug: str):
+    """Read a persisted PresentationPayload by slug.
+
+    Used by the presentation-renderer service at port 5014 to fetch the
+    payload at page load. Returns 404 if not found.
+    """
+    if not _validate_slug(slug):
+        return JSONResponse({"error": "invalid slug format"}, status_code=400)
+
+    presentations_dir = _ensure_presentations_dir()
+    path = os.path.join(presentations_dir, f"{slug}.json")
+    safe_path = os.path.normpath(path)
+    if not safe_path.startswith(os.path.normpath(presentations_dir)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+
+    if not os.path.exists(safe_path):
+        return JSONResponse({"error": "not found", "slug": slug}, status_code=404)
+
+    try:
+        with open(safe_path, "r", encoding="utf-8") as f:
+            payload = json.load(f)
+        return payload
+    except Exception as e:
+        logger.exception("presentation read failed: %s", slug)
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+
+@app.get("/api/presentations")
+async def list_presentations(
+    engagement: str = "",
+    brand: str = "",
+    limit: int = 50,
+):
+    """List persisted presentations, optionally filtered.
+
+    Query params:
+      engagement — filter by meta.sourceEngagement (substring match)
+      brand     — filter by meta.brand (exact match: 'NXT' | 'NU')
+      limit     — max results (default 50)
+
+    Returns array sorted by meta.generatedAt descending.
+    """
+    presentations_dir = _ensure_presentations_dir()
+    if not os.path.isdir(presentations_dir):
+        return {"total": 0, "results": []}
+
+    results = []
+    for fname in os.listdir(presentations_dir):
+        if not fname.endswith(".json"):
+            continue
+        path = os.path.join(presentations_dir, fname)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                payload = json.load(f)
+        except Exception:
+            continue
+
+        meta = payload.get("meta") or {}
+        if brand and meta.get("brand") != brand:
+            continue
+        if engagement and engagement not in (meta.get("sourceEngagement") or ""):
+            continue
+
+        results.append({
+            "slug": meta.get("slug") or fname[:-5],
+            "title": meta.get("title"),
+            "brand": meta.get("brand"),
+            "generatedAt": meta.get("generatedAt"),
+            "narrativeThesis": meta.get("narrativeThesis"),
+            "sectionCount": len(payload.get("sections") or []),
+            "sourceCount": meta.get("sourceCount") or {},
+            "url": f"http://localhost:5014/p/{meta.get('slug') or fname[:-5]}",
+        })
+
+    results.sort(key=lambda r: r.get("generatedAt") or "", reverse=True)
+    if limit > 0:
+        results = results[:limit]
+
+    return {"total": len(results), "results": results}
 
 
 if __name__ == "__main__":

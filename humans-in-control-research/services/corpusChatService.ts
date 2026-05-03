@@ -34,6 +34,16 @@ export interface ChatMessage {
     deliveredArtifactType?: 'persona' | 'journey' | 'org';
     /** When true, the artifact is rendered inside a 16:9 NXT slide frame (triggered by #slide / #slides). */
     deliveredAsSlide?: boolean;
+    /** When the chat composed an interactive presentation, this is the renderer URL.
+     * Triggers a Launch button to open the presentation in a separate window. */
+    presentationUrl?: string;
+    presentationMeta?: {
+        title?: string;
+        brand?: 'NXT' | 'NU';
+        sectionCount?: number;
+        citationCount?: number;
+        sourceCount?: { external: number; uploaded: number; analysis: number; total: number };
+    };
 }
 
 export interface SourceReference {
@@ -47,6 +57,14 @@ export interface SourceReference {
 
 export interface ChatContext {
     corpusText: string;
+    /**
+     * The data-source categories the user explicitly toggled ON during data
+     * collection. The synthesis layer MUST cite from each of these. If a
+     * category yielded no usable content, the response MUST mark it as
+     * `CATEGORY GAP: <category>` rather than silently omitting it.
+     * Populated by App.tsx from liveSourceResults / proxyResults.
+     */
+    activeCategories?: Array<{ name: string; sourceCount: number; itemCount: number }>;
     themes?: any[];
     personas?: any[];
     recommendations?: any[];
@@ -989,6 +1007,111 @@ FOUNDATIONAL CONSULTING MANDATES (apply to ALL responses):
 5. NO META-NARRATION: Never say "Good morning", "Today we will", "In this section", "As you can see", "Let me start by". Lead with the insight.
 `;
 
+// --- Corpus source-mix breakdown ---
+//
+// Surfaces a per-source-type breakdown of the corpus so the chat system
+// prompt can show the model exactly what it has access to (not just upload
+// PDFs). Counts come from heuristic source-name pattern matching against
+// common scope markers in the raw corpus and source references.
+
+interface CorpusBreakdown {
+    summary: string;
+    uploadKB: number;
+    externalKB: number;
+    transcriptKB: number;
+    redditKB: number;
+    academicKB: number;
+    rssKB: number;
+}
+
+function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
+    const corpus = ctx.corpusText || '';
+    const uploads = ctx.uploadedFileContents || '';
+    const refs = ctx.sourceReferences || [];
+
+    // Total sizes (raw byte heuristic — chars / 1024)
+    const uploadKB = Math.round((uploads.length || 0) / 1024);
+    const corpusKB = Math.round((corpus.length || 0) / 1024);
+
+    // Bucket source references by name pattern
+    const buckets = { rss: 0, jina: 0, youtube: 0, reddit: 0, academic: 0, openalex: 0, other: 0, upload: 0 };
+    const bucketSources = { rss: new Set<string>(), jina: new Set<string>(), youtube: new Set<string>(), reddit: new Set<string>(), academic: new Set<string>(), openalex: new Set<string>(), other: new Set<string>(), upload: new Set<string>() };
+
+    for (const ref of refs) {
+        const name = (ref.sourceName || '').toLowerCase();
+        const isUpload = name.includes('upload') || name.includes('client') || name.includes('uploaded');
+        const isYoutube = name.includes('youtube') || name.includes('alumni-association');
+        const isReddit = name.includes('reddit') || name.includes('r/');
+        const isAcademic = name.includes('openalex') || name.includes('crossref') || name.includes('semantic scholar') || name.includes('doaj') || name.includes('arxiv') || name.includes('europe pmc') || name.includes('eric');
+        const isJina = name.includes('jina') || name.includes('web extract') || name.includes('news.northeastern') || name.includes('president.northeastern') || name.includes('finance.northeastern');
+        const isRss = name.includes('rss') || name.includes('higher ed dive') || name.includes('inside higher ed') || name.includes('chronicle') || name.includes('edsurge') || name.includes('diverse') || name.includes('education week') || name.includes('philanthropy') || name.includes('news') || name.includes('case');
+
+        let bucket: keyof typeof buckets = 'other';
+        if (isUpload) bucket = 'upload';
+        else if (isYoutube) bucket = 'youtube';
+        else if (isReddit) bucket = 'reddit';
+        else if (isAcademic) bucket = 'academic';
+        else if (isJina) bucket = 'jina';
+        else if (isRss) bucket = 'rss';
+
+        buckets[bucket] += 1;
+        bucketSources[bucket].add(ref.sourceName);
+    }
+
+    // External = anything that isn't an upload
+    const externalRefCount = (Object.keys(buckets) as Array<keyof typeof buckets>)
+        .filter(k => k !== 'upload')
+        .reduce((s, k) => s + buckets[k], 0);
+
+    const totalKB = uploadKB + corpusKB || 1;
+
+    const summary = [
+        `Total corpus: ${totalKB}KB across ${refs.length} cataloged sources`,
+        `  Uploaded client docs: ${uploadKB}KB (${Math.round(uploadKB / totalKB * 100)}%) — ${buckets.upload} sources`,
+        `  External corpus: ${corpusKB}KB (${Math.round(corpusKB / totalKB * 100)}%) — ${externalRefCount} sources, broken down:`,
+        `    • RSS / news (Higher Ed Dive, IHE, Chronicle, EdSurge, etc.): ${buckets.rss} sources`,
+        `    • Jina-reader web scrapes (institutional sites, peer URLs): ${buckets.jina} sources`,
+        `    • YouTube alumni-engagement transcripts: ${buckets.youtube} sources`,
+        `    • Reddit topical threads: ${buckets.reddit} sources`,
+        `    • Academic papers (OpenAlex, Crossref, Semantic Scholar, DOAJ): ${buckets.academic} sources`,
+        `    • Other / uncategorized: ${buckets.other} sources`,
+    ].join('\n');
+
+    return {
+        summary,
+        uploadKB,
+        externalKB: corpusKB,
+        transcriptKB: buckets.youtube,
+        redditKB: buckets.reddit,
+        academicKB: buckets.academic,
+        rssKB: buckets.rss,
+    };
+}
+
+/**
+ * Format the active-category roster for the system prompt. Each category line
+ * shows the source name + item count + a status flag (HAS CONTENT / EMPTY).
+ * The model is instructed to cite from each non-empty category, and to mark
+ * the empty ones explicitly as CATEGORY GAP in its response.
+ */
+function buildCategoryRoster(ctx: ChatContext): string {
+    const cats = ctx.activeCategories || [];
+    if (cats.length === 0) {
+        return '(no active-category roster — synthesis must still cite from every source kind that appears in the corpus)';
+    }
+    // Add uploads as an active category if uploadedFiles are present
+    const uploads = (ctx.uploadedFiles || []).map(f => f.name);
+    const lines: string[] = [];
+    if (uploads.length > 0) {
+        lines.push(`  • Uploaded client documents (${uploads.length} files): ${uploads.slice(0, 6).join(', ')}${uploads.length > 6 ? `, +${uploads.length - 6} more` : ''} — STATUS: HAS CONTENT (must cite)`);
+    }
+    for (const c of cats) {
+        const status = c.itemCount > 0 ? `HAS CONTENT (${c.itemCount} items — must cite)` : 'EMPTY (must mark CATEGORY GAP in response)';
+        lines.push(`  • ${c.name}: STATUS: ${status}`);
+    }
+    return lines.join('\n');
+}
+
 // --- Grounding Context Builder ---
 
 function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
@@ -1636,15 +1759,67 @@ ${re.skillContent}
         ? `\nAVAILABLE CONSULTING SKILLS (activate by requesting the output type):\n${context.skillManifest.filter(s => s.category === 'research-deliverable').map(s => `- ${s.name}: ${s.description}`).join('\n')}\n`
         : '';
 
+    // Compute per-source-type breakdown of the corpus so the model SEES what
+    // it actually has access to. Counts by source-name patterns; not perfect
+    // (some sources have ambiguous names) but accurate enough to enforce the
+    // external-citation floor and surface diagnostics back to the user.
+    const corpusBreakdown = computeCorpusSourceBreakdown(context);
+    const categoryRoster = buildCategoryRoster(context);
+
     const systemPrompt = `You are a McKinsey-trained research intelligence analyst operating in the NXT Humans Chat-Driven Research Workbench.
 You have access to ${context.sourceCount} data sources containing ${context.articleCount} articles collected for this research.
 The research goal is: "${context.researchGoal}"
 
-${CONSULTING_MANDATES}
+================================================================================
+=== IRON LAW: USER-SELECTED SOURCES MUST BE USED ===
+================================================================================
+
+The user is an EXPERT RESEARCHER. Every source category in the list below was
+toggled ON deliberately. The user has reasons — including pulling cross-industry
+analogies, out-of-domain examples, and lateral evidence INTO the analysis. Your
+job is to honor that selection, NOT second-guess it.
+
+ABSOLUTE RULES:
+1. Every source category the user toggled ON appears in the ACTIVE CATEGORIES
+   roster below. You MUST surface at least one citation from EACH category in
+   your response.
+2. If a category yielded no usable content during retrieval, you MUST mark it
+   explicitly as: \`CATEGORY GAP: <category name> — no relevant content
+   collected for this query\` so the user can decide whether to retry or de-select.
+3. NEVER silently omit a toggled category. NEVER reason "this category seems
+   off-topic" — the user is an expert; if they toggled it, it's relevant.
+4. Out-of-domain evidence is a FEATURE, not a bug. Cross-industry analogies
+   (retail loyalty patterns for alumni engagement, supply-chain orchestration
+   patterns for donor pipelines, AI-lab innovation cycles for advancement
+   technology) are EXACTLY the kind of lateral insight an expert researcher
+   curates. Embrace them.
+5. When citing out-of-industry evidence, frame as PATTERN to borrow:
+   GOOD: "Borrow Sephora's tiered-loyalty pattern for alumni status."
+   GOOD: "The retail abandoned-cart recovery playbook applies directly to
+          incomplete donation flows."
+   BAD: "Sephora has a tiered alumni program" (implies an existing thing)
+
+=== ACTIVE CATEGORIES (every one must be cited or marked CATEGORY GAP) ===
+${categoryRoster}
+================================================================================
+
+=== CORPUS SOURCE COMPOSITION ===
+The corpus below contains content from MULTIPLE source types. Every type is
+first-class evidence. You MUST cite from a balanced mix — not just uploads.
+
+${corpusBreakdown.summary}
+
+SOURCE-MIX DISCIPLINE (MANDATORY):
+- Uploads (client-provided PDFs, interviews, internal docs) provide CONTEXT — the client's POV, their data, their stakeholder voices
+- External sources (RSS articles, jina-reader web scrapes, YouTube transcripts, Reddit threads, OpenAlex/Crossref/Semantic Scholar papers, DOAJ open-access research) provide EVIDENCE — third-party validation, peer-institution comparisons, sector benchmarks
+- ≥40% of citations in any analysis MUST come from non-upload external sources
+- If your draft response leans >60% on uploads, you are FAILING the source-mix discipline — REVISE before delivering
+- Citations from "Higher Ed Dive", "Inside Higher Ed", "Chronicle of Higher Education", "EdSurge", "Diverse Issues in Higher Ed", YouTube alumni-engagement transcripts, OpenAlex papers, and topical Reddit threads are FIRST-CLASS evidence — not optional padding
+- For every theme/recommendation/persona, surface BOTH internal (upload) and external evidence — the convergence is the strategic insight
 
 CITATION FORMAT (MANDATORY):
 [SOURCE_NAME: "Article Title"]
-Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"]
+Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"], [YouTube: "Columbia Alumni Q&A — Donor Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
 
 ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - Answer ONLY from evidence that EXISTS in the corpus below. Do not invent, fabricate, or extrapolate.
@@ -1663,6 +1838,14 @@ You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by 
   - Need a specific peer institution's outcome? Call fetch_wiki_articles(query: "<peer name> <topic>", source: "<outlet>") to retrieve the article body.
   - Building a case study slide? Call fetch_wiki_articles(query: "<subject> <vendor> <outcome>", kind: "article") to get the case study body, then write from it.
   - Never call more than 2-3 times per turn. Be specific in your queries.
+
+DIVERSE-KIND RETRIEVAL (CRITICAL for source-mix discipline):
+When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds — not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube alumni transcripts, interview transcripts), \`upload\` (client PDFs).
+  - For evidence/data sections: call fetch_wiki_articles(query, kind: "article") to retrieve external research first.
+  - For human voice / lived-experience sections: call fetch_wiki_articles(query, kind: "transcript") to retrieve YouTube + interview content.
+  - For client-context sections only: call fetch_wiki_articles(query, kind: "upload") to retrieve client PDFs.
+  - DEFAULT: omit \`kind\` so all three are returned, then select balanced evidence across all of them.
+If your draft answer cites only uploads, that is a violation of source-mix discipline — make additional retrievals with kind="article" and kind="transcript" before responding.
 
 When tool results return empty or error, THEN flag EVIDENCE GAP — the archive genuinely doesn't have it. Do NOT use tool failures as an excuse to fabricate.
 ${DELIVERABLE_PROTOCOL}

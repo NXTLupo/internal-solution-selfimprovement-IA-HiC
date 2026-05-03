@@ -14,7 +14,8 @@ import CorpusChatPanel from './components/CorpusChatPanel';
 import ChatWorkbench from './components/ChatWorkbench';
 import { DesignDesk } from './design-desk';
 import { saveDesignContext } from './design-desk/services/designContext';
-import type { ChatContext } from './services/corpusChatService';
+import { SourceCoverage } from './components/SourceCoverage';
+import type { ChatContext, ChatMessage } from './services/corpusChatService';
 import { buildSourceReferences } from './services/corpusChatService';
 import './styles/nxt-design-system.css';
 import { getChunkSourceMap } from './services/researchFabricOrchestrator';
@@ -423,6 +424,18 @@ const LiveResearchBoard = ({
                     sourceCount: (liveSourceResults || []).length,
                     articleCount: (liveSourceResults || []).reduce((s: number, r: any) => s + (r.items?.length || 0), 0),
                     sourceReferences: buildSourceReferences(liveSourceResults || []),
+                    // CATEGORY COVERAGE — every source the user toggled MUST be
+                    // cited by the synthesis layer. The user is an expert
+                    // researcher who selected sources for specific reasons; the
+                    // synthesis layer is forbidden from second-guessing or
+                    // silently dropping any selected source. Categories that
+                    // returned no usable items are included so synthesis can
+                    // explicitly mark them as CATEGORY GAP.
+                    activeCategories: (liveSourceResults || []).map((r: any) => ({
+                        name: r.source || r.id || 'unknown',
+                        sourceCount: 1,
+                        itemCount: (r.items?.length || 0),
+                    })),
                     chunkMap: getChunkSourceMap(),
                     knowledgeGraph: knowledgeGraph,
                 } as ChatContext)}
@@ -1162,6 +1175,55 @@ const App = () => {
     const [engagementMemoryDismissed, setEngagementMemoryDismissed] = useState<boolean>(false);
     // Reset dismissal whenever the goal changes — a new goal gets a fresh look
     useEffect(() => { setEngagementMemoryDismissed(false); }, [researchGoal]);
+
+    // Goal-refinement re-grade trigger.
+    // When the user refines researchGoal mid-session, archived articles still
+    // carry frontmatter relevance scores graded against the OLD goal. Fire a
+    // debounced regrade against the NEW goal so the article-level scores stay
+    // current. Only fires when:
+    //   - the goal actually changed from a non-empty previous value (skips
+    //     initial mount and seed default)
+    //   - 10s has elapsed since the latest change (avoids per-keystroke runs)
+    //   - the change vs previous is substantive (>= 12 chars new content or
+    //     levenshtein-style divergence — proxied here by length-delta + prefix
+    //     comparison; the proxy's match_old_goal filter further limits scope).
+    const _prevGoalRef = useRef<string>('');
+    useEffect(() => {
+        const newGoal = (researchGoal || '').trim();
+        const oldGoal = _prevGoalRef.current.trim();
+        // Update ref synchronously so future effect runs see the latest "old"
+        const setRef = () => { _prevGoalRef.current = researchGoal; };
+        if (!oldGoal || oldGoal.length < 12) { setRef(); return; }
+        if (!newGoal || newGoal.length < 12) { setRef(); return; }
+        if (newGoal === oldGoal) return;
+        const trivial =
+            Math.abs(newGoal.length - oldGoal.length) < 6 &&
+            newGoal.slice(0, 24) === oldGoal.slice(0, 24);
+        if (trivial) { setRef(); return; }
+
+        const handle = setTimeout(async () => {
+            try {
+                const { regradeWikiRelevance } = await import('./services/wikiIndexService');
+                const result = await regradeWikiRelevance(newGoal, {
+                    oldGoal,
+                    matchOldGoal: true,
+                    limit: 50,
+                });
+                if (result) {
+                    console.log(
+                        `[GoalRegrade] ${result.regraded_count}/${result.total_eligible} articles regraded ` +
+                        `(skipped=${result.skipped}, errors=${result.errors}) in ${result.elapsed_ms}ms`
+                    );
+                }
+            } catch (e) {
+                console.warn('[GoalRegrade] failed:', e);
+            } finally {
+                setRef();
+            }
+        }, 10_000);
+        return () => clearTimeout(handle);
+    }, [researchGoal]);
+
     useEffect(() => {
         const goal = (researchGoal || '').trim();
         if (goal.length < 12) { setPriorEngagementMatches([]); setPriorEngagementInsights(''); return; }
@@ -2957,9 +3019,37 @@ const App = () => {
                     }
                 } catch (e) { console.warn('[Corpus] Upload prepend failed:', e); }
 
-                let fullCorpus = [uploadedCorpus, corpus, proxyCorpus].filter(c => c.trim()).join('\n\n');
+                // CORPUS ORDERING — place external content FIRST so it survives
+                // truncation. Previously uploads were prepended which meant RSS,
+                // jina-reader scrapes, YouTube transcripts, Reddit, and OpenAlex
+                // papers got cut from the END when the corpus exceeded model
+                // context limits. Uploads still get their own dedicated 200KB
+                // block in the chat prompt (corpusChatService.ts:1190), so they
+                // are not under-represented — they're just not double-counted at
+                // the top of the raw corpus.
+                let fullCorpus = [proxyCorpus, corpus, uploadedCorpus].filter(c => c.trim()).join('\n\n');
                 const totalItems = executionResult.totalItems + proxyResults.reduce((s, r) => s + (r.items?.length || 0), 0);
                 const totalSources = executionResult.successfulSources + proxyResults.filter(r => r.items?.length > 0).length;
+
+                // CORPUS COMPOSITION BREAKDOWN — visible diagnostic for the user.
+                // Logs per-source-type byte/percent so we can verify external
+                // content (RSS/jina/YouTube/Reddit/OpenAlex) is actually making
+                // it through. Persists on `window` so the chat UI can surface it.
+                const composition = {
+                    uploadedKB: Math.round(uploadedCorpus.length / 1024),
+                    proxyKB: Math.round(proxyCorpus.length / 1024),
+                    coreCorpusKB: Math.round(corpus.length / 1024),
+                    totalKB: Math.round(fullCorpus.length / 1024),
+                };
+                const totalForPct = composition.totalKB || 1;
+                console.log(
+                    `[Corpus] Composition: ` +
+                    `Uploads ${composition.uploadedKB}KB (${Math.round(composition.uploadedKB / totalForPct * 100)}%) | ` +
+                    `External corpus (RSS/jina/YouTube/Reddit/OpenAlex) ${composition.proxyKB}KB (${Math.round(composition.proxyKB / totalForPct * 100)}%) | ` +
+                    `Internal/wiki ${composition.coreCorpusKB}KB (${Math.round(composition.coreCorpusKB / totalForPct * 100)}%) | ` +
+                    `Total ${composition.totalKB}KB`
+                );
+                try { (window as any).__hicCorpusComposition = composition; } catch { /* SSR-safe */ }
 
                 // ================================================================
                 // TRI-MODEL CORPUS ANALYSIS

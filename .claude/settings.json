@@ -52,7 +52,9 @@
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH ls-files --others --exclude-standard)",
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --stat HEAD)",
       "Bash(git -C d:/NXT-HUMANS_AI_CX_WORKBENCH diff --name-only HEAD)",
-      "Bash(git merge *)"
+      "Bash(git merge *)",
+      "Bash(npx --yes -p typescript@5.8.2 tsc --noEmit --skipLibCheck --jsx react-jsx --target es2022 --module esnext --moduleResolution bundler --strict --esModuleInterop --allowSyntheticDefaultImports --resolveJsonModule --isolatedModules --lib es2022,dom,dom.iterable --types '' src/types.ts src/payloadFetcher.ts)",
+      "Bash(npx --yes -p typescript@5.8.2 tsc --noEmit --skipLibCheck --jsx react-jsx --target es2022 --module esnext --moduleResolution bundler --strict --esModuleInterop --allowSyntheticDefaultImports --resolveJsonModule --isolatedModules --lib es2022,dom,dom.iterable src/types.ts src/payloadFetcher.ts)"
     ],
     "additionalDirectories": [
       "d:\\NXT-HUMANS_AI_CX_WORKBENCH\\.claude\\skills"
