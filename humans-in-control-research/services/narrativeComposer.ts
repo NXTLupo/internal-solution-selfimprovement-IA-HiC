@@ -551,6 +551,10 @@ interface OpenAIResponse {
 }
 
 async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
+  // 2026-05-04 — Per-compose tool-call dedup cache. Lives for the duration
+  // of this loop only; identical (tool, args) calls return the cached
+  // promise instead of re-executing.
+  const toolCache: ToolCache = new Map();
   const messages: OpenAIMessage[] = [
     { role: 'system', content: args.systemPrompt },
     { role: 'user', content: args.narrativeRequest },
@@ -598,12 +602,16 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
     }
 
     const loopModel = args.model || 'gpt-5.5';
+    // 2026-05-04 — GPT-5 family deprecated `max_tokens` and requires
+    // `max_completion_tokens`. Gemini's OpenAI-compat endpoint still
+    // accepts `max_tokens` natively. Branch by model prefix.
+    const tokenCapField = loopModel.startsWith('gpt-') ? 'max_completion_tokens' : 'max_tokens';
     const response = await callOpenAI({
       model: loopModel,
       messages,
       tools: availableTools,
       tool_choice: toolChoice,
-      max_tokens: COMPOSER_MAX_TOKENS,
+      [tokenCapField]: COMPOSER_MAX_TOKENS,
     });
 
     const choice = response.choices[0];
@@ -621,22 +629,38 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
           args.onTool('submit_presentation', { sections: payload?.sections?.length }, 'final payload submitted');
           return payload;
         } catch (e: unknown) {
-          // Try repair once; OpenAI's strict mode should prevent malformed JSON,
-          // but defense-in-depth costs nothing.
+          // Try repair once
           try {
             const payload = JSON.parse(tryRepairJson(submitCall.function.arguments));
             args.onTool('submit_presentation', { sections: payload?.sections?.length }, 'final payload submitted (repaired)');
             return payload;
           } catch {
+            // 2026-05-04 — Don't throw fatally. Push a corrective user message
+            // and let the model re-emit on the next iteration. Composer's
+            // MAX_MISSING_SUBMIT_RETRIES (~2) will eventually give up if the
+            // model keeps emitting unparseable JSON, but in practice one
+            // corrective turn is usually enough to converge.
             const msg = e instanceof Error ? e.message : String(e);
-            throw new Error(`gpt-5.5 submit_presentation arguments unparseable: ${msg}. First 200 chars: ${submitCall.function.arguments.slice(0, 200)}`);
+            const head = submitCall.function.arguments.slice(0, 200);
+            console.warn(`[composer] submit_presentation JSON unparseable (iter ${iter}): ${msg}. First 200 chars: ${head}`);
+            messages.push({
+              role: 'tool',
+              tool_call_id: submitCall.id,
+              name: 'submit_presentation',
+              content: `(error: your submit_presentation arguments were not valid JSON: ${msg}. The first 200 chars of what you sent were: "${head}". Re-emit the FULL PresentationPayload as valid JSON now. Make sure every key is double-quoted and every string value is properly escaped.)`,
+            });
+            missingSubmitRetries += 1;
+            if (missingSubmitRetries >= MAX_MISSING_SUBMIT_RETRIES) {
+              throw new Error(`Composer: submit_presentation JSON unparseable after ${MAX_MISSING_SUBMIT_RETRIES} retries. Last attempt head: ${head}`);
+            }
+            continue;
           }
         }
       }
 
       // Execute retrieval tools and continue
       for (const tc of choice.message.tool_calls) {
-        const summary = await executeToolForOpenAI(args.executor, tc, args.onTool);
+        const summary = await executeToolForOpenAI(args.executor, tc, args.onTool, toolCache);
         messages.push({
           role: 'tool',
           tool_call_id: tc.id,
@@ -685,10 +709,22 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
     : OPENAI_PROXY_URL;
   const providerLabel = modelStr.startsWith('gemini-') ? 'Gemini-compat' : 'OpenAI';
 
+  // 2026-05-04 — Force OpenAI's Chat Completions API. The proxy's
+  // /api/ai/openai endpoint defaults to the new Responses API
+  // (`input` field) when no header is set, but runOpenAILoop emits
+  // the chat-completions shape (`messages` + `tool_calls`). Without
+  // this header the proxy 400s with "Unsupported parameter: 'messages'".
+  // Gemini-compat already speaks chat-completions natively, so the
+  // header is harmless in that branch.
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'x-openai-endpoint': 'chat',
+  };
+
   return withRetry(async () => {
     const res = await fetchWithTimeout(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(body),
     }, COMPOSER_REQUEST_TIMEOUT_MS);
     if (!res.ok) {
@@ -701,21 +737,43 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
   }, 'callOpenAI');
 }
 
+// 2026-05-04 — Per-compose() tool-call dedup cache. The composer can fire
+// `search_corpus` 4-6 times with identical query strings across iterations,
+// each time bloating context and pushing the model toward the meta-less-
+// submit failure mode (May 2 incident). Caching identical (tool, args)
+// pairs collapses repeats into one execution, cuts context bloat, and
+// ensures the model sees consistent results across turns.
+type ToolCache = Map<string, Promise<{ serialized: string; isError: boolean }>>;
+
 async function executeToolForOpenAI(
   executor: ToolExecutor,
   call: OpenAIToolCall,
   onTool: LoopArgs['onTool'],
+  cache: ToolCache,
 ): Promise<{ serialized: string; isError: boolean }> {
-  try {
-    const args = JSON.parse(call.function.arguments);
-    const result = await dispatchTool(executor, call.function.name, args);
-    onTool(call.function.name, args, summarizeResult(call.function.name, result));
-    return { serialized: JSON.stringify(result), isError: false };
-  } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : String(e);
-    onTool(call.function.name, call.function.arguments, `error: ${msg}`);
-    return { serialized: JSON.stringify({ error: msg }), isError: true };
+  // Cache key: tool name + canonicalized args. JSON.stringify isn't
+  // canonical (key order varies) but for our small arg objects it's
+  // deterministic enough across the same model call.
+  const cacheKey = `${call.function.name}::${call.function.arguments || ''}`;
+  const cached = cache.get(cacheKey);
+  if (cached) {
+    onTool(call.function.name, call.function.arguments, '(dedup hit — cached result)');
+    return cached;
   }
+  const promise = (async () => {
+    try {
+      const args = JSON.parse(call.function.arguments);
+      const result = await dispatchTool(executor, call.function.name, args);
+      onTool(call.function.name, args, summarizeResult(call.function.name, result));
+      return { serialized: JSON.stringify(result), isError: false };
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : String(e);
+      onTool(call.function.name, call.function.arguments, `error: ${msg}`);
+      return { serialized: JSON.stringify({ error: msg }), isError: true };
+    }
+  })();
+  cache.set(cacheKey, promise);
+  return promise;
 }
 
 // ============================================================================
@@ -890,6 +948,69 @@ function validateAndFinalize(
       `Payload sections array missing or empty (got ${Array.isArray(p.sections) ? `${p.sections.length} items` : typeof p.sections}).`
     );
   }
+
+  // 2026-05-04 — Per-kind data-shape validation. Drops sections whose `data`
+  // doesn't have the minimum required content for the section kind. This
+  // catches schema slippage where the model emits e.g. {kind:'recommendations',
+  // data:{themes:[...]}} (cross-kind contamination) or {kind:'hero', data:{}}
+  // (empty data — was the Gemini-via-OpenAI-compat failure mode).
+  // The composer's submit_presentation tool now uses a discriminated-union
+  // JSON Schema that should prevent most of this — this validator is
+  // defense-in-depth.
+  const SHAPE_REQUIRED_FIELDS: Record<string, string[]> = {
+    hero: ['title'],
+    context: ['situation', 'complication', 'resolution'],
+    cta: ['title'],
+  };
+  const SHAPE_REQUIRED_ARRAYS: Record<string, string[]> = {
+    themes: ['themes'],
+    evidence: ['stats'],
+    quotes: ['quotes'],
+    personas: ['personas'],
+    journey: ['stages'],
+    recommendations: ['recommendations', 'items'],   // accept either
+    roadmap: ['horizons'],
+    gap_analysis: ['gaps'],
+    tech_arch: ['layers'],
+    team: ['members'],
+    competitive: ['layers'],
+  };
+  const validatedSections = (p.sections as Array<{ kind: string; data: unknown }>).filter((s, i) => {
+    const kind = s?.kind;
+    const data = s?.data;
+    if (!kind || !data || typeof data !== 'object' || Array.isArray(data)) {
+      console.warn(`[narrativeComposer] Section[${i}] kind=${JSON.stringify(kind)} dropped: data missing or not an object`);
+      return false;
+    }
+    const dataObj = data as Record<string, unknown>;
+    const reqFields = SHAPE_REQUIRED_FIELDS[kind];
+    if (reqFields) {
+      for (const field of reqFields) {
+        const v = dataObj[field];
+        if (typeof v !== 'string' || v.trim().length === 0) {
+          console.warn(`[narrativeComposer] Section[${i}] kind=${JSON.stringify(kind)} dropped: required field ${JSON.stringify(field)} missing or empty`);
+          return false;
+        }
+      }
+    }
+    const reqArrays = SHAPE_REQUIRED_ARRAYS[kind];
+    if (reqArrays) {
+      const hasAtLeastOne = reqArrays.some(field => Array.isArray(dataObj[field]) && (dataObj[field] as unknown[]).length > 0);
+      if (!hasAtLeastOne) {
+        console.warn(`[narrativeComposer] Section[${i}] kind=${JSON.stringify(kind)} dropped: none of [${reqArrays.join(', ')}] is a non-empty array`);
+        return false;
+      }
+    }
+    return true;
+  });
+
+  if (validatedSections.length === 0) {
+    throw new Error('Payload had sections but ALL of them failed per-kind shape validation. Model emitted malformed data shapes.');
+  }
+  if (validatedSections.length < (p.sections as unknown[]).length) {
+    console.warn(`[narrativeComposer] Per-kind validator dropped ${(p.sections as unknown[]).length - validatedSections.length} section(s) of ${(p.sections as unknown[]).length} for shape mismatches.`);
+  }
+  p.sections = validatedSections as never;
 
   // Apply section filter if requested
   let sections = p.sections;

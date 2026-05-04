@@ -8,12 +8,14 @@ interface ArchData { layers: Layer[] }
 
 export const TechArchSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as ArchData;
+  // 2026-05-04 — Defensive: tolerate missing/non-array layers.
+  const layers = Array.isArray(d?.layers) ? d.layers : [];
   return (
     <div>
       <SectionLabel icon="tech_arch">Section {String(index + 1).padStart(2, '0')} · Architecture</SectionLabel>
       <SectionTitle scale={headlineScale}>How it fits.</SectionTitle>
       <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        {d.layers.map((layer, i) => (
+        {layers.map((layer, i) => (
           <div key={i}>
             <div style={{
               fontSize: '11px',

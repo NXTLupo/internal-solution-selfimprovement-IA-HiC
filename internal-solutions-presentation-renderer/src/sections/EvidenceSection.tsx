@@ -17,14 +17,17 @@ const ROTATION = ['accent-primary', 'accent-secondary', 'accent-tertiary'];
 
 export const EvidenceSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as EvidenceData;
-  const cols = Math.min(4, Math.max(2, d.stats.length));
+  // 2026-05-04 — Defensive: tolerate missing/non-array stats so a malformed
+  // payload doesn't crash the whole presentation.
+  const stats = Array.isArray(d?.stats) ? d.stats : [];
+  const cols = Math.min(4, Math.max(2, stats.length || 2));
 
   return (
     <div>
       <SectionLabel icon="evidence">Section {String(index + 1).padStart(2, '0')} · By the Numbers</SectionLabel>
       <SectionTitle scale={headlineScale}>Evidence.</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: '16px', marginTop: '32px' }}>
-        {d.stats.map((s, i) => (
+        {stats.map((s, i) => (
           <div key={i} style={{
             padding: '32px 24px',
             backgroundColor: 'var(--card-bg)',
@@ -50,7 +53,7 @@ export const EvidenceSection: React.FC<SectionProps> = ({ data, headlineScale, i
           <p style={{ fontSize: '15px', color: 'var(--text-primary)', margin: 0 }}>{d.convergentInsight}</p>
         </div>
       )}
-      <CitationFooter sources={d.stats.map(s => s.source)} />
+      <CitationFooter sources={stats.map(s => s.source)} />
     </div>
   );
 };

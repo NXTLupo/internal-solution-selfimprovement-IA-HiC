@@ -1899,17 +1899,27 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         const thinkingEffort: ThinkingEffort = skillContext?.skill.thinkingEffort || 'medium';
 
         let responseText: string;
-        const modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
+        let modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
+        // 2026-05-04 — Defensive: if the requested model isn't registered
+        // (stale localStorage, invalid query string, removed Claude entry),
+        // fall back to Gemini Pro and warn. Previously this fell through
+        // to the `else` branch and silently invoked Gemini Flash with the
+        // wrong model id, which Gemini's SDK then rejected at runtime.
+        let activeModelId: string = model;
+        if (!modelConfig) {
+            const fallback = AVAILABLE_MODELS.find(m => m.id === 'gemini-3.1-pro-preview') || AVAILABLE_MODELS[0];
+            if (!fallback) throw new Error('No chat models registered — AVAILABLE_MODELS is empty');
+            console.warn(`[chat] Requested model ${JSON.stringify(model)} is not in AVAILABLE_MODELS; falling back to ${fallback.id}`);
+            modelConfig = fallback;
+            activeModelId = fallback.id;
+        }
 
         // 2026-05-03 — Anthropic dispatch branch removed. Only Google and
-        // OpenAI providers reach the model layer on this branch. callAnthropic
-        // is no longer called from anywhere; the function definition below
-        // is retained only because removing it would cascade into a broader
-        // file rewrite, but it is unreachable.
-        if (modelConfig?.provider === 'openai') {
-            responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory);
+        // OpenAI providers reach the model layer on this branch.
+        if (modelConfig.provider === 'openai') {
+            responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else {
-            responseText = await callGemini(systemPrompt, userMessage, conversationHistory);
+            responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 
         return {
@@ -2039,51 +2049,197 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
 // the function, the /api/ai/anthropic proxy route, the model registry
 // entries, and the dispatch branch.
 
-async function callOpenAI(system: string, userMsg: string, history: ChatMessage[]): Promise<string> {
-    const messages = [
-        { role: 'system' as const, content: system },
+// 2026-05-04 — Both call paths now respect the user's model selection AND
+// implement a fetch_wiki_articles tool-loop. The previous versions hardcoded
+// 'gpt-5.4' / 'gemini-2.5-flash' (silently bypassing the picker) and lacked
+// the tool registration entirely (the system prompt told the model to call
+// fetch_wiki_articles but the function was never declared, causing
+// hallucinations and "EVIDENCE GAP" placeholders).
+
+async function callOpenAI(
+    system: string,
+    userMsg: string,
+    history: ChatMessage[],
+    model: string = 'gpt-5.5',
+): Promise<string> {
+    type OpenAIMsg = {
+        role: 'system' | 'user' | 'assistant' | 'tool';
+        content: string | null;
+        tool_calls?: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }>;
+        tool_call_id?: string;
+        name?: string;
+    };
+    const messages: OpenAIMsg[] = [
+        { role: 'system', content: system },
         ...history.filter(m => m.role !== 'system').map(m => ({
             role: m.role as 'user' | 'assistant',
-            content: m.content
+            content: m.content,
         })),
-        { role: 'user' as const, content: userMsg }
+        { role: 'user', content: userMsg },
     ];
 
-    const resp = await fetch(`${PROXY_BASE}/api/ai/openai`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'x-openai-endpoint': 'chat',
+    const tools = [{
+        type: 'function' as const,
+        function: {
+            name: FETCH_WIKI_ARTICLES_TOOL.name,
+            description: FETCH_WIKI_ARTICLES_TOOL.description,
+            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
         },
-        body: JSON.stringify({
-            model: 'gpt-5.4',
-            messages,
-            max_completion_tokens: 16000,
-            temperature: 0.2,
-        }),
-    });
+    }];
 
-    if (!resp.ok) throw new Error(`OpenAI API error: ${resp.status}`);
-    const data = await resp.json();
-    return data.choices?.[0]?.message?.content || data.output?.[0]?.content?.[0]?.text || 'No response';
+    let lastText = '';
+    for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+        const resp = await fetch(`${PROXY_BASE}/api/ai/openai`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-openai-endpoint': 'chat',
+            },
+            body: JSON.stringify({
+                model,
+                messages,
+                tools,
+                tool_choice: 'auto',
+                max_completion_tokens: 16000,
+                temperature: 0.2,
+            }),
+        });
+
+        if (!resp.ok) {
+            const errText = await resp.text().catch(() => '');
+            throw new Error(`OpenAI API ${resp.status}: ${errText.slice(0, 300)}`);
+        }
+        const data = await resp.json();
+        const choice = data.choices?.[0];
+        if (!choice) throw new Error('OpenAI returned no choices');
+
+        const msg = choice.message || {};
+        if (typeof msg.content === 'string' && msg.content.trim().length > 0) {
+            lastText = msg.content;
+        }
+        messages.push(msg);
+
+        const toolCalls = Array.isArray(msg.tool_calls) ? msg.tool_calls : [];
+        if (toolCalls.length === 0 || choice.finish_reason !== 'tool_calls') {
+            return lastText || msg.content || 'No response';
+        }
+
+        // Execute every tool call this turn (parallel-safe within one turn)
+        console.log(`[chat.tools] iter ${iter + 1}: GPT called ${toolCalls.length} tool(s): ${toolCalls.map((tc: any) => tc.function.name).join(', ')}`);
+        for (const tc of toolCalls) {
+            let result = '';
+            if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
+                try {
+                    const args = JSON.parse(tc.function.arguments || '{}');
+                    result = await executeFetchWikiArticlesTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else {
+                result = `(unknown tool: ${tc.function.name})`;
+            }
+            messages.push({
+                role: 'tool',
+                tool_call_id: tc.id,
+                name: tc.function.name,
+                content: result,
+            });
+        }
+    }
+    console.warn(`[chat.tools] OpenAI iteration cap ${MAX_TOOL_ITER} reached`);
+    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
 }
 
-async function callGemini(system: string, userMsg: string, history: ChatMessage[]): Promise<string> {
+async function callGemini(
+    system: string,
+    userMsg: string,
+    history: ChatMessage[],
+    model: string = 'gemini-3.1-pro-preview',
+): Promise<string> {
     const { GoogleGenAI } = await import('@google/genai');
-    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+    const apiKey = (process.env as any).API_KEY || (process.env as any).GEMINI_API_KEY || '';
     if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
 
     const ai = new GoogleGenAI({ apiKey });
-    const conversationText = history.map(m => `${m.role}: ${m.content}`).join('\n');
-    const fullPrompt = `${system}\n\n${conversationText ? `Previous conversation:\n${conversationText}\n\n` : ''}User question: ${userMsg}`;
 
-    const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: { parts: [{ text: fullPrompt }] },
-        config: { temperature: 0.2, maxOutputTokens: 65536 },
-    });
+    // Gemini conversation = list of `{role, parts:[{text|functionCall|functionResponse}]}`
+    type GPart = { text?: string } | { functionCall?: { name: string; args: any } } | { functionResponse?: { name: string; response: { result: string } } };
+    type GContent = { role: 'user' | 'model' | 'function'; parts: GPart[] };
+    const contents: GContent[] = [];
+    // Fold prior chat history (user/assistant) into Gemini's user/model alternation
+    for (const m of history) {
+        if (m.role === 'system') continue;
+        contents.push({
+            role: m.role === 'user' ? 'user' : 'model',
+            parts: [{ text: m.content }],
+        });
+    }
+    contents.push({ role: 'user', parts: [{ text: userMsg }] });
 
-    return response.text || 'No response';
+    // Gemini's tool spec: { functionDeclarations: [{ name, description, parameters }] }
+    const tools = [{
+        functionDeclarations: [{
+            name: FETCH_WIKI_ARTICLES_TOOL.name,
+            description: FETCH_WIKI_ARTICLES_TOOL.description,
+            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+        }],
+    }];
+
+    let lastText = '';
+    for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+        const response = await ai.models.generateContent({
+            model,
+            contents,
+            config: {
+                systemInstruction: system,
+                temperature: 0.2,
+                maxOutputTokens: 65536,
+                tools: tools as any,
+            } as any,
+        });
+
+        const cand = (response as any).candidates?.[0];
+        const respParts: GPart[] = cand?.content?.parts || [];
+
+        // Concat any text parts so the user gets a final answer if model also speaks
+        const textBits = respParts
+            .filter((p: any) => typeof p?.text === 'string' && p.text.length > 0)
+            .map((p: any) => p.text);
+        if (textBits.length > 0) lastText = textBits.join('\n');
+
+        // Execute every functionCall part
+        const callParts = respParts.filter((p: any) => p?.functionCall);
+        if (callParts.length === 0) {
+            return lastText || (response as any).text || 'No response';
+        }
+
+        // Append assistant turn with all its parts (Gemini requires the model
+        // turn to be in history before the function response turn).
+        contents.push({ role: 'model', parts: respParts });
+
+        console.log(`[chat.tools] iter ${iter + 1}: Gemini called ${callParts.length} tool(s): ${callParts.map((p: any) => p.functionCall.name).join(', ')}`);
+
+        const responseParts: GPart[] = [];
+        for (const cp of callParts) {
+            const call = (cp as any).functionCall;
+            let result = '';
+            if (call.name === FETCH_WIKI_ARTICLES_TOOL.name) {
+                try {
+                    result = await executeFetchWikiArticlesTool(call.args || {});
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else {
+                result = `(unknown tool: ${call.name})`;
+            }
+            responseParts.push({
+                functionResponse: { name: call.name, response: { result } },
+            });
+        }
+        contents.push({ role: 'user', parts: responseParts });
+    }
+    console.warn(`[chat.tools] Gemini iteration cap ${MAX_TOOL_ITER} reached`);
+    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
 }
 
 // --- Citation Parsing (unchanged) ---

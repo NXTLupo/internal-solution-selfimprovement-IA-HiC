@@ -309,6 +309,16 @@ function articleToChunk(
 // Looks for double-quoted spans first; falls back to first 1-2 sentences
 // in the chunk if quotes are absent. Each candidate is attributed via
 // surrounding context when possible.
+// 2026-05-04 — Heuristic relaxed:
+//   - word range broadened to 6-65 (was 10-50) to catch shorter punchy
+//     quotes and longer first-person passages that transcripts contain
+//   - attribution searches BOTH directions (before AND after the quote)
+//     because transcripts often have "Allison said:" before, not "— Allison"
+//     after
+//   - new Pattern 3: speaker-prefix lines (e.g. "Riley Quinn: I can verify
+//     that data...") which is the dominant pattern in YouTube transcripts
+//   - Pattern 4 fallback now scans the WHOLE body for substantive sentences,
+//     not just the first 1-2 (those are usually article titles or intros)
 function extractCandidateQuotes(
   text: string,
   sourceName: string,
@@ -317,37 +327,84 @@ function extractCandidateQuotes(
   max: number,
 ): Array<{ text: string; attribution: string; role?: string; source_name: string; chunk_id: string; url?: string }> {
   const candidates: Array<{ text: string; attribution: string; role?: string; source_name: string; chunk_id: string; url?: string }> = [];
+  if (!text || text.length < 40) return candidates;
 
-  // Pattern 1: double-quoted spans, 10-50 words
-  const quotedRe = /"([^"]{40,400})"/g;
+  const minWords = 6;
+  const maxWords = 65;
+
+  const looksLikeName = (s: string): boolean =>
+    /^[A-Z][a-z]+(\s+[A-Z][a-z]+){0,3}$/.test(s.trim());
+
+  // ---- Pattern 1: double-quoted spans
+  const quotedRe = /"([^"]{30,500})"/g;
   let m: RegExpExecArray | null;
   while ((m = quotedRe.exec(text)) !== null && candidates.length < max) {
     const quoted = m[1].trim();
     const wordCount = quoted.split(/\s+/).length;
-    if (wordCount < 10 || wordCount > 50) continue;
-    // Attribution heuristic: look for "— Name" or "said NAME" within 80 chars after the close quote
-    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 120);
-    const attMatch = after.match(/[—–-]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/) || after.match(/said\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/);
+    if (wordCount < minWords || wordCount > maxWords) continue;
+
+    // Look ahead for "— Name" / "said NAME" / "according to NAME"
+    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 160);
+    const beforeStart = Math.max(0, m.index - 160);
+    const before = text.slice(beforeStart, m.index);
+
+    const afterMatch =
+      after.match(/[—–-]\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})/) ||
+      after.match(/(?:said|says|noted|observed|told)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})/);
+    const beforeMatch =
+      before.match(/([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})\s+(?:said|says|noted|observed|tells\s+us|put\s+it)\s*[:,]?\s*$/i) ||
+      before.match(/([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})\s*[:.]?\s*$/);
+    const attribution = afterMatch?.[1]
+      || (beforeMatch && looksLikeName(beforeMatch[1]) ? beforeMatch[1] : '')
+      || 'Source';
+
     candidates.push({
       text: quoted,
-      attribution: attMatch ? attMatch[1] : 'Anonymous',
+      attribution,
       source_name: sourceName,
       chunk_id: chunkId,
       url,
     });
   }
 
-  // Pattern 2 fallback: first 1-2 sentences if no quotes found
+  // ---- Pattern 2: speaker-prefix lines (transcripts)
+  // Matches "Riley Quinn: I can verify and trust more of that data..."
+  if (candidates.length < max) {
+    const speakerRe = /(^|\n)\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3})\s*:\s*([^\n]{40,500})/g;
+    let sm: RegExpExecArray | null;
+    while ((sm = speakerRe.exec(text)) !== null && candidates.length < max) {
+      const name = sm[2].trim();
+      const utterance = sm[3].trim().replace(/^["'`]|["'`]$/g, '');
+      const wordCount = utterance.split(/\s+/).length;
+      if (wordCount < minWords || wordCount > maxWords) continue;
+      // Skip generic / non-speaker prefixes ("Section:", "Note:", "Q:", "A:", filler words)
+      if (/\b(section|note|chapter|figure|table|source|url|http|www|the|and|but|that|this|q|a|abstract|introduction|conclusion|references|appendix)\b/i.test(name)) continue;
+      candidates.push({
+        text: utterance,
+        attribution: name,
+        source_name: sourceName,
+        chunk_id: chunkId,
+        url,
+      });
+    }
+  }
+
+  // ---- Pattern 3: substantive sentences across the whole body (fallback)
+  // Filter to sentences that look like statements of opinion/observation
+  // (have first-person, comparative, or evaluative language) — those are
+  // the candidates that read as quotes in a deck context.
   if (candidates.length === 0) {
     const sentences = text
       .replace(/\s+/g, ' ')
       .split(/(?<=[.!?])\s+(?=[A-Z])/)
-      .map(s => s.trim())
-      .filter(s => {
-        const wc = s.split(/\s+/).length;
-        return wc >= 10 && wc <= 50;
-      });
-    for (const s of sentences.slice(0, max)) {
+      .map(s => s.trim());
+    const evalRe = /\b(I |we |our |the (problem|issue|gap|truth|reality)|never|always|every|too (many|few|much|little)|cannot|can't|won't|nobody|everybody|frustrat|struggle|broken|critical|essential)\b/i;
+    const interesting = sentences.filter(s => {
+      const wc = s.split(/\s+/).length;
+      if (wc < minWords || wc > maxWords) return false;
+      return evalRe.test(s);
+    });
+    for (const s of interesting.slice(0, max)) {
       candidates.push({
         text: s,
         attribution: 'Source',
@@ -557,35 +614,83 @@ export function createNarrativeComposerExecutor(
 
     async extract_quotes(input: ExtractQuotesInput): Promise<ExtractQuotesResult> {
       const max = Math.min(10, input.max ?? 5);
-      // Re-use search_corpus to retrieve candidate articles, then heuristic-extract.
-      const search = await this.search_corpus({
-        query: input.filter,
-        scope: input.scope,
-        limit: 10,
-      });
-      const all: ExtractQuotesResult['quotes'] = [];
-      for (const c of search.chunks) {
-        if (all.length >= max) break;
-        const candidates = extractCandidateQuotes(c.text, c.source.name, c.chunk_id, c.source.url, max - all.length);
-        all.push(...candidates);
+      // 2026-05-04 — Bypass search_corpus's 800-char chunk preview. The
+      // heuristic was scanning tiny windows and missing real quotes that
+      // live in 5-50KB interview transcripts. Pull FULL article bodies
+      // via fetchWikiArticles (12KB per article, transcripts preferred)
+      // and run the quote heuristic on the substantive body text.
+      try {
+        const articles = await fetchWikiArticles({
+          query: input.filter,
+          // Interview transcripts have the highest quote density. When
+          // scope='external_only' we still allow transcripts (they are
+          // external research material, not client uploads).
+          kind: input.scope === 'uploaded_only' ? 'upload' : undefined,
+          limit: 8,
+          maxCharsPerArticle: 12000,
+          engagementGoal: session.engagementGoal,
+          goalBlendWeight: 0.40,
+        });
+
+        const all: ExtractQuotesResult['quotes'] = [];
+        for (let i = 0; i < articles.length && all.length < max; i += 1) {
+          const a = articles[i];
+          const sourceName = a.source && a.title
+            ? `${a.source}: ${a.title}`
+            : (a.title || a.source || 'Unknown source');
+          const chunkId = `${a.id}_q${i}`;
+          // Run heuristic on FULL body, not 800-char preview. Transcripts
+          // and articles up to 12KB; this gives the regex a real chance.
+          const candidates = extractCandidateQuotes(
+            a.content || '',
+            sourceName,
+            chunkId,
+            a.url,
+            max - all.length,
+          );
+          all.push(...candidates);
+        }
+        return { quotes: all.slice(0, max), total_returned: Math.min(all.length, max) };
+      } catch (e) {
+        // Graceful degradation — composer prompt forbids fabrication
+        return { quotes: [], total_returned: 0 };
       }
-      return { quotes: all.slice(0, max), total_returned: Math.min(all.length, max) };
     },
 
     async extract_stats(input: ExtractStatsInput): Promise<ExtractStatsResult> {
       const max = Math.min(8, input.max ?? 4);
-      const search = await this.search_corpus({
-        query: input.filter,
-        scope: input.scope,
-        limit: 10,
-      });
-      const all: ExtractStatsResult['stats'] = [];
-      for (const c of search.chunks) {
-        if (all.length >= max) break;
-        const candidates = extractCandidateStats(c.text, c.source.name, c.chunk_id, c.source.url, max - all.length);
-        all.push(...candidates);
+      // 2026-05-04 — Same fix as extract_quotes: use full article body, not
+      // 800-char chunk preview. Stats live deep in articles (e.g. "$78.8B
+      // total support" buried in CASE Insights 2025 page 12).
+      try {
+        const articles = await fetchWikiArticles({
+          query: input.filter,
+          kind: input.scope === 'uploaded_only' ? 'upload' : undefined,
+          limit: 8,
+          maxCharsPerArticle: 12000,
+          engagementGoal: session.engagementGoal,
+          goalBlendWeight: 0.40,
+        });
+        const all: ExtractStatsResult['stats'] = [];
+        for (let i = 0; i < articles.length && all.length < max; i += 1) {
+          const a = articles[i];
+          const sourceName = a.source && a.title
+            ? `${a.source}: ${a.title}`
+            : (a.title || a.source || 'Unknown source');
+          const chunkId = `${a.id}_s${i}`;
+          const candidates = extractCandidateStats(
+            a.content || '',
+            sourceName,
+            chunkId,
+            a.url,
+            max - all.length,
+          );
+          all.push(...candidates);
+        }
+        return { stats: all.slice(0, max), total_returned: Math.min(all.length, max) };
+      } catch (e) {
+        return { stats: [], total_returned: 0 };
       }
-      return { stats: all.slice(0, max), total_returned: Math.min(all.length, max) };
     },
   };
 }

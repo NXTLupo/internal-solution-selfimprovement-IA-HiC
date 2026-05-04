@@ -6039,5 +6039,12 @@ async def list_presentations(
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))
-    logger.info(f"Starting Research Data Proxy v2 on port {port} with {len(SOURCES)} sources")
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    # 2026-05-04 — Run multi-worker so long-blocking calls (Whisper
+    # transcription, PDF parse, Trafilatura extract, ffmpeg chunking)
+    # don't stall every other request. With 4 workers, a 90-second
+    # transcription only saturates 1/4 of capacity; presentation GETs,
+    # rerank requests, and chat turns continue to serve from the other
+    # three. The "app:app" import-string form is required for workers > 1.
+    workers = int(os.getenv("PROXY_WORKERS", "4"))
+    logger.info(f"Starting Research Data Proxy v2 on port {port} with {len(SOURCES)} sources × {workers} workers")
+    uvicorn.run("app:app", host="0.0.0.0", port=port, workers=workers)

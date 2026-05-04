@@ -2,28 +2,56 @@ import React from 'react';
 import type { SectionProps } from './registry';
 import { SectionLabel, SectionTitle, Card, Pill } from './_primitives';
 
+// 2026-05-04 — Field-name tolerance per composer model variation:
+//   actionTitle  ← title
+//   rationale    ← description / outcome
+//   supportingActions[]  ← actions[] / steps[]
 interface Recommendation {
-  actionTitle: string;
-  rationale: string;
+  actionTitle?: string;
+  title?: string;
+  rationale?: string;
+  description?: string;
+  outcome?: string;
   supportingActions?: string[];
+  actions?: string[];
+  steps?: string[];
   impactMetric?: string;
   timeframe?: string;
   owner?: string;
   implication?: string;
-  evidence?: Array<{ sourceName?: string }>;
+  evidence?: Array<{ sourceName?: string } | string>;
 }
 interface RecsData {
-  recommendations: Recommendation[];
+  recommendations?: Recommendation[];
+  // GPT-5.5 emits `items` instead of `recommendations`. Accept both.
+  items?: Recommendation[];
 }
 
 export const RecommendationsSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as RecsData;
+  // Defensive normalization: accept either field name, fall back to []
+  const recs: Recommendation[] = Array.isArray(d.recommendations)
+    ? d.recommendations
+    : Array.isArray(d.items)
+      ? d.items
+      : [];
   return (
     <div>
       <SectionLabel icon="recommendations">Section {String(index + 1).padStart(2, '0')} · Coherent Actions</SectionLabel>
       <SectionTitle scale={headlineScale}>What to do.</SectionTitle>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '32px' }}>
-        {d.recommendations.map((r, i) => (
+        {recs.map((r, i) => {
+          // Tolerant field resolution per recommendation
+          const titleText = r.actionTitle || r.title || `Action ${i + 1}`;
+          const rationaleText = r.rationale || r.description || r.outcome || '';
+          const subActions: string[] = Array.isArray(r.supportingActions)
+            ? r.supportingActions
+            : Array.isArray(r.actions)
+              ? r.actions
+              : Array.isArray(r.steps)
+                ? r.steps
+                : [];
+          return (
           <Card key={i} accent={i < 2}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' }}>
               <div style={{ flex: 1 }}>
@@ -31,14 +59,16 @@ export const RecommendationsSection: React.FC<SectionProps> = ({ data, headlineS
                   Action {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.01em', marginBottom: '12px', lineHeight: 1.3 }}>
-                  {r.actionTitle}
+                  {titleText}
                 </h3>
-                <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '16px' }}>
-                  {r.rationale}
-                </p>
-                {r.supportingActions && r.supportingActions.length > 0 && (
+                {rationaleText && (
+                  <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '16px' }}>
+                    {rationaleText}
+                  </p>
+                )}
+                {subActions.length > 0 && (
                   <ul style={{ listStyle: 'none', padding: 0, margin: '12px 0', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {r.supportingActions.slice(0, 6).map((sa, j) => (
+                    {subActions.slice(0, 6).map((sa, j) => (
                       <li key={j} style={{ fontSize: '13px', color: 'var(--text-secondary)', paddingLeft: '16px', position: 'relative' }}>
                         <span style={{ position: 'absolute', left: 0, color: 'var(--accent-primary)' }}>→</span>
                         {sa}
@@ -59,7 +89,8 @@ export const RecommendationsSection: React.FC<SectionProps> = ({ data, headlineS
               </div>
             </div>
           </Card>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

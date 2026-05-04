@@ -184,7 +184,13 @@ export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     vision: 'gemini-3.1-pro-preview',
     image: 'gemini-2.5-flash',     // imagen-4.0 via Gemini API, flash-image as fallback
     video: 'gemini-2.5-flash',     // veo-3.1 via Gemini API
-    narrative_composition: 'gemini-3.1-pro-preview',
+    // 2026-05-04 — Synced with hashtagParser.parseModel default. Composer
+    // uses gpt-5.5 as the proven-working tool-loop model. Once Bug E
+    // (discriminated-union schema for submit_presentation.data) is verified
+    // end-to-end with Gemini Pro, flip BOTH this default AND
+    // hashtagParser.ts:parseModel default to 'gemini-3.1-pro-preview' to
+    // recoup ~$12/run.
+    narrative_composition: 'gpt-5.5',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;

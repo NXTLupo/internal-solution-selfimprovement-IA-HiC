@@ -115,6 +115,7 @@ export type SectionKind =
   | 'gap_analysis'      // gap-matrix template
   | 'tech_arch'         // architecture-map template
   | 'team'              // team showcase
+  | 'competitive'       // competitive / industry-landscape (tiered evidence)
   | 'cta';              // call to action / contact
 
 // ============================================================================

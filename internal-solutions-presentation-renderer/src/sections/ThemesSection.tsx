@@ -19,8 +19,10 @@ interface ThemesData {
 
 export const ThemesSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as ThemesData;
-  const layout = d.layout || (d.themes.length === 4 ? 'mosaic' : d.themes[0]?.isHero ? 'spotlight' : 'cluster');
-  const allCites = d.themes.flatMap(t => (t.citations || []).map(c => c.sourceName || '')).filter(Boolean);
+  // 2026-05-04 — Defensive: tolerate missing/non-array themes.
+  const themes: Theme[] = Array.isArray(d?.themes) ? d.themes : [];
+  const layout = d.layout || (themes.length === 4 ? 'mosaic' : themes[0]?.isHero ? 'spotlight' : 'cluster');
+  const allCites = themes.flatMap(t => (t.citations || []).map(c => c.sourceName || '')).filter(Boolean);
 
   return (
     <div>
@@ -33,7 +35,7 @@ export const ThemesSection: React.FC<SectionProps> = ({ data, headlineScale, ind
         </div>
       )}
 
-      {layout === 'spotlight' ? <SpotlightLayout themes={d.themes} /> : <ClusterLayout themes={d.themes} />}
+      {layout === 'spotlight' ? <SpotlightLayout themes={themes} /> : <ClusterLayout themes={themes} />}
 
       <CitationFooter sources={allCites} />
     </div>

@@ -14,12 +14,14 @@ interface QuotesData {
 
 export const QuotesSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as QuotesData;
+  // 2026-05-04 — Defensive: tolerate missing/non-array quotes.
+  const quotes = Array.isArray(d?.quotes) ? d.quotes : [];
   return (
     <div>
       <SectionLabel icon="quotes">Section {String(index + 1).padStart(2, '0')} · Voices from the Field</SectionLabel>
       <SectionTitle scale={headlineScale}>What people are saying.</SectionTitle>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginTop: '32px' }}>
-        {d.quotes.map((q, i) => (
+        {quotes.map((q, i) => (
           <div key={i} style={{
             padding: '32px',
             borderLeft: '4px solid var(--accent-primary)',
@@ -43,7 +45,7 @@ export const QuotesSection: React.FC<SectionProps> = ({ data, headlineScale, ind
           </div>
         ))}
       </div>
-      <CitationFooter sources={d.quotes.map(q => q.source)} />
+      <CitationFooter sources={quotes.map(q => q.source)} />
     </div>
   );
 };

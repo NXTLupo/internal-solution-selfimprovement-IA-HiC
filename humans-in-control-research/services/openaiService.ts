@@ -20,7 +20,11 @@ interface OpenAIRequest {
     model: string;
     messages: OpenAIMessage[];
     temperature?: number;
-    max_tokens?: number;
+    // 2026-05-04 — GPT-5 family deprecated `max_tokens`; canonical field
+    // is now `max_completion_tokens`. Old name removed from interface to
+    // prevent regressions where a maintainer would set `max_tokens` and
+    // get a 400 from the API.
+    max_completion_tokens?: number;
     response_format?: { type: 'json_object' | 'text' };
 }
 

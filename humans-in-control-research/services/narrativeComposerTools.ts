@@ -35,8 +35,391 @@ export interface ToolDefinition {
 const SECTION_KIND_ENUM = [
   'hero', 'context', 'themes', 'evidence', 'quotes',
   'personas', 'journey', 'recommendations', 'roadmap',
-  'gap_analysis', 'tech_arch', 'team', 'cta',
-];
+  'gap_analysis', 'tech_arch', 'team', 'competitive', 'cta',
+] as const;
+
+// 2026-05-04 — Per-kind data shapes. The composer schema uses these via
+// `oneOf` discriminated by `kind` so the model knows EXACTLY what fields
+// each section requires. This single change collapses ~5 historical bugs
+// where models emitted variant field names (recommendations vs items,
+// horizons[].initiatives vs horizons[].items, actionTitle vs title,
+// horizon vs name, etc.). Renderer-side tolerance is retained as a
+// belt-and-suspenders fallback for old presentation JSON files.
+//
+// Each shape lists ONLY fields the renderer actually consumes. Extra
+// fields are allowed (additionalProperties default true at JSON Schema
+// level) so models can include `narrative`, `convergentInsight`, etc.
+// without rejection.
+const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
+  hero: {
+    type: 'object',
+    required: ['title'],
+    properties: {
+      title: { type: 'string', maxLength: 120 },
+      subtitle: { type: 'array', items: { type: 'string' }, maxItems: 3 },
+      visualStyle: { type: 'object' },
+      citations: { type: 'array', items: { type: 'string' } },
+    },
+  },
+  context: {
+    type: 'object',
+    required: ['situation', 'complication', 'resolution'],
+    properties: {
+      title: { type: 'string', maxLength: 200 },
+      situation: { type: 'string', maxLength: 1200 },
+      complication: { type: 'string', maxLength: 1200 },
+      resolution: { type: 'string', maxLength: 1200 },
+      benchmarks: { type: 'array' },
+      quote: { type: 'object' },
+      convergentInsight: { type: 'string' },
+      narrative: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  themes: {
+    type: 'object',
+    required: ['themes'],
+    properties: {
+      title: { type: 'string', maxLength: 200 },
+      layout: { type: 'string', enum: ['cluster', 'spotlight', 'arc', 'mosaic', 'theme-cluster'] },
+      themes: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['name'],
+          properties: {
+            name: { type: 'string' },
+            description: { type: 'string' },
+            signal: { type: 'string' },
+            status: { type: 'string' },
+            citations: { type: 'array' },
+            isHero: { type: 'boolean' },
+          },
+        },
+      },
+      narrative: { type: 'string' },
+      patternSignal: { type: 'string' },
+      convergentInsight: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  evidence: {
+    type: 'object',
+    required: ['stats'],
+    properties: {
+      title: { type: 'string' },
+      narrative: { type: 'string' },
+      stats: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['value', 'label', 'source'],
+          properties: {
+            value: { type: 'string' },
+            label: { type: 'string' },
+            context: { type: 'string' },
+            source: { type: 'string' },
+          },
+        },
+      },
+      patternSignal: { type: 'string' },
+      convergentInsight: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  quotes: {
+    type: 'object',
+    required: ['quotes'],
+    properties: {
+      title: { type: 'string' },
+      narrative: { type: 'string' },
+      quotes: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['text', 'attribution', 'source'],
+          properties: {
+            text: { type: 'string' },
+            attribution: { type: 'string' },
+            role: { type: 'string' },
+            source: { type: 'string' },
+            type: { type: 'string' },
+          },
+        },
+      },
+      implication: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  personas: {
+    type: 'object',
+    required: ['personas'],
+    properties: {
+      personas: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['name', 'role'],
+          properties: {
+            name: { type: 'string' },
+            role: { type: 'string' },
+            demographics: { type: 'string' },
+            quote: { type: 'string' },
+            bio: { type: 'string' },
+            topGoal: { type: 'string' },
+            topPainPoint: { type: 'string' },
+            topMotivation: { type: 'string' },
+            evidenceConfidence: { type: 'string' },
+          },
+        },
+      },
+    },
+  },
+  journey: {
+    type: 'object',
+    required: ['stages'],
+    properties: {
+      stages: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['phase'],
+          properties: {
+            phase: { type: 'string' },
+            duration: { type: 'string' },
+            emotion: { type: 'string' },
+            customerAction: { type: 'string' },
+            frontstage: { type: 'string' },
+            backstage: { type: 'string' },
+            support: { type: 'string' },
+            painPoint: { type: 'string' },
+            failPoint: { type: 'boolean' },
+          },
+        },
+      },
+    },
+  },
+  recommendations: {
+    type: 'object',
+    required: ['recommendations'],
+    properties: {
+      title: { type: 'string' },
+      narrative: { type: 'string' },
+      // CANONICAL: `recommendations` array. Model MUST use this key.
+      // Renderer also accepts `items` for back-compat with prior payloads.
+      recommendations: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['actionTitle', 'rationale'],
+          properties: {
+            // CANONICAL: actionTitle. NOT `title`.
+            actionTitle: { type: 'string' },
+            // CANONICAL: rationale. NOT `description` or `outcome`.
+            rationale: { type: 'string' },
+            // CANONICAL: supportingActions[] of strings. NOT `actions` or `steps`.
+            supportingActions: { type: 'array', items: { type: 'string' } },
+            impactMetric: { type: 'string' },
+            timeframe: { type: 'string' },
+            owner: { type: 'string' },
+            implication: { type: 'string' },
+            evidence: { type: 'array' },
+          },
+        },
+      },
+      convergentInsight: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  roadmap: {
+    type: 'object',
+    required: ['horizons'],
+    properties: {
+      title: { type: 'string' },
+      narrative: { type: 'string' },
+      horizons: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['horizon', 'initiatives'],
+          properties: {
+            // CANONICAL: horizon (NOW|NEXT|LATER). NOT `name`.
+            horizon: { type: 'string' },
+            // CANONICAL: duration. NOT `timeframe`.
+            duration: { type: 'string' },
+            // CANONICAL: initiatives[]. NOT `items`.
+            initiatives: {
+              type: 'array',
+              minItems: 1,
+              items: {
+                type: 'object',
+                required: ['name'],
+                properties: {
+                  name: { type: 'string' },
+                  problem: { type: 'string' },
+                  successMetric: { type: 'string' },
+                  owner: { type: 'string' },
+                  confidence: { type: 'string', enum: ['high', 'medium', 'speculative'] },
+                },
+              },
+            },
+          },
+        },
+      },
+      convergentInsight: { type: 'string' },
+      citations: { type: 'array' },
+    },
+  },
+  gap_analysis: {
+    type: 'object',
+    required: ['gaps'],
+    properties: {
+      gaps: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['capability'],
+          properties: {
+            capability: { type: 'string' },
+            currentMaturity: { type: ['integer', 'string'] },
+            targetMaturity: { type: ['integer', 'string'] },
+            severity: { type: 'string' },
+            impact: { type: 'string' },
+          },
+        },
+      },
+    },
+  },
+  tech_arch: {
+    type: 'object',
+    required: ['layers'],
+    properties: {
+      layers: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['name', 'nodes'],
+          properties: {
+            name: { type: 'string' },
+            nodes: {
+              type: 'array',
+              items: {
+                type: 'object',
+                required: ['name'],
+                properties: {
+                  name: { type: 'string' },
+                  description: { type: 'string' },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  team: {
+    type: 'object',
+    required: ['members'],
+    properties: {
+      members: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['role', 'description'],
+          properties: {
+            name: { type: 'string' },
+            role: { type: 'string' },
+            description: { type: 'string' },
+            focus: { type: 'string' },
+          },
+        },
+      },
+    },
+  },
+  competitive: {
+    type: 'object',
+    required: ['layers'],
+    properties: {
+      layers: {
+        type: 'array',
+        minItems: 1,
+        items: {
+          type: 'object',
+          required: ['name', 'nodes'],
+          properties: {
+            name: { type: 'string' },
+            nodes: {
+              type: 'array',
+              items: {
+                type: 'object',
+                required: ['name'],
+                properties: {
+                  name: { type: 'string' },
+                  description: { type: 'string' },
+                  source: { type: 'string' },
+                  url: { type: 'string' },
+                },
+              },
+            },
+            signal: { type: 'string' },
+          },
+        },
+      },
+      convergentInsight: { type: 'string' },
+    },
+  },
+  cta: {
+    type: 'object',
+    required: ['title'],
+    properties: {
+      title: { type: 'string' },
+      description: { type: 'string' },
+      email: { type: 'string' },
+      primaryActionLabel: { type: 'string' },
+      primaryActionUrl: { type: 'string' },
+    },
+  },
+};
+
+// Build the per-kind oneOf branches that the schema validator can use to
+// enforce shape correctness based on `kind`. Each branch fixes `kind` to a
+// const value and constrains `data` to the corresponding shape.
+const SECTION_ONE_OF = SECTION_KIND_ENUM.map((k) => ({
+  type: 'object',
+  required: ['kind', 'data'],
+  properties: {
+    kind: { const: k },
+    data: SECTION_DATA_SHAPES[k],
+  },
+}));
+
+// Exposed for runtime validation in narrativeComposer.validateAndFinalize.
+export const SECTION_DATA_SHAPES_EXPORT: Readonly<Record<string, { required: readonly string[]; arrayFields: readonly string[] }>> = {
+  hero: { required: ['title'], arrayFields: [] },
+  context: { required: ['situation', 'complication', 'resolution'], arrayFields: [] },
+  themes: { required: [], arrayFields: ['themes'] },
+  evidence: { required: [], arrayFields: ['stats'] },
+  quotes: { required: [], arrayFields: ['quotes'] },
+  personas: { required: [], arrayFields: ['personas'] },
+  journey: { required: [], arrayFields: ['stages'] },
+  recommendations: { required: [], arrayFields: ['recommendations', 'items'] }, // synonym tolerance
+  roadmap: { required: [], arrayFields: ['horizons'] },
+  gap_analysis: { required: [], arrayFields: ['gaps'] },
+  tech_arch: { required: [], arrayFields: ['layers'] },
+  team: { required: [], arrayFields: ['members'] },
+  competitive: { required: [], arrayFields: ['layers'] },
+  cta: { required: ['title'], arrayFields: [] },
+} as const;
 
 export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
   type: 'object',
@@ -100,32 +483,16 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
     sections: {
       type: 'array',
       minItems: 6,
-      maxItems: 12,
-      description: '6-12 sections defending the strategic thesis.',
+      maxItems: 16,
+      description: '6-16 sections defending the strategic thesis. Each section is a discriminated union: the `kind` field picks the data shape. See SECTION_DATA_SHAPES.',
       items: {
-        type: 'object',
-        required: ['kind', 'data'],
-        properties: {
-          kind: { type: 'string', enum: SECTION_KIND_ENUM },
-          data: {
-            type: 'object',
-            description:
-              'Section payload. Shape varies by kind: ' +
-              'hero={title,subtitle[]}; ' +
-              'context={situation,complication,resolution,citations[]}; ' +
-              'themes={layout,themes[{name,description,signal,status,citations[],isHero}],patternSignal}; ' +
-              'evidence={stats[{value,label,context,source}],convergentInsight}; ' +
-              'quotes={quotes[{text (verbatim from extract_quotes),attribution (exact name from source — "Anonymized stakeholder" if anonymous; never invent),role (omit if not in source — never promote/invent titles),source}]}; ' +
-              'personas={personas[{name,role,demographics,quote,bio,topGoal,topPainPoint,topMotivation,evidenceConfidence}]}; ' +
-              'journey={stages[{phase,duration,emotion,customerAction,frontstage,backstage,support,painPoint,failPoint}]}; ' +
-              'recommendations={recommendations[{actionTitle,rationale,supportingActions[],impactMetric (qualitative if no tool-retrieved number — NEVER invent percentages),timeframe (only if tool-retrieved),owner,implication,evidence[]}]}; ' +
-              'roadmap={horizons[{horizon,duration,initiatives[{name,problem,successMetric,owner,confidence}]}]}; ' +
-              'gap_analysis={gaps[{capability,currentMaturity,targetMaturity,severity,impact}]}; ' +
-              'tech_arch={layers[{name,nodes[{name,description}]}]}; ' +
-              'team={members[{name,role,description,focus}]}; ' +
-              'cta={title,description,email,primaryActionLabel,primaryActionUrl}',
-          },
-        },
+        // 2026-05-04 — Discriminated union per `kind`. Each branch fixes
+        // kind to a const value and constrains data to the corresponding
+        // per-kind shape. Replaces the prior loose `data: { type: 'object' }`
+        // schema that produced empty `data: {}` from Gemini-via-OpenAI-compat
+        // and field-name drift from GPT-5.5 (recommendations vs items,
+        // horizons[].initiatives vs horizons[].items, etc.).
+        oneOf: SECTION_ONE_OF,
       },
     },
   },

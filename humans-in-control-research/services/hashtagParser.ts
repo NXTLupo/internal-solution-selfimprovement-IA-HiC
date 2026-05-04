@@ -98,7 +98,7 @@ function stripDirectives(message: string): string {
 const KNOWN_SECTION_KINDS: ReadonlySet<SectionKind> = new Set([
   'hero', 'context', 'themes', 'evidence', 'quotes',
   'personas', 'journey', 'recommendations', 'roadmap',
-  'gap_analysis', 'tech_arch', 'team', 'cta',
+  'gap_analysis', 'tech_arch', 'team', 'competitive', 'cta',
 ]);
 
 function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined {

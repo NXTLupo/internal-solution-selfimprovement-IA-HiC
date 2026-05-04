@@ -2,23 +2,33 @@ import React from 'react';
 import type { SectionProps } from './registry';
 import { SectionLabel, SectionTitle } from './_primitives';
 
+// 2026-05-04 — Each field accepts multiple synonyms because composer models
+// emit slightly different shapes. The common factor is: each horizon has a
+// label, a time range, and a list of items; each item has a name and
+// optional metadata.
 interface Initiative {
-  name: string;
+  name?: string;
+  title?: string;
   problem?: string;
+  outcome?: string;
   successMetric?: string;
   owner?: string;
   confidence?: 'high' | 'medium' | 'speculative';
+  sources?: string[];
 }
 interface Horizon {
-  horizon: 'NOW' | 'NEXT' | 'LATER';
-  duration: string;
-  initiatives: Initiative[];
+  horizon?: 'NOW' | 'NEXT' | 'LATER' | string;
+  name?: string;
+  duration?: string;
+  timeframe?: string;
+  initiatives?: Initiative[];
+  items?: Initiative[];
 }
 interface RoadmapData {
-  horizons: Horizon[];
+  horizons?: Horizon[];
 }
 
-const HORIZON_ACCENT = {
+const HORIZON_ACCENT: Record<string, string> = {
   NOW: 'var(--accent-primary)',
   NEXT: 'var(--accent-secondary)',
   LATER: 'var(--accent-tertiary)',
@@ -26,38 +36,54 @@ const HORIZON_ACCENT = {
 
 export const RoadmapSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as RoadmapData;
+  const horizons = Array.isArray(d?.horizons) ? d.horizons : [];
   return (
     <div>
       <SectionLabel icon="roadmap">Section {String(index + 1).padStart(2, '0')} · Sequencing</SectionLabel>
       <SectionTitle scale={headlineScale}>The roadmap.</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '20px', marginTop: '32px' }}>
-        {d.horizons.map((h, i) => (
-          <div key={i} style={{
-            padding: '24px',
-            backgroundColor: 'var(--card-bg)',
-            borderTop: `3px solid ${HORIZON_ACCENT[h.horizon] || 'var(--text-tertiary)'}`,
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '20px' }}>
-              <div style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.2em', color: HORIZON_ACCENT[h.horizon] }}>{h.horizon}</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace' }}>{h.duration}</div>
+        {horizons.map((h, i) => {
+          // Tolerant field resolution per horizon
+          const label = (h.horizon || h.name || `H${i + 1}`).toString().toUpperCase();
+          const accent = HORIZON_ACCENT[label] || 'var(--text-tertiary)';
+          const range = h.duration || h.timeframe || '';
+          const items: Initiative[] = Array.isArray(h.initiatives)
+            ? h.initiatives
+            : Array.isArray(h.items)
+              ? h.items
+              : [];
+          return (
+            <div key={i} style={{
+              padding: '24px',
+              backgroundColor: 'var(--card-bg)',
+              borderTop: `3px solid ${accent}`,
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '20px' }}>
+                <div style={{ fontSize: '14px', fontWeight: 900, letterSpacing: '0.2em', color: accent }}>{label}</div>
+                <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace' }}>{range}</div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                {items.map((init, j) => {
+                  const itemTitle = init.name || init.title || `Item ${j + 1}`;
+                  const itemBody = init.problem || init.outcome || '';
+                  return (
+                    <div key={j} style={{
+                      paddingLeft: '12px',
+                      borderLeft: `2px solid ${init.confidence === 'high' ? accent : 'var(--border-primary)'}`,
+                    }}>
+                      <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{itemTitle}</div>
+                      {itemBody && <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '6px' }}>{itemBody}</div>}
+                      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '10px', color: 'var(--text-tertiary)' }}>
+                        {init.successMetric && <span>→ {init.successMetric}</span>}
+                        {init.owner && <span>· {init.owner}</span>}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {h.initiatives.map((init, j) => (
-                <div key={j} style={{
-                  paddingLeft: '12px',
-                  borderLeft: `2px solid ${init.confidence === 'high' ? HORIZON_ACCENT[h.horizon] : 'var(--border-primary)'}`,
-                }}>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{init.name}</div>
-                  {init.problem && <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '6px' }}>{init.problem}</div>}
-                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '10px', color: 'var(--text-tertiary)' }}>
-                    {init.successMetric && <span>→ {init.successMetric}</span>}
-                    {init.owner && <span>· {init.owner}</span>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

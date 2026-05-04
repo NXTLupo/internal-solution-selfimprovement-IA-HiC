@@ -197,20 +197,27 @@ function isSectionRenderable(section: PresentationSection): boolean {
   if (!d) return false;
   const kind = section.kind;
 
-  // Always-render kinds (hero, context, cta — they have small required fields)
-  if (kind === 'hero' || kind === 'context' || kind === 'cta') {
-    // For hero/cta we still need a title; for context we need any of the 3 fields
-    if (kind === 'hero' || kind === 'cta') return typeof d.title === 'string' && d.title.length > 0;
-    if (kind === 'context') return Boolean(d.situation || d.complication || d.resolution);
-  }
+  // 2026-05-04 — Switch to a flat conditional chain so each kind is
+  // checked exhaustively. The prior nested `if (kind === ...) { if ...
+  // return ... }` block fell through for `cta` because the inner-if's
+  // `return` only fired when the title-existence test was true; if title
+  // was missing the outer block fell out and `return true` at the end
+  // let an empty CTA render → CtaSection crashed on undefined title.
+  if (kind === 'hero')            return typeof d.title === 'string' && d.title.length > 0;
+  if (kind === 'cta')             return typeof d.title === 'string' && d.title.length > 0;
+  if (kind === 'context')         return Boolean(d.situation || d.complication || d.resolution);
 
-  // Array-shaped sections — must have at least one item
+  // Array-shaped sections — must have at least one item.
+  // Recommendations: accept either canonical `recommendations` or synonym `items`.
   if (kind === 'themes')          return Array.isArray(d.themes) && (d.themes as unknown[]).length > 0;
   if (kind === 'evidence')        return Array.isArray(d.stats) && (d.stats as unknown[]).length > 0;
   if (kind === 'quotes')          return Array.isArray(d.quotes) && (d.quotes as unknown[]).length > 0;
   if (kind === 'personas')        return Array.isArray(d.personas) && (d.personas as unknown[]).length > 0;
   if (kind === 'journey')         return Array.isArray(d.stages) && (d.stages as unknown[]).length > 0;
-  if (kind === 'recommendations') return Array.isArray(d.recommendations) && (d.recommendations as unknown[]).length > 0;
+  if (kind === 'recommendations') {
+    const recs = (Array.isArray(d.recommendations) ? d.recommendations : Array.isArray(d.items) ? d.items : null);
+    return Array.isArray(recs) && (recs as unknown[]).length > 0;
+  }
   if (kind === 'roadmap')         return Array.isArray(d.horizons) && (d.horizons as unknown[]).length > 0;
   if (kind === 'gap_analysis')    return Array.isArray(d.gaps) && (d.gaps as unknown[]).length > 0;
   if (kind === 'tech_arch')       return Array.isArray(d.layers) && (d.layers as unknown[]).length > 0;

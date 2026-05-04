@@ -99,16 +99,32 @@ export interface ResearchProgress {
  * for a given research goal and industry context.
  * Returns ranked recommendations with relevance reasoning.
  */
+// 2026-05-04 — Routed through the proxy at /api/ai/gemini instead of
+// direct GoogleGenAI SDK. Reason: the SDK pulls GEMINI_API_KEY from
+// process.env at runtime, but in the prod Docker build the SPA's
+// process.env only carries what Vite baked in. If the operator chooses
+// to keep the API key only on the proxy side (typical security posture),
+// every direct-SDK call falls into the catch handler and silently
+// defaults all relevance scores to 50. Going through /api/ai/gemini puts
+// the key on the proxy where it belongs.
 async function geminiJSON<T>(prompt: string): Promise<T> {
-    const apiKey = (process.env as any).GEMINI_API_KEY || (process.env as any).API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
-    const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: { temperature: 0.2 },
+    const resp = await fetch('http://localhost:5012/api/ai/gemini', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+            config: { temperature: 0.2, responseMimeType: 'application/json' },
+        }),
     });
-    let text = response.text || '{}';
+    if (!resp.ok) {
+        const errText = await resp.text().catch(() => '');
+        throw new Error(`geminiJSON proxy ${resp.status}: ${errText.slice(0, 300)}`);
+    }
+    const data = await resp.json();
+    let text: string = (data?.candidates?.[0]?.content?.parts || [])
+        .map((p: any) => p?.text || '')
+        .join('') || '{}';
     if (text.includes('```json')) text = text.split('```json')[1].split('```')[0].trim();
     else if (text.includes('```')) text = text.split('```')[1].split('```')[0].trim();
     try { return JSON.parse(text); } catch { return JSON.parse(tryRepairJson(text)); }

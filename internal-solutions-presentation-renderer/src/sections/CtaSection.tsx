@@ -2,7 +2,7 @@ import React from 'react';
 import type { SectionProps } from './registry';
 
 interface CtaData {
-  title: string;
+  title?: string;
   description?: string;
   email?: string;
   primaryActionLabel?: string;
@@ -10,8 +10,13 @@ interface CtaData {
 }
 
 export const CtaSection: React.FC<SectionProps> = ({ data, headlineScale }) => {
-  const d = data as CtaData;
-  const [main, period] = d.title.endsWith('.') ? [d.title.slice(0, -1), '.'] : [d.title, ''];
+  const d = (data || {}) as CtaData;
+  // 2026-05-04 — Guard against missing title (was crashing with
+  // "Cannot read properties of undefined (reading 'endsWith')").
+  const titleStr: string = (typeof d.title === 'string' && d.title.trim().length > 0)
+    ? d.title
+    : 'Get in touch.';
+  const [main, period] = titleStr.endsWith('.') ? [titleStr.slice(0, -1), '.'] : [titleStr, ''];
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', textAlign: 'center', padding: '48px 0' }}>
       <h2 style={{

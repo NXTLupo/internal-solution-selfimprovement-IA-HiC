@@ -20,13 +20,15 @@ interface PersonasData {
 
 export const PersonasSection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as PersonasData;
-  const cols = Math.min(d.personas.length, 3);
+  // 2026-05-04 — Defensive: tolerate missing/non-array personas.
+  const personas = Array.isArray(d?.personas) ? d.personas : [];
+  const cols = Math.min(personas.length || 1, 3);
   return (
     <div>
       <SectionLabel icon="personas">Section {String(index + 1).padStart(2, '0')} · The People</SectionLabel>
       <SectionTitle scale={headlineScale}>Who's affected.</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: '24px', marginTop: '32px' }}>
-        {d.personas.map((p, i) => (
+        {personas.map((p, i) => (
           <Card key={i} accent={i === 0}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
               <div>
