@@ -57,7 +57,15 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
     properties: {
       title: { type: 'string', maxLength: 120 },
       subtitle: { type: 'array', items: { type: 'string' }, maxItems: 3 },
-      visualStyle: { type: 'object' },
+      visualStyle: {
+        type: 'object',
+        properties: {
+          brand: { type: 'string' },
+          background: { type: 'string' },
+          accent: { type: 'string' },
+          font: { type: 'string' },
+        },
+      },
       citations: { type: 'array', items: { type: 'string' } },
     },
   },
@@ -69,11 +77,29 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
       situation: { type: 'string', maxLength: 1200 },
       complication: { type: 'string', maxLength: 1200 },
       resolution: { type: 'string', maxLength: 1200 },
-      benchmarks: { type: 'array' },
-      quote: { type: 'object' },
+      benchmarks: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            label: { type: 'string' },
+            value: { type: 'string' },
+            meaning: { type: 'string' },
+            source: { type: 'string' },
+          },
+        },
+      },
+      quote: {
+        type: 'object',
+        properties: {
+          text: { type: 'string' },
+          attribution: { type: 'string' },
+          source: { type: 'string' },
+        },
+      },
       convergentInsight: { type: 'string' },
       narrative: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   themes: {
@@ -93,7 +119,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
             description: { type: 'string' },
             signal: { type: 'string' },
             status: { type: 'string' },
-            citations: { type: 'array' },
+            citations: { type: 'array', items: { type: 'string' } },
             isHero: { type: 'boolean' },
           },
         },
@@ -101,7 +127,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
       narrative: { type: 'string' },
       patternSignal: { type: 'string' },
       convergentInsight: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   evidence: {
@@ -126,7 +152,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
       },
       patternSignal: { type: 'string' },
       convergentInsight: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   quotes: {
@@ -151,7 +177,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
         },
       },
       implication: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   personas: {
@@ -229,12 +255,20 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
             timeframe: { type: 'string' },
             owner: { type: 'string' },
             implication: { type: 'string' },
-            evidence: { type: 'array' },
+            evidence: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  sourceName: { type: 'string' },
+                },
+              },
+            },
           },
         },
       },
       convergentInsight: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   roadmap: {
@@ -274,7 +308,7 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
         },
       },
       convergentInsight: { type: 'string' },
-      citations: { type: 'array' },
+      citations: { type: 'array', items: { type: 'string' } },
     },
   },
   gap_analysis: {
@@ -289,8 +323,11 @@ const SECTION_DATA_SHAPES: Record<string, Record<string, unknown>> = {
           required: ['capability'],
           properties: {
             capability: { type: 'string' },
-            currentMaturity: { type: ['integer', 'string'] },
-            targetMaturity: { type: ['integer', 'string'] },
+            // 2026-05-04 — Use string-only here; OpenAI strict mode rejects
+            // multi-type unions. Renderer's coerceLevel handles either
+            // numeric strings ("3") or full strings ("medium").
+            currentMaturity: { type: 'string' },
+            targetMaturity: { type: 'string' },
             severity: { type: 'string' },
             impact: { type: 'string' },
           },
