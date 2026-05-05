@@ -29,7 +29,12 @@
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
 
-export type ComposerModelChoice = 'gemini-3.1-pro-preview' | 'gpt-5.5';
+// 2026-05-05 — Single-vendor composer on Azure DeepSeek-V4-Flash. The
+// discriminated-union schema (verified against the live Azure deployment)
+// works correctly — sections with kind+data populate per-kind shapes
+// without the Gemini-via-OpenAI-compat empty-{} bug. Legacy GPT-5.5 and
+// Gemini choices removed from the type.
+export type ComposerModelChoice = 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface PresentationDirective {
   triggered: boolean;
@@ -117,29 +122,22 @@ function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined 
 }
 
 function parseModel(raw: string | undefined): ComposerModelChoice {
-  // 2026-05-03 — Composer default is GPT-5.5, NOT Gemini Pro. Reason:
-  // Gemini's OpenAI-compatible function-calling endpoint does not properly
-  // populate deeply-nested generic-object schema fields (`data: { type:
-  // 'object' }`). Gemini emits `data: {}` for every section instead of
-  // populating hero/context/themes/etc. shapes — verified against a real
-  // run where 7 sections were emitted with all data objects empty. GPT-5.5
-  // has the same OpenAI-compat protocol but native API handles loose
-  // schemas correctly. Until we add a discriminated-union schema with
-  // per-kind data shapes, composer stays on GPT-5.5.
-  //
-  // Chat, themes, and deliverable generation remain on Gemini Pro — those
-  // paths use direct Gemini calls (not function-calling), so the schema
-  // bug doesn't affect them.
-  if (!raw) return 'gpt-5.5';
+  // 2026-05-05 — Default to deepseek-v4-flash. Verified against the live
+  // Azure deployment: 256K context, OpenAI-compatible tool-use,
+  // discriminated-union schema accepted, per-kind data populated correctly.
+  // Aliases:
+  //   #model=deepseek / #model=v4 / #model=flash → deepseek-v4-flash
+  //   #model=pro / #model=v4pro                  → deepseek-v4-pro
+  if (!raw) return 'deepseek-v4-flash';
   const v = raw.toLowerCase().replace(/[^a-z0-9.]/g, '');
-  if (v === 'gpt55' || v === 'gpt5.5' || v === 'gpt-5.5') return 'gpt-5.5';
-  if (v === 'gemini' || v === 'gemini31' || v === 'gemini3.1' || v === 'pro' || v === 'gemini-3-1-pro-preview' || v === 'gemini31propreview') {
-    // Allow explicit opt-in to Gemini Pro composer (will produce empty
-    // section data until the schema fix lands — for testing only).
-    return 'gemini-3.1-pro-preview';
+  if (v === 'pro' || v === 'v4pro' || v === 'deepseekv4pro' || v === 'deepseek-v4-pro') {
+    return 'deepseek-v4-pro';
   }
-  // Unknown — fall back to GPT-5.5 (proven-working composer model)
-  return 'gpt-5.5';
+  if (v === 'deepseek' || v === 'v4' || v === 'flash' || v === 'deepseekv4flash' || v === 'deepseek-v4-flash') {
+    return 'deepseek-v4-flash';
+  }
+  // Unknown — fall back to flash
+  return 'deepseek-v4-flash';
 }
 
 /**
@@ -156,7 +154,7 @@ export function parsePresentationDirective(message: string): PresentationDirecti
       triggered: false,
       brand: 'NXT',
       theme: 'dark',
-      model: 'gpt-5.5',
+      model: 'deepseek-v4-flash',
       ephemeral: false,
       alsoExportPptx: false,
       autoOpen: false,

@@ -2,7 +2,7 @@
  * Corpus Chat Panel v2 — Persistent across all phases.
  *
  * Same chat from data collection through synthesis. Features:
- * - Multi-model: Gemini 3.1 Pro (default), Gemini 2.5 Flash, GPT-5.4
+ * - Single-vendor: DeepSeek V4 Flash via Azure (256K context, OpenAI-compatible tool-use)
  * - Skill manifest matching (lazy-loads SKILL.md + wiki companions)
  * - NXT visual output rendering (:::nxt:TYPE blocks)
  * - Deliverable cards (:::deliverable:TYPE or fallback JSON detection)
@@ -765,10 +765,9 @@ const ArtifactExportButtons: React.FC<{
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    // 2026-05-03 — Default chat model is gemini-3.1-pro-preview.
-    // This branch (HiC-Gemini-Primary) has Anthropic / Claude fully removed —
-    // only Google and OpenAI providers are surfaced in the picker.
-    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
+    // 2026-05-05 — Default chat model is deepseek-v4-flash (Azure
+    // single-vendor primary). 256K context, tool-use verified.
+    const [selectedModel, setSelectedModel] = useState<ChatModel>('deepseek-v4-flash');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
@@ -1130,10 +1129,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const cleanPrompt = prompt.replace(/^\/(image|portrait)\s+/i, '');
             const imageData = isPortrait ? await generatePortrait(cleanPrompt) : await generateImage(cleanPrompt, '16:9', undefined, true);
             setImageLoading(false);
-            return { id: `msg_${Date.now()}`, role: 'assistant', content: imageData ? `Generated: "${cleanPrompt.substring(0, 60)}"` : 'Image generation failed.', model: 'gemini-2.5-flash', timestamp: Date.now(), durationMs: Date.now() - startTime, imageData: imageData || undefined };
+            return { id: `msg_${Date.now()}`, role: 'assistant', content: imageData ? `Generated: "${cleanPrompt.substring(0, 60)}"` : 'Image generation failed.', model: 'deepseek-v4-flash', timestamp: Date.now(), durationMs: Date.now() - startTime, imageData: imageData || undefined };
         } catch (e: any) {
             setImageLoading(false);
-            return { id: `msg_${Date.now()}`, role: 'assistant', content: `Image error: ${e.message}`, model: 'gemini-2.5-flash', timestamp: Date.now(), durationMs: Date.now() - startTime };
+            return { id: `msg_${Date.now()}`, role: 'assistant', content: `Image error: ${e.message}`, model: 'deepseek-v4-flash', timestamp: Date.now(), durationMs: Date.now() - startTime };
         }
     };
 

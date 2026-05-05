@@ -10,8 +10,10 @@ import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
 /** Model id that the chat surface uses. Same union as `ChatModel` in corpusChatService.
- * 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary). */
-export type GenerationModel = 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
+ * 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary; legacy
+ * Gemini/GPT entries kept for backward-compat with old artifacts that
+ * stored a model id, but new generations default to deepseek-v4-flash. */
+export type GenerationModel = 'deepseek-v4-flash' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
 
 export interface GenerateArgs {
     content: ContentHashtag;
@@ -52,6 +54,7 @@ const TEMPERATURE = 0.2;
 /** Provider IDs the underlying SDK clients expect. The chat-side ids may differ. */
 function resolveProviderModelId(chatModel: GenerationModel): string {
     switch (chatModel) {
+        case 'deepseek-v4-flash': return 'deepseek-v4-flash';
         case 'gpt-5.4': return 'gpt-5.4';
         case 'gemini-2.5-flash': return 'gemini-2.5-flash';
         case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
@@ -73,8 +76,35 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
     return (response as any)?.text ?? '';
 }
 
+// 2026-05-05 — Azure DeepSeek-V4-Flash via /api/ai/deepseek. OpenAI-
+// compatible chat-completions schema.
+async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
+    const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            model: modelId,
+            messages: [
+                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'user', content: prompt },
+            ],
+            max_tokens: MAX_TOKENS,
+            temperature: TEMPERATURE,
+            response_format: { type: 'json_object' },
+            stream: false,
+        }),
+    });
+    if (!resp.ok) {
+        const errText = await resp.text().catch(() => '');
+        throw new Error(`DeepSeek API ${resp.status}: ${errText.slice(0, 300)}`);
+    }
+    const data = await resp.json();
+    return data?.choices?.[0]?.message?.content || '';
+}
+
 async function callForModel(prompt: string, model: GenerationModel): Promise<string> {
     const providerId = resolveProviderModelId(model);
+    if (model === 'deepseek-v4-flash') return callDeepSeek(prompt, providerId);
     if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     return callGemini(prompt, providerId);
 }
@@ -234,7 +264,7 @@ export async function generateArtifact(args: GenerateArgs): Promise<GenerateResu
         return { ok: false, error: `Content type "${args.content}" is not yet supported in the framework pilot (persona + journey + org only)` };
     }
 
-    const model: GenerationModel = args.model ?? 'gemini-2.5-flash';
+    const model: GenerationModel = args.model ?? 'deepseek-v4-flash';
 
     let raw: string;
     try {

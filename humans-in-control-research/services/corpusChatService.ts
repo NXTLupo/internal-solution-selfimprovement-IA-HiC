@@ -17,16 +17,21 @@
  * - Full corpus grounding (no 500KB cap for Claude 4.7)
  */
 
-// 2026-05-03 — claude-opus-4-7 removed from this branch (HiC-Gemini-Primary).
-// All chat traffic routes to Google or OpenAI; Anthropic is excluded from
-// the model picker, dispatch logic, and provider fallback chains.
-export type ChatModel = 'gemini-3.1-pro-preview' | 'gemini-2.5-flash' | 'gpt-5.4';
+// 2026-05-05 — Single-vendor migration to DeepSeek V4 Flash via Azure.
+// Chat picker shows DeepSeek as the primary; legacy Gemini/GPT entries
+// removed from the registry. The dispatch routes deepseek-* through a
+// new callDeepSeek() that hits /api/ai/deepseek.
+export type ChatModel = 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface ChatMessage {
     id: string;
     role: 'user' | 'assistant' | 'system';
     content: string;
-    model?: ChatModel;
+    // 2026-05-05 — Widened from ChatModel to string. Designer chat returns
+    // FreeformGenerationModel / GenerationModel which can include legacy
+    // (Gemini/GPT) ids — those flow through here as message-level labels
+    // for display only, not for routing.
+    model?: string;
     timestamp: number;
     tokenCount?: number;
     durationMs?: number;
@@ -167,7 +172,7 @@ export interface SkillContext {
 export interface ModelConfig {
     id: ChatModel;
     name: string;
-    provider: 'anthropic' | 'openai' | 'google';
+    provider: 'anthropic' | 'openai' | 'google' | 'deepseek';
     description: string;
     contextWindow: string;
     strengths: string;
@@ -176,41 +181,33 @@ export interface ModelConfig {
     maxCorpusChars: number;
 }
 
-// 2026-05-03 — Default chat model migrated from claude-opus-4-7 to
-// gemini-3.1-pro-preview. Reasons documented in aiRouter.ts. Claude Opus
-// remains selectable in the model picker for users who want it on flagship
-// engagements; the Anthropic backend code path is fully preserved.
+// 2026-05-05 — Single-vendor primary on DeepSeek V4 Flash via Azure AI
+// Foundry. 256K context handles the full corpus injection without
+// truncation; OpenAI-compatible chat-completions schema; tool-use with
+// our discriminated-union schema verified.
 export const AVAILABLE_MODELS: ModelConfig[] = [
     {
-        id: 'gemini-3.1-pro-preview',
-        name: 'Gemini 3.1 Pro',
-        provider: 'google',
-        description: 'Flagship reasoning + 1-2M token context. Now the HiC default — same corpus grounding at ~12× lower cost than Opus.',
-        contextWindow: '2M tokens',
-        strengths: 'Long-context reasoning, schema adherence, multimodal, cost-effective',
+        id: 'deepseek-v4-flash',
+        name: 'DeepSeek V4 Flash',
+        provider: 'deepseek',
+        description: '256K context, OpenAI-compatible tool-use, discriminated-union schema verified. Primary HiC reasoning model 2026-05-05.',
+        contextWindow: '256K tokens',
+        strengths: 'Long-context reasoning, schema adherence, cost-effective, single-vendor simplicity',
         color: '#00B7C3',
         available: true,
-        maxCorpusChars: 900000, // No truncation — load everything
+        // 256K tokens × ~4 chars/tok = ~1MB chars. We cap at 900KB for
+        // headroom (system prompt + uploads + wiki menu + history all
+        // share the budget).
+        maxCorpusChars: 900000,
     },
     {
-        id: 'gemini-2.5-flash',
-        name: 'Gemini 2.5 Flash',
-        provider: 'google',
-        description: '1M token context — loads the ENTIRE corpus, knowledge graph, wiki, and skills with zero truncation. Fastest path; lighter reasoning vs Pro.',
-        contextWindow: '1M tokens',
-        strengths: 'Full corpus grounding, fast responses, image generation, no context limitations',
-        color: '#B8B800',
-        available: true,
-        maxCorpusChars: 900000, // No truncation — load everything
-    },
-    {
-        id: 'gpt-5.4',
-        name: 'GPT-5.4',
-        provider: 'openai',
-        description: 'Flagship reasoning model. Strict JSON schema compliance. 1M+ context window — full corpus grounding.',
-        contextWindow: '1M tokens',
-        strengths: 'Schema adherence, deep reasoning, large-corpus synthesis',
-        color: '#00B7C3',
+        id: 'deepseek-v4-pro',
+        name: 'DeepSeek V4 Pro',
+        provider: 'deepseek',
+        description: 'Premium tier. Available once Azure deployment serves Pro alongside Flash. Same 256K context, deeper reasoning.',
+        contextWindow: '256K tokens',
+        strengths: 'Deeper reasoning, structured output, premium-tier latency',
+        color: '#CC6644',
         available: true,
         maxCorpusChars: 900000,
     },
@@ -1900,25 +1897,28 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
         let responseText: string;
         let modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
-        // 2026-05-04 — Defensive: if the requested model isn't registered
-        // (stale localStorage, invalid query string, removed Claude entry),
-        // fall back to Gemini Pro and warn. Previously this fell through
-        // to the `else` branch and silently invoked Gemini Flash with the
-        // wrong model id, which Gemini's SDK then rejected at runtime.
+        // 2026-05-05 — Defensive: if the requested model isn't registered
+        // (stale localStorage, removed legacy Gemini/GPT entry, etc.),
+        // fall back to DeepSeek V4 Flash and warn.
         let activeModelId: string = model;
         if (!modelConfig) {
-            const fallback = AVAILABLE_MODELS.find(m => m.id === 'gemini-3.1-pro-preview') || AVAILABLE_MODELS[0];
+            const fallback = AVAILABLE_MODELS.find(m => m.id === 'deepseek-v4-flash') || AVAILABLE_MODELS[0];
             if (!fallback) throw new Error('No chat models registered — AVAILABLE_MODELS is empty');
             console.warn(`[chat] Requested model ${JSON.stringify(model)} is not in AVAILABLE_MODELS; falling back to ${fallback.id}`);
             modelConfig = fallback;
             activeModelId = fallback.id;
         }
 
-        // 2026-05-03 — Anthropic dispatch branch removed. Only Google and
-        // OpenAI providers reach the model layer on this branch.
-        if (modelConfig.provider === 'openai') {
+        // 2026-05-05 — Single-vendor dispatch. DeepSeek V4 Flash is primary;
+        // Anthropic / Google / OpenAI dispatch branches were removed when
+        // the migration completed.
+        if (modelConfig.provider === 'deepseek') {
+            responseText = await callDeepSeek(systemPrompt, userMessage, conversationHistory, activeModelId);
+        } else if (modelConfig.provider === 'openai') {
+            // (legacy fallback path; not reached unless registry changes)
             responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else {
+            // (legacy fallback path; not reached unless registry changes)
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 
@@ -2055,6 +2055,102 @@ async function executeFetchWikiArticlesTool(input: any): Promise<string> {
 // the tool registration entirely (the system prompt told the model to call
 // fetch_wiki_articles but the function was never declared, causing
 // hallucinations and "EVIDENCE GAP" placeholders).
+
+// 2026-05-05 — Azure DeepSeek-V4-Flash chat path. OpenAI-compatible
+// chat-completions wire format with tool-loop. The proxy
+// (/api/ai/deepseek) handles the api-key header (NOT Authorization:
+// Bearer) and 429-Retry-After backoff. Uses max_tokens (DeepSeek does
+// not require the GPT-5 max_completion_tokens rename).
+async function callDeepSeek(
+    system: string,
+    userMsg: string,
+    history: ChatMessage[],
+    model: string = 'deepseek-v4-flash',
+): Promise<string> {
+    type DSMsg = {
+        role: 'system' | 'user' | 'assistant' | 'tool';
+        content: string | null;
+        tool_calls?: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }>;
+        tool_call_id?: string;
+        name?: string;
+    };
+    const messages: DSMsg[] = [
+        { role: 'system', content: system },
+        ...history.filter(m => m.role !== 'system').map(m => ({
+            role: m.role as 'user' | 'assistant',
+            content: m.content,
+        })),
+        { role: 'user', content: userMsg },
+    ];
+
+    const tools = [{
+        type: 'function' as const,
+        function: {
+            name: FETCH_WIKI_ARTICLES_TOOL.name,
+            description: FETCH_WIKI_ARTICLES_TOOL.description,
+            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+        },
+    }];
+
+    let lastText = '';
+    for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+        const resp = await fetch(`${PROXY_BASE}/api/ai/deepseek`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model,
+                messages,
+                tools,
+                tool_choice: 'auto',
+                max_tokens: 16000,
+                temperature: 0.2,
+                stream: false,
+            }),
+        });
+
+        if (!resp.ok) {
+            const errText = await resp.text().catch(() => '');
+            throw new Error(`DeepSeek API ${resp.status}: ${errText.slice(0, 300)}`);
+        }
+        const data = await resp.json();
+        const choice = data.choices?.[0];
+        if (!choice) throw new Error('DeepSeek returned no choices');
+
+        const msg = choice.message || {};
+        if (typeof msg.content === 'string' && msg.content.trim().length > 0) {
+            lastText = msg.content;
+        }
+        messages.push(msg);
+
+        const toolCalls = Array.isArray(msg.tool_calls) ? msg.tool_calls : [];
+        if (toolCalls.length === 0 || choice.finish_reason !== 'tool_calls') {
+            return lastText || msg.content || 'No response';
+        }
+
+        console.log(`[chat.tools] iter ${iter + 1}: DeepSeek called ${toolCalls.length} tool(s): ${toolCalls.map((tc: any) => tc.function.name).join(', ')}`);
+        for (const tc of toolCalls) {
+            let result = '';
+            if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
+                try {
+                    const args = JSON.parse(tc.function.arguments || '{}');
+                    result = await executeFetchWikiArticlesTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else {
+                result = `(unknown tool: ${tc.function.name})`;
+            }
+            messages.push({
+                role: 'tool',
+                tool_call_id: tc.id,
+                name: tc.function.name,
+                content: result,
+            });
+        }
+    }
+    console.warn(`[chat.tools] DeepSeek iteration cap ${MAX_TOOL_ITER} reached`);
+    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+}
 
 async function callOpenAI(
     system: string,

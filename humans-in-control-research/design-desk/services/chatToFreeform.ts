@@ -16,8 +16,9 @@ import { sanitizeFreeformHtml } from './freeformSanitizer';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-// 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary).
-export type FreeformGenerationModel = 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
+// 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary; legacy
+// Gemini/GPT entries kept for backward-compat.
+export type FreeformGenerationModel = 'deepseek-v4-flash' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
 
 export interface FreeformGenerateArgs {
     kind: FreeformKind;
@@ -73,10 +74,35 @@ const TEMPERATURE = 0.4;
 
 function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
     switch (chatModel) {
+        case 'deepseek-v4-flash':      return 'deepseek-v4-flash';
         case 'gpt-5.4':                return 'gpt-5.4';
         case 'gemini-2.5-flash':       return 'gemini-2.5-flash';
         case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
     }
+}
+
+// 2026-05-05 — Azure DeepSeek-V4-Flash via /api/ai/deepseek.
+async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
+    const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            model: modelId,
+            messages: [
+                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'user', content: prompt },
+            ],
+            max_tokens: MAX_TOKENS,
+            temperature: TEMPERATURE,
+            stream: false,
+        }),
+    });
+    if (!resp.ok) {
+        const errText = await resp.text().catch(() => '');
+        throw new Error(`DeepSeek API ${resp.status}: ${errText.slice(0, 300)}`);
+    }
+    const data = await resp.json();
+    return data?.choices?.[0]?.message?.content || '';
 }
 
 async function callGemini(prompt: string, modelId: string): Promise<string> {
@@ -95,6 +121,7 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
 
 async function callForModel(prompt: string, model: FreeformGenerationModel): Promise<string> {
     const providerId = resolveProviderModelId(model);
+    if (model === 'deepseek-v4-flash') return callDeepSeek(prompt, providerId);
     if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
     return callGemini(prompt, providerId);
 }

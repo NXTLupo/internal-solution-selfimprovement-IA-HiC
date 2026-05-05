@@ -157,7 +157,7 @@ export const ChatWorkbench: React.FC<Props> = ({
 }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-2.5-flash');
+    const [selectedModel, setSelectedModel] = useState<ChatModel>('deepseek-v4-flash');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [rightPanel, setRightPanel] = useState<'graph' | 'pins'>('graph');
@@ -456,7 +456,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                 id: `msg_${Date.now()}`,
                 role: 'assistant',
                 content: imageData ? `Generated image for: "${cleanPrompt.substring(0, 80)}"` : 'Image generation failed. Check your Gemini API key.',
-                model: 'gemini-2.5-flash',
+                model: 'deepseek-v4-flash',
                 timestamp: Date.now(),
                 durationMs: Date.now() - startTime,
                 imageData: imageData || undefined,
@@ -467,7 +467,7 @@ export const ChatWorkbench: React.FC<Props> = ({
                 id: `msg_${Date.now()}`,
                 role: 'assistant',
                 content: `Image generation error: ${e.message || 'Unknown error'}`,
-                model: 'gemini-2.5-flash',
+                model: 'deepseek-v4-flash',
                 timestamp: Date.now(),
                 durationMs: Date.now() - startTime,
             };

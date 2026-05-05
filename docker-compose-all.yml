@@ -396,6 +396,10 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      # 2026-05-05 — Azure DeepSeek-V4-Flash key. Proxy reads either name.
+      - DEEPSEEK_AZURE=${DEEPSEEK_AZURE:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - AZURE_DEEPSEEK_KEY=${AZURE_DEEPSEEK_KEY:-}
       - EVERY_ORG_API_KEY=${EVERY_ORG_API_KEY:-}
     volumes:
       - ./humans-in-control-research/proxy:/app

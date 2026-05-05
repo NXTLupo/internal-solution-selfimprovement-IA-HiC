@@ -3251,6 +3251,116 @@ async def proxy_gemini_openai_compat(request: Request):
         return JSONResponse({"error": f"Gemini compat proxy error: {str(e)[:200]}"}, status_code=502)
 
 
+# 2026-05-05 — Azure DeepSeek-V4-Flash endpoint. Single-vendor primary
+# for HiC reasoning, replacing GPT-5.5 / Gemini Pro / Gemini Flash hot
+# paths. OpenAI-compatible chat-completions schema. Auth header is
+# api-key (NOT Authorization: Bearer). Rate-limit: 20 req/min, 20K
+# tok/min on the staging deployment until quota bump lands — handler
+# honors Retry-After and retries up to 3x with exponential backoff so
+# bursts queue cleanly instead of failing.
+
+DEEPSEEK_AZURE_URL = (
+    "https://intelligence-aug-stage-resource.services.ai.azure.com/models/chat/completions"
+    "?api-version=2024-05-01-preview"
+)
+
+
+@app.post("/api/ai/deepseek")
+async def proxy_deepseek_azure(request: Request):
+    """Proxy requests to Azure DeepSeek-V4-Flash deployment.
+
+    Body is OpenAI chat-completions shape. The proxy:
+    - Reads DEEPSEEK_AZURE (or DEEPSEEK_API_KEY) from env
+    - Sends api-key header (Azure convention, not Bearer)
+    - Honors 429 Retry-After with up to 3 retries, exponential backoff
+    - Returns the JSON response with the original status code
+    """
+    api_key = (
+        os.getenv("DEEPSEEK_AZURE", "")
+        or os.getenv("DEEPSEEK_API_KEY", "")
+        or os.getenv("AZURE_DEEPSEEK_KEY", "")
+    )
+    if not api_key:
+        return JSONResponse({"error": "DEEPSEEK_AZURE / DEEPSEEK_API_KEY not configured"}, status_code=500)
+
+    try:
+        body = await request.json()
+    except Exception as e:
+        return JSONResponse({"error": f"invalid request body: {e}"}, status_code=400)
+
+    headers = {"Content-Type": "application/json", "api-key": api_key}
+
+    MAX_RETRIES = 3
+    BASE_BACKOFF_S = 2.0
+    last_resp_text = ""
+    last_status = 0
+
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(DEEPSEEK_AZURE_URL, json=body, headers=headers, timeout=600.0)
+            last_status = resp.status_code
+            last_resp_text = resp.text
+
+            if resp.status_code == 429:
+                retry_after_hdr = resp.headers.get("retry-after") or resp.headers.get("Retry-After")
+                try:
+                    retry_after = float(retry_after_hdr) if retry_after_hdr else BASE_BACKOFF_S * (2 ** attempt)
+                except (TypeError, ValueError):
+                    retry_after = BASE_BACKOFF_S * (2 ** attempt)
+                if attempt < MAX_RETRIES:
+                    logger.info(
+                        f"DeepSeek 429 (attempt {attempt + 1}/{MAX_RETRIES}); "
+                        f"sleeping {retry_after:.1f}s before retry"
+                    )
+                    import asyncio as _asyncio_dr
+                    await _asyncio_dr.sleep(min(retry_after, 60.0))
+                    continue
+                # Out of retries — surface the 429 to caller
+                logger.warning(f"DeepSeek 429 after {MAX_RETRIES} retries; giving up")
+                return JSONResponse(
+                    {"error": "DeepSeek rate-limit exceeded", "retry_after": retry_after_hdr},
+                    status_code=429,
+                )
+
+            if resp.status_code >= 400:
+                logger.error(
+                    f"DeepSeek Azure {resp.status_code} for model={body.get('model')}: "
+                    f"{resp.text[:600]}"
+                )
+
+            try:
+                return JSONResponse(resp.json(), status_code=resp.status_code)
+            except Exception:
+                return JSONResponse(
+                    {"error": f"DeepSeek returned non-JSON (status {resp.status_code}): {resp.text[:300]}"},
+                    status_code=502,
+                )
+
+        except httpx.TimeoutException:
+            logger.error(f"DeepSeek Azure timeout (attempt {attempt + 1})")
+            if attempt < MAX_RETRIES:
+                import asyncio as _asyncio_dr
+                await _asyncio_dr.sleep(BASE_BACKOFF_S * (2 ** attempt))
+                continue
+            return JSONResponse({"error": "DeepSeek API timeout (600s)"}, status_code=504)
+        except Exception as e:
+            logger.error(f"DeepSeek Azure proxy error (attempt {attempt + 1}): {type(e).__name__}: {e}")
+            if attempt < MAX_RETRIES:
+                import asyncio as _asyncio_dr
+                await _asyncio_dr.sleep(BASE_BACKOFF_S * (2 ** attempt))
+                continue
+            return JSONResponse(
+                {"error": f"DeepSeek proxy error: {type(e).__name__}: {str(e)[:200]}"},
+                status_code=502,
+            )
+
+    return JSONResponse(
+        {"error": f"DeepSeek failed after {MAX_RETRIES} retries; last status {last_status}"},
+        status_code=last_status or 502,
+    )
+
+
 @app.get("/api/ai/status")
 async def ai_provider_status():
     """Check which AI providers have API keys configured."""
@@ -5186,10 +5296,23 @@ Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
 """
 
     # Call the proxy's existing AI endpoints based on model selection.
-    # 2026-05-03 — claude-* branch removed on this branch (HiC-Gemini-Primary).
-    # Reranker now routes only to /api/ai/openai or /api/ai/gemini.
+    # 2026-05-05 — Routing:
+    #   deepseek-* → /api/ai/deepseek (Azure DeepSeek-V4-Flash; primary)
+    #   gpt-*      → /api/ai/openai (legacy fallback path; OpenAI Chat
+    #                Completions with response_format=json_object)
+    #   gemini-*   → /api/ai/gemini (legacy fallback path; Gemini native
+    #                with responseMimeType=application/json)
     try:
-        if model_id.startswith("gpt-"):
+        if model_id.startswith("deepseek-"):
+            api_url = "/api/ai/deepseek"
+            body = {
+                "model": model_id,
+                "max_tokens": 4000,
+                "messages": [{"role": "user", "content": prompt}],
+                "response_format": {"type": "json_object"},
+                "stream": False,
+            }
+        elif model_id.startswith("gpt-"):
             api_url = "/api/ai/openai"
             body = {
                 "model": model_id,
@@ -5220,8 +5343,9 @@ Return ONLY the JSON array. No preamble, no markdown fences, no commentary.
         ai_body = resp.json()
 
         # Extract the model's JSON output.
-        # 2026-05-03 — claude-* branch removed; only gpt-* and gemini-* paths.
-        if model_id.startswith("gpt-"):
+        # 2026-05-05 — DeepSeek + GPT use OpenAI Chat Completions shape;
+        # Gemini native uses parts. Branch by URL the request was sent to.
+        if api_url == "/api/ai/deepseek" or api_url == "/api/ai/openai":
             choices = ai_body.get("choices") or []
             raw_text = (choices[0].get("message", {}).get("content") if choices else "") or ""
         else:

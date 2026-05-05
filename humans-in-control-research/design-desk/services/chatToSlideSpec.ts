@@ -19,8 +19,8 @@ import type { BrandHashtag } from './hashtagParser';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
-// 2026-05-03 — claude-opus-4-7 removed on this branch (HiC-Gemini-Primary).
-export type SlideSpecModel = 'gpt-5.4' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview';
+// 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary.
+export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-2.5-flash' | 'gemini-3.1-pro-preview';
 
 export interface SlideSpecGenerateArgs {
     kind: FreeformKind;
@@ -46,6 +46,7 @@ const MAX_TOKENS = 32000;
 const TEMPERATURE = 0.3;
 
 function resolveProviderModelId(m: SlideSpecModel): string {
+    if (m === 'deepseek-v4-flash') return 'deepseek-v4-flash';
     if (m === 'gpt-5.4') return 'gpt-5.4';
     if (m === 'gemini-3.1-pro-preview') return 'gemini-3.1-pro-preview';
     return 'gemini-2.5-flash';
@@ -53,6 +54,30 @@ function resolveProviderModelId(m: SlideSpecModel): string {
 
 async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
+    // 2026-05-05 — DeepSeek V4 Flash is the primary path.
+    if (m === 'deepseek-v4-flash') {
+        const resp = await fetch('http://localhost:5012/api/ai/deepseek', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: id,
+                messages: [
+                    { role: 'system', content: SYSTEM_PROMPT },
+                    { role: 'user', content: prompt },
+                ],
+                max_tokens: MAX_TOKENS,
+                temperature: TEMPERATURE,
+                response_format: { type: 'json_object' },
+                stream: false,
+            }),
+        });
+        if (!resp.ok) {
+            const errText = await resp.text().catch(() => '');
+            throw new Error(`DeepSeek API ${resp.status}: ${errText.slice(0, 300)}`);
+        }
+        const data = await resp.json();
+        return data?.choices?.[0]?.message?.content || '';
+    }
     if (m === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, id, MAX_TOKENS, TEMPERATURE);
     const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
     const response = await ai.models.generateContent({
@@ -260,7 +285,7 @@ function extractSlideSpecBlock(raw: string): { id?: string; kind?: string; brand
 // ---------------------------------------------------------------------------
 
 export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<SlideSpecGenerateResult> {
-    const model: SlideSpecModel = args.model ?? 'gemini-3.1-pro-preview';
+    const model: SlideSpecModel = args.model ?? 'deepseek-v4-flash';
     const prompt = buildPrompt(args);
 
     let raw: string;

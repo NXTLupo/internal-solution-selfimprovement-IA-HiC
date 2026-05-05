@@ -436,6 +436,11 @@ function getOutputSchemaText(): string {
 
 const OPENAI_PROXY_URL = 'http://localhost:5012/api/ai/openai';
 const GEMINI_OPENAI_COMPAT_PROXY_URL = 'http://localhost:5012/api/ai/gemini-compat';
+// 2026-05-05 — Azure DeepSeek-V4-Flash. OpenAI-compatible chat-completions
+// schema, accessed via the proxy at /api/ai/deepseek (auth uses api-key
+// header — proxy handles that detail). 256K context, tool-use confirmed
+// against discriminated-union schema.
+const DEEPSEEK_PROXY_URL = 'http://localhost:5012/api/ai/deepseek';
 // 8 iterations × ~1.7 parallel tool calls per turn = ~14 actual tool invocations
 // in the worst case. Anything more bloats the context past the point where the
 // model can produce a clean submit_presentation payload — that was the failure
@@ -700,14 +705,25 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
 }
 
 async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse> {
-  // Route by model prefix: gemini-* → Google OpenAI-compat endpoint,
-  // gpt-* / openai-* → OpenAI native. Wire format identical for both
-  // (chat completions + tool_calls), so the rest of runOpenAILoop is unchanged.
+  // Route by model prefix:
+  //   deepseek-* → /api/ai/deepseek (Azure DeepSeek V4 Flash; primary path 2026-05-05)
+  //   gemini-*   → /api/ai/gemini-compat (Google's OpenAI-compatible endpoint)
+  //   gpt-* etc. → /api/ai/openai (native OpenAI)
+  // Wire format identical for all three (chat completions + tool_calls), so
+  // the rest of runOpenAILoop is unchanged across providers.
   const modelStr = String(body.model || '').toLowerCase();
-  const url = modelStr.startsWith('gemini-')
-    ? GEMINI_OPENAI_COMPAT_PROXY_URL
-    : OPENAI_PROXY_URL;
-  const providerLabel = modelStr.startsWith('gemini-') ? 'Gemini-compat' : 'OpenAI';
+  let url: string;
+  let providerLabel: string;
+  if (modelStr.startsWith('deepseek-')) {
+    url = DEEPSEEK_PROXY_URL;
+    providerLabel = 'DeepSeek';
+  } else if (modelStr.startsWith('gemini-')) {
+    url = GEMINI_OPENAI_COMPAT_PROXY_URL;
+    providerLabel = 'Gemini-compat';
+  } else {
+    url = OPENAI_PROXY_URL;
+    providerLabel = 'OpenAI';
+  }
 
   // 2026-05-04 — Force OpenAI's Chat Completions API. The proxy's
   // /api/ai/openai endpoint defaults to the new Responses API

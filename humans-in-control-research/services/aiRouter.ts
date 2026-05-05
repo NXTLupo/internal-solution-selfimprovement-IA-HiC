@@ -131,7 +131,7 @@ export function tryRepairJson(jsonString: string): string {
 // --- MODEL REGISTRY ---
 export interface ModelInfo {
     id: string;
-    provider: 'anthropic' | 'openai' | 'google';
+    provider: 'anthropic' | 'openai' | 'google' | 'deepseek';
     displayName: string;
     vision: boolean;
     maxContext: number;
@@ -139,14 +139,34 @@ export interface ModelInfo {
     costTier: 'budget' | 'standard' | 'premium';
 }
 
-// 2026-05-03 — Anthropic / Claude entries removed from this branch
-// (HiC-Gemini-Primary). All pipeline stages — collection, synthesis, output —
-// route exclusively through Google + OpenAI providers. The model registry,
-// task defaults, alternates, providers list, router switch, and adapter
-// imports below all assume Anthropic is unavailable. To re-enable Claude on
-// a different branch, restore the entries removed here AND restore the
-// dispatch branches in narrativeComposer.ts / corpusChatService.ts.
+// 2026-05-05 — Single-vendor migration to DeepSeek V4 Flash via Azure.
+// All HiC reasoning / synthesis / chat / composer paths now route to
+// deepseek-v4-flash through /api/ai/deepseek. The proxy honors 429
+// Retry-After with exponential backoff so the staging deployment's
+// 20 req/min · 20K tok/min limit doesn't surface as user-facing failures
+// while quota bump is pending. OpenAI Whisper + text-embedding-3-small
+// remain (DeepSeek has no audio/embedding parity). Gemini Search
+// Grounding stays only for the conditional web-search tool path
+// (free, opt-in via deepResearchService).
+//
+// Verified 2026-05-05 against the Azure deployment:
+//   - 256K-token needle-in-haystack: PASS (10.5s)
+//   - Discriminated-union schema tool-use: PASS
+//   - Strict OpenAI chat-completions wire format: PASS
+//   - api-key header (NOT Authorization: Bearer): required
+//   - Token usage NOT returned in response (Azure inference quirk)
+//
+// To re-enable a fallback path, restore Gemini / GPT entries AND the
+// per-stage dispatch branches in services that now hard-route to DeepSeek.
 export const MODEL_REGISTRY: Record<string, ModelInfo> = {
+    'deepseek-v4-flash': {
+        id: 'deepseek-v4-flash', provider: 'deepseek', displayName: 'DeepSeek V4 Flash',
+        vision: false, maxContext: 256_000, maxOutput: 8_192, costTier: 'standard'
+    },
+    'deepseek-v4-pro': {
+        id: 'deepseek-v4-pro', provider: 'deepseek', displayName: 'DeepSeek V4 Pro',
+        vision: false, maxContext: 256_000, maxOutput: 8_192, costTier: 'premium'
+    },
     'gpt-5.4': {
         id: 'gpt-5.4', provider: 'openai', displayName: 'GPT-5.4',
         vision: true, maxContext: 1_050_000, maxOutput: 128_000, costTier: 'standard'
@@ -179,33 +199,27 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition';
 
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
-    research: 'gemini-3.1-pro-preview',
-    fast_generation: 'gemini-2.5-flash',
-    vision: 'gemini-3.1-pro-preview',
-    image: 'gemini-2.5-flash',     // imagen-4.0 via Gemini API, flash-image as fallback
-    video: 'gemini-2.5-flash',     // veo-3.1 via Gemini API
-    // 2026-05-04 — Synced with hashtagParser.parseModel default. Composer
-    // uses gpt-5.5 as the proven-working tool-loop model. Once Bug E
-    // (discriminated-union schema for submit_presentation.data) is verified
-    // end-to-end with Gemini Pro, flip BOTH this default AND
-    // hashtagParser.ts:parseModel default to 'gemini-3.1-pro-preview' to
-    // recoup ~$12/run.
-    narrative_composition: 'gpt-5.5',
+    research: 'deepseek-v4-flash',
+    fast_generation: 'deepseek-v4-flash',
+    vision: 'deepseek-v4-flash',          // (no native vision yet — text-only fallback)
+    image: 'gemini-2.5-flash',            // imagen-4.0 via Gemini API
+    video: 'gemini-2.5-flash',            // veo-3.1 via Gemini API
+    narrative_composition: 'deepseek-v4-flash',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
-// Google + OpenAI only. Gemini Pro is the cost-effective default; GPT-5.5 is
-// the premium-tier alternate for engagements where users want a different
-// model family in the loop.
+// DeepSeek V4 Flash everywhere; image/video stay on Gemini for the modality.
+// V4 Pro is registered for a future premium-reasoning slot but not yet the
+// default (Azure deployment serves Flash today).
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['gemini-3.1-pro-preview', 'gpt-5.4', 'gemini-2.5-flash'],
-    fast_generation: ['gemini-2.5-flash', 'gpt-5.4-mini'],
-    vision: ['gemini-3.1-pro-preview', 'gpt-5.4'],
+    research: ['deepseek-v4-flash', 'deepseek-v4-pro'],
+    fast_generation: ['deepseek-v4-flash'],
+    vision: ['deepseek-v4-flash'],
     image: ['gemini-2.5-flash'],
     video: ['gemini-2.5-flash'],
-    narrative_composition: ['gemini-3.1-pro-preview', 'gpt-5.5'],
+    narrative_composition: ['deepseek-v4-flash', 'deepseek-v4-pro'],
 };
 
 // --- API KEY AVAILABILITY ---

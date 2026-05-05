@@ -206,7 +206,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
-                    model: 'gemini-3.1-pro-preview',
+                    model: 'deepseek-v4-flash',
                 });
                 if (ss.ok) {
                     replaceArtifact(ss.artifact as any);
@@ -236,7 +236,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     // complete even on architecture diagrams with 30+ boxes.
                     // (2026-05-03: was claude-opus-4-7 before Anthropic
                     // elimination on this branch.)
-                    model: 'gemini-3.1-pro-preview',
+                    model: 'deepseek-v4-flash',
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -271,7 +271,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: null,
-                    model: 'gemini-3.1-pro-preview',
+                    model: 'deepseek-v4-flash',
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);
