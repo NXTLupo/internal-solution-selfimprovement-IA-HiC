@@ -3,6 +3,7 @@ import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@googl
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
 import { tryRepairJson } from './aiRouter';
 import { getActiveConstraints } from './promptImprovementEngine';
+import { buildEvidenceCatalogBlock, loadDeliverableContext, renderDeliverableContextBlock } from './evidenceCatalogBuilder';
 
 // --- CONSTANTS ---
 const DEFAULT_STYLE: SlideStyle = {
@@ -315,6 +316,18 @@ export class GenAISession {
     private corpusFileParts: any[] = [];
     private corpusUploadedFileCount: number = 0;
     private corpusHasIntelligence: boolean = false;
+    // 2026-05-05 — Phase 0 (depth-maximization): every deliverable generator
+    // now receives the same rawSources catalog that generateStrategicReport
+    // already consumed. App.tsx calls setRawSources() once per run, after
+    // research collection and curation, before deliverable generation kicks
+    // off. Generators that wire it in inject the IRON LAW preamble + the
+    // tiered article catalog directly into their prompts so they cite the
+    // ~200-article external corpus instead of frozen client-document chunks.
+    private rawSources: any[] = [];
+
+    setRawSources(sources: any[] | undefined): void {
+        this.rawSources = Array.isArray(sources) ? sources : [];
+    }
 
     constructor(goal: string, approach: string, selectedOutputs: OutputOption[] = [], lensPromptSegment: string = '', wikiKnowledge: string = '') {
         if (!process.env.API_KEY) throw new Error("API Key Missing");
@@ -1703,6 +1716,10 @@ REQUIRED JSON FIELDS (populate EVERY field — empty fields are a failure):
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('STRATEGIC_RECS'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Strategic Recommendations', minDistinctSources: 8 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: STRATEGY AUTHOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC RECOMMENDATIONS. You are a senior management consultant performing problem-solution mapping.
 
 METHODOLOGY:
@@ -1733,9 +1750,15 @@ GOOD EXAMPLES:
 - "Deploy predictive donor scoring to replace manual prospect identification -- research shows gift officers spend 40% of time on low-potential prospects [CHUNK_012]"
 - "Consolidate 15 departmental email tools into unified CRM to eliminate the 'invisible constituent' problem identified across 4 sources [CHUNK_003, CHUNK_017]"
 
+ANTI-FABRICATION (composer rule 8 — applies to every recommendation):
+- NEVER invent percentages, dollar amounts, dates, or named entities. If a number is not in the evidence catalog below, do NOT include it. Either find an evidenced number or omit the metric.
+- "Reduce churn by 15%" is only acceptable if a source in the catalog supports the 15% figure. Otherwise write "Reduce churn measurably" and flag EVIDENCE GAP.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
-        
+
         const schema: Schema = {
             type: Type.OBJECT,
             properties: {
@@ -1791,34 +1814,35 @@ Output JSON.`;
             return this.generateRecommendations(validation.failures.join('. '), onStream);
         }
 
-        // STRAT-01: Generate full 15-section strategy document in second pass
-        // The recommendations become the "Coherent Actions" section of Rumelt's Kernel
-        const stratPrompt = `STEP: FULL STRATEGY DOCUMENT. You have already generated ${result.recommendations.length} strategic recommendations. Now wrap them in a complete strategy.
+        // STRAT-01: Generate Rumelt-anchored strategy frame in second pass.
+        // The recommendations become the "Coherent Actions" section of Rumelt's Kernel.
+        // Phase 2 boilerplate (Vision/Mission/Governance Model/Communication Plan/
+        // Change Management) was removed 2026-05-05 — those are strategy-document
+        // filler, not research output. The strategic-report-writer manifest
+        // covers the same ground with evidence-anchored sections instead.
+        const stratPrompt = `STEP: STRATEGY FRAME (research-report style, not corporate-strategy-doc filler). You have generated ${result.recommendations.length} strategic recommendations. Wrap them in a Rumelt-anchored strategy frame that an executive reads BEFORE the recommendation list.
 
-RUMELT'S KERNEL TEST (non-negotiable structure):
-1. DIAGNOSIS: Name THE central challenge. Be specific: "[Subject] faces [problem] because [root cause], costing [quantified impact]."
+RUMELT'S KERNEL (non-negotiable):
+1. DIAGNOSIS: Name THE central challenge. Be specific and evidenced: "[Subject] faces [problem] because [root cause], costing [quantified impact, cited]."
 2. GUIDING POLICY: State the strategic approach. Not a goal — a DECISION: "We will [approach], which means choosing [X] over [Y]."
-3. COHERENT ACTIONS: The ${result.recommendations.length} recommendations you already generated, grouped into MECE strategic pillars.
+3. COHERENT ACTIONS: The ${result.recommendations.length} recommendations you already generated, grouped into 3-5 MECE strategic pillars.
 
-GENERATE ALL 15 SECTIONS:
-1. Executive Summary (SCR format: Situation, Complication, Resolution — max 250 words)
-2. Vision and Mission (the desired future state in 3-5 years)
-3. Current State Assessment (Rumelt's DIAGNOSIS — what is broken and why)
-4. Target State Definition (measurable outcomes, not aspirations)
-5. Strategic Pillars (3-5 MECE themes that organize all recommendations)
-6. Prioritized Initiatives (group the recommendations under pillars)
-7. Governance Model (who decides, who executes, cadence)
-8. Measurement Framework (KPIs per pillar, leading + lagging indicators)
-9. Investment Case (effort estimates: people, budget, time per pillar)
-10. Implementation Roadmap Summary (90-day, 6-month, 12-month milestones)
-11. Risk Assessment (top 5 risks with probability, impact, mitigation)
-12. Change Management Plan (stakeholder mapping, communication, training)
-13. Communication Plan (audience-specific messaging, channels, cadence)
-14. Quick Wins (3-5 actions achievable in 90 days that build momentum)
-15. Long-term Vision (3-5 year aspirational state with milestones)
+MANDATORY SECTIONS (generate EXACTLY these — do NOT add Vision/Mission/Governance Model/Communication Plan/Change Management; those are filler):
+1. Executive Summary (SCR format — Situation, Complication, Resolution — max 250 words, every claim cited).
+2. Diagnosis (Rumelt) — what is broken and WHY, with verbatim evidence from the catalog.
+3. Guiding Policy (Rumelt) — the strategic choice that excludes alternatives.
+4. Strategic Pillars (3-5 MECE pillars; each pillar is a problem space, not a department).
+5. Prioritized Initiatives (group the ${result.recommendations.length} recommendations under pillars; each gets impact + evidence).
+6. Quick Wins (3-5 actions achievable in 90 days, each tied to a recommendation already generated).
+7. Risk Register (top 5 risks with probability, impact, mitigation — each risk evidenced).
+8. Measurement Framework (3-5 leading and lagging KPIs per pillar; each KPI must reference a baseline from the evidence catalog or be flagged "EVIDENCE GAP — needs baseline").
 
 For sections where evidence is insufficient, flag as "EVIDENCE GAP" — NEVER silently omit.
 
+ANTI-FABRICATION (composer rule 8): NEVER invent percentages, dollar amounts, or dates. If the catalog does not contain a number for a KPI baseline, write the section without the number and flag the gap explicitly.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
 
@@ -1929,6 +1953,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('JOURNEY_MAP'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Service Blueprint', minDistinctSources: 8 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}CRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
 
 SWIMLANE CELL CONTENT (B-01): Every intersection of [Persona] x [Stage] MUST have content.
@@ -1991,6 +2019,10 @@ EVIDENCE GROUNDING:
 - citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Higher Ed Dive", "Reddit: r/highereducation", "OpenAlex: Jones 2024")
 - evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage — quote data points, articles, or posts
 
+ANTI-FABRICATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number and flag "EVIDENCE GAP". Made-up "42% drop off" anywhere is grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {
@@ -2165,6 +2197,10 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('PRD'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Product Requirements Document', minDistinctSources: 6 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: PRD COMPILER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}SECTION COMPLETENESS REQUIREMENT (PRD-03): Generate ALL 16 sections per the Cagan/SVPG framework:
 1. Problem statement (data-backed, THE most important section)
 2. User stories ("As a [persona], I want [goal] so that [benefit]")
@@ -2220,6 +2256,10 @@ ANTI-PATTERNS:
 - Missing acceptance criteria
 - Features without citations or evidence basis
 
+ANTI-FABRICATION (composer rule 8): NEVER invent percentages, dollar amounts, baselines, or competitor metrics in success metrics. If the catalog has no baseline for a target KPI, write the metric without the number and flag "EVIDENCE GAP — needs baseline". Made-up "Reduce X by 40%" anywhere is grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
 
@@ -2308,6 +2348,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('ROADMAP'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Roadmap', minDistinctSources: 6 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: ROADMAP BUILDER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: STRATEGIC ROADMAP. You are a strategy consultant creating an evidence-based implementation roadmap.
 
 MANDATORY ROADMAP FIELDS (R-01, R-03):
@@ -2350,6 +2394,10 @@ REQUIREMENTS:
 - Include at least 1 initiative per persona archetype identified
 - Every theme must have at least one initiative in each horizon
 
+ANTI-FABRICATION (composer rule 8): NEVER invent baseline metrics or success-metric percentages. If the evidence catalog has no baseline for an initiative's target metric, write the metric directionally (e.g., "Reduce time-to-onboard, baseline TBD") and flag "EVIDENCE GAP — needs baseline". Made-up "15% reduction in churn (baseline 22%)" anywhere is grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {
@@ -2400,6 +2448,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_ARCH'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Technology Architecture', minDistinctSources: 6 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         // TWO-PHASE: System map (nodes+flows) first, then architecture sections.
         // Single-call with 20 sections + nodes + flows always truncates.
 
@@ -2421,6 +2473,10 @@ FLOWS (minimum 5): Connections between nodes.
 - action: What data/process moves between them
 - status: "active" | "planned" | "broken"
 
+ANTI-FABRICATION (composer rule 8): NEVER invent system names, vendors, or integration counts. If the corpus does not name a vendor for a system category, label the node "Unspecified [Category]" — do NOT make up "Salesforce" or "Workday" if the catalog does not mention them.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const mapSchema: Schema = {
@@ -3149,6 +3205,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('GAP_ANALYSIS'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Gap Analysis', minDistinctSources: 8 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: GAP ANALYSIS EVALUATOR ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: GAP ANALYSIS. You are a senior management consultant performing a rigorous gap analysis.
 
 CAPABILITY EXTRACTION METHOD — follow these steps to DERIVE gaps from the research:
@@ -3184,6 +3244,10 @@ ANTI-PATTERNS:
 - Gaps without [CHUNK_XXX] evidence citations
 - Generic capability names ("improve technology") — be specific
 
+ANTI-FABRICATION (composer rule 8): NEVER invent maturity scores. Each currentMaturity score MUST be backed by specific catalog evidence (e.g., "Reddit post describes manual data entry across 5 systems → maturity 1"). If you cannot find catalog evidence for a maturity assessment, do NOT include the gap. Made-up scores anywhere are grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {
@@ -3257,6 +3321,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_AUDIT'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Technology Audit', minDistinctSources: 6 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         // TWO-PHASE: Systems inventory first, then analysis.
         // Single-call approach truncates to 1 system due to output token limits.
 
@@ -3288,6 +3356,11 @@ For each system found:
 - evidenceBasis: 1 sentence with specific evidence of this system's role or issues (e.g., "SOW mentions Raiser's Edge NXT as primary CRM but staff report 40% of data entry is manual")
 
 Generate at LEAST 8 systems. If the corpus mentions an organization, that organization has a CRM, a website, email, databases, and likely an LMS — include them even if the specific vendor isn't named (label as "Unspecified CRM" etc.).
+
+ANTI-FABRICATION (composer rule 8): NEVER invent vendor names. If the catalog mentions "the CRM" but does not name a specific vendor, label it "Unspecified CRM" — do NOT make up "Salesforce" or "HubSpot". Made-up vendor names anywhere are grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
 
         // Use standalone call to avoid chat context pollution
@@ -3365,6 +3438,10 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('COMPETITIVE_ANALYSIS'); } catch (e) { /* skill unavailable */ }
 
+        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Competitive Analysis', minDistinctSources: 8 });
+        const ctx = await loadDeliverableContext(this.goal);
+        const ctxBlock = renderDeliverableContextBlock(ctx);
+
         const prompt = `${skillInstructions ? `=== AGENT SKILL: COMPETITIVE ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}STEP: COMPETITIVE & LANDSCAPE ANALYSIS. You are a senior industry analyst.
 
 TWO ANALYSIS MODES — use BOTH:
@@ -3412,6 +3489,10 @@ ANTI-PATTERNS (will be rejected):
 - Maturity scores without justification
 - Missing gap actions
 
+ANTI-FABRICATION (composer rule 8): NEVER invent peer names, market-share percentages, or maturity scores. Each named peer MUST appear by exact name in the catalog above. If you can only identify archetypes, set isArchetype=true — do NOT make up specific company names. Maturity scores require a 1-sentence justification grounded in catalog evidence. Made-up "Salesforce.org scores 4.2/5 in AI maturity" anywhere is grounds for rejection.
+
+${ctxBlock}
+${evidenceBlock}
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
         const schema: Schema = {

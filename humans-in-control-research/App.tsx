@@ -1659,7 +1659,30 @@ const App = () => {
 
     const advanceToNextStage = async () => {
         if (!sessionRef.current) return;
-        
+
+        // Phase 0 (depth-maximization, 2026-05-05): every deliverable generator
+        // now reads from the same curated raw-source catalog that
+        // generateStrategicReport already consumed. Build it once per stage
+        // tick and push it into the session so themes/personas/journey/gap/
+        // competitive/etc. inject it into their prompts via the IRON LAW
+        // preamble built by buildEvidenceCatalogBlock().
+        try {
+            if (liveSourceResults && liveSourceResults.length > 0) {
+                const curated = liveSourceResults.map(src => {
+                    if (!excludedSources.size && !prioritySources.size) return src;
+                    const filteredItems = (src.items || []).map((item: any, j: number) => ({
+                        ...item,
+                        _origIdx: j,
+                        priority: prioritySources.has(`${src.sourceId}::${j}`)
+                    })).filter((item: any) =>
+                        !excludedSources.has(`${src.sourceId}::${item._origIdx}`)
+                    );
+                    return { ...src, items: filteredItems };
+                }).filter(src => src.items && src.items.length > 0);
+                sessionRef.current.setRawSources(curated);
+            }
+        } catch (e) { /* non-blocking */ }
+
         // 1. PERSONAS
         if (selectedOutputs.includes('PERSONAS') && !personasResult) {
             setStatusMessage("Synthesizing Personas...");
@@ -3363,6 +3386,25 @@ ${synthesisParts.join('\n')}
                         try {
                             setStatusMessage("Data collected. Synthesizing knowledge graph in background — chat is available now.");
                             await session.ingestContext(collectedDataFiles, noop);
+                            // Phase 0 (depth-maximization): push curated sources into the
+                            // session so background-chain deliverables cite the same external
+                            // catalog as the foreground chain.
+                            try {
+                                if (liveSourceResults && liveSourceResults.length > 0) {
+                                    const curatedKg = liveSourceResults.map(src => {
+                                        if (!excludedSources.size && !prioritySources.size) return src;
+                                        const filteredItems = (src.items || []).map((item: any, j: number) => ({
+                                            ...item,
+                                            _origIdx: j,
+                                            priority: prioritySources.has(`${src.sourceId}::${j}`)
+                                        })).filter((item: any) =>
+                                            !excludedSources.has(`${src.sourceId}::${item._origIdx}`)
+                                        );
+                                        return { ...src, items: filteredItems };
+                                    }).filter(src => src.items && src.items.length > 0);
+                                    session.setRawSources(curatedKg);
+                                }
+                            } catch (e) { /* non-blocking */ }
                         } catch (err) {
                             console.warn('[KG Auto-Synthesis] Ingestion failed, aborting chain:', err);
                             classicKgSynthesisRef.current.status = 'failed';
