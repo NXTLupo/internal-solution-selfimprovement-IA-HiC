@@ -2132,7 +2132,10 @@ async function callDeepSeek(
             let result = '';
             if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
                 try {
-                    const args = JSON.parse(tc.function.arguments || '{}');
+                    // 2026-05-05 — DeepSeek V4 Flash sometimes emits whitespace-only
+                    // or empty `arguments` strings for arg-less tools; trim first.
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
                     result = await executeFetchWikiArticlesTool(args);
                 } catch (e: any) {
                     result = `(tool error: ${e?.message || 'unknown'})`;
@@ -2226,7 +2229,10 @@ async function callOpenAI(
             let result = '';
             if (tc.function.name === FETCH_WIKI_ARTICLES_TOOL.name) {
                 try {
-                    const args = JSON.parse(tc.function.arguments || '{}');
+                    // 2026-05-05 — DeepSeek V4 Flash sometimes emits whitespace-only
+                    // or empty `arguments` strings for arg-less tools; trim first.
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
                     result = await executeFetchWikiArticlesTool(args);
                 } catch (e: any) {
                     result = `(tool error: ${e?.message || 'unknown'})`;

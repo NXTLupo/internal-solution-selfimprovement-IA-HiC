@@ -767,24 +767,37 @@ async function executeToolForOpenAI(
   onTool: LoopArgs['onTool'],
   cache: ToolCache,
 ): Promise<{ serialized: string; isError: boolean }> {
-  // Cache key: tool name + canonicalized args. JSON.stringify isn't
-  // canonical (key order varies) but for our small arg objects it's
-  // deterministic enough across the same model call.
-  const cacheKey = `${call.function.name}::${call.function.arguments || ''}`;
+  // 2026-05-05 — Tolerate empty / whitespace `arguments` strings.
+  // DeepSeek V4 Flash emits arguments as "" (instead of "{}") for tools
+  // with no required parameters (e.g. get_themes, get_personas, the
+  // arg-less retrieval tools). OpenAI's strict mode emits "{}" for the
+  // same case. Treat both as the empty-object {}.
+  const rawArgs = (call.function.arguments || '').trim();
+  const argsForKey = rawArgs || '{}';
+  const cacheKey = `${call.function.name}::${argsForKey}`;
   const cached = cache.get(cacheKey);
   if (cached) {
-    onTool(call.function.name, call.function.arguments, '(dedup hit — cached result)');
-    return cached;
+    // Re-await the cached promise so we can inspect isError. Don't return
+    // an error result from the cache — let the model see a fresh attempt
+    // (errors should not be sticky; the prior failure may have been
+    // transient or a different tool path can succeed).
+    const cachedResult = await cached;
+    if (!cachedResult.isError) {
+      onTool(call.function.name, rawArgs, '(dedup hit — cached result)');
+      return cachedResult;
+    }
+    // Error path — fall through to re-execute. Cache key is overwritten
+    // below so subsequent identical calls also re-execute until success.
   }
   const promise = (async () => {
     try {
-      const args = JSON.parse(call.function.arguments);
+      const args = rawArgs ? JSON.parse(rawArgs) : {};
       const result = await dispatchTool(executor, call.function.name, args);
       onTool(call.function.name, args, summarizeResult(call.function.name, result));
       return { serialized: JSON.stringify(result), isError: false };
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : String(e);
-      onTool(call.function.name, call.function.arguments, `error: ${msg}`);
+      onTool(call.function.name, rawArgs, `error: ${msg}`);
       return { serialized: JSON.stringify({ error: msg }), isError: true };
     }
   })();
