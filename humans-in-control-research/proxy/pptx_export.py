@@ -720,20 +720,11 @@ _DISPATCH = {
 }
 
 
-def render_specs_to_pptx(specs: list[dict], out_path: str) -> dict:
-    """Convert a sorted-by-z RenderSpec list to a native PPTX with embedded fonts."""
-    # Sort by z (document order during walk; later = higher z)
+def _render_specs_into_slide(slide, specs: list[dict], counts: dict[str, int], skipped: list[str], culled: dict[str, int]) -> None:
+    """Internal: render a sorted-by-z RenderSpec list into an existing slide.
+    Mutates `counts`, `skipped`, `culled`. Used by both the single-slide and
+    multi-slide entry points."""
     sorted_specs = sorted(specs, key=lambda s: s.get("z", 0))
-
-    prs = Presentation()
-    prs.slide_width = Inches(SLIDE_W_IN)
-    prs.slide_height = Inches(SLIDE_H_IN)
-    blank_layout = prs.slide_layouts[6]
-    slide = prs.slides.add_slide(blank_layout)
-
-    counts: dict[str, int] = {}
-    skipped: list[str] = []
-    culled: dict[str, int] = {}
 
     def _bump_culled(reason: str) -> None:
         culled[reason] = culled.get(reason, 0) + 1
@@ -775,6 +766,25 @@ def render_specs_to_pptx(specs: list[dict], out_path: str) -> dict:
             logger.exception("failed to render spec type=%s: %s", kind, e)
             skipped.append(f"{kind}:{type(e).__name__}")
 
+
+def render_specs_to_pptx(specs: list[dict], out_path: str) -> dict:
+    """Convert a sorted-by-z RenderSpec list to a native PPTX with embedded fonts.
+
+    Single-slide entry point — used by Design Desk freeform artifact export.
+    For multi-slide presentation export, see render_multi_slide_pptx().
+    """
+    prs = Presentation()
+    prs.slide_width = Inches(SLIDE_W_IN)
+    prs.slide_height = Inches(SLIDE_H_IN)
+    blank_layout = prs.slide_layouts[6]
+    slide = prs.slides.add_slide(blank_layout)
+
+    counts: dict[str, int] = {}
+    skipped: list[str] = []
+    culled: dict[str, int] = {}
+
+    _render_specs_into_slide(slide, specs, counts, skipped, culled)
+
     prs.save(out_path)
     embed_brand_fonts(out_path)
 
@@ -783,6 +793,57 @@ def render_specs_to_pptx(specs: list[dict], out_path: str) -> dict:
         "rendered": counts,
         "skipped": skipped,
         "culled": culled,
-        "total_specs": len(sorted_specs),
+        "total_specs": len(specs),
+        "slide_count": 1,
+        "file_size": os.path.getsize(out_path),
+    }
+
+
+def render_multi_slide_pptx(slides: list[dict], out_path: str) -> dict:
+    """Convert a multi-slide payload (one section per slide) to a native PPTX.
+
+    2026-05-06 — Used by the interactive presentation exporter. Each entry in
+    `slides` is `{title: str, specs: RenderSpec[]}`. Produces one editable
+    PowerPoint slide per entry, with all the same culling and brand-font
+    embedding as the single-slide path.
+    """
+    prs = Presentation()
+    prs.slide_width = Inches(SLIDE_W_IN)
+    prs.slide_height = Inches(SLIDE_H_IN)
+    blank_layout = prs.slide_layouts[6]
+
+    counts: dict[str, int] = {}
+    skipped: list[str] = []
+    culled: dict[str, int] = {}
+    total_specs = 0
+
+    for slide_payload in slides:
+        slide_specs = slide_payload.get("specs") or []
+        title = str(slide_payload.get("title") or "Untitled Slide")
+        total_specs += len(slide_specs)
+
+        slide = prs.slides.add_slide(blank_layout)
+        _render_specs_into_slide(slide, slide_specs, counts, skipped, culled)
+
+        # Set the slide's notes/title metadata so PowerPoint's outline pane and
+        # accessibility readers have something to anchor on. We don't add a
+        # visible title shape because the section's own h1/h2 is already
+        # captured as a TextSpec by the walker.
+        try:
+            notes = slide.notes_slide.notes_text_frame
+            notes.text = title
+        except Exception:
+            pass
+
+    prs.save(out_path)
+    embed_brand_fonts(out_path)
+
+    return {
+        "out_path": out_path,
+        "rendered": counts,
+        "skipped": skipped,
+        "culled": culled,
+        "total_specs": total_specs,
+        "slide_count": len(slides),
         "file_size": os.path.getsize(out_path),
     }

@@ -5160,27 +5160,48 @@ async def wiki_embed_rebuild(scopes: str = "articles,transcripts,uploads,sources
 
 @app.post("/api/export-pptx")
 async def export_pptx(payload: dict):
-    """Convert a list of RenderSpec objects into a native editable .pptx.
+    """Convert RenderSpec objects into a native editable .pptx.
 
-    Request body: {
-      "specs": [ ...RenderSpec[] from design-desk/services/domToPptx.ts walkDocumentToSpecs() ... ],
-      "filename": "freeform-org-NU.pptx"  (optional)
-    }
+    2026-05-06 — Now supports two payload shapes:
 
-    Response: binary .pptx as application/vnd.openxmlformats-officedocument.presentationml.presentation
+    LEGACY single-slide (Design Desk freeform artifacts):
+        {
+          "specs": [ ...RenderSpec[]... ],
+          "filename": "freeform-org-NU.pptx"  (optional)
+        }
+        Produces a 1-slide deck.
+
+    MULTI-SLIDE (interactive presentation export):
+        {
+          "slides": [
+            { "title": "Hero", "specs": [ ...RenderSpec[]... ] },
+            { "title": "Themes", "specs": [ ...RenderSpec[]... ] },
+            ...
+          ],
+          "filename": "presentation-2026-05-06.pptx"  (optional)
+        }
+        Produces an N-slide deck, one per `slides[i]`.
+
+    Response: binary .pptx as
+    application/vnd.openxmlformats-officedocument.presentationml.presentation
     """
     import tempfile
     from fastapi import HTTPException
     from fastapi.responses import FileResponse
-    from pptx_export import render_specs_to_pptx
+    from pptx_export import render_specs_to_pptx, render_multi_slide_pptx
 
-    specs = payload.get("specs") or []
-    if not isinstance(specs, list):
-        raise HTTPException(status_code=400, detail="payload.specs must be a list")
-    if len(specs) == 0:
-        raise HTTPException(status_code=400, detail="payload.specs is empty — nothing to render")
+    multi = payload.get("slides")
+    legacy = payload.get("specs")
+    is_multi = isinstance(multi, list) and len(multi) > 0
+    is_legacy = isinstance(legacy, list) and len(legacy) > 0
 
-    filename = payload.get("filename") or "freeform-export.pptx"
+    if not is_multi and not is_legacy:
+        raise HTTPException(
+            status_code=400,
+            detail="payload must include either {slides:[{title,specs}...]} or {specs:[...]}",
+        )
+
+    filename = payload.get("filename") or ("presentation-export.pptx" if is_multi else "freeform-export.pptx")
     if not filename.endswith(".pptx"):
         filename = filename + ".pptx"
 
@@ -5188,21 +5209,44 @@ async def export_pptx(payload: dict):
     out_path = os.path.join(out_dir, filename)
 
     try:
-        result = render_specs_to_pptx(specs, out_path)
+        if is_multi:
+            # Validate each slide entry
+            normalized_slides = []
+            for i, s in enumerate(multi):
+                if not isinstance(s, dict):
+                    raise HTTPException(status_code=400, detail=f"slides[{i}] must be an object with title + specs")
+                slide_specs = s.get("specs") or []
+                if not isinstance(slide_specs, list):
+                    raise HTTPException(status_code=400, detail=f"slides[{i}].specs must be a list")
+                normalized_slides.append({
+                    "title": str(s.get("title") or f"Slide {i + 1}"),
+                    "specs": slide_specs,
+                })
+            result = render_multi_slide_pptx(normalized_slides, out_path)
+        else:
+            result = render_specs_to_pptx(legacy, out_path)
+    except HTTPException:
+        raise
     except Exception as e:
         logger.exception("PPTX render failed")
         raise HTTPException(status_code=500, detail=f"PPTX render failed: {type(e).__name__}: {e}")
 
     logger.info(
-        "exported pptx: %s | rendered=%s | skipped=%s | total=%d | size=%d",
-        out_path, result["rendered"], result["skipped"], result["total_specs"], result["file_size"],
+        "exported pptx: %s | mode=%s | rendered=%s | skipped=%s | total_specs=%d | slides=%d | size=%d",
+        out_path,
+        "multi" if is_multi else "single",
+        result.get("rendered"),
+        result.get("skipped"),
+        result.get("total_specs", 0),
+        result.get("slide_count", 1),
+        result.get("file_size", 0),
     )
 
     return FileResponse(
         out_path,
         media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
         filename=filename,
-        headers={"X-Render-Counts": json.dumps(result["rendered"])},
+        headers={"X-Render-Counts": json.dumps(result.get("rendered", {}))},
     )
 
 

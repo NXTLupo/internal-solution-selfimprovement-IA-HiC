@@ -297,14 +297,29 @@ function isLogicalTextLeaf(el: Element): boolean {
 interface BoundingRectLike { left: number; top: number; width: number; height: number; }
 
 /**
+ * 2026-05-06 — Per-walk origin offset for per-section / per-slide walks.
+ * Set by walkDocumentToSpecs at start of walk, cleared in `finally`. Single-
+ * threaded JS makes module-scope state safe between sequential walks.
+ *
+ * When the renderer exports the interactive presentation, it walks each
+ * section element separately and treats it as its own 1920×1080 slide.
+ * The walker doesn't know about the section's offset within the page; the
+ * caller supplies `originX`/`originY` (typically the section's
+ * getBoundingClientRect().left/top) and every captured rect gets translated
+ * so the section's top-left becomes slide (0, 0).
+ */
+let _walkOriginX = 0;
+let _walkOriginY = 0;
+
+/**
  * Convert an iframe pixel rect to slide-inch coordinates. The iframe is
  * 1920×1080 and the slide is 13.333×7.5 — both 16:9, so a single uniform
  * scale (`pxToSlideIn`) collapses the math.
  */
 function rectToSlideXYWHUniform(rect: BoundingRectLike) {
     return {
-        x: pxToSlideIn(rect.left),
-        y: pxToSlideIn(rect.top),
+        x: pxToSlideIn(rect.left - _walkOriginX),
+        y: pxToSlideIn(rect.top - _walkOriginY),
         w: pxToSlideIn(rect.width),
         h: pxToSlideIn(rect.height),
     };
@@ -1030,6 +1045,26 @@ export interface WalkOptions {
     skipSelectors?: string[];
     /** Async rasterizer used for filter-fallback elements (blur, drop-shadow, backdrop-filter, mix-blend-mode). */
     rasterizeElement?: (el: HTMLElement) => Promise<string | null>;
+    /**
+     * 2026-05-06 — Walk this element's subtree instead of doc.body. Used
+     * by the interactive presentation exporter to walk one section at a
+     * time and emit each as its own slide.
+     */
+    entrypoint?: Element;
+    /**
+     * 2026-05-06 — Pixel offset to subtract from every captured rect.left
+     * before slide-coord conversion. Use the section's
+     * getBoundingClientRect().left so the section's visual top-left lands
+     * at slide (0, 0).
+     */
+    originX?: number;
+    /**
+     * 2026-05-06 — Pixel offset to subtract from every captured rect.top
+     * before slide-coord conversion. Use the section's
+     * getBoundingClientRect().top so the section's visual top-left lands
+     * at slide (0, 0).
+     */
+    originY?: number;
 }
 
 /**
@@ -1072,6 +1107,12 @@ export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkO
     const skipSelectors = opts.skipSelectors ?? [];
     const rasterTasks: Array<Promise<void>> = [];
     let z = 0;
+
+    // 2026-05-06 — Per-walk origin offset. rectToSlideXYWHUniform reads
+    // these module-scoped values to translate every captured rect so the
+    // entrypoint's top-left lands at slide (0, 0). Reset in finally.
+    _walkOriginX = opts.originX ?? 0;
+    _walkOriginY = opts.originY ?? 0;
 
     function shouldSkip(el: Element): boolean {
         for (const sel of skipSelectors) {
@@ -1208,7 +1249,14 @@ export async function walkDocumentToSpecs(iframe: HTMLIFrameElement, opts: WalkO
         }
     }
 
-    walk(doc.body);
-    if (rasterTasks.length > 0) await Promise.allSettled(rasterTasks);
-    return out;
+    try {
+        walk(opts.entrypoint || doc.body);
+        if (rasterTasks.length > 0) await Promise.allSettled(rasterTasks);
+        return out;
+    } finally {
+        // Always reset origin so a later body-walk caller doesn't inherit
+        // the per-section offsets from an earlier per-section walk.
+        _walkOriginX = 0;
+        _walkOriginY = 0;
+    }
 }

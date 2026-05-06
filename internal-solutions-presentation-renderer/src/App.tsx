@@ -5,15 +5,26 @@
 // scroll-driven scaling, side nav, parallax background, and "Open in Analyst
 // Chat" return link at the bottom.
 
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { fetchPayload } from './payloadFetcher';
 import type { PresentationPayload, PresentationSection } from './types';
 import { ParallaxBackground } from './components/ParallaxBackground';
 import { SideNav } from './components/SideNav';
 import { SECTION_REGISTRY } from './sections/registry';
+import { exportPresentationToPptx } from './services/presentationPptxExporter';
 
 const HIC_SPA_URL = (process.env as { HIC_SPA_URL?: string }).HIC_SPA_URL || 'http://localhost:5011';
+
+/**
+ * 2026-05-06 — postMessage origin allowlist for the Phase 3 chat-side
+ * `#export-pptx` directive trigger. The chat at the configured HIC_SPA_URL
+ * can post `{type: 'nxt:presentation:export-pptx'}` to this window and the
+ * renderer will run its export pipeline. Same-window manual button works
+ * regardless.
+ */
+const EXPORT_MSG_TYPE = 'nxt:presentation:export-pptx';
+const EXPORT_MSG_READY = 'nxt:presentation:ready';
 
 export const App: React.FC = () => {
   const [payload, setPayload] = useState<PresentationPayload | null>(null);
@@ -21,11 +32,43 @@ export const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
+  const [exportStatus, setExportStatus] = useState<{ busy: boolean; label: string; error?: string }>({ busy: false, label: '' });
 
   const slug = useMemo(() => {
     const m = window.location.pathname.match(/^\/p\/([a-z0-9][a-z0-9-]{2,99})\b/i);
     return m ? m[1] : null;
   }, []);
+
+  /**
+   * Trigger the multi-slide PPTX export. Walks each section, posts to the
+   * proxy, downloads the .pptx. Same handler is invoked by the manual
+   * Export button (Phase 1) and by the chat-side postMessage trigger
+   * (Phase 3).
+   */
+  const handleExportPptx = useCallback(async () => {
+    if (!payload) return;
+    setExportStatus({ busy: true, label: 'Starting export…' });
+    try {
+      const safeName = (payload.meta.title || 'presentation')
+        .replace(/[^a-z0-9]+/gi, '-')
+        .toLowerCase()
+        .substring(0, 60);
+      const date = new Date().toISOString().split('T')[0];
+      await exportPresentationToPptx({
+        filename: `${date}_${safeName}.pptx`,
+        onProgress: (frac, label) => {
+          setExportStatus({ busy: true, label: `${Math.round(frac * 100)}% · ${label}` });
+        },
+      });
+      setExportStatus({ busy: false, label: 'PPTX downloaded.' });
+      setTimeout(() => setExportStatus({ busy: false, label: '' }), 3000);
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : String(e);
+      console.error('[ExportPPTX]', e);
+      setExportStatus({ busy: false, label: '', error: msg });
+      setTimeout(() => setExportStatus({ busy: false, label: '' }), 6000);
+    }
+  }, [payload]);
 
   useEffect(() => {
     if (!slug) {
@@ -46,6 +89,33 @@ export const App: React.FC = () => {
         setLoading(false);
       });
   }, [slug]);
+
+  /**
+   * 2026-05-06 — Phase 3 postMessage listener. The chat (HiC SPA) can
+   * request a PPTX export by posting `{type: EXPORT_MSG_TYPE}` to the
+   * presentation window once the user includes #export-pptx in their
+   * #presentation directive. Renderer responds with `{type: 'ready'}`
+   * when payload has finished loading so the chat knows when to trigger.
+   */
+  useEffect(() => {
+    if (!payload) return;
+    // Tell the parent / opener that the renderer is ready to accept commands.
+    try { window.opener?.postMessage({ type: EXPORT_MSG_READY, slug }, HIC_SPA_URL); } catch { /* same-origin or no opener */ }
+    try { window.parent?.postMessage({ type: EXPORT_MSG_READY, slug }, HIC_SPA_URL); } catch { /* no parent */ }
+
+    const onMessage = (ev: MessageEvent) => {
+      if (!ev.data || typeof ev.data !== 'object') return;
+      // Accept messages from the configured HIC SPA origin only. Same-window
+      // dispatch (window.postMessage to self) has origin === window.origin.
+      const allowedOrigins = new Set([HIC_SPA_URL, window.location.origin]);
+      if (!allowedOrigins.has(ev.origin)) return;
+      if (ev.data.type === EXPORT_MSG_TYPE) {
+        handleExportPptx();
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [payload, slug, handleExportPptx]);
 
   // Scroll listener for parallax + active section detection
   useEffect(() => {
@@ -103,31 +173,66 @@ export const App: React.FC = () => {
         />
       ))}
 
-      {/* Return-to-chat footer */}
+      {/* Return-to-chat footer + PPTX export */}
       <footer style={{
         padding: '64px 24px',
         textAlign: 'center',
         borderTop: '1px solid var(--border-secondary)',
         backgroundColor: 'var(--bg-primary)',
       }}>
-        <a
-          href={`${HIC_SPA_URL}/?engagement=${encodeURIComponent(payload.meta.sourceEngagement || '')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            padding: '12px 24px',
-            border: '1px solid var(--accent-primary)',
-            color: 'var(--accent-primary)',
-            textDecoration: 'none',
-            fontSize: '12px',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            fontWeight: 700,
-          }}
-        >
-          Open in Analyst Chat ↗
-        </a>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a
+            href={`${HIC_SPA_URL}/?engagement=${encodeURIComponent(payload.meta.sourceEngagement || '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              border: '1px solid var(--accent-primary)',
+              color: 'var(--accent-primary)',
+              textDecoration: 'none',
+              fontSize: '12px',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+            }}
+          >
+            Open in Analyst Chat ↗
+          </a>
+          <button
+            onClick={handleExportPptx}
+            disabled={exportStatus.busy}
+            title="Export this presentation as an editable PowerPoint deck (one slide per section, native shapes + text)"
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              border: '1px solid var(--accent-primary)',
+              backgroundColor: exportStatus.busy ? 'var(--bg-secondary)' : 'var(--accent-primary)',
+              color: exportStatus.busy ? 'var(--accent-primary)' : 'var(--bg-primary)',
+              fontSize: '12px',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+              cursor: exportStatus.busy ? 'wait' : 'pointer',
+              fontFamily: 'inherit',
+            }}
+          >
+            {exportStatus.busy ? '… Exporting' : 'Export PPTX ↓'}
+          </button>
+        </div>
+        {(exportStatus.label || exportStatus.error) && (
+          <div style={{
+            marginTop: 16,
+            fontSize: 11,
+            color: exportStatus.error ? '#CC6644' : 'var(--text-tertiary)',
+            fontFamily: 'JetBrains Mono, monospace',
+            maxWidth: 760,
+            margin: '16px auto 0',
+            wordBreak: 'break-word' as const,
+          }}>
+            {exportStatus.error ? `Export failed: ${exportStatus.error}` : exportStatus.label}
+          </div>
+        )}
         <div style={{ marginTop: '24px', fontSize: '11px', color: 'var(--text-tertiary)', fontFamily: 'JetBrains Mono, monospace' }}>
           Composed by {payload.meta.composerModel} · {payload.meta.composerToolCalls} tool calls · {payload.meta.citationCount} citations · {payload.meta.sourceCount.total} sources
         </div>
