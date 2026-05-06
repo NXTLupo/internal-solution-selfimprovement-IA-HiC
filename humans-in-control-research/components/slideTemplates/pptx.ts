@@ -1298,13 +1298,87 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
     const tw = geom.contentW - 0.8;
     let y = 0.35;
     tag(s, tx, y, tw, 'PRODUCT REQUIREMENTS'); y += 0.26;
-    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+    const allFeatures = Array.isArray(data?.features) ? data.features : [];
+    const prio = (p: string) => p === 'must' ? T.RED : p === 'should' ? T.CHARTREUSE_BRIGHT : p === 'could' ? T.CYAN : T.MUTED;
 
-    const features = data.features.slice(0, 3);
+    // 2026-05-06 — DEEP-mode detection (matches the web renderer): single
+    // feature with rich narrative fields → full-slide layout that renders
+    // technical details, problem solved, stakeholders, and verbatim
+    // evidence quotes. Multi-feature payloads keep the original 3-card
+    // compact layout below.
+    const single = allFeatures.length === 1 ? allFeatures[0] : null;
+    const isDeep = !!(single && (single.technicalDetails || single.problemSolved || single.stakeholders || (Array.isArray(single.evidence) && single.evidence.length > 0)));
+
+    if (isDeep && single) {
+        const f = single;
+        title(s, tx, y, tw, slideTitle, 20); y += 0.7;
+
+        // Two-column layout: left = user story + criteria; right = problem/tech/stakeholders/evidence
+        const colGap = 0.3;
+        const colW = (tw - colGap) / 2;
+        const colY = y;
+        const colH = 7.05 - colY - 0.45;
+        const lx = tx;
+        const rx = tx + colW + colGap;
+
+        // LEFT COLUMN
+        // Priority badge + name row
+        s.addShape('rect' as any, { x: lx, y: colY, w: 0.8, h: 0.24, fill: { color: prio(f.priority) } });
+        s.addText(f.priority.toUpperCase(), { x: lx, y: colY, w: 0.8, h: 0.24, fontSize: 8, color: f.priority === 'should' ? T.INK : T.WHITE, fontFace: FONT, bold: true, charSpacing: 2, align: 'center', valign: 'middle' });
+        s.addText(f.name, { x: lx + 0.95, y: colY - 0.02, w: colW - 0.95, h: 0.28, fontSize: 13, color: T.INK, fontFace: FONT, bold: true, charSpacing: -1, valign: 'middle' });
+        // User story panel
+        let ly = colY + 0.4;
+        s.addShape('rect' as any, { x: lx, y: ly, w: colW, h: 0.85, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: lx, y: ly, w: 0.06, h: 0.85, fill: { color: prio(f.priority) } });
+        s.addText(f.userStory, { x: lx + 0.18, y: ly + 0.06, w: colW - 0.24, h: 0.75, fontSize: 9, color: T.BODY, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.45 });
+        ly += 1.0;
+        // Acceptance criteria
+        s.addText('ACCEPTANCE CRITERIA', { x: lx, y: ly, w: colW, h: 0.2, fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2 });
+        ly += 0.24;
+        (Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 6).forEach(c => {
+            s.addText([
+                { text: '✓  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
+                { text: c, options: { color: T.BODY, fontSize: 8.5, fontFace: FONT } },
+            ], { x: lx, y: ly, w: colW, h: 0.45, valign: 'top', lineSpacingMultiple: 1.35 });
+            ly += 0.42;
+        });
+
+        // RIGHT COLUMN
+        let ry = colY;
+        const drawSection = (label: string, accent: string, body: string, h: number) => {
+            s.addText(label, { x: rx, y: ry, w: colW, h: 0.18, fontSize: 7, color: accent, fontFace: FONT, bold: true, charSpacing: 2 });
+            ry += 0.2;
+            s.addText(body, { x: rx, y: ry, w: colW, h, fontSize: 8.5, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.45 });
+            ry += h + 0.1;
+        };
+        if (f.problemSolved) drawSection('PROBLEM SOLVED', T.RED, f.problemSolved, 1.05);
+        if (f.technicalDetails) drawSection('TECHNICAL DETAILS', T.CYAN, f.technicalDetails, 1.05);
+        if (f.stakeholders) drawSection('STAKEHOLDERS', T.SECONDARY, f.stakeholders, 0.8);
+        if (Array.isArray(f.evidence) && f.evidence.length > 0) {
+            s.addShape('line' as any, { x: rx, y: ry, w: colW, h: 0, line: { color: T.RULE, width: 0.5 } });
+            ry += 0.08;
+            s.addText('EVIDENCE', { x: rx, y: ry, w: colW, h: 0.18, fontSize: 7, color: T.CHARTREUSE_BRIGHT, fontFace: FONT, bold: true, charSpacing: 2 });
+            ry += 0.22;
+            f.evidence.slice(0, 3).forEach(e => {
+                if (ry > colY + colH - 0.5) return;
+                s.addShape('rect' as any, { x: rx, y: ry, w: 0.04, h: 0.55, fill: { color: T.CHARTREUSE_BRIGHT } });
+                s.addText(`"${e.text}"`, { x: rx + 0.12, y: ry, w: colW - 0.12, h: 0.4, fontSize: 8, color: T.INK, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.35 });
+                const attr = e.attribution ? `${e.attribution} · ${e.source}` : e.source;
+                s.addText(attr, { x: rx + 0.12, y: ry + 0.4, w: colW - 0.12, h: 0.18, fontSize: 7, color: T.MUTED, fontFace: 'JetBrains Mono', valign: 'top' });
+                ry += 0.62;
+            });
+        }
+        sourceFooter(s, tx, tw, sources);
+        return;
+    }
+
+    // COMPACT mode (default) — multi-feature side-by-side
+    title(s, tx, y, tw, slideTitle, 24); y += 0.85;
+    const features = allFeatures.slice(0, 3);
+    if (features.length === 0) { sourceFooter(s, tx, tw, sources); return; }
     const cardW = (tw - 0.2 * (features.length - 1)) / features.length;
     const cardY = y;
     const cardH = 7.05 - cardY - 0.45;
-    const prio = (p: string) => p === 'must' ? T.RED : p === 'should' ? T.CHARTREUSE_BRIGHT : p === 'could' ? T.CYAN : T.MUTED;
 
     features.forEach((f, i) => {
         const cx = tx + i * (cardW + 0.2);
@@ -1323,7 +1397,7 @@ function exportPrdFeature(s: any, slideTitle: string, data: PrdFeatureData, sour
         s.addText('ACCEPTANCE CRITERIA', { x: cx + 0.2, y: cardY + 2.1, w: cardW - 0.4, h: 0.2, fontSize: 7, color: T.SECONDARY, fontFace: FONT, bold: true, charSpacing: 2 });
         // Criteria list
         let ay = cardY + 2.32;
-        f.acceptanceCriteria.slice(0, 5).forEach(c => {
+        (Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 5).forEach(c => {
             s.addText([
                 { text: '✓  ', options: { bold: true, color: T.CHARTREUSE_BRIGHT, fontSize: 10, fontFace: FONT } },
                 { text: c, options: { color: T.BODY, fontSize: 9, fontFace: FONT } },

@@ -1279,8 +1279,84 @@ export const ArchitectureMapSlide: React.FC<{ title: string; data: ArchitectureM
 // === 14. PRD FEATURE CARD (prd-compiler / prd_feature) ===
 export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; sources?: string[]; brand?: Brand }> = ({ title, data, sources = [], brand }) => {
     const T = resolveT(brand);
-    const features = data.features.slice(0, 3);
+    const allFeatures = Array.isArray(data?.features) ? data.features : [];
     const prioColor = (p: string) => p === 'must' ? T.RED : p === 'should' ? T.CHARTREUSE_BRIGHT : p === 'could' ? T.CYAN : T.MUTED;
+
+    // 2026-05-06 — DEEP-mode detection: when the composer emits a single
+    // feature with rich narrative fields (technicalDetails / problemSolved /
+    // stakeholders / evidence), switch to a full-slide layout that renders
+    // every field. Multi-feature payloads keep the original compact 3-card
+    // layout below.
+    const single = allFeatures.length === 1 ? allFeatures[0] : null;
+    const isDeep = !!(single && (single.technicalDetails || single.problemSolved || single.stakeholders || (Array.isArray(single.evidence) && single.evidence.length > 0)));
+
+    if (isDeep && single) {
+        const f = single;
+        return (
+            <div style={{ padding: '32px 40px 16px', display: 'flex', flexDirection: 'column', gap: 12, height: '100%', overflow: 'hidden' }}>
+                <div>
+                    <Tag text="PRODUCT REQUIREMENTS" brand={brand} />
+                    <Title text={title} size={22} brand={brand} />
+                </div>
+                <div style={{ display: 'flex', gap: 16, flex: 1, overflow: 'hidden' }}>
+                    {/* LEFT COLUMN — User story + acceptance criteria */}
+                    <div style={{ flex: '1 1 50%', display: 'flex', flexDirection: 'column', gap: 10, overflow: 'hidden' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ display: 'inline-block', background: hex(prioColor(f.priority)), color: hex(f.priority === 'should' ? T.INK : T.WHITE), fontSize: 7, fontWeight: 700, letterSpacing: '2px', padding: '3px 8px', textTransform: 'uppercase' as const }}>{f.priority}</span>
+                            <div style={{ fontFamily: `'${T.FONT}', sans-serif`, fontWeight: 800, fontSize: 13, color: hex(T.INK), letterSpacing: '-0.01em' }}>{f.name}</div>
+                        </div>
+                        <div style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.5, fontStyle: 'italic' as const, fontWeight: 300, padding: '8px 10px', background: hex(T.PALE), borderLeft: `3px solid ${hex(prioColor(f.priority))}` }}>{f.userStory}</div>
+                        <div>
+                            <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.SECONDARY), textTransform: 'uppercase' as const, marginBottom: 4 }}>ACCEPTANCE CRITERIA</div>
+                            {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 6).map((c, ci) => (
+                                <div key={ci} style={{ fontSize: 8.5, color: hex(T.BODY), lineHeight: 1.35, fontWeight: 300, paddingLeft: 12, position: 'relative', marginBottom: 3 }}>
+                                    <span style={{ position: 'absolute', left: 0, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 700 }}>✓</span>{c}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    {/* RIGHT COLUMN — Technical details, problem, stakeholders, evidence */}
+                    <div style={{ flex: '1 1 50%', display: 'flex', flexDirection: 'column', gap: 8, overflow: 'hidden' }}>
+                        {f.problemSolved && (
+                            <div>
+                                <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.RED), textTransform: 'uppercase' as const, marginBottom: 3 }}>PROBLEM SOLVED</div>
+                                <div style={{ fontSize: 8.5, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{f.problemSolved}</div>
+                            </div>
+                        )}
+                        {f.technicalDetails && (
+                            <div>
+                                <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.CYAN), textTransform: 'uppercase' as const, marginBottom: 3 }}>TECHNICAL DETAILS</div>
+                                <div style={{ fontSize: 8.5, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{f.technicalDetails}</div>
+                            </div>
+                        )}
+                        {f.stakeholders && (
+                            <div>
+                                <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.SECONDARY), textTransform: 'uppercase' as const, marginBottom: 3 }}>STAKEHOLDERS</div>
+                                <div style={{ fontSize: 8.5, color: hex(T.BODY), lineHeight: 1.45, fontWeight: 300 }}>{f.stakeholders}</div>
+                            </div>
+                        )}
+                        {Array.isArray(f.evidence) && f.evidence.length > 0 && (
+                            <div style={{ borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 6 }}>
+                                <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.CHARTREUSE_BRIGHT), textTransform: 'uppercase' as const, marginBottom: 4 }}>EVIDENCE</div>
+                                {f.evidence.slice(0, 3).map((e, ei) => (
+                                    <div key={ei} style={{ marginBottom: 5, paddingLeft: 8, borderLeft: `2px solid ${hex(T.CHARTREUSE_BRIGHT)}` }}>
+                                        <div style={{ fontSize: 8, color: hex(T.INK), lineHeight: 1.35, fontStyle: 'italic' as const, fontWeight: 300 }}>"{e.text}"</div>
+                                        <div style={{ fontSize: 7, color: hex(T.MUTED), marginTop: 2, fontFamily: 'JetBrains Mono, monospace' }}>
+                                            {e.attribution ? `${e.attribution} · ` : ''}{e.source}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <SourceFooter sources={sources} brand={brand} />
+            </div>
+        );
+    }
+
+    // COMPACT mode (default) — multi-feature, side-by-side cards
+    const features = allFeatures.slice(0, 3);
     return (
         <div style={{ padding: '36px 40px 20px', display: 'flex', flexDirection: 'column', gap: 16, height: '100%' }}>
             <div>
@@ -1303,7 +1379,7 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                         {/* Acceptance criteria */}
                         <div style={{ padding: '10px 14px 12px', flex: 1 }}>
                             <div style={{ fontSize: 7, fontWeight: 700, letterSpacing: '2px', color: hex(T.SECONDARY), textTransform: 'uppercase' as const, marginBottom: 6 }}>ACCEPTANCE CRITERIA</div>
-                            {f.acceptanceCriteria.slice(0, 5).map((c, ci) => (
+                            {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 5).map((c, ci) => (
                                 <div key={ci} style={{ fontSize: 9, color: hex(T.BODY), lineHeight: 1.4, fontWeight: 300, paddingLeft: 12, position: 'relative', marginBottom: 4 }}>
                                     <span style={{ position: 'absolute', left: 0, color: hex(T.CHARTREUSE_BRIGHT), fontWeight: 700 }}>✓</span>{c}
                                 </div>

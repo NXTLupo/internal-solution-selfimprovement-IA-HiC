@@ -240,12 +240,36 @@ export interface ArchitectureMapData {
 }
 
 // === PRD FEATURE CARD ===
+//
+// Supports two layouts at render time:
+//
+//   COMPACT  — features.length >= 2: 2–3 cards side-by-side, each with priority,
+//              user story, and top acceptance criteria. The deep fields below
+//              (technicalDetails, problemSolved, stakeholders, evidence) are
+//              ignored in this mode because there's no room for them.
+//
+//   DEEP     — features.length === 1 AND any of {technicalDetails, problemSolved,
+//              stakeholders, evidence} is populated: full-slide narrative layout
+//              that renders the complete feature spec with verbatim evidence
+//              quotes. Used when the composer wants ONE feature per slide with
+//              maximum detail.
+//
+// The deep fields are all optional so older presentations and the compact
+// 3-card path continue to render unchanged.
 export interface PrdFeatureData {
     features: Array<{
         name: string;
         priority: 'must' | 'should' | 'could' | 'wont';
         userStory: string;
         acceptanceCriteria: string[];
+        technicalDetails?: string;
+        problemSolved?: string;
+        stakeholders?: string;
+        evidence?: Array<{
+            text: string;
+            source: string;
+            attribution?: string;
+        }>;
     }>;
 }
 
