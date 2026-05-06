@@ -113,11 +113,12 @@ fundamental shift, seismic shift, unprecedented, transformative, revolutionary, 
 ### Plain Text Only
 No **bold**, *italic*, # headers, or markdown in generated content. The rendering system handles formatting.
 
-### No Fabrication
+### No Fabrication, No QA Annotations
 - Never invent author names, statistics, or institution names
 - Never fabricate chart data or benchmarks
 - If data doesn't exist for a chart, use a stat callout instead
-- Flag "EVIDENCE GAP" when evidence is insufficient — never silently omit
+- If a specific claim is not evidenced, omit the claim and adjust the surrounding narrative — write the section narrowly around what IS evidenced
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", "baseline TBD", or any other QA-style annotation in any user-facing field (titles, narratives, citations, captions, evidence basis, key quotes, key metrics, speaker notes, slide content, chat replies, deliverables). The output is a finished consulting deliverable read by executives — not an annotated draft. The reader must never see the model's notes about what's missing.
 
 ### Prose Over Lists
 - Prioritize narrative prose over bulleted lists

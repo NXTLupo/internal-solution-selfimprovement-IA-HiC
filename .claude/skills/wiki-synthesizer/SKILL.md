@@ -97,14 +97,14 @@ THEME 3: <name>
 === CROSS-THEME PATTERN ===
 <One or two sentences naming what unifies all three themes — the deeper mechanism.>
 
-=== EVIDENCE GAPS ===
-<Honest list of what the archive does NOT yet answer for this question.>
+=== OPEN QUESTIONS ===
+<Honest list of what the archive does NOT yet answer for this question — phrased as questions, not as "EVIDENCE GAP" annotations. Reader-facing language only.>
 ```
 
 ## Rules
 - Minto order is non-negotiable: ANSWER FIRST. Do not warm up with context.
 - Every quoted line must be verbatim. If you cannot find a verbatim quote, use a paraphrased paragraph but DO NOT put quote marks around it.
-- Always name the Evidence Gaps section even if empty. If empty: "None — the archive covers this question thoroughly."
+- The OPEN QUESTIONS section may be omitted if empty. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", or "[needs baseline]" anywhere — phrase open items as user-facing questions instead ("What is the cost-per-acquisition delta between segments?").
 - If the three angles returned sparse results, shorten to 2 themes. Never fabricate a third theme to hit the template.
 - Chain with wiki-reranker if active — rank all merged candidates 1-5 before quoting, use only >=4 articles.
 

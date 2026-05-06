@@ -1008,9 +1008,8 @@ const AnalysisCheckpoint: React.FC<Props> = ({ stage, data, isProcessing, onAppr
                                   <span className="text-[8px] px-2 py-0.5 bg-[var(--nxt-teal)] text-white rounded-sm uppercase">
                                       {section.sourceDeliverable}
                                   </span>
-                                  {section.evidenceGap && (
-                                      <span className="text-[8px] px-2 py-0.5 bg-[#fd8e2e] text-white rounded-sm">Evidence Gap</span>
-                                  )}
+                                  {/* Evidence Gap pill intentionally suppressed — delivered output must never
+                                      expose QA-style annotations to the reader (per user directive 2026-05-05). */}
                               </div>
                           </div>
                           <div className="px-4 py-3">

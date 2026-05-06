@@ -351,23 +351,9 @@ export const SlideCanvas: React.FC<Props> = ({
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
                 <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#B8B800' }}>{slide.template.replace('-', ' ')}</span>
                 {slide.model && <span style={{ fontSize: 9, color: '#999' }}>via {slide.model}</span>}
-                {slide.evidenceGap && (
-                    <span
-                        title={slide.evidenceGap.issues.map(i => `• ${i.field}: ${i.reason}`).join('\n')}
-                        style={{
-                            fontSize: 8,
-                            fontWeight: 700,
-                            letterSpacing: '1.5px',
-                            textTransform: 'uppercase',
-                            color: '#8B3A1E',
-                            background: '#FFF4EA',
-                            border: '1px solid #E5A27A',
-                            padding: '2px 8px',
-                            cursor: 'help',
-                            fontFamily: 'Archivo, sans-serif',
-                        }}
-                    >⚠ Evidence Gap · {slide.evidenceGap.issues.length}</span>
-                )}
+                {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                    QA-style annotations to the reader (per user directive 2026-05-05). The validator
+                    still computes slide._evidenceGap for ops telemetry; it just isn't rendered. */}
                 <div style={{ flex: 1 }} />
                 {slide.status === 'draft' && (
                     <button onClick={() => setEditingTitle(true)} style={{ fontSize: 8, color: '#666', background: 'none', border: '1px solid #DDD', padding: '2px 8px', cursor: 'pointer', letterSpacing: '1px', fontWeight: 700 }}>EDIT TITLE</button>
@@ -376,26 +362,8 @@ export const SlideCanvas: React.FC<Props> = ({
                     {fullscreen ? 'MINIMIZE' : 'EXPAND'}
                 </button>
             </div>
-            {/* Evidence gap detail bar — shown under the chrome when issues exist. */}
-            {slide.evidenceGap && (
-                <div style={{
-                    marginBottom: 6,
-                    padding: '6px 10px',
-                    background: '#FFF4EA',
-                    border: '1px solid #E5A27A',
-                    borderLeft: '3px solid #8B3A1E',
-                    fontSize: 10,
-                    lineHeight: 1.45,
-                    color: '#5E2810',
-                    fontFamily: 'Archivo, sans-serif',
-                }}>
-                    <strong style={{ letterSpacing: 1, fontSize: 9, textTransform: 'uppercase' }}>Evidence Gap:</strong>{' '}
-                    {slide.evidenceGap.summary}
-                    {slide.evidenceGap.issues.length > 1 && (
-                        <span style={{ marginLeft: 6, color: '#8B3A1E' }}>(+{slide.evidenceGap.issues.length - 1} more — hover badge for detail)</span>
-                    )}
-                </div>
-            )}
+            {/* evidenceGap detail bar intentionally suppressed — delivered output must never expose
+                QA-style annotations to the reader (per user directive 2026-05-05). */}
 
             {/* Slide — scaled to fit container via CSS transform */}
             {fullscreen ? (

@@ -1,7 +1,15 @@
 import React from 'react';
 import type { SectionProps } from './registry';
-import { SectionLabel, SectionTitle } from './_primitives';
+import { SectionLabel, SectionTitle, meaningful } from './_primitives';
 
+// 2026-05-05 — Composer historically declared `failPoint` as a boolean, then
+// changed to a string. We accept BOTH shapes here so old artifacts still
+// render and the renderer never displays an empty "Fail point:" label with
+// nothing after it.
+//
+// We also reject placeholder strings ("Not specified", "None identified",
+// "N/A", "TBD", "true", etc.) so a stage without an evidenced fail point
+// renders as a clean stage card rather than a broken-looking empty label.
 interface Stage {
   phase?: string;
   duration?: string;
@@ -11,7 +19,7 @@ interface Stage {
   backstage?: string;
   support?: string;
   painPoint?: string;
-  failPoint?: string;
+  failPoint?: string | boolean;
 }
 interface JourneyData {
   stages: Stage[];
@@ -19,47 +27,62 @@ interface JourneyData {
 
 export const JourneySection: React.FC<SectionProps> = ({ data, headlineScale, index }) => {
   const d = data as JourneyData;
-  const stages = d.stages || [];
+  const stages = Array.isArray(d?.stages) ? d.stages : [];
+  if (stages.length === 0) return null;
   return (
     <div>
       <SectionLabel icon="journey">Section {String(index + 1).padStart(2, '0')} · Service Blueprint</SectionLabel>
       <SectionTitle scale={headlineScale}>The journey.</SectionTitle>
       <div style={{ overflowX: 'auto', marginTop: '32px', paddingBottom: '12px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: `repeat(${stages.length}, minmax(220px, 1fr))`, gap: '12px' }}>
-          {stages.map((s, i) => (
-            <div key={i} style={{
-              padding: '20px',
-              backgroundColor: 'var(--card-bg)',
-              border: `1px solid ${s.failPoint ? 'var(--accent-primary)' : 'var(--border-primary)'}`,
-              borderTop: '3px solid var(--accent-primary)',
-            }}>
-              <div style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent-primary)', fontWeight: 700, marginBottom: '6px' }}>
-                Step {String(i + 1).padStart(2, '0')}
-              </div>
-              <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{s.phase || s.customerAction || `Stage ${i + 1}`}</h4>
-              {s.duration && <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>{s.duration}</div>}
-              {s.emotion && (
-                <div style={{ fontSize: '11px', color: 'var(--accent-secondary)', fontStyle: 'italic', marginBottom: '12px' }}>{s.emotion}</div>
-              )}
-              {s.customerAction && <BlueprintRow label="Customer" value={s.customerAction} />}
-              {s.frontstage && <BlueprintRow label="Frontstage" value={s.frontstage} />}
-              {s.backstage && <BlueprintRow label="Backstage" value={s.backstage} />}
-              {s.support && <BlueprintRow label="Support" value={s.support} />}
-              {(s.painPoint || s.failPoint) && (
-                <div style={{
-                  marginTop: '12px',
-                  padding: '8px',
-                  borderLeft: '2px solid var(--accent-primary)',
-                  fontSize: '11px',
-                  color: 'var(--text-primary)',
-                  backgroundColor: 'rgba(255,0,0,0.06)',
-                }}>
-                  {s.failPoint ? <strong>Fail point: </strong> : <strong>Pain: </strong>}
-                  {s.failPoint || s.painPoint}
+          {stages.map((s, i) => {
+            const phase = meaningful(s.phase) || meaningful(s.customerAction) || `Stage ${i + 1}`;
+            const duration = meaningful(s.duration);
+            const emotion = meaningful(s.emotion);
+            const customer = meaningful(s.customerAction);
+            const frontstage = meaningful(s.frontstage);
+            const backstage = meaningful(s.backstage);
+            const support = meaningful(s.support);
+            const pain = meaningful(s.painPoint);
+            const fail = meaningful(s.failPoint);
+            const accentBorder = fail ? '1px solid var(--accent-primary)' : '1px solid var(--border-primary)';
+            return (
+              <div key={i} style={{
+                padding: '20px',
+                backgroundColor: 'var(--card-bg)',
+                border: accentBorder,
+                borderTop: '3px solid var(--accent-primary)',
+              }}>
+                <div style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent-primary)', fontWeight: 700, marginBottom: '6px' }}>
+                  Step {String(i + 1).padStart(2, '0')}
                 </div>
-              )}
-            </div>
-          ))}
+                <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{phase}</h4>
+                {duration && <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>{duration}</div>}
+                {emotion && (
+                  <div style={{ fontSize: '11px', color: 'var(--accent-secondary)', fontStyle: 'italic', marginBottom: '12px' }}>{emotion}</div>
+                )}
+                {customer && <BlueprintRow label="Customer" value={customer} />}
+                {frontstage && <BlueprintRow label="Frontstage" value={frontstage} />}
+                {backstage && <BlueprintRow label="Backstage" value={backstage} />}
+                {support && <BlueprintRow label="Support" value={support} />}
+                {(pain || fail) && (
+                  <div style={{
+                    marginTop: '12px',
+                    padding: '8px',
+                    borderLeft: '2px solid var(--accent-primary)',
+                    fontSize: '11px',
+                    color: 'var(--text-primary)',
+                    backgroundColor: 'rgba(255,0,0,0.06)',
+                  }}>
+                    {fail
+                      ? <><strong>Fail point: </strong>{fail}</>
+                      : <><strong>Pain: </strong>{pain}</>
+                    }
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

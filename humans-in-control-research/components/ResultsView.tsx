@@ -1637,11 +1637,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   <h5 style={{fontSize:'15px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h5>
                                               </div>
                                               <p style={{fontSize:'13px',lineHeight:'1.6',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
-                                              {section.evidenceGap && (
-                                                  <div style={{marginTop:'8px',padding:'8px 12px',background:'#FFF8E1',border:'1px solid #FFE082',fontSize:'12px',color:'#8A6D00'}}>
-                                                      EVIDENCE GAP: {section.evidenceGap}
-                                                  </div>
-                                              )}
+                                              {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                                  QA-style annotations to the reader (per user directive 2026-05-05). */}
                                           </div>
                                       ))}
                                   </div>
@@ -2082,13 +2079,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                   </div>
                                                   {/* Content */}
                                                   <p style={{ fontFamily: FONT.primary, fontSize: 13, color: '#444', lineHeight: 1.65, whiteSpace: 'pre-wrap' }}>{cleanText(section.content)}</p>
-                                                  {/* Evidence gap badge */}
-                                                  {section.evidenceGap && (
-                                                      <div style={{ marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px', background: '#FFF7ED', border: '1px solid #FDBA74', borderRadius: 4 }}>
-                                                          <span style={{ fontFamily: FONT.primary, fontSize: 9, fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#C2410C' }}>EVIDENCE GAP</span>
-                                                          <span style={{ fontFamily: FONT.primary, fontSize: 11, color: '#9A3412' }}>{cleanText(section.evidenceGap)}</span>
-                                                      </div>
-                                                  )}
+                                                  {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                                      QA-style annotations to the reader (per user directive 2026-05-05). */}
                                                   {/* Citations via EvidenceBlock */}
                                                   <EvidenceBlock citations={(section as any).citations} evidenceBasis={(section as any).evidenceBasis} />
                                               </div>
@@ -2155,11 +2147,8 @@ const ResultsView: React.FC<Props> = ({ result, onReset, onSave, onEdit }) => {
                                                        <h4 style={{fontSize:'16px',fontWeight:700,color:'#0D0D0D'}}>{section.title}</h4>
                                                    </div>
                                                    <p style={{fontSize:'14px',lineHeight:'1.65',color:'#555',whiteSpace:'pre-wrap'}}>{section.content}</p>
-                                                   {section.evidenceGap && (
-                                                       <div style={{marginTop:'8px',padding:'8px 12px',background:'#FFF8E1',border:'1px solid #FFE082',fontSize:'12px',color:'#8A6D00'}}>
-                                                           EVIDENCE GAP: {section.evidenceGap}
-                                                       </div>
-                                                   )}
+                                                   {/* evidenceGap badge intentionally suppressed — delivered output must never expose
+                                                       QA-style annotations to the reader (per user directive 2026-05-05). */}
                                                </div>
                                            ))}
                                        </div>

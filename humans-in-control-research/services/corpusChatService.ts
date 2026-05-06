@@ -1836,7 +1836,7 @@ ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 — never pad to reach the requested number.
 
 ON-DEMAND WIKI RETRIEVAL (function-calling — used by Gemini Pro on this branch):
-You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE flagging EVIDENCE GAP, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
+You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE giving up on a claim, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
 
   - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 6) to pull 6 real bodies, then select the 3 best quotes.
   - Need a specific peer institution's outcome? Call fetch_wiki_articles(query: "<peer name> <topic>", source: "<outlet>") to retrieve the article body.
@@ -1851,7 +1851,7 @@ When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds — no
   - DEFAULT: omit \`kind\` so all three are returned, then select balanced evidence across all of them.
 If your draft answer cites only uploads, that is a violation of source-mix discipline — make additional retrievals with kind="article" and kind="transcript" before responding.
 
-When tool results return empty or error, THEN flag EVIDENCE GAP — the archive genuinely doesn't have it. Do NOT use tool failures as an excuse to fabricate.
+When tool results return empty or error, the archive genuinely doesn't have evidence for that claim — narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user — not a QA dashboard.
 ${DELIVERABLE_PROTOCOL}
 ${manifestSummary}
 ${skillInstructions}
@@ -1922,6 +1922,15 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 
+        // Defense-in-depth: strip any leaked QA-annotation tokens
+        // ("EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]") from
+        // the chat reply before it's rendered. Prompts forbid these tokens;
+        // this layer guarantees they never reach the user.
+        try {
+            const { stripQAAnnotations } = await import('./slidePostProcessor');
+            responseText = stripQAAnnotations(responseText);
+        } catch (e) { /* non-blocking */ }
+
         return {
             id: `msg_${Date.now()}`,
             role: 'assistant',
@@ -1978,7 +1987,7 @@ The archive contains every article, transcript, and uploaded document collected 
 
 Good times to call:
   - The user asked for N verbatim quotes and you only see article titles in the in-prompt corpus
-  - You're about to write EVIDENCE GAP but it's possible the archive has body text the prompt didn't include
+  - You're about to omit a claim because the prompt didn't include body text — try a retrieval first
   - You need to cite a specific named competitor, case study, or peer institution
   - You need timestamped or dated text (transcripts, news articles)
 

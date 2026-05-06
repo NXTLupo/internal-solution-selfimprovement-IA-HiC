@@ -47,7 +47,7 @@ Two-phase JSON output merged into a single result:
         "sectionNumber": "integer",
         "title": "string",
         "content": "string -- 2-4 sentences with evidence",
-        "evidenceGap": "string -- optional, flagged if data is insufficient"
+        "evidenceGap": "string -- LEAVE EMPTY. Never write 'EVIDENCE GAP', 'Evidence Gap', 'TBD', or '[needs baseline]' in any user-facing field. Narrow the section's content to what IS evidenced."
       }
     ]
   }
@@ -68,7 +68,7 @@ Extract ALL technology components, systems, platforms, and integrations from the
 
 ### Phase B: Architecture Document Sections
 
-Based on the system map produced in Phase A, write 10 key architecture sections. Each section gets a sectionNumber, title, content (2-4 sentences with evidence), and an evidenceGap flag if data is insufficient.
+Based on the system map produced in Phase A, write 10 key architecture sections. Each section gets a sectionNumber, title, and content (2-4 sentences with evidence). Leave evidenceGap empty — never write meta-annotations in user-facing fields.
 
 The 10 required section topics:
 1. Executive Summary
@@ -92,7 +92,7 @@ Single-call generation with 20 sections + nodes + flows always truncates due to 
 - Every node MUST include a citations array with human-readable source names (e.g., "Client SOW", "Higher Ed Dive").
 - Flow status must reflect actual evidence: "active" only if confirmed operational, "planned" if mentioned as future, "broken" if evidence describes failures.
 - Section content must reference specific evidence, not general assertions.
-- Flag evidenceGap on any section where data is thin or single-source.
+- If section data is thin or single-source, narrow the section to what IS evidenced. NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in user-facing fields.
 
 ## Anti-Patterns
 

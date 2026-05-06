@@ -8,6 +8,21 @@ import { motion, type MotionValue } from 'framer-motion';
 import type { SectionKind } from '../types';
 import { SectionIcon } from '../components/SectionIcon';
 
+// 2026-05-05 — Shared placeholder-stripper. Treats common empty-state
+// strings as "no content" so the renderer never displays a self-referential
+// "Fail point: None identified" / "Owner: TBD" / "Outcome: Not specified"
+// label. The composer prompts forbid emitting these placeholders, the
+// post-processor strips QA annotations, and this helper is the third layer
+// of defense at render time.
+const PLACEHOLDER_RX = /^(\s*(none\s*(identified|specified|provided)?|n\/?a|not\s+(specified|provided|applicable|identified|available)|tbd|to\s+be\s+(determined|defined)|—|-|null|undefined|true|false|evidence\s+gap|needs\s+baseline|baseline\s+tbd)\s*\.?)$/i;
+export const meaningful = (v: unknown): string => {
+  if (v == null || typeof v === 'boolean') return '';
+  const s = String(v).trim();
+  if (!s) return '';
+  if (PLACEHOLDER_RX.test(s)) return '';
+  return s;
+};
+
 export const SectionLabel: React.FC<{ children: React.ReactNode; icon?: SectionKind }> = ({ children, icon }) => (
   <div style={{
     display: 'flex',

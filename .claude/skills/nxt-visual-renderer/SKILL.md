@@ -100,7 +100,7 @@ Quotes from YouTube/webinar/podcast transcripts run through `cleanTranscriptQuot
 If the cleaner returns empty (candidate was mostly narration/filler), pick a DIFFERENT quote.
 
 ### 4. IMPLICATION line
-Densified templates carry an optional `implication` field — one sentence tying the evidence to the research objective. Renders as a chartreuse-accented footer. If you can't state the implication, the slide is thin — emit `EVIDENCE GAP: implication unstated` instead of padding.
+Densified templates carry an optional `implication` field — one sentence tying the evidence to the research objective. Renders as a chartreuse-accented footer. If you can't state the implication, the slide is thin — drop the slide entirely. NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in the implication field or any other user-facing field; the slide reader is an executive, not a QA reviewer.
 
 ### 5. Deduplicated Sources footer
 Every slide ends with a single `Sources:` footer showing the unique source names used on that slide. Do not repeat the same source inline 3-5 times — per-quote attribution is enough.

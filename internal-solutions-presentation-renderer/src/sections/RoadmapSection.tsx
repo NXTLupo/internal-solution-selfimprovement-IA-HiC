@@ -1,6 +1,6 @@
 import React from 'react';
 import type { SectionProps } from './registry';
-import { SectionLabel, SectionTitle } from './_primitives';
+import { SectionLabel, SectionTitle, meaningful } from './_primitives';
 
 // 2026-05-04 — Each field accepts multiple synonyms because composer models
 // emit slightly different shapes. The common factor is: each horizon has a
@@ -43,10 +43,12 @@ export const RoadmapSection: React.FC<SectionProps> = ({ data, headlineScale, in
       <SectionTitle scale={headlineScale}>The roadmap.</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '20px', marginTop: '32px' }}>
         {horizons.map((h, i) => {
-          // Tolerant field resolution per horizon
-          const label = (h.horizon || h.name || `H${i + 1}`).toString().toUpperCase();
+          // Tolerant field resolution per horizon, with placeholder stripping
+          // so missing fields render as truly empty rather than displaying
+          // "Owner: TBD" or "Metric: Not specified".
+          const label = (meaningful(h.horizon) || meaningful(h.name) || `H${i + 1}`).toUpperCase();
           const accent = HORIZON_ACCENT[label] || 'var(--text-tertiary)';
-          const range = h.duration || h.timeframe || '';
+          const range = meaningful(h.duration) || meaningful(h.timeframe);
           const items: Initiative[] = Array.isArray(h.initiatives)
             ? h.initiatives
             : Array.isArray(h.items)
@@ -64,8 +66,10 @@ export const RoadmapSection: React.FC<SectionProps> = ({ data, headlineScale, in
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {items.map((init, j) => {
-                  const itemTitle = init.name || init.title || `Item ${j + 1}`;
-                  const itemBody = init.problem || init.outcome || '';
+                  const itemTitle = meaningful(init.name) || meaningful(init.title) || `Item ${j + 1}`;
+                  const itemBody = meaningful(init.problem) || meaningful(init.outcome);
+                  const successMetric = meaningful(init.successMetric);
+                  const owner = meaningful(init.owner);
                   return (
                     <div key={j} style={{
                       paddingLeft: '12px',
@@ -73,10 +77,12 @@ export const RoadmapSection: React.FC<SectionProps> = ({ data, headlineScale, in
                     }}>
                       <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{itemTitle}</div>
                       {itemBody && <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '6px' }}>{itemBody}</div>}
-                      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '10px', color: 'var(--text-tertiary)' }}>
-                        {init.successMetric && <span>→ {init.successMetric}</span>}
-                        {init.owner && <span>· {init.owner}</span>}
-                      </div>
+                      {(successMetric || owner) && (
+                        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '10px', color: 'var(--text-tertiary)' }}>
+                          {successMetric && <span>→ {successMetric}</span>}
+                          {owner && <span>· {owner}</span>}
+                        </div>
+                      )}
                     </div>
                   );
                 })}

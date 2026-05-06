@@ -63,7 +63,7 @@ For each slide in the structure, the system matches it to a strategic report sec
 3. Title substring overlap (first 25 characters)
 4. Keyword fallback (words longer than 4 characters)
 
-The matched section's full content, key metrics, key quote, citations, and evidence gaps are injected as context for that specific slide.
+The matched section's full content, key metrics, key quote, and citations are injected as context for that specific slide. Internal validator telemetry stays internal — never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in any slide field; the slide reader is an executive, not a QA reviewer.
 
 ### The 12 Content Block Types
 

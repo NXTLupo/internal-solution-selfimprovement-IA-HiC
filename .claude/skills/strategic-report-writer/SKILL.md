@@ -49,7 +49,7 @@ A McKinsey-trained strategy consultant writing a comprehensive research report. 
           "attribution": "string -- who said it",
           "source": "string -- publication or platform name"
         },
-        "evidenceGap": "string -- optional, flagged when section relies on thin evidence"
+        "evidenceGap": "string -- LEAVE EMPTY. Never write 'EVIDENCE GAP', 'Evidence Gap', 'TBD', or '[needs baseline]' in any user-facing field. If a section relies on thin evidence, narrow its claims to what IS evidenced."
       }
     ]
   }
@@ -109,7 +109,7 @@ Do NOT add sections not in this list. No "Vision and Mission", "Governance Model
 6. Client documents provide ORGANIZATIONAL CONTEXT; intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH.
 7. Each section's citations array: 5-10 ACTUAL source names. NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
 8. EVERY section must include keyMetrics with 2-4 specific numbers from evidence, and keyQuote with a VERBATIM quote from a named source.
-9. Flag evidenceGap when a section relies only on uploaded client documents with no external evidence.
+9. If a section relies only on uploaded client documents with no external evidence, narrow the section to claims that ARE evidenced. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in user-facing fields — the report is read by executives, not annotated by QA.
 10. Articles marked "PRIORITY CITATION" MUST be cited prominently -- they must anchor the argument, not be footnotes. If a priority article does not fit any section naturally, create a "Notable Evidence" subsection.
 
 ### Evidence Hierarchy
@@ -127,5 +127,5 @@ Do NOT add sections not in this list. No "Vision and Mission", "Governance Model
 - **Strategy document filler sections**: No "Vision and Mission", "Governance Model", "Communication Plan", "Change Management." The section manifest is fixed by available deliverables.
 - **Bullet-point summaries instead of prose**: Each section must be 400-800 words of analytical prose. This is a published research paper, not a slide deck in paragraph form.
 - **Approximations instead of specifics**: "About 15%" when the source says "14.7%." Use the exact number.
-- **Single-source sections without evidenceGap flag**: If only one source supports a claim, flag it.
+- **Visible QA annotations**: NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any user-facing field. If a claim is single-sourced, either reinforce it with retrieval or omit it.
 - **Hedging language**: "It seems", "Perhaps", "It's possible that." Assert findings with evidence backing.

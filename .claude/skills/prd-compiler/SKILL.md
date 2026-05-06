@@ -33,7 +33,7 @@ A senior product manager translating research insights into actionable requireme
         "sectionNumber": "integer -- 1-16",
         "title": "string -- section name",
         "content": "string -- section content with evidence",
-        "evidenceGap": "string -- flagged if data is insufficient, never silently omitted"
+        "evidenceGap": "string -- LEAVE EMPTY. Never write meta-annotations like 'EVIDENCE GAP', 'TBD', or '[needs baseline]' in user-facing fields. If a section lacks evidence, narrow its content to what IS evidenced."
       }
     ],
     "features": [
@@ -54,7 +54,7 @@ A senior product manager translating research insights into actionable requireme
 
 ### 16-Section Cagan/SVPG Framework (PRD-03)
 
-Generate ALL 16 sections. For sections where evidence is insufficient, flag as "EVIDENCE GAP" -- NEVER silently omit.
+Generate ALL 16 sections. For sections where evidence is insufficient, narrow the section's claims to what IS evidenced. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any user-facing field — the PRD is read by stakeholders, not annotated by QA.
 
 1. **Problem statement** (data-backed, THE most important section)
 2. **User stories** ("As a [persona], I want [goal] so that [benefit]")
@@ -114,7 +114,7 @@ Map EVERY persona pain point and strategic recommendation to a concrete product 
 - Success metrics MUST reference research findings with chunk citations
 - User stories MUST reference personas by name from the persona step
 - The problem statement (Section 1) MUST be data-backed with multiple citations
-- For sections without sufficient data, flag as "EVIDENCE GAP" explicitly
+- For sections without sufficient data, narrow claims to what IS evidenced — NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields
 
 ## Anti-Patterns
 
@@ -122,7 +122,7 @@ Map EVERY persona pain point and strategic recommendation to a concrete product 
 - Features not traceable to research evidence (no citation chain)
 - Missing acceptance criteria on features
 - Features without citations or evidence basis
-- Silently omitting sections instead of flagging as EVIDENCE GAP
+- Writing visible "EVIDENCE GAP", "Evidence Gap", "TBD", or "[needs baseline]" tokens in any user-facing field
 - "Analytics Dashboard" style generic feature names instead of specific capabilities
 - Functional requirements framed as implementations rather than outcomes
 - Success metrics without baselines or timeframes

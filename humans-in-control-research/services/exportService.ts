@@ -663,9 +663,8 @@ export function exportStrategicReportHTML(report: any): void {
             html += `<div style="font-size:10px;color:#888;margin-top:4px;">-- ${s.keyQuote.attribution} (${s.keyQuote.source})</div>`;
             html += `</div>`;
         }
-        if (s.evidenceGap) {
-            html += `<div style="margin-top:12px;background:#FFF8E1;border:1px solid #FFE082;padding:8px 12px;border-radius:4px;font-size:10px;color:#F57F17;">Evidence Gap: ${s.evidenceGap}</div>`;
-        }
+        // evidenceGap badge intentionally suppressed — delivered output must never expose
+        // QA-style annotations to the reader (per user directive 2026-05-05).
         if (s.citations?.length) {
             html += `<div style="margin-top:12px;font-size:9px;color:#999;">Sources: ${s.citations.join(' | ')}</div>`;
         }

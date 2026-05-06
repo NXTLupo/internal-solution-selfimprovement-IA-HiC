@@ -129,10 +129,11 @@ EVIDENCE DEPTH:
 - When 3+ sources agree, note the convergence explicitly: "This finding is corroborated by [src1], [src2], and [src3]."
 - When sources disagree, note the tension: "While [src1] reports growth, [src2] documents contraction in the same segment."
 
-ANTI-FABRICATION RULE (composer rule 8):
+ANTI-FABRICATION + ANTI-ANNOTATION RULE (composer rule 8):
 - NEVER invent percentages, dollar amounts, dates, statistics, or named entities (people, companies, institutions).
-- If a number you want to cite is not in the catalog above, do NOT invent one. Either find a different evidenced claim, or omit the metric and flag "EVIDENCE GAP".
-- A fabricated "73%" anywhere in this output is grounds for rejection.
+- If a number you want to cite is not in the catalog above, do NOT invent one. Either find a different evidenced claim, or omit the metric (rephrase the sentence directionally without the number).
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", "baseline TBD", or any other QA-style meta-annotation in any user-facing field. This output is a finished consulting deliverable read by executives — not an annotated draft. If a claim is not evidenced, omit the claim; do not announce its absence.
+- A fabricated "73%" anywhere — or a self-referential "EVIDENCE GAP" placeholder anywhere — is grounds for rejection.
 
 CASE STUDIES > ABSTRACTIONS:
 - When an article describes a specific organization's experience, present it as a 2-3 sentence case study. "Southern Oregon University received a $15M state lifeline in March 2025 after enrollment dropped below sustainability thresholds [GDELT News]."

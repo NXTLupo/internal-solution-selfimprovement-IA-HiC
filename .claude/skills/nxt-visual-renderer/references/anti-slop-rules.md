@@ -21,7 +21,7 @@ A quote is a sentence pulled from the BODY of an article, transcript, or post �
 Before placing any string into `evidence` / `quotes[].text` / `pullQuote.text`:
 - Does this text appear as the `Title:` line of any chunk in the corpus, the WIKI ARCHIVE MENU, or the TOPIC-MATCHED ARTICLE BODIES block?
 - If yes → REJECT and find a real body sentence instead.
-- If the body is not in context → emit `EVIDENCE GAP` rather than substituting the headline.
+- If the body is not in context → fetch it via `fetch_wiki_articles`, or pick a different evidenced quote. NEVER write `EVIDENCE GAP`, `Evidence Gap`, `TBD`, or any QA-style annotation in any user-facing field — the slide reader is an executive, not a QA reviewer.
 
 ## 2. Preferred sources for quotes (in priority order)
 
@@ -91,7 +91,7 @@ These phrases are ALWAYS a sign evidence was thin and the scaffold got filled wi
 
 ### When evidence IS thin, the correct move
 1. Use FEWER slides than planned (drop a slide rather than fake it), AND
-2. Flag EVIDENCE GAP in the specific field that lacks support: `"EVIDENCE GAP: outcome not independently verified in corpus"` — the renderer shows this as a badge.
+2. Tighten the surviving slides to claims that ARE evidenced. NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in any user-facing field — the slide reader is an executive, not a QA reviewer.
 
 ### Case-study specifically
 Challenge / approach / outcome MUST name the subject and describe THEIR situation, not what we found in our sources.
@@ -134,11 +134,11 @@ Every slide title MUST be a complete sentence stating a conclusion with data.
 
 No `**bold**`, `*italic*`, `# headers`, or markdown in generated content. The rendering system handles formatting.
 
-### No fabrication
+### No fabrication, no QA annotations
 - Never invent author names, statistics, or institution names
 - Never fabricate chart data or benchmarks
 - If data doesn't exist for a chart, use a stat callout instead
-- Flag EVIDENCE GAP when evidence is insufficient — never silently omit
+- If a claim cannot be evidenced, omit the claim and tighten the slide around what IS evidenced. NEVER write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in any user-facing field.
 
 ### Prose over lists
 - Prioritize narrative prose over bulleted lists

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { SectionProps } from './registry';
-import { SectionLabel, SectionTitle, Card, Pill } from './_primitives';
+import { SectionLabel, SectionTitle, Card, Pill, meaningful } from './_primitives';
 
 // 2026-05-04 — Field-name tolerance per composer model variation:
 //   actionTitle  ← title
@@ -41,16 +41,22 @@ export const RecommendationsSection: React.FC<SectionProps> = ({ data, headlineS
       <SectionTitle scale={headlineScale}>What to do.</SectionTitle>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '32px' }}>
         {recs.map((r, i) => {
-          // Tolerant field resolution per recommendation
-          const titleText = r.actionTitle || r.title || `Action ${i + 1}`;
-          const rationaleText = r.rationale || r.description || r.outcome || '';
-          const subActions: string[] = Array.isArray(r.supportingActions)
+          // Tolerant field resolution per recommendation, with placeholder stripping
+          // so missing fields render as truly empty rather than showing
+          // "Action 01: TBD" / "Owner: Not specified" etc.
+          const titleText = meaningful(r.actionTitle) || meaningful(r.title) || `Action ${i + 1}`;
+          const rationaleText = meaningful(r.rationale) || meaningful(r.description) || meaningful(r.outcome);
+          const subActions: string[] = (Array.isArray(r.supportingActions)
             ? r.supportingActions
             : Array.isArray(r.actions)
               ? r.actions
               : Array.isArray(r.steps)
                 ? r.steps
-                : [];
+                : []).map(meaningful).filter(Boolean);
+          const impactMetric = meaningful(r.impactMetric);
+          const timeframe = meaningful(r.timeframe);
+          const owner = meaningful(r.owner);
+          const implication = meaningful(r.implication);
           return (
           <Card key={i} accent={i < 2}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '24px' }}>
@@ -76,16 +82,16 @@ export const RecommendationsSection: React.FC<SectionProps> = ({ data, headlineS
                     ))}
                   </ul>
                 )}
-                {r.implication && (
+                {implication && (
                   <div style={{ fontSize: '12px', color: 'var(--accent-secondary)', fontStyle: 'italic', marginTop: '12px' }}>
-                    Implication: {r.implication}
+                    Implication: {implication}
                   </div>
                 )}
               </div>
               <div style={{ minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {r.impactMetric && <KvPill label="Impact" value={r.impactMetric} />}
-                {r.timeframe && <KvPill label="When" value={r.timeframe} />}
-                {r.owner && <KvPill label="Owner" value={r.owner} />}
+                {impactMetric && <KvPill label="Impact" value={impactMetric} />}
+                {timeframe && <KvPill label="When" value={timeframe} />}
+                {owner && <KvPill label="Owner" value={owner} />}
               </div>
             </div>
           </Card>

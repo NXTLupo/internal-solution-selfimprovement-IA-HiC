@@ -934,8 +934,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
                 // Run post-parse validation to detect corpus meta-commentary,
                 // empty block-quotes, case-study fields that don't mention the
-                // subject, etc. Advisory — the slide still renders, but the
-                // EVIDENCE GAP badge is shown.
+                // subject, etc. Validator output is used for ops telemetry only;
+                // no badge is rendered to the user (per directive 2026-05-05 — no
+                // QA annotations in delivered output).
                 const validation = validateSlide({
                     title: parsed.title,
                     caseStudy: parsed.caseStudy,
@@ -967,7 +968,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     body: parsed.body,
                     bullets: parsed.bullets,
                     blocks: (parsed.blocks || []).map((b: any) => ({ type: b.type, raw: JSON.stringify(b.data), data: b.data })),
-                    evidenceGap: validation.evidenceGap ? { summary: validation.gapSummary, issues: validation.issues.filter(i => i.severity === 'gap') } : undefined,
+                    // _evidenceGap (underscore-prefixed) carries validator telemetry but is NOT rendered.
+                    // The renderer reads this via slide._evidenceGap; the visible Slide.evidenceGap
+                    // field is left unset so SlideCanvas/exportService never display a badge.
+                    _evidenceGap: validation.evidenceGap ? { summary: validation.gapSummary, issues: validation.issues.filter(i => i.severity === 'gap') } : undefined,
                     status: 'draft', model, timestamp: Date.now(),
                 });
             } catch {}

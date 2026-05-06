@@ -245,6 +245,73 @@ export function resolvePlaceholders(text: string): string {
 }
 
 // ============================================================
+// 4B. QA-ANNOTATION STRIPPER (Evidence Gap, TBD, etc.)
+// ============================================================
+//
+// Defense-in-depth: even with prompts forbidding "EVIDENCE GAP" / "Evidence Gap"
+// /"TBD" /"[needs baseline]" tokens in user-facing fields, models occasionally
+// leak them. This stripper deletes them from any text passed through, so
+// delivered output never shows the model's QA notes.
+//
+// Used by: postProcessSlides, exportService, ResultsView text renderer,
+// corpusChatService chat reply finalizer, narrativeComposer artifact emitter.
+// Anywhere AI text reaches the user, run it through stripQAAnnotations() first.
+
+const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
+    // Bracketed forms
+    { pattern: /\[\s*EVIDENCE\s+GAP[^\]]*\]/gi, replace: '' },
+    { pattern: /\[\s*Evidence\s+Gap[^\]]*\]/g, replace: '' },
+    { pattern: /\[\s*needs\s+baseline[^\]]*\]/gi, replace: '' },
+    { pattern: /\[\s*baseline\s+TBD[^\]]*\]/gi, replace: '' },
+    { pattern: /\[\s*TBD[^\]]*\]/gi, replace: '' },
+    // Sentence-prefix forms ("EVIDENCE GAP: ...", "Evidence Gap — ...")
+    { pattern: /\bEVIDENCE\s+GAP\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
+    { pattern: /\bEvidence\s+Gap\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
+    { pattern: /\bevidence\s+gap\s*[:\-–—]\s*[^.\n]+\.?/g, replace: '' },
+    // Bare tokens
+    { pattern: /\bEVIDENCE\s+GAP\b/g, replace: '' },
+    { pattern: /\bEvidence\s+Gap\b/g, replace: '' },
+    // Annotation parenthetical forms
+    { pattern: /\(\s*needs\s+baseline\s*\)/gi, replace: '' },
+    { pattern: /\(\s*baseline\s+TBD\s*\)/gi, replace: '' },
+    { pattern: /\(\s*TBD\s*\)/gi, replace: '' },
+    { pattern: /\(\s*evidence\s+gap[^\)]*\)/gi, replace: '' },
+    // Trailing fragments produced by removing the above
+    { pattern: /\s*—\s*$/g, replace: '' },
+    { pattern: /\s*\.\s*\.\s*\./g, replace: '.' },
+    { pattern: /  +/g, replace: ' ' },
+];
+
+export function stripQAAnnotations(text: string | undefined | null): string {
+    if (!text) return '';
+    let cleaned = String(text);
+    for (const { pattern, replace } of QA_ANNOTATION_PATTERNS) {
+        cleaned = cleaned.replace(pattern, replace);
+    }
+    // Trim residual whitespace artifacts and double-comma artifacts
+    return cleaned.replace(/\s+,/g, ',').replace(/,\s*,/g, ',').replace(/\s+\./g, '.').replace(/\s{2,}/g, ' ').trim();
+}
+
+// Recursively walk an object/array and strip QA annotations from every string value.
+// Mutates in place. Skips internal-only keys (start with `_`).
+export function stripQAAnnotationsDeep<T>(value: T): T {
+    if (value == null) return value;
+    if (typeof value === 'string') return stripQAAnnotations(value) as any;
+    if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) value[i] = stripQAAnnotationsDeep(value[i]);
+        return value;
+    }
+    if (typeof value === 'object') {
+        for (const k of Object.keys(value as any)) {
+            if (k.startsWith('_')) continue;
+            (value as any)[k] = stripQAAnnotationsDeep((value as any)[k]);
+        }
+        return value;
+    }
+    return value;
+}
+
+// ============================================================
 // 5. VISUAL PROMPT SANITIZATION
 // ============================================================
 
@@ -594,6 +661,16 @@ export function postProcessSlides(
         s.narrative = stripChunks(s.narrative || '');
         s.speakerNotes = stripChunks(s.speakerNotes || '');
         s.quote = stripChunks(s.quote || '');
+
+        // --- QA-ANNOTATION SWEEP: remove any "EVIDENCE GAP" / "Evidence Gap" /
+        // "TBD" / "[needs baseline]" tokens that leaked past prompt instructions.
+        // The user explicitly forbids visible QA notes in delivered output.
+        s.title = stripQAAnnotations(s.title);
+        s.content = (s.content || []).map(stripQAAnnotations).filter(c => c && c.trim().length > 0);
+        s.narrative = stripQAAnnotations(s.narrative || '');
+        s.speakerNotes = stripQAAnnotations(s.speakerNotes || '');
+        s.quote = stripQAAnnotations(s.quote || '');
+        if (Array.isArray(s.sources)) s.sources = s.sources.map(stripQAAnnotations).filter(c => c && c.trim().length > 0);
 
         // --- META-NARRATION (auto-correct on ALL fields: title, content, narrative, speakerNotes, quote) ---
         const metaInTitle = detectMetaNarration(s.title || '');

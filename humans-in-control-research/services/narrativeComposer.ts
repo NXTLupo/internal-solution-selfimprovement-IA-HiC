@@ -629,16 +629,28 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
       // its arguments and return as the final payload.
       const submitCall = choice.message.tool_calls.find(tc => tc.function.name === 'submit_presentation');
       if (submitCall) {
+        // Defense-in-depth: deep-strip any "EVIDENCE GAP" / "Evidence Gap" /
+        // "TBD" / "[needs baseline]" tokens from every string in the payload
+        // before returning it. The composer prompt forbids these tokens; this
+        // layer guarantees they never reach the renderer or wiki archive.
+        const finalize = async (raw: any) => {
+          try {
+            const { stripQAAnnotationsDeep } = await import('./slidePostProcessor');
+            return stripQAAnnotationsDeep(raw);
+          } catch (e) { return raw; }
+        };
         try {
           const payload = JSON.parse(submitCall.function.arguments);
-          args.onTool('submit_presentation', { sections: payload?.sections?.length }, 'final payload submitted');
-          return payload;
+          const cleaned = await finalize(payload);
+          args.onTool('submit_presentation', { sections: cleaned?.sections?.length }, 'final payload submitted');
+          return cleaned;
         } catch (e: unknown) {
           // Try repair once
           try {
             const payload = JSON.parse(tryRepairJson(submitCall.function.arguments));
-            args.onTool('submit_presentation', { sections: payload?.sections?.length }, 'final payload submitted (repaired)');
-            return payload;
+            const cleaned = await finalize(payload);
+            args.onTool('submit_presentation', { sections: cleaned?.sections?.length }, 'final payload submitted (repaired)');
+            return cleaned;
           } catch {
             // 2026-05-04 — Don't throw fatally. Push a corrective user message
             // and let the model re-emit on the next iteration. Composer's

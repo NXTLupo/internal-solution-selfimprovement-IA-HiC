@@ -839,8 +839,8 @@ A meta-theme contains these patterns — reject before emission:
 
 ACCEPTABLE alternatives when a lens has thin evidence:
   • Skip the lens entirely (fewer themes is better than slop themes)
-  • Report it as an EVIDENCE GAP in a deliberate callout — NOT as a theme
   • Request more data via the retrieval tool before manufacturing a theme
+  • NEVER produce a theme that announces missing evidence to the reader — the output is a finished deliverable, not a QA annotation
 
 HARD FLOOR: 12 themes minimum is REQUIRED for any corpus over 200 chunks. If you stop short of 12, you have NOT analyzed the full corpus — go back, scan the chunks you skipped, and find more themes. Output below floor will be rejected and you will be re-prompted with explicit instructions to extract more.
 
@@ -1752,7 +1752,8 @@ GOOD EXAMPLES:
 
 ANTI-FABRICATION (composer rule 8 — applies to every recommendation):
 - NEVER invent percentages, dollar amounts, dates, or named entities. If a number is not in the evidence catalog below, do NOT include it. Either find an evidenced number or omit the metric.
-- "Reduce churn by 15%" is only acceptable if a source in the catalog supports the 15% figure. Otherwise write "Reduce churn measurably" and flag EVIDENCE GAP.
+- "Reduce churn by 15%" is only acceptable if a source in the catalog supports the 15% figure. Otherwise rewrite directionally, e.g., "Reduce churn measurably."
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any user-facing field. The output is a finished consulting deliverable, not an annotated draft. If you cannot evidence a claim, omit the claim — do not announce its absence.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -1835,11 +1836,13 @@ MANDATORY SECTIONS (generate EXACTLY these — do NOT add Vision/Mission/Governa
 5. Prioritized Initiatives (group the ${result.recommendations.length} recommendations under pillars; each gets impact + evidence).
 6. Quick Wins (3-5 actions achievable in 90 days, each tied to a recommendation already generated).
 7. Risk Register (top 5 risks with probability, impact, mitigation — each risk evidenced).
-8. Measurement Framework (3-5 leading and lagging KPIs per pillar; each KPI must reference a baseline from the evidence catalog or be flagged "EVIDENCE GAP — needs baseline").
+8. Measurement Framework (3-5 leading and lagging KPIs per pillar; each KPI must reference a baseline from the evidence catalog. If a baseline is missing, write the KPI directionally — e.g., "Increase advisor response rate" — without inventing a number).
 
-For sections where evidence is insufficient, flag as "EVIDENCE GAP" — NEVER silently omit.
+For sections where evidence is insufficient, write the section narrowly around what IS evidenced, or omit the section entirely. Do NOT include placeholder or QA-annotation language.
 
-ANTI-FABRICATION (composer rule 8): NEVER invent percentages, dollar amounts, or dates. If the catalog does not contain a number for a KPI baseline, write the section without the number and flag the gap explicitly.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8):
+- NEVER invent percentages, dollar amounts, or dates. If the catalog does not contain a number for a KPI baseline, write the section without the number.
+- NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any user-facing field. The output is a finished consulting deliverable read by executives — not an annotated draft. If a claim is not evidenced, omit the claim, not write a self-reference about its absence.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2019,7 +2022,7 @@ EVIDENCE GROUNDING:
 - citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Higher Ed Dive", "Reddit: r/highereducation", "OpenAlex: Jones 2024")
 - evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage — quote data points, articles, or posts
 
-ANTI-FABRICATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number and flag "EVIDENCE GAP". Made-up "42% drop off" anywhere is grounds for rejection.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number entirely — describe the failure mode qualitatively. Made-up "42% drop off" anywhere is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any QA-style annotation in any field — the output is a finished deliverable, not a draft with annotations.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2219,7 +2222,7 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
 15. Timeline and milestones
 16. Stakeholder sign-off matrix
 
-For sections without data: flag as "EVIDENCE GAP" not silently omit.
+For sections without sufficient data, write the section narrowly around what IS evidenced — do NOT pad with generic content, and do NOT write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation visible to readers. If a section truly has no evidenced content, omit it. The output is a finished deliverable, not an annotated draft.
 Use MoSCoW priority on ALL features: Must-have | Should-have | Could-have | Won't-have
 
 STEP: PRODUCT REQUIREMENTS DOCUMENT. You are a senior product manager translating research insights into actionable requirements.
@@ -2256,7 +2259,7 @@ ANTI-PATTERNS:
 - Missing acceptance criteria
 - Features without citations or evidence basis
 
-ANTI-FABRICATION (composer rule 8): NEVER invent percentages, dollar amounts, baselines, or competitor metrics in success metrics. If the catalog has no baseline for a target KPI, write the metric without the number and flag "EVIDENCE GAP — needs baseline". Made-up "Reduce X by 40%" anywhere is grounds for rejection.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, dollar amounts, baselines, or competitor metrics in success metrics. If the catalog has no baseline for a target KPI, write the metric directionally without the number (e.g., "Reduce manual triage time"). Made-up "Reduce X by 40%" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any meta-annotation in any field — the output is a finished deliverable, not an annotated draft.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2394,7 +2397,7 @@ REQUIREMENTS:
 - Include at least 1 initiative per persona archetype identified
 - Every theme must have at least one initiative in each horizon
 
-ANTI-FABRICATION (composer rule 8): NEVER invent baseline metrics or success-metric percentages. If the evidence catalog has no baseline for an initiative's target metric, write the metric directionally (e.g., "Reduce time-to-onboard, baseline TBD") and flag "EVIDENCE GAP — needs baseline". Made-up "15% reduction in churn (baseline 22%)" anywhere is grounds for rejection.
+ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent baseline metrics or success-metric percentages. If the evidence catalog has no baseline for an initiative's target metric, write the metric directionally without numbers (e.g., "Reduce time-to-onboard"). Made-up "15% reduction in churn (baseline 22%)" is grounds for rejection. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", "baseline TBD", or any meta-annotation in any field — the output is a finished deliverable read by executives, not an annotated draft.
 
 ${ctxBlock}
 ${evidenceBlock}
@@ -2494,7 +2497,7 @@ Output JSON.`;
         onStream(`Found ${(map.nodes || []).length} nodes, ${(map.flows || []).length} flows. Phase B: Writing architecture sections...`);
         const sectionsPrompt = `STEP: TECH ARCHITECTURE PHASE B — ARCHITECTURE DOCUMENT SECTIONS.
 Based on the system map (${(map.nodes || []).map((n: any) => n.label).join(', ')}), write 10 key architecture sections.
-For each: sectionNumber, title, content (2-4 sentences with evidence), evidenceGap (if data is insufficient).
+For each: sectionNumber, title, content (2-4 sentences with evidence). Leave evidenceGap as an empty string — never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields; the output is a finished deliverable.
 Cover: executive summary, current state, future state, data architecture, integration architecture, security, scalability, tech stack rationale, gap analysis, risks.
 ${feedback ? 'USER FEEDBACK: ' + feedback : ''}
 Output JSON.`;
@@ -3815,7 +3818,7 @@ NARRATIVE STRUCTURE (McKinsey Whitepaper Format):
 - Every factual claim MUST cite its source by specific name (not "research shows" or "studies indicate").
 - Include keyMetrics (label, value, context) with specific numbers from the evidence for EVERY section.
 - Include keyQuote (text, attribution, source) with a VERBATIM quote from a named source for EVERY section.
-- Flag evidenceGap when a section relies on thin or single-source evidence.
+- Leave evidenceGap as an empty string. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields — the report is a finished deliverable, not an annotated draft.
 
 PRIORITY CITATION ENFORCEMENT:
 Articles marked with "*** PRIORITY CITATION ***" in the evidence catalog below were explicitly flagged by the user for prominent placement. You MUST:
@@ -3891,7 +3894,7 @@ CRITICAL CITATION AND EVIDENCE REQUIREMENTS:
 7. The uploaded client documents provide ORGANIZATIONAL CONTEXT. The intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH: what the client's documents say about their situation + what the broader evidence reveals about the landscape they operate in.
 8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Higher Ed Dive", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") — NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
 9. EVERY section must include keyMetrics with 2-4 specific numbers drawn from the evidence (not approximations), and keyQuote with a VERBATIM quote from a named source.
-10. If a section relies only on uploaded client documents with no external evidence, flag it as an evidenceGap.
+10. If a section relies only on uploaded client documents with no external evidence, narrow the section's claims to what IS evidenced — do NOT pad. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields.
 11. AIM FOR 400-800 WORDS PER SECTION. The report should feel like a published research paper, not a slide deck in paragraph form. Use analytical prose with evidence weaving, not bullet-point summaries.
 12. CONVERGENT EVIDENCE: When 3+ sources agree on a finding, explicitly note the convergence. This is the strongest possible evidence and should be prominently featured.
 
@@ -4056,15 +4059,11 @@ Output JSON matching the section schema.`;
                     phase1Sections.push(section);
                 } catch (e) {
                     console.warn(`[StrategicReport] Failed to generate section "${manifest.title}":`, e);
-                    // Create stub section so the report isn't missing it entirely
-                    phase1Sections.push({
-                        sectionNumber: sectionNum++,
-                        title: manifest.title,
-                        content: `This section could not be generated. The ${manifest.sourceDeliverable} deliverable data is available for review in the corresponding output tab.`,
-                        sourceDeliverable: manifest.sourceDeliverable,
-                        citations: [],
-                        evidenceGap: 'Section generation failed — review deliverable directly.'
-                    });
+                    // Phase 1 generator failed for this section. Skip it rather than emit a
+                    // self-referential stub — the user explicitly forbids visible QA
+                    // annotations ("EVIDENCE GAP", "Section generation failed", etc.) in
+                    // delivered output. The deliverable is browsable in its own tab.
+                    continue;
                 }
             }
         }
@@ -4258,6 +4257,10 @@ Output JSON matching the section schema.`;
             32_000,
             0.2,
         );
+        try {
+            const { stripQAAnnotationsDeep } = await import('./slidePostProcessor');
+            return stripQAAnnotationsDeep(result);
+        } catch (e) { /* non-blocking */ }
         return result;
     }
 
@@ -4365,6 +4368,17 @@ Output JSON matching the section schema.`;
                         console.warn("Model returned non-JSON, will retry:", (parsed as any)._raw?.substring(0, 80));
                         throw new Error(`Model returned non-JSON text: ${(parsed as any)._raw?.substring(0, 60)}`);
                     }
+                    // 2026-05-05 — Defense-in-depth strip: deletes any leaked
+                    // "EVIDENCE GAP" / "Evidence Gap" / "TBD" / "[needs baseline]"
+                    // QA-annotation tokens from every string field before the
+                    // generator hands the deliverable to the renderer or wiki
+                    // archiver. Prompts forbid these tokens; this layer
+                    // guarantees they never reach the user even if the model
+                    // ignores the instruction.
+                    try {
+                        const { stripQAAnnotationsDeep } = await import('./slidePostProcessor');
+                        return stripQAAnnotationsDeep(parsed);
+                    } catch (e) { /* non-blocking — return raw if strip fails */ }
                     return parsed;
                 } catch (e) {
                     console.error("Critical JSON Parse Error", e, "Raw:", cleanedText.substring(0, 100) + "...");
