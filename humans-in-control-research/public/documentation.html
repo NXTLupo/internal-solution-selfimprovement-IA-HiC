@@ -82,33 +82,37 @@ tr:hover td { background: #FAFAFA; }
 <div class="main">
 
 <h1>Humans in Control</h1>
-<div class="subtitle">Operator Documentation &mdash; v3.3 &mdash; April 27, 2026</div>
+<div class="subtitle">Operator Documentation &mdash; v3.6 &mdash; May 6, 2026</div>
 
 <p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
 Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench (the <strong>Analyst Chat</strong>), a hashtag-driven artifact authoring surface (the <strong>Design Desk</strong>), and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
 </p>
 
 <div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v3.3 focus (2026-04-27) &mdash; Design Desk + Freeform HTML artifacts + IndexedDB sync.</strong> v3.3 ships a dedicated Designer window (opened in a new browser window, never replaces the Analyst Desk) that renders consulting-grade 1920&times;1080 HTML artifacts using brand-locked exemplars (NU red/violet or NXT chartreuse/black). Trigger any artifact from the Analyst Chat with a hashtag command (<code>#org #NU</code>, <code>#journey #slide</code>, etc.). Five kinds route through the new freeform HTML pipeline (org, journey, arch, roadmap, blueprint); persona keeps the legacy SlideCanvas + PPTX export path. Cross-window sync now uses <strong>BroadcastChannel</strong> as the primary transport with <strong>IndexedDB</strong> for storage (replaces the localStorage path that was hitting Chrome's 5MB origin quota). PPTX export of freeform artifacts uses px&rarr;slide-pt downscaling and z-order stacking so text and image align natively in PowerPoint.
+<strong>v3.6 focus (2026-05-06) &mdash; DeepSeek-Primary + evidence-catalog depth + zero QA annotations.</strong> v3.6 collapses the chat / composer / Designer Chat onto a single primary reasoning model: <strong>DeepSeek V4 Flash on Azure</strong> (256K context, OpenAI-compatible tool-use, discriminated-union schema). V4 Pro was removed from the model picker because it&rsquo;s not deployed on the resource; the proxy normalizes any leaked Pro request to Flash and logs a warning. Phase 0+4 of the depth-maximization plan ships an <strong>evidence catalog injection</strong> across 8 deliverable generators (gap analysis, competitive, recommendations, roadmap, PRD, tech architecture, tech audit, journey map) so they cite the same ~200-article external corpus the knowledge graph displays. A 5-layer defense strips every &ldquo;Evidence Gap&rdquo; / &ldquo;TBD&rdquo; / &ldquo;Not specified&rdquo; QA annotation from delivered output (prompts, post-processor, UI suppression, schema descriptions, renderer placeholder rejection). The <code>prd-feature</code> slide template gains a <strong>DEEP-mode auto-detection</strong>: a single-feature payload with <code>technicalDetails</code> / <code>problemSolved</code> / <code>stakeholders</code> / <code>evidence[]</code> renders as a full-slide two-column narrative layout with verbatim evidence quotes. The Evidence section auto-shrinks the value font from 64px down to 22px based on character count so qualitative findings (&ldquo;Pilot&rdquo;, &ldquo;Unstructured&rdquo;, &ldquo;Y2+&rdquo;) render cleanly alongside compact numerics. The composer schema for <code>journey</code> stages changed <code>failPoint</code> from boolean &rarr; string and the renderer now tolerates both shapes.
 </div>
 
 <div class="status-card cyan">
-<strong>v3.2 (2026-04-21) &mdash; Densified slides + Skill refactor.</strong> Reduced slide whitespace, denser theme cluster grids, sharper visual hierarchy. Skill manifest split-out so each skill SKILL.md loads independently rather than as one monolithic prompt. Reasoning Stream gained a Brain Status indicator and constraint visibility per checkpoint.
+<strong>v3.5 (2026-04-29) &mdash; Source-Aware Fidelity + 400-Source Retail Pack.</strong> Hallucination guard on refined search queries (5-token fidelity threshold 0.35, replaces low-overlap refinements with goal verbatim). Body-aware relevance scoring at collection time (full body text instead of headline-only). Wiki residual archival writes pre-existing 500-char+ bodies that bypassed enrichment so nothing collected is lost.
+</div>
+
+<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
+<strong>v3.3 (2026-04-27) &mdash; Design Desk + Freeform HTML artifacts + IndexedDB sync.</strong> Dedicated Designer window opened in a new browser window (never replaces the Analyst Desk) that renders consulting-grade 1920&times;1080 HTML artifacts using brand-locked exemplars (NU red/violet or NXT chartreuse/black). Trigger any artifact from the Analyst Chat with a hashtag command (<code>#org #NU</code>, <code>#journey #slide</code>, etc.). Five kinds route through the freeform HTML pipeline (org, journey, arch, roadmap, blueprint); persona keeps the legacy SlideCanvas + PPTX export path. Cross-window sync uses <strong>BroadcastChannel</strong> primary transport with <strong>IndexedDB</strong> for storage. PPTX export uses px&rarr;slide-pt downscaling and z-order stacking.
 </div>
 
 <div class="status-card" style="border-left-color: var(--nxt-cyan);">
-<strong>v3.1 (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Earlier versions forced every collected item through a single in-prompt corpus capped at 500KB, producing headline-heavy context (4 full-text / 357 snippets / 288 headlines on a typical run). v3.1 treats the wiki archive as the canonical store: every article, transcript, and upload persists with full body text, a <code>/api/wiki/index</code> endpoint exposes a lightweight metadata menu, and the chat service pre-fetches topic-matched bodies per turn. Claude additionally has a native <code>fetch_wiki_articles</code> tool so it can pull specific articles mid-reasoning. The Analyst Desk has a <strong>&#8984; READ ARCHIVED</strong> button on every archived evidence node that opens a full article viewer &mdash; you can verify with one click that the AI actually has the body it&rsquo;s citing from.
+<strong>v3.1 (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Wiki archive is the canonical store: every article, transcript, and upload persists with full body text. <code>/api/wiki/index</code> exposes a lightweight metadata menu; the chat service pre-fetches topic-matched bodies per turn. The chat model has a native <code>fetch_wiki_articles</code> tool so it can pull specific articles mid-reasoning. The Analyst Desk has a <strong>&#8984; READ ARCHIVED</strong> button on every archived evidence node that opens a full article viewer.
 </div>
 
 <div class="metric-row">
-  <div class="metric"><div class="value">313</div><div class="label">Data sources</div></div>
+  <div class="metric"><div class="value">913</div><div class="label">Data sources</div></div>
   <div class="metric cyan"><div class="value">26</div><div class="label">Source categories</div></div>
   <div class="metric teal"><div class="value">30</div><div class="label">Institutions</div></div>
   <div class="metric"><div class="value">100</div><div class="label">YouTube channels</div></div>
   <div class="metric cyan"><div class="value">17</div><div class="label">Agent skills</div></div>
-  <div class="metric teal"><div class="value">74</div><div class="label">Wiki pages</div></div>
+  <div class="metric teal"><div class="value">256K</div><div class="label">Context window (DeepSeek)</div></div>
   <div class="metric"><div class="value">300</div><div class="label">Items enriched / run</div></div>
-  <div class="metric cyan"><div class="value">11</div><div class="label">Hashtag commands</div></div>
+  <div class="metric cyan"><div class="value">22</div><div class="label">Hashtag commands</div></div>
   <div class="metric teal"><div class="value">5</div><div class="label">Freeform kinds</div></div>
   <div class="metric"><div class="value">2</div><div class="label">Brand exemplars (NU / NXT)</div></div>
 </div>
@@ -117,7 +121,7 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <strong style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--nxt-muted); column-span: all; display: block; margin-bottom: 8px;">Table of Contents</strong>
   <a href="#what">1. What Humans in Control does</a>
   <a href="#quickstart">2. Operator quickstart</a>
-  <a href="#hashtags">3. Hashtag command system <span class="badge badge-new">NEW</span></a>
+  <a href="#hashtags">3. Hashtag command system &mdash; full key <span class="badge badge-new">v3.6</span></a>
   <a href="#architecture">4. System architecture</a>
   <a href="#state-machine">5. App state machine</a>
   <a href="#data-fabric">6. The research data fabric</a>
@@ -169,9 +173,15 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <li><strong>Export.</strong> PPTX deck, PDF, or pin individual outputs to the Output Board.</li>
 </ol>
 
-<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v3.3</span></h2>
+<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v3.6</span></h2>
 
-<p>The Analyst Chat (and the Designer Chat) accept inline hashtag commands that route a request through a deliverable-specific generation pipeline rather than the conversational chat path. This is the fastest way to ask for an artifact: type the hashtag(s), describe what you want, hit send.</p>
+<p>The Analyst Chat (and the Designer Chat) accept inline hashtag and slash commands that route a request through a deliverable-specific generation pipeline rather than the conversational chat path. This is the fastest way to ask for an artifact: type the directive(s), describe what you want, hit send. There are <strong>three distinct directive families</strong>:</p>
+
+<ol>
+  <li><strong>Content hashtags</strong> &mdash; route to the Design Desk artifact pipeline (one artifact per hashtag).</li>
+  <li><strong><code>#presentation</code> directive</strong> &mdash; routes to the narrative composer for a multi-section interactive presentation built from the chat history + corpus.</li>
+  <li><strong>Slash commands</strong> &mdash; <code>/image</code> and <code>/portrait</code> for AI image generation inline in chat.</li>
+</ol>
 
 <div class="status-card cyan">
 <strong>Anatomy of a hashtag command.</strong> <code>#&lt;content&gt; #&lt;brand&gt; #&lt;view&gt; &lt;your prompt text&gt;</code>. Order doesn&rsquo;t matter; case doesn&rsquo;t matter. Plurals and common variants are auto-mapped to the canonical singular (<code>#orgs</code> &rarr; <code>#org</code>, <code>#personas</code> &rarr; <code>#persona</code>). Hashtags are stripped from the prompt before it reaches the model, so you don&rsquo;t need to phrase around them. Brand defaults to <code>#nxt</code> if none specified.
@@ -238,6 +248,110 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
 
 <div class="status-card rust">
 <strong>Hashtag tips.</strong> (1) For best results, ALWAYS include a brand hashtag &mdash; the brand picks the exemplar HTML that the model inherits. (2) Don&rsquo;t mix plural and singular forms of the same kind in one prompt; the parser dedupes content tags but plurals + originals look like one tag to the user. (3) <code>#persona</code> intentionally does NOT open in the Designer; it lives in the Analyst Chat with PPTX/PDF deck export. (4) Unknown hashtags pass through to the prompt cleaner as ignored and are listed in <code>parsed.unknown</code> for diagnostic purposes.
+</div>
+
+<div class="accent-rule"></div>
+
+<h3><code>#presentation</code> directive (interactive scrolling presentation) <span class="badge badge-new">v3.6</span></h3>
+
+<p>The <code>#presentation</code> directive is a separate parser (<code>services/hashtagParser.ts</code>) that triggers the <strong>narrative composer</strong> &mdash; a tool-using DeepSeek V4 Flash agent that retrieves evidence from the wiki, structures it into 8-12 sections (hero, themes, evidence, quotes, personas, journey, recommendations, roadmap, gap, tech-arch, team, competitive, cta), and persists the result as an interactive 1920&times;1080 scrolling presentation rendered by the presentation renderer (port 5014). The composer treats your recent chat as the <em>source narrative</em> when there&rsquo;s substantive prior content (PACKAGE mode) or retrieves fresh evidence from scratch when the chat is thin (RESEARCH mode).</p>
+
+<table>
+  <thead><tr><th style="width: 180px;">Directive</th><th style="width: 100px;">Type</th><th>Behavior</th></tr></thead>
+  <tbody>
+    <tr><td><code>#presentation</code></td><td>required trigger</td><td>Activates the composer. Without this flag, every other directive in this table is inert.</td></tr>
+    <tr><td><code>#NXT</code> <em>(default)</em></td><td>brand</td><td>NXT Humans theme: chartreuse <code>#B8B800</code> on near-black <code>#0D0D0D</code>, dark theme by default.</td></tr>
+    <tr><td><code>#NU</code></td><td>brand</td><td>Northeastern University theme: NU red <code>#C8102E</code> on cream paper, light theme by default.</td></tr>
+    <tr><td><code>#dark</code></td><td>theme override</td><td>Force dark mode regardless of brand default.</td></tr>
+    <tr><td><code>#light</code></td><td>theme override</td><td>Force light mode regardless of brand default.</td></tr>
+    <tr><td><code>#hero="Custom Headline."</code></td><td>content override</td><td>Replace the composed hero section title with the supplied string. Quoted to allow spaces and punctuation.</td></tr>
+    <tr><td><code>#sections=themes,personas,recs</code></td><td>content filter</td><td>Restrict the composed presentation to the listed kinds. Recognized kinds: <code>hero</code>, <code>context</code>, <code>themes</code>, <code>evidence</code>, <code>quotes</code>, <code>personas</code>, <code>journey</code>, <code>recommendations</code> (alias <code>recs</code>), <code>roadmap</code>, <code>gap_analysis</code> (alias <code>gap</code>), <code>tech_arch</code> (aliases <code>tech</code>, <code>arch</code>), <code>team</code>, <code>competitive</code>, <code>cta</code>.</td></tr>
+    <tr><td><code>#preview</code></td><td>persistence</td><td>Render the presentation but skip the wiki write &mdash; ephemeral preview only.</td></tr>
+    <tr><td><code>#export-pptx</code></td><td>output format</td><td>Also produce a matching <code>.pptx</code> via the export service alongside the interactive HTML version.</td></tr>
+    <tr><td><code>#auto-open</code></td><td>UX</td><td>Synchronous <code>window.open()</code> workaround for popup blockers &mdash; opens the presentation in a new tab the moment composition completes.</td></tr>
+    <tr><td><code>#model=flash</code></td><td>model selection</td><td>Aliases: <code>#model=v4</code>, <code>#model=deepseek</code>, <code>#model=flash</code>, <code>#model=deepseek-v4-flash</code>. All currently resolve to <code>deepseek-v4-flash</code>.</td></tr>
+    <tr><td><code>#model=pro</code></td><td>model selection</td><td>Aliases: <code>#model=v4pro</code>, <code>#model=deepseek-v4-pro</code>. <strong>Currently transparently redirects to Flash</strong> because V4 Pro is not deployed on the Azure resource. Will route to Pro automatically once a Pro deployment exists and is added to <code>DEEPSEEK_ALLOWED_MODELS</code>.</td></tr>
+  </tbody>
+</table>
+
+<h4>Worked <code>#presentation</code> examples</h4>
+<table>
+  <thead><tr><th style="width: 380px;">Command</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td><code>#presentation #NU tell the story of the first-year co-op journey</code></td><td>NU-branded interactive presentation built from the chat&rsquo;s prior conversation about Northeastern co-op research, light theme by default. The composer pulls verbatim quotes from wiki articles via <code>fetch_wiki_articles</code> and structures them into hero / themes / personas / journey / recommendations sections.</td></tr>
+    <tr><td><code>#presentation #NU #sections=themes,personas,recs</code></td><td>Three-section presentation: themes only, personas only, recommendations only. Other section kinds suppressed.</td></tr>
+    <tr><td><code>#presentation #NXT #hero="The advancement gap is generational." #export-pptx</code></td><td>NXT-branded interactive HTML + a matching PowerPoint <code>.pptx</code> downloaded as a sibling artifact. Hero title overridden.</td></tr>
+    <tr><td><code>#presentation #NU #preview</code></td><td>Renders the presentation in this turn&rsquo;s chat output for review but does NOT persist to the wiki &mdash; useful for iterating on hero / sections without polluting the wiki history.</td></tr>
+  </tbody>
+</table>
+
+<div class="status-card cyan">
+<strong>How <code>#presentation</code> differs from <code>#slides</code>.</strong> <code>#slides</code> (the Design Desk composition modifier) lays out multiple <em>content hashtags</em> as a 16:9 deck of static slides. <code>#presentation</code> triggers a fundamentally different pipeline: the composer reasons over your chat + wiki, retrieves evidence on-demand, and produces an interactive scrolling presentation (rendered at port 5014) with sections that adapt to what the corpus actually supports. Use <code>#slides</code> for "give me these specific artifacts as a deck"; use <code>#presentation</code> for "tell the whole story I&rsquo;ve been developing."
+</div>
+
+<div class="accent-rule"></div>
+
+<h3>Slash commands (image generation) <span class="badge badge-new">v3.6</span></h3>
+
+<p>Slash commands intercept the chat send path before any hashtag parsing. They route to Gemini&rsquo;s image generation API for inline AI imagery in the chat.</p>
+
+<table>
+  <thead><tr><th style="width: 140px;">Command</th><th>Aspect</th><th>What you get</th></tr></thead>
+  <tbody>
+    <tr><td><code>/image &lt;prompt&gt;</code></td><td>16:9 landscape</td><td>Gemini-generated image at 16:9 aspect. Returns inline in the chat with download capability. Use for hero imagery, evidence backgrounds, scene illustrations.</td></tr>
+    <tr><td><code>/portrait &lt;prompt&gt;</code></td><td>portrait</td><td>Portrait-orientation image, optimized for persona cards. Used by the persona-card slide template when the AI requests a portrait for a specific persona.</td></tr>
+  </tbody>
+</table>
+
+<div class="status-card rust">
+<strong>Slash command tips.</strong> (1) Slash commands ONLY trigger when the message <em>starts</em> with <code>/image </code> or <code>/portrait </code> (note the trailing space). Anywhere else in a message they are passed through verbatim. (2) Image generation does NOT consume DeepSeek tokens &mdash; it routes to Gemini Imagen 3 / Veo through the proxy. (3) Generated images are NOT persisted to the wiki by default; download what you need from the inline preview.
+</div>
+
+<div class="accent-rule"></div>
+
+<h3>Complete directive reference (single-page key)</h3>
+
+<p>Every directive recognized by the chat in one place. Use this as the cheat sheet:</p>
+
+<table>
+  <thead><tr><th style="width: 220px;">Directive</th><th style="width: 120px;">Family</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td colspan="3" style="background: var(--nxt-panel); font-weight: 700; padding: 6px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-secondary);">Content hashtags &mdash; route to Design Desk artifact pipeline</td></tr>
+    <tr><td><code>#persona</code> / <code>#personas</code></td><td>Content</td><td>Cooper 3-tier persona card (legacy SlideCanvas + PPTX/PDF export).</td></tr>
+    <tr><td><code>#journey</code> / <code>#journeys</code></td><td>Content</td><td>Current-state journey map (freeform HTML).</td></tr>
+    <tr><td><code>#blueprint</code> / <code>#blueprints</code></td><td>Content</td><td>Future-state service blueprint (freeform HTML).</td></tr>
+    <tr><td><code>#org</code> / <code>#orgs</code> / <code>#orgchart</code> / <code>#orgcharts</code></td><td>Content</td><td>Org chart (freeform HTML, 1808&times;820 SVG viewBox).</td></tr>
+    <tr><td><code>#arch</code> / <code>#arches</code></td><td>Content</td><td>Technical architecture diagram (freeform HTML).</td></tr>
+    <tr><td><code>#roadmap</code> / <code>#roadmaps</code></td><td>Content</td><td>Now / Next / Later roadmap (freeform HTML).</td></tr>
+    <tr><td><code>#prd</code> / <code>#prds</code></td><td>Content</td><td>SVPG / Cagan PRD feature spec.</td></tr>
+    <tr><td><code>#strategy</code> / <code>#strategies</code></td><td>Content</td><td>Rumelt&rsquo;s Kernel strategy memo.</td></tr>
+    <tr><td><code>#gap</code></td><td>Content</td><td>1&ndash;5 maturity gap analysis.</td></tr>
+    <tr><td><code>#audit</code> / <code>#audits</code></td><td>Content</td><td>Tech audit with risk + lifecycle inventory.</td></tr>
+    <tr><td><code>#compete</code> / <code>#competes</code> / <code>#competitives</code> / <code>#competitors</code></td><td>Content</td><td>Competitive matrix.</td></tr>
+    <tr><td colspan="3" style="background: var(--nxt-panel); font-weight: 700; padding: 6px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-secondary);">Brand &amp; view modifiers (Design Desk family, lowercase)</td></tr>
+    <tr><td><code>#nxt</code> <em>(default)</em></td><td>Brand</td><td>NXT chartreuse-on-black exemplar.</td></tr>
+    <tr><td><code>#nu</code></td><td>Brand</td><td>NU red-on-cream exemplar.</td></tr>
+    <tr><td><code>#slide</code></td><td>View</td><td>Render artifact inside 16:9 NXT slide frame.</td></tr>
+    <tr><td><code>#slides</code></td><td>Composition</td><td>Multi-artifact deck composition (NOT a plural of <code>#slide</code>).</td></tr>
+    <tr><td colspan="3" style="background: var(--nxt-panel); font-weight: 700; padding: 6px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-secondary);"><code>#presentation</code> directive family (composer, uppercase brand)</td></tr>
+    <tr><td><code>#presentation</code></td><td>Trigger</td><td>Required &mdash; activates the narrative composer.</td></tr>
+    <tr><td><code>#NXT</code> / <code>#NU</code></td><td>Brand</td><td>Brand for the composed presentation (uppercase, distinct from Design Desk lowercase).</td></tr>
+    <tr><td><code>#dark</code> / <code>#light</code></td><td>Theme</td><td>Override brand theme default.</td></tr>
+    <tr><td><code>#hero="..."</code></td><td>Content</td><td>Override the composed hero title.</td></tr>
+    <tr><td><code>#sections=a,b,c</code></td><td>Content filter</td><td>Restrict to listed section kinds.</td></tr>
+    <tr><td><code>#preview</code></td><td>Persistence</td><td>Ephemeral &mdash; do not write to wiki.</td></tr>
+    <tr><td><code>#export-pptx</code></td><td>Export</td><td>Also emit matching PowerPoint file.</td></tr>
+    <tr><td><code>#auto-open</code></td><td>UX</td><td>Synchronous popup-friendly window.open() on completion.</td></tr>
+    <tr><td><code>#model=flash</code> / <code>=v4</code> / <code>=deepseek</code></td><td>Model</td><td>All resolve to deepseek-v4-flash (current default).</td></tr>
+    <tr><td><code>#model=pro</code></td><td>Model</td><td>Currently redirects to Flash (Pro not deployed on Azure resource).</td></tr>
+    <tr><td colspan="3" style="background: var(--nxt-panel); font-weight: 700; padding: 6px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-secondary);">Slash commands (image generation, must be at start of message)</td></tr>
+    <tr><td><code>/image &lt;prompt&gt;</code></td><td>Slash</td><td>Generate 16:9 landscape image via Gemini Imagen.</td></tr>
+    <tr><td><code>/portrait &lt;prompt&gt;</code></td><td>Slash</td><td>Generate portrait-orientation image (used by persona cards).</td></tr>
+  </tbody>
+</table>
+
+<div class="status-card teal">
+<strong>Two parsers, two sets of brand tags.</strong> The Design Desk parser (<code>design-desk/services/hashtagParser.ts</code>) treats <code>#nxt</code> / <code>#nu</code> as lowercase brand tags. The presentation directive parser (<code>services/hashtagParser.ts</code>) treats <code>#NXT</code> / <code>#NU</code> as uppercase brand tags (and tolerates possessive forms like <code>#NUs</code> or <code>#NU's</code>). The two parsers run independently, so the chat correctly identifies <code>#presentation #NU</code> as the composer trigger AND <code>#org #nu</code> as the Design Desk trigger without confusion. If you mix <code>#presentation</code> with content hashtags like <code>#org</code>, the <code>#presentation</code> path takes priority.
 </div>
 
 <h2 id="architecture">4. System architecture</h2>
@@ -1069,13 +1183,17 @@ location.reload();</pre>
 <hr style="margin: 48px 0; border: none; border-top: 1px solid var(--nxt-rule);">
 <p style="font-size: 11px; color: var(--nxt-muted); text-align: center;">
   NXT HUMANS Intelligence Augmentation Suite &mdash; Humans in Control Research Platform<br>
-  v3.3 &mdash; April 27, 2026 &mdash; Branch: HiC-enriched<br>
+  v3.6 &mdash; May 6, 2026 &mdash; Branch: HiC-DeepSeek-Primary<br>
   <br>
-  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.3 changelog (April 27, 2026):</span> Design Desk popup window with realtime cross-window sync, freeform HTML artifact pipeline (org / journey / arch / roadmap / blueprint), full hashtag command system (11 content tags + 2 brands + slide modifiers), brand-locked exemplar shells (NU red/violet, NXT chartreuse/black) with server-side splice, IndexedDB-backed designDeskStore (replaces 5MB-capped localStorage), BroadcastChannel as primary cross-window transport, focus-reconciliation backstop, freeform PPTX export with px&rarr;slide-pt downscale + z-order text-over-image stacking, persona artifacts intentionally kept on legacy SlideCanvas path with original Export Deck PPTX/PDF toolbar, instant-feedback status messages eliminating the 25s blank-screen gap at research kickoff, org chart layout discipline (1808&times;820 SVG viewBox, max 6 nodes per row, banded clusters when teams exceed row capacity).<br>
+  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.6 changelog (May 6, 2026):</span> Single-vendor migration to DeepSeek V4 Flash on Azure (256K context, OpenAI-compatible tool-use, discriminated-union schema). V4 Pro removed from picker (not deployed on Azure resource); proxy normalizes any leaked Pro request to Flash with warning log via <code>DEEPSEEK_ALLOWED_MODELS</code> env allowlist. Phase 0+4 evidence-catalog injection: every deliverable generator (gap, competitive, recommendations, roadmap, PRD, tech-arch, tech-audit, journey-map) now receives the same ~200-article external corpus the knowledge graph displays, plus the IRON LAW source-roster preamble + composer rule 8 anti-fabrication clause. Five-layer defense against &ldquo;Evidence Gap&rdquo; / &ldquo;TBD&rdquo; / &ldquo;Not specified&rdquo; QA annotations in delivered output (prompts + post-processor + UI suppression + schema descriptions + renderer placeholder rejection via <code>meaningful()</code> helper). <code>prd-feature</code> slide template auto-detects DEEP-mode (single feature with technicalDetails / problemSolved / stakeholders / evidence) and switches to two-column narrative layout with verbatim evidence quotes. <code>EvidenceSection</code> auto-shrinks value font from 64px to 22px based on character count so qualitative findings render alongside compact numerics. Composer schema: <code>journey.failPoint</code> changed boolean&rarr;string with omit-don&rsquo;t-placehold guidance. Wiki cache None-crash bug fixed (HTTP 500 on <code>/api/wiki/fetch-articles</code> after goal-regrade). <code>#presentation</code> directive system fully documented in this page; complete 22-directive reference key added.<br>
+  <br>
+  <span style="color: var(--nxt-cyan); font-weight: 700;">v3.5 (April 29, 2026):</span> Hallucination guard on refined search queries, body-aware relevance scoring at collection, wiki residual archival for items that bypass enrichment.<br>
+  <br>
+  <span style="color: var(--nxt-chartreuse); font-weight: 700;">v3.3 (April 27, 2026):</span> Design Desk popup window with realtime cross-window sync, freeform HTML artifact pipeline (org / journey / arch / roadmap / blueprint), full hashtag command system (11 content tags + 2 brands + slide modifiers), brand-locked exemplar shells (NU red/violet, NXT chartreuse/black) with server-side splice, IndexedDB-backed designDeskStore (replaces 5MB-capped localStorage), BroadcastChannel as primary cross-window transport, focus-reconciliation backstop, freeform PPTX export with px&rarr;slide-pt downscale + z-order text-over-image stacking, persona artifacts intentionally kept on legacy SlideCanvas path.<br>
   <br>
   <span style="color: var(--nxt-cyan); font-weight: 700;">v3.2 (April 21, 2026):</span> Densified slide layouts, skill manifest split-out, Reasoning Stream brain-status indicator, constraint visibility per checkpoint.<br>
   <br>
-  <span style="color: var(--nxt-teal); font-weight: 700;">v3.1 (April 20, 2026):</span> Wiki-as-RAG architecture, Video Transcriber connector fix, enrichment cap 80&rarr;300, <code>/api/wiki/index</code> + <code>/api/wiki/fetch-articles</code> endpoints, native <code>fetch_wiki_articles</code> tool for Claude, topic-matched article pre-fetch, slide quote backfill from wiki, &#8984; READ ARCHIVED button with <code>WikiArticleViewer</code> overlay, TITLES-AS-QUOTES ban enforced in prompt + deterministic post-processor.
+  <span style="color: var(--nxt-teal); font-weight: 700;">v3.1 (April 20, 2026):</span> Wiki-as-RAG architecture, Video Transcriber connector fix, enrichment cap 80&rarr;300, <code>/api/wiki/index</code> + <code>/api/wiki/fetch-articles</code> endpoints, native <code>fetch_wiki_articles</code> tool for the chat agent, topic-matched article pre-fetch, slide quote backfill from wiki, &#8984; READ ARCHIVED button with <code>WikiArticleViewer</code> overlay, TITLES-AS-QUOTES ban enforced in prompt + deterministic post-processor.
 </p>
 
 </div>
