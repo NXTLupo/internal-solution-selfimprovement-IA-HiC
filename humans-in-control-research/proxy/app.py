@@ -3264,6 +3264,20 @@ DEEPSEEK_AZURE_URL = (
     "?api-version=2024-05-01-preview"
 )
 
+# 2026-05-06 — Single source of truth for which DeepSeek models are
+# actually deployed on the Azure resource. Set via env so a Pro deployment
+# can be enabled later without a code change.
+#
+# Default = `deepseek-v4-flash` only. Any inbound request with a different
+# model id is normalized to the first allowed model and a warning is logged
+# (so we can hunt down the calling code path and fix it). This belt-and-
+# suspenders normalization is the LAST defense — it catches any caller in
+# the codebase that bypasses the upstream type checks and fallbacks.
+DEEPSEEK_ALLOWED_MODELS = [
+    m.strip() for m in os.getenv("DEEPSEEK_ALLOWED_MODELS", "deepseek-v4-flash").split(",") if m.strip()
+]
+DEEPSEEK_DEFAULT_MODEL = DEEPSEEK_ALLOWED_MODELS[0] if DEEPSEEK_ALLOWED_MODELS else "deepseek-v4-flash"
+
 
 @app.post("/api/ai/deepseek")
 async def proxy_deepseek_azure(request: Request):
@@ -3287,6 +3301,23 @@ async def proxy_deepseek_azure(request: Request):
         body = await request.json()
     except Exception as e:
         return JSONResponse({"error": f"invalid request body: {e}"}, status_code=400)
+
+    # 2026-05-06 — Normalize the model field against the deployed-on-Azure
+    # allowlist. If a caller sends `deepseek-v4-pro` (or any other model
+    # that's not in DEEPSEEK_ALLOWED_MODELS), silently rewrite to the
+    # default and log loudly so we can fix the upstream caller. Avoids the
+    # `DeploymentNotFound` 404 from Azure that would otherwise burn a chat
+    # turn for the user.
+    requested_model = body.get("model")
+    if requested_model not in DEEPSEEK_ALLOWED_MODELS:
+        logger.warning(
+            f"[deepseek-proxy] Caller requested model={requested_model!r} which is "
+            f"not in DEEPSEEK_ALLOWED_MODELS={DEEPSEEK_ALLOWED_MODELS}. "
+            f"Normalizing to default={DEEPSEEK_DEFAULT_MODEL!r}. "
+            f"To fix permanently, either deploy {requested_model!r} on the Azure resource "
+            f"and add it to DEEPSEEK_ALLOWED_MODELS, or fix the upstream caller."
+        )
+        body["model"] = DEEPSEEK_DEFAULT_MODEL
 
     headers = {"Content-Type": "application/json", "api-key": api_key}
 

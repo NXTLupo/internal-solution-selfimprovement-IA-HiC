@@ -21,6 +21,10 @@
 // Chat picker shows DeepSeek as the primary; legacy Gemini/GPT entries
 // removed from the registry. The dispatch routes deepseek-* through a
 // new callDeepSeek() that hits /api/ai/deepseek.
+// 2026-05-06 — V4 Pro removed (see AVAILABLE_MODELS comment). The type
+// keeps both members for now so legacy serialized localStorage / wiki
+// values don't reject at parse-time; the stale-value resolver in
+// sendChatMessage maps any unrecognized model to deepseek-v4-flash.
 export type ChatModel = 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface ChatMessage {
@@ -185,6 +189,13 @@ export interface ModelConfig {
 // Foundry. 256K context handles the full corpus injection without
 // truncation; OpenAI-compatible chat-completions schema; tool-use with
 // our discriminated-union schema verified.
+// 2026-05-06 — DeepSeek V4 Pro removed from the picker because the Azure
+// resource (`intelligence-aug-stage-resource`) only has V4 Flash deployed.
+// Selecting Pro previously caused chat calls to return Azure 404
+// `DeploymentNotFound` while the `#presentation` composer (which hardcoded
+// Flash via parsePresentationDirective default) silently kept working —
+// confusing the user about which model was actually running. The Pro entry
+// will be re-added when/if a Pro deployment is provisioned on Azure.
 export const AVAILABLE_MODELS: ModelConfig[] = [
     {
         id: 'deepseek-v4-flash',
@@ -198,17 +209,6 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         // 256K tokens × ~4 chars/tok = ~1MB chars. We cap at 900KB for
         // headroom (system prompt + uploads + wiki menu + history all
         // share the budget).
-        maxCorpusChars: 900000,
-    },
-    {
-        id: 'deepseek-v4-pro',
-        name: 'DeepSeek V4 Pro',
-        provider: 'deepseek',
-        description: 'Premium tier. Available once Azure deployment serves Pro alongside Flash. Same 256K context, deeper reasoning.',
-        contextWindow: '256K tokens',
-        strengths: 'Deeper reasoning, structured output, premium-tier latency',
-        color: '#CC6644',
-        available: true,
         maxCorpusChars: 900000,
     },
 ];

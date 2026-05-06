@@ -122,16 +122,19 @@ function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined 
 }
 
 function parseModel(raw: string | undefined): ComposerModelChoice {
-  // 2026-05-05 — Default to deepseek-v4-flash. Verified against the live
-  // Azure deployment: 256K context, OpenAI-compatible tool-use,
-  // discriminated-union schema accepted, per-kind data populated correctly.
-  // Aliases:
-  //   #model=deepseek / #model=v4 / #model=flash → deepseek-v4-flash
-  //   #model=pro / #model=v4pro                  → deepseek-v4-pro
+  // 2026-05-06 — V4 Pro is not deployed on the Azure resource
+  // (intelligence-aug-stage-resource); only V4 Flash is. Until a Pro
+  // deployment exists, every #model alias resolves to flash. Pro aliases
+  // are kept as redirects so existing message templates that include
+  // "#model=pro" don't error — they just route to Flash transparently.
+  // When Pro is provisioned, restore the Pro mapping below.
   if (!raw) return 'deepseek-v4-flash';
   const v = raw.toLowerCase().replace(/[^a-z0-9.]/g, '');
+  // All recognized values currently map to flash. Pro aliases preserved
+  // for forward-compat — change the right-hand side back to
+  // 'deepseek-v4-pro' when the Azure deployment is ready.
   if (v === 'pro' || v === 'v4pro' || v === 'deepseekv4pro' || v === 'deepseek-v4-pro') {
-    return 'deepseek-v4-pro';
+    return 'deepseek-v4-flash';
   }
   if (v === 'deepseek' || v === 'v4' || v === 'flash' || v === 'deepseekv4flash' || v === 'deepseek-v4-flash') {
     return 'deepseek-v4-flash';
