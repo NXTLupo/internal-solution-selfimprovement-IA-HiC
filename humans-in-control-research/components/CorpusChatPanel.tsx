@@ -1333,105 +1333,36 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     },
                 } : m));
 
-                // 2026-05-06 — #export-pptx flag honored via the presentation
-                // renderer's native domToPptx pipeline (Phase 3). Primary path:
-                // open the renderer URL in a new window, wait for its
-                // `ready` postMessage, then ask it to export. The renderer
-                // walks each section's live DOM and POSTs RenderSpec[][] to
-                // /api/export-pptx — the resulting PPTX has native editable
-                // shapes that match the interactive layout.
+                // 2026-05-06 — #export-pptx flag honored via the bespoke
+                // brand-aware deck exporter. Each presentation section gets a
+                // hand-crafted pptxgenjs layout that mirrors the interactive
+                // renderer's design language (eyebrow + display title +
+                // brand-period accent + per-section card grids) — fully
+                // editable native PowerPoint shapes, no DOM screenshots, no
+                // template constraints, NU vs NXT styled correctly.
                 //
-                // Fallback path (kept for resilience): if the renderer doesn't
-                // signal ready within 30s (e.g., popup blocked, unreachable),
-                // fall through to the structural payload-to-PPTX exporter so
-                // the user still gets *something*.
-                if (presDirective.alsoExportPptx && persistData.url) {
-                    setMessages(prev => prev.map(m => m.id === composingMsgId ? {
-                        ...m,
-                        content: finalContent + `\n\nOpening presentation renderer to export PPTX (one editable slide per section)…`,
-                    } : m));
-
-                    let renderedViaRenderer = false;
+                // The renderer-side "Export PPTX" button at port 5014 still
+                // exists as an alternative for users who want a verbatim DOM
+                // walk; the chat path uses the cleaner deck export by default.
+                if (presDirective.alsoExportPptx) {
                     try {
-                        // Open the renderer in a new window. Browsers normally
-                        // block popups unless this is on a fresh user-gesture
-                        // tick; the user just clicked Send so we're inside the
-                        // gesture window.
-                        const exportWin = window.open(persistData.url, '_blank');
-
-                        if (exportWin) {
-                            // Wait for the renderer to signal readiness, then
-                            // send the export command. 30s timeout.
-                            renderedViaRenderer = await new Promise<boolean>((resolve) => {
-                                const READY_TYPE = 'nxt:presentation:ready';
-                                const EXPORT_TYPE = 'nxt:presentation:export-pptx';
-                                let done = false;
-                                const cleanup = (ok: boolean) => {
-                                    if (done) return;
-                                    done = true;
-                                    window.removeEventListener('message', onMsg);
-                                    window.clearTimeout(timer);
-                                    resolve(ok);
-                                };
-                                const onMsg = (ev: MessageEvent) => {
-                                    if (!ev.data || typeof ev.data !== 'object') return;
-                                    if (ev.data.type === READY_TYPE) {
-                                        try {
-                                            exportWin.postMessage({ type: EXPORT_TYPE }, '*');
-                                        } catch (postErr) {
-                                            console.warn('[#export-pptx] postMessage to renderer failed:', postErr);
-                                            cleanup(false);
-                                        }
-                                        // Renderer will trigger its own download. Give it
-                                        // up to 90s to complete (presentations can be long).
-                                        window.clearTimeout(timer);
-                                        const downloadTimer = window.setTimeout(() => cleanup(true), 90_000);
-                                        // We treat ready+post as success; the actual download
-                                        // happens in the renderer window. User will see the
-                                        // file appear regardless of how long it takes.
-                                        // 5s after ready is enough for renderer to start.
-                                        window.setTimeout(() => { window.clearTimeout(downloadTimer); cleanup(true); }, 5000);
-                                    }
-                                };
-                                window.addEventListener('message', onMsg);
-                                const timer = window.setTimeout(() => cleanup(false), 30_000);
-                            });
-                        } else {
-                            console.warn('[#export-pptx] window.open returned null — popup may be blocked');
-                        }
-                    } catch (rendererErr: unknown) {
-                        console.warn('[#export-pptx] renderer-driven export failed:', rendererErr);
-                    }
-
-                    if (renderedViaRenderer) {
                         setMessages(prev => prev.map(m => m.id === composingMsgId ? {
                             ...m,
-                            content: finalContent + `\n\nPPTX export triggered in the presentation window — your browser will download "${composeResult.payload.meta.title || 'presentation'}.pptx" momentarily. Native editable shapes, one slide per section.`,
+                            content: finalContent + `\n\nExporting brand-styled .pptx deck (one elegant slide per section)…`,
                         } : m));
-                    } else {
-                        // Fallback: structural payload-to-PPTX exporter. Lower
-                        // visual fidelity (uses pptxgenjs + payload data, not
-                        // the rendered DOM) but always works without depending
-                        // on the renderer window. Better than nothing.
-                        try {
-                            setMessages(prev => prev.map(m => m.id === composingMsgId ? {
-                                ...m,
-                                content: finalContent + `\n\nRenderer-driven export unavailable (popup blocked or renderer unreachable). Falling back to structural PPTX export…`,
-                            } : m));
-                            const { exportPresentationToPptx: structuralExport } = await import('../services/presentationToPptx');
-                            await structuralExport(composeResult.payload);
-                            setMessages(prev => prev.map(m => m.id === composingMsgId ? {
-                                ...m,
-                                content: finalContent + `\n\nFallback structural PPTX downloaded (lower visual fidelity than the renderer-driven path; for the visually exact deck, click "Launch ↗" then use the Export PPTX button at the bottom of the presentation).`,
-                            } : m));
-                        } catch (fallbackErr: unknown) {
-                            const errMsg = fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr);
-                            console.error('[#export-pptx] fallback also failed:', fallbackErr);
-                            setMessages(prev => prev.map(m => m.id === composingMsgId ? {
-                                ...m,
-                                content: finalContent + `\n\nPPTX export failed: ${errMsg}. The interactive presentation above is still usable; click "Launch ↗" and use the in-renderer Export PPTX button as a manual workaround.`,
-                            } : m));
-                        }
+                        const { exportPresentationToPptx } = await import('../services/presentationToPptx');
+                        await exportPresentationToPptx(composeResult.payload);
+                        setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                            ...m,
+                            content: finalContent + `\n\nMatching .pptx deck downloaded — ${composeResult.payload.sections.length} slides, brand=${composeResult.payload.meta.brand}, fully editable in PowerPoint.`,
+                        } : m));
+                    } catch (pptxErr: unknown) {
+                        const errMsg = pptxErr instanceof Error ? pptxErr.message : String(pptxErr);
+                        console.error('[#export-pptx] failed:', pptxErr);
+                        setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                            ...m,
+                            content: finalContent + `\n\nPPTX export failed: ${errMsg}. The interactive presentation above is still usable; click "Launch ↗" and use the in-renderer Export PPTX button as an alternative.`,
+                        } : m));
                     }
                 }
             } catch (e: unknown) {
