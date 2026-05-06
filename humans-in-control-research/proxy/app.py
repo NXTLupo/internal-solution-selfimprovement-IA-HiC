@@ -3933,6 +3933,14 @@ def _get_wiki_index_cached(summary_len: int = 200, force_rebuild: bool = False) 
     """Return the cached wiki index, rebuilding if TTL expired, forced, or
     any file under the archive has changed since the last build."""
     global _WIKI_INDEX_CACHE
+    # 2026-05-06 — Defensive: the goal-regrade endpoint busts the cache by
+    # assigning `_WIKI_INDEX_CACHE = None` (line ~5707). On the next call,
+    # the original code did `_WIKI_INDEX_CACHE.get('built_at', 0.0)` which
+    # crashed with "NoneType has no attribute 'get'", surfacing as HTTP 500
+    # on /api/wiki/fetch-articles. Treat None / non-dict cache values as
+    # "no cache, rebuild from scratch" so the regrade bust path is safe.
+    if not isinstance(_WIKI_INDEX_CACHE, dict):
+        _WIKI_INDEX_CACHE = {}
     now = _now_wiki_index()
     age = now - _WIKI_INDEX_CACHE.get('built_at', 0.0)
     if not force_rebuild and age < _WIKI_INDEX_TTL_SEC and _WIKI_INDEX_CACHE.get('entries'):
@@ -5700,11 +5708,15 @@ async def wiki_regrade_relevance(payload: dict):
                 errors += 1
 
     # If we wrote anything, bust the wiki index cache so subsequent reads
-    # see the new relevance fields.
+    # see the new relevance fields. 2026-05-06 — Use empty dict instead of
+    # None so the next _get_wiki_index_cached() call doesn't crash on
+    # `.get('built_at', 0.0)` (caused HTTP 500 on /api/wiki/fetch-articles
+    # for the rest of the session). The cached() helper now also guards
+    # against non-dict values, so this is belt-and-suspenders.
     if graded and not dry_run:
         global _WIKI_INDEX_CACHE
         try:
-            _WIKI_INDEX_CACHE = None
+            _WIKI_INDEX_CACHE = {}
         except Exception:
             pass
 
