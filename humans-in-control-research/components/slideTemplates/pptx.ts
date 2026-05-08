@@ -30,26 +30,58 @@ function heroPt(value: string, max = 56, min = 28, baseChars = 4): number {
     const shrinkPerChar = (max - min) / 14;
     return Math.max(min, Math.min(max, Math.round(max - (v.length - baseChars) * shrinkPerChar)));
 }
+/** Truncate WITHOUT ever appending an ellipsis. Mirrors web.tsx::truncate.
+ *  Looks forward up to 2× max for next sentence end, else backward to last
+ *  sentence end, else to last clause boundary (period — not ellipsis), else
+ *  drops trailing fragment at last word boundary. */
 function truncate(text: string | undefined, max: number): string {
     if (!text) return '';
-    if (text.length <= max) return text;
-    return text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
+    const t = text.trim();
+    if (t.length <= max) return t;
+
+    const lookAhead = Math.min(t.length, Math.round(max * 2));
+    const fwdRest = t.substring(0, lookAhead).substring(max);
+    const fwdMatch = fwdRest.search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) return t.substring(0, max + fwdMatch + 1).trim();
+
+    const slice = t.substring(0, max);
+    let best = -1;
+    for (let i = slice.length - 1; i >= 0; i--) {
+        const c = slice[i];
+        if ((c === '.' || c === '!' || c === '?') && (i === slice.length - 1 || /\s/.test(slice[i + 1]))) {
+            best = i + 1;
+            break;
+        }
+    }
+    if (best > max * 0.3) return slice.substring(0, best).trim();
+
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > max * 0.5) return slice.substring(0, lastClause).trim() + '.';
+
+    const lastSpace = slice.lastIndexOf(' ');
+    if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
+    return slice.trim();
 }
 
-/** Smart quote truncation — no mid-clause cuts. Mirrors web.tsx's smartQuoteClip.
- *  Prefers sentence boundaries, then clause, then word. Tolerates 1.3× soft max. */
+/** Smart quote truncation — no mid-clause cuts, NO ellipsis. Mirrors web.tsx::smartQuoteClip. */
 function smartQuoteClip(text: string, maxChars: number): string {
     if (!text) return '';
     const t = text.trim();
     if (t.length <= maxChars) return t;
-    const hardMax = Math.round(maxChars * 1.3);
-    const slice = t.slice(0, hardMax);
+    const hardMax = Math.round(maxChars * 1.5);
+
+    const fwdSlice = t.slice(0, Math.min(hardMax, t.length));
+    const fwdRest = fwdSlice.substring(maxChars);
+    const fwdMatch = fwdRest.search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) return t.slice(0, maxChars + fwdMatch + 1).trim();
+
+    const slice = fwdSlice;
     const lastSentence = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
     if (lastSentence > maxChars * 0.5) return t.slice(0, lastSentence + 1).trim();
     const lastClause = slice.lastIndexOf(', ');
     if (lastClause > maxChars * 0.6) return t.slice(0, lastClause).trim() + '.';
     const lastSpace = slice.lastIndexOf(' ');
-    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim() + '…';
+    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim();
 }
 
 /** Clean a quote object — runs the transcript cleaner for transcript-sourced
@@ -203,7 +235,7 @@ async function exportPersona(s: any, slideTitle: string, data: PersonaCardData, 
         return (lines * fontPt * lineMul) / 72 + 0.06;
     };
     // Truncate to fit a max character budget (keeps quote readable but bounded)
-    const trunc = (text: string, max: number) => text.length <= max ? text : text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
+    const trunc = (text: string, max: number) => truncate(text, max);
 
     let y = 0.32;
 

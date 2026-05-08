@@ -87,11 +87,52 @@ export function heroNumberSize(value: string, opts?: { max?: number; min?: numbe
     return Math.max(min, Math.min(max, size));
 }
 
-// Truncate text to a character budget with an ellipsis, preserving word boundaries.
+/**
+ * Truncate text WITHOUT ever appending an ellipsis ("..." or "…") and
+ * WITHOUT cutting mid-sentence. Strategy:
+ *   1. If text fits, return verbatim.
+ *   2. Look FORWARD up to 2× max for the next sentence end — if found,
+ *      return the full thought. A 90-char sentence that needed budget
+ *      120 finishes cleanly instead of being chopped.
+ *   3. Look BACKWARD inside max for the most recent sentence end at
+ *      ≥ 30% of budget — use that.
+ *   4. Look BACKWARD for the most recent clause boundary (comma + space)
+ *      at ≥ 50% — end there with a period (NOT an ellipsis).
+ *   5. Last resort: drop the trailing fragment at the last word boundary.
+ *      NO ellipsis is ever emitted — ellipsis hides valuable information.
+ */
 export function truncate(text: string | undefined, max: number): string {
     if (!text) return '';
-    if (text.length <= max) return text;
-    return text.substring(0, max - 1).replace(/\s+\S*$/, '') + '…';
+    const t = text.trim();
+    if (t.length <= max) return t;
+
+    // 1. Look forward up to 2× max for next sentence end (preserve full thought)
+    const lookAhead = Math.min(t.length, Math.round(max * 2));
+    const fwdSlice = t.substring(0, lookAhead);
+    const fwdRest = fwdSlice.substring(max);
+    const fwdMatch = fwdRest.search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) return t.substring(0, max + fwdMatch + 1).trim();
+
+    // 2. Backward sentence end inside budget
+    const slice = t.substring(0, max);
+    let best = -1;
+    for (let i = slice.length - 1; i >= 0; i--) {
+        const c = slice[i];
+        if ((c === '.' || c === '!' || c === '?') && (i === slice.length - 1 || /\s/.test(slice[i + 1]))) {
+            best = i + 1;
+            break;
+        }
+    }
+    if (best > max * 0.3) return slice.substring(0, best).trim();
+
+    // 3. Backward clause boundary, end with period (no ellipsis)
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > max * 0.5) return slice.substring(0, lastClause).trim() + '.';
+
+    // 4. Last resort: word boundary, NO ellipsis
+    const lastSpace = slice.lastIndexOf(' ');
+    if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
+    return slice.trim();
 }
 
 // === MICRO-PRIMITIVES ===
@@ -124,28 +165,38 @@ const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources,
 interface QuoteLike { text: string; source?: string; attribution?: string; date?: string; role?: string; }
 
 /**
- * Smart quote truncation — NEVER cut mid-clause. Prefer sentence boundaries,
- * then clause boundaries (comma), then word boundaries. A quote that exceeds
- * the soft maxChars but ends cleanly at a sentence is preferred over a hard
- * truncation with "..." ellipsis. Returns the cleanest full-sentence chunk
- * that fits within ~1.3× the soft max.
+ * Smart quote truncation — NEVER cut mid-clause and NEVER append ellipsis.
+ * Strategy:
+ *   1. If quote fits, return verbatim.
+ *   2. Look forward up to 1.5× for the next sentence end (preserve full thought).
+ *   3. Look backward for the most recent sentence end inside hardMax.
+ *   4. Fall back to last clause boundary (comma) ending with a period.
+ *   5. Last resort: drop trailing fragment at last word boundary, no ellipsis.
  */
 function smartQuoteClip(text: string, maxChars: number): string {
     if (!text) return '';
     const t = text.trim();
     if (t.length <= maxChars) return t;
-    const hardMax = Math.round(maxChars * 1.3);
-    // Try cutting at the last sentence boundary before hardMax.
-    const slice = t.slice(0, hardMax);
+    const hardMax = Math.round(maxChars * 1.5);
+
+    // Look forward for the next sentence end past maxChars
+    const fwdSlice = t.slice(0, Math.min(hardMax, t.length));
+    const fwdRest = fwdSlice.substring(maxChars);
+    const fwdMatch = fwdRest.search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) return t.slice(0, maxChars + fwdMatch + 1).trim();
+
+    // Backward sentence end inside hardMax
+    const slice = fwdSlice;
     const lastSentence = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
     if (lastSentence > maxChars * 0.5) return t.slice(0, lastSentence + 1).trim();
-    // No sentence boundary — fall back to last comma/clause before maxChars.
+
+    // Backward clause boundary — end with period, no ellipsis
     const lastClause = slice.lastIndexOf(', ');
     if (lastClause > maxChars * 0.6) return t.slice(0, lastClause).trim() + '.';
-    // Last resort — cut at word boundary with ellipsis. The slidePostProcessor
-    // warns when this happens; it means the source had no natural break.
+
+    // Last resort: drop trailing fragment at last word boundary, NO ellipsis
     const lastSpace = slice.lastIndexOf(' ');
-    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim() + '…';
+    return (lastSpace > 0 ? t.slice(0, lastSpace) : slice).trim();
 }
 
 /** Clean a single quote if it came from a transcript source. Returns the
@@ -265,7 +316,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                     <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: hex(T.RED), marginBottom: 4 }}>PAIN POINTS</div>
                     {p.painPoints.slice(0, hasImage ? 2 : 3).map((pp, i) => (
                         <div key={i} style={{ fontSize: hasImage ? 9 : 10, color: hex(T.BODY), marginBottom: 5, paddingLeft: 10, borderLeft: `2px solid ${hex(T.RULE)}`, lineHeight: 1.4 }}>
-                            <strong style={{ color: hex(T.INK) }}>{pp.label}:</strong> "{pp.quote.length > 140 ? pp.quote.substring(0, 139).replace(/\s+\S*$/, '') + '…' : pp.quote}" <span style={{ fontSize: 8, color: hex(T.MUTED) }}>({pp.source})</span>
+                            <strong style={{ color: hex(T.INK) }}>{pp.label}:</strong> "{truncate(pp.quote, 140)}" <span style={{ fontSize: 8, color: hex(T.MUTED) }}>({pp.source})</span>
                         </div>
                     ))}
                 </div>
@@ -275,7 +326,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                     <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: hex(T.GREEN), marginBottom: 4 }}>MOTIVATIONS</div>
                     {p.motivations.slice(0, hasImage ? 2 : 3).map((m, i) => (
                         <div key={i} style={{ fontSize: hasImage ? 9 : 10, color: hex(T.BODY), marginBottom: 5, paddingLeft: 10, borderLeft: `2px solid ${hex(T.RULE)}`, lineHeight: 1.4 }}>
-                            <strong style={{ color: hex(T.INK) }}>{m.label}:</strong> "{m.quote.length > 140 ? m.quote.substring(0, 139).replace(/\s+\S*$/, '') + '…' : m.quote}" <span style={{ fontSize: 8, color: hex(T.MUTED) }}>({m.source})</span>
+                            <strong style={{ color: hex(T.INK) }}>{m.label}:</strong> "{truncate(m.quote, 140)}" <span style={{ fontSize: 8, color: hex(T.MUTED) }}>({m.source})</span>
                         </div>
                     ))}
                 </div>
@@ -339,7 +390,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                         ].map(c => (
                             <div key={c.k} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                                 <div style={{ fontSize: 7, letterSpacing: '2px', color: hex(c.color), fontWeight: 800, textTransform: 'uppercase' as const }}>{c.k}</div>
-                                <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.3, fontWeight: 700 }}>{c.v ? truncate(c.v, 60) : '—'}</div>
+                                <div style={{ fontSize: 11, color: hex(T.INK), lineHeight: 1.3, fontWeight: 700 }}>{c.v ? truncate(c.v, 110) : '—'}</div>
                             </div>
                         ))}
                     </div>

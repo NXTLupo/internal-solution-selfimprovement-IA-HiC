@@ -120,6 +120,11 @@ export async function getEnhancedFrameworkPrompt(
     // Only the Strategy Deck produces slides.
     const isSlideProducing = outputType === 'STRATEGY_DECK';
     const designPrefix = isSlideProducing ? UNIVERSAL_SLIDE_DESIGN_SYSTEM : '';
+    // 2026-05-08 — UNIVERSAL_TONE_RULES is prepended to EVERY deliverable
+    // (slide-producing or not) so personas, recommendations, PRDs, journeys,
+    // blueprints, gap analyses, etc. all inherit the balanced-framing,
+    // opportunity-led, no-catastrophizing tone discipline.
+    const tonePrefix = UNIVERSAL_TONE_RULES;
 
     // Load Agent Skill (domain expertise from .claude/skills/)
     const skillPrompt = await loadSkillPrompt(outputType as string);
@@ -129,14 +134,14 @@ export async function getEnhancedFrameworkPrompt(
         const wikiEnhanced = assembleEnhancedPrompt(staticPrompt, context);
         // Skill prompt takes priority — it contains the latest methodology and anti-patterns
         const combined = skillPrompt
-            ? `${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${wikiEnhanced}`
-            : `${designPrefix}${wikiEnhanced}`;
+            ? `${tonePrefix}${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${wikiEnhanced}`
+            : `${tonePrefix}${designPrefix}${wikiEnhanced}`;
         return combined;
     } catch (err) {
         console.warn('[DeliverableFrameworks] Wiki unavailable, using skill + static:', err);
         return skillPrompt
-            ? `${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${staticPrompt}`
-            : `${designPrefix}${staticPrompt}`;
+            ? `${tonePrefix}${designPrefix}\n=== AGENT SKILL INSTRUCTIONS ===\n${skillPrompt}\n=== END SKILL ===\n\n${staticPrompt}`
+            : `${tonePrefix}${designPrefix}${staticPrompt}`;
     }
 }
 
@@ -155,6 +160,45 @@ const OUTPUT_TYPE_TO_FRAMEWORK_KEY: Record<string, string> = {
     'TECH_AUDIT': 'TECH_AUDIT',
     'COMPETITIVE_ANALYSIS': 'COMPETITIVE_ANALYSIS',
 };
+
+// ============================================================
+// UNIVERSAL TONE RULES
+// Injected into every deliverable prompt (slides, decks, personas,
+// recommendations, PRDs, journeys, blueprints, themes, gap analyses,
+// competitive analyses, tech audits). Rewritten 2026-05-08 to fix
+// the deficit-only / catastrophizing tone that DeepSeek produced
+// when given Rumelt's diagnosis-first framework without balance.
+// ============================================================
+export const UNIVERSAL_TONE_RULES = `
+=== UNIVERSAL TONE RULES (apply to every output field, every deliverable) ===
+
+1. BALANCED FRAMING — every named gap MUST sit alongside the asset, capacity, or progress that already exists. Pair the problem with what is working.
+   GOOD: "Co-op advising capacity is strained even as employer demand has grown 40%."
+   GOOD: "First-year readiness data is fragmented across three systems, though the underlying records exist for every student."
+   BAD:  "Students are abandoned without advisors."
+   BAD:  "The advising system is broken."
+
+2. NO CATASTROPHIZING VERBS used metaphorically. The following words are FORBIDDEN as metaphors for organizational, process, or technology issues: "broken", "failing", "trapped", "crisis", "abandoned", "drowning", "starved", "bleeding", "hemorrhaging", "imploding", "collapsing", "dying", "suffocating", "paralyzed". They may be used only when literally accurate (e.g. "the API returned a 500 — the endpoint is failing"). Replace metaphoric uses with descriptive precision: "advising capacity has not kept pace with enrollment growth" instead of "advising is collapsing."
+
+3. PRAGMATIC ACTION VERBS in recommendations. Every recommendation MUST use forward-motion verbs that build on what exists:
+   USE: "expand", "strengthen", "build on", "redirect", "accelerate", "extend", "deepen", "consolidate", "refine", "scale", "sequence", "align", "integrate", "automate", "instrument", "formalize"
+   AVOID: "fix", "rescue", "rebuild from scratch", "overhaul", "reinvent", "salvage", "save", "repair"
+
+4. OPPORTUNITY LANGUAGE in closing slides and CTAs. The closing of any deliverable describes the upside unlocked by acting, not the harm caused by inaction. Frame next steps as commitments to a specific gain, with named owners and dates.
+   GOOD closing line: "Launch the Fall 2026 readiness pilot. Owner: CLR Leadership. Outcome: every first-year enters orientation with a validated career-readiness profile."
+   BAD closing line: "Without action, students will continue to fall through the cracks."
+
+5. RUMELT DIAGNOSIS, OPPORTUNITY-LED. A real, specifically-named problem MUST still be diagnosed (Rumelt discipline preserved). But every section's lead sentence describes the OPPORTUNITY UNLOCKED BY ADDRESSING THAT PROBLEM, not the harm of ignoring it. The diagnosis comes second, as evidence that the opportunity is real and the path is specific.
+   GOOD section lead: "A unified first-year readiness signal turns admissions data into early career-prep velocity. Today the signals exist in three systems with no shared key, so advisors operate without baseline visibility."
+   BAD section lead: "Advisors are flying blind. Students are suffering."
+
+6. NO HYPERBOLE, JARGON, OR METAPHORS. Already enforced by the slop blacklist, restated here for prompt-layer clarity:
+   - No business jargon (paradigm shift, leverage, synergies, robust, seamless, holistic, best-in-class, world-class, value proposition, core competency, mission-critical, north star, deep dive, double down, future-proof, flywheel)
+   - No metaphors (tip of the iceberg, low-hanging fruit, move the needle, boil the ocean, wheelhouse, sea change, sweet spot, unlock potential, navigate the landscape)
+   - No hyperbole (revolutionary, groundbreaking, transformative, unprecedented, unparalleled, industry-leading, state-of-the-art, bleeding-edge, massive opportunity)
+   - Plain, descriptive, professional prose. Specific nouns. Concrete numbers. Verbs that name actions.
+=== END UNIVERSAL TONE RULES ===
+`;
 
 // ============================================================
 // UNIVERSAL PRESENTATION DESIGN SYSTEM
@@ -380,10 +424,17 @@ NEVER reference the presentation's own structure. These are BANNED:
 "Good morning" | "Welcome to" | "Thank you for being here"
 A consultant NEVER announces the framework. Present the content directly.
 
-ANTI-SLOP ENFORCEMENT:
-- NEVER use: "paradigm shift", "game-changer", "holistic approach", "cutting-edge", "best-in-class"
+ANTI-SLOP ENFORCEMENT (every deliverable, every field):
+- NEVER use jargon/buzzwords: "paradigm shift", "game-changer", "holistic approach", "cutting-edge", "best-in-class", "world-class", "leverage", "synergies", "robust", "seamless", "turnkey", "end-to-end", "thought leadership", "value proposition", "core competency", "mission-critical", "actionable insights", "north star", "circle back", "deep dive", "double down", "future-proof", "flywheel".
+- NEVER use metaphors: "tip of the iceberg", "low-hanging fruit", "move the needle", "boil the ocean", "wheelhouse", "sea change", "tipping point", "sweet spot", "unlock potential", "unleash the power", "navigate the landscape".
+- NEVER use hyperbole: "revolutionary", "groundbreaking", "transformative", "unprecedented", "unparalleled", "industry-leading", "state-of-the-art", "bleeding-edge", "next-level", "massive opportunity".
+- NEVER use AI-slop preambles: "in today's rapidly evolving landscape", "in the ever-evolving", "as we navigate", "as we move forward", "it's important to note", "it's worth noting", "needless to say", "at the end of the day", "the reality is", "the fact of the matter", "ultimately", "essentially", "fundamentally", "in essence".
+- NEVER use FORBIDDEN PUNCTUATION: en-dashes (–) are banned everywhere. Use a regular hyphen (-) for compound modifiers, "to" for ranges ("1990 to 2000"), and a period to end a sentence. Em-dashes (—) are permitted sparingly only when no other punctuation works.
+- NEVER use ELLIPSIS in deliverable text. Do not write "..." or "…" to trail off — finish the sentence. If a quote must be shortened, end it with a period at the last clean clause boundary.
+- NEVER fabricate personal names in persona titles. Persona "name" must be a descriptive archetype TITLE (adjective + role/posture noun), e.g., "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Risk-Averse Compliance Lead". Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder".
 - LEAD with the insight. First sentence = the finding with a number.
 - Every slide bullet must cite its source. No uncited claims.
+- Write descriptive, concise, professional prose. Specific nouns. Concrete numbers. Verbs that name actions. Cut every word that does not carry information.
 
 PLAIN TEXT ONLY — NO MARKDOWN:
 - NEVER output **bold**, *italic*, # headers, or any markdown syntax in any field.

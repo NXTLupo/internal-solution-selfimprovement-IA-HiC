@@ -538,7 +538,7 @@ export const PRESENTATION_PAYLOAD_JSONSCHEMA = {
 export const NARRATIVE_TOOLS: ToolDefinition[] = [
   {
     name: 'search_corpus',
-    description: `Semantic search across the research corpus. Returns ranked passages with citations. Use scope to control which sources are searched: 'external_only' for third-party authority, 'uploaded_only' for client-doc grounding, 'both' for balanced retrieval. Prefer specific queries (5-10 words, named entities) over broad ones.`,
+    description: `Semantic search across the research corpus. Returns ranked passages with citations. Use scope to control which sources are searched: 'external_only' for third-party authority, 'uploaded_only' for client-doc grounding, 'both' for balanced retrieval. When the user has named a specific document or source ("only use X.docx", "from the X transcripts only", "X as the source of content"), pass that name in source_name to restrict results to that source ONLY. Prefer specific queries (5-10 words, named entities) over broad ones.`,
     input_schema: {
       type: 'object',
       properties: {
@@ -549,7 +549,11 @@ export const NARRATIVE_TOOLS: ToolDefinition[] = [
         scope: {
           type: 'string',
           enum: ['external_only', 'uploaded_only', 'both'],
-          description: 'External research sources, client uploads, or both. Default to "both" unless you have a specific reason to constrain.',
+          description: 'External research sources, client uploads, or both. Default to "both" unless you have a specific reason to constrain. When the user names a single uploaded document, set scope=uploaded_only AND set source_name to the file name.',
+        },
+        source_name: {
+          type: 'string',
+          description: 'Substring match on source name or file name. Use this whenever the user has restricted the composition to a specific document or source ("only use Northeastern_CoOp_CLR_Executive_Summary.docx" → source_name: "Northeastern_CoOp_CLR_Executive_Summary"). When set, ONLY chunks from sources whose name contains this substring are returned. The user override is absolute: if the named source has no material on the requested theme, return zero results rather than supplementing.',
         },
         engagement_goal: {
           type: 'string',
@@ -676,6 +680,10 @@ export type ToolName = typeof NARRATIVE_TOOLS[number]['name'];
 export interface SearchCorpusInput {
   query: string;
   scope: 'external_only' | 'uploaded_only' | 'both';
+  /** Substring match on source name. When set, ONLY chunks from sources
+   *  whose name contains this substring are returned. Used when the user
+   *  has restricted the composition to a specific document or source. */
+  source_name?: string;
   engagement_goal?: string;
   limit?: number;
 }

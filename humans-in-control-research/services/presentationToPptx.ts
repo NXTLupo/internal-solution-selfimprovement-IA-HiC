@@ -64,10 +64,36 @@ const FONT = 'Archivo';
 const MONO = 'JetBrains Mono';
 
 // --- Text helpers ---
+/** Clip text without ever appending an ellipsis. Looks forward 2× for next
+ *  sentence end, else backward to last sentence end, else clause boundary
+ *  (period — not ellipsis), else drops trailing fragment at last word. */
 function clip(s: string | undefined | null, max: number): string {
     if (!s) return '';
     const t = String(s).trim();
-    return t.length > max ? t.substring(0, max - 1) + '…' : t;
+    if (t.length <= max) return t;
+
+    const lookAhead = Math.min(t.length, Math.round(max * 2));
+    const fwdRest = t.substring(0, lookAhead).substring(max);
+    const fwdMatch = fwdRest.search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) return t.substring(0, max + fwdMatch + 1).trim();
+
+    const slice = t.substring(0, max);
+    let best = -1;
+    for (let i = slice.length - 1; i >= 0; i--) {
+        const c = slice[i];
+        if ((c === '.' || c === '!' || c === '?') && (i === slice.length - 1 || /\s/.test(slice[i + 1]))) {
+            best = i + 1;
+            break;
+        }
+    }
+    if (best > max * 0.3) return slice.substring(0, best).trim();
+
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > max * 0.5) return slice.substring(0, lastClause).trim() + '.';
+
+    const lastSpace = slice.lastIndexOf(' ');
+    if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
+    return slice.trim();
 }
 
 function asArray<T>(v: T[] | undefined | null): T[] {

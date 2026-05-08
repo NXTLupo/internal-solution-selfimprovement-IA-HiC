@@ -28,6 +28,7 @@ import {
 import { wrapWithTracker } from './narrativeComposerExecutor';
 import { tryRepairJson } from './aiRouter';
 import { NARRATIVE_COMPOSER_PROMPT } from './prompts/narrativeComposerPrompt';
+import { UNIVERSAL_TONE_RULES } from './deliverableFrameworks';
 
 // ============================================================================
 // PUBLIC API
@@ -242,7 +243,7 @@ async function buildSystemPrompt(
   const modeHeader = buildModeHeader(modeContext.isPackageMode, modeContext.topicAnchor);
   const topicAnchorBlock = modeContext.topicAnchor || '(no prior conversation — fresh research request)';
 
-  return template
+  const filled = template
     .replace(/{{MODE_HEADER}}/g, modeHeader)
     .replace(/{{TOPIC_ANCHOR_BLOCK}}/g, topicAnchorBlock)
     .replace(/{{BRAND_NAME}}/g, request.brand === 'NU' ? 'Northeastern University Advancement' : 'NXT Humans')
@@ -259,6 +260,15 @@ async function buildSystemPrompt(
     .replace(/{{NXT_VISUAL_RENDERER_SKILL}}/g, stripFrontmatter(visualRenderer))
     .replace(/{{DECK_NARRATIVE_COMPOSER_SKILL}}/g, stripFrontmatter(deckNarrative))
     .replace(/{{OUTPUT_SCHEMA}}/g, getOutputSchemaText());
+
+  // 2026-05-08 — Prepend the universal tone rules. DeepSeek (current
+  // composer model) defaults to deficit-only / catastrophizing framing
+  // when given Rumelt's diagnosis-first structure. The tone block at the
+  // very top of the prompt forces balanced framing, opportunity-led
+  // section leads, pragmatic action verbs, and bans catastrophizing
+  // metaphors. The composer's existing Rumelt + Minto discipline is
+  // preserved underneath.
+  return `${UNIVERSAL_TONE_RULES}\n\n${filled}`;
 }
 
 function buildModeHeader(isPackageMode: boolean, topicAnchor: string | null): string {
@@ -447,7 +457,13 @@ const DEEPSEEK_PROXY_URL = 'http://localhost:5012/api/ai/deepseek';
 // mode in the 20-tool-call run that emitted a meta-less payload.
 const COMPOSER_MAX_ITERATIONS = 8;
 const COMPOSER_MAX_TOKENS = 16000;
-const COMPOSER_REQUEST_TIMEOUT_MS = 180_000;
+// 2026-05-08 — Bumped from 180s → 420s (7 min). The per-call AbortSignal
+// fired during submit_presentation on heavy composes (7-slide payload with
+// strict source-restriction directives + UNIVERSAL_TONE_RULES + USER
+// OVERRIDE block). The proxy itself waits 600s for DeepSeek; only the
+// browser-side timeout was binding. 420s gives the model room to compose
+// large strict-constraint payloads in one shot without aborting.
+const COMPOSER_REQUEST_TIMEOUT_MS = 420_000;
 // Force submit at iter 5 in research mode (was 8). Combined with MAX=8 this
 // guarantees at most 5 rounds of retrieval before the model is locked to
 // submit_presentation only. Package mode still force-converges at iter 2.

@@ -157,7 +157,9 @@ export const ChatWorkbench: React.FC<Props> = ({
 }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    const [selectedModel, setSelectedModel] = useState<ChatModel>('deepseek-v4-flash');
+    // 2026-05-07 — Default chat model is Gemini 3.1 Pro (promoted from DeepSeek
+    // V4 Flash; DeepSeek narratives were jargon-heavy AI-slop).
+    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [rightPanel, setRightPanel] = useState<'graph' | 'pins'>('graph');

@@ -556,9 +556,15 @@ const InlineArtifactPreview: React.FC<{
     const artifact = useDesignDeskStore(s => s.artifacts.find(a => a.id === artifactId));
     const setActiveArtifact = useDesignDeskStore(s => s.setActiveArtifact);
     const [tokens, setTokens] = useState<DesignTokens | null>(null);
+    const [tokensError, setTokensError] = useState<string | null>(null);
 
     useEffect(() => {
-        loadDesignMd('/DESIGN.md').then(r => setTokens(r.tokens)).catch(() => {});
+        loadDesignMd('/DESIGN.md')
+            .then(r => setTokens(r.tokens))
+            .catch((e: Error) => {
+                console.error('[InlineArtifactPreview] DESIGN.md failed to load:', e.message);
+                setTokensError(e.message);
+            });
     }, []);
 
     if (!artifact) {
@@ -569,6 +575,7 @@ const InlineArtifactPreview: React.FC<{
         console.warn(`[InlineArtifactPreview] Artifact NOT FOUND. Looking for id=${artifactId} (type=${artifactType}). Store currently has ${ids.length} ids:`, ids);
         return <div style={{ padding: 12, color: '#CC6644', fontSize: 12 }}>Artifact no longer in store (id={artifactId}).</div>;
     }
+    if (tokensError) return <div style={{ padding: 12, color: '#CC6644', fontSize: 12 }}>Design tokens failed to load: {tokensError}</div>;
     if (!tokens) return <div style={{ padding: 12, color: '#888', fontSize: 12 }}>Loading design tokens...</div>;
 
     const palette = (tokens.brands[artifact.brand] ?? {}) as Record<string, string>;
@@ -765,9 +772,10 @@ const ArtifactExportButtons: React.FC<{
 export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk }) => {
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
-    // 2026-05-05 — Default chat model is deepseek-v4-flash (Azure
-    // single-vendor primary). 256K context, tool-use verified.
-    const [selectedModel, setSelectedModel] = useState<ChatModel>('deepseek-v4-flash');
+    // 2026-05-07 — Default chat model promoted to Gemini 3.1 Pro. DeepSeek
+    // V4 Flash produced jargon-heavy AI-slop narratives; Gemini 3.1 Pro has
+    // 1M context and follows multi-step rules reliably with professional tone.
+    const [selectedModel, setSelectedModel] = useState<ChatModel>('gemini-3.1-pro-preview');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [maximized, setMaximized] = useState(false);
@@ -1482,7 +1490,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             userPrompt: parsed.cleanPrompt || query,
                             corpus: corpusText,
                             currentArtifact: null,
-                            model: selectedModel as any,
+                            // Freeform HTML artifacts (journey, blueprint, org, arch, roadmap)
+                            // require strict multi-step instruction following. DeepSeek V4 Flash
+                            // cannot reliably apply the permanent design rules in perKindGuidance().
+                            model: 'gemini-3.1-pro-preview',
                         });
                         if (ff.ok) {
                             useDesignDeskStore.getState().addArtifact(ff.artifact);

@@ -457,29 +457,187 @@ export function validateSlideDepth(slide: Slide): { score: number; missingLayers
  * Banned slop phrases that undermine credibility.
  * These are the corporate-speak equivalents of filler words —
  * they sound authoritative but communicate nothing.
+ *
+ * 2026-05-07 — Greatly expanded to attack the four user-named slop categories:
+ *   (a) jargon / buzzwords
+ *   (b) overused metaphors
+ *   (c) hyperbole / superlatives
+ *   (d) AI-generated narrative slop
+ * The replacement model (Gemini 3.1 Pro) produces cleaner prose than DeepSeek,
+ * but defense-in-depth still strips anything that slips through.
  */
 const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' }[] = [
-    // High severity: consultant cliches that destroy trust
+    // === (a) JARGON / CONSULTANT BUZZWORDS — high severity ===
     { phrase: 'paradigm shift', severity: 'high' },
     { phrase: 'game-changer', severity: 'high' },
+    { phrase: 'game changer', severity: 'high' },
     { phrase: 'holistic approach', severity: 'high' },
     { phrase: 'cutting-edge', severity: 'high' },
+    { phrase: 'cutting edge', severity: 'high' },
     { phrase: 'best-in-class', severity: 'high' },
+    { phrase: 'best in class', severity: 'high' },
+    { phrase: 'world-class', severity: 'high' },
+    { phrase: 'world class', severity: 'high' },
     { phrase: 'leverage synergies', severity: 'high' },
+    { phrase: 'leverage synergy', severity: 'high' },
+    { phrase: 'synergies', severity: 'high' },
     { phrase: 'robust solution', severity: 'high' },
+    { phrase: 'robust framework', severity: 'high' },
     { phrase: 'seamless integration', severity: 'high' },
-    { phrase: "in today's rapidly evolving landscape", severity: 'high' },
-    { phrase: "it's important to note", severity: 'high' },
+    { phrase: 'seamless experience', severity: 'high' },
+    { phrase: 'turnkey solution', severity: 'high' },
+    { phrase: 'end-to-end solution', severity: 'high' },
+    { phrase: 'value proposition', severity: 'high' },
+    { phrase: 'value-add', severity: 'high' },
+    { phrase: 'value add', severity: 'high' },
+    { phrase: 'core competency', severity: 'high' },
+    { phrase: 'core competencies', severity: 'high' },
+    { phrase: 'mission-critical', severity: 'high' },
+    { phrase: 'mission critical', severity: 'high' },
+    { phrase: 'thought leadership', severity: 'high' },
+    { phrase: 'thought leader', severity: 'high' },
     { phrase: 'actionable insights', severity: 'high' },
-    // Medium severity: hedge words and filler
+    { phrase: 'actionable insight', severity: 'medium' },
+    { phrase: 'strategic imperative', severity: 'high' },
+    { phrase: 'north star', severity: 'high' },
+    { phrase: 'force multiplier', severity: 'high' },
+    { phrase: 'circle back', severity: 'high' },
+    { phrase: 'deep dive', severity: 'medium' },
+    { phrase: 'double down', severity: 'high' },
+    { phrase: 'best practices', severity: 'medium' },
+    { phrase: 'next-gen', severity: 'high' },
+    { phrase: 'next generation', severity: 'medium' },
+    { phrase: 'future-proof', severity: 'high' },
+    { phrase: 'ecosystem play', severity: 'high' },
+    { phrase: 'platform play', severity: 'high' },
+    { phrase: 'flywheel', severity: 'high' },
+    { phrase: 'rockstar', severity: 'high' },
+    { phrase: 'ninja', severity: 'high' },
+    { phrase: 'guru', severity: 'high' },
+    { phrase: 'evangelist', severity: 'medium' },
+
+    // === (b) METAPHORS — high severity ===
+    { phrase: 'tip of the iceberg', severity: 'high' },
+    { phrase: 'low-hanging fruit', severity: 'high' },
+    { phrase: 'low hanging fruit', severity: 'high' },
+    { phrase: 'move the needle', severity: 'high' },
+    { phrase: 'moves the needle', severity: 'high' },
+    { phrase: 'moved the needle', severity: 'high' },
+    { phrase: 'boil the ocean', severity: 'high' },
+    { phrase: 'drink from the fire hose', severity: 'high' },
+    { phrase: 'drinking from the fire hose', severity: 'high' },
+    { phrase: 'eat your own dog food', severity: 'high' },
+    { phrase: 'dogfood', severity: 'high' },
+    { phrase: 'lift and shift', severity: 'high' },
+    { phrase: 'rip and replace', severity: 'high' },
+    { phrase: 'put a stake in the ground', severity: 'high' },
+    { phrase: 'plant a flag', severity: 'high' },
+    { phrase: 'wheelhouse', severity: 'high' },
+    { phrase: 'in their wheelhouse', severity: 'high' },
+    { phrase: 'level up', severity: 'medium' },
+    { phrase: 'level the playing field', severity: 'high' },
+    { phrase: 'rising tide lifts', severity: 'high' },
+    { phrase: 'iceberg', severity: 'medium' },
+    { phrase: 'sea change', severity: 'high' },
+    { phrase: 'tipping point', severity: 'medium' },
+    { phrase: 'sweet spot', severity: 'medium' },
+    { phrase: 'on the same page', severity: 'medium' },
+    { phrase: 'unlock the potential', severity: 'high' },
+    { phrase: 'unlock potential', severity: 'high' },
+    { phrase: 'unleash the power', severity: 'high' },
+    { phrase: 'unleashes the power', severity: 'high' },
+    { phrase: 'power of', severity: 'medium' },
+    { phrase: 'navigate the complexities', severity: 'high' },
+    { phrase: 'navigate the landscape', severity: 'high' },
+    { phrase: 'navigating the landscape', severity: 'high' },
+
+    // === (c) HYPERBOLE / SUPERLATIVES — high severity ===
+    { phrase: 'revolutionary', severity: 'high' },
+    { phrase: 'groundbreaking', severity: 'high' },
+    { phrase: 'transformative', severity: 'high' },
+    { phrase: 'transformational', severity: 'high' },
+    { phrase: 'unprecedented', severity: 'high' },
+    { phrase: 'unparalleled', severity: 'high' },
+    { phrase: 'unmatched', severity: 'high' },
+    { phrase: 'industry-leading', severity: 'high' },
+    { phrase: 'industry leading', severity: 'high' },
+    { phrase: 'market-leading', severity: 'high' },
+    { phrase: 'state-of-the-art', severity: 'high' },
+    { phrase: 'state of the art', severity: 'high' },
+    { phrase: 'bleeding edge', severity: 'high' },
+    { phrase: 'next-level', severity: 'high' },
+    { phrase: 'next level', severity: 'medium' },
+    { phrase: 'massive impact', severity: 'high' },
+    { phrase: 'massive opportunity', severity: 'high' },
+    { phrase: 'huge opportunity', severity: 'high' },
+    { phrase: 'enormous opportunity', severity: 'medium' },
+    { phrase: 'paradigm-shifting', severity: 'high' },
+
+    // === (d) AI-SLOP NARRATIVE PHRASES — high severity ===
+    { phrase: "in today's rapidly evolving landscape", severity: 'high' },
+    { phrase: "in today's rapidly changing", severity: 'high' },
+    { phrase: "in today's dynamic", severity: 'high' },
+    { phrase: "in today's competitive landscape", severity: 'high' },
+    { phrase: "in the ever-evolving", severity: 'high' },
+    { phrase: 'ever-evolving landscape', severity: 'high' },
+    { phrase: 'ever changing landscape', severity: 'high' },
+    { phrase: 'as we navigate', severity: 'high' },
+    { phrase: 'as we move forward', severity: 'high' },
+    { phrase: 'as we look to the future', severity: 'high' },
+    { phrase: 'on a go-forward basis', severity: 'high' },
+    { phrase: 'looking ahead', severity: 'medium' },
+    { phrase: "it's important to note", severity: 'high' },
+    { phrase: "it's worth noting", severity: 'high' },
+    { phrase: 'it should be noted', severity: 'high' },
+    { phrase: 'needless to say', severity: 'high' },
+    { phrase: 'at the end of the day', severity: 'high' },
+    { phrase: 'the reality is', severity: 'high' },
+    { phrase: 'the fact of the matter', severity: 'high' },
+    { phrase: 'when it comes to', severity: 'high' },
+    { phrase: 'in terms of', severity: 'medium' },
+    { phrase: 'with respect to', severity: 'medium' },
+    { phrase: 'in this paper we', severity: 'high' },
+    { phrase: 'in this report we', severity: 'high' },
+    { phrase: 'in this presentation', severity: 'high' },
+    { phrase: 'in this deck', severity: 'high' },
+    { phrase: 'this section will', severity: 'high' },
+    { phrase: 'this slide shows', severity: 'high' },
+    { phrase: 'as you can see', severity: 'high' },
+    { phrase: 'as illustrated', severity: 'medium' },
+    { phrase: 'in the modern era', severity: 'high' },
+    { phrase: 'in the digital age', severity: 'high' },
+    { phrase: 'fundamentally', severity: 'medium' },
+    { phrase: 'undoubtedly', severity: 'medium' },
+    { phrase: 'arguably', severity: 'medium' },
+    { phrase: 'certainly', severity: 'medium' },
+    { phrase: 'crucial', severity: 'medium' },
+    { phrase: 'pivotal', severity: 'medium' },
+    { phrase: 'paramount', severity: 'medium' },
+    { phrase: 'profound impact', severity: 'high' },
+    { phrase: 'profound implications', severity: 'high' },
+    { phrase: 'a wealth of', severity: 'high' },
+    { phrase: 'a treasure trove', severity: 'high' },
+    { phrase: 'a deep dive into', severity: 'medium' },
+    { phrase: 'a powerful tool', severity: 'high' },
+    { phrase: 'powerful insights', severity: 'high' },
+    { phrase: 'powerful framework', severity: 'high' },
+    { phrase: 'speaks volumes', severity: 'high' },
+    { phrase: 'speaks to', severity: 'medium' },
+    { phrase: 'in essence', severity: 'medium' },
+    { phrase: 'essentially', severity: 'medium' },
+    { phrase: 'ultimately', severity: 'medium' },
+
+    // Medium severity: hedge / filler
     { phrase: 'key takeaways', severity: 'medium' },
-    { phrase: 'at the end of the day', severity: 'medium' },
     { phrase: 'moving forward', severity: 'medium' },
-    { phrase: 'low-hanging fruit', severity: 'medium' },
+    { phrase: 'going forward', severity: 'medium' },
     { phrase: 'it seems', severity: 'medium' },
     { phrase: 'perhaps', severity: 'medium' },
     { phrase: "it's possible", severity: 'medium' },
     { phrase: 'may or may not', severity: 'medium' },
+    { phrase: 'to some extent', severity: 'medium' },
+    { phrase: 'in some ways', severity: 'medium' },
+    { phrase: 'in some sense', severity: 'medium' },
     // HIGH severity: corpus meta-commentary — the AI is describing the research
     // apparatus instead of the subject. Catches cases where thin evidence
     // caused the model to paraphrase its own dataset into the slide.
@@ -819,25 +977,73 @@ export function postProcessSlides(
 // CONTENT BUDGET ENFORCEMENT
 // ============================================================
 
-/** Truncate text at last sentence boundary before maxChars */
+/** Truncate text without EVER cutting mid-sentence or appending "...".
+ *  Strategy (in order of preference):
+ *    1. If text is already within budget, return verbatim.
+ *    2. Look FORWARD up to 1.5× maxChars for the next sentence end —
+ *       if found, return the full thought. Lets a 220-char sentence
+ *       finish cleanly when budget is 200, instead of cutting it off.
+ *    3. Look BACKWARD within maxChars for the most recent sentence end —
+ *       if found at >= 30% of budget, end there.
+ *    4. Look BACKWARD for the most recent clause boundary (comma + space) —
+ *       if found at >= 50% of budget, end there with a period (no ellipsis).
+ *    5. Last resort: cut at the previous word boundary and drop the
+ *       trailing fragment (no ellipsis — ellipsis cuts valuable info).
+ *  No "..." is ever emitted — that pattern hides the user's content. */
 function truncateAtSentence(text: string, maxChars: number): string {
-    if (!text || text.length <= maxChars) return text;
-    const truncated = text.substring(0, maxChars);
-    // Find last sentence boundary (.!?) followed by space or end
-    const lastSentence = truncated.search(/[.!?]\s+(?=[A-Z])/g);
-    // Scan backwards for the last occurrence
+    if (!text) return text;
+    const t = text.trim();
+    if (t.length <= maxChars) return t;
+
+    // 1. Look forward up to 1.5× for next sentence end — keep full thought.
+    const lookAhead = Math.round(maxChars * 1.5);
+    const fwdSlice = t.substring(0, Math.min(lookAhead, t.length));
+    const fwdMatch = fwdSlice.substring(maxChars).search(/[.!?](?:\s|$)/);
+    if (fwdMatch >= 0) {
+        const endIdx = maxChars + fwdMatch + 1;
+        return t.substring(0, endIdx).trim();
+    }
+
+    // 2. Backward sentence end inside budget.
+    const slice = t.substring(0, maxChars);
     let best = -1;
-    for (let i = truncated.length - 1; i >= 0; i--) {
-        if ((truncated[i] === '.' || truncated[i] === '!' || truncated[i] === '?') && i < maxChars - 1) {
+    for (let i = slice.length - 1; i >= 0; i--) {
+        const c = slice[i];
+        if ((c === '.' || c === '!' || c === '?') && (i === slice.length - 1 || /\s/.test(slice[i + 1]))) {
             best = i + 1;
             break;
         }
     }
-    if (best > maxChars * 0.4) return truncated.substring(0, best).trim();
-    // No good sentence boundary — truncate at word boundary
-    const lastSpace = truncated.lastIndexOf(' ');
-    if (lastSpace > maxChars * 0.5) return truncated.substring(0, lastSpace).trim() + '...';
-    return truncated.trim() + '...';
+    if (best > maxChars * 0.3) return slice.substring(0, best).trim();
+
+    // 3. Backward clause boundary (comma + space). End with period — no ellipsis.
+    const lastClause = slice.lastIndexOf(', ');
+    if (lastClause > maxChars * 0.5) {
+        return slice.substring(0, lastClause).trim() + '.';
+    }
+
+    // 4. Last resort — drop trailing fragment at last word boundary. No ellipsis.
+    const lastSpace = slice.lastIndexOf(' ');
+    if (lastSpace > 0) return slice.substring(0, lastSpace).trim();
+    return slice.trim();
+}
+
+/** Scrub en-dashes (U+2013) from text. The en-dash is forbidden across all
+ *  HiC outputs. Replacement strategy:
+ *    - "1990–2000"           → "1990 to 2000"  (numeric range)
+ *    - "post–World War"      → "post-World War" (compound modifier)
+ *    - " – "                 → " - "            (general separator)
+ *    - bare "–"              → "-"             (fallback)
+ *  Also collapses any double-spaces left behind.
+ *  Em-dashes (U+2014) and hyphen-minus (U+002D) are unaffected. */
+function scrubEnDashes(text: string): string {
+    if (!text) return text;
+    return text
+        .replace(/(\d)\s*–\s*(\d)/g, '$1 to $2')   // numeric range
+        .replace(/([A-Za-z])–([A-Za-z])/g, '$1-$2') // compound modifier
+        .replace(/\s–\s/g, ' - ')                    // separator with spaces
+        .replace(/–/g, '-')                          // any remaining
+        .replace(/  +/g, ' ');                            // collapse doubled spaces
 }
 
 /** Detect and remove repetitive/looping text where the AI repeats itself */
@@ -870,16 +1076,39 @@ function sanitizeMetricValue(value: string): string {
     return value;
 }
 
+/** Compose the universal text-cleaning pipeline applied to every user-facing
+ *  field: dedupe → strip slop phrases → scrub en-dashes → collapse spaces.
+ *  Idempotent. Preserves citations, parenthetical attribution, and quote marks. */
+function cleanFieldText(text: string): string {
+    if (!text) return text;
+    let t = deduplicateText(text);
+    // Strip every banned slop phrase (case-insensitive, whole-phrase)
+    for (const entry of SLOP_PHRASES) {
+        const escaped = entry.phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        t = t.replace(new RegExp(`\\b${escaped}\\b`, 'gi'), '');
+    }
+    t = scrubEnDashes(t);
+    // Tidy: collapse multi-spaces, fix orphaned punctuation from removals
+    t = t
+        .replace(/\s+([.,;:!?])/g, '$1')
+        .replace(/[.,;:!?]\s*([.,;:!?])/g, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/^\s*[,.;:!?]\s*/, '')
+        .trim();
+    return t;
+}
+
 /** Enforce per-field character budgets to prevent data dumps */
 function enforceContentBudgets(slide: Slide): Slide {
     const s = { ...slide };
     const layout = s.layout;
 
-    // Deduplicate all text fields (catch AI repetition loops)
-    if (s.content) s.content = s.content.map(deduplicateText);
-    if (s.narrative) s.narrative = deduplicateText(s.narrative);
-    if (s.speakerNotes) s.speakerNotes = deduplicateText(s.speakerNotes);
-    if (s.quote) s.quote = deduplicateText(s.quote);
+    // Universal cleaning pass (slop + en-dashes + dedupe) on every text field
+    if (s.title) s.title = cleanFieldText(s.title);
+    if (s.content) s.content = s.content.map(cleanFieldText);
+    if (s.narrative) s.narrative = cleanFieldText(s.narrative);
+    if (s.speakerNotes) s.speakerNotes = cleanFieldText(s.speakerNotes);
+    if (s.quote) s.quote = cleanFieldText(s.quote);
 
     // Sanitize metric values (prevent float overflow)
     if (s.metrics) {
@@ -899,47 +1128,52 @@ function enforceContentBudgets(slide: Slide): Slide {
         return s;
     }
 
-    // Title: 120 chars
-    if (s.title && s.title.length > 120) {
-        s.title = truncateAtSentence(s.title, 120);
+    // 2026-05-07 — Budgets bumped to fit real prose. Prior budgets cut
+    // valuable information mid-sentence with "..." ellipsis. The new
+    // truncateAtSentence never emits ellipsis, but tighter budgets still
+    // dropped useful content. New ceilings preserve full thoughts.
+
+    // Title: 140 chars (was 120)
+    if (s.title && s.title.length > 140) {
+        s.title = truncateAtSentence(s.title, 140);
     }
 
-    // Content bullets: 200 chars each, max 4 bullets
+    // Content bullets: 280 chars each, max 4 bullets (was 200)
     if (s.content) {
         s.content = s.content
             .slice(0, 4)
-            .map(c => truncateAtSentence(c, 200))
+            .map(c => truncateAtSentence(c, 280))
             .filter(c => c.length > 0);
     }
 
-    // Quote: 250 chars
-    if (s.quote && s.quote.length > 250) {
-        s.quote = truncateAtSentence(s.quote, 250);
+    // Quote: 320 chars (was 250) — verbatim quotes need room to breathe
+    if (s.quote && s.quote.length > 320) {
+        s.quote = truncateAtSentence(s.quote, 320);
     }
 
-    // Speaker notes: 600 chars
-    if (s.speakerNotes && s.speakerNotes.length > 600) {
-        s.speakerNotes = truncateAtSentence(s.speakerNotes, 600);
+    // Speaker notes: 800 chars (was 600)
+    if (s.speakerNotes && s.speakerNotes.length > 800) {
+        s.speakerNotes = truncateAtSentence(s.speakerNotes, 800);
     }
 
-    // Narrative: 400 chars
-    if (s.narrative && s.narrative.length > 400) {
-        s.narrative = truncateAtSentence(s.narrative, 400);
+    // Narrative: 600 chars (was 400)
+    if (s.narrative && s.narrative.length > 600) {
+        s.narrative = truncateAtSentence(s.narrative, 600);
     }
 
-    // Bento cells: 100 chars per text field
+    // Bento cells: 160 chars per text field (was 100). Clean before truncating.
     if (s.bentoCells) {
         s.bentoCells = s.bentoCells.map(cell => ({
             ...cell,
-            text: cell.text ? truncateAtSentence(cell.text, 100) : cell.text,
+            text: cell.text ? truncateAtSentence(cleanFieldText(cell.text), 160) : cell.text,
         }));
     }
 
-    // Solution points: 150 chars per description
+    // Solution points: 220 chars per description (was 150). Clean before truncating.
     if (s.solutionPoints) {
         s.solutionPoints = s.solutionPoints.map(sp => ({
             ...sp,
-            description: truncateAtSentence(sp.description, 150),
+            description: truncateAtSentence(cleanFieldText(sp.description), 220),
         }));
     }
 

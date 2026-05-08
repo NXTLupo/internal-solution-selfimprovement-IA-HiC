@@ -14,7 +14,12 @@ import { loadExemplar } from './exemplarLoader';
 import { parseFreeformOutput } from './freeformParser';
 import { sanitizeFreeformHtml } from './freeformSanitizer';
 import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
+import { UNIVERSAL_TONE_RULES } from '../../services/deliverableFrameworks';
 import { GoogleGenAI } from '@google/genai';
+
+// Re-exported as a local alias so the freeform prompt builder doesn't have
+// to thread the long import name through every call site.
+const UNIVERSAL_TONE_RULES_INLINE = UNIVERSAL_TONE_RULES;
 
 // 2026-05-05 — DeepSeek V4 Flash is the single-vendor primary; legacy
 // Gemini/GPT entries kept for backward-compat.
@@ -156,7 +161,13 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Render reporting lines with <line> or <path> elements, NOT with HTML borders, so they line up exactly with the SVG-positioned boxes.\n`;
 
         case 'journey':
-            return `        JOURNEY MAP body must contain (CURRENT-state framing):\n` +
+            return `        PERMANENT DESIGN RULES — NON-NEGOTIABLE (apply on EVERY generation and revision, even when not mentioned by the user):\n` +
+                `        • NO LOGO, BRAND MARK, OR SEAL anywhere in the slide. Do NOT emit .brand-mark, .seal, .wordmark, or any institution logo element. The header region contains the document eyebrow, title, and lede only — no graphical mark.\n` +
+                `        • ALL activity labels in every actor lane MUST be complete sentences with subject + verb. NEVER use gerund fragments. BAD: "Hears about co-op", "Browses NUworks". GOOD: "Students learn about co-op through peer referrals and faculty advising.", "Students browse NUworks job listings to identify open co-op postings."\n` +
+                `        • ONE VERBATIM STUDENT QUOTE per phase column — every phase must have a quote block. Pull real quotes from the corpus. If no verbatim quote exists for a phase, synthesize one that is representative of the corpus evidence for that phase. Zero phases may be missing a quote.\n` +
+                `        • CONTENT NEVER OVERLAPS LINES, CIRCLES, ARROWS, OR OTHER ELEMENTS. Every label, chip, and text block must sit in clear space and must not visually intersect any connector line, lane divider, timeline dot, or other element. When in doubt, move the label further from the line.\n` +
+                `        • ALL activity labels sit ABOVE their corresponding timeline dot — never below, never alternating. Position every activity label at band_top + 14px consistently.\n\n` +
+                `        JOURNEY MAP body must contain (CURRENT-state framing):\n` +
                 `        • A title naming the journey (e.g., "Prospect Lifecycle — Current State")\n` +
                 `        • 4-9 stage columns from left to right (Awareness, Consideration, etc., adapted to corpus)\n` +
                 `        • For each stage: a label, an emotion indicator (positive / neutral / negative), ` +
@@ -166,11 +177,10 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        Frame everything as observed reality — what IS today, not what should be.\n\n` +
                 `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
                 `        • Lane height ≥120px when labels are 2 lines; lane line at vertical CENTER of band.\n` +
-                `        • Labels positioned at band_top + 18px (above-line) OR band_bottom − 18px (below-line) — NEVER overlapping the line itself.\n` +
+                `        • Labels positioned at band_top + 14px (above-line) — ALL labels above, never below, never alternating.\n` +
                 `        • 36px exclusion zone above AND below every horizontal lane line. NO text bounding box may intersect [Y−36, Y+36].\n` +
                 `        • Stage column width = 1840px / N stages. Min 200px, max 320px. If N×200 > 1840, USE 2-row layout (top: stages 1..N/2, bottom: stages N/2+1..N).\n` +
                 `        • Multi-line labels MUST be ≤ 2 lines. Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px.\n` +
-                `        • When >4 milestones share a lane, STAGGER labels above/below in alternating zigzag (even-index above, odd-index below).\n` +
                 `        • Pain-point chips live in a dedicated row ABOVE the lanes — NEVER inside a lane band.\n` +
                 `        • Verbatim quotes capped at 200 chars; truncate with "…" + attribution intact.\n` +
                 `        • DO NOT inherit the exemplar's exact Y coordinates if your label lengths differ from the exemplar's. RECOMPUTE Y offsets when label height grows.\n`;
@@ -222,7 +232,12 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • DO NOT inherit the exemplar's coordinates when your phase count differs. RECOMPUTE column widths.\n`;
 
         case 'blueprint':
-            return `        SERVICE BLUEPRINT body must contain (FUTURE-state framing):\n` +
+            return `        PERMANENT DESIGN RULES — NON-NEGOTIABLE (apply on EVERY generation and revision, even when not mentioned by the user):\n` +
+                `        • NO LOGO, BRAND MARK, OR SEAL anywhere in the slide. Do NOT emit .brand-mark, .seal, .wordmark, or any institution logo element.\n` +
+                `        • ALL activity labels in every lane MUST be complete sentences with subject + verb. NEVER use gerund fragments. BAD: "Creates account", "Lists jobs". GOOD: "The system creates a student account upon enrollment.", "NUworks lists open co-op postings by employer."\n` +
+                `        • ONE VERBATIM EVIDENCE QUOTE per step column — every step must have a diagnosis quote grounding the design choice. Pull from corpus. Never omit a step's quote.\n` +
+                `        • CONTENT NEVER OVERLAPS LINES, DIVIDERS, OR OTHER ELEMENTS. Every label, chip, and text block must sit in clear space with no visual intersection of any lane line, visibility line, or element.\n\n` +
+                `        SERVICE BLUEPRINT body must contain (FUTURE-state framing):\n` +
                 `        • A title naming the service or workflow being designed\n` +
                 `        • Customer Action lane (top): observable steps the customer takes\n` +
                 `        • Frontstage lane: visible system / staff actions the customer sees\n` +
@@ -250,6 +265,13 @@ function perKindGuidance(kind: FreeformKind): string {
 
 function buildPrompt(args: FreeformGenerateArgs, bundle: { exemplarHtml: string; brandSkill: string; diagramSkill: string }): string {
     const sections: string[] = [];
+
+    // 2026-05-08 — Universal tone rules at the top of every freeform prompt
+    // (journey, blueprint, org, arch, roadmap). Forces balanced framing,
+    // opportunity-led narrative, pragmatic action verbs, and bans
+    // catastrophizing metaphors / hyperbole / jargon in any text emitted
+    // inside the rendered HTML.
+    sections.push(UNIVERSAL_TONE_RULES_INLINE);
 
     // OPENING HAMMER — CAPS-LOCK critical instruction. Pattern adopted from the
     // Intelligence Augmentation Journey Mapper (internal-solutions-journeymapper),

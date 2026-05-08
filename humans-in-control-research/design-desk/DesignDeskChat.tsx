@@ -206,7 +206,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
-                    model: 'deepseek-v4-flash',
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ss.ok) {
                     replaceArtifact(ss.artifact as any);
@@ -234,9 +234,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     // opened, 12 closed"). Gemini 3.1 Pro has 1-2M context
                     // and much higher output token capacity, so revisions
                     // complete even on architecture diagrams with 30+ boxes.
-                    // (2026-05-03: was claude-opus-4-7 before Anthropic
-                    // elimination on this branch.)
-                    model: 'deepseek-v4-flash',
+                    // (2026-05-07: upgraded from deepseek-v4-flash — Gemini 3.1 Pro
+                    // follows multi-step instructions more reliably.)
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -271,7 +271,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: null,
-                    model: 'deepseek-v4-flash',
+                    model: 'gemini-3.1-pro-preview',
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);

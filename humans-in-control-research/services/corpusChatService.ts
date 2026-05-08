@@ -17,15 +17,14 @@
  * - Full corpus grounding (no 500KB cap for Claude 4.7)
  */
 
-// 2026-05-05 — Single-vendor migration to DeepSeek V4 Flash via Azure.
-// Chat picker shows DeepSeek as the primary; legacy Gemini/GPT entries
-// removed from the registry. The dispatch routes deepseek-* through a
-// new callDeepSeek() that hits /api/ai/deepseek.
-// 2026-05-06 — V4 Pro removed (see AVAILABLE_MODELS comment). The type
-// keeps both members for now so legacy serialized localStorage / wiki
-// values don't reject at parse-time; the stale-value resolver in
-// sendChatMessage maps any unrecognized model to deepseek-v4-flash.
-export type ChatModel = 'deepseek-v4-flash' | 'deepseek-v4-pro';
+// 2026-05-07 — Promoted Gemini 3.1 Pro to primary chat model. DeepSeek V4
+// Flash produced jargon-heavy, hyperbolic, AI-slop narratives that read as
+// fake. Gemini 3.1 Pro has a 1M-token context, follows multi-step
+// instructions reliably, and produces descriptive, professional copy.
+// The legacy DeepSeek IDs remain in the type so prior localStorage values
+// don't reject at parse-time — the resolver in sendChatMessage maps any
+// unrecognized model to gemini-3.1-pro-preview.
+export type ChatModel = 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface ChatMessage {
     id: string;
@@ -198,17 +197,28 @@ export interface ModelConfig {
 // will be re-added when/if a Pro deployment is provisioned on Azure.
 export const AVAILABLE_MODELS: ModelConfig[] = [
     {
-        id: 'deepseek-v4-flash',
-        name: 'DeepSeek V4 Flash',
-        provider: 'deepseek',
-        description: '256K context, OpenAI-compatible tool-use, discriminated-union schema verified. Primary HiC reasoning model 2026-05-05.',
-        contextWindow: '256K tokens',
-        strengths: 'Long-context reasoning, schema adherence, cost-effective, single-vendor simplicity',
-        color: '#00B7C3',
+        id: 'gemini-3.1-pro-preview',
+        name: 'Gemini 3.1 Pro',
+        provider: 'google',
+        description: '1M context, follows multi-step rules reliably, produces descriptive professional prose. Primary HiC reasoning model 2026-05-07.',
+        contextWindow: '1M tokens',
+        strengths: 'Long-context reasoning, instruction-following, low jargon/hyperbole, professional tone',
+        color: '#B8B800',
         available: true,
-        // 256K tokens × ~4 chars/tok = ~1MB chars. We cap at 900KB for
-        // headroom (system prompt + uploads + wiki menu + history all
-        // share the budget).
+        // 1M tokens × ~4 chars/tok = ~4MB chars. We cap at 1.4MB so the
+        // system prompt + uploads + wiki menu + history all fit with
+        // headroom for tool-loop turns.
+        maxCorpusChars: 1_400_000,
+    },
+    {
+        id: 'deepseek-v4-flash',
+        name: 'DeepSeek V4 Flash (legacy)',
+        provider: 'deepseek',
+        description: '256K context. Retained as fallback only — produced jargon-heavy AI-slop narratives, demoted from primary 2026-05-07.',
+        contextWindow: '256K tokens',
+        strengths: 'Cost-effective, OpenAI-compatible tool-use',
+        color: '#888888',
+        available: true,
         maxCorpusChars: 900000,
     },
 ];
@@ -1897,28 +1907,28 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
         let responseText: string;
         let modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
-        // 2026-05-05 — Defensive: if the requested model isn't registered
-        // (stale localStorage, removed legacy Gemini/GPT entry, etc.),
-        // fall back to DeepSeek V4 Flash and warn.
+        // 2026-05-07 — Defensive: if the requested model isn't registered
+        // (stale localStorage from legacy DeepSeek-only era, removed entry,
+        // etc.), fall back to Gemini 3.1 Pro and warn.
         let activeModelId: string = model;
         if (!modelConfig) {
-            const fallback = AVAILABLE_MODELS.find(m => m.id === 'deepseek-v4-flash') || AVAILABLE_MODELS[0];
+            const fallback = AVAILABLE_MODELS.find(m => m.id === 'gemini-3.1-pro-preview') || AVAILABLE_MODELS[0];
             if (!fallback) throw new Error('No chat models registered — AVAILABLE_MODELS is empty');
             console.warn(`[chat] Requested model ${JSON.stringify(model)} is not in AVAILABLE_MODELS; falling back to ${fallback.id}`);
             modelConfig = fallback;
             activeModelId = fallback.id;
         }
 
-        // 2026-05-05 — Single-vendor dispatch. DeepSeek V4 Flash is primary;
-        // Anthropic / Google / OpenAI dispatch branches were removed when
-        // the migration completed.
-        if (modelConfig.provider === 'deepseek') {
+        // 2026-05-07 — Multi-provider dispatch. Gemini 3.1 Pro is primary;
+        // DeepSeek retained only as a legacy fallback.
+        if (modelConfig.provider === 'google') {
+            responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
+        } else if (modelConfig.provider === 'deepseek') {
             responseText = await callDeepSeek(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else if (modelConfig.provider === 'openai') {
-            // (legacy fallback path; not reached unless registry changes)
             responseText = await callOpenAI(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else {
-            // (legacy fallback path; not reached unless registry changes)
+            // (provider 'anthropic' — not currently registered, retained for future)
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 

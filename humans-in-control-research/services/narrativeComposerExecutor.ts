@@ -220,8 +220,8 @@ async function rerankArticles(
         goal,
         question,
         candidates,
-        // 2026-05-05 — Default rerank migrated to deepseek-v4-flash
-        // (single-vendor primary). Caller can still override via modelId.
+        // 2026-05-08 — Rerank stays on DeepSeek alongside the composer
+        // (composer schema not yet Gemini-compatible). Caller can override.
         model: modelId || 'deepseek-v4-flash',
       }),
     });
@@ -497,6 +497,12 @@ export function createNarrativeComposerExecutor(
         const articles = await fetchWikiArticles({
           query: input.query,
           kind: scopeToKindFilter(input.scope),
+          // 2026-05-08 — Honor user source-restriction directives. When the
+          // model passes source_name (because the user said "only use X"),
+          // pass it through as a substring filter so only that source's
+          // chunks come back. The user prompt is the highest-priority
+          // instruction; this enforces it at the retrieval layer.
+          source: input.source_name,
           limit: limit * 2,
           maxCharsPerArticle: 1500,
           engagementGoal: goal,
@@ -531,7 +537,7 @@ export function createNarrativeComposerExecutor(
           goalFiltered,
           goal,
           input.query,
-          /* modelId */ undefined, // proxy default = deepseek-v4-flash (2026-05-05)
+          /* modelId */ undefined, // proxy default = deepseek-v4-flash (2026-05-08; composer schema not yet Gemini-compatible)
         );
 
         const finalArticles = rerankOutcome.articles.slice(0, limit);

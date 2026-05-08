@@ -1941,15 +1941,32 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                     if isinstance(val, list): return ", ".join(str(v) for v in val[:5])
                     return str(val)
 
+                def decode_inverted_index(inv_idx):
+                    """Decode OpenAlex abstract_inverted_index {word: [pos, ...]} to plain text."""
+                    if not isinstance(inv_idx, dict) or not inv_idx:
+                        return None
+                    try:
+                        pos_word = {}
+                        for word, positions in inv_idx.items():
+                            for pos in (positions if isinstance(positions, list) else [positions]):
+                                pos_word[int(pos)] = word
+                        if not pos_word:
+                            return None
+                        return " ".join(pos_word[p] for p in sorted(pos_word))
+                    except Exception:
+                        return None
+
                 for item in (items_raw if isinstance(items_raw, list) else [items_raw])[:limit]:
                     if isinstance(item, dict):
                         # Handle Reddit's nested {data: {title: ...}} structure
                         if "data" in item and isinstance(item["data"], dict) and "title" in item["data"]:
                             item = item["data"]
                         raw_title = item.get("title") or item.get("name") or item.get("modelId") or item.get("id") or item.get("school.name")
+                        # OpenAlex returns abstract_inverted_index; decode to plain text before falling back
+                        abstract = item.get("abstract") or decode_inverted_index(item.get("abstract_inverted_index"))
                         items.append({
                             "title": to_str(raw_title, str(item)[:100]),
-                            "content": to_str(item.get("abstract") or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
+                            "content": to_str(abstract or item.get("description") or item.get("snippet") or item.get("selftext") or item.get("body"), json.dumps(item)[:500]),
                             "url": (lambda u: ("https://www.reddit.com" + u) if u and u.startswith("/r/") else to_str(u))(to_str(item.get("url") or item.get("doi") or item.get("link") or item.get("URL") or item.get("permalink") or item.get("profileUrl") or (f"https://projects.propublica.org/nonprofits/organizations/{item.get('ein')}" if item.get("ein") else ""))),
                             "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
                         })
@@ -2024,12 +2041,17 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                 if not feed.entries:
                     return {"source": src["name"], "category": src["category"], "credibilityTier": src.get("tier", 3), "items": [], "total": 0, "note": "Feed returned 0 entries (may be temporarily unavailable)"}
 
-                # Extract keywords from query for filtering
+                # Extract keywords from query for filtering.
+                # 2026-05-07 — `2025`,`2026` removed from stop-words (P1) so a
+                # year reference in the goal acts as a real filter signal
+                # rather than getting scrubbed (a goal asking about "2026
+                # trends" was previously losing its time anchor at the RSS
+                # gate, letting in undated/old articles).
                 stop_words = {'the','a','an','is','are','was','were','be','been','have','has','had',
                               'do','does','did','will','would','could','should','to','of','in','for',
                               'on','with','at','by','from','as','and','but','or','not','this','that',
                               'it','its','their','they','them','what','which','who','how','when','where',
-                              'about','into','through','during','before','after','between','2025','2026'}
+                              'about','into','through','during','before','after','between'}
                 keywords = [w.lower() for w in q.split() if len(w) > 2 and w.lower() not in stop_words]
 
                 all_items = []
@@ -2048,12 +2070,18 @@ async def search_source(source_id: str = Path(...), q: str = Query(...), limit: 
                         "_matches": matches,
                     })
 
-                # Sort by relevance (keyword matches), take top items
+                # Sort by relevance (keyword matches), take top items.
                 all_items.sort(key=lambda x: x["_matches"], reverse=True)
-                # Keep items with at least 1 keyword match, or top items if none match
                 relevant = [i for i in all_items if i["_matches"] > 0]
-                if not relevant:
-                    relevant = all_items[:limit]  # fallback: return latest if nothing matches
+                # 2026-05-07 — REMOVED the `if not relevant: relevant =
+                # all_items[:limit]` fallback (P0). That fallback was the
+                # single biggest source of irrelevant articles in the corpus
+                # — when a feed had zero keyword hits for the user's goal
+                # (e.g., `synced_review` AI news against a higher-ed query),
+                # it would return its latest 20 articles regardless. Now: if
+                # zero items match, the feed contributes zero items.
+                # Downstream body-aware AI scoring will fill in evidence
+                # from feeds that DO match.
                 items = [{k: v for k, v in i.items() if k != "_matches"} for i in relevant[:limit]]
 
                 # 2026-04-29 — RSS BODY EXPANSION (3-tier).
@@ -4025,20 +4053,24 @@ class WikiFetchArticlesRequest(BaseModel):
 
 
 def _score_article_for_query(entry: dict, query_tokens: list) -> float:
-    """Simple keyword overlap scoring — title hits worth more than summary."""
+    """Simple keyword overlap scoring — title hits worth more than summary.
+
+    2026-05-07 (P2) — Source-name token bonus removed. A query containing
+    "Reddit" was satisfying the kw>0 retrieval gate for every article whose
+    `source` field contained "reddit" — the article's own content didn't
+    have to relate at all. Source name is a metadata field, not topical
+    evidence; it should not contribute to relevance scoring.
+    """
     if not query_tokens:
         return 0.0
     title = (entry.get('title') or '').lower()
     summary = (entry.get('summary') or '').lower()
-    source = (entry.get('source') or '').lower()
     score = 0.0
     for tok in query_tokens:
         if tok in title:
             score += 3.0
         if tok in summary:
             score += 1.0
-        if tok in source:
-            score += 0.5
     return score
 
 
@@ -4143,9 +4175,30 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
             kw = _score_article_for_query(e, query_tokens)
             sem = sem_scores.get(e.get("id") or "", 0.0)
             total = kw + (sem * 10.0)
-            # Require either a keyword hit or a meaningful semantic hit
-            # (cosine > 0.3 filters out near-random matches)
-            if kw > 0 or sem > 0.3:
+            # 2026-05-07 (P5) — Tightened retrieval gate.
+            #
+            # Old:  kw > 0 OR sem > 0.3
+            # The OR plus low semantic threshold let loose-match items
+            # through. Cosine 0.3 against text-embedding-3-small puts
+            # marginally-related content (e.g., "remote work" vs "career
+            # development") above the gate, and a single source-name
+            # keyword hit (now scored at 0 thanks to P2) used to satisfy
+            # kw>0 alone.
+            #
+            # New gate:
+            #   - Strong semantic hit (sem >= 0.45) → admit
+            #   - Strong keyword hit (kw >= 3.0, i.e. one title token match
+            #     or three summary token matches) → admit
+            #   - Both signals present, even if individually weak
+            #     (kw > 0 AND sem > 0.3) → admit
+            # Items that fail all three are excluded.
+            STRONG_SEM = 0.45
+            STRONG_KW = 3.0
+            if sem >= STRONG_SEM:
+                scored.append((e, total, kw, sem))
+            elif kw >= STRONG_KW:
+                scored.append((e, total, kw, sem))
+            elif kw > 0 and sem > 0.3:
                 scored.append((e, total, kw, sem))
         scored.sort(key=lambda t: t[1], reverse=True)
         logger.info(

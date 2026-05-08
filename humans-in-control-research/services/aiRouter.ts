@@ -198,28 +198,29 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
 // route to Google or OpenAI exclusively.
 export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' | 'video' | 'narrative_composition';
 
+// 2026-05-07 — Defaults migrated from DeepSeek V4 Flash to Gemini 3.1 Pro
+// across every reasoning category. DeepSeek narratives were jargon-heavy,
+// hyperbolic, and read as AI-slop; Gemini 3.1 Pro produces descriptive,
+// professional prose at 1M-token context with reliable instruction-following.
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
-    research: 'deepseek-v4-flash',
-    fast_generation: 'deepseek-v4-flash',
-    vision: 'deepseek-v4-flash',          // (no native vision yet — text-only fallback)
-    image: 'gemini-2.5-flash',            // imagen-4.0 via Gemini API
-    video: 'gemini-2.5-flash',            // veo-3.1 via Gemini API
-    narrative_composition: 'deepseek-v4-flash',
+    research: 'gemini-3.1-pro-preview',
+    fast_generation: 'gemini-3.1-pro-preview',
+    vision: 'gemini-3.1-pro-preview',
+    image: 'gemini-2.5-flash',
+    video: 'gemini-2.5-flash',
+    narrative_composition: 'gemini-3.1-pro-preview',
 };
 
 export type ModelPreferences = Record<TaskCategory, string>;
 
 // --- AVAILABLE MODELS PER CATEGORY ---
-// DeepSeek V4 Flash everywhere; image/video stay on Gemini for the modality.
-// V4 Pro is registered for a future premium-reasoning slot but not yet the
-// default (Azure deployment serves Flash today).
 export const MODELS_FOR_CATEGORY: Record<TaskCategory, string[]> = {
-    research: ['deepseek-v4-flash', 'deepseek-v4-pro'],
-    fast_generation: ['deepseek-v4-flash'],
-    vision: ['deepseek-v4-flash'],
+    research: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    fast_generation: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
+    vision: ['gemini-3.1-pro-preview', 'gemini-2.5-flash'],
     image: ['gemini-2.5-flash'],
     video: ['gemini-2.5-flash'],
-    narrative_composition: ['deepseek-v4-flash', 'deepseek-v4-pro'],
+    narrative_composition: ['gemini-3.1-pro-preview', 'gemini-2.5-flash', 'deepseek-v4-flash'],
 };
 
 // --- API KEY AVAILABILITY ---

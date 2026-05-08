@@ -74,6 +74,36 @@ export function setActiveVisualizationStyle(styleId: string) { _activeVisStyleId
 export function getActiveVisualizationStyle(): string { return _activeVisStyleId; }
 
 /**
+ * Heuristic detection for personal names (First, First Last, First M. Last).
+ * Used to defend against the model emitting "Sarah Chen" or "Marcus Johnson"
+ * as a persona archetype title. Returns true ONLY when the string looks
+ * unambiguously like a personal name — short (<= 4 tokens), all tokens
+ * Capitalized, contains no role/posture words, and matches the
+ * single-given-name + optional-surname shape.
+ *
+ * False positives are acceptable here: if the model returns something
+ * borderline like "Sarah the Skeptic", we'd rather replace with a generic
+ * archetype than ship a personal name. False negatives are NOT — a missed
+ * "Sarah Chen" reaches the user.
+ */
+function isLikelyPersonalName(s: string): boolean {
+    if (!s) return false;
+    const trimmed = s.trim();
+    if (trimmed.length < 2 || trimmed.length > 60) return false;
+    const tokens = trimmed.split(/\s+/);
+    if (tokens.length < 1 || tokens.length > 4) return false;
+
+    // Role/posture keywords that disqualify the string from being a personal name
+    const archetypeKeywords = /\b(driven|averse|weary|focused|seeking|skeptical|anxious|first-?gen|career|outcomes?|cost-?conscious|time-?starved|risk-?averse|bureaucracy|compliance|advancement|stakeholder|decision|maker|champion|advocate|user|buyer|coach|advisor|head|lead|manager|director|officer|administrator|faculty|student|alumni|donor|teacher|engineer|developer|designer|analyst|researcher|partner|customer|client|patient|consumer|employer|coordinator|specialist|architect|professional|leader|builder|founder|operator|practitioner|expert|generalist|enthusiast|skeptic|adopter|laggard|innovator|persona|archetype|primary|secondary|key)\b/i;
+    if (archetypeKeywords.test(trimmed)) return false;
+
+    // Every token must start with an uppercase letter and be alphabetic
+    // (allowing "M." middle initials and apostrophes like O'Brien)
+    const tokenRe = /^[A-Z][a-z]+(?:'[A-Z][a-z]+)?$|^[A-Z]\.$/;
+    return tokens.every(t => tokenRe.test(t));
+}
+
+/**
  * Generate a photorealistic portrait using Imagen 4.
  * Bypasses the NXT Design System style prompts — portraits must be photorealistic, not flat geometric.
  * CSS grayscale filter is applied at render time, not at generation time.
@@ -1506,7 +1536,23 @@ RESEARCH OBJECTIVE: "${this.goal}"
 Analyze ALL themes and evidence. Identify personas with DIFFERENT roles, perspectives, and segments. Do not force exactly 5 — use as many as the data warrants within the 4-8 range.
 ${feedback ? `USER FEEDBACK (follow this direction): "${feedback}"` : ''}
 
-For each persona provide: name (archetype title), role (professional context), demographics (age/background), quote (15-25 word first-person voice), and a one-sentence summary of their core tension.
+CRITICAL — PERSONA NAMING RULE (NON-NEGOTIABLE):
+The "name" field MUST be a descriptive archetype TITLE that captures behavior, attitude, or role posture. NEVER a personal name (no "Sarah Chen", "Marcus Johnson", "Maya Patel", etc.). NEVER a generic placeholder ("Primary Stakeholder", "Key User", "Persona 1").
+
+GOOD archetype titles: "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Skeptical Department Head", "Outcomes-Driven Advancement Officer", "Bureaucracy-Weary Faculty Advisor", "Risk-Averse Compliance Lead"
+
+BAD archetype titles: "Sarah Chen", "Marcus the Manager", "Persona 1", "User A", "Primary Stakeholder", "Key Decision Maker"
+
+The title MUST contain a descriptive adjective + a role/posture noun. Two to five words. No first names. No surnames.
+
+For each persona provide: name (archetype title per rule above), role (professional context), demographics (age range / background, no fabricated names), quote (15-25 word first-person voice), and a one-sentence summary of their core tension.
+
+LANGUAGE RULES (apply to every field):
+- Plain, descriptive, professional. No jargon, no metaphors, no hyperbole.
+- No "...", no en-dashes (–), no em-dashes used as decoration.
+- No "navigate the complexities", "unlock potential", "in today's landscape", "transformative", "revolutionary", "robust", "seamless", "holistic".
+- Lead with what the persona does, feels, fears, or wants — in concrete terms.
+
 Output JSON.`;
 
         const rosterSchema: Schema = {
@@ -1526,8 +1572,23 @@ Output JSON.`;
 
         const roster = await this.executeStepResilient<{ methodology: string; personas: any[] }>(rosterPrompt, rosterSchema, [], onStream, 'Personas');
         if (!roster.personas || roster.personas.length === 0) {
-            roster.personas = [{ name: 'Primary Stakeholder', role: 'Key decision maker', demographics: '', quote: '', coreTension: '' }];
+            roster.personas = [{ name: 'Outcomes-Driven Decision Maker', role: 'Senior leader', demographics: '', quote: '', coreTension: '' }];
         }
+        // Defense-in-depth: scrub any first-name/surname patterns the model
+        // might have emitted despite the prompt rule. A persona "name" that
+        // is a personal name (e.g., "Sarah Chen") is replaced with a generic
+        // archetype label derived from the role. This guarantees the user
+        // never sees fabricated personal names in titles.
+        roster.personas = roster.personas.map((p: any) => {
+            const looksLikePersonalName = isLikelyPersonalName(p?.name || '');
+            if (looksLikePersonalName) {
+                const fallback = p?.role
+                    ? `${String(p.role).trim()} Archetype`
+                    : 'Primary Archetype';
+                return { ...p, name: fallback };
+            }
+            return p;
+        });
 
         onStream(`Identified ${roster.personas.length} archetypes: ${roster.personas.map(p => p.name).join(', ')}`);
 

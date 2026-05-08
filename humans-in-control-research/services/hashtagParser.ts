@@ -29,12 +29,13 @@
 
 import type { BrandVariant, ThemeMode, SectionKind } from './presentationTypes';
 
-// 2026-05-05 — Single-vendor composer on Azure DeepSeek-V4-Flash. The
-// discriminated-union schema (verified against the live Azure deployment)
-// works correctly — sections with kind+data populate per-kind shapes
-// without the Gemini-via-OpenAI-compat empty-{} bug. Legacy GPT-5.5 and
-// Gemini choices removed from the type.
-export type ComposerModelChoice = 'deepseek-v4-flash' | 'deepseek-v4-pro';
+// 2026-05-07 — Composer migrated to Gemini 3.1 Pro. DeepSeek V4 Flash
+// produced jargon-heavy, hyperbolic, AI-slop narratives; Gemini 3.1 Pro at
+// 1M context follows multi-step rules reliably and produces descriptive,
+// professional prose. Composer routes via /api/ai/gemini-compat (Google's
+// OpenAI-compatible endpoint), so the discriminated-union schema keeps
+// working unchanged. Legacy DeepSeek IDs retained for forward-compat.
+export type ComposerModelChoice = 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro';
 
 export interface PresentationDirective {
   triggered: boolean;
@@ -122,24 +123,27 @@ function parseSectionFilter(raw: string | undefined): SectionKind[] | undefined 
 }
 
 function parseModel(raw: string | undefined): ComposerModelChoice {
-  // 2026-05-06 — V4 Pro is not deployed on the Azure resource
-  // (intelligence-aug-stage-resource); only V4 Flash is. Until a Pro
-  // deployment exists, every #model alias resolves to flash. Pro aliases
-  // are kept as redirects so existing message templates that include
-  // "#model=pro" don't error — they just route to Flash transparently.
-  // When Pro is provisioned, restore the Pro mapping below.
+  // 2026-05-08 — Composer model REVERTED to DeepSeek V4 Flash. The composer's
+  // `submit_presentation` tool schema uses `oneOf` discriminated unions
+  // (narrativeComposerTools.ts:532) which Google's Gemini OpenAI-compat
+  // endpoint rejects with INVALID_ARGUMENT 400. The strict schema was tuned
+  // for Azure DeepSeek and never validated against Gemini-compat. Until the
+  // schema is rewritten with Gemini-compatible JSON Schema (or the composer
+  // is ported to Gemini's native function-calling), DeepSeek is the only
+  // working backend for `#presentation`. The AI Analyst chat (gemini-3.1-pro
+  // -preview) is unaffected — chat messages don't use the discriminated-union
+  // schema.
   if (!raw) return 'deepseek-v4-flash';
   const v = raw.toLowerCase().replace(/[^a-z0-9.]/g, '');
-  // All recognized values currently map to flash. Pro aliases preserved
-  // for forward-compat — change the right-hand side back to
-  // 'deepseek-v4-pro' when the Azure deployment is ready.
-  if (v === 'pro' || v === 'v4pro' || v === 'deepseekv4pro' || v === 'deepseek-v4-pro') {
+  if (v === 'gemini' || v === 'gemini3' || v === 'gemini31' || v === 'gemini31propreview' || v === 'gemini-3.1-pro-preview') {
+    // Gemini composer is currently broken (oneOf schema). Caller asked for it
+    // explicitly — log and fall back to DeepSeek so the deck still composes.
+    console.warn('[composer] #model=gemini requested but composer schema not yet Gemini-compatible — using deepseek-v4-flash. See narrativeComposerTools.ts:526.');
     return 'deepseek-v4-flash';
   }
-  if (v === 'deepseek' || v === 'v4' || v === 'flash' || v === 'deepseekv4flash' || v === 'deepseek-v4-flash') {
+  if (v === 'deepseek' || v === 'v4' || v === 'flash' || v === 'deepseekv4flash' || v === 'deepseek-v4-flash' || v === 'pro' || v === 'deepseekpro' || v === 'v4pro' || v === 'deepseekv4pro' || v === 'deepseek-v4-pro') {
     return 'deepseek-v4-flash';
   }
-  // Unknown — fall back to flash
   return 'deepseek-v4-flash';
 }
 

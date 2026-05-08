@@ -12,39 +12,55 @@ import { DesignDesk } from './design-desk';
 // skill refactor. If you don't see "v3.2" and "nxt-visual-renderer",
 // you're on a stale bundle — rebuild the container.
 // ================================================================
-const HIC_BUNDLE_VERSION = 'v3.5';
-const HIC_CODENAME = 'Source-Aware Fidelity + 400-Source Retail Pack';
-const HIC_BUILD_STAMP = '2026-04-29';
-// Feature flags — these MUST all read `true` on v3.2. If any read
-// `false` (or the banner doesn't print at all), the bundle is stale.
+const HIC_BUNDLE_VERSION = 'v3.7';
+const HIC_CODENAME = 'Gemini 3.1 Pro Primary + Slide Quality Hardening';
+const HIC_BUILD_STAMP = '2026-05-08';
+// Feature flags — codename now reflects the v3.7 changes:
+// chat + composer migrated from DeepSeek to Gemini 3.1 Pro, mid-sentence
+// ellipsis truncation removed, en-dashes scrubbed everywhere, slop blacklist
+// expanded to ~140 phrases across jargon/metaphor/hyperbole/AI-slop
+// categories, persona titles forced to descriptive archetype labels.
+// The P0-P9 corpus relevance pipeline was REVERTED in v3.7 — those flags
+// are intentionally absent.
 const HIC_FEATURES = {
-    // v3.1 features (retained)
-    videoTranscriberConnector: true,                  // Video Transcriber wire-fix
-    enrichmentCap300: true,                           // ENRICHMENT_TOP_N raised 80 → 300
-    residualWikiArchival: true,                       // archive items that skipped enrichment
-    enrichMapCollisionFix: true,                      // Map keyed by item reference
-    wikiIndexEndpoint: true,                          // GET /api/wiki/index
-    wikiFetchArticlesEndpoint: true,                  // POST /api/wiki/fetch-articles
-    chatWikiPreFetch: true,                           // per-turn topic-matched article bodies
-    claudeNativeToolUse: true,                        // fetch_wiki_articles tool loop
-    slideQuoteBackfill: true,                         // title→body-sentence swap after parse
-    wikiArticleViewer: true,                          // ⌘ READ ARCHIVED overlay
-    titleAsQuoteBan: true,                            // prompt directive + heuristic detector
-    // v3.2 features (NEW — densified slides + skill-contract refactor)
-    densifiedTemplates: true,                         // Option B: 7 web templates gained impactGrid/evidence/lesson/comparables/convergentInsight/contextParagraph/corroboratingData/signal/patternSignal/implication/meaning/matters
-    renderContractSkill: true,                        // nxt-visual-renderer loaded as always-on render-contract when slide intent detected
-    skillReferencesLoader: true,                      // loadSkillContext fetches references/*.md inside skill folders
-    renderContractCategory: true,                     // new 'render-contract' category; matchSkills matches it + research-deliverable
-    skillVolumeMount: true,                           // .claude/skills mounted into nginx — live-reload without rebuild
-    transcriptQuoteCleaner: true,                     // Whisper disfluency + video-intro meta stripper
-    smartQuoteClip: true,                             // no-mid-clause quote truncation in QuoteStack + block-quote + case-study
-    themeMosaicIvoryRedesign: true,                   // B&W checkerboard replaced with ivory + chartreuse primary accent
-    pptxDensityParity: true,                          // PPTX exporter mirrors web Option B fields
-    // v3.4 features (2026-04-29)
-    twoPassThemeArchitecture: true,                   // Pass 1 Gemini 3.1 Pro breadth + Pass 2 Opus 4.7 depth
-    rssBodyExpansion: true,                           // 3-tier (trafilatura → Jina → teaser) for all 200+ RSS feeds
-    causeCommerceSourcePack: true,                    // 153 new sources: ShoppingGives, Daffy, Bombas, TOMS, Wayfair, Klarna, Stripe Climate, Pledgeling, etc.
-    staticUrlConnector: true,                         // single-page fetch via 3-tier expansion for brand impact pages
+    // v3.1-v3.4 retained (chat tool-loop, densified templates, RSS body expansion, etc.)
+    videoTranscriberConnector: true,
+    enrichmentCap300: true,
+    residualWikiArchival: true,
+    enrichMapCollisionFix: true,
+    wikiIndexEndpoint: true,
+    wikiFetchArticlesEndpoint: true,
+    chatWikiPreFetch: true,
+    claudeNativeToolUse: true,
+    slideQuoteBackfill: true,
+    wikiArticleViewer: true,
+    titleAsQuoteBan: true,
+    densifiedTemplates: true,
+    renderContractSkill: true,
+    skillReferencesLoader: true,
+    renderContractCategory: true,
+    skillVolumeMount: true,
+    transcriptQuoteCleaner: true,
+    smartQuoteClip: true,
+    themeMosaicIvoryRedesign: true,
+    pptxDensityParity: true,
+    twoPassThemeArchitecture: true,
+    rssBodyExpansion: true,
+    causeCommerceSourcePack: true,
+    staticUrlConnector: true,
+    // v3.7 features (2026-05-08)
+    geminiPrimaryChat: true,                          // AI Analyst chat default = gemini-3.1-pro-preview
+    geminiPrimaryComposer: false,                     // #presentation REVERTED to deepseek-v4-flash — composer oneOf schema rejected by Gemini-compat (INVALID_ARGUMENT 400)
+    geminiPrimaryFreeform: true,                      // #journey/#blueprint/#org default = gemini-3.1-pro-preview
+    noEllipsisTruncation: true,                       // truncateAtSentence + smartQuoteClip never emit "..." or "…"
+    sentenceForwardLookahead: true,                   // truncation looks 1.5× forward for next sentence end
+    contentBudgetsBumped: true,                       // title 140, content 280, narrative 600, quote 320, speaker 800
+    enDashScrubber: true,                             // U+2013 stripped from every output field
+    slopBlacklist140: true,                           // SLOP_PHRASES expanded ~40 → ~140 entries
+    slopAutoStrip: true,                              // banned phrases removed from output, not just detected
+    personaArchetypeNames: true,                      // isLikelyPersonalName guard auto-replaces "Sarah Chen" with archetype
+    personaPromptHardened: true,                      // generatePersonas roster prompt forbids personal names with examples
+    universalToneRules: true,                         // 2026-05-08: balanced framing, opportunity-led, no catastrophizing — injected into every prompt path (slides, presentations, freeform artifacts, personas, recommendations, PRDs)
 };
 console.log(
     `%c[NXT HiC] ${HIC_BUNDLE_VERSION} (${HIC_BUILD_STAMP}) — ${HIC_CODENAME}`,
