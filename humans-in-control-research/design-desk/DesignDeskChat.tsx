@@ -10,6 +10,9 @@ const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set(['org', 'journey', 'ar
 import { useDesignDeskStore } from './store/designDeskStore';
 import type { DesignTokens } from './services/designMdLoader';
 import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type DesignContext } from './services/designContext';
+// 2026-05-08 — Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
+import ChatAttachmentDropzone, { type ChatAttachment } from '../components/ChatAttachmentDropzone';
+import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
 
 interface ChatMsg {
     id: string;
@@ -132,7 +135,11 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     const [input, setInput] = useState('');
     const [busy, setBusy] = useState(false);
     const [ctx, setCtx] = useState<DesignContext>(() => loadDesignContext());
+    // 2026-05-08 — Pending mid-chat attachments staged for the next send.
+    const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
     const endRef = useRef<HTMLDivElement>(null);
+    // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
+    const panelRef = useRef<HTMLDivElement>(null);
     const { artifacts, activeArtifactId, addArtifact, replaceArtifact } = useDesignDeskStore();
     const active = artifacts.find(a => a.id === activeArtifactId) ?? null;
 
@@ -165,10 +172,28 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
      * intelligence are always layered in if present.
      */
     const buildPromptCorpus = (): string => {
+        // 2026-05-08 — Mid-chat ad-hoc attachments take HIGHEST priority. The
+        // user just dropped these in for THIS turn; they shape the artifact
+        // generation more than anything else in scope.
+        const adHocBlock = pendingAttachments.length > 0
+            ? '=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY — JUST UPLOADED) ===\n' + pendingAttachments.map(att => {
+                const meta = [
+                    att.slideCount ? `${att.slideCount} slides` : null,
+                    att.pageCount ? `${att.pageCount} pages` : null,
+                    `${att.charCount} chars`,
+                    att.isImage ? 'IMAGE' : null,
+                ].filter(Boolean).join(', ');
+                return `--- AD-HOC UPLOAD: ${att.filename} (${meta}) ---\n${att.parsedText}\n--- END ${att.filename} ---`;
+            }).join('\n\n')
+            : '';
+
         const fromStore = buildCombinedEvidence(ctx);
-        if (fromStore.length > corpusTextProp.length) return fromStore;
+        if (fromStore.length > corpusTextProp.length) {
+            return adHocBlock ? adHocBlock + '\n\n' + fromStore : fromStore;
+        }
         // Fallback: use prop and decorate with structured intelligence from store
         const decoratedParts: string[] = [];
+        if (adHocBlock) decoratedParts.push(adHocBlock);
         if (corpusTextProp) decoratedParts.push('=== EXTERNAL RESEARCH CORPUS ===\n' + corpusTextProp);
         if (ctx.uploadedFileContents && ctx.uploadedFileContents.length > 40) decoratedParts.push('=== CLIENT UPLOADS ===\n' + ctx.uploadedFileContents);
         if (ctx.themes) decoratedParts.push('=== THEMES ===\n' + ctx.themes);
@@ -178,13 +203,47 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     };
 
     const send = async () => {
-        const text = input.trim();
-        if (!text || busy) return;
+        let text = input.trim();
+        // 2026-05-08 — Allow attachment-only sends (e.g., drop a brief and
+        // the user expects "summarize this"). Synthesize a default that
+        // surfaces the filenames so the model knows what to do.
+        if (!text && pendingAttachments.length === 0) return;
+        if (busy) return;
+        if (!text && pendingAttachments.length > 0) {
+            text = `Summarize the attached file${pendingAttachments.length > 1 ? 's' : ''} (${pendingAttachments.map(a => a.filename).join(', ')}) and tell me what's most important.`;
+        }
 
         const parsed = parseHashtags(text);
-        const userMsg: ChatMsg = { id: `u_${Date.now()}`, role: 'user', content: text, timestamp: Date.now() };
+        const userMsg: ChatMsg = {
+            id: `u_${Date.now()}`,
+            role: 'user',
+            content: text + (pendingAttachments.length > 0
+                ? `\n\n[attached: ${pendingAttachments.map(a => a.filename).join(', ')}]`
+                : ''),
+            timestamp: Date.now(),
+        };
         setMessages(prev => [...prev, userMsg]);
         setInput('');
+
+        // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
+        // BEFORE the generation dispatch. Fire-and-forget; uses 'designer' chat
+        // surface so the wiki record is distinguishable from analyst uploads.
+        if (pendingAttachments.length > 0) {
+            const sessionSlug = buildEngagementSlug(ctx.researchGoal || 'designer-session', 50);
+            for (const att of pendingAttachments) {
+                writeAdHocUpload({
+                    filename: att.filename,
+                    parsedText: att.parsedText,
+                    mimeType: att.mimeType,
+                    pageCount: att.pageCount,
+                    slideCount: att.slideCount,
+                    isImage: att.isImage,
+                    chatSurface: 'designer',
+                }, sessionSlug)
+                    .then(path => { if (path) console.log(`[DesignDeskChat] Persisted ad-hoc upload: ${path}`); })
+                    .catch(e => console.warn('[DesignDeskChat] Ad-hoc upload wiki write failed:', e));
+            }
+        }
 
         // No content hashtags -> revise the active artifact (if any)
         if (parsed.content.length === 0) {
@@ -219,6 +278,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         content: `SlideSpec revision failed: ${ssErr.error}\n(See browser console for raw output.)` }]);
                 }
                 setBusy(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
                 return;
             }
             if ((active as any).type === 'freeform') {
@@ -249,6 +309,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                         content: `Revision failed: ${ffErr.error}\n(See browser console for raw output.)` }]);
                 }
                 setBusy(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
                 return;
             }
             const res = await generateArtifact({
@@ -257,6 +318,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             });
             handleResult(res);
             setBusy(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
             return;
         }
 
@@ -298,6 +360,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
             handleResult(res, contentTag);
         }
         setBusy(false);
+        if (pendingAttachments.length > 0) setPendingAttachments([]);
     };
 
     const handleResult = (res: GenerateResult | GenerateError, contentTag?: string) => {
@@ -330,7 +393,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: '#FAFAFA', borderRight: '1px solid #E0E0E0', width: '100%' }}>
+        <div ref={panelRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', height: '100%', background: '#FAFAFA', borderRight: '1px solid #E0E0E0', width: '100%' }}>
             <div style={{ padding: '16px 20px', borderBottom: '1px solid #E0E0E0', background: '#0D0D0D' }}>
                 <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#B8B800' }}>Design Desk</div>
                 <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>
@@ -364,19 +427,63 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
 
             <div style={{ padding: '12px 16px', borderTop: '1px solid #E0E0E0', background: '#FFFFFF' }}>
                 <EvidenceStatus ctx={ctx} corpusTextProp={corpusTextProp} />
-                <textarea
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-                    placeholder="Start with a hashtag: #persona, #journey, #org"
-                    rows={2}
-                    style={{ width: '100%', padding: 8, border: '1px solid #DDD', fontFamily: "'Archivo', sans-serif", fontSize: 13, resize: 'none', boxSizing: 'border-box' }}
-                />
+
+                {/* 2026-05-08 — Pending mid-chat attachments. Same pattern as
+                    the AI Analyst panel: chips above the input, dismiss with x,
+                    cleared on send. */}
+                {pendingAttachments.length > 0 && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
+                        {pendingAttachments.map(att => (
+                            <div key={att.id} style={{
+                                display: 'inline-flex', alignItems: 'center', gap: 6,
+                                background: '#0D0D0D', color: '#B8B800',
+                                padding: '4px 8px', fontSize: 10,
+                                fontFamily: "'JetBrains Mono', monospace",
+                                letterSpacing: 0.5,
+                            }}>
+                                <span style={{ maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{att.filename}</span>
+                                <span style={{ color: '#888', fontSize: 9 }}>
+                                    {att.slideCount ? `${att.slideCount}sl` : att.pageCount ? `${att.pageCount}p` : `${(att.charCount / 1024).toFixed(1)}KB`}
+                                    {att.isImage ? ' · img' : ''}
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => setPendingAttachments(prev => prev.filter(a => a.id !== att.id))}
+                                    aria-label={`Remove ${att.filename}`}
+                                    style={{
+                                        background: 'transparent', border: 'none',
+                                        color: '#CC6644', cursor: 'pointer',
+                                        fontSize: 12, lineHeight: 1, padding: 0,
+                                    }}
+                                >×</button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                    <ChatAttachmentDropzone
+                        onAttachmentsAdded={atts => setPendingAttachments(prev => [...prev, ...atts])}
+                        dropTargetRef={panelRef}
+                        disabled={busy}
+                        variant="both"
+                        accentColor="#B8B800"
+                    />
+                    <textarea
+                        value={input}
+                        onChange={e => setInput(e.target.value)}
+                        onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
+                        placeholder="Start with a hashtag: #persona, #journey, #org"
+                        rows={2}
+                        style={{ flex: 1, padding: 8, border: '1px solid #DDD', fontFamily: "'Archivo', sans-serif", fontSize: 13, resize: 'none', boxSizing: 'border-box' }}
+                    />
+                </div>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 6 }}>
-                    <button onClick={send} disabled={busy || !input.trim()}
+                    <button onClick={send} disabled={busy || (!input.trim() && pendingAttachments.length === 0)}
                         style={{ padding: '6px 16px', background: '#0D0D0D', color: '#FFFFFF', border: 'none',
                             fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase',
-                            cursor: busy || !input.trim() ? 'not-allowed' : 'pointer', opacity: busy || !input.trim() ? 0.5 : 1 }}>
+                            cursor: busy || (!input.trim() && pendingAttachments.length === 0) ? 'not-allowed' : 'pointer',
+                            opacity: busy || (!input.trim() && pendingAttachments.length === 0) ? 0.5 : 1 }}>
                         Send
                     </button>
                 </div>

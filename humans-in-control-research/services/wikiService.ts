@@ -730,6 +730,88 @@ The AI ingestion pipeline reads these as PRIORITY 1 sources.
     }
 }
 
+// --- AD-HOC MID-CHAT UPLOADS (2026-05-08) ---
+//
+// Persist individual files uploaded mid-conversation in the AI Analyst or
+// Designer chat. Distinct from `seedWikiFromUploads` (which writes a single
+// roll-up summary at engagement start) and `archiveUploadedDocs` (which
+// writes per-doc article pages at engagement start). Ad-hoc uploads can
+// happen at any point during a session and need their own folder so they
+// don't get tangled with the engagement's primary uploads.
+
+export interface AdHocUploadInput {
+    /** Original filename, e.g. "Q3-strategy.docx" */
+    filename: string;
+    /** Plain-text body returned by /api/parse-upload */
+    parsedText: string;
+    /** MIME type from the browser File object */
+    mimeType: string;
+    /** Page count for PDFs (optional) */
+    pageCount?: number;
+    /** Slide count for PPTX (optional) */
+    slideCount?: number;
+    /** Set when the upload was an image — vision pending in Phase 3 */
+    isImage?: boolean;
+    /** Which surface the upload came from: 'analyst' or 'designer' */
+    chatSurface: 'analyst' | 'designer';
+}
+
+/** Write a single ad-hoc mid-chat upload to wiki/uploads/ad-hoc/{slug}/{date}/.
+ *  Returns the wiki path on success or null on failure. Non-blocking — chat
+ *  flow continues regardless. The path is suitable for setting on the
+ *  ChatAttachment so the UI can link to the persisted copy. */
+export async function writeAdHocUpload(
+    input: AdHocUploadInput,
+    sessionSlug: string,
+): Promise<string | null> {
+    if (!input.parsedText && !input.isImage) {
+        console.warn('[WikiService] writeAdHocUpload skipped: empty parsedText for', input.filename);
+        return null;
+    }
+    const date = new Date().toISOString().split('T')[0];
+    const safeFilename = input.filename
+        .replace(/[^a-zA-Z0-9._-]/g, '_')
+        .replace(/_+/g, '_')
+        .toLowerCase();
+    const wikiPath = `uploads/ad-hoc/${sessionSlug}/${date}/${safeFilename}.md`;
+
+    const fmLines: string[] = [
+        '---',
+        `filename: ${JSON.stringify(input.filename)}`,
+        `mimeType: ${input.mimeType}`,
+        `charCount: ${input.parsedText.length}`,
+    ];
+    if (typeof input.pageCount === 'number') fmLines.push(`pageCount: ${input.pageCount}`);
+    if (typeof input.slideCount === 'number') fmLines.push(`slideCount: ${input.slideCount}`);
+    if (input.isImage) fmLines.push('isImage: true');
+    fmLines.push(`chatSurface: ${input.chatSurface}`);
+    fmLines.push(`uploadedAt: ${new Date().toISOString()}`);
+    fmLines.push(`sessionSlug: ${sessionSlug}`);
+    fmLines.push('kind: ad-hoc-upload');
+    fmLines.push('---');
+    fmLines.push('');
+    fmLines.push(`# ${input.filename}`);
+    fmLines.push('');
+    fmLines.push(`Ad-hoc upload from the ${input.chatSurface === 'analyst' ? 'AI Analyst' : 'Designer'} chat.`);
+    fmLines.push('');
+    fmLines.push('## Content');
+    fmLines.push('');
+
+    const body = fmLines.join('\n') + (input.parsedText || '[no extracted text]');
+
+    try {
+        const ok = await writeWikiPage(wikiPath, body);
+        if (ok) {
+            console.log(`[WikiService] Ad-hoc upload persisted: ${wikiPath} (${body.length} chars)`);
+            return wikiPath;
+        }
+        return null;
+    } catch (e) {
+        console.warn(`[WikiService] writeAdHocUpload failed for ${input.filename}:`, e);
+        return null;
+    }
+}
+
 // --- PHASE 1.4: ARCHIVE UPLOADED DOCS AS WIKI ARTICLES ---
 
 /** A single uploaded document with parsed text content. Used by

@@ -38,6 +38,9 @@ import { parsePresentationDirective } from '../services/hashtagParser';
 import { compose as composeNarrative } from '../services/narrativeComposer';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
+// --- Mid-chat upload dropzone (2026-05-08) ---
+import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
+import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
@@ -786,8 +789,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [generatingVisualId, setGeneratingVisualId] = useState<string | null>(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [wikiSourceArchive, setWikiSourceArchive] = useState('');
+    // 2026-05-08 — Mid-chat attachments staged for the next send. Cleared
+    // automatically after handleSend prepends them to the corpus and fires
+    // the wiki write-back. Multi-file capable.
+    const [pendingAttachments, setPendingAttachments] = useState<ChatAttachment[]>([]);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLTextAreaElement>(null);
+    // Outer panel ref — used by ChatAttachmentDropzone to scope drag-drop.
+    const panelRef = useRef<HTMLDivElement>(null);
 
     // Load skill manifest once
     useEffect(() => {
@@ -1150,14 +1159,51 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
     // --- Send ---
     const handleSend = async (queryOverride?: string) => {
-        const query = queryOverride || input.trim();
-        if (!query || isLoading) return;
+        let query = queryOverride || input.trim();
+        // 2026-05-08 — Allow send with attachments only (no text). When the
+        // user drops a file with no prompt, synthesize a "summarize this"
+        // default so the assistant gets a non-empty user turn.
+        if (!query && pendingAttachments.length === 0) return;
+        if (isLoading) return;
+        if (!query && pendingAttachments.length > 0) {
+            query = `Summarize the ${pendingAttachments.length === 1 ? 'attached file' : `${pendingAttachments.length} attached files`} (${pendingAttachments.map(a => a.filename).join(', ')}) and tell me what's most important.`;
+        }
 
-        const userMsg: ChatMessage = { id: `msg_${Date.now()}`, role: 'user', content: query, timestamp: Date.now() };
+        const userMsg: ChatMessage = {
+            id: `msg_${Date.now()}`,
+            role: 'user',
+            content: query + (pendingAttachments.length > 0
+                ? `\n\n[attached: ${pendingAttachments.map(a => a.filename).join(', ')}]`
+                : ''),
+            timestamp: Date.now(),
+        };
         setMessages(prev => [...prev, userMsg]);
         setInput('');
         setIsLoading(true);
         setShowSuggestions(false);
+
+        // 2026-05-08 — Persist ad-hoc uploads to wiki/uploads/ad-hoc/{slug}/{date}/
+        // BEFORE the chat dispatch. Fire-and-forget so latency doesn't gate
+        // the chat response. We do NOT clear pendingAttachments yet —
+        // the dispatch logic below still needs to read them; we'll clear at
+        // the end of the send.
+        if (pendingAttachments.length > 0) {
+            const liveCtxForSlug = getContext ? getContext() : context;
+            const sessionSlug = buildEngagementSlug(liveCtxForSlug?.researchGoal || 'session', 50);
+            for (const att of pendingAttachments) {
+                writeAdHocUpload({
+                    filename: att.filename,
+                    parsedText: att.parsedText,
+                    mimeType: att.mimeType,
+                    pageCount: att.pageCount,
+                    slideCount: att.slideCount,
+                    isImage: att.isImage,
+                    chatSurface: 'analyst',
+                }, sessionSlug)
+                    .then(path => { if (path) console.log(`[Chat] Persisted ad-hoc upload: ${path}`); })
+                    .catch(e => console.warn('[Chat] Ad-hoc upload wiki write failed:', e));
+            }
+        }
 
         // --- #presentation interception (narrative composer) -----------------
         // Takes priority over all other hashtag dispatch. When the user types
@@ -1382,6 +1428,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 } : m));
             } finally {
                 setIsLoading(false);
+                if (pendingAttachments.length > 0) setPendingAttachments([]);
             }
             return;
         }
@@ -1427,6 +1474,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // detail the model needs for deliverables like #org. Building the combined text
             // here ensures the generator sees everything the chat itself sees.
             const combinedCorpusParts: string[] = [];
+            // 2026-05-08 — Mid-chat ad-hoc attachments take HIGHEST priority. The
+            // user just dropped these in, so they're the immediate source for any
+            // hashtag deliverable that follows in the same turn.
+            if (pendingAttachments.length > 0) {
+                const adHocBlock = pendingAttachments.map(att => {
+                    const meta = [
+                        att.slideCount ? `${att.slideCount} slides` : null,
+                        att.pageCount ? `${att.pageCount} pages` : null,
+                        `${att.charCount} chars`,
+                        att.isImage ? 'IMAGE' : null,
+                    ].filter(Boolean).join(', ');
+                    return `--- AD-HOC UPLOAD: ${att.filename} (${meta}) ---\n${att.parsedText}\n--- END ${att.filename} ---`;
+                }).join('\n\n');
+                combinedCorpusParts.push('=== USER\'S MID-CHAT UPLOADS (HIGHEST PRIORITY — JUST UPLOADED) ===\n' + adHocBlock);
+            }
             if (liveCtx?.uploadedFileContents && typeof liveCtx.uploadedFileContents === 'string' && liveCtx.uploadedFileContents.length > 40) {
                 combinedCorpusParts.push('=== CLIENT UPLOADS ===\n' + liveCtx.uploadedFileContents);
             }
@@ -1576,6 +1638,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
             setMessages(prev => [...prev, ...deliveryMessages]);
             setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
             return;
         }
 
@@ -1583,6 +1646,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const response = await handleImageGeneration(query);
             setMessages(prev => [...prev, response]);
             setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
             return;
         }
 
@@ -1594,6 +1658,30 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         // Inject verified source archive (real URLs from wiki)
         if (wikiSourceArchive && !liveContext.wikiSourceArchive) {
             liveContext.wikiSourceArchive = wikiSourceArchive;
+        }
+        // 2026-05-08 — Inject mid-chat ad-hoc attachments at the TOP of the
+        // uploadedFileContents block. The model sees them as PRIORITY 0 source
+        // material — they're what the user just dropped in, so they answer
+        // any question or hashtag in this turn first.
+        if (pendingAttachments.length > 0) {
+            const adHocBlock = pendingAttachments.map(att => {
+                const meta = [
+                    att.slideCount ? `${att.slideCount} slides` : null,
+                    att.pageCount ? `${att.pageCount} pages` : null,
+                    `${att.charCount} chars`,
+                    att.isImage ? 'IMAGE' : null,
+                ].filter(Boolean).join(', ');
+                return `=== AD-HOC UPLOAD: ${att.filename} (${meta}) ===\n${att.parsedText}\n=== END ${att.filename} ===`;
+            }).join('\n\n');
+            const adHocHeader = `=== USER JUST UPLOADED ${pendingAttachments.length} FILE(S) MID-CHAT — TREAT AS PRIMARY SOURCE FOR THIS TURN ===\n\n`;
+            liveContext.uploadedFileContents = adHocHeader + adHocBlock + '\n\n' + (liveContext.uploadedFileContents || '');
+            // Also surface in uploadedFiles[] so the prompt-suggestion chips
+            // and the dynamic context summarizer can see them by name.
+            const adHocFiles = pendingAttachments.map(att => ({
+                name: att.filename,
+                parsedText: att.parsedText,
+            }));
+            liveContext.uploadedFiles = [...adHocFiles, ...(liveContext.uploadedFiles || [])];
         }
 
         // Inject current deliverable state into the query so the AI can reference
@@ -1651,6 +1739,11 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             }
         }
 
+        // 2026-05-08 — Clear attachments after the send completes (success or fail).
+        // Wiki write was already fired at the top; corpus injection already happened.
+        if (pendingAttachments.length > 0) {
+            setPendingAttachments([]);
+        }
         setIsLoading(false);
     };
 
@@ -1680,7 +1773,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     if (!isOpen) return null;
 
     return (
-        <div style={{
+        <div ref={panelRef} style={{
             position: 'fixed', right: 0, top: 0, bottom: 0, width: panelWidth,
             background: '#FFFFFF', borderLeft: '1px solid #E0E0E0',
             zIndex: 60, display: 'flex', flexDirection: 'column',
@@ -1957,11 +2050,52 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
             {/* Input */}
             <div style={{ padding: '10px 16px 14px', borderTop: '1px solid #E8E8E8', background: '#FAFAFA' }}>
-                <div style={{ display: 'flex', gap: 6 }}>
+                {/* 2026-05-08 — Pending mid-chat attachments. Each chip shows
+                    filename + char count and is dismissible before send. On
+                    send, attachment text is prepended to the corpus and the
+                    list is cleared. */}
+                {pendingAttachments.length > 0 && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
+                        {pendingAttachments.map(att => (
+                            <div key={att.id} style={{
+                                display: 'inline-flex', alignItems: 'center', gap: 6,
+                                background: '#0D0D0D', color: '#B8B800',
+                                padding: '4px 8px', fontSize: 10,
+                                fontFamily: "'JetBrains Mono', monospace",
+                                letterSpacing: 0.5,
+                            }}>
+                                <span style={{ maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{att.filename}</span>
+                                <span style={{ color: '#888', fontSize: 9 }}>
+                                    {att.slideCount ? `${att.slideCount}sl` : att.pageCount ? `${att.pageCount}p` : `${(att.charCount / 1024).toFixed(1)}KB`}
+                                    {att.isImage ? ' · img' : ''}
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => setPendingAttachments(prev => prev.filter(a => a.id !== att.id))}
+                                    aria-label={`Remove ${att.filename}`}
+                                    style={{
+                                        background: 'transparent', border: 'none',
+                                        color: '#CC6644', cursor: 'pointer',
+                                        fontSize: 12, lineHeight: 1, padding: 0,
+                                    }}
+                                >×</button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                    {/* Paperclip + drag-drop dropzone (shared component) */}
+                    <ChatAttachmentDropzone
+                        onAttachmentsAdded={atts => setPendingAttachments(prev => [...prev, ...atts])}
+                        dropTargetRef={panelRef}
+                        disabled={isLoading}
+                        variant="both"
+                        accentColor="#B8B800"
+                    />
                     <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}
                         placeholder="Ask about your research data..."
                         rows={2} style={{ flex: 1, padding: '8px 10px', border: '1px solid #E0E0E0', fontSize: 11, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none', lineHeight: 1.5 }} />
-                    <button onClick={() => handleSend()} disabled={!input.trim() || isLoading} style={{
+                    <button onClick={() => handleSend()} disabled={(!input.trim() && pendingAttachments.length === 0) || isLoading} style={{
                         padding: '0 14px', background: isLoading ? '#CCC' : '#B8B800', color: '#0D0D0D', border: 'none',
                         fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: isLoading ? 'default' : 'pointer',
                     }}>Send</button>

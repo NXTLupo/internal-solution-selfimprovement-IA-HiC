@@ -2344,6 +2344,76 @@ def _parse_pdf_bytes(raw: bytes, max_pages: int = 80) -> dict:
     except Exception as e:
         return {"text": "", "error": str(e)[:200], "method": "pypdf"}
 
+def _parse_pptx_bytes(raw: bytes) -> dict:
+    """Structured extraction from .pptx bytes via python-pptx (already in
+    requirements.txt for the export pipeline). Returns per-slide title +
+    body text + speaker notes + table cells, joined into a single
+    plain-text representation that the model can consume verbatim.
+    Falls back to office-regex on any python-pptx error. 2026-05-08."""
+    try:
+        from pptx import Presentation
+        from io import BytesIO
+        prs = Presentation(BytesIO(raw))
+        slide_blocks = []
+        for idx, slide in enumerate(prs.slides, start=1):
+            parts = [f"[Slide {idx}]"]
+            # Title via placeholder index 0 (when present)
+            try:
+                if slide.shapes.title and slide.shapes.title.text:
+                    parts.append(f"TITLE: {slide.shapes.title.text.strip()}")
+            except Exception:
+                pass
+            # Iterate every shape; collect text frame paragraphs and table cells
+            for shape in slide.shapes:
+                # Text frames (covers titles, body placeholders, text boxes)
+                try:
+                    if shape.has_text_frame:
+                        tf_text = "\n".join(
+                            p.text.strip()
+                            for p in shape.text_frame.paragraphs
+                            if p.text and p.text.strip()
+                        )
+                        if tf_text:
+                            # Avoid duplicating the title we already captured
+                            if not parts[-1].startswith("TITLE:") or tf_text not in parts[-1]:
+                                parts.append(tf_text)
+                except Exception:
+                    pass
+                # Tables
+                try:
+                    if shape.has_table:
+                        rows = []
+                        for row in shape.table.rows:
+                            cells = [c.text.strip() for c in row.cells if c.text and c.text.strip()]
+                            if cells:
+                                rows.append(" | ".join(cells))
+                        if rows:
+                            parts.append("TABLE:\n" + "\n".join(rows))
+                except Exception:
+                    pass
+            # Speaker notes
+            try:
+                if slide.has_notes_slide and slide.notes_slide.notes_text_frame:
+                    notes = slide.notes_slide.notes_text_frame.text.strip()
+                    if notes:
+                        parts.append(f"NOTES: {notes}")
+            except Exception:
+                pass
+            slide_blocks.append("\n".join(parts))
+        text = "\n\n".join(slide_blocks)
+        return {
+            "text": text[:200_000],
+            "method": "python-pptx",
+            "slideCount": len(slide_blocks),
+        }
+    except ImportError:
+        return {"text": "", "error": "python-pptx not installed", "method": "python-pptx"}
+    except Exception as e:
+        # Fall back to office-regex if python-pptx chokes (corrupt file etc.)
+        logger.warning(f"[parse-upload] python-pptx failed: {e}; falling back to office-regex")
+        return _parse_office_bytes(raw)
+
+
 def _parse_office_bytes(raw: bytes) -> dict:
     """Text-stream extraction from DOCX/XLSX/PPTX bytes. These are zipped XML —
     a regex pass over printable ASCII captures most document text when pypdf
@@ -2408,13 +2478,36 @@ async def parse_upload(req: ParseUploadRequest):
         logger.info(f"[parse-upload] TEXT {fn} → {len(decoded)} chars")
         return {"filename": fn, "text": decoded[:200_000], "method": "decode", "bytes": len(raw)}
 
-    # 3. Office documents (DOCX/XLSX/PPTX/DOC/XLS/PPT)
-    office_exts = {"docx", "xlsx", "pptx", "doc", "xls", "ppt", "odt", "ods", "odp"}
-    is_office_mime = "officedocument" in mime or "ms-excel" in mime or "msword" in mime or "powerpoint" in mime
+    # 3a. PPTX — structured slide-by-slide extraction via python-pptx (2026-05-08)
+    is_pptx = ext == "pptx" or "presentationml.presentation" in mime or "powerpoint" in mime
+    if is_pptx:
+        out = _parse_pptx_bytes(raw)
+        logger.info(f"[parse-upload] PPTX {fn} → {len(out.get('text') or '')} chars ({out.get('slideCount', 0)} slides)")
+        return {"filename": fn, **out, "bytes": len(raw)}
+
+    # 3b. Other office documents (DOCX/XLSX/DOC/XLS/PPT)
+    office_exts = {"docx", "xlsx", "doc", "xls", "ppt", "odt", "ods", "odp"}
+    is_office_mime = "officedocument" in mime or "ms-excel" in mime or "msword" in mime
     if ext in office_exts or is_office_mime:
         out = _parse_office_bytes(raw)
         logger.info(f"[parse-upload] OFFICE {fn} → {len(out.get('text') or '')} chars")
         return {"filename": fn, **out, "bytes": len(raw)}
+
+    # 3c. Images — Phase 1 placeholder. Phase 3 will pass these as multimodal
+    # parts directly to Gemini Pro (vision-capable). For now we accept the
+    # upload and surface a clear note so the user knows the file is queued
+    # but its contents aren't yet in the corpus.
+    image_exts = {"png", "jpg", "jpeg", "gif", "webp", "bmp", "tiff", "tif", "heic", "heif", "svg"}
+    is_image_mime = mime.startswith("image/")
+    if ext in image_exts or is_image_mime:
+        logger.info(f"[parse-upload] IMAGE {fn} ({mime}, {len(raw)} bytes) — Phase 3 multimodal pending")
+        return {
+            "filename": fn,
+            "text": f"[Image upload: {fn} ({mime}, {len(raw)} bytes). Vision analysis is Phase 3 — content not yet readable by the model.]",
+            "method": "image-placeholder",
+            "isImage": True,
+            "bytes": len(raw),
+        }
 
     # 4. Fallback — best-effort regex on raw bytes
     out = _parse_office_bytes(raw)
