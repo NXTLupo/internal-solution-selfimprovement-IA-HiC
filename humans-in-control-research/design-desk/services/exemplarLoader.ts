@@ -20,6 +20,12 @@ import orgNuHtml from '../../styles/05-org-chart-NU.html?raw';
 import orgNxtHtml from '../../styles/06-org-chart-NXT.html?raw';
 import roadmapNuHtml from '../../styles/07-roadmap-NU.html?raw';
 import roadmapNxtHtml from '../../styles/08-roadmap-NXT.html?raw';
+// 2026-05-09: Journey-specific exemplars (no longer share with blueprint).
+// These embody the 10-point design spec: 12-col grid, 3 horizontal bands
+// (header/journey/synthesis), no brand-mark/seal/wordmark, voice-of-user
+// row at bottom of journey band, synthesis + 4 metric tiles in bottom band.
+import journeyNuHtml from '../../styles/09-journey-NU.html?raw';
+import journeyNxtHtml from '../../styles/10-journey-NXT.html?raw';
 
 import nxtBrandSkill from '../../exemplar-skills/brands/nxt-style/SKILL.md?raw';
 import nuBrandSkill from '../../exemplar-skills/brands/nu-style/SKILL.md?raw';
@@ -31,13 +37,18 @@ import roadmapSkill from '../../exemplar-skills/diagrams/roadmap-illustrator/SKI
 import blueprintSkill from '../../exemplar-skills/diagrams/blueprint-illustrator/SKILL.md?raw';
 
 const EXEMPLARS: Record<FreeformKind, Record<BrandHashtag, string>> = {
-    org:       { nu: orgNuHtml,     nxt: orgNxtHtml     },
-    arch:      { nu: archNuHtml,    nxt: archNxtHtml    },
-    roadmap:   { nu: roadmapNuHtml, nxt: roadmapNxtHtml },
-    // Journey + blueprint share the service-blueprint exemplar; semantic
-    // difference (current vs future state) lives in the diagram skill.
-    blueprint: { nu: bpNuHtml,      nxt: bpNxtHtml      },
-    journey:   { nu: bpNuHtml,      nxt: bpNxtHtml      },
+    org:       { nu: orgNuHtml,      nxt: orgNxtHtml      },
+    arch:      { nu: archNuHtml,     nxt: archNxtHtml     },
+    roadmap:   { nu: roadmapNuHtml,  nxt: roadmapNxtHtml  },
+    // 2026-05-09: Journey + blueprint NOW SHARE the new journey exemplar
+    // (09/10) which embodies the 10-point design spec. Blueprint is
+    // semantically a journey with pain-points-solved + recommendations
+    // layered — the visual frame is identical; the diagram skill's
+    // perKindGuidance handles the future-state framing and intervention
+    // overlays. The old service-blueprint exemplars (01/02) are retired
+    // from the registry but remain in styles/ for historical reference.
+    blueprint: { nu: journeyNuHtml,  nxt: journeyNxtHtml  },
+    journey:   { nu: journeyNuHtml,  nxt: journeyNxtHtml  },
 };
 
 const BRAND_SKILLS: Record<BrandHashtag, string> = {

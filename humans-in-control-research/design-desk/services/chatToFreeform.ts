@@ -275,34 +275,71 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • DO NOT inherit the exemplar's coordinates when your phase count differs. RECOMPUTE column widths.\n`;
 
         case 'blueprint':
-            return `        PERMANENT DESIGN RULES — NON-NEGOTIABLE (apply on EVERY generation and revision, even when not mentioned by the user):\n` +
-                `        • NO LOGO, BRAND MARK, OR SEAL anywhere in the slide. Do NOT emit .brand-mark, .seal, .wordmark, or any institution logo element.\n` +
-                `        • ALL activity labels in every lane MUST be complete sentences with subject + verb. NEVER use gerund fragments. BAD: "Creates account", "Lists jobs". GOOD: "The system creates a student account upon enrollment.", "NUworks lists open co-op postings by employer."\n` +
-                `        • ONE VERBATIM EVIDENCE QUOTE per step column — every step must have a diagnosis quote grounding the design choice. Pull from corpus. Never omit a step's quote.\n` +
-                `        • CONTENT NEVER OVERLAPS LINES, DIVIDERS, OR OTHER ELEMENTS. Every label, chip, and text block must sit in clear space with no visual intersection of any lane line, visibility line, or element.\n\n` +
-                `        SERVICE BLUEPRINT body must contain (FUTURE-state framing):\n` +
-                `        • A title naming the service or workflow being designed\n` +
-                `        • Customer Action lane (top): observable steps the customer takes\n` +
-                `        • Frontstage lane: visible system / staff actions the customer sees\n` +
-                `        • Backstage lane: invisible support actions and processes\n` +
-                `        • Support Processes lane (bottom): underlying systems and infrastructure\n` +
-                `        • Vertical step columns showing the time progression of the journey\n` +
-                `        • Fail-point markers and emotion-intensity treatments where the redesign addresses pain\n` +
-                `        • Evidence quotes citing the diagnosis that drove each design choice\n` +
-                `        Frame everything as proposed redesign — what SHOULD BE post-analysis. Justify changes with corpus evidence.\n\n` +
-                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
+            return `        SERVICE BLUEPRINT DESIGN SYSTEM — NON-NEGOTIABLE (IDENTICAL 10-point spec as #journey, only the framing changes: blueprint is FUTURE-STATE with pain-points-solved and recommendations layered. Apply IDENTICALLY for #NU and #NXT — brand only changes color/font, not layout):\n\n` +
+                `        === 1. CANVAS, FRAME, SAFE AREA ===\n` +
+                `        • Artboard locked to 1920 × 1080. Nothing crosses those bounds.\n` +
+                `        • 80px safe area on all four sides. No content of any kind crosses the safe area.\n` +
+                `        • 12-column grid, 24px gutters, 80px outer margins. Every element snaps to columns 1–12.\n` +
+                `        • Three horizontal bands with hard boundaries: HEADER (0–240px from top), BLUEPRINT BODY (240–880px), SYNTHESIS (880–1080px). Content lives strictly inside its band.\n\n` +
+                `        === 2. TITLE & HEADLINE ===\n` +
+                `        • Title sits in COLUMNS 1–9. Auto-size 40–64px to fit max 3 lines. Title NEVER crosses into columns 10–12.\n` +
+                `        • Eyebrow above title: uppercase, tracked, 10–12px (e.g. "BLUEPRINT · FUTURE STATE"). Self-identifies the artifact.\n` +
+                `        • Title is a complete action-title sentence describing the redesigned outcome. NOT a topic phrase.\n\n` +
+                `        === 3. RIGHT-RAIL PARAGRAPH ===\n` +
+                `        • Reserved exclusively for COLUMNS 10–12, top-aligned to title baseline.\n` +
+                `        • LINE LENGTH: 45–65 characters per line. NON-NEGOTIABLE.\n` +
+                `        • Type: 14–16px, line-height 1.5, max 8 lines.\n\n` +
+                `        === 4. NEGATIVE SPACE & BALANCE ===\n` +
+                `        • The blueprint diagram occupies the FULL HORIZONTAL WIDTH (columns 1–12) within the body band.\n` +
+                `        • Upper-left quadrant must hold something purposeful — intervention summary, before/after delta, or anchored whitespace.\n\n` +
+                `        === 5. SWIMLANE STRUCTURE (BLUEPRINT-SPECIFIC) ===\n` +
                 `        • Four canonical lanes (Customer Action / Frontstage / Backstage / Support Processes). When fewer warranted, OMIT — never combine.\n` +
-                `        • Lane height ≥130px (blueprint lanes carry MORE annotation than journey lanes).\n` +
-                `        • Lane line at vertical CENTER of band. Step boxes / action callouts at band_top + 20px (above-line) OR band_bottom − 20px (below-line) — NEVER overlapping the line itself.\n` +
-                `        • Step column width = 1840px / N steps. Min 220px, max 320px. If N×220 > 1840, USE 2-row layout with 30px gutter.\n` +
-                `        • Vertical "line of visibility" between Frontstage and Backstage: 2px dashed, full body height, drawn FIRST.\n` +
-                `        • Vertical "line of internal interaction" between Backstage and Support Processes: 2px dotted, full body height.\n` +
-                `        • Fail-point markers + emotion bands in dedicated row ABOVE the lanes — NEVER inside a lane band.\n` +
-                `        • 40px exclusion zone perpendicular to every lane line and step divider. NO text bounding box may intersect.\n` +
-                `        • Multi-line labels MUST be ≤ 2 lines. Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px.\n` +
-                `        • Stagger fail-point markers above/below line of visibility in zigzag when >3 share a step column.\n` +
-                `        • Verbatim diagnosis quotes capped at 200 chars; truncate with "…" + attribution intact.\n` +
-                `        • DO NOT inherit the exemplar's exact coordinates when your label lengths differ. RECOMPUTE Y offsets.\n`;
+                `        • Every lane runs the FULL WIDTH of the body band. Active segments: solid line. Inactive segments (lane not engaged at this step): 30%-opacity DASHED line.\n` +
+                `        • MAXIMUM 6 STEP COLUMNS (the future-state journey has 3–5 steps; complex blueprints split into a second map).\n` +
+                `        • Step header anatomy is IDENTICAL for every step: (1) eyebrow "STEP 0X · {time/state marker}"; (2) step name; (3) system callouts. Same structure no exceptions.\n` +
+                `        • EXACTLY ONE step may be visually emphasized as the focal redesign — single signal (tinted background OR italic OR underline).\n` +
+                `        • Vertical "line of visibility" between Frontstage and Backstage: 2px dashed, full body height.\n` +
+                `        • Vertical "line of internal interaction" between Backstage and Support Processes: 2px dotted, full body height.\n\n` +
+                `        === 6. STEP / TOUCHPOINT NODES & ACTIVITY LABELS ===\n` +
+                `        • Step IDs (CA-01, FS-02, BS-03, SP-04) min 9px when referenced; otherwise REMOVE.\n` +
+                `        • Node states for blueprint: STANDARD (open circle), INTERVENTION (filled accent — the design response, equivalent to journey's "moment of truth"), HANDOFF (split circle between lanes), AUTOMATED (square node).\n` +
+                `        • Touchpoint labels: max 2 lines, max ~50 characters, 11–12px.\n` +
+                `        • ALL activity labels MUST be COMPLETE SENTENCES with subject + verb. NEVER gerund fragments. BAD: "Creates account", "Lists jobs". GOOD: "The system creates a student account upon enrollment.", "NUworks lists open co-op postings by employer."\n` +
+                `        • All activity labels sit ABOVE their corresponding timeline dot. Never below. Never alternating.\n\n` +
+                `        === 7. INTERVENTION / OUTCOME / RECOMMENDATION LAYERS (BLUEPRINT-SPECIFIC) ===\n` +
+                `        • Intervention markers: small icons or flags attached to specific steps with a 1-line description of the design response. These REPLACE journey's pain-point markers — blueprint shows the solution, not the friction.\n` +
+                `        • Outcome arc: a single thin curve threaded across step columns at fixed y-offset showing the projected emotion/sentiment improvement (rust → mute → accent).\n` +
+                `        • Recommendation chips at the bottom of each step (or in a dedicated row above the lanes) summarizing the design choice that step embodies.\n\n` +
+                `        === 8. EVIDENCE QUOTE ROW (replaces journey's voice-of-user row) ===\n` +
+                `        • Locked to the bottom of the BLUEPRINT BODY band.\n` +
+                `        • ONE VERBATIM EVIDENCE QUOTE per step column — every step must have a diagnosis quote that grounds the design choice. Pull verbatim from the corpus.\n` +
+                `        • Quote anatomy: eyebrow "EVIDENCE FOR STEP 0X" (10px tracked uppercase); participant code in MONOSPACE; quote body in ITALIC SERIF, 14px, line-height 1.4; max 4 lines / ~140 characters.\n\n` +
+                `        === 9. SYNTHESIS & PROJECTED-IMPACT ROW (bottom band) ===\n` +
+                `        • Synthesis paragraph: COLUMNS 1–4, 14px, line-height 1.5, max 5 lines. Frame as "What this redesign achieves".\n` +
+                `        • Projected-impact tiles: COLUMNS 5–12, EXACTLY 3 or 4 tiles, all the same size, all the same visual weight by default.\n` +
+                `        • One inverted tile permitted — and only when it is the headline impact. Eyebrow reads "PROJECTED IMPACT" or "TARGET". Author's deliberate choice.\n` +
+                `        • Tile anatomy: 24px icon; 48–64px numeral; uppercase tracked 10px label; 12px supporting line max ~50 characters.\n\n` +
+                `        === 10. TYPOGRAPHIC SYSTEM (exactly five roles, NO exceptions) ===\n` +
+                `        • DISPLAY (title): bold sans, 40–64px, line-height 1.05\n` +
+                `        • BODY (right-rail paragraph, synthesis): regular sans, 14–16px, line-height 1.5\n` +
+                `        • LABEL (lane, step, system, eyebrow): uppercase tracked sans, 10–12px\n` +
+                `        • QUOTE (evidence row body): italic serif, 14px, line-height 1.4\n` +
+                `        • DATA (metric numerals, participant codes): bold sans for numerals, monospace for codes\n\n` +
+                `        === FRAMING (FUTURE-STATE) ===\n` +
+                `        Title naming the redesigned service or workflow (e.g., "An AI-augmented co-op match closes the late-cycle reschedule gap"). 3–6 step columns. Activity labels describe the redesigned interaction (the future-state behavior). Intervention markers signal where the design responds to evidenced pain. Justify every change with verbatim corpus evidence in the bottom row.\n\n` +
+                `        === ANTI-PATTERNS (AUTO-REJECT) ===\n` +
+                `        • Logo/brand-mark/seal anywhere on the slide. Header is eyebrow + title + lede only.\n` +
+                `        • Headline overrunning into the right-rail paragraph zone (columns 10–12).\n` +
+                `        • Right-rail paragraph set narrower than 45 chars per line.\n` +
+                `        • Inactive lane segments rendered solid (must be 30% dashed).\n` +
+                `        • More than one visually emphasized step. More than one inverted tile.\n` +
+                `        • Activity labels rendered as gerund fragments rather than complete sentences.\n` +
+                `        • Activity labels positioned below or alternating with the timeline dot.\n` +
+                `        • Layout decisions differing between #NU and #NXT (structure must be identical; only color/font differ).\n` +
+                `        • Inheriting the exemplar's exact Y coordinates when YOUR label lengths differ. RECOMPUTE.\n` +
+                `        • Content overlapping any lane line, line-of-visibility, line-of-internal-interaction, divider, dot, or arrow.\n` +
+                `        • Combining canonical lanes (Customer Action / Frontstage / Backstage / Support Processes). When fewer warranted, OMIT.\n` +
+                `        • Showing pain points without showing the corresponding intervention. Blueprint is the SOLUTION view; journey is the diagnosis view.\n`;
     }
 }
 
