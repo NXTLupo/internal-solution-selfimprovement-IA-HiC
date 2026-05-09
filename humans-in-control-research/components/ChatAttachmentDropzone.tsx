@@ -76,10 +76,47 @@ function fileToBase64(file: File): Promise<string> {
     });
 }
 
+/** Text-based extensions handled CLIENT-SIDE via FileReader.readAsText.
+ *  Avoids the base64 → JSON-body → proxy round-trip that fails on large
+ *  files (a multi-MB Reddit JSON dump becomes ~14MB of base64 in a JSON
+ *  request body, which trips request-size limits and produces "Failed
+ *  to fetch" with no useful diagnostic). 2026-05-08. */
+const CLIENT_SIDE_TEXT_EXTS = new Set(['txt', 'md', 'markdown', 'csv', 'json', 'xml', 'log', 'tsv', 'yaml', 'yml']);
+const CLIENT_SIDE_TEXT_MIMES = new Set(['application/json', 'application/xml', 'text/csv']);
+
+function readFileAsText(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+        reader.onerror = () => reject(reader.error || new Error('FileReader failed'));
+        // UTF-8 first; the user's data is overwhelmingly UTF-8.
+        reader.readAsText(file, 'utf-8');
+    });
+}
+
 async function parseUploadedFile(file: File): Promise<ChatAttachment> {
     const id = `att_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-    const base64 = await fileToBase64(file);
+    const ext = (file.name.split('.').pop() || '').toLowerCase();
+    const mime = (file.type || '').toLowerCase();
 
+    // Fast path: text-based formats (JSON, TXT, CSV, MD, XML, etc.) read
+    // entirely client-side. No proxy round-trip, no base64, no size cap
+    // beyond the 25MB the dropzone already enforces.
+    if (CLIENT_SIDE_TEXT_EXTS.has(ext) || mime.startsWith('text/') || CLIENT_SIDE_TEXT_MIMES.has(mime)) {
+        const text = await readFileAsText(file);
+        return {
+            id,
+            filename: file.name,
+            mimeType: file.type || 'text/plain',
+            parsedText: text,
+            charCount: text.length,
+            parseMethod: 'client-text',
+            bytesLength: file.size,
+        };
+    }
+
+    // Binary path: PDF, DOCX, PPTX, images — needs server-side extraction.
+    const base64 = await fileToBase64(file);
     const resp = await fetch(`${PROXY_BASE}/api/parse-upload`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
