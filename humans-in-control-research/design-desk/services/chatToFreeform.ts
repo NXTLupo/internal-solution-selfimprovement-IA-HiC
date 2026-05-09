@@ -161,29 +161,72 @@ function perKindGuidance(kind: FreeformKind): string {
                 `        • Render reporting lines with <line> or <path> elements, NOT with HTML borders, so they line up exactly with the SVG-positioned boxes.\n`;
 
         case 'journey':
-            return `        PERMANENT DESIGN RULES — NON-NEGOTIABLE (apply on EVERY generation and revision, even when not mentioned by the user):\n` +
-                `        • NO LOGO, BRAND MARK, OR SEAL anywhere in the slide. Do NOT emit .brand-mark, .seal, .wordmark, or any institution logo element. The header region contains the document eyebrow, title, and lede only — no graphical mark.\n` +
-                `        • ALL activity labels in every actor lane MUST be complete sentences with subject + verb. NEVER use gerund fragments. BAD: "Hears about co-op", "Browses NUworks". GOOD: "Students learn about co-op through peer referrals and faculty advising.", "Students browse NUworks job listings to identify open co-op postings."\n` +
-                `        • ONE VERBATIM STUDENT QUOTE per phase column — every phase must have a quote block. Pull real quotes from the corpus. If no verbatim quote exists for a phase, synthesize one that is representative of the corpus evidence for that phase. Zero phases may be missing a quote.\n` +
-                `        • CONTENT NEVER OVERLAPS LINES, CIRCLES, ARROWS, OR OTHER ELEMENTS. Every label, chip, and text block must sit in clear space and must not visually intersect any connector line, lane divider, timeline dot, or other element. When in doubt, move the label further from the line.\n` +
-                `        • ALL activity labels sit ABOVE their corresponding timeline dot — never below, never alternating. Position every activity label at band_top + 14px consistently.\n\n` +
-                `        JOURNEY MAP body must contain (CURRENT-state framing):\n` +
-                `        • A title naming the journey (e.g., "Prospect Lifecycle — Current State")\n` +
-                `        • 4-9 stage columns from left to right (Awareness, Consideration, etc., adapted to corpus)\n` +
-                `        • For each stage: a label, an emotion indicator (positive / neutral / negative), ` +
-                `touchpoint annotations, observed pain points, noted opportunities\n` +
-                `        • Verbatim quotes from the corpus where evidence supports them, attributed to named sources\n` +
-                `        • Connector lines between stages\n` +
-                `        Frame everything as observed reality — what IS today, not what should be.\n\n` +
-                `        LAYOUT DISCIPLINE — HARD RULES (READ CAREFULLY, OVERFLOW = AUTO-REJECT):\n` +
-                `        • Lane height ≥120px when labels are 2 lines; lane line at vertical CENTER of band.\n` +
-                `        • Labels positioned at band_top + 14px (above-line) — ALL labels above, never below, never alternating.\n` +
-                `        • 36px exclusion zone above AND below every horizontal lane line. NO text bounding box may intersect [Y−36, Y+36].\n` +
-                `        • Stage column width = 1840px / N stages. Min 200px, max 320px. If N×200 > 1840, USE 2-row layout (top: stages 1..N/2, bottom: stages N/2+1..N).\n` +
-                `        • Multi-line labels MUST be ≤ 2 lines. Hard char caps: 22 chars/line at 11.5px, 18/line at 14px, 14/line at 16px.\n` +
-                `        • Pain-point chips live in a dedicated row ABOVE the lanes — NEVER inside a lane band.\n` +
-                `        • Verbatim quotes capped at 200 chars; truncate with "…" + attribution intact.\n` +
-                `        • DO NOT inherit the exemplar's exact Y coordinates if your label lengths differ from the exemplar's. RECOMPUTE Y offsets when label height grows.\n`;
+            return `        JOURNEY MAP DESIGN SYSTEM — NON-NEGOTIABLE (apply on EVERY generation and revision, IDENTICALLY for #NU and #NXT — brand only changes color/font, not layout):\n\n` +
+                `        === 1. CANVAS, FRAME, SAFE AREA ===\n` +
+                `        • Artboard locked to 1920 × 1080. Nothing crosses those bounds.\n` +
+                `        • 80px safe area on all four sides. No content of any kind crosses the safe area.\n` +
+                `        • 12-column grid, 24px gutters, 80px outer margins. Every element snaps to columns 1–12.\n` +
+                `        • Three horizontal bands with hard boundaries: HEADER (0–240px from top), JOURNEY (240–880px), SYNTHESIS (880–1080px). Content lives strictly inside its band; nothing floats between bands.\n\n` +
+                `        === 2. TITLE & HEADLINE ===\n` +
+                `        • Title sits in COLUMNS 1–9 of the header band. Type auto-sizes between 40px and 64px to fit a maximum of 3 lines. Title NEVER crosses into columns 10–12.\n` +
+                `        • Eyebrow above title: uppercase, tracked, 10–12px (e.g. "JOURNEY MAP · CURRENT STATE"). The eyebrow self-identifies the artifact.\n` +
+                `        • Title is a complete action-title SENTENCE stating a finding with data when possible. NOT a topic phrase.\n` +
+                `        • If the title cannot fit at 40px in 3 lines, the title must be shortened — never the layout.\n\n` +
+                `        === 3. RIGHT-RAIL PARAGRAPH ===\n` +
+                `        • Reserved exclusively for COLUMNS 10–12, top-aligned to the title baseline.\n` +
+                `        • LINE LENGTH: 45–65 characters per line. NON-NEGOTIABLE — anything below 45 produces an unreadable vertical river.\n` +
+                `        • Type: 14–16px, line-height 1.5, max 8 lines.\n` +
+                `        • If the paragraph won't fit in 8 lines at 14px, EITHER move it below the title as a full-width subdeck spanning columns 1–9, OR truncate at a clean clause boundary. NEVER narrow the column further.\n\n` +
+                `        === 4. NEGATIVE SPACE & BALANCE ===\n` +
+                `        • The journey diagram occupies the FULL HORIZONTAL WIDTH (columns 1–12) within the journey band.\n` +
+                `        • The upper-left quadrant of the canvas must hold something purposeful — a key-findings callout, an emotion-arc preview, a persona summary, or intentional whitespace anchored by a horizontal rule.\n` +
+                `        • No quadrant of the canvas may be more than 50% empty without an explicit design reason.\n\n` +
+                `        === 5. SWIMLANE STRUCTURE ===\n` +
+                `        • Every persona lane runs the FULL WIDTH of the journey band — even when the persona is inactive in some phases. INACTIVE segments: 30%-opacity DASHED line. ACTIVE segments: 100%-opacity SOLID line. This prevents orphaned line fragments.\n` +
+                `        • MAXIMUM 4 PERSONA LANES. Beyond 4, group secondary actors or split into a second map.\n` +
+                `        • MAXIMUM 6 PHASE COLUMNS. Most journeys work at 3–5 phases.\n` +
+                `        • Phase header anatomy is IDENTICAL for every phase: (1) Eyebrow "PHASE 0X · WK YY-ZZ"; (2) Phase name; (3) System callouts beneath. Same structure for every phase, no exceptions.\n` +
+                `        • EXACTLY ONE phase may be visually emphasized as the focal phase. Use a SINGLE signal — tinted background OR italic OR underline, not all three. Default: tinted background only.\n\n` +
+                `        === 6. TOUCHPOINT NODES & ACTIVITY LABELS ===\n` +
+                `        • If touchpoint IDs (S-01, A-02, E-01) are referenced elsewhere, they must be legible — minimum 9px, sufficient contrast, positioned consistently below each node. If not referenced anywhere, REMOVE them — decorative IDs are noise.\n` +
+                `        • Node states vocabulary: STANDARD (open circle), FRICTION POINT (filled rust), MOMENT OF TRUTH (filled accent, larger), HANDOFF (split circle between lanes). Choose one state per node.\n` +
+                `        • Touchpoint labels: max 2 lines, max ~50 characters, 11–12px.\n` +
+                `        • ALL activity labels MUST be COMPLETE SENTENCES with subject + verb. NEVER gerund fragments. BAD: "Hears about co-op", "Browses NUworks". GOOD: "Students learn about co-op through peer referrals and faculty advising."\n` +
+                `        • All activity labels sit ABOVE their corresponding timeline dot. Never below. Never alternating. Position at band_top + 14px consistently.\n\n` +
+                `        === 7. EMOTION / PAIN / OPPORTUNITY LAYERS (optional, predefined treatment) ===\n` +
+                `        • Emotion arc: a single thin curve threaded across phase columns at a fixed y-offset; color signals valence (negative=rust, neutral=mute, positive=accent).\n` +
+                `        • Pain-point markers: small icons or flags attached to specific touchpoints with 1-line description. Visually distinct from neutral touchpoints.\n` +
+                `        • Opportunity markers: brand-accent treatment at intervention points. Distinct from pain markers.\n` +
+                `        • Visual treatment is consistent across NU and NXT exemplars.\n\n` +
+                `        === 8. VOICE-OF-USER ROW ===\n` +
+                `        • LOCKED to the bottom of the JOURNEY BAND (above the synthesis band).\n` +
+                `        • ONE QUOTE PER PHASE, MAXIMUM. Pull verbatim from the corpus. If a phase truly has no evidenced quote, omit the row for that phase rather than fabricating.\n` +
+                `        • Quote anatomy: eyebrow "VOICE OF [PERSONA]" (10px tracked uppercase); participant code in MONOSPACE (e.g. "S-01-04"); quote body in ITALIC SERIF, 14px, line-height 1.4; max 4 lines, max ~140 characters.\n\n` +
+                `        === 9. SYNTHESIS & METRIC ROW (bottom band, y=880 to y=1080) ===\n` +
+                `        • Synthesis paragraph: COLUMNS 1–4, 14px, line-height 1.5, max 5 lines.\n` +
+                `        • Metric tiles: COLUMNS 5–12, EXACTLY 3 or 4 tiles, all the same size, all the same visual weight BY DEFAULT.\n` +
+                `        • Maximum ONE inverted tile (dark bg, white text) — and only when it is the headline finding. Its eyebrow reads "KEY FINDING". Author's deliberate choice.\n` +
+                `        • Tile anatomy: 24px icon; 48–64px numeral; uppercase tracked 10px label; 12px supporting line max ~50 characters.\n\n` +
+                `        === 10. TYPOGRAPHIC SYSTEM (exactly five roles, NO exceptions) ===\n` +
+                `        • DISPLAY (title): bold sans, 40–64px, line-height 1.05\n` +
+                `        • BODY (right-rail paragraph, synthesis): regular sans, 14–16px, line-height 1.5\n` +
+                `        • LABEL (persona, phase, system, eyebrow): uppercase tracked sans, 10–12px\n` +
+                `        • QUOTE (voice-of-user body): italic serif, 14px, line-height 1.4\n` +
+                `        • DATA (metric numerals, participant codes): bold sans for numerals, monospace for codes\n\n` +
+                `        === FRAMING (CURRENT-STATE) ===\n` +
+                `        Title naming the journey (e.g., "Students navigate compounding friction across co-op placement, campus safety, and academic pressure"). 3–6 stage columns left to right adapted to corpus. Pain points are real, observed, evidenced. Opportunities noted but not committed. Frame everything as observed reality — what IS today, not what should be.\n\n` +
+                `        === ANTI-PATTERNS (AUTO-REJECT) ===\n` +
+                `        • Logo/brand-mark/seal anywhere on the slide. Header is eyebrow + title + lede only — no graphical mark.\n` +
+                `        • Headline overrunning into the right-rail paragraph zone (columns 10–12).\n` +
+                `        • Right-rail paragraph set narrower than 45 chars per line.\n` +
+                `        • Inactive persona-lane segments rendered solid (must be 30% dashed).\n` +
+                `        • More than one visually emphasized phase.\n` +
+                `        • More than one inverted metric tile.\n` +
+                `        • Activity labels rendered as gerund fragments rather than complete sentences.\n` +
+                `        • Activity labels positioned below or alternating with the timeline dot.\n` +
+                `        • Layout decisions differing between #NU and #NXT (structure must be identical; only color/font differ).\n` +
+                `        • Inheriting the exemplar's exact Y coordinates when YOUR label lengths differ. RECOMPUTE Y offsets.\n` +
+                `        • Content overlapping any line, divider, dot, or arrow.\n`;
 
         case 'arch':
             return `        TECHNICAL ARCHITECTURE body must contain:\n` +
