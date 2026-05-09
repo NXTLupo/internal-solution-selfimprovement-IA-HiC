@@ -1131,6 +1131,10 @@ const App = () => {
     const [enableBrandReddit, setBrandReddit] = useState(false);
     const [enableRetailOperatorReddit, setRetailOperatorReddit] = useState(false);
     const [enableOpenDataApis, setOpenDataApis] = useState(false);
+    // 2026-05-09 — Career / internship / co-op / job-search registry (199 new sources, 3 categories)
+    const [enableHigherEdCareerCoop, setEnableHigherEdCareerCoop] = useState(false);
+    const [enableCareerPlatforms, setEnableCareerPlatforms] = useState(false);
+    const [enableWorkforceLabor, setEnableWorkforceLabor] = useState(false);
     const [subredditTargets, setSubredditTargets] = useState('');
     const [trustpilotTargets, setTrustpilotTargets] = useState('');
     const [webUrls, setWebUrls] = useState('');
@@ -1272,7 +1276,7 @@ const App = () => {
     const [showKnowledgeGraph, setShowKnowledgeGraph] = useState(false);
     const [showCorpusChat, setShowCorpusChat] = useState(false);
 
-    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || enableRetailCompetitiveSet || enableHomeFurnitureTrade || enableRetailTechVendors || enablePaymentsAndCheckout || enableRetailAnalysts || enableSupplyChain || enableSpecialtyVerticals || enableInternationalRetail || enableStrategyConsultancies || enableRetailDealIntelligence || enableSocialListeningPro || enableBrandReddit || enableRetailOperatorReddit || enableOpenDataApis || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
+    const hasDataSources = enableDeepResearch || enableNews || enableAcademic || enableEconomic || enableSocialTrends || enableYouTube || enableCxMesh || enableHigherEdNews || enableEducationData || enableGovernment || enableOpenData || enableAINews || enableAIResearch || enablePhilanthropy || enableRetailNews || enableEcommerce || enableDigitalMarketing || enableSocialMarketing || enableConsumerInsights || enableRetailTech || enableRetailEconData || enableSearchTrends || enableSocialSentiment || enableRedditRetail || enableCauseCommerceTech || enableCauseBrandImpact || enableDonationPlatforms || enableClimateAtCheckout || enablePhilanthropyPress || enableCauseRetailNews || enableCsrResearch || enableCharityReg || enablePressWires || enableCauseReddit || enableRetailCompetitiveSet || enableHomeFurnitureTrade || enableRetailTechVendors || enablePaymentsAndCheckout || enableRetailAnalysts || enableSupplyChain || enableSpecialtyVerticals || enableInternationalRetail || enableStrategyConsultancies || enableRetailDealIntelligence || enableSocialListeningPro || enableBrandReddit || enableRetailOperatorReddit || enableOpenDataApis || enableHigherEdCareerCoop || enableCareerPlatforms || enableWorkforceLabor || webUrls.trim().length > 0 || videoUrls.trim().length > 0;
 
     const sessionRef = useRef<GenAISession | null>(null);
     const corpusTextRef = useRef<string>('');
@@ -2142,8 +2146,35 @@ const App = () => {
         setSelectedLens(lensResult.selectedLens);
         setLensAutoDetected(true);
 
-        // Auto-enable relevant data sources
-        const recommendedSources = recommendDataSources(researchGoal, lensResult.selectedLens);
+        // 2026-05-09 — User-intent override on AI auto-recommendation.
+        // If the user uploaded documents AND chose NOT to toggle any source
+        // category ON, that's an explicit signal: use uploads only, search
+        // nothing. Auto-enabling sources here would override user intent.
+        // The hasDataSources variable already ORs every source flag plus
+        // webUrls/videoUrls — checking it here gives us the user's explicit
+        // selection state at the moment of clicking Analyze.
+        const userHasUploads = files.length > 0;
+        const userExplicitlySelectedNothing = !hasDataSources && userHasUploads;
+
+        // Auto-enable relevant data sources — UNLESS the user explicitly
+        // selected nothing alongside their uploads (uploads-only mode).
+        const recommendedSources = userExplicitlySelectedNothing
+            ? {
+                enableDeepResearch: false, enableNews: false, enableAcademic: false,
+                enableHigherEdNews: false, enableEducationData: false, enableGovernment: false,
+                enableOpenData: false, enableEconomic: false, enableSocialTrends: false,
+                enableCxMesh: false, enableYouTube: false, enableAINews: false, enableAIResearch: false,
+                enablePhilanthropy: false,
+            } as ReturnType<typeof recommendDataSources>
+            : recommendDataSources(researchGoal, lensResult.selectedLens);
+
+        if (userExplicitlySelectedNothing) {
+            setThinkingEvents(prev => [...prev, {
+                type: 'PHASE',
+                content: '[INTENT] User uploaded documents and selected zero intelligence sources. Honoring explicit choice — searching NONE; deliverables ground in uploads only.',
+            }]);
+        }
+
         if (recommendedSources.enableDeepResearch) setEnableDeepResearch(true);
         if (recommendedSources.enableNews) setEnableNews(true);
         if (recommendedSources.enableAcademic) setEnableAcademic(true);
@@ -2531,6 +2562,65 @@ const App = () => {
                     'datasembly_blog', 'oecd_consumer_confidence', 'worldbank_consumption_pack',
                     'uncomtrade', 'data_gov_retail_idx', 'eurostat_retail_pack', 'ons_retail_pack',
                     'statcan_retail', 'destatis_retail'
+                );
+                // 2026-05-09: Career / internship / co-op / job-search registry (199 sources)
+                if (enableHigherEdCareerCoop) sourceIds.push(
+                    'nace_blog', 'nace_research', 'ceia_news', 'wace_news', 'northeastern_coop_stories',
+                    'drexel_steinbright', 'cincinnati_coop', 'gatech_career', 'purdue_cco',
+                    'mit_capd', 'stanford_career_ed', 'harvard_ocs', 'hbs_career', 'cornell_career',
+                    'ucla_career', 'berkeley_career', 'michigan_career', 'unc_career', 'duke_career',
+                    'cmu_cpdc', 'uw_career', 'ut_career', 'notredame_career', 'bc_career',
+                    'brown_careerlab', 'columbia_cce', 'nyu_wasserman', 'princeton_career',
+                    'yale_ocs', 'sloan_career', 'wharton_mba_career', 'handshake_research',
+                    'handshake_network', 'symplicity_blog', 'twelvetwenty_blog', 'uconnect_blog',
+                    'forage_blog', 'parker_dewey_blog', 'riipen_blog', 'big_interview_blog',
+                    'vault_blog', 'wayup_blog', 'chegg_internships', 'strada_research',
+                    'georgetown_cew', 'lumina_news', 'jff_news', 'aacu_news', 'new_america_workforce',
+                    'college_pulse', 'career_educator_podcast', 'reddit_internships',
+                    'reddit_csmajors', 'reddit_engineeringstudents', 'reddit_careerguidance',
+                    'reddit_resumes', 'reddit_premed', 'reddit_lawschool', 'reddit_mba',
+                    'reddit_forhire', 'reddit_freshgrad', 'reddit_ukjobs', 'reddit_cscareerquestions',
+                    'reddit_engineeringresumes', 'reddit_consulting', 'reddit_financialcareers',
+                    'reddit_apprenticeships'
+                );
+                if (enableCareerPlatforms) sourceIds.push(
+                    'linkedin_news', 'linkedin_talent_blog', 'linkedin_economic_graph',
+                    'indeed_hiring_lab', 'indeed_lead_blog', 'indeed_career_guide', 'indeed_press',
+                    'glassdoor_economic', 'glassdoor_for_employers', 'ziprecruiter_blog',
+                    'monster_resources', 'careerbuilder_resources', 'dice_insights',
+                    'idealist_career', 'builtin_editorial', 'wellfound_blog', 'lever_blog',
+                    'greenhouse_blog', 'icims_blog', 'workday_blog', 'adp_research', 'paycom_blog',
+                    'bamboohr_blog', 'gusto_blog', 'workable_blog', 'smartrecruiters_blog',
+                    'jobvite_blog', 'hirevue_blog', 'eightfold_blog', 'phenom_blog', 'beamery_blog',
+                    'paradox_blog', 'zety_blog', 'jobscan_blog', 'teal_blog', 'huntr_blog',
+                    'resumeio_blog', 'wonsulting_blog', 'resume_genius_blog', 'topresume_blog',
+                    'the_muse', 'livecareer_blog', 'resume_now', 'hired_blog', 'welcome_to_jungle',
+                    'toptal_blog', 'upwork_resources', 'fiverr_blog', 'a_team_blog',
+                    'reddit_jobs', 'reddit_recruitinghell', 'reddit_jobsearchhacks',
+                    'reddit_recruiting', 'reddit_askhr', 'reddit_itcareerquestions', 'reddit_sales',
+                    'reddit_datascience', 'reddit_accounting', 'reddit_projectmanagement',
+                    'reddit_big4', 'reddit_workonline', 'reddit_remotework', 'reddit_digitalnomad',
+                    'reddit_sysadmin', 'reddit_linkedinlunatics', 'reddit_workfromhome',
+                    'reddit_overemployed'
+                );
+                if (enableWorkforceLabor) sourceIds.push(
+                    'bls_news_releases', 'bls_jolts', 'bls_ces', 'bls_ooh', 'bls_career_outlook',
+                    'fred_blog', 'atlanta_fed_wage_tracker', 'ny_fed_microeconomic',
+                    'chicago_fed_natl_activity', 'lightcast_blog', 'burning_glass_institute',
+                    'aspen_future_work', 'brookings_econ', 'epi_news', 'pew_workforce',
+                    'gartner_hr', 'mckinsey_people', 'deloitte_human_capital', 'bcg_people',
+                    'mercer_research', 'wtw_research', 'wef_future_jobs', 'manpower_outlook',
+                    'robert_half_salary', 'kelly_workforce', 'adecco_research', 'randstad_workmonitor',
+                    'careeronestop', 'onet_news', 'conference_board_labor', 'new_america_future_work',
+                    'urban_workforce', 'cato_labor', 'aei_labor', 'hr_dive', 'hr_brew',
+                    'recruiting_brew', 'shrm_news', 'ere_net', 'recruiting_daily', 'workology_blog',
+                    'fistful_of_talent', 'hr_executive', 'tlnt', 'hr_bartender', 'evil_hr_lady',
+                    'tim_sackett', 'hr_happy_hour', 'lou_adler', 'liz_ryan', 'jobjenny',
+                    'andrew_lacivita', 'alison_doyle', 'penelope_trunk', 'career_contessa',
+                    'cultivated_culture', 'career_sherpa', 'work_it_daily', 'ashley_stahl',
+                    'reddit_antiwork', 'reddit_workreform', 'reddit_layoffs',
+                    'reddit_financialindependence', 'reddit_careeradvice', 'reddit_negotiation',
+                    'reddit_salary'
                 );
 
                 // STEP 1: AI Query Refinement — generate targeted queries per source
@@ -4084,6 +4174,10 @@ ${synthesisParts.join('\n')}
                                                  { label: 'Brand Reddit', sublabel: '5 subreddits: r/Bombas, r/AllbirdsShoes, r/Patagonia, r/Costco, r/Target', state: enableBrandReddit, setter: setBrandReddit, icon: 'fa-reddit' },
                                                  { label: 'Retail Operator Reddit', sublabel: '25 subreddits: r/RetailManagers, r/walmart, r/HomeDepot, r/Lowes, r/IKEA, r/Sephora, r/Ulta, r/HomeImprovement', state: enableRetailOperatorReddit, setter: setRetailOperatorReddit, icon: 'fa-reddit' },
                                                  { label: 'Open Data APIs', sublabel: '30 sources: SEC EDGAR, USPTO, OpenStreetMap, OpenCorporates, FDA Recalls, CPSC Recalls, BLS PPI, USITC DataWeb, OECD', state: enableOpenDataApis, setter: setOpenDataApis, icon: 'fa-database' },
+                                                 // 2026-05-09: Career / internship / co-op / job-search registry (199 sources, 3 categories)
+                                                 { label: 'Higher Ed Career & Co-op', sublabel: '67 sources: NACE, Handshake, Northeastern Co-op, Drexel, Cincinnati, GT, Purdue, MIT, Stanford, Harvard, Forage, Parker Dewey + r/internships, r/csMajors, r/cscareerquestions...', state: enableHigherEdCareerCoop, setter: setEnableHigherEdCareerCoop, icon: 'fa-graduation-cap' },
+                                                 { label: 'Career Platforms & Job Boards', sublabel: '66 sources: LinkedIn News/Talent/Economic Graph, Indeed Career Guide, Glassdoor, ZipRecruiter, Lever, Greenhouse, Workday, ADP, Workable + r/jobs, r/recruitinghell, r/recruiting...', state: enableCareerPlatforms, setter: setEnableCareerPlatforms, icon: 'fa-briefcase' },
+                                                 { label: 'Workforce, Labor & Career Strategy', sublabel: '66 sources: BLS empsit/JOLTS, FRED, Atlanta Fed, Lightcast, Burning Glass, Brookings, EPI, Pew, McKinsey, Deloitte, WEF, ManpowerGroup, HR Dive, HR Brew, SHRM + r/antiwork, r/Layoffs...', state: enableWorkforceLabor, setter: setEnableWorkforceLabor, icon: 'fa-chart-line' },
                                              ].map(src => (
                                                  <button key={src.label} onClick={() => src.setter(!src.state)}
                                                      className={`flex items-center gap-3 p-3 rounded border text-left transition-all ${src.state ? 'bg-[var(--nxt-lime-10)] border-[var(--nxt-lime)]' : 'bg-white border-[var(--border-primary)] hover:border-[var(--nxt-lime-20)]'}`}>
