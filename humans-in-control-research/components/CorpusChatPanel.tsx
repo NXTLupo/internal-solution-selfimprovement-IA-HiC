@@ -41,6 +41,15 @@ import { SourceCoverage } from './SourceCoverage';
 // --- Mid-chat upload dropzone (2026-05-08) ---
 import ChatAttachmentDropzone, { type ChatAttachment } from './ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
+// --- Presentation library (#presentations bare-hashtag — 2026-05-09) ---
+import {
+    listPresentations,
+    getPresentation,
+    deletePresentation,
+    savePresentation,
+    formatPresentationDate,
+    type PresentationSummary,
+} from '../services/presentationLibrary';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
@@ -548,6 +557,175 @@ const PresentationLaunchCard: React.FC<{
         </div>
     );
 };
+
+/**
+ * 2026-05-09 — Inline grid of saved presentations with Open / Edit / Delete
+ * chips per card. Mounted on chat messages whose libraryItems is set
+ * (rendered when the user types the bare `#presentations` command).
+ *
+ * Edit flow: clicking Edit opens an inline textarea for the revision
+ * instruction. Submitting fires the composer in revision mode (the user's
+ * instruction layered onto the existing payload as context) and saves the
+ * result back to the same slug. The card refreshes with the new title.
+ *
+ * Delete flow: clicking Delete shows an inline confirmation chip ("Confirm
+ * delete?"). On confirm, the proxy soft-deletes (moves to .deleted/) and
+ * the card disappears from the grid.
+ */
+interface PresentationLibraryGridProps {
+    items: PresentationSummary[];
+    onItemDeleted: (slug: string) => void;
+    onItemEdited: (oldSlug: string, summary: PresentationSummary, newMessageContent: string) => void;
+    onEditTriggered: (slug: string, instruction: string) => Promise<void>;
+}
+
+const PresentationLibraryGrid: React.FC<PresentationLibraryGridProps> = ({ items, onItemDeleted, onEditTriggered }) => {
+    const [confirmingDelete, setConfirmingDelete] = useState<string | null>(null);
+    const [editingSlug, setEditingSlug] = useState<string | null>(null);
+    const [editInstruction, setEditInstruction] = useState('');
+    const [busySlug, setBusySlug] = useState<string | null>(null);
+
+    if (!items || items.length === 0) return null;
+
+    const handleDelete = async (slug: string) => {
+        setBusySlug(slug);
+        try {
+            const ok = await deletePresentation(slug);
+            if (ok) onItemDeleted(slug);
+        } catch (e: any) {
+            console.error('[Library] delete failed:', e);
+        } finally {
+            setBusySlug(null);
+            setConfirmingDelete(null);
+        }
+    };
+
+    const handleEditSubmit = async (slug: string) => {
+        const instruction = editInstruction.trim();
+        if (!instruction) return;
+        setBusySlug(slug);
+        try {
+            await onEditTriggered(slug, instruction);
+        } finally {
+            setBusySlug(null);
+            setEditingSlug(null);
+            setEditInstruction('');
+        }
+    };
+
+    return (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10, marginTop: 10 }}>
+            {items.map(item => {
+                const isConfirmingDelete = confirmingDelete === item.slug;
+                const isEditing = editingSlug === item.slug;
+                const isBusy = busySlug === item.slug;
+                const brandAccent = item.brand === 'NU' ? '#C8102E' : '#B8B800';
+                return (
+                    <div key={item.slug} style={{
+                        background: '#FFFFFF',
+                        border: `1px solid #E0E0E0`,
+                        borderLeft: `3px solid ${brandAccent}`,
+                        padding: '12px 14px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 6,
+                        opacity: isBusy ? 0.5 : 1,
+                    }}>
+                        <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: brandAccent }}>
+                            {item.brand} · {formatPresentationDate(item.generatedAt)}
+                        </div>
+                        <div style={{ fontSize: 12, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3 }}>{item.title || '(untitled)'}</div>
+                        {item.narrativeThesis && (
+                            <div style={{ fontSize: 10, color: '#666', lineHeight: 1.4, fontStyle: 'italic' }}>
+                                {item.narrativeThesis.slice(0, 140)}{item.narrativeThesis.length > 140 ? '…' : ''}
+                            </div>
+                        )}
+                        <div style={{ fontSize: 9, color: '#999', marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>
+                            {item.sectionCount} sections · {item.slug}
+                        </div>
+
+                        {/* Action row */}
+                        {!isConfirmingDelete && !isEditing && (
+                            <div style={{ display: 'flex', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                                <button
+                                    onClick={() => window.open(item.url, '_blank', 'noopener,noreferrer')}
+                                    disabled={isBusy}
+                                    style={chipStyle('#0D0D0D', '#FFFFFF')}
+                                >Open ↗</button>
+                                <button
+                                    onClick={() => { setEditingSlug(item.slug); setEditInstruction(''); }}
+                                    disabled={isBusy}
+                                    style={chipStyle('#FFFFFF', '#0D0D0D', '#0D0D0D')}
+                                >Edit</button>
+                                <button
+                                    onClick={() => setConfirmingDelete(item.slug)}
+                                    disabled={isBusy}
+                                    style={chipStyle('#FFFFFF', '#CC6644', '#CC6644')}
+                                >Delete</button>
+                            </div>
+                        )}
+
+                        {/* Delete confirmation */}
+                        {isConfirmingDelete && (
+                            <div style={{ display: 'flex', gap: 6, marginTop: 6, alignItems: 'center', flexWrap: 'wrap' }}>
+                                <span style={{ fontSize: 10, color: '#CC6644', fontWeight: 700 }}>Confirm delete?</span>
+                                <button
+                                    onClick={() => handleDelete(item.slug)}
+                                    disabled={isBusy}
+                                    style={chipStyle('#CC6644', '#FFFFFF')}
+                                >{isBusy ? 'Deleting…' : 'Yes, delete'}</button>
+                                <button
+                                    onClick={() => setConfirmingDelete(null)}
+                                    disabled={isBusy}
+                                    style={chipStyle('#FFFFFF', '#666', '#999')}
+                                >Cancel</button>
+                            </div>
+                        )}
+
+                        {/* Inline edit form */}
+                        {isEditing && (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 6 }}>
+                                <textarea
+                                    value={editInstruction}
+                                    onChange={e => setEditInstruction(e.target.value)}
+                                    placeholder="What change? e.g. 'make recommendations more aggressive'"
+                                    rows={2}
+                                    style={{ padding: 6, border: '1px solid #DDD', fontSize: 10, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none' }}
+                                />
+                                <div style={{ display: 'flex', gap: 6 }}>
+                                    <button
+                                        onClick={() => handleEditSubmit(item.slug)}
+                                        disabled={isBusy || !editInstruction.trim()}
+                                        style={chipStyle('#B8B800', '#0D0D0D')}
+                                    >{isBusy ? 'Composing…' : 'Compose revision'}</button>
+                                    <button
+                                        onClick={() => { setEditingSlug(null); setEditInstruction(''); }}
+                                        disabled={isBusy}
+                                        style={chipStyle('#FFFFFF', '#666', '#999')}
+                                    >Cancel</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+function chipStyle(bg: string, fg: string, border?: string): React.CSSProperties {
+    return {
+        padding: '4px 10px',
+        background: bg,
+        color: fg,
+        border: border ? `1px solid ${border}` : 'none',
+        fontSize: 9,
+        fontWeight: 700,
+        letterSpacing: '1px',
+        textTransform: 'uppercase' as const,
+        cursor: 'pointer',
+    };
+}
 
 const InlineArtifactPreview: React.FC<{
     artifactId: string;
@@ -1157,6 +1335,120 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         }
     };
 
+    /**
+     * 2026-05-09 — Edit an existing presentation via natural-language
+     * instruction from a library card. Loads the existing payload, wraps
+     * the user's revision instruction with concrete context (the existing
+     * title, diagnosis, and guiding policy), runs the composer with that
+     * as the new thesis, saves the result back to the SAME slug so the
+     * URL is stable across edits, and posts a confirmation message.
+     */
+    const handlePresentationEdit = async (slug: string, instruction: string) => {
+        const editingMsgId = `msg_${Date.now()}_edit_${slug}`;
+        setMessages(prev => [...prev, {
+            id: editingMsgId,
+            role: 'assistant',
+            content: `Composing revision of "${slug}" — "${instruction.slice(0, 80)}${instruction.length > 80 ? '…' : ''}"…`,
+            timestamp: Date.now(),
+        }]);
+
+        try {
+            const existing = await getPresentation(slug);
+            const meta = (existing as any).meta || {};
+            const arc = (existing as any).narrativeArc || {};
+            const existingTitle = meta.title || '(untitled)';
+            const existingDiagnosis = arc.diagnosis || '';
+            const existingPolicy = arc.guidingPolicy || '';
+            const existingThesis = meta.narrativeThesis || '';
+
+            // Build a revision thesis: the user's instruction layered onto the
+            // existing presentation's strategic argument. Composer treats this
+            // as the new narrativeRequest; we explicitly tell it to PRESERVE
+            // the existing slug + retain unchanged sections.
+            const revisionThesis = `REVISION OF EXISTING PRESENTATION.\n\n` +
+                `Existing slug to preserve: "${slug}"\n` +
+                `Existing title: "${existingTitle}"\n` +
+                `Existing thesis: ${existingThesis}\n` +
+                `Existing diagnosis: ${existingDiagnosis}\n` +
+                `Existing guiding policy: ${existingPolicy}\n\n` +
+                `USER'S REQUESTED CHANGE: ${instruction}\n\n` +
+                `Generate the updated PresentationPayload. Keep meta.slug exactly as "${slug}". ` +
+                `Adapt only the sections affected by the requested change; preserve sections that don't need to change. ` +
+                `If the title needs updating to reflect the change, update it; otherwise keep the existing title.`;
+
+            const liveCtx = getContext ? getContext() : context;
+            const executor = createNarrativeComposerExecutor({
+                engagementGoal: liveCtx?.researchGoal || '',
+                themes: (liveCtx?.themes as any[]) || [],
+                personas: (liveCtx?.personas as any[]) || [],
+                deliverables: {
+                    journey_map: liveCtx?.journeyStages,
+                    recommendations: liveCtx?.recommendations,
+                    roadmap: (liveCtx as any)?.roadmap,
+                    gap_analysis: (liveCtx as any)?.gapAnalysis,
+                    tech_arch: (liveCtx as any)?.techArchitecture,
+                    tech_audit: (liveCtx as any)?.techAudit,
+                    competitive: (liveCtx as any)?.competitiveAnalysis,
+                    prd: (liveCtx as any)?.prd,
+                    strategic_report: (liveCtx as any)?.strategicReport,
+                },
+            });
+
+            const externalCount = (liveCtx?.liveSourceResults || [])
+                .reduce((s: number, r: any) => s + (r.items?.length || 0), 0);
+            const uploadedCount = (liveCtx?.uploadedFiles || []).length;
+            const themeCount = (liveCtx?.themes as any[] | undefined)?.length || 0;
+            const personaCount = (liveCtx?.personas as any[] | undefined)?.length || 0;
+
+            const payload = await composeNarrative({
+                narrativeRequest: revisionThesis,
+                brand: meta.brand || 'NXT',
+                theme: meta.theme || 'dark',
+                model: 'deepseek-v4-flash',
+                executor,
+                priorConversation: messages,
+                engagementContext: {
+                    engagementGoal: liveCtx?.researchGoal || '',
+                    themeCount,
+                    personaCount,
+                    deliverableList: [],
+                    externalArticleCount: externalCount,
+                    uploadedDocCount: uploadedCount,
+                },
+                onProgress: () => { /* no-op */ },
+                onToolCall: () => { /* no-op */ },
+            });
+
+            // Force the slug to remain stable so the saved file overwrites in place.
+            if (payload.meta) {
+                (payload.meta as any).slug = slug;
+            }
+            const saved = await savePresentation(payload as any);
+
+            setMessages(prev => prev.map(m => m.id === editingMsgId ? {
+                ...m,
+                content: `Revised "${saved.title}" (slug ${slug}). The library card below reflects the update.`,
+                presentationUrl: saved.url,
+                presentationMeta: { title: saved.title, brand: saved.brand, sectionCount: saved.sectionCount },
+            } : m));
+
+            // Refresh the library cards in earlier messages so the title/date update
+            setMessages(prev => prev.map(mm => {
+                if (!Array.isArray(mm.libraryItems)) return mm;
+                const items = (mm.libraryItems as PresentationSummary[]).map(it =>
+                    it.slug === slug ? { ...it, title: saved.title, generatedAt: saved.generatedAt, sectionCount: saved.sectionCount } : it
+                );
+                return { ...mm, libraryItems: items };
+            }));
+        } catch (e: any) {
+            console.error('[Library] edit failed:', e);
+            setMessages(prev => prev.map(m => m.id === editingMsgId ? {
+                ...m,
+                content: `Edit failed for "${slug}": ${e?.message || 'unknown error'}`,
+            } : m));
+        }
+    };
+
     // --- Send ---
     const handleSend = async (queryOverride?: string) => {
         let query = queryOverride || input.trim();
@@ -1203,6 +1495,40 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     .then(path => { if (path) console.log(`[Chat] Persisted ad-hoc upload: ${path}`); })
                     .catch(e => console.warn('[Chat] Ad-hoc upload wiki write failed:', e));
             }
+        }
+
+        // --- #presentations (PLURAL — library list) — 2026-05-09 ----------
+        // Bare `#presentations` lists every persisted presentation as a card
+        // grid in the chat. Each card has Open / Edit / Delete chips. The
+        // plural form is detected BEFORE the singular #presentation handler
+        // because hashtag-parser's word-boundary regex makes the two
+        // distinct (`#presentations` won't match `#presentation`).
+        if (/(?:^|\s)#presentations(?=\s|$|[.,;:!?'"])/i.test(query)) {
+            const libMsgId = `msg_${Date.now()}_lib_loading`;
+            setMessages(prev => [...prev, {
+                id: libMsgId,
+                role: 'assistant',
+                content: 'Loading your saved presentations…',
+                timestamp: Date.now(),
+            }]);
+            try {
+                const lib = await listPresentations({ limit: 50 });
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: lib.total === 0
+                        ? 'No saved presentations yet. Generate one with `#presentation` to start your library.'
+                        : `Your saved presentations (${lib.total}). Click any card to open, edit, or delete.`,
+                    libraryItems: lib.results,
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: `Could not load library: ${e?.message || 'unknown error'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
+            return;
         }
 
         // --- #presentation interception (narrative composer) -----------------
@@ -1954,6 +2280,24 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                     <PresentationLaunchCard
                                         url={msg.presentationUrl}
                                         meta={msg.presentationMeta}
+                                    />
+                                )}
+
+                                {/* Library card grid for #presentations bare-hashtag */}
+                                {Array.isArray(msg.libraryItems) && msg.libraryItems.length > 0 && (
+                                    <PresentationLibraryGrid
+                                        items={msg.libraryItems as PresentationSummary[]}
+                                        onItemDeleted={(slug) => {
+                                            setMessages(prev => prev.map(mm => mm.id === msg.id ? {
+                                                ...mm,
+                                                libraryItems: (mm.libraryItems as PresentationSummary[] | undefined)?.filter(it => it.slug !== slug),
+                                                content: `Deleted "${slug}". ${((mm.libraryItems as PresentationSummary[] | undefined)?.length ?? 1) - 1} presentation(s) remaining.`,
+                                            } : mm));
+                                        }}
+                                        onItemEdited={() => { /* handled in onEditTriggered */ }}
+                                        onEditTriggered={async (slug, instruction) => {
+                                            await handlePresentationEdit(slug, instruction);
+                                        }}
                                     />
                                 )}
                             </div>

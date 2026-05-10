@@ -6606,6 +6606,40 @@ async def list_presentations(
     return {"total": len(results), "results": results}
 
 
+@app.delete("/api/presentations/{slug}")
+async def delete_presentation(slug: str):
+    """Delete a persisted PresentationPayload by slug. 2026-05-09.
+
+    Used by the AI Analyst chat's library hashtag flow when the user clicks
+    Delete on a card. Soft-deletes by moving the file to a `.deleted/`
+    subdirectory rather than hard-deleting — gives a 30-day undo window
+    and an audit trail. Returns 404 if not found, 200 on success.
+    """
+    if not _validate_slug(slug):
+        return JSONResponse({"error": "invalid slug format"}, status_code=400)
+
+    presentations_dir = _ensure_presentations_dir()
+    src = os.path.normpath(os.path.join(presentations_dir, f"{slug}.json"))
+    if not src.startswith(os.path.normpath(presentations_dir)):
+        return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
+    if not os.path.exists(src):
+        return JSONResponse({"error": "not found", "slug": slug}, status_code=404)
+
+    deleted_dir = os.path.join(presentations_dir, ".deleted")
+    try:
+        os.makedirs(deleted_dir, exist_ok=True)
+        # Suffix with timestamp so repeated delete-and-recreate cycles don't
+        # collide on the trash side.
+        ts = int(time.time())
+        dest = os.path.join(deleted_dir, f"{slug}.{ts}.json")
+        os.replace(src, dest)
+        logger.info("presentation soft-deleted: slug=%s → %s", slug, os.path.basename(dest))
+        return {"status": "ok", "slug": slug, "deletedTo": f".deleted/{os.path.basename(dest)}"}
+    except Exception as e:
+        logger.exception("presentation delete failed: %s", slug)
+        return JSONResponse({"error": f"{type(e).__name__}: {e}"}, status_code=500)
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", "5012"))

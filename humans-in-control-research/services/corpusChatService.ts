@@ -45,6 +45,10 @@ export interface ChatMessage {
     deliveredArtifactType?: 'persona' | 'journey' | 'org';
     /** When true, the artifact is rendered inside a 16:9 NXT slide frame (triggered by #slide / #slides). */
     deliveredAsSlide?: boolean;
+    /** 2026-05-09 — Presentation library items. Set when the user typed the
+     *  bare `#presentations` (plural) command. The renderer surfaces a card
+     *  grid with Open / Edit / Delete chips per item. */
+    libraryItems?: any[]; // PresentationSummary[] — kept loose to avoid a circular import
     /** When the chat composed an interactive presentation, this is the renderer URL.
      * Triggers a Launch button to open the presentation in a separate window. */
     presentationUrl?: string;
