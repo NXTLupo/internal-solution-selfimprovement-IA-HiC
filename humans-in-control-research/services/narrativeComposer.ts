@@ -84,6 +84,13 @@ export async function compose(request: ComposeRequest): Promise<ComposeResult> {
   const startedAt = Date.now();
   const { narrativeRequest, brand, theme, model, executor, onProgress, onToolCall } = request;
 
+  // 2026-05-10 — Reset the DeepSeek content_filter sticky flag at the start
+  // of each compose() call. Filter triggers are prompt-dependent — a fresh
+  // edit attempt with rephrased text deserves a fresh shot at DeepSeek
+  // before we route it to GPT-5.5.
+  _composerDeepSeekContentFilterTripped = false;
+  _composerContentFilterWarned = false;
+
   // Mode detection: when the chat has substantial prior content, we're in
   // PACKAGE mode — the chat IS the source. When the chat is thin, we're in
   // RESEARCH mode — the model retrieves from scratch via tools.
@@ -732,14 +739,27 @@ async function runOpenAILoop(args: LoopArgs): Promise<unknown> {
   throw new Error(`Composer exceeded ${COMPOSER_MAX_ITERATIONS} iterations without calling submit_presentation`);
 }
 
+// 2026-05-10 — Sticky DeepSeek content_filter fallback. Set to true the
+// first time Azure DeepSeek's Microsoft content management policy
+// rejects a prompt (HTTP 422 from the proxy). For the rest of the
+// compose() session, every deepseek-* dispatch silently rewrites the
+// model to gpt-5.5 and routes to /api/ai/openai. Reset at the start of
+// each compose() so a new edit attempt gets a fresh shot at DeepSeek
+// (the filter is prompt-dependent — rephrasing may pass).
+let _composerDeepSeekContentFilterTripped = false;
+let _composerContentFilterWarned = false;
+
 async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse> {
-  // Route by model prefix:
-  //   deepseek-* → /api/ai/deepseek (Azure DeepSeek V4 Flash; primary path 2026-05-05)
-  //   gemini-*   → /api/ai/gemini-compat (Google's OpenAI-compatible endpoint)
-  //   gpt-* etc. → /api/ai/openai (native OpenAI)
-  // Wire format identical for all three (chat completions + tool_calls), so
-  // the rest of runOpenAILoop is unchanged across providers.
   const modelStr = String(body.model || '').toLowerCase();
+
+  // Sticky fallback: route subsequent deepseek-* calls in this session to
+  // GPT-5.5 once the Microsoft content filter has tripped, rather than
+  // wasting another withRetry budget (3x backoff) on the same prompt.
+  if (modelStr.startsWith('deepseek-') && _composerDeepSeekContentFilterTripped) {
+    body.model = 'gpt-5.5';
+    return callOpenAI(body); // recurse — dispatches to OpenAI branch below
+  }
+
   let url: string;
   let providerLabel: string;
   if (modelStr.startsWith('deepseek-')) {
@@ -753,32 +773,50 @@ async function callOpenAI(body: Record<string, unknown>): Promise<OpenAIResponse
     providerLabel = 'OpenAI';
   }
 
-  // 2026-05-04 — Force OpenAI's Chat Completions API. The proxy's
-  // /api/ai/openai endpoint defaults to the new Responses API
-  // (`input` field) when no header is set, but runOpenAILoop emits
-  // the chat-completions shape (`messages` + `tool_calls`). Without
-  // this header the proxy 400s with "Unsupported parameter: 'messages'".
-  // Gemini-compat already speaks chat-completions natively, so the
-  // header is harmless in that branch.
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     'x-openai-endpoint': 'chat',
   };
 
-  return withRetry(async () => {
-    const res = await fetchWithTimeout(url, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(body),
-    }, COMPOSER_REQUEST_TIMEOUT_MS);
-    if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      const err: RetriableHttpError = new Error(`${providerLabel} API ${res.status}: ${errText.slice(0, 300)}`);
-      err.status = res.status;
-      throw err;
+  try {
+    return await withRetry(async () => {
+      const res = await fetchWithTimeout(url, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(body),
+      }, COMPOSER_REQUEST_TIMEOUT_MS);
+      if (!res.ok) {
+        const errText = await res.text().catch(() => '');
+        const err: RetriableHttpError = new Error(`${providerLabel} API ${res.status}: ${errText.slice(0, 300)}`);
+        err.status = res.status;
+        // 422 with content_filter is non-retryable — the same prompt will
+        // trigger the same filter on every retry. Mark it so withRetry
+        // surfaces immediately and the outer try/catch can fall back.
+        if (res.status === 422 && /content_filter/i.test(errText)) {
+          err.isTransient = false;
+        }
+        throw err;
+      }
+      return res.json();
+    }, 'callOpenAI');
+  } catch (e: unknown) {
+    const err = e as RetriableHttpError;
+    const isDeepSeek = providerLabel === 'DeepSeek';
+    const isContentFilter = err.status === 422 && /content_filter/i.test(err.message || '');
+    if (isDeepSeek && isContentFilter) {
+      _composerDeepSeekContentFilterTripped = true;
+      if (!_composerContentFilterWarned) {
+        _composerContentFilterWarned = true;
+        console.warn(
+          `[composer] Azure DeepSeek content filter rejected the prompt. Falling back to GPT-5.5 for the rest of this compose() session. ` +
+          `Try rephrasing the edit instruction with less charged language to use DeepSeek again.`,
+        );
+      }
+      body.model = 'gpt-5.5';
+      return callOpenAI(body);
     }
-    return res.json();
-  }, 'callOpenAI');
+    throw e;
+  }
 }
 
 // 2026-05-04 — Per-compose() tool-call dedup cache. The composer can fire

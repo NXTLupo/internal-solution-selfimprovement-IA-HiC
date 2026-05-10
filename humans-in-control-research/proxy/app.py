@@ -3694,13 +3694,44 @@ async def proxy_deepseek_azure(request: Request):
                     f"{resp.text[:600]}"
                 )
 
+            # 2026-05-10 — Robust Azure error parsing.
+            # Azure occasionally returns a content_filter rejection nested
+            # inside an outer JSON wrapper, OR returns it as text/plain with
+            # JSON-shaped body. Try json() first; on parse failure, try a
+            # manual json.loads on resp.text. If THAT fails too, surface a
+            # clean structured error rather than the opaque "non-JSON 502".
             try:
-                return JSONResponse(resp.json(), status_code=resp.status_code)
+                parsed = resp.json()
             except Exception:
+                try:
+                    import json as _json
+                    parsed = _json.loads(resp.text)
+                except Exception:
+                    parsed = None
+
+            if parsed is None:
                 return JSONResponse(
                     {"error": f"DeepSeek returned non-JSON (status {resp.status_code}): {resp.text[:300]}"},
                     status_code=502,
                 )
+
+            # Detect Microsoft content filter — surface as a clean 422
+            # (Unprocessable Entity) so callers can fall back to a different
+            # model rather than retrying the same prompt that will fail again.
+            inner_err = parsed.get("error") if isinstance(parsed, dict) else None
+            if isinstance(inner_err, dict) and inner_err.get("code") == "content_filter":
+                logger.warning(
+                    f"DeepSeek Azure content_filter on model={body.get('model')}: "
+                    f"{inner_err.get('message', '')[:200]}"
+                )
+                return JSONResponse(
+                    {"error": "content_filter", "code": "content_filter",
+                     "message": inner_err.get("message", "Content filter triggered."),
+                     "provider": "deepseek_azure"},
+                    status_code=422,
+                )
+
+            return JSONResponse(parsed, status_code=resp.status_code)
 
         except httpx.TimeoutException:
             logger.error(f"DeepSeek Azure timeout (attempt {attempt + 1})")
