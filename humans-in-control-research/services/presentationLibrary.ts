@@ -70,25 +70,51 @@ export async function deletePresentation(slug: string): Promise<boolean> {
 
 /** Save (create or overwrite) a presentation. Used by the editPresentation
  *  flow after the composer emits a revised payload — the slug stays the
- *  same so the URL is stable across edits. */
+ *  same so the URL is stable across edits.
+ *
+ *  2026-05-10: Client-side guards added BEFORE the POST so opaque proxy
+ *  400s (e.g. "schemaVersion must be 1, got None") never bubble back to
+ *  the user. Every caller gets the same defensive normalization. */
 export async function savePresentation(payload: PresentationPayload): Promise<PresentationSummary> {
+    // Defensive normalization — fix the well-known proxy-rejection causes
+    // before the request leaves the browser.
+    const p = payload as any;
+    if (!p) throw new Error('savePresentation: payload is null/undefined');
+    if (!p.schemaVersion) p.schemaVersion = 1;
+    if (!p.meta) p.meta = {};
+    if (!p.meta.title) p.meta.title = '(untitled)';
+    if (!p.meta.brand) p.meta.brand = 'NXT';
+    if (!p.meta.generatedAt) p.meta.generatedAt = new Date().toISOString();
+
+    // Hard preconditions the proxy enforces — fail fast with a clear
+    // message instead of a 400 round-trip.
+    if (p.schemaVersion !== 1) {
+        throw new Error(`savePresentation: schemaVersion must be 1, got ${p.schemaVersion}. The model returned an unexpected envelope.`);
+    }
+    if (!p.meta.slug || typeof p.meta.slug !== 'string') {
+        throw new Error('savePresentation: meta.slug is required.');
+    }
+    if (!Array.isArray(p.sections) || p.sections.length === 0) {
+        throw new Error('savePresentation: sections must be a non-empty array. The composer likely truncated or refused — try rephrasing.');
+    }
+
     const resp = await fetch(`${PROXY_BASE}/api/presentations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(p),
     });
     if (!resp.ok) {
         const errText = await resp.text().catch(() => '');
-        throw new Error(`savePresentation: HTTP ${resp.status}: ${errText.slice(0, 160)}`);
+        throw new Error(`savePresentation: HTTP ${resp.status}: ${errText.slice(0, 200)}`);
     }
     const data = await resp.json();
     return {
         slug: data.slug,
-        title: payload.meta?.title ?? '(untitled)',
-        brand: (payload.meta?.brand ?? 'NXT') as BrandVariant,
-        generatedAt: payload.meta?.generatedAt ?? new Date().toISOString(),
-        narrativeThesis: payload.meta?.narrativeThesis ?? '',
-        sectionCount: data.sectionCount ?? (payload.sections?.length ?? 0),
+        title: p.meta?.title ?? '(untitled)',
+        brand: (p.meta?.brand ?? 'NXT') as BrandVariant,
+        generatedAt: p.meta?.generatedAt ?? new Date().toISOString(),
+        narrativeThesis: p.meta?.narrativeThesis ?? '',
+        sectionCount: data.sectionCount ?? (p.sections?.length ?? 0),
         sourceCount: data.sourceCount ?? {},
         url: data.url,
     };

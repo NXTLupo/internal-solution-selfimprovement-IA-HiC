@@ -1419,11 +1419,30 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 onToolCall: () => { /* no-op */ },
             });
 
-            // Force the slug to remain stable so the saved file overwrites in place.
-            if (payload.meta) {
-                (payload.meta as any).slug = slug;
+            // 2026-05-10 — Defensive payload normalization BEFORE save.
+            // The model intermittently omits required envelope fields when
+            // generating a revision (schemaVersion in particular). Catch
+            // those here so the save doesn't fail at the proxy with an
+            // opaque "schemaVersion must be 1, got None" 400. Force the
+            // slug to remain stable so the saved file overwrites in place.
+            const p = payload as any;
+            if (!p.schemaVersion) p.schemaVersion = 1;
+            if (!p.meta) p.meta = {};
+            p.meta.slug = slug;
+            // Ensure other required meta fields have at least a stub so
+            // the proxy's validator passes; the model usually fills these,
+            // but defensive nullsafety is cheap.
+            if (!p.meta.title) p.meta.title = (existing as any).meta?.title || '(revised — untitled)';
+            if (!p.meta.brand) p.meta.brand = (existing as any).meta?.brand || 'NXT';
+            if (!p.meta.generatedAt) p.meta.generatedAt = new Date().toISOString();
+            // Validate sections shape (proxy requires non-empty array)
+            if (!Array.isArray(p.sections) || p.sections.length === 0) {
+                throw new Error(
+                    `composer returned a payload with no sections — likely a content_filter or output-truncation issue. ` +
+                    `Try rephrasing the edit instruction.`,
+                );
             }
-            const saved = await savePresentation(payload as any);
+            const saved = await savePresentation(p);
 
             setMessages(prev => prev.map(m => m.id === editingMsgId ? {
                 ...m,
