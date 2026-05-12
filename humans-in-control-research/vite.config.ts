@@ -94,6 +94,31 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      // 2026-05-12 — stable chunk names to survive Docker rebuilds while
+      // a tab is open. Without this, every rebuild rotates the content
+      // hashes on ~85 dynamic-import chunks (prototypeBuilder, sessionService,
+      // exportService, prototypeLibrary, etc.) and the open tab 404s the
+      // moment the user fires #proto / #presentation / Save Session.
+      //
+      // The main entry bundle KEEPS its content hash (so cache-busting on
+      // the index works), and the index.html is served with no-store
+      // (see nginx.conf) so every page load pulls the latest entry. But
+      // child chunks now have stable URLs (no hash) — same source → same
+      // URL across rebuilds — so an in-flight tab can keep loading
+      // unchanged chunks even after a rebuild swapped the entry hash.
+      //
+      // Paired with nginx.conf — /assets/chunks/* has must-revalidate so
+      // when a chunk's content DOES change, the browser picks it up on
+      // the next request instead of serving the cached stale version.
+      build: {
+        rollupOptions: {
+          output: {
+            entryFileNames: 'assets/[name]-[hash].js',
+            chunkFileNames: 'assets/chunks/[name].js',
+            assetFileNames: 'assets/[name]-[hash].[ext]',
+          },
+        },
+      },
     };
 });
