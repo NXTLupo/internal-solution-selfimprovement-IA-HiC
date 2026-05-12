@@ -34,7 +34,20 @@ import { generateArtifact } from '../design-desk/services/chatToArtifact';
 import { generateFreeformArtifact } from '../design-desk/services/chatToFreeform';
 import type { FreeformKind } from '../design-desk/schemas/freeformArtifact';
 // --- Presentation Pipeline (#presentation #NXT/#NU narrative composer) ---
-import { parsePresentationDirective } from '../services/hashtagParser';
+import {
+    parsePresentationDirective,
+    parsePrototypeDirective,
+    parseBriefDirective,
+    parseExplainerDirective,
+    parseReportDirective,
+    parsePlaygroundDirective,
+    parseApproachesDirective,
+    parseHelpDirective,
+    parseArtifactsLibraryDirective,
+    parseRefineDirective,
+} from '../services/hashtagParser';
+import { DIRECTIVES, directivesByCategory, CATEGORY_LABELS } from '../services/hashtagRegistry';
+import { saveArtifact, listArtifacts, getArtifact, deleteArtifact, getArtifactViewUrl } from '../services/artifactLibrary';
 import { compose as composeNarrative } from '../services/narrativeComposer';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
@@ -76,6 +89,12 @@ interface Props {
      *  When provided, inline-rendered artifact previews show an "Open in Designer"
      *  button that activates the artifact and triggers this callback. */
     onOpenDesignDesk?: () => void;
+    /** 2026-05-11 — Session save/restore. When App.tsx loads a saved session
+     *  it passes `initialMessages` so the chat hydrates with the prior
+     *  conversation. `onMessagesChange` fires on every messages update so
+     *  the App can serialize the latest history when saving. */
+    initialMessages?: ChatMessage[];
+    onMessagesChange?: (messages: ChatMessage[]) => void;
 }
 
 /**
@@ -950,8 +969,1343 @@ const ArtifactExportButtons: React.FC<{
 // state-aware on uploaded docs / live sources / knowledge graph themes.
 // See services/dynamicPromptSuggestions.ts.
 
-export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk }) => {
-    const [messages, setMessages] = useState<ChatMessage[]>([]);
+// 2026-05-11 — renderProtoChips: scan plain-text content for backtick-
+// wrapped `#proto ...` patterns (emitted by #recommendations responses)
+// and replace them with clickable chips that pre-fill the chat input.
+// Format the model emits:
+//   `#proto #name=<slug> #NXT` — Optional label after em-dash
+//
+// The em-dash + label is the user-facing chip label; the backticked
+// portion is what gets injected into the input field. If no label is
+// present, the command itself is used as the label.
+function renderProtoChips(text: string, onPickCommand: (cmd: string) => void): React.ReactNode {
+    if (!text || !text.includes('#proto')) return text;
+    // Match: ` `#proto ...` ` optionally followed by ` — label text` (em-dash, en-dash, or hyphen)
+    // The label runs until end-of-line or a newline.
+    const pattern = /`(#proto[^`]*?)`(?:\s*[—–\-]\s*([^\n]+))?/g;
+    const out: React.ReactNode[] = [];
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+    let key = 0;
+    while ((match = pattern.exec(text)) !== null) {
+        const [full, command, label] = match;
+        const start = match.index;
+        if (start > lastIdx) out.push(text.slice(lastIdx, start));
+        // Detect brand from the command for chip accent
+        const isNU = /#NU\b/i.test(command);
+        const accent = isNU ? '#C00000' : '#B8B800';
+        const accentText = isNU ? '#FFFFFF' : '#0D0D0D';
+        const cleanLabel = (label || '').trim() || 'Build this prototype';
+        out.push(
+            <button
+                key={`proto-chip-${key++}`}
+                onClick={() => onPickCommand(command.trim())}
+                title={`Click to pre-fill the chat input with: ${command.trim()}\nYou can edit before submitting.`}
+                style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    margin: '4px 4px 4px 0',
+                    padding: '6px 12px',
+                    background: accent,
+                    color: accentText,
+                    border: 'none',
+                    borderRadius: 2,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: 0.5,
+                    cursor: 'pointer',
+                    fontFamily: "'Archivo', sans-serif",
+                    textAlign: 'left',
+                    whiteSpace: 'normal',
+                    lineHeight: 1.3,
+                    maxWidth: '100%',
+                }}
+            >
+                <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 9,
+                    opacity: 0.7,
+                    textTransform: 'none',
+                }}>{isNU ? '⟶ NU' : '⟶ NXT'}</span>
+                <span style={{ flex: 1 }}>{cleanLabel}</span>
+            </button>
+        );
+        lastIdx = start + full.length;
+    }
+    if (lastIdx < text.length) out.push(text.slice(lastIdx));
+    return <>{out}</>;
+}
+
+// 2026-05-11 — Prototype launcher card. Mirrors PresentationLaunchCard
+// shape. Opens the prototype's standalone HTML view in a new window.
+const PrototypeLaunchCard: React.FC<{
+    url: string;
+    meta?: ChatMessage['prototypeMeta'];
+}> = ({ url, meta }) => {
+    const brand = meta?.brand || 'NXT';
+    const accentColor = brand === 'NU' ? '#C00000' : '#B8B800';
+    const verdict = meta?.verdict;
+    const verdictColor = verdict === 'ship' ? '#0CCE6B' : verdict === 'refine' ? '#FD8E2E' : verdict === 'rebuild' ? '#CC6644' : '#525252';
+    return (
+        <div style={{
+            marginTop: 10,
+            border: `1px solid ${accentColor}`,
+            background: '#FFFFFF',
+            padding: '14px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+        }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: accentColor, marginBottom: 4 }}>
+                    Interactive Prototype · {brand}
+                </div>
+                {meta?.title && (
+                    <div style={{ fontSize: 12, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3, marginBottom: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {meta.title}
+                    </div>
+                )}
+                <div style={{ fontSize: 9, color: '#666', fontFamily: 'JetBrains Mono, monospace' }}>
+                    {meta?.code_chars ? `${Math.round(meta.code_chars / 1024)}KB code` : ''}
+                    {verdict && <span style={{ marginLeft: 8, color: verdictColor, fontWeight: 700, textTransform: 'uppercase' }}>{verdict}</span>}
+                    {meta?.based_on && <span style={{ marginLeft: 8 }}>· based on: {meta.based_on}</span>}
+                </div>
+            </div>
+            <button
+                onClick={() => window.open(url, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                style={{
+                    padding: '10px 18px',
+                    background: accentColor,
+                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    border: 'none',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    flexShrink: 0,
+                }}
+                aria-label="Launch prototype in new window"
+            >
+                Launch ↗
+            </button>
+        </div>
+    );
+};
+
+// 2026-05-12 — Hashtag autocomplete dropdown.
+// Appears when the user types '#' followed by a partial token. Pulls
+// from the canonical hashtagRegistry (DIRECTIVES). Up/Down arrow + Enter
+// to pick, Escape to dismiss. Reads cursor position to detect whether
+// the user is mid-token (so we don't trigger on something like "#NXT" in
+// the middle of an existing directive).
+const HashtagAutocomplete: React.FC<{
+    input: string;
+    inputRef: React.RefObject<HTMLTextAreaElement | null>;
+    onPickDirective: (suffix: string) => void;
+}> = ({ input, inputRef, onPickDirective }) => {
+    const [open, setOpen] = useState(false);
+    const [partial, setPartial] = useState('');
+    const [selectedIdx, setSelectedIdx] = useState(0);
+    const [matches, setMatches] = useState<typeof DIRECTIVES>([]);
+
+    useEffect(() => {
+        const el = inputRef.current;
+        if (!el) { setOpen(false); return; }
+        const cursor = el.selectionStart ?? input.length;
+        const before = input.slice(0, cursor);
+        // Match the last #word the cursor is touching. The token starts at
+        // a non-word boundary (start of string or whitespace) — so we don't
+        // false-trigger on a # buried inside another word.
+        const m = before.match(/(?:^|\s)(#[a-zA-Z0-9_-]*)$/);
+        if (!m) { setOpen(false); setPartial(''); return; }
+        const token = m[1];
+        setPartial(token);
+        // searchDirectives takes the token without #
+        const norm = token.toLowerCase().replace(/^#/, '');
+        const hits = DIRECTIVES.filter(d =>
+            d.id.toLowerCase().replace(/^#/, '').startsWith(norm) || d.name.toLowerCase().includes(norm)
+        ).slice(0, 8);
+        // If no partial chars yet, show ALL directives (category=system at the end).
+        const finalHits = (norm === '') ? DIRECTIVES.slice(0, 10) : hits;
+        setMatches(finalHits);
+        setOpen(finalHits.length > 0);
+        setSelectedIdx(0);
+    }, [input, inputRef]);
+
+    useEffect(() => {
+        const el = inputRef.current;
+        if (!el || !open) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (!open) return;
+            if (e.key === 'ArrowDown') { e.preventDefault(); setSelectedIdx(i => (i + 1) % Math.max(1, matches.length)); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); setSelectedIdx(i => (i - 1 + matches.length) % Math.max(1, matches.length)); }
+            else if (e.key === 'Enter' && !e.shiftKey) {
+                if (matches[selectedIdx]) {
+                    e.preventDefault();
+                    onPickDirective(matches[selectedIdx].id);
+                    setOpen(false);
+                }
+            } else if (e.key === 'Escape') { setOpen(false); }
+            else if (e.key === 'Tab') {
+                if (matches[selectedIdx]) {
+                    e.preventDefault();
+                    onPickDirective(matches[selectedIdx].id);
+                    setOpen(false);
+                }
+            }
+        };
+        el.addEventListener('keydown', onKey);
+        return () => el.removeEventListener('keydown', onKey);
+    }, [open, matches, selectedIdx, onPickDirective, inputRef]);
+
+    if (!open || matches.length === 0) return null;
+
+    const categoryAccent = (cat: string) => {
+        if (cat === 'experience-builder') return '#B8B800';
+        if (cat === 'consulting-deliverable') return '#00B7C3';
+        if (cat === 'browse') return '#115054';
+        if (cat === 'edit-refine') return '#FD8E2E';
+        return '#525252';
+    };
+
+    return (
+        <div
+            style={{
+                position: 'absolute',
+                bottom: 'calc(100% + 4px)',
+                left: 0,
+                right: 0,
+                background: '#0D0D0D',
+                border: '1px solid #B8B800',
+                maxHeight: 280,
+                overflowY: 'auto',
+                zIndex: 100,
+                fontFamily: 'Archivo, sans-serif',
+                boxShadow: '0 -2px 12px rgba(0,0,0,0.3)',
+            }}
+            onMouseDown={(e) => e.preventDefault() /* keep focus on textarea */}
+        >
+            <div style={{
+                padding: '6px 10px',
+                fontSize: 9, fontFamily: "'JetBrains Mono', monospace",
+                letterSpacing: 1.5, textTransform: 'uppercase',
+                color: '#B8B800', borderBottom: '1px solid #333',
+                display: 'flex', justifyContent: 'space-between',
+            }}>
+                <span>Hashtag directive {partial && `· ${partial}`}</span>
+                <span style={{ color: '#666' }}>↑↓ Tab to pick · Esc to close</span>
+            </div>
+            {matches.map((d, i) => (
+                <div
+                    key={d.id}
+                    onMouseEnter={() => setSelectedIdx(i)}
+                    onClick={() => { onPickDirective(d.id); setOpen(false); }}
+                    style={{
+                        padding: '8px 10px',
+                        cursor: 'pointer',
+                        background: i === selectedIdx ? '#B8B800' : 'transparent',
+                        color: i === selectedIdx ? '#0D0D0D' : '#FFFFFF',
+                        borderLeft: `3px solid ${categoryAccent(d.category)}`,
+                        display: 'flex',
+                        gap: 10,
+                        alignItems: 'flex-start',
+                    }}
+                >
+                    <code style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        flexShrink: 0,
+                        minWidth: 100,
+                    }}>{d.id}</code>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, lineHeight: 1.3 }}>{d.name}</div>
+                        <div style={{ fontSize: 10, opacity: i === selectedIdx ? 0.85 : 0.65, lineHeight: 1.35, marginTop: 2, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any }}>
+                            {d.summary}
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+                        {d.usesVerbalizedSampling && (
+                            <span style={{ fontSize: 8, padding: '2px 5px', background: i === selectedIdx ? '#0D0D0D' : '#B8B800', color: i === selectedIdx ? '#B8B800' : '#0D0D0D', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.8 }}>VS</span>
+                        )}
+                        {d.requiresContext && (
+                            <span style={{ fontSize: 8, padding: '2px 5px', background: i === selectedIdx ? '#0D0D0D' : '#00B7C3', color: i === selectedIdx ? '#00B7C3' : '#0D0D0D', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.8 }}>CTX</span>
+                        )}
+                    </div>
+                </div>
+            ))}
+            <div style={{ padding: '6px 10px', fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", borderTop: '1px solid #333', textAlign: 'center' }}>
+                Type <code style={{ color: '#B8B800' }}>#help</code> for the full guide
+            </div>
+        </div>
+    );
+};
+
+// 2026-05-12 — Sprint H2 — Artifact Launch Card.
+// Mirror of PrototypeLaunchCard for the HTML-artifact family
+// (#brief, #explainer, #report, #playground, #approaches, #help).
+// One Launch button — opens artifact /view URL in a new window with NXT
+// brand wrapper + Copy-as-prompt footer.
+const ArtifactLaunchCard: React.FC<{
+    url: string;
+    meta?: ChatMessage['artifactMeta'];
+}> = ({ url, meta }) => {
+    const brand = meta?.brand || 'NXT';
+    const accentColor = brand === 'NU' ? '#C8102E' : '#B8B800';
+    const gen = meta?.generator || '#artifact';
+    const genLabel = ({
+        '#brief': 'Stakeholder Brief',
+        '#explainer': 'Concept Explainer',
+        '#report': 'Strategic Report',
+        '#playground': 'Interactive Playground',
+        '#approaches': 'Approach Picker',
+        '#help': 'Reference Guide',
+    } as Record<string, string>)[gen] || 'HTML Artifact';
+    return (
+        <div style={{
+            marginTop: 10,
+            border: `1px solid ${accentColor}`,
+            background: '#FFFFFF',
+            padding: '14px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+        }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', color: accentColor, marginBottom: 4 }}>
+                    {genLabel} · {gen} · {brand}
+                </div>
+                {meta?.title && (
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.3, marginBottom: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {meta.title}
+                    </div>
+                )}
+                <div style={{ fontSize: 9, color: '#666', fontFamily: 'JetBrains Mono, monospace' }}>
+                    {meta?.html_chars ? `${Math.round(meta.html_chars / 1024)}KB HTML` : ''}
+                    {meta?.variants_count && meta.variants_count > 0 ? ` · ${meta.variants_count} variants saved` : ''}
+                </div>
+            </div>
+            <button
+                onClick={() => window.open(url, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                style={{
+                    padding: '10px 18px',
+                    background: accentColor,
+                    color: brand === 'NU' ? '#FFFFFF' : '#0D0D0D',
+                    border: 'none',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    flexShrink: 0,
+                }}
+                aria-label="Launch artifact in new window"
+            >
+                Launch ↗
+            </button>
+        </div>
+    );
+};
+
+// 2026-05-12 — Artifact library grid (bare #artifacts hashtag).
+// Mirror of PrototypeLibraryGrid for HTML artifacts.
+interface ArtifactLibraryGridProps {
+    items: any[]; // ArtifactSummary[]
+    onItemDeleted: (slug: string) => void;
+}
+const ArtifactLibraryGrid: React.FC<ArtifactLibraryGridProps> = ({ items, onItemDeleted }) => {
+    const [confirmDeleteSlug, setConfirmDeleteSlug] = useState<string | null>(null);
+    return (
+        <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
+            {items.map(a => {
+                const accent = a.brand === 'NU' ? '#C8102E' : '#B8B800';
+                return (
+                    <div key={a.slug} style={{
+                        border: `1px solid #E5E5E5`,
+                        borderLeft: `4px solid ${accent}`,
+                        background: '#FFFFFF',
+                        padding: '10px 12px',
+                        fontFamily: 'Archivo, sans-serif',
+                    }}>
+                        <div style={{ fontSize: 9, color: '#525252', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+                            {a.generator || '#artifact'} · {a.brand || 'NXT'}
+                        </div>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.25, marginBottom: 6, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 1, textTransform: 'uppercase' }}>
+                            {a.title}
+                        </div>
+                        {a.topic && (
+                            <div style={{ fontSize: 11, color: '#525252', lineHeight: 1.4, marginBottom: 8, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any, overflow: 'hidden' }}>
+                                {a.topic}
+                            </div>
+                        )}
+                        <div style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
+                            {Math.round((a.html_chars || 0) / 1024)}KB
+                            {a.variants_count > 0 ? ` · ${a.variants_count} variants` : ''}
+                            {a.updated_at ? ` · ${new Date(a.updated_at).toLocaleDateString()}` : ''}
+                        </div>
+                        {confirmDeleteSlug === a.slug ? (
+                            <div style={{ display: 'flex', gap: 4 }}>
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            const ok = await deleteArtifact(a.slug);
+                                            if (ok) onItemDeleted(a.slug);
+                                        } catch (e) { console.warn('[artifact delete]', e); }
+                                        setConfirmDeleteSlug(null);
+                                    }}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#CC6644', color: '#FFFFFF', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Confirm Delete?
+                                </button>
+                                <button
+                                    onClick={() => setConfirmDeleteSlug(null)}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#F5F5F0', color: '#525252', border: '1px solid #E5E5E5', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        ) : (
+                            <div style={{ display: 'flex', gap: 4 }}>
+                                <button
+                                    onClick={() => window.open(`http://localhost:5012${a.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: accent, border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Launch ↗
+                                </button>
+                                <button
+                                    onClick={() => setConfirmDeleteSlug(a.slug)}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#FFFFFF', color: '#CC6644', border: '1px solid #CC6644', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+// 2026-05-11 — Prototype library grid (#prototypes bare hashtag).
+// Each card has Launch / Edit / Delete chips. Edit prompts for an
+// instruction and re-runs the 5-stage pipeline with the new direction
+// layered onto the existing artifact.
+interface PrototypeLibraryGridProps {
+    items: any[]; // PrototypeSummary[]
+    onItemDeleted: (slug: string) => void;
+    onEditTriggered: (slug: string, instruction: string) => Promise<void>;
+}
+const PrototypeLibraryGrid: React.FC<PrototypeLibraryGridProps> = ({ items, onItemDeleted, onEditTriggered }) => {
+    const [editingSlug, setEditingSlug] = useState<string | null>(null);
+    const [editInstruction, setEditInstruction] = useState('');
+    const [confirmDeleteSlug, setConfirmDeleteSlug] = useState<string | null>(null);
+    return (
+        <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
+            {items.map(p => (
+                <div key={p.slug} style={{
+                    border: `1px solid #E5E5E5`,
+                    borderLeft: `4px solid #B8B800`,
+                    background: '#FFFFFF',
+                    padding: '10px 12px',
+                    fontFamily: 'Archivo, sans-serif',
+                }}>
+                    <div style={{ fontSize: 9, color: '#525252', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 4, fontFamily: "'JetBrains Mono', monospace" }}>
+                        Prototype · {p.code_format?.toUpperCase() || 'REACT'}
+                    </div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#0D0D0D', lineHeight: 1.25, marginBottom: 6, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 1, textTransform: 'uppercase' }}>
+                        {p.title}
+                    </div>
+                    {p.concept_preview && (
+                        <div style={{
+                            fontSize: 11, color: '#525252', lineHeight: 1.4, marginBottom: 8,
+                            display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as any, overflow: 'hidden',
+                        }}>{p.concept_preview}</div>
+                    )}
+                    <div style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", marginBottom: 8 }}>
+                        {Math.round((p.code_chars || 0) / 1024)}KB · {p.updated_at ? new Date(p.updated_at).toLocaleDateString() : '—'}
+                    </div>
+                    {editingSlug === p.slug ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                            <textarea
+                                value={editInstruction}
+                                onChange={e => setEditInstruction(e.target.value)}
+                                placeholder="What should change? e.g., 'Add a dark mode toggle' or 'Make the chat feel more conversational'"
+                                style={{ width: '100%', minHeight: 60, padding: 8, fontSize: 11, fontFamily: 'Archivo, sans-serif', border: '1px solid #E5E5E5', resize: 'vertical' }}
+                            />
+                            <div style={{ display: 'flex', gap: 4 }}>
+                                <button
+                                    onClick={async () => {
+                                        const instr = editInstruction.trim();
+                                        if (!instr) return;
+                                        setEditingSlug(null);
+                                        setEditInstruction('');
+                                        await onEditTriggered(p.slug, instr);
+                                    }}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: '#B8B800', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Apply Edit
+                                </button>
+                                <button
+                                    onClick={() => { setEditingSlug(null); setEditInstruction(''); }}
+                                    style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#F5F5F0', color: '#525252', border: '1px solid #E5E5E5', cursor: 'pointer', textTransform: 'uppercase' }}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    ) : confirmDeleteSlug === p.slug ? (
+                        <div style={{ display: 'flex', gap: 4 }}>
+                            <button
+                                onClick={async () => {
+                                    try {
+                                        const { deletePrototype } = await import('../services/prototypeLibrary');
+                                        await deletePrototype(p.slug);
+                                        onItemDeleted(p.slug);
+                                    } catch (e) { console.warn('[proto delete]', e); }
+                                    setConfirmDeleteSlug(null);
+                                }}
+                                style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#CC6644', color: '#FFFFFF', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                            >
+                                Confirm Delete?
+                            </button>
+                            <button
+                                onClick={() => setConfirmDeleteSlug(null)}
+                                style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#F5F5F0', color: '#525252', border: '1px solid #E5E5E5', cursor: 'pointer', textTransform: 'uppercase' }}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    ) : (
+                        <div style={{ display: 'flex', gap: 4 }}>
+                            <button
+                                onClick={() => window.open(`http://localhost:5012${p.view_url}`, '_blank', 'noopener,noreferrer,width=1280,height=900')}
+                                style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#0D0D0D', color: '#B8B800', border: 'none', cursor: 'pointer', textTransform: 'uppercase' }}
+                            >
+                                Launch ↗
+                            </button>
+                            <button
+                                onClick={() => { setEditingSlug(p.slug); setEditInstruction(''); }}
+                                style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#FFFFFF', color: '#0D0D0D', border: '1px solid #0D0D0D', cursor: 'pointer', textTransform: 'uppercase' }}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={() => setConfirmDeleteSlug(p.slug)}
+                                style={{ padding: '5px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1, background: '#FFFFFF', color: '#CC6644', border: '1px solid #CC6644', cursor: 'pointer', textTransform: 'uppercase' }}
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
+    );
+};
+
+// 2026-05-11 — RecommendationTilesGrid renders #recommendations output as
+// elegant tiles instead of a markdown wall. Each tile gets a Gemini Imagen
+// thumbnail (16:9), Bebas Neue title, thesis, persona/moment/aha rows,
+// AI-capability pills, and clickable variant chips that pre-fill the chat
+// input with a #proto command.
+interface RecommendationTile {
+    slug: string;
+    title: string;
+    thesis: string;
+    persona: string;
+    moment: string;
+    aha_interaction: string;
+    ai_capabilities: string[];
+    image_prompt: string;
+    image_data?: string;
+    variants: Array<{ label: string; command: string }>;
+    clr_dependent?: boolean | null;
+    execution_path?: string;
+    existing_stack_reuse?: string;
+    non_starter_check?: string;
+    effort_estimate?: string;
+    risk_level?: string;
+    evidence_sources?: string[];
+    // Consulting-depth fields — generic context-aware names + legacy aliases
+    initiative_dependent?: boolean | null;
+    group?: 'initiative_dependent' | 'initiative_independent' | 'clr_dependent' | 'clr_independent' | null;
+    description?: string;
+    why_matters_target_segment?: string;
+    long_term_outcome_through_line?: string;
+    initiative_dependency_explanation?: string;
+    execution_in_existing_stack?: string;
+    preferred_stack_fit?: string;
+    stakeholder_guardrail_fit?: string;
+    // Legacy field names retained for older saved sessions
+    why_matters_first_year?: string;
+    long_term_coop_readiness?: string;
+    clr_dependency_explanation?: string;
+    execution_in_nu_stack?: string;
+    microsoft_copilot_fit?: string;
+    guardrail_fit?: string;
+    // Shared
+    key_stakeholders?: Array<{ name_or_role: string; involvement: string }>;
+    implementation_steps?: Array<{ step: string; owner: string; dependencies: string[]; estimated_effort: string }>;
+    risks_constraints?: Array<{ risk: string; severity: string; mitigation: string }>;
+    expected_impact?: string;
+    verbatim_quote_evidence?: string;
+    // VS-Multi fields (Sprint 2)
+    frame?: 'defensible_consensus' | 'non_obvious_bet';
+    probability?: number;
+    diverges_from?: string;
+}
+interface EngagementContext {
+    client_name?: string;
+    vendor_or_consultant?: string;
+    engagement_objective?: string;
+    industry?: string;
+    named_initiative?: string | null;
+    target_segment?: string;
+    target_outcome_window?: string;
+    named_stakeholders?: Array<{ name: string; stated_priorities: string[]; stated_non_starters: string[]; stated_preferences: string[] }>;
+    preferred_tech_stack?: string[];
+    existing_systems?: string[];
+    hard_non_starters?: string[];
+    regulatory_constraints?: string[];
+}
+interface RecommendationPreamble {
+    stakeholder_priorities?: Array<{ name: string; stated_priorities: string[]; stated_non_starters: string[]; stated_preferences: string[] }>;
+    design_principles?: string[];
+    ideas_to_retire_or_reframe?: Array<{ prior_idea: string; reason_to_retire_or_reframe: string; reframed_as?: string | null }>;
+    guardrail_validation_criteria?: string[];
+}
+interface RecommendationTilesGridProps {
+    tiles: RecommendationTile[];
+    onPickCommand: (command: string) => void;
+    context?: EngagementContext;
+}
+// Helper: derive dynamic section labels from the engagement context.
+// Falls back to neutral labels when fields are missing so the UI never
+// shows "Why it matters for {undefined}".
+function labelsFromContext(ctx?: EngagementContext) {
+    const segment = ctx?.target_segment?.trim() || 'the target audience';
+    const initiative = ctx?.named_initiative?.trim();
+    const client = ctx?.client_name?.trim() || 'the client';
+    const stack = (ctx?.preferred_tech_stack || []).filter(Boolean);
+    const stackLabel = stack.length > 0 ? stack.slice(0, 2).join(' / ') : 'preferred stack';
+    const stakeholders = (ctx?.named_stakeholders || []).map(s => s?.name).filter(Boolean) as string[];
+    const stakeholdersLabel = stakeholders.length > 0 ? stakeholders.join(' & ') : 'named stakeholders';
+    return {
+        whyMatters: `Why it matters for ${segment}`,
+        longTerm: `How it supports ${segment} ${ctx?.target_outcome_window ? `in ${ctx.target_outcome_window}` : 'long-term'}`,
+        initiativeDependsTrue: initiative ? `How it uses / depends on ${initiative}` : 'Initiative dependency',
+        initiativeDependsFalse: initiative ? `Why ${initiative} is not required` : 'Why no initiative dependency',
+        executionStack: `Execution within ${client}'s existing stack`,
+        stackFit: `${stackLabel} fit`,
+        guardrails: `Why this fits ${stakeholdersLabel}'s guardrails`,
+        cmpInitiativeCol: initiative ? `${initiative}-Dep.` : null,
+        cmpImpactCol: `Expected ${segment} Impact`,
+        cmpStackCol: `${stack[0] || 'Existing-Stack'} Fit`,
+        cmpAlignCol: `Alignment (${stakeholdersLabel})`,
+    };
+}
+// Single tile renderer extracted so the grid can render groups (e.g.,
+// initiative-dependent vs. independent) with the same template.
+const RecommendationTileCard: React.FC<{ tile: RecommendationTile; idx: number; onPickCommand: (cmd: string) => void; context?: EngagementContext }> = ({ tile, idx, onPickCommand, context }) => {
+    const labels = labelsFromContext(context);
+    const [expanded, setExpanded] = useState(false);
+    const riskColor = tile.risk_level === 'high' ? '#CC6644'
+        : tile.risk_level === 'medium' ? '#FD8E2E'
+        : tile.risk_level === 'low' ? '#0CCE6B' : '#888';
+    // 2026-05-12 — Sprint 2 VS-Multi: visually differentiate consensus
+    // tiles (chartreuse top border) from non-obvious bet tiles (cyan top
+    // border + BET badge in top-right corner of the thumbnail).
+    const isBet = tile.frame === 'non_obvious_bet';
+    const frameAccent = isBet ? '#00B7C3' : '#B8B800';
+    // Resolve generic field names with legacy fallback so older saved
+    // sessions still render and so the new context-aware schema works
+    // alongside the deprecated CLR/first-year-specific field names.
+    const whyMatters = tile.why_matters_target_segment || tile.why_matters_first_year || '';
+    const longTerm = tile.long_term_outcome_through_line || tile.long_term_coop_readiness || '';
+    const initiativeDeps = tile.initiative_dependency_explanation || tile.clr_dependency_explanation || '';
+    const stackExec = tile.execution_in_existing_stack || tile.execution_in_nu_stack || '';
+    const stackFit = tile.preferred_stack_fit || tile.microsoft_copilot_fit || '';
+    const guardrailFit = tile.stakeholder_guardrail_fit || tile.guardrail_fit || '';
+    const initiativeDep = typeof tile.initiative_dependent === 'boolean' ? tile.initiative_dependent
+        : (typeof (tile as any).clr_dependent === 'boolean' ? (tile as any).clr_dependent : null);
+    const groupKind = tile.group;
+    const isInitiativeDependent = initiativeDep === true || groupKind === 'initiative_dependent' || groupKind === 'clr_dependent';
+    const hasDepth = !!(tile.description || whyMatters || longTerm
+        || initiativeDeps || stackExec || stackFit
+        || (tile.key_stakeholders && tile.key_stakeholders.length > 0)
+        || (tile.implementation_steps && tile.implementation_steps.length > 0)
+        || (tile.risks_constraints && tile.risks_constraints.length > 0)
+        || guardrailFit || tile.expected_impact || tile.verbatim_quote_evidence);
+    const sectionLabel = (s: string) => (
+        <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5, textTransform: 'uppercase', marginTop: 8, marginBottom: 4 }}>{s}</div>
+    );
+    const paragraph = (text: string) => (
+        <div style={{ fontSize: 12, lineHeight: 1.5, color: '#262626' }}>{text}</div>
+    );
+    return (
+        <div style={{
+            background: '#FFFFFF',
+            border: '1px solid #E5E5E5',
+            borderTop: `3px solid ${frameAccent}`,
+            display: 'flex',
+            flexDirection: 'column',
+            fontFamily: 'Archivo, sans-serif',
+            overflow: 'hidden',
+            position: 'relative',
+        }}>
+            {isBet && (
+                <div style={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    zIndex: 5,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-end',
+                    gap: 4,
+                }}>
+                    <span style={{
+                        padding: '3px 8px',
+                        background: '#00B7C3',
+                        color: '#0D0D0D',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 9,
+                        fontWeight: 700,
+                        letterSpacing: 2,
+                        textTransform: 'uppercase',
+                    }}>Non-Obvious Bet</span>
+                    {typeof tile.probability === 'number' && (
+                        <span style={{
+                            padding: '2px 7px',
+                            background: 'rgba(13,13,13,0.85)',
+                            color: '#00B7C3',
+                            fontFamily: "'JetBrains Mono', monospace",
+                            fontSize: 9,
+                            letterSpacing: 1,
+                        }}>p = {tile.probability.toFixed(3)}</span>
+                    )}
+                </div>
+            )}
+            {!isBet && typeof tile.probability === 'number' && (
+                <div style={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    zIndex: 5,
+                    padding: '2px 7px',
+                    background: 'rgba(13,13,13,0.7)',
+                    color: '#B8B800',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 9,
+                    letterSpacing: 1,
+                }}>p = {tile.probability.toFixed(3)}</div>
+            )}
+            {/* 16:9 thumbnail */}
+            <div style={{
+                position: 'relative',
+                width: '100%',
+                paddingTop: '56.25%',
+                background: tile.image_data
+                    ? `#0D0D0D url("${tile.image_data}") center/cover no-repeat`
+                    : 'linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 60%, #2a2a2a 100%)',
+                overflow: 'hidden',
+            }}>
+                {!tile.image_data && (
+                    <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#B8B800',
+                        fontSize: 10,
+                        fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: 2,
+                        textTransform: 'uppercase',
+                        opacity: 0.6,
+                    }}>
+                        generating thumbnail…
+                    </div>
+                )}
+            </div>
+            {/* Body */}
+            <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <div>
+                    <div style={{
+                        fontSize: 9, color: '#B8B800', fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 2,
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6,
+                    }}>
+                        <span>Concept · {tile.slug || `idea-${idx + 1}`}</span>
+                        {tile.risk_level && (
+                            <span style={{ color: riskColor }}>{tile.risk_level.toUpperCase()} RISK</span>
+                        )}
+                    </div>
+                    <div style={{
+                        fontSize: 16, fontWeight: 400, color: '#0D0D0D', lineHeight: 1.1,
+                        fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 1, textTransform: 'uppercase',
+                    }}>{tile.title}</div>
+                </div>
+                {tile.thesis && (
+                    <div style={{ fontSize: 12, lineHeight: 1.45, color: '#262626' }}>{tile.thesis}</div>
+                )}
+                {(tile.persona || tile.moment || tile.aha_interaction) && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 11, lineHeight: 1.4 }}>
+                        {tile.persona && (<div><span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>For</span><span style={{ color: '#262626' }}>{tile.persona}</span></div>)}
+                        {tile.moment && (<div><span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Moment</span><span style={{ color: '#262626' }}>{tile.moment}</span></div>)}
+                        {tile.aha_interaction && (<div><span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Aha</span><span style={{ color: '#262626' }}>{tile.aha_interaction}</span></div>)}
+                    </div>
+                )}
+                {/* Execution depth — only renders fields the model populated */}
+                {(tile.execution_path || tile.existing_stack_reuse || tile.non_starter_check || tile.effort_estimate) && (
+                    <div style={{ paddingTop: 8, borderTop: '1px dashed #E5E5E5', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {tile.execution_path && (
+                            <div style={{ fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                <span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Build</span>
+                                {tile.execution_path}
+                            </div>
+                        )}
+                        {tile.existing_stack_reuse && (
+                            <div style={{ fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                <span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Stack</span>
+                                {tile.existing_stack_reuse}
+                            </div>
+                        )}
+                        {tile.non_starter_check && (
+                            <div style={{ fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                <span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Check</span>
+                                {tile.non_starter_check}
+                            </div>
+                        )}
+                        {tile.effort_estimate && (
+                            <div style={{ fontSize: 11, color: '#262626' }}>
+                                <span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Effort</span>
+                                {tile.effort_estimate}
+                            </div>
+                        )}
+                    </div>
+                )}
+                {tile.ai_capabilities.length > 0 && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                        {tile.ai_capabilities.slice(0, 6).map((cap, ci) => (
+                            <span key={ci} style={{
+                                display: 'inline-block', padding: '2px 7px', fontSize: 9,
+                                fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.5,
+                                background: '#0D0D0D', color: '#00B7C3', textTransform: 'lowercase',
+                            }}>{cap}</span>
+                        ))}
+                    </div>
+                )}
+                {Array.isArray(tile.evidence_sources) && tile.evidence_sources.length > 0 && (
+                    <div style={{ fontSize: 10, color: '#525252', lineHeight: 1.35 }}>
+                        <span style={{ color: '#888', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1, textTransform: 'uppercase', marginRight: 4 }}>Cites</span>
+                        {tile.evidence_sources.slice(0, 4).join(' · ')}
+                    </div>
+                )}
+                {hasDepth && (
+                    <div style={{ marginTop: 4, paddingTop: 8, borderTop: '1px dashed #E5E5E5' }}>
+                        <button
+                            onClick={() => setExpanded(e => !e)}
+                            style={{
+                                width: '100%', textAlign: 'left',
+                                background: expanded ? '#0D0D0D' : '#F5F5F0',
+                                color: expanded ? '#B8B800' : '#0D0D0D',
+                                border: `1px solid ${expanded ? '#0D0D0D' : '#E5E5E5'}`,
+                                padding: '7px 10px', fontSize: 10, fontWeight: 700, letterSpacing: 1.5,
+                                textTransform: 'uppercase', fontFamily: "'JetBrains Mono', monospace",
+                                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                            }}
+                        >
+                            <span>{expanded ? '— Collapse Consulting Brief' : '+ Expand Full Consulting Brief'}</span>
+                            <span style={{ fontSize: 9, opacity: 0.7 }}>{expanded ? '▲' : '▼'}</span>
+                        </button>
+                        {expanded && (
+                            <div style={{ marginTop: 8, padding: '10px 12px', background: '#FAFAFA', border: '1px solid #E5E5E5', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                                {(groupKind || initiativeDep !== null) && (
+                                    <div style={{ fontSize: 9, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5, textTransform: 'uppercase', color: isInitiativeDependent ? '#00B7C3' : '#B8B800', marginBottom: 4 }}>
+                                        {context?.named_initiative
+                                            ? (isInitiativeDependent ? `${context.named_initiative}-Dependent Recommendation` : `${context.named_initiative}-Independent Recommendation`)
+                                            : (isInitiativeDependent ? 'Initiative-Dependent Recommendation' : 'Initiative-Independent Recommendation')}
+                                    </div>
+                                )}
+                                {tile.description && (<>{sectionLabel('Description')}{paragraph(tile.description)}</>)}
+                                {isBet && tile.diverges_from && (
+                                    <>
+                                        {sectionLabel('Why this is a Non-Obvious Bet (how it diverges from consensus)')}
+                                        <div style={{ fontSize: 12, lineHeight: 1.5, color: '#262626', padding: '8px 12px', background: '#0D0D0D', color: '#00B7C3', borderLeft: '3px solid #00B7C3' }}>{tile.diverges_from}</div>
+                                    </>
+                                )}
+                                {whyMatters && (<>{sectionLabel(labels.whyMatters)}{paragraph(whyMatters)}</>)}
+                                {longTerm && (<>{sectionLabel(labels.longTerm)}{paragraph(longTerm)}</>)}
+                                {initiativeDeps && (<>{sectionLabel(isInitiativeDependent ? labels.initiativeDependsTrue : labels.initiativeDependsFalse)}{paragraph(initiativeDeps)}</>)}
+                                {stackExec && (<>{sectionLabel(labels.executionStack)}{paragraph(stackExec)}</>)}
+                                {stackFit && (<>{sectionLabel(labels.stackFit)}{paragraph(stackFit)}</>)}
+                                {Array.isArray(tile.key_stakeholders) && tile.key_stakeholders.length > 0 && (
+                                    <>
+                                        {sectionLabel('Key stakeholders')}
+                                        <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                                            {tile.key_stakeholders.map((s, si) => (
+                                                <li key={si}><strong>{s.name_or_role}:</strong> {s.involvement}</li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                )}
+                                {Array.isArray(tile.implementation_steps) && tile.implementation_steps.length > 0 && (
+                                    <>
+                                        {sectionLabel('Implementation steps')}
+                                        <ol style={{ margin: 0, paddingLeft: 22, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                                            {tile.implementation_steps.map((s, si) => (
+                                                <li key={si} style={{ marginBottom: 4 }}>
+                                                    <div>{s.step}</div>
+                                                    <div style={{ fontSize: 10, color: '#525252', marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>
+                                                        owner: {s.owner || '—'} · effort: {s.estimated_effort || '—'}{s.dependencies && s.dependencies.length > 0 ? ` · depends on: ${s.dependencies.join(', ')}` : ''}
+                                                    </div>
+                                                </li>
+                                            ))}
+                                        </ol>
+                                    </>
+                                )}
+                                {Array.isArray(tile.risks_constraints) && tile.risks_constraints.length > 0 && (
+                                    <>
+                                        {sectionLabel('Risks & constraints')}
+                                        <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                                            {tile.risks_constraints.map((r, ri) => {
+                                                const sev = (r.severity || '').toLowerCase();
+                                                const sevColor = sev === 'high' ? '#CC6644' : sev === 'medium' ? '#FD8E2E' : '#0CCE6B';
+                                                return (
+                                                    <li key={ri} style={{ marginBottom: 4 }}>
+                                                        <span style={{ display: 'inline-block', padding: '1px 6px', fontSize: 9, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', background: sevColor, color: '#FFFFFF', marginRight: 6 }}>{sev || 'med'}</span>
+                                                        <strong>{r.risk}</strong> — <span style={{ color: '#525252' }}>{r.mitigation}</span>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    </>
+                                )}
+                                {guardrailFit && (<>{sectionLabel(labels.guardrails)}{paragraph(guardrailFit)}</>)}
+                                {tile.expected_impact && (<>{sectionLabel('Expected impact')}{paragraph(tile.expected_impact)}</>)}
+                                {tile.verbatim_quote_evidence && (
+                                    <>
+                                        {sectionLabel('Verbatim corpus evidence')}
+                                        <blockquote style={{ margin: 0, padding: '8px 12px', borderLeft: '3px solid #B8B800', background: '#FFFFFF', fontSize: 12, lineHeight: 1.5, color: '#262626', fontStyle: 'italic' }}>
+                                            {tile.verbatim_quote_evidence}
+                                        </blockquote>
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
+                {tile.variants.length > 0 && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 4, paddingTop: 8, borderTop: '1px dashed #E5E5E5' }}>
+                        <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 2 }}>Build it</div>
+                        {tile.variants.map((v, vi) => (
+                            <button
+                                key={vi}
+                                onClick={() => onPickCommand(v.command)}
+                                title={`Pre-fill: ${v.command}`}
+                                style={{
+                                    textAlign: 'left', padding: '6px 9px', background: '#F5F5F0',
+                                    border: '1px solid #E5E5E5', cursor: 'pointer',
+                                    fontFamily: 'Archivo, sans-serif', fontSize: 11, color: '#0D0D0D',
+                                    lineHeight: 1.3, transition: 'background 120ms, border-color 120ms',
+                                }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#0D0D0D'; (e.currentTarget as HTMLButtonElement).style.color = '#B8B800'; (e.currentTarget as HTMLButtonElement).style.borderColor = '#0D0D0D'; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#F5F5F0'; (e.currentTarget as HTMLButtonElement).style.color = '#0D0D0D'; (e.currentTarget as HTMLButtonElement).style.borderColor = '#E5E5E5'; }}
+                            >
+                                <div style={{ fontWeight: 700, fontSize: 10, letterSpacing: 0.5 }}>{v.label}</div>
+                                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, opacity: 0.75, marginTop: 1 }}>{v.command}</div>
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+// 2026-05-11 — Engagement context header rendered ABOVE the analytical
+// preamble. Shows the brand/industry/segment/initiative/stack the model
+// extracted from the user's prompt so the user can sanity-check that the
+// system understood the engagement before evaluating concepts.
+const EngagementContextBlock: React.FC<{ context: EngagementContext }> = ({ context }) => {
+    const stakeholders = context.named_stakeholders || [];
+    const pill = (label: string, value: string | undefined | null) => value ? (
+        <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: 6, padding: '4px 9px', background: '#0D0D0D', color: '#FFFFFF', marginRight: 6, marginBottom: 6, border: '1px solid #0D0D0D' }}>
+            <span style={{ fontSize: 8, color: '#B8B800', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase' }}>{label}</span>
+            <span style={{ fontSize: 12, color: '#FFFFFF' }}>{value}</span>
+        </div>
+    ) : null;
+    const arrayChip = (items: string[]) => items.filter(Boolean).map((v, i) => (
+        <span key={i} style={{ display: 'inline-block', padding: '2px 7px', fontSize: 10, fontFamily: 'Archivo, sans-serif', background: '#FAFAFA', color: '#0D0D0D', border: '1px solid #E5E5E5', marginRight: 4, marginBottom: 4 }}>{v}</span>
+    ));
+    return (
+        <div style={{ marginTop: 10, padding: '14px 16px', background: '#FFFFFF', border: '1px solid #E5E5E5', borderLeft: '3px solid #00B7C3' }}>
+            <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 8 }}>
+                Engagement Context (extracted from your prompt + uploads)
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {pill('Client', context.client_name)}
+                {pill('Industry', context.industry)}
+                {pill('Vendor', context.vendor_or_consultant)}
+                {pill('Target segment', context.target_segment)}
+                {pill('Initiative', context.named_initiative || undefined)}
+                {pill('Outcome window', context.target_outcome_window)}
+            </div>
+            {context.engagement_objective && (
+                <div style={{ marginTop: 8, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                    <span style={{ fontSize: 9, color: '#888', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', marginRight: 6 }}>Objective</span>
+                    {context.engagement_objective}
+                </div>
+            )}
+            {Array.isArray(context.preferred_tech_stack) && context.preferred_tech_stack.length > 0 && (
+                <div style={{ marginTop: 10 }}>
+                    <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: 4 }}>Preferred tech stack</div>
+                    {arrayChip(context.preferred_tech_stack)}
+                </div>
+            )}
+            {Array.isArray(context.existing_systems) && context.existing_systems.length > 0 && (
+                <div style={{ marginTop: 6 }}>
+                    <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: 4 }}>Existing systems</div>
+                    {arrayChip(context.existing_systems)}
+                </div>
+            )}
+            {Array.isArray(context.hard_non_starters) && context.hard_non_starters.length > 0 && (
+                <div style={{ marginTop: 6 }}>
+                    <div style={{ fontSize: 9, color: '#CC6644', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: 4 }}>Hard non-starters</div>
+                    {arrayChip(context.hard_non_starters)}
+                </div>
+            )}
+            {Array.isArray(context.regulatory_constraints) && context.regulatory_constraints.length > 0 && (
+                <div style={{ marginTop: 6 }}>
+                    <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: 4 }}>Regulatory constraints</div>
+                    {arrayChip(context.regulatory_constraints)}
+                </div>
+            )}
+            {stakeholders.length > 0 && (
+                <div style={{ marginTop: 10 }}>
+                    <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: 4 }}>Named stakeholders</div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                        {stakeholders.map((s, si) => (
+                            <span key={si} style={{ display: 'inline-block', padding: '3px 8px', fontSize: 11, fontFamily: 'Archivo, sans-serif', background: '#0D0D0D', color: '#B8B800', border: '1px solid #0D0D0D' }}>
+                                {s.name}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+// 2026-05-11 — Analytical preamble block rendered above the tile grid.
+// Surfaces stakeholder priorities, design principles, ideas-to-retire, and
+// guardrail validation criteria the model extracted from the user prompt +
+// uploads. Mirrors the "Additional Analysis Requirements" section of a
+// consulting brief.
+const RecommendationPreambleBlock: React.FC<{ preamble: RecommendationPreamble }> = ({ preamble }) => {
+    const stakeholders = preamble?.stakeholder_priorities || [];
+    const principles = preamble?.design_principles || [];
+    const retire = preamble?.ideas_to_retire_or_reframe || [];
+    const criteria = preamble?.guardrail_validation_criteria || [];
+    if (stakeholders.length + principles.length + retire.length + criteria.length === 0) return null;
+    return (
+        <div style={{ marginTop: 12, padding: '14px 16px', background: '#FFFFFF', border: '1px solid #E5E5E5', borderLeft: '3px solid #B8B800' }}>
+            <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 8 }}>
+                Meeting Guardrails & Validation Criteria
+            </div>
+            {stakeholders.length > 0 && (
+                <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 14, letterSpacing: 1, color: '#0D0D0D', marginBottom: 6 }}>Stakeholder priorities</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 10 }}>
+                        {stakeholders.map((s, si) => (
+                            <div key={si} style={{ padding: 10, background: '#FAFAFA', border: '1px solid #E5E5E5' }}>
+                                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 13, letterSpacing: 1, color: '#0D0D0D', marginBottom: 4 }}>{s.name}</div>
+                                {Array.isArray(s.stated_priorities) && s.stated_priorities.length > 0 && (
+                                    <>
+                                        <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', marginTop: 4 }}>Priorities</div>
+                                        <ul style={{ margin: '2px 0 0 0', paddingLeft: 16, fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                            {s.stated_priorities.map((p, pi) => <li key={pi}>{p}</li>)}
+                                        </ul>
+                                    </>
+                                )}
+                                {Array.isArray(s.stated_non_starters) && s.stated_non_starters.length > 0 && (
+                                    <>
+                                        <div style={{ fontSize: 9, color: '#CC6644', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', marginTop: 6 }}>Non-starters</div>
+                                        <ul style={{ margin: '2px 0 0 0', paddingLeft: 16, fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                            {s.stated_non_starters.map((p, pi) => <li key={pi}>{p}</li>)}
+                                        </ul>
+                                    </>
+                                )}
+                                {Array.isArray(s.stated_preferences) && s.stated_preferences.length > 0 && (
+                                    <>
+                                        <div style={{ fontSize: 9, color: '#00B7C3', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1, textTransform: 'uppercase', marginTop: 6 }}>Preferences</div>
+                                        <ul style={{ margin: '2px 0 0 0', paddingLeft: 16, fontSize: 11, lineHeight: 1.4, color: '#262626' }}>
+                                            {s.stated_preferences.map((p, pi) => <li key={pi}>{p}</li>)}
+                                        </ul>
+                                    </>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {principles.length > 0 && (
+                <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 14, letterSpacing: 1, color: '#0D0D0D', marginBottom: 6 }}>Design principles</div>
+                    <ol style={{ margin: 0, paddingLeft: 20, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                        {principles.map((p, pi) => <li key={pi} style={{ marginBottom: 2 }}>{p}</li>)}
+                    </ol>
+                </div>
+            )}
+            {retire.length > 0 && (
+                <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 14, letterSpacing: 1, color: '#0D0D0D', marginBottom: 6 }}>Ideas to retire or reframe</div>
+                    <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                        {retire.map((r, ri) => (
+                            <li key={ri} style={{ marginBottom: 4 }}>
+                                <strong>{r.prior_idea}:</strong> {r.reason_to_retire_or_reframe}
+                                {r.reframed_as ? <span style={{ display: 'block', marginTop: 2, fontSize: 11, color: '#525252' }}>Reframed as: {r.reframed_as}</span> : null}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            {criteria.length > 0 && (
+                <div>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 14, letterSpacing: 1, color: '#0D0D0D', marginBottom: 6 }}>Guardrail validation criteria</div>
+                    <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                        {criteria.map((c, ci) => <li key={ci} style={{ marginBottom: 2 }}>{c}</li>)}
+                    </ul>
+                </div>
+            )}
+        </div>
+    );
+};
+
+const RecommendationComparisonTable: React.FC<{ table: { headers: string[]; rows: string[][] } }> = ({ table }) => {
+    const headers = Array.isArray(table?.headers) ? table.headers : [];
+    const rows = Array.isArray(table?.rows) ? table.rows : [];
+    if (headers.length === 0 || rows.length === 0) return null;
+    return (
+        <div style={{ marginTop: 14, padding: '14px 16px', background: '#FFFFFF', border: '1px solid #E5E5E5', borderLeft: '3px solid #00B7C3', overflowX: 'auto' }}>
+            <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 8 }}>
+                Concept Comparison
+            </div>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, fontFamily: 'Archivo, sans-serif' }}>
+                <thead>
+                    <tr>
+                        {headers.map((h, hi) => (
+                            <th key={hi} style={{ textAlign: 'left', padding: '6px 8px', borderBottom: '2px solid #0D0D0D', fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1.2, textTransform: 'uppercase', color: '#0D0D0D' }}>{h}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows.map((r, ri) => (
+                        <tr key={ri} style={{ borderBottom: '1px solid #E5E5E5' }}>
+                            {(Array.isArray(r) ? r : []).map((cell, ci) => (
+                                <td key={ci} style={{ padding: '6px 8px', verticalAlign: 'top', color: '#262626', lineHeight: 1.4 }}>{cell}</td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const RecommendationPrioritizationBlock: React.FC<{ priorities: Array<{ rank: number; slug: string; rationale: string }> }> = ({ priorities }) => {
+    const sorted = [...priorities].sort((a, b) => (a.rank || 99) - (b.rank || 99));
+    return (
+        <div style={{ marginTop: 14, padding: '14px 16px', background: '#FFFFFF', border: '1px solid #E5E5E5', borderLeft: '3px solid #B8B800' }}>
+            <div style={{ fontSize: 9, color: '#525252', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 8 }}>
+                Recommended Prioritization
+            </div>
+            <ol style={{ margin: 0, paddingLeft: 22, fontSize: 12, lineHeight: 1.5, color: '#262626' }}>
+                {sorted.map((p, pi) => (
+                    <li key={pi} style={{ marginBottom: 6 }}>
+                        <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 13, letterSpacing: 1, color: '#0D0D0D', marginRight: 8 }}>{p.slug}</span>
+                        <span>{p.rationale}</span>
+                    </li>
+                ))}
+            </ol>
+        </div>
+    );
+};
+
+const RecommendationNextStepsBlock: React.FC<{ steps: string[] }> = ({ steps }) => (
+    <div style={{ marginTop: 14, padding: '14px 16px', background: '#0D0D0D', borderLeft: '3px solid #B8B800', color: '#FFFFFF' }}>
+        <div style={{ fontSize: 9, color: '#B8B800', fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.8, textTransform: 'uppercase', marginBottom: 8 }}>
+            Suggested Next Steps for the Proposal
+        </div>
+        <ul style={{ margin: 0, paddingLeft: 18, fontSize: 12, lineHeight: 1.55, color: '#E5E5E5' }}>
+            {steps.map((s, si) => <li key={si} style={{ marginBottom: 4 }}>{s}</li>)}
+        </ul>
+    </div>
+);
+
+const RecommendationTilesGrid: React.FC<RecommendationTilesGridProps> = ({ tiles, onPickCommand, context }) => {
+    // Defensive: tiles may arrive from a persisted session with missing arrays.
+    const safeTiles = (tiles || []).map(t => ({
+        ...t,
+        ai_capabilities: Array.isArray(t?.ai_capabilities) ? t.ai_capabilities : [],
+        variants: Array.isArray(t?.variants) ? t.variants : [],
+    }));
+    // Resolve a tile's dependency flag from either the generic field
+    // (initiative_dependent) or the legacy CLR-specific one.
+    const depOf = (t: RecommendationTile): boolean | null => {
+        if (typeof t.initiative_dependent === 'boolean') return t.initiative_dependent;
+        if (typeof (t as any).clr_dependent === 'boolean') return (t as any).clr_dependent;
+        if (t.group === 'initiative_dependent' || t.group === 'clr_dependent') return true;
+        if (t.group === 'initiative_independent' || t.group === 'clr_independent') return false;
+        return null;
+    };
+    const initiative = context?.named_initiative?.trim() || 'Initiative';
+
+    // 2026-05-12 — Sprint 2 VS-Multi: PRIMARY grouping is by frame
+    // (defensible_consensus vs non_obvious_bet). If any tile carries a
+    // frame, render two top-level sections in that order. Otherwise fall
+    // back to the legacy initiative_dependent grouping. Within each frame
+    // section, we still respect initiative grouping if present.
+    const hasFramingSplit = safeTiles.some(t => t.frame === 'non_obvious_bet') && safeTiles.some(t => t.frame === 'defensible_consensus');
+    const consensusTiles = safeTiles.filter(t => t.frame === 'defensible_consensus' || !t.frame);
+    const betTiles = safeTiles.filter(t => t.frame === 'non_obvious_bet');
+
+    const frameHeader = (label: string, sub: string, count: number, accent: string) => (
+        <div style={{
+            marginTop: 18, marginBottom: 10,
+            padding: '10px 12px',
+            background: '#0D0D0D',
+            borderLeft: `4px solid ${accent}`,
+            display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
+            gap: 12,
+        }}>
+            <div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, letterSpacing: 2, color: accent, textTransform: 'uppercase' }}>{label}</div>
+                <div style={{ fontFamily: 'Archivo, sans-serif', fontSize: 11, color: '#ACACAC', marginTop: 2 }}>{sub}</div>
+            </div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: accent, letterSpacing: 1.5 }}>{count} {count === 1 ? 'concept' : 'concepts'}</div>
+        </div>
+    );
+    const renderGrid = (group: RecommendationTile[]) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14 }}>
+            {group.map((tile, idx) => (
+                <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+            ))}
+        </div>
+    );
+
+    if (hasFramingSplit) {
+        return (
+            <div style={{ marginTop: 12 }}>
+                {consensusTiles.length > 0 && (
+                    <>
+                        {frameHeader(
+                            'Defensible Consensus',
+                            'Recommendations a senior partner would present without pushback. Well-precedented, schema-congruent, low-risk to propose.',
+                            consensusTiles.length,
+                            '#B8B800'
+                        )}
+                        {renderGrid(consensusTiles)}
+                    </>
+                )}
+                {betTiles.length > 0 && (
+                    <>
+                        {frameHeader(
+                            'Non-Obvious Bets',
+                            'Tail-of-distribution concepts the model surfaced via verbalized sampling (probability < 0.05). Surprising-but-grounded ideas a senior partner would defend as "the work that would actually move the needle".',
+                            betTiles.length,
+                            '#00B7C3'
+                        )}
+                        {renderGrid(betTiles)}
+                    </>
+                )}
+            </div>
+        );
+    }
+
+    const usesGrouping = safeTiles.some(t => typeof depOf(t) === 'boolean');
+    if (!usesGrouping) {
+        return (
+            <div style={{
+                marginTop: 12,
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: 14,
+            }}>
+                {safeTiles.map((tile, idx) => (
+                    <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+                ))}
+            </div>
+        );
+    }
+    const dependent = safeTiles.filter(t => depOf(t) === true);
+    const independent = safeTiles.filter(t => depOf(t) === false);
+    const unflagged = safeTiles.filter(t => depOf(t) === null);
+    const groupHeader = (label: string, count: number) => (
+        <div style={{
+            fontSize: 10, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5,
+            textTransform: 'uppercase', color: '#525252', borderBottom: '2px solid #0D0D0D',
+            paddingBottom: 4, marginTop: 16, marginBottom: 8, display: 'flex', justifyContent: 'space-between',
+        }}>
+            <span>{label}</span><span style={{ color: '#B8B800' }}>{count}</span>
+        </div>
+    );
+    const renderRow = (group: RecommendationTile[]) => (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14 }}>
+            {group.map((tile, idx) => (
+                <RecommendationTileCard key={tile.slug || idx} tile={tile} idx={idx} onPickCommand={onPickCommand} context={context} />
+            ))}
+        </div>
+    );
+    return (
+        <div style={{ marginTop: 12 }}>
+            {dependent.length > 0 && (
+                <>
+                    {groupHeader(`${initiative}-dependent concepts`, dependent.length)}
+                    {renderRow(dependent)}
+                </>
+            )}
+            {independent.length > 0 && (
+                <>
+                    {groupHeader(`${initiative}-independent concepts`, independent.length)}
+                    {renderRow(independent)}
+                </>
+            )}
+            {unflagged.length > 0 && (
+                <>
+                    {groupHeader('Other concepts', unflagged.length)}
+                    {renderRow(unflagged)}
+                </>
+            )}
+        </div>
+    );
+};
+
+export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, onToggle, onDeliverableApproved, onOpenDesignDesk, initialMessages, onMessagesChange }) => {
+    const [messages, setMessages] = useState<ChatMessage[]>(initialMessages || []);
+    // 2026-05-11 — Mirror messages up to the App so a session-save can
+    // serialize the conversation. Effect-based callback (not inline)
+    // avoids re-rendering the parent on every setState. Skipped on first
+    // mount if initialMessages was supplied (the parent already has them).
+    const _hasMountedRef = useRef(false);
+    useEffect(() => {
+        if (!_hasMountedRef.current) {
+            _hasMountedRef.current = true;
+            // On first render, only fire onMessagesChange if we were
+            // initialized empty — otherwise the parent already has the
+            // initial conversation and doesn't need an echo.
+            if (!initialMessages || initialMessages.length === 0) {
+                onMessagesChange?.(messages);
+            }
+            return;
+        }
+        onMessagesChange?.(messages);
+    }, [messages, onMessagesChange]);
     const [input, setInput] = useState('');
     // 2026-05-07 — Default chat model promoted to Gemini 3.1 Pro. DeepSeek
     // V4 Flash produced jargon-heavy AI-slop narratives; Gemini 3.1 Pro has
@@ -1343,6 +2697,80 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
      * as the new thesis, saves the result back to the SAME slug so the
      * URL is stable across edits, and posts a confirmation message.
      */
+    // 2026-05-11 — Prototype edit handler. Loads the existing prototype,
+    // injects the user's revision instruction into the original concept,
+    // and re-runs the 5-stage pipeline. Saves back to the same slug so the
+    // launcher URL stays stable across edits.
+    const handlePrototypeEdit = async (slug: string, instruction: string) => {
+        const editMsgId = `msg_${Date.now()}_proto_edit_${slug}`;
+        const stageLog: string[] = [];
+        setMessages(prev => [...prev, {
+            id: editMsgId,
+            role: 'assistant',
+            content: `Revising prototype "${slug}"…\n\nUser direction: "${instruction.slice(0, 200)}"`,
+            timestamp: Date.now(),
+        }]);
+        try {
+            const { getPrototype, savePrototype } = await import('../services/prototypeLibrary');
+            const { buildPrototype } = await import('../services/prototypeBuilder');
+            const existing = await getPrototype(slug);
+            // Compose the revision: prior concept + brief + spec as context, plus the user's new direction
+            const revisionConcept = [
+                `REVISION OF EXISTING PROTOTYPE.`,
+                ``,
+                `Existing slug to preserve: "${slug}"`,
+                `Existing title: "${existing.title}"`,
+                `Original concept:`,
+                existing.concept || '(no original concept stored)',
+                ``,
+                `Existing experience brief (for context — preserve structure):`,
+                JSON.stringify(existing.brief, null, 2).slice(0, 2000),
+                ``,
+                `USER'S REQUESTED CHANGE:`,
+                instruction,
+                ``,
+                `Adapt only what the change requires. Preserve everything else from the existing concept.`,
+            ].join('\n');
+
+            const artifact = await buildPrototype({
+                concept: revisionConcept,
+                brand: (existing.brand as any) || 'NXT',
+                title: existing.title,
+                basedOn: existing.based_on,
+                researchGoal: existing.research_goal,
+                onProgress: (n, name, status, detail) => {
+                    const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
+                    stageLog.push(`${icon} Stage ${n}: ${name}${detail ? ` — ${detail}` : ''}`);
+                    setMessages(prev => prev.map(m => m.id === editMsgId ? {
+                        ...m,
+                        content: `Revising prototype "${slug}"…\n\n${stageLog.slice(-10).join('\n')}`,
+                    } : m));
+                },
+            });
+            // Force slug to remain stable so we update in-place
+            artifact.slug = slug;
+            const saved = await savePrototype(artifact);
+            setMessages(prev => prev.map(m => m.id === editMsgId ? {
+                ...m,
+                content: `Revised "${artifact.title}" (${Math.round(artifact.code.length / 1024)}KB). Launch button below opens the updated version.`,
+                prototypeUrl: `http://localhost:5012${saved.view_url}`,
+                prototypeMeta: {
+                    slug: saved.slug,
+                    title: artifact.title,
+                    brand: artifact.brand,
+                    based_on: artifact.based_on,
+                    verdict: artifact.critique?.verdict,
+                    code_chars: artifact.code.length,
+                },
+            } : m));
+        } catch (e: any) {
+            setMessages(prev => prev.map(m => m.id === editMsgId ? {
+                ...m,
+                content: `Prototype edit failed: ${e?.message || 'unknown'}.\n\n${stageLog.join('\n')}`,
+            } : m));
+        }
+    };
+
     const handlePresentationEdit = async (slug: string, instruction: string) => {
         const editingMsgId = `msg_${Date.now()}_edit_${slug}`;
         setMessages(prev => [...prev, {
@@ -1400,11 +2828,26 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const themeCount = (liveCtx?.themes as any[] | undefined)?.length || 0;
             const personaCount = (liveCtx?.personas as any[] | undefined)?.length || 0;
 
-            const payload = await composeNarrative({
+            // composeNarrative returns ComposeResult { payload, toolCallCount,
+            // durationMs } — the actual PresentationPayload is under .payload.
+            // (The create path at the #presentation handler does this correctly;
+            // an earlier version of this edit handler treated the result as the
+            // payload directly, which is why every edit failed the sections
+            // check — sections lived one level down.)
+            // 2026-05-10 — The narrative composer cannot use Gemini directly:
+            // Google's OpenAI-compat layer rejects the composer's tool schema
+            // with INVALID_ARGUMENT (oneOf discriminated unions aren't accepted).
+            // hashtagParser already maps #model=gemini → deepseek-v4-flash for
+            // the create path; the edit path needs the same mapping. If the
+            // chat is on Gemini, route the edit through DeepSeek (with
+            // composer's built-in content_filter → GPT-5.5 fallback still active).
+            const composerModel: 'deepseek-v4-flash' | 'deepseek-v4-pro' =
+                selectedModel === 'deepseek-v4-pro' ? 'deepseek-v4-pro' : 'deepseek-v4-flash';
+            const composeResult = await composeNarrative({
                 narrativeRequest: revisionThesis,
                 brand: meta.brand || 'NXT',
                 theme: meta.theme || 'dark',
-                model: 'deepseek-v4-flash',
+                model: composerModel,
                 executor,
                 priorConversation: messages,
                 engagementContext: {
@@ -1425,7 +2868,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // those here so the save doesn't fail at the proxy with an
             // opaque "schemaVersion must be 1, got None" 400. Force the
             // slug to remain stable so the saved file overwrites in place.
-            const p = payload as any;
+            const p = composeResult.payload as any;
             if (!p.schemaVersion) p.schemaVersion = 1;
             if (!p.meta) p.meta = {};
             p.meta.slug = slug;
@@ -1435,11 +2878,15 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             if (!p.meta.title) p.meta.title = (existing as any).meta?.title || '(revised — untitled)';
             if (!p.meta.brand) p.meta.brand = (existing as any).meta?.brand || 'NXT';
             if (!p.meta.generatedAt) p.meta.generatedAt = new Date().toISOString();
-            // Validate sections shape (proxy requires non-empty array)
+            // Validate sections shape (proxy requires non-empty array). Two
+            // distinct failure modes share this message: (1) content_filter
+            // blocked the model mid-call, leaving an empty payload; (2) the
+            // model finished but produced zero accepted sections (post-validation).
+            // Either way the right user action is to rephrase, so collapse them.
             if (!Array.isArray(p.sections) || p.sections.length === 0) {
                 throw new Error(
-                    `composer returned a payload with no sections — likely a content_filter or output-truncation issue. ` +
-                    `Try rephrasing the edit instruction.`,
+                    `composer returned a payload with no sections — the revision was blocked or truncated mid-generation. ` +
+                    `Try rephrasing the edit instruction (more specific scope, smaller change).`,
                 );
             }
             const saved = await savePresentation(p);
@@ -1514,6 +2961,1098 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     .then(path => { if (path) console.log(`[Chat] Persisted ad-hoc upload: ${path}`); })
                     .catch(e => console.warn('[Chat] Ad-hoc upload wiki write failed:', e));
             }
+        }
+
+        // --- #recommendations (ULTRA-HARD generation) — 2026-05-11 --------
+        // When the user types `#recommendations`, dispatch a synthesis call
+        // that instructs the model to "think ULTRA HARD" and produce Apple-
+        // level innovative tool concepts with EXTREME PRD-level detail.
+        // The output is structured so the user can immediately call
+        // `#proto #name=<slug>` against any individual recommendation.
+        if (/(?:^|\s)#recommendations(?=\s|$|[.,;:!?'"])/i.test(query)) {
+            const recMsgId = `msg_${Date.now()}_recs`;
+            setMessages(prev => [...prev, {
+                id: recMsgId,
+                role: 'assistant',
+                content: 'Analyzing the research…',
+                timestamp: Date.now(),
+            }]);
+            try {
+                // 2026-05-11 — Load the recommendation-architect skill at
+                // runtime and prepend its full SKILL.md content. The skill
+                // encodes the transferable patterns (constraint extraction,
+                // stakeholder-priority capture, non-starter checks, named-
+                // initiative dependency splits, existing-stack reuse,
+                // evidence-citation rules, banned-language, validation loop)
+                // that produce consulting-grade depth across any client/
+                // industry/use-case. The inline prompt below is now the
+                // schema reminder and the runtime-payload-shape spec.
+                // 2026-05-12 — Sprint 2 VS-Multi: load BOTH the
+                // recommendation-architect skill AND the verbalized-sampling
+                // skill. The VS skill teaches the model the probability-
+                // annotation commitment device that breaks mode collapse.
+                // The recommendation-architect skill teaches the consulting
+                // schema and engagement_context extraction. We compose them.
+                let skillContent = '';
+                let vsSkillContent = '';
+                try {
+                    const [archResp, vsResp] = await Promise.all([
+                        fetch('/skills/recommendation-architect/SKILL.md'),
+                        fetch('/skills/verbalized-sampling/SKILL.md'),
+                    ]);
+                    if (archResp.ok) {
+                        skillContent = await archResp.text();
+                        console.log(`[recommendations] Loaded recommendation-architect SKILL.md (${skillContent.length} chars)`);
+                    }
+                    if (vsResp.ok) {
+                        vsSkillContent = await vsResp.text();
+                        console.log(`[recommendations] Loaded verbalized-sampling SKILL.md (${vsSkillContent.length} chars)`);
+                    }
+                } catch (skillErr) {
+                    console.warn('[recommendations] skill load failed (falling back to inline prompt):', skillErr);
+                }
+                const skillsPrefix = [
+                    vsSkillContent ? vsSkillContent + '\n\n---\n\n' : '',
+                    skillContent ? skillContent + '\n\n---\n\n' : '',
+                ].join('');
+                const ultraPrompt = `${skillsPrefix}You are a senior experience designer + product architect serving a paying client. Produce distinct, innovative tool-concept recommendations grounded in (a) the research corpus, (b) any client documents the user provided, AND (c) every constraint the user wrote in their request message. Each concept must be sharp, opinionated, demonstratable as a single-screen interactive prototype, AND honor the user's stakeholder, platform, dependency, and non-starter constraints.
+
+THE USER'S REQUEST IS THE PRIMARY SPEC. Read it in full. If it asks for "5 ideas dependent on X and 5 NOT dependent on X", you produce exactly that split. If it names stakeholders ("Liz", "Jen") with stated preferences ("Copilot/MSFT", "no new platforms"), every concept must respect those preferences or explicitly justify why it doesn't. If it names an initiative ("CLR") and asks for dependency labeling, every concept's clr_dependent field must be set.
+
+Output ONLY valid JSON matching this exact schema (no markdown fences, no preamble). Every field is REQUIRED for every concept — concepts with shallow or missing fields are rejected.
+
+The schema is brand/industry/persona agnostic. You MUST extract the engagement_context block FIRST from the user's prompt + uploads, then every downstream field references that context (named_initiative, target_segment, preferred_tech_stack, named_stakeholders, etc.) instead of any hardcoded client or sector. The UI uses your engagement_context fields to label every section — so if you misextract them, the user sees the wrong labels.
+
+=== CRITICAL: VERBALIZED-SAMPLING GENERATION DISCIPLINE ===
+You are an aligned LLM. Your default behavior on creative ideation is MODE COLLAPSE — you converge on the same handful of conventional, schema-congruent, "safe" recommendation patterns regardless of the engagement. This skill OVERRIDES that default.
+
+This is a TWO-PART generation. You will produce TWO separate concept arrays in the same JSON output, each with explicit probability annotations:
+
+  Part A — concepts_defensible_consensus (k=5)
+    These are the recommendations a senior partner would present in a client meeting WITHOUT pushback. Defensible, well-precedented, schema-congruent.
+    Sample from the FULL distribution. Each concept carries a "probability" field reflecting its likelihood among all plausible defensible recommendations.
+    At most ONE concept may have probability > 0.20 (the single strongest modal answer). The remaining 4 should fan out across the defensible solution space.
+    Set frame to "defensible_consensus" on every concept here.
+
+  Part B — concepts_non_obvious_bets (k=5)
+    These are the recommendations a senior partner would defend as "the work that would actually move the needle but the client hasn't asked for". Non-obvious. Tail-of-distribution. Surprising-but-grounded.
+    EVERY concept in this group must have probability < 0.05 (deep-tail sampling).
+    EVERY concept must be explicitly distinct from EVERY Part A concept by at least one of: primary persona, mechanism, data source, temporal scope, metaphor.
+    Set frame to "non_obvious_bet" on every concept here.
+
+    BEFORE drafting Part B, write a <thinking>...</thinking> block:
+      - List the slugs you produced in Part A.
+      - Name the modal/conventional solution space those slugs cover.
+      - Identify what corpus evidence, persona pain points, theme threads the Part A set IGNORED.
+      - List 5 candidate "tail framings" Part B should cover, each diverging from Part A by a named axis.
+    Then emit the 5 Part B concepts.
+
+The probability annotation is the commitment device. Writing "probability": 0.04 next to a concept forbids you from regressing to the modal solution. If you find yourself writing the same recommendation patterns you would write for any client (chatbot / dashboard / Copilot wrapper / RAG-on-uploads), you have failed the discipline — drop that concept and write a non-obvious one.
+
+Honor every engagement_context constraint in BOTH groups. The "non-obvious" framing does NOT relax hard non-starters, regulatory_constraints, or stakeholder priorities. It surfaces recommendations that respect those constraints but approach them from a non-modal angle.
+
+{
+  "engagement_context": {
+    "client_name": "string — e.g. 'Northeastern University', 'Acme Bank', 'Shopify Plus', 'Mass General Brigham'. Extract verbatim from the user's prompt or uploads.",
+    "vendor_or_consultant": "string — who is producing this work (e.g. 'NXT Humans'). Extract or 'unspecified'.",
+    "engagement_objective": "string — the full goal sentence, copied close to verbatim from the user's prompt.",
+    "industry": "string — short tag, e.g. 'higher-ed', 'healthcare', 'fintech', 'retail', 'manufacturing', 'public-sector'.",
+    "named_initiative": "string | null — the named project/program the user wants the dependency split organized around (e.g. 'CLR', 'Project Phoenix', 'Digital Front Door'). null if user did not name one.",
+    "target_segment": "string — the human population this work serves. ALWAYS named specifically: 'first-year undergraduate students', 'ICU charge nurses', 'SMB merchants under $5M GMV', 'mid-career field engineers'. Never 'users' or 'customers' as a bare label.",
+    "target_outcome_window": "string — when the impact should materialize. e.g. '18-24 months', 'next academic year', 'next two quarters'.",
+    "named_stakeholders": [
+      { "name": "string — verbatim person or role name from prompt/uploads", "stated_priorities": ["string"], "stated_non_starters": ["string"], "stated_preferences": ["string"] }
+    ],
+    "preferred_tech_stack": ["string — name the tools/platforms the user explicitly prefers, e.g. 'Microsoft 365 Copilot', 'Power Automate', 'SharePoint', 'Graph API', 'Azure OpenAI'. OR 'Epic', 'Salesforce Health Cloud', 'Twilio'. OR 'Shopify Functions', 'Klaviyo', 'BigQuery'. Empty array only if user expressed no preference."],
+    "existing_systems": ["string — the named systems already in place at the client (Banner, Canvas, NUworks, Symplicity OR Epic, Cerner, Workday OR Salesforce, Snowflake, Segment, etc.). The prototype rides on these — no new platforms."],
+    "hard_non_starters": ["string — what the user said is off the table (e.g. 'no new platform', 'no PII off-prem', 'no consumer-facing changes', 'no procurement >$X')."],
+    "regulatory_constraints": ["string — e.g. 'FERPA', 'HIPAA', 'PCI-DSS', 'SOC2', 'GDPR', or empty if none."]
+  },
+  "analytical_preamble": {
+    "stakeholder_priorities": [
+      { "name": "string — verbatim from user's prompt e.g. 'Liz'", "stated_priorities": ["string — direct quotes or close paraphrases from the user's prompt + uploads"], "stated_non_starters": ["string — what they said is off the table"], "stated_preferences": ["string — e.g. 'Copilot/MSFT to save costs'"] }
+    ],
+    "design_principles": ["string — principles the user wrote in their prompt OR that follow logically from the constraints (5-8 principles)"],
+    "ideas_to_retire_or_reframe": [{ "prior_idea": "string — name a prior NXT Humans idea visible in the uploads", "reason_to_retire_or_reframe": "string — which guardrail it violates", "reframed_as": "string — how to salvage as a workflow/Copilot enhancement, or null if abandon" }],
+    "guardrail_validation_criteria": ["string — checklist items every recommendation must pass"]
+  },
+  "_thinking_part_b": "string — write here, before concepts_non_obvious_bets, your <thinking> reasoning per the VS discipline above. List part-A slugs, name the modal solution space, identify ignored evidence, list 5 candidate tail framings. This field is REQUIRED and helps you avoid mode collapse on Part B. It is NOT rendered to the user — write freely.",
+  "concepts_defensible_consensus": [
+    /* Exactly 5 concepts. Each is the full concept schema below + probability + frame. */
+    {
+      "frame": "defensible_consensus",
+      "probability": 0.18,
+      "slug": "kebab-case-slug",
+      "title": "string — 4-8 descriptive words. The title should make sense to someone who has never read your engagement_context — embed the substance, not just adjectives.",
+      "initiative_dependent": "boolean | null — true if this concept depends on engagement_context.named_initiative; false if not; null if no initiative is named in the context.",
+      "group": "string — 'initiative_dependent' | 'initiative_independent' | null. Mirrors initiative_dependent. Used for grouping in the UI.",
+      "thesis": "string — single declarative sentence summarizing the value, 20-30 words. Embed the target_segment name (don't say 'users').",
+      "persona": "string — named persona + their context + emotional state in one phrase. The persona MUST belong to engagement_context.target_segment.",
+      "moment": "string — the specific slice of journey/workflow demonstrated, one sentence.",
+      "aha_interaction": "string — the single UI moment where insight lands, one sentence.",
+      "description": "string — 80-180 words. Concretely describe what the tool IS, what the engagement_context.target_segment member experiences, what the AI does step-by-step, and what the output looks like. This is the substantive answer to 'what would I be building?' — not a tagline.",
+      "why_matters_target_segment": "string — 60-120 words. Tie directly to engagement_context.target_segment's readiness for the engagement_context.engagement_objective. Reference a specific friction this segment lives with (cite a named corpus theme or a verbatim persona pain point). Use the segment's name verbatim, not 'users'.",
+      "long_term_outcome_through_line": "string — 60-100 words. Trace the through-line from the near-term intervention to a measurable outcome inside engagement_context.target_outcome_window. Use concrete metrics appropriate to the industry (match rate, retention, time-to-value, cost-to-serve, conversion, NPS, readmission rate, etc.).",
+      "initiative_dependency_explanation": "string — 60-120 words. If initiative_dependent=true: name exactly which data, taxonomy, infrastructure, or workflows from engagement_context.named_initiative it requires AND what it produces back into that initiative. If initiative_dependent=false: explain why this still delivers value even if that initiative is delayed/incomplete, AND name the alternative data sources it uses. Empty string only if named_initiative is null.",
+      "execution_in_existing_stack": "string — 80-150 words. Name specific systems from engagement_context.existing_systems and describe HOW the concept rides on them. No new platforms (unless hard_non_starters explicitly permits). Name the connectors and where the AI layer sits.",
+      "preferred_stack_fit": "string — 60-120 words. Name specific tools from engagement_context.preferred_tech_stack and explain HOW each one reduces cost or implementation burden vs. building greenfield. If preferred_tech_stack is empty, write a 'why no greenfield is needed' justification grounded in existing_systems.",
+      "key_stakeholders": [
+        { "name_or_role": "string — e.g. 'Liz (Sponsor)', 'Co-op Faculty Coordinators', 'CLR Program Owner', 'NUworks Admin'", "involvement": "string — what they do in this initiative" }
+      ],
+      "implementation_steps": [
+        { "step": "string — concrete action, e.g. 'Provision Copilot Studio agent in NU tenant scoped to Co-op SharePoint site'", "owner": "string — role responsible", "dependencies": ["string — what must exist first"], "estimated_effort": "string — e.g. '2 engineer-weeks' or 'Sprint 1 (S)'" }
+      ],
+      "risks_constraints": [
+        { "risk": "string — specific failure mode, e.g. 'Advisor adoption gated by training time'", "severity": "low | medium | high", "mitigation": "string — concrete countermeasure" }
+      ],
+      "stakeholder_guardrail_fit": "string — 60-120 words. Quote or paraphrase EACH named stakeholder's stated priorities and non-starters from engagement_context.named_stakeholders and explain SPECIFICALLY how this concept honors each one. Reference the design_principles in your preamble. This is the 'why this passes the meeting filter' justification.",
+      "ai_capabilities": ["string — 3-5 specific AI primitives, e.g. 'multi-turn Copilot chat over Co-op SharePoint corpus', 'Power Automate-triggered structured extraction from advisor notes', 'Power BI semantic model with embedding-based skill clustering'"],
+      "existing_stack_reuse": "string — 30-60 words. The specific platforms+services this rides on, comma-separated.",
+      "non_starter_check": "string — 30-60 words. Name each user-stated non-starter and explain how this concept avoids violating it.",
+      "effort_estimate": "string — T-shirt (S/M/L/XL) plus engineer-week estimate, e.g. 'M — 6 engineer-weeks'",
+      "expected_impact": "string — 40-80 words. Concrete metric improvements (e.g. 'first-year skill-gap awareness from ~12% to 60%; advisor outreach throughput +3x; brand-name co-op concentration -25%')",
+      "risk_level": "low | medium | high",
+      "evidence_sources": ["string — MINIMUM 3 entries. At least 1 named theme from the THEMES block (e.g. 'Theme: Hyper-Fixation on Brand-Name Employers'), at least 1 uploaded filename (e.g. 'Upload: NXT_Northeastern_ResearchFindings_Clean.pdf'), at least 1 external source by name (e.g. 'Higher Ed Dive: …'). NEVER 'research'/'data'/'the corpus'."],
+      "verbatim_quote_evidence": "string — one verbatim quote from the corpus (themes block or uploads) with its named source, e.g. '\\\"I applied to 1,870 jobs over 18 months\\\" — Reddit r/cscareerquestions via NXT_Northeastern_ResearchFindings_Clean.pdf'",
+      "image_prompt": "string — short visual prompt for a 16:9 thumbnail (15-25 words). Flat geometric business minimalism, near-black with chartreuse accent, generous negative space, no text in image.",
+      "variants": [
+        { "label": "NXT brand — default", "command": "#proto #name=<slug> #NXT" },
+        { "label": "NU brand — institutional", "command": "#proto #name=<slug> #NU" },
+        { "label": "Single-screen focus", "command": "#proto #name=<slug> #NXT — single-screen demo, focus on the aha moment" }
+      ]
+    }
+    /* ... 5 total entries in concepts_defensible_consensus ... */
+  ],
+  "concepts_non_obvious_bets": [
+    /* Exactly 5 concepts. Same schema as concepts_defensible_consensus.
+       EVERY entry must have frame="non_obvious_bet" AND probability < 0.05.
+       EVERY entry must diverge from every concepts_defensible_consensus slug
+       by at least one of: primary persona, mechanism, data source, temporal
+       scope, metaphor. Must honor all engagement_context constraints. */
+    {
+      "frame": "non_obvious_bet",
+      "probability": 0.04,
+      "slug": "kebab-case-slug",
+      "title": "string",
+      "_diverges_from": "string — name 1-2 concepts_defensible_consensus slugs this concept diverges from, and on which axis (persona / mechanism / data source / scope / metaphor). REQUIRED for every non_obvious_bet."
+      /* ... full concept schema follows: all fields from concepts_defensible_consensus[0] ... */
+    }
+    /* ... 5 total entries in concepts_non_obvious_bets ... */
+  ],
+  "comparison_table": {
+    "headers": ["string — context-aware. Use 'Concept', 'Frame' (Consensus/Bet), then a column derived from engagement_context.named_initiative if present (e.g. 'CLR-Dep.', 'Phoenix-Dep.', 'Migration-Dep.'); else omit. Then: 'Implementation Complexity', 'Expected {target_segment} Impact' (substitute the actual segment), '{preferred_tech_stack[0]} Fit' (substitute the first preferred stack tool, or 'Existing-Stack Fit'), 'Stakeholder Burden', 'Strategic Alignment ({join named_stakeholders})'."],
+    "rows": [["string — one cell per header, in the same order. Include rows for ALL concepts from BOTH groups (consensus + bets). The 'Frame' column reads 'Consensus' or 'Bet'."]]
+  },
+  "recommended_prioritization": [{ "rank": 1, "slug": "string", "rationale": "string — 30-60 words why this is the top priority NOW" }],
+  "suggested_next_steps_for_proposal": ["string — concrete NXT Humans next steps to close the loop with the client"]
+}
+
+Rules (context-driven; substitute engagement_context values wherever a placeholder appears):
+- Extract engagement_context FIRST from the user's prompt + uploaded documents. Every concept's labels and content reference these fields. If you misidentify the target_segment, named_initiative, preferred_tech_stack, or named_stakeholders, the entire output reads as off-target. Read carefully.
+- TWO-PART STRUCTURE IS MANDATORY: produce exactly 5 concepts_defensible_consensus AND exactly 5 concepts_non_obvious_bets. NEVER emit a single flat concepts array. NEVER skip the non-obvious set — that set is the entire reason this generation produces value over a baseline LLM.
+- The _thinking_part_b field is REQUIRED. Write the thinking block BEFORE drafting the non-obvious set. Without it, the model regresses to mode collapse on Part B.
+- Every non-obvious bet MUST have probability < 0.05 AND a populated _diverges_from field naming which consensus slug(s) it diverges from and on which axis.
+- Honor the user's explicit COUNT for the OVERALL recommendation set. If they say "10 ideas" or "5 + 5", produce exactly 5 consensus + 5 bets = 10 total. If they say "8 ideas", produce 4+4. The split is always even between consensus and bets unless the user explicitly demands a different split.
+- Honor explicit SPLITS. If user asked for X concepts dependent on engagement_context.named_initiative and Y concepts independent, every concept's initiative_dependent and group fields must be set and the split must match exactly.
+- Honor stated stakeholder PREFERENCES verbatim. If any named_stakeholder lists a preferred_tech_stack item ("prefers Copilot to save costs", "wants to stay inside Salesforce", "must reuse Epic"), at least 80% of concepts must ride on that stack — preferred_stack_fit explains how each tool is used.
+- Honor stated NON-STARTERS. If "new platform = no-go" or similar, no concept proposes a new platform; non_starter_check and stakeholder_guardrail_fit each explain how the concept avoids that.
+- The slug must be valid kebab-case, unique across concepts, and used verbatim in every variant's command. The slug is identifier-only — do not reinterpret slug words literally downstream.
+- Always include both brand variants (#NXT and #NU) in the variants array. Add 1-2 axis-of-variation variants where the concept supports them (single-screen focus, data-dense variant, advisor-side variant, etc.).
+- evidence_sources MUST cite real theme names, real filenames, real external sources (≥3 entries, with the theme+upload+external mix described above). Real names only — never 'research'/'data'/'the corpus'.
+- verbatim_quote_evidence MUST be a real quote from the corpus or uploads, attributed by source. NOT a paraphrase.
+- Banned language: "revolutionary", "transform", "unlock", "best-in-class", "seamless", "leverage", "synergy", "paradigm shift", "game-changer", "robust", "cutting-edge", "next-generation", "holistic", "actionable insights". Direct, declarative prose only.
+- No marketing copy. No hyperbole. No self-referential framing.
+- If engagement_context.named_initiative is null, set initiative_dependent=null and group=null on every concept, and leave initiative_dependency_explanation as an empty string.
+- The engagement_context AND analytical_preamble blocks are REQUIRED. They demonstrate you read the user's prompt and uploads. Skipping either is rejection-worthy.
+- Per-concept depth: every text field has a minimum word count specified. A concept where description, why_matters_target_segment, long_term_outcome_through_line, execution_in_existing_stack, preferred_stack_fit, or stakeholder_guardrail_fit falls below its minimum is a stub — drop it and write a richer one.
+- key_stakeholders: minimum 3 named/role-typed entries per concept. Roles MUST come from engagement_context.named_stakeholders or industry-appropriate inferred roles (e.g. for higher-ed: 'Co-op Faculty Coordinator'; for healthcare: 'Charge Nurse'; for fintech: 'Risk Officer'). Generic "Manager" or "User" is rejected.
+- implementation_steps: minimum 4 ordered steps per concept, each with owner role from engagement_context.named_stakeholders (or industry-appropriate), dependencies, and effort.
+- risks_constraints: minimum 3 entries per concept, each with severity + mitigation. Risks must be specific to engagement_context.industry, not generic "adoption risk".
+- comparison_table: MUST include every concept as a row. Headers MUST be derived from engagement_context (see schema above).
+- recommended_prioritization: rank every concept; provide rationale for the top 3, referencing the engagement_context.engagement_objective.
+- regulatory_constraints in engagement_context must be respected in every concept's data flows (no PHI off-prem if HIPAA listed; FERPA-safe handling if FERPA listed; etc.).
+
+`;
+
+                const liveCtx = getContext ? getContext() : context;
+                // 2026-05-11 — Pass the user's literal request verbatim so the
+                // model sees the exact constraints (stakeholders, splits,
+                // non-starters, initiatives). Also pass FULL theme objects
+                // (name + thesis + evidence + key quotes), FULL personas
+                // (jtbd + pains + goals), source references, uploaded files,
+                // and a large corpus excerpt — so every concept can cite
+                // specific themes, personas, and verbatim quotes from the
+                // research, not generic "the data shows" abstractions.
+                const upFiles = (liveCtx?.uploadedFiles as any[]) || [];
+                const upContents = (liveCtx?.uploadedFileContents as string) || '';
+                const uploadsBlock = upFiles.length > 0
+                    ? `Uploaded client documents (${upFiles.length}): ${upFiles.map((f: any) => f.name || f.filename).filter(Boolean).join('; ')}\n\nUploaded document contents (verbatim):\n${upContents.slice(0, 80000)}`
+                    : '(no uploaded client documents)';
+
+                // FULL theme objects with their evidence and quotes — not just names.
+                const themesArr = (liveCtx?.themes as any[]) || [];
+                const themesBlock = themesArr.length > 0
+                    ? themesArr.slice(0, 20).map((t: any, i: number) => {
+                        const name = t?.name || t?.title || `Theme ${i + 1}`;
+                        const thesis = t?.thesis || t?.summary || t?.description || '';
+                        const evidence = Array.isArray(t?.evidence) ? t.evidence.slice(0, 3) : [];
+                        const quotes = Array.isArray(t?.keyQuotes || t?.quotes)
+                            ? (t.keyQuotes || t.quotes).slice(0, 3)
+                            : [];
+                        const evidenceText = evidence.length > 0
+                            ? `\n    Evidence: ${evidence.map((e: any) => typeof e === 'string' ? e : (e?.text || e?.quote || JSON.stringify(e))).join(' | ').slice(0, 600)}`
+                            : '';
+                        const quotesText = quotes.length > 0
+                            ? `\n    Quotes: ${quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" — ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 600)}`
+                            : '';
+                        return `  ${i + 1}. ${name}\n    Thesis: ${thesis}${evidenceText}${quotesText}`;
+                    }).join('\n\n')
+                    : '(no themes)';
+
+                // FULL persona objects with their JTBDs, pain points, goals.
+                const personasArr = (liveCtx?.personas as any[]) || [];
+                const personasBlock = personasArr.length > 0
+                    ? personasArr.slice(0, 8).map((p: any, i: number) => {
+                        const name = p?.name || `Persona ${i + 1}`;
+                        const role = p?.role || '';
+                        const jtbd = p?.jtbd || '';
+                        const pains = Array.isArray(p?.painPoints || p?.frustrations)
+                            ? (p.painPoints || p.frustrations).slice(0, 5)
+                            : [];
+                        const goals = p?.goals || {};
+                        const quote = p?.quote || '';
+                        const painsText = pains.length > 0
+                            ? `\n    Pain points: ${pains.map((x: any) => typeof x === 'string' ? x : (x?.text || x?.description || '')).join(' | ').slice(0, 500)}`
+                            : '';
+                        const goalsText = (goals.lifeGoal || goals.experienceGoal || goals.functionalGoal)
+                            ? `\n    Goals — life: ${goals.lifeGoal || '—'}; experience: ${goals.experienceGoal || '—'}; functional: ${goals.functionalGoal || '—'}`
+                            : '';
+                        const quoteText = quote ? `\n    Voice: "${quote}"` : '';
+                        return `  ${i + 1}. ${name}${role ? ` (${role})` : ''}\n    JTBD: ${jtbd}${painsText}${goalsText}${quoteText}`;
+                    }).join('\n\n')
+                    : '(no personas)';
+
+                // Named external sources from the source references (for citation grounding).
+                const sourceRefsArr = (liveCtx?.sourceReferences as any[]) || [];
+                const sourcesBlock = sourceRefsArr.length > 0
+                    ? `Named external sources available for citation (${sourceRefsArr.length}):\n${sourceRefsArr.slice(0, 40).map((s: any) => `  - ${s?.sourceName || s?.source || s?.name || 'unknown'}: ${s?.articleTitle || s?.title || ''}`).join('\n').slice(0, 4000)}`
+                    : '';
+
+                const corpusBlock = (liveCtx?.corpusText || '').slice(0, 80000);
+                const userPayload = `USER REQUEST (verbatim — this is the primary spec):\n"""\n${query}\n"""\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}) — cite specific themes by name in every concept's evidence_sources ===\n${themesBlock}\n\n=== PERSONAS (${personasArr.length}) — each concept's "persona" field should reference one of these by name ===\n${personasBlock}\n\n${sourcesBlock}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT ===\n${corpusBlock}`;
+                const resp = await fetch('http://localhost:5012/api/ai/gemini', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: 'gemini-3.1-pro-preview',
+                        systemInstruction: { parts: [{ text: ultraPrompt }] },
+                        contents: [{ role: 'user', parts: [{ text: userPayload }] }],
+                        config: {
+                            // 2026-05-12 — Sprint 2 VS-Multi: temperature
+                            // raised to 0.85 to give the non_obvious_bets
+                            // probability < 0.05 sampling enough range.
+                            // The paper shows VS gains compose with
+                            // temperature — raising it pushes the
+                            // Pareto front of diversity/quality forward.
+                            temperature: 0.85,
+                            // 10 deep concepts (5 consensus + 5 bets) +
+                            // engagement_context + analytical_preamble +
+                            // _thinking_part_b + comparison_table +
+                            // prioritization + next_steps. Keep 64k.
+                            maxOutputTokens: 65536,
+                            thinkingBudget: 'max',
+                            responseMimeType: 'application/json',
+                        },
+                    }),
+                });
+                if (!resp.ok) throw new Error(`Recommendations API ${resp.status}`);
+                const data = await resp.json();
+                const text = data?.candidates?.[0]?.content?.parts?.map((p: any) => p.text || '').join('') || '';
+                let parsed: any;
+                try {
+                    parsed = JSON.parse(text);
+                } catch (parseErr: any) {
+                    const start = text.indexOf('{');
+                    const end = text.lastIndexOf('}');
+                    if (start >= 0 && end > start) {
+                        try { parsed = JSON.parse(text.slice(start, end + 1)); } catch { throw parseErr; }
+                    } else { throw parseErr; }
+                }
+
+                // 2026-05-12 — Sprint 2 VS-Multi: model now emits TWO concept
+                // groups. We tag each entry with its frame and merge into a
+                // single tile array that the renderer groups visually. Legacy
+                // single-array `concepts` is accepted as a fallback so older
+                // saved sessions still render.
+                const consensusArr: any[] = Array.isArray(parsed?.concepts_defensible_consensus)
+                    ? parsed.concepts_defensible_consensus
+                    : [];
+                const betsArr: any[] = Array.isArray(parsed?.concepts_non_obvious_bets)
+                    ? parsed.concepts_non_obvious_bets
+                    : [];
+                const legacyArr: any[] = Array.isArray(parsed?.concepts) ? parsed.concepts : [];
+                const tagged: any[] = [
+                    ...consensusArr.map(c => ({ ...c, _frame: 'defensible_consensus' })),
+                    ...betsArr.map(c => ({ ...c, _frame: 'non_obvious_bet' })),
+                    // Legacy flat array — only used when neither new array is present.
+                    ...((consensusArr.length === 0 && betsArr.length === 0) ? legacyArr.map(c => ({ ...c, _frame: 'defensible_consensus' })) : []),
+                ];
+                if (tagged.length === 0) throw new Error('Model returned no concepts');
+                console.log(`[recommendations] VS-Multi parsed: ${consensusArr.length} consensus + ${betsArr.length} non-obvious bets (${legacyArr.length} legacy-flat)`);
+                const concepts = tagged;
+
+                // 2026-05-11 — Capture engagement_context (the
+                // brand/industry/persona-agnostic header the model extracts
+                // from the user's prompt + uploads), plus the analytical
+                // preamble, comparison table, prioritization, and next-
+                // steps so the renderer can surface consulting depth.
+                const engagementContext = parsed?.engagement_context && typeof parsed.engagement_context === 'object'
+                    ? parsed.engagement_context
+                    : undefined;
+                const preamble = parsed?.analytical_preamble && typeof parsed.analytical_preamble === 'object'
+                    ? parsed.analytical_preamble
+                    : undefined;
+                const comparisonTable = parsed?.comparison_table && Array.isArray(parsed.comparison_table?.rows)
+                    ? parsed.comparison_table
+                    : undefined;
+                const prioritization = Array.isArray(parsed?.recommended_prioritization)
+                    ? parsed.recommended_prioritization
+                    : undefined;
+                const nextSteps = Array.isArray(parsed?.suggested_next_steps_for_proposal)
+                    ? parsed.suggested_next_steps_for_proposal.map(String)
+                    : undefined;
+
+                // Render tiles immediately. Thumbnails arrive asynchronously below.
+                setMessages(prev => prev.map(m => m.id === recMsgId ? {
+                    ...m,
+                    content: (() => {
+                        const consensus = consensusArr.length;
+                        const bets = betsArr.length;
+                        if (consensus > 0 && bets > 0) {
+                            return `${consensus} defensible consensus recommendations + ${bets} non-obvious bets. Expand any tile for the full consulting brief, or click a Build option to prototype it. Non-obvious bets carry the BET badge — they are surprising-but-grounded ideas the model surfaced via verbalized-sampling tail-of-distribution prompting.`;
+                        }
+                        return `${concepts.length} concept(s) produced. Expand a tile for the full consulting brief, or click a Build option to prototype it.`;
+                    })(),
+                    engagementContext: engagementContext,
+                    recommendationPreamble: preamble,
+                    recommendationComparisonTable: comparisonTable,
+                    recommendationPrioritization: prioritization,
+                    recommendationNextSteps: nextSteps,
+                    recommendationTiles: concepts.map((c: any) => ({
+                        slug: String(c.slug || '').trim(),
+                        title: String(c.title || '').trim() || 'Untitled concept',
+                        thesis: String(c.thesis || '').trim(),
+                        persona: String(c.persona || '').trim(),
+                        moment: String(c.moment || '').trim(),
+                        aha_interaction: String(c.aha_interaction || '').trim(),
+                        ai_capabilities: Array.isArray(c.ai_capabilities) ? c.ai_capabilities.map(String) : [],
+                        image_prompt: String(c.image_prompt || '').trim(),
+                        variants: Array.isArray(c.variants) ? c.variants.map((v: any) => ({
+                            label: String(v.label || '').trim(),
+                            command: String(v.command || '').trim(),
+                        })) : [],
+                        // Execution-depth fields (the "short" set).
+                        clr_dependent: typeof c.clr_dependent === 'boolean' ? c.clr_dependent : (c.clr_dependent === null ? null : undefined),
+                        execution_path: String(c.execution_path || '').trim(),
+                        existing_stack_reuse: String(c.existing_stack_reuse || '').trim(),
+                        non_starter_check: String(c.non_starter_check || '').trim(),
+                        effort_estimate: String(c.effort_estimate || '').trim(),
+                        risk_level: String(c.risk_level || '').trim().toLowerCase(),
+                        evidence_sources: Array.isArray(c.evidence_sources) ? c.evidence_sources.map(String) : [],
+                        // Consulting-depth fields (generic + legacy fallback).
+                        initiative_dependent: typeof c.initiative_dependent === 'boolean' ? c.initiative_dependent : (c.initiative_dependent === null ? null : (typeof c.clr_dependent === 'boolean' ? c.clr_dependent : null)),
+                        group: ['initiative_dependent', 'initiative_independent', 'clr_dependent', 'clr_independent'].includes(c.group) ? c.group : null,
+                        description: String(c.description || '').trim(),
+                        // Generic names (preferred). Fall back to legacy field names if the model emitted those instead.
+                        why_matters_target_segment: String(c.why_matters_target_segment || c.why_matters_first_year || '').trim(),
+                        long_term_outcome_through_line: String(c.long_term_outcome_through_line || c.long_term_coop_readiness || '').trim(),
+                        initiative_dependency_explanation: String(c.initiative_dependency_explanation || c.clr_dependency_explanation || '').trim(),
+                        execution_in_existing_stack: String(c.execution_in_existing_stack || c.execution_in_nu_stack || '').trim(),
+                        preferred_stack_fit: String(c.preferred_stack_fit || c.microsoft_copilot_fit || '').trim(),
+                        stakeholder_guardrail_fit: String(c.stakeholder_guardrail_fit || c.guardrail_fit || '').trim(),
+                        // Legacy fields stay populated for any older render code paths.
+                        why_matters_first_year: String(c.why_matters_first_year || '').trim(),
+                        long_term_coop_readiness: String(c.long_term_coop_readiness || '').trim(),
+                        clr_dependency_explanation: String(c.clr_dependency_explanation || '').trim(),
+                        execution_in_nu_stack: String(c.execution_in_nu_stack || '').trim(),
+                        microsoft_copilot_fit: String(c.microsoft_copilot_fit || '').trim(),
+                        key_stakeholders: Array.isArray(c.key_stakeholders)
+                            ? c.key_stakeholders.map((s: any) => ({ name_or_role: String(s?.name_or_role || '').trim(), involvement: String(s?.involvement || '').trim() }))
+                            : [],
+                        implementation_steps: Array.isArray(c.implementation_steps)
+                            ? c.implementation_steps.map((s: any) => ({
+                                step: String(s?.step || '').trim(),
+                                owner: String(s?.owner || '').trim(),
+                                dependencies: Array.isArray(s?.dependencies) ? s.dependencies.map(String) : [],
+                                estimated_effort: String(s?.estimated_effort || '').trim(),
+                            }))
+                            : [],
+                        risks_constraints: Array.isArray(c.risks_constraints)
+                            ? c.risks_constraints.map((r: any) => ({
+                                risk: String(r?.risk || '').trim(),
+                                severity: String(r?.severity || 'medium').trim().toLowerCase(),
+                                mitigation: String(r?.mitigation || '').trim(),
+                            }))
+                            : [],
+                        guardrail_fit: String(c.guardrail_fit || c.stakeholder_guardrail_fit || '').trim(),
+                        expected_impact: String(c.expected_impact || '').trim(),
+                        verbatim_quote_evidence: String(c.verbatim_quote_evidence || '').trim(),
+                        // 2026-05-12 — VS-Multi fields. `frame` distinguishes
+                        // defensible consensus from non-obvious bets in the UI
+                        // and in the #proto injection downstream. `probability`
+                        // is the model's verbalized confidence per the VS
+                        // discipline. `diverges_from` documents how each non-
+                        // obvious bet diverges from the consensus set.
+                        frame: (c._frame === 'non_obvious_bet' || c.frame === 'non_obvious_bet') ? 'non_obvious_bet' : 'defensible_consensus',
+                        probability: typeof c.probability === 'number' ? c.probability : undefined,
+                        diverges_from: typeof c._diverges_from === 'string' ? c._diverges_from
+                            : typeof c.diverges_from === 'string' ? c.diverges_from : undefined,
+                    })),
+                } : m));
+
+                // Fire-and-forget thumbnail generation per tile. Each tile
+                // updates in place when its image arrives. Failures are
+                // silent — the renderer falls back to a styled placeholder.
+                concepts.forEach((concept: any, idx: number) => {
+                    if (!concept.image_prompt) return;
+                    (async () => {
+                        try {
+                            const { generateImage } = await import('../services/geminiService');
+                            const dataUri = await generateImage(concept.image_prompt, '16:9');
+                            if (!dataUri) return;
+                            setMessages(prev => prev.map(m => {
+                                if (m.id !== recMsgId || !m.recommendationTiles) return m;
+                                const updated = [...m.recommendationTiles];
+                                if (updated[idx]) updated[idx] = { ...updated[idx], image_data: dataUri };
+                                return { ...m, recommendationTiles: updated };
+                            }));
+                        } catch (imgErr) {
+                            console.warn(`[recommendations] thumbnail ${idx} failed:`, imgErr);
+                        }
+                    })();
+                });
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === recMsgId ? {
+                    ...m,
+                    content: `Recommendations generation failed: ${e?.message || 'unknown'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
+            return;
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // 2026-05-12 — HTML ARTIFACT DIRECTIVES (Sprints H1/H2/H4)
+        // Five generation directives produce NXT/NU-branded HTML artifacts
+        // via /api/artifacts. All compose verbalized-sampling +
+        // html-deliverable-composer skills. Two library/utility directives
+        // (#artifacts, #help, #refine) browse / explain / refine.
+        // ═══════════════════════════════════════════════════════════════
+
+        // --- #help (bare) — hashtag reference guide -----------------------
+        if (parseHelpDirective(query).triggered) {
+            const helpMsgId = `msg_${Date.now()}_help`;
+            setMessages(prev => [...prev, {
+                id: helpMsgId,
+                role: 'assistant',
+                content: 'Building the hashtag reference guide…',
+                timestamp: Date.now(),
+            }]);
+            try {
+                // Build the HTML guide directly from the hashtagRegistry. No
+                // model call needed — the registry IS the source of truth.
+                const grouped = directivesByCategory();
+                const cats: Array<'experience-builder' | 'consulting-deliverable' | 'edit-refine' | 'browse' | 'system'> =
+                    ['experience-builder', 'consulting-deliverable', 'edit-refine', 'browse', 'system'];
+                const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+                const sections = cats.map(cat => {
+                    const items = grouped[cat] || [];
+                    if (items.length === 0) return '';
+                    const cards = items.map(d => `
+                        <article class="hg-card" data-category="${cat}">
+                            <header class="hg-card__head">
+                                <code class="hg-tag">${escapeHtml(d.id)}</code>
+                                <span class="hg-name">${escapeHtml(d.name)}</span>
+                                ${d.usesVerbalizedSampling ? '<span class="hg-pill hg-pill--vs">VS</span>' : ''}
+                                ${d.requiresContext ? '<span class="hg-pill hg-pill--ctx">needs corpus</span>' : ''}
+                            </header>
+                            <p class="hg-summary">${escapeHtml(d.summary)}</p>
+                            <p class="hg-desc">${escapeHtml(d.description)}</p>
+                            ${d.modifiers && d.modifiers.length > 0 ? `
+                                <details class="hg-mods">
+                                    <summary>Modifiers</summary>
+                                    <ul>${d.modifiers.map(m => `<li><code>${escapeHtml(m.token)}</code> — ${escapeHtml(m.description)}</li>`).join('')}</ul>
+                                </details>
+                            ` : ''}
+                            ${d.combinesWith && d.combinesWith.length > 0 ? `
+                                <div class="hg-combine">Combines with: ${d.combinesWith.map(c => `<code>${escapeHtml(c)}</code>`).join(' ')}</div>
+                            ` : ''}
+                            <div class="hg-examples">
+                                <div class="hg-examples__label">Examples</div>
+                                ${d.examples.map(ex => `<pre class="hg-example"><code>${escapeHtml(ex)}</code></pre>`).join('')}
+                            </div>
+                            <footer class="hg-meta">Added ${escapeHtml(d.introduced)}${d.outputType ? ` · output: ${escapeHtml(d.outputType)}` : ''}</footer>
+                        </article>`).join('');
+                    return `
+                        <section class="hg-section">
+                            <h2>${escapeHtml(CATEGORY_LABELS[cat])}</h2>
+                            <div class="hg-grid">${cards}</div>
+                        </section>`;
+                }).join('');
+                const html = `
+                <style>
+                    .hg-root { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+                    .hg-root h1 { font-size: 56px; line-height: 1; margin-bottom: 8px; color: var(--nxt-text-primary); }
+                    .hg-root > p.hg-intro { font-size: 15px; color: var(--nxt-text-secondary); margin-bottom: 36px; max-width: 720px; }
+                    .hg-section { margin-top: 48px; }
+                    .hg-section h2 { font-size: 32px; letter-spacing: 1px; color: var(--nxt-lime); border-bottom: 1px solid var(--nxt-border); padding-bottom: 8px; margin-bottom: 20px; }
+                    [data-brand="NU"] .hg-section h2 { color: var(--nu-red); }
+                    .hg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+                    .hg-card { background: var(--nxt-surface); border: 1px solid var(--nxt-border); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+                    .hg-card[data-category="experience-builder"] { border-left: 3px solid var(--nxt-lime); }
+                    .hg-card[data-category="consulting-deliverable"] { border-left: 3px solid var(--nxt-cyan); }
+                    .hg-card[data-category="browse"] { border-left: 3px solid var(--nxt-teal); }
+                    .hg-card[data-category="edit-refine"] { border-left: 3px solid var(--nxt-warning); }
+                    .hg-card[data-category="system"] { border-left: 3px solid var(--nxt-text-tertiary); }
+                    .hg-card__head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+                    .hg-tag { font-family: var(--nxt-font-mono); font-size: 13px; background: var(--nxt-text-primary); color: var(--nxt-bg); padding: 4px 8px; }
+                    .hg-name { font-family: var(--nxt-font-display); font-size: 18px; letter-spacing: 1px; text-transform: uppercase; }
+                    .hg-pill { font-family: var(--nxt-font-mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 2px 7px; }
+                    .hg-pill--vs { background: var(--nxt-lime); color: var(--nxt-text-primary); }
+                    .hg-pill--ctx { background: var(--nxt-cyan); color: var(--nxt-text-primary); }
+                    .hg-summary { font-size: 14px; color: var(--nxt-text-primary); font-weight: 600; margin: 0; }
+                    .hg-desc { font-size: 12px; color: var(--nxt-text-secondary); line-height: 1.5; margin: 0; }
+                    .hg-mods summary { font-family: var(--nxt-font-mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; color: var(--nxt-text-secondary); }
+                    .hg-mods ul { margin: 8px 0 0 0; padding-left: 16px; font-size: 12px; color: var(--nxt-text-secondary); }
+                    .hg-mods code { font-family: var(--nxt-font-mono); font-size: 11px; background: var(--nxt-panel); padding: 1px 4px; }
+                    .hg-combine { font-size: 11px; color: var(--nxt-text-secondary); }
+                    .hg-combine code { font-family: var(--nxt-font-mono); background: var(--nxt-panel); padding: 1px 5px; font-size: 11px; margin: 0 2px; }
+                    .hg-examples__label { font-family: var(--nxt-font-mono); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-text-tertiary); margin-bottom: 4px; }
+                    .hg-example { margin: 4px 0; background: var(--nxt-text-primary); color: var(--nxt-lime); padding: 8px 10px; font-family: var(--nxt-font-mono); font-size: 11px; line-height: 1.5; overflow-x: auto; }
+                    .hg-meta { font-family: var(--nxt-font-mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--nxt-text-tertiary); border-top: 1px solid var(--nxt-border); padding-top: 8px; margin-top: auto; }
+                </style>
+                <div class="hg-root">
+                    <h1>HiC Chat Directives — Reference Guide</h1>
+                    <p class="hg-intro">Every hashtag you can type in the AI Analyst or Design Desk chat, what it produces, how to combine it. Updated automatically from the hashtagRegistry — when a new directive ships, this page reflects it on the next #help.</p>
+                    ${sections}
+                </div>`;
+                const saved = await saveArtifact({
+                    title: 'HiC Hashtag Reference Guide',
+                    generator: '#help',
+                    html_source: html,
+                    slug: 'hic-hashtag-help-guide',
+                    brand: 'NXT',
+                    topic: 'reference',
+                });
+                setMessages(prev => prev.map(m => m.id === helpMsgId ? {
+                    ...m,
+                    content: `HiC chat directive reference is ready. Click LAUNCH to open the guide in a new window. Every hashtag, every modifier, every combination is listed — bookmark this URL to share with new team members.`,
+                    artifactUrl: `http://localhost:5012${saved.view_url}`,
+                    artifactMeta: {
+                        slug: saved.slug,
+                        title: saved.title,
+                        generator: '#help',
+                        brand: 'NXT',
+                        html_chars: saved.html_chars,
+                    },
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === helpMsgId ? {
+                    ...m,
+                    content: `#help failed: ${e?.message || 'unknown'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            return;
+        }
+
+        // --- #artifacts (bare — library list) -----------------------------
+        if (parseArtifactsLibraryDirective(query).triggered) {
+            const libMsgId = `msg_${Date.now()}_artifacts_lib`;
+            setMessages(prev => [...prev, {
+                id: libMsgId,
+                role: 'assistant',
+                content: 'Loading saved artifacts…',
+                timestamp: Date.now(),
+            }]);
+            try {
+                const lib = await listArtifacts();
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: lib.total === 0
+                        ? 'No saved artifacts yet. Try `#brief <topic>`, `#explainer <topic>`, `#report <topic>`, `#playground <feature>`, or `#approaches <decision>` to create one. Run `#help` for the full directive guide.'
+                        : `Your saved artifacts (${lib.total}). Click LAUNCH to open; DELETE removes.`,
+                    artifactLibraryItems: lib.results,
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: `Could not load artifact library: ${e?.message || 'unknown'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            return;
+        }
+
+        // --- #brief / #explainer / #report / #playground / #approaches ---
+        // All five share one handler. Differ only in the directive token
+        // and the html-deliverable-composer subsection invoked.
+        const artifactParsers = [
+            { parser: parseBriefDirective, label: 'stakeholder brief' },
+            { parser: parseExplainerDirective, label: 'concept explainer' },
+            { parser: parseReportDirective, label: 'strategic report' },
+            { parser: parsePlaygroundDirective, label: 'interactive playground' },
+            { parser: parseApproachesDirective, label: 'approaches picker' },
+        ];
+        let firstHit: { directive: ReturnType<typeof parseBriefDirective>; label: string } | null = null;
+        for (const ap of artifactParsers) {
+            const d = ap.parser(query);
+            if (d.triggered) { firstHit = { directive: d, label: ap.label }; break; }
+        }
+        if (firstHit) {
+            const directive = firstHit.directive;
+            const buildMsgId = `msg_${Date.now()}_artifact_${directive.generator.replace('#', '')}`;
+            setMessages(prev => [...prev, {
+                id: buildMsgId,
+                role: 'assistant',
+                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})…\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Gemini 3.1 Pro with max thinking budget.`,
+                timestamp: Date.now(),
+            }]);
+            try {
+                // Load both skills in parallel.
+                const [vsResp, htmlResp] = await Promise.all([
+                    fetch('/skills/verbalized-sampling/SKILL.md').then(r => r.ok ? r.text() : ''),
+                    fetch('/skills/html-deliverable-composer/SKILL.md').then(r => r.ok ? r.text() : ''),
+                ]);
+                if (htmlResp.length > 0) console.log(`[${directive.generator}] Loaded html-deliverable-composer SKILL.md (${htmlResp.length} chars)`);
+                if (vsResp.length > 0) console.log(`[${directive.generator}] Loaded verbalized-sampling SKILL.md (${vsResp.length} chars)`);
+
+                const liveCtx = getContext ? getContext() : context;
+                const upFiles = (liveCtx?.uploadedFiles as any[]) || [];
+                const upContents = (liveCtx?.uploadedFileContents as string) || '';
+                const themesArr = (liveCtx?.themes as any[]) || [];
+                const personasArr = (liveCtx?.personas as any[]) || [];
+                const corpusBlock = (liveCtx?.corpusText || '').slice(0, 60000);
+
+                const uploadsBlock = upFiles.length > 0
+                    ? `Uploaded client documents (${upFiles.length}): ${upFiles.map((f: any) => f.name || f.filename).filter(Boolean).join('; ')}\n\nUploaded document contents (verbatim, truncated):\n${upContents.slice(0, 50000)}`
+                    : '(no uploaded client documents)';
+                const themesSummary = themesArr.length > 0
+                    ? themesArr.slice(0, 15).map((t: any, i: number) => `${i + 1}. ${t?.name || t?.title || 'Theme'} — ${(t?.thesis || t?.description || '').slice(0, 200)}`).join('\n')
+                    : '(no themes available)';
+                const personasSummary = personasArr.length > 0
+                    ? personasArr.slice(0, 8).map((p: any, i: number) => `${i + 1}. ${p?.name || 'Persona'} — ${p?.jtbd || p?.bio || ''}`).join('\n').slice(0, 4000)
+                    : '(no personas available)';
+
+                const directiveInstructions: Record<string, string> = {
+                    '#brief': 'Produce a stakeholder-grade ONE-PAGER. Length 600-1200 words of visible content. ONE hero data point visually dominant. ONE diagram (apply micro-VS to pick diagram type). 2-3 supporting findings as short paragraphs or data cards. Stakeholder names + engagement context surfaced. Primary VS layer: visual layout — enumerate 5 candidates and commit.',
+                    '#explainer': 'Produce a DEEP-DIVE explainer page modeled on the "How rate limiting works" pattern. Length 1500-3500 words. Flow diagram or system map at the top (apply micro-VS to pick diagram type). 2-4 annotated code/data snippets beside the prose. "Gotchas" section at the bottom with severity-coded callouts. Primary VS layer: information architecture — enumerate 5 IAs (flow-led / snippet-led / Q&A / worked-example / decision-tree) and commit.',
+                    '#report': 'Produce a LONG-FORM strategic report. Length 3000-8000 words. Tabbed or anchored sections (default Exec Summary / Findings / Recommendations / Next Steps — but VS-pick alternative section IAs). Embedded charts per section. Evidence panels with verbatim corpus quotes. Summary table at the top. Optimized for navigation, not sequential read. Primary VS layer: section IA + diagram type per chart.',
+                    '#playground': 'Produce a SELF-CONTAINED INTERACTIVE HTML playground. Primary VS layer: INTERACTION PATTERN — enumerate 5+ patterns (sliders, before/after swap, drag-to-position, easing-curve picker / Bezier, code-with-live-preview, motion timeline, scrubber) and commit to the pattern that actually visualizes the parameter shape. Avoid the slider-only default. Include a live preview area + a "Copy as prompt" button that serializes the user\'s settings as a prompt string to paste back into HiC.',
+                    '#approaches': `Produce a NATIVE VS-MULTI approach picker. Generate exactly 6 distinct approaches in a 2×3 HTML grid: row 1 = 3 Defensible Consensus approaches (probabilities in full distribution), row 2 = 3 Non-Obvious Bets (probability < 0.05, explicitly distinct from row 1 by named axis: persona, mechanism, data source, temporal scope, or metaphor). Each card: name, 2-3 pros, 2-3 cons, when-to-pick-this, probability pill, "Pick this" button. The two rows are visually differentiated (chartreuse-bordered consensus, cyan-bordered bets).`,
+                };
+
+                const variantBlock = directive.variants > 1
+                    ? `\n\n=== VARIANTS MODIFIER ACTIVE ===\nThe user requested --variants ${directive.variants}. Emit exactly ${directive.variants} distinct full variants of the deliverable in a single 2×3 (or appropriate) HTML grid. Each variant card includes: full content (small-rendered), probability pill, one-line tradeoff caption, "Pick this" button. Canonical probability distribution: 1 near-modal (p≈0.30-0.45) + (${Math.floor(directive.variants / 2) - 1}) shifted-frame (p≈0.10-0.20) + remaining tail (p<0.05).`
+                    : '';
+
+                const userPayload = `USER REQUEST (verbatim — this is the primary spec):\n"""\n${query}\n"""\n\nDirective: ${directive.generator}\nBrand: ${directive.brand}\nVariants: ${directive.variants}\nTopic: ${directive.topic || '(stripped — refer to the verbatim request above)'}\n\n=== DIRECTIVE-SPECIFIC INSTRUCTIONS ===\n${directiveInstructions[directive.generator] || ''}${variantBlock}\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}, summarized) ===\n${themesSummary}\n\n=== PERSONAS (${personasArr.length}, summarized) ===\n${personasSummary}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT (truncated) ===\n${corpusBlock}\n\n=== OUTPUT FORMAT ===\nEmit ONLY the HTML body content. Do NOT wrap in <html>/<head>/<body> — the artifact /view endpoint injects the NXT/NU brand wrapper, fonts, print stylesheet, and Copy-as-prompt footer. Your output is the artifact's <main> content. Start with the <vs_thinking> block (will be moved to footer at render time), then the HTML structure.`;
+
+                const systemPrompt = [
+                    vsResp ? vsResp + '\n\n---\n\n' : '',
+                    htmlResp ? htmlResp + '\n\n---\n\n' : '',
+                    `You are composing a ${firstHit.label} HTML artifact for HiC. Apply verbalized-sampling at the primary layer for this directive (see directive-specific instructions in the user message). Use NXT brand tokens (or NU when brand=${directive.brand}). Compose the artifact body. The /view endpoint will inject the wrapper.`,
+                ].join('');
+
+                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    ...m,
+                    content: `Generating ${firstHit!.label} (${directive.generator})…\n\n✓ Loaded verbalized-sampling skill (${vsResp.length} chars)\n✓ Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Gemini 3.1 Pro (max thinking)…`,
+                } : m));
+
+                const resp = await fetch('http://localhost:5012/api/ai/gemini', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: 'gemini-3.1-pro-preview',
+                        systemInstruction: { parts: [{ text: systemPrompt }] },
+                        contents: [{ role: 'user', parts: [{ text: userPayload }] }],
+                        config: {
+                            temperature: 0.85,
+                            maxOutputTokens: 65536,
+                            thinkingBudget: 'max',
+                        },
+                    }),
+                });
+                if (!resp.ok) throw new Error(`Artifact API ${resp.status}`);
+                const data = await resp.json();
+                let htmlBody = data?.candidates?.[0]?.content?.parts?.map((p: any) => p.text || '').join('') || '';
+                // Strip leading markdown fences if model emitted them
+                htmlBody = htmlBody.replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
+                if (htmlBody.length < 100) throw new Error('Model returned empty/short HTML body');
+
+                // Derive a slug + title. Title = first <h1> if present, else first 80 chars of topic.
+                const h1Match = htmlBody.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+                const stripTags = (s: string) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+                const title = h1Match ? stripTags(h1Match[1]).slice(0, 120) : (directive.topic || `${directive.generator} artifact`).slice(0, 80);
+
+                const saved = await saveArtifact({
+                    title,
+                    generator: directive.generator,
+                    html_source: htmlBody,
+                    brand: directive.brand,
+                    topic: directive.topic,
+                });
+
+                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    ...m,
+                    content: `Artifact ready: **${title}** (${directive.generator}, ${directive.brand}, ${Math.round((saved.html_chars || htmlBody.length) / 1024)}KB).\n\nClick LAUNCH to open in a new window. Footer has Copy-as-prompt + Save-as-PDF buttons. Run \`#refine ${saved.slug}: <your tweak>\` to iterate.`,
+                    artifactUrl: `http://localhost:5012${saved.view_url}`,
+                    artifactMeta: {
+                        slug: saved.slug,
+                        title,
+                        generator: directive.generator,
+                        brand: directive.brand,
+                        html_chars: saved.html_chars,
+                        topic: directive.topic,
+                    },
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    ...m,
+                    content: `Artifact generation failed: ${e?.message || 'unknown'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
+            return;
+        }
+
+        // --- #prototypes (PLURAL — library list) — 2026-05-11 -------------
+        // Bare `#prototypes` lists every saved experience prototype with
+        // Launch / Edit / Delete chips. Detected BEFORE #proto so the
+        // plural form doesn't trigger a build.
+        if (/(?:^|\s)#prototypes(?=\s|$|[.,;:!?'"])/i.test(query)) {
+            const libMsgId = `msg_${Date.now()}_proto_lib`;
+            setMessages(prev => [...prev, {
+                id: libMsgId,
+                role: 'assistant',
+                content: 'Loading your saved prototypes…',
+                timestamp: Date.now(),
+            }]);
+            try {
+                const { listPrototypes } = await import('../services/prototypeLibrary');
+                const lib = await listPrototypes();
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: lib.total === 0
+                        ? 'No saved prototypes yet. Generate one with `#proto <concept>` to start your library.'
+                        : `Your saved prototypes (${lib.total}). Click any card to launch, edit, or delete.`,
+                    prototypeLibraryItems: lib.results,
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === libMsgId ? {
+                    ...m,
+                    content: `Could not load prototype library: ${e?.message || 'unknown error'}`,
+                } : m));
+            }
+            setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
+            return;
+        }
+
+        // --- #proto (SINGULAR — build new prototype) — 2026-05-11 ---------
+        // `#proto <concept>` triggers the 5-stage pipeline. `#NXT`/`#NU`
+        // flags select the brand. Result is saved + a launcher card posted.
+        const protoDirective = parsePrototypeDirective(query);
+        if (protoDirective.triggered) {
+            const buildMsgId = `msg_${Date.now()}_proto_build`;
+            const stageLog: string[] = [];
+            setMessages(prev => [...prev, {
+                id: buildMsgId,
+                role: 'assistant',
+                content: `Building experience prototype (brand=${protoDirective.brand})…\n\nThis runs a 5-stage pipeline:\n  1. Concept Decomposer\n  2. Interaction Architect\n  3. Visual Designer (${protoDirective.brand} brand)\n  4. Prototype Coder (with real AI primitives wired)\n  5. Critic + Refiner`,
+                timestamp: Date.now(),
+            }]);
+            try {
+                const { buildPrototype } = await import('../services/prototypeBuilder');
+                const { savePrototype } = await import('../services/prototypeLibrary');
+                const liveCtx = getContext ? getContext() : context;
+
+                // 2026-05-11 — When the user clicked a recommendation tile,
+                // `protoDirective.basedOn` is the tile slug. The slug alone
+                // is too thin: the Stage 1 Concept Decomposer has to guess
+                // what "beyond-brand-discovery" means and routinely picks
+                // the WRONG sense (e.g. "brand strategy" instead of "discovery
+                // beyond brand-name employers"). Look up the matching tile
+                // in the chat history and prepend its FULL context (title,
+                // thesis, persona, moment, aha, AI capabilities, execution
+                // path) so the pipeline builds the concept the user picked,
+                // not a hallucinated reinterpretation of the slug.
+                let conceptText = protoDirective.concept || query;
+                let matchedTile: any = null;
+                if (protoDirective.basedOn) {
+                    const slugLc = protoDirective.basedOn.toLowerCase();
+                    for (let mi = messages.length - 1; mi >= 0; mi--) {
+                        const tiles = (messages[mi] as any).recommendationTiles as any[] | undefined;
+                        if (!Array.isArray(tiles)) continue;
+                        const found = tiles.find(t => (t?.slug || '').toLowerCase() === slugLc);
+                        if (found) { matchedTile = found; break; }
+                    }
+                }
+                // Look up the engagement_context that was emitted with this
+                // recommendations set, so the prototype builder gets the full
+                // brand/industry/stack/regulatory frame — not just the tile.
+                let matchedContext: EngagementContext | undefined;
+                if (protoDirective.basedOn) {
+                    for (let mi = messages.length - 1; mi >= 0; mi--) {
+                        const ctx = (messages[mi] as any).engagementContext as EngagementContext | undefined;
+                        const tiles = (messages[mi] as any).recommendationTiles as any[] | undefined;
+                        if (ctx && Array.isArray(tiles) && tiles.some(t => (t?.slug || '').toLowerCase() === protoDirective.basedOn!.toLowerCase())) {
+                            matchedContext = ctx;
+                            break;
+                        }
+                    }
+                }
+                if (matchedTile) {
+                    const caps = Array.isArray(matchedTile.ai_capabilities) ? matchedTile.ai_capabilities.join(', ') : '';
+                    const evidenceArr: string[] = Array.isArray(matchedTile.evidence_sources) ? matchedTile.evidence_sources : [];
+                    // Resolve generic field names with legacy fallback.
+                    const tWhyMatters = (matchedTile as any).why_matters_target_segment || (matchedTile as any).why_matters_first_year || '';
+                    const tLongTerm = (matchedTile as any).long_term_outcome_through_line || (matchedTile as any).long_term_coop_readiness || '';
+                    const tInitiativeDeps = (matchedTile as any).initiative_dependency_explanation || (matchedTile as any).clr_dependency_explanation || '';
+                    const tStackExec = (matchedTile as any).execution_in_existing_stack || (matchedTile as any).execution_in_nu_stack || '';
+                    const tStackFit = (matchedTile as any).preferred_stack_fit || (matchedTile as any).microsoft_copilot_fit || '';
+                    const tGuardrailFit = (matchedTile as any).stakeholder_guardrail_fit || (matchedTile as any).guardrail_fit || '';
+                    // Engagement context as a structured block (the prototype
+                    // builder uses this to set seed data, named systems,
+                    // regulatory chrome, stakeholder roles, segment voice).
+                    const ctxBlock = matchedContext ? [
+                        `=== ENGAGEMENT CONTEXT (the prototype must visibly inhabit this) ===`,
+                        matchedContext.client_name ? `Client: ${matchedContext.client_name}` : '',
+                        matchedContext.vendor_or_consultant ? `Vendor/Consultant: ${matchedContext.vendor_or_consultant}` : '',
+                        matchedContext.industry ? `Industry: ${matchedContext.industry}` : '',
+                        matchedContext.engagement_objective ? `Engagement objective: ${matchedContext.engagement_objective}` : '',
+                        matchedContext.target_segment ? `Target segment served: ${matchedContext.target_segment}` : '',
+                        matchedContext.target_outcome_window ? `Target outcome window: ${matchedContext.target_outcome_window}` : '',
+                        matchedContext.named_initiative ? `Named initiative this concept dependency-flags against: ${matchedContext.named_initiative}` : '',
+                        Array.isArray(matchedContext.named_stakeholders) && matchedContext.named_stakeholders.length > 0
+                            ? `Named stakeholders (use their names verbatim in UI chrome/labels):\n${matchedContext.named_stakeholders.map(s => `  - ${s.name}: priorities=${(s.stated_priorities||[]).join('; ')}; non-starters=${(s.stated_non_starters||[]).join('; ')}; preferences=${(s.stated_preferences||[]).join('; ')}`).join('\n')}` : '',
+                        Array.isArray(matchedContext.preferred_tech_stack) && matchedContext.preferred_tech_stack.length > 0
+                            ? `Preferred tech stack (the prototype must visually inhabit this — show the chrome of these tools, name them in copy):\n  ${matchedContext.preferred_tech_stack.join(', ')}` : '',
+                        Array.isArray(matchedContext.existing_systems) && matchedContext.existing_systems.length > 0
+                            ? `Existing systems the AI layer rides on:\n  ${matchedContext.existing_systems.join(', ')}` : '',
+                        Array.isArray(matchedContext.hard_non_starters) && matchedContext.hard_non_starters.length > 0
+                            ? `Hard non-starters (the prototype must visibly honor each):\n  ${matchedContext.hard_non_starters.join(' | ')}` : '',
+                        Array.isArray(matchedContext.regulatory_constraints) && matchedContext.regulatory_constraints.length > 0
+                            ? `Regulatory constraints (data flows must respect these — show in-product safeguards):\n  ${matchedContext.regulatory_constraints.join(', ')}` : '',
+                    ].filter(Boolean).join('\n') : '';
+
+                    // Resolve the persona the tile references to the FULL
+                    // persona object so the prototype builder sees pain
+                    // points, JTBD, goals, voice quote — not just a name.
+                    const personasArr = (liveCtx?.personas as any[]) || [];
+                    const tilePersonaText = String(matchedTile.persona || '').toLowerCase();
+                    const matchedPersona = personasArr.find((p: any) => {
+                        const n = String(p?.name || '').toLowerCase();
+                        return n && tilePersonaText.includes(n);
+                    });
+                    let personaBlock = '';
+                    if (matchedPersona) {
+                        const pains = Array.isArray(matchedPersona.painPoints || matchedPersona.frustrations)
+                            ? (matchedPersona.painPoints || matchedPersona.frustrations).slice(0, 6)
+                            : [];
+                        const painsText = pains.length > 0
+                            ? '\n  Pain points (build features that relieve these):\n    - ' + pains.map((x: any) => typeof x === 'string' ? x : (x?.text || x?.description || '')).join('\n    - ')
+                            : '';
+                        const goals = matchedPersona.goals || {};
+                        const goalsText = (goals.lifeGoal || goals.experienceGoal || goals.functionalGoal)
+                            ? `\n  Goals — life: ${goals.lifeGoal || '—'}; experience: ${goals.experienceGoal || '—'}; functional: ${goals.functionalGoal || '—'}`
+                            : '';
+                        const jtbd = matchedPersona.jtbd ? `\n  JTBD: ${matchedPersona.jtbd}` : '';
+                        const voice = matchedPersona.quote ? `\n  Voice (verbatim from research): "${matchedPersona.quote}"` : '';
+                        personaBlock = `=== FULL PERSONA PROFILE: ${matchedPersona.name}${matchedPersona.role ? ' — ' + matchedPersona.role : ''} ===${jtbd}${painsText}${goalsText}${voice}`;
+                    }
+
+                    // Resolve the themes the tile cited in evidence_sources
+                    // to FULL theme objects (thesis + evidence excerpts +
+                    // verbatim quotes) so the builder grounds the
+                    // experience in real research.
+                    const themesArr = (liveCtx?.themes as any[]) || [];
+                    const citedThemes: any[] = [];
+                    const themeMatchTokens = evidenceArr
+                        .map(s => String(s || '').toLowerCase())
+                        .filter(s => s.startsWith('theme:') || s.includes('theme '));
+                    for (const t of themesArr) {
+                        const tname = String(t?.name || t?.title || '').toLowerCase();
+                        if (!tname) continue;
+                        const hit = themeMatchTokens.some(tok => tok.includes(tname) || tname.split(/\s+/).every(w => w.length < 4 || tok.includes(w)));
+                        if (hit) citedThemes.push(t);
+                    }
+                    // Fallback: if nothing matched, take the top 3 themes so the builder still has corpus grounding.
+                    const effectiveThemes = citedThemes.length > 0 ? citedThemes.slice(0, 5) : themesArr.slice(0, 3);
+                    const themesBlock = effectiveThemes.length > 0
+                        ? '=== GROUNDING THEMES (cited by this concept) ===\n' + effectiveThemes.map((t: any, ti: number) => {
+                            const name = t?.name || t?.title || `Theme ${ti + 1}`;
+                            const thesis = t?.thesis || t?.summary || t?.description || '';
+                            const evidenceList = Array.isArray(t?.evidence) ? t.evidence.slice(0, 3) : [];
+                            const quotes = Array.isArray(t?.keyQuotes || t?.quotes) ? (t.keyQuotes || t.quotes).slice(0, 3) : [];
+                            const ev = evidenceList.length > 0 ? '\n    Evidence: ' + evidenceList.map((e: any) => typeof e === 'string' ? e : (e?.text || e?.quote || '')).join(' | ').slice(0, 800) : '';
+                            const qt = quotes.length > 0 ? '\n    Verbatim quotes (consider weaving these into the experience): ' + quotes.map((q: any) => typeof q === 'string' ? `"${q}"` : `"${q?.text || q?.quote || ''}" — ${q?.source || q?.attribution || 'unattributed'}`).join(' | ').slice(0, 800) : '';
+                            return `  ${ti + 1}. ${name}\n    Thesis: ${thesis}${ev}${qt}`;
+                        }).join('\n\n')
+                        : '';
+
+                    // Uploaded client docs — pass the relevant excerpts so
+                    // the prototype can show realistic seed data and
+                    // demonstrate concrete scenarios from the research.
+                    const upContents = (liveCtx?.uploadedFileContents as string) || '';
+                    const upBlock = upContents
+                        ? `=== CLIENT-UPLOADED DOCUMENTS (use as ground truth for seed data, realistic scenarios, and direct quotes) ===\n${upContents.slice(0, 40000)}`
+                        : '';
+
+                    // Research goal restates the engagement objective so
+                    // every screen/feature ties back to the question being
+                    // answered.
+                    const goalBlock = liveCtx?.researchGoal
+                        ? `=== RESEARCH GOAL (the engagement question this prototype helps answer) ===\n${liveCtx.researchGoal}`
+                        : '';
+
+                    // Consulting-depth fields from the new tile schema.
+                    const stakeholdersText = Array.isArray(matchedTile.key_stakeholders) && matchedTile.key_stakeholders.length > 0
+                        ? '\n' + matchedTile.key_stakeholders.map((s: any, si: number) => `  ${si + 1}. ${s.name_or_role} — ${s.involvement}`).join('\n')
+                        : '';
+                    const stepsText = Array.isArray(matchedTile.implementation_steps) && matchedTile.implementation_steps.length > 0
+                        ? '\n' + matchedTile.implementation_steps.map((s: any, si: number) => `  Step ${si + 1}: ${s.step} (owner: ${s.owner || '—'}, effort: ${s.estimated_effort || '—'}${s.dependencies && s.dependencies.length > 0 ? `, deps: ${s.dependencies.join(', ')}` : ''})`).join('\n')
+                        : '';
+                    const risksText = Array.isArray(matchedTile.risks_constraints) && matchedTile.risks_constraints.length > 0
+                        ? '\n' + matchedTile.risks_constraints.map((r: any, ri: number) => `  ${ri + 1}. [${(r.severity || 'med').toUpperCase()}] ${r.risk} → ${r.mitigation}`).join('\n')
+                        : '';
+
+                    const segmentName = matchedContext?.target_segment || 'the target segment';
+                    const initiativeName = matchedContext?.named_initiative || 'the named initiative';
+                    const clientName = matchedContext?.client_name || 'the client';
+                    const stackList = (matchedContext?.preferred_tech_stack || []).join(', ');
+                    const stakeholdersNames = (matchedContext?.named_stakeholders || []).map(s => s?.name).filter(Boolean).join(' & ') || 'named stakeholders';
+
+                    conceptText = [
+                        `BUILD THIS SPECIFIC RECOMMENDED CONCEPT.`,
+                        ``,
+                        `Hard rule: the slug is an identifier, not the concept. Do NOT reinterpret it literally. Read the CONSULTING BRIEF below — that is the actual concept to build.`,
+                        ``,
+                        `Concept slug (identifier only): ${matchedTile.slug}`,
+                        `Concept title: ${matchedTile.title}`,
+                        matchedTile.group ? `Group: ${matchedTile.group}` : '',
+                        // 2026-05-12 — Sprint 2 VS-Multi: signal the prototype
+                        // builder when the concept came from the non-obvious-
+                        // bet set. The builder honors this with a more
+                        // ambitious interaction shape (Stage 1 brief should
+                        // lean into the "shifted-frame" perspective) and a
+                        // visible "Non-Obvious Bet" chip in the prototype's
+                        // header chrome so the demo communicates its
+                        // intentionally-unconventional framing.
+                        (matchedTile as any)?.frame === 'non_obvious_bet' ? `Concept frame: NON_OBVIOUS_BET — this concept was deliberately surfaced from the tail of the recommendation distribution (verbalized-sampling probability < 0.05). It is intentionally non-modal. Build accordingly: do not regress to a generic dashboard/chatbot shape. Honor the divergence axis below.` : '',
+                        (matchedTile as any)?.diverges_from ? `Divergence axis (how this concept differs from the defensible-consensus set): ${(matchedTile as any).diverges_from}` : '',
+                        typeof (matchedTile as any)?.probability === 'number' ? `Verbalized probability of this concept in the candidate distribution: ${(matchedTile as any).probability.toFixed(3)}` : '',
+                        ``,
+                        ctxBlock,
+                        ``,
+                        `=== CONSULTING BRIEF (every field below is mandatory grounding for the prototype) ===`,
+                        ``,
+                        `Thesis: ${matchedTile.thesis || ''}`,
+                        ``,
+                        matchedTile.description ? `Description (what gets built):\n${matchedTile.description}` : '',
+                        ``,
+                        tWhyMatters ? `Why it matters for ${segmentName}:\n${tWhyMatters}` : '',
+                        ``,
+                        tLongTerm ? `How it supports ${segmentName} outcomes${matchedContext?.target_outcome_window ? ` over ${matchedContext.target_outcome_window}` : ''}:\n${tLongTerm}` : '',
+                        ``,
+                        tInitiativeDeps ? `${initiativeName} dependency / independence rationale:\n${tInitiativeDeps}` : '',
+                        ``,
+                        tStackExec ? `Execution within ${clientName}'s existing stack (named systems, connectors, AI layer location):\n${tStackExec}` : '',
+                        ``,
+                        tStackFit ? `${stackList ? stackList + ' fit' : 'Preferred-stack fit'} (named tools that reduce cost/burden):\n${tStackFit}` : '',
+                        ``,
+                        stakeholdersText ? `Key stakeholders:${stakeholdersText}` : '',
+                        ``,
+                        stepsText ? `Implementation steps (the prototype should visibly demonstrate at least one of these in action):${stepsText}` : '',
+                        ``,
+                        risksText ? `Risks & mitigations (surface relevant risks as in-product safeguards or copy):${risksText}` : '',
+                        ``,
+                        tGuardrailFit ? `Guardrail fit (why this passes the ${stakeholdersNames} meeting filter — preserve this rationale visually in the prototype):\n${tGuardrailFit}` : '',
+                        ``,
+                        matchedTile.expected_impact ? `Expected impact metrics (surface as live KPI badges where appropriate):\n${matchedTile.expected_impact}` : '',
+                        ``,
+                        matchedTile.verbatim_quote_evidence ? `Verbatim corpus quote (USE THIS in-product as a real testimonial / friction story — do not paraphrase):\n${matchedTile.verbatim_quote_evidence}` : '',
+                        ``,
+                        `Persona served (the human at the center of every screen): ${matchedTile.persona || ''}`,
+                        `Moment / use case demonstrated: ${matchedTile.moment || ''}`,
+                        `The "aha" interaction (the single moment the user feels the product working): ${matchedTile.aha_interaction || ''}`,
+                        caps ? `Required AI capabilities (wire these with real fetch() calls to the proxy AI endpoints): ${caps}` : '',
+                        matchedTile.existing_stack_reuse ? `Existing stack to reuse: ${matchedTile.existing_stack_reuse}` : '',
+                        matchedTile.non_starter_check ? `Constraint check (must remain honored throughout): ${matchedTile.non_starter_check}` : '',
+                        evidenceArr.length > 0 ? `Original evidence_sources cited by this concept: ${evidenceArr.join('; ')}` : '',
+                        ``,
+                        personaBlock,
+                        ``,
+                        themesBlock,
+                        ``,
+                        upBlock,
+                        ``,
+                        goalBlock,
+                        ``,
+                        `=== BUILD INSTRUCTIONS ===`,
+                        `Think ultra hard about the persona's actual pain points above. Build a multi-screen experience that:`,
+                        `  1. Opens in a state reflecting the persona's actual emotional/situational reality (not a generic "welcome"). Reference their context from the FULL PERSONA PROFILE.`,
+                        `  2. Demonstrates the implementation steps from the BRIEF as live, working interactions — at least 1-2 of those steps should be a screen the user navigates to and an AI flow they fire.`,
+                        `  3. Uses verbatim quotes from the THEMES / verbatim_quote_evidence block as in-product evidence/testimonials — NEVER lorem ipsum.`,
+                        `  4. References the persona by their real name throughout. Names from the uploads should appear in seed data (real co-op partners, real programs).`,
+                        `  5. Demonstrates the "aha" interaction explicitly as one screen-or-state with the AI call wired LIVE to /api/ai/gemini-compat (or /api/ai/anthropic, /api/wiki/fetch-articles depending on capability).`,
+                        `  6. Surfaces the expected_impact metrics as visible KPI badges where natural.`,
+                        `  7. Honors every guardrail in guardrail_fit — visibly. If "no new platform" is in the guardrails, the prototype's chrome should communicate "this lives inside [existing system]" (e.g., a Copilot Studio badge in the header).`,
+                        ``,
+                        protoDirective.concept ? `User's additional direction for this specific build: ${protoDirective.concept}` : '',
+                    ].filter(Boolean).join('\n');
+                }
+
+                const artifact = await buildPrototype({
+                    concept: conceptText,
+                    brand: protoDirective.brand,
+                    basedOn: protoDirective.basedOn,
+                    researchGoal: liveCtx?.researchGoal || '',
+                    title: matchedTile?.title,
+                    onProgress: (n, name, status, detail) => {
+                        const icon = status === 'done' ? '✓' : status === 'failed' ? '✗' : '○';
+                        stageLog.push(`${icon} Stage ${n}: ${name}${detail ? ` — ${detail}` : ''}`);
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: `Building experience prototype (brand=${protoDirective.brand})…\n\n${stageLog.slice(-10).join('\n')}`,
+                        } : m));
+                    },
+                });
+                const saved = await savePrototype(artifact);
+                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    ...m,
+                    content: `Prototype ready: **${artifact.title}** (${artifact.brand}, ${Math.round(artifact.code.length / 1024)}KB).\n\nVerdict: ${artifact.critique?.verdict || '—'}. Click LAUNCH to open in a new window.`,
+                    prototypeUrl: `http://localhost:5012${saved.view_url}`,
+                    prototypeMeta: {
+                        slug: saved.slug,
+                        title: artifact.title,
+                        brand: artifact.brand,
+                        based_on: artifact.based_on,
+                        verdict: artifact.critique?.verdict,
+                        code_chars: artifact.code.length,
+                    },
+                } : m));
+            } catch (e: any) {
+                setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                    ...m,
+                    content: `Prototype build failed at one of the 5 stages: ${e?.message || 'unknown error'}.\n\n${stageLog.join('\n')}`,
+                } : m));
+            }
+            setIsLoading(false);
+            if (pendingAttachments.length > 0) setPendingAttachments([]);
+            return;
         }
 
         // --- #presentations (PLURAL — library list) — 2026-05-09 ----------
@@ -1648,16 +4187,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     }
                 } catch { /* noop — diagnostic only */ }
 
-                // Surface category coverage — the user toggled N categories;
-                // M had content; (N-M) are CATEGORY GAPS the model must mark.
+                // Surface category coverage (internal composing log only — not
+                // shown in the final deliverable). Empty categories are now
+                // silently omitted from the model's output instead of being
+                // surfaced as "CATEGORY GAPS".
                 try {
                     const cats = (liveCtx as any)?.activeCategories || [];
                     if (Array.isArray(cats) && cats.length > 0) {
                         const withContent = cats.filter((c: any) => (c?.itemCount || 0) > 0).length;
-                        const empty = cats.length - withContent;
                         toolCallLog.push(
-                            `Categories: ${cats.length} toggled, ${withContent} have content, ${empty} CATEGORY GAPS — ` +
-                            `every category MUST be cited or marked gap by the model`
+                            `Categories: ${withContent}/${cats.length} have content — citations will draw from these only`
                         );
                     }
                 } catch { /* noop */ }
@@ -2271,7 +4810,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                                         </span>
                                                     );
                                                 }
-                                                return <span key={ci}>{c.content}</span>;
+                                                // 2026-05-11 — Detect `#proto ...` backtick commands and turn
+                                                // them into clickable chips that pre-fill the input.
+                                                return <span key={ci}>{renderProtoChips(c.content, (text) => {
+                                                    setInput(text);
+                                                    setTimeout(() => inputRef.current?.focus(), 50);
+                                                })}</span>;
                                             })}</span>
                                         );
                                     });
@@ -2299,6 +4843,107 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                     <PresentationLaunchCard
                                         url={msg.presentationUrl}
                                         meta={msg.presentationMeta}
+                                    />
+                                )}
+
+                                {/* 2026-05-11 — Prototype launcher card */}
+                                {msg.prototypeUrl && (
+                                    <PrototypeLaunchCard
+                                        url={msg.prototypeUrl}
+                                        meta={msg.prototypeMeta}
+                                    />
+                                )}
+
+                                {/* 2026-05-12 — HTML Artifact launcher card */}
+                                {msg.artifactUrl && (
+                                    <ArtifactLaunchCard
+                                        url={msg.artifactUrl}
+                                        meta={msg.artifactMeta}
+                                    />
+                                )}
+
+                                {/* 2026-05-12 — Artifact library grid (bare #artifacts) */}
+                                {Array.isArray(msg.artifactLibraryItems) && msg.artifactLibraryItems.length > 0 && (
+                                    <ArtifactLibraryGrid
+                                        items={msg.artifactLibraryItems}
+                                        onItemDeleted={(slug) => {
+                                            setMessages(prev => prev.map(mm => mm.id === msg.id ? {
+                                                ...mm,
+                                                artifactLibraryItems: (mm.artifactLibraryItems as any[] | undefined)?.filter((it: any) => it.slug !== slug),
+                                                content: `Deleted artifact "${slug}".`,
+                                            } : mm));
+                                        }}
+                                    />
+                                )}
+
+                                {/* 2026-05-11 — Recommendation tiles (#recommendations) */}
+                                {/* 2026-05-11 — Engagement Context header
+                                    rendered first: client, vendor, industry,
+                                    segment, named initiative, stack, non-
+                                    starters, regulatory constraints. Gives
+                                    the user a sanity check on what the model
+                                    extracted from their prompt. Brand- and
+                                    industry-agnostic. */}
+                                {(msg as any).engagementContext && (
+                                    <EngagementContextBlock context={(msg as any).engagementContext as EngagementContext} />
+                                )}
+
+                                {/* 2026-05-11 — Analytical preamble: stakeholder
+                                    priorities, design principles, ideas to
+                                    retire, guardrail validation criteria. Shown
+                                    above the tile grid so the user sees how
+                                    the model interpreted their prompt before
+                                    they evaluate concepts. */}
+                                {(msg as any).recommendationPreamble && (
+                                    <RecommendationPreambleBlock preamble={(msg as any).recommendationPreamble as RecommendationPreamble} />
+                                )}
+
+                                {Array.isArray(msg.recommendationTiles) && msg.recommendationTiles.length > 0 && (
+                                    <RecommendationTilesGrid
+                                        tiles={msg.recommendationTiles}
+                                        onPickCommand={(cmd) => {
+                                            setInput(cmd);
+                                            inputRef.current?.focus();
+                                        }}
+                                        context={(msg as any).engagementContext as EngagementContext | undefined}
+                                    />
+                                )}
+
+                                {/* Comparison table across concepts. */}
+                                {(msg as any).recommendationComparisonTable && (
+                                    <RecommendationComparisonTable
+                                        table={(msg as any).recommendationComparisonTable}
+                                    />
+                                )}
+
+                                {/* Recommended prioritization. */}
+                                {Array.isArray((msg as any).recommendationPrioritization) && (msg as any).recommendationPrioritization.length > 0 && (
+                                    <RecommendationPrioritizationBlock
+                                        priorities={(msg as any).recommendationPrioritization}
+                                    />
+                                )}
+
+                                {/* Suggested next steps. */}
+                                {Array.isArray((msg as any).recommendationNextSteps) && (msg as any).recommendationNextSteps.length > 0 && (
+                                    <RecommendationNextStepsBlock
+                                        steps={(msg as any).recommendationNextSteps}
+                                    />
+                                )}
+
+                                {/* 2026-05-11 — Prototype library grid */}
+                                {Array.isArray(msg.prototypeLibraryItems) && msg.prototypeLibraryItems.length > 0 && (
+                                    <PrototypeLibraryGrid
+                                        items={msg.prototypeLibraryItems}
+                                        onItemDeleted={(slug) => {
+                                            setMessages(prev => prev.map(mm => mm.id === msg.id ? {
+                                                ...mm,
+                                                prototypeLibraryItems: (mm.prototypeLibraryItems as any[] | undefined)?.filter(it => it.slug !== slug),
+                                                content: `Deleted prototype "${slug}".`,
+                                            } : mm));
+                                        }}
+                                        onEditTriggered={async (slug, instruction) => {
+                                            await handlePrototypeEdit(slug, instruction);
+                                        }}
                                     />
                                 )}
 
@@ -2455,9 +5100,32 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         variant="both"
                         accentColor="#B8B800"
                     />
-                    <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}
-                        placeholder="Ask about your research data..."
-                        rows={2} style={{ flex: 1, padding: '8px 10px', border: '1px solid #E0E0E0', fontSize: 11, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none', lineHeight: 1.5 }} />
+                    <div style={{ flex: 1, position: 'relative' }}>
+                        <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}
+                            placeholder="Ask about your research data... Try #help for all hashtag directives."
+                            rows={2} style={{ width: '100%', padding: '8px 10px', border: '1px solid #E0E0E0', fontSize: 11, fontFamily: "'Archivo', sans-serif", resize: 'none', outline: 'none', lineHeight: 1.5, boxSizing: 'border-box' }} />
+                        <HashtagAutocomplete
+                            input={input}
+                            inputRef={inputRef}
+                            onPickDirective={(suffix) => {
+                                // Replace the partial #token at the cursor with the suggested directive token + a trailing space.
+                                const el = inputRef.current;
+                                if (!el) return;
+                                const cursor = el.selectionStart;
+                                const before = input.slice(0, cursor);
+                                const after = input.slice(cursor);
+                                const m = before.match(/#[a-zA-Z0-9_-]*$/);
+                                const replacedBefore = m ? before.slice(0, m.index) : before;
+                                const newVal = replacedBefore + suffix + ' ' + after;
+                                setInput(newVal);
+                                requestAnimationFrame(() => {
+                                    el.focus();
+                                    const newCursor = (replacedBefore + suffix + ' ').length;
+                                    try { el.setSelectionRange(newCursor, newCursor); } catch {}
+                                });
+                            }}
+                        />
+                    </div>
                     <button onClick={() => handleSend()} disabled={(!input.trim() && pendingAttachments.length === 0) || isLoading} style={{
                         padding: '0 14px', background: isLoading ? '#CCC' : '#B8B800', color: '#0D0D0D', border: 'none',
                         fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: isLoading ? 'default' : 'pointer',
@@ -2466,6 +5134,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 <div style={{ fontSize: 8, color: '#AAA', marginTop: 4 }}>
                     Shift+Enter for new line | {modelConfig?.name} ({modelConfig?.contextWindow})
                     {skillManifest.length > 0 && ` | ${skillManifest.filter(s => s.category === 'research-deliverable').length} skills`}
+                    {' | '}
+                    <span
+                        style={{ color: '#888', cursor: 'pointer', textDecoration: 'underline' }}
+                        onClick={() => { setInput('#help'); inputRef.current?.focus(); }}
+                    >
+                        #help
+                    </span> for hashtag guide
                 </div>
             </div>
 

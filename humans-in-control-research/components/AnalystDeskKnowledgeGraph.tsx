@@ -24,6 +24,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { KGNode, KnowledgeGraph } from '../services/knowledgeGraphBuilder';
 import WikiArticleViewer from './WikiArticleViewer';
+import TopicModelingPanel from './TopicModelingPanel';
 
 declare const d3: any;
 
@@ -221,6 +222,19 @@ interface Props {
     setExcludedSources?: React.Dispatch<React.SetStateAction<Set<string>>>;
     theme?: DeskTheme;
     activity?: PipelineActivity;
+    // 2026-05-10 (HiC-Reddit-Deep Phase 2) — Drives the Topic Modeling tab.
+    // When `redditDeepItems` has 10+ entries, the tab strip appears at the
+    // top of the desk. `topicModelResult` is the precomputed TopicResult
+    // from the parent's background job; `topicModelStatus` lets the panel
+    // show a progress indicator while the job is still running.
+    redditDeepItems?: any[];
+    topicModelResult?: any;
+    topicModelStatus?: { jobId?: string; status: 'idle' | 'running' | 'completed' | 'failed'; message?: string };
+    /** 2026-05-11 — Callback to bubble panel-computed topic results up to
+     *  App.tsx state so they survive tab switches. Without this, switching
+     *  Knowledge Graph ↔ Topic Modeling forces a fresh compute every time. */
+    onTopicModelResult?: (result: any) => void;
+    researchGoal?: string;
 }
 
 // --- HELPERS ---
@@ -722,7 +736,18 @@ const ThemeTreemap: React.FC<{
                                 justifyContent: 'space-between',
                                 gap: 8,
                             }}>
-                                <span>{n.evidenceCount || 0} evidence</span>
+                                {/* 2026-05-11 — Sources show item count + mean relevance;
+                                    themes keep the "N evidence" label they always had. */}
+                                {n.type === 'source' ? (
+                                    <span>
+                                        {(n.metadata as any)?.itemCount || 0} items
+                                        {typeof (n.metadata as any)?.meanRelevance === 'number'
+                                            ? ` · ${(n.metadata as any).meanRelevance}% rel`
+                                            : ''}
+                                    </span>
+                                ) : (
+                                    <span>{n.evidenceCount || 0} evidence</span>
+                                )}
                                 {conc >= 0.7 && <span style={{ color: isSelected ? t.tileSelInk : t.rust, fontWeight: 700 }}>⚠ concentration</span>}
                                 {thin && conc < 0.7 && <span style={{ fontStyle: 'italic' }}>thin</span>}
                             </span>
@@ -1455,7 +1480,13 @@ const LinkageStrip: React.FC<{
 };
 
 // --- ROOT COMPONENT ---
-const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height, minHeight, size, onSizeChange, excludedSources, setExcludedSources, theme = 'dark', activity }) => {
+const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height, minHeight, size, onSizeChange, excludedSources, setExcludedSources, theme = 'dark', activity, redditDeepItems = [], topicModelResult, topicModelStatus, researchGoal = '', onTopicModelResult }) => {
+    // 2026-05-10 — Tab state. 'kg' is the default (current treemap +
+    // detail panel). 'topics' shows the new Topic Modeling panel. The tab
+    // strip only appears when there's deep-Reddit data to cluster, so the
+    // desk stays single-view for engagements with no Reddit signal.
+    const [activeTab, setActiveTab] = useState<'kg' | 'topics'>('kg');
+    const showTopicTab = (redditDeepItems?.length || 0) >= 10 || !!topicModelResult;
     const t = theme === 'light' ? LIGHT : DARK;
     useEffect(() => { ensureKeyframes(); }, []);
     const [selected, setSelected] = useState<KGNode | null>(null);
@@ -1535,11 +1566,121 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
         <>
         <ThemeCtx.Provider value={t}>
         <ActivityCtx.Provider value={{ activeStageKey, isRunning: !!isRunning }}>
+        <div style={{
+            width: '100%',
+            height: resolvedHeight,
+            minHeight: resolvedMinHeight,
+            background: t.bg,
+            color: t.text,
+            display: 'flex',
+            flexDirection: 'column',
+            border: `1px solid ${t.line}`,
+            overflow: 'hidden',
+            fontFamily: 'Archivo, sans-serif',
+        }}>
+        {/* 2026-05-11 — Research objective banner. Sits above the tab strip
+            and the treemap, anchoring everything below it to what the user
+            actually asked for. Truncates long goals to a single visible line
+            with a hover-tooltip for the full text. Hidden when the goal
+            isn't set (e.g., the desk is being used standalone). */}
+        {researchGoal && researchGoal.trim() && (
+            <div
+                title={researchGoal}
+                style={{
+                    padding: '14px 20px',
+                    borderBottom: `1px solid ${t.line}`,
+                    background: t.theme === 'light' ? t.panelAlt : '#0F0F0F',
+                    display: 'flex', alignItems: 'baseline', gap: 14,
+                    flexShrink: 0,
+                }}
+            >
+                <span style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: 11, letterSpacing: 2.5,
+                    color: t.muted,
+                    textTransform: 'uppercase',
+                    flexShrink: 0,
+                }}>
+                    Research Objective
+                </span>
+                <span style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: 17, letterSpacing: 0.5,
+                    color: t.text,
+                    lineHeight: 1.25,
+                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                    minWidth: 0,
+                }}>
+                    {researchGoal}
+                </span>
+            </div>
+        )}
+        {/* 2026-05-10 — Tab strip. Only appears when there's deep-Reddit
+            data to model. Two tabs total today; the strip is extensible. */}
+        {showTopicTab && (
+            <div style={{
+                display: 'flex', gap: 0, borderBottom: `1px solid ${t.line}`,
+                background: t.theme === 'light' ? t.panelAlt : '#0F0F0F',
+                flexShrink: 0,
+            }}>
+                {([
+                    { key: 'kg' as const, label: 'KNOWLEDGE GRAPH', count: undefined },
+                    { key: 'topics' as const, label: 'TOPIC MODELING', count: topicModelResult?.topic_count },
+                ]).map(tab => {
+                    const isActive = activeTab === tab.key;
+                    const isLoading = tab.key === 'topics' && !topicModelResult && topicModelStatus?.status === 'running';
+                    return (
+                        <button
+                            key={tab.key}
+                            onClick={() => setActiveTab(tab.key)}
+                            style={{
+                                padding: '10px 18px',
+                                background: isActive ? t.bg : 'transparent',
+                                border: 'none',
+                                borderBottom: isActive ? `2px solid ${t.lime}` : '2px solid transparent',
+                                fontFamily: "'Bebas Neue', sans-serif",
+                                fontSize: 13, letterSpacing: 2,
+                                color: isActive ? t.text : t.muted,
+                                cursor: 'pointer',
+                                display: 'flex', alignItems: 'center', gap: 8,
+                                transition: 'border-color 140ms, color 140ms',
+                            }}
+                        >
+                            {tab.label}
+                            {tab.count !== undefined && tab.count > 0 && (
+                                <span style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: 10, color: t.lime, letterSpacing: 0.5,
+                                }}>{tab.count}</span>
+                            )}
+                            {isLoading && (
+                                <span style={{
+                                    width: 6, height: 6, borderRadius: '50%',
+                                    background: t.lime, animation: 'ad-dot-blink 1.2s ease-in-out infinite',
+                                }} />
+                            )}
+                        </button>
+                    );
+                })}
+            </div>
+        )}
+        {/* When the Topics tab is active, render the panel and skip the grid */}
+        {activeTab === 'topics' ? (
+            <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                <TopicModelingPanel
+                    redditDeepItems={redditDeepItems}
+                    researchGoal={researchGoal}
+                    cachedResult={topicModelResult}
+                    onResult={onTopicModelResult}
+                    upstreamStatus={topicModelStatus}
+                />
+            </div>
+        ) : (
         <div
             style={{
                 width: '100%',
-                height: resolvedHeight,
-                minHeight: resolvedMinHeight,
+                flex: 1,
+                minHeight: 0,
                 background: t.bg,
                 color: t.text,
                 display: 'grid',
@@ -1547,7 +1688,6 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 // The composition row (X.1) is `auto` — collapses to 0 when no evidence yet.
                 gridTemplateRows: isRunning ? 'auto auto auto auto 1fr auto' : 'auto auto auto 1fr auto',
                 fontFamily: 'Archivo, sans-serif',
-                border: `1px solid ${t.line}`,
                 overflow: 'hidden',
                 // S3.5 collision guard: contain layout/size so treemap growth
                 // can't push sibling content. The parent wrapper (App.tsx) still
@@ -1700,7 +1840,19 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 minHeight: 0,
             }}>
                 <div style={{ position: 'relative', minHeight: 0, background: t.bg, overflow: 'hidden' }}>
-                    {typeFilter && typeFilter !== 'theme' ? (
+                    {/* 2026-05-11 — Sources tile up in the SAME treemap as themes:
+                        size = relevance to research goal (computed in the KG builder
+                        as the sum of item relevance scores). Other filtered types
+                        (personas, recs, barriers, journeys) still render as the
+                        flat grid via FilteredList. */}
+                    {typeFilter === 'source' ? (
+                        <ThemeTreemap
+                            themes={sources}
+                            highlighted={highlighted}
+                            selectedId={selected?.type === 'source' ? selected.id : null}
+                            onSelect={handleSelect}
+                        />
+                    ) : typeFilter && typeFilter !== 'theme' ? (
                         <FilteredList
                             nodes={graph.nodes.filter(n => n.type === typeFilter)}
                             onSelect={handleSelect}
@@ -1737,6 +1889,8 @@ const AnalystDeskKnowledgeGraph: React.FC<Props> = ({ graph, onNodeClick, height
                 journeys={journeys}
                 onSelect={handleSelect}
             />
+        </div>
+        )}
         </div>
         </ActivityCtx.Provider>
         </ThemeCtx.Provider>

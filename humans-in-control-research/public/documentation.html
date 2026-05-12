@@ -82,11 +82,25 @@ tr:hover td { background: #FAFAFA; }
 <div class="main">
 
 <h1>Humans in Control</h1>
-<div class="subtitle">Operator Documentation &mdash; v3.6 &mdash; May 6, 2026</div>
+<div class="subtitle">Operator Documentation &mdash; v3.8 &mdash; May 12, 2026</div>
 
 <p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
-Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench (the <strong>Analyst Chat</strong>), a hashtag-driven artifact authoring surface (the <strong>Design Desk</strong>), and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
+Humans in Control is a research workbench that turns an uploaded brief and a bounded corpus of evidence into consulting-grade deliverables with full citation traceability. A human operator drives every synthesis step &mdash; the system handles collection, ranking, enrichment, and multi-model analysis, then surfaces results through an inference-aware dashboard (the <strong>Analyst Desk</strong>), a chat workbench (the <strong>Analyst Chat</strong>), a hashtag-driven artifact authoring surface (the <strong>Design Desk</strong>), a <strong>HTML artifact composer</strong> (briefs / explainers / reports / playgrounds / approach pickers), and a <strong>wiki-as-RAG-store</strong> architecture that lets the AI pull full article bodies on demand instead of cramming everything into the prompt.
 </p>
+
+<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
+<strong>v3.8 focus (2026-05-12) &mdash; Verbalized Sampling + HTML-as-default deliverables + hashtag UX.</strong> v3.8 ships a three-part uplift addressing predictable / shallow output across the entire pipeline.
+<br><br>
+<strong>(1) Verbalized Sampling (VS) for creative diversity.</strong> Aligned LLMs mode-collapse on creative ideation because RLHF preference data is biased toward typical text (Zhang et al. 2025). VS asks the model to verbalize a probability distribution over k candidate responses with a tail-sampling constraint (probability &lt; 0.10), turning the probability annotation into a commitment device that escapes mode collapse. Applied at three foundational touchpoints: (a) <strong>theme synthesis</strong> (Pass 1 BREADTH now requests k=24 candidates at p&lt;0.10, then re-ranks by 1/p &times; evidence_density and keeps top 15 &mdash; rare-but-evidenced themes float to the top), (b) <strong>recommendations</strong> (VS-Multi produces two groups: 5 Defensible Consensus + 5 Non-Obvious Bets at p&lt;0.05 explicitly distinct from the consensus set, rendered as visually-differentiated tile sections with BET badges + probability pills), (c) <strong>prototype Stage 1 Concept Decomposer</strong> (3-frame branching: convention-honoring / shifted-frame / radical-reinterpretation; commits to shifted by default, radical when source tile carries the NON_OBVIOUS_BET frame). New reusable <code>verbalized-sampling</code> skill at <code>.claude/skills/verbalized-sampling/SKILL.md</code> &mdash; any future generation pipeline can load it as a system-prompt prefix. Plan: <code>plans/verbalized-sampling-uplift.md</code>.
+<br><br>
+<strong>(2) HTML-as-default deliverables.</strong> Markdown is restrictive for human-review outputs &mdash; flat hierarchy, no diagrams, hard to share. HiC now produces NXT/NU-branded, self-contained HTML artifacts as the canonical format for stakeholder briefs, concept explainers, strategic reports, interactive playgrounds, and approach pickers. New <code>/api/artifacts</code> endpoint family (POST save, GET list, GET fetch, DELETE soft-delete, GET <code>/view</code> renders with brand-locked CSS variables + Copy-as-prompt footer + print stylesheet + embedded metadata for round-trip refinement). New reusable <code>html-deliverable-composer</code> skill that <strong>composes with verbalized-sampling</strong> at five layers (visual layout / information architecture / diagram type / interaction pattern / iconography). All five generation directives accept the <code>--variants k</code> modifier (Thariq's &ldquo;show me 6&rdquo; pattern) that emits k distinct variants in a 2&times;3 grid with Pick-this promotion buttons. Plan: <code>plans/html-as-default-output-uplift.md</code>.
+<br><br>
+<strong>(3) Hashtag UX overhaul.</strong> Every chat directive is now registered in a canonical <code>services/hashtagRegistry.ts</code> source of truth that drives: (a) <strong>hashtag autocomplete</strong> &mdash; type <code>#</code> in the chat input and a styled dropdown appears with all directives, categorized, with VS/CTX pills, keyboard-navigable (Tab/Enter to pick), (b) <strong>the new <code>#help</code> command</strong> &mdash; generates a live HTML reference guide artifact listing every directive with examples, modifiers, when-introduced; opens in a new window; sharable URL for onboarding new team members, (c) <strong>suggested-prompt chip upgrade</strong> &mdash; every DynamicPromptChips suggestion now prepends the directive that produces the right artifact (so a &ldquo;Drill into theme X&rdquo; chip becomes <code>#explainer Drill into theme X</code>), (d) <strong>new directives</strong>: <code>#brief</code>, <code>#explainer</code>, <code>#report</code>, <code>#playground</code>, <code>#approaches</code>, <code>#artifacts</code> (library), <code>#help</code>, <code>#refine</code>. The footer below the chat input has a one-click <code>#help</code> link.
+</div>
+
+<div class="status-card cyan">
+<strong>v3.7 (2026-05-08) &mdash; Gemini 3.1 Pro Primary + Slide Quality Hardening.</strong> Promoted Gemini 3.1 Pro to primary reasoning model across chat, composer, and Designer Chat (1M context, native multi-modal, OpenAI-compatible). DeepSeek V4 Flash retained as legacy fallback. Strengthened slide-quality guardrails: brand-fidelity red flags (no <code>#C00000</code> when NU requires <code>#C8102E</code>; no Bebas Neue when NU requires Roboto Condensed; no <code>border-radius: 8px</code> default), 4+ screens minimum, 2+ real AI calls minimum, conversational surface required, 800-1500 lines of substantive JSX, NO <code>alert()</code> stubs (server-side strips them as safety net).
+</div>
 
 <div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
 <strong>v3.6 focus (2026-05-06) &mdash; DeepSeek-Primary + evidence-catalog depth + zero QA annotations.</strong> v3.6 collapses the chat / composer / Designer Chat onto a single primary reasoning model: <strong>DeepSeek V4 Flash on Azure</strong> (256K context, OpenAI-compatible tool-use, discriminated-union schema). V4 Pro was removed from the model picker because it&rsquo;s not deployed on the resource; the proxy normalizes any leaked Pro request to Flash and logs a warning. Phase 0+4 of the depth-maximization plan ships an <strong>evidence catalog injection</strong> across 8 deliverable generators (gap analysis, competitive, recommendations, roadmap, PRD, tech architecture, tech audit, journey map) so they cite the same ~200-article external corpus the knowledge graph displays. A 5-layer defense strips every &ldquo;Evidence Gap&rdquo; / &ldquo;TBD&rdquo; / &ldquo;Not specified&rdquo; QA annotation from delivered output (prompts, post-processor, UI suppression, schema descriptions, renderer placeholder rejection). The <code>prd-feature</code> slide template gains a <strong>DEEP-mode auto-detection</strong>: a single-feature payload with <code>technicalDetails</code> / <code>problemSolved</code> / <code>stakeholders</code> / <code>evidence[]</code> renders as a full-slide two-column narrative layout with verbatim evidence quotes. The Evidence section auto-shrinks the value font from 64px down to 22px based on character count so qualitative findings (&ldquo;Pilot&rdquo;, &ldquo;Unstructured&rdquo;, &ldquo;Y2+&rdquo;) render cleanly alongside compact numerics. The composer schema for <code>journey</code> stages changed <code>failPoint</code> from boolean &rarr; string and the renderer now tolerates both shapes.
@@ -173,15 +187,67 @@ Humans in Control is a research workbench that turns an uploaded brief and a bou
   <li><strong>Export.</strong> PPTX deck, PDF, or pin individual outputs to the Output Board.</li>
 </ol>
 
-<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v3.6</span></h2>
+<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v3.8</span></h2>
 
-<p>The Analyst Chat (and the Designer Chat) accept inline hashtag and slash commands that route a request through a deliverable-specific generation pipeline rather than the conversational chat path. This is the fastest way to ask for an artifact: type the directive(s), describe what you want, hit send. There are <strong>three distinct directive families</strong>:</p>
+<p>The Analyst Chat (and the Designer Chat) accept inline hashtag and slash commands that route a request through a deliverable-specific generation pipeline rather than the conversational chat path. This is the fastest way to ask for an artifact: type the directive(s), describe what you want, hit send.</p>
+
+<div class="status-card cyan">
+<strong>v3.8 hashtag UX upgrade.</strong> Every directive is now registered in a canonical TypeScript source-of-truth (<code>services/hashtagRegistry.ts</code>) that drives the live autocomplete, the live <code>#help</code> reference, and the suggested-prompt chips. (1) <strong>Autocomplete:</strong> type <code>#</code> in the chat input — a dropdown appears with every directive, categorized, with VS / CTX badges, navigable via Tab/Enter/Esc. (2) <strong><code>#help</code> command:</strong> generates a live HTML reference guide as an artifact you launch in a new window — sharable URL, kept in sync automatically as new directives ship. (3) <strong>Suggested chips include hashtags:</strong> every DynamicPromptChips suggestion prepends the directive that produces the right artifact, so a single click produces a stakeholder-grade artifact instead of a one-shot chat answer. (4) <strong>One-click help footer:</strong> the footer below the chat input has a clickable <code>#help</code> link that loads the directive into the input.
+</div>
+
+<p>There are <strong>four distinct directive families</strong>:</p>
 
 <ol>
-  <li><strong>Content hashtags</strong> &mdash; route to the Design Desk artifact pipeline (one artifact per hashtag).</li>
-  <li><strong><code>#presentation</code> directive</strong> &mdash; routes to the narrative composer for a multi-section interactive presentation built from the chat history + corpus.</li>
-  <li><strong>Slash commands</strong> &mdash; <code>/image</code> and <code>/portrait</code> for AI image generation inline in chat.</li>
+  <li><strong>Experience builders</strong> &mdash; <code>#proto</code> (5-stage prototype pipeline with VS-reasoning at Stage 1), <code>#presentation</code> (multi-slide deck), <code>#prototypes</code> / <code>#presentations</code> (library browse). Produce interactive artifacts you launch in a new window.</li>
+  <li><strong>Consulting deliverables (HTML artifact family — new in v3.8)</strong> &mdash; <code>#recommendations</code> (VS-Multi: Defensible Consensus + Non-Obvious Bets), <code>#brief</code> (one-pager), <code>#explainer</code> (deep-dive), <code>#report</code> (long-form), <code>#playground</code> (interactive tuning surface), <code>#approaches</code> (3+3 decision picker), <code>#artifacts</code> (library browse). All compose verbalized-sampling + html-deliverable-composer skills. Most accept the <code>--variants k</code> modifier (2–6) for grid-picker output.</li>
+  <li><strong>Legacy Design Desk content hashtags</strong> &mdash; <code>#org</code>, <code>#journey</code>, <code>#blueprint</code>, <code>#arch</code>, <code>#roadmap</code>, <code>#prd</code>, <code>#strategy</code>, <code>#gap</code>, <code>#audit</code>, <code>#compete</code>, <code>#persona</code>. Route to the Design Desk artifact pipeline.</li>
+  <li><strong>Utility &amp; system</strong> &mdash; <code>#help</code> (reference guide artifact), <code>#refine &lt;slug&gt;: &lt;tweak&gt;</code> (iterate on an existing artifact), <code>#NXT</code> / <code>#NU</code> (brand modifiers), <code>/image</code> / <code>/portrait</code> (slash commands).</li>
 </ol>
+
+<h3>v3.8 new directives (HTML artifact family)</h3>
+<table>
+  <thead><tr><th style="width: 130px;">Hashtag</th><th style="width: 110px;">Modifiers</th><th>What you get</th></tr></thead>
+  <tbody>
+    <tr><td><code>#brief</code></td><td><code>--variants k</code></td><td>Stakeholder-grade one-pager. NXT/NU branded. Finding-grade title, one hero data point, 2-3 supporting findings, one VS-picked diagram, Copy-as-prompt footer. Primary VS layer: visual layout (5 candidate layouts enumerated → committed). 600-1200 words.</td></tr>
+    <tr><td><code>#explainer</code></td><td><code>--variants k</code></td><td>Deep-dive concept page. Flow diagram up top, 2-4 annotated code/data snippets beside prose, "Gotchas" section at the bottom. Primary VS layer: information architecture (5 candidate IAs). 1500-3500 words.</td></tr>
+    <tr><td><code>#report</code></td><td><code>--variants k</code></td><td>Long-form strategic report with tabbed sections + embedded charts. Replaces a slide deck for prose-dominant content. Primary VS layer: section IA + per-chart diagram type. 3000-8000 words.</td></tr>
+    <tr><td><code>#playground</code></td><td>&mdash;</td><td>Self-contained interactive HTML for tuning parameters. VS picks the right interaction pattern (sliders / before-after swap / drag-to-position / easing-curve picker / code-with-live-preview / motion timeline) instead of defaulting to sliders. Copy-as-prompt button serializes the user's settings as a prompt string.</td></tr>
+    <tr><td><code>#approaches</code></td><td><code>--variants k</code></td><td>Native VS-Multi inline picker: 3 Defensible Consensus + 3 Non-Obvious Bets at probability &lt; 0.05 explicitly distinct from consensus. 2×3 grid with Pick-this buttons.</td></tr>
+    <tr><td><code>#recommendations</code></td><td>&mdash;</td><td>Consulting-grade AI tool recommendations grouped Defensible Consensus / Non-Obvious Bets. Tile expandable to 12-field consulting brief. (Not strictly an HTML artifact — renders as React tiles in chat — but uses the same VS-Multi pattern.)</td></tr>
+    <tr><td><code>#artifacts</code></td><td>&mdash;</td><td>Library list of every saved HTML artifact (briefs / explainers / reports / playgrounds / approach-pickers). Launch / Delete chips.</td></tr>
+    <tr><td><code>#help</code></td><td>&mdash;</td><td>Generates a live HTML reference guide of every directive. Categorized. Examples + modifiers + when-introduced per directive. Sharable URL. Stays in sync with the registry automatically.</td></tr>
+    <tr><td><code>#refine</code></td><td>&mdash;</td><td><code>#refine &lt;slug&gt;: &lt;tweak&gt;</code>. Re-runs the appropriate pipeline (prototype / presentation / HTML artifact composer) with the tweak instruction layered onto the existing artifact. Preserves the slug. Round-trip from Copy-as-prompt footers.</td></tr>
+  </tbody>
+</table>
+
+<h3>Worked v3.8 examples</h3>
+<table>
+  <thead><tr><th style="width: 460px;">Command</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td><code>#brief Why first-year brand-name fixation costs NU $2.4B in unfilled SME co-ops #NU</code></td><td>NU-branded one-pager artifact in new window, sharable URL, with a VS-picked layout (likely editorial-asymmetric, not centered-card SaaS).</td></tr>
+    <tr><td><code>#explainer How CLR verifies skill claims --variants 3</code></td><td>3 distinct variant IAs of the explainer (flow-led / snippet-led / Q&A) in a 1×3 grid with probability pills. Pick one to promote to the canonical artifact.</td></tr>
+    <tr><td><code>#approaches How to roll out the CLR-skill-gap coach across NU</code></td><td>2×3 grid: 3 defensible consensus approaches (chartreuse border, p ≥ 0.10 each) + 3 non-obvious bets (cyan border, p &lt; 0.05 each, explicitly distinct).</td></tr>
+    <tr><td><code>#playground first-year career-card swipe animation</code></td><td>Interactive HTML tuning surface. VS picks the right interaction pattern (e.g. easing-curve picker + drag-to-position instead of three sliders). Live preview. Copy-as-prompt export.</td></tr>
+    <tr><td><code>#help</code></td><td>Generates this reference guide live from the hashtagRegistry. Sharable URL for new team-member onboarding.</td></tr>
+    <tr><td><code>#refine clr-skills-gap-analyzer: add a peer-comparison chart</code></td><td>Reloads the existing artifact, re-runs the appropriate pipeline with the tweak, preserves the slug.</td></tr>
+  </tbody>
+</table>
+
+<h3>Verbalized Sampling — the engine behind v3.8 creative diversity</h3>
+<p>Every directive marked <strong>VS</strong> in the autocomplete (and in the badge column of <code>#help</code>) applies the verbalized-sampling discipline before emitting content. The model is asked to verbalize a probability distribution over k candidate responses with a tail-sampling constraint (probability &lt; 0.10 for moderate, &lt; 0.05 for deep). The probability annotation is a commitment device — writing <code>probability: 0.04</code> next to a candidate forbids the model from regressing to the most typical "safe" answer.</p>
+
+<p>VS is applied at three foundational HiC touchpoints today:</p>
+<ul>
+  <li><strong>Theme synthesis</strong> &mdash; Pass 1 BREADTH requests k=24 candidate themes at p&lt;0.10, then re-ranks by <code>1/probability × evidence_density</code> and keeps the top 15. Rare-but-evidenced themes float to the top; conventional-but-thin themes sink.</li>
+  <li><strong>Recommendations</strong> &mdash; VS-Multi produces 5 Defensible Consensus + 5 Non-Obvious Bets in two visually-differentiated tile sections.</li>
+  <li><strong>Prototype Stage 1</strong> &mdash; 3-frame branching (convention-honoring p≈0.40 / shifted-frame p≈0.12 / radical-reinterpretation p≈0.05). Commits to shifted by default, radical when the source tile carries a NON_OBVIOUS_BET frame.</li>
+</ul>
+
+<p>The new HTML directives (<code>#brief</code> / <code>#explainer</code> / <code>#report</code> / <code>#playground</code> / <code>#approaches</code>) all compose verbalized-sampling with html-deliverable-composer at five generation layers: visual layout, information architecture, diagram type per embedded SVG, interaction pattern, and iconography. Plan documented at <code>plans/verbalized-sampling-uplift.md</code> and <code>plans/html-as-default-output-uplift.md</code>.</p>
+
+<div class="accent-rule"></div>
+
+<h3>Legacy hashtag command system (v3.3-v3.7 — still works)</h3>
 
 <div class="status-card cyan">
 <strong>Anatomy of a hashtag command.</strong> <code>#&lt;content&gt; #&lt;brand&gt; #&lt;view&gt; &lt;your prompt text&gt;</code>. Order doesn&rsquo;t matter; case doesn&rsquo;t matter. Plurals and common variants are auto-mapped to the canonical singular (<code>#orgs</code> &rarr; <code>#org</code>, <code>#personas</code> &rarr; <code>#persona</code>). Hashtags are stripped from the prompt before it reaches the model, so you don&rsquo;t need to phrase around them. Brand defaults to <code>#nxt</code> if none specified.

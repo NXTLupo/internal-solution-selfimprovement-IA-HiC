@@ -24,7 +24,7 @@
 // The legacy DeepSeek IDs remain in the type so prior localStorage values
 // don't reject at parse-time — the resolver in sendChatMessage maps any
 // unrecognized model to gemini-3.1-pro-preview.
-export type ChatModel = 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro';
+export type ChatModel = 'gemini-3.1-pro-preview' | 'deepseek-v4-flash' | 'deepseek-v4-pro' | 'gpt-5.5' | 'council';
 
 export interface ChatMessage {
     id: string;
@@ -59,6 +59,140 @@ export interface ChatMessage {
         citationCount?: number;
         sourceCount?: { external: number; uploaded: number; analysis: number; total: number };
     };
+    /** 2026-05-11 — Prototype launcher. Set when the chat built an interactive
+     *  experience prototype via #proto. The renderer surfaces a card with
+     *  Launch / Edit / Delete chips that open the prototype in a new window
+     *  on http://localhost:5012/api/prototypes/{slug}/view. */
+    prototypeUrl?: string;
+    prototypeMeta?: {
+        slug?: string;
+        title?: string;
+        brand?: 'NXT' | 'NU';
+        based_on?: string;
+        verdict?: 'ship' | 'refine' | 'rebuild';
+        code_chars?: number;
+    };
+    /** 2026-05-11 — Prototype library items. Set when user typed `#prototypes`
+     *  (plural). Renderer surfaces a card grid with Launch / Edit / Delete. */
+    prototypeLibraryItems?: any[];
+    /** 2026-05-11 — Structured recommendation tiles emitted by #recommendations.
+     *  Renderer surfaces each as an elegant tile with thumbnail + concise PRD
+     *  highlights + clickable mockup variants. Thumbnails populate asynchronously
+     *  after the initial JSON parse — the renderer treats `image_data` as
+     *  optional and shows a placeholder until it arrives. */
+    recommendationTiles?: Array<{
+        slug: string;
+        title: string;
+        thesis: string;
+        persona: string;
+        moment: string;
+        aha_interaction: string;
+        ai_capabilities: string[];
+        image_prompt: string;
+        image_data?: string; // base64 data URI, set after Imagen generation
+        variants: Array<{ label: string; command: string }>;
+        // 2026-05-11 — Execution-depth fields. Populated when the model is
+        // given client-specific constraints (e.g., dependency on an initiative,
+        // existing-stack reuse, stakeholder non-starters, effort/risk). All
+        // optional so older saved tiles still render.
+        clr_dependent?: boolean | null;
+        execution_path?: string;        // concrete how-to-build paragraph
+        existing_stack_reuse?: string;  // which existing tools/platforms this rides on
+        non_starter_check?: string;     // confirms it avoids stated non-starters
+        effort_estimate?: string;       // T-shirt or "X engineer-weeks"
+        risk_level?: 'low' | 'medium' | 'high' | string;
+        evidence_sources?: string[];    // filenames or source names cited
+        // 2026-05-11 — Consulting-depth fields. Each is multi-paragraph
+        // content modeled on the user's original prompt structure (Liz/Jen
+        // brief). Optional so older tiles still render but the tile UI
+        // should expand to show them when present.
+        // Generic, context-aware field names (preferred going forward).
+        initiative_dependent?: boolean | null;
+        group?: 'initiative_dependent' | 'initiative_independent' | 'clr_dependent' | 'clr_independent' | null;
+        description?: string;                          // 80-180 words — what it IS
+        why_matters_target_segment?: string;           // 60-120 words — segment relevance (generic)
+        long_term_outcome_through_line?: string;       // 60-100 words — through-line (generic)
+        initiative_dependency_explanation?: string;    // 60-120 words (generic; replaces clr_dependency_explanation)
+        execution_in_existing_stack?: string;          // 80-150 words — named systems (generic)
+        preferred_stack_fit?: string;                  // 60-120 words — named preferred-stack tools (generic)
+        stakeholder_guardrail_fit?: string;            // 60-120 words — passes the meeting filter (generic)
+        // Legacy aliases — older sessions used these names; the renderer
+        // falls back to them when the generic versions above are missing.
+        why_matters_first_year?: string;
+        long_term_coop_readiness?: string;
+        clr_dependency_explanation?: string;
+        execution_in_nu_stack?: string;
+        microsoft_copilot_fit?: string;
+        guardrail_fit?: string;
+        // Shared (not engagement-specific)
+        key_stakeholders?: Array<{ name_or_role: string; involvement: string }>;
+        implementation_steps?: Array<{ step: string; owner: string; dependencies: string[]; estimated_effort: string }>;
+        risks_constraints?: Array<{ risk: string; severity: 'low' | 'medium' | 'high' | string; mitigation: string }>;
+        expected_impact?: string;
+        verbatim_quote_evidence?: string;
+        // 2026-05-12 — VS-Multi (Sprint 2). frame labels whether this tile
+        // is a defensible consensus pick or a non-obvious tail-of-distribution
+        // bet. probability is the model's verbalized confidence (paper
+        // 2510.01171v3 verbalized sampling). diverges_from documents on
+        // which axis a non-obvious bet diverges from the consensus set.
+        frame?: 'defensible_consensus' | 'non_obvious_bet';
+        probability?: number;
+        diverges_from?: string;
+    }>;
+    /** 2026-05-11 — Engagement context the recommendation-architect skill
+     *  extracts from the user's prompt + uploads BEFORE concepts. Drives
+     *  every label, group, and rule downstream — making the recommendations
+     *  + prototypes pipeline brand/industry/persona agnostic. */
+    engagementContext?: {
+        client_name?: string;
+        vendor_or_consultant?: string;
+        engagement_objective?: string;
+        industry?: string;
+        named_initiative?: string | null;
+        target_segment?: string;
+        target_outcome_window?: string;
+        named_stakeholders?: Array<{ name: string; stated_priorities: string[]; stated_non_starters: string[]; stated_preferences: string[] }>;
+        preferred_tech_stack?: string[];
+        existing_systems?: string[];
+        hard_non_starters?: string[];
+        regulatory_constraints?: string[];
+    };
+    /** 2026-05-11 — Analytical preamble produced by the recommendation-architect
+     *  skill before concepts. Captures stakeholder priorities, design
+     *  principles, ideas to retire, and guardrail validation criteria the
+     *  model extracted from the user prompt + uploads. Rendered above the
+     *  tile grid. */
+    recommendationPreamble?: {
+        stakeholder_priorities?: Array<{ name: string; stated_priorities: string[]; stated_non_starters: string[]; stated_preferences: string[] }>;
+        design_principles?: string[];
+        ideas_to_retire_or_reframe?: Array<{ prior_idea: string; reason_to_retire_or_reframe: string; reframed_as?: string | null }>;
+        guardrail_validation_criteria?: string[];
+    };
+    /** Comparison table across concepts: headers + per-concept rows. */
+    recommendationComparisonTable?: { headers: string[]; rows: string[][] };
+    /** Top-N prioritization with rationale. */
+    recommendationPrioritization?: Array<{ rank: number; slug: string; rationale: string }>;
+    /** Suggested next steps for the proposal close-out. */
+    recommendationNextSteps?: string[];
+
+    // ────────────────────────────────────────────────────────────────────
+    // 2026-05-12 — HTML artifact launchers (#brief, #explainer, #report,
+    // #playground, #approaches, #help). Mirror of presentationUrl /
+    // prototypeUrl. Set by the chat handler after the artifact is saved.
+    // ────────────────────────────────────────────────────────────────────
+    /** URL to open the artifact (POSTs to /api/artifacts/{slug}/view). */
+    artifactUrl?: string;
+    artifactMeta?: {
+        slug?: string;
+        title?: string;
+        generator?: string;        // '#brief' | '#explainer' | ...
+        brand?: 'NXT' | 'NU';
+        html_chars?: number;
+        topic?: string;
+        variants_count?: number;
+    };
+    /** Used by bare #artifacts directive — renders an artifact library grid. */
+    artifactLibraryItems?: any[];
 }
 
 export interface SourceReference {
@@ -108,6 +242,35 @@ export interface ChatContext {
     liveSourceResults?: Array<{ source?: string; items?: Array<{ title?: string; sourceName?: string }>; status?: string }>;
     // Knowledge Graph state — the AI must understand the graph structure
     knowledgeGraph?: { nodes: any[]; edges: any[]; stats?: any };
+    // 2026-05-11 — Topic-modeling result from the Analyst Desk's Topic
+    // Modeling tab. When deep-Reddit posts are clustered, the chat should
+    // be able to cite cluster names ("Microsoft AI Tooling Excitement"),
+    // sentiment buckets, c-TF-IDF terms, and the underlying post IDs. A
+    // compact summary is injected into the system prompt; the full per-
+    // cluster body is reachable via the query_topic_clusters tool below.
+    topicModelResult?: {
+        topic_count: number;
+        noise_count: number;
+        doc_count: number;
+        topics: Array<{
+            id: number;
+            name: string;
+            summary: string;
+            sentiment: string;
+            post_count: number;
+            top_terms: Array<[string, number]>;
+            post_ids: string[];
+        }>;
+        documents?: Array<{
+            id: string;
+            title: string;
+            url?: string;
+            cluster: number;
+            score: number;
+            num_comments: number;
+            subreddit: string;
+        }>;
+    };
     // Tiered knowledge (loaded by ChatWorkbench)
     wikiBrand?: string;
     wikiLearnedConstraints?: string;
@@ -224,6 +387,22 @@ export const AVAILABLE_MODELS: ModelConfig[] = [
         color: '#888888',
         available: true,
         maxCorpusChars: 900000,
+    },
+    {
+        // 2026-05-11 — Council mode (Sanhedrin Architecture). Fans the query
+        // out to Gemini 3.1 Pro + DeepSeek V4 Flash + GPT-5.5 in parallel,
+        // then synthesizes via a fourth pass. ~3x cost per query; opt-in
+        // only. Best for high-stakes deliverables where you want consensus
+        // across distinct training lineages.
+        id: 'council',
+        name: 'Council (3-model consensus)',
+        provider: 'council' as any,
+        description: '3 independent reads (Gemini Pro + DeepSeek + GPT-5.5) synthesized into one answer. ~3x cost. Use for high-stakes outputs.',
+        contextWindow: '1M tokens (Gemini synthesizer)',
+        strengths: 'Cross-lineage consensus, contradiction surfacing, more robust on complex prompts',
+        color: '#00B7C3',
+        available: true,
+        maxCorpusChars: 1_400_000,
     },
 ];
 
@@ -1115,7 +1294,7 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
 function buildCategoryRoster(ctx: ChatContext): string {
     const cats = ctx.activeCategories || [];
     if (cats.length === 0) {
-        return '(no active-category roster — synthesis must still cite from every source kind that appears in the corpus)';
+        return '(no active-category roster — cite from every source kind that appears in the corpus)';
     }
     // Add uploads as an active category if uploadedFiles are present
     const uploads = (ctx.uploadedFiles || []).map(f => f.name);
@@ -1123,9 +1302,18 @@ function buildCategoryRoster(ctx: ChatContext): string {
     if (uploads.length > 0) {
         lines.push(`  • Uploaded client documents (${uploads.length} files): ${uploads.slice(0, 6).join(', ')}${uploads.length > 6 ? `, +${uploads.length - 6} more` : ''} — STATUS: HAS CONTENT (must cite)`);
     }
+    // Only list categories that HAVE content. Empty categories are
+    // silently omitted from the roster — the model no longer sees them
+    // and therefore can't reference them as "gaps" in its response.
+    // 2026-05-11 (HiC-Reddit-Deep) — replaces the prior "must mark
+    // CATEGORY GAP" behavior, which leaked process notes into deliverables.
     for (const c of cats) {
-        const status = c.itemCount > 0 ? `HAS CONTENT (${c.itemCount} items — must cite)` : 'EMPTY (must mark CATEGORY GAP in response)';
-        lines.push(`  • ${c.name}: STATUS: ${status}`);
+        if (c.itemCount > 0) {
+            lines.push(`  • ${c.name}: HAS CONTENT (${c.itemCount} items — cite when relevant)`);
+        }
+    }
+    if (lines.length === 0) {
+        return '(no categories with content yet — synthesize from any corpus passages the user provided)';
     }
     return lines.join('\n');
 }
@@ -1772,10 +1960,32 @@ ${re.skillContent}
 `;
     }
 
+    // 2026-05-11 — Topic-model summary block. Compact: cluster names,
+    // sentiments, post counts, top terms, summaries. The model uses
+    // query_topic_clusters(id_or_name) for representative-post deep dives.
+    const topicModelBlock = buildTopicModelSummaryForPrompt(context);
+
     // Skill manifest summary (always present so the AI knows what's available)
     const manifestSummary = context.skillManifest?.length
         ? `\nAVAILABLE CONSULTING SKILLS (activate by requesting the output type):\n${context.skillManifest.filter(s => s.category === 'research-deliverable').map(s => `- ${s.name}: ${s.description}`).join('\n')}\n`
         : '';
+
+    // 2026-05-11 — Wiki resource manifest. Compact directory of every
+    // framework / anti-pattern / benchmark / methodology page available in
+    // the wiki, one line each, ~70-150 tokens per entry. The model uses
+    // fetch_wiki_resource(path) to load any of these on demand instead of
+    // us pre-loading them all (which used to burn ~30-70KB per prompt).
+    // Safe-fails to empty string if the proxy is unreachable.
+    let wikiResourceManifest = '';
+    try {
+        const { renderWikiManifestForPrompt } = await import('./wikiService');
+        const lines = await renderWikiManifestForPrompt();
+        if (lines && lines.length > 50) {
+            wikiResourceManifest = `\n=== WIKI RESOURCE MANIFEST (call fetch_wiki_resource(path) on demand) ===\n${lines}\n=== END MANIFEST ===\n`;
+        }
+    } catch (e) {
+        console.warn('[chat] wiki manifest unavailable:', e);
+    }
 
     // Compute per-source-type breakdown of the corpus so the model SEES what
     // it actually has access to. Counts by source-name patterns; not perfect
@@ -1799,13 +2009,17 @@ job is to honor that selection, NOT second-guess it.
 
 ABSOLUTE RULES:
 1. Every source category the user toggled ON appears in the ACTIVE CATEGORIES
-   roster below. You MUST surface at least one citation from EACH category in
-   your response.
-2. If a category yielded no usable content during retrieval, you MUST mark it
-   explicitly as: \`CATEGORY GAP: <category name> — no relevant content
-   collected for this query\` so the user can decide whether to retry or de-select.
-3. NEVER silently omit a toggled category. NEVER reason "this category seems
-   off-topic" — the user is an expert; if they toggled it, it's relevant.
+   roster below. Where a category HAS CONTENT, you should surface at least one
+   citation from it when relevant.
+2. Categories that yielded no usable content MUST be silently omitted from your
+   response. NEVER write "CATEGORY GAP", "no content collected", "category
+   omitted", or any other meta-narration about empty sources. The reader is an
+   executive consuming a finished artifact — they should not see the model's
+   notes about which buckets came back empty. Just write the deliverable from
+   the evidence that IS available.
+3. NEVER reason "this category seems off-topic" for categories that HAVE
+   content — the user is an expert; if they toggled it and there's evidence,
+   it's relevant.
 4. Out-of-domain evidence is a FEATURE, not a bug. Cross-industry analogies
    (retail loyalty patterns for alumni engagement, supply-chain orchestration
    patterns for donor pipelines, AI-lab innovation cycles for advancement
@@ -1817,7 +2031,7 @@ ABSOLUTE RULES:
           incomplete donation flows."
    BAD: "Sephora has a tiered alumni program" (implies an existing thing)
 
-=== ACTIVE CATEGORIES (every one must be cited or marked CATEGORY GAP) ===
+=== ACTIVE CATEGORIES WITH CONTENT (cite from these when relevant) ===
 ${categoryRoster}
 ================================================================================
 
@@ -1857,6 +2071,24 @@ You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by 
   - Building a case study slide? Call fetch_wiki_articles(query: "<subject> <vendor> <outcome>", kind: "article") to get the case study body, then write from it.
   - Never call more than 2-3 times per turn. Be specific in your queries.
 
+KNOWLEDGE-GRAPH RETRIEVAL (NEW 2026-05-11):
+You also have the query_knowledge_graph tool. The KG was already built by the synthesis pipeline and contains explicit relationships between themes, evidence, sources, personas, recommendations, and gaps. When the user asks about a SPECIFIC entity already in the engagement (e.g., a named theme, a named source like "Reddit r/CareerAdvice", or a named gap), query_knowledge_graph(seed: <name>, hops: 2) is faster and more accurate than fetch_wiki_articles — it walks the relationship graph directly.
+
+TOPIC-MODELING RETRIEVAL (NEW 2026-05-11):
+If a TOPIC CLUSTERS section appears in this system prompt, the engagement also ran a BERTopic-style clustering pass over the deep-Reddit corpus. Treat those clusters as FIRST-CLASS sources of insight: they represent coherent conversation patterns the embedding+clustering pipeline discovered, then a frontier LLM (Claude Opus) named and summarized. They are complementary to the manually-synthesized themes in the knowledge graph — the KG themes capture cross-source patterns; the topic clusters capture pure social-conversation patterns.
+
+When building deliverables, ACTIVELY weave topic-cluster insights in alongside KG-theme evidence:
+  - For personas: a cluster's representative posts are real verbatim voice. Pull them via query_topic_clusters.
+  - For strategy decks / slides: cite cluster names ("Microsoft AI Tooling Excitement", "Advisor Conflicts and Burnout") as themes the social data surfaced, alongside KG themes the synthesis pipeline named.
+  - For journey maps: negative clusters often map to pain-point stages; positive clusters to moments of truth.
+  - For recommendations: cluster sentiment distribution is a forward-looking signal — a recommendation that addresses 3 negative clusters has stronger backing than one tied to a single anecdote.
+
+Decision rule for which tool to call:
+  - User asks about a specific TOPIC CLUSTER (named or numbered in the prompt above) → query_topic_clusters(topic_id_or_name) — pulls representative posts with scores, comment counts, subreddits
+  - User asks about a specific KG entity (theme, source, persona, gap) → query_knowledge_graph(seed)
+  - User asks an open-ended research question → fetch_wiki_articles (semantic search)
+  - User asks for framework / anti-pattern / benchmark / brand standard → fetch_wiki_resource
+
 DIVERSE-KIND RETRIEVAL (CRITICAL for source-mix discipline):
 When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds — not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube alumni transcripts, interview transcripts), \`upload\` (client PDFs).
   - For evidence/data sections: call fetch_wiki_articles(query, kind: "article") to retrieve external research first.
@@ -1868,10 +2100,50 @@ If your draft answer cites only uploads, that is a violation of source-mix disci
 When tool results return empty or error, the archive genuinely doesn't have evidence for that claim — narrow your answer to what IS evidenced, or tell the user plainly which dimension lacks coverage in conversational prose. Do NOT fabricate. NEVER write the literal strings "EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]", or any QA-style annotation in any chat response, deliverable artifact, slide, persona, or other user-facing output. The reader is the user — not a QA dashboard.
 ${DELIVERABLE_PROTOCOL}
 ${manifestSummary}
+${wikiResourceManifest}
+${topicModelBlock}
 ${skillInstructions}
 ${provenanceIndex ? `=== SOURCE PROVENANCE INDEX (${context.sourceReferences?.length || 0} sources) ===\n${provenanceIndex}\n=== END PROVENANCE ===\n` : ''}
 
 ${groundingContext}
+
+=== LENGTH & DEPTH DISCIPLINE (re-read before responding) ===
+Match the OUTPUT SIZE to what the user actually requested. Common signals:
+
+  • "manual" / "specification" / "technical guide" / "playbook" → 4000-12000+ words.
+    Multi-section document with named chapters, working code blocks (not toy
+    snippets), table-of-contents-worthy structure. Each section gets several
+    full paragraphs plus concrete artifacts (config files, API examples,
+    architecture diagrams in ASCII, runnable bash/Python/TypeScript).
+
+  • "N page" or "N words" or "comprehensive" or "exhaustive" or "deep dive" or
+    "detailed" → respect the stated target. A 25-page manual is ~6250-7500 words
+    (250-300 words/page). Don't ship 2000 words and call it a manual.
+
+  • "ALL technical details" / "ALL [X]" / "everything we know about" → enumerate
+    exhaustively. List every model, every technique, every protocol, every
+    library, every command that appears in the corpus. Do not summarize — list.
+
+  • "code snippets where appropriate" / "show me how" / "with examples" → include
+    actual runnable code in fenced blocks, not pseudocode. Show config files,
+    API requests with full JSON, install commands, complete function bodies.
+    Default to 3-8 code blocks per technical section.
+
+  • "brief" / "tl;dr" / "in 200 words" / single-question conversational turn →
+    stay tight. Don't pad. Match the requested register.
+
+When the user requests a long deliverable, DO NOT produce a thin citation-stuffed
+outline. Citations are evidence for claims — they are not the deliverable. The
+deliverable is the document the user asked for, written end-to-end, with citations
+woven in to support specific claims. A "technical manual" reads like a manual, not
+like an annotated bibliography.
+
+EXPANSION DISCIPLINE for long-form requests:
+  - Every section should have multiple substantive paragraphs of actual content
+  - Every claim that depends on the corpus should cite [Source: Title]
+  - Code blocks should be complete and runnable, not "// implement this"
+  - Lists should be exhaustive when "all" or "every" is requested, not truncated
+  - If you have evidence for 20 techniques, list 20 — not 5 with "and more"
 
 === CRITICAL OUTPUT FORMAT REMINDER (re-read before responding) ===
 Scan the CURRENT user message for these triggers BEFORE you respond:
@@ -1894,6 +2166,8 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
        → NO fences. No :::slide. No :::deliverable:. No :::nxt:.
        → The knowledge graph is already populated automatically — you don't need
          to force cards just because the user asked about personas or themes.
+       → For long-form requests (manual / specification / technical guide / N-page /
+         comprehensive / detailed / "ALL"), apply the LENGTH & DEPTH DISCIPLINE above.
 
 If none of triggers 1-3 are present, mode 4 (prose) is the answer. Do not guess.
 If triggers are ambiguous (e.g., user mentions "slides" in prose without #slide), stay in prose mode and OFFER to produce slides: "Add #slide if you'd like these formatted as slides."
@@ -1906,8 +2180,62 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 === END REMINDERS ===`;
 
     try {
+        // 2026-05-11 (HiC-Active-Loop #4) — stash the KG for the
+        // query_knowledge_graph tool. Set early so any tool-loop iteration
+        // can reach it. Cleared in the finally block at the end.
+        setCurrentChatGraph((context as any)?.knowledgeGraph || null);
+        // 2026-05-11 — stash topic-model result for query_topic_clusters.
+        setCurrentChatTopicModel((context as any)?.topicModelResult || null);
+
         // Determine thinking effort from skill or default
         const thinkingEffort: ThinkingEffort = skillContext?.skill.thinkingEffort || 'medium';
+
+        // 2026-05-11 (HiC-Active-Loop #3) — PreCompact mid-session.
+        // Before dispatching the new message, check if the history is large
+        // enough to risk Context Representation Drift. If so, summarize the
+        // older turns into a single digest and replace them. Recent turns
+        // (>= 10) stay intact for short-term continuity.
+        try {
+            const { shouldCompactHistory, buildCompactionPrompt, buildCompactionMessage } = await import('./preCompact');
+            // Use the active model's context window as the budget cap. Gemini
+            // 3.1 Pro = 1M tokens; DeepSeek V4 Flash = 256K; Council uses the
+            // synthesizer's window (Gemini Pro).
+            const activeWindow = (() => {
+                const id = (model === 'council') ? 'gemini-3.1-pro-preview' : model;
+                const cfg = AVAILABLE_MODELS.find(m => m.id === id);
+                if (!cfg) return 256_000;
+                if (cfg.contextWindow.includes('1M')) return 1_000_000;
+                if (cfg.contextWindow.includes('256K')) return 256_000;
+                if (cfg.contextWindow.includes('128K')) return 128_000;
+                return 128_000;
+            })();
+            const decision = shouldCompactHistory(conversationHistory, activeWindow);
+            if (decision.shouldCompact) {
+                console.log(`[chat.precompact] ${decision.reason} — summarizing ${decision.olderCount} older turns, keeping ${decision.keepRecentCount} recent`);
+                const olderTurns = conversationHistory.slice(0, decision.olderCount);
+                const recentTurns = conversationHistory.slice(decision.olderCount);
+                // Summarize via Gemini Pro — fast, reliable, follows structure.
+                const summarizerPrompt = buildCompactionPrompt(olderTurns, context.researchGoal || '');
+                let digest = '';
+                try {
+                    digest = await callGemini(
+                        'You are a precise session digester. Follow the format exactly.',
+                        summarizerPrompt,
+                        [],
+                        'gemini-3.1-pro-preview',
+                    );
+                } catch (digestErr) {
+                    console.warn('[chat.precompact] summarization failed, skipping compaction:', digestErr);
+                }
+                if (digest && digest.length > 200) {
+                    const digestMsg = buildCompactionMessage(digest, olderTurns.length);
+                    conversationHistory = [digestMsg, ...recentTurns];
+                    console.log(`[chat.precompact] compacted to ${conversationHistory.length} turns`);
+                }
+            }
+        } catch (compactErr) {
+            console.warn('[chat.precompact] non-fatal error:', compactErr);
+        }
 
         let responseText: string;
         let modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
@@ -1925,7 +2253,29 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 
         // 2026-05-07 — Multi-provider dispatch. Gemini 3.1 Pro is primary;
         // DeepSeek retained only as a legacy fallback.
-        if (modelConfig.provider === 'google') {
+        // 2026-05-11 — Council mode (Sanhedrin) fans the prompt to 3 models
+        // in parallel and synthesizes. Caller opted in by selecting 'council'.
+        if (activeModelId === 'council') {
+            const { runCouncilSynthesis } = await import('./councilSynthesis');
+            // Dispatch shim: each council reader runs through its provider's
+            // normal call path so it inherits the same system prompt, tool
+            // schema, and corpus context the user already configured.
+            const sendOne = async (m: ChatModel, msg: string, hist: ChatMessage[]) => {
+                if (m === 'gemini-3.1-pro-preview') return callGemini(systemPrompt, msg, hist, m);
+                if (m === 'deepseek-v4-flash' || m === 'deepseek-v4-pro') return callDeepSeek(systemPrompt, msg, hist, m);
+                if (m === 'gpt-5.5') return callOpenAI(systemPrompt, msg, hist, m);
+                // Default — Gemini Pro
+                return callGemini(systemPrompt, msg, hist, 'gemini-3.1-pro-preview');
+            };
+            const council = await runCouncilSynthesis({
+                userMessage,
+                history: conversationHistory,
+                context,
+                sendOne,
+            });
+            console.log(`[council] confidence=${council.confidence}, reads=${council.reads.filter(r => r.ok).length}/3, synth=${council.synthesisLatencyMs}ms`);
+            responseText = council.finalText;
+        } else if (modelConfig.provider === 'google') {
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else if (modelConfig.provider === 'deepseek') {
             responseText = await callDeepSeek(systemPrompt, userMessage, conversationHistory, activeModelId);
@@ -2021,6 +2371,225 @@ Returns: array of articles with title, source, url, date, and body text (up to m
     },
 };
 
+// 2026-05-11 — Companion tool to fetch_wiki_articles. Articles are
+// research evidence (Reddit threads, RSS bodies, YouTube transcripts,
+// uploaded PDFs). Resources are structured wiki pages (frameworks,
+// anti-patterns, benchmarks, methodologies, brand standards, exemplars).
+// They live in different parts of the wiki and have different shapes;
+// keeping them on separate tools makes the model's intent explicit.
+const FETCH_WIKI_RESOURCE_TOOL = {
+    name: 'fetch_wiki_resource',
+    description: `Read a specific wiki resource (framework, anti-pattern, benchmark, methodology, brand standard, exemplar, social-intelligence page, deep-research page, industry adaptation) on demand.
+
+Use this for STRUCTURED reference content — NOT for research articles. For article bodies, transcripts, or uploaded documents, use fetch_wiki_articles instead.
+
+The system prompt includes a WIKI MANIFEST listing every fetchable path with a 1-line summary. Call this tool with one of those exact paths. Common patterns:
+  - You need the full framework spec for a deliverable: fetch_wiki_resource(path: "frameworks/PERSONAS.md")
+  - You need named anti-patterns to avoid: fetch_wiki_resource(path: "anti-patterns/STRATEGY_DECK.md")
+  - You need benchmark numbers to cite: fetch_wiki_resource(path: "benchmarks/cx-metrics.md")
+  - You need methodology details to explain provenance: fetch_wiki_resource(path: "methodologies/research-fabric.md")
+
+The tool returns the full markdown body. Paths NOT in the manifest are rejected.`,
+    input_schema: {
+        type: 'object',
+        properties: {
+            path: { type: 'string', description: 'Exact wiki path from the manifest. Example: "frameworks/PERSONAS.md"' },
+        },
+        required: ['path'],
+    },
+};
+
+// 2026-05-11 — Topic-modeling awareness for the chat. Compact summary
+// goes into the system prompt; deep dives into individual clusters use the
+// query_topic_clusters tool below. The model needs BOTH — the summary so
+// it knows topics exist and can reference them by name in deliverables,
+// the tool so it can pull representative posts when synthesizing depth.
+
+function buildTopicModelSummaryForPrompt(ctx: ChatContext): string {
+    const tm = ctx.topicModelResult;
+    if (!tm || !tm.topics || tm.topics.length === 0) return '';
+    const lines: string[] = [];
+    lines.push(`=== TOPIC CLUSTERS FROM REDDIT-DEEP CORPUS (${tm.topic_count} topics, ${tm.doc_count} posts, ${tm.noise_count} noise) ===`);
+    lines.push(`These clusters were discovered by BERTopic-style analysis (Gemini embeddings → UMAP → HDBSCAN → LLM-named). Each represents a coherent conversation pattern in the Reddit data the user pulled. Cite cluster names verbatim in deliverables — they are LLM-synthesized labels of real discussion clusters, not your own taxonomy.`);
+    lines.push('');
+    // Group by sentiment for fast scanning
+    const bySent = new Map<string, typeof tm.topics>();
+    for (const t of tm.topics) {
+        const s = (t.sentiment || 'neutral').toLowerCase();
+        if (!bySent.has(s)) bySent.set(s, []);
+        bySent.get(s)!.push(t);
+    }
+    const sentimentOrder = ['negative', 'positive', 'neutral', 'mixed'];
+    for (const sent of sentimentOrder) {
+        const topics = bySent.get(sent);
+        if (!topics || topics.length === 0) continue;
+        lines.push(`### ${sent.toUpperCase()} (${topics.length} clusters)`);
+        for (const t of topics) {
+            const terms = (t.top_terms || []).slice(0, 6).map(([w]) => w).join(', ');
+            const summary = (t.summary || '').trim();
+            lines.push(`  • [Topic #${t.id}] "${t.name}" — ${t.post_count} posts | terms: ${terms}`);
+            if (summary) lines.push(`    ${summary.slice(0, 240)}`);
+        }
+        lines.push('');
+    }
+    lines.push('To pull representative posts from a specific cluster (full titles, scores, subreddits, comment counts), call query_topic_clusters(topic_id_or_name).');
+    lines.push('=== END TOPIC CLUSTERS ===');
+    return lines.join('\n');
+}
+
+const QUERY_TOPIC_CLUSTERS_TOOL = {
+    name: 'query_topic_clusters',
+    description: `Drill into a specific Reddit topic cluster discovered by the Analyst Desk's topic-modeling pass. Returns the representative posts (titles, scores, subreddits, comment counts, URLs) for the requested cluster.
+
+Use this when you need:
+  - Specific post titles to quote from a named cluster ("show me the actual posts in the 'Advisor Conflicts and Burnout' cluster")
+  - Subreddit distribution within a cluster (where the conversation is happening)
+  - Top-scoring posts for evidence in a slide or persona
+
+The cluster ID is the integer shown in the TOPIC CLUSTERS section of your system prompt (e.g., [Topic #3]). Alternatively, pass the cluster's name verbatim and we'll match. The summary, top terms, and sentiment are ALREADY in your system prompt — this tool returns the underlying posts only.`,
+    input_schema: {
+        type: 'object',
+        properties: {
+            topic_id: { type: 'number', description: 'Integer cluster id (preferred — exact match)' },
+            topic_name: { type: 'string', description: 'Cluster name (case-insensitive substring match if topic_id is omitted)' },
+            limit: { type: 'number', description: 'Max posts to return. Default 10, max 30.' },
+        },
+    },
+};
+
+let _currentChatTopicModel: ChatContext['topicModelResult'] | null = null;
+function setCurrentChatTopicModel(tm: any) { _currentChatTopicModel = tm; }
+
+async function executeQueryTopicClustersTool(input: any): Promise<string> {
+    try {
+        const tm = _currentChatTopicModel;
+        if (!tm || !tm.topics?.length) {
+            return '(topic modeling has not run on this engagement — no clusters available)';
+        }
+        const requestedId = typeof input?.topic_id === 'number' ? input.topic_id : null;
+        const requestedName = String(input?.topic_name || '').trim().toLowerCase();
+        const limit = Math.max(1, Math.min(30, Number(input?.limit) || 10));
+
+        let topic = null as null | (typeof tm.topics)[number];
+        if (requestedId !== null) {
+            topic = tm.topics.find(t => t.id === requestedId) || null;
+        } else if (requestedName) {
+            topic = tm.topics.find(t => t.name.toLowerCase().includes(requestedName)) || null;
+        } else {
+            return '(error: pass topic_id or topic_name)';
+        }
+        if (!topic) {
+            const choices = tm.topics.map(t => `  #${t.id} "${t.name}"`).join('\n');
+            return `No cluster matched. Available clusters:\n${choices}`;
+        }
+
+        const docs = (tm.documents || []).filter(d => d.cluster === topic!.id);
+        const sortedDocs = [...docs].sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, limit);
+
+        const lines: string[] = [];
+        lines.push(`Cluster #${topic.id}: "${topic.name}"`);
+        lines.push(`Sentiment: ${topic.sentiment} · ${topic.post_count} posts · top terms: ${topic.top_terms.slice(0, 6).map(t => t[0]).join(', ')}`);
+        if (topic.summary) lines.push(`Summary: ${topic.summary}`);
+        lines.push('');
+        lines.push(`--- Top ${sortedDocs.length} posts by score ---`);
+        for (const d of sortedDocs) {
+            lines.push(`  [${d.score}↑ · ${d.num_comments} comments · r/${d.subreddit}] ${d.title}`);
+            if (d.url) lines.push(`    ${d.url}`);
+        }
+        // Subreddit distribution
+        const subMap = new Map<string, number>();
+        for (const d of docs) {
+            const k = d.subreddit || '?';
+            subMap.set(k, (subMap.get(k) || 0) + 1);
+        }
+        if (subMap.size > 0) {
+            lines.push('');
+            lines.push('Subreddit distribution:');
+            for (const [sub, n] of Array.from(subMap.entries()).sort((a, b) => b[1] - a[1])) {
+                lines.push(`  r/${sub} × ${n}`);
+            }
+        }
+        return lines.join('\n');
+    } catch (err: any) {
+        return `(error querying topic clusters: ${err?.message || 'unknown error'})`;
+    }
+}
+
+// 2026-05-11 (HiC-Active-Loop #4) — Knowledge-graph-as-retrieval tool.
+// The KG nodes are already constructed at synthesis time (themes, evidence,
+// sources, personas, recommendations, gaps, journey stages). Letting the
+// chat model query the graph directly is graph-RAG: pin to a hub node,
+// walk N hops, return the connected subgraph with evidence body excerpts.
+// Cheaper than full-corpus semantic search when the question has an
+// obvious entrypoint; more accurate than embedding-only retrieval because
+// the relationships were assembled by the upstream synthesis, not inferred.
+const QUERY_KG_TOOL = {
+    name: 'query_knowledge_graph',
+    description: `Walk the engagement's knowledge graph from a seed term. Returns the connected subgraph (themes, evidence, sources, personas, recommendations, gaps) up to N hops out.
+
+Use this when the user asks about a SPECIFIC theme, persona, source, or finding that you already know exists in the engagement. The KG was built by the synthesis pipeline and contains explicit relationships the model can walk.
+
+Good times to call:
+  - "What evidence supports the X theme?" → query_knowledge_graph(seed: "X", hops: 2) returns the theme + its linked evidence + the sources those evidence pieces came from
+  - "Which themes did r/CareerAdvice drive?" → query_knowledge_graph(seed: "CareerAdvice", hops: 2)
+  - "What recommendations address the donor-ghosting gap?" → query_knowledge_graph(seed: "ghosting", hops: 2)
+
+Returns the connected nodes (with evidence body excerpts) + edges. Falls back gracefully when the seed has no match — use fetch_wiki_articles for free-text searches instead.`,
+    input_schema: {
+        type: 'object',
+        properties: {
+            seed: { type: 'string', description: 'A theme name, persona name, source name, or topic term. Case-insensitive substring match. Example: "ghosting", "first-year readiness", "Higher Ed Dive".' },
+            hops: { type: 'number', description: 'How many graph hops to expand from the seed. 1 = direct neighbors only (fast, focused). 2 = neighbors-of-neighbors (DEFAULT — typical theme→evidence→source path). 3 = wide (use sparingly).' },
+            maxNodes: { type: 'number', description: 'Cap on returned nodes. Default 25, max 60. Lower for tight focused queries.' },
+        },
+        required: ['seed'],
+    },
+};
+
+let _currentChatGraph: any = null;
+
+/** Stash the current engagement's knowledge graph so the tool executor can
+ *  reach it. Called at the top of sendChatMessage from the context. */
+function setCurrentChatGraph(graph: any) { _currentChatGraph = graph; }
+
+/** Execute query_knowledge_graph via the kgRetrieval helper. */
+async function executeQueryKGTool(input: any): Promise<string> {
+    try {
+        const seed = String(input?.seed || '').trim();
+        if (!seed) return '(error: seed is required)';
+        if (!_currentChatGraph || !_currentChatGraph.nodes?.length) {
+            return '(knowledge graph not yet built for this engagement — use fetch_wiki_articles or fetch_wiki_resource instead)';
+        }
+        const { queryKnowledgeGraph, renderKGResult } = await import('./kgRetrieval');
+        const result = queryKnowledgeGraph(_currentChatGraph, seed, {
+            hops: Number(input?.hops) || 2,
+            maxNodes: Number(input?.maxNodes) || 25,
+            includeBodies: true,
+        });
+        return renderKGResult(result);
+    } catch (err: any) {
+        return `(error querying knowledge graph: ${err?.message || 'unknown error'})`;
+    }
+}
+
+/** Execute fetch_wiki_resource via the wikiService helper. */
+async function executeFetchWikiResourceTool(input: any): Promise<string> {
+    try {
+        const path = String(input?.path || '').trim();
+        if (!path) return '(error: path is required)';
+        const { fetchWikiResourceByPath } = await import('./wikiService');
+        const result = await fetchWikiResourceByPath(path);
+        if (!result.ok) return `(error: ${result.error || 'fetch failed'})`;
+        const body = result.content || '';
+        const header = `Path: ${result.path}\nTitle: ${result.title || '(untitled)'}\nBytes: ${body.length}\n\n---\n\n`;
+        // Cap at 20KB per resource to prevent any single page from
+        // monopolizing the model's working context.
+        return header + body.slice(0, 20_000);
+    } catch (err: any) {
+        return `(error fetching wiki resource: ${err?.message || 'unknown error'})`;
+    }
+}
+
 /** Execute the fetch_wiki_articles tool by calling the existing client
  *  wrapper. Returns a compact text block for the tool_result `content`
  *  field so Claude sees it as standard text in the conversation.
@@ -2106,14 +2675,40 @@ async function callDeepSeek(
         { role: 'user', content: userMsg },
     ];
 
-    const tools = [{
-        type: 'function' as const,
-        function: {
-            name: FETCH_WIKI_ARTICLES_TOOL.name,
-            description: FETCH_WIKI_ARTICLES_TOOL.description,
-            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+    const tools = [
+        {
+            type: 'function' as const,
+            function: {
+                name: FETCH_WIKI_ARTICLES_TOOL.name,
+                description: FETCH_WIKI_ARTICLES_TOOL.description,
+                parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+            },
         },
-    }];
+        {
+            type: 'function' as const,
+            function: {
+                name: FETCH_WIKI_RESOURCE_TOOL.name,
+                description: FETCH_WIKI_RESOURCE_TOOL.description,
+                parameters: FETCH_WIKI_RESOURCE_TOOL.input_schema,
+            },
+        },
+        {
+            type: 'function' as const,
+            function: {
+                name: QUERY_KG_TOOL.name,
+                description: QUERY_KG_TOOL.description,
+                parameters: QUERY_KG_TOOL.input_schema,
+            },
+        },
+        {
+            type: 'function' as const,
+            function: {
+                name: QUERY_TOPIC_CLUSTERS_TOOL.name,
+                description: QUERY_TOPIC_CLUSTERS_TOOL.description,
+                parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
+            },
+        },
+    ];
 
     let lastText = '';
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
@@ -2163,6 +2758,30 @@ async function callDeepSeek(
                 } catch (e: any) {
                     result = `(tool error: ${e?.message || 'unknown'})`;
                 }
+            } else if (tc.function.name === FETCH_WIKI_RESOURCE_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeFetchWikiResourceTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (tc.function.name === QUERY_KG_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeQueryKGTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (tc.function.name === QUERY_TOPIC_CLUSTERS_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeQueryTopicClustersTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
             } else {
                 result = `(unknown tool: ${tc.function.name})`;
             }
@@ -2200,14 +2819,40 @@ async function callOpenAI(
         { role: 'user', content: userMsg },
     ];
 
-    const tools = [{
-        type: 'function' as const,
-        function: {
-            name: FETCH_WIKI_ARTICLES_TOOL.name,
-            description: FETCH_WIKI_ARTICLES_TOOL.description,
-            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+    const tools = [
+        {
+            type: 'function' as const,
+            function: {
+                name: FETCH_WIKI_ARTICLES_TOOL.name,
+                description: FETCH_WIKI_ARTICLES_TOOL.description,
+                parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+            },
         },
-    }];
+        {
+            type: 'function' as const,
+            function: {
+                name: FETCH_WIKI_RESOURCE_TOOL.name,
+                description: FETCH_WIKI_RESOURCE_TOOL.description,
+                parameters: FETCH_WIKI_RESOURCE_TOOL.input_schema,
+            },
+        },
+        {
+            type: 'function' as const,
+            function: {
+                name: QUERY_KG_TOOL.name,
+                description: QUERY_KG_TOOL.description,
+                parameters: QUERY_KG_TOOL.input_schema,
+            },
+        },
+        {
+            type: 'function' as const,
+            function: {
+                name: QUERY_TOPIC_CLUSTERS_TOOL.name,
+                description: QUERY_TOPIC_CLUSTERS_TOOL.description,
+                parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
+            },
+        },
+    ];
 
     let lastText = '';
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
@@ -2260,6 +2905,30 @@ async function callOpenAI(
                 } catch (e: any) {
                     result = `(tool error: ${e?.message || 'unknown'})`;
                 }
+            } else if (tc.function.name === FETCH_WIKI_RESOURCE_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeFetchWikiResourceTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (tc.function.name === QUERY_KG_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeQueryKGTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (tc.function.name === QUERY_TOPIC_CLUSTERS_TOOL.name) {
+                try {
+                    const rawArgs = (tc.function.arguments || '').trim();
+                    const args = rawArgs ? JSON.parse(rawArgs) : {};
+                    result = await executeQueryTopicClustersTool(args);
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
             } else {
                 result = `(unknown tool: ${tc.function.name})`;
             }
@@ -2303,11 +2972,28 @@ async function callGemini(
 
     // Gemini's tool spec: { functionDeclarations: [{ name, description, parameters }] }
     const tools = [{
-        functionDeclarations: [{
-            name: FETCH_WIKI_ARTICLES_TOOL.name,
-            description: FETCH_WIKI_ARTICLES_TOOL.description,
-            parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
-        }],
+        functionDeclarations: [
+            {
+                name: FETCH_WIKI_ARTICLES_TOOL.name,
+                description: FETCH_WIKI_ARTICLES_TOOL.description,
+                parameters: FETCH_WIKI_ARTICLES_TOOL.input_schema,
+            },
+            {
+                name: FETCH_WIKI_RESOURCE_TOOL.name,
+                description: FETCH_WIKI_RESOURCE_TOOL.description,
+                parameters: FETCH_WIKI_RESOURCE_TOOL.input_schema,
+            },
+            {
+                name: QUERY_KG_TOOL.name,
+                description: QUERY_KG_TOOL.description,
+                parameters: QUERY_KG_TOOL.input_schema,
+            },
+            {
+                name: QUERY_TOPIC_CLUSTERS_TOOL.name,
+                description: QUERY_TOPIC_CLUSTERS_TOOL.description,
+                parameters: QUERY_TOPIC_CLUSTERS_TOOL.input_schema,
+            },
+        ],
     }];
 
     let lastText = '';
@@ -2351,6 +3037,24 @@ async function callGemini(
             if (call.name === FETCH_WIKI_ARTICLES_TOOL.name) {
                 try {
                     result = await executeFetchWikiArticlesTool(call.args || {});
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (call.name === FETCH_WIKI_RESOURCE_TOOL.name) {
+                try {
+                    result = await executeFetchWikiResourceTool(call.args || {});
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (call.name === QUERY_KG_TOOL.name) {
+                try {
+                    result = await executeQueryKGTool(call.args || {});
+                } catch (e: any) {
+                    result = `(tool error: ${e?.message || 'unknown'})`;
+                }
+            } else if (call.name === QUERY_TOPIC_CLUSTERS_TOOL.name) {
+                try {
+                    result = await executeQueryTopicClustersTool(call.args || {});
                 } catch (e: any) {
                     result = `(tool error: ${e?.message || 'unknown'})`;
                 }

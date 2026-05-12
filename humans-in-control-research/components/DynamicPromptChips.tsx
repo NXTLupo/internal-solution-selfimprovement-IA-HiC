@@ -42,6 +42,22 @@ const KIND_GLYPH: Record<SuggestionKind, string> = {
     'evidence-probe': '⚠',
 };
 
+// 2026-05-12 — Map each suggestion kind to the directive that would
+// produce the most relevant artifact. When a user clicks a chip, we
+// prepend the suggested hashtag to the chip text so they go from
+// "Drill into theme X" → "#explainer Drill into theme X" and get a
+// proper HTML artifact instead of a one-shot chat answer.
+const KIND_HASHTAG: Record<SuggestionKind, string | null> = {
+    'document-drill': '#explainer',
+    'source-coverage': '#brief',
+    'theme-exploration': '#explainer',
+    'persona-perspective': '#brief',
+    'comparison': '#approaches',
+    'synthesis': '#report',
+    'slide-request': '#presentation',
+    'evidence-probe': null,                 // open-ended prose answer is fine
+};
+
 const PHASE_LABEL: Record<CollectionPhase, string> = {
     'setup': 'BRIEF SETUP',
     'pre-collection': 'PRE-COLLECTION',
@@ -201,37 +217,59 @@ export const DynamicPromptChips: React.FC<Props> = ({ state, onSelect, debounceM
                         No suggestions generated. Click ↻ to retry or type your question below.
                     </div>
                 )}
-                {suggestions.map((s, i) => (
-                    <button
-                        key={i}
-                        type="button"
-                        onClick={() => onSelect(s.text)}
-                        title={s.rationale || 'Click to load into chat input'}
-                        style={{
-                            flexShrink: 0,
-                            background: '#FFFFFF',
-                            border: '1px solid #D0D0CA',
-                            color: '#1A1A1A',
-                            padding: '6px 10px',
-                            fontSize: 12, lineHeight: 1.35,
-                            cursor: 'pointer', fontFamily: 'inherit',
-                            textAlign: 'left' as const,
-                            maxWidth: compact ? '100%' : 340,
-                            transition: 'border-color 0.15s, background 0.15s',
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = '#B8B800';
-                            e.currentTarget.style.background = '#FAFAF0';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = '#D0D0CA';
-                            e.currentTarget.style.background = '#FFFFFF';
-                        }}
-                    >
-                        <span style={{ marginRight: 6, fontSize: 11, opacity: 0.7 }}>{KIND_GLYPH[s.kind] || '•'}</span>
-                        {s.text}
-                    </button>
-                ))}
+                {suggestions.map((s, i) => {
+                    const tag = KIND_HASHTAG[s.kind];
+                    // The chip text the user actually loads — prepends the
+                    // hashtag when one is mapped, so a single click produces
+                    // an artifact instead of a one-shot chat answer.
+                    const loadedText = tag ? `${tag} ${s.text}` : s.text;
+                    return (
+                        <button
+                            key={i}
+                            type="button"
+                            onClick={() => onSelect(loadedText)}
+                            title={`${s.rationale || 'Click to load into chat input'}${tag ? ` · loads as ${tag}` : ''}`}
+                            style={{
+                                flexShrink: 0,
+                                background: '#FFFFFF',
+                                border: '1px solid #D0D0CA',
+                                color: '#1A1A1A',
+                                padding: '6px 10px',
+                                fontSize: 12, lineHeight: 1.35,
+                                cursor: 'pointer', fontFamily: 'inherit',
+                                textAlign: 'left' as const,
+                                maxWidth: compact ? '100%' : 340,
+                                transition: 'border-color 0.15s, background 0.15s',
+                                display: 'inline-flex',
+                                alignItems: 'baseline',
+                                gap: 6,
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.borderColor = '#B8B800';
+                                e.currentTarget.style.background = '#FAFAF0';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.borderColor = '#D0D0CA';
+                                e.currentTarget.style.background = '#FFFFFF';
+                            }}
+                        >
+                            <span style={{ fontSize: 11, opacity: 0.7 }}>{KIND_GLYPH[s.kind] || '•'}</span>
+                            {tag && (
+                                <code style={{
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    fontSize: 9,
+                                    fontWeight: 700,
+                                    padding: '1px 5px',
+                                    background: '#0D0D0D',
+                                    color: '#B8B800',
+                                    letterSpacing: 0.5,
+                                    flexShrink: 0,
+                                }}>{tag}</code>
+                            )}
+                            <span>{s.text}</span>
+                        </button>
+                    );
+                })}
             </div>
         </div>
     );

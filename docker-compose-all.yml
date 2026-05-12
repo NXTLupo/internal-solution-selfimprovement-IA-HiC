@@ -401,6 +401,12 @@ services:
       - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
       - AZURE_DEEPSEEK_KEY=${AZURE_DEEPSEEK_KEY:-}
       - EVERY_ORG_API_KEY=${EVERY_ORG_API_KEY:-}
+      # 2026-05-10 (HiC-Reddit-Deep) — PRAW credentials for the deep Reddit
+      # fetcher at /api/reddit-deep/fetch. Same keys as social-research-backend
+      # uses; both services share read-only OAuth access to api.reddit.com.
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID:-}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET:-}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT:-script:HiC-Research:1.0}
     volumes:
       - ./humans-in-control-research/proxy:/app
       # S8: mount full hic-workspace so the scheduler can read youtube-channels.json

@@ -21,7 +21,8 @@ import time
 import random
 import feedparser
 import httpx
-from fastapi import FastAPI, Query, Path
+from datetime import datetime, timezone
+from fastapi import FastAPI, Query, Path, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from typing import Optional, Dict, Any, List, Tuple
@@ -2079,6 +2080,1474 @@ async def _expand_rss_items(items: List[Dict[str, Any]], max_concurrent: int = 8
 async def health():
     return {"status": "healthy", "service": "research-proxy-v2", "sources": len(SOURCES)}
 
+# ================================================================
+# DEEP REDDIT FETCHER — 2026-05-10 (HiC-Reddit-Deep branch)
+# ================================================================
+#
+# Pulls FULL post bodies + recursive comment trees + score/author metadata
+# from Reddit via OAuth (PRAW). Replaces the RSS-based ingestion (title +
+# summary only) for subreddits the user explicitly named on the landing
+# page. Output is rich enough to drive BERTopic-style topic modeling
+# downstream, which is what the new Analyst Desk "Topic Modeling" tab
+# consumes.
+#
+# Endpoint shape: POST /api/reddit-deep/fetch
+#   { subreddit: "CareerAdvice", query: "co-op ghosting",
+#     post_limit: 50, comments_per_post: 10, sort: "relevance",
+#     time_filter: "year" }
+# Returns: { subreddit, query, items: [{ id, title, selftext, score,
+#   upvote_ratio, num_comments, author, created_utc, permalink, url,
+#   flair, comments: [{ id, body, score, author, depth, created_utc }] }],
+#   item_count, fetched_at, source: "reddit_deep" }
+#
+# PRAW is imported lazily inside the handler so the proxy still cold-starts
+# fast for the 99% of requests that don't touch Reddit. The Reddit client is
+# memoized at module scope after first construction.
+
+_reddit_client = None
+_reddit_client_error = None
+
+def _get_reddit_client():
+    """Lazily construct a PRAW client. Cached across requests. Returns
+    (client, None) on success or (None, error_str) on configuration failure
+    so callers can surface a clean 500 instead of crashing the worker."""
+    global _reddit_client, _reddit_client_error
+    if _reddit_client is not None:
+        return _reddit_client, None
+    if _reddit_client_error is not None:
+        return None, _reddit_client_error
+    try:
+        import praw  # type: ignore
+        client_id = os.environ.get("REDDIT_CLIENT_ID", "").strip()
+        client_secret = os.environ.get("REDDIT_CLIENT_SECRET", "").strip()
+        user_agent = os.environ.get("REDDIT_USER_AGENT", "script:HiC-Research:1.0").strip()
+        if not client_id or not client_secret:
+            _reddit_client_error = "REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET not configured in environment"
+            return None, _reddit_client_error
+        _reddit_client = praw.Reddit(
+            client_id=client_id,
+            client_secret=client_secret,
+            user_agent=user_agent,
+            check_for_async=False,
+        )
+        # Force read-only auth flow — we never need to act as a user.
+        _reddit_client.read_only = True
+        return _reddit_client, None
+    except ImportError:
+        _reddit_client_error = "PRAW not installed (proxy container needs rebuild)"
+        return None, _reddit_client_error
+    except Exception as e:
+        _reddit_client_error = f"PRAW init failed: {type(e).__name__}: {e}"
+        return None, _reddit_client_error
+
+
+def _flatten_comments(comment_forest, max_depth=2, max_per_thread=10):
+    """Walk a PRAW CommentForest depth-first, returning flat list of dicts.
+    PRAW lazy-loads comments; we call .replace_more(limit=0) once to drop
+    the 'load more' placeholders so iteration doesn't spawn extra HTTP calls
+    per stub. Capped at max_per_thread per top-level comment to keep payload
+    sizes sane on threads with hundreds of replies."""
+    out = []
+    try:
+        comment_forest.replace_more(limit=0)
+    except Exception:
+        # If replace_more fails (rate limit, network blip), just iterate what
+        # we have — better partial comments than zero.
+        pass
+
+    def walk(comments, depth):
+        nonlocal out
+        if depth > max_depth:
+            return
+        per_thread_count = 0
+        for c in comments:
+            if per_thread_count >= max_per_thread:
+                break
+            try:
+                body = (c.body or "").strip()
+                if not body or body in ("[deleted]", "[removed]"):
+                    continue
+                out.append({
+                    "id": c.id,
+                    "body": body[:4000],  # Cap per-comment to keep payload bounded
+                    "score": getattr(c, "score", 0) or 0,
+                    "author": str(c.author) if c.author else "[deleted]",
+                    "depth": depth,
+                    "created_utc": getattr(c, "created_utc", 0),
+                })
+                per_thread_count += 1
+                if c.replies and depth < max_depth:
+                    walk(c.replies, depth + 1)
+            except Exception:
+                continue
+
+    walk(comment_forest, 0)
+    return out
+
+
+@app.post("/api/reddit-deep/fetch")
+async def reddit_deep_fetch(req: Request):
+    """Fetch posts + comment trees from a single subreddit, filtered by an
+    optional search query. Synchronous (no job queue) — typical 50-post call
+    returns in 10-30 seconds. For multi-subreddit campaigns the caller fans
+    out concurrently from the SPA side."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+
+    subreddit = (body.get("subreddit") or "").strip().lstrip("r/").lstrip("/")
+    query = (body.get("query") or "").strip()
+    post_limit = int(body.get("post_limit") or 50)
+    comments_per_post = int(body.get("comments_per_post") or 10)
+    max_comment_depth = int(body.get("max_comment_depth") or 2)
+    sort = (body.get("sort") or "relevance").strip()
+    time_filter = (body.get("time_filter") or "year").strip()
+
+    if not subreddit:
+        return JSONResponse({"error": "subreddit is required"}, status_code=400)
+    # Reddit's search results page caps at 100 per request; we hard-cap at
+    # 200 with sort='top' as a safety net against accidental huge fetches.
+    post_limit = max(1, min(post_limit, 200))
+    comments_per_post = max(0, min(comments_per_post, 25))
+
+    client, err = _get_reddit_client()
+    if err:
+        return JSONResponse({"error": err}, status_code=503)
+
+    items = []
+    try:
+        sub = client.subreddit(subreddit)
+        # Two-mode fetch: if the caller supplied a query, use search() which
+        # filters by relevance to terms. Otherwise pull from .hot() / .top()
+        # for a representative sample of the subreddit's recent activity.
+        if query:
+            stream = sub.search(query, sort=sort, time_filter=time_filter, limit=post_limit)
+        else:
+            # No query — caller wants the subreddit's pulse, not a topic.
+            if sort in ("top", "best"):
+                stream = sub.top(time_filter=time_filter, limit=post_limit)
+            elif sort == "new":
+                stream = sub.new(limit=post_limit)
+            else:
+                stream = sub.hot(limit=post_limit)
+
+        for post in stream:
+            try:
+                comments = []
+                if comments_per_post > 0:
+                    comments = _flatten_comments(
+                        post.comments,
+                        max_depth=max_comment_depth,
+                        max_per_thread=comments_per_post,
+                    )
+                items.append({
+                    "id": post.id,
+                    "title": (post.title or "").strip(),
+                    "selftext": (post.selftext or "").strip()[:10000],
+                    "score": getattr(post, "score", 0) or 0,
+                    "upvote_ratio": getattr(post, "upvote_ratio", None),
+                    "num_comments": getattr(post, "num_comments", 0) or 0,
+                    "author": str(post.author) if post.author else "[deleted]",
+                    "created_utc": getattr(post, "created_utc", 0),
+                    "permalink": f"https://www.reddit.com{post.permalink}" if getattr(post, "permalink", None) else None,
+                    "url": getattr(post, "url", None),
+                    "flair": getattr(post, "link_flair_text", None),
+                    "subreddit": subreddit,
+                    "is_self": getattr(post, "is_self", False),
+                    "over_18": getattr(post, "over_18", False),
+                    "comments": comments,
+                })
+            except Exception as item_err:
+                # One bad post shouldn't kill the whole fetch
+                print(f"[reddit_deep] skipped post in r/{subreddit}: {item_err}")
+                continue
+
+    except Exception as e:
+        # PRAW raises subreddit-not-found, rate-limited, banned, etc. Surface
+        # the error string but keep any partial items we already collected.
+        return JSONResponse({
+            "error": f"Reddit fetch failed: {type(e).__name__}: {e}",
+            "subreddit": subreddit,
+            "query": query,
+            "items": items,
+            "item_count": len(items),
+            "partial": True,
+        }, status_code=502 if not items else 200)
+
+    return {
+        "subreddit": subreddit,
+        "query": query,
+        "items": items,
+        "item_count": len(items),
+        "fetched_at": datetime.utcnow().isoformat() + "Z",
+        "source": "reddit_deep",
+        "config": {
+            "post_limit": post_limit,
+            "comments_per_post": comments_per_post,
+            "max_comment_depth": max_comment_depth,
+            "sort": sort,
+            "time_filter": time_filter,
+        },
+    }
+
+
+@app.get("/api/reddit-deep/health")
+async def reddit_deep_health():
+    """Verify PRAW config without making an actual API call. Returns
+    { ok: bool, error: str|null } — used by the frontend to decide whether
+    to show the deep-Reddit option on the landing page."""
+    client, err = _get_reddit_client()
+    return {"ok": client is not None, "error": err}
+
+
+# ================================================================
+# TOPIC MODELING — 2026-05-10 (HiC-Reddit-Deep Phase 2)
+# ================================================================
+#
+# In-process async job system that runs the pipeline from topic_modeling.py
+# against any list of documents (currently fed by the deep-Reddit fetcher,
+# but the endpoint is content-agnostic — pass it any [{title, content}]
+# array and you'll get topic clusters back). Job state lives in a
+# module-level dict; the result is also persisted to wiki/synthesis/ as a
+# JSON file so reloads or container restarts retain prior results.
+#
+# Endpoints:
+#   POST /api/topic-model/analyze    → { job_id, status }
+#   GET  /api/topic-model/status/{job_id} → { job_id, status, progress, result?, error? }
+#
+# Status values: queued | embedding | clustering | labeling | completed | failed
+
+_topic_jobs: Dict[str, Dict[str, Any]] = {}
+
+
+async def _run_topic_job(job_id: str, items: list, research_goal: str, min_cluster_size: int):
+    """Background coroutine that drives the topic-modeling pipeline. Updates
+    _topic_jobs[job_id] as phases complete. On success, also writes the
+    result to disk so the frontend can survive a proxy restart."""
+    try:
+        from topic_modeling import run_pipeline
+
+        _topic_jobs[job_id]["status"] = "running"
+        _topic_jobs[job_id]["progress"] = 5
+        _topic_jobs[job_id]["message"] = "Embedding documents…"
+
+        result = await run_pipeline(items, research_goal=research_goal, min_cluster_size=min_cluster_size)
+
+        _topic_jobs[job_id]["progress"] = 100
+        _topic_jobs[job_id]["status"] = "completed"
+        _topic_jobs[job_id]["result"] = result
+        _topic_jobs[job_id]["completed_at"] = datetime.utcnow().isoformat() + "Z"
+
+        # Persist to wiki/synthesis so reloads retain it
+        try:
+            synth_dir = "/hic-workspace/wiki/synthesis"
+            os.makedirs(synth_dir, exist_ok=True)
+            with open(f"{synth_dir}/topics-{job_id}.json", "w", encoding="utf-8") as f:
+                json.dump({
+                    "job_id": job_id,
+                    "completed_at": _topic_jobs[job_id]["completed_at"],
+                    "research_goal": research_goal,
+                    "result": result,
+                }, f, ensure_ascii=False, indent=2)
+        except Exception as persist_err:
+            print(f"[topic_model] failed to persist job {job_id}: {persist_err}")
+
+    except Exception as e:
+        import traceback
+        print(f"[topic_model] job {job_id} failed: {type(e).__name__}: {e}")
+        print(traceback.format_exc())
+        _topic_jobs[job_id]["status"] = "failed"
+        _topic_jobs[job_id]["error"] = f"{type(e).__name__}: {e}"
+        _topic_jobs[job_id]["progress"] = 0
+
+
+@app.post("/api/topic-model/analyze")
+async def topic_model_analyze(req: Request):
+    """Kick off an async topic-modeling job. Returns a job_id immediately;
+    the caller polls /status/{job_id} for progress and final result.
+
+    Request body:
+      { items: [{id, title, content, _socialMeta?}, ...],
+        research_goal: str,
+        min_cluster_size?: int (default 5) }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+
+    items = body.get("items") or []
+    research_goal = (body.get("research_goal") or "").strip()
+    min_cluster_size = int(body.get("min_cluster_size") or 5)
+
+    if not isinstance(items, list) or not items:
+        return JSONResponse({"error": "items must be a non-empty array"}, status_code=400)
+
+    import uuid
+    job_id = f"tm_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+    _topic_jobs[job_id] = {
+        "job_id": job_id,
+        "status": "queued",
+        "progress": 0,
+        "message": f"Queued {len(items)} documents for topic modeling",
+        "doc_count": len(items),
+        "research_goal": research_goal,
+        "created_at": datetime.utcnow().isoformat() + "Z",
+    }
+
+    # Fire-and-forget background task. FastAPI's BackgroundTasks ties to a
+    # specific response lifecycle; asyncio.create_task survives the request.
+    asyncio.create_task(_run_topic_job(job_id, items, research_goal, min_cluster_size))
+
+    return {"job_id": job_id, "status": "queued", "doc_count": len(items)}
+
+
+@app.get("/api/topic-model/status/{job_id}")
+async def topic_model_status(job_id: str = Path(...)):
+    """Poll a topic-modeling job. Returns the full state dict; when status
+    == 'completed', the `result` key contains the TopicResult ready for UI."""
+    if job_id not in _topic_jobs:
+        # Maybe the proxy restarted and we lost the in-memory state, but the
+        # result is persisted on disk. Try to load it.
+        synth_path = f"/hic-workspace/wiki/synthesis/topics-{job_id}.json"
+        if os.path.exists(synth_path):
+            try:
+                with open(synth_path, "r", encoding="utf-8") as f:
+                    persisted = json.load(f)
+                return {
+                    "job_id": job_id,
+                    "status": "completed",
+                    "progress": 100,
+                    "result": persisted.get("result"),
+                    "completed_at": persisted.get("completed_at"),
+                    "from_disk": True,
+                }
+            except Exception as e:
+                return JSONResponse({"error": f"Job not in memory, disk load failed: {e}"}, status_code=404)
+        return JSONResponse({"error": f"Unknown job_id: {job_id}"}, status_code=404)
+    return _topic_jobs[job_id]
+
+
+# ================================================================
+# SESSION SAVE / LOAD — 2026-05-11 (HiC-Session-Save)
+# ================================================================
+#
+# Total research session persistence. Each session is a folder under
+# /hic-workspace/sessions/{slug}/ containing the full state needed to
+# reload and continue an engagement: research goal + config, all
+# generated deliverables, knowledge graph, topic-modeling result,
+# AI Analyst chat history, corpus items, Reddit-deep raw payload,
+# and learned constraints. Soft-delete moves the folder to
+# /hic-workspace/sessions/.deleted/{slug}.{ts}/ so accidental deletes
+# are recoverable.
+#
+# Storage layout per session:
+#   metadata.json     — title, slug, dates, status, deliverable counts
+#   state.json        — full App-level state (deliverables, configs)
+#   chat.json         — AI Analyst chat turns
+#   topic_model.json  — topic clusters + documents
+#   knowledge_graph.json — KG nodes + edges
+#   corpus.json       — corpus text + chunk map + live source results
+#   reddit_deep.json  — raw Reddit-deep payloads for topic re-modeling
+#
+# Endpoints:
+#   POST   /api/sessions               — save (create or in-place update)
+#   GET    /api/sessions               — list (summary metadata only)
+#   GET    /api/sessions/{slug}        — load full session
+#   DELETE /api/sessions/{slug}        — soft-delete
+#   GET    /api/sessions/{slug}/health — exists + bytes + last-modified
+
+SESSIONS_BASE = "/hic-workspace/sessions"
+SESSION_SCHEMA_VERSION = 1
+# Per-section filenames so loaders can fetch just what they need.
+SESSION_SECTION_FILES = {
+    "metadata": "metadata.json",
+    "state": "state.json",
+    "chat": "chat.json",
+    "topic_model": "topic_model.json",
+    "knowledge_graph": "knowledge_graph.json",
+    "corpus": "corpus.json",
+    "reddit_deep": "reddit_deep.json",
+    "learned_constraints": "learned_constraints.md",
+}
+
+
+def _safe_session_slug(raw: str) -> str:
+    """Slugify a research goal into a safe folder name. Matches the
+    JS-side slugify in services/engagementRetrospective.ts so the same
+    engagement re-runs hit the same session folder."""
+    s = (raw or "untitled-session").lower()
+    s = "".join(c if c.isalnum() or c in " -_" else "" for c in s)
+    s = "-".join(s.split())
+    s = s.strip("-")
+    return s[:80] or "untitled-session"
+
+
+@app.post("/api/sessions")
+async def session_save(req: Request):
+    """Create or in-place update a session. Body shape:
+      {
+        slug: str (optional — derived from title/goal if absent),
+        title: str,
+        sections: {
+          metadata: {...},
+          state: {...},
+          chat: [...],
+          topic_model: {...},
+          knowledge_graph: {...},
+          corpus: {...},
+          reddit_deep: [...],
+          learned_constraints: "markdown text",
+        }
+      }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+
+    slug = (body.get("slug") or "").strip()
+    title = (body.get("title") or "").strip()
+    if not slug:
+        slug = _safe_session_slug(title or "untitled")
+    else:
+        slug = _safe_session_slug(slug)
+    sections = body.get("sections") or {}
+    if not isinstance(sections, dict):
+        return JSONResponse({"error": "sections must be an object"}, status_code=400)
+
+    folder = os.path.join(SESSIONS_BASE, slug)
+    os.makedirs(folder, exist_ok=True)
+
+    # Build metadata with server-side timestamps so the source of truth is
+    # the proxy clock, not whatever the browser reports.
+    now = datetime.utcnow().isoformat() + "Z"
+    existing_meta = {}
+    meta_path = os.path.join(folder, SESSION_SECTION_FILES["metadata"])
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, "r", encoding="utf-8") as f:
+                existing_meta = json.load(f)
+        except Exception:
+            existing_meta = {}
+
+    user_meta = sections.get("metadata") or {}
+    merged_meta = {
+        **existing_meta,
+        **user_meta,
+        "slug": slug,
+        "title": title or user_meta.get("title") or existing_meta.get("title") or slug,
+        "schema_version": SESSION_SCHEMA_VERSION,
+        "saved_at": now,
+        "created_at": existing_meta.get("created_at") or user_meta.get("created_at") or now,
+    }
+    # Recompute lightweight counters so the list endpoint can show them
+    # without reading every section file on each request.
+    try:
+        merged_meta["deliverable_count"] = sum(
+            1 for k in ("themes", "personas", "journey_stages", "recommendations",
+                        "prd", "roadmap", "tech_architecture", "gap_analysis",
+                        "tech_audit", "competitive_analysis", "strategic_report")
+            if (sections.get("state") or {}).get(k)
+        )
+        merged_meta["chat_turn_count"] = len(sections.get("chat") or [])
+        merged_meta["topic_count"] = (sections.get("topic_model") or {}).get("topic_count", 0)
+        merged_meta["source_count"] = len((sections.get("corpus") or {}).get("live_source_results") or [])
+    except Exception:
+        pass
+
+    section_keys = ("metadata", "state", "chat", "topic_model", "knowledge_graph", "corpus", "reddit_deep")
+    written = []
+    for key in section_keys:
+        if key == "metadata":
+            payload = merged_meta
+        else:
+            payload = sections.get(key)
+            if payload is None:
+                # If the caller didn't include a section, leave any existing file
+                # alone — partial updates preserve prior state.
+                continue
+        path = os.path.join(folder, SESSION_SECTION_FILES[key])
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+            written.append(key)
+        except Exception as e:
+            return JSONResponse({"error": f"write {key} failed: {e}"}, status_code=500)
+
+    # Learned constraints get their own markdown file
+    lc = sections.get("learned_constraints")
+    if isinstance(lc, str) and lc.strip():
+        try:
+            with open(os.path.join(folder, SESSION_SECTION_FILES["learned_constraints"]), "w", encoding="utf-8") as f:
+                f.write(lc)
+            written.append("learned_constraints")
+        except Exception:
+            pass
+
+    return {
+        "ok": True,
+        "slug": slug,
+        "title": merged_meta["title"],
+        "saved_at": now,
+        "sections_written": written,
+    }
+
+
+@app.get("/api/sessions")
+async def session_list():
+    """List sessions (newest saved first), returning metadata only — not bodies."""
+    if not os.path.isdir(SESSIONS_BASE):
+        return {"total": 0, "sessions": []}
+    out = []
+    for name in os.listdir(SESSIONS_BASE):
+        if name.startswith(".") or name == ".deleted":
+            continue
+        folder = os.path.join(SESSIONS_BASE, name)
+        if not os.path.isdir(folder):
+            continue
+        meta_path = os.path.join(folder, SESSION_SECTION_FILES["metadata"])
+        if not os.path.exists(meta_path):
+            continue
+        try:
+            with open(meta_path, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+            # Compute folder size lazily so the list call stays cheap on big sessions.
+            total_bytes = 0
+            try:
+                for f_name in os.listdir(folder):
+                    fp = os.path.join(folder, f_name)
+                    if os.path.isfile(fp):
+                        total_bytes += os.path.getsize(fp)
+            except Exception:
+                pass
+            meta["bytes"] = total_bytes
+            out.append(meta)
+        except Exception as e:
+            print(f"[sessions] skip {name}: {e}")
+            continue
+    # Newest saved first
+    out.sort(key=lambda m: m.get("saved_at", ""), reverse=True)
+    return {"total": len(out), "sessions": out}
+
+
+@app.get("/api/sessions/{slug}")
+async def session_load(slug: str = Path(...)):
+    """Load the full session — every section file is returned in one shot."""
+    safe_slug = _safe_session_slug(slug)
+    folder = os.path.join(SESSIONS_BASE, safe_slug)
+    if not os.path.isdir(folder):
+        return JSONResponse({"error": f"Session not found: {slug}"}, status_code=404)
+
+    sections: Dict[str, Any] = {}
+    for key, fname in SESSION_SECTION_FILES.items():
+        path = os.path.join(folder, fname)
+        if not os.path.exists(path):
+            continue
+        try:
+            if fname.endswith(".json"):
+                with open(path, "r", encoding="utf-8") as f:
+                    sections[key] = json.load(f)
+            else:
+                with open(path, "r", encoding="utf-8") as f:
+                    sections[key] = f.read()
+        except Exception as e:
+            print(f"[sessions] failed to load {slug}/{fname}: {e}")
+            sections[key] = None
+
+    return {"slug": safe_slug, "sections": sections}
+
+
+@app.delete("/api/sessions/{slug}")
+async def session_delete(slug: str = Path(...)):
+    """Soft-delete: move the session folder to .deleted/{slug}.{timestamp}/."""
+    safe_slug = _safe_session_slug(slug)
+    folder = os.path.join(SESSIONS_BASE, safe_slug)
+    if not os.path.isdir(folder):
+        return JSONResponse({"error": "Session not found"}, status_code=404)
+    deleted_root = os.path.join(SESSIONS_BASE, ".deleted")
+    os.makedirs(deleted_root, exist_ok=True)
+    ts = int(time.time())
+    dest = os.path.join(deleted_root, f"{safe_slug}.{ts}")
+    try:
+        os.rename(folder, dest)
+        return {"ok": True, "slug": safe_slug, "moved_to": dest}
+    except Exception as e:
+        return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
+
+
+@app.get("/api/sessions/{slug}/health")
+async def session_health(slug: str = Path(...)):
+    """Tiny endpoint for "does this session exist?" checks without loading bodies."""
+    safe_slug = _safe_session_slug(slug)
+    folder = os.path.join(SESSIONS_BASE, safe_slug)
+    exists = os.path.isdir(folder)
+    if not exists:
+        return {"exists": False, "slug": safe_slug}
+    meta_path = os.path.join(folder, SESSION_SECTION_FILES["metadata"])
+    last_modified = None
+    bytes_total = 0
+    if os.path.exists(meta_path):
+        last_modified = os.path.getmtime(meta_path)
+    try:
+        for fn in os.listdir(folder):
+            fp = os.path.join(folder, fn)
+            if os.path.isfile(fp):
+                bytes_total += os.path.getsize(fp)
+    except Exception:
+        pass
+    return {
+        "exists": True,
+        "slug": safe_slug,
+        "last_modified": last_modified,
+        "bytes": bytes_total,
+    }
+
+
+# ================================================================
+# EXPERIENCE PROTOTYPES — 2026-05-11 (HiC-Experience-Designer)
+# ================================================================
+#
+# Persists interactive prototypes generated by the 5-stage pipeline
+# (Decomposer → Architect → Designer → Coder → Critic). Each prototype
+# is the full artifact: brief, spec, design system, generated code, and
+# critic report. Stored at /hic-workspace/prototypes/{slug}.json.
+#
+# Endpoints mirror the presentations family — same patterns, same
+# robustness:
+#   POST   /api/prototypes              — save (create or overwrite)
+#   GET    /api/prototypes              — list summaries (no bodies)
+#   GET    /api/prototypes/{slug}       — load full payload
+#   DELETE /api/prototypes/{slug}       — soft-delete
+#   GET    /api/prototypes/{slug}/view  — serve runnable HTML in browser
+#
+# The /view endpoint wraps the generated code in a minimal HTML scaffold
+# with React/framer-motion/lucide-react via ESM CDN imports, so the
+# launcher card in chat can open it in a fresh window with no build step.
+
+PROTOTYPES_DIR = "/hic-workspace/prototypes"
+
+
+@app.post("/api/prototypes")
+async def prototype_save(req: Request):
+    """Persist a prototype. Body:
+      {
+        slug: str,
+        title: str,
+        concept: str,                    # original concept text
+        brief: object,                   # Stage 1 JSON
+        interaction_spec: object,        # Stage 2 JSON
+        design_system: object,           # Stage 3 JSON
+        code: str,                       # Stage 4 code (React or HTML)
+        critique: object,                # Stage 5 verdict + issues
+        code_format: "react" | "html",   # determines /view wrapping
+        research_goal: str,
+        based_on: str,                   # e.g., "recommendation: <name>"
+      }
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"error": "Invalid JSON body"}, status_code=400)
+
+    slug = (body.get("slug") or "").strip()
+    if not slug:
+        return JSONResponse({"error": "slug is required"}, status_code=400)
+    # Normalize slug to URL-safe
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "-" for c in slug.lower())
+    safe_slug = "-".join(safe_slug.split("-"))  # collapse runs
+    safe_slug = safe_slug.strip("-")[:100] or "untitled-prototype"
+
+    title = (body.get("title") or safe_slug).strip()
+    code = body.get("code")
+    if not isinstance(code, str) or len(code) < 50:
+        return JSONResponse({"error": "code must be a non-empty string >= 50 chars"}, status_code=400)
+
+    os.makedirs(PROTOTYPES_DIR, exist_ok=True)
+    now = datetime.utcnow().isoformat() + "Z"
+
+    file_path = os.path.join(PROTOTYPES_DIR, f"{safe_slug}.json")
+    existing = {}
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+        except Exception:
+            existing = {}
+
+    payload = {
+        "schema_version": 1,
+        "slug": safe_slug,
+        "title": title,
+        "concept": body.get("concept") or "",
+        "brief": body.get("brief"),
+        "interaction_spec": body.get("interaction_spec"),
+        "design_system": body.get("design_system"),
+        "code": code,
+        "critique": body.get("critique"),
+        "code_format": (body.get("code_format") or "react").lower(),
+        "research_goal": body.get("research_goal") or "",
+        "based_on": body.get("based_on") or "",
+        "created_at": existing.get("created_at") or now,
+        "updated_at": now,
+    }
+
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return JSONResponse({"error": f"write failed: {e}"}, status_code=500)
+
+    return {
+        "ok": True,
+        "slug": safe_slug,
+        "title": title,
+        "url": f"http://localhost:5012/api/prototypes/{safe_slug}/view",
+        "view_url": f"/api/prototypes/{safe_slug}/view",
+        "created_at": payload["created_at"],
+        "updated_at": payload["updated_at"],
+        "code_chars": len(code),
+    }
+
+
+@app.get("/api/prototypes")
+async def prototype_list():
+    """List prototypes — summary metadata only, newest first."""
+    if not os.path.isdir(PROTOTYPES_DIR):
+        return {"total": 0, "results": []}
+    out = []
+    for name in os.listdir(PROTOTYPES_DIR):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(PROTOTYPES_DIR, name)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                p = json.load(f)
+            out.append({
+                "slug": p.get("slug"),
+                "title": p.get("title"),
+                "concept_preview": (p.get("concept") or "")[:200],
+                "research_goal": p.get("research_goal"),
+                "based_on": p.get("based_on"),
+                "code_format": p.get("code_format", "react"),
+                "code_chars": len(p.get("code") or ""),
+                "created_at": p.get("created_at"),
+                "updated_at": p.get("updated_at"),
+                "view_url": f"/api/prototypes/{p.get('slug')}/view",
+            })
+        except Exception as e:
+            print(f"[prototypes] skip {name}: {e}")
+            continue
+    out.sort(key=lambda r: r.get("updated_at", ""), reverse=True)
+    return {"total": len(out), "results": out}
+
+
+@app.get("/api/prototypes/{slug}")
+async def prototype_load(slug: str = Path(...)):
+    """Load the full prototype payload."""
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return JSONResponse({"error": "invalid slug"}, status_code=400)
+    path = os.path.join(PROTOTYPES_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "not found"}, status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": f"read failed: {e}"}, status_code=500)
+
+
+@app.delete("/api/prototypes/{slug}")
+async def prototype_delete(slug: str = Path(...)):
+    """Soft-delete: move to /hic-workspace/prototypes/.deleted/{slug}.{ts}.json"""
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return JSONResponse({"error": "invalid slug"}, status_code=400)
+    path = os.path.join(PROTOTYPES_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "not found"}, status_code=404)
+    deleted_dir = os.path.join(PROTOTYPES_DIR, ".deleted")
+    os.makedirs(deleted_dir, exist_ok=True)
+    ts = int(time.time())
+    dest = os.path.join(deleted_dir, f"{safe_slug}.{ts}.json")
+    try:
+        os.rename(path, dest)
+        return {"ok": True, "slug": safe_slug, "moved_to": dest}
+    except Exception as e:
+        return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
+
+
+@app.get("/api/prototypes/{slug}/view")
+async def prototype_view(slug: str = Path(...)):
+    """Serve the prototype as a runnable HTML page. Wraps React/JSX code
+    in a minimal scaffold with ESM imports from esm.sh so framer-motion,
+    lucide-react, and React 18 all work with zero build step."""
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return JSONResponse({"error": "invalid slug"}, status_code=400)
+    path = os.path.join(PROTOTYPES_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "Prototype not found"}, status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            p = json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": f"read failed: {e}"}, status_code=500)
+
+    code = p.get("code") or ""
+    title = p.get("title") or safe_slug
+    fmt = (p.get("code_format") or "react").lower()
+
+    if fmt == "html":
+        # Stage 4 emitted a full HTML doc — serve it verbatim.
+        from fastapi.responses import HTMLResponse
+        return HTMLResponse(content=code)
+
+    # 2026-05-11 — Bulletproof React wrapper. Earlier version used import
+    # maps + Babel Standalone with data-type="module" which had brittle ESM
+    # resolution. New approach: load React/ReactDOM/framer-motion/lucide-react
+    # as **UMD globals** before the user code, then run a plain text/babel
+    # script. Babel just transpiles JSX; no ESM resolution needed. The
+    # generated code is instructed (Stage 4 prompt) to destructure globals:
+    #   const { useState, useEffect, useRef, useMemo } = React;
+    #   const { motion, AnimatePresence } = window.framerMotion;
+    #   const { ArrowRight, Send } = window.lucide;
+    # Any leading `import` statements emitted by the model are stripped
+    # before injection so legacy patterns still work.
+    from fastapi.responses import HTMLResponse
+
+    # Strip ESM `import` / `export` statements (model may emit them despite
+    # instructions) so they don't choke Babel. Babel Standalone's `react`
+    # preset transpiles JSX but does NOT understand module syntax — a single
+    # `export default` token in the source aborts the entire mount with
+    # "SyntaxError: Failed to execute 'appendChild' on 'Node': Unexpected
+    # token 'export'". Keep everything else verbatim.
+    import re as _re_inj
+    stripped_code = _re_inj.sub(r'^\s*import\s+.*?from\s+[\'"][^\'"]+[\'"];?\s*$', '', code, flags=_re_inj.MULTILINE)
+    # Also strip TypeScript-flavored "import type" patterns
+    stripped_code = _re_inj.sub(r'^\s*import\s+type\s+.*?from\s+[\'"][^\'"]+[\'"];?\s*$', '', stripped_code, flags=_re_inj.MULTILINE)
+    # Bare-side-effect imports: `import 'something';`
+    stripped_code = _re_inj.sub(r'^\s*import\s+[\'"][^\'"]+[\'"];?\s*$', '', stripped_code, flags=_re_inj.MULTILINE)
+    # `export default <expr>;` — strip the keyword, keep the expression.
+    # The auto-detector below will pick up the named symbol (App / Prototype /
+    # Component / Main / Experience) regardless.
+    stripped_code = _re_inj.sub(r'^\s*export\s+default\s+', '', stripped_code, flags=_re_inj.MULTILINE)
+    # `export const X = ...`, `export function X() {}`, `export class X {}`,
+    # `export async function X() {}` — drop the `export` keyword, keep the decl.
+    stripped_code = _re_inj.sub(r'^\s*export\s+(const|let|var|function|class|async\s+function)\b', r'\1', stripped_code, flags=_re_inj.MULTILINE)
+    # `export { X, Y };` — drop the entire re-export statement, the symbols
+    # are already declared above.
+    stripped_code = _re_inj.sub(r'^\s*export\s*\{[^}]*\}\s*;?\s*$', '', stripped_code, flags=_re_inj.MULTILINE)
+    # Top-level redeclarations of React hooks / framer-motion / lucide.
+    # The wrapper pre-destructures these as bare identifiers (useState,
+    # motion, AnimatePresence, lucide, etc.). Model often re-declares them
+    # at the top of its file: `const { useState, useEffect } = React;` —
+    # which causes a hard SyntaxError: "Identifier 'useState' has already
+    # been declared." That parse-time error surfaces in the browser only
+    # as the CORS-cloaked "Script error." (no stack) because Babel
+    # Standalone fires the error from a cross-origin script context.
+    # Strip these redeclaration blocks. The pattern matches a const/let/var
+    # destructuring whose right-hand side is exactly `React`, `window.React`,
+    # `window.framerMotion`, `framerMotion`, `Motion`, `window.lucide`, or
+    # `lucide` (with optional `|| {}` fallback), spanning multiple lines.
+    _redecl_re = _re_inj.compile(
+        r'^[ \t]*(?:const|let|var)\s*\{[^}]*\}\s*=\s*'
+        r'(?:window\.)?(?:React|framerMotion|Motion|lucide)'
+        r'(?:\s*\|\|\s*\{\s*\}\s*)?\s*;?\s*$',
+        _re_inj.MULTILINE | _re_inj.DOTALL,
+    )
+    stripped_code = _redecl_re.sub('', stripped_code)
+    # Single-identifier redeclarations: `const lucide = window.lucide;`
+    stripped_code = _re_inj.sub(
+        r'^[ \t]*(?:const|let|var)\s+(?:React|ReactDOM|lucide|motion|AnimatePresence|framerMotion)\s*=\s*window\.(?:React|ReactDOM|lucide|framerMotion|Motion)(?:\s*\|\|\s*\{\s*\}\s*)?\s*;?\s*$',
+        '',
+        stripped_code,
+        flags=_re_inj.MULTILINE,
+    )
+    # `alert(...)` is BANNED in prototypes — native browser dialogs make demos
+    # look like 2005 web forms. Replace any alert() call site with a no-op
+    # console.warn so the missing-feature stub doesn't surface to the user.
+    # This is a safety net; the Stage 4 prompt and Stage 5 critic should have
+    # already rejected the stub upstream.
+    stripped_code = _re_inj.sub(
+        r'\b(?:window\.)?alert\s*\(',
+        'console.warn("[hic-proto] alert() stripped — replace with real UI:",',
+        stripped_code,
+    )
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} — HiC Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      html, body, #root {{ margin: 0; padding: 0; min-height: 100vh; }}
+      body {{ font-family: 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
+      * {{ box-sizing: border-box; }}
+      .__hic_proto_error {{
+        padding: 24px; margin: 16px; max-width: 720px;
+        background: #FCF1ED; border: 1px solid #CC6644; border-left: 4px solid #CC6644;
+        font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #0D0D0D;
+        white-space: pre-wrap; word-break: break-word;
+      }}
+    </style>
+    <!-- UMD globals: window.React, window.ReactDOM, window.framerMotion, window.lucide.
+         IMPORTANT: lucide-react (NOT vanilla lucide) is the one that exposes real
+         React components. The vanilla `lucide` UMD only exports icon data objects,
+         so <lucide.User /> resolves to undefined → React error #130 ("Element type
+         is invalid"). lucide-react@0.460.0 publishes a proper UMD bundle that we
+         normalize onto window.lucide below. -->
+    <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <!-- lucide-react UMD's factory references `global.react` (lowercase). React's
+         UMD bundle exposes `window.React` (capital R). Alias before loading
+         lucide-react so its factory binds a real React reference instead of
+         undefined (which would render every icon as `undefined` → React #130). -->
+    <script>window.react = window.React; window.reactDom = window.ReactDOM;</script>
+    <script crossorigin src="https://unpkg.com/framer-motion@11.5.4/dist/framer-motion.js"></script>
+    <script crossorigin src="https://unpkg.com/lucide-react@0.460.0/dist/umd/lucide-react.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+      // Surface JS errors prominently — Babel's silent failure mode is the
+      // single biggest source of "blank page" debugging pain.
+      window.addEventListener('error', function(e) {{
+        try {{
+          var root = document.getElementById('root');
+          if (root && !root.dataset.errored) {{
+            root.dataset.errored = '1';
+            var div = document.createElement('div');
+            div.className = '__hic_proto_error';
+            div.textContent = 'Prototype runtime error:\\n\\n' + (e.error && e.error.stack ? e.error.stack : e.message);
+            root.appendChild(div);
+          }}
+        }} catch(_) {{}}
+      }});
+
+      // Build aliases for the Stage 4 prompt's expected globals.
+      // framer-motion's UMD bundle exposes under `window.Motion` (older) or
+      // `window.framerMotion` (newer); normalize.
+      window.framerMotion = window.framerMotion || window.Motion || {{}};
+      // lucide-react UMD exposes its React components under different global
+      // names depending on version (`lucide`, `lucideReact`, `LucideReact`).
+      // Normalize them all onto window.lucide so the Stage 4 prompt's expected
+      // <lucide.User />, <lucide.Search />, etc. resolves to real React
+      // components instead of vanilla SVG-data objects (which trigger React
+      // error #130 "Element type is invalid").
+      window.lucide = window.lucide || window.lucideReact || window.LucideReact || {{}};
+    </script>
+    <script type="text/babel" data-presets="react">
+    // Expose React hooks + framer-motion + lucide as bare identifiers so
+    // generated code can either destructure or use globals directly.
+    const {{ useState, useEffect, useRef, useMemo, useCallback, useReducer, useLayoutEffect, Fragment, createContext, useContext }} = React;
+    const {{ motion, AnimatePresence, useAnimation, useMotionValue, useTransform, useScroll }} = window.framerMotion || {{}};
+    // Lucide icons: every icon is on window.lucide; alias the most common
+    // for convenience. If the model used a less-common icon, it can fall
+    // back to `window.lucide.IconName` directly.
+    const lucide = window.lucide || {{}};
+
+{stripped_code}
+
+    // Auto-detect the root component the model emitted.
+    const __HIC_ROOT__ = (typeof App !== 'undefined' && App)
+      || (typeof Prototype !== 'undefined' && Prototype)
+      || (typeof Component !== 'undefined' && Component)
+      || (typeof Main !== 'undefined' && Main)
+      || (typeof Experience !== 'undefined' && Experience);
+
+    if (!__HIC_ROOT__) {{
+        var rootEl = document.getElementById('root');
+        rootEl.innerHTML = '<div class="__hic_proto_error">No root component detected. Expected a const or function named one of: App, Prototype, Component, Main, Experience. Check the prototype source for a declaration like <code>const App = () => ...</code></div>';
+    }} else {{
+        ReactDOM.createRoot(document.getElementById('root')).render(<__HIC_ROOT__ />);
+    }}
+    </script>
+</body>
+</html>"""
+    return HTMLResponse(content=html)
+
+
+# ============================================================================
+# HTML ARTIFACTS — Sprint H1 (2026-05-12)
+# ----------------------------------------------------------------------------
+# Self-contained HTML deliverables (briefs, explainers, reports, playgrounds,
+# approach-pickers) generated by the html-deliverable-composer skill. Mirror
+# of the prototype family but for STATIC HTML (no React/Babel runtime needed).
+#
+# Storage:    /hic-workspace/artifacts/{slug}.json
+# Endpoints:  POST    /api/artifacts                 — save
+#             GET     /api/artifacts                 — list
+#             GET     /api/artifacts/{slug}          — fetch payload
+#             DELETE  /api/artifacts/{slug}          — soft-delete
+#             GET     /api/artifacts/{slug}/view     — render as HTML page
+#             POST    /api/artifacts/{slug}/promote-variant — for --variants k
+# ============================================================================
+
+ARTIFACTS_DIR = "/hic-workspace/artifacts"
+
+
+# Shared NXT/NU brand-token CSS injected by the artifact view endpoint.
+# Hoisted from prototypeBuilder.ts BRAND_TOKENS so prototype and artifact
+# endpoints share one source of truth for the design system.
+NXT_BRAND_TOKENS_CSS = """
+:root {
+  /* NXT foundation */
+  --nxt-bg: #FFFFFF;
+  --nxt-surface: #FAFAFA;
+  --nxt-panel: #F5F5F0;
+  --nxt-text-primary: #0D0D0D;
+  --nxt-text-secondary: #525252;
+  --nxt-text-tertiary: #ACACAC;
+  --nxt-border: #E5E5E5;
+  /* NXT brand accents */
+  --nxt-lime: #B8B800;
+  --nxt-teal: #115054;
+  --nxt-cyan: #00B7C3;
+  --nxt-rust: #CC6644;
+  /* Semantic */
+  --nxt-success: #0CCE6B;
+  --nxt-warning: #FD8E2E;
+  --nxt-friction: #CC6644;
+  --nxt-error: #FF5A5A;
+  /* Type */
+  --nxt-font-display: 'Bebas Neue', sans-serif;
+  --nxt-font-body: 'Archivo', sans-serif;
+  --nxt-font-mono: 'JetBrains Mono', monospace;
+  /* Layout */
+  --nxt-radius: 2px;
+  --nxt-radius-card: 2px;
+  --nxt-radius-button: 0px;
+  --nxt-button-height: 44px;
+}
+[data-brand="NU"] {
+  --nxt-bg: #FFFFFF;
+  --nxt-surface: #F7F7F7;
+  --nxt-text-primary: #000000;
+  --nxt-text-secondary: #414141;
+  --nu-red: #C8102E;
+  --nu-red-deep: #9E0A24;
+  --nu-red-tint: #FBE7EA;
+  --nxt-font-display: 'Roboto Condensed', sans-serif;
+  --nxt-font-body: 'Open Sans', sans-serif;
+}
+html, body { margin: 0; padding: 0; min-height: 100vh; }
+body {
+  font-family: var(--nxt-font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--nxt-bg);
+  color: var(--nxt-text-primary);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+h1, h2, h3, h4 { font-family: var(--nxt-font-display); font-weight: 700; letter-spacing: 0.02em; line-height: 1.1; margin: 0; }
+[data-brand="NU"] h1, [data-brand="NU"] h2, [data-brand="NU"] h3, [data-brand="NU"] h4 { letter-spacing: -0.01em; }
+code, pre, .__hic_mono { font-family: var(--nxt-font-mono); }
+.__hic_label { font-family: var(--nxt-font-mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--nxt-text-secondary); }
+button, .__hic_btn {
+  font-family: var(--nxt-font-body);
+  font-weight: 700;
+  border: 1px solid var(--nxt-text-primary);
+  background: var(--nxt-bg);
+  color: var(--nxt-text-primary);
+  padding: 10px 18px;
+  border-radius: var(--nxt-radius-button);
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+button:hover, .__hic_btn:hover { background: var(--nxt-text-primary); color: var(--nxt-bg); }
+button.__hic_primary { background: var(--nxt-lime); color: var(--nxt-text-primary); border-color: var(--nxt-lime); }
+button.__hic_primary:hover { background: var(--nxt-text-primary); color: var(--nxt-lime); border-color: var(--nxt-text-primary); }
+[data-brand="NU"] button.__hic_primary { background: var(--nu-red); color: #FFFFFF; border-color: var(--nu-red); }
+[data-brand="NU"] button.__hic_primary:hover { background: var(--nu-red-deep); border-color: var(--nu-red-deep); }
+.__hic_artifact_footer {
+  margin-top: 48px;
+  padding: 24px;
+  border-top: 1px solid var(--nxt-border);
+  background: var(--nxt-surface);
+  font-size: 12px;
+  color: var(--nxt-text-secondary);
+}
+.__hic_artifact_footer details { margin-top: 16px; }
+.__hic_artifact_footer summary {
+  cursor: pointer;
+  font-family: var(--nxt-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--nxt-text-secondary);
+  user-select: none;
+}
+.__hic_artifact_footer pre {
+  margin-top: 8px;
+  padding: 12px;
+  background: var(--nxt-bg);
+  border: 1px solid var(--nxt-border);
+  font-size: 11px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.__hic_copy_buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+@media print {
+  body { background: #FFFFFF !important; color: #000000 !important; }
+  .__hic_artifact_footer, .__hic_copy_buttons, .__hic_variant_picker__pick_button { display: none !important; }
+  a { color: #000000; text-decoration: underline; }
+  figure, table { page-break-inside: avoid; }
+  @page { margin: 0.75in; }
+}
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .__hic_artifact_footer { padding: 16px; }
+}
+"""
+
+
+@app.post("/api/artifacts")
+async def artifact_save(request: Request):
+    """Save an HTML artifact. Body shape:
+        {
+          "slug": "kebab-case",                  (optional — derived from title)
+          "title": "Brief title",                (required)
+          "generator": "#brief | #explainer | ...",
+          "html_source": "<full HTML body>",     (required — the model's output)
+          "engagement_context": {...},           (optional — for round-trip)
+          "vs_commitment": {...},                (optional — what frame was picked)
+          "topic": "...",                        (optional)
+          "brand": "NXT | NU",                   (optional — default NXT)
+          "variants_history": [{...}, ...]       (optional — if --variants k was used)
+        }
+    """
+    try:
+        data = await request.json()
+    except Exception as e:
+        return JSONResponse({"error": f"invalid JSON: {e}"}, status_code=400)
+    title = (data.get("title") or "").strip()
+    html_source = data.get("html_source") or ""
+    generator = (data.get("generator") or "#artifact").strip()
+    if not title:
+        return JSONResponse({"error": "title required"}, status_code=400)
+    if not html_source:
+        return JSONResponse({"error": "html_source required"}, status_code=400)
+    raw_slug = (data.get("slug") or title).lower()
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "-" for c in raw_slug)
+    safe_slug = "-".join(filter(None, safe_slug.split("-")))[:80] or "untitled-artifact"
+
+    os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+    file_path = os.path.join(ARTIFACTS_DIR, f"{safe_slug}.json")
+    now_iso = datetime.now(timezone.utc).isoformat()
+    existing_created = None
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                existing_created = json.load(f).get("created_at")
+        except Exception:
+            pass
+
+    payload = {
+        "slug": safe_slug,
+        "title": title,
+        "generator": generator,
+        "html_source": html_source,
+        "engagement_context": data.get("engagement_context"),
+        "vs_commitment": data.get("vs_commitment"),
+        "topic": data.get("topic") or "",
+        "brand": (data.get("brand") or "NXT").upper(),
+        "variants_history": data.get("variants_history") or [],
+        "html_chars": len(html_source),
+        "created_at": existing_created or now_iso,
+        "updated_at": now_iso,
+    }
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        return JSONResponse({"error": f"save failed: {e}"}, status_code=500)
+    return {
+        "ok": True,
+        "slug": safe_slug,
+        "title": title,
+        "generator": generator,
+        "html_chars": len(html_source),
+        "url": f"http://localhost:5012/api/artifacts/{safe_slug}/view",
+        "view_url": f"/api/artifacts/{safe_slug}/view",
+        "created_at": payload["created_at"],
+        "updated_at": payload["updated_at"],
+    }
+
+
+@app.get("/api/artifacts")
+async def artifact_list():
+    """List all saved artifacts (newest first, .deleted/ excluded)."""
+    if not os.path.isdir(ARTIFACTS_DIR):
+        return {"total": 0, "results": []}
+    results = []
+    for name in os.listdir(ARTIFACTS_DIR):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(ARTIFACTS_DIR, name)
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                p = json.load(f)
+            results.append({
+                "slug": p.get("slug"),
+                "title": p.get("title"),
+                "generator": p.get("generator"),
+                "topic": p.get("topic"),
+                "brand": p.get("brand"),
+                "html_chars": p.get("html_chars"),
+                "variants_count": len(p.get("variants_history") or []),
+                "created_at": p.get("created_at"),
+                "updated_at": p.get("updated_at"),
+                "view_url": f"/api/artifacts/{p.get('slug')}/view",
+            })
+        except Exception:
+            continue
+    results.sort(key=lambda r: r.get("updated_at") or "", reverse=True)
+    return {"total": len(results), "results": results}
+
+
+@app.get("/api/artifacts/{slug}")
+async def artifact_get(slug: str = Path(...)):
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return JSONResponse({"error": "invalid slug"}, status_code=400)
+    path = os.path.join(ARTIFACTS_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "Artifact not found"}, status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": f"read failed: {e}"}, status_code=500)
+
+
+@app.delete("/api/artifacts/{slug}")
+async def artifact_delete(slug: str = Path(...)):
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return JSONResponse({"error": "invalid slug"}, status_code=400)
+    path = os.path.join(ARTIFACTS_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "not found"}, status_code=404)
+    deleted_dir = os.path.join(ARTIFACTS_DIR, ".deleted")
+    os.makedirs(deleted_dir, exist_ok=True)
+    ts = int(time.time())
+    dest = os.path.join(deleted_dir, f"{safe_slug}.{ts}.json")
+    try:
+        os.rename(path, dest)
+        return {"ok": True, "slug": safe_slug, "moved_to": dest}
+    except Exception as e:
+        return JSONResponse({"error": f"delete failed: {e}"}, status_code=500)
+
+
+@app.post("/api/artifacts/{slug}/promote-variant")
+async def artifact_promote_variant(slug: str = Path(...), request: Request = None):
+    """When the model emitted N variants in a single artifact (--variants k mode),
+    the user picks one. We swap the picked variant's html_source into the
+    canonical artifact and stash the rest in variants_history for re-promotion."""
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    path = os.path.join(ARTIFACTS_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return JSONResponse({"error": "not found"}, status_code=404)
+    try:
+        body = await request.json()
+        variant_index = int(body.get("variant_index", -1))
+    except Exception:
+        return JSONResponse({"error": "invalid body — expected {variant_index: int}"}, status_code=400)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            p = json.load(f)
+        history = p.get("variants_history") or []
+        if variant_index < 0 or variant_index >= len(history):
+            return JSONResponse({"error": f"variant_index {variant_index} out of range (0..{len(history)-1})"}, status_code=400)
+        picked = history[variant_index]
+        current_html = p.get("html_source")
+        # Swap: picked variant becomes canonical, current canonical becomes a history entry.
+        new_history = [
+            {"html_source": current_html, "probability": p.get("vs_commitment", {}).get("probability"), "tradeoff": p.get("vs_commitment", {}).get("tradeoff"), "promoted_at": p.get("updated_at")}
+        ] + [h for i, h in enumerate(history) if i != variant_index]
+        p["html_source"] = picked.get("html_source") or current_html
+        p["html_chars"] = len(p["html_source"])
+        p["variants_history"] = new_history
+        p["vs_commitment"] = {
+            "probability": picked.get("probability"),
+            "tradeoff": picked.get("tradeoff"),
+            "promoted_from_variant": variant_index,
+        }
+        p["updated_at"] = datetime.now(timezone.utc).isoformat()
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(p, f, ensure_ascii=False, indent=2)
+        return {"ok": True, "slug": safe_slug, "promoted_variant_index": variant_index, "view_url": f"/api/artifacts/{safe_slug}/view"}
+    except Exception as e:
+        return JSONResponse({"error": f"promote failed: {e}"}, status_code=500)
+
+
+@app.get("/api/artifacts/{slug}/view")
+async def artifact_view(slug: str = Path(...)):
+    """Render the artifact as a runnable HTML page with NXT/NU brand tokens
+    injected, Copy-as-prompt helper, print stylesheet, and embedded metadata."""
+    from fastapi.responses import HTMLResponse
+    safe_slug = "".join(c if c.isalnum() or c in "-_" else "" for c in slug.lower())
+    if not safe_slug:
+        return HTMLResponse(content="<!DOCTYPE html><html><body><pre>Invalid slug</pre></body></html>", status_code=400)
+    path = os.path.join(ARTIFACTS_DIR, f"{safe_slug}.json")
+    if not os.path.exists(path):
+        return HTMLResponse(content="<!DOCTYPE html><html><body><pre>Artifact not found</pre></body></html>", status_code=404)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            p = json.load(f)
+    except Exception as e:
+        return HTMLResponse(content=f"<!DOCTYPE html><html><body><pre>Read failed: {e}</pre></body></html>", status_code=500)
+
+    title = p.get("title") or safe_slug
+    brand = (p.get("brand") or "NXT").upper()
+    html_body = p.get("html_source") or "<main><h1>Empty artifact</h1></main>"
+    generator = p.get("generator") or "#artifact"
+    meta_json = json.dumps({
+        "slug": p.get("slug"),
+        "title": p.get("title"),
+        "generator": p.get("generator"),
+        "engagement_context": p.get("engagement_context"),
+        "vs_commitment": p.get("vs_commitment"),
+        "topic": p.get("topic"),
+        "brand": p.get("brand"),
+        "created_at": p.get("created_at"),
+        "updated_at": p.get("updated_at"),
+    }, ensure_ascii=False)
+
+    # Strip leading ```html or ``` fences if the model emitted them
+    import re as _re_fence
+    html_body = _re_fence.sub(r'^```(?:html)?\s*\n', '', html_body.strip())
+    html_body = _re_fence.sub(r'\n```\s*$', '', html_body)
+
+    # If the artifact body is already a full document (starts with <!DOCTYPE
+    # or <html), serve it verbatim — assume the model wrote a complete page.
+    # Otherwise wrap it in our scaffold with brand-token injection.
+    body_strip = html_body.strip().lower()
+    if body_strip.startswith("<!doctype") or body_strip.startswith("<html"):
+        return HTMLResponse(content=html_body)
+
+    google_fonts = (
+        "https://fonts.googleapis.com/css2"
+        "?family=Bebas+Neue"
+        "&family=Archivo:wght@200;300;400;500;700;900"
+        "&family=Open+Sans:wght@300;400;600;700"
+        "&family=Roboto+Condensed:wght@400;600;700"
+        "&family=JetBrains+Mono:wght@400;500"
+        "&display=swap"
+    )
+
+    wrapper = f"""<!DOCTYPE html>
+<html lang="en" data-brand="{brand}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} — HiC Artifact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="{google_fonts}" rel="stylesheet">
+    <style>{NXT_BRAND_TOKENS_CSS}</style>
+</head>
+<body>
+    <main class="__hic_artifact_main">
+{html_body}
+    </main>
+    <footer class="__hic_artifact_footer">
+        <div class="__hic_label">HiC Artifact · {generator} · {brand}</div>
+        <div class="__hic_copy_buttons">
+            <button class="__hic_btn __hic_primary" id="__hic_copy_as_prompt">Copy as prompt</button>
+            <button class="__hic_btn" id="__hic_open_in_chat">Open in HiC chat</button>
+            <button class="__hic_btn" id="__hic_print">Save as PDF</button>
+        </div>
+        <details>
+            <summary>Artifact metadata</summary>
+            <pre>{meta_json}</pre>
+        </details>
+    </footer>
+    <script type="application/json" id="__HIC_ARTIFACT_META__">{meta_json}</script>
+    <script>
+      (function() {{
+        var meta = {meta_json};
+        var copyBtn = document.getElementById('__hic_copy_as_prompt');
+        var chatBtn = document.getElementById('__hic_open_in_chat');
+        var printBtn = document.getElementById('__hic_print');
+        function flash(btn, txt) {{
+          var orig = btn.textContent;
+          btn.textContent = txt;
+          setTimeout(function() {{ btn.textContent = orig; }}, 1800);
+        }}
+        if (copyBtn) {{
+          copyBtn.addEventListener('click', function() {{
+            var slug = (meta && meta.slug) || '{safe_slug}';
+            var tweak = window.prompt("What would you like to refine about this artifact? (Optional — leave blank for a generic refine)", '');
+            if (tweak === null) return;
+            var prompt = '#refine ' + slug + (tweak ? ': ' + tweak : '');
+            navigator.clipboard.writeText(prompt).then(function() {{
+              flash(copyBtn, 'Copied — paste into HiC chat');
+            }}).catch(function() {{
+              flash(copyBtn, 'Copy failed — manual: ' + prompt);
+            }});
+          }});
+        }}
+        if (chatBtn) {{
+          chatBtn.addEventListener('click', function() {{
+            try {{
+              if (window.opener && !window.opener.closed) {{
+                window.opener.postMessage({{
+                  type: 'hic-open-in-chat',
+                  slug: meta.slug,
+                  generator: meta.generator,
+                  prompt: '#refine ' + meta.slug,
+                }}, '*');
+                flash(chatBtn, 'Opened in HiC chat');
+              }} else {{
+                flash(chatBtn, 'HiC window not found');
+              }}
+            }} catch (e) {{
+              flash(chatBtn, 'Could not reach HiC: ' + e.message);
+            }}
+          }});
+        }}
+        if (printBtn) {{
+          printBtn.addEventListener('click', function() {{ window.print(); }});
+        }}
+      }})();
+    </script>
+</body>
+</html>"""
+    return HTMLResponse(content=wrapper)
+
+
+@app.get("/api/topic-model/health")
+async def topic_model_health():
+    """Probe whether the ML stack is importable. Useful for diagnosing
+    container-image issues separately from runtime job failures."""
+    try:
+        import numpy  # noqa: F401
+        import sklearn  # noqa: F401
+        import umap  # noqa: F401
+        import hdbscan  # noqa: F401
+        return {"ok": True, "error": None}
+    except ImportError as e:
+        return {"ok": False, "error": f"ML stack import failed: {e}"}
+
 @app.get("/api/sources")
 async def list_sources():
     """List all available data sources grouped by category."""
@@ -3488,11 +4957,45 @@ async def proxy_gemini(request: Request):
             gen_config["responseMimeType"] = config["responseMimeType"]
         if config.get("responseSchema"):
             gen_config["responseSchema"] = config["responseSchema"]
+        # 2026-05-11 — Pass through Gemini's thinking budget so callers can
+        # explicitly request high-cognitive-load runs (whitepaper §8.1: Stage 4
+        # of the prototype pipeline benefits from high thinking_budget — 3-5x
+        # the cost but step-function quality improvement). Gemini's API takes
+        # an INTEGER token budget (not a string), so we translate the
+        # conventional string aliases here.
+        # Caller forms accepted:
+        #   config.thinkingBudget = "high" | "medium" | "low" | "minimal"
+        #   config.thinkingBudget = 24000 (raw token count, passed through)
+        #   config.thinkingConfig = { thinkingBudget: <int> }  (verbatim)
+        def _resolve_thinking_budget(val):
+            if isinstance(val, int):
+                return val
+            if isinstance(val, str):
+                # Per Gemini 3 Pro docs: thinking budget is capped around
+                # 32768 tokens. We use moderate-sized buckets to balance cost.
+                return {"minimal": 0, "low": 1024, "medium": 8000, "high": 24000, "max": 32000}.get(val.lower(), 8000)
+            return None
 
+        if config.get("thinkingConfig") and isinstance(config["thinkingConfig"], dict):
+            tc = dict(config["thinkingConfig"])  # copy so we don't mutate caller
+            if "thinkingBudget" in tc:
+                resolved = _resolve_thinking_budget(tc["thinkingBudget"])
+                if resolved is not None:
+                    tc["thinkingBudget"] = resolved
+            gen_config["thinkingConfig"] = tc
+        elif config.get("thinkingBudget") is not None:
+            resolved = _resolve_thinking_budget(config["thinkingBudget"])
+            if resolved is not None:
+                gen_config["thinkingConfig"] = {"thinkingBudget": resolved}
+
+        # System instruction passthrough — separate from contents so Gemini
+        # treats it as the persistent system prompt rather than user input.
         gemini_body = {
             "contents": [{"parts": [{"text": contents}]}] if isinstance(contents, str) else contents,
             "generationConfig": gen_config,
         }
+        if body.get("systemInstruction"):
+            gemini_body["systemInstruction"] = body["systemInstruction"]
 
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
         content_size = len(json.dumps(gemini_body))

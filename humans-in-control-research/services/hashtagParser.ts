@@ -202,6 +202,120 @@ export function parsePresentationDirective(message: string): PresentationDirecti
   };
 }
 
+// 2026-05-11 (HiC-Experience-Designer) — #proto directive.
+// `#proto <free-form concept>` triggers the 5-stage builder pipeline.
+// `#proto #NXT` / `#proto #NU` selects the brand. Default NXT.
+export interface PrototypeDirective {
+  triggered: boolean;
+  brand: BrandVariant;
+  concept: string;        // the user's free-form text, brand tags stripped
+  basedOn?: string;       // optional "#name=<recommendation slug>" hint
+}
+
+export function parsePrototypeDirective(message: string): PrototypeDirective {
+  // Match `#proto` as standalone word so it doesn't collide with `#prototypes`
+  const triggered = /(?:^|\s)#proto(?=\s|$|[.,;:!?'"])/i.test(message);
+  if (!triggered) {
+    return { triggered: false, brand: 'NXT', concept: '' };
+  }
+  const brand: BrandVariant = hasFlag(message, '#NU') ? 'NU' : 'NXT';
+  // basedOn lets the chat reference a specific recommendation slug
+  const basedOn = extractValue(message, 'name') || extractValue(message, 'rec') || undefined;
+  // Strip the directive markers from the message to get the clean concept text
+  const concept = message
+    .replace(/(?:^|\s)#proto(?=\s|$|[.,;:!?'"])/gi, ' ')
+    .replace(/#NXT|#NU/gi, ' ')
+    .replace(/#name=\S+/gi, ' ')
+    .replace(/#rec=\S+/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return { triggered: true, brand, concept, basedOn };
+}
+
+// 2026-05-12 (Sprint H2 + H4) — HTML deliverable directives.
+// `#brief`, `#explainer`, `#report`, `#playground`, `#approaches` all
+// produce HTML artifacts via /api/artifacts. `#artifacts` (plural) lists
+// the library. `#help` produces the hashtag reference guide. `#refine`
+// targets an existing artifact slug. All accept `--variants k` (2-6).
+
+export type ArtifactGenerator = '#brief' | '#explainer' | '#report' | '#playground' | '#approaches';
+
+export interface ArtifactDirective {
+    triggered: boolean;
+    generator: ArtifactGenerator;
+    topic: string;            // user's free-form topic with directive + brand tags stripped
+    brand: BrandVariant;
+    variants: number;         // 1 (default) or 2-6 if --variants k specified
+}
+
+function parseVariantsModifier(message: string): number {
+    const m = message.match(/--variants[=\s]+(\d+)/i);
+    if (!m) return 1;
+    const k = parseInt(m[1], 10);
+    if (isNaN(k) || k < 2) return 1;
+    return Math.min(k, 6);
+}
+
+function stripArtifactCommon(message: string): string {
+    return message
+        .replace(/#NXT(?:'?s)?(?![A-Za-z])/gi, ' ')
+        .replace(/#NU(?:'?s)?(?![A-Za-z])/gi, ' ')
+        .replace(/--variants[=\s]+\d+/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function buildArtifactParser(token: ArtifactGenerator) {
+    return (message: string): ArtifactDirective => {
+        // Match the token as a standalone word so #report doesn't trip on
+        // "reporting" and #brief doesn't trip on "debriefing".
+        const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp(`(?:^|\\s)${escaped}(?=\\s|$|[.,;:!?'"])`, 'i');
+        const triggered = re.test(message);
+        if (!triggered) {
+            return { triggered: false, generator: token, topic: '', brand: 'NXT', variants: 1 };
+        }
+        const brand: BrandVariant = hasFlag(message, '#NU') ? 'NU' : 'NXT';
+        const variants = parseVariantsModifier(message);
+        const topic = stripArtifactCommon(message.replace(new RegExp(`(?:^|\\s)${escaped}(?=\\s|$|[.,;:!?'"])`, 'gi'), ' '));
+        return { triggered: true, generator: token, topic, brand, variants };
+    };
+}
+
+export const parseBriefDirective = buildArtifactParser('#brief');
+export const parseExplainerDirective = buildArtifactParser('#explainer');
+export const parseReportDirective = buildArtifactParser('#report');
+export const parsePlaygroundDirective = buildArtifactParser('#playground');
+export const parseApproachesDirective = buildArtifactParser('#approaches');
+
+/** Help directive — bare hashtag, no topic needed. */
+export function parseHelpDirective(message: string): { triggered: boolean } {
+    return { triggered: /(?:^|\s)#help(?=\s|$|[.,;:!?'"])/i.test(message) };
+}
+
+/** Artifact library directive — bare hashtag. */
+export function parseArtifactsLibraryDirective(message: string): { triggered: boolean } {
+    return { triggered: /(?:^|\s)#artifacts(?=\s|$|[.,;:!?'"])/i.test(message) };
+}
+
+/** Refine directive — targets an existing slug. */
+export interface RefineDirective {
+    triggered: boolean;
+    slug: string;             // the slug to refine
+    instruction: string;      // the user's tweak instruction
+}
+export function parseRefineDirective(message: string): RefineDirective {
+    // Match: #refine <slug>[: <instruction>]
+    //        or #refine #name=<slug> <instruction>
+    const m = message.match(/(?:^|\s)#refine\s+(?:#name=)?([a-z0-9_-]+)(?:\s*[:—\-]\s*(.+))?/i);
+    if (!m) return { triggered: false, slug: '', instruction: '' };
+    return {
+        triggered: true,
+        slug: (m[1] || '').toLowerCase().trim(),
+        instruction: (m[2] || '').trim(),
+    };
+}
+
 /**
  * Convenience: returns a short human-readable summary of a directive.
  * Used in the chat to acknowledge what the user asked for before composition begins.

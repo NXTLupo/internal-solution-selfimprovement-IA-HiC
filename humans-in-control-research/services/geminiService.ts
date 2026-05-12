@@ -707,6 +707,22 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('THEMES'); } catch (e) { /* skill unavailable */ }
 
+        // 2026-05-12 — Sprint 1 VS uplift: load the verbalized-sampling skill
+        // so Pass 1 BREADTH operates under the VS discipline. The model is
+        // asked to generate 24 candidate themes with explicit probability
+        // annotations (p < 0.10 — moderate tail). Downstream we keep the top
+        // ~15 by 1/p * evidence_density. This dramatically increases the
+        // theme set's diversity vs. the prior list-level prompt, which
+        // collapsed to ~15 conventional themes per run.
+        let vsDirective = '';
+        try {
+            const resp = await fetch('/skills/verbalized-sampling/SKILL.md');
+            if (resp.ok) {
+                vsDirective = await resp.text();
+                console.log(`[Themes] Loaded verbalized-sampling SKILL.md (${vsDirective.length} chars) for Pass 1 BREADTH VS-Standard application`);
+            }
+        } catch { /* dev environment without the proxy will skip silently — Pass 1 still works without VS, just less diverse */ }
+
         // Tier B1 + B2 (2026-04-28) — multi-angle, cross-engagement archive
         // augmentation BEFORE constructing the theme prompt.
         //
@@ -836,7 +852,7 @@ ${blocks.join('\n')}
             console.warn('[generateThemes] archive augmentation skipped:', err?.message || err);
         }
 
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
+        const prompt = `${vsDirective ? `=== AGENT SKILL: VERBALIZED SAMPLING (apply to this generation) ===\n${vsDirective}\n=== END VS SKILL ===\n\n=== VS DIRECTIVE APPLIED TO THIS TASK ===\nGenerate k=24 candidate themes. Every theme must carry a "probability" field with value < 0.10 (moderate-tail sampling). The probability annotation is your commitment device — writing probability < 0.10 forbids you from regressing to the modal/conventional theme set. Conventional themes (e.g. "System Fragmentation and Shadow IT Workarounds", "Application Volume Stress", "Internal Co-creation") are exactly what mode-collapsed LLMs default to on any higher-ed corpus. The user has those themes already — this generation surfaces the non-obvious findings the corpus actually supports. Downstream selection keeps the top 15 themes ranked by (1/probability × evidence_density), so producing 24 candidates with low probabilities is the path to the most interesting final theme set. The schema below is unchanged except that every theme now includes a required "probability" numeric field.\n=== END VS DIRECTIVE ===\n\n` : ''}${skillInstructions ? `=== AGENT SKILL: THEME ANALYST ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${archiveBlock}STEP 2: STRATEGIC THEME EXTRACTION. You are a senior research analyst performing rigorous thematic analysis.
 
 RESEARCH OBJECTIVE: "${this.goal}"
 
@@ -956,6 +972,7 @@ ONLY EMIT THESE FIELDS PER THEME:
   • citations[] (3+ entries spanning 2+ source names — sourceFile, text, url, sourceName, author, publicationDate)
   • isCrossDocument (true if 2+ different source names support the theme)
   • status ("priority" | "emerging" | "weak")
+  • probability (FLOAT in (0, 0.10) — your verbalized confidence that this specific theme is the right framing among all plausible themes for this corpus. The < 0.10 ceiling is the moderate-tail sampling constraint. AT MOST ONE theme may exceed 0.07 (the single strongest modal answer). The rest fan out across the tail. Writing this value is your commitment to non-modal output. SEE THE VS DIRECTIVE BLOCK ABOVE for the full discipline.)
   • goalAlignment (INTEGER 0..100 — how directly the theme answers the research goal:
        100 = the theme IS what's being asked about
         80 = primary mechanism / driver
@@ -1008,6 +1025,12 @@ Output JSON.`;
                             // are populated in Pass 2 by Claude Opus 4.7 via
                             // _enrichThemesDepth, fanning out per-theme in parallel.
                             goalAlignment: { type: Type.NUMBER },
+                            // 2026-05-12 — Sprint 1 VS uplift. probability is the
+                            // model's verbalized confidence per the verbalized-
+                            // sampling discipline. Used downstream to rank by
+                            // (1/probability * evidence_density) so the most
+                            // non-obvious-but-evidenced themes float to the top.
+                            probability: { type: Type.NUMBER },
                         },
                         required: ["name", "description", "quote", "citations", "isCrossDocument"]
                     }
@@ -1062,6 +1085,42 @@ Output JSON.`;
         });
         if (rejected.length > 0) {
             console.warn(`[Themes] Rejected ${rejected.length}/${beforeCount} meta-themes (complaints about the corpus, not findings): ${rejected.map(n => `"${n}"`).join(', ')}`);
+        }
+
+        // 2026-05-12 — Sprint 1 VS RANKING. If the model emitted probability
+        // values on every theme (per the VS directive), re-rank by
+        // (1/probability * evidence_density) and keep the top 15. Themes
+        // without a probability are sorted last (preserved at full diversity
+        // for backward compat with older calls that didn't trigger VS).
+        // evidence_density = (count of distinct sourceNames cited) + (count
+        // of distinct citation rows) / 10 — favors themes with cross-source
+        // grounding. Effect: non-obvious-but-evidenced themes float to the
+        // top; modal themes with low evidence sink.
+        try {
+            const themesWithVS = result.themes.filter((t: any) => typeof t.probability === 'number' && t.probability > 0);
+            if (themesWithVS.length >= 8) {
+                const scoreOf = (t: any): number => {
+                    const p = typeof t.probability === 'number' && t.probability > 0 ? t.probability : 0.5;
+                    const cits = Array.isArray(t.citations) ? t.citations : [];
+                    const distinctSources = new Set(cits.map((c: any) => (c?.sourceName || c?.sourceFile || '').toLowerCase().trim()).filter(Boolean));
+                    const evidenceDensity = distinctSources.size + cits.length / 10;
+                    return (1 / p) * Math.max(evidenceDensity, 0.5);
+                };
+                const scored = result.themes.map((t: any) => ({ t, score: scoreOf(t) }))
+                    .sort((a, b) => b.score - a.score);
+                const TOP_N = 15;
+                const kept = scored.slice(0, TOP_N).map(s => s.t);
+                const dropped = scored.slice(TOP_N).map(s => s.t);
+                console.log(`[Themes] VS-rank: kept top ${kept.length} of ${result.themes.length} candidates by (1/p × evidence_density).`);
+                if (dropped.length > 0) {
+                    console.log(`[Themes] VS-rank: dropped ${dropped.length} lower-score candidates: ${dropped.slice(0, 5).map((t: any) => `"${t.name}"`).join(', ')}${dropped.length > 5 ? '…' : ''}`);
+                }
+                result.themes = kept;
+            } else {
+                console.log(`[Themes] VS-rank: only ${themesWithVS.length} themes have probability values — skipping VS ranking, keeping the full set.`);
+            }
+        } catch (rankErr: any) {
+            console.warn('[Themes] VS-rank failed (non-fatal):', rankErr?.message || rankErr);
         }
 
         // 2026-04-29 — BREADTH FLOOR ENFORCEMENT. If theme extraction comes

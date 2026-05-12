@@ -271,6 +271,8 @@ const LiveResearchBoard = ({
     onDeliverableApproved,
     onOpenDesignDesk,
     registryTotal,
+    redditDeepItems, topicModelResult, topicModelStatus, onTopicModelResult,
+    initialChatMessages, onChatMessagesChange,
 }: {
     ingestion?: any, themes?: any, personas?: any, journeyMap?: any, prd?: any, roadmap?: any, techArch?: any, recommendations?: any, structure?: any,
     events: ThinkingEvent[], currentStatus: string, activeStage?: AnalysisStage,
@@ -286,6 +288,18 @@ const LiveResearchBoard = ({
     onDeliverableApproved?: (type: string, data: any) => void,
     onOpenDesignDesk?: () => void,
     registryTotal?: number,
+    redditDeepItems?: any[],
+    topicModelResult?: any,
+    topicModelStatus?: { jobId?: string; status: 'idle' | 'running' | 'completed' | 'failed'; message?: string },
+    /** 2026-05-11 — Bubble panel-computed topic-model result up to App.tsx
+     *  so it survives Knowledge Graph ↔ Topic Modeling tab switches.
+     *  Without this, switching tabs forces a fresh recompute every time. */
+    onTopicModelResult?: (result: any) => void,
+    /** 2026-05-11 — Session save/restore. App.tsx passes prior chat
+     *  messages on session load; CorpusChatPanel echoes its state back
+     *  via the onMessagesChange path so the App can serialize it on save. */
+    initialChatMessages?: any[],
+    onChatMessagesChange?: (msgs: any[]) => void,
 }) => {
     const streamEndRef = useRef<HTMLDivElement>(null);
     const [kgExpanded, setKgExpanded] = useState(false);
@@ -367,7 +381,7 @@ const LiveResearchBoard = ({
                 >
                     <span aria-hidden style={{ fontSize: 12, lineHeight: 1 }}>◧</span>
                     <span>{reasoningOpen ? 'CLOSE' : isCollectingData ? 'SOURCES' : 'REASONING'}</span>
-                    {!reasoningOpen && (isCollectingData || currentStatus.includes('...')) && (
+                    {!reasoningOpen && (isCollectingData || (currentStatus.includes('...') || currentStatus.includes('…'))) && (
                         <span style={{ display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#B8B800', animation: 'pulse 1.5s infinite' }} />
                     )}
                 </button>
@@ -438,10 +452,16 @@ const LiveResearchBoard = ({
                     })),
                     chunkMap: getChunkSourceMap(),
                     knowledgeGraph: knowledgeGraph,
+                    // 2026-05-11 — Topic-modeling result so the AI Analyst
+                    // chat sees the named clusters + can call
+                    // query_topic_clusters(id_or_name) for representative posts.
+                    topicModelResult: topicModelResult,
                 } as ChatContext)}
                 context={{} as ChatContext}
                 onDeliverableApproved={onDeliverableApproved}
                 onOpenDesignDesk={onOpenDesignDesk}
+                initialMessages={initialChatMessages}
+                onMessagesChange={onChatMessagesChange}
             />
 
             {/* Main content area — full width, scrollable */}
@@ -453,7 +473,7 @@ const LiveResearchBoard = ({
                 </div>
 
                 {/* VISIBLE PROCESSING STATE */}
-                {currentStatus.includes('...') && (
+                {(currentStatus.includes('...') || currentStatus.includes('…')) && (
                     <motion.div 
                         initial={{ opacity: 0, y: -10 }} 
                         animate={{ opacity: 1, y: 0 }}
@@ -595,8 +615,13 @@ const LiveResearchBoard = ({
                                     activeStage: activeStage && activeStage !== AnalysisStage.IDLE ? activeStage : undefined,
                                     currentStatus: currentStatus || undefined,
                                     lastEvent: events && events.length ? (events[events.length - 1] as any)?.message || (events[events.length - 1] as any)?.label : undefined,
-                                    isRunning: !!(isCollectingData || (activeStage && activeStage !== AnalysisStage.IDLE) || (currentStatus && currentStatus.includes('...'))),
+                                    isRunning: !!(isCollectingData || (activeStage && activeStage !== AnalysisStage.IDLE) || (currentStatus && (currentStatus.includes('...') || currentStatus.includes('…')))),
                                 }}
+                                redditDeepItems={redditDeepItems}
+                                topicModelResult={topicModelResult}
+                                topicModelStatus={topicModelStatus}
+                                researchGoal={researchGoal}
+                                onTopicModelResult={onTopicModelResult}
                             />
                         ) : (
                             <ResearchKnowledgeGraph
@@ -965,7 +990,7 @@ const LiveResearchBoard = ({
                 {/* Priority 3: Standard Reasoning Stream */}
                 <div className="p-4 border-b border-[var(--border-primary)] bg-[var(--bg-tertiary)]">
                     <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${currentStatus.includes('...') ? 'bg-[var(--nxt-lime)] animate-pulse' : 'bg-green-500'}`}></div>
+                        <div className={`w-2 h-2 rounded-full ${(currentStatus.includes('...') || currentStatus.includes('…')) ? 'bg-[var(--nxt-lime)] animate-pulse' : 'bg-green-500'}`}></div>
                         <span className="text-xs font-bold uppercase tracking-widest">Reasoning Stream</span>
                     </div>
                     <p className="text-xs text-[var(--text-tertiary)] mt-1 truncate">{currentStatus || "System Ready"}</p>
@@ -1048,6 +1073,10 @@ const App = () => {
     const [showMethodology, setShowMethodology] = useState<OutputOption | null>(null);
     const [selectedOutputs, setSelectedOutputs] = useState<OutputOption[]>(['PERSONAS', 'STRATEGY_DECK']);
     const [researchGoal, setResearchGoal] = useState("Identify emerging needs in the remote work sector.");
+    // 2026-05-10 — Comma-separated subreddits the user wants targeted by the
+    // deep-Reddit fetcher. Parsed at submit-time into a clean list of slugs
+    // (no "r/" prefix). Empty means "let the engine pick from the goal."
+    const [subredditsInput, setSubredditsInput] = useState("");
     const [analysisApproach, setAnalysisApproach] = useState("Standard Ethnographic Analysis");
     const [streamingLog, setStreamingLog] = useState<string[]>([]);
     const [thinkingEvents, setThinkingEvents] = useState<ThinkingEvent[]>([]);
@@ -1161,6 +1190,31 @@ const App = () => {
     const [dataSourceStatus, setDataSourceStatus] = useState<string>('');
     const [collectionPhase, setCollectionPhase] = useState<string>('');
     const [liveSourceResults, setLiveSourceResults] = useState<any[]>([]);
+    // 2026-05-10 (HiC-Reddit-Deep Phase 2) — raw deep-Reddit items collected
+    // this run, plus the topic-modeling job state. Drives the Topic Modeling
+    // tab in the Analyst Desk. We keep the items around (instead of just
+    // forwarding the final TopicResult) so the user can re-run the topic job
+    // with different parameters if desired.
+    const [redditDeepItems, setRedditDeepItems] = useState<any[]>([]);
+    // 2026-05-11 (HiC-Session-Save) — session persistence state.
+    // sessionSlug is set after the first save and used for in-place updates.
+    // sessionStartedAt anchors the auto-save trigger; sessionSaveStatus drives
+    // the header status pill. The chat-messages ref captures the AI Analyst
+    // chat history without re-rendering App on every chat turn.
+    const [sessionSlug, setSessionSlug] = useState<string | null>(null);
+    const [sessionTitle, setSessionTitle] = useState<string>('');
+    const [sessionStartedAt, setSessionStartedAt] = useState<string | null>(null);
+    const [sessionSaveStatus, setSessionSaveStatus] = useState<{
+        state: 'idle' | 'saving' | 'saved' | 'error';
+        savedAt?: string;
+        error?: string;
+    }>({ state: 'idle' });
+    const [sessionListings, setSessionListings] = useState<any[]>([]);
+    const chatMessagesRef = useRef<any[]>([]);
+    const initialChatMessagesRef = useRef<any[] | null>(null);
+    const autoSavedRef = useRef(false); // guard so auto-save fires only once per run
+    const [topicModelResult, setTopicModelResult] = useState<any>(null);
+    const [topicModelStatus, setTopicModelStatus] = useState<{ jobId?: string; status: 'idle' | 'running' | 'completed' | 'failed'; message?: string }>({ status: 'idle' });
     const [excludedSources, setExcludedSources] = useState<Set<string>>(new Set());
     const [prioritySources, setPrioritySources] = useState<Set<string>>(new Set());
     const [liveRefinedQueries, setLiveRefinedQueries] = useState<Record<string, string>>({});
@@ -1491,10 +1545,263 @@ const App = () => {
         }
     };
 
+    // 2026-05-11 (HiC-Session-Save) — Save the full engagement to the
+    // proxy. Returns true on success. Used by the auto-save trigger (fires
+    // once when themes + topic_model + personas + recommendations all exist)
+    // and the manual "Save" button in the header.
+    const handleSaveSession = useCallback(async (opts?: { silent?: boolean; status?: 'in-progress' | 'complete' }) => {
+        if (!researchGoal || !researchGoal.trim()) return false;
+        setSessionSaveStatus({ state: 'saving' });
+        try {
+            const { saveSession, buildSessionSnapshot } = await import('./services/sessionService');
+            const sourceToggles: Record<string, boolean> = {
+                enableDeepResearch, enableHigherEdNews, enableNews, enableAcademic,
+                enableEducationData, enableGovernment, enableOpenData, enableEconomic,
+                enableSocialTrends, enableCxMesh, enableYouTube, enableAINews, enableAIResearch,
+            };
+            const snapshot = buildSessionSnapshot({
+                researchGoal,
+                title: sessionTitle || researchGoal.slice(0, 120),
+                selectedOutputs,
+                selectedLens: selectedLens || undefined,
+                subredditsInput,
+                analysisApproach,
+                fileNames: files.map((f: any) => f.name),
+                sourceToggles,
+                themes: themesResult,
+                personas: personasResult,
+                journeyMap: journeyResult,
+                recommendations: recsResult,
+                prd: prdResult,
+                roadmap: roadmapResult,
+                techArch: techResult,
+                gapResult,
+                techAuditResult,
+                competitiveResult,
+                strategicReportResult,
+                synthesis: synthesisResult,
+                structure: structureResult,
+                narrative: narrativeResult,
+                orgChart: orgChartResult,
+                ingestion: ingestionResult,
+                chatMessages: chatMessagesRef.current,
+                topicModelResult,
+                knowledgeGraph,
+                corpusText: corpusTextRef.current || '',
+                liveSourceResults,
+                redditDeepItems,
+                status: opts?.status || (themesResult && topicModelResult && personasResult && recsResult ? 'complete' : 'in-progress'),
+                createdAt: sessionStartedAt || undefined,
+            });
+            const result = await saveSession(snapshot, sessionSlug || undefined);
+            if (!result.ok) {
+                setSessionSaveStatus({ state: 'error', error: result.error });
+                return false;
+            }
+            // Capture slug for in-place updates
+            if (!sessionSlug) setSessionSlug(result.slug);
+            if (!sessionTitle) setSessionTitle(result.title);
+            setSessionSaveStatus({ state: 'saved', savedAt: result.saved_at });
+            if (!opts?.silent) {
+                setThinkingEvents(prev => [...prev, {
+                    type: 'LEARNING',
+                    content: `[SESSION] Saved as "${result.title}" (slug: ${result.slug}). Reload from the landing page or via Continue Session anytime.`,
+                }]);
+            }
+            return true;
+        } catch (e: any) {
+            setSessionSaveStatus({ state: 'error', error: e?.message || 'save failed' });
+            return false;
+        }
+    }, [
+        researchGoal, sessionTitle, sessionSlug, sessionStartedAt,
+        selectedOutputs, selectedLens, subredditsInput, analysisApproach, files,
+        enableDeepResearch, enableHigherEdNews, enableNews, enableAcademic,
+        enableEducationData, enableGovernment, enableOpenData, enableEconomic,
+        enableSocialTrends, enableCxMesh, enableYouTube, enableAINews, enableAIResearch,
+        themesResult, personasResult, journeyResult, recsResult, prdResult, roadmapResult,
+        techResult, gapResult, techAuditResult, competitiveResult, strategicReportResult,
+        synthesisResult, structureResult, narrativeResult, orgChartResult, ingestionResult,
+        topicModelResult, knowledgeGraph, liveSourceResults, redditDeepItems,
+    ]);
+
+    // 2026-05-11 — Load a saved session. Hydrates all state and switches the
+    // app to the results view so the user can immediately interact with the
+    // restored engagement (incl. AI Analyst chat that's context-aware of the
+    // loaded session per ChatContext shape).
+    const handleLoadSession = useCallback(async (slug: string) => {
+        try {
+            const { loadSession, restoreSessionSnapshot } = await import('./services/sessionService');
+            const snap = await loadSession(slug);
+            if (!snap) {
+                setNotification(`Failed to load session: ${slug}`);
+                return;
+            }
+            const r = restoreSessionSnapshot(snap);
+            // Apply everything. Order matters: set researchGoal first so any
+            // downstream effects that key off it see the new value.
+            setResearchGoal(r.researchGoal || '');
+            if (r.selectedOutputs) setSelectedOutputs(r.selectedOutputs as OutputOption[]);
+            if (r.subredditsInput !== undefined) setSubredditsInput(r.subredditsInput);
+            if (r.analysisApproach) setAnalysisApproach(r.analysisApproach);
+            if (r.sourceToggles) {
+                const t = r.sourceToggles;
+                if (t.enableDeepResearch !== undefined) setEnableDeepResearch(!!t.enableDeepResearch);
+                if (t.enableHigherEdNews !== undefined) setEnableHigherEdNews(!!t.enableHigherEdNews);
+                if (t.enableNews !== undefined) setEnableNews(!!t.enableNews);
+                if (t.enableAcademic !== undefined) setEnableAcademic(!!t.enableAcademic);
+                if (t.enableEducationData !== undefined) setEnableEducationData(!!t.enableEducationData);
+                if (t.enableGovernment !== undefined) setEnableGovernment(!!t.enableGovernment);
+                if (t.enableOpenData !== undefined) setEnableOpenData(!!t.enableOpenData);
+                if (t.enableEconomic !== undefined) setEnableEconomic(!!t.enableEconomic);
+                if (t.enableSocialTrends !== undefined) setEnableSocialTrends(!!t.enableSocialTrends);
+                if (t.enableCxMesh !== undefined) setEnableCxMesh(!!t.enableCxMesh);
+                if (t.enableYouTube !== undefined) setEnableYouTube(!!t.enableYouTube);
+                if (t.enableAINews !== undefined) setEnableAINews(!!t.enableAINews);
+                if (t.enableAIResearch !== undefined) setEnableAIResearch(!!t.enableAIResearch);
+            }
+            if (r.themes) setThemesResult(r.themes);
+            if (r.personas) setPersonasResult(r.personas);
+            if (r.journeyMap) setJourneyResult(r.journeyMap);
+            if (r.recommendations) setRecsResult(r.recommendations);
+            if (r.prd) setPrdResult(r.prd);
+            if (r.roadmap) setRoadmapResult(r.roadmap);
+            if (r.techArch) setTechResult(r.techArch);
+            if (r.gapResult) setGapResult(r.gapResult);
+            if (r.techAuditResult) setTechAuditResult(r.techAuditResult);
+            if (r.competitiveResult) setCompetitiveResult(r.competitiveResult);
+            if (r.strategicReportResult) setStrategicReportResult(r.strategicReportResult);
+            // 2026-05-11 — Hydrate the aggregated `result` (AnalysisResult) so
+            // the SUCCESS branch renders. ChatWorkbench's gate is `appState ===
+            // SUCCESS && result && appMode === 'research'`; without this set,
+            // the body stays blank after a session load.
+            const themesArr = (r.themes as any)?.themes || [];
+            const personasArr = (r.personas as any)?.personas || [];
+            const recsArr = (r.recommendations as any)?.recommendations
+                || (r.recommendations as any)?.items
+                || (Array.isArray(r.recommendations) ? (r.recommendations as any) : []);
+            setResult({
+                methodology: 'Restored from session snapshot.',
+                selectedOutputs: (r.selectedOutputs as any) || [],
+                themes: themesArr,
+                personas: personasArr,
+                recommendations: recsArr,
+                journeyMap: (r.journeyMap as any)?.stages || (r.journeyMap as any),
+                techArchitecture: r.techArch as any,
+                prd: r.prd as any,
+                roadmap: r.roadmap as any,
+                gapAnalysis: r.gapResult as any,
+                techAudit: r.techAuditResult as any,
+                competitiveAnalysis: r.competitiveResult as any,
+                strategicReport: r.strategicReportResult as any,
+                orgChart: r.orgChart as any,
+            });
+            if (r.synthesis) setSynthesisResult(r.synthesis);
+            if (r.structure) setStructureResult(r.structure);
+            if (r.narrative) setNarrativeResult(r.narrative);
+            if (r.orgChart) setOrgChartResult(r.orgChart);
+            if (r.ingestion) setIngestionResult(r.ingestion);
+            if (r.topicModelResult) setTopicModelResult(r.topicModelResult);
+            if (r.knowledgeGraph) setKnowledgeGraph(r.knowledgeGraph);
+            if (r.liveSourceResults) setLiveSourceResults(r.liveSourceResults);
+            if (r.redditDeepItems) setRedditDeepItems(r.redditDeepItems);
+            if (r.corpusText) corpusTextRef.current = r.corpusText;
+            // Hand chat messages to the panel via the initial-messages ref;
+            // the panel reads it on next mount.
+            initialChatMessagesRef.current = r.chatMessages || [];
+            chatMessagesRef.current = r.chatMessages || [];
+            // Session identity + state
+            setSessionSlug(slug);
+            setSessionTitle(snap.metadata.title || r.researchGoal || '');
+            setSessionStartedAt(snap.metadata.created_at || null);
+            setSessionSaveStatus({ state: 'saved', savedAt: snap.metadata.completed_at || (snap.metadata as any).saved_at });
+            autoSavedRef.current = true; // skip re-auto-save on load
+            // Move to the Analyst Desk view (LiveResearchBoard) — the same
+            // populated layout the user saw at the END of their original run,
+            // with theme cards, persona counts, corpus stats, and the
+            // Knowledge Graph all visible. LiveResearchBoard renders under
+            // AppState.ANALYZING, so we use that state but flip every
+            // "running" flag OFF so the spinners/activity widgets render
+            // their completed states. ChatWorkbench (AppState.SUCCESS) is a
+            // different layout we used briefly post-completion; the user
+            // wants the Analyst Desk preserved across save/load.
+            setAppMode('research');
+            setIsCollectingData(false);
+            setCollectionPhase('done' as any);
+            setActiveStage(AnalysisStage.IDLE);
+            setStatusMessage('Analysis Complete');
+            setAppState(AppState.ANALYZING);
+            setNotification(`Loaded session: ${snap.metadata.title}`);
+            setTimeout(() => setNotification(null), 3000);
+        } catch (e: any) {
+            console.error('[session] load failed:', e);
+            setNotification(`Load failed: ${e?.message || 'unknown'}`);
+        }
+    }, []);
+
+    // 2026-05-11 — Auto-save trigger. Fires exactly once per run, when all
+    // four "default deliverables" (themes, topic-model, personas, recs)
+    // have landed. The user explicitly chose this as the natural completion
+    // moment. Subsequent edits autosave on demand via the manual button;
+    // this hook does not fire repeatedly.
+    useEffect(() => {
+        if (autoSavedRef.current) return;
+        if (!themesResult || !topicModelResult || !personasResult || !recsResult) return;
+        autoSavedRef.current = true;
+        // Fire silently so the user isn't notification-spammed
+        handleSaveSession({ silent: false, status: 'complete' });
+    }, [themesResult, topicModelResult, personasResult, recsResult, handleSaveSession]);
+
+    // Pre-load session list on landing so Continue Session has fresh data.
+    useEffect(() => {
+        if (appState !== AppState.IDLE) return;
+        (async () => {
+            try {
+                const { listSessions } = await import('./services/sessionService');
+                const list = await listSessions();
+                setSessionListings(list);
+            } catch {}
+        })();
+    }, [appState]);
+
     const handleSaveProject = (updatedData?: AnalysisResult) => {
         // Use updatedData if provided (from child components edits), otherwise fallback to current result
         const dataToSave = updatedData || result;
         if (!dataToSave) return;
+
+        // 2026-05-11 (HiC-Active-Loop #7) — write an engagement retrospective
+        // to the wiki at the same time we save the project. Captures themes,
+        // personas, recs, sources cited, learned constraints — everything
+        // future engagements need to inherit context without reauthoring.
+        // Fire-and-forget; non-blocking, non-fatal.
+        (async () => {
+            try {
+                const { saveRetrospective } = await import('./services/engagementRetrospective');
+                const result = await saveRetrospective({
+                    researchGoal,
+                    completedAt: new Date().toISOString(),
+                    sourceResults: liveSourceResults,
+                    themes: themesResult?.themes,
+                    personas: personasResult?.personas,
+                    journeyStages: journeyResult?.journey?.stages,
+                    recommendations: recsResult?.recommendations,
+                    deliverables: selectedOutputs,
+                    fileNames: files.map((f: any) => f.name),
+                    knowledgeGraph,
+                });
+                if (result.ok) {
+                    console.log(`[retrospective] wrote ${result.path}`);
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'LEARNING',
+                        content: `[RETROSPECTIVE] Engagement memory written to wiki/${result.path}. Future research goals overlapping with this one will inherit themes, personas, and learned constraints automatically.`,
+                    }]);
+                } else {
+                    console.warn(`[retrospective] write failed: ${result.error}`);
+                }
+            } catch (e) {
+                console.warn('[retrospective] non-fatal error:', e);
+            }
+        })();
         
         const newProject: SavedProject = {
             id: Date.now().toString(),
@@ -2109,10 +2416,20 @@ const App = () => {
 
         setAppState(AppState.ANALYZING);
         setThinkingEvents([]);
+        // 2026-05-11 — Reset session state for a fresh run. The new run gets
+        // a new slug (derived from goal at save time); the auto-save guard
+        // re-arms so the natural completion event will fire saveSession once.
+        setSessionSlug(null);
+        setSessionTitle('');
+        setSessionStartedAt(new Date().toISOString());
+        setSessionSaveStatus({ state: 'idle' });
+        autoSavedRef.current = false;
+        initialChatMessagesRef.current = null;
+        chatMessagesRef.current = [];
         // Immediate visible status. Without this, the user stares at an empty
         // Research Assembly Board for 13–25s while wiki seeding + PDF archiving
         // run before any setStatusMessage call would normally fire. The
-        // gradient "Processing Active" bar is keyed on currentStatus.includes('...'),
+        // gradient "Processing Active" bar is keyed on (currentStatus.includes('...') || currentStatus.includes('…')),
         // so we set it here to keep the UI alive from t=0.
         setStatusMessage("Initializing research workspace...");
         setThinkingEvents([{
@@ -3002,6 +3319,42 @@ const App = () => {
                 const manualVideoUrls = videoUrls.trim() ? videoUrls.trim().split('\n').filter(u => u.trim()) : [];
                 const allVideoUrls = Array.from(new Set([...manualVideoUrls, ...discoveredVideoUrls]));
 
+                // 2026-05-10 — Parse user-entered subreddits OR auto-infer
+                // them from the research goal. Comma- or whitespace-separated,
+                // "r/" prefix optional. Empty input triggers an LLM call to
+                // suggest 6-10 high-signal subreddits given the goal — this
+                // way the deep-fetch path runs even when the user doesn't
+                // know which communities to target.
+                const parseUserSubreddits = (raw: string): string[] => {
+                    return Array.from(new Set(raw
+                        .split(/[,\n\s]+/)
+                        .map(s => s.trim().replace(/^r\//i, '').replace(/^\//, '').toLowerCase())
+                        .filter(s => /^[a-z0-9_]{2,21}$/i.test(s))));
+                };
+                let deepSubreddits = parseUserSubreddits(subredditsInput);
+                if (deepSubreddits.length === 0) {
+                    // Auto-infer when empty. We don't block on this — if the
+                    // LLM call fails we just skip the deep-Reddit pipeline.
+                    try {
+                        const { inferSubredditsFromGoal } = await import('./services/researchFabricOrchestrator');
+                        const inferred = await inferSubredditsFromGoal(researchGoal);
+                        if (inferred.length > 0) {
+                            deepSubreddits = inferred;
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'LEARNING',
+                                content: `[REDDIT-DEEP] Auto-inferred ${inferred.length} subreddits from goal: ${inferred.map(s => 'r/' + s).join(', ')}. Full bodies + comment trees will be fetched for topic modeling.`,
+                            }]);
+                        }
+                    } catch (inferErr) {
+                        console.warn('[reddit-deep] inference failed:', inferErr);
+                    }
+                } else {
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: `[REDDIT-DEEP] User specified ${deepSubreddits.length} subreddit${deepSubreddits.length === 1 ? '' : 's'}: ${deepSubreddits.map(s => 'r/' + s).join(', ')}. Full bodies + comment trees will be fetched for topic modeling.`,
+                    }]);
+                }
+
                 // Also run orchestrator for deep research + CX mesh (if enabled)
                 const plan = await generateResearchPlan(researchGoal, selectedLens, {
                     deepResearch: (enableDeepResearch || recommendedSources.enableDeepResearch) ? { mode: deepResearchMode } : undefined,
@@ -3016,6 +3369,13 @@ const App = () => {
                     cxMesh: enableCxMesh ? {
                         subreddits: cxSubreddits.length > 0 ? cxSubreddits : undefined,
                         trustpilot: trustpilotTargets.trim() ? trustpilotTargets.split(',').map(s => s.trim()).filter(Boolean) : undefined,
+                    } : undefined,
+                    redditDeep: deepSubreddits.length > 0 ? {
+                        subreddits: deepSubreddits,
+                        postLimit: 50,
+                        commentsPerPost: 10,
+                        sort: 'relevance',
+                        timeFilter: 'year',
                     } : undefined,
                 });
 
@@ -3079,6 +3439,64 @@ const App = () => {
                         }
                         return s;
                     }));
+                }
+
+                // 2026-05-10 (HiC-Reddit-Deep Phase 2) — Harvest deep-Reddit
+                // items from the orchestrator result and kick off the topic-
+                // modeling job in the background. The Analyst Desk's Topic
+                // Modeling tab consumes the result. We start the job immediately
+                // (not on tab click) so users see ready clusters when they
+                // switch tabs instead of staring at a spinner.
+                const deepItems: any[] = [];
+                for (const srcResult of executionResult.sources) {
+                    if (srcResult.type === 'reddit_deep' && Array.isArray(srcResult.items)) {
+                        deepItems.push(...srcResult.items);
+                    }
+                }
+                if (deepItems.length >= 10) {
+                    setRedditDeepItems(deepItems);
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: `[REDDIT-DEEP] Collected ${deepItems.length} posts across deep-Reddit sources. Kicking off topic modeling in the background.`,
+                    }]);
+                    setTopicModelStatus({ status: 'running', message: 'Starting topic modeling…' });
+                    (async () => {
+                        try {
+                            const { startTopicModelJob, waitForTopicModelJob } = await import('./services/topicModelService');
+                            // 2026-05-11 — tightened from /15 ceiling=8 to /40
+                            // ceiling=5 floor=3. Old formula yielded min=8 for
+                            // 218 posts which (paired with HDBSCAN 'eom') was
+                            // returning 2 mega-clusters with 0 noise. New
+                            // formula gets us 218/40 ≈ 5 minimum cluster size,
+                            // and the proxy now uses 'leaf' selection — together
+                            // these produce ~8-15 focused topics on this scale.
+                            const minCluster = Math.max(3, Math.min(5, Math.floor(deepItems.length / 40)));
+                            const { jobId } = await startTopicModelJob({
+                                items: deepItems,
+                                researchGoal,
+                                minClusterSize: minCluster,
+                            });
+                            setTopicModelStatus({ jobId, status: 'running', message: 'Embedding documents…' });
+                            const result = await waitForTopicModelJob(jobId, (s) => {
+                                setTopicModelStatus({ jobId, status: 'running', message: s.message || s.status });
+                            });
+                            setTopicModelResult(result);
+                            setTopicModelStatus({ jobId, status: 'completed' });
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'INSIGHT',
+                                content: `[TOPIC-MODEL] Discovered ${result.topic_count} topic clusters across ${result.doc_count} posts. Available in the Analyst Desk → Topic Modeling tab.`,
+                            }]);
+                        } catch (tmErr: any) {
+                            console.warn('[topic-model] job failed:', tmErr);
+                            setTopicModelStatus({ status: 'failed', message: tmErr.message || 'topic modeling failed' });
+                        }
+                    })();
+                } else if (deepItems.length > 0) {
+                    setRedditDeepItems(deepItems);
+                    setThinkingEvents(prev => [...prev, {
+                        type: 'PHASE',
+                        content: `[REDDIT-DEEP] Collected ${deepItems.length} posts — below the 10-post minimum for topic modeling. Tab will show the raw items only.`,
+                    }]);
                 }
 
                 // Merge orchestrator results into corpus.
@@ -3883,6 +4301,55 @@ ${synthesisParts.join('\n')}
              <div className="flex justify-between items-center px-8 py-5 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] z-20">
                  <Logo />
                  <div className="flex gap-4 items-center">
+                     {/* 2026-05-11 (HiC-Session-Save) — Save status + manual save.
+                         Visible whenever there's any research state worth saving
+                         (themes computed at minimum). Click to force-save. */}
+                     {appState !== AppState.IDLE && researchGoal && researchGoal.trim() && (
+                         <button
+                             onClick={() => handleSaveSession({ silent: false })}
+                             disabled={sessionSaveStatus.state === 'saving'}
+                             title={sessionSlug ? `Session slug: ${sessionSlug}\nClick to update in place.` : 'Click to save this session for later reload.'}
+                             style={{
+                                 padding: '6px 12px',
+                                 fontSize: 10, fontWeight: 700, letterSpacing: 1.5,
+                                 textTransform: 'uppercase',
+                                 background: sessionSaveStatus.state === 'saving' ? '#F5F5F0' :
+                                             sessionSaveStatus.state === 'error' ? '#FCF1ED' : '#0D0D0D',
+                                 color: sessionSaveStatus.state === 'saving' ? '#525252' :
+                                        sessionSaveStatus.state === 'error' ? '#CC6644' : '#B8B800',
+                                 border: `1px solid ${sessionSaveStatus.state === 'error' ? '#CC6644' : '#0D0D0D'}`,
+                                 borderRadius: 2,
+                                 cursor: sessionSaveStatus.state === 'saving' ? 'wait' : 'pointer',
+                                 fontFamily: "'Bebas Neue', sans-serif",
+                                 display: 'flex', alignItems: 'center', gap: 8,
+                             }}
+                         >
+                             {sessionSaveStatus.state === 'saving' && <span>SAVING…</span>}
+                             {sessionSaveStatus.state === 'saved' && (
+                                 <>
+                                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#0CCE6B' }} />
+                                     <span>SAVED</span>
+                                     {sessionSaveStatus.savedAt && (
+                                         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: '#525252', letterSpacing: 0 }}>
+                                             {(() => {
+                                                 try {
+                                                     const d = new Date(sessionSaveStatus.savedAt);
+                                                     const diffMs = Date.now() - d.getTime();
+                                                     const min = Math.floor(diffMs / 60000);
+                                                     if (min < 1) return 'just now';
+                                                     if (min < 60) return `${min}m ago`;
+                                                     const hr = Math.floor(min / 60);
+                                                     return `${hr}h ago`;
+                                                 } catch { return ''; }
+                                             })()}
+                                         </span>
+                                     )}
+                                 </>
+                             )}
+                             {sessionSaveStatus.state === 'error' && <span title={sessionSaveStatus.error}>SAVE FAILED</span>}
+                             {sessionSaveStatus.state === 'idle' && <span>SAVE SESSION</span>}
+                         </button>
+                     )}
                      <button onClick={() => window.open('/documentation.html', '_blank')} className="text-sm font-bold text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors">Documentation</button>
                      <button className="text-sm font-bold text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors">Support</button>
                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--nxt-teal)] to-[var(--nxt-lime)]"></div>
@@ -3962,6 +4429,80 @@ ${synthesisParts.join('\n')}
                                      </div>
                                 </div>
 
+                                {/* 2026-05-11 (HiC-Session-Save) — Continue Session picker.
+                                    Loads saved sessions from the proxy. Shows last 6 by
+                                    most-recently saved. Hidden when there are none. */}
+                                {appMode === 'research' && sessionListings.length > 0 && (
+                                <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-6 shadow-none mb-6">
+                                    <div className="flex items-baseline justify-between mb-4">
+                                        <div>
+                                            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, letterSpacing: 2, color: '#0D0D0D', textTransform: 'uppercase' }}>
+                                                Continue Session
+                                            </h2>
+                                            <p className="text-xs text-[var(--text-tertiary)] mt-1">
+                                                {sessionListings.length} saved session{sessionListings.length === 1 ? '' : 's'} · Click to reload with full state restored
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                        {sessionListings.slice(0, 6).map((s: any) => (
+                                            <button
+                                                key={s.slug}
+                                                onClick={() => handleLoadSession(s.slug)}
+                                                style={{
+                                                    textAlign: 'left',
+                                                    padding: '12px 14px',
+                                                    background: '#FAFAFA',
+                                                    border: '1px solid #E5E5E5',
+                                                    borderLeft: '4px solid #B8B800',
+                                                    borderRadius: 2,
+                                                    cursor: 'pointer',
+                                                    fontFamily: 'Archivo, sans-serif',
+                                                    transition: 'background 140ms, border-color 140ms',
+                                                }}
+                                                onMouseEnter={e => { e.currentTarget.style.background = '#F5F5F0'; e.currentTarget.style.borderLeftColor = '#0D0D0D'; }}
+                                                onMouseLeave={e => { e.currentTarget.style.background = '#FAFAFA'; e.currentTarget.style.borderLeftColor = '#B8B800'; }}
+                                                title={`${s.research_goal || s.title}\nSlug: ${s.slug}`}
+                                            >
+                                                <div style={{
+                                                    fontFamily: "'Bebas Neue', sans-serif",
+                                                    fontSize: 14, letterSpacing: 1, color: '#0D0D0D',
+                                                    lineHeight: 1.2,
+                                                    marginBottom: 6,
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 2,
+                                                    WebkitBoxOrient: 'vertical' as any,
+                                                    overflow: 'hidden',
+                                                    textTransform: 'uppercase',
+                                                }}>
+                                                    {s.title || s.research_goal || s.slug}
+                                                </div>
+                                                <div style={{ fontSize: 10, color: '#525252', fontFamily: "'JetBrains Mono', monospace", display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                                                    {s.deliverable_count ? <span>{s.deliverable_count} deliverables</span> : null}
+                                                    {s.topic_count ? <span>· {s.topic_count} topics</span> : null}
+                                                    {s.chat_turn_count ? <span>· {s.chat_turn_count} chat turns</span> : null}
+                                                </div>
+                                                <div style={{ fontSize: 10, color: '#ACACAC', marginTop: 6, fontFamily: "'JetBrains Mono', monospace" }}>
+                                                    {(() => {
+                                                        try {
+                                                            const d = new Date(s.saved_at);
+                                                            const diffMs = Date.now() - d.getTime();
+                                                            const min = Math.floor(diffMs / 60000);
+                                                            if (min < 1) return 'just now';
+                                                            if (min < 60) return `${min} min ago`;
+                                                            const hr = Math.floor(min / 60);
+                                                            if (hr < 24) return `${hr} hr ago`;
+                                                            const days = Math.floor(hr / 24);
+                                                            return `${days} day${days === 1 ? '' : 's'} ago`;
+                                                        } catch { return s.saved_at; }
+                                                    })()}
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                                )}
+
                                 {/* RESEARCH MODE */}
                                 {appMode === 'research' && (
                                 <div className="bg-[var(--card-bg)] border border-[var(--border-primary)] rounded p-8 shadow-none mb-12">
@@ -3972,6 +4513,20 @@ ${synthesisParts.join('\n')}
                                              onChange={(e) => setResearchGoal(e.target.value)}
                                              className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-4 text-lg font-medium focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all"
                                              placeholder="e.g. Understand the pain points of remote workers..."
+                                         />
+                                         {/* 2026-05-10 — Subreddit input drives the deep-Reddit fetcher.
+                                             Comma-separated, "r/" prefix optional. Empty = engine infers
+                                             from the goal. Whatever the user enters here gets pulled
+                                             deeply (full post bodies + comment trees) for topic
+                                             modeling in the Analyst Desk's Topic Modeling tab. */}
+                                         <label className="block text-xs font-bold uppercase text-[var(--text-tertiary)] tracking-widest mt-6 mb-2">
+                                             Reddit Communities <span className="font-light text-[10px] tracking-normal normal-case text-[var(--text-tertiary)] ml-1">(comma-separated — pulled deeply with comments)</span>
+                                         </label>
+                                         <input
+                                             value={subredditsInput}
+                                             onChange={(e) => setSubredditsInput(e.target.value)}
+                                             className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-3 text-sm font-mono focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all"
+                                             placeholder="r/CareerAdvice, r/cscareerquestions, r/AskAcademia"
                                          />
                                          {/* Phase 1.9 — prior engagement match hint. Appears when the
                                              current goal semantically overlaps with wiki/engagements
@@ -4325,6 +4880,12 @@ ${synthesisParts.join('\n')}
                                onDeliverableApproved={handleChatDeliverableApproved}
                                onOpenDesignDesk={openDesignDeskWindow}
                                registryTotal={registryTotal}
+                               redditDeepItems={redditDeepItems}
+                               topicModelResult={topicModelResult}
+                               topicModelStatus={topicModelStatus}
+                               onTopicModelResult={setTopicModelResult}
+                               initialChatMessages={initialChatMessagesRef.current || undefined}
+                               onChatMessagesChange={(msgs: any[]) => { chatMessagesRef.current = msgs; }}
                                onEdit={(stage) => {
                                    if (stage === AnalysisStage.INGESTION) setActiveStage(AnalysisStage.INGESTION);
                                    if (stage === AnalysisStage.THEMES) setActiveStage(AnalysisStage.THEMES);

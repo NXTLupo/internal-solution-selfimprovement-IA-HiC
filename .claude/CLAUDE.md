@@ -88,8 +88,23 @@ NEVER use any of these phrases in ANY output field:
 - "As you can see" / "This slide shows" / "The next slide"
 - "Our objective is to" / "Allow me to" / "Before we begin"
 - "I'd like to start by" / "Let's dive into" / "Let's explore"
+- "As shown above" / "As shown below" / "As we'll see" / "As we will see"
+- "As discussed" / "As noted earlier" / "As mentioned" / "As previously noted"
+- "In conclusion" / "To summarize" / "In summary" / "To conclude"
+- "This report aims to" / "This analysis covers" / "This deck frames"
 
-A consultant NEVER announces the framework, greets the audience, or narrates the structure. Lead with the insight.
+A consultant NEVER announces the framework, greets the audience, narrates the structure, or points back to "earlier" sections the reader can't see. Lead with the insight.
+
+## No Self-Referential or Process Language
+
+The output is a finished consulting artifact. The reader must never see ANY reference to:
+- The artifact itself ("this presentation", "this deck", "this slide", "this section", "this report", "this analysis")
+- The research or generation process ("based on the research", "based on the available data", "according to our analysis", "the research shows", "the data indicates", "the corpus reveals", "from the sources reviewed", "drawing on the evidence", "this report finds", "our findings suggest", "research indicates", "studies show", "sources indicate")
+- Evidence limitations ("evidence is limited", "data is limited", "more research is needed", "further investigation required", "additional research needed", "due to limited data", "while data was unavailable", "in the absence of", "pending additional research")
+
+If a process-reference prefix appears, STRIP it and keep the insight: "Based on the research, customer churn is 22%" → "Customer churn is 22%." If a limitation phrase appears, omit the claim entirely and narrow the section around what IS evidenced. The reader must never see the model's awareness of what it doesn't know.
+
+These rules are enforced at runtime by `services/slidePostProcessor.ts` (META_NARRATION_PATTERNS, PROCESS_REFERENCE_REWRITES). Patterns can be bypassed by clever phrasing; the post-processor cannot.
 
 ## Banned Slop Phrases (350+ — Instant Rejection)
 
