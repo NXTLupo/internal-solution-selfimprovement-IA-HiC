@@ -2856,27 +2856,22 @@ async function callOpenAI(
 
     let lastText = '';
     for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
-        const resp = await fetch(`${PROXY_BASE}/api/ai/openai`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-openai-endpoint': 'chat',
-            },
-            body: JSON.stringify({
-                model,
-                messages,
-                tools,
-                tool_choice: 'auto',
-                max_completion_tokens: 16000,
-                temperature: 0.2,
-            }),
+        // 2026-05-12 — Use shared retry client. OpenAI's API returns
+        // 429 (quota / rate-limit) and 5xx transients under load — both
+        // are retryable with backoff. Previously a single failure killed
+        // the chat turn; now we get three attempts with backoff.
+        const { callAIWithRetry } = await import('./aiRetryClient');
+        const data = await callAIWithRetry('openai', {
+            model,
+            messages,
+            tools,
+            tool_choice: 'auto',
+            max_completion_tokens: 16000,
+            temperature: 0.2,
+        }, {
+            label: `Chat (iter ${iter + 1})`,
+            headers: { 'x-openai-endpoint': 'chat' },
         });
-
-        if (!resp.ok) {
-            const errText = await resp.text().catch(() => '');
-            throw new Error(`OpenAI API ${resp.status}: ${errText.slice(0, 300)}`);
-        }
-        const data = await resp.json();
         const choice = data.choices?.[0];
         if (!choice) throw new Error('OpenAI returned no choices');
 

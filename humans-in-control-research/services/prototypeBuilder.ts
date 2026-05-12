@@ -684,16 +684,13 @@ async function callGeminiStage(
         },
     };
 
-    const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-    });
-    if (!resp.ok) {
-        const err = await resp.text().catch(() => '');
-        throw new Error(`Gemini stage HTTP ${resp.status}: ${err.slice(0, 300)}`);
-    }
-    const data = await resp.json();
+    // 2026-05-12 — Use shared retry client. Each prototype-pipeline
+    // stage was previously a single-shot fetch; a transient 503 mid-
+    // pipeline killed the whole build (40+ engineer-hours of model
+    // thinking time wasted). With retry, transient failures are
+    // recovered automatically with exponential backoff.
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const data = await callAIWithRetry('gemini', body, { label: `Prototype Stage` });
     // Gemini native response shape: { candidates: [{ content: { parts: [{ text: "..." }] } }] }
     const candidate = data?.candidates?.[0];
     const parts = candidate?.content?.parts || [];

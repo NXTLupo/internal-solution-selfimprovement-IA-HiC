@@ -48,6 +48,7 @@ import {
 } from '../services/hashtagParser';
 import { DIRECTIVES, directivesByCategory, CATEGORY_LABELS } from '../services/hashtagRegistry';
 import { saveArtifact, listArtifacts, getArtifact, deleteArtifact, getArtifactViewUrl } from '../services/artifactLibrary';
+import { callAIWithRetry } from '../services/aiRetryClient';
 import { compose as composeNarrative } from '../services/narrativeComposer';
 import { createNarrativeComposerExecutor } from '../services/narrativeComposerExecutor';
 import { SourceCoverage } from './SourceCoverage';
@@ -3240,33 +3241,28 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
 
                 const corpusBlock = (liveCtx?.corpusText || '').slice(0, 80000);
                 const userPayload = `USER REQUEST (verbatim — this is the primary spec):\n"""\n${query}\n"""\n\nResearch goal: ${liveCtx?.researchGoal || 'unstated'}\n\n=== THEMES (${themesArr.length}) — cite specific themes by name in every concept's evidence_sources ===\n${themesBlock}\n\n=== PERSONAS (${personasArr.length}) — each concept's "persona" field should reference one of these by name ===\n${personasBlock}\n\n${sourcesBlock}\n\n${uploadsBlock}\n\n=== EXTERNAL CORPUS EXCERPT ===\n${corpusBlock}`;
-                const resp = await fetch('http://localhost:5012/api/ai/gemini', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        model: 'gemini-3.1-pro-preview',
-                        systemInstruction: { parts: [{ text: ultraPrompt }] },
-                        contents: [{ role: 'user', parts: [{ text: userPayload }] }],
-                        config: {
-                            // 2026-05-12 — Sprint 2 VS-Multi: temperature
-                            // raised to 0.85 to give the non_obvious_bets
-                            // probability < 0.05 sampling enough range.
-                            // The paper shows VS gains compose with
-                            // temperature — raising it pushes the
-                            // Pareto front of diversity/quality forward.
-                            temperature: 0.85,
-                            // 10 deep concepts (5 consensus + 5 bets) +
-                            // engagement_context + analytical_preamble +
-                            // _thinking_part_b + comparison_table +
-                            // prioritization + next_steps. Keep 64k.
-                            maxOutputTokens: 65536,
-                            thinkingBudget: 'max',
-                            responseMimeType: 'application/json',
-                        },
-                    }),
+                // 2026-05-12 — Use shared retry client so transient
+                // Gemini 5xx / 429 / network errors don't kill the entire
+                // recommendations generation. Surface retry progress in chat.
+                const data = await callAIWithRetry('gemini', {
+                    model: 'gemini-3.1-pro-preview',
+                    systemInstruction: { parts: [{ text: ultraPrompt }] },
+                    contents: [{ role: 'user', parts: [{ text: userPayload }] }],
+                    config: {
+                        temperature: 0.85,
+                        maxOutputTokens: 65536,
+                        thinkingBudget: 'max',
+                        responseMimeType: 'application/json',
+                    },
+                }, {
+                    label: 'Recommendations',
+                    onRetry: (attempt, total, status) => {
+                        setMessages(prev => prev.map(m => m.id === recMsgId ? {
+                            ...m,
+                            content: `Analyzing the research… (${status}, attempt ${attempt}/${total})`,
+                        } : m));
+                    },
                 });
-                if (!resp.ok) throw new Error(`Recommendations API ${resp.status}`);
-                const data = await resp.json();
                 const text = data?.candidates?.[0]?.content?.parts?.map((p: any) => p.text || '').join('') || '';
                 let parsed: any;
                 try {
@@ -3670,22 +3666,25 @@ Rules (context-driven; substitute engagement_context values wherever a placehold
                     content: `Generating ${firstHit!.label} (${directive.generator})…\n\n✓ Loaded verbalized-sampling skill (${vsResp.length} chars)\n✓ Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Gemini 3.1 Pro (max thinking)…`,
                 } : m));
 
-                const resp = await fetch('http://localhost:5012/api/ai/gemini', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        model: 'gemini-3.1-pro-preview',
-                        systemInstruction: { parts: [{ text: systemPrompt }] },
-                        contents: [{ role: 'user', parts: [{ text: userPayload }] }],
-                        config: {
-                            temperature: 0.85,
-                            maxOutputTokens: 65536,
-                            thinkingBudget: 'max',
-                        },
-                    }),
+                // Use shared retry client — same as recommendations.
+                const data = await callAIWithRetry('gemini', {
+                    model: 'gemini-3.1-pro-preview',
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                    contents: [{ role: 'user', parts: [{ text: userPayload }] }],
+                    config: {
+                        temperature: 0.85,
+                        maxOutputTokens: 65536,
+                        thinkingBudget: 'max',
+                    },
+                }, {
+                    label: `${directive.generator} artifact`,
+                    onRetry: (attempt, total, status) => {
+                        setMessages(prev => prev.map(m => m.id === buildMsgId ? {
+                            ...m,
+                            content: `Generating ${firstHit!.label} (${directive.generator})… (${status}, attempt ${attempt}/${total})`,
+                        } : m));
+                    },
                 });
-                if (!resp.ok) throw new Error(`Artifact API ${resp.status}`);
-                const data = await resp.json();
                 let htmlBody = data?.candidates?.[0]?.content?.parts?.map((p: any) => p.text || '').join('') || '';
                 // Strip leading markdown fences if model emitted them
                 htmlBody = htmlBody.replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();

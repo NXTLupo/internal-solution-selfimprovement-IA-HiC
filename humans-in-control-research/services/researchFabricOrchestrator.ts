@@ -40,7 +40,7 @@ export function getChunkSourceMap(): Record<string, ChunkSourceInfo> {
 
 export interface ResearchPlanSource {
     id: string;
-    type: 'deep_research' | 'data_api' | 'cx_mesh' | 'subreddit';
+    type: 'deep_research' | 'data_api' | 'cx_mesh' | 'subreddit' | 'reddit_deep';
     name: string;
     description: string;
     query: string;
@@ -108,20 +108,13 @@ export interface ResearchProgress {
 // defaults all relevance scores to 50. Going through /api/ai/gemini puts
 // the key on the proxy where it belongs.
 async function geminiJSON<T>(prompt: string): Promise<T> {
-    const resp = await fetch('http://localhost:5012/api/ai/gemini', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            model: 'gemini-2.5-flash',
-            contents: prompt,
-            config: { temperature: 0.2, responseMimeType: 'application/json' },
-        }),
-    });
-    if (!resp.ok) {
-        const errText = await resp.text().catch(() => '');
-        throw new Error(`geminiJSON proxy ${resp.status}: ${errText.slice(0, 300)}`);
-    }
-    const data = await resp.json();
+    // 2026-05-12 — Use shared retry client (auto-retries 5xx + 429).
+    const { callAIWithRetry } = await import('./aiRetryClient');
+    const data = await callAIWithRetry('gemini', {
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+        config: { temperature: 0.2, responseMimeType: 'application/json' },
+    }, { label: 'research-fabric-orchestrator' });
     let text: string = (data?.candidates?.[0]?.content?.parts || [])
         .map((p: any) => p?.text || '')
         .join('') || '{}';
@@ -152,6 +145,133 @@ No r/ prefix. No NSFW. Sort by relevance.`;
 }
 
 // --- FRESHNESS HELPER ---
+// 2026-05-11 (HiC-Active-Loop #5) — Greedy, relevance-weighted corpus packer.
+// Takes an already-built corpus string + the chunk-to-source map, splits it
+// into CHUNK_XXX blocks, scores each by relevance / token-cost, then greedy-
+// packs the highest-ratio chunks until the byte budget is consumed. Preserves
+// the header + tri-model synthesis verbatim (those are budget-prioritized).
+//
+// Returns the repacked corpus + telemetry the caller logs. Pure function —
+// no side effects other than what the caller does with the result.
+function greedyPackCorpus(
+    fullCorpus: string,
+    chunkMap: Record<string, ChunkSourceInfo>,
+    maxChars: number,
+): { corpus: string; keptChunks: number; droppedChunks: number; droppedBytes: number; lowestRatio: number } {
+    // Split on the CHUNK_XXX boundary. Anything before the first [CHUNK_
+    // marker is treated as the "preamble" (header + tri-model synthesis +
+    // first SOURCE header) and is NEVER dropped — it sets context the model
+    // needs to interpret what follows.
+    const firstChunkIdx = fullCorpus.indexOf('\n[CHUNK_');
+    if (firstChunkIdx < 0) {
+        // No chunks found — return as-is, only enforce hard byte cap.
+        return {
+            corpus: fullCorpus.slice(0, maxChars),
+            keptChunks: 0,
+            droppedChunks: 0,
+            droppedBytes: Math.max(0, fullCorpus.length - maxChars),
+            lowestRatio: 0,
+        };
+    }
+    const preamble = fullCorpus.slice(0, firstChunkIdx);
+    const body = fullCorpus.slice(firstChunkIdx);
+
+    // A "chunk block" is everything from one [CHUNK_NNN] line up to (but not
+    // including) the next [CHUNK_ line or a SOURCE: section header.
+    interface ChunkBlock {
+        id: string;
+        text: string;       // full block, including the relevance/freshness line
+        bytes: number;
+        relevance: number;  // 0-100
+    }
+    const blocks: ChunkBlock[] = [];
+    const chunkRe = /\n\[CHUNK_(\d{3})\] Relevance: (\d+|\?)\/100[^\n]*\n([\s\S]*?)(?=\n\[CHUNK_\d{3}\]|\n=== SOURCE:|$)/g;
+    let m: RegExpExecArray | null;
+    while ((m = chunkRe.exec(body)) !== null) {
+        const id = `CHUNK_${m[1]}`;
+        const rel = m[2] === '?' ? 50 : parseInt(m[2], 10);
+        const fullText = m[0]; // includes the leading \n
+        blocks.push({
+            id,
+            text: fullText,
+            bytes: fullText.length,
+            relevance: rel,
+        });
+    }
+
+    // Source headers (=== SOURCE: NAME ... ===) are interleaved with chunks;
+    // we need to preserve them so the corpus still reads cleanly. Capture
+    // their positions to re-insert later.
+    const sourceHeaders: { idx: number; text: string }[] = [];
+    const headerRe = /\n=== SOURCE: [^=]+?===\n/g;
+    while ((m = headerRe.exec(body)) !== null) {
+        sourceHeaders.push({ idx: m.index, text: m[0] });
+    }
+
+    if (blocks.length === 0) {
+        // No chunks matched — fall back to plain truncate.
+        return {
+            corpus: fullCorpus.slice(0, maxChars),
+            keptChunks: 0,
+            droppedChunks: 0,
+            droppedBytes: Math.max(0, fullCorpus.length - maxChars),
+            lowestRatio: 0,
+        };
+    }
+
+    // Sort by relevance per Kchar (≈ relevance per 250 tokens) — high first.
+    // We use chars/4 ≈ tokens as a cheap proxy; the ratio is dimensionless
+    // so the conversion factor cancels in ranking. A 90-relevance 2KB chunk
+    // beats a 90-relevance 8KB chunk; a 30-relevance 500-byte chunk beats a
+    // 90-relevance 15KB chunk if the budget is tight.
+    blocks.forEach(b => { (b as any).ratio = b.relevance / Math.max(1, b.bytes / 1000); });
+    const sortedByRatio = [...blocks].sort((a, b) => (b as any).ratio - (a as any).ratio);
+
+    // Greedy fill: keep adding chunks until preamble + kept >= maxChars.
+    const budget = maxChars - preamble.length - 200; // 200B reserved for truncation banner
+    const keptIds = new Set<string>();
+    let used = 0;
+    let lowestRatio = Infinity;
+    for (const b of sortedByRatio) {
+        if (used + b.bytes > budget) break;
+        keptIds.add(b.id);
+        used += b.bytes;
+        const r = (b as any).ratio as number;
+        if (r < lowestRatio) lowestRatio = r;
+    }
+    if (lowestRatio === Infinity) lowestRatio = 0;
+
+    // Rebuild the corpus by walking the original blocks in their natural
+    // order (preserves chunk ID monotonicity and source grouping), skipping
+    // dropped ones, and re-emitting source headers that still have at least
+    // one chunk in their range.
+    const dropped = blocks.filter(b => !keptIds.has(b.id));
+    const keptBlocks = blocks.filter(b => keptIds.has(b.id));
+
+    // Simple reconstruction: take the body, remove dropped chunks one by one.
+    let rebuilt = body;
+    for (const b of dropped) {
+        rebuilt = rebuilt.replace(b.text, '');
+    }
+
+    // Collapse empty source sections (header with no chunks under it before
+    // the next header) so we don't ship dangling "=== SOURCE: X ===" lines.
+    rebuilt = rebuilt.replace(/\n=== SOURCE: [^=]+?===\n(?=\n=== SOURCE:|\n*$)/g, '');
+
+    const truncationBanner = dropped.length > 0
+        ? `\n\n[CORPUS PACKED — ${dropped.length} low-yield chunk(s) (${Math.round(dropped.reduce((s, b) => s + b.bytes, 0) / 1024)}KB) omitted to fit context window. Kept chunks ranked by relevance ÷ size.]\n`
+        : '';
+
+    const finalCorpus = preamble + rebuilt + truncationBanner;
+    return {
+        corpus: finalCorpus,
+        keptChunks: keptBlocks.length,
+        droppedChunks: dropped.length,
+        droppedBytes: dropped.reduce((s, b) => s + b.bytes, 0),
+        lowestRatio,
+    };
+}
+
 function computeFreshnessFromDate(dateStr: string): string {
     try {
         const date = new Date(dateStr);
@@ -226,6 +346,50 @@ Return a JSON object where each key is the subreddit name (without "r/") and the
         const fallback: Record<string, string> = {};
         for (const sub of subreddits) fallback[sub] = heuristicSubredditQuery(goal);
         return fallback;
+    }
+}
+
+/**
+ * 2026-05-10 (HiC-Reddit-Deep) — Suggest 6-10 high-signal subreddits given
+ * a research goal. Used when the user leaves the "Reddit Communities" field
+ * empty on the landing page. Gemini picks communities likely to discuss the
+ * topic; bad picks are filtered by the proxy's PRAW call (404s come back as
+ * empty results, not crashes).
+ */
+export async function inferSubredditsFromGoal(goal: string): Promise<string[]> {
+    const goalExcerpt = goal.slice(0, 500);
+    const prompt = `You are recommending Reddit communities for market research. Given the research goal below, suggest 6-10 real, active subreddits where the target audience actually discusses this topic.
+
+RESEARCH GOAL: ${goalExcerpt}
+
+Rules:
+- Return real subreddits that exist and have active discussion (not r/all, not banned subs)
+- Prefer communities where the target USER hangs out, not just topic-tagged subs
+- Mix general (r/AskReddit-style adjacent) with specific niche communities
+- Use lowercase slugs without the "r/" prefix
+- Diversity matters more than quantity — 6 high-signal subs beats 10 redundant ones
+
+Return ONLY a JSON array of subreddit slug strings. Example for "remote work pain points":
+["remotework", "digitalnomad", "WorkOnline", "cscareerquestions", "managers", "ITCareerQuestions"]`;
+
+    try {
+        const result = await geminiJSON<string[]>(prompt);
+        if (!Array.isArray(result)) return [];
+        // Sanity-filter: slug shape only, dedupe, cap at 10.
+        const seen = new Set<string>();
+        const out: string[] = [];
+        for (const raw of result) {
+            const s = String(raw || '').trim().replace(/^r\//i, '').replace(/^\//, '').toLowerCase();
+            if (!s || !/^[a-z0-9_]{2,21}$/i.test(s)) continue;
+            if (seen.has(s)) continue;
+            seen.add(s);
+            out.push(s);
+            if (out.length >= 10) break;
+        }
+        return out;
+    } catch (e) {
+        console.warn('[inferSubredditsFromGoal] LLM failed, returning empty list:', e);
+        return [];
     }
 }
 
@@ -431,6 +595,13 @@ export async function generateResearchPlan(
         socialTrends?: boolean;
         webIntelligence?: { urls?: string[] };
         cxMesh?: { subreddits?: string[]; trustpilot?: string[]; playstore?: string[] };
+        // 2026-05-10 (HiC-Reddit-Deep) — Subreddits the user typed on the
+        // landing page get PRAW-deep treatment (full bodies + comment trees +
+        // score/author metadata). These are distinct from cxMesh.subreddits,
+        // which go through the older Reddit-Ripper sidecar pathway and only
+        // return shallow fields. Auto-inferred subreddits (when the user
+        // leaves the box empty) also land here.
+        redditDeep?: { subreddits: string[]; postLimit?: number; commentsPerPost?: number; sort?: 'relevance' | 'top' | 'new' | 'hot'; timeFilter?: 'day' | 'week' | 'month' | 'year' | 'all' };
         videoSearch?: boolean;
         videoTranscripts?: string[];   // YouTube URLs to transcribe
     }
@@ -600,6 +771,49 @@ export async function generateResearchPlan(
                 config: { source: 'reddit', target: sub, count: 30, goalQuery: goal, refinedQuery: q },
                 estimatedCost: 0,
                 estimatedTimeSeconds: 30,
+                enabled: true,
+            });
+        }
+    }
+
+    // 7a-DEEP. Reddit-Deep (HiC-Reddit-Deep, 2026-05-10)
+    // User-entered subreddits get the rich PRAW pipeline: full post bodies,
+    // recursive comment trees, score/author metadata. The data is rich
+    // enough to drive BERTopic-style topic modeling in the Analyst Desk's
+    // Topic Modeling tab. Per-subreddit refined query is reused from the
+    // CX-Mesh refiner so the LLM call only happens once.
+    if (enabledCategories.redditDeep?.subreddits?.length) {
+        const subs = enabledCategories.redditDeep.subreddits;
+        const postLimit = enabledCategories.redditDeep.postLimit ?? 50;
+        const commentsPerPost = enabledCategories.redditDeep.commentsPerPost ?? 10;
+        const sort = enabledCategories.redditDeep.sort ?? 'relevance';
+        const timeFilter = enabledCategories.redditDeep.timeFilter ?? 'year';
+        let refinedDeep: Record<string, string> = {};
+        try {
+            refinedDeep = await refineSubredditQueries(goal, lens, subs);
+        } catch { /* heuristic fallback already inside refineSubredditQueries */ }
+        for (const sub of subs) {
+            const cleanSub = sub.replace(/^r\//i, '').replace(/^\//, '').trim();
+            if (!cleanSub) continue;
+            const q = refinedDeep[cleanSub] || refinedDeep[sub] || heuristicSubredditQuery(goal);
+            sources.push({
+                id: `src_${id++}`,
+                type: 'reddit_deep',
+                name: `Reddit Deep: r/${cleanSub}`,
+                description: `Pull full bodies + comment trees from r/${cleanSub} matching: "${q}"`,
+                query: q,
+                config: {
+                    source: 'reddit_deep',
+                    target: cleanSub,
+                    count: postLimit,
+                    commentsPerPost,
+                    sort,
+                    timeFilter,
+                    goalQuery: goal,
+                    refinedQuery: q,
+                },
+                estimatedCost: 0,
+                estimatedTimeSeconds: Math.min(120, 8 + postLimit * 0.4),
                 enabled: true,
             });
         }
@@ -815,6 +1029,157 @@ export async function executePlan(
                         // CX Mesh services might be offline — graceful degradation
                         throw new Error(`CX service unavailable: ${e.message}`);
                     }
+                } else if (source.type === 'reddit_deep') {
+                    // 2026-05-10 — Deep PRAW fetch. Directly calls the
+                    // research-proxy endpoint at /api/reddit-deep/fetch (no
+                    // sidecar dependency). Items carry the full payload
+                    // (post bodies + flattened comment trees + scores) under
+                    // `_socialMeta` so downstream topic modeling can read it
+                    // while the existing corpus/KG pipeline still sees clean
+                    // title+content fields.
+                    const cfg = source.config as any;
+                    onProgress?.({
+                        sourceId: source.id, sourceName: source.name,
+                        status: 'running', itemsCollected: 0,
+                        message: `Fetching r/${cfg.target} (full bodies + comments)…`,
+                    });
+                    let resp: Response;
+                    try {
+                        resp = await fetch('http://localhost:5012/api/reddit-deep/fetch', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                subreddit: cfg.target,
+                                query: cfg.refinedQuery || cfg.goalQuery || source.query,
+                                post_limit: cfg.count || 50,
+                                comments_per_post: cfg.commentsPerPost ?? 10,
+                                sort: cfg.sort || 'relevance',
+                                time_filter: cfg.timeFilter || 'year',
+                            }),
+                        });
+                    } catch (netErr: any) {
+                        throw new Error(`reddit_deep network error: ${netErr.message}`);
+                    }
+                    if (!resp.ok && resp.status !== 200) {
+                        const errBody = await resp.text().catch(() => '');
+                        throw new Error(`reddit_deep proxy ${resp.status}: ${errBody.slice(0, 200)}`);
+                    }
+                    const data = await resp.json();
+                    const rawItems: any[] = data.items || [];
+                    items = rawItems.map((p: any, i: number) => {
+                        // Compose a corpus-friendly content blob: post body
+                        // first, then the top comment bodies inline. This is
+                        // what the rest of the HiC pipeline consumes for
+                        // chunking + citation. The raw structured payload
+                        // hangs off `_socialMeta` for the new Topic Modeling
+                        // tab to read directly.
+                        const commentBodies: string[] = (p.comments || [])
+                            .slice(0, 8)
+                            .map((c: any) => `[${c.score}↑ ${c.author}] ${c.body}`);
+                        const combined = [
+                            p.selftext || '',
+                            commentBodies.length ? '\n\n--- TOP COMMENTS ---\n' + commentBodies.join('\n') : '',
+                        ].filter(Boolean).join('').trim() || p.title || '';
+                        return {
+                            id: `rdeep_${source.id}_${i}`,
+                            title: p.title || `r/${cfg.target} post`,
+                            content: combined.slice(0, 12000),
+                            url: p.permalink || p.url,
+                            date: p.created_utc ? new Date(p.created_utc * 1000).toISOString() : undefined,
+                            sourceType: 'social' as const,
+                            sourceName: `Reddit Deep: r/${cfg.target}`,
+                            // Hang the raw payload off the item for the
+                            // Topic Modeling tab. Downstream chunking only
+                            // looks at .content / .title — these fields are
+                            // additive metadata.
+                            _socialMeta: {
+                                postId: p.id,
+                                subreddit: p.subreddit || cfg.target,
+                                score: p.score,
+                                upvoteRatio: p.upvote_ratio,
+                                numComments: p.num_comments,
+                                author: p.author,
+                                flair: p.flair,
+                                comments: p.comments || [],
+                            },
+                        };
+                    });
+                    onProgress?.({
+                        sourceId: source.id, sourceName: source.name,
+                        status: 'running', itemsCollected: items.length,
+                        message: `Pulled ${items.length} posts + ${items.reduce((s: number, x: any) => s + (x._socialMeta?.comments?.length || 0), 0)} comments`,
+                    });
+
+                    // 2026-05-11 — Persist EACH deep-Reddit post as a structured
+                    // wiki page so the rich payload (full body + comment tree +
+                    // score/author metadata) is queryable across sessions, not
+                    // just embedded in this run's corpus. This is in addition to
+                    // the generic residual archival downstream — that path saves
+                    // only the squashed body+comments blob; this path preserves
+                    // structure so the Topic Modeling tab + future analyzers
+                    // can read it back faithfully.
+                    //
+                    // Path: wiki/social-intelligence/reddit-deep/{subreddit}/{post_id}.md
+                    // Fire-and-forget — wiki writes are local and fast, but
+                    // we don't want a slow wiki call to delay the pipeline.
+                    (async () => {
+                        const writes = items.map(async (item: any) => {
+                            try {
+                                const meta = item._socialMeta || {};
+                                const sub = (meta.subreddit || cfg.target).toLowerCase();
+                                const postId = meta.postId || item.id;
+                                const wikiPath = `social-intelligence/reddit-deep/${sub}/${postId}.md`;
+                                const fm: Record<string, any> = {
+                                    url: item.url || `https://reddit.com/r/${sub}`,
+                                    kind: 'social-post',
+                                    source: `reddit-deep: r/${sub}`,
+                                    subreddit: sub,
+                                    title: item.title,
+                                    author: meta.author || '',
+                                    date: item.date || '',
+                                    score: meta.score ?? 0,
+                                    upvote_ratio: meta.upvoteRatio ?? null,
+                                    num_comments: meta.numComments ?? 0,
+                                    flair: meta.flair || '',
+                                    extracted_at: new Date().toISOString(),
+                                    extraction_method: 'praw-deep',
+                                    research_goal: cfg.goalQuery || '',
+                                };
+                                const fmYaml = Object.entries(fm)
+                                    .map(([k, v]) => `${k}: ${typeof v === 'string' ? JSON.stringify(v) : v}`)
+                                    .join('\n');
+                                // The post body comes from selftext via _socialMeta? No —
+                                // selftext lives in the raw payload before we squashed.
+                                // We have it on the item.content head segment. Pull it
+                                // from the raw `rawItems` array to preserve fidelity.
+                                const raw = rawItems.find((r: any) => r.id === postId) || {};
+                                const bodyText = (raw.selftext || '').trim();
+                                const comments: any[] = raw.comments || [];
+                                const commentSection = comments.length
+                                    ? '\n\n## Comments\n\n' + comments.map((c: any) => {
+                                        const indent = '  '.repeat(Math.max(0, c.depth || 0));
+                                        return `${indent}- **${c.author}** (${c.score}↑): ${c.body}`;
+                                    }).join('\n')
+                                    : '';
+                                const md = `---\n${fmYaml}\n---\n\n# ${item.title}\n\nSource: [${fm.source}](${fm.url})\n${meta.author ? `Posted by **${meta.author}**` : ''}${meta.score !== undefined ? ` · **${meta.score}↑** · **${meta.numComments} comments**` : ''}\n\n${bodyText || '_(no body — link/image post)_'}${commentSection}\n`;
+
+                                await fetch('http://localhost:5012/api/wiki/write', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ path: wikiPath, content: md }),
+                                });
+                                // Attach the wiki path back onto the item so the
+                                // KG builder and citation resolver can link to it.
+                                item.wikiPath = wikiPath;
+                            } catch (wikiErr) {
+                                // Wiki failure shouldn't kill the run
+                                console.warn(`[reddit_deep wiki] failed for ${item.id}:`, wikiErr);
+                            }
+                        });
+                        const results = await Promise.allSettled(writes);
+                        const ok = results.filter(r => r.status === 'fulfilled').length;
+                        console.log(`[reddit_deep] persisted ${ok}/${items.length} posts to wiki/social-intelligence/reddit-deep/`);
+                    })();
                 }
 
                 onProgress?.({ sourceId: source.id, sourceName: source.name, status: 'completed', itemsCollected: items.length, message: `Completed: ${items.length} items` });
@@ -1589,32 +1954,31 @@ CITATION RULE: Cite sources using [CHUNK_XXX] format. Every factual claim must r
 
     let corpus = header + (triModelSynthesis ? triModelSynthesis + '\n\n' : '') + sections.join('\n');
 
-    // CORPUS SIZE GUARD (raised 2026-04-29). Gemini 2.5 Flash supports a 1M-
-    // token input window — that's roughly 3.5MB of text. The previous 500KB
-    // cap was sized for Claude's 200K-token window and was strangling the
-    // theme synthesis: a 1077-chunk corpus was being truncated to ~20 chunks,
-    // producing only 4 themes regardless of prompt instructions.
+    // CORPUS SIZE GUARD (raised 2026-04-29, packer-upgraded 2026-05-11).
+    // Gemini 2.5 Flash supports a 1M-token input window — ~3.5MB of text.
+    // Cap: 2.5MB, leaving ~30% headroom for system prompt + wiki + uploads.
     //
-    // New cap: 2.5MB. Matches the Gemini config in App.tsx:2786
-    // (maxChars: 2_500_000). Leaves ~30% headroom for system prompt + wiki
-    // knowledge + uploaded files within Gemini's actual budget.
+    // 2026-05-11 (HiC-Active-Loop #5) — replaced the old "char-truncate at
+    // end" strategy with a per-item, relevance-weighted GREEDY PACKER. The
+    // old approach dropped whichever items happened to sit at the end of the
+    // corpus string — which after source-grouping meant the LAST SOURCE's
+    // items got cut regardless of how relevant individual items were. A
+    // high-relevance chunk from a low-avg-relevance source would lose to a
+    // mediocre chunk from a high-avg-relevance source.
     //
-    // Claude fallback path: if Gemini repetition-collapses, the orchestrator
-    // routes to Claude. Claude has a 200K-token (~600KB) limit, so the
-    // fallback layer applies its own tighter truncation downstream — that
-    // logic is unchanged. Don't pre-truncate for Claude here; doing so
-    // strangles Gemini for a tail-case fallback that may not even trigger.
+    // The new packer scores every CHUNK individually by
+    // (relevanceScore / token_cost) and packs greedily highest-ratio first
+    // until the budget runs out. Items with the same relevance but lower
+    // token cost (e.g., tight statements) outrank wordy ones with the same
+    // score. Logs exactly which chunks dropped and why.
     const MAX_CORPUS_CHARS = 2_500_000;
     if (corpus.length > MAX_CORPUS_CHARS) {
-        console.warn(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB exceeds ${MAX_CORPUS_CHARS / 1024}KB limit. Truncating low-relevance items.`);
-        // Truncate from the end (lowest-relevance items are last since we sort by relevance)
-        corpus = corpus.substring(0, MAX_CORPUS_CHARS);
-        // Ensure we don't cut mid-chunk — find last complete chunk boundary
-        const lastChunkEnd = corpus.lastIndexOf('\n[CHUNK_');
-        if (lastChunkEnd > MAX_CORPUS_CHARS * 0.8) {
-            corpus = corpus.substring(0, lastChunkEnd);
-        }
-        corpus += '\n\n[CORPUS TRUNCATED — lowest-relevance items omitted to fit context window]\n';
+        const packed = greedyPackCorpus(corpus, chunkMap, MAX_CORPUS_CHARS);
+        corpus = packed.corpus;
+        console.warn(
+            `[Corpus] Packer: dropped ${packed.droppedChunks} chunk(s) (${Math.round(packed.droppedBytes / 1024)}KB), ` +
+            `kept ${packed.keptChunks} chunk(s). Lowest kept ratio: ${packed.lowestRatio.toFixed(2)} rel/Ktok.`
+        );
     } else {
         console.log(`[Corpus] Corpus size ${Math.round(corpus.length / 1024)}KB (under ${MAX_CORPUS_CHARS / 1024}KB cap — full corpus passed to LLM)`);
     }

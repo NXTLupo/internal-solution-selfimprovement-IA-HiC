@@ -143,6 +143,13 @@ export async function suggestPrompts(state: SuggestionState, opts: { maxSuggesti
 
     const prompt = buildPromptForPhase(phase, objective, state, maxSuggestions, neighbors);
 
+    // 2026-05-12 — Retry NOT added here on purpose. This call already has
+    // fallbackSuggestions() on failure (graceful degradation built in)
+    // AND uses AbortSignal.timeout(15s) that the effect cancels on every
+    // state-fingerprint change. A retry-with-backoff would conflict with
+    // the abort pattern (retries firing after the effect's component
+    // unmounted) and double the rate-limit risk on already-flaky calls.
+    // Keep the fallback path.
     try {
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
             method: 'POST',

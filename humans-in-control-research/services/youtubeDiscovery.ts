@@ -88,6 +88,11 @@ Return STRICT JSON only:
         // output × <30 runs/day) and latency stays in the 2-4s range
         // since this is a single-shot structured-JSON call, not analytical
         // reasoning.
+        // 2026-05-12 — Retry NOT added here on purpose. This call has
+        // graceful degradation built in: `if (!resp.ok) return { queries: [], … }`
+        // means a failed query-refinement falls back to plain channel
+        // selection. The 25s AbortSignal also conflicts with retry-backoff
+        // schedules. Keep the fallback.
         const resp = await fetch(`${PROXY_BASE}/api/ai/gemini`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
